@@ -23,7 +23,7 @@ description: "Set up a fallback fonts collection in Aspose.Slides for .NET to ke
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) interface. It is possible to add or remove rules from the collection.
 
-Then this collection may be assigned to [FontFallBackRulesCollection ](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)property of the [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/net/about-fontsmanager-and-fontsloader/).
+Then this collection may be assigned to [FontFallBackRulesCollection ](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)property of the [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) class. FontsManager controls fonts across the presentation.
 
 Each [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)has a [FontsManager ](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager)property with its own instance of the FontsManager class.
 

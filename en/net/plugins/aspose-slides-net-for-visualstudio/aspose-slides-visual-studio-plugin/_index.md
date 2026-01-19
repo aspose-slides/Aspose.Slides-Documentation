@@ -33,13 +33,7 @@ In order to install and use Aspose Visual Studio Plugin you need to have one of 
 - Visual Studio 2010, 2012, 2013
 
 Please feel free to contact us if you find any issues in installing or using this plugin.
-## **Downloading**
-You can download Aspose Visual Studio Plugin from one of the following locations
 
-- [CodePlex ](https://asposeSlidesvs.codeplex.com/releases)
-- [Code.MSDN ](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed)
-- [Visual Studio Gallery ](https://visualstudiogallery.msdn.microsoft.com/b45659c0-9414-4ede-aed2-acc0c27a6b15)
-- [Github ](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/untagged-ab3cb4109f5bc061a98c)
 ## **Installing**
 It is very simple and easy to install Aspose Visual Studio Plugin, please follow these simple steps
 
@@ -80,18 +74,14 @@ This is why we offer free support. Anyone who uses our product, whether they hav
 
 You can log any issues or suggestions related to Aspose Visual Studio Plugin using any of the following platforms
 
-- [CodePlex ](https://asposeSlidesvs.codeplex.com/workitem/list/basic)
-- [Visual Studio Gallery - Q and A](https://visualstudiogallery.msdn.microsoft.com/b45659c0-9414-4ede-aed2-acc0c27a6b15)
 - [Github ](https://github.com/asposeSlides/Aspose.Slides-for-.NET/issues)
-- [Microsoft Developer Network - Q and A ](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed/view/Discussions#content)
+
 ### **Extend and Contribute**
 **Explore Aspose.Slides for .NET Examples** for Visual Studio is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and extend the functionality as per their own requirements.
 #### **Source Code**
 You can get the latest source code from one of the following locations
 
-- [CodePlex ](https://asposeSlidesvs.codeplex.com/SourceControl/latest)
 - [Github ](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Microsoft Developer Network ](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed)
 #### **How to Configure the Source Code**
 You need to have the following installed in order to open and extend the source code
 

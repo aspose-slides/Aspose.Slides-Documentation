@@ -37,7 +37,6 @@ only .NET framework 2.0 or greater.
 ## **Downloading**
 You can download the latest code at:
 
-- [Codeplex](http://goo.gl/spbIUb)
 - [Github](http://goo.gl/vaB1lL)
 - [Sourceforge](http://goo.gl/F4oLnp)
 - [Bitbucket](http://goo.gl/BzCiz1)
@@ -49,7 +48,6 @@ We offer free support. Anyone who uses our product, whether they have bought the
 
 You can log any issues or suggestions related to Aspose .NET for VSTO using any of the following platforms:
 
-- [Codeplex](http://goo.gl/U54yWo)
 - [Github](http://goo.gl/tDjFqA)
 - [Sourceforge](http://goo.gl/9CgWQu)
 - [Bitbucket](http://goo.gl/q7tEu9)
@@ -58,7 +56,6 @@ Comparison code for Aspose.Slides for .NET and VSTO source code is available on 
 ### **Source Code**
 You can get the latest source code from one of the following locations.
 
-- [Codeplex](https://goo.gl/FuhcdD)
 - [Github](https://goo.gl/JA8x5M)
 - [Sourceforge](https://goo.gl/XbE5rO)
 - [Bitbucket](https://goo.gl/XBqAzx)
@@ -90,11 +87,11 @@ This section includes the following topics
   - [Add layout Slide to Presentation](/slides/net/add-layout-slide-to-presentation/)
   - [Conversion from PPT to PPTX format](/slides/net/conversion-from-ppt-to-pptx-format/)
   - [Conversion of OpenOffice Document](/slides/net/conversion-of-openoffice-document/)
-  - [Convert Presentation to HTML](/slides/net/convert-presentation-to/)
+  - [Convert Presentation to HTML](/slides/net/export-media-files-into-html-file/)
   - [Convert Presentation to Tiff with Notes](/slides/net/convert-presentation-to-tiff-with-notes/)
   - [Convert Presentation to XPS](/slides/net/convert-presentation-to-xps/)
   - [Create Slide as SVG Image](/slides/net/create-slide-as-svg-image/)
-  - [Export media files into HTML file](/slides/net/export-media-files-into-file/)
+  - [Export media files into HTML file](/slides/net/export-media-files-into-html-file/)
   - [Generate Slide Thumbnail as JPEG](/slides/net/generate-slide-thumbnail-as-jpeg/)
   - [Generating a Thumbnail from a Slide with User Defined Dimensions](/slides/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
   - [Presentation Locking](/slides/net/presentation-locking/)

@@ -99,8 +99,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 
 ``` 
 ## **Download Running Code**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
 ## **Download Sample Code**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Adding image in table cell/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20image%20in%20table%20cell)
