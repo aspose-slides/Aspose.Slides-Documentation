@@ -45,14 +45,14 @@ The [Portable Document Format](https://en.wikipedia.org/wiki/PDF) is a file fo
 Any presentation document that can be loaded into Aspose.Slides for C++ can be converted to PDF document. You can export the presentation documents to PDF directly using Aspose.Slides for C++ component only. You do not need any other third party libraries or Aspose.PDF component for this purpose. 
 
 {{% alert color="primary" %}} 
-Read more [**How to Convert Presentation to PDF**](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-pdf/).
+Read more [**How to Convert Presentation to PDF**](/slides/cpp/convert-powerpoint-to-pdf/).
 {{% /alert %}}
 
 ## **Presentation to XPS Conversion**
 ### **About XPS**
 The [XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) is a page description language and a fixed-document format originally developed by Microsoft. Like PDF, XPS is a fixed-layout document format designed to preserve document fidelity and provide device-independent document appearance.
 ### **Convert a Presentation to XPS with Aspose.Slides**
-Any presentation document that can be loaded by Aspose.Slides for C++ can be converted to XPS format. Aspose.Slides for C++ uses the high-fidelity page layout and rendering engine to produce output in fixed-layout XPS document format. It is worth-mentioning that Aspose.Slides for C++ directly generates XPS without depending upon the Windows Presentation Foundation (WPF) classes that are packaged with C++ Framework 3.5 hence allowing Aspose.Slides for C++ to produce XPS documents on machines running C++ Framework versions earlier than version 3.5. You can learn about exporting the presentation documents to XPS documents through Aspose.Slides for C++ in [this topic](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
+Any presentation document that can be loaded by Aspose.Slides for C++ can be converted to XPS format. Aspose.Slides for C++ uses the high-fidelity page layout and rendering engine to produce output in fixed-layout XPS document format. It is worth-mentioning that Aspose.Slides for C++ directly generates XPS without depending upon the Windows Presentation Foundation (WPF) classes that are packaged with C++ Framework 3.5 hence allowing Aspose.Slides for C++ to produce XPS documents on machines running C++ Framework versions earlier than version 3.5. You can learn about exporting the presentation documents to XPS documents through Aspose.Slides for C++ in [this topic](/slides/cpp/convert-powerpoint-to-xps/).
 {{% alert color="primary" %}} 
 Read more [**How to Convert Presentation to XPS**.](/slides/cpp/convert-powerpoint-to-xps/)
 {{% /alert %}}
@@ -60,9 +60,9 @@ Read more [**How to Convert Presentation to XPS**.](/slides/cpp/convert-powerpo
 ### **About TIFF**
 The [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) which is known for storing multiple images in one document was originally created by Aldus. This format is widely supported by scanning, faxing and other image manipulation applications.
 ### **Convert a Presentation to TIFF with Aspose.Slides**
-Any document that can be loaded in Aspose.Slide for C++ can also be converted to TIFF document directly by Aspose.Slides for C++ eliminating requirement of any third party component. Further, you can optionally define the size of the images in the resulting TIFF document. You can find information about exporting the presentation documents to TIFF documents through Aspose.Slides for C++ in [this topic](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/).
+Any document that can be loaded in Aspose.Slide for C++ can also be converted to TIFF document directly by Aspose.Slides for C++ eliminating requirement of any third party component. Further, you can optionally define the size of the images in the resulting TIFF document. You can find information about exporting the presentation documents to TIFF documents through Aspose.Slides for C++ in [this topic](/slides/cpp/convert-powerpoint-to-tiff/).
 {{% alert color="primary" %}} 
-Read more [**How to Convert Presentation to TIFF**.](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
+Read more [**How to Convert Presentation to TIFF**.](/slides/cpp/convert-powerpoint-to-tiff/)
 {{% /alert %}}
 
 ## **FAQ**

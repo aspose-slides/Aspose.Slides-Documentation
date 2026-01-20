@@ -27,20 +27,6 @@ keywords:
 description: "Convert PowerPoint presentations to responsive HTML in C++. Preserve layout, links, and images with Aspose.Slides conversion guide for fast, flawless results."
 ---
 
-## **Overview**
-
-This article explains how to convert PowerPoint Presentation in HTML format using C++. It covers the following topics.
-
-- [Convert PowerPoint to HTML in C++](#convert-powerpoint-to-html)
-- [Convert PPT to HTML in C++](#convert-powerpoint-to-html)
-- [Convert PPTX to HTML in C++](#convert-powerpoint-to-html)
-- [Convert ODP to HTML in C++](#convert-powerpoint-to-html)
-- [Convert PowerPoint Slide to HTML in C++](#convert-slide-to-html)
-
-## **PowerPoint to HTML in C++**
-
-For C++ sample code to convert PowerPoint to HTML, please see the section below i.e. [Convert PowerPoint to HTML](#convert-powerpoint-to-html). The code can load number of formats like PPT, PPTX and ODP in Presentation object and save it to HTML format.
-
 ## **About PowerPoint to HTML Conversion**
 Using [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**. 
 
@@ -130,11 +116,11 @@ pres->Save(u"Output.html", SaveFormat::Html, opt);
 ```
 
 ## **Convert PowerPoint to HTML with Original Fonts**
-Aspose.Slides provides the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
+Aspose.Slides provides the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
 
-To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
+To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
 
-The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) class supports inheritance and provides the [WriteFont](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller#a1dfd1c26bb181c8581ec67d270ce0b77) method, which is meant to be overwritten. 
+The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) class supports inheritance and provides the [WriteFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/writefont/) method, which is meant to be overwritten. 
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
