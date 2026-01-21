@@ -4,8 +4,8 @@ linktitle: Точки данных в диаграммах Treemap и Sunburst
 type: docs
 url: /ru/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords:
-- диаграмма treemap
-- диаграмма sunburst
+- диаграмма Treemap
+- диаграмма Sunburst
 - точка данных
 - цвет метки
 - цвет ветки
@@ -13,10 +13,12 @@ keywords:
 - презентация
 - С++
 - Aspose.Slides
-description: "Узнайте, как управлять точками данных в диаграммах treemap и sunburst с помощью Aspose.Slides для С++, совместимых с форматами PowerPoint."
+description: "Узнайте, как управлять точками данных в диаграммах Treemap и Sunburst с помощью Aspose.Slides для С++, совместимого с форматами PowerPoint."
 ---
 
-Среди прочих типов диаграмм PowerPoint существуют два «иерархических» типа — **Treemap** и **Sunburst** (также известные как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные в виде дерева — от листьев к вершине ветви. Листья определяются точками данных серии, а каждый последующий вложенный уровень группировки определяется соответствующей категорией. Aspose.Slides для C++ позволяет форматировать точки данных диаграмм Sunburst и Treemap на C++.
+Среди других типов диаграмм PowerPoint есть два «иерархических» типа — **Treemap** и **Sunburst** (также известные как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные как дерево — от листьев к вершине ветви. Листья задаются точками данных серии, а каждый последующий уровень вложенной группы определяется соответствующей категорией. Aspose.Slides for C++ позволяет форматировать точки данных диаграмм Sunburst и Treemap в C++.
+
+Ниже представлена диаграмма Sunburst, где данные в столбце Series1 определяют листовые узлы, а остальные столбцы определяют иерархические точки данных:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
@@ -28,29 +30,20 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 
-{{% alert color="primary" title="См. также" %}} 
+{{% alert color="primary" title="Смотрите также" %}} 
 - [**Создание диаграммы Sunburst**](/slides/ru/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
-Если необходимо форматировать точки данных диаграммы, следует использовать следующее:
+Если необходимо отформатировать точки данных диаграммы, следует использовать следующее:
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) классы 
-и [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point#ac619638c85f84a6127a7ce62523e0931) метод 
-предоставляют доступ к форматированию точек данных диаграмм Treemap и Sunburst. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) 
-используется для доступа к многоуровневым категориям — он представляет контейнер 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) объектов. 
-По сути это оболочка для 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_category_levels_manager) с 
-добавленными свойствами, специфичными для точек данных. 
-Класс [**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) имеет 
-два метода: [**get_Format()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a00caa6a048ad98a66ab56a5ddb196697) и 
-[**get_Label()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a5ab377b372199eb561792e9ba18acf25) , которые 
-предоставляют доступ к соответствующим настройкам.
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/) classes и [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) method предоставляют доступ к форматированию точек данных диаграмм Treemap и Sunburst.  
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) используется для доступа к многоуровневым категориям — он представляет контейнер объектов [**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/).  
+По сути это оболочка для [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) со свойствами, специфичными для точек данных.  
+Класс [**IChartDataPointLevel**] имеет два метода: [**get_Format()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) и [**get_Label()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/), которые предоставляют доступ к соответствующим настройкам.
 
 ## **Показать значение точки данных**
-Показать значение точки данных "Leaf 4":
+Показать значение точки данных «Leaf 4»:
 ``` cpp
 auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
 dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_DataLabelFormat()->set_ShowValue(true);
@@ -60,7 +53,7 @@ dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_Data
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
 ## **Установить метку и цвет точки данных**
-Установить метку данных "Branch 1" так, чтобы отображалось имя серии ("Series1") вместо имени категории. Затем установить цвет текста — желтый:
+Установить метку данных «Branch 1» так, чтобы отображалось имя серии ("Series1") вместо имени категории. Затем установить цвет текста в желтый:
 ``` cpp
 auto branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
 branch1Label->get_DataLabelFormat()->set_ShowCategoryName(false);
@@ -74,7 +67,7 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
 ## **Установить цвет ветки точки данных**
-Изменить цвет ветки "Stem 4":
+Изменить цвет ветки «Stem 4»:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
@@ -94,16 +87,16 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 **Могу ли я изменить порядок (сортировку) сегментов в Sunburst/Treemap?**
 
-Нет. PowerPoint сортирует сегменты автоматически (обычно по убыванию значений по часовой стрелке). Aspose.Slides отражает это поведение: изменить порядок напрямую нельзя; его можно добиться предварительной обработкой данных.
+Нет. PowerPoint сортирует сегменты автоматически (обычно по убывающим значениям, по часовой стрелке). Aspose.Slides зеркалирует это поведение: изменить порядок напрямую невозможно; добиться его можно только предварительной обработкой данных.
 
 **Как тема презентации влияет на цвета сегментов и меток?**
 
-Цвета диаграммы наследуют [тема/палитра](/slides/ru/cpp/presentation-theme/), если только явно не заданы заливки/шрифты. Для согласованных результатов фиксируйте сплошные заливки и форматирование текста на требуемых уровнях.
+Цвета диаграмм наследуют [theme/palette](/slides/ru/cpp/presentation-theme/) презентации, если вы явно не задаете заливки/шрифты. Для согласованных результатов фиксируйте сплошные заливки и форматирование текста на требуемых уровнях.
 
-**Сохранятся ли пользовательские цвета веток и настройки меток при экспорте в PDF/PNG?**
+**Сохранит ли экспорт в PDF/PNG пользовательские цвета веток и настройки меток?**
 
-Да. При экспорте презентации настройки диаграммы (заливки, метки) сохраняются в выходных форматах, поскольку Aspose.Slides рендерит их с учётом применённого форматирования.
+Да. При экспорте презентации настройки диаграммы (заливки, метки) сохраняются в выходных форматах, так как Aspose.Slides рендерит их с примененным форматированием.
 
-**Могу ли я вычислить фактические координаты метки/элемента для пользовательского наложения поверх диаграммы?**
+**Могу ли я вычислить реальные координаты метки/элемента для пользовательского размещения наложения поверх диаграммы?**
 
-Да. После того как макет диаграммы подтверждён, доступны фактические X и Y для элементов (например, у [DataLabel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datalabel/)), что позволяет точно позиционировать наложения.
+Да. После того как макет диаграммы проверен, доступны реальные X и Y для элементов (например, [DataLabel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datalabel/)), что помогает точно позиционировать наложения.

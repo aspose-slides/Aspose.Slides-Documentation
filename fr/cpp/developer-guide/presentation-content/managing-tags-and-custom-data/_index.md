@@ -9,29 +9,31 @@ keywords:
 - balise
 - données personnalisées
 - ajouter une balise
-- valeurs de paire
+- paires de valeurs
 - PowerPoint
 - présentation
 - C++
 - Aspose.Slides
-description: "Apprenez comment ajouter, lire, mettre à jour et supprimer les balises et les données personnalisées dans Aspose.Slides pour C++, avec des exemples pour les présentations PowerPoint et OpenDocument."
+description: "Apprenez à ajouter, lire, mettre à jour et supprimer les balises et les données personnalisées dans Aspose.Slides pour C++, avec des exemples pour les présentations PowerPoint et OpenDocument."
 ---
 
 ## **Stockage des données dans les fichiers de présentation**
 
-Les fichiers PPTX - éléments avec l'extension .pptx - sont stockés au format PresentationML, qui fait partie de la spécification Office Open XML. Le format Office Open XML définit la structure des données contenues dans les présentations. 
+Les fichiers PPTX—éléments avec l’extension .pptx—sont stockés au format PresentationML, qui fait partie de la spécification Office Open XML. Le format Office Open XML définit la structure des données contenues dans les présentations. 
 
-Dans une présentation, une *diapositive* est l'un des éléments ; une *partie de diapositive* contient le contenu d'une seule diapositive. Une partie de diapositive peut avoir des relations explicites avec de nombreuses parties - comme les balises définies par l'utilisateur - définies par la norme ISO/IEC 29500. 
+Avec une *diapositive* étant l’un des éléments des présentations, une *partie de diapositive* contient le contenu d’une seule diapositive. Une partie de diapositive peut avoir des relations explicites avec de nombreuses parties—telles que les Balises définies par l’utilisateur—définies par ISO/IEC 29500. 
 
-Des données personnalisées (spécifiques à une présentation) ou utilisateur peuvent exister sous forme de balises ([ITagCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_tag_collection)) et de CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_custom_xml_part_collection)). 
+Les données personnalisées (spécifiques à une présentation) ou l’utilisateur peuvent exister sous forme de balises ([ITagCollection](https://reference.aspose.com/slides/cpp/aspose.slides/itagcollection/)) et de CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icustomxmlpartcollection/)). 
 
 {{% alert color="primary" %}} 
-Les balises sont essentiellement des paires clé-valeur de chaînes. 
+
+Les balises sont essentiellement des paires clé‑valeur de type chaîne. 
+
 {{% /alert %}} 
 
 ## **Obtenir les valeurs des balises**
 
-Dans les diapositives, une balise correspond à la propriété IDocumentProperties.Keywords. Ce code d'exemple montre comment obtenir la valeur d'une balise avec Aspose.Slides pour C++ pour [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) :
+Dans les diapos, une balise correspond à la propriété IDocumentProperties.Keywords. Ce code d’exemple montre comment obtenir la valeur d’une balise avec Aspose.Slides pour C++ pour [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) :
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 System::String keywords = pres->get_DocumentProperties()->get_Keywords();
@@ -40,13 +42,14 @@ System::String keywords = pres->get_DocumentProperties()->get_Keywords();
 
 ## **Ajouter des balises aux présentations**
 
-Aspose.Slides vous permet d'ajouter des balises aux présentations. Une balise se compose généralement de deux éléments :
-- le nom d'une propriété personnalisée - `MyTag`
+Aspose.Slides vous permet d’ajouter des balises aux présentations. Une balise se compose généralement de deux éléments : 
+
+- le nom d’une propriété personnalisée - `MyTag` 
 - la valeur de la propriété personnalisée - `My Tag Value`
 
-Si vous devez classer certaines présentations en fonction d'une règle ou propriété spécifique, vous pouvez tirer parti de l'ajout de balises à ces présentations. Par exemple, si vous souhaitez regrouper ou catégoriser toutes les présentations provenant de pays nord-américains, vous pouvez créer une balise North American et attribuer aux pays concernés (États-Unis, Mexique et Canada) comme valeurs. 
+Si vous devez classer certaines présentations selon une règle ou une propriété spécifique, vous pouvez tirer parti de l’ajout de balises à ces présentations. Par exemple, si vous souhaitez regrouper toutes les présentations des pays d’Amérique du Nord, vous pouvez créer une balise « North American » puis affecter les pays pertinents (États‑Unis, Mexique et Canada) comme valeurs. 
 
-Ce code d'exemple montre comment ajouter une balise à une [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) en utilisant Aspose.Slides pour C++ :
+Ce code d’exemple montre comment ajouter une balise à une [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) en utilisant Aspose.Slides pour C++ :
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -55,7 +58,7 @@ pres->get_CustomData()->get_Tags()->idx_set(u"MyTag", u"My Tag Value");
 ```
 
 
-Les balises peuvent également être définies pour [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) :
+Les balises peuvent également être définies pour [Slide](https://reference.aspose.com/slides/cpp/aspose.slides/slide/) :
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 
@@ -64,7 +67,7 @@ slide->get_CustomData()->get_Tags()->idx_set(u"tag", u"value");
 ```
 
 
-Ou pour tout [Shape](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape) individuel :
+Ou pour n’importe quel [Shape](https://reference.aspose.com/slides/cpp/aspose.slides/shape/) individuel :
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 
@@ -77,14 +80,14 @@ shape->get_CustomData()->get_Tags()->idx_set(u"tag", u"value");
 
 ## **FAQ**
 
-**Puis-je supprimer toutes les balises d'une présentation, d'une diapositive ou d'une forme en une seule opération ?**
+**Puis‑je supprimer toutes les balises d’une présentation, d’une diapositive ou d’une forme en une seule opération ?**
 
-Oui. La [collection de balises](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/) prend en charge une opération [clear](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/clear/) qui supprime toutes les paires clé-valeur d'un coup.
+Oui. La [tag collection](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/) prend en charge une opération [clear](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/clear/) qui supprime toutes les paires clé‑valeur d’un coup.
 
-**Comment supprimer une balise unique par son nom sans parcourir toute la collection ?**
+**Comment supprimer une seule balise par son nom sans parcourir toute la collection ?**
 
-Utilisez l'opération [Remove(name)](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/remove/) sur [TagCollection](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/) pour supprimer la balise par sa clé.
+Utilisez l’opération [Remove(name)](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/remove/) sur [TagCollection](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/) pour supprimer la balise par sa clé.
 
-**Comment récupérer la liste complète des noms de balises pour l'analyse ou le filtrage ?**
+**Comment récupérer la liste complète des noms de balises à des fins d’analyse ou de filtrage ?**
 
-Utilisez [GetNamesOfTags](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/getnamesoftags/) sur la [collection de balises](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/) ; elle renvoie un tableau contenant tous les noms de balises.
+Utilisez [GetNamesOfTags](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/getnamesoftags/) sur la [tag collection](https://reference.aspose.com/slides/cpp/aspose.slides/tagcollection/) ; elle renvoie un tableau contenant tous les noms de balises.

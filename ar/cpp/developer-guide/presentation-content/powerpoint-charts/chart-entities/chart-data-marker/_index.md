@@ -1,5 +1,5 @@
 ---
-title: إدارة علامات بيانات المخطط في العروض التقديمية باستخدام С++
+title: إدارة علامات بيانات المخطط في العروض التقديمية باستخدام C++
 linktitle: علامة البيانات
 type: docs
 url: /ar/cpp/chart-data-marker/
@@ -9,60 +9,64 @@ keywords:
 - علامة
 - خيارات العلامة
 - حجم العلامة
-- نوع التعبئة
+- نوع الملء
 - PowerPoint
 - عرض تقديمي
-- С++
+- C++
 - Aspose.Slides
-description: "تعلم كيفية تخصيص علامات بيانات المخطط في Aspose.Slides للغة С++، مع تعزيز تأثير العروض التقديمية عبر تنسيقات PPT و PPTX من خلال أمثلة شفرة С++ واضحة."
+description: "تعلم كيفية تخصيص علامات بيانات المخططات في Aspose.Slides للغة C++، مما يعزز تأثير العروض التقديمية عبر صيغ PPT و PPTX مع أمثلة واضحة لكود C++."
 ---
 
 ## **تعيين علامات المخطط**
-توفر Aspose.Slides for C++ واجهة برمجة تطبيقات بسيطة لتعيين علامة سلسلة المخطط تلقائيًا. في الميزة التالية، ستحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
+توفر Aspose.Slides للغة C++ واجهة برمجة تطبيقات بسيطة لتعيين علامة سلسلة المخطط تلقائيًا. في الميزة التالية، ستحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-يوضح المثال البرمجي أدناه كيفية تعيين علامة سلسلة المخطط تلقائيًا.
+يظهر مثال الشيفرة أدناه كيفية تعيين علامة سلسلة المخطط تلقائيًا.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-DefaultMarkersInChart-DefaultMarkersInChart.cpp" >}}
 
 ## **تعيين خيارات علامة المخطط**
-يمكن تعيين العلامات على نقاط بيانات المخطط داخل سلسلة معينة. لتعيين خيارات علامة المخطط، يرجى اتباع الخطوات التالية:
+يمكن تعيين العلامات على نقاط البيانات في المخطط داخل سلسلة معينة. لتعيين خيارات علامة المخطط، يرجى اتباع الخطوات التالية:
 
-- إنشاء الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 
+- إنشاء كائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
 - إنشاء المخطط الافتراضي.
 - تعيين الصورة.
-- الحصول على أول سلسلة مخطط.
+- أخذ أول سلسلة مخطط.
 - إضافة نقطة بيانات جديدة.
 - كتابة العرض التقديمي إلى القرص.
 
-في المثال المقدم أدناه، قمنا بتعيين خيارات علامة المخطط على مستوى نقاط البيانات.
+في المثال الموضح أدناه، قمنا بتعيين خيارات علامة المخطط على مستوى نقاط البيانات.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetMarkerOptions-SetMarkerOptions.cpp" >}}
 
-## **تعيين علامات المخطط على مستوى نقطة بيانات السلسلة**
-الآن، يمكن تعيين العلامات على نقاط بيانات المخطط داخل سلسلة معينة. لتعيين خيارات علامة المخطط، يرجى اتباع الخطوات التالية:
+## **تعيين علامات المخطط على مستوى نقاط بيانات السلسلة**
+الآن، يمكن تعيين العلامات على نقاط البيانات في المخطط داخل سلسلة معينة. لتعيين خيارات علامة المخطط، يرجى اتباع الخطوات التالية:
 
-- إنشاء فئة Presentation.
+- إنشاء كائن Presentation.
 - إنشاء المخطط الافتراضي.
 - تعيين الصورة.
-- الحصول على أول سلسلة مخطط.
+- أخذ أول سلسلة مخطط.
 - إضافة نقطة بيانات جديدة.
 - كتابة العرض التقديمي إلى القرص.
 
-في المثال المقدم أدناه، قمنا بتعيين خيارات علامة المخطط على مستوى نقاط البيانات.
+في المثال الموضح أدناه، قمنا بتعيين خيارات علامة المخطط على مستوى نقاط البيانات.
 ```cpp
-//إنشاء كائن الفئة Presentation التي تمثل ملف PPTX
+const String outPath = u"../out/SetMarkerOptionsonSeries_out.pptx";
+const String ImagePath = u"../templates/Tulips.jpg";
+const String ImagePath2 = u"../templates/aspose - logo.jpg";
+
+//إنشاء كائن Presentation الذي يمثل ملف PPTX
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 //الوصول إلى الشريحة الأولى
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// إضافة مخطط ببيانات افتراضية
+// إضافة مخطط بالبيانات الافتراضية
 SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::LineWithMarkers, 0, 0, 500, 500);
 
 // تعيين فهرس ورقة بيانات المخطط
 int defaultWorksheetIndex = 0;
 
-// جلب ورقة عمل بيانات المخطط
+// الحصول على ورقة عمل بيانات المخطط
 SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 // حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
@@ -71,7 +75,7 @@ chart->get_ChartData()->get_Series()->Clear();
 // الآن، إضافة سلسلة جديدة
 SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 
-// جلب الصورة
+// الحصول على الصورة
 SharedPtr<IImage> image = Images::FromFile(ImagePath);
 SharedPtr<IImage> image2 = Images::FromFile(ImagePath2);
 
@@ -82,7 +86,7 @@ SharedPtr<IPPImage> imgx2 = pres->get_Images()->AddImage(image2);
 image->Dispose();
 image2->Dispose();
 
-// Add new point (1:3) there.
+// إضافة نقطة جديدة (1:3) هناك.
 SharedPtr<IChartDataPoint> point = series->get_DataPoints()->AddDataPointForLineSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(4.5)));
 point->get_Marker()->get_Format()->get_Fill()->set_FillType(FillType::Picture);
 point->get_Marker()->get_Format()->get_Fill()->get_PictureFillFormat()->get_Picture()->set_Image(imgx1);
@@ -109,16 +113,16 @@ pres->Dispose();
 
 
 ## **تطبيق لون على نقاط البيانات**
-يمكنك تطبيق لون على نقاط البيانات في المخطط باستخدام Aspose.Slides for C++. تم إضافة الفئات [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) و **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level)** للحصول على إمكانية الوصول إلى خصائص مستويات نقاط البيانات. يوضح هذا المقال كيفية الوصول إلى نقاط البيانات وتطبيق لون عليها في المخطط.
+يمكنك تطبيق لون على نقاط البيانات في المخطط باستخدام Aspose.Slides للغة C++. تم إضافة الفئتين [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) و **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/)** لتمكين الوصول إلى خصائص مستويات نقاط البيانات. توضح هذه المقالة كيفية الوصول إلى نقاط البيانات وتطبيق لون عليها في المخطط.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AddColorToDataPoints-AddColorToDataPoints.cpp" >}}
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**ما هي أشكال العلامات المتوفرة جاهزةً؟**
+**ما هي أشكال العلامات المتوفرة افتراضيًا؟**
 
-تتوفر أشكال قياسية (دائرة، مربع، ماسة، مثلث، إلخ)؛ يتم تعريف القائمة عبر تعداد [MarkerStyleType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/markerstyletype/). إذا كنت بحاجة إلى شكل غير قياسي، استخدم علامة مع تعبئة صورة لمحاكاة مرئيات مخصصة.
+تتوفر أشكال قياسية (دائرة، مربع، معين، مثلث، إلخ)؛ يتم تعريف القائمة بواسطة تعداد [MarkerStyleType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/markerstyletype/). إذا كنت بحاجة إلى شكل غير قياسي، يمكنك استخدام علامة بملء صورة لمحاكاة التصاميم المخصصة.
 
-**هل يتم الحفاظ على العلامات عند تصدير المخطط كصورة أو SVG؟**
+**هل تُحافظ العلامات على شكلها عند تصدير المخطط إلى صورة أو SVG؟**
 
-نعم. عند تحويل المخططات إلى [صيغ نقطية](/slides/ar/cpp/convert-powerpoint-to-png/) أو حفظ [الأشكال كـ SVG](/slides/ar/cpp/render-a-slide-as-an-svg-image/)، تحتفظ العلامات بمظهرها وإعداداتها، بما في ذلك الحجم، والتعبئة، والحدود.
+نعم. عند تصيير المخططات إلى [صيغ نقطية](/slides/ar/cpp/convert-powerpoint-to-png/) أو حفظ [الأشكال كملفات SVG](/slides/ar/cpp/render-a-slide-as-an-svg-image/)، تحتفظ العلامات بمظهرها وإعداداتها، بما في ذلك الحجم والملء والحد الخارجي.

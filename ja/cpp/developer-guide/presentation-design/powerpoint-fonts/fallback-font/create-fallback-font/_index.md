@@ -1,28 +1,28 @@
 ---
-title: C++でプレゼンテーション用フォールバックフォントを指定
-linktitle: フォールバックフォント
+title: C++ のプレゼンテーションでフォールバック フォントを指定
+linktitle: フォールバック フォント
 type: docs
 weight: 10
 url: /ja/cpp/create-fallback-font/
 keywords:
-- フォールバックフォント
-- フォールバックルール
-- フォント適用
-- フォント置換
+- フォールバック フォント
+- フォールバック ルール
+- フォントの適用
+- フォントの置換
 - Unicode 範囲
-- 欠損グリフ
+- 欠落したグリフ
 - 適切なグリフ
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
-- C++
+- С++
 - Aspose.Slides
-description: "C++ 用 Aspose.Slides をマスターし、PPT、PPTX、ODP ファイルでフォールバックフォントを設定して、あらゆるデバイスや OS でテキスト表示の一貫性を確保します。"
+description: "C++ 用 Aspose.Slides をマスターし、PPT、PPTX、ODP ファイルでフォールバック フォントを設定して、あらゆるデバイスや OS でテキスト表示の一貫性を保護します。"
 ---
 
 ## **フォールバック ルール**
 
-Aspose.Slides は、フォールバックフォントを適用するルールを指定するために、[IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) インターフェイスと [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) クラスをサポートします。[FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) クラスは、検索対象となる欠損グリフ用の指定された Unicode 範囲と、適切なグリフを含む可能性のあるフォントの一覧との関連付けを表します:
+Aspose.Slides はフォールバック フォントを適用するためのルールを指定するために、[IFontFallBackRule] インターフェイスと[FontFallBackRule] クラスをサポートしています。[FontFallBackRule] クラスは、欠落したグリフを検索するために使用される特定の Unicode 範囲と、適切なグリフを含む可能性のあるフォントのリストとの関連付けを表します：
 ``` cpp
 uint32_t startUnicodeIndex = 0x0B80;
 uint32_t endUnicodeIndex = 0x0BFF;
@@ -30,16 +30,18 @@ uint32_t endUnicodeIndex = 0x0BFF;
 auto firstRule = MakeObject<FontFallBackRule>(startUnicodeIndex, endUnicodeIndex, u"Vijaya");
 auto secondRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), static_cast<uint32_t>(0x309F), u"MS Mincho, MS Gothic");
 
-// Using multiple ways you can add fonts list:
+// 複数の方法でフォントリストを追加できます:
 auto fontNames = MakeArray<String>({ u"Segoe UI Emoji, Segoe UI Symbol", u"Arial" });
 
 auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), static_cast<uint32_t>(0x1F64F), fontNames);
 ```
 
 
-既存の [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) オブジェクトに対して、フォールバックフォントを [Remove()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule#abd87e889a55b4a62174ddd14f1b1476e) したり、[AddFallBackFonts()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule#a9bac44ca199a76c6cd004146cb02cd79) を追加したりすることも可能です。
 
-[FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) は、複数の Unicode 範囲に対してフォールバックフォント置換ルールを指定する必要がある場合に、[FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) オブジェクトのリストを整理するために使用できます。
+
+既存の[FontFallBackRule] オブジェクトに対して、[Remove()] でフォールバック フォントを削除したり、[AddFallBackFonts()] でフォールバック フォントを追加したりすることも可能です。
+
+[FontFallBackRulesCollection] は、複数の Unicode 範囲に対するフォールバック フォント置換ルールを指定する必要がある場合に、[FontFallBackRule] オブジェクトのリストを整理するために使用できます。
 
 {{% alert color="primary" title="See also" %}} 
 - [フォールバック フォント コレクションの作成](/slides/ja/cpp/create-fallback-fonts-collection/)
@@ -49,20 +51,20 @@ auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), st
 
 **フォールバック フォント、フォント置換、およびフォント埋め込みの違いは何ですか？**
 
-フォールバックフォントは、プライマリフォントに存在しない文字に対してのみ使用されます。[フォント置換](/slides/ja/cpp/font-substitution/) は、指定されたフォント全体を別のフォントに置き換えます。[フォント埋め込み](/slides/ja/cpp/embedded-font/) は、フォントを出力ファイルにパッケージ化し、受信者が意図した通りにテキストを表示できるようにします。
+フォールバック フォントは、プライマリ フォントに存在しない文字に対してのみ使用されます。[Font substitution](/slides/ja/cpp/font-substitution/) は指定されたフォント全体を別のフォントに置き換えます。[Font embedding](/slides/ja/cpp/embedded-font/) はフォントを出力ファイル内にパッケージ化し、受信者が意図した通りにテキストを表示できるようにします。
 
-**エクスポート（PDF、PNG、SVG など）時にフォールバックフォントが適用されますか、それとも画面上のレンダリング時のみですか？**
+**フォールバック フォントは PDF、PNG、SVG などへのエクスポート時にも適用されますか、それとも画面上のレンダリングのみですか？**
 
-はい。フォールバックは、文字を描画する必要があるがソースフォントに存在しない場合のすべての[レンダリングおよびエクスポート操作](/slides/ja/cpp/convert-presentation/)に影響します。
+はい。フォールバックは、文字を描画する必要があるが元のフォントに存在しない場合のすべての[rendering and export operations](/slides/ja/cpp/convert-presentation/)に影響します。
 
-**フォールバックの設定はプレゼンテーションファイル自体を変更し、将来の開く際に設定が保持されますか？**
+**フォールバックの設定はプレゼンテーション ファイル自体を変更しますか、また設定は次回開くときにも保持されますか？**
 
-いいえ。フォールバックルールはコード内の実行時レンダリング設定であり、.pptx に保存されず、PowerPoint には表示されません。
+いいえ。フォールバック ルールはコード内の実行時レンダリング設定であり、.pptx ファイルに保存されず、PowerPoint には表示されません。
 
-**オペレーティングシステム（Windows/Linux/macOS）やフォントディレクトリのセットは、フォールバックの選択に影響しますか？**
+**オペレーティングシステム（Windows/Linux/macOS）やフォント ディレクトリの構成は、フォールバックの選択に影響しますか？**
 
-はい。エンジンは利用可能なシステムフォルダーや、提供した任意の[追加パス](/slides/ja/cpp/custom-font/)からフォントを解決します。フォントが実際に存在しない場合、そのフォントを参照するルールは効果を発揮できません。
+はい。エンジンは利用可能なシステム フォルダーや、提供された[additional paths](/slides/ja/cpp/custom-font/)からフォントを解決します。フォントが実際に存在しない場合、そのフォントを参照するルールは適用されません。
 
-**フォールバックは WordArt、SmartArt、チャートでも機能しますか？**
+**フォールバックは WordArt、SmartArt、およびチャートでも機能しますか？**
 
-はい。これらのオブジェクトにテキストが含まれる場合、同じグリフ置換メカニズムが適用され、欠損文字がレンダリングされます。
+はい。これらのオブジェクトにテキストが含まれる場合、同じグリフ置換メカニズムが適用され、欠落した文字がレンダリングされます。

@@ -1,56 +1,56 @@
 ---
-title: Diagrammdatenmarkierungen in Präsentationen mit С++ verwalten
+title: Chart-Datenmarker in Präsentationen mit C++ verwalten
 linktitle: Datenmarker
 type: docs
 url: /de/cpp/chart-data-marker/
 keywords:
 - Diagramm
 - Datenpunkt
-- Markierung
-- Markierungsoptionen
-- Markierungsgröße
+- Marker
+- Markeroptionen
+- Markergröße
 - Fülltyp
 - PowerPoint
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammdatenmarkierungen in Aspose.Slides für С++ anpassen, um die Wirkung von Präsentationen in PPT- und PPTX-Formaten zu steigern, mit klaren С++-Codebeispielen."
+description: "Erfahren Sie, wie Sie Chart-Datenmarker in Aspose.Slides für C++ anpassen und damit die Wirkung von Präsentationen in PPT- und PPTX-Formaten mit klaren C++-Codebeispielen steigern."
 ---
 
-## **Diagramm‑Markierungen festlegen**
-Aspose.Slides for C++ stellt eine einfache API bereit, um die Serien‑Markierung im Diagramm automatisch festzulegen. Im folgenden Beispiel erhält jede Diagramm‑Serie automatisch ein unterschiedliches Standardsymbol für die Markierung.
+## **Diagramm-Marker festlegen**
+Aspose.Slides für C++ bietet eine einfache API, um die Markierung von Diagrammserien automatisch festzulegen. In der folgenden Funktion erhält jede Diagrammserie automatisch ein unterschiedliches Standardsymbol für die Markierung.
 
-Das untenstehende Code‑Beispiel zeigt, wie die Serien‑Markierung im Diagramm automatisch festgelegt wird.
+Das nachstehende Code‑Beispiel zeigt, wie man die Markierung von Diagrammserien automatisch festlegt.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-DefaultMarkersInChart-DefaultMarkersInChart.cpp" >}}
 
 
-## **Diagramm‑Markierungsoptionen festlegen**
-Die Markierungen können für Datenpunkte im Diagramm innerhalb einer bestimmten Serie festgelegt werden. Um Diagramm‑Markierungsoptionen zu setzen, folgen Sie bitte den untenstehenden Schritten:
+## **Diagramm-Marker‑Optionen festlegen**
+Die Marker können für Datenpunkte eines Diagramms innerhalb einer bestimmten Serie festgelegt werden. Um Diagramm‑Marker‑Optionen festzulegen, befolgen Sie bitte die nachstehenden Schritte:
 
-- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
 - Erstellen des Standarddiagramms.
 - Bild festlegen.
 - Erste Diagrammserie auswählen.
 - Neuen Datenpunkt hinzufügen.
 - Präsentation auf die Festplatte schreiben.
 
-Im untenstehenden Beispiel haben wir die Diagramm‑Markierungsoptionen auf der Ebene der Datenpunkte festgelegt.
+Im nachstehenden Beispiel haben wir die Diagramm‑Marker‑Optionen auf Ebene der Datenpunkte festgelegt.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetMarkerOptions-SetMarkerOptions.cpp" >}}
 
 
-## **Diagramm‑Markierungen auf Ebene der Serien‑Datenpunkte festlegen**
-Jetzt können die Markierungen für Datenpunkte im Diagramm innerhalb einer bestimmten Serie festgelegt werden. Um Diagramm‑Markierungsoptionen zu setzen, folgen Sie bitte den untenstehenden Schritten:
+## **Diagramm-Marker auf Ebene der Serien-Datenpunkte festlegen**
+Jetzt können die Marker für Datenpunkte eines Diagramms innerhalb einer bestimmten Serie festgelegt werden. Um Diagramm‑Marker‑Optionen zu setzen, befolgen Sie bitte die nachstehenden Schritte:
 
-- Instanziieren Sie die Klasse Presentation .
+- Instanziieren Sie die Presentation‑Klasse.
 - Erstellen des Standarddiagramms.
 - Bild festlegen.
 - Erste Diagrammserie auswählen.
 - Neuen Datenpunkt hinzufügen.
 - Präsentation auf die Festplatte schreiben.
 
-Im untenstehenden Beispiel haben wir die Diagramm‑Markierungsoptionen auf der Ebene der Datenpunkte festgelegt.
+Im nachstehenden Beispiel haben wir die Diagramm‑Marker‑Optionen auf Datenpunktebene festgelegt.
 ```cpp
 const String outPath = u"../out/SetMarkerOptionsonSeries_out.pptx";
 const String ImagePath = u"../templates/Tulips.jpg";
@@ -59,16 +59,16 @@ const String ImagePath2 = u"../templates/aspose - logo.jpg";
 //Instanzieren Sie die Presentation-Klasse, die die PPTX-Datei repräsentiert
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-//Zugriff auf die erste Folie
+//Greifen Sie auf die erste Folie zu
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 // Diagramm mit Standarddaten hinzufügen
 SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::LineWithMarkers, 0, 0, 500, 500);
 
-// Festlegen des Index des Diagrammdatenblatts
+// Index des Diagrammdatenblatts festlegen
 int defaultWorksheetIndex = 0;
 
-// Abrufen des Diagramm-Datenarbeitsblatts
+// Das Diagrammdaten-Arbeitsblatt abrufen
 SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 // Standardgenerierte Serien und Kategorien löschen
@@ -77,7 +77,7 @@ chart->get_ChartData()->get_Series()->Clear();
 // Jetzt eine neue Serie hinzufügen
 SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 
-// Bild holen
+// Bild abrufen
 SharedPtr<IImage> image = Images::FromFile(ImagePath);
 SharedPtr<IImage> image2 = Images::FromFile(ImagePath2);
 
@@ -105,7 +105,7 @@ point = series->get_DataPoints()->AddDataPointForLineSeries(fact->GetCell(defaul
 point->get_Marker()->get_Format()->get_Fill()->set_FillType(FillType::Picture);
 point->get_Marker()->get_Format()->get_Fill()->get_PictureFillFormat()->get_Picture()->set_Image(imgx2);
 
-// Markierung der Diagrammserie ändern
+// Changing the chart series marker
 series->get_Marker()->set_Size(15);
 
 // Write the presentation file to disk
@@ -115,16 +115,16 @@ pres->Dispose();
 
 
 ## **Farbe auf Datenpunkte anwenden**
-Sie können mithilfe von Aspose.Slides für C++ Farbe auf Datenpunkte im Diagramm anwenden. Die Klassen [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) und **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level)** wurden hinzugefügt, um Zugriff auf die Eigenschaften von Datenpunkt‑Ebenen zu erhalten. Dieser Artikel zeigt, wie Sie auf Datenpunkte in einem Diagramm zugreifen und Farbe anwenden können.
+Sie können mithilfe von Aspose.Slides für C++ Farbe auf Datenpunkte in einem Diagramm anwenden. Die Klassen [IChartDataPointLevelsManager](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) und **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/)** wurden hinzugefügt, um Zugriff auf die Eigenschaften von Datenpunkt‑Ebenen zu erhalten. Dieser Artikel zeigt, wie Sie auf Datenpunkte in einem Diagramm zugreifen und Farbe anwenden können.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AddColorToDataPoints-AddColorToDataPoints.cpp" >}}
 
 ## **FAQ**
 
-**Welche Markierungsformen sind standardmäßig verfügbar?**
+**Welche Markerformen sind standardmäßig verfügbar?**
 
-Standardformen sind verfügbar (Kreis, Quadrat, Raute, Dreieck usw.); die Liste wird durch die Aufzählung [MarkerStyleType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/markerstyletype/) definiert. Wenn Sie eine nicht standardmäßige Form benötigen, verwenden Sie eine Markierung mit Bildfüllung, um benutzerdefinierte Visuals zu emulieren.
+Standardformen sind verfügbar (Kreis, Quadrat, Raute, Dreieck usw.); die Liste wird durch die Aufzählung [MarkerStyleType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/markerstyletype/) definiert. Wenn Sie eine nicht‑standardmäßige Form benötigen, verwenden Sie einen Marker mit Bildfüllung, um benutzerdefinierte Visualisierungen zu emulieren.
 
-**Werden Markierungen beim Export eines Diagramms in ein Bild oder SVG beibehalten?**
+**Werden Marker beim Export eines Diagramms in ein Bild oder SVG beibehalten?**
 
-Ja. Beim Rendern von Diagrammen in [raster formats](/slides/de/cpp/convert-powerpoint-to-png/) oder beim Speichern von [shapes as SVG](/slides/de/cpp/render-a-slide-as-an-svg-image/) behalten Markierungen ihr Aussehen und ihre Einstellungen bei, einschließlich Größe, Füllung und Kontur.
+Ja. Beim Rendern von Diagrammen in [Rasterformate](/slides/de/cpp/convert-powerpoint-to-png/) oder beim Speichern von [Formen als SVG](/slides/de/cpp/render-a-slide-as-an-svg-image/) behalten Marker ihr Aussehen und ihre Einstellungen bei, einschließlich Größe, Füllung und Kontur.

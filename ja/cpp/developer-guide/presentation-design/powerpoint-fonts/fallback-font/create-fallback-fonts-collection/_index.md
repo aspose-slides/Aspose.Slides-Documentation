@@ -1,32 +1,32 @@
 ---
-title: C++ でフォールバックフォントコレクションを構成
+title: C++でフォールバックフォントコレクションを構成する
 linktitle: フォールバックフォントコレクション
 type: docs
 weight: 20
 url: /ja/cpp/create-fallback-fonts-collection/
 keywords:
 - フォールバックフォント
-- フォールバック規則
+- フォールバックルール
 - フォントコレクション
-- フォントを構成
+- フォントの構成
 - フォントの設定
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ でフォールバックフォントコレクションを設定し、PowerPoint および OpenDocument プレゼンテーションでテキストを一貫して鮮明に保ちます。"
+description: "PowerPoint および OpenDocument プレゼンテーションでテキストを一貫して鮮明に保つために、C++ 用 Aspose.Slides でフォールバックフォントコレクションを設定します。"
 ---
 
-## **フォールバック規則を適用**
+## **フォールバック ルールを適用する**
 
-[FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) に整理できます。このコレクションは [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rules_collection) インターフェイスを実装しています。コレクションへの規則の追加や削除が可能です。
+[FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrulescollection/) に編成でき、[IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrulescollection/) インターフェイスを実装します。コレクションからルールを追加または削除することが可能です。
 
-その後、このコレクションは [FontsManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager) クラスの [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924) メソッドに渡すことができます。FontsManager はプレゼンテーション全体のフォントを制御します。詳しくは [FontsManager と FontsLoader について](/slides/ja/cpp/about-fontsmanager-and-fontsloader/) をご覧ください。
+このコレクションは、[set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) メソッドに[FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) クラスへ渡すことができます。FontsManager はプレゼンテーション全体のフォントを制御します。
 
-各 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) には、独自の FontsManager インスタンスを取得できる [get_FontsManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#acee582a9c243cbd63e30634c9714514a) メソッドがあります。
+各[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) には、[FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) クラスの独自インスタンスを取得する [get_FontsManager()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/) メソッドがあります。
 
-以下はフォールバックフォント規則コレクションを作成し、特定のプレゼンテーションの FontsManager に割り当てる例です：  
+以下は、フォールバックフォントルールコレクションを作成し、特定のプレゼンテーションの FontsManager に割り当てる例です：
 ``` cpp
 auto presentation = MakeObject<Presentation>();
 auto userRulesList = MakeObject<FontFallBackRulesCollection>();
@@ -41,23 +41,23 @@ presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList)
 FontsManager がフォールバックフォントコレクションで初期化されると、プレゼンテーションのレンダリング中にフォールバックフォントが適用されます。
 
 {{% alert color="primary" %}} 
-[フォールバックフォントでプレゼンテーションをレンダリングする](/slides/ja/cpp/render-presentation-with-fallback-font/) 方法の詳細をご覧ください。
+フォールバックフォントでプレゼンテーションをレンダリングする方法の詳細は、[Render Presentation with Fallback Font](/slides/ja/cpp/render-presentation-with-fallback-font/)をご覧ください。 
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**フォールバック規則は PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
+**フォールバックルールは PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
 
-いいえ。フォールバック規則は実行時のレンダリング設定であり、PPTX にシリアライズされないため、PowerPoint の UI には表示されません。
+いいえ。フォールバックルールは実行時のレンダリング設定であり、PPTX にシリアライズされないため、PowerPoint の UI には表示されません。
 
-**SmartArt、WordArt、チャート、テーブル内のテキストにもフォールバックは適用されますか？**
+**フォールバックは SmartArt、WordArt、チャート、テーブル内のテキストにも適用されますか？**
 
-はい。これらのオブジェクト内のテキストにも同じグリフ置換メカニズムが使用されます。
+はい。これらのオブジェクト内のすべてのテキストに対して、同じグリフ置換メカニズムが使用されます。
 
-**Aspose はライブラリと共にフォントを配布していますか？**
+**Aspose はライブラリとともにフォントを配布していますか？**
 
-いいえ。フォントはご自身で追加・使用していただき、責任は利用者にあります。
+いいえ。フォントはご自身で追加・使用していただき、自己の責任で管理してください。
 
-**欠落フォントの置換/置換と欠落グリフのフォールバックは同時に使用できますか？**
+**欠落したフォントの置換/サブスティテューションと、欠落したグリフに対するフォールバックは同時に使用できますか？**
 
-はい。これらは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの可用性を解決し（[置換](/slides/ja/cpp/font-replacement/)/[置換](/slides/ja/cpp/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠落グリフを補填します。
+はい。これらは同じフォント解決パイプラインの独立したステージです。最初にエンジンがフォントの有無を解決し（[replacement](/slides/ja/cpp/font-replacement/)/[substitution](/slides/ja/cpp/font-substitution/)）、その後、フォールバックが利用可能なフォント内の欠落したグリフのギャップを埋めます。

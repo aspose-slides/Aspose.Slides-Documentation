@@ -1,6 +1,6 @@
 ---
-title: C++ でプレゼンテーションズームを管理
-linktitle: ズームの管理
+title: C++ でプレゼンテーションズームを管理する
+linktitle: ズームを管理する
 type: docs
 weight: 60
 url: /ja/cpp/manage-zoom/
@@ -15,37 +15,37 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用してズームを作成およびカスタマイズします — セクション間をジャンプし、PPT、PPTX、ODP プレゼンテーション全体でサムネイルやトランジションを追加します。"
+description: "Aspose.Slides for C++ を使用してズームを作成およびカスタマイズします — セクション間をジャンプし、サムネイルとトランジションを PPT、PPTX、ODP プレゼンテーション全体に追加します。"
 ---
 
-## **概要**
-PowerPoint のズーム機能を使用すると、プレゼンテーション内の特定のスライド、セクション、または部分へジャンプしたり、そこから戻ったりできます。プレゼンテーション中にコンテンツをすばやくナビゲートできるこの機能は非常に便利です。
+## **Overview**
+PowerPoint のズーム機能は、プレゼンテーション内の特定のスライド、セクション、領域間を自由にジャンプできるようにします。プレゼンテーション中に、コンテンツを素早くナビゲートできるこの機能は非常に便利です。 
 
 ![overview_image](Overview.png)
 
-* プレゼンテーション全体を 1 枚のスライドにまとめるには、[サマリーズーム](#Summary-Zoom) を使用します。
+* プレゼンテーション全体を1枚のスライドで要約するには、[サマリーズーム](#Summary-Zoom) を使用します。
 * 選択したスライドのみを表示するには、[スライドズーム](#Slide-Zoom) を使用します。
 * 単一のセクションのみを表示するには、[セクションズーム](#Section-Zoom) を使用します。
 
-## **スライドズーム**
-スライドズームを使用すると、プレゼンテーションをよりダイナミックにし、任意の順序でスライド間を自由に移動でき、プレゼンテーションの流れを中断することなく操作できます。スライドズームはセクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも利用できます。
-
-スライドズームは、単一のキャンバス上にいるような感覚で複数の情報にドリルダウンできます。
+## **Slide Zoom**
+スライドズームを使用すると、プレゼンテーションがよりダイナミックになり、任意の順序でスライド間を自由にナビゲートでき、プレゼンテーションの流れを中断せずに進められます。  
+スライドズームは、セクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも使用できます。  
+スライドズームは、あたかも単一のキャンバス上にいるかのように、複数の情報に掘り下げてアクセスできます。  
 
 ![overview_image](slidezoomsel.png)
 
-スライドズームオブジェクトについては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) 列挙体、[IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) インターフェイス、および [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) インターフェイス下のいくつかのメソッドを提供します。
+スライドズームオブジェクトに対して、Aspose.Slides は [ZoomImageType](https://reference.aspose.com/slides/cpp/aspose.slides/zoomimagetype/) 列挙体、[IZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/izoomframe/) インターフェイス、および [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) インターフェイス下のいくつかのメソッドを提供します。
 
-### **ズームフレームの作成**
-スライドにズームフレームを追加する手順:
+### **Create Zoom Frames**
+スライドにズームフレームを追加する手順は次のとおりです。
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	ズームフレームをリンクする対象となる新しいスライドを作成します。 
-3.	作成したスライドに識別テキストと背景を追加します。
-4.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。
-5.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	ズームフレームをリンクする新しいスライドを作成します。  
+3.	作成したスライドに識別用テキストと背景を追加します。  
+4.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。  
+5.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-この C++ コードは、スライドにズームフレームを作成する方法を示しています:
+この C++ コードは、スライドにズームフレームを作成する方法を示しています。  
 ``` cpp 
 void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 {
@@ -59,44 +59,44 @@ void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Adds new slides to the presentation
+//プレゼンテーションに新しいスライドを追加する
 auto slide2 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 auto slide3 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 
-// Creates a background for the second slide
+// 2番目のスライドの背景を作成する
 SetSlideBackground(slide2, Color::get_Cyan());
 
-// Creates a text box for the second slide
+// 2番目のスライドのテキストボックスを作成する
 auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
-// Creates a background for the third slide
+// 3番目のスライドの背景を作成する
 SetSlideBackground(slide3, Color::get_DarkKhaki());
 
-// Create a text box for the third slide
+// 3番目のスライドのテキストボックスを作成する
 autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Trird Slide");
 
-//Adds ZoomFrame objects
+//ZoomFrame オブジェクトを追加する
 slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
 slide0->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
-// Saves the presentation
+// プレゼンテーションを保存する
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **カスタム画像付きズームフレームの作成**
-Aspose.Slides for C++ を使用して、異なるスライドプレビュー画像を持つズームフレームを作成する手順:
+### **Create Zoom Frames with Custom Images**
+Aspose.Slides for C++ を使用すると、異なるスライドプレビュー画像を持つズームフレームを次の手順で作成できます。 
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	ズームフレームをリンクする対象となる新しいスライドを作成します。 
-3.	スライドに識別テキストと背景を追加します。
-4.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋めるための [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) オブジェクトを作成します。
-5.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。
-6.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	ズームフレームをリンクする新しいスライドを作成します。  
+3.	スライドに識別用テキストと背景を追加します。  
+4.	[IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋める画像として使用します。  
+5.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。  
+6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-この C++ コードは、異なる画像を使用したズームフレームの作成方法を示しています:
+この C++ コードは、異なる画像を使用したズームフレームの作成方法を示しています。  
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -104,40 +104,40 @@ auto slide0 = pres->get_Slides()->idx_get(0);
 //プレゼンテーションに新しいスライドを追加
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 
-//2枚目のスライドの背景を作成
+// 2番目のスライドの背景を作成
 SetSlideBackground(slide, Color::get_Cyan());
 
-//3枚目のスライド用テキストボックスを作成
+// 3番目のスライドのテキストボックスを作成
 auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
-//ズームオブジェクト用の新しい画像を作成
+// ズームオブジェクト用の新しい画像を作成
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 
-//ZoomFrameオブジェクトを追加
+//ZoomFrame オブジェクトを追加
 slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
 
-//プレゼンテーションを保存
+// プレゼンテーションを保存
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **ズームフレームの書式設定**
-前述のセクションではシンプルなズームフレームの作成方法を示しました。より複雑なズームフレームを作成するには、シンプルなフレームの書式を変更する必要があります。ズームフレームに適用できる書式オプションはいくつかあります。
+### **Format Zoom Frames**
+前のセクションでは、簡単なズームフレームの作成方法を示しました。より複雑なズームフレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。ズームフレームに適用できる書式設定オプションはいくつかあります。  
 
-スライド上でズームフレームの書式を制御する手順:
+スライド上でズームフレームの書式設定を制御する手順は次のとおりです。
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	ズームフレームをリンクする対象となる新しいスライドを作成します。 
-3.	作成したスライドに識別テキストと背景を追加します。
-4.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。
-5.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋めるための [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) オブジェクトを作成します。
-6.	最初のズームフレームオブジェクトにカスタム画像を設定します。
-7.	2 番目のズームフレームオブジェクトの線の書式を変更します。
-8.	2 番目のズームフレームオブジェクトの画像から背景を除去します。
-5.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	ズームフレームをリンクする新しいスライドを作成します。  
+3.	作成したスライドに識別用テキストと背景を追加します。  
+4.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。  
+5.	[IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋める画像として使用します。  
+6.	最初のズームフレームオブジェクトにカスタム画像を設定します。  
+7.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
+8.	2 番目のズームフレームオブジェクトの画像から背景を削除します。  
+5.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-この C++ コードは、スライド上でズームフレームの書式を変更する方法を示しています: 
+この C++ コードは、スライド上でズームフレームの書式設定を変更する方法を示しています。  
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide1 = pres->get_Slides()->idx_get(0);
@@ -145,36 +145,36 @@ auto slide1 = pres->get_Slides()->idx_get(0);
 auto slide2 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
 auto slide3 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
 
-// 2枚目のスライドの背景を作成
+// 2番目のスライドの背景を作成
 SetSlideBackground(slide2, Color::get_Cyan());
 
-// 2枚目のスライド用テキストボックスを作成
+// 2番目のスライドのテキストボックスを作成
 auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
-// 3枚目のスライドの背景を作成
+// 3番目のスライドの背景を作成
 SetSlideBackground(slide3, Color::get_DarkKhaki());
 
-// 3枚目のスライド用テキストボックスを作成
+// 3番目のスライドのテキストボックスを作成
 autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Trird Slide");
 
-//ZoomFrameオブジェクトを追加
+//ZoomFrame オブジェクトを追加
 auto zoomFrame1 = slide1->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
 auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
 // ズームオブジェクト用の新しい画像を作成
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
- // ズームフレーム1オブジェクトにカスタム画像を設定
+// zoomFrame1 オブジェクトにカスタム画像を設定
 zoomFrame1->set_Image(image);
 
-// ズームフレーム2オブジェクトのフォーマットを設定
+// zoomFrame2 オブジェクトのズームフレーム書式を設定
 zoomFrame2->get_LineFormat()->set_Width(5);
 zoomFrame2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 zoomFrame2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_HotPink());
 zoomFrame2->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
 
-// ズームフレーム2オブジェクトの背景非表示設定
+// zoomFrame2 オブジェクトの背景非表示設定
 zoomFrame2->set_ShowBackground(false);
 
 // プレゼンテーションを保存
@@ -182,25 +182,24 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-## **セクションズーム**
-
-セクションズームは、プレゼンテーション内の特定のセクションへのリンクです。強調したいセクションに戻るために使用したり、プレゼンテーションの各部分がどのようにつながっているかを示すために使用したりできます。
+## **Section Zoom**
+セクションズームは、プレゼンテーション内のセクションへのリンクです。セクションズームを使用して、特に強調したいセクションに戻ることができます。また、プレゼンテーションの特定の部分がどのように接続しているかをハイライトすることもできます。  
 
 ![overview_image](seczoomsel.png)
 
-セクションズームオブジェクトについては、Aspose.Slides が [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) インターフェイスと [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) インターフェイス下のいくつかのメソッドを提供します。
+セクションズームオブジェクトに対して、Aspose.Slides は [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isectionzoomframe/) インターフェイスおよび [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) インターフェイス下のいくつかのメソッドを提供します。
 
-### **セクションズームフレームの作成**
-スライドにセクションズームフレームを追加する手順:
+### **Create Section Zoom Frames**
+スライドにセクションズームフレームを追加する手順は次のとおりです。
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	新しいスライドを作成します。 
-3.	作成したスライドに識別用の背景を追加します。
-4.	ズームフレームをリンクする対象となる新しいセクションを作成します。 
-5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。
-6.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	新しいスライドを作成します。  
+3.	作成したスライドに識別用の背景を追加します。  
+4.	ズームフレームをリンクする新しいセクションを作成します。  
+5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。  
+6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-この C++ コードは、スライドにズームフレームを作成する方法を示しています:
+この C++ コードは、スライドにズームフレームを作成する方法を示しています。  
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -209,7 +208,7 @@ auto slide0 = pres->get_Slides()->idx_get(0);
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// プレゼンテーションに新しいセクションを追加
+// 新しいセクションをプレゼンテーションに追加
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 // SectionZoomFrame オブジェクトを追加
@@ -220,19 +219,18 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **カスタム画像付きセクションズームフレームの作成**
+### **Create Section Zoom Frames with Custom Images**
+異なるスライドプレビュー画像を持つセクションズームフレームを次の手順で作成できます。  
 
-Aspose.Slides for C++ を使用して、異なるスライドプレビュー画像を持つセクションズームフレームを作成する手順:
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	新しいスライドを作成します。  
+3.	作成したスライドに識別用背景を追加します。  
+4.	ズームフレームをリンクする新しいセクションを作成します。  
+5.	[IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋める画像として使用します。  
+5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。  
+6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	新しいスライドを作成します。
-3.	作成したスライドに識別用の背景を追加します。
-4.	ズームフレームをリンクする対象となる新しいセクションを作成します。 
-5.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋めるための [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) オブジェクトを作成します。
-5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。
-6.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
-
-この C++ コードは、異なる画像を使用したセクションズームフレームの作成方法を示しています:
+この C++ コードは、異なる画像を使用したズームフレームの作成方法を示しています。  
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -241,7 +239,7 @@ auto slide0 = pres->get_Slides()->idx_get(0);
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// 新しいセクションをプレゼンテーションに追加
+// プレゼンテーションに新しいセクションを追加
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 // ズームオブジェクト用の新しい画像を作成
@@ -255,36 +253,35 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **セクションズームフレームの書式設定**
+### **Format Section Zoom Frames**
+より複雑なセクションズームフレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。セクションズームフレームに適用できる書式設定オプションはいくつかあります。  
 
-より複雑なセクションズームフレームを作成するには、シンプルなフレームの書式を変更する必要があります。セクションズームフレームに適用できる書式オプションはいくつかあります。
+スライド上でセクションズームフレームの書式設定を制御する手順は次のとおりです。
 
-スライド上でセクションズームフレームの書式を制御する手順:
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	新しいスライドを作成します。  
+3.	作成したスライドに識別用背景を追加します。  
+4.	ズームフレームをリンクする新しいセクションを作成します。  
+5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。  
+6.	作成したセクションズームオブジェクトのサイズと位置を変更します。  
+7.	[IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋める画像として使用します。  
+8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。  
+9.	リンクされたセクションから元のスライドに戻る機能を設定します。  
+10.	セクションズームフレームオブジェクトの画像から背景を削除します。  
+11.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
+12.	トランジションの期間を変更します。  
+13.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	新しいスライドを作成します。
-3.	作成したスライドに識別用の背景を追加します。
-4.	ズームフレームをリンクする対象となる新しいセクションを作成します。 
-5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。
-6.	作成したセクションズームオブジェクトのサイズと位置を変更します。
-7.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームを埋めるための [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) オブジェクトを作成します。
-8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。
-9.	*リンクされたセクションから元のスライドに戻る* 機能を設定します。 
-10.	セクションズームフレームオブジェクトの画像から背景を除去します。
-11.	2 番目のズームフレームオブジェクトの線の書式を変更します。
-12.	トランジションの継続時間を変更します。
-13.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
-
-この C++ コードは、セクションズームフレームの書式を変更する方法を示しています:
+この C++ コードは、セクションズームフレームの書式設定を変更する方法を示しています。  
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-// プレゼンテーションに新しいスライドを追加
+//プレゼンテーションに新しいスライドを追加
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// プレゼンテーションに新しいセクションを追加
+// 新しいセクションをプレゼンテーションに追加
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 // SectionZoomFrame オブジェクトを追加
@@ -315,24 +312,23 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-## **サマリーズーム**
-
-サマリーズームは、プレゼンテーションの全体像を一度に表示するランディングページのようなものです。プレゼンテーション中に、任意の順序でスライド間を移動したり、スキップしたり、再訪したりでき、プレゼンテーションの流れを中断せずにクリエイティブに操作できます。
+## **Summary Zoom**
+サマリーズームは、プレゼンテーションのすべての要素を一度に表示するランディングページのようなものです。プレゼンテーション中に、任意の順序で任意の場所にジャンプして移動でき、クリエイティブに進めたり、前後に飛んだり、スライドショーの一部に戻ったりして、プレゼンテーションの流れを中断せずに操作できます。  
 
 ![overview_image](sumzoomsel.png)
 
-サマリーズームオブジェクトについては、Aspose.Slides が [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame)、[ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section)、および [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) インターフェイスと、[IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) インターフェイス下のいくつかのメソッドを提供します。
+サマリーズームオブジェクトに対して、Aspose.Slides は [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/)、[ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/)、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) インターフェイスおよび [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) インターフェイス下のいくつかのメソッドを提供します。
 
-### **サマリーズームの作成**
-スライドにサマリーズームフレームを追加する手順:
+### **Create Summary Zoom**
+サマリーズームフレームをスライドに追加する手順は次のとおりです。
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	識別用背景と新しいセクションを持つ新規スライドを作成します。
-3.	サマリーズームフレームを最初のスライドに追加します。
-4.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	識別用背景と新しいセクションを持つ新しいスライドを作成します。  
+3.	サマリーズームフレームを最初のスライドに追加します。  
+4.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-この C++ コードは、スライドにサマリーズームフレームを作成する方法を示しています:
-```cpp
+この C++ コードは、スライドにサマリーズームフレームを作成する方法を示しています。  
+``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -372,19 +368,18 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **サマリーズームセクションの追加と削除**
+### **Add and Remove a Summary Zoom Section**
+サマリーズームフレーム内のすべてのセクションは [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/) オブジェクトで表され、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) オブジェクトに格納されます。セクションの追加または削除は、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) インターフェイスを通じて次のように行います。
 
-サマリーズームフレーム内のすべてのセクションは [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section) オブジェクトで表され、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) オブジェクトに格納されます。セクションの追加や削除は、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) インターフェイスを通じて次のように行えます:
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	識別用背景と新しいセクションを持つ新しいスライドを作成します。  
+3.	最初のスライドにサマリーズームフレームを追加します。  
+4.	プレゼンテーションに新しいスライドとセクションを追加します。  
+5.	作成したセクションをサマリーズームフレームに追加します。  
+6.	サマリーズームフレームから最初のセクションを削除します。  
+7.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	識別用背景と新しいセクションを持つ新規スライドを作成します。
-3.	最初のスライドにサマリーズームフレームを追加します。
-4.	プレゼンテーションに新しいスライドとセクションを追加します。
-5.	作成したセクションをサマリーズームフレームに追加します。
-6.	サマリーズームフレームから最初のセクションを削除します。
-7.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
-
-この C++ コードは、サマリーズームフレーム内のセクションの追加と削除方法を示しています:
+この C++ コードは、サマリーズームフレーム内のセクションの追加と削除方法を示しています。  
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -396,52 +391,51 @@ SetSlideBackground(slide, Color::get_Brown());
 // プレゼンテーションに新しいセクションを追加
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-//Adds a new slide to the presentation
+//プレゼンテーションに新しいスライドを追加
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// Adds a new section to the presentation
+// プレゼンテーションに新しいセクションを追加
 pres->get_Sections()->AddSection(u"Section 2", slide);
 
-// Adds SummaryZoomFrame object
+// プレゼンテーションにSummaryZoomFrameオブジェクトを追加
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
-//Adds a new slide to the presentation
+//プレゼンテーションに新しいスライドを追加
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Chartreuse());
 
-// Adds a new section to the presentation
+// プレゼンテーションに新しいセクションを追加
 auto section3 = pres->get_Sections()->AddSection(u"Section 3", slide);
 
-// Adds a section to the Summary Zoom
+// Summary Zoomにセクションを追加
 summaryZoomFrame->get_SummaryZoomCollection()->AddSummaryZoomSection(section3);
 
-// Removes section from the Summary Zoom
+// Summary Zoomからセクションを削除
 summaryZoomFrame->get_SummaryZoomCollection()->RemoveSummaryZoomSection(pres->get_Sections()->idx_get(1));
 
-// Saves the presentation
+// プレゼンテーションを保存
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **サマリーズームセクションの書式設定**
+### **Format Summary Zoom Sections**
+より複雑なサマリーズームセクションオブジェクトを作成するには、シンプルなフレームの書式設定を変更する必要があります。サマリーズームセクションオブジェクトに適用できる書式設定オプションはいくつかあります。  
 
-より複雑なサマリーズームセクションオブジェクトを作成するには、シンプルなフレームの書式を変更する必要があります。サマリーズームセクションオブジェクトに適用できる書式オプションはいくつかあります。
+サマリーズームフレーム内のサマリーズームセクションオブジェクトの書式設定を制御する手順は次のとおりです。
 
-サマリーズームフレーム内のサマリーズームセクションオブジェクトの書式を制御する手順:
+1.	[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2.	識別用背景と新しいセクションを持つ新しいスライドを作成します。  
+3.	最初のスライドにサマリーズームフレームを追加します。  
+4.	`ISummaryZoomSectionCollection` から最初のオブジェクトのサマリーズームセクションを取得します。  
+7.	[IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) オブジェクトに関連付けられた images コレクションに画像を追加して、フレームを埋める画像として使用します。  
+8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。  
+9.	リンクされたセクションから元のスライドに戻る機能を設定します。  
+11.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
+12.	トランジションの期間を変更します。  
+13.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-1.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2.	識別用背景と新しいセクションを持つ新規スライドを作成します。
-3.	最初のスライドにサマリーズームフレームを追加します。
-4.	`ISummaryZoomSectionCollection` から最初のオブジェクトのサマリーズームセクションを取得します。
-7.	[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) オブジェクトに関連付けられた images コレクションに画像を追加して、フレームを埋めるための [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) オブジェクトを作成します。
-8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。
-9.	*リンクされたセクションから元のスライドに戻る* 機能を設定します。 
-11.	2 番目のズームフレームオブジェクトの線の書式を変更します。
-12.	トランジションの継続時間を変更します。
-13.	変更したプレゼンテーションを書き出して PPTX ファイルに保存します。
-
-この C++ コードは、サマリーズームセクションオブジェクトの書式を変更する方法を示しています:
+この C++ コードは、サマリーズームセクションオブジェクトの書式設定を変更する方法を示しています。  
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -450,14 +444,14 @@ auto slide0 = pres->get_Slides()->idx_get(0);
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
-// プレゼンテーションに新しいセクションを追加
+// 新しいセクションをプレゼンテーションに追加
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 //プレゼンテーションに新しいスライドを追加
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// プレゼンテーションに新しいセクションを追加
+// 新しいセクションをプレゼンテーションに追加
 pres->get_Sections()->AddSection(u"Section 2", slide);
 
 // SummaryZoomFrame オブジェクトを追加
@@ -486,14 +480,11 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Can I control returning to the 'parent' slide after showing the target?**
+**対象を表示した後に「親」スライドに戻る制御はできますか？**  
+はい。[Zoom frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) または [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) には、対象コンテンツを閲覧した後に元のスライドに戻す `set_ReturnToParent` メソッドがあります。
 
-Yes. The [Zoom frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) has a `set_ReturnToParent` method that sends viewers back to the originating slide after they visit the target content.
+**ズームのトランジションの「速度」や期間を調整できますか？**  
+はい。ズームはトランジション期間を設定できるため、ジャンプ アニメーションの長さを制御できます。
 
-**Can I adjust the 'speed' or duration of the Zoom transition?**
-
-Yes. Zoom supports setting a transition duration so you can control how long the jump animation takes.
-
-**Are there limits on how many Zoom objects a presentation can contain?**
-
-There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.
+**プレゼンテーションに含められるズームオブジェクトの数に制限はありますか？**  
+公式に documented されたハードな API 制限はありません。実際の限界はプレゼンテーション全体の複雑さやビューアのパフォーマンスに依存します。多数のズームフレームを追加できますが、ファイルサイズとレンダリング時間に留意してください。

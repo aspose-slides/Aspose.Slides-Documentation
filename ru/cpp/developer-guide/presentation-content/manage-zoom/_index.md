@@ -1,52 +1,53 @@
 ---
-title: "Управление зумом презентации в C++"
-linktitle: "Управление зумом"
+title: Управление масштабированием презентации в C++
+linktitle: Управление масштабированием
 type: docs
 weight: 60
 url: /ru/cpp/manage-zoom/
 keywords:
-- зум
-- зум-рамка
-- зум слайда
-- зум раздела
-- зум обзора
-- добавить зум
+- масштабирование
+- кадр масштабирования
+- масштабирование слайда
+- масштабирование раздела
+- масштабирование резюме
+- добавить масштабирование
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Создавайте и настраивайте зум с помощью Aspose.Slides для C++ — перемещайтесь между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
+description: "Создавайте и настраивайте масштабирование с помощью Aspose.Slides for C++ — переходите между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
 ---
 
-## **Overview**
-Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
+## **Обзор**
+Zoom в PowerPoint позволяет переходить к определённым слайдам, разделам и частям презентации и обратно. При представлении эта возможность быстро перемещаться по содержимому может оказаться очень полезной. 
 
 ![overview_image](Overview.png)
 
 * Чтобы суммировать всю презентацию на одном слайде, используйте [Summary Zoom](#Summary-Zoom).
-* Чтобы показать только выбранные слайды, используйте [Slide Zoom](#Slide-Zoom).
-* Чтобы показать только один раздел, используйте [Section Zoom](#Section-Zoom).
+* Чтобы показывать только выбранные слайды, используйте [Slide Zoom](#Slide-Zoom).
+* Чтобы показывать только один раздел, используйте [Section Zoom](#Section-Zoom).
 
-## **Slide Zoom**
-Увеличение слайда может сделать вашу презентацию более динамичной, позволяя свободно перемещаться между слайдами в любом выбранном порядке без нарушения плавности презентации. Увеличения слайда отлично подходят для коротких презентаций без множества разделов, но их также можно использовать в разных сценариях.
+## **Zoom слайда**
 
-Увеличения слайда помогают углубляться в несколько блоков информации, создавая ощущение единого холста. 
+Zoom слайда может сделать вашу презентацию более динамичной, позволяя свободно перемещаться между слайдами в любом порядке без прерывания её потока. Zoom слайды отлично подходят для коротких презентаций без множества разделов, но их можно использовать и в других сценариях.
+
+Zoom слайды помогают исследовать несколько блоков информации, будто вы работаете на едином холсте. 
 
 ![overview_image](slidezoomsel.png)
 
-Для объектов увеличения слайда Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) , интерфейс [IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) , а также некоторые методы из интерфейса [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) .
+Для объектов Zoom слайда Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/cpp/aspose.slides/zoomimagetype/), интерфейс [IZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/izoomframe/) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/).
 
-### **Create Zoom Frames**
+### **Создание Zoom Frames**
 
-Вы можете добавить рамку увеличения на слайде следующим образом:
+Вы можете добавить Zoom‑кадр на слайд следующим образом:
 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новые слайды, к которым вы планируете привязать рамки увеличения. 
-3.	Добавьте идентификационный текст и фон к созданным слайдам.
-4.	Добавьте рамки увеличения (содержащие ссылки на созданные слайды) на первый слайд.
-5.	Сохраните изменённую презентацию в виде PPTX-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новые слайды, к которым планируете привязать Zoom‑кадры. 
+3. Добавьте идентификационный текст и фон к созданным слайдам.
+4. Добавьте Zoom‑кадры (с содержащими ссылками на созданные слайды) к первому слайду.
+5. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++ код показывает, как создать рамку увеличения на слайде:
+Этот код C++ показывает, как создать Zoom‑кадр на слайде:
 ``` cpp 
 void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 {
@@ -56,259 +57,229 @@ void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 }
 ```
 
-``` cpp 
+``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Adds new slides to the presentation
 //Добавляет новые слайды в презентацию
 auto slide2 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 auto slide3 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 
-// Creates a background for the second slide
-// Создаёт фон для второго слайда
+//Создает фон для второго слайда
 SetSlideBackground(slide2, Color::get_Cyan());
 
-// Creates a text box for the second slide
-// Создаёт текстовый блок для второго слайда
+//Создает текстовое поле для второго слайда
 auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
-// Creates a background for the third slide
-// Создаёт фон для третьего слайда
+//Создает фон для третьего слайда
 SetSlideBackground(slide3, Color::get_DarkKhaki());
 
-// Create a text box for the third slide
-// Создаёт текстовый блок для третьего слайда
+//Создает текстовое поле для третьего слайда
 autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Trird Slide");
 
-//Adds ZoomFrame objects
 //Добавляет объекты ZoomFrame
 slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
 slide0->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
-// Saves the presentation
+//Сохраняет презентацию
+pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+```
+
+
+### **Создание Zoom Frames с пользовательскими изображениями**
+
+С помощью Aspose.Slides for C++ вы можете создать Zoom‑кадр с другим изображением предварительного просмотра слайда следующим образом: 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новый слайд, к которому планируете привязать Zoom‑кадр. 
+3. Добавьте идентификационный текст и фон к слайду.
+4. Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), которое будет использовано для заполнения кадра.
+5. Добавьте Zoom‑кадры (с ссылкой на созданный слайд) к первому слайду.
+6. Запишите изменённую презентацию в файл PPTX.
+
+Этот код C++ показывает, как создать Zoom‑кадр с другим изображением:
+``` cpp
+auto pres = System::MakeObject<Presentation>();
+auto slide0 = pres->get_Slides()->idx_get(0);
+
+//Добавляет новый слайд в презентацию
+auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
+
+// Создаёт фон для второго слайда
+SetSlideBackground(slide, Color::get_Cyan());
+
+// Создаёт текстовое поле для третьего слайда
+auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
+autoshape->get_TextFrame()->set_Text(u"Second Slide");
+
+// Создаёт новое изображение для объекта Zoom
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
+
+//Добавляет объект ZoomFrame
+slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
+
 // Сохраняет презентацию
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Create Zoom Frames with Custom Images**
-С помощью Aspose.Slides для C++ вы можете создать рамку увеличения с другим изображением предварительного просмотра слайда следующим образом: 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новый слайд, к которому вы планируете привязать рамку увеличения. 
-3.	Добавьте идентификационный текст и фон к слайду.
-4.	Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) , добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) , которое будет использоваться для заполнения рамки.
-5.	Добавьте рамки увеличения (содержащие ссылку на созданный слайд) на первый слайд.
-6.	Сохраните изменённую презентацию в виде PPTX-файла.
+### **Форматирование Zoom Frames**
 
-Этот C++ код показывает, как создать рамку увеличения с другим изображением:
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+В предыдущих разделах мы показывали, как создать простые Zoom‑кадры. Чтобы создать более сложные Zoom‑кадры, необходимо изменить их форматирование. Существует несколько вариантов форматирования, которые можно применить к Zoom‑кадру. 
 
-//Adds a new slide to the presentation
-//Добавляет новый слайд в презентацию
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
+Вы можете управлять форматированием Zoom‑кадра на слайде следующим образом:
 
-// Creates a background for the second slide
-//Создаёт фон для второго слайда
-SetSlideBackground(slide, Color::get_Cyan());
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новые слайды, к которым планируете привязать Zoom‑кадр. 
+3. Добавьте некоторый идентификационный текст и фон к созданным слайдам.
+4. Добавьте Zoom‑кадры (с содержащими ссылки на созданные слайды) к первому слайду.
+5. Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), которое будет использовано для заполнения кадра.
+6. Установите пользовательское изображение для первого объекта Zoom‑кадра.
+7. Измените формат линии для второго объекта Zoom‑кадра.
+8. Удалите фон у изображения второго объекта Zoom‑кадра.
+5. Запишите изменённую презентацию в файл PPTX.
 
-// Creates a text box for the third slide
-//Создаёт текстовый блок для третьего слайда
-auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Second Slide");
-
-// Creates a new image for the zoom object
-//Создаёт новое изображение для объекта увеличения
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-
-//Adds the ZoomFrame object
-//Добавляет объект ZoomFrame
-slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
-
-// Saves the presentation
-//Сохраняет презентацию
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
-```
-
-
-### **Format Zoom Frames**
-В предыдущих разделах мы показали, как создать простые рамки увеличения. Чтобы создать более сложные рамки увеличения, необходимо изменить форматирование простой рамки. Существует несколько вариантов форматирования, которые можно применить к рамке увеличения. 
-
-Вы можете управлять форматированием рамки увеличения на слайде следующим образом:
-
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новые слайды, к которым вы хотите привязать рамку увеличения. 
-3.	Добавьте некоторый идентификационный текст и фон к созданным слайдам.
-4.	Добавьте рамки увеличения (содержащие ссылки на созданные слайды) на первый слайд.
-5.	Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) , добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) , которое будет использоваться для заполнения рамки.
-6.	Установите пользовательское изображение для первого объекта рамки увеличения.
-7.	Измените формат линии для второго объекта рамки увеличения.
-8.	Удалите фон из изображения второго объекта рамки увеличения.
-9.	Сохраните изменённую презентацию в виде PPTX-файла.
-
-Этот C++ код показывает, как изменить форматирование рамки увеличения на слайде: 
-``` cpp 
+Этот код C++ показывает, как изменить форматирование Zoom‑кадра на слайде: 
+``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide1 = pres->get_Slides()->idx_get(0);
-//Adds new slides to the presentation
+//Добавляет новые слайды в презентацию
 auto slide2 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
 auto slide3 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
 
-// Creates a background for the second slide
-//Создаёт фон для второго слайда
+// Создаёт фон для второго слайда
 SetSlideBackground(slide2, Color::get_Cyan());
 
-// Creates a text box for the second slide
-//Создаёт текстовый блок для второго слайда
+// Создаёт текстовое поле для второго слайда
 auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
-// Creates a background for the third slide
-//Создаёт фон для третьего слайда
+// Создаёт фон для третьего слайда
 SetSlideBackground(slide3, Color::get_DarkKhaki());
 
-// Creates a text box for the third slide
-//Создаёт текстовый блок для третьего слайда
+// Создаёт текстовое поле для третьего слайда
 autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Trird Slide");
 
-//Adds ZoomFrame objects
 //Добавляет объекты ZoomFrame
 auto zoomFrame1 = slide1->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
 auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
-// Creates a new image for the zoom object
-//Создаёт новое изображение для объекта zoom
+// Создаёт новое изображение для объекта zoom
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-// Sets custom image for zoomFrame1 object
-//Устанавливает пользовательское изображение для объекта zoomFrame1
+// Устанавливает пользовательское изображение для объекта zoomFrame1
 zoomFrame1->set_Image(image);
 
-// Sets a zoom frame format for the zoomFrame2 object
-//Устанавливает формат рамки увеличения для объекта zoomFrame2
+// Устанавливает формат рамки зума для объекта zoomFrame2
 zoomFrame2->get_LineFormat()->set_Width(5);
 zoomFrame2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 zoomFrame2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_HotPink());
 zoomFrame2->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
 
-// Setting for Do not show background for zoomFrame2 object
-//Настройка: не показывать фон для объекта zoomFrame2
+// Настройка: не показывать фон для объекта zoomFrame2
 zoomFrame2->set_ShowBackground(false);
 
-// Saves the presentation
-//Сохраняет презентацию
+// Сохраняет презентацию
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
 ## **Section Zoom**
 
-Увеличение раздела — это ссылка на раздел вашей презентации. Вы можете использовать увеличения разделов, чтобы возвращаться к разделам, которые хотите особо подчеркнуть. Или использовать их, чтобы выделить, как определённые части вашей презентации связаны друг с другом. 
+Section Zoom — это ссылка на раздел в вашей презентации. Вы можете использовать Section Zoom, чтобы возвращаться к разделам, которые хотите особенно подчеркнуть, или чтобы показать, как отдельные части презентации связаны друг с другом. 
 
 ![overview_image](seczoomsel.png)
 
-Для объектов увеличения раздела Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) , а также некоторые методы из интерфейса [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) .
+Для объектов Section Zoom Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isectionzoomframe/) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/).
 
-### **Create Section Zoom Frames**
+### **Создание Section Zoom Frames**
 
-Вы можете добавить рамку увеличения раздела на слайд следующим образом:
+Вы можете добавить Section Zoom‑кадр на слайд следующим образом:
 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новый слайд. 
-3.	Добавьте идентификационный фон к созданному слайду.
-4.	Создайте новый раздел, к которому вы планируете привязать рамку увеличения. 
-5.	Добавьте рамку увеличения раздела (содержащую ссылки на созданный раздел) на первый слайд.
-6.	Сохраните изменённую презентацию в виде PPTX-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новый слайд. 
+3. Добавьте идентификационный фон к созданному слайду.
+4. Создайте новый раздел, к которому планируете привязать Zoom‑кадр. 
+5. Добавьте Section Zoom‑кадр (с ссылками на созданный раздел) к первому слайду.
+6. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++ код показывает, как создать рамку увеличения на слайде:
+Этот код C++ показывает, как создать Zoom‑кадр на слайде:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Adds a new slide to the presentation
 //Добавляет новый слайд в презентацию
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// Adds a new Section to the presentation
 // Добавляет новый раздел в презентацию
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Adds a SectionZoomFrame object
 // Добавляет объект SectionZoomFrame
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1));
 
-// Saves the presentation
 // Сохраняет презентацию
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Create Section Zoom Frames with Custom Images**
+### **Создание Section Zoom Frames с пользовательскими изображениями**
 
-С помощью Aspose.Slides для C++ вы можете создать рамку увеличения раздела с другим изображением предварительного просмотра слайда следующим образом: 
+С помощью Aspose.Slides for C++ вы можете создать Section Zoom‑кадр с другим изображением предварительного просмотра слайда следующим образом: 
 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новый слайд.
-3.	Добавьте идентификационный фон к созданному слайду.
-4.	Создайте новый раздел, к которому вы планируете привязать рамку увеличения. 
-5.	Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) , добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) , которое будет использоваться для заполнения рамки.
-6.	Добавьте рамку увеличения раздела (содержащую ссылку на созданный раздел) на первый слайд.
-7.	Сохраните изменённую презентацию в виде PPTX-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новый слайд.
+3. Добавьте идентификационный фон к созданному слайду.
+4. Создайте новый раздел, к которому планируете привязать Zoom‑кадр. 
+5. Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), которое будет использовано для заполнения кадра.
+5. Добавьте Section Zoom‑кадр (с ссылкой на созданный раздел) к первому слайду.
+6. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++ код показывает, как создать рамку увеличения с другим изображением:
+Этот код C++ показывает, как создать Zoom‑кадр с другим изображением:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Adds new slide to the presentation
 //Добавляет новый слайд в презентацию
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
 // Adds a new Section to the presentation
-// Добавляет новый раздел в презентацию
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Creates a new image for the zoom object
-// Создаёт новое изображение для объекта увеличения
+// Создает новое изображение для объекта zoom
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 
 // Adds SectionZoomFrame object
-// Добавляет объект SectionZoomFrame
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1), image);
 
 // Saves the presentation
-// Сохраняет презентацию
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Format Section Zoom Frames**
+### **Форматирование Section Zoom Frames**
 
-Чтобы создать более сложные рамки увеличения раздела, необходимо изменить форматирование простой рамки. Существует несколько вариантов форматирования, которые можно применить к рамке увеличения раздела. 
+Чтобы создать более сложные Section Zoom‑кадры, необходимо изменить их форматирование. Существует несколько вариантов форматирования, которые можно применить к Section Zoom‑кадру. 
 
-Вы можете управлять форматированием рамки увеличения раздела на слайде следующим образом:
+Вы можете управлять форматированием Section Zoom‑кадра на слайде следующим образом:
 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новый слайд.
-3.	Добавьте идентификационный фон к созданному слайду.
-4.	Создайте новый раздел, к которому вы планируете привязать рамку увеличения. 
-5.	Добавьте рамку увеличения раздела (содержащую ссылки на созданный раздел) на первый слайд.
-6.	Измените размер и позицию созданного объекта увеличения раздела.
-7.	Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) , добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) , которое будет использоваться для заполнения рамки.
-8.	Установите пользовательское изображение для созданного объекта рамки увеличения раздела.
-9.	Установите возможность *возврата к исходному слайду из связанного раздела*.
-10.	Удалите фон из изображения объекта рамки увеличения раздела.
-11.	Измените формат линии для второго объекта рамки увеличения.
-12.	Измените длительность перехода.
-13.	Сохраните изменённую презентацию в виде PPTX-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новый слайд.
+3. Добавьте идентификационный фон к созданному слайду.
+4. Создайте новый раздел, к которому планируете привязать Zoom‑кадр. 
+5. Добавьте Section Zoom‑кадр (с ссылками на созданный раздел) к первому слайду.
+6. Измените размер и положение созданного объекта Section Zoom.
+7. Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), которое будет использовано для заполнения кадра.
+8. Установите пользовательское изображение для созданного Section Zoom‑кадра.
+9. Установите возможность *возврата к оригинальному слайду из связанного раздела*. 
+10. Удалите фон у изображения объекта Section Zoom‑кадра.
+11. Измените формат линии для второго Zoom‑кадра.
+12. Измените длительность перехода.
+13. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++ код показывает, как изменить форматирование рамки увеличения раздела:
+Этот код C++ показывает, как изменить форматирование Section Zoom‑кадра:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -323,7 +294,7 @@ pres->get_Sections()->AddSection(u"Section 1", slide);
 // Добавляет объект SectionZoomFrame
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1));
 
-// Форматирование SectionZoomFrame
+// Форматирование для SectionZoomFrame
 sectionZoomFrame->set_X(100.0f);
 sectionZoomFrame->set_Y(300.0f);
 sectionZoomFrame->set_Width(100.0f);
@@ -348,25 +319,24 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-
 ## **Summary Zoom**
 
-Обзорное увеличение — это своего рода стартовая страница, на которой отображаются все части вашей презентации одновременно. При демонстрации вы можете использовать увеличение, чтобы переходить от одного места к другому в произвольном порядке. Вы можете проявлять креативность, перескакивать вперёд или возвращаться к частям слайд‑шоу, не прерывая его поток. 
+Summary Zoom — это как целевая страница, на которой одновременно отображаются все части вашей презентации. При представлении вы можете использовать Zoom, чтобы перемещаться от одного места к другому в любом порядке, проявляя креативность, пропуская части или возвращаясь к предыдущим слайдам без нарушения потока презентации.
 
 ![overview_image](sumzoomsel.png)
 
-Для объектов обзорного увеличения Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section), и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) , а также некоторые методы из интерфейса [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) .
+Для объектов Summary Zoom Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/), а также некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/).
 
-### **Create Summary Zoom**
+### **Создание Summary Zoom**
 
-Вы можете добавить рамку обзорного увеличения на слайд следующим образом:
+Вы можете добавить Summary Zoom‑кадр на слайд следующим образом:
 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новые слайды с идентификационным фоном и новыми разделами для созданных слайдов.
-3.	Добавьте рамку обзорного увеличения на первый слайд.
-4.	Сохраните изменённую презентацию в виде PPTX-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новые слайды с идентификационным фоном и новые разделы для созданных слайдов.
+3. Добавьте Summary Zoom‑кадр к первому слайду.
+4. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++ код показывает, как создать рамку обзорного увеличения на слайде:
+Этот код C++ показывает, как создать Summary Zoom‑кадр на слайде:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -407,31 +377,31 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Add and Remove a Summary Zoom Section**
+### **Добавление и удаление раздела Summary Zoom**
 
-Все разделы в рамке обзорного увеличения представлены объектами [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) . Вы можете добавить или удалить объект раздела обзорного увеличения через интерфейс [ISummaryZoomSectionCollection] следующим образом:
+Все разделы в Summary Zoom‑кадре представлены объектами [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/). Вы можете добавить или удалить объект раздела Summary Zoom через интерфейс [ISummaryZoomSectionCollection] следующим образом:
 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новые слайды с идентификационным фоном и новыми разделами для созданных слайдов.
-3.	Добавьте рамку обзорного увеличения в первый слайд.
-4.	Добавьте новый слайд и раздел в презентацию.
-5.	Добавьте созданный раздел в рамку обзорного увеличения.
-6.	Удалите первый раздел из рамки обзорного увеличения.
-7.	Сохраните изменённую презентацию в виде PPTX-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новые слайды с идентификационным фоном и новые разделы для созданных слайдов.
+3. Добавьте Summary Zoom‑кадр в первый слайд.
+4. Добавьте новый слайд и раздел в презентацию.
+5. Добавьте созданный раздел в Summary Zoom‑кадр.
+6. Удалите первый раздел из Summary Zoom‑кадра.
+7. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++ код показывает, как добавить и удалить разделы в рамке обзорного увеличения:
+Этот код C++ показывает, как добавить и удалить разделы в Summary Zoom‑кадре:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Добавляет новый слайд в презентацию
+// Добавляет новый слайд в презентацию
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
 // Добавляет новый раздел в презентацию
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-//Добавляет новый слайд в презентацию
+// Добавляет новый слайд в презентацию
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
@@ -441,7 +411,7 @@ pres->get_Sections()->AddSection(u"Section 2", slide);
 // Добавляет объект SummaryZoomFrame
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
-//Добавляет новый слайд в презентацию
+// Добавляет новый слайд в презентацию
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Chartreuse());
 
@@ -459,56 +429,43 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Format Summary Zoom Sections**
+### **Форматирование разделов Summary Zoom**
 
-Чтобы создать более сложные объекты разделов обзорного увеличения, необходимо изменить форматирование простой рамки. Существует несколько вариантов форматирования, которые можно применить к объекту раздела обзорного увеличения. 
+Чтобы создать более сложные объекты разделов Summary Zoom, необходимо изменить их форматирование. Существует несколько вариантов форматирования, которые можно применить к объекту раздела Summary Zoom. 
 
-Вы можете контролировать форматирование объекта раздела обзорного увеличения в рамке обзорного увеличения следующим образом:
+Вы можете управлять форматированием объекта раздела Summary Zoom в Summary Zoom‑кадре следующим образом:
 
-1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Создайте новые слайды с идентификационным фоном и новыми разделами для созданных слайдов.
-3.	Добавьте рамку обзорного увеличения в первый слайд.
-4.	Получите объект раздела обзорного увеличения для первого объекта из `ISummaryZoomSectionCollection` .
-7.	Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) , добавив изображение в коллекцию images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) , которое будет использоваться для заполнения рамки.
-8.	Установите пользовательское изображение для созданного объекта рамки увеличения раздела.
-9.	Установите возможность *возврата к исходному слайду из связанного раздела* .
-11.	Измените формат линии для второго объекта рамки увеличения.
-12.	Измените длительность перехода.
-13.	Сохраните изменённую презентацию в виде PPTX-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Создайте новые слайды с идентификационным фоном и новые разделы для созданных слайдов.
+3. Добавьте Summary Zoom‑кадр к первому слайду.
+4. Получите объект раздела Summary Zoom из `ISummaryZoomSectionCollection` для первого элемента.
+7. Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/), добавив изображение в коллекцию images, связанную с объектом [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), которое будет использовано для заполнения кадра.
+8. Установите пользовательское изображение для созданного объекта раздела Zoom.
+9. Установите возможность *возврата к оригинальному слайду из связанного раздела*. 
+11. Измените формат линии для второго Zoom‑кадра.
+12. Измените длительность перехода.
+13. Запишите изменённую презентацию в файл PPTX.
 
-Этот C++ код показывает, как изменить форматирование объекта раздела обзорного увеличения:
+Этот код C++ показывает, как изменить форматирование объекта раздела Summary Zoom:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
 //Adds a new slide to the presentation
-//Добавляет новый слайд в презентацию
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Brown());
-
-// Adds a new section to the presentation
 // Добавляет новый раздел в презентацию
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 //Adds a new slide to the presentation
-//Добавляет новый слайд в презентацию
-slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Aqua());
-
 // Adds a new section to the presentation
-// Добавляет новый раздел в презентацию
 pres->get_Sections()->AddSection(u"Section 2", slide);
 
 // Adds a SummaryZoomFrame object
-// Добавляет объект SummaryZoomFrame
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
 // Gets the first SummaryZoomSection object
-// Получает первый объект SummaryZoomSection
 auto summarySection = summaryZoomFrame->get_SummaryZoomCollection()->idx_get(0);
 
 // Formatting for SummaryZoomSection object
-// Форматирование объекта SummaryZoomSection
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 summarySection->set_Image(image);
 
@@ -522,7 +479,6 @@ summarySection->get_LineFormat()->set_Width(1.5f);
 summarySection->set_TransitionDuration(1.5f);
 
 // Saves the presentation
-// Сохраняет презентацию
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
@@ -531,12 +487,12 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 **Могу ли я контролировать возврат к «родительскому» слайду после показа цели?**
 
-Да. У [Zoom frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) или у [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) есть метод `set_ReturnToParent`, который возвращает зрителей к исходному слайду после посещения целевого содержания.
+Да. У объекта [Zoom frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) или [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) есть метод `set_ReturnToParent`, который возвращает зрителя к исходному слайду после просмотра целевого содержимого.
 
-**Могу ли я настроить «скорость» или длительность перехода Zoom?**
+**Можно ли регулировать «скорость» или длительность перехода Zoom?**
 
-Да. Zoom поддерживает настройку длительности перехода, что позволяет контролировать, сколько времени занимает анимация перехода.
+Да. Zoom поддерживает установку длительности перехода, что позволяет контролировать, как долго длится анимация прыжка.
 
-**Существуют ли ограничения на количество объектов Zoom, которые может содержать презентация?**
+**Есть ли ограничения на количество объектов Zoom в презентации?**
 
-Твёрдого ограничения API не задокументировано. Практические ограничения зависят от общей сложности презентации и производительности устройства просмотра. Вы можете добавить много рамок Zoom, но следует учитывать размер файла и время рендеринга.
+Жёсткого ограничения API не задокументировано. Практические ограничения зависят от сложности презентации и производительности устройства просмотра. Можно добавить много Zoom‑кадров, но следует учитывать размер файла и время рендеринга.

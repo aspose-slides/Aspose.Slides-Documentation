@@ -7,58 +7,57 @@ url: /es/cpp/different-file-formats-and-conversions/
 
 ## **Microsoft PowerPoint (PPT)**
 ### **Acerca de PPT**
-[PPT](https://es.wikipedia.org/wiki/Microsoft_PowerPoint) es el formato de archivo de documento de presentación que puede ser creado, leído, manipulado y escrito por diferentes versiones de Microsoft PowerPoint. Este es el formato binario para documentos de presentación desarrollado por Microsoft.
-### **PPT en Aspose.Slides para C++**
-Aspose.Slides para C++ puede leer archivos PPT creados por el software listado a continuación.
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) es el formato de archivo de documento de presentación que puede ser creado, leído, manipulado y escrito por diferentes versiones de Microsoft PowerPoint. Este es el formato binario para documentos de presentación desarrollado por Microsoft.
+### **PPT en Aspose.Slides for C++**
+Aspose.Slides for C++ puede leer archivos PPT creados por el software enumerado a continuación.
 
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
 - Microsoft PowerPoint 2003
 
-De manera similar, los archivos PPT creados por Aspose.Slides para C++ pueden ser leídos por el conjunto de software anterior.
+De manera similar, los archivos PPT creados por Aspose.Slides for C++ pueden ser leídos por el conjunto de software anterior.
 ### **Soporte integral para PPT**
-Aspose.Slides para C++ proporciona soporte para casi todas las características relacionadas con el formato de archivo de documento PPT. No solo cubre las características básicas / avanzadas proporcionadas por diferentes versiones de Microsoft PowerPoint para la manipulación de documentos PPT, sino también algunas características que ni siquiera son compatibles con Microsoft PowerPoint. La principal ventaja de usar la biblioteca de la API de Aspose.Slides para C++ es la facilidad de uso para manejar tales características.
+Aspose.Slides for C++ ofrece soporte para casi todas las características relacionadas con el formato de archivo de documento PPT. No sólo cubre las funciones básicas/avanzadas proporcionadas por diferentes versiones de Microsoft PowerPoint para la manipulación de documentos PPT, sino también algunas funcionalidades que ni siquiera son compatibles con Microsoft PowerPoint. La principal ventaja de usar la biblioteca API de Aspose.Slides for C++ es la facilidad de uso para manejar dichas funciones.
 
-Además de las tareas básicas relacionadas con la creación, lectura y escritura de archivos de documentos PPT, hay varias características que son proporcionadas por Aspose.Slides para C++ como:
+Además de las tareas básicas relacionadas con crear, leer y escribir archivos de documentos PPT, hay varias características que ofrece Aspose.Slides for C++ como:
 
-- Importar otros formatos de archivo de MS Office como OLE Objects en documentos PPT.
+- Importar otros formatos de archivo MS Office como objetos OLE en documentos PPT.
 - Exportar documentos PPT a formatos PDF, TIFF, XPS.
 - Exportar diapositivas en los documentos PPT a formatos SVG.
-- Renderizar diapositivas a cualquier formato de imagen soportado por el Framework C++.
+- Renderizar diapositiva a cualquier formato de imagen compatible con el Framework C++.
 - Establecer el tamaño de las diapositivas en el documento PPT.
 - Gestionar animaciones en formas.
-- Gestionar presentaciones.
-- Formatear texto en las diapositivas.
+- Gestionar presentaciones de diapositivas.
+- Formatear texto en diapositivas.
 - Escanear texto de los documentos PPT.
-- Manejar tablas en las diapositivas.
-- Copia automática de maestros utilizando la característica de clonación.
+- Manipular tablas en diapositivas.
+- Copia automática de masters mediante la función de clonación.
 
-Un archivo PPT generado por Aspose.Slides para C++ y abierto en Microsoft PowerPoint
+Un archivo PPT generado por Aspose.Slides for C++ y abierto en Microsoft PowerPoint
 ## **PresentationML (PPTX, XML)**
 ### **Acerca de PresentationML**
-PresentationML es un nombre para una familia de formatos basados en XML para documentos de presentación. Office OpenXML (OOXML) es el formato basado en XML introducido en las aplicaciones de Microsoft Office 2007. Office OpenXML es un formato de contenedor para varios lenguajes de marcado especializados basados en XML. PresentationML es el lenguaje de marcado utilizado por Microsoft Office PowerPoint 2007 para almacenar sus documentos.
-### **PresentationML en Aspose.Slides para C++**
-Los documentos OOXML PresentationML vienen como archivos PPTX que son paquetes XML comprimidos que siguen las especificaciones de [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/). Aspose.Slides para C++ ofrece un amplio soporte para crear, leer, manipular y escribir documentos PresentationML. Además, Aspose.Slides para C++ es capaz de exportar documentos PresentationML a diferentes formatos de documento ampliamente utilizados como PDF, TIFF y XPS. Esto es posible porque Aspose.Slides para C++ fue diseñado con el objetivo de manejar de manera integral documentos de presentación y PresentationML básicamente mantiene la presentación interna de los documentos como un paquete XML comprimido.
+PresentationML es el nombre de una familia de formatos basados en XML para documentos de presentación. Office OpenXML (OOXML) es el formato basado en XML introducido en las aplicaciones de Microsoft Office 2007. Office OpenXML es un formato contenedor para varios lenguajes de marcado basados en XML especializados. PresentationML es el lenguaje de marcado utilizado por Microsoft Office PowerPoint 2007 para almacenar sus documentos.
+### **PresentationML en Aspose.Slides for C++**
+Los documentos OOXML PresentationML aparecen como archivos PPTX que son paquetes XML comprimidos siguiendo las especificaciones [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/). Aspose.Slides for C++ soporta extensamente la creación, lectura, manipulación y escritura de documentos PresentationML. Además, Aspose.Slides for C++ es capaz de exportar documentos PresentationML a diferentes formatos de documento ampliamente usados como PDF, TIFF y XPS. Esto es posible porque Aspose.Slides for C++ fue diseñado con el objetivo de gestionar de forma integral los documentos de presentación y PresentationML básicamente contiene la presentación interna de los documentos como paquetes XML comprimidos.
 
-Un documento PPTX generado por Aspose.Slides para C++ y abierto en Microsoft PowerPoint
+Un documento PPTX generado por Aspose.Slides for C++ y abierto en Microsoft PowerPoint
 
-Visualización de un documento PPTX generado por Aspose.Slides para C++ en una aplicación Zip
-### **PresentationML es abierto, ¿por qué usar Aspose.Slides para C++?**
-Dado que PresentationML es basado en XML, es bastante posible construir aplicaciones para el procesamiento y generación de documentos PresentationML utilizando clases XML sin depender de bibliotecas de clases de terceros como Aspose.Slides para C++. Sin embargo, hay varias ventajas de usar Aspose.Slides para C++ sobre las clases XML al trabajar con documentos PresentationML.
+Visualizando documento PPTX generado por Aspose.Slides for C++ en aplicación Zip
+### **PresentationML es abierto, ¿por qué usar Aspose.Slides for C++**
+Dado que PresentationML está basado en XML, es perfectamente posible crear aplicaciones para procesar y generar documentos PresentationML usando clases XML sin depender de bibliotecas de clases de terceros como Aspose.Slides for C++. Sin embargo, existen varias ventajas de usar Aspose.Slides for C++ sobre las clases XML al trabajar con documentos PresentationML.
 
-La especificación de OOXML es demasiado larga, con varios miles de páginas. Esto significa que, para manejar adecuadamente los documentos PresentationML, tendrá que gastar mucho tiempo y esfuerzo para comprender el formato de tales documentos. Por otro lado, al usar Aspose.Slides para C++, simplemente debe usar las clases relevantes y sus respectivos métodos / propiedades para realizar operaciones que parecen bastante complejas si se realizan a través de clases XML.
+La especificación OOXML tiene varias miles de páginas. Esto significa que, para manejar adecuadamente los documentos PresentationML, tendrás que invertir mucho tiempo y esfuerzo en comprender el formato de dichos documentos. Por otro lado, al usar Aspose.Slides for C++, simplemente utilizas las clases relevantes y sus respectivos métodos/propiedades para realizar operaciones que parecen bastante complejas si se llevan a cabo mediante clases XML.
 
-Las siguientes son algunas de las características que incluso no están disponibles al tratar con documentos PresentationML a través de clases XML:
+A continuación se enumeran algunas de las funcionalidades que ni siquiera están disponibles al tratar documentos PresentationML mediante clases XML:
 
 - Exportar documentos PPT a formatos PDF, TIFF, XPS
 - Exportar diapositivas en los documentos PPT a formatos SVG
-- Renderizar diapositivas a cualquier formato de imagen soportado por el Framework C++
-- Copia automática de maestros de presentaciones fuente utilizando la característica de clonación
-- Aplicar protección a las formas
+- Renderizar diapositiva a cualquier formato de imagen compatible con el Framework C++
+- Copia automática de masters de presentaciones origen mediante la función de clonación
+- Aplicar protección a formas
 
-Tomemos un ejemplo de un documento PresentationML que tiene una única diapositiva con un cuadro de texto que contiene el texto "Hello World". Para leer el texto a través de clases XML, deberá escribir un programa que pueda analizar este texto simple del siguiente fragmento:
-
+Tomemos como ejemplo un documento PresentationML que contiene una sola diapositiva con un cuadro de texto que incluye el texto “Hello World”. Para leer el texto mediante clases XML, tendrás que escribir un programa que pueda analizar este texto sencillo a partir del siguiente fragmento:
 ``` cpp
 
  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -164,57 +163,58 @@ Tomemos un ejemplo de un documento PresentationML que tiene una única diapositi
 </p:sld>
 
 ```
+
 ## **Conversión de PPT a PPTX**
 ### **Acerca de la conversión**
-Aspose.Slides ahora también soporta convertir PPT a PPTX.
-### **Características soportadas en la conversión**
-Aspose.Slides para C++ proporciona soporte parcial para convertir presentaciones del formato de archivo de documento PPT a presentaciones del formato de archivo PPTX. Dado que el soporte para la característica de conversión de presentación mencionada acaba de ser introducido en Aspose.Slides para C++, por el momento tiene capacidades limitadas y solo funciona para la forma simple de presentaciones. La principal ventaja que proporciona la biblioteca de la API de Aspose.Slides para C++ para convertir presentaciones de PPT a formato PPTX es la facilidad de uso de la API para alcanzar el objetivo deseado. Por favor, proceda a este [enlace]() a la sección de fragmentos de código para más detalles. La siguiente sección ilustra claramente qué características son soportadas y no soportadas al convertir presentaciones del formato PPT a presentaciones del formato PPTX.
-### **Características soportadas**
-Las siguientes características están soportadas durante la conversión:
+Aspose.Slides ahora también admite la conversión de PPT a PPTX.
+### **Funciones compatibles en la conversión**
+Aspose.Slides for C++ proporciona soporte parcial para convertir presentaciones en formato de archivo PPT a presentaciones en formato PPTX. Como la compatibilidad con la característica de conversión de presentaciones acaba de introducirse en Aspose.Slides for C++, en este momento tiene una capacidad limitada y solo funciona para formas simples de presentaciones. La principal ventaja que la biblioteca API de Aspose.Slides for C++ ofrece para convertir presentaciones PPT al formato PPTX es la facilidad de uso de la API para lograr el objetivo deseado. Por favor, diríjase a this[link]() para la sección de fragmentos de código para obtener más detalles. La siguiente sección ilustra claramente qué funciones son compatibles y cuáles no al convertir presentaciones en formato PPT a presentaciones en formato PPTX.
+### **Funciones compatibles**
+Las siguientes funciones son compatibles durante la conversión:
 
-- Conversión de la estructura de maestros, diseños y diapositivas
+- Conversión de la estructura de masters, diseños y diapositivas
+- Conversión de la estructura de masters, diseños y diapositivas
 - Conversión de gráficos
 - Agrupar formas
-- Conversión de auto-formas, incluyendo Rectángulos y Elipses. Sin embargo, es posible que las auto-formas tengan valores de ajustes incorrectos
-- Formas con geometría personalizada. A veces pueden no ser convertidas
-- Estilos de relleno de Texturas y Imágenes para auto-formas. A veces pueden no ser convertidas
-- Conversión de marcadores de posición
-- Conversión de texto en marcos de texto y titulares de texto. Sin embargo, los viñetas, alineación y tabulaciones no están completamente implementadas
-### **Características no soportadas**
-Las siguientes características no están soportadas durante la conversión:
+- Conversión de Autoformas, incluidas Rectángulos y Elipses. Sin embargo, es posible que las Autoformas tengan valores de ajustes incorrectos
+- Formas con geometría personalizada. A veces pueden no convertirse
+- Estilo de relleno de Texturas e Imágenes para Autoformas. A veces pueden no convertirse
+- Conversión de Marcadores de posición
+- Conversión de texto en marcos de texto y contenedores de texto. Sin embargo, viñetas, alineación y tabulaciones no están implementadas completamente
+### **Funciones no compatibles**
+Las siguientes funciones no son compatibles durante la conversión:
 
-- Diapositiva con notas ya que leer las notas no está implementado en PPTX. En caso de que PPT las tenga, no se puede guardar como PPTX
-- Conversión de Líneas y Polilíneas
+- Diapositiva con notas, ya que la lectura de notas no está implementada en PPTX. En caso de que PPT la contenga, aún no puede guardarse como PPTX* Conversión de Líneas y Polilíneas
 - Formatos de línea y relleno
 - Estilos de relleno degradado
-- Marcos OLE, Tablas, Marcos de Video y Audio, etc.
-- La animación y otras propiedades de la presentación se omiten
-  Nuevas características o faltantes se agregarán posteriormente en las próximas versiones de Aspose.Slides para C++.
+- Marcos OLE, Tablas, Vídeo y Marcos de audio, etc.
+- Animación y otras propiedades de la presentación se omiten
+  Nuevas o faltantes funciones se añadirán posteriormente en próximas versiones de Aspose.Slides for C++.
 
-Presentación PPT de origen
+Presentación PPT origen
 
 Presentación PPTX convertida
-## **Formato de Documento Portátil (PDF)**
-### **Acerca de PDF**
-El [Formato de Documento Portátil](https://es.wikipedia.org/wiki/PDF) es un formato de archivo que fue creado por Adobe System para el intercambio de documentos entre diferentes organizaciones. El propósito de este formato era hacer posible que el contenido de los documentos pudiera ser representado de tal manera que su apariencia visual no dependiera de la plataforma en la que se estuviera viendo.
-### **PDF en Aspose.Slides para C++**
-Cualquier documento de presentación que puede ser cargado en Aspose.Slides para C++ puede ser convertido a documento PDF que puede ajustarse a [PDF 1.5](https://es.wikipedia.org/wiki/PDF/A) o [PDF /A-1b](https://es.wikipedia.org/wiki/PDF/A) según su elección. Aspose.Slides para C++ exporta los documentos de presentación a PDF de tal manera que la mayoría de las veces, el documento PDF exportado se ve casi similar al documento de presentación original. La solución de Aspose admite las siguientes características de los documentos de presentación al convertir a documentos PDF:
+## **Formato de documento portátil (PDF)**
+### **Acerca del PDF**
+El [Formato de Documento Portátil](https://en.wikipedia.org/wiki/PDF) es un formato de archivo creado por Adobe System para el intercambio de documentos entre diferentes organizaciones. El propósito de este formato era permitir que el contenido de los documentos pudiera representarse de manera que su apariencia visual no dependiera de la plataforma en la que se visualiza.
+### **PDF en Aspose.Slides for C++**
+Cualquier documento de presentación que pueda cargarse en Aspose.Slides for C++ puede convertirse a documento PDF que puede ajustarse a [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A) o [PDF /A-1b](https://en.wikipedia.org/wiki/PDF/A) según tu elección. Aspose.Slides for C++ exporta los documentos de presentación a PDF de tal forma que, la mayor parte del tiempo, el documento PDF exportado se asemeja mucho al documento de presentación original. La solución Aspose admite las siguientes funciones de los documentos de presentación al convertir a documentos PDF:
 
 - Imágenes, Cuadros de texto y otras Formas
-- Texto y Formateo
-- Párrafos y Formateo
+- Texto y Formato
+- Párrafos y Formato
 - Hipervínculos
-- Encabezados y Pies de página
+- Encabezados y pies de página
 - Viñetas
 - Tablas
 
-Puede exportar los documentos de presentación a documentos PDF directamente utilizando solo el componente de Aspose.Slides para C++. Es decir, no necesita ningún otro componente de terceros o Aspose.Pdf para este propósito. Además, puede personalizar la exportación de la presentación a PDF con diferentes opciones como se explica en [este tema](/slides/es/cpp/converting-presentation-to-pdf/).
+Puedes exportar los documentos de presentación a PDF directamente usando solo el componente Aspose.Slides for C++. Es decir, no necesitas ningún otro tercero ni el componente Aspose.Pdf para este fin. Además, puedes personalizar la exportación de presentación a PDF con diferentes opciones como se explica en [este tema](/slides/es/cpp/convert-powerpoint-to-pdf/).
 
-Un documento de presentación convertido a documento PDF a través de Aspose.Slides para C++
-## **Especificación del Analizador XML (XPS)**
-### **Acerca de XPS**
-La [Especificación del Analizador XML](https://es.wikipedia.org/wiki/Open_XML_Paper_Specification) es un lenguaje de descripción de página y un formato de documento fijo desarrollado originalmente por Microsoft. Al igual que PDF, XPS es un formato de documento de diseño fijo diseñado para preservar la fidelidad del documento y proporcionar una apariencia de documento independiente del dispositivo.
-### **XPS en Aspose.Slides para C++**
-Cualquier documento de presentación que puede ser cargado por Aspose.Slides para C++ puede ser convertido a formato XPS. Aspose.Slides para C++ utiliza el motor de diseño de página y renderizado de alta fidelidad para producir salida en formato de documento XPS de diseño fijo. Vale la pena mencionar que Aspose.Slides para C++ genera directamente XPS sin depender de las clases de Windows Presentation Foundation (WPF) que están empaquetadas con el Framework C++ 3.5, permitiendo así que Aspose.Slides para C++ produzca documentos XPS en máquinas que ejecutan versiones anteriores del Framework C++ a la versión 3.5. Puede aprender sobre la exportación de documentos de presentación a documentos XPS a través de Aspose.Slides para C++ en [este tema](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-xps/).
+Un documento de presentación convertido a documento PDF mediante Aspose.Slides for C++
+## **Especificación del analizador XML (XPS)**
+### **Acerca del XPS**
+La [Especificación del Analizador XML](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) es un lenguaje de descripción de página y un formato de documento fijo desarrollado originalmente por Microsoft. Al igual que PDF, XPS es un formato de documento de diseño fijo diseñado para preservar la fidelidad del documento y proporcionar una apariencia independiente del dispositivo.
+### **XPS en Aspose.Slides for C++**
+Cualquier documento de presentación que pueda cargarse con Aspose.Slides for C++ puede convertirse al formato XPS. Aspose.Slides for C++ utiliza el motor de disposición y renderizado de alta fidelidad para producir salida en formato de documento XPS de diseño fijo. Vale la pena mencionar que Aspose.Slides for C++ genera XPS directamente sin depender de las clases Windows Presentation Foundation (WPF) que se empaquetan con el Framework C++ 3.5, lo que permite a Aspose.Slides for C++ producir documentos XPS en máquinas con versiones del Framework C++ anteriores a la 3.5. Puedes aprender sobre la exportación de documentos de presentación a documentos XPS mediante Aspose.Slides for C++ en [este tema](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-xps/).
 
-Un documento de presentación convertido a documento XPS a través de Aspose.Slides para C++
+Un documento de presentación convertido a documento XPS mediante Aspose.Slides for C++

@@ -28,12 +28,13 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C++ 中将 PowerPoint (PPT/PPTX) 转换为 SWF Flash。一步一步的代码示例，快速高质量输出，无需 PowerPoint 自动化。"
+description: "使用 Aspose.Slides 在 C++ 中将 PowerPoint (PPT/PPTX) 转换为 SWF Flash。提供一步一步的代码示例，快速高质量输出，无需 PowerPoint 自动化。"
 ---
 
 ## **将演示文稿转换为 Flash**
 
-[Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法由 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类公开，可用于将整个演示文稿转换为 SWF 文档。 您还可以通过使用 [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) 类和 [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) 接口在生成的 SWF 中包含注释。 下面的示例演示如何使用 SWFOptions 类提供的选项将演示文稿转换为 SWF 文档。
+[Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法由 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类公开，可用于将整个演示文稿转换为 SWF 文档。您还可以通过使用 [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) 类和 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) 类在生成的 SWF 中包含批注。下面的示例展示了如何使用 SWFOptions 类提供的选项将演示文稿转换为 SWF 文档。
+
 ``` cpp
 // 文档目录的路径。
     System::String dataDir = GetDataPath();
@@ -58,16 +59,16 @@ description: "使用 Aspose.Slides 在 C++ 中将 PowerPoint (PPT/PPTX) 转换�
 
 **我可以在 SWF 中包含隐藏幻灯片吗？**
 
-是的。使用 [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/) 中的 [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_showhiddenslides/) 方法。默认情况下，隐藏的幻灯片不会导出。
+是的。请使用 [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_showhiddenslides/) 方法在 [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/) 中进行设置。默认情况下，隐藏幻灯片不会被导出。
 
 **我如何控制压缩和最终的 SWF 大小？**
 
-使用 [set_Compressed](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_compressed/) 方法并调整 [JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_jpegquality/) 以在文件大小和图像保真度之间取得平衡。
+使用 [set_Compressed](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_compressed/) 方法并调整 [JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_jpegquality/) 以在文件大小和图像质量之间取得平衡。
 
-**'set_ViewerIncluded' 的作用是什么？我何时应使用它？**
+**‘set_ViewerIncluded’ 是做什么的，何时应使用它？**
 
-[set_ViewerIncluded](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_viewerincluded/) 会添加嵌入式播放器 UI（导航控件、面板、搜索）。如果您计划使用自己的播放器或需要没有 UI 的裸 SWF 框架，请将其禁用。
+[set_ViewerIncluded](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_viewerincluded/) 会添加嵌入式播放器 UI（导航控件、面板、搜索）。如果您计划使用自己的播放器或需要一个不带 UI 的纯 SWF 框架，请将其禁用。
 
-**如果导出机器缺少源字体会怎样？**
+**如果导出机器上缺少源字体会怎样？**
 
-Aspose.Slides 会使用您在 [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/) 中通过 [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) 指定的字体进行替换，以避免意外的回退。
+Aspose.Slides 将使用您在 [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) 中指定的字体在 [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/) 中进行替代，以避免意外的回退。

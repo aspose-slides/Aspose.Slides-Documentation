@@ -1,27 +1,36 @@
 ---
-title: Конвертация OpenOffice ODP
+title: Конвертировать презентации OpenDocument в C++
+linktitle: Конвертировать OpenDocument
 type: docs
 weight: 10
 url: /ru/cpp/convert-openoffice-odp/
-keywords: "Конвертация ODP в PDF, ODP в HTML, ODP в TIFF"
-description: "Конвертируйте ODP в PDF, ODP в PPT, ODP в PPTX, ODP в HTML и другие форматы с Aspose.Slides."
+keywords:
+- конвертировать ODP
+- ODP в изображение
+- ODP в GIF
+- ODP в HTML
+- ODP в JPG
+- ODP в MD
+- ODP в PDF
+- ODP в PNG
+- ODP в PPT
+- ODP в PPTX
+- ODP в TIFF
+- ODP в видео
+- ODP в Word
+- ODP в XPS
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Aspose.Slides для C++ позволяет легко конвертировать ODP в PDF, HTML и графические форматы. Ускорьте свои C++ приложения с быстрой и точной конвертацией презентаций."
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/cpp/) позволяет конвертировать презентации OpenOffice ODP в множество форматов. API, используемый для конвертации файлов ODP в другие форматы документов, такой же, как и для операций конвертации PowerPoint (PPT и PPTX).
+[**Aspose.Slides API**](https://products.aspose.com/slides/cpp/) позволяет конвертировать презентации OpenDocument (ODP) во многие форматы (HTML, PDF, TIFF, SWF, XPS и т.д.). API, используемое для преобразования файлов ODP в другие форматы документов, такое же, как и для операций конвертации PowerPoint (PPT и PPTX).
 
-Эти примеры показывают, как конвертировать документы ODP в другие форматы (просто измените исходный файл ODP):
-
-- [Конвертация ODP в HTML](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-html/)
-- [Конвертация ODP в PDF](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Конвертация ODP в TIFF](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [Конвертация ODP в SWF Flash](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [Конвертация ODP в XPS](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [Конвертация ODP в PDF с заметками](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
-- [Конвертация ODP в TIFF с заметками](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
-
-Например, если вам нужно конвертировать презентацию ODP в PDF, это можно сделать следующим образом:
-
-``` cpp
-SharedPtr<Presentation> pres = MakeObject<Presentation>(u"pres.odp");
+Например, если вам нужно преобразовать презентацию ODP в PDF, вы можете сделать это следующим образом:
+```cpp
+auto pres = MakeObject<Presentation>(u"pres.odp");
 pres->Save(u"pres.pdf", SaveFormat::Pdf);
+pres->Dispose();
 ```
