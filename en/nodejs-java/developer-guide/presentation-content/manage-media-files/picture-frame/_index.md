@@ -73,11 +73,7 @@ try {
 }
 ```
 
-{{% alert color="warning" %}} 
-
-Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another. You may want to see these pages: convert [image to JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
-
-{{% /alert %}}
+Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another.
 
 ## **Create Picture Frame with Relative Scale**
 
@@ -385,7 +381,7 @@ Using the [setStretchOffsetLeft](https://reference.aspose.com/slides/nodejs-java
 
 When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentatio) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a rectangle `AutoShape`. 
 4. Create an image.
@@ -448,7 +444,7 @@ Embedding large images increases file size and memory usage; linking images help
 
 **How can I lock an image object from accidental moving/resizing?**
 
-Use [shape locks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) for a [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is described for shapes in a separate [protection article](/slides/nodejs-java/applying-protection-to-presentation/) and is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/).
+Use [shape locks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) for a [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/).
 
 **Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**
 

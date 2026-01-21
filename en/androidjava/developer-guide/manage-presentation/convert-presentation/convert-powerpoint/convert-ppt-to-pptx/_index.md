@@ -30,11 +30,11 @@ This article explains how to convert PowerPoint Presentation in PPT format into 
 
 For Java sample code to convert PPT to PPTX, please see the section below i.e. [Convert PPT to PPTX](#convert-ppt-to-pptx). It just loads the PPT file and saves in PPTX format. By specifiying different save formats, you can also save PPT file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles.
 
-- [Java Convert PPT to PDF](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-pdf/)
-- [Java Convert PPT to XPS](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-xps/)
-- [Java Convert PPT to HTML](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-html/)
-- [Java Convert PPT to ODP](https://docs.aspose.com/slides/androidjava/save-presentation/)
-- [Java Convert PPT to Image](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-png/)
+- [Convert PPT to PDF on Android](/slides/androidjava/convert-powerpoint-to-pdf/)
+- [Convert PPT to XPS on Android](/slides/androidjava/convert-powerpoint-to-xps/)
+- [Convert PPT to HTML on Android](/slides/androidjava/convert-powerpoint-to-html/)
+- [Convert PPT to ODP on Android](/slides/androidjava/save-presentation/)
+- [Convert PPT to PNG on Android](/slides/androidjava/convert-powerpoint-to-png/)
 
 ## **About PPT to PPTX Conversion**
 Convert old PPT format to PPTX with Aspose.Slides API. If you need to convert thousands of PPT presentations to PPTX format, the best solution is to do it programmatically. With Aspose.Slides API its possible to do it just in few lines of code. The API supports full compatibility to convert PPT presentation to PPTX and its possible to:
