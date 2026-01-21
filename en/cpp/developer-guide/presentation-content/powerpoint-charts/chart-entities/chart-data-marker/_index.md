@@ -115,7 +115,7 @@ pres->Dispose();
 ```
 
 ## **Apply a Color to Data Points**
-You can apply color to data points in the chart using Aspose.Slides for C++. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) and **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level)** classes have been added to get access to properties of data point levels. This article demonstrates how you can access and apply color to data points in a chart.
+You can apply color to data points in the chart using Aspose.Slides for C++. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) and **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/)** classes have been added to get access to properties of data point levels. This article demonstrates how you can access and apply color to data points in a chart.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AddColorToDataPoints-AddColorToDataPoints.cpp" >}}
 

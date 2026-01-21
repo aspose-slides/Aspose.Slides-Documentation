@@ -47,7 +47,7 @@ Aspose.Slides supports **150+ animation effects**, including basic animation ef
 
 Additionally, these animation effects can be used in combination with them:
 
-- [ColorEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.color_effect/t)
+- [ColorEffect](https://reference.aspose.com/slides/cpp/aspose.slides.animation/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.command_effect)
 - [FilterEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.filter_effect)
 - [MotionEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.motion_effect)

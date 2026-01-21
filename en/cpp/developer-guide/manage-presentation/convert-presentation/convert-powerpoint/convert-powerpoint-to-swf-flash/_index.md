@@ -33,7 +33,7 @@ description: "Convert PowerPoint (PPT/PPTX) to SWF Flash in C++ with Aspose.Slid
 
 ## **Convert Presentations to Flash**
 
-The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) class and [INotesCommentsLayoutingOptions ](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options)interface. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
+The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) class and [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) class. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
 
 ``` cpp
 // The path to the documents directory.
