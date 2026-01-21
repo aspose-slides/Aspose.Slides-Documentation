@@ -1,13 +1,13 @@
 ---
-title: تكوين مجموعات خطوط الاحتياطي في Java
-linktitle: مجموعة خطوط الاحتياطي
+title: تكوين مجموعات خطوط الفولباك في Java
+linktitle: مجموعة خطوط الفولباك
 type: docs
 weight: 20
 url: /ar/java/create-fallback-fonts-collection/
 keywords:
-- خط احتياطي
-- قاعدة احتياطي
-- مجموعة خطوط
+- خط الفولباك
+- قاعدة الفولباك
+- مجموعة الخطوط
 - تكوين الخط
 - إعداد الخط
 - PowerPoint
@@ -15,18 +15,18 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "إعداد مجموعة خطوط احتياطية في Aspose.Slides لجهة Java للحفاظ على النص متسقًا وواضحًا في عروض PowerPoint وOpenDocument."
+description: "إعداد مجموعة خطوط الفولباك في Aspose.Slides للـ Java لضمان تماسك النص ووضوحه في العروض التقديمية PowerPoint وOpenDocument."
 ---
 
-## **تطبيق قواعد الاحتياطي**
+## **تطبيق قواعد الفولباك**
 
-يمكن تنظيم كائنات [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) التي تُنفّذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). يمكن إضافة أو إزالة القواعد من المجموعة.
+يمكن تنظيم كائنات من فئة [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) التي تُنفّذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). يمكن إضافة أو إزالة القواعد من المجموعة.
 
-يمكن بعد ذلك تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) في فئة [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد حول [عن FontsManager و FontsLoader](/slides/ar/java/about-fontsmanager-and-fontsloader/).
+ثم يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection] لفئة [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). يتحكم FontsManager في الخطوط عبر العرض التقديمي.
 
-كل [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) يحتوي على طريقة [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) مع نسخة خاصة به من فئة [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
+كل [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) يحتوي على طريقة [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) التي تُعيد نسخة خاصة من فئة [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
 
-فيما يلي مثال على كيفية إنشاء مجموعة قواعد خطوط الاحتياطي وتعيينها إلى [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) لعرض تقديمي معين:  
+فيما يلي مثال على كيفية إنشاء مجموعة قواعد الفولباك وتعيينها إلى [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) لعرض تقديمي معين:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,26 +42,26 @@ try {
 ```
 
 
-بعد تهيئة FontsManager بمجموعة خطوط الاحتياطي، تُطبَّق خطوط الاحتياطي أثناء معالجة العرض التقديمي.
+بعد تهيئة FontsManager بمجموعة خطوط الفولباك، يتم تطبيق الخطوط الاحتياطية أثناء عرض العرض التقديمي.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [عرض تقديمي مع خط احتياطي](/slides/ar/java/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [Render Presentation with Fallback Font](/slides/ar/java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **الأسئلة المتكررة**
 
-**هل سيتم دمج قواعد الاحتياطي الخاصة بي في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟**
+**هل سيتم تضمين قواعد الفولباك في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟**
 
-لا. قواعد الاحتياطي هي إعدادات عرض في وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
+لا. قواعد الفولباك هي إعدادات عرض في وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
 
-**هل يُطبق الاحتياطي على النص داخل SmartArt و WordArt والرسوم البيانية والجداول؟**
+**هل يتم تطبيق الفولباك على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟**
 
-نعم. يتم استخدام نفس آلية استبدال القوالب لأي نص في هذه الكائنات.
+نعم. يتم استخدام نفس آلية استبدال الرموز لأي نص داخل هذه العناصر.
 
-**هل توزع Aspose أي خطوط مع المكتبة؟**
+**هل تقوم Aspose بتوزيع أي خطوط مع المكتبة؟**
 
-لا. تقوم بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية الكاملة.
+لا. تقوم بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية بالكامل.
 
-**هل يمكن استخدام الاستبدال/البديل للخطوط المفقودة والاحتياطي للقوالب (glyphs) المفقودة معًا؟**
+**هل يمكن استخدام الاستبدال/الاستبدال للخطوط المفقودة والفولباك للرموز المفقودة معًا؟**
 
-نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توفر الخطوط ([replacement](/slides/ar/java/font-replacement/)/[substitution](/slides/ar/java/font-substitution/))، ثم يملء الاحتياطي الفجوات للقوالب المفقودة في الخطوط المتوفرة.
+نعم. هما مرحلتان مستقلتان من نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توافر الخطوط ([replacement](/slides/ar/java/font-replacement/)/[substitution](/slides/ar/java/font-substitution/))، ثم يملأ الفولباك الفجوات للرموز المفقودة في الخطوط المتاحة.

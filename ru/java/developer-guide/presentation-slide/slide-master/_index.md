@@ -1,122 +1,123 @@
 ---
-title: Управление мастер‑слайдами презентации в Java
-linktitle: Мастер‑слайд
+title: Управление мастерами слайдов презентации в Java
+linktitle: Мастер слайда
 type: docs
 weight: 70
 url: /ru/java/slide-master/
 keywords:
-- мастер‑слайд
+- мастер слайда
 - основной слайд
-- PPT мастер‑слайд
-- несколько мастер‑слайдов
-- сравнение мастер‑слайдов
+- PPT мастер слайда
+- несколько мастер слайдов
+- сравнение мастер слайдов
 - фон
 - заполнитель
-- клонирование мастер‑слайда
-- копирование мастер‑слайда
-- дублирование мастер‑слайда
-- неиспользуемый мастер‑слайд
+- клонирование мастер слайда
+- копирование мастер слайда
+- дублирование мастер слайда
+- неиспользуемый мастер слайда
 - PowerPoint
 - OpenDocument
 - презентация
 - Java
 - Aspose.Slides
-description: "Управляйте мастер‑слайдами в Aspose.Slides для Java: создавайте, редактируйте и применяйте макеты, темы и заполнители к PPT, PPTX и ODP с помощью кратких примеров на Java."
+description: "Управляйте мастерами слайдов в Aspose.Slides для Java: создавайте, редактируйте и применяйте макеты, темы и заполнитель к PPT, PPTX и ODP с лаконичными примерами Java."
 ---
 
-## **Что такое Slide Master в PowerPoint**
+## **Что такое мастер слайдов в PowerPoint**
 
-**Slide Master** — это шаблон слайда, определяющий расположение, стили, тему, шрифты, фон и другие свойства слайдов в презентации. Если вы хотите создать презентацию (или серию презентаций) в едином стиле и шаблоне для вашей компании, вы можете использовать Slide Master.  
+**Мастер слайдов** — это шаблон слайда, определяющий макет, стили, тему, шрифты, фон и другие свойства слайдов в презентации. Если вы хотите создать презентацию (или серию презентаций) в едином стиле и шаблоне для вашей компании, используйте мастер слайдов.  
 
-Slide Master полезен, потому что позволяет задать и изменить внешний вид всех слайдов презентации сразу. Aspose.Slides поддерживает механизм Slide Master из PowerPoint.  
+Мастер слайдов полезен, потому что позволяет установить и изменить внешний вид всех слайдов презентации сразу. Aspose.Slides поддерживает механизм мастера слайдов из PowerPoint.  
 
-VBA также позволяет манипулировать Slide Master и выполнять те же операции, поддерживаемые в PowerPoint: менять фон, добавлять фигуры, настраивать макет и т.д. Aspose.Slides предоставляет гибкие механизмы, позволяющие использовать Slide Masters и выполнять базовые задачи с ними.  
+VBA также позволяет управлять мастером слайдов и выполнять те же операции, поддерживаемые в PowerPoint: изменять фон, добавлять формы, настраивать макет и т.д. Aspose.Slides предоставляет гибкие механизмы, позволяющие использовать мастера слайдов и выполнять базовые задачи с ними.  
 
-Это базовые операции с Slide Master:
+Это базовые операции с мастером слайдов:
 
-- Создать Slide Master.  
-- Применить Slide Master к слайдам презентации.  
-- Изменить фон Slide Master.  
-- Добавить изображение, заполнитель, Smart Art и т.д. в Slide Master.  
+- Создать мастер слайдов.  
+- Применить мастер слайдов к слайдам презентации.  
+- Изменить фон мастера слайдов.  
+- Добавить изображение, заполнитель, Smart Art и т.п. в мастер слайдов.  
 
-Это более продвинутые операции, связанные со Slide Master:
+Это более продвинутые операции с мастером слайдов:  
 
-- Сравнить Slide Masters.  
-- Объединить Slide Masters.  
-- Применить несколько Slide Masters.  
-- Скопировать слайд с Slide Master в другую презентацию.  
-- Найти дублирующие Slide Masters в презентациях.  
-- Установить Slide Master как представление по умолчанию для презентации.  
+- Сравнить мастера слайдов.  
+- Объединить мастера слайдов.  
+- Применить несколько мастеров слайдов.  
+- Скопировать слайд с мастером слайдов в другую презентацию.  
+- Найти дублирующиеся мастера слайдов в презентациях.  
+- Установить мастер слайдов как представление по умолчанию в презентации.  
 
 {{% alert color="primary" %}} 
-Возможно, вам стоит ознакомиться с Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer), поскольку это живой пример некоторых из основных процессов, описанных здесь.  
+Возможно, вам будет интересно ознакомиться с Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer), так как это живой пример некоторых основных процессов, описанных здесь.
 {{% /alert %}} 
 
-## **Как применяется Slide Master**
+## **Как применяется мастер слайдов**
 
-Прежде чем работать со Slide Master, вам может потребоваться понять, как они используются в презентациях и применяются к слайдам.  
+Прежде чем работать с мастером слайдов, вам следует понять, как они используются в презентациях и применяются к слайдам.  
 
-- Каждая презентация содержит как минимум один Slide Master по умолчанию.  
-- Презентация может содержать несколько Slide Masters. Вы можете добавить несколько Slide Masters и использовать их для оформления разных частей презентации различными способами.  
+* Каждая презентация содержит как минимум один мастер слайдов по умолчанию.  
+* Презентация может содержать несколько мастеров слайдов. Вы можете добавить несколько мастеров слайдов и использовать их для оформления разных частей презентации различными способами.  
 
-В **Aspose.Slides** Slide Master представлен типом [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/).  
+В **Aspose.Slides** мастер слайдов представлен типом [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/).  
 
-Объект [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) библиотеки Aspose.Slides содержит список [**getMasters** ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) типа [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/), который включает список всех мастер‑слайдов, определённых в презентации.  
+Объект [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) содержит список [**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) типа [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/), в котором находятся все мастера слайдов, определённые в презентации.  
 
-Помимо операций CRUD, интерфейс [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) содержит полезные методы: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) и [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . Эти методы унаследованы из базовой функции клонирования слайдов. Однако при работе с Slide Masters они позволяют реализовывать сложные настройки.  
+Помимо CRUD‑операций, интерфейс [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) содержит полезные методы: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) и [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . Эти методы унаследованы от базовой функции клонирования слайдов. При работе с мастерами слайдов они позволяют реализовывать сложные настройки.  
 
-При добавлении нового слайда в презентацию к нему автоматически применяется Slide Master. По умолчанию выбирается Slide Master предыдущего слайда.  
+Когда в презентацию добавляется новый слайд, к нему автоматически применяется мастер слайдов. По умолчанию выбирается мастер слайдов предыдущего слайда.  
 
-**Note**: Слайды презентации хранятся в списке [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) , и каждый новый слайд по умолчанию добавляется в конец коллекции. Если в презентации содержится один Slide Master, этот мастер‑слайд выбирается для всех новых слайдов. По этой причине вам не нужно задавать Slide Master для каждого нового создаваемого слайда.  
+**Примечание**: Слайды презентации хранятся в списке [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) , и каждый новый слайд по умолчанию добавляется в конец коллекции. Если презентация содержит единственный мастер слайдов, этот мастер используется для всех новых слайдов. Поэтому вам не нужно задавать мастер слайдов для каждого нового слайда.  
 
-Принцип такой же в PowerPoint и Aspose.Slides. Например, в PowerPoint, когда вы добавляете новую презентацию, можно просто щёлкнуть по нижней линии под последним слайдом, и тогда будет создан новый слайд (с Slide Master последней презентации):  
+Принцип тот же в PowerPoint и Aspose.Slides. Например, в PowerPoint, когда вы добавляете новый слайд, достаточно щёлкнуть по нижней линии под последним слайдом, и будет создан новый слайд (с мастером слайдов последней презентации):  
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-В Aspose.Slides вы можете выполнить аналогичную задачу с помощью метода [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) класса [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).  
+В Aspose.Slides вы можете выполнить аналогичную задачу с помощью метода [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).  
 
-## **Slide Master в иерархии слайдов**
+## **Мастер слайдов в иерархии слайдов**
 
-Использование Slide Layout вместе со Slide Master обеспечивает максимальную гибкость. Slide Layout позволяет задать те же стили, что и Slide Master (фон, шрифты, фигуры и т.д.). Однако когда несколько Slide Layout объединяются в Slide Master, создаётся новый стиль. При применении Slide Layout к отдельному слайду вы можете изменить его стиль относительно того, который задаёт Slide Master.  
+Использование макетов слайдов вместе с мастером слайдов обеспечивает максимальную гибкость. Макет слайда позволяет задавать те же стили, что и мастер слайдов (фон, шрифты, фигуры и т.д.). Однако когда несколько макетов слайдов объединяются в мастере слайдов, создаётся новый стиль. При применении макета слайда к отдельному слайду вы можете изменить его стиль по сравнению с тем, что задан мастером слайдов.  
 
-Slide Master имеет высший приоритет среди всех настроек: Slide Master → Slide Layout → Slide:  
+Мастер слайдов имеет более высокий приоритет, чем остальные элементы: Мастер слайдов → Макет слайда → Слайд:  
 
 ![todo:image_alt_text](slide-master_2)
 
-Каждый объект [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) имеет свойство [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) с перечнем Slide Layout. Тип [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) имеет свойство [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) со ссылкой на Slide Layout, примененный к слайду. Взаимодействие между слайдом и Slide Master происходит через Slide Layout.  
+Каждый объект [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) имеет свойство [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) со списком макетов слайдов. Тип [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) имеет свойство [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) со ссылкой на макет слайда, применённый к слайду. Взаимодействие между слайдом и мастером слайдов происходит через макет слайда.  
 
-{{% alert color="info" title="Note" %}} 
-* В Aspose.Slides все настройки слайдов (Slide Master, Slide Layout и сам слайд) на самом деле являются объектами слайдов, реализующими интерфейс [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).  
-* Поэтому Slide Master и Slide Layout могут реализовывать одинаковые свойства, и вам необходимо знать, как их значения будут применяться к объекту [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). Сначала к слайду применяется Slide Master, затем – Slide Layout. Например, если у Slide Master и Slide Layout указано значение фона, в итоге слайд получит фон из Slide Layout.  
-{{% /alert %}}  
+{{% alert color="info" title="Note" %}}
+* В Aspose.Slides все настройки слайдов (мастер слайдов, макет слайда и сам слайд) фактически являются объектами слайдов, реализующими интерфейс [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).  
 
-## **Что содержит Slide Master**
+* Поэтому мастер слайдов и макет слайда могут иметь одинаковые свойства, и вам необходимо знать, как их значения будут применяться к объекту [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). Сначала к слайду применяется мастер слайдов, затем — макет слайда. Например, если и у мастера слайдов, и у макета слайда задан фон, в итоге слайд получит фон из макета слайда.  
+{{% /alert %}}
 
-Чтобы понять, как можно изменить Slide Master, необходимо знать его составные части. Это основные свойства [MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/).  
+## **Что содержит мастер слайдов**
 
-- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) — получить/установить фон слайда.  
-- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) — получить/установить стили текста тела слайда.  
-- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) — получить/установить все фигуры Slide Master (заполнители, рамки изображений и т.д.).  
-- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) — получить/установить элементы управления ActiveX.  
-- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) — получить менеджер темы.  
-- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) — получить менеджер верхнего и нижнего колонтитула.  
+Чтобы понять, как можно изменить мастер слайдов, необходимо знать его составные части. Это основные свойства [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/).  
 
-### Методы Slide Master  
+- [getBackground] — получить/установить фон слайда.  
+- [getBodyStyle] — получить/установить стили текста основной части слайда.  
+- [getShapes] — получить/установить все фигуры мастера слайдов (заполнители, рамки изображений и т.д.).  
+- [getControls] — получить/установить элементы управления ActiveX.  
+- [getThemeManager] — получить менеджер тем.  
+- [getHeaderFooterManager] — получить менеджер колонтитулов.  
 
-- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) — получить все слайды, зависящие от Slide Master.  
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) — позволяет создать новый Slide Master на основе текущего Slide Master и новой темы. Новый Slide Master затем будет применён ко всем зависимым слайдам.  
+Методы мастера слайдов:  
 
-## **Получить Slide Master**
+- [getDependingSlides] — получить все слайды, зависящие от мастера слайдов.  
+- [applyExternalThemeToDependingSlides] — позволяет создать новый мастер слайдов на основе текущего мастера и новой темы. Новый мастер будет применён ко всем зависимым слайдам.  
 
-В PowerPoint Slide Master доступен через меню Вид → Slide Master:  
+## **Получить мастер слайдов**
+
+В PowerPoint мастер слайдов можно открыть через меню Вид → Мастер слайдов:  
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-С помощью Aspose.Slides вы можете получить Slide Master таким образом:  
+С помощью Aspose.Slides вы можете получить мастер слайдов следующим образом:  
 ```java
 Presentation pres = new Presentation();
 try {
-    // Получает доступ к мастер‑слайду презентации
+    // Предоставляет доступ к мастер-слайду презентации
     IMasterSlide masterSlide = pres.getMasters().get_Item(0);
 } finally {
     pres.dispose();
@@ -124,17 +125,13 @@ try {
 ```
 
 
-Интерфейс [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) представляет Slide Master. Свойство [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (связанное с типом [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection)) содержит список всех Slide Master, определённых в презентации.  
+Интерфейс [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) представляет мастер слайдов. Свойство [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (относящееся к типу [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection)) содержит список всех мастеров слайдов, определённых в презентации.  
 
-## **Добавить изображение в Slide Master**
+## **Добавить изображение в мастер слайдов**
 
-Когда вы добавляете изображение в Slide Master, оно будет отображаться на всех слайдах, зависящих от этого мастер‑слайда.  
+Когда вы добавляете изображение в мастер слайдов, оно появляется на всех слайдах, зависящих от этого мастера.  
 
-Например, вы можете разместить логотип вашей компании и несколько изображений на Slide Master, а затем вернуться в режим редактирования слайдов. Вы должны увидеть изображение на каждом слайде.  
-
-![todo:image_alt_text](slide-master_4.png)
-
-Вы можете добавить изображения в Slide Master с помощью Aspose.Slides:  
+Вы можете добавить изображения в мастер слайдов с помощью Aspose.Slides:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -156,33 +153,33 @@ try {
 
 
 {{% alert color="primary" title="See also" %}} 
-Для получения дополнительной информации о добавлении изображений в слайд см. статью [Picture Frame](/slides/ru/java/picture-frame/#create-picture-frame).  
+Для получения дополнительной информации о добавлении изображений на слайд см. статью [Picture Frame](/slides/ru/java/picture-frame/#create-picture-frame).  
 {{% /alert %}}  
 
-## **Добавить заполнитель в Slide Master**
+## **Добавить заполнитель в мастер слайдов**
 
-Эти текстовые поля являются стандартными заполнителями на Slide Master:  
+Эти текстовые поля являются стандартными заполнителями на мастере слайдов:  
 
-- Кликните, чтобы редактировать стиль заголовка мастера  
-- Редактировать стили текста мастера  
-- Второй уровень  
-- Третий уровень  
+* Щёлкните, чтобы отредактировать стиль заголовка мастера  
+* Отредактировать стили текста мастера  
+* Второй уровень  
+* Третий уровень  
 
-Они также отображаются на слайдах, основанных на Slide Master. Вы можете редактировать эти заполнители на Slide Master, и изменения автоматически применяются к слайдам.  
+Они также отображаются на слайдах, основанных на мастере слайдов. Вы можете редактировать эти заполняющие элементы в мастере слайдов, и изменения автоматически применятся к слайдам.  
 
-В PowerPoint вы можете добавить заполнитель через путь Slide Master → Insert Placeholder:  
+В PowerPoint вы можете добавить заполнитель через путь Мастер слайдов → Вставить заполнитель:  
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Рассмотрим более сложный пример заполнителей с Aspose.Slides. Представьте слайд с заполнителями, созданными из Slide Master:  
+Рассмотрим более сложный пример заполнителей с Aspose.Slides. Предположим слайд с заполнителями, шаблонными из мастера слайдов:  
 
 ![todo:image_alt_text](slide-master_6.png)
 
-Мы хотим изменить форматирование Title и Subtitle в Slide Master следующим образом:  
+Мы хотим изменить форматирование Заголовка и Подзаголовка в мастере слайдов следующим образом:  
 
 ![todo:image_alt_text](slide-master_7.png)
 
-Сначала мы получаем содержимое заполнителя заголовка из объекта Slide Master, а затем используем поле `PlaceHolder.FillFormat`:  
+Сначала мы получаем содержимое заполнительного поля заголовка из объекта мастера слайдов, а затем используем поле `PlaceHolder.FillFormat`:  
 ```java
 public static void main(String[] args) {
     Presentation pres = new Presentation();
@@ -219,18 +216,18 @@ static IAutoShape findPlaceholder(IMasterSlide master, int type)
 ```
 
 
-Стиль и форматирование заголовка изменятся для всех слайдов, основанных на мастер‑слайде:  
+Стиль и форматирование заголовка изменятся для всех слайдов, основанных на мастере слайдов:  
 
 ![todo:image_alt_text](slide-master_8.png)
 
 {{% alert color="primary" title="See also" %}} 
-* [Установить текст подсказки в заполнителе](https://docs.aspose.com/slides/java/manage-placeholder/)  
-* [Форматирование текста](https://docs.aspose.com/slides/java/text-formatting/)  
+* Установить подсказку в заполнитель  
+* Форматирование текста  
 {{% /alert %}}  
 
-## **Изменить фон Slide Master**
+## **Изменить фон в мастере слайдов**
 
-При изменении цвета фона мастер‑слайда все обычные слайды презентации получат новый цвет. Этот код на Java демонстрирует операцию:  
+Когда вы меняете цвет фона мастера слайда, все обычные слайды в презентации получают новый цвет. Этот пример кода на Java демонстрирует операцию:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -247,13 +244,13 @@ try {
 
 
 {{% alert color="primary" title="See also" %}} 
-* [Фон презентации](https://docs.aspose.com/slides/java/presentation-background/)  
-* [Тема презентации](https://docs.aspose.com/slides/java/presentation-theme/)  
+- Фон презентации  
+- Тема презентации  
 {{% /alert %}}  
 
-## **Клонировать Slide Master в другую презентацию**
+## **Клонировать мастер слайдов в другую презентацию**
 
-Чтобы клонировать Slide Master в другую презентацию, вызовите метод [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) из целевой презентации, передав в него Slide Master. Этот код на Java показывает, как клонировать Slide Master в другую презентацию:  
+Чтобы клонировать мастер слайдов в другую презентацию, вызовите метод [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) из целевой презентации, передав в него мастер слайдов. Этот пример кода на Java показывает, как клонировать мастер слайдов в другую презентацию:  
 ```java
 Presentation presSource = new Presentation();
 Presentation presTarget = new Presentation();
@@ -263,36 +260,36 @@ try {
     if (presSource != null) presSource.dispose();
 }
 ```
+  
 
+## **Добавить несколько мастеров слайдов в презентацию**
 
-## **Добавить несколько Slide Master в презентацию**
+Aspose.Slides позволяет добавлять несколько мастеров слайдов и макетов слайдов в любую презентацию. Это дает возможность настраивать стили, макеты и параметры форматирования слайдов различными способами.  
 
-Aspose.Slides позволяет добавить несколько Slide Master и Slide Layout в любую презентацию. Это дает возможность настраивать стили, макеты и параметры форматирования слайдов презентации различными способами.  
-
-В PowerPoint вы можете добавить новые Slide Master и Layout (из меню "Slide Master") следующим образом:  
+В PowerPoint новые мастера слайдов и макеты (из меню «Мастер слайдов») можно добавить так:  
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-С помощью Aspose.Slides вы можете добавить новый Slide Master, вызвав метод [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-):  
+С помощью Aspose.Slides можно добавить новый мастер слайдов, вызвав метод [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-):  
 ```java
-// Добавляет новый мастер‑слайд
+// Добавляет новый мастер слайд
 IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
+  
 
+## **Сравнить мастеры слайдов**
 
-## **Сравнить Slide Masters**
+Мастер‑слайд реализует интерфейс [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) , содержащий метод [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) , который можно использовать для сравнения слайдов. Он возвращает `true` для мастеров‑слайдов, идентичных по структуре и статическому содержимому.  
 
-Master Slide реализует интерфейс [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide), содержащий метод [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-), который можно использовать для сравнения слайдов. Он возвращает `true` для Master Slides, идентичных по структуре и статическому содержимому.  
+Два мастера‑слайда считаются равными, если их фигуры, стили, тексты, анимация и другие параметры одинаковы. При сравнении не учитываются уникальные идентификаторы (например, SlideId) и динамическое содержимое (например, текущая дата в заполняющем элементе даты).  
 
-Два Master Slides считаются равными, если их фигуры, стили, тексты, анимация и другие параметры совпадают. При сравнении не учитываются уникальные идентификаторы (например, SlideId) и динамическое содержимое (например, текущая дата в заполнителе Date).  
+## **Установить мастер слайдов как представление презентации по умолчанию**
 
-## **Установить Slide Master как представление по умолчанию для презентации**
+Aspose.Slides позволяет установить мастер слайдов как представление по умолчанию для презентации. Это представление отображается первым при открытии презентации.  
 
-Aspose.Slides позволяет установить Slide Master в качестве представления по умолчанию для презентации. Представление по умолчанию — то, что вы видите при открытии презентации.  
-
-Этот код показывает, как установить Slide Master в качестве представления по умолчанию презентации на Java:  
+Этот пример кода показывает, как в Java установить мастер слайдов как представление по умолчанию презентации:  
 ```java
-// Создает экземпляр класса Presentation, который представляет файл презентации
+// Создаёт экземпляр класса Presentation, представляющего файл презентации
 Presentation presentation = new Presentation();
 try {
     // Устанавливает представление по умолчанию как SlideMasterView
@@ -304,11 +301,11 @@ try {
     presentation.dispose();
 }
 ```
+  
 
+## **Удалить неиспользуемые мастера слайдов**
 
-## **Удалить неиспользуемые Master Slides**
-
-Aspose.Slides предоставляет метод [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (из класса [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)), позволяющий удалять нежелательные и неиспользуемые мастер‑слайды. Этот код на Java показывает, как удалить мастер‑слайд из презентации PowerPoint:  
+Aspose.Slides предоставляет метод [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (из класса [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)), позволяющий удалять ненужные и неиспользуемые мастера слайдов. Этот пример кода на Java показывает, как удалить мастер‑слайд из презентации PowerPoint:  
 ```java
 Presentation pres = new Presentation("pres.pptx");
  try {
@@ -319,43 +316,38 @@ Presentation pres = new Presentation("pres.pptx");
      if (pres != null) pres.dispose();
  }
 ```
-
+  
 
 ## **FAQ**
 
-**Что такое Slide Master в PowerPoint?**  
+**Что такое мастер слайдов в PowerPoint?**  
+Мастер слайдов — это шаблон слайда, определяющий макет, стили, темы, шрифты, фон и другие свойства слайдов в презентации. Он позволяет установить и изменить внешний вид всех слайдов презентации одновременно.  
 
-Slide Master — это шаблон слайда, определяющий расположение, стили, темы, шрифты, фон и другие свойства слайдов в презентации. Он позволяет задать и изменить внешний вид всех слайдов презентации одновременно.  
+**Как применяется мастер слайдов в презентации?**  
+Каждая презентация имеет как минимум один мастер слайдов по умолчанию. При добавлении нового слайда к нему автоматически применяется мастер слайдов, обычно наследующийся от мастера предыдущего слайда. Презентация может содержать несколько мастеров слайдов для уникального оформления разных частей.  
 
-**Как Slide Master применяется в презентации?**  
+**Какие элементы можно настроить в мастере слайдов?**  
+Мастер слайдов состоит из нескольких основных свойств, которые можно настраивать:  
 
-Каждая презентация по умолчанию имеет как минимум один Slide Master. При добавлении нового слайда к нему автоматически применяется Slide Master, обычно наследуемый от предыдущего слайда. Презентация может содержать несколько Slide Master для уникального оформления разных частей.  
+- **Background**: задаёт фон слайда.  
+- **BodyStyle**: определяет стили текста основной части слайда.  
+- **Shapes**: управляет всеми фигурами мастера, включая заполняющие элементы и рамки изображений.  
+- **Controls**: работа с элементами управления ActiveX.  
+- **ThemeManager**: доступ к менеджеру тем.  
+- **HeaderFooterManager**: управление колонтитулами.  
 
-**Какие элементы можно настроить в Slide Master?**  
+**Как добавить изображение в мастер слайдов?**  
+Добавление изображения в мастер слайдов гарантирует его появление на всех слайдах, зависящих от этого мастера. Например, разместив логотип компании в мастере, вы увидите его на каждом слайде презентации.  
 
-- **Background**: задать фон слайда.  
-- **BodyStyle**: определить стили текста тела слайда.  
-- **Shapes**: управлять всеми фигурами на Slide Master, включая заполнители и рамки изображений.  
-- **Controls**: работать с элементами управления ActiveX.  
-- **ThemeManager**: получить доступ к менеджеру темы.  
-- **HeaderFooterManager**: управлять верхними и нижними колонтитулами.  
+**Как мастеры слайдов соотносятся с макетами слайдов?**  
+Макеты слайдов работают совместно с мастерами слайдов, обеспечивая гибкость в дизайне. Мастер определяет глобальные стили и темы, а макет позволяет варьировать расположение контента. Иерархия следующая:  
 
-**Как добавить изображение в Slide Master?**  
+- **Мастер слайдов** → определяет глобальные стили.  
+- **Макет слайда** → предоставляет различные варианты расположения контента.  
+- **Слайд** → наследует дизайн от своего макета.  
 
-Добавление изображения в Slide Master гарантирует его отображение на всех слайдах, зависящих от этого мастера. Например, размещение логотипа компании на Slide Master отобразится на каждом слайде презентации.  
+**Можно ли иметь несколько мастеров слайдов в одной презентации?**  
+Да, презентация может содержать несколько мастеров слайдов. Это позволяет оформлять разные разделы презентации по‑разному, предоставляя гибкость в дизайне.  
 
-**Как Slide Master относятся к Slide Layout?**  
-
-Slide Layout работают вместе со Slide Master, обеспечивая гибкость в дизайне слайдов. Пока Slide Master определяет общие стили и темы, Slide Layout позволяют варьировать расположение содержимого. Иерархия выглядит так:  
-
-- **Slide Master** → определяет глобальные стили.  
-- **Slide Layout** → предоставляет различные варианты расположения содержимого.  
-- **Slide** → наследует дизайн от своего Slide Layout.  
-
-**Могу ли я иметь несколько Slide Master в одной презентации?**  
-
-Да, презентация может содержать несколько Slide Master. Это позволяет оформлять разные разделы презентации различными способами, обеспечивая гибкость дизайна.  
-
-**Как получить доступ и изменить Slide Master с помощью Aspose.Slides?**  
-
-В Aspose.Slides Slide Master представлен интерфейсом [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/). Вы можете получить доступ к Slide Master, используя метод [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) объекта [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+**Как получить доступ к мастеру слайдов и изменить его с помощью Aspose.Slides?**  
+В Aspose.Slides мастер слайдов представлен интерфейсом [IMasterSlide]. Вы можете получить доступ к мастеру слайдов с помощью метода [getMasters] объекта [Presentation].

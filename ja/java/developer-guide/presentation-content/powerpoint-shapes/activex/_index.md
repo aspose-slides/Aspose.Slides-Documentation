@@ -1,5 +1,5 @@
 ---
-title: Java を使用してプレゼンテーションで ActiveX コントロールを管理する
+title: Java を使用してプレゼンテーション内の ActiveX コントロールを管理する
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,25 +15,25 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java が ActiveX を活用して PowerPoint プレゼンテーションを自動化・強化し、開発者にスライドに対する強力な制御を提供する方法を学びます。"
+description: "Aspose.Slides for Java が ActiveX を活用して PowerPoint プレゼンテーションを自動化および強化し、開発者にスライドの強力な制御を提供する方法を学びます。"
 ---
 
 {{% alert color="primary" %}} 
 
-ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for Java を使用すると ActiveX コントロールを追加および管理できますが、通常のプレゼンテーション シェイプに比べてやや扱いが難しくなります。Aspose.Slides では Media Player Active コントロールの追加をサポートしました。ActiveX コントロールはシェイプではなく、プレゼンテーションの [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IShapeCollection) の一部ではありません。代わりに別個の [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection) の一部です。このトピックでは、これらの操作方法をご紹介します。 
+ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for Java は ActiveX コントロールの追加と管理を可能にしますが、通常のスライドシェイプに比べてやや扱いが難しくなります。Aspose.Slides では Media Player ActiveX コントロールの追加サポートを実装しました。ActiveX コントロールはシェイプではなく、プレゼンテーションの[IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/)の一部ではありません。代わりに別の[IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/)に属します。本トピックでは、これらの操作方法を示します。 
 
 {{% /alert %}} 
 
 ## **スライドに Media Player ActiveX コントロールを追加する**
-ActiveX Media Player コントロールを追加するには、次の手順を実行します：
+ActiveX Media Player コントロールを追加するには、以下を実行します。
 
-1. 空のプレゼンテーション インスタンスを作成するために、[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを生成します。
-2. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) で対象のスライドにアクセスします。
-3. [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection) が提供する [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) メソッドを使用して Media Player ActiveX コントロールを追加します。
-4. Media Player ActiveX コントロールにアクセスし、そのプロパティを使用してビデオ パスを設定します。
+1. 空のプレゼンテーション インスタンスを生成するために、[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。
+2. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) から対象スライドにアクセスします。
+3. [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/) が提供する [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) メソッドを使用して Media Player ActiveX コントロールを追加します。
+4. Media Player ActiveX コントロールにアクセスし、そのプロパティで動画パスを設定します。
 5. プレゼンテーションを PPTX ファイルとして保存します。
 
-上記手順に基づくサンプルコードは、スライドに Media Player ActiveX コントロールを追加する方法を示しています：
+上記の手順に基づくサンプルコードは、スライドに Media Player ActiveX コントロールを追加する方法を示しています:
 ```java
 // 空のプレゼンテーション インスタンスを作成する
 Presentation pres = new Presentation();
@@ -41,7 +41,7 @@ try {
     // Media Player ActiveX コントロールを追加する
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Media Player ActiveX コントロールにアクセスし、ビデオ パスを設定する
+    // Media Player ActiveX コントロールにアクセスし、動画パスを設定する
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // プレゼンテーションを保存する
@@ -55,25 +55,25 @@ try {
 ## **ActiveX コントロールの変更**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java 7.1.0 以降のバージョンには、ActiveX コントロールを管理するコンポーネントが装備されています。プレゼンテーションに既に追加された ActiveX コントロールにアクセスし、そのプロパティを介して変更または削除できます。
+Aspose.Slides for Java 7.1.0 以降では、ActiveX コントロールを管理するコンポーネントが用意されています。プレゼンテーションに既に追加された ActiveX コントロールにアクセスし、そのプロパティを介して変更または削除できます。
 
 {{% /alert %}} 
 
-スライド上のテキスト ボックスやシンプルなコマンド ボタンなどの簡単な ActiveX コントロールを管理するには、次の手順を実行します：
+スライド上のテキスト ボックスや単純なコマンド ボタンなど、シンプルな ActiveX コントロールを管理するには、以下を実行します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成し、ActiveX コントロールが含まれるプレゼンテーションをロードします。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成し、ActiveX コントロールが含まれるプレゼンテーションを読み込みます。
 2. インデックスでスライド参照を取得します。
-3. [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection) にアクセスして、スライド内の ActiveX コントロールにアクセスします。
-4. [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControl) オブジェクトを使用して TextBox1 ActiveX コントロールにアクセスします。
-5. テキスト、フォント、フォント高さ、フレーム位置など、TextBox1 ActiveX コントロールのプロパティを変更します。
-6. CommandButton1 と呼ばれる 2 番目のコントロールにアクセスします。
+3. スライド内の ActiveX コントロールに [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/) を介してアクセスします。
+4. [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/) オブジェクトを使用して TextBox1 ActiveX コントロールにアクセスします。
+5. TextBox1 のテキスト、フォント、フォント サイズ、フレーム位置などのプロパティを変更します。
+6. 2 番目のコントロールである CommandButton1 にアクセスします。
 7. ボタンのキャプション、フォント、位置を変更します。
-8. ActiveX コントロールのフレーム位置をずらします。
-9. 変更されたプレゼンテーションを PPTX ファイルに書き出します。
+8. ActiveX コントロールのフレーム位置をシフトします。
+9. 変更したプレゼンテーションを PPTX ファイルに書き出します。
 
-上記手順に基づくサンプルコードは、簡単な ActiveX コントロールを管理する方法を示しています： 
+上記の手順に基づくサンプルコードは、シンプルな ActiveX コントロールを管理する方法を示しています: 
 ```java
-// ActiveX コントロールを使用したプレゼンテーションにアクセス
+// ActiveX コントロールがあるプレゼンテーションにアクセス
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
     // プレゼンテーションの最初のスライドにアクセス
@@ -87,7 +87,7 @@ try {
         control.getProperties().set_Item("Value", newText);
 
         // 代替画像を変更。PowerPoint は ActiveX 有効化時にこの画像を置き換えます、
-        // そのため、画像を変更せずにそのままにしておいても問題ありません。
+        // そのため、画像を変更しないままにしておくことも時々問題ありません。
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -187,14 +187,14 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides は、Java ランタイムで実行できない場合でも、読み取り後に再保存する際に ActiveX コントロールを保持しますか？**
+**Aspose.Slides は、Java ランタイムで実行できない場合でも、読み取りおよび再保存時に ActiveX コントロールを保持しますか？**
 
-はい。Aspose.Slides はそれらをプレゼンテーションの一部として扱い、プロパティやフレームを読み取り・変更できます。コントロール自体を実行する必要はありません。
+はい。Aspose.Slides はそれらをプレゼンテーションの一部として扱い、プロパティやフレームを読み取り/変更できます。コントロール自体を実行する必要はありません。
 
-**プレゼンテーションにおける ActiveX コントロールは OLE オブジェクトとどのように異なりますか？**
+**ActiveX コントロールはプレゼンテーション内の OLE オブジェクトとどのように異なりますか？**
 
-ActiveX コントロールはインタラクティブな管理対象コントロール（ボタン、テキスト ボックス、メディア プレーヤー）です。一方、[OLE](/slides/ja/java/manage-ole/) は埋め込みアプリケーション オブジェクト（例: Excel ワークシート）を指します。これらは保存方法や取り扱いが異なり、プロパティ モデルも異なります。
+ActiveX コントロールはインタラクティブな管理コントロール（ボタン、テキスト ボックス、メディア プレーヤー）です。一方、[OLE](/slides/ja/java/manage-ole/) は埋め込まれたアプリケーション オブジェクト（例: Excel ワークシート）を指します。保存方法や取り扱いが異なり、プロパティ モデルも異なります。
 
-**ファイルが Aspose.Slides によって変更された場合、ActiveX イベントや VBA マクロは動作しますか？**
+**ファイルが Aspose.Slides によって変更された場合、ActiveX イベントや VBA マクロは機能しますか？**
 
-Aspose.Slides は既存のマークアップとメタデータを保持しますが、イベントやマクロは Windows 上の PowerPoint で、セキュリティが許可された場合にのみ実行されます。このライブラリ自体は VBA を実行しません。
+Aspose.Slides は既存のマークアップとメタデータを保持しますが、イベントやマクロは Windows 上の PowerPoint でセキュリティが許可された場合にのみ実行されます。ライブラリ自体は VBA を実行しません。

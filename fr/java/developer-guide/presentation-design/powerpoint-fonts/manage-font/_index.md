@@ -1,52 +1,60 @@
 ---
-title: Gérer les polices - API Java PowerPoint
-linktitle: Gérer les polices
+title: Gérer les polices dans les présentations avec Java
+linktitle: Gestion des polices
 type: docs
 weight: 10
 url: /fr/java/manage-fonts/
-description: Les présentations contiennent généralement à la fois du texte et des images. Cet article montre comment utiliser l'API Java PowerPoint pour configurer les propriétés de police des paragraphes de texte sur les diapositives.
+keywords:
+- gérer les polices
+- propriétés des polices
+- paragraphe
+- mise en forme du texte
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Contrôlez les polices en Java avec Aspose.Slides: intégrez, remplacez et chargez des polices personnalisées pour que les présentations PPT, PPTX et ODP restent claires, conformes à la marque et cohérentes."
 ---
 
 ## **Gérer les propriétés liées aux polices**
 {{% alert color="primary" %}} 
 
-Les présentations contiennent généralement à la fois du texte et des images. Le texte peut être formaté de diverses manières, soit pour mettre en évidence des sections et des mots spécifiques, soit pour se conformer aux styles d'entreprise. La mise en forme du texte aide les utilisateurs à varier l'apparence et la sensation du contenu de la présentation. Cet article montre comment utiliser Aspose.Slides pour Java pour configurer les propriétés de police des paragraphes de texte sur les diapositives.
+Les présentations contiennent généralement à la fois du texte et des images. Le texte peut être formaté de diverses manières, soit pour mettre en évidence des sections et des mots spécifiques, soit pour se conformer aux styles d’entreprise. Le formatage du texte aide les utilisateurs à varier l’aspect du contenu de la présentation. Cet article montre comment utiliser Aspose.Slides for Java pour configurer les propriétés de police des paragraphes de texte sur les diapositives.
 
 {{% /alert %}} 
 
-Pour gérer les propriétés de police d'un paragraphe à l'aide d'Aspose.Slides pour Java :
+Pour gérer les propriétés de police d’un paragraphe à l’aide d’Aspose.Slides for Java :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Obtenez une référence à la diapositive en utilisant son index.
-1. Accédez aux formes [Placeholder](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Placeholder) dans la diapositive et convertissez-les en [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Obtenez le [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Paragraph) du [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame) exposé par [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Justifiez le paragraphe.
-1. Accédez au texte [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) d'un [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Paragraph).
-1. Définissez la police à l'aide de [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/classes/FontData) et définissez la **Font** de la [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) en conséquence.
-   1. Réglez la police en gras.
-   1. Réglez la police en italique.
-1. Définissez la couleur de la police en utilisant le [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/classes/FillFormat) exposé par l'objet [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
-1. Enregistrez la présentation modifiée dans un fichier PPTX.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
+2. Obtenir la référence d’une diapositive en utilisant son index.
+3. Accéder aux formes [Placeholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) de la diapositive et les convertir en [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+4. Obtenir le [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) depuis le [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) exposé par [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+5. Justifier le paragraphe.
+6. Accéder à la [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) de texte d’un [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/).
+7. Définir la police à l’aide de [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/fontdata/) et définir la **Font** de la [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) de texte en conséquence.
+   1. Mettre la police en gras.
+   2. Mettre la police en italique.
+8. Définir la couleur de la police en utilisant le [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) exposé par l’objet [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/).
+9. Enregistrer la présentation modifiée dans un fichier PPTX.
 
-L'implémentation des étapes ci-dessus est donnée ci-dessous. Elle prend une présentation simple et formate les polices sur l'une des diapositives. Les captures d'écran qui suivent montrent le fichier d'entrée et comment les extraits de code le modifient. Le code change la police, la couleur et le style de police.
+L’implémentation des étapes ci‑dessus est fournie ci‑dessous. Elle prend une présentation non modifiée et formate les polices sur l’une des diapositives. Les captures d’écran suivantes montrent le fichier d’entrée et la façon dont les extraits de code le modifient. Le code modifie la police, la couleur et le style de la police.
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
 |**Figure : Le texte dans le fichier d'entrée**|
 
-
 |![todo:image_alt_text](http://i.imgur.com/rY27Lt9.png)|
 | :- |
-|**Figure : Le même texte avec une mise en forme mise à jour**|
-
+|**Figure : Le même texte avec un formatage mis à jour**|
 ```java
 // Instancier un objet Presentation qui représente un fichier PPTX
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
-	// Accéder à une diapositive en utilisant sa position de diapositive
+	// Accéder à une diapositive en utilisant sa position
 	ISlide slide = pres.getSlides().get_Item(0);
 
-	// Accéder au premier et au deuxième espace réservé dans la diapositive et le convertir en AutoShape
+	// Accéder aux premier et deuxième espaces réservés dans la diapositive et les convertir en AutoShape
 	ITextFrame tf1 = ((IAutoShape) slide.getShapes().get_Item(0)).getTextFrame();
 	ITextFrame tf2 = ((IAutoShape) slide.getShapes().get_Item(1)).getTextFrame();
 
@@ -61,19 +69,19 @@ try {
 	IPortion port1 = para1.getPortions().get_Item(0);
 	IPortion port2 = para2.getPortions().get_Item(0);
 
-	// Définir les nouvelles polices
+	// Définir de nouvelles polices
 	FontData fd1 = new FontData("Elephant");
 	FontData fd2 = new FontData("Castellar");
 
-	// Attribuer de nouvelles polices à la portion
+	// Assigner de nouvelles polices à la portion
 	port1.getPortionFormat().setLatinFont(fd1);
 	port2.getPortionFormat().setLatinFont(fd2);
 
-	// Définir la police en gras
+	// Mettre la police en gras
 	port1.getPortionFormat().setFontBold(NullableBool.True);
 	port2.getPortionFormat().setFontBold(NullableBool.True);
 
-	// Définir la police en italique
+	// Mettre la police en italique
 	port1.getPortionFormat().setFontItalic(NullableBool.True);
 	port2.getPortionFormat().setFontItalic(NullableBool.True);
 
@@ -90,37 +98,37 @@ try {
 }
 ```
 
+
 ## **Définir les propriétés de police du texte**
 {{% alert color="primary" %}} 
 
-Comme mentionné dans **Gérer les propriétés liées aux polices**, une [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) est utilisée pour contenir du texte avec un style de formatage similaire dans un paragraphe. Cet article montre comment utiliser Aspose.Slides pour Java pour créer une zone de texte avec du texte, puis définir une police particulière et diverses autres propriétés de la famille de polices.
+Comme indiqué dans **Gérer les propriétés liées aux polices**, une [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) est utilisée pour contenir du texte avec un style de formatage similaire dans un paragraphe. Cet article montre comment utiliser Aspose.Slides for Java pour créer une zone de texte contenant du texte, puis définir une police particulière ainsi que diverses autres propriétés de la catégorie de famille de police.
 
 {{% /alert %}} 
 
-Pour créer une zone de texte et définir les propriétés de police du texte qui s'y trouve :
+Pour créer une zone de texte et définir les propriétés de police du texte qu’elle contient :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Obtenez la référence d'une diapositive en utilisant son index.
-1. Ajoutez une [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape) de type **Rectangle** à la diapositive.
-1. Supprimez le style de remplissage associé à l'[AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Accédez au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame) associé à l'[AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Ajoutez du texte au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame).
-1. Accédez à l'objet [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) associé au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame).
-1. Définissez la police à utiliser pour le [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
-1. Définissez d'autres propriétés de police comme le gras, l'italique, le soulignement, la couleur et la taille en utilisant les propriétés pertinentes exposées par l'objet [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
-1. Écrivez la présentation modifiée en tant que fichier PPTX.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
+2. Obtenir la référence d’une diapositive en utilisant son index.
+3. Ajouter un [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/) du type **Rectangle** à la diapositive.
+4. Supprimer le style de remplissage associé à l’[AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+5. Accéder au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) de l’[AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+6. Ajouter du texte au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/).
+7. Accéder à l’objet [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) associé au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/).
+8. Définir la police à utiliser pour la [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/).
+9. Définir d’autres propriétés de police telles que gras, italique, souligné, couleur et hauteur en utilisant les propriétés pertinentes exposées par l’objet [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/).
+10. Enregistrer la présentation modifiée dans un fichier PPTX.
 
-L'implémentation des étapes ci-dessus est donnée ci-dessous.
+L’implémentation des étapes ci‑dessus est fournie ci‑dessous.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
-|**Figure : Texte avec certaines propriétés de police définies par Aspose.Slides pour Java**|
-
+|**Figure : Texte avec certaines propriétés de police définies par Aspose.Slides for Java**|
 ```java
 // Instancier un objet Presentation qui représente un fichier PPTX
 Presentation pres = new Presentation();
 try {
-	// Obtenir la première diapositive
+	// Récupérer la première diapositive
 	ISlide sld = pres.getSlides().get_Item(0);
 	
 	// Ajouter un AutoShape de type Rectangle
@@ -145,7 +153,7 @@ try {
 	// Définir la propriété Italique de la police
 	port.getPortionFormat().setFontItalic(NullableBool.True);
 	
-	// Définir la propriété Soulignée de la police
+	// Définir la propriété Souligné de la police
 	port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
 	
 	// Définir la hauteur de la police

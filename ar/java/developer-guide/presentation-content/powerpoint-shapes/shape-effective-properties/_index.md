@@ -1,34 +1,34 @@
 ---
-title: الحصول على خصائص الشكل الفعالة من العروض التقديمية في Java
+title: الحصول على خصائص الشكل الفعالة من العروض التقديمية في جافا
 linktitle: الخصائص الفعالة
 type: docs
 weight: 50
 url: /ar/java/shape-effective-properties/
 keywords:
-- خصائص الشكل
-- خصائص الكاميرا
-- نظام الإضاءة
-- شكل القطع
-- إطار النص
-- نمط النص
-- ارتفاع الخط
-- تنسيق التعبئة
-- PowerPoint
-- العرض التقديمي
-- Java
-- Aspose.Slides
-description: "اكتشف كيف يحسب Aspose.Slides for Java ويطبق خصائص الشكل الفعالة للحصول على عرض PowerPoint دقيق."
+  - خصائص الشكل
+  - خصائص الكاميرا
+  - مجموعة الإضاءة
+  - الشكل المائل
+  - إطار النص
+  - نمط النص
+  - ارتفاع الخط
+  - تنسيق التعبئة
+  - PowerPoint
+  - العرض التقديمي
+  - Java
+  - Aspose.Slides
+description: "اكتشف كيف تقوم Aspose.Slides for Java بحساب وتطبيق خصائص الشكل الفعالة للحصول على عرض PowerPoint دقيق."
 ---
 
-في هذا الموضوع، سنناقش الخصائص **الفعالة** و **المحلية**. عندما نقوم بتعيين القيم مباشرةً عند هذه المستويات
+في هذا الموضوع، سنناقش الخصائص **الفعالة** و **المحلية**. عندما نحدد القيم مباشرةً في هذه المستويات
 
 1. في خصائص الجزء على شريحة الجزء؛
-1. في نمط نص الشكل النموذجي على شريحة التخطيط أو الشريحة الرئيسية (إذا كان لشكل إطار النص للجزء واحد)؛
-1. في إعدادات النص العالمية للعرض التقديمي؛
+1. في نمط نص الشكل النموذجي على الشريحة التخطيطية أو الشريحة الرئيسية (إذا كان لشكل إطار النص للجزء واحد);
+1. في إعدادات النص العامة للعرض التقديمي؛
 
-تُدعى تلك القيم **القيم المحلية**. في أي مستوى، يمكن تعريف أو حذف **القيم المحلية**. ولكن عندما يحتاج التطبيق إلى معرفة الشكل الذي يجب أن يظهر به الجزء، يستخدم **القيم الفعالة**. يمكنك الحصول على القيم الفعالة باستخدام الطريقة **getEffective()** من التنسيق المحلي.
+تُسمى تلك القيم **القيم المحلية**. في أي مستوى، يمكن تعريف **القيم المحلية** أو حذفها. ولكن عندما يحتاج التطبيق إلى معرفة شكل الجزء، يستخدم **القيم الفعالة**. يمكنك الحصول على القيم الفعالة باستخدام الطريقة **getEffective()** من التنسيق المحلي.
 
-هذا مثال على التعليمات البرمجية يوضح لك كيفية الحصول على القيم الفعالة:
+يعرض لك هذا الكود النموذجي كيفية الحصول على القيم الفعالة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -45,10 +45,10 @@ try {
 ```
 
 
-## **الحصول على خصائص الكاميرا الفعالة**
-Aspose.Slides for Java يسمح للمطورين بالحصول على خصائص الكاميرا الفعالة. لهذا الغرض، تم إضافة الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) إلى Aspose.Slides. تمثل واجهة [ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. تُستخدم نسخة من واجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData)، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) لـ [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) class.
+## **الحصول على الخصائص الفعالة للكاميرا**
+تسمح Aspose.Slides for Java للمطورين بالحصول على الخصائص الفعالة للكاميرا. لهذا الغرض، تمت إضافة الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) إلى Aspose.Slides. تمثل واجهة [ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. يُستخدم كائن من الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData)، والتي تُعد زوجًا من [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) للفئة [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
 
-هذا مثال على التعليمات البرمجية يوضح لك كيفية الحصول على خصائص الكاميرا الفعالة:
+يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة للكاميرا:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -64,10 +64,10 @@ try {
 ```
 
 
-## **الحصول على خصائص Light Rig الفعالة**
-Aspose.Slides for Java يسمح للمطورين بالحصول على خصائص Light Rig الفعالة. لهذا الغرض، تم إضافة الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) إلى Aspose.Slides. تمثل واجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص Light Rig الفعالة. تُستخدم نسخة من واجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData)، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) لـ [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) class.
+## **الحصول على الخصائص الفعالة لمجموعة الإضاءة**
+تسمح Aspose.Slides for Java للمطورين بالحصول على الخصائص الفعالة لمجموعة الإضاءة. لهذا الغرض، تمت إضافة الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) إلى Aspose.Slides. تمثل واجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص مجموعة الإضاءة الفعالة. يُستخدم كائن من الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) ، والتي تُعد زوجًا من [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) للفئة [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
 
-هذا مثال على التعليمات البرمجية يوضح لك كيفية الحصول على خصائص Light Rig الفعالة:
+يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لمجموعة الإضاءة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -82,10 +82,10 @@ try {
 ```
 
 
-## **الحصول على خصائص الشكل القَطعي الفعالة**
-Aspose.Slides for Java يسمح للمطورين بالحصول على خصائص الشكل القَطعي الفعالة. لهذا الغرض، تم إضافة الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) إلى Aspose.Slides. تمثل واجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص ارتخاء سطح الشكل الفعالة. تُستخدم نسخة من واجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData))، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) لـ [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) class.
+## **الحصول على الخصائص الفعالة للشكل المائل**
+تسمح Aspose.Slides for Java للمطورين بالحصول على الخصائص الفعالة للشكل المائل. لهذا الغرض، تمت إضافة الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) إلى Aspose.Slides. تمثل واجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص إطلالة شكل الوجه الفعالة. يُستخدم كائن من الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) ، والتي تُعد زوجًا من [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) للفئة [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
 
-هذا مثال على التعليمات البرمجية يوضح لك كيفية الحصول على خصائص الشكل القَطعي الفعالة:
+يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لشكل الإقلام:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -101,10 +101,10 @@ try {
 ```
 
 
-## **الحصول على خصائص إطار النص الفعالة**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على خصائص إطار النص الفعالة. لهذا الغرض، تم إضافة الواجهة [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص الفعالة.
+## **الحصول على الخصائص الفعالة لإطار النص**
+باستخدام Aspose.Slides for Java، يمكنك الحصول على الخصائص الفعالة لإطار النص. لهذا الغرض، تمت إضافة الواجهة [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص الفعالة.
 
-هذا مثال على التعليمات البرمجية يوضح لك كيفية الحصول على خصائص تنسيق إطار النص الفعالة:
+يعرض لك هذا المثال البرمجي كيفية الحصول على خصائص تنسيق إطار النص الفعالة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -125,10 +125,10 @@ try {
 ```
 
 
-## **الحصول على خصائص نمط النص الفعالة**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على خصائص نمط النص الفعالة. لهذا الغرض، تم إضافة الواجهة [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData) إلى Aspose.Slides. تحتوي على خصائص نمط النص الفعالة.
+## **الحصول على الخصائص الفعالة لنمط النص**
+باستخدام Aspose.Slides for Java، يمكنك الحصول على الخصائص الفعالة لنمط النص. لهذا الغرض، تمت إضافة الواجهة [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData) إلى Aspose.Slides. تحتوي على خصائص نمط النص الفعالية.
 
-هذا مثال على التعليمات البرمجية يوضح لك كيفية الحصول على خصائص نمط النص الفعالة:
+يعرض لك هذا المثال البرمجي كيفية الحصول على خصائص نمط النص الفعالة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -152,7 +152,7 @@ try {
 
 
 ## **الحصول على قيمة ارتفاع الخط الفعال**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على خصائص ارتفاع الخط الفعالة. هنا نقدم كودًا يوضح تغيير قيمة ارتفاع الخط الفعالة للجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من هيكل العرض:
+باستخدام Aspose.Slides for Java، يمكنك الحصول على الخصائص الفعالة لارتفاع الخط. هنا، نقدم كودًا يُظهر قيمة ارتفاع الخط الفعالة للجزء تتغير بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -198,7 +198,7 @@ try {
 
 
 ## **الحصول على تنسيق التعبئة الفعال لجدول**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء منطقية مختلفة من الجدول. لهذا الغرض، تمت إضافة الواجهة [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعالة. يرجى ملاحظة ما يلي: تنسيق الخلية له أولوية دائمًا على تنسيق الصف؛ والصف له أولوية على العمود؛ والعمود له أولوية على الجدول بأكمله.
+باستخدام Aspose.Slides for Java، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. لهذا الغرض، تمت إضافة الواجهة [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعالة. يرجى ملاحظة ما يلي: تنسيق الخلية يحصل دائمًا على الأولوية على تنسيق الصف؛ والصف يحصل على الأولوية على العمود؛ والعمود يحصل على الأولوية على الجدول بأكمله.
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -218,32 +218,25 @@ try {
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني معرفة أنني حصلت على "لقطة" بدلاً من "كائن حي"، ومتى يجب قراءة الخصائص الفعالة مرة أخرى؟**
-
-كائنات EffectiveData هي لقطات غير قابلة للتغيير للقيم المحسوبة في وقت الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل، استرجع البيانات الفعالة مرة أخرى للحصول على القيم المحدّثة.
+**كيف يمكنني معرفة أنني حصلت على "لقطة" بدلاً من "كائن حي"، ومتى يجب علي قراءة الخصائص الفعالة مرة أخرى؟**
+كائنات EffectiveData هي لقطات غير قابلة للتغيير للقيم المحسوبة في وقت الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل، استرجع البيانات الفعالة مرة أخرى للحصول على القيم المحدثة.
 
 **هل يؤثر تغيير شريحة التخطيط/الرئيسية على الخصائص الفعالة التي تم استرجاعها مسبقًا؟**
-
-نعم، ولكن فقط بعد قراءتها مرة أخرى. كائن EffectiveData الذي تم الحصول عليه مسبقًا لا يحدّث نفسه—اطلبه مرة أخرى بعد تغيير التخطيط أو الشريحة الرئيسية.
+نعم، ولكن فقط بعد أن تقرأها مرة أخرى. كائن EffectiveData الذي تم الحصول عليه مسبقًا لا يتم تحديثه تلقائيًا—اطلبه مرة أخرى بعد تغيير التخطيط أو الشريحة الرئيسية.
 
 **هل يمكنني تعديل القيم عبر EffectiveData؟**
+لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلية (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعالة مرة أخرى.
 
-لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعالة مرة أخرى.
+**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل، ولا في التخطيط/الرئيسية، ولا في الإعدادات العامة؟**
+يتم تحديد القيمة الفعالة بواسطة آلية الافتراضي (إعدادات PowerPoint/Aspose.Slides الافتراضية). تصبح تلك القيمة المحسومة جزءًا من لقطة EffectiveData.
 
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل ولا في التخطيط/الرئيسية ولا في الإعدادات العامة؟**
-
-تُحدد القيمة الفعالة عبر الآلية الافتراضية (إعدادات PowerPoint/​Aspose.Slides الافتراضية). تلك القيمة المحلولة تصبح جزءًا من لقطة EffectiveData.
-
-**من قيمة الخط الفعالة، هل يمكنني معرفة أي مستوى قدم الحجم أو نوع الخط؟**
-
-ليس بشكل مباشر. EffectiveData تُعيد القيمة النهائية. لتحديد المصدر، راجع القيم المحلية في الجزء/الفقرة/إطار النص والأنماط النصية في التخطيط/الرئيسية/العرض لترى أين تظهر التعريف الأول الصريح.
+**من قيمة الخط الفعالة، هل يمكنني معرفة أي مستوى قدّم الحجم أو نوع الخط؟**
+ليس مباشرة. تُعيد EffectiveData القيمة النهائية. للعثور على المصدر، تحقق من القيم المحلية في الجزء/الفقرة/إطار النص وأنماط النص في التخطيط/الرئيسية/العرض لمعرفة أين يظهر التعريف الصريح الأول.
 
 **لماذا تبدو قيم EffectiveData أحيانًا مطابقة للقيم المحلية؟**
+لأن القيمة المحلية أصبحت النهائية (لم يُحتاج إلى وراثة من مستوى أعلى). في مثل هذه الحالات، تكون القيمة الفعالة مطابقة للقيمة المحلية.
 
-لأن القيمة المحلية انتهت بأنها النهائية (لم يتم الحاجة إلى وراثة من مستوى أعلى). في مثل هذه الحالات، تتطابق القيمة الفعالة مع القيمة المحلية.
-
-**متى يجب استخدام الخصائص الفعالة، ومتى أعمل فقط مع الخصائص المحلية؟**
-
-استخدم EffectiveData عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع الوراثات (مثلاً لمطابقة الألوان، المسافات البادئة، أو الأحجام). إذا كنت بحاجة إلى تغيير التنسيق على مستوى محدد، عدّل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.
+**متى يجب علي استخدام الخصائص الفعالة، ومتى يجب أن أعمل فقط بالقيم المحلية؟**
+استخدم EffectiveData عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع الوراثات (مثال: لتطابق الألوان أو الهوامش أو الأحجام). إذا كنت بحاجة إلى تغيير التنسيق على مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.

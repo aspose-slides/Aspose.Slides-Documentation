@@ -9,7 +9,7 @@ keywords:
 - regla de reserva
 - colección de fuentes
 - configurar fuente
-- instalar fuente
+- establecer fuente
 - PowerPoint
 - OpenDocument
 - presentación
@@ -20,13 +20,13 @@ description: "Configura una colección de fuentes de reserva en Aspose.Slides pa
 
 ## **Aplicar reglas de reserva**
 
-Las instancias de la clase [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) pueden organizarse en [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), que implementa la interfaz [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). Es posible añadir o eliminar reglas de la colección.
+Las instancias de la clase [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) pueden organizarse en una [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), que implementa la interfaz [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). Es posible añadir o eliminar reglas de la colección.
 
-Luego, esta colección puede asignarse al método [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) de la clase [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager controla las fuentes en toda la presentación. Lee más [Acerca de FontsManager y FontsLoader](/slides/es/java/about-fontsmanager-and-fontsloader/).
+Luego, esta colección puede asignarse al método [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) de la clase [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager controla las fuentes en toda la presentación.
 
 Cada [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) tiene un método [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) con su propia instancia de la clase [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
 
-Aquí hay un ejemplo de cómo crear una colección de reglas de fuentes de reserva y asignarla al [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) de una presentación determinada:  
+A continuación se muestra un ejemplo de cómo crear una colección de reglas de fuentes de reserva y asignarla al [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) de una presentación concreta:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,26 +42,26 @@ try {
 ```
 
 
-Después de que FontsManager se inicialice con la colección de fuentes de reserva, las fuentes de reserva se aplican durante la renderización de la presentación.
+Una vez que FontsManager se inicializa con la colección de fuentes de reserva, las fuentes de reserva se aplican durante la renderización de la presentación.
 
 {{% alert color="primary" %}} 
-Lee más cómo [Renderizar presentación con fuente de reserva](/slides/es/java/render-presentation-with-fallback-font/).
+Obtenga más información sobre cómo [Renderizar presentación con fuente de reserva](/slides/es/java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Se incorporarán mis reglas de reserva al archivo PPTX y serán visibles en PowerPoint después de guardar?**
+**¿Se incorporarán mis reglas de reserva al archivo PPTX y serán visibles en PowerPoint después de guardarlo?**
 
-No. Las reglas de reserva son configuraciones de renderizado en tiempo de ejecución; no se serializan en el PPTX y no aparecerán en la UI de PowerPoint.
+No. Las reglas de reserva son ajustes de renderizado en tiempo de ejecución; no se serializan en el PPTX y no aparecerán en la interfaz de PowerPoint.
 
-**¿La reserva se aplica al texto dentro de SmartArt, WordArt, gráficos y tablas?**
+**¿Se aplica la reserva al texto dentro de SmartArt, WordArt, gráficos y tablas?**
 
 Sí. Se utiliza el mismo mecanismo de sustitución de glifos para cualquier texto en estos objetos.
 
-**¿Aspose distribuye alguna fuente con la biblioteca?**
+**¿Distribuye Aspose alguna fuente con la biblioteca?**
 
-No. Usted agrega y usa fuentes por su cuenta y bajo su propia responsabilidad.
+No. Usted añade y utiliza fuentes por su cuenta y bajo su propia responsabilidad.
 
-**¿Pueden usarse conjuntamente el reemplazo/sustitución de fuentes faltantes y la reserva de glifos faltantes?**
+**¿Pueden usarse conjuntamente la sustitución/reemplazo de fuentes faltantes y la reserva para glifos faltantes?**
 
-Sí. Son etapas independientes del mismo proceso de resolución de fuentes: primero el motor resuelve la disponibilidad de fuentes ([reemplazo](/slides/es/java/font-replacement/)/[sustitución](/slides/es/java/font-substitution/)), luego la reserva cubre los huecos de glifos faltantes en las fuentes disponibles.
+Sí. Son etapas independientes del mismo pipeline de resolución de fuentes: primero el motor resuelve la disponibilidad de fuentes ([reemplazo](/slides/es/java/font-replacement/)/[sustitución](/slides/es/java/font-substitution/)), luego la reserva rellena los huecos de glifos faltantes en las fuentes disponibles.
