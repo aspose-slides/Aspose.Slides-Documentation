@@ -1,145 +1,142 @@
 ---
-title: プレゼンテーションからのテキストの抽出
+title: プレゼンテーションからテキストを抽出する
 type: docs
 weight: 60
 url: /ja/cpp/extracting-text-from-the-presentation/
+keywords:
+- テキスト抽出
+- テキスト取得
+- スライド
+- テキストボックス
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ でスライドやプレゼンテーション全体からテキストを抽出し、PPT、PPTX、ODP のコンテンツをプログラムで処理する方法を学びます。"
 ---
 
 {{% alert color="primary" %}} 
 
-開発者がプレゼンテーションからテキストを抽出する必要があるのは珍しくありません。そのためには、プレゼンテーション内のすべてのスライドのすべてのシェイプからテキストを抽出する必要があります。本記事では、Aspose.Slidesを使用してMicrosoft PowerPoint PPTXプレゼンテーションからテキストを抽出する方法を説明します。テキストは以下の方法で抽出できます：
+Presentationからテキストを抽出する必要がある開発者は珍しくありません。そのためには、プレゼンテーション内のすべてのスライドのすべてのシェイプからテキストを抽出する必要があります。本記事では、Aspose.Slides を使用して Microsoft PowerPoint PPTX プレゼンテーションからテキストを抽出する方法を説明します。テキストは以下の方法で抽出できます:
 
-[1つのスライドからのテキストの抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
-[GetAllTextBoxesメソッドを使用してテキストを抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
-[分類された迅速なテキスト抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
+[1枚のスライドからテキストを抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
+[GetAllTextBoxes メソッドを使用してテキストを抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
+[分類された高速テキスト抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
-## **スライドからのテキストの抽出**
-Aspose.Slides for C++は、PresentationScannerクラスを含むAspose.Slides.Util名前空間を提供します。このクラスは、プレゼンテーションまたはスライドから全体のテキストを抽出するためのオーバーロードされた静的メソッドを多数公開しています。PPTXプレゼンテーションのスライドからテキストを抽出するには、PresentationScannerクラスによって公開されている[GetAllTextBoxes](http://docs.aspose.com/display/slidesnet/PresentationScanner+Members)オーバーロードされた静的メソッドを使用します。このメソッドは、Slideオブジェクトをパラメーターとして受け取ります。
-実行時に、Slideメソッドはパラメーターとして渡されたスライドから全体のテキストをスキャンし、TextFrameオブジェクトの配列を返します。これは、テキストに関連付けられた任意のテキスト形式が利用可能であることを意味します。以下のコードスニペットは、プレゼンテーションの最初のスライド上のすべてのテキストを抽出します：
+## **Extracting Text from a Slide**
+Aspose.Slides for C++ は Aspose.Slides.Util 名前空間を提供し、その中に PresentationScanner クラスがあります。このクラスはプレゼンテーションまたはスライド全体のテキストを抽出するための多数のオーバーロードされた静的メソッドを公開しています。PPTX プレゼンテーションのスライドからテキストを抽出するには、PresentationScanner クラスが提供する [GetAllTextBoxes](https://reference.aspose.com/slides/cpp/aspose.slides.util/slideutil/getalltextboxes/) オーバーロード 静的メソッドを使用します。このメソッドは Slide オブジェクトをパラメーターとして受け取ります。実行時に、Slide メソッドはパラメーターとして渡されたスライドの全テキストをスキャンし、TextFrame オブジェクトの配列を返します。これにより、テキストに関連付けられた書式情報も取得できます。以下のコードはプレゼンテーションの最初のスライドのすべてのテキストを抽出します:
 
 **C#**
-
 ``` cpp
 
- //PPTXファイルを表すPresentationExクラスをインスタンス化
-
+ //PPTX ファイルを表す PresentationEx クラスをインスタンス化する
 Presentation pptxPresentation = new Presentation(path + "demo.pptx");
 
-
-//最初のスライドからTextFrameExオブジェクトの配列を取得
-
+ //最初のスライドから TextFrameEx オブジェクトの配列を取得する
 ITextFrame[] textFramesSlideOne = SlideUtil.GetAllTextBoxes(pptxPresentation.Slides[0]);
 
-//TextFramesの配列をループ
-
+ //TextFrame の配列をループ処理する
 for (int i = 0; i < textFramesSlideOne.Length; i++)
+    //現在の TextFrame の段落をループ処理する
+    foreach (Paragraph para in textFramesSlideOne[i].Paragraphs)
+        //現在の段落のポーションをループ処理する
+        foreach (Portion port in para.Portions)
+        {
+            //現在のポーションのテキストを表示する
+            Console.WriteLine(port.Text);
+            //テキストのフォント高さを表示する
+            Console.WriteLine(port.PortionFormat.FontHeight);
+            //テキストのフォント名を表示する
+            Console.WriteLine(port.PortionFormat.LatinFont.FontName);
+        }
 
-//現在のTextFrame内の段落をループ
 
-foreach (Paragraph para in textFramesSlideOne[i].Paragraphs)
-
-//現在の段落内のポーションをループ
-
-foreach (Portion port in para.Portions)
-
-{
-
-    //現在のポーションのテキストを表示
-
-    Console.WriteLine(port.Text);
-
-    //テキストのフォントサイズを表示
-
-    Console.WriteLine(port.PortionFormat.FontHeight);
-
-    //テキストのフォント名を表示
-
-    Console.WriteLine(port.PortionFormat.LatinFont.FontName);
-
-}
 
 ```
 
-## **全体のプレゼンテーションからのテキストの抽出**
-全体のプレゼンテーションからテキストをスキャンするには、PresentationScannerクラスによって公開されている[GetAllTextFrames](http://docs.aspose.com/display/slidesnet/PresentationScanner+Members)静的メソッドを使用します。これには2つのパラメータが必要です：
 
-1. 最初に、テキストを抽出するPPTXプレゼンテーションを表すPresentationオブジェクト。
-1. 次に、プレゼンテーションからテキストをスキャンするときにマスタースライドを含めるかどうかを決定するBoolean値。
-   このメソッドは、テキスト形式情報を完全に含むTextFrameオブジェクトの配列を返します。以下のコードは、マスタースライドを含むプレゼンテーションからテキストと形式情報をスキャンします。
+
+## **Extracting Text from the Whole Presentation**
+プレゼンテーション全体のテキストをスキャンするには、PresentationScanner クラスが提供する [GetAllTextFrames](https://reference.aspose.com/slides/cpp/aspose.slides.util/slideutil/getalltextframes/) 静的メソッドを使用します。このメソッドは2つのパラメーターを取ります:
+
+1. 最初に、テキストを抽出する対象の PPTX プレゼンテーションを表す Presentation オブジェクト。
+2. 次に、テキストをスキャンする際にマスタースライドを含めるかどうかを決定する Boolean 値。   このメソッドは TextFrame オブジェクトの配列を返し、テキスト書式情報も含まれます。以下のコードはプレゼンテーション（マスタースライドを含む）のテキストと書式情報をスキャンします。
 
 **C#**
-
 ``` cpp
 
- //PPTXファイルを表すPresentationクラスをインスタンス化
+ //PPTX ファイルを表す Presentation クラスをインスタンス化
 
 Presentation pptxPresentation = new Presentation(path + "demo.pptx");
 
-//PPTX内のすべてのスライドからITextFrameオブジェクトの配列を取得
+//PPTX のすべてのスライドから ITextFrame オブジェクトの配列を取得
 
 ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
 
-//TextFramesの配列をループ
+//TextFrame の配列をループ処理
 
 for (int i = 0; i < textFramesPPTX.Length; i++)
 
-//現在のITextFrame内の段落をループ
+    //現在の ITextFrame の段落をループ処理
 
-foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
+    foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
 
-//現在のIParagraph内のポーションをループ
+        //現在の IParagraph のポーションをループ処理
 
-foreach (IPortion port in para.Portions)
+        foreach (IPortion port in para.Portions)
 
-{
+        {
 
-    //現在のポーションのテキストを表示
+            //現在のポーションのテキストを表示
 
-    Console.WriteLine(port.Text);
+            Console.WriteLine(port.Text);
 
-    //テキストのフォントサイズを表示
+            //テキストのフォント高さを表示
 
-    Console.WriteLine(port.PortionFormat.FontHeight);
+            Console.WriteLine(port.PortionFormat.FontHeight);
 
-    //テキストのフォント名を表示
+            //テキストのフォント名を表示
 
-    if (port.PortionFormat.LatinFont != null)
+            if (port.PortionFormat.LatinFont != null)
 
-        Console.WriteLine(port.PortionFormat.LatinFont.FontName);
+                Console.WriteLine(port.PortionFormat.LatinFont.FontName);
 
-}
+        }
 
 ```
 
-## **分類された迅速なテキスト抽出**
-Presentationクラスに新しい静的メソッドGetPresentationTextが追加されました。このメソッドには2つのオーバーロードがあります：
 
+
+## **Categorized and fast extraction of text**
+Presentation クラスに新しい静的メソッド GetPresentationText が追加されました。このメソッドには2つのオーバーロードがあります:
 ``` cpp
 
  PresentationText GetPresentationText(Stream stream)
 
 PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
 
+
 ```
 
-ExtractionMode列挙型引数は、テキスト結果の出力形式を整理するモードを示し、次の値に設定できます：
-Unarranged - スライド上の位置を無視した生のテキスト
-Arranged - スライド上と同じ順序に配置されたテキスト
 
-Unarrangedモードは、速度が重要な場合に使用できます。これは、Arrangedモードよりも高速です。
+ExtractionMode 列挙体の引数はテキスト結果の出力方法を指定し、以下の値に設定できます:
+Unarranged - スライド上の位置を考慮しない生テキスト
+Arranged - スライド上の順序と同じ順序でテキストが配置される
 
-PresentationTextは、プレゼンテーションから抽出された生のテキストを表します。これは、ISlideTextオブジェクトの配列を返すAspose.Slides.Util名前空間のSlidesTextプロパティを含みます。各オブジェクトは、対応するスライド上のテキストを表します。ISlideTextオブジェクトには次のプロパティがあります：
+速度が重要な場合は Unarranged モードを使用できます。Arranged モードよりも高速です。
+
+PresentationText はプレゼンテーションから抽出された生テキストを表します。Aspose.Slides.Util 名前空間の SlidesText プロパティを持ち、ISlideText オブジェクトの配列を返します。各オブジェクトは対応するスライド上のテキストを表します。ISlideText オブジェクトには以下のプロパティがあります:
 
 ISlideText.Text - スライドのシェイプ上のテキスト
-ISlideText.MasterText - このスライドのマスターページのシェイプ上のテキスト
-ISlideText.LayoutText - このスライドのレイアウトページのシェイプ上のテキスト
-ISlideText.NotesText - このスライドのノートページのシェイプ上のテキスト
+ISlideText.MasterText - このスライドのマスターページ上のシェイプのテキスト
+ISlideText.LayoutText - このスライドのレイアウトページ上のシェイプのテキスト
+ISlideText.NotesText - このスライドのノートページ上のシェイプのテキスト
 
-ISlideTextインターフェースを実装するSlideTextクラスもあります。
+また、ISlideText インターフェイスを実装する SlideText クラスもあります。
 
-新しいAPIは次のように使用できます：
-
+新しい API は次のように使用できます:
 ``` cpp
 
  PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
@@ -153,5 +150,6 @@ Console.WriteLine(text1.SlidesText[0].MasterText);
 Console.WriteLine(text1.SlidesText[0].NotesText);
 
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
+
 
 ```

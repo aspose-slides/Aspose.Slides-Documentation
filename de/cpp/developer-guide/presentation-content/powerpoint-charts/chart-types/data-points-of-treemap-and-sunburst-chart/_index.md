@@ -16,9 +16,9 @@ keywords:
 description: "Erfahren Sie, wie Sie Datenpunkte in Treemap- und Sunburst-Diagrammen mit Aspose.Slides für C++ verwalten, kompatibel mit PowerPoint-Formaten."
 ---
 
-Unter den anderen Diagrammtypen von PowerPoint gibt es zwei „hierarchische“ Typen – **Treemap** und **Sunburst**‑Diagramm (auch bekannt als Sunburst‑Grafik, Sunburst‑Diagramm, Radial‑Diagramm, Radial‑Grafik oder Mehrstufiges‑Kreis‑Diagramm). Diese Diagramme zeigen hierarchische Daten, die als Baum organisiert sind – von den Blättern bis zur Spitze des Astes. Blätter werden durch die Datenpunkte der Serie definiert, und jede nachfolgende verschachtelte Gruppierungsebene wird durch die entsprechende Kategorie definiert. Aspose.Slides für C++ ermöglicht das Formatieren von Datenpunkten des Sunburst‑Diagramms und des Treemap‑Diagramms in C++.
+Unter anderem gibt es bei PowerPoint-Diagrammen zwei „hierarchische“ Typen – **Treemap** und **Sunburst**‑Diagramm (auch bekannt als Sunburst‑Grafik, Sunburst‑Diagramm, Radial‑Diagramm, Radial‑Grafik oder Mehrstufiges Kreisdiagramm). Diese Diagramme zeigen hierarchische Daten, die als Baum organisiert sind – von den Blättern bis zur Spitze des Astes. Blätter werden durch die Datenpunkte der Serie definiert, und jede nachfolgende verschachtelte Gruppierungsebene wird durch die entsprechende Kategorie definiert. Aspose.Slides für C++ ermöglicht das Formatieren von Datenpunkten des Sunburst‑Diagramms und des Treemap in C++.
 
-Hier ist ein Sunburst‑Diagramm, bei dem die Daten in der Spalte Series1 die Blattknoten definieren, während andere Spalten hierarchische Datenpunkte definieren:
+Hier ist ein Sunburst‑Diagramm, bei dem die Daten in der Spalte Series1 die Blattknoten definieren, während die anderen Spalten hierarchische Datenpunkte definieren:
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
 Beginnen wir damit, ein neues Sunburst‑Diagramm zur Präsentation hinzuzufügen:
@@ -33,12 +33,13 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 - [**Erstellen eines Sunburst‑Diagramms**](/slides/de/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
-Falls ein Bedarf besteht, Datenpunkte des Diagramms zu formatieren, sollten wir Folgendes verwenden:
-Die [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager), [IChartDataPointLevel](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) Klassen und die [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point#ac619638c85f84a6127a7ce62523e0931) Methode bieten Zugriff auf das Formatieren von Datenpunkten von Treemap‑ und Sunburst‑Diagrammen.
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) wird verwendet, um mehrstufige Kategorien zuzugreifen – er stellt den Container der [**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level)‑Objekte dar. Im Wesentlichen ist er ein Wrapper für [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_category_levels_manager) mit den speziell für Datenpunkte hinzugefügten Eigenschaften.
-Die [**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level)‑Klasse hat zwei Methoden: [**get_Format()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a00caa6a048ad98a66ab56a5ddb196697) und [**get_Label()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a5ab377b372199eb561792e9ba18acf25), die Zugriff auf die entsprechenden Einstellungen bieten.
+Falls es notwendig ist, Datenpunkte des Diagramms zu formatieren, sollten wir Folgendes verwenden:
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/) classes und [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) method provide access to format data points of Treemap and Sunburst charts.
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) wird verwendet, um auf mehrstufige Kategorien zuzugreifen – es stellt den Container von [**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/)‑Objekten dar. Im Grunde ist es ein Wrapper für [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) mit den für Datenpunkte spezifisch hinzugefügten Eigenschaften.
+Die Klasse [**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/) besitzt zwei Methoden: [**get_Format()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) und [**get_Label()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/), die Zugriff auf die entsprechenden Einstellungen bieten.
 
-## **Datenpunktwert anzeigen**
+## **Wert eines Datenpunkts anzeigen**
 Wert des Datenpunkts „Leaf 4“ anzeigen:
 ``` cpp
 auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
@@ -49,7 +50,7 @@ dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_Data
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
 ## **Datenpunktbeschriftung und -farbe festlegen**
-Setzen Sie die Datenbeschriftung von „Branch 1“ so, dass der Serienname („Series1“) anstelle des Kategorienamens angezeigt wird. Setzen Sie anschließend die Textfarbe auf Gelb:
+Setzen Sie die Datenbeschriftung von „Branch 1“ so, dass der Serienname („Series1“) anstelle des Kategorienamens angezeigt wird. Anschließend setzen Sie die Textfarbe auf Gelb:
 ``` cpp
 auto branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
 branch1Label->get_DataLabelFormat()->set_ShowCategoryName(false);
@@ -81,14 +82,18 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Kann ich die Reihenfolge (Sortierung) der Segmente in Sunburst/Treemap ändern?**  
-Nein. PowerPoint sortiert Segmente automatisch (in der Regel nach absteigenden Werten, im Uhrenzeigersinn). Aspose.Slides spiegelt dieses Verhalten wider: Sie können die Reihenfolge nicht direkt ändern; Sie erreichen dies, indem Sie die Daten vorverarbeiten.
+**Kann ich die Reihenfolge (Sortierung) der Segmente in Sunburst/Treemap ändern?**
 
-**Wie wirkt sich das Präsentationsthema auf die Farben von Segmenten und Beschriftungen aus?**  
-Diagrammfarben übernehmen das Präsentationsthema [theme/palette](/slides/de/cpp/presentation-theme/), sofern Sie nicht explizit Füllungen oder Schriftarten setzen. Für konsistente Ergebnisse sollten Sie feste Füllungen und Textformatierungen auf den erforderlichen Ebenen festlegen.
+Nein. PowerPoint sortiert Segmente automatisch (in der Regel nach absteigenden Werten, im Uhrzeigersinn). Aspose.Slides spiegelt dieses Verhalten wider: Sie können die Reihenfolge nicht direkt ändern; Sie erreichen dies durch Vorverarbeiten der Daten.
 
-**Wird der Export nach PDF/PNG benutzerdefinierte Zweigfarben und Beschriftungseinstellungen beibehalten?**  
-Ja. Beim Exportieren der Präsentation werden Diagrammeinstellungen (Füllungen, Beschriftungen) in den Ausgabedateien beibehalten, da Aspose.Slides das Diagramm mit den angewendeten Formatierungen rendert.
+**Wie beeinflusst das Präsentationsthema die Farben von Segmenten und Beschriftungen?**
 
-**Kann ich die tatsächlichen Koordinaten einer Beschriftung/eines Elements berechnen, um ein benutzerdefiniertes Overlay über dem Diagramm zu platzieren?**  
-Ja. Nach der Validierung des Diagrammlayouts stehen tatsächliche X‑ und Y‑Koordinaten für Elemente (zum Beispiel für ein [DataLabel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datalabel/)) zur Verfügung, die bei der genauen Positionierung von Overlays helfen.
+Diagrammfarben übernehmen das [theme/palette](/slides/de/cpp/presentation-theme/) der Präsentation, sofern Sie nicht explizit Füllungen/Schriften festlegen. Für konsistente Ergebnisse sollten Sie solide Füllungen und Textformatierungen auf den erforderlichen Ebenen festlegen.
+
+**Wird der Export nach PDF/PNG benutzerdefinierte Zweigfarben und Beschriftungseinstellungen beibehalten?**
+
+Ja. Beim Export der Präsentation bleiben die Diagrammeinstellungen (Füllungen, Beschriftungen) in den Ausgabedateiformaten erhalten, da Aspose.Slides das Diagramm mit angewendeter Formatierung rendert.
+
+**Kann ich die tatsächlichen Koordinaten einer Beschriftung/eines Elements berechnen, um benutzerdefinierte Überlagerungen über dem Diagramm zu platzieren?**
+
+Ja. Nachdem das Diagrammlayout validiert wurde, stehen für Elemente die tatsächlichen X‑ und Y‑Koordinaten zur Verfügung (z. B. für ein [DataLabel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datalabel/)), was bei der genauen Platzierung von Überlagerungen hilft.

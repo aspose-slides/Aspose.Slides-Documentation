@@ -28,17 +28,17 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash на C++ с Aspose.Slides. Пошаговые примеры кода, быстрый качественный вывод, без автоматизации PowerPoint."
+description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash на C++ с помощью Aspose.Slides. Пошаговые примеры кода, быстрый качественный вывод, без автоматизации PowerPoint."
 ---
 
 ## **Конвертировать презентации в Flash**
 
-Метод [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) может использоваться для конвертации всей презентации в документ SWF. Также можно включать комментарии в генерируемый SWF, используя класс [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) и интерфейс [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options). Следующий пример показывает, как конвертировать презентацию в документ SWF, используя параметры, предоставляемые классом SWFOptions.
+Метод [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e), предоставляемый классом [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), может использоваться для конвертации всей презентации в документ SWF. Вы также можете включать комментарии в генерируемый SWF, используя класс [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) и класс [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/). Следующий пример показывает, как конвертировать презентацию в документ SWF, используя параметры, предоставляемые классом SWFOptions.
 ``` cpp
 // Путь к каталогу документов.
     System::String dataDir = GetDataPath();
 
-    // Создать объект Presentation, представляющий файл презентации
+    // Создать объект Presentation, который представляет файл презентации
     auto presentation = System::MakeObject<Presentation>(dataDir + u"HelloWorld.pptx");
 
     auto swfOptions = System::MakeObject<SwfOptions>();
@@ -54,20 +54,20 @@ description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash н
 ```
 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Могу ли я включить скрытые слайды в SWF?**
+**Могу ли я включать скрытые слайды в SWF?**
 
 Да. Используйте метод [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_showhiddenslides/) в классе [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/). По умолчанию скрытые слайды не экспортируются.
 
-**Как я могу контролировать сжатие и конечный размер SWF?**
+**Как я могу контролировать сжатие и итоговый размер SWF?**
 
-Используйте метод [set_Compressed](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_compressed/) и настройте [JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_jpegquality/) чтобы сбалансировать размер файла и качество изображений.
+Используйте метод [set_Compressed](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_compressed/) и отрегулируйте [JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_jpegquality/) для балансировки размера файла и качества изображения.
 
-**Для чего нужен 'set_ViewerIncluded' и когда его следует использовать?**
+**Для чего предназначен 'set_ViewerIncluded' и когда его следует использовать?**
 
-[set_ViewerIncluded](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_viewerincluded/) добавляет встроенный пользовательский интерфейс плеера (элементы навигации, панели, поиск). Отключите его, если планируете использовать свой собственный плеер или нужен чистый кадр SWF без интерфейса.
+[set_ViewerIncluded](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_viewerincluded/) добавляет встроенный интерфейс плеера (элементы навигации, панели, поиск). Отключите его, если планируете использовать свой собственный плеер или нужен чистый SWF без пользовательского интерфейса.
 
 **Что происходит, если исходный шрифт отсутствует на машине экспорта?**
 
-Aspose.Slides заменит шрифт, указанный через [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) в классе [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/), чтобы избежать непреднамеренного переключения.
+Aspose.Slides заменит шрифт, указанный через [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) в [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/), чтобы избежать непреднамеренного fallback.

@@ -1,5 +1,5 @@
 ---
-title: Настройка коллекций резервных шрифтов в С++
+title: Настройка коллекций резервных шрифтов в C++
 linktitle: Коллекция резервных шрифтов
 type: docs
 weight: 20
@@ -13,20 +13,21 @@ keywords:
 - PowerPoint
 - OpenDocument
 - презентация
-- С++
+- C++
 - Aspose.Slides
-description: "Создайте коллекцию резервных шрифтов в Aspose.Slides для С++, чтобы текст в презентациях PowerPoint и OpenDocument оставался согласованным и чётким."
+description: "Настройте коллекцию резервных шрифтов в Aspose.Slides для C++, чтобы текст был согласованным и чётким в презентациях PowerPoint и OpenDocument."
 ---
 
-## **Применить правила резервных шрифтов**
+## **Применить правила резервного шрифта**
 
-Экземпляры [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) класса могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection), который реализует [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rules_collection) интерфейс. Можно добавлять или удалять правила из коллекции.
+Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrulescollection/), который реализует интерфейс [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrulescollection/). Можно добавлять или удалять правила из коллекции.
 
-Затем эту коллекцию можно передать в метод [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924) класса [FontsManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager). FontsManager контролирует шрифты во всей презентации. Подробнее [О FontsManager и FontsLoader](/slides/ru/cpp/about-fontsmanager-and-fontsloader/).
+Затем эту коллекцию можно передать методу [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) класса [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/). FontsManager управляет шрифтами во всей презентации.
 
-Каждый [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) имеет метод [get_FontsManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#acee582a9c243cbd63e30634c9714514a) с собственным экземпляром класса FontsManager.
+У каждого [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) есть метод [get_FontsManager()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/), который возвращает собственный экземпляр класса FontsManager.
 
-Ниже приведён пример того, как создать коллекцию правил резервных шрифтов и назначить её в FontsManager определённой презентации:   ``` cpp
+Ниже приведён пример того, как создать коллекцию правил резервных шрифтов и назначить её FontsManager определённой презентации:
+``` cpp
 auto presentation = MakeObject<Presentation>();
 auto userRulesList = MakeObject<FontFallBackRulesCollection>();
 
@@ -40,23 +41,23 @@ presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList)
 После инициализации FontsManager коллекцией резервных шрифтов, резервные шрифты применяются во время рендеринга презентации.
 
 {{% alert color="primary" %}} 
-Подробности о том, как [Визуализировать презентацию с резервным шрифтом](/slides/ru/cpp/render-presentation-with-fallback-font/).
+Подробнее о том, как [Отображение презентации с резервным шрифтом](/slides/ru/cpp/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **Часто задаваемые вопросы**
 
-**Будут ли мои правила резервных шрифтов внедрены в файл PPTX и видны в PowerPoint после сохранения?**
+**Будут ли мои правила резервного шрифта встроены в файл PPTX и видимы в PowerPoint после сохранения?**
 
-Нет. Правила резервных шрифтов являются настройками рендеринга во время выполнения; они не сериализуются в PPTX и не появятся в интерфейсе PowerPoint.
+Нет. Правила резервного шрифта являются настройками рендеринга во время выполнения; они не сериализуются в PPTX и не будут отображаться в пользовательском интерфейсе PowerPoint.
 
 **Применяется ли резервный шрифт к тексту внутри SmartArt, WordArt, диаграмм и таблиц?**
 
-Да. Тот же механизм замены глифов используется для любого текста в этих объектах.
+Да. Для любого текста в этих объектах используется тот же механизм подстановки глифов.
 
 **Поставляет ли Aspose какие-либо шрифты вместе с библиотекой?**
 
 Нет. Вы добавляете и используете шрифты самостоятельно и несёте за это ответственность.
 
-**Можно ли одновременно использовать замену/подстановку недоступных шрифтов и резервный шрифт для недостающих глифов?**
+**Можно ли одновременно использовать замену/подстановку отсутствующих шрифтов и резервный шрифт для отсутствующих глифов?**
 
-Да. Это независимые стадии одного конвейера разрешения шрифтов: сначала движок определяет доступность шрифтов ([replacement](/slides/ru/cpp/font-replacement/)/[substitution](/slides/ru/cpp/font-substitution/)), затем резервный шрифт заполняет пробелы недостающих глифов в доступных шрифтах.
+Да. Это независимые этапы одного и того же конвейера разрешения шрифтов: сначала движок определяет доступность шрифтов ([replacement](/slides/ru/cpp/font-replacement/)/[substitution](/slides/ru/cpp/font-substitution/)), затем резервный шрифт заполняет пробелы для отсутствующих глифов в доступных шрифтах.

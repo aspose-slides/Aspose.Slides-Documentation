@@ -1,28 +1,28 @@
 ---
-title: تحديد خطوط التعويض للعرض التقديمي في C++
-linktitle: خط التعويض
+title: تحديد الخطوط الاحتياطية للعروض التقديمية في C++
+linktitle: خط احتياطي
 type: docs
 weight: 10
 url: /ar/cpp/create-fallback-font/
 keywords:
-- خط التعويض
-- قاعدة التعويض
+- خط احتياطي
+- قاعدة احتياطية
 - تطبيق الخط
 - استبدال الخط
-- نطاق Unicode
-- الرمز المفقود
-- الرمز الصحيح
+- نطاق يونيكود
+- رمز مفقود
+- رمز صحيح
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعرّف على Aspose.Slides للغة C++ لتعيين خطوط التعويض في ملفات PPT و PPTX و ODP، مما يضمن عرض النص بشكل متسق على أي جهاز أو نظام تشغيل."
+description: "تعرّف على Aspose.Slides للغة C++ لضبط الخطوط الاحتياطية في ملفات PPT و PPTX و ODP، لضمان عرض نص متسق على أي جهاز أو نظام تشغيل."
 ---
 
-## **قواعد التعويض**
+## **قواعد الخط الاحتياطي**
 
-يدعم Aspose.Slides واجهة [IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) وفئة [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) لتحديد القواعد لتطبيق خط تعويض. فئة [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) تمثّل ارتباطًا بين نطاق Unicode المحدد، المستخدم للبحث عن الرموز المفقودة، وقائمة من الخطوط التي قد تحتوي على الرموز الصحيحة:
+يدعم Aspose.Slides الواجهة [IFontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrule/) والفئة [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) لتحديد القواعد لتطبيق خط احتياطي. تمثل فئة [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) ارتباطًا بين نطاق Unicode المحدد، المستخدم للبحث عن الرموز المفقودة، وقائمة الخطوط التي قد تحتوي على الرموز المناسبة:
 ``` cpp
 uint32_t startUnicodeIndex = 0x0B80;
 uint32_t endUnicodeIndex = 0x0BFF;
@@ -30,39 +30,39 @@ uint32_t endUnicodeIndex = 0x0BFF;
 auto firstRule = MakeObject<FontFallBackRule>(startUnicodeIndex, endUnicodeIndex, u"Vijaya");
 auto secondRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), static_cast<uint32_t>(0x309F), u"MS Mincho, MS Gothic");
 
-// Using multiple ways you can add fonts list:
+// باستخدام طرق متعددة يمكنك إضافة قائمة الخطوط:
 auto fontNames = MakeArray<String>({ u"Segoe UI Emoji, Segoe UI Symbol", u"Arial" });
 
 auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), static_cast<uint32_t>(0x1F64F), fontNames);
 ```
 
 
-يمكن أيضًا [Remove()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule#abd87e889a55b4a62174ddd14f1b1476e) خط التعويض أو [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule#a9bac44ca199a76c6cd004146cb02cd79) في كائن [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) الموجود.
+كما يمكن أيضًا [Remove()](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrule/remove/) خطًا احتياطيًا أو [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrule/addfallbackfonts/) إلى كائن [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) موجود.
 
-يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) لتنظيم قائمة من كائنات [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule)، عندما يكون هناك حاجة إلى تحديد قواعد استبدال خطوط التعويض لمجموعة متعددة من نطاقات Unicode.
+يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrulescollection/) لتنظيم قائمة من كائنات [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/)، عندما تكون هناك حاجة إلى تحديد قواعد استبدال الخطوط الاحتياطية لنطاقات Unicode متعددة.
 
-{{% alert color="primary" title="انظر أيضًا" %}} 
-- [إنشاء مجموعة خطوط التعويض](/slides/ar/cpp/create-fallback-fonts-collection/)
+{{% alert color="primary" title="انظر أيضًا" %}}
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **الأسئلة المتكررة**
 
-**ما الفرق بين خط التعويض، واستبدال الخط، وتضمين الخط؟**
+**ما هو الفرق بين الخط الاحتياطي، Font substitution، وFont embedding؟**
 
-يُستخدم خط التعويض فقط للأحرف المفقودة في الخط الأساسي. [Font substitution](/slides/ar/cpp/font-substitution/) يستبدل الخط المحدد بالكامل بخط آخر. [Font embedding](/slides/ar/cpp/embedded-font/) يضمّن الخطوط داخل ملف الإخراج حتى يتمكن المستلمون من عرض النص كما هو مقصود.
+يُستخدم الخط الاحتياطي فقط للحروف المفقودة في الخط الأساسي. [Font substitution](/slides/ar/cpp/font-substitution/) يستبدل الخط المحدد بالكامل بخط آخر. [Font embedding](/slides/ar/cpp/embedded-font/) يضم الخطوط داخل ملف الإخراج حتى يتمكن المستلمون من مشاهدة النص كما هو مقصود.
 
-**هل يتم تطبيق خطوط التعويض أثناء التصدير مثل PDF أو PNG أو SVG، أم فقط عند العرض على الشاشة؟**
+**هل يتم تطبيق الخطوط الاحتياطية أثناء التصدير مثل PDF أو PNG أو SVG، أم فقط عند العرض على الشاشة؟**
 
-نعم. يؤثر التعويض على جميع [rendering and export operations](/slides/ar/cpp/convert-presentation/) حيث يجب رسم الأحرف ولكنها غير موجودة في الخط المصدر.
+نعم. يؤثر الخط الاحتياطي على جميع [rendering and export operations](/slides/ar/cpp/convert-presentation/) حيث يجب رسم الأحرف ولكنها غير موجودة في الخط المصدر.
 
-**هل يغير تكوين التعويض ملف العرض نفسه، وهل سيستمر الإعداد عند الفتحات المستقبلية؟**
+**هل يؤدي تكوين الخط الاحتياطي إلى تغيير ملف العرض نفسه، وهل ستستمر الإعدادات في الفتحات المستقبلية؟**
 
-لا. قواعد التعويض هي إعدادات عرض وقت التشغيل في التعليمات البرمجية الخاصة بك؛ فهي لا تُخزن داخل ملف .pptx ولا تظهر في PowerPoint.
+لا. قواعد الخط الاحتياطي هي إعدادات عرض في وقت التشغيل في الكود الخاص بك؛ لا تُخزن داخل ملف .pptx ولن تظهر في PowerPoint.
 
-**هل يؤثر نظام التشغيل (Windows/Linux/macOS) ومجموعة أدلة الخطوط على اختيار التعويض؟**
+**هل يؤثر نظام التشغيل (Windows/Linux/macOS) ومجموعة أدلة الخطوط على اختيار الخط الاحتياطي؟**
 
-نعم. يقوم المحرك باستخراج الخطوط من المجلدات النظامية المتاحة وأي [additional paths](/slides/ar/cpp/custom-font/) تقدمها. إذا لم يكن الخط متاحًا فعليًا، لا يمكن لقاعدة تشير إليه أن تُطبّق.
+نعم. يقوم المحرك بحل الخطوط من المجلدات النظامية المتاحة وأي [additional paths](/slides/ar/cpp/custom-font/) تقدمها. إذا لم يكن الخط موجودًا فعليًا، لا يمكن لقاعدة تشير إليه أن تُطبّق.
 
-**هل يعمل التعويض مع WordArt وSmartArt والرسوم البيانية؟**
+**هل يعمل الخط الاحتياطي مع WordArt وSmartArt والمخططات؟**
 
-نعم. عندما تحتوي هذه الكائنات على نص، يُطبّق نفس آلية استبدال الرموز لعرض الأحرف المفقودة.
+نعم. عندما تحتوي هذه الكائنات على نص، يُطبق نفس آلية استبدال الرموز لعرض الأحرف المفقودة.

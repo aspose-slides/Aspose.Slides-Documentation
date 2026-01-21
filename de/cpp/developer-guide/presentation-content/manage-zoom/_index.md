@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentations-Zoom in C++
+title: Zoom für Präsentationen in C++ verwalten
 linktitle: Zoom verwalten
 type: docs
 weight: 60
@@ -15,11 +15,11 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erstellen und anpassen von Zoom mit Aspose.Slides für C++ — zwischen Abschnitten springen, Miniaturansichten und Übergänge in PPT-, PPTX- und ODP‑Präsentationen hinzufügen."
+description: "Zoom mit Aspose.Slides für C++ erstellen und anpassen — zwischen Abschnitten springen, Thumbnails und Übergänge in PPT-, PPTX- und ODP-Präsentationen hinzufügen."
 ---
 
 ## **Übersicht**
-Zooms in PowerPoint ermöglichen das Springen zu und von bestimmten Folien, Abschnitten und Teilen einer Präsentation. Beim Vortragen kann diese Fähigkeit, schnell durch Inhalte zu navigieren, sehr nützlich sein. 
+Zooms in PowerPoint ermöglichen es Ihnen, zu bestimmten Folien, Abschnitten und Teilen einer Präsentation zu springen und zurückzukehren. Beim Vortragen kann diese Fähigkeit, schnell durch Inhalte zu navigieren, sehr nützlich sein. 
 
 ![overview_image](Overview.png)
 
@@ -28,23 +28,23 @@ Zooms in PowerPoint ermöglichen das Springen zu und von bestimmten Folien, Absc
 * Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Section Zoom](#Section-Zoom).
 
 ## **Folienzoom**
-Ein Folienzoom kann Ihre Präsentation dynamischer machen, indem er Ihnen ermöglicht, frei zwischen Folien in beliebiger Reihenfolge zu navigieren, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folienzooms sind ideal für kurze Präsentationen ohne viele Abschnitte, können jedoch auch in verschiedenen Präsentationsszenarien eingesetzt werden.
+Ein Folienzoom kann Ihre Präsentation dynamischer machen, indem er Ihnen erlaubt, frei zwischen Folien in beliebiger Reihenfolge zu navigieren, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folienzooms eignen sich gut für kurze Präsentationen ohne viele Abschnitte, können aber auch in verschiedenen Präsentationsszenarien eingesetzt werden.
 
-Folienzooms helfen Ihnen, in mehrere Informationsstücke zu vertiefen, während Sie das Gefühl haben, sich auf einer einzigen Leinwand zu befinden. 
+Folienzooms helfen Ihnen, in mehrere Informationsstücke einzutauchen, während Sie das Gefühl haben, sich auf einer einzigen Leinwand zu befinden. 
 
 ![overview_image](slidezoomsel.png)
 
-Für Folien‑Zoom‑Objekte stellt Aspose.Slides die Aufzählung [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) , das Interface [IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) und einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) bereit.
+Für Folienzoom‑Objekte stellt Aspose.Slides die Aufzählung [ZoomImageType](https://reference.aspose.com/slides/cpp/aspose.slides/zoomimagetype/)‑Enumeration, das Interface [IZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/izoomframe/) und einige Methoden unter dem Interface [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) bereit.
 
 ### **Zoom‑Frames erstellen**
 
-Sie können in folgender Weise einen Zoom‑Frame zu einer Folie hinzufügen:
+Sie können einen Zoom‑Frame auf einer Folie folgendermaßen hinzufügen:
 
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie neue Folien, zu denen Sie die Zoom‑Frames verlinken möchten. 
-3.	Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
-4.	Fügen Sie dem ersten Bild Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) hinzu.
-5.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie neue Folien, zu denen Sie die Zoom‑Frames verlinken möchten. 
+3. Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
+4. Fügen Sie der ersten Folie Zoom‑Frames (die Referenzen zu den erstellten Folien enthalten) hinzu.
+5. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
 ``` cpp 
 void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
@@ -59,78 +59,9 @@ void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Adds new slides to the presentation
-// Adds a background for the second slide
-// Creates a text box for the second slide
-auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Second Slide");
-
-// Creates a background for the third slide
-// Create a text box for the third slide
-autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Trird Slide");
-
-//Adds ZoomFrame objects
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
-```
-
-
-### **Zoom‑Frames mit benutzerdefinierten Bildern erstellen**
-Mit Aspose.Slides für C++ können Sie in folgender Weise einen Zoom‑Frame mit einem anderen Folienvorschau‑Bild erstellen: 
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie eine neue Folie, zu der Sie den Zoom‑Frame verlinken möchten. 
-3.	Fügen Sie der Folie einen Identifikationstext und einen Hintergrund hinzu.
-4.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image)‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
-5.	Fügen Sie dem ersten Bild Zoom‑Frames (die den Verweis auf die erstellte Folie enthalten) hinzu.
-6.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
-
-//Fügt eine neue Folie zur Präsentation hinzu
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-
-// Erstellt einen Hintergrund für die zweite Folie
-SetSlideBackground(slide, Color::get_Cyan());
-
-// Erstellt ein Textfeld für die dritte Folie
-auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Second Slide");
-
-// Erstellt ein neues Bild für das Zoom-Objekt
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-
-// Fügt das ZoomFrame-Objekt hinzu
-slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
-
-// Speichert die Präsentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
-```
-
-
-### **Zoom‑Frames formatieren**
-Im vorherigen Abschnitt haben wir gezeigt, wie man einfache Zoom‑Frames erstellt. Um komplexere Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Zoom‑Frame anwenden können. 
-
-Sie können die Formatierung eines Zoom‑Frames auf einer Folie wie folgt steuern:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie neue Folien, zu denen Sie die Zoom‑Frames verlinken möchten. 
-3.	Fügen Sie den erstellten Folien etwas Identifikationstext und einen Hintergrund hinzu.
-4.	Fügen Sie dem ersten Bild Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) hinzu.
-5.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image)‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
-6.	Setzen Sie ein benutzerdefiniertes Bild für das erste Zoom‑Frame‑Objekt.
-7.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-8.	Entfernen Sie den Hintergrund von einem Bild des zweiten Zoom‑Frame‑Objekts.
-5.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide1 = pres->get_Slides()->idx_get(0);
-// Fügt neue Folien zur Präsentation hinzu
-auto slide2 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
-auto slide3 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
+//Fügt neue Folien zur Präsentation hinzu
+auto slide2 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
+auto slide3 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 
 // Erstellt einen Hintergrund für die zweite Folie
 SetSlideBackground(slide2, Color::get_Cyan());
@@ -146,57 +77,136 @@ SetSlideBackground(slide3, Color::get_DarkKhaki());
 autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
 autoshape->get_TextFrame()->set_Text(u"Trird Slide");
 
-// Fügt ZoomFrame-Objekte hinzu
-auto zoomFrame1 = slide1->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
-auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
-
-// Erstellt ein neues Bild für das Zoom-Objekt
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-// Setzt ein benutzerdefiniertes Bild für das zoomFrame1-Objekt
-zoomFrame1->set_Image(image);
-
-// Setzt ein Zoom-Frame-Format für das zoomFrame2-Objekt
-zoomFrame2->get_LineFormat()->set_Width(5);
-zoomFrame2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-zoomFrame2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_HotPink());
-zoomFrame2->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
-
-// Einstellung: Hintergrund für zoomFrame2-Objekt nicht anzeigen
-zoomFrame2->set_ShowBackground(false);
+//Fügt ZoomFrame-Objekte hinzu
+slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
+slide0->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
 // Speichert die Präsentation
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Abschnitts‑Zoom**
-
-Ein Abschnitts‑Zoom ist ein Link zu einem Abschnitt Ihrer Präsentation. Sie können Abschnitts‑Zooms verwenden, um zu Abschnitten zurückzukehren, die Sie besonders betonen möchten. Oder Sie können sie nutzen, um hervorzuheben, wie bestimmte Teile Ihrer Präsentation zusammenhängen. 
-
-![overview_image](seczoomsel.png)
-
-Für Abschnitts‑Zoom‑Objekte stellt Aspose.Slides das Interface [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) sowie einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) bereit.
-
-### **Abschnitt‑Zoom‑Frames erstellen**
-
-Sie können in folgender Weise einen Abschnitt‑Zoom‑Frame zu einer Folie hinzufügen:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie eine neue Folie. 
-3.	Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Fügen Sie dem ersten Bild einen Abschnitt‑Zoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) hinzu.
-6.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+### **Zoom‑Frames mit benutzerdefinierten Bildern erstellen**
+Mit Aspose.Slides for C++ können Sie einen Zoom‑Frame mit einem anderen Folienvorschau‑Bild folgendermaßen erstellen: 
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie eine neue Folie, zu der Sie den Zoom‑Frame verlinken möchten. 
+3. Fügen Sie der Folie einen Identifikationstext und einen Hintergrund hinzu.
+4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)‑Objekt, indem Sie ein Bild zur Images‑Collection hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Objekt verknüpft ist und zum Füllen des Rahmens verwendet wird.
+5. Fügen Sie der ersten Folie Zoom‑Frames (die Referenz zur erstellten Folie enthalten) hinzu.
+6. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
+auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
+
+//Erstellt einen Hintergrund für die zweite Folie
+SetSlideBackground(slide, Color::get_Cyan());
+
+//Erstellt ein Textfeld für die dritte Folie
+auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
+autoshape->get_TextFrame()->set_Text(u"Second Slide");
+
+//Erstellt ein neues Bild für das Zoom-Objekt
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
+
+//Fügt das ZoomFrame-Objekt hinzu
+slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
+
+//Speichert die Präsentation
+pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+```
+
+
+### **Zoom‑Frames formatieren**
+In den vorigen Abschnitten haben wir Ihnen gezeigt, wie Sie einfache Zoom‑Frames erstellen. Um komplexere Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Zoom‑Frame anwenden können. 
+
+Sie können die Formatierung eines Zoom‑Frames auf einer Folie folgendermaßen steuern:
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie neue Folien, zu denen Sie den Zoom‑Frame verlinken möchten. 
+3. Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
+4. Fügen Sie der ersten Folie Zoom‑Frames (die Referenzen zu den erstellten Folien enthalten) hinzu.
+5. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)‑Objekt, indem Sie ein Bild zur Images‑Collection hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Objekt verknüpft ist und zum Füllen des Rahmens verwendet wird.
+6. Setzen Sie ein benutzerdefiniertes Bild für das erste Zoom‑Frame‑Objekt.
+7. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
+8. Entfernen Sie den Hintergrund von einem Bild des zweiten Zoom‑Frame‑Objekts.
+5. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+
+``` cpp 
+auto pres = System::MakeObject<Presentation>();
+auto slide1 = pres->get_Slides()->idx_get(0);
+//Fügt neue Folien zur Präsentation hinzu
+auto slide2 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
+auto slide3 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
+
+//Erstellt einen Hintergrund für die zweite Folie
+SetSlideBackground(slide2, Color::get_Cyan());
+
+//Erstellt ein Textfeld für die zweite Folie
+auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
+autoshape->get_TextFrame()->set_Text(u"Second Slide");
+
+//Erstellt einen Hintergrund für die dritte Folie
+SetSlideBackground(slide3, Color::get_DarkKhaki());
+
+//Erstellt ein Textfeld für die dritte Folie
+autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
+autoshape->get_TextFrame()->set_Text(u"Trird Slide");
+
+//Fügt ZoomFrame-Objekte hinzu
+auto zoomFrame1 = slide1->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
+auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
+
+//Erstellt ein neues Bild für das Zoom-Objekt
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
+//Setzt ein benutzerdefiniertes Bild für das zoomFrame1-Objekt
+zoomFrame1->set_Image(image);
+
+//Setzt ein Zoom-Frame-Format für das zoomFrame2-Objekt
+zoomFrame2->get_LineFormat()->set_Width(5);
+zoomFrame2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+zoomFrame2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_HotPink());
+zoomFrame2->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
+
+//Einstellung zum Ausblenden des Hintergrunds für das zoomFrame2-Objekt
+zoomFrame2->set_ShowBackground(false);
+
+//Speichert die Präsentation
+pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+```
+
+
+## **Abschnittszoom**
+
+Ein Abschnittszoom ist ein Link zu einem Abschnitt Ihrer Präsentation. Sie können Abschnittszooms verwenden, um zu Abschnitten zurückzukehren, die Sie besonders hervorheben wollen. Oder Sie können sie nutzen, um zu zeigen, wie bestimmte Teile Ihrer Präsentation zusammenhängen. 
+
+![overview_image](seczoomsel.png)
+
+Für Abschnittszoom‑Objekte stellt Aspose.Slides das Interface [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isectionzoomframe/) und einige Methoden unter dem Interface [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) bereit.
+
+### **Abschnittszoom‑Frames erstellen**
+
+Sie können einen Abschnittszoom‑Frame zu einer Folie folgendermaßen hinzufügen:
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie eine neue Folie. 
+3. Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5. Fügen Sie der ersten Folie einen Abschnittszoom‑Frame (der Referenzen zum erstellten Abschnitt enthält) hinzu.
+6. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
+
+``` cpp 
+auto pres = System::MakeObject<Presentation>();
+auto slide0 = pres->get_Slides()->idx_get(0);
+
+//Fügt der Präsentation eine neue Folie hinzu
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 // Fügt ein SectionZoomFrame-Objekt hinzu
@@ -206,28 +216,27 @@ auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
+### **Abschnittszoom‑Frames mit benutzerdefinierten Bildern erstellen**
 
-### **Abschnitts‑Zoom‑Frames mit benutzerdefinierten Bildern erstellen**
+Mit Aspose.Slides for C++ können Sie einen Abschnittszoom‑Frame mit einem anderen Folienvorschau‑Bild folgendermaßen erstellen: 
 
-Durch die Verwendung von Aspose.Slides für C++ können Sie in folgender Weise einen Abschnitts‑Zoom‑Frame mit einem anderen Folienvorschau‑Bild erstellen: 
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie eine neue Folie.
-3.	Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image)‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
-5.	Fügen Sie dem ersten Bild einen Abschnitt‑Zoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) hinzu.
-6.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie eine neue Folie.
+3. Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)‑Objekt, indem Sie ein Bild zur Images‑Collection hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Objekt verknüpft ist und zum Füllen des Rahmens verwendet wird.
+5. Fügen Sie der ersten Folie einen Abschnittszoom‑Frame (der eine Referenz zum erstellten Abschnitt enthält) hinzu.
+6. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 // Erstellt ein neues Bild für das Zoom-Objekt
@@ -241,41 +250,41 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Abschnitt‑Zoom‑Frames formatieren**
+### **Abschnittszoom‑Frames formatieren**
 
-Um komplexere Abschnitt‑Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Abschnitt‑Zoom‑Frame anwenden können. 
+Um komplexere Abschnittszoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Abschnittszoom‑Frame anwenden können. 
 
-Sie können die Formatierung eines Abschnitt‑Zoom‑Frames auf einer Folie wie folgt steuern:
+Sie können die Formatierung eines Abschnittszoom‑Frames auf einer Folie folgendermaßen steuern:
 
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie eine neue Folie.
-3.	Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Fügen Sie dem ersten Bild einen Abschnitt‑Zoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) hinzu.
-6.	Ändern Sie die Größe und Position des erstellten Abschnitt‑Zoom‑Objekts.
-7.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image)‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
-8.	Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnitt‑Zoom‑Frame‑Objekt.
-9.	Aktivieren Sie die *Rückkehr zur ursprünglichen Folie aus dem verlinkten Abschnitt*‑Funktion. 
-10.	Entfernen Sie den Hintergrund von einem Bild des Abschnitt‑Zoom‑Frame‑Objekts.
-11.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-12.	Ändern Sie die Übergangsdauer.
-13.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie eine neue Folie.
+3. Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5. Fügen Sie der ersten Folie einen Abschnittszoom‑Frame (der Referenzen zum erstellten Abschnitt enthält) hinzu.
+6. Ändern Sie Größe und Position für das erstellte Abschnittszoom‑Objekt.
+7. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)‑Objekt, indem Sie ein Bild zur Images‑Collection hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Objekt verknüpft ist und zum Füllen des Rahmens verwendet wird.
+8. Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoom‑Frame‑Objekt.
+9. Aktivieren Sie die *Rückkehr zur Originalfolie aus dem verlinkten Abschnitt*‑Funktion. 
+10. Entfernen Sie den Hintergrund von einem Bild des Abschnittszoom‑Frame‑Objekts.
+11. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
+12. Ändern Sie die Übergangsdauer.
+13. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+//Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Fügt ein SectionZoomFrame-Objekt hinzu
+//Fügt ein SectionZoomFrame-Objekt hinzu
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1));
 
-// Formatierung für SectionZoomFrame
+//Formatierung für SectionZoomFrame
 sectionZoomFrame->set_X(100.0f);
 sectionZoomFrame->set_Y(300.0f);
 sectionZoomFrame->set_Width(100.0f);
@@ -295,59 +304,59 @@ sectionZoomLineFormat->set_Width(2.5f);
 
 sectionZoomFrame->set_TransitionDuration(1.5f);
 
-// Speichert die Präsentation
+//Speichert die Präsentation
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
 
-## **Übersichts‑Zoom**
+## **Übersichtszoom**
 
-Ein Übersichts‑Zoom ist wie eine Landing‑Page, auf der alle Teile Ihrer Präsentation gleichzeitig angezeigt werden. Beim Vortragen können Sie den Zoom verwenden, um von einer Stelle Ihrer Präsentation zu einer anderen in beliebiger Reihenfolge zu springen. Sie können kreativ sein, vorausspringen oder einzelne Teile Ihrer Präsentation erneut aufrufen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
+Ein Übersichtszoom ist wie eine Landing‑Page, auf der alle Teile Ihrer Präsentation gleichzeitig angezeigt werden. Beim Vortragen können Sie den Zoom nutzen, um von einem beliebigen Ort Ihrer Präsentation zu einem anderen zu springen, in beliebiger Reihenfolge. Sie können kreativ sein, Vorsprünge machen oder Teile Ihrer Diashow erneut besuchen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
 
 ![overview_image](sumzoomsel.png)
 
-Für Übersichts‑Zoom‑Objekte stellt Aspose.Slides die Interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section) und [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) sowie einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) bereit.
+Für Übersichtszoom‑Objekte stellt Aspose.Slides die Interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/) und [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) sowie einige Methoden unter dem Interface [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) bereit.
 
-### **Übersichts‑Zoom erstellen**
+### **Übersichtszoom erstellen**
 
-Sie können in folgender Weise einen Übersichts‑Zoom‑Frame zu einer Folie hinzufügen:
+Sie können einen Übersichtszoom‑Frame zu einer Folie folgendermaßen hinzufügen:
 
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie den Übersichts‑Zoom‑Frame dem ersten Bild hinzu.
-4.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3. Fügen Sie dem ersten Slide den Übersichtszoom‑Frame hinzu.
+4. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-// Fügt eine neue Folie zur Präsentation hinzu
+// Fügt der Präsentation eine neue Folie hinzu
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Fügt eine neue Folie zur Präsentation hinzu
+// Fügt der Präsentation eine neue Folie hinzu
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 2", slide);
 
-// Fügt eine neue Folie zur Präsentation hinzu
+// Fügt der Präsentation eine neue Folie hinzu
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Chartreuse());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 3", slide);
 
-// Fügt eine neue Folie zur Präsentation hinzu
+// Fügt der Präsentation eine neue Folie hinzu
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_DarkGreen());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 4", slide);
 
 // Fügt ein SummaryZoomFrame-Objekt hinzu
@@ -358,44 +367,44 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Übersichts‑Zoom‑Abschnitt hinzufügen und entfernen**
+### **Übersichtszoom‑Abschnitt hinzufügen und entfernen**
 
-Alle Abschnitte in einem Übersichts‑Zoom‑Frame werden durch [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section)‑Objekte repräsentiert, die im [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection)‑Objekt gespeichert sind. Sie können über das Interface [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) einen Übersichts‑Zoom‑Abschnitt hinzufügen oder entfernen:
+Alle Abschnitte in einem Übersichtszoom‑Frame werden durch [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/)-Objekte repräsentiert, die im [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/)-Objekt gespeichert werden. Sie können einen Übersichtszoom‑Abschnitt über das Interface [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) folgendermaßen hinzufügen oder entfernen:
 
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie einen Übersichts‑Zoom‑Frame in das erste Bild ein.
-4.	Fügen Sie der Präsentation eine neue Folie und einen neuen Abschnitt hinzu.
-5.	Fügen Sie den erstellten Abschnitt dem Übersichts‑Zoom‑Frame hinzu.
-6.	Entfernen Sie den ersten Abschnitt aus dem Übersichts‑Zoom‑Frame.
-7.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3. Fügen Sie dem ersten Slide einen Übersichtszoom‑Frame hinzu.
+4. Fügen Sie der Präsentation eine neue Folie und einen neuen Abschnitt hinzu.
+5. Fügen Sie den erstellten Abschnitt dem Übersichtszoom‑Frame hinzu.
+6. Entfernen Sie den ersten Abschnitt aus dem Übersichtszoom‑Frame.
+7. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 2", slide);
 
 // Fügt SummaryZoomFrame-Objekt hinzu
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Chartreuse());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 auto section3 = pres->get_Sections()->AddSection(u"Section 3", slide);
 
 // Fügt einen Abschnitt zum Summary Zoom hinzu
@@ -409,45 +418,45 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Übersichts‑Zoom‑Abschnitte formatieren**
+### **Übersichtszoom‑Abschnitte formatieren**
 
-Um komplexere Übersichts‑Zoom‑Abschnitt‑Objekte zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf ein Übersichts‑Zoom‑Abschnitt‑Objekt anwenden können. 
+Um komplexere Übersichtszoom‑Abschnitts‑Objekte zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf ein Übersichtszoom‑Abschnitts‑Objekt anwenden können. 
 
-Sie können die Formatierung eines Übersichts‑Zoom‑Abschnitt‑Objekts in einem Übersichts‑Zoom‑Frame wie folgt steuern:
+Sie können die Formatierung eines Übersichtszoom‑Abschnitts‑Objekts in einem Übersichtszoom‑Frame folgendermaßen steuern:
 
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie einen Übersichts‑Zoom‑Frame dem ersten Bild hinzu.
-4.	Holen Sie ein Übersichts‑Zoom‑Abschnitt‑Objekt für das erste Objekt aus der `ISummaryZoomSectionCollection`.
-7.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image)‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
-8.	Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnitt‑Zoom‑Frame‑Objekt.
-9.	Aktivieren Sie die *Rückkehr zur ursprünglichen Folie aus dem verlinkten Abschnitt*‑Funktion. 
-11.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-12.	Ändern Sie die Übergangsdauer.
-13.	Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3. Fügen Sie dem ersten Slide einen Übersichtszoom‑Frame hinzu.
+4. Holen Sie ein Übersichtszoom‑Abschnitts‑Objekt für das erste Objekt aus der `ISummaryZoomSectionCollection`.
+7. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)‑Objekt, indem Sie ein Bild zur Images‑Collection hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Objekt verknüpft ist und zum Füllen des Rahmens verwendet wird.
+8. Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnitts‑Zoom‑Frame‑Objekt.
+9. Aktivieren Sie die *Rückkehr zur Originalfolie aus dem verlinkten Abschnitt*‑Funktion. 
+11. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
+12. Ändern Sie die Übergangsdauer.
+13. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 
-``` cpp 
+``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
-//Fügt eine neue Folie zur Präsentation hinzu
+//Fügt der Präsentation eine neue Folie hinzu
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// Fügt einen neuen Abschnitt zur Präsentation hinzu
+// Fügt der Präsentation einen neuen Abschnitt hinzu
 pres->get_Sections()->AddSection(u"Section 2", slide);
 
 // Fügt ein SummaryZoomFrame-Objekt hinzu
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
-// Holt das erste SummaryZoomSection-Objekt
+// Erhält das erste SummaryZoomSection-Objekt
 auto summarySection = summaryZoomFrame->get_SummaryZoomCollection()->idx_get(0);
 
 // Formatierung für das SummaryZoomSection-Objekt
@@ -470,14 +479,14 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Kann ich die Rückkehr zur 'übergeordneten' Folie nach dem Anzeigen des Ziels steuern?**
+**Kann ich die Rückkehr zur 'Eltern'-Folie nach dem Anzeigen des Ziels steuern?**
 
-Ja. Der [Zoom‑frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) oder das [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) verfügt über die Methode `set_ReturnToParent`, die die Betrachter nach dem Besuch des Zielinhalts zurück zur Ausgangsfolie führt.
+Ja. Der [Zoom frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) oder [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) hat eine `set_ReturnToParent`‑Methode, die den Betrachter nach dem Besuch des Zielinhalts zur Ausgangsfolie zurücksendet.
 
-**Kann ich die 'Geschwindigkeit' oder Dauer der Zoom‑Übergangs anpassen?**
+**Kann ich die 'Geschwindigkeit' oder Dauer des Zoom‑Übergangs anpassen?**
 
 Ja. Zoom unterstützt das Festlegen einer Übergangsdauer, sodass Sie steuern können, wie lange die Sprunganimation dauert.
 
-**Gibt es Grenzen, wie viele Zoom‑Objekte eine Präsentation enthalten kann?**
+**Gibt es Grenzen für die Anzahl der Zoom‑Objekte, die eine Präsentation enthalten kann?**
 
-Es gibt kein fest definiertes API‑Limit. Praktische Grenzen hängen von der Gesamtkomplexität der Präsentation und der Leistungsfähigkeit des Betrachters ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Renderzeit berücksichtigen.
+Es gibt kein festes API‑Limit, das dokumentiert ist. Praktische Grenzen hängen von der Gesamtkomplexität der Präsentation und der Leistung des Viewers ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Renderzeit berücksichtigen.

@@ -1,12 +1,12 @@
 ---
-title: Fallback-Schriftart‑Sammlungen in С++ konfigurieren
-linktitle: Fallback‑Schriftartsammlung
+title: Fallback-Schriftartsammlungen in С++ konfigurieren
+linktitle: Fallback-Schriftartsammlung
 type: docs
 weight: 20
 url: /de/cpp/create-fallback-fonts-collection/
 keywords:
-- Fallback‑Schriftart
-- Fallback‑Regel
+- Fallback-Schriftart
+- Fallback-Regel
 - Schriftartsammlung
 - Schriftart konfigurieren
 - Schriftart einrichten
@@ -15,18 +15,19 @@ keywords:
 - Präsentation
 - С++
 - Aspose.Slides
-description: "Richten Sie eine Fallback‑Schriftartsammlung in Aspose.Slides für С++ ein, um Text in PowerPoint‑ und OpenDocument‑Präsentationen konsistent und klar zu halten."
+description: "Richten Sie eine Fallback-Schriftartsammlung in Aspose.Slides für С++ ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar zu halten."
 ---
 
 ## **Fallback-Regeln anwenden**
 
-Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule)-Klasse können in [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection)-Sammlung organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rules_collection)-Interface implementiert. Es ist möglich, Regeln aus der Sammlung hinzuzufügen oder zu entfernen.
+Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) Klasse können in einer [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrulescollection/) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrulescollection/) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Anschließend kann diese Sammlung an die [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924)-Methode der [FontsManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager)-Klasse übergeben werden. FontsManager steuert die Schriften in der gesamten Präsentation. Weiterlesen [Über FontsManager und FontsLoader](/slides/de/cpp/about-fontsmanager-and-fontsloader/).
+Anschließend kann diese Sammlung an die [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) Methode der [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) Klasse übergeben werden. FontsManager steuert Fonts über die gesamte Präsentation hinweg.
 
-Jede [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)-Klasse hat eine [get_FontsManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#acee582a9c243cbd63e30634c9714514a)-Methode mit ihrer eigenen Instanz der FontsManager‑Klasse.
+Jede [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) verfügt über eine [get_FontsManager()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/) Methode mit einer eigenen Instanz der FontsManager‑Klasse.
 
-Hier ist ein Beispiel, wie man eine Sammlung von Fallback‑Schriftarten‑Regeln erstellt und sie dem FontsManager einer bestimmten Präsentation zuweist:   ``` cpp
+Hier ein Beispiel, wie eine Sammlung von Fallback‑Font‑Regeln erstellt und dem FontsManager einer bestimmten Präsentation zugewiesen wird:  
+``` cpp
 auto presentation = MakeObject<Presentation>();
 auto userRulesList = MakeObject<FontFallBackRulesCollection>();
 
@@ -37,26 +38,26 @@ presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList)
 ```
 
 
-Nachdem der FontsManager mit einer Fallback‑Schriftarten‑Sammlung initialisiert wurde, werden die Fallback‑Schriften während der Präsentationsdarstellung angewendet.
+Nachdem der FontsManager mit der Fallback‑Font‑Sammlung initialisiert wurde, werden die Fallback‑Fonts beim Rendering der Präsentation angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr, wie Sie eine [Präsentation mit Fallback‑Schrift rendern](/slides/de/cpp/render-presentation-with-fallback-font/).
+Erfahren Sie mehr darüber, wie Sie eine [Render Presentation with Fallback Font](/slides/de/cpp/render-presentation-with-fallback-font/) durchführen.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Werden meine Fallback‑Regeln in die PPTX‑Datei eingebettet und nach dem Speichern in PowerPoint sichtbar sein?**
 
-Nein. Fallback‑Regeln sind Laufzeit‑Rendering‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
+Nein. Fallback‑Regeln sind Laufzeit‑Rendering‑Einstellungen; sie werden nicht in die PPTX‑Datei serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
 
-**Wird Fallback auf Text innerhalb von SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
+**Wird der Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
 
-Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeden Text in diesen Objekten verwendet.
+Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für Text in allen diesen Objekten verwendet.
 
-**Liefert Aspose Schriftarten mit der Bibliothek aus?**
+**Verteilt Aspose irgendwelche Fonts mit der Bibliothek?**
 
-Nein. Sie fügen Schriftarten selbst hinzu und nutzen sie auf eigene Verantwortung.
+Nein. Sie fügen Fonts selbst hinzu und verwenden sie auf eigene Verantwortung.
 
-**Können Ersatz/Substitution für fehlende Schriftarten und Fallback für fehlende Glyphen zusammen verwendet werden?**
+**Können Ersatz/Substitution für fehlende Fonts und Fallback für fehlende Glyphen zusammen verwendet werden?**
 
-Ja. Sie sind unabhängige Stufen derselben Schrift‑Auflösungs‑Pipeline: Zunächst löst die Engine die Verfügbarkeit von Schriftarten ([replacement](/slides/de/cpp/font-replacement/)/[substitution](/slides/de/cpp/font-substitution/)) auf, anschließend füllt Fallback Lücken für fehlende Glyphen in verfügbaren Schriftarten.
+Ja. Sie sind unabhängige Stufen derselben Font‑Auflösungs‑Pipeline: Zuerst löst die Engine die Verfügbarkeit von Fonts ([replacement](/slides/de/cpp/font-replacement/)/[substitution](/slides/de/cpp/font-substitution/)) und anschließend füllt der Fallback Lücken für fehlende Glyphen in verfügbaren Fonts.

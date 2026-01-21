@@ -1,27 +1,36 @@
 ---
-title: تحويل OpenOffice ODP
+title: تحويل عروض OpenDocument في C++
+linktitle: تحويل OpenDocument
 type: docs
 weight: 10
 url: /ar/cpp/convert-openoffice-odp/
-keywords: "تحويل ODP إلى PDF، ODP إلى HTML، ODP إلى TIFF"
-description: "تحويل ODP إلى PDF، ODP إلى PPT، ODP إلى PPTX، ODP إلى HTML وأشكال أخرى باستخدام Aspose.Slides."
+keywords:
+- تحويل ODP
+- ODP إلى صورة
+- ODP إلى GIF
+- ODP إلى HTML
+- ODP إلى JPG
+- ODP إلى MD
+- ODP إلى PDF
+- ODP إلى PNG
+- ODP إلى PPT
+- ODP إلى PPTX
+- ODP إلى TIFF
+- ODP إلى فيديو
+- ODP إلى Word
+- ODP إلى XPS
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "يتيح لك Aspose.Slides لـ C++ تحويل ODP إلى PDF و HTML وتنسيقات الصور بسهولة. عزز تطبيقات C++ الخاصة بك بتحويل عروض سريع ودقيق."
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/cpp/) يسمح لك بتحويل عروض OpenOffice ODP إلى العديد من الأشكال. واجهة برمجة التطبيقات المستخدمة لتحويل ملفات ODP إلى صيغ وثائق أخرى هي نفس المستخدمة لعمليات تحويل PowerPoint (PPT و PPTX).
+[**Aspose.Slides API**](https://products.aspose.com/slides/cpp/) يتيح لك تحويل عروض OpenDocument (ODP) إلى تنسيقات متعددة (HTML، PDF، TIFF، SWF، XPS، إلخ). API المستخدمة لتحويل ملفات ODP إلى تنسيقات مستندات أخرى هي نفسها المستخدمة في عمليات تحويل PowerPoint (PPT و PPTX).
 
-تظهر لك هذه الأمثلة كيفية تحويل مستندات ODP إلى صيغ أخرى (فقط قم بتغيير ملف ODP المصدر):
-
-- [تحويل ODP إلى HTML](/slides/ar/cpp/convert-powerpoint-ppt-and-pptx-to-html/)
-- [تحويل ODP إلى PDF](/slides/ar/cpp/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [تحويل ODP إلى TIFF](/slides/ar/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [تحويل ODP إلى SWF Flash](/slides/ar/cpp/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [تحويل ODP إلى XPS](/slides/ar/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [تحويل ODP إلى PDF مع الملاحظات](/slides/ar/cpp/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
-- [تحويل ODP إلى TIFF مع الملاحظات](/slides/ar/cpp/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
-
-على سبيل المثال، إذا كنت بحاجة إلى تحويل عرض تقديمي ODP إلى PDF، يمكن القيام بذلك بهذه الطريقة:
-
-``` cpp
-SharedPtr<Presentation> pres = MakeObject<Presentation>(u"pres.odp");
+على سبيل المثال، إذا كنت بحاجة إلى تحويل عرض ODP إلى PDF، يمكنك القيام بذلك على النحو التالي:
+```cpp
+auto pres = MakeObject<Presentation>(u"pres.odp");
 pres->Save(u"pres.pdf", SaveFormat::Pdf);
+pres->Dispose();
 ```

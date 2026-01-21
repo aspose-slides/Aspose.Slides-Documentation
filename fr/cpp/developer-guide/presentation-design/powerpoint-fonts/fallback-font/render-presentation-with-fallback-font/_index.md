@@ -1,25 +1,28 @@
 ---
-title: Rendre une présentation avec une police de secours
+title: Rendre les présentations avec des polices de secours en C++
+linktitle: Rendre les présentations
 type: docs
 weight: 30
 url: /fr/cpp/render-presentation-with-fallback-font/
-keywords: 
+keywords:
 - police de secours
 - rendre PowerPoint
+- rendre la présentation
+- rendre la diapositive
 - PowerPoint
+- OpenDocument
 - présentation
 - C++
-- Aspose.Slides pour C++
-description: "Rendre PowerPoint avec une police de secours en C++"
+- Aspose.Slides
+description: "Rendre les présentations avec des polices de secours dans Aspose.Slides pour C++ – garder le texte cohérent entre PPT, PPTX et ODP avec des exemples de code C++ étape par étape."
 ---
 
-L'exemple suivant inclut ces étapes :
+L'exemple suivant comprend ces étapes :
 
-1. Nous [créons une collection de règles de police de secours](/slides/fr/cpp/create-fallback-fonts-collection/).
-1. [Remove()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#aaf12e563d822f6e05e27732a837bcf33) une règle de police de secours et [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#a030268631ae616b775bdb6df8accf42c) à une autre règle.
-1. Définir la collection de règles à [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924) propriété.
-1. Avec [Presentation::Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) méthode nous pouvons enregistrer la présentation dans le même format, ou l'enregistrer dans un autre. Après que la collection de règles de police de secours est définie pour FontsManager, ces règles sont appliquées lors de toutes les opérations sur la présentation : enregistrer, rendre, convertir, etc.
-
+1. Nous [créons une collection de règles de polices de secours](/slides/fr/cpp/create-fallback-fonts-collection/).
+1. [Remove()](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/remove/) une règle de police de secours et [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) à une autre règle.
+1. Transmettez la collection de règles à la méthode [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
+1. Avec la méthode [Presentation::Save()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) nous pouvons enregistrer la présentation dans le même format, ou l'enregistrer dans un autre. Après que la collection de règles de polices de secours soit définie dans FontsManager, ces règles sont appliquées lors de toute opération sur la présentation : enregistrement, rendu, conversion, etc.
 ``` cpp
 // Créer une nouvelle instance d'une collection de règles
 auto rulesList = MakeObject<FontFallBackRulesCollection>();
@@ -30,10 +33,10 @@ rulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x400), static
 
 for (const auto& fallBackRule : rulesList)
 {
-	// Essayer de retirer la police de secours "Tahoma" des règles chargées
+	// Tentative de suppression de la police FallBack "Tahoma" des règles chargées
 	fallBackRule->Remove(u"Tahoma");
 
-	// Et mettre à jour les règles pour la plage spécifiée
+	// Et mise à jour des règles pour la plage spécifiée
 	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) && 
 		(fallBackRule->get_RangeStartIndex() < static_cast<uint32_t>(0x5000)))
 	{
@@ -41,17 +44,17 @@ for (const auto& fallBackRule : rulesList)
 	}
 }
 
-// Nous pouvons également retirer toutes les règles existantes de la liste
+// Nous pouvons également supprimer toutes les règles existantes de la liste
 if (rulesList->get_Count() > 0)
 {
 	rulesList->Remove(rulesList->idx_get(0));
 }
 
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
-// Attribution d'une liste de règles préparées pour utilisation
+// Assignation d'une liste de règles préparée pour utilisation
 pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
-// Rendu de la miniature en utilisant la collection de règles initialisée et sauvegarde en PNG
+// Rendu de la miniature en utilisant la collection de règles initialisée et sauvegarde au format PNG
 auto image = pres->get_Slide(0)->GetImage(1.f, 1.f);
 image->Save(u"Slide_0.png", ImageFormat::Png);
 image->Dispose();
@@ -60,6 +63,7 @@ pres->Dispose();
 ```
 
 
+
 {{% alert color="primary" %}} 
-Lisez-en plus sur [Enregistrement et conversion dans la présentation](/slides/fr/cpp/creating-saving-and-converting-a-presentation/).
+En savoir plus sur la façon de [Convert PowerPoint Slides to PNG in C++](/slides/fr/cpp/convert-powerpoint-to-png/).
 {{% /alert %}}
