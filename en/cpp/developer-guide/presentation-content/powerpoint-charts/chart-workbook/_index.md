@@ -22,7 +22,7 @@ description: "Discover Aspose.Slides for С++: effortlessly manage chart workboo
 
 ## **Read and Write Chart Data from a Workbook**
 
-Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) and [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) and [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -72,7 +72,7 @@ pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 
 ## **Set a WorkBook Cell as a Chart Data Label**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
 1. Add a Bubble chart with some data.
 1. Access the chart series.
@@ -108,7 +108,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Manage Worksheets**
 
-This C++ code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) property is used to access a worksheet collection:
+This C++ code demonstrates an operation where the [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) method is used to access a worksheet collection:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -143,7 +143,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ## **External Workbook**
 
 {{% alert color="primary" %}} 
-In [Aspose.Slides](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-19-4-release-notes/) 19.4, we implemented support for external workbooks as a data source for charts.
+In [Aspose.Slides](https://releases.aspose.com/slides/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 
 ### **Create an External Workbook**
@@ -174,7 +174,7 @@ pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 
 ### **Set an External Workbook**
 
-Using the **`IChartData.SetExternalWorkbook`** method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
+Using the **`IChartData::SetExternalWorkbook`** method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
 While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
@@ -221,7 +221,7 @@ pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 
 ### **Get the External Data Source Workbook Path of a Chart**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
 1. Create an object for the chart shape.
 1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.

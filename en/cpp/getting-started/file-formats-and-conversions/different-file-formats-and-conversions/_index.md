@@ -208,7 +208,7 @@ Any presentation document that can be loaded into Aspose.Slides for C++ can be c
 - Bullets
 - Tables
 
-You can export the presentation documents to PDF documents directly using Aspose.Slides for C++ component only. That is, you do not need any other third party or Aspose.Pdf component for this purpose. Further, you can customize the presentation to PDF export with different options as explained in [this topic](/slides/cpp/converting-presentation-to-pdf/).
+You can export the presentation documents to PDF documents directly using Aspose.Slides for C++ component only. That is, you do not need any other third party or Aspose.Pdf component for this purpose. Further, you can customize the presentation to PDF export with different options as explained in [this topic](/slides/cpp/convert-powerpoint-to-pdf/).
 
 A Presentation Document Converted to PDF Document through Aspose.Slides for C++
 ## **XML Parser Specification (XPS)**
