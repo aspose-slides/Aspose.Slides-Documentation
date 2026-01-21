@@ -1,25 +1,25 @@
 ---
-title: Java を使用したプレゼンテーションにおける画像フレームの管理
-linktitle: 画像フレーム
+title: Java を使用してプレゼンテーションのピクチャーフレームを管理する
+linktitle: ピクチャーフレーム
 type: docs
 weight: 10
 url: /ja/java/picture-frame/
 keywords:
-- 画像フレーム
-- 画像フレームを追加
-- 画像フレームを作成
-- 画像を追加
-- 画像を作成
-- 画像を抽出
+- ピクチャーフレーム
+- ピクチャーフレームの追加
+- ピクチャーフレームの作成
+- 画像の追加
+- 画像の作成
+- 画像の抽出
 - ラスタ画像
-- ベクター画像
-- 画像をトリミング
+- ベクトル画像
+- 画像のトリミング
 - トリミング領域
 - StretchOff プロパティ
-- 画像フレームの書式設定
-- 画像フレームのプロパティ
+- ピクチャーフレームの書式設定
+- ピクチャーフレームのプロパティ
 - 相対スケール
-- 画像効果
+- 画像エフェクト
 - アスペクト比
 - 画像の透明度
 - PowerPoint
@@ -27,42 +27,42 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint と OpenDocument のプレゼンテーションに画像フレームを追加します。ワークフローを効率化し、スライドデザインを強化します。"
+description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument のプレゼンテーションにピクチャーフレームを追加します。ワークフローを合理化し、スライドデザインを強化します。"
 ---
 
-Picture Frame は画像を含むシェイプで、フレーム内の写真のようなものです。  
+Picture frame は画像を含むシェイプで、フレームに入った写真のようなものです。
 
-スライドに画像を追加するには Picture Frame を使用します。この方法では、Picture Frame を書式設定することで画像を同時に書式設定できます。
+スライドに画像を Picture frame 経由で追加できます。この方法では、Picture frame をフォーマットすることで画像自体をフォーマットできます。
 
 {{% alert  title="Tip" color="primary" %}} 
-Aspose は無料コンバータ―を提供しています—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—これにより画像からプレゼンテーションをすばやく作成できます。 
+Aspose は無料コンバータを提供しています—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—これにより画像から迅速にプレゼンテーションを作成できます。 
 {{% /alert %}} 
 
-## **Picture Frame の作成**
+## **Picture frame の作成**
 
 1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. プレゼンテーション オブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) に画像を追加し、[IPPImage]() オブジェクトを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. プレゼンテーションオブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) に画像を追加し、[IPPImage]() オブジェクトを作成してシェイプの塗りつぶしに使用します。  
 4. 画像の幅と高さを指定します。  
-5. 参照スライドに関連付けられたシェイプ オブジェクトが提供する `AddPictureFrame` メソッドを使用して、幅と高さに基づく [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) を作成します。  
-6. スライドに Picture Frame（画像を含む）を追加します。  
+5. 参照スライドに関連付けられたシェイプオブジェクトの `AddPictureFrame` メソッドを使用して、画像の幅と高さで [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) を作成します。  
+6. スライドに画像フレーム（画像を含む）を追加します。  
 7. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-以下の Java コードは Picture Frame の作成方法を示しています:  
+この Java コードは Picture frame の作成方法を示しています：  
 ```java
-// Presentation クラス（PPTX ファイルを表す）をインスタンス化します
+// PPTX ファイルを表す Presentation クラスのインスタンスを生成します
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得します
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Image クラスをインスタンス化します
+    // Image クラスのインスタンスを生成します
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     // 画像と同等の高さと幅でピクチャーフレームを追加します
     sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // PPTX ファイルをディスクに書き込みます
+    // PPTX ファイルをディスクに保存します
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -72,29 +72,29 @@ try {
 
 
 {{% alert color="warning" %}} 
-Picture Frame を使用すると、画像に基づくスライドを素早く作成できます。Picture Frame と Aspose.Slides の保存オプションを組み合わせることで、画像形式の変換などの入出力操作を操作できます。次のページも参照してください: 変換 [image to JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/)；変換 [JPG to image](https://products.aspose.com/slides/java/conversion/jpg-to-image/)；変換 [JPG to PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/)；変換 [PNG to JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/)；変換 [PNG to SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/)；変換 [SVG to PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/)。 
+Picture frame を使用すると、画像ベースのスライドを迅速に作成できます。Picture frame と Aspose.Slides の保存オプションを組み合わせることで、画像の入出力操作を操作し、フォーマット間の変換が可能です。以下のページも参考になります：画像を [JPG に変換](https://products.aspose.com/slides/java/conversion/image-to-jpg/)、[JPG から画像へ変換](https://products.aspose.com/slides/java/conversion/jpg-to-image/)、[JPG から PNG へ変換](https://products.aspose.com/slides/java/conversion/jpg-to-png/)、[PNG から JPG へ変換](https://products.aspose.com/slides/java/conversion/png-to-jpg/)、[PNG から SVG へ変換](https://products.aspose.com/slides/java/conversion/png-to-svg/)、[SVG から PNG へ変換](https://products.aspose.com/slides/java/conversion/svg-to-png/)。 
 {{% /alert %}}
 
-## **相対スケール付き Picture Frame の作成**
+## **相対スケール付き Picture frame の作成**
 
-画像の相対スケーリングを変更することで、より複雑な Picture Frame を作成できます。  
+画像の相対スケーリングを変更することで、より複雑な Picture frame を作成できます。
 
 1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
+2. インデックスを使用してスライドの参照を取得します。  
 3. プレゼンテーションの画像コレクションに画像を追加します。  
-4. プレゼンテーション オブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) に画像を追加し、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
-5. Picture Frame 内で画像の相対的な幅と高さを指定します。  
+4. プレゼンテーションオブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) に画像を追加し、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成してシェイプの塗りつぶしに使用します。  
+5. Picture frame 内で画像の相対幅と相対高さを指定します。  
 6. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-以下の Java コードは相対スケール付き Picture Frame の作成方法を示しています:  
+この Java コードは相対スケール付き Picture frame の作成方法を示しています：  
 ```java
-// PPTX を表す Presentation クラスをインスタンス化します
+// PPTX を表す Presentation クラスのインスタンスを生成します
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得します
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Image クラスをインスタンス化します
+    // Image クラスのインスタンスを生成します
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
@@ -105,7 +105,7 @@ try {
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
-    // PPTX ファイルをディスクに書き込みます
+    // PPTX ファイルをディスクに保存します
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -114,9 +114,9 @@ try {
 ```
 
 
-## **Picture Frame からラスタ画像を抽出する**
+## **Picture frame からラスタ画像を抽出する**
 
-[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) オブジェクトからラスタ画像を抽出し、PNG、JPG などの形式で保存できます。以下のコード例は、ドキュメント「sample.pptx」から画像を抽出し、PNG 形式で保存する方法を示しています。  
+[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) オブジェクトからラスタ画像を抽出し、PNG、JPG などの形式で保存できます。以下のコード例は、ドキュメント「sample.pptx」から画像を抽出し PNG 形式で保存する方法を示しています。  
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -140,11 +140,11 @@ try {
 ```
 
 
-## **Picture Frame から SVG 画像を抽出する**
+## **Picture frame から SVG 画像を抽出する**
 
-プレゼンテーションに SVG グラフィックが [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) シェイプ内に配置されている場合、Aspose.Slides for Java は元のベクター画像を完全な忠実度で取得できます。スライドのシェイプコレクションを走査し、各 [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) を確認し、基になる [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) が SVG コンテンツを保持しているかどうかを調べ、必要に応じてディスクまたはストリームにネイティブ SVG 形式で保存します。
+プレゼンテーションに SVG グラフィックが [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) シェイプ内に配置されている場合、Aspose.Slides for Java を使用して元のベクター画像をフルフィデリティで取得できます。スライドのシェイプコレクションを走査し、各 [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) を特定し、基になる [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) が SVG コンテンツを保持しているか確認し、ネイティブ SVG 形式でディスクまたはストリームに保存します。
 
-以下のコード例は、Picture Frame から SVG 画像を抽出する方法を示しています:  
+以下のコード例は、Picture frame から SVG 画像を抽出する方法を示しています：  
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -170,7 +170,7 @@ try {
 
 ## **画像の透明度を取得する**
 
-Aspose.Slides では、画像に適用された透明度効果を取得できます。以下の Java コードがその操作を示しています:  
+Aspose.Slides を使用すると、画像に適用された透明度効果を取得できます。この Java コードはその操作を示しています：  
 ```java
 Presentation presentation = new Presentation("Test.pptx");
 
@@ -186,33 +186,33 @@ for (var effect : imageTransform) {
 ```
 
 
-## **Picture Frame の書式設定**
+## **Picture frame の書式設定**
 
-Aspose.Slides は Picture Frame に適用できる多数の書式設定オプションを提供します。これらのオプションを使用して、特定の要件に合わせて Picture Frame を変更できます。  
+Aspose.Slides は Picture frame に適用できる多くの書式設定オプションを提供します。これらのオプションを使用して、Picture frame を特定の要件に合わせて調整できます。
 
 1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. プレゼンテーションに関連付けられた [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) に画像を追加し、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. プレゼンテーションオブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) に画像を追加し、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
 4. 画像の幅と高さを指定します。  
-5. [IShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) オブジェクトが提供する [AddPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) メソッドを使用して、画像の幅と高さに基づく `PictureFrame` を作成します。  
-6. スライドに Picture Frame（画像を含む）を追加します。  
-7. Picture Frame の線の色を設定します。  
-8. Picture Frame の線の幅を設定します。  
-9. 正または負の値を指定して Picture Frame を回転させます。  
+5. 参照スライドに関連付けられた [IShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) オブジェクトの [AddPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) メソッドを使用して、画像の幅と高さで `PictureFrame` を作成します。  
+6. スライドに画像フレーム（画像を含む）を追加します。  
+7. Picture frame の線色を設定します。  
+8. Picture frame の線幅を設定します。  
+9. 正または負の値を指定して Picture frame を回転させます。  
    * 正の値は画像を時計回りに回転させます。  
    * 負の値は画像を反時計回りに回転させます。  
-10. Picture Frame（画像を含む）をスライドに再度追加します。  
+10. 画像フレーム（画像を含む）をスライドに再度追加します。  
 11. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-以下の Java コードは Picture Frame の書式設定プロセスを示しています:  
+この Java コードは Picture frame の書式設定プロセスを示しています：  
 ```java
-// PPTX を表す Presentation クラスをインスタンス化します
+// PPTX を表す Presentation クラスのインスタンスを生成します
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得します
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Image クラスをインスタンス化します
+    // Image クラスのインスタンスを生成します
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     // 画像と同等の高さと幅でピクチャーフレームを追加します
@@ -234,12 +234,12 @@ try {
 
 
 {{% alert title="Tip" color="primary" %}} 
-Aspose は最近、[無料 Collage Maker](https://products.aspose.app/slides/collage) を開発しました。JPG/JPEG や PNG 画像を [結合](https://products.aspose.app/slides/collage/jpg) したり、[写真からグリッドを作成](https://products.aspose.app/slides/collage/photo-grid) したりしたい場合にこのサービスを利用できます。 
+Aspose は最近、[無料 Collage Maker](https://products.aspose.app/slides/collage) を開発しました。JPG/JPEG や PNG 画像を結合したり、写真からグリッドを作成したりしたい場合は、このサービスをご利用ください。 
 {{% /alert %}}
 
 ## **画像をリンクとして追加する**
 
-プレゼンテーションのサイズを抑えるために、画像（または動画）を直接埋め込むのではなく、リンクを介して追加できます。この Java コードはプレースホルダーに画像と動画を追加する方法を示しています:  
+プレゼンテーションのサイズ増大を防ぐために、ファイルを直接埋め込む代わりにリンク経由で画像（または動画）を追加できます。この Java コードはプレースホルダーに画像と動画を追加する方法を示しています：  
 ```java
 Presentation presentation = new Presentation("input.pptx");
 try {
@@ -295,7 +295,7 @@ try {
 
 ## **画像のトリミング**
 
-この Java コードはスライド上の既存画像をトリミングする方法を示しています:  
+この Java コードはスライド上の既存画像をトリミングする方法を示しています：  
 ```java
 Presentation pres = new Presentation();
 // 新しい画像オブジェクトを作成します
@@ -312,7 +312,7 @@ try {
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
-    // 画像をクロップします（パーセンテージ値）
+    // 画像をトリミングします（パーセンテージ値）
     picFrame.getPictureFormat().setCropLeft(23.6f);
     picFrame.getPictureFormat().setCropRight(21.5f);
     picFrame.getPictureFormat().setCropTop(3);
@@ -327,11 +327,11 @@ try {
 ```
 
 
-## **Picture Frame のトリミング領域を削除する**
+## **Picture frame のトリミング領域を削除する**
 
-フレームに含まれる画像のトリミング領域を削除したい場合は、[deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) メソッドを使用できます。このメソッドはトリミングされた画像、またはトリミングが不要な場合は元画像を返します。  
+フレーム内の画像のトリミング領域を削除したい場合は、[deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) メソッドを使用できます。このメソッドはトリミングされた画像、またはトリミングが不要な場合は元画像を返します。
 
-以下の Java コードがその操作を示しています:  
+この Java コードはその操作を示しています：  
 ```java
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
@@ -340,7 +340,7 @@ try {
     // 最初のスライドから PictureFrame を取得します
     IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // PictureFrame の画像のトリミング領域を削除し、トリミングされた画像を返します
+    // PictureFrame 画像のトリミングされた領域を削除し、トリミングされた画像を返します
     IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
 
     // 結果を保存します
@@ -352,16 +352,16 @@ try {
 
 
 {{% alert title="NOTE" color="warning" %}} 
-[deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) メソッドはトリミングされた画像をプレゼンテーションの画像コレクションに追加します。画像が処理された [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) のみで使用されている場合、この設定によりプレゼンテーションのサイズを削減できます。そうでない場合、結果として生成されるプレゼンテーションの画像数は増加します。  
+[deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) メソッドはトリミングされた画像をプレゼンテーションの画像コレクションに追加します。画像が処理対象の [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) のみで使用されている場合、この設定はプレゼンテーションのサイズ削減につながります。そうでない場合、結果のプレゼンテーション内の画像数は増加します。
 
-このメソッドはトリミング操作で WMF/EMF メタファイルをラスタ PNG 画像に変換します。 
+このメソッドはトリミング操作中に WMF/EMF メタファイルをラスタ PNG 画像に変換します。 
 {{% /alert %}}
 
-## **アスペクト比ロック**
+## **アスペクト比のロック**
 
-画像を含むシェイプのサイズを変更してもアスペクト比を保持したい場合は、[setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) メソッドを使用して *Lock Aspect Ratio* 設定を有効にできます。  
+画像を含むシェイプのサイズを変更してもアスペクト比を保持したい場合、[setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) メソッドを使用して *Lock Aspect Ratio* 設定を有効にできます。
 
-以下の Java コードはシェイプのアスペクト比をロックする方法を示しています:  
+この Java コードはシェイプのアスペクト比をロックする方法を示しています：  
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -377,7 +377,7 @@ try {
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
             ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
 
-    // リサイズ時にアスペクト比を保持するようにシェイプを設定します
+    // リサイズ時にアスペクト比を維持するようにシェイプを設定します
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch(IOException e) {
 } finally {
@@ -387,34 +387,34 @@ try {
 
 
 {{% alert title="NOTE" color="warning" %}} 
-この *Lock Aspect Ratio* 設定はシェイプのアスペクト比のみを保持し、シェイプが保持する画像のアスペクト比は保持しません。 
+この *Lock Aspect Ratio* 設定はシェイプのアスペクト比のみを保持し、シェイプに含まれる画像自体の比率は保持しません。 
 {{% /alert %}}
 
 ## **StretchOff プロパティの使用**
 
-[IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) インターフェイスおよび [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) クラスの [StretchOffsetLeft](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-)、[StretchOffsetTop](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--)、[StretchOffsetRight](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--)、[StretchOffsetBottom](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) プロパティを使用して、塗りつぶし矩形を指定できます。  
+[IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) インターフェイスと [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) クラスの [StretchOffsetLeft](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-)、[StretchOffsetTop](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--)、[StretchOffsetRight](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--)、[StretchOffsetBottom](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) プロパティを使用すると、塗りつぶし矩形を指定できます。
 
-画像の伸縮が指定されると、ソース矩形が指定された塗りつぶし矩形に合わせて拡大縮小されます。塗りつぶし矩形の各辺は、シェイプのバウンディング ボックスの対応する辺からのパーセンテージ オフセットで定義されます。正のパーセンテージはインセット、負のパーセンテージはアウトセットを表します。  
+画像の伸縮が指定されると、ソース矩形は指定された塗りつぶし矩形に合わせてスケーリングされます。塗りつぶし矩形の各辺は、シェイプのバウンディング ボックスの対応する辺からのパーセンテージオフセットで定義されます。正のパーセンテージはインセット、負のパーセンテージはアウトセットを表します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentatio) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. 矩形 `AutoShape` を追加します。  
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. 四角形 `AutoShape` を追加します。  
 4. 画像を作成します。  
 5. シェイプの塗りつぶしタイプを設定します。  
 6. シェイプの画像塗りつぶしモードを設定します。  
-7. 塗りつぶし用に画像を設定します。  
+7. シェイプを塗りつぶす画像を設定します。  
 8. シェイプのバウンディング ボックスの対応する辺からの画像オフセットを指定します。  
 9. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-以下の Java コードは StretchOff プロパティを使用したプロセスを示しています:  
+この Java コードは StretchOff プロパティを使用したプロセスを示しています：  
 ```java
-// PPTX ファイルを表す Presentation クラスをインスタンス化します
+// PPTX ファイルを表す Presentation クラスのインスタンスを生成します
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得します
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // ImageEx クラスをインスタンス化します
+    // ImageEx クラスのインスタンスを生成します
     IPPImage picture;
     IImage image = Images.fromFile("aspose-logo.jpg");
     try {
@@ -423,7 +423,7 @@ try {
         if (image != null) image.dispose();
     }
 
-    // 矩形の AutoShape を追加します
+    // AutoShape を矩形に設定して追加します
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
     // シェイプの塗りつぶしタイプを設定します
@@ -432,7 +432,7 @@ try {
     // シェイプの画像塗りつぶしモードを設定します
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-    // シェイプに画像を設定して塗りつぶします
+    // シェイプを埋める画像を設定します
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
     // シェイプのバウンディング ボックスの対応する辺からの画像オフセットを指定します
@@ -441,7 +441,7 @@ try {
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
     
-    //PPTX ファイルをディスクに書き込みます
+    // PPTX ファイルをディスクに書き込みます
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -452,18 +452,18 @@ try {
 
 ## **FAQ**
 
-**Picture Frame がサポートする画像形式はどれですか？**  
+**Picture frame がサポートする画像形式はどのように確認できますか？**
 
-Aspose.Slides は、[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) に割り当てられる画像オブジェクトを通じて、ラスタ画像 (PNG、JPEG、BMP、GIF など) とベクター画像 (例: SVG) の両方をサポートします。サポートされる形式の一覧は、スライドおよび画像変換エンジンの機能と概ね一致します。  
+Aspose.Slides は、[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) に割り当てられた画像オブジェクトを通じて、ラスタ画像 (PNG、JPEG、BMP、GIF など) とベクトル画像 (例: SVG) の両方をサポートします。サポートされる形式の一覧は、スライドおよび画像変換エンジンの機能と概ね一致します。
 
-**多数の大きな画像を追加すると PPTX のサイズとパフォーマンスにどのような影響がありますか？**  
+**多数の大容量画像を追加すると PPTX のサイズとパフォーマンスにどう影響しますか？**
 
-大きな画像を埋め込むとファイル サイズとメモリ使用量が増加します。画像をリンクとして追加すればプレゼンテーションのサイズを抑えられますが、外部ファイルが常に利用可能である必要があります。Aspose.Slides はリンクで画像を追加する機能を提供し、ファイルサイズの削減を支援します。  
+画像を埋め込むとファイルサイズとメモリ使用量が増加します。画像をリンクとして追加するとプレゼンテーションのサイズを抑えられますが、外部ファイルがアクセス可能である必要があります。Aspose.Slides はリンクによる画像追加機能を提供しており、ファイルサイズを削減できます。
 
-**画像オブジェクトが誤って移動・サイズ変更されないようにロックするには？**  
+**画像オブジェクトが誤って移動／リサイズされないようにロックする方法はありますか？**
 
-[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) 用の [shape locks](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) を使用します (例: 移動やサイズ変更を無効にする)。ロック機構の詳細は別の [保護に関する記事](/slides/ja/java/applying-protection-to-presentation/) に記載されており、PictureFrame を含むさまざまなシェイプ タイプでサポートされています。  
+[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) に対しては [shape locks](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) を使用できます（例: 移動やリサイズを無効化）。ロック機構は別記事の [プロテクションの適用](/slides/ja/java/applying-protection-to-presentation/) で説明されており、PictureFrame を含むさまざまなシェイプタイプでサポートされています。
 
-**SVG ベクターの忠実度は PDF や画像へのエクスポート時に保持されますか？**  
+**SVG ベクトルの忠実度は PDF/画像へのエクスポート時に保持されますか？**
 
-Aspose.Slides は、[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) から元のベクターとして SVG を抽出できます。PDF ({{/slides/java/convert-powerpoint-to-pdf/}}) やラスタ形式 ({{/slides/java/convert-powerpoint-to-png/}}) へエクスポートする際は、エクスポート設定に応じてラスタ化されることがありますが、抽出時の動作により元の SVG がベクターとして保持されていることが確認できます。
+Aspose.Slides は [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) から SVG を元のベクトルとして抽出できます。PDF (/slides/ja/java/convert-powerpoint-to-pdf/) やラスタ形式 (/slides/ja/java/convert-powerpoint-to-png/) にエクスポートする際は、エクスポート設定に応じてラスタ化されることがありますが、抽出時には元の SVG がベクトルとして保持されていることが確認できます。

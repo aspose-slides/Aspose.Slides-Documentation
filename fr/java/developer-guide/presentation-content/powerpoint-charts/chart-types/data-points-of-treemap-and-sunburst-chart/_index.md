@@ -5,19 +5,19 @@ type: docs
 url: /fr/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- graphique treemap
-- graphique sunburst
+- graphique Treemap
+- graphique Sunburst
 - point de données
-- couleur d'étiquette
+- couleur de l'étiquette
 - couleur de branche
 - PowerPoint
 - présentation
 - Java
 - Aspose.Slides
-description: "Apprenez à gérer les points de données dans les graphiques treemap et sunburst avec Aspose.Slides pour Java, compatible avec les formats PowerPoint."
+description: "Découvrez comment gérer les points de données dans les graphiques Treemap et Sunburst avec Aspose.Slides pour Java, compatible avec les formats PowerPoint."
 ---
 
-Parmi les autres types de graphiques PowerPoint, il existe deux types « hiérarchiques » – **Treemap** et **Sunburst** (également connu sous le nom de Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph ou Multi Level Pie Chart). Ces graphiques affichent des données hiérarchiques organisées sous forme d’arbre – des feuilles jusqu’au sommet de la branche. Les feuilles sont définies par les points de données de la série, et chaque niveau de regroupement imbriqué suivant est défini par la catégorie correspondante. Aspose.Slides for Java permet de formater les points de données du graphique Sunburst et du Treemap en Java.
+Parmi les autres types de graphiques PowerPoint, il existe deux types « hiérarchiques » – **Treemap** et **Sunburst** (chart également connu sous le nom de Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph ou Multi Level Pie Chart). Ces graphiques affichent des données hiérarchiques organisées sous forme d’arbre — des feuilles jusqu’à la branche supérieure. Les feuilles sont définies par les points de données de la série, et chaque niveau de regroupement imbriqué suivant est défini par la catégorie correspondante. Aspose.Slides for Java permet de formater les points de données des graphiques Sunburst et Treemap en Java.
 
 Voici un graphique Sunburst, où les données de la colonne Series1 définissent les nœuds feuilles, tandis que les autres colonnes définissent les points de données hiérarchiques :
 
@@ -37,25 +37,27 @@ try {
 
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [**Créer un graphique Sunburst**](/slides/fr/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Créer ou mettre à jour des graphiques de présentation PowerPoint en Java**](/slides/fr/java/create-chart/)
 {{% /alert %}}
 
-S'il est nécessaire de formater les points de données du graphique, nous devons utiliser ce qui suit :
+S’il faut formater les points de données du graphique, nous devons utiliser les éléments suivants :
 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager), 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) classes 
-et [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) méthode 
-fournissent l'accès au formatage des points de données des graphiques Treemap et Sunburst. 
+[IChartDataPointLevel](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) classes 
+et [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) method 
+fournissent l’accès au format des points de données des graphiques Treemap et Sunburst. 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager) 
-est utilisé pour accéder aux catégories à plusieurs niveaux – il représente le conteneur de 
+est utilisé pour accéder aux catégories à plusieurs niveaux — il représente le conteneur de 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) objets. 
+En pratique, c’est un wrapper pour 
 [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartCategoryLevelsManager) avec 
 les propriétés ajoutées spécifiques aux points de données. 
 La classe [**IChartDataPointLevel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) possède 
 deux méthodes : [**getFormat**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getFormat--) et 
 [**getDataLabel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getLabel--) qui 
-fournissent l'accès aux paramètres correspondants.
+fournissent l’accès aux paramètres correspondants.
 
-## **Afficher la valeur d'un point de données**
+## **Afficher la valeur d’un point de données**
 Afficher la valeur du point de données « Leaf 4 » :
 ```java
 IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
@@ -65,8 +67,8 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
-## **Définir l'étiquette et la couleur d'un point de données**
-Définir l'étiquette du point de données « Branch 1 » pour afficher le nom de la série (« Series1 ») au lieu du nom de catégorie. Puis définir la couleur du texte en jaune :
+## **Définir l’étiquette et la couleur d’un point de données**
+Définir l’étiquette du point « Branch 1 » pour afficher le nom de la série (« Series1 ») au lieu du nom de la catégorie. Puis définir la couleur du texte en jaune :
 ```java
 IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
@@ -79,8 +81,8 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
-## **Définir la couleur de branche d'un point de données**
-Modifier la couleur de la branche « Steam 4 » :
+## **Définir la couleur d’une branche de point de données**
+Changer la couleur de la branche « Steam 4 » :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -104,18 +106,18 @@ try {
 
 ## **FAQ**
 
-**Puis-je changer l'ordre (tri) des segments dans Sunburst/Treemap ?**
+**Puis-je changer l’ordre (tri) des segments dans Sunburst/Treemap ?**
 
-Non. PowerPoint trie les segments automatiquement (généralement par valeur décroissante, dans le sens des aiguilles d’une montre). Aspose.Slides reproduit ce comportement : vous ne pouvez pas modifier l'ordre directement ; vous devez le faire en prétraitant les données.
+Non. PowerPoint trie automatiquement les segments (généralement par valeurs décroissantes, dans le sens des aiguilles d’une montre). Aspose.Slides reproduit ce comportement : vous ne pouvez pas modifier l’ordre directement ; vous devez le faire en prétraitant les données.
 
-**Comment le thème de la présentation influence-t-il les couleurs des segments et des étiquettes ?**
+**Comment le thème de la présentation affecte-t-il les couleurs des segments et des étiquettes ?**
 
-Les couleurs du graphique héritent du [theme/palette](/slides/fr/java/presentation-theme/) de la présentation, sauf si vous définissez explicitement les remplissages ou les polices. Pour des résultats cohérents, verrouillez les remplissages unis et le formatage du texte aux niveaux requis.
+Les couleurs du graphique héritent du [theme/palette](/slides/fr/java/presentation-theme/) de la présentation sauf si vous définissez explicitement les remplissages ou les polices. Pour obtenir des résultats cohérents, verrouillez les remplissages solides et le formatage du texte aux niveaux requis.
 
-**L'exportation en PDF/PNG conservera-t-elle les couleurs de branche personnalisées et les paramètres d'étiquette ?**
+**L’exportation en PDF/PNG conservera-t-elle les couleurs personnalisées des branches et les paramètres des étiquettes ?**
 
-Oui. Lors de l'exportation de la présentation, les paramètres du graphique (remplissages, étiquettes) sont préservés dans les formats de sortie car Aspose.Slides rend le graphique avec le formatage appliqué.
+Oui. Lors de l’exportation de la présentation, les paramètres du graphique (remplissages, étiquettes) sont conservés dans les formats de sortie parce qu’Aspose.Slides rend le graphique avec le format appliqué.
 
-**Puis-je calculer les coordonnées réelles d'une étiquette/élément pour placer une superposition personnalisée au-dessus du graphique ?**
+**Puis-je calculer les coordonnées réelles d’une étiquette/élément pour placer une superposition personnalisée au‑dessus du graphique ?**
 
-Oui. Après validation de la mise en page du graphique, les *x* réels et les *y* réels sont disponibles pour les éléments (par exemple, un [DataLabel](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/)), ce qui facilite le positionnement précis des superpositions.
+Oui. Après validation de la disposition du graphique, les valeurs réelles *x* et *y* sont disponibles pour les éléments (par exemple, un [DataLabel](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/)), ce qui facilite le positionnement précis des superpositions.

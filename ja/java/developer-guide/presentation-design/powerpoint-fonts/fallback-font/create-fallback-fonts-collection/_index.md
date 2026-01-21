@@ -15,18 +15,18 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java でフォールバックフォントコレクションを設定し、PowerPoint と OpenDocument のプレゼンテーションでテキストの一貫性と鮮明さを保ちます。"
+description: "Java向けAspose.Slidesでフォールバックフォントコレクションを設定し、PowerPointおよびOpenDocumentプレゼンテーションでテキストの一貫性と鮮明さを維持します。"
 ---
 
-## **Apply Fallback Rules**
+## **フォールバック ルールの適用**
 
-[FontFallBackRule] クラスのインスタンスは、[FontFallBackRulesCollection] に整理でき、これは[IFontFallBackRulesCollection] インターフェースを実装しています。コレクションからルールを追加または削除することが可能です。
+Instances of [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection) interface. It is possible to add or remove rules from the collection.
 
-次に、このコレクションは[FontsManager] クラスの[FontFallBackRulesCollection] メソッドに割り当てることができます。FontsManager はプレゼンテーション全体のフォントを管理します。詳細は[About FontsManager and FontsLoader](/slides/ja/java/about-fontsmanager-and-fontsloader/) を参照してください。
+Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation.
 
-各[Presentation] には、独自の[FontsManager] インスタンスを返す[getFontsManager] メソッドがあります。
+Each [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) has a [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) method with its own instance of the [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) class.
 
-以下は、フォールバックフォントルールコレクションを作成し、特定のプレゼンテーションの[FontsManager] に割り当てる例です。　
+Here is an examples how to create fallback fonts rules collection and assign in into the [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) of a certain presentation:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,26 +42,26 @@ try {
 ```
 
 
-FontsManager がフォールバックフォントコレクションで初期化されると、プレゼンテーションのレンダリング中にフォールバックフォントが適用されます。
+After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.
 
 {{% alert color="primary" %}} 
-フォールバックフォントでプレゼンテーションをレンダリングする方法の詳細は、[Render Presentation with Fallback Font](/slides/ja/java/render-presentation-with-fallback-font/) をご覧ください。
+フォールバック フォントでプレゼンテーションをレンダリングする方法の詳細は、[Render Presentation with Fallback Font](/slides/ja/java/render-presentation-with-fallback-font/)をご覧ください。
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**保存後に PPTX ファイルにフォールバックルールが埋め込まれ、PowerPoint で表示されますか？**
+**フォールバック ルールは PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
 
-いいえ。フォールバックルールは実行時のレンダリング設定であり、PPTX にシリアライズされないため、PowerPoint の UI には表示されません。
+いいえ。フォールバック ルールは実行時のレンダリング設定であり、PPTX にシリアライズされず、PowerPoint の UI には表示されません。
 
-**SmartArt、WordArt、チャート、テーブル内のテキストにもフォールバックは適用されますか？**
+**フォールバックは SmartArt、WordArt、チャート、テーブル内のテキストにも適用されますか？**
 
-はい。これらのオブジェクト内のテキストにも同じグリフ置換メカニズムが使用されます。
+はい。これらのオブジェクト内のテキストすべてに同じグリフ置換メカニズムが使用されます。
 
-**Aspose はライブラリと一緒にフォントを配布していますか？**
+**Aspose はライブラリにフォントを同梱していますか？**
 
-いいえ。フォントはご自身で追加・使用していただくものです。その責任は利用者にあります。
+いいえ。フォントはご自身で追加・使用していただき、その責任はご自身にあります。
 
-**欠損フォントの置換/サブスティテューションと、欠損グリフのフォールバックを同時に使用できますか？**
+**欠落フォントの置換/サブスティテューションと、欠落グリフに対するフォールバックは同時に使用できますか？**
 
-はい。これは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可能性を解決し（[replacement](/slides/ja/java/font-replacement/)/[substitution](/slides/ja/java/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠損グリフを補填します。
+はい。これは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可能性を解決し（[replacement](/slides/ja/java/font-replacement/)/[substitution](/slides/ja/java/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠落グリフのギャップを埋めます。

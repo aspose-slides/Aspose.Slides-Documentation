@@ -15,18 +15,18 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Создайте коллекцию резервных шрифтов в Aspose.Slides для Java, чтобы обеспечить согласованность и чёткость текста в презентациях PowerPoint и OpenDocument."
+description: "Настройте коллекцию резервных шрифтов в Aspose.Slides для Java, чтобы текст оставался согласованным и чётким в презентациях PowerPoint и OpenDocument."
 ---
 
-## **Применение правил резервного шрифта**
+## **Применить правила резервного шрифта**
 
-Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) можно организовать в [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), которая реализует интерфейс [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). Можно добавлять и удалять правила из коллекции.
+Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), который реализует интерфейс [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). Можно добавлять или удалять правила из коллекции.
 
-Затем эту коллекцию можно назначить методу [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) класса [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager управляет шрифтами во всей презентации. Подробнее [О FontsManager и FontsLoader](/slides/ru/java/about-fontsmanager-and-fontsloader/).
+Затем эту коллекцию можно назначить методу [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) класса [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager управляет шрифтами во всей презентации.
 
-Каждый [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) имеет метод [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) со своим собственным экземпляром класса [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
+Каждый [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) имеет метод [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) с собственным экземпляром класса [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
 
-Ниже приведён пример того, как создать коллекцию правил резервных шрифтов и назначить её в [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) определённой презентации:  
+Ниже приведён пример того, как создать коллекцию правил резервных шрифтов и назначить её [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) определённой презентации:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,26 +42,26 @@ try {
 ```
 
 
-После того как FontsManager инициализирован коллекцией резервных шрифтов, резервные шрифты применяются во время рендеринга презентации.
+После инициализации FontsManager коллекцией резервных шрифтов, резервные шрифты применяются во время рендеринга презентации.
 
 {{% alert color="primary" %}} 
-Подробнее о том, как [Отрисовать презентацию с резервным шрифтом](/slides/ru/java/render-presentation-with-fallback-font/).
+Подробнее о том, как [Render Presentation with Fallback Font](/slides/ru/java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **Часто задаваемые вопросы**
 
-**Будут ли мои правила резервного шрифта встроены в файл PPTX и видны в PowerPoint после сохранения?**
+**Будут ли мои правила резервного шрифта встроены в файл PPTX и видимы в PowerPoint после сохранения?**
 
-Нет. Правила резервного шрифта — это настройки рендеринга во время выполнения; они не сериализуются в PPTX и не будут отображаться в пользовательском интерфейсе PowerPoint.
+Нет. Правила резервного шрифта являются настройками рендеринга во время выполнения; они не сериализуются в PPTX и не будут отображаться в пользовательском интерфейсе PowerPoint.
 
-**Применяется ли резервный шрифт к тексту в SmartArt, WordArt, диаграммах и таблицах?**
+**Применяется ли резервный шрифт к тексту внутри SmartArt, WordArt, диаграмм и таблиц?**
 
-Да. Для любого текста в этих объектах используется тот же механизм подстановки глифов.
+Да. Для любого текста в этих объектах используется тот же механизм замены глифов.
 
-**Поставляет ли Aspose какие-либо шрифты вместе с библиотекой?**
+**Поставляет ли Aspose какие‑либо шрифты вместе с библиотекой?**
 
-Нет. Шрифты добавляете и используете вы, полностью отвечая за них.
+Нет. Шрифты добавляются и используются вами самостоятельно, на вашу ответственность.
 
-**Можно ли использовать замену/подстановку отсутствующих шрифтов и резервный шрифт для отсутствующих глифов одновременно?**
+**Можно ли одновременно использовать замену/подстановку недостающих шрифтов и резервный шрифт для недостающих глифов?**
 
-Да. Это независимые этапы одного и того же конвейера разрешения шрифтов: сначала движок определяет доступность шрифтов ([replacement](/slides/ru/java/font-replacement/)/[substitution](/slides/ru/java/font-substitution/)), затем резервный шрифт заполняет пробелы для отсутствующих глифов в доступных шрифтах.
+Да. Это независимые этапы одного и того же конвейера разрешения шрифтов: сначала движок определяет доступность шрифтов ([replacement](/slides/ru/java/font-replacement/)/[substitution](/slides/ru/java/font-substitution/)), затем резервный шрифт заполняет пробелы недостающих глифов в доступных шрифтах.

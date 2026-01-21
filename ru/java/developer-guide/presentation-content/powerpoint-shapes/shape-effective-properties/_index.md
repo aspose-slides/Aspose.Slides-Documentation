@@ -1,5 +1,5 @@
 ---
-title: Получить эффективные свойства фигур из презентаций на Java
+title: Получить эффективные свойства фигур из презентаций в Java
 linktitle: Эффективные свойства
 type: docs
 weight: 50
@@ -7,26 +7,26 @@ url: /ru/java/shape-effective-properties/
 keywords:
 - свойства фигур
 - свойства камеры
-- освещение
+- осветительный комплект
 - фаска формы
 - текстовый кадр
-- текстовый стиль
+- стиль текста
 - высота шрифта
 - формат заливки
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как Aspose.Slides for Java вычисляет и применяет эффективные свойства фигур для точного отображения в PowerPoint."
+description: "Узнайте, как Aspose.Slides for Java вычисляет и применяет эффективные свойства фигур для точного рендеринга PowerPoint."
 ---
 
-В этой теме мы рассмотрим **effective** и **local** свойства. Когда мы задаём значения напрямую на этих уровнях
+В этой теме мы обсудим **effective** и **local** свойства. Когда мы задаём значения напрямую на этих уровнях
 
 1. В свойствах части на слайде части;
-1. В стиле текста прототипной формы на макете или главном слайде (если у формы текстового кадра части есть такой стиль);
+1. В стиле текста прототипной фигуры на макете или главном слайде (если у формы текстового кадра части есть такой);
 1. В глобальных настройках текста презентации;
 
-эти значения называют **local** значениями. На любом уровне **local** значения могут быть определены или опущены. Но когда приложению нужно узнать, как должна выглядеть часть, оно использует **effective** значения. Вы можете получить effective значения, используя метод **getEffective()** из локального формата.
+эти значения называются **local** значениями. На любом уровне **local** значения могут быть определены или опущены. Но когда приложению нужно знать, как должна выглядеть часть, оно использует **effective** значения. Вы можете получить effective значения, используя метод **getEffective()** из локального формата.
 
 Этот пример кода показывает, как получить effective значения:
 ```java
@@ -45,8 +45,8 @@ try {
 ```
 
 
-## **Получить эффективные свойства камеры**
-Aspose.Slides for Java позволяет разработчикам получать effective свойства камеры. Для этой цели в Aspose.Slides был добавлен интерфейс [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData). Интерфейс [ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) представляет собой неизменяемый объект, содержащий effective свойства камеры. Экземпляр [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) используется как часть интерфейса [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData), который является парой [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) для класса [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
+## **Получить effective свойства камеры**
+Aspose.Slides для Java позволяет разработчикам получать effective свойства камеры. Для этой цели в Aspose.Slides был добавлен интерфейс [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData). Интерфейс [ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) представляет неизменяемый объект, содержащий effective свойства камеры. Экземпляр интерфейса [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) используется как часть интерфейса [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData), который является парой [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) для класса [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
 
 Этот пример кода показывает, как получить effective свойства камеры:
 ```java
@@ -64,8 +64,8 @@ try {
 ```
 
 
-## **Получить эффективные свойства Light Rig**
-Aspose.Slides for Java позволяет разработчикам получать effective свойства Light Rig. Для этой цели в Aspose.Slides был добавлен интерфейс [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData). Интерфейс [ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) представляет собой неизменяемый объект, содержащий effective свойства световой установки. Экземпляр [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) используется как часть интерфейса [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData), который является парой [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) для класса [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
+## **Получить effective свойства Light Rig**
+Aspose.Slides для Java позволяет разработчикам получать effective свойства Light Rig. Для этой цели в Aspose.Slides был добавлен интерфейс [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData). Интерфейс [ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) представляет неизменяемый объект, содержащий effective свойства светового оборудования. Экземпляр интерфейса [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) используется как часть интерфейса [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData), который является парой [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) для класса [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
 
 Этот пример кода показывает, как получить effective свойства Light Rig:
 ```java
@@ -82,8 +82,8 @@ try {
 ```
 
 
-## **Получить эффективные свойства Bevel Shape**
-Aspose.Slides for Java позволяет разработчикам получать effective свойства Bevel Shape. Для этой цели в Aspose.Slides был добавлен интерфейс [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData). Интерфейс [IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) представляет собой неизменяемый объект, содержащий effective свойства рельефа грани формы. Экземпляр [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) используется как часть интерфейса [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData)) интерфейса, который является парой [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) для класса [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
+## **Получить effective свойства Bevel Shape**
+Aspose.Slides для Java позволяет разработчикам получать effective свойства Bevel Shape. Для этой цели в Aspose.Slides был добавлен интерфейс [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData). Интерфейс [IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) представляет неизменяемый объект, содержащий effective свойства рельефа формы. Экземпляр интерфейса [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) используется как часть интерфейса [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData), который является парой [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) для класса [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
 
 Этот пример кода показывает, как получить effective свойства Bevel Shape:
 ```java
@@ -101,8 +101,8 @@ try {
 ```
 
 
-## **Получить эффективные свойства текстового кадра**
-Aspose.Slides for Java позволяет получать effective свойства текстового кадра. Для этой цели в Aspose.Slides был добавлен интерфейс [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData). Он содержит effective свойства форматирования текстового кадра.
+## **Получить effective свойства Text Frame**
+С помощью Aspose.Slides для Java вы можете получить effective свойства Text Frame. Для этой цели в Aspose.Slides был добавлен интерфейс [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData). Он содержит effective свойства форматирования текстового кадра.
 
 Этот пример кода показывает, как получить effective свойства форматирования текстового кадра:
 ```java
@@ -125,8 +125,8 @@ try {
 ```
 
 
-## **Получить эффективные свойства текстового стиля**
-Aspose.Slides for Java позволяет получать effective свойства Text Style. Для этой цели в Aspose.Slides был добавлен интерфейс [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData). Он содержит effective свойства текстового стиля.
+## **Получить effective свойства Text Style**
+С помощью Aspose.Slides для Java вы можете получить effective свойства Text Style. Для этой цели в Aspose.Slides был добавлен интерфейс [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData). Он содержит effective свойства текстового стиля.
 
 Этот пример кода показывает, как получить effective свойства текстового стиля:
 ```java
@@ -151,8 +151,8 @@ try {
 ```
 
 
-## **Получить значение эффективной высоты шрифта**
-Aspose.Slides for Java позволяет получать effective свойства высоты шрифта. Здесь мы предоставляем код, который показывает, как эффективное значение высоты шрифта части меняется после установки локальных значений высоты шрифта на разных уровнях структуры презентации:
+## **Получить значение effective высоты шрифта**
+С помощью Aspose.Slides для Java вы можете получить effective свойства высоты шрифта. Здесь мы предоставляем код, который показывает, как меняется effective высота шрифта части после установки локальных значений высоты шрифта на разных уровнях структуры презентации:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -197,8 +197,8 @@ try {
 ```
 
 
-## **Получить эффективный формат заливки для таблицы**
-Aspose.Slides for Java позволяет получать effective формат заливки для различных логических частей таблицы. Для этой цели в Aspose.Slides был добавлен интерфейс [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData). Он содержит effective свойства форматирования заливки. Обратите внимание: форматирование ячейки всегда имеет приоритет над форматированием строки; у строки приоритет над столбцом; у столбца приоритет над всей таблицей.
+## **Получить effective параметры заполнения таблицы**
+С помощью Aspose.Slides для Java вы можете получить effective свойства заполнения для различных логических частей таблицы. Для этой цели в Aspose.Slides был добавлен интерфейс [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData). Он содержит effective свойства форматирования заполнения. Обратите внимание: форматирование ячеек всегда имеет приоритет над форматированием строки; строка — над столбцом; столбец — над всей таблицей.
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -220,30 +220,30 @@ try {
 
 ## **FAQ**
 
-**Как мне понять, что я получил «снимок», а не «живой объект», и когда следует снова считывать effective свойства?**
+**Как понять, что я получил «снимок», а не «живой объект», и когда следует снова считывать effective свойства?**
 
-Объекты EffectiveData являются неизменяемыми снимками вычисленных значений на момент вызова. Если вы измените локальные или унаследованные настройки формы, получите EffectiveData снова, чтобы получить обновленные значения.
+Объекты EffectiveData являются неизменяемыми снимками вычисленных значений на момент вызова. Если вы измените локальные или унаследованные настройки фигуры, получите effective данные снова, чтобы получить обновлённые значения.
 
-**Влияет ли изменение макета/главного слайда на effective свойства, которые уже были получены?**
+**Влияет ли изменение макета/главного слайда на уже полученные effective свойства?**
 
 Да, но только после повторного чтения. Уже полученный объект EffectiveData не обновляется автоматически — запросите его снова после изменения макета или главного слайда.
 
 **Можно ли изменять значения через EffectiveData?**
 
-Нет. EffectiveData доступен только для чтения. Вносите изменения в локальные объекты форматирования (форма/текст/3D и т.д.), а затем снова получайте effective значения.
+Нет. EffectiveData доступен только для чтения. Вносите изменения в локальные объекты форматирования (figure/text/3D и т.д.), а затем при необходимости получайте effective значения вновь.
 
-**Что происходит, если свойство не задано на уровне формы, макета/главного слайда или глобальных настроек?**
+**Что происходит, если свойство не задано на уровне фигуры, макета/главного слайда и глобальных настроек?**
 
-Эффективное значение определяется механизмом значений по умолчанию (по умолчанию PowerPoint/Aspose.Slides). Это разрешённое значение становится частью снимка EffectiveData.
+Effective значение определяется механизмом по умолчанию (значения по умолчанию PowerPoint/Aspose.Slides). Это разрешённое значение становится частью снимка EffectiveData.
 
-**Можно ли по эффективному значению шрифта определить, с какого уровня пришёл размер или семейство шрифта?**
+**Можно ли по effective значению шрифта определить, какой уровень предоставил размер или гарнитуру?**
 
-Не напрямую. EffectiveData возвращает окончательное значение. Чтобы определить источник, проверьте локальные значения в части/абзаце/текстовом кадре и стили текста на макете/главном слайде/презентации, чтобы увидеть, где находится первое явное определение.
+Не напрямую. EffectiveData возвращает окончательное значение. Чтобы найти источник, проверьте локальные значения на уровне части/абзаца/текстового кадра и стили текста на макете/главном слайде/презентации, где первое явное определение появляется.
 
 **Почему значения EffectiveData иногда совпадают с локальными?**
 
-Потому что локальное значение оказалось окончательным (не потребовалось наследование с более высокого уровня). В таких случаях effective значение совпадает с локальным.
+Потому что локальное значение оказалось окончательным (высший уровень наследования не потребовался). В таких случаях effective значение равно локальному.
 
 **Когда следует использовать effective свойства, а когда работать только с локальными?**
 
-Используйте EffectiveData, когда нужен результат «как отрисовано» после применения всего наследования (например, для согласования цветов, отступов или размеров). Если нужно изменить форматирование на определённом уровне, изменяйте локальные свойства и при необходимости снова считывайте EffectiveData, чтобы проверить результат.
+Используйте EffectiveData, когда нужен результат «как отрисовано» после применения всего наследования (например, для согласования цветов, отступов или размеров). Если необходимо изменить форматирование на конкретном уровне, изменяйте локальные свойства и, при необходимости, заново считывайте EffectiveData для проверки результата.

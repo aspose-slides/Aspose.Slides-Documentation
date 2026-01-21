@@ -23,24 +23,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides für .NET ermöglicht das einfache Konvertieren von ODP zu PDF, HTML und Bildformaten. Steigern Sie Ihre .NET‑Anwendungen mit schneller und genauer Präsentationskonvertierung."
+description: "Aspose.Slides für .NET ermöglicht das einfache Konvertieren von ODP in PDF, HTML und Bildformate. Steigern Sie Ihre .NET-Anwendungen mit schneller und genauer Präsentationskonvertierung."
 ---
 
-## **Übersicht**
+[**Aspose.Slides API**](https://products.aspose.com/slides/net/) ermöglicht das Konvertieren von OpenDocument (ODP)-Präsentationen in viele Formate (HTML, PDF, TIFF, SWF, XPS usw.). Die API, die zum Konvertieren von ODP-Dateien in andere Dokumentformate verwendet wird, ist dieselbe wie die für PowerPoint‑(PPT und PPTX)Konvertierungs‑Operationen.
 
-Aspose.Slides for .NET bietet eine robuste API zum Konvertieren von OpenDocument‑Präsentationen (ODP) in verschiedene andere Formate. Ähnlich wie beim Umgang mit PowerPoint‑Dateien (PPT und PPTX) können Entwickler ODP‑Dokumente einfach in Formate wie HTML, PDF, TIFF, JPG, XPS und mehr exportieren.
-
-Diese Beispiele zeigen, wie ODP‑Dokumente in andere Formate konvertiert werden (einfach die Quelle auf die ODP‑Datei ändern):
-
-- [ODP in HTML konvertieren](/slides/de/net/convert-powerpoint-ppt-and-pptx-to-html/)
-- [ODP in PDF konvertieren](/slides/de/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [ODP in TIFF konvertieren](/slides/de/net/convert-powerpoint-to-tiff/)
-- [ODP in SWF konvertieren](/slides/de/net/convert-powerpoint-to-swf-flash/)
-- [ODP in XPS konvertieren](/slides/de/net/convert-powerpoint-to-xps/)
-- [ODP in PDF mit Notizen konvertieren](/slides/de/net/convert-powerpoint-to-pdf-with-notes/)
-- [ODP in TIFF mit Notizen konvertieren](/slides/de/net/convert-powerpoint-to-tiff-with-notes/)
-
-Zum Beispiel erfordert das Konvertieren einer ODP‑Präsentation in PDF nur wenige Zeilen C#‑Code:
+Zum Beispiel, wenn Sie eine ODP‑Präsentation in PDF konvertieren müssen, können Sie dies wie folgt tun:
 ```cs
 using (Presentation presentation = new Presentation("presentation.odp"))
 {
@@ -51,39 +39,39 @@ using (Presentation presentation = new Presentation("presentation.odp"))
 
 ## **OpenDocument‑Präsentation in verschiedenen Anwendungen**
 
-Wenn eine OpenDocument‑Präsentation (ODP) in PowerPoint geöffnet wird, kann das ursprüngliche Layout aus der Anwendung, in der sie erstellt wurde, verloren gehen. Das liegt daran, dass die OpenDocument‑Präsentations‑App und die PowerPoint‑App unterschiedliche Funktionen und Rendering‑Verhalten bieten.
+Wenn eine OpenDocument‑Präsentation (ODP)-Datei in PowerPoint geöffnet wird, kann sie die ursprüngliche Formatierung aus der Anwendung, in der sie erstellt wurde, nicht beibehalten. Das liegt daran, dass die OpenDocument‑Präsentations‑App und die PowerPoint‑App unterschiedliche Funktionen und Render‑Verhalten bieten.
 
-Einige Unterschiede sind:
+Hier sind einige der Unterschiede:
 
-- In PowerPoint werden Tabellen normalerweise zuletzt gerendert und können andere Formen überlagern, unabhängig von ihrer Reihenfolge auf der ODP‑Folie.
-- Bildfüllung für ODP‑Tabellen wird in PowerPoint nicht unterstützt.
-- Vertikale Textrotation (270 °, gestapelt) und verteilte Ausrichtung werden in LibreOffice/OpenOffice Impress nicht unterstützt.
-- Bildfüllung, Farbverlauffüllung und Musterfüllung für Text werden in LibreOffice/OpenOffice Impress nicht unterstützt.
+- In PowerPoint werden Tabellen in der Regel zuletzt gerendert und können andere Formen überlagern, unabhängig von ihrer Reihenfolge auf der ODP‑Folie.
+- Bildfüllungen für ODP‑Tabellen werden in PowerPoint nicht unterstützt.
+- Vertikale Textrotation (270°, gestapelt) und verteilte Ausrichtung werden in LibreOffice/OpenOffice Impress nicht unterstützt.
+- Bildfüllungen, Farbverlauf‑Füllungen und Muster‑Füllungen für Text werden in LibreOffice/OpenOffice Impress nicht unterstützt.
 
-MS PowerPoint und LibreOffice/OpenOffice Impress behandeln Listen ebenfalls unterschiedlich. Eine in PowerPoint erstellte ODP‑Datei wird in LibreOffice/OpenOffice Impress möglicherweise nicht korrekt angezeigt und umgekehrt.
+MS PowerPoint und LibreOffice/OpenOffice Impress gehen mit Listen ebenfalls unterschiedlich um. Eine in PowerPoint erstellte ODP‑Datei wird in LibreOffice/OpenOffice Impress möglicherweise nicht korrekt angezeigt, und umgekehrt.
 
-Das Bild unten zeigt, wie eine Liste aussieht, wenn sie in LibreOffice Impress erstellt wurde:
+Das Bild unten zeigt, wie eine Liste aussieht, wenn sie in LibreOffice Impress erstellt wird:
 
-![ODP‑Listenbeispiel](odp-list-example.png)
+![ODP list example](odp-list-example.png)
 
 Aspose.Slides speichert ODP‑Listen so, dass sie in LibreOffice/OpenOffice Impress korrekt angezeigt werden.
 
-[Erfahren Sie mehr über das OpenDocument‑Format und PowerPoint](https://support.microsoft.com/en-us/office/use-powerpoint-to-save-or-open-a-presentation-in-the-opendocument-presentation-odp-format-94805e84-1b09-4c98-a8b5-0da2a52242a0).
+[Erfahren Sie mehr über das OpenDocument-Format und PowerPoint](https://support.microsoft.com/en-us/office/use-powerpoint-to-save-or-open-a-presentation-in-the-opendocument-presentation-odp-format-94805e84-1b09-4c98-a8b5-0da2a52242a0).
 
 ## **FAQ**
 
-**Was kann ich tun, wenn sich das Layout meiner ODP‑Datei nach der Konvertierung ändert?**
+**Was ist, wenn sich die Formatierung meiner ODP‑Datei nach der Konvertierung ändert?**
 
-ODP und PowerPoint verwenden unterschiedliche Präsentationsmodelle, und einige Elemente – etwa Tabellen, benutzerdefinierte Schriften oder Füllstile – werden möglicherweise nicht exakt gleich gerendert. Es wird empfohlen, die Ausgabe zu überprüfen und bei Bedarf das Layout oder die Formatierung im Code anzupassen.
+ODP und PowerPoint verwenden unterschiedliche Präsentationsmodelle, und einige Elemente – wie Tabellen, benutzerdefinierte Schriftarten oder Füllstile – werden möglicherweise nicht exakt gleich gerendert. Es wird empfohlen, die Ausgabe zu überprüfen und bei Bedarf Layout oder Formatierung im Code anzupassen.
 
-**Muss ich OpenOffice oder LibreOffice installiert haben, um ODP‑Konvertierungen zu nutzen?**
+**Benötige ich OpenOffice oder LibreOffice, um die ODP‑Konvertierung zu nutzen?**
 
-Nein, Aspose.Slides for .NET ist eine eigenständige Bibliothek und erfordert keine Installation von OpenOffice oder LibreOffice auf Ihrem System.
+Nein, Aspose.Slides für .NET ist eine eigenständige Bibliothek und erfordert nicht, dass OpenOffice oder LibreOffice auf Ihrem System installiert ist.
 
 **Kann ich das Ausgabeformat während der ODP‑Konvertierung anpassen (z. B. PDF‑Optionen festlegen)?**
 
-Ja, Aspose.Slides bietet umfangreiche Optionen zum Anpassen der Ausgabe. Beispielsweise können Sie beim Speichern als PDF die Kompression, Bildqualität, Text‑Rendering und mehr über die [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)‑Klasse steuern.
+Ja, Aspose.Slides bietet umfangreiche Optionen zur Anpassung der Ausgabe. Zum Beispiel können Sie beim Speichern als PDF die Kompression, Bildqualität, Textdarstellung und mehr über die [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)‑Klasse steuern.
 
-**Ist Aspose.Slides für serverseitige oder cloudbasierte ODP‑Verarbeitung geeignet?**
+**Ist Aspose.Slides für die serverseitige oder cloudbasierte ODP‑Verarbeitung geeignet?**
 
-Absolut. Aspose.Slides for .NET ist für den Einsatz sowohl in Desktop‑ als auch in Serverumgebungen konzipiert, einschließlich cloudbasierter Plattformen wie Azure, AWS und Docker‑Containern, ohne jegliche UI‑Abhängigkeiten.
+Absolut. Aspose.Slides für .NET ist dafür ausgelegt, sowohl in Desktop‑ als auch in Server‑Umgebungen zu arbeiten, einschließlich cloudbasierter Plattformen wie Azure, AWS und Docker‑Containern, ohne jegliche UI‑Abhängigkeiten.

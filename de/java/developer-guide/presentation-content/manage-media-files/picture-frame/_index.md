@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Bildrahmen in Präsentationen mit Java
+title: Bildrahmen in Präsentationen mit Java verwalten
 linktitle: Bildrahmen
 type: docs
 weight: 10
@@ -14,10 +14,10 @@ keywords:
 - Rasterbild
 - Vektorbild
 - Bild zuschneiden
-- beschnittener Bereich
+- zugeschnittener Bereich
 - StretchOff-Eigenschaft
 - Bildrahmenformatierung
-- Bildrahmeneigenschaften
+- Bildrahmen-Eigenschaften
 - relative Skalierung
 - Bildeffekt
 - Seitenverhältnis
@@ -27,42 +27,42 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Fügen Sie Bildrahmen zu PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Java hinzu. Optimieren Sie Ihren Arbeitsablauf und verbessern Sie das Foliendesign."
+description: "Fügen Sie PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Java Bildrahmen hinzu. Optimieren Sie Ihren Arbeitsablauf und verbessern Sie das Design der Folien."
 ---
 
-Ein Bildrahmen ist eine Form, die ein Bild enthält – er ist wie ein Bild in einem Rahmen. 
+Ein Bildrahmen ist eine Form, die ein Bild enthält – er ist wie ein Bild in einem Rahmen.  
 
-Sie können einem Folie über einen Bildrahmen ein Bild hinzufügen. Auf diese Weise können Sie das Bild formatieren, indem Sie den Bildrahmen formatieren.
+Sie können über einen Bildrahmen ein Bild zu einer Folie hinzufügen. Auf diese Weise können Sie das Bild formatieren, indem Sie den Bildrahmen formatieren.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose bietet kostenlose Konverter –[JPEG zu PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG zu PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) – die es ermöglichen, schnell Präsentationen aus Bildern zu erstellen. 
+{{% alert  title="Tipp" color="primary" %}} 
+Aspose bietet kostenlose Konverter—[JPEG nach PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG nach PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—die es ermöglichen, schnell Präsentationen aus Bildern zu erstellen. 
 {{% /alert %}} 
 
-## **Bildrahmen erstellen**
+## **Erstellen eines Bildrahmens**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Holen Sie die Referenz einer Folie über deren Index.  
-3. Erstellen Sie ein [IPPImage]()‑Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) hinzufügen, die dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird.  
-4. Geben Sie die Breite und Höhe des Bildes an.  
-5. Erstellen Sie ein [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) basierend auf der Bildbreite und -höhe über die Methode `AddPictureFrame`, die vom Formenobjekt der referenzierten Folie bereitgestellt wird.  
-6. Fügen Sie der Folie einen Bildrahmen (der das Bild enthält) hinzu.  
-7. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Holen Sie sich eine Referenz auf eine Folie über deren Index. 
+3. Erstellen Sie ein [IPPImage]()‑Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) hinzufügen, das dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird. 
+4. Geben Sie die Breite und Höhe des Bildes an. 
+5. Erstellen Sie einen [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) basierend auf der Bildbreite und -höhe über die `AddPictureFrame`‑Methode, die vom Form‑Objekt der referenzierten Folie bereitgestellt wird. 
+6. Fügen Sie der Folie einen Bildrahmen (der das Bild enthält) hinzu. 
+7. Speichern Sie die modifizierte Präsentation als PPTX‑Datei. 
 
-Dieser Java‑Code zeigt, wie ein Bildrahmen erstellt wird:
+Dieser Java‑Code zeigt, wie Sie einen Bildrahmen erstellen:
 ```java
-// Instanziert die Presentation-Klasse, die eine PPTX-Datei darstellt
+// Instanziiert die Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
-    // Holt die erste Folie
+    // Ruft die erste Folie ab
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Instanziert die Image-Klasse
+    // Instanziiert die Image-Klasse
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     // Fügt einen Bildrahmen mit der entsprechenden Höhe und Breite des Bildes hinzu
     sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Speichert die PPTX-Datei auf die Festplatte
+    // Schreibt die PPTX-Datei auf die Festplatte
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -72,40 +72,40 @@ try {
 
 
 {{% alert color="warning" %}} 
-Bildrahmen ermöglichen es, schnell Präsentationsfolien auf Basis von Bildern zu erstellen. Kombiniert man Bildrahmen mit den Speicheroptionen von Aspose.Slides, kann man Ein‑ und Ausgangsoperationen manipulieren, um Bilder von einem Format in ein anderes zu konvertieren. Weitere Seiten können Sie hier einsehen: Bild zu [JPG konvertieren](https://products.aspose.com/slides/java/conversion/image-to-jpg/); [JPG zu Bild konvertieren](https://products.aspose.com/slides/java/conversion/jpg-to-image/); [JPG zu PNG konvertieren](https://products.aspose.com/slides/java/conversion/jpg-to-png/), [PNG zu JPG konvertieren](https://products.aspose.com/slides/java/conversion/png-to-jpg/); [PNG zu SVG konvertieren](https://products.aspose.com/slides/java/conversion/png-to-svg/), [SVG zu PNG konvertieren](https://products.aspose.com/slides/java/conversion/svg-to-png/). 
+Bildrahmen ermöglichen es Ihnen, schnell Präsentationsfolien basierend auf Bildern zu erstellen. Wenn Sie den Bildrahmen mit den Speicheroptionen von Aspose.Slides kombinieren, können Sie Ein‑ und Ausgabeoperationen manipulieren, um Bilder von einem Format in ein anderes zu konvertieren. Sie können sich diese Seiten ansehen: konvertieren [Bild zu JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); konvertieren [JPG zu Bild](https://products.aspose.com/slides/java/conversion/jpg-to-image/); konvertieren [JPG zu PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), konvertieren [PNG zu JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); konvertieren [PNG zu SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), konvertieren [SVG zu PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/). 
 {{% /alert %}}
 
-## **Bildrahmen mit relativer Skalierung erstellen**
+## **Erstellen eines Bildrahmens mit relativer Skalierung**
 
 Durch Ändern der relativen Skalierung eines Bildes können Sie einen komplexeren Bildrahmen erstellen. 
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Holen Sie die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Bild zur Bildsammlung der Präsentation hinzu.  
-4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage)-Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) hinzufügen, die dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird.  
-5. Geben Sie die relative Breite und Höhe des Bildes im Bildrahmen an.  
-6. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Holen Sie sich eine Referenz auf eine Folie über deren Index. 
+3. Fügen Sie der Bildsammlung der Präsentation ein Bild hinzu. 
+4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage)‑Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) hinzufügen, das dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird. 
+5. Geben Sie die relative Breite und Höhe des Bildes im Bildrahmen an. 
+6. Speichern Sie die modifizierte Präsentation als PPTX‑Datei. 
 
-Dieser Java‑Code zeigt, wie ein Bildrahmen mit relativer Skalierung erstellt wird:
+Dieser Java‑Code zeigt, wie Sie einen Bildrahmen mit relativer Skalierung erstellen:
 ```java
-// Instanziert die Presentation-Klasse, die die PPTX repräsentiert
+// Instanziiert die Presentation-Klasse, die das PPTX darstellt
 Presentation pres = new Presentation();
 try {
-    // Holt die erste Folie
+    // Ruft die erste Folie ab
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Instanziert die Image-Klasse
+    // Instanziiert die Image-Klasse
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
     // Fügt einen Bildrahmen mit Höhe und Breite des Bildes hinzu
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Setzt relative Skalierung von Breite und Höhe
+    // Setzt relative Skalierung für Breite und Höhe
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
-    // Speichert die PPTX-Datei auf die Festplatte
+    // Schreibt die PPTX-Datei auf die Festplatte
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -116,7 +116,7 @@ try {
 
 ## **Rasterbilder aus Bildrahmen extrahieren**
 
-Sie können Rasterbilder aus [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame)-Objekten extrahieren und sie im PNG‑, JPG‑ oder anderen Formaten speichern. Das nachfolgende Codebeispiel demonstriert, wie ein Bild aus dem Dokument „sample.pptx“ extrahiert und im PNG‑Format gespeichert wird.
+Sie können Rasterbilder aus [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame)‑Objekten extrahieren und in PNG, JPG und anderen Formaten speichern. Das untenstehende Code‑Beispiel demonstriert, wie Sie ein Bild aus dem Dokument „sample.pptx“ extrahieren und im PNG‑Format speichern.
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -127,11 +127,11 @@ try {
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
         try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
+            IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
+            slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+        } finally {
+            if (slideImage != null) slideImage.dispose();
+        }
     }
 } catch (IOException e) {
 } finally {
@@ -140,11 +140,11 @@ try {
 ```
 
 
-## **SVG‑Bilder aus Bildrahmen extrahieren**
+## **SVG-Bilder aus Bildrahmen extrahieren**
 
-Enthält eine Präsentation SVG‑Grafiken, die in [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/)-Formen eingebettet sind, ermöglicht Aspose.Slides for Java das Abrufen der ursprünglichen Vektor‑Bilder mit voller Treue. Durch Durchlaufen der Formsammlung der Folie können Sie jedes [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) identifizieren, prüfen, ob das zugrunde liegende [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) SVG‑Inhalt enthält, und das Bild dann im nativen SVG‑Format speichern.
+Wenn eine Präsentation SVG‑Grafiken enthält, die in [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/)‑Formen platziert sind, ermöglicht Aspose.Slides for Java das Abrufen der ursprünglichen Vektorbilder mit voller Treue. Durch Durchlaufen der Form‑Sammlung der Folie können Sie jede [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/)‑Form identifizieren, prüfen, ob das zugrunde liegende [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) SVG‑Inhalt enthält, und das Bild dann im nativen SVG‑Format auf Datenträger oder in einen Stream speichern.
 
-Das folgende Codebeispiel demonstriert das Extrahieren eines SVG‑Bildes aus einem Bildrahmen:
+Das folgende Code‑Beispiel demonstriert das Extrahieren eines SVG‑Bildes aus einem Bildrahmen:
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -168,9 +168,9 @@ try {
 ```
 
 
-## **Transparenz eines Bildes ermitteln**
+## **Transparenz eines Bildes abrufen**
 
-Aspose.Slides ermöglicht das Abrufen des auf ein Bild angewendeten Transparenzeffekts. Dieser Java‑Code demonstriert die Vorgehensweise:
+Aspose.Slides ermöglicht das Abrufen des Transparenzeffekts, der auf ein Bild angewendet wurde. Dieser Java‑Code demonstriert die Operation:
 ```java
 Presentation presentation = new Presentation("Test.pptx");
 
@@ -188,28 +188,28 @@ for (var effect : imageTransform) {
 
 ## **Bildrahmenformatierung**
 
-Aspose.Slides bietet zahlreiche Formatierungsoptionen, die auf einen Bildrahmen angewendet werden können. Mit diesen Optionen können Sie einen Bildrahmen so anpassen, dass er spezifischen Anforderungen entspricht.
+Aspose.Slides bietet viele Formatierungsoptionen, die auf einen Bildrahmen angewendet werden können. Mit diesen Optionen können Sie einen Bildrahmen so ändern, dass er spezifischen Anforderungen entspricht.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Holen Sie die Referenz einer Folie über deren Index.  
-3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage)-Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) hinzufügen, die dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird.  
-4. Geben Sie die Breite und Höhe des Bildes an.  
-5. Erstellen Sie ein `PictureFrame` basierend auf der Bildbreite und -höhe über die Methode [AddPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) des [IShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection)-Objekts, das mit der referenzierten Folie verknüpft ist.  
-6. Fügen Sie der Folie den Bildrahmen (mit dem Bild) hinzu.  
-7. Setzen Sie die Linienfarbe des Bildrahmens.  
-8. Setzen Sie die Linienstärke des Bildrahmens.  
-9. Drehen Sie den Bildrahmen, indem Sie ihm einen positiven oder negativen Wert zuweisen.  
-   * Ein positiver Wert dreht das Bild im Uhrzeigersinn.  
-   * Ein negativer Wert dreht das Bild gegen den Uhrzeigersinn.  
-10. Fügen Sie den Bildrahmen (mit dem Bild) erneut zur Folie hinzu.  
-11. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Holen Sie sich eine Referenz auf eine Folie über deren Index. 
+3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage)‑Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) hinzufügen, das dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird. 
+4. Geben Sie die Breite und Höhe des Bildes an. 
+5. Erstellen Sie einen `PictureFrame` basierend auf der Bildbreite und -höhe über die [AddPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-)‑Methode, die vom [IShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection)‑Objekt der referenzierten Folie bereitgestellt wird. 
+6. Fügen Sie der Folie den Bildrahmen (der das Bild enthält) hinzu. 
+7. Legen Sie die Linienfarbe des Bildrahmens fest. 
+8. Legen Sie die Linienbreite des Bildrahmens fest. 
+9. Drehen Sie den Bildrahmen, indem Sie ihm einen positiven oder negativen Wert zuweisen. 
+   * Ein positiver Wert dreht das Bild im Uhrzeigersinn. 
+   * Ein negativer Wert dreht das Bild gegen den Uhrzeigersinn. 
+10. Fügen Sie den Bildrahmen (der das Bild enthält) erneut zur Folie hinzu. 
+11. Speichern Sie die modifizierte Präsentation als PPTX‑Datei. 
 
-Dieser Java‑Code demonstriert den Bildrahmen‑Formatierungsprozess:
+Dieser Java‑Code demonstriert den Bildrahmenformatierungs‑Prozess:
 ```java
-// Instanziert die Presentation-Klasse, die die PPTX darstellt
+// Instanziert die Presentation-Klasse, die das PPTX darstellt
 Presentation pres = new Presentation();
 try {
-    // Holt die erste Folie
+    // Ruft die erste Folie ab
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Instanziert die Image-Klasse
@@ -233,13 +233,13 @@ try {
 ```
 
 
-{{% alert title="Tip" color="primary" %}}
-Aspose hat kürzlich einen [kostenlosen Collage Maker](https://products.aspose.app/slides/collage) entwickelt. Wenn Sie jemals [JPG/JPEG](https://products.aspose.app/slides/collage/jpg) oder PNG‑Bilder zusammenführen oder [Raster aus Fotos erstellen](https://products.aspose.app/slides/collage/photo-grid) müssen, können Sie diesen Dienst nutzen. 
+{{% alert title="Tipp" color="primary" %}}
+Aspose hat kürzlich einen [kostenlosen Collage Maker](https://products.aspose.app/slides/collage) entwickelt. Wenn Sie jemals [JPG/JPEG zusammenführen](https://products.aspose.app/slides/collage/jpg) oder PNG‑Bilder, [Raster aus Fotos erstellen](https://products.aspose.app/slides/collage/photo-grid) möchten, können Sie diesen Service nutzen. 
 {{% /alert %}}
 
 ## **Ein Bild als Link hinzufügen**
 
-Um die Dateigröße von Präsentationen gering zu halten, können Sie Bilder (oder Videos) über Links einbinden, anstatt die Dateien direkt in die Präsentation zu integrieren. Dieser Java‑Code zeigt, wie Sie ein Bild und ein Video in einen Platzhalter einfügen:
+Um große Präsentationsdateien zu vermeiden, können Sie Bilder (oder Videos) über Links einbinden, anstatt die Dateien direkt in die Präsentation zu integrieren. Dieser Java‑Code zeigt, wie Sie ein Bild und ein Video in einen Platzhalter einfügen:
 ```java
 Presentation presentation = new Presentation("input.pptx");
 try {
@@ -308,7 +308,7 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Fügt der Folie einen Bildrahmen hinzu
+    // Fügt einem Folie einen PictureFrame hinzu
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
@@ -327,11 +327,11 @@ try {
 ```
 
 
-## **Zugeschnittene Bildbereiche löschen**
+## **Zugeschnittene Bereiche eines Bildes löschen**
 
-Wenn Sie zugeschnittene Bildbereiche in einem Rahmen löschen möchten, können Sie die Methode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) verwenden. Diese Methode gibt das zugeschnittene Bild oder das Originalbild zurück, falls kein Zuschneiden nötig ist.
+Wenn Sie die zugeschnittenen Bereiche eines in einem Rahmen enthaltenen Bildes entfernen möchten, können Sie die Methode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) verwenden. Diese Methode gibt das zugeschnittene Bild oder das Originalbild zurück, wenn kein Zuschnitt nötig ist.
 
-Dieser Java‑Code demonstriert die Vorgehensweise:
+Dieser Java‑Code demonstriert die Operation:
 ```java
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
@@ -340,7 +340,7 @@ try {
     // Holt das PictureFrame von der ersten Folie
     IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // Löscht zugeschnittene Bereiche des PictureFrame-Bildes und gibt das zugeschnittene Bild zurück
+    // Löscht zugeschnittene Bereiche des Bildes im PictureFrame und gibt das beschnittene Bild zurück
     IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
 
     // Speichert das Ergebnis
@@ -351,15 +351,15 @@ try {
 ```
 
 
-{{% alert title="NOTE" color="warning" %}} 
-Die Methode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) fügt das zugeschnittene Bild zur Bildsammlung der Präsentation hinzu. Wenn das Bild ausschließlich im verarbeiteten [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) verwendet wird, kann diese Vorgehensweise die Dateigröße reduzieren. Andernfalls erhöht sich die Bildanzahl in der resultierenden Präsentation.
+{{% alert title="HINWEIS" color="warning" %}} 
+Die Methode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) fügt das zugeschnittene Bild der Bildsammlung der Präsentation hinzu. Wird das Bild ausschließlich im verarbeiteten [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) verwendet, kann diese Vorgehensweise die Präsentationsgröße reduzieren. Andernfalls erhöht sich die Anzahl der Bilder in der resultierenden Präsentation. 
 
-Während des Zuschneidevorgangs werden WMF/EMF‑Metadateien in ein Raster‑PNG‑Bild konvertiert. 
+Diese Methode konvertiert WMF/EMF‑Metadateien während des Zuschnitts in Raster‑PNG‑Bilder. 
 {{% /alert %}}
 
 ## **Seitenverhältnis sperren**
 
-Wenn Sie möchten, dass eine Form, die ein Bild enthält, ihr Seitenverhältnis beibehält, selbst wenn Sie die Bildabmessungen ändern, können Sie die Methode [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) verwenden, um die Einstellung *Lock Aspect Ratio* zu aktivieren.
+Wenn Sie möchten, dass eine Form, die ein Bild enthält, ihr Seitenverhältnis beibehält, selbst wenn Sie die Bildabmessungen ändern, können Sie die Methode [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) verwenden, um die Einstellung *Lock Aspect Ratio* zu setzen. 
 
 Dieser Java‑Code zeigt, wie Sie das Seitenverhältnis einer Form sperren:
 ```java
@@ -386,32 +386,32 @@ try {
 ```
 
 
-{{% alert title="NOTE" color="warning" %}} 
+{{% alert title="HINWEIS" color="warning" %}} 
 Diese Einstellung *Lock Aspect Ratio* bewahrt nur das Seitenverhältnis der Form, nicht jedoch das des darin enthaltenen Bildes. 
 {{% /alert %}}
 
-## **StretchOff‑Eigenschaft verwenden**
+## **Verwendung der StretchOff‑Eigenschaft**
 
-Durch die Verwendung der Eigenschaften [StretchOffsetLeft](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) und [StretchOffsetBottom](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) des Interfaces [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) sowie der Klasse [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) können Sie ein Füllrechteck festlegen. 
+Durch die Verwendung der Eigenschaften [StretchOffsetLeft](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) und [StretchOffsetBottom](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) aus dem Interface [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) können Sie ein Füllrechteck festlegen. 
 
-Wird ein Bild gestreckt, wird ein Quellrechteck so skaliert, dass es in das angegebene Füllrechteck passt. Jede Kante des Füllrechtecks wird durch einen prozentualen Versatz von der entsprechenden Kante der Begrenzungsbox der Form definiert. Ein positiver Prozentsatz bedeutet „Einziehen“, ein negativer Prozentsatz „Ausdehnen“. 
+Wenn für ein Bild ein Stretching angegeben ist, wird ein Quellrechteck skaliert, um in das angegebene Füllrechteck zu passen. Jede Kante des Füllrechtecks wird durch einen prozentualen Versatz von der entsprechenden Kante der Begrenzungsbox der Form definiert. Ein positiver Prozentsatz bedeutet Einzug, ein negativer Prozentsatz Ausbuchtung. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentatio)‑Klasse.  
-2. Holen Sie die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Rechteck `AutoShape` hinzu.  
-4. Erstellen Sie ein Bild.  
-5. Setzen Sie den Fülltyp der Form.  
-6. Setzen Sie den Bildfüllmodus der Form.  
-7. Fügen Sie ein Bild zum Ausfüllen der Form hinzu.  
-8. Geben Sie Bildversätze relativ zu den entsprechenden Kanten der Begrenzungsbox der Form an.  
-9. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)‑Klasse. 
+2. Holen Sie sich eine Referenz auf eine Folie über deren Index. 
+3. Fügen Sie ein Rechteck `AutoShape` hinzu. 
+4. Erstellen Sie ein Bild. 
+5. Setzen Sie den Fülltyp der Form. 
+6. Setzen Sie den Bildfüllmodus der Form. 
+7. Fügen Sie ein Bild hinzu, um die Form zu füllen. 
+8. Geben Sie Bildversätze von der entsprechenden Kante der Begrenzungsbox der Form an. 
+9. Speichern Sie die modifizierte Präsentation als PPTX‑Datei. 
 
 Dieser Java‑Code demonstriert einen Prozess, bei dem die StretchOff‑Eigenschaft verwendet wird:
 ```java
 // Instanziert die Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
-    // Holt die erste Folie
+    // Ruft die erste Folie ab
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Instanziert die ImageEx-Klasse
@@ -423,19 +423,19 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Fügt eine AutoShape vom Typ Rechteck hinzu
+    // Fügt ein AutoShape vom Typ Rechteck hinzu
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Setzt den Fülltyp der Form
+    // Legt den Fülltyp der Form fest
     aShape.getFillFormat().setFillType(FillType.Picture);
 
-    // Setzt den Bildfüllmodus der Form
+    // Legt den Bildfüllmodus der Form fest
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-    // Setzt das Bild, um die Form zu füllen
+    // Setzt das Bild, das die Form füllen soll
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Gibt die Bildversätze relativ zu den entsprechenden Kanten der Begrenzungsbox der Form an
+    // Gibt die Bildversätze von der jeweiligen Kante der Begrenzungsbox der Form an
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
@@ -453,13 +453,13 @@ try {
 ## **FAQ**
 
 **Wie finde ich heraus, welche Bildformate für PictureFrame unterstützt werden?**  
-Aspose.Slides unterstützt sowohl Rasterbilder (PNG, JPEG, BMP, GIF usw.) als auch Vektorbilder (z. B. SVG) über das Bildobjekt, das einem [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) zugewiesen wird. Die Liste der unterstützten Formate überschneidet sich im Allgemeinen mit den Fähigkeiten der Folien‑ und Bildkonvertierungs‑Engine.
+Aspose.Slides unterstützt sowohl Rasterbilder (PNG, JPEG, BMP, GIF usw.) als auch Vektorbilder (z. B. SVG) über das Bildobjekt, das einem [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) zugewiesen wird. Die unterstützten Formate überschneiden sich im Allgemeinen mit den Fähigkeiten der Folien‑ und Bildkonvertierungs‑Engine.
 
-**Wie wirkt sich das Hinzufügen von Dutzenden großer Bilder auf die PPTX‑Größe und Performance aus?**  
-Das Einbetten großer Bilder erhöht Dateigröße und Speicherverbrauch; das Verlinken von Bildern hält die Präsentationsgröße klein, benötigt jedoch, dass die externen Dateien weiterhin verfügbar sind. Aspose.Slides bietet die Möglichkeit, Bilder per Link hinzuzufügen, um die Dateigröße zu reduzieren.
+**Wie wirken sich Dutzende großer Bilder auf die PPTX‑Größe und Performance aus?**  
+Das Einbetten großer Bilder erhöht Dateigröße und Speicherverbrauch; das Verlinken von Bildern hält die Präsentationsgröße gering, erfordert jedoch, dass die externen Dateien weiterhin zugänglich bleiben. Aspose.Slides bietet die Möglichkeit, Bilder per Link hinzuzufügen, um die Dateigröße zu reduzieren.
 
 **Wie kann ich ein Bildobjekt vor versehentlichem Verschieben/Größenändern schützen?**  
 Verwenden Sie [Form‑Sperren](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) für einen [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) (z. B. Verschieben oder Größenändern deaktivieren). Der Sperrmechanismus wird für Formen in einem separaten [Schutz‑Artikel](/slides/de/java/applying-protection-to-presentation/) beschrieben und wird für verschiedene Formtypen, einschließlich [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/), unterstützt.
 
-**Wird die Vektor‑Treue von SVG beim Export einer Präsentation zu PDF/Bildern erhalten?**  
-Aspose.Slides ermöglicht das Extrahieren eines SVG aus einem [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) als Originalvektor. Beim Export zu PDF (/slides/de/java/convert-powerpoint-to-pdf/) oder zu Rasterformaten (/slides/de/java/convert-powerpoint-to-png/) kann das Ergebnis je nach Exporteinstellungen rasterisiert werden; die Tatsache, dass das ursprüngliche SVG als Vektor gespeichert ist, wird durch das Extraktionsverhalten bestätigt.
+**Wird die Vektor‑Treue von SVG beim Export einer Präsentation in PDF/Bilder erhalten?**  
+Aspose.Slides ermöglicht das Extrahieren eines SVG aus einem [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) als ursprünglichen Vektor. Beim [Export nach PDF](/slides/de/java/convert-powerpoint-to-pdf/) oder zu [Rasterformaten](/slides/de/java/convert-powerpoint-to-png/) kann das Ergebnis je nach Exporteinstellungen gerastert werden; dass das ursprüngliche SVG als Vektor gespeichert ist, wird durch das Extraktionsverhalten bestätigt.

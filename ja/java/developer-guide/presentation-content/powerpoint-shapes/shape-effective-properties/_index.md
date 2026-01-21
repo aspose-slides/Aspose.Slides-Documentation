@@ -1,33 +1,34 @@
 ---
-title: Java でプレゼンテーションからシェイプの有効プロパティを取得する
-linktitle: 有効プロパティ
+title: Java のプレゼンテーションからシェイプの実効プロパティを取得
+linktitle: 実効プロパティ
 type: docs
 weight: 50
 url: /ja/java/shape-effective-properties/
 keywords:
 - シェイプ プロパティ
 - カメラ プロパティ
-- ライト リグ
+- ライトリグ
 - ベベル シェイプ
 - テキスト フレーム
 - テキスト スタイル
 - フォント 高さ
-- 塗りつぶし 形式
+- 塗りつぶし 書式
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java が正確な PowerPoint 表示のためにシェイプの有効プロパティを計算し適用する方法を紹介します。"
+description: "Aspose.Slides for Java が正確な PowerPoint のレンダリングのために実効シェイププロパティを計算し適用する方法をご紹介します。"
 ---
 
-このトピックでは、**effective** と **local** プロパティについて説明します。これらのレベルで値を直接設定する場合
+このトピックでは、**effective** と **local** プロパティについて説明します。これらのレベルで直接値を設定する場合
 
-1. パートのスライド上のパートプロパティ;
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプのテキストスタイル（パートのテキストフレームシェイプにそれがある場合）;
-1. プレゼンテーションのグローバルテキスト設定;
+1. 部分のスライド上の部分プロパティで;
+1. レイアウトまたはマスタースライド上のプロトタイプシェイプのテキストスタイルで（部分のテキストフレームシェイプにある場合）;
+1. プレゼンテーションのグローバルテキスト設定で;
 
-これらの値は **local** 値と呼ばれます。任意のレベルで、**local** 値は定義されても、定義されなくても構いません。しかし、アプリケーションがパートの見た目を知る必要がある場合は、**effective** 値を使用します。**getEffective()** メソッドをローカルフォーマットから使用して、effective 値を取得できます。
+これらの値は **local** 値と呼ばれます。任意のレベルで **local** 値は定義されてもされなくても構いません。しかし、アプリケーションが部分の表示結果を知る必要がある場合は **effective** 値を使用します。**local** フォーマットから **getEffective()** メソッドを呼び出すことで **effective** 値を取得できます。
 
+このサンプルコードは **effective** 値の取得方法を示しています:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -44,9 +45,10 @@ try {
 ```
 
 
-## **カメラの Effective プロパティの取得**
-Aspose.Slides for Java は開発者がカメラの effective プロパティを取得できるようにします。この目的のために、[**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスが Aspose.Slides に追加されました。[ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスは、effective カメラプロパティを含む不変オブジェクトを表します。[**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
+## **カメラの実効プロパティを取得**
+Aspose.Slides for Java は開発者がカメラの実効プロパティを取得できるようにします。この目的のために、[**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスが Aspose.Slides に追加されました。[ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスは、実効カメラ プロパティを含む不変オブジェクトを表します。[**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
 
+このサンプルコードはカメラの実効プロパティの取得方法を示しています:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -62,9 +64,10 @@ try {
 ```
 
 
-## **ライトリグの Effective プロパティの取得**
-Aspose.Slides for Java は開発者が Light Rig の effective プロパティを取得できるようにします。この目的のために、[**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスが Aspose.Slides に追加されました。[ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスは、effective ライトルグプロパティを含む不変オブジェクトを表します。[**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
+## **ライトリグの実効プロパティを取得**
+Aspose.Slides for Java は開発者がライトリグの実効プロパティを取得できるようにします。この目的のために、[**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスが Aspose.Slides に追加されました。[ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスは、実効ライトリグ プロパティを含む不変オブジェクトを表します。[**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
 
+このサンプルコードはライトリグの実効プロパティの取得方法を示しています:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -79,9 +82,10 @@ try {
 ```
 
 
-## **ベベルシェイプの Effective プロパティの取得**
-Aspose.Slides for Java は開発者がベベルシェイプの effective プロパティを取得できるようにします。この目的のために、[**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスが Aspose.Slides に追加されました。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスは、effective シェイプのフェイスリリーフプロパティを含む不変オブジェクトを表します。[**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData)) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
+## **ベベル形状の実効プロパティを取得**
+Aspose.Slides for Java は開発者がベベル形状の実効プロパティを取得できるようにします。この目的のために、[**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスが Aspose.Slides に追加されました。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスは、実効形状の面リリーフ プロパティを含む不変オブジェクトを表します。[**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
 
+このサンプルコードはベベル形状の実効プロパティの取得方法を示しています:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -97,9 +101,10 @@ try {
 ```
 
 
-## **テキストフレームの Effective プロパティの取得**
-Aspose.Slides for Java を使用すると、テキストフレームの effective プロパティを取得できます。この目的のために、[**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData) インターフェイスが Aspose.Slides に追加されました。これは effective テキストフレームの書式設定プロパティを含みます。
+## **テキストフレームの実効プロパティを取得**
+Aspose.Slides for Java を使用すると、テキストフレームの実効プロパティを取得できます。この目的のために、[**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData) インターフェイスが Aspose.Slides に追加されました。これには実効テキストフレーム書式プロパティが含まれます。
 
+このサンプルコードはテキストフレームの実効書式プロパティの取得方法を示しています:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -120,9 +125,10 @@ try {
 ```
 
 
-## **テキストスタイルの Effective プロパティの取得**
-Aspose.Slides for Java を使用すると、テキストスタイルの effective プロパティを取得できます。この目的のために、[**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData) インターフェイスが Aspose.Slides に追加されました。これは effective テキストスタイルのプロパティを含みます。
+## **テキストスタイルの実効プロパティを取得**
+Aspose.Slides for Java を使用すると、テキストスタイルの実効プロパティを取得できます。この目的のために、[**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData) インターフェイスが Aspose.Slides に追加されました。これには実効テキストスタイル プロパティが含まれます。
 
+このサンプルコードはテキストスタイルの実効プロパティの取得方法を示しています:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -145,9 +151,8 @@ try {
 ```
 
 
-## **Effective フォント高さの取得**
-Aspose.Slides for Java を使用すると、フォント高さの effective プロパティを取得できます。ここでは、プレゼンテーション構造の異なるレベルでローカルフォント高さが設定された後、パートの effective フォント高さ値が変化する様子を示すコードを提供します。
-
+## **実効フォント高さの取得**
+Aspose.Slides for Java を使用すると、フォント高さの実効プロパティを取得できます。ここでは、プレゼンテーション構造の異なるレベルでローカルフォント高さが設定された後に、部分の実効フォント高さが変化するコードを示します:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -192,9 +197,8 @@ try {
 ```
 
 
-## **テーブルの Effective 塗りつぶし書式の取得**
-Aspose.Slides for Java を使用すると、テーブルのさまざまな論理部分の effective 塗りつぶし書式を取得できます。この目的のために、[**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData) インターフェイスが Aspose.Slides に追加されました。これは effective 塗りつぶし書式プロパティを含みます。次の点に注意してください：セルの書式設定は常に行の書式設定より優先され、行は列より優先され、列はテーブル全体より優先されます。
-
+## **テーブルの実効塗りつぶし書式を取得**
+Aspose.Slides for Java を使用すると、テーブルのさまざまな論理部位に対して実効塗りつぶし書式を取得できます。この目的のために、[**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData) インターフェイスが Aspose.Slides に追加されました。これには実効塗りつぶし書式プロパティが含まれます。注意点として、セルの書式は常に行の書式より優先され、行は列の書式より優先され、列はテーブル全体の書式より優先されます。
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -216,23 +220,30 @@ try {
 
 ## **FAQ**
 
-**取得したオブジェクトが「スナップショット」なのか「ライブオブジェクト」なのかをどのように判断し、いつ再度 effective プロパティを読み取るべきですか？**  
-EffectiveData オブジェクトは、呼び出し時点で計算された値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合、最新の値を取得するために effective データを再取得してください。
+**「スナップショット」と「ライブオブジェクト」の違いはどう判断し、実効プロパティはいつ再取得すべきですか？**
 
-**レイアウト／マスタースライドを変更すると、すでに取得した effective プロパティに影響しますか？**  
-はい、ですが再度取得した後にのみ反映されます。既に取得した EffectiveData オブジェクトは自動的に更新されません。レイアウトやマスターを変更した後、再度リクエストしてください。
+EffectiveData オブジェクトは呼び出し時点の計算値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合は、再度 EffectiveData を取得して更新された値を取得してください。
 
-**EffectiveData を通じて値を変更できますか？**  
-いいえ。EffectiveData は読み取り専用です。ローカルの書式設定オブジェクト（シェイプ/テキスト/3D など）を変更し、再度 effective 値を取得してください。
+**レイアウト/マスタースライドを変更すると、既に取得した実効プロパティは影響を受けますか？**
 
-**シェイプレベル、レイアウト/マスター、グローバル設定のいずれにもプロパティが設定されていない場合はどうなりますか？**  
-effective 値はデフォルトの仕組み（PowerPoint/Aspose.Slides のデフォルト）により決定されます。その解決された値が EffectiveData のスナップショットに含まれます。
+はい、ただし再取得したときにのみ反映されます。既に取得した EffectiveData オブジェクトは自動更新されません。レイアウトまたはマスターを変更した後に再取得してください。
 
-**effective フォント値から、サイズやフォントがどのレベルで設定されたか判断できますか？**  
-直接は判断できません。EffectiveData は最終的な値を返します。元を特定するには、パート/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを確認し、最初に明示的に定義された場所を探してください。
+**EffectiveData を介して値を変更できますか？**
 
-**なぜ EffectiveData の値がローカルのものと同じに見えることがあるのでしょうか？**  
-ローカルの値が最終的な値となったためです（上位レベルからの継承が不要）。このような場合、effective 値はローカル値と同一になります。
+できません。EffectiveData は読み取り専用です。ローカルの書式オブジェクト（シェイプ/テキスト/3D など）を変更し、必要に応じて再度 EffectiveData を取得して結果を確認してください。
 
-**effective プロパティをいつ使用し、ローカルプロパティだけで作業すべきはいつですか？**  
-すべての継承が適用された「実際の」結果が必要な場合に EffectiveData を使用します（例：色、インデント、サイズを揃える場合）。特定のレベルで書式設定を変更したい場合はローカルプロパティを変更し、必要に応じて EffectiveData を再取得して結果を確認してください。
+**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
+
+実効値はデフォルトのメカニズム（PowerPoint/Aspose.Slides のデフォルト）により決定されます。その解決された値が EffectiveData のスナップショットに含まれます。
+
+**実効フォント値から、どのレベルがサイズまたは書体を提供したか判断できますか？**
+
+直接はできません。EffectiveData は最終的な値を返します。ソースを特定したい場合は、部分/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを確認し、最初に明示的に定義された場所を探してください。
+
+**実効データの値がローカル値と同じに見えることがありますが、なぜですか？**
+
+ローカル値が最終的な値となり、上位レベルの継承が不要だったためです。この場合、実効値はローカル値と一致します。
+
+**実効プロパティはいつ使用し、ローカルプロパティだけを使うべき場面は？**
+
+すべての継承が適用された「実際に表示される」結果が必要なときは EffectiveData を使用します（例: 色、インデント、サイズの整合）。特定のレベルで書式を変更したいときはローカルプロパティを操作し、必要なら EffectiveData を再取得して結果を検証します。

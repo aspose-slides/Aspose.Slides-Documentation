@@ -1,34 +1,44 @@
 ---
-title: Управление Шрифтами - PowerPoint Java API
-linktitle: Управление Шрифтами
+title: Управление шрифтами в презентациях с помощью Java
+linktitle: Управление шрифтами
 type: docs
 weight: 10
 url: /ru/java/manage-fonts/
-description: Презентации обычно содержат как текст, так и изображения. Эта статья показывает, как использовать PowerPoint Java API для настройки свойств шрифта абзацев текста на слайдах.
+keywords:
+- управление шрифтами
+- свойства шрифта
+- абзац
+- форматирование текста
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Управляйте шрифтами в Java с помощью Aspose.Slides: внедряйте, заменяйте и загружайте пользовательские шрифты, чтобы презентации PPT, PPTX и ODP оставались чистыми, соответствовали бренду и были согласованными."
 ---
 
-## **Управление Связанными со Шрифтом Свойствами**
+## **Управление свойствами шрифта**
 {{% alert color="primary" %}} 
 
-Презентации обычно содержат как текст, так и изображения. Текст может быть отформатирован различным образом, чтобы выделить конкретные разделы и слова или соответствовать корпоративным стилям. Форматирование текста помогает пользователям варьировать внешний вид и восприятие содержания презентации. Эта статья показывает, как использовать Aspose.Slides для Java для настройки свойств шрифта абзацев текста на слайдах.
+Презентации обычно содержат как текст, так и изображения. Текст можно форматировать различными способами, либо чтобы выделить определённые разделы и слова, либо чтобы соответствовать корпоративному стилю. Форматирование текста помогает пользователям разнообразить внешний вид содержимого презентации. В этой статье показано, как с помощью Aspose.Slides for Java настроить свойства шрифта абзацев текста на слайдах.
 
 {{% /alert %}} 
 
-Чтобы управлять свойствами шрифта абзаца с помощью Aspose.Slides для Java:
+Для управления свойствами шрифта абзаца с помощью Aspose.Slides for Java:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
 1. Получите ссылку на слайд, используя его индекс.
-1. Получите доступ к [Placeholder](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Placeholder) формам на слайде и выполните приведение к типу [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Получите [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Paragraph) из [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame), предоставленного [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Выравните абзац.
-1. Получите текст [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Paragraph).
-1. Определите шрифт с использованием [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/classes/FontData) и установите **Font** текстового [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) соответственно.
-   1. Установите шрифт в жирный.
-   1. Установите шрифт в курсив.
-1. Установите цвет шрифта с использованием [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/classes/FillFormat), предоставленного объектом [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
+1. Доступ к фигурам типа [Placeholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) на слайде и приведение их к типу [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+1. Получите [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) из [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/), предоставляемого [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+1. Выравнивание абзаца по ширине.
+1. Доступ к [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) текста абзаца.
+1. Определите шрифт с помощью [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/fontdata/) и установите **Font** у текста [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) соответственно.
+   1. Установите шрифт полужирным.
+   1. Установите шрифт курсивом.
+1. Установите цвет шрифта с помощью [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/), предоставляемого объектом [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/).
 1. Сохраните изменённую презентацию в файл PPTX.
 
-Реализация вышеуказанных шагов приведена ниже. Она берёт неоформленную презентацию и форматирует шрифты на одном из слайдов. Скриншоты, которые идут следом, показывают входной файл и как фрагменты кода изменяют его. Код изменяет шрифт, цвет и стиль шрифта.
+Реализация вышеописанных шагов приведена ниже. Она берёт простую презентацию и форматирует шрифты на одном из слайдов. Скриншоты ниже показывают исходный файл и то, как кодовые фрагменты изменяют его. Код меняет шрифт, цвет и стиль шрифта.
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
@@ -38,15 +48,14 @@ description: Презентации обычно содержат как тек�
 |![todo:image_alt_text](http://i.imgur.com/rY27Lt9.png)|
 | :- |
 |**Рисунок: Тот же текст с обновлённым форматированием**|
-
 ```java
-// Создайте объект Presentation, представляющий файл PPTX
+// Создать объект Presentation, представляющий файл PPTX
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
-	// Доступ к слайду по его позиции на слайде
+	// Доступ к слайду по его позиции
 	ISlide slide = pres.getSlides().get_Item(0);
 
-	// Доступ к первому и второму заполнителю на слайде и приведение его к AutoShape
+	// Доступ к первому и второму заполнителю на слайде и приведение к типу AutoShape
 	ITextFrame tf1 = ((IAutoShape) slide.getShapes().get_Item(0)).getTextFrame();
 	ITextFrame tf2 = ((IAutoShape) slide.getShapes().get_Item(1)).getTextFrame();
 
@@ -54,10 +63,10 @@ try {
 	IParagraph para1 = tf1.getParagraphs().get_Item(0);
 	IParagraph para2 = tf2.getParagraphs().get_Item(0);
 
-	// Выравнивание абзаца
+	// Выравнивание абзаца по ширине
 	para2.getParagraphFormat().setAlignment(TextAlignment.JustifyLow);
 
-	// Доступ к первому фрагменту
+	// Доступ к первой части
 	IPortion port1 = para1.getPortions().get_Item(0);
 	IPortion port2 = para2.getPortions().get_Item(0);
 
@@ -65,15 +74,15 @@ try {
 	FontData fd1 = new FontData("Elephant");
 	FontData fd2 = new FontData("Castellar");
 
-	// Присвоить новые шрифты фрагменту
+	// Присвоить новые шрифты части
 	port1.getPortionFormat().setLatinFont(fd1);
 	port2.getPortionFormat().setLatinFont(fd2);
 
-	// Установить шрифт в жирный
+	// Установить шрифт жирным
 	port1.getPortionFormat().setFontBold(NullableBool.True);
 	port2.getPortionFormat().setFontBold(NullableBool.True);
 
-	// Установить шрифт в курсив
+	// Установить шрифт курсивом
 	port1.getPortionFormat().setFontItalic(NullableBool.True);
 	port2.getPortionFormat().setFontItalic(NullableBool.True);
 
@@ -90,72 +99,72 @@ try {
 }
 ```
 
-## **Установка Свойств Шрифта Текста**
+
+## **Установка свойств шрифта текста**
 {{% alert color="primary" %}} 
 
-Как упомянуто в **Управлении Связанными со Шрифтом Свойствами**, [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) используется для хранения текста с похожим стилем форматирования в абзаце. Эта статья показывает, как использовать Aspose.Slides для Java для создания текстового поля с некоторым текстом, а затем определить определённый шрифт и различные другие свойства шрифтовой категории.
+Как упоминается в **Управление свойствами шрифта**, [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) используется для хранения текста с одинаковым стилем форматирования в абзаце. Эта статья показывает, как с помощью Aspose.Slides for Java создать текстовое поле с некоторым текстом и затем определить конкретный шрифт и различные другие свойства семейства шрифтов.
 
 {{% /alert %}} 
 
-Чтобы создать текстовое поле и установить свойства шрифта текста в нём:
+Для создания текстового поля и установки свойств шрифта текста в нём:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
 1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape) типа **Прямоугольник** на слайд.
-1. Удалите стиль заливки, связанный с [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Получите доступ к [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame) связанного с [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
-1. Добавьте текст в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame).
-1. Получите доступ к объекту [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion), связанному с [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame).
-1. Определите шрифт, который будет использоваться для [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
-1. Установите другие свойства шрифта, такие как жирный, курсив, подчеркивание, цвет и высота, используя соответствующие свойства, предоставленные объектом [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
+1. Добавьте на слайд [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/) типа **Rectangle**.
+1. Удалите стиль заливки, связанный с [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+1. Доступ к [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) у [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/).
+1. Добавьте некоторый текст в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/).
+1. Доступ к объекту [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/), связанному с [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/).
+1. Определите шрифт, который будет использоваться для [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/).
+1. Установите другие свойства шрифта, такие как полужирный, курсив, подчёркивание, цвет и высота, используя соответствующие свойства, предоставляемые объектом [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/).
 1. Запишите изменённую презентацию в файл PPTX.
 
-Реализация вышеуказанных шагов приведена ниже.
+Реализация вышеописанных шагов приведена ниже.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
-|**Рисунок: Текст с некоторыми свойствами шрифта, установленными Aspose.Slides для Java**|
-
+|**Рисунок: Текст с некоторыми установленными свойствами шрифта, заданными Aspose.Slides for Java**|
 ```java
-// Создайте объект Presentation, представляющий файл PPTX
+// Создать объект Presentation, представляющий файл PPTX
 Presentation pres = new Presentation();
 try {
 	// Получить первый слайд
 	ISlide sld = pres.getSlides().get_Item(0);
 	
-	// Добавить AutoShape типа Прямоугольник
+	// Добавить AutoShape типа Rectangle
 	IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
 	
 	// Удалить любой стиль заливки, связанный с AutoShape
 	ashp.getFillFormat().setFillType(FillType.NoFill);
 	
-	// Получите доступ к TextFrame, связанному с AutoShape
+	// Получить TextFrame, связанный с AutoShape
 	ITextFrame tf = ashp.getTextFrame();
 	tf.setText("Aspose TextBox");
 	
-	// Получите доступ к Portion, связанному с TextFrame
+	// Получить Portion, связанный с TextFrame
 	IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
 	
-	// Установите шрифт для Portion
+	// Установить шрифт для Portion
 	port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
 	
-	// Установите жирный шрифт
+	// Установить свойства Bold для шрифта
 	port.getPortionFormat().setFontBold(NullableBool.True);
 	
-	// Установите курсивный шрифт
+	// Установить свойства Italic для шрифта
 	port.getPortionFormat().setFontItalic(NullableBool.True);
 	
-	// Установите подчеркивание для шрифта
+	// Установить свойства Underline для шрифта
 	port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
 	
-	// Установите высоту шрифта
+	// Установить высоту шрифта
 	port.getPortionFormat().setFontHeight(25);
 	
-	// Установите цвет шрифта
+	// Установить цвет шрифта
 	port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
 	port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 	
-	// Сохраните презентацию на диск
+	// Сохранить презентацию на диск
 	pres.save("pptxFont.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();

@@ -6,18 +6,18 @@ weight: 70
 url: /ar/java/portion/
 keywords:
 - جزء النص
-- قسم النص
+- جزء النص
 - إحداثيات النص
 - موضع النص
 - PowerPoint
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إدارة أجزاء النص في عروض PowerPoint التقديمية باستخدام Aspose.Slides للغة Java، مع تحسين الأداء والتخصيص."
+description: "تعرف على كيفية إدارة أجزاء النص في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Java، مما يعزز الأداء والتخصيص."
 ---
 
 ## **احصل على إحداثيات جزء من النص**
-تمت إضافة طريقة [**getCoordinates()**](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) إلى الفئة [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPortion) و[Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) التي تسمح باسترجاع إحداثيات بداية الجزء.
+تمت إضافة طريقة [**getCoordinates()**](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) إلى فصلي [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) و [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) والتي تسمح باسترجاع إحداثيات بداية الجزء.
 ```java
 // إنشاء فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
@@ -41,20 +41,16 @@ try {
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تطبيق ارتباط تشعبي على جزء فقط من النص داخل فقرة واحدة؟**
+**هل يمكنني تطبيق رابط تشعبي على جزء فقط من النص داخل فقرة واحدة؟**
+نعم، يمكنك [تعيين رابط تشعبي](/slides/ar/java/manage-hyperlinks/) إلى جزء فردي؛ سيصبح ذلك الجزء فقط قابلًا للنقر، وليس الفقرة بأكملها.
 
-نعم، يمكنك [تعيين ارتباط تشعبي](/slides/ar/java/manage-hyperlinks/) إلى جزء فردي؛ سيفتح فقط هذا الجزء، وليس الفقرة بأكملها.
+**كيف يعمل وراثة الأنماط: ماذا يتجاوز الجزء (Portion) وماذا يُؤخذ من الفقرة (Paragraph) / إطار النص (TextFrame)؟**
+للممتلكات على مستوى الجزء أولوية قصوى. إذا لم يتم تعيين خاصية على [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/)، فالمحرك يأخذها من [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/); إذا لم تُحدد هناك أيضًا، فإنه يأخذها من [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) أو نمط [theme](https://reference.aspose.com/slides/java/com.aspose.slides/theme/) .
 
-**كيف يعمل وراثة الأنماط: ماذا يتجاوز الجزء (Portion) وماذا يُؤخذ من الفقرة (Paragraph)/إطار النص (TextFrame)؟**
+**ماذا يحدث إذا كان الخط المحدد لجزء (Portion) غير موجود على الجهاز/الخادم الهدف؟**
+تطبق [قواعد استبدال الخطوط](/slides/ar/java/font-selection-sequence/). قد يتغير تدفق النص: قد تتغير المقاييس، والشرط، والعرض، وهو ما يؤثر على التمركز الدقيق.
 
-لدي خصائص المستوى الخاص بالجزء (Portion) أعلى أولوية. إذا لم يتم تعيين الخاصية على [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/)، فإن المحرك يأخذها من [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/)؛ إذا لم تُحدد هناك أيضاً، من [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) أو من نمط [theme](https://reference.aspose.com/slides/java/com.aspose.slides/theme/) .
-
-**ماذا يحدث إذا كان الخط المحدد للجزء غير موجود على الجهاز/الخادم الهدف؟**
-
-تُطبق [قواعد استبدال الخطوط](/slides/ar/java/font-selection-sequence/). قد يتغير تدفق النص: المقاييس، والقطع، والعرض قد يتغير، وهذا مهم لتحديد المواقع بدقة.
-
-**هل يمكنني ضبط شفافية تعبئة النص أو تدرج اللون للجزء بشكل مستقل عن بقية الفقرة؟**
-
-نعم، يمكن أن تختلف لون النص، والتعبئة، والشفافية على مستوى [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) عن الأجزاء المجاورة.
+**هل يمكنني ضبط شفافية تعبئة النص أو تدرج اللون لجزء (Portion) بشكل مستقل عن بقية الفقرة؟**
+نعم، يمكن أن تختلف لون النص، التعبئة، والشفافية على مستوى [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) عن الأجزاء المجاورة.
