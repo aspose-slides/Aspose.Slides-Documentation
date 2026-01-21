@@ -67,13 +67,13 @@ try {
 }
 ```
 
-## **Check the Hidden Property of a SmartArt Object**
-Please note: method [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#isHidden--)) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). Please follow the steps below:
+## **Check the Visibility Property of a SmartArt Object**
+Please note: method [ISmartArtNode.isHidden()](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). Please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Add [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
 - Add node on SmartArt.
-- Check [isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#isHidden--) property.
+- Check the [visibility](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) property.
 - Write the presentation as a PPTX file.
 
 In the example given below, we have added a connector between two shapes.

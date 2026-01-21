@@ -140,7 +140,7 @@ To create a picture bullet, go through these steps:
 1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape
 1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)
 1. Create the first paragraph instance using Paragraph class
-1. Load Image from disc in [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage)
+1. Load Image from disc in [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/)
 1. Set the bullet type to Picture and the set the image
 1. Set the Paragraph Text
 1. Set the Paragraph Indent to set the bullet

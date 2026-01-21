@@ -26,21 +26,9 @@ keywords:
 description: "Aspose.Slides for .NET lets you convert ODP to PDF, HTML, and image formats with ease. Boost your .NET apps with fast and accurate presentation conversion."
 ---
 
-## **Overview**
+[**Aspose.Slides API**](https://products.aspose.com/slides/net/) allows you to convert OpenDocument (ODP) presentations to many formats (HTML, PDF, TIFF, SWF, XPS, etc.). The API used to convert ODP files to other document formats is the same as the one used for PowerPoint (PPT and PPTX) conversion operations.
 
-Aspose.Slides for .NET provides a robust API for converting OpenDocument (ODP) presentations to various other formats. Following a similar approach used for PowerPoint (PPT and PPTX) files, developers can easily export ODP documents to formats like HTML, PDF, TIFF, JPG, XPS, and more.
-
-These examples show how to convert ODP documents to other formats (just change the source to ODP file):
-
-- [Convert ODP to HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)
-- [Convert ODP to PDF](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Convert ODP to TIFF](/slides/net/convert-powerpoint-to-tiff/)
-- [Convert ODP to SWF](/slides/net/convert-powerpoint-to-swf-flash/)
-- [Convert ODP to XPS](/slides/net/convert-powerpoint-to-xps/)
-- [Convert ODP to PDF with Notes](/slides/net/convert-powerpoint-to-pdf-with-notes/)
-- [Convert ODP to TIFF with Notes](/slides/net/convert-powerpoint-to-tiff-with-notes/)
-
-For instance, converting an ODP presentation to PDF requires just a few lines of code in C#:
+For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
 
 ```cs
 using (Presentation presentation = new Presentation("presentation.odp"))

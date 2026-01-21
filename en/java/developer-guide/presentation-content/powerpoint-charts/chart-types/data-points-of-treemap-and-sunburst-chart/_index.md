@@ -37,7 +37,7 @@ try {
 ```
 
 {{% alert color="primary" title="See also" %}} 
-- [**Creating Sunburst Chart**](/slides/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Create or Update PowerPoint Presentation Charts in Java**](/slides/java/create-chart/)
 {{% /alert %}}
 
 

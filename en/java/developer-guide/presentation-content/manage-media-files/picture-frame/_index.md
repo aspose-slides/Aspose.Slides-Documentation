@@ -406,7 +406,7 @@ Using the [StretchOffsetLeft](https://reference.aspose.com/slides/java/com.aspos
 
 When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentatio) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a rectangle `AutoShape`. 
 4. Create an image.

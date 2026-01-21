@@ -291,7 +291,7 @@ These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFor
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame). Go through these steps:
+Aspose.Slides for Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/) and [**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/iinnershadow/) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/). Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
