@@ -23,25 +23,15 @@ description: "Convert OpenDocument ODP to PDF, PPT, PPTX, XPS, HTML, TIFF, or SW
 
 ## **Convert ODP Files**
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/python-net/) allows you to convert OpenOffice ODP presentations to many formats. The API used to convert ODP files to other document formats is the same one used for PowerPoint (PPT and PPTX) conversion operations. 
+[**Aspose.Slides API**](https://products.aspose.com/slides/python-net/) allows you to convert OpenDocument (ODP) presentations to many formats (HTML, PDF, TIFF, SWF, XPS, etc.). The API used to convert ODP files to other document formats is the same as the one used for PowerPoint (PPT and PPTX) conversion operations.
 
-These examples show you how to convert ODP documents to other formats (just change the source ODP file):
-
-- [Convert ODP to HTML](/slides/python-net/convert-powerpoint-to-html/)
-- [Convert ODP to PDF](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Convert ODP to TIFF](/slides/python-net/convert-powerpoint-to-tiff/)
-- [Convert ODP to SWF Flash](/slides/python-net/convert-powerpoint-to-swf-flash/)
-- [Convert ODP to XPS](/slides/python-net/convert-powerpoint-to-xps/)
-- [Convert ODP to PDF with Notes](/slides/python-net/convert-powerpoint-to-pdf-with-notes/)
-- [Convert ODP to TIFF with Notes](/slides/python-net/convert-powerpoint-to-tiff-with-notes/)
-
-For example, if you need to convert an ODP presentation to PDF, it can be done this way:
+For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
 
 ```py
 import aspose.slides as slides
 
-pres = slides.Presentation("pres.odp")
-pres.save("pres.pdf", slides.export.SaveFormat.PDF)
+with slides.Presentation("pres.odp") as presentation:
+    presentation.save("pres.pdf", slides.export.SaveFormat.PDF)
 ```
 
 ## **FAQ**

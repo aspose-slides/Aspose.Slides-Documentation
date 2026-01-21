@@ -74,14 +74,15 @@ After installed, just declares the **aspose.slides** coordinate in pom.xml. Add 
 
 ``` xml
 <repository>
-    <id>aspose-maven-repository</id>
-    <url>http://repository.aspose.com/repo/</url>
+    <id>AsposeJavaAPI</id>
+    <name>Aspose Java API</name>
+    <url>https://releases.aspose.com/java/repo/</url>
 </repository>
 
 <dependency>
     <groupId>com.aspose</groupId>
     <artifactId>aspose-slides</artifactId>
-    <version>18.6</version>
+    <version>25.12</version>
     <classifier>jdk16</classifier>
 </dependency>
 ```

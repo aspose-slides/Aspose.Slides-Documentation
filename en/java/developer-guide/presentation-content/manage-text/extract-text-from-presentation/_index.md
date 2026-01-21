@@ -135,8 +135,6 @@ The [TextExtractionArrangingMode](https://reference.aspose.com/slides/java/com.a
 - [ISlideText.getLayoutText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getLayoutText--) - The text on the layout page's shapes for this slide
 - [ISlideText.getNotesText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getNotesText--) - The text on the notes page's shapes for this slide
 
-There is also a [SlideText](https://reference.aspose.com/slides/java/com.aspose.slides/SlideText) class which implements the [ISlideText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText) interface.
-
 The new API can be used like this:
 
 ```java

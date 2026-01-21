@@ -65,5 +65,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Read more about [Save and Convertion in Presentation](/slides/java/creating-saving-and-converting-a-presentation/).
+Read more about how to [Convert PPT and PPTX to JPG in Java](/slides/java/convert-powerpoint-to-jpg/).
 {{% /alert %}}
