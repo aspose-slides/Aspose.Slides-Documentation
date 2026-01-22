@@ -16,27 +16,27 @@ keywords:
 - العرض التقديمي
 - Java
 - Aspose.Slides
-description: "قم بسهولة بتحويل PPTX إلى PPT باستخدام Aspose.Slides للـ Java — احرص على توافق سلس مع صيغ PowerPoint مع الحفاظ على تخطيط وعرض تقديميتك وجودتها."
+description: "تحويل PPTX إلى PPT بسهولة باستخدام Aspose.Slides for Java — احصل على توافق سلس مع صيغ PowerPoint مع الحفاظ على تخطيط وجودة العرض التقديمي الخاص بك."
 ---
 
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تحويل عرض PowerPoint بصيغة PPTX إلى صيغة PPT باستخدام Java. الموضوع التالي مغطى.
+توضح هذه المقالة كيفية تحويل عرض PowerPoint بتنسيق PPTX إلى تنسيق PPT باستخدام Java. الموضوع التالي مشمول.
 
-- تحويل PPTX إلى PPT باستخدام Java
+- تحويل PPTX إلى PPT في Java
 
-## **تحويل PPTX إلى PPT باستخدام Java**
+## **تحويل PPTX إلى PPT في Java**
 
-للحصول على عينة كود Java لتحويل PPTX إلى PPT، يرجى مراجعة القسم أدناه أي [تحويل PPTX إلى PPT](#convert-pptx-to-ppt). يتم فقط تحميل ملف PPTX وحفظه بصيغة PPT. عن طريق تحديد صيغ حفظ مختلفة، يمكنك أيضًا حفظ ملف PPTX إلى صيغ أخرى عديدة مثل PDF و XPS و ODP و HTML وغيرها كما نوقش في هذه المقالات. 
+للحصول على عينة كود Java لتحويل PPTX إلى PPT، يرجى مراجعة القسم أدناه أي [Convert PPTX to PPT](#convert-pptx-to-ppt). يقوم فقط بتحميل ملف PPTX وحفظه بتنسيق PPT. عن طريق تحديد تنسيقات حفظ مختلفة، يمكنك أيضًا حفظ ملف PPTX إلى العديد من التنسيقات الأخرى مثل PDF وXPS وODP وHTML وغيرها كما هو موضح في هذه المقالات.
 
-- [تحويل PPTX إلى PDF باستخدام Java](https://docs.aspose.com/slides/java/convert-powerpoint-to-pdf/)
-- [تحويل PPTX إلى XPS باستخدام Java](https://docs.aspose.com/slides/java/convert-powerpoint-to-xps/)
-- [تحويل PPTX إلى HTML باستخدام Java](https://docs.aspose.com/slides/java/convert-powerpoint-to-html/)
-- [تحويل PPTX إلى ODP باستخدام Java](https://docs.aspose.com/slides/java/save-presentation/)
-- [تحويل PPTX إلى صورة باستخدام Java](https://docs.aspose.com/slides/java/convert-powerpoint-to-png/)
+- [تحويل PPTX إلى PDF في Java](/slides/ar/java/convert-powerpoint-to-pdf/)
+- [تحويل PPTX إلى XPS في Java](/slides/ar/java/convert-powerpoint-to-xps/)
+- [تحويل PPTX إلى HTML في Java](/slides/ar/java/convert-powerpoint-to-html/)
+- [تحويل PPTX إلى ODP في Java](/slides/ar/java/save-presentation/)
+- [تحويل PPTX إلى PNG في Java](/slides/ar/java/convert-powerpoint-to-png/)
 
 ## **تحويل PPTX إلى PPT**
-لتحويل ملف PPTX إلى PPT، ما عليك سوى تمرير اسم الملف وصيغة الحفظ إلى طريقة **Save** في الصنف [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). عينة كود Java أدناه تحول عرضًا من PPTX إلى PPT باستخدام الإعدادات الافتراضية.
+لتحويل PPTX إلى PPT ببساطة مرّر اسم الملف وتنسيق الحفظ إلى طريقة **Save** في فئة [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). عينة الكود Java أدناه تحول عرض تقديمي من PPTX إلى PPT باستخدام الخيارات الافتراضية.
 ```java
 // إنشاء كائن Presentation يمثل ملف PPTX
 Presentation presentation = new Presentation("template.pptx");
@@ -46,16 +46,16 @@ presentation.save("output.ppt", SaveFormat.Ppt);
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل تبقى جميع تأثيرات وميزات PPTX محفوظة عند الحفظ بصيغة PPT القديمة (97–2003)؟**
+**هل تبقى جميع تأثيرات وميزات PPTX محفوظة عند الحفظ بتنسيق PPT (97–2003) القديم؟**
 
-ليس دائمًا. تنقص صيغة PPT بعض القدرات الحديثة (مثل بعض التأثيرات، الكائنات، والسلوكيات)، لذا قد يتم تبسيط أو تحويل الميزات إلى نقطية أثناء التحويل.
+ليس دائمًا. يفتقر تنسيق PPT إلى بعض القدرات الأحدث (مثل بعض التأثيرات والكائنات والسلوكيات)، لذا قد يتم تبسيط أو تحويل الميزات إلى صور نقطية أثناء التحويل.
 
 **هل يمكنني تحويل الشرائح المحددة فقط إلى PPT بدلاً من العرض الكامل؟**
 
-الحفظ المباشر يستهدف العرض الكامل. لتحويل شرائح محددة، أنشئ عرضًا جديدًا يحتوي فقط على تلك الشرائح واحفظه كـ PPT؛ أو استخدم خدمة/واجهة برمجة تطبيقات تدعم معلمات التحويل لكل شريحة.
+الحفظ المباشر يستهدف العرض الكامل. لتحويل شرائح معينة، أنشئ عرضًا تقديميًا جديدًا يحتوي فقط على هذه الشرائح واحفظه كـ PPT؛ أو استخدم خدمة/واجهة برمجة تطبيقات تدعم معايير تحويل حسب الشريحة.
 
 **هل يتم دعم العروض المحمية بكلمة مرور؟**
 
-نعم. يمكنك اكتشاف ما إذا كان الملف محميًا، فتحه باستخدام كلمة مرور، وكذلك [تكوين إعدادات الحماية/التشفير](/slides/ar/java/password-protected-presentation/) للـ PPT المحفوظ.
+نعم. يمكنك اكتشاف ما إذا كان الملف محمياً، فتحه باستخدام كلمة مرور، وكذلك [configure protection/encryption settings](/slides/ar/java/password-protected-presentation/) للـ PPT المحفوظ.

@@ -1,13 +1,26 @@
 ---
-title: Прямоугольник
+title: Добавление прямоугольников в презентации на JavaScript
+linktitle: Прямоугольник
 type: docs
 weight: 80
 url: /ru/nodejs-java/rectangle/
+keywords:
+- добавить прямоугольник
+- создать прямоугольник
+- фигура прямоугольника
+- простой прямоугольник
+- форматированный прямоугольник
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Улучшите ваши презентации PowerPoint, добавляя прямоугольники с помощью JavaScript и Aspose.Slides для Node.js — легко создавайте и изменяйте фигуры программно."
 ---
 
 {{% alert color="primary" %}} 
 
-Как и в предыдущих темах, эта также посвящена добавлению фигуры, и на этот раз мы будем рассматривать **Rectangle**. В этой теме мы описали, как разработчики могут добавлять простые или отформатированные прямоугольники в свои слайды, используя Aspose.Slides for Node.js via Java.
+Как и в предыдущих темах, эта тоже посвящена добавлению фигуры, и на этот раз мы будем обсуждать **Rectangle**. В этой теме мы описали, как разработчики могут добавлять простые или форматированные прямоугольники в свои слайды, используя Aspose.Slides for Node.js через Java.
 
 {{% /alert %}} 
 
@@ -17,7 +30,7 @@ url: /ru/nodejs-java/rectangle/
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
 - Получите ссылку на слайд, используя его Index.
 - Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) типа Rectangle, используя метод [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addAutoShape-int-float-float-float-float-) , предоставляемый объектом [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection).
-- Сохраните изменённую презентацию в файл PPTX.
+- Запишите изменённую презентацию в файл PPTX.
 
 В приведённом ниже примере мы добавили простой прямоугольник на первый слайд презентации.
 ```javascript
@@ -38,19 +51,19 @@ try {
 ```
 
 
-## **Добавить отформатированный прямоугольник на слайд**
-Чтобы добавить отформатированный прямоугольник на слайд, выполните следующие шаги:
+## **Добавить форматированный прямоугольник на слайд**
+Чтобы добавить форматированный прямоугольник на слайд, выполните следующие шаги:
 
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
 - Получите ссылку на слайд, используя его Index.
 - Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) типа Rectangle, используя метод [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addAutoShape-int-float-float-float-float-) , предоставляемый объектом [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection).
-- Установите [Fill Type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) прямоугольника в значение Solid.
-- Задайте цвет прямоугольника с помощью метода [SolidFillColor.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ColorFormat#setColor-java.awt.Color-), предоставляемого объектом [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillFormat), связанного с объектом [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape).
+- Установите [Fill Type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) прямоугольника в Solid.
+- Установите цвет прямоугольника, используя метод [SolidFillColor.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ColorFormat#setColor-java.awt.Color-) , предоставляемый объектом [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillFormat), связанным с объектом [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape).
 - Установите цвет линий прямоугольника.
 - Установите толщину линий прямоугольника.
-- Сохраните изменённую презентацию в файл PPTX.
+- Запишите изменённую презентацию в файл PPTX.
 
-Вышеприведённые шаги реализованы в примере ниже.
+Вышеуказанные шаги реализованы в приведённом ниже примере.
 ```javascript
 // Создать экземпляр класса Presentation, представляющего PPTX
 var pres = new aspose.slides.Presentation();
@@ -80,28 +93,28 @@ try {
 
 **Как добавить прямоугольник со скруглёнными углами?**
 
-Используйте тип фигуры с закруглёнными углами [shape type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapetype/) и отрегулируйте радиус скругления в свойствах фигуры; скругление также может быть применено к каждому углу отдельным образом с помощью геометрических корректировок.
+Используйте тип фигуры с закруглёнными углами [shape type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapetype/) и отрегулируйте радиус угла в свойствах фигуры; скругление также можно применить к каждому углу отдельно с помощью геометрических корректировок.
 
 **Как заполнить прямоугольник изображением (текстурой)?**
 
-Выберите тип заливки [fill type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), укажите источник изображения и настройте режимы [stretching/tiling modes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/).
+Выберите тип заливки картинкой [fill type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), укажите источник изображения и настройте режимы [stretching/tiling modes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/).
 
 **Может ли прямоугольник иметь тень и свечение?**
 
-Да. Доступны [Outer/inner shadow, glow, and soft edges](/slides/ru/nodejs-java/shape-effect/) с настраиваемыми параметрами.
+Да. Доступны [внешняя/внутренняя тень, свечение и мягкие края](/slides/ru/nodejs-java/shape-effect/) с настраиваемыми параметрами.
 
-**Можно ли превратить прямоугольник в кнопку с гиперссылкой?**
+**Можно ли превратить прямоугольник в кнопку со ссылкой?**
 
-Да. Можно [Assign a hyperlink](/slides/ru/nodejs-java/manage-hyperlinks/) к щелчку по фигуре (переход к слайду, файлу, веб‑адресу или e‑mail).
+Да. [Назначьте гиперссылку](/slides/ru/nodejs-java/manage-hyperlinks/) на клик по фигуре (переход к слайду, файлу, веб-адресу или e‑mail).
 
 **Как защитить прямоугольник от перемещения и изменений?**
 
-[Use shape locks](/slides/ru/nodejs-java/applying-protection-to-presentation/): вы можете запретить перемещение, изменение размера, выделение или редактирование текста, чтобы сохранить макет.
+Используйте блокировки фигуры: можно запретить перемещение, изменение размера, выделение или редактирование текста, чтобы сохранить макет.
 
 **Можно ли преобразовать прямоугольник в растровое изображение или SVG?**
 
-Да. Вы можете [render the shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) в изображение заданного размера/масштаба или [export it as SVG](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) для использования векторного формата.
+Да. Вы можете [отрисовать фигуру](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) в изображение с заданным размером/масштабом или [экспортировать её как SVG](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) для векторного использования.
 
-**Как быстро получить фактические (effective) свойства прямоугольника с учётом темы и наследования?**
+**Как быстро получить фактические (эффективные) свойства прямоугольника с учётом темы и наследования?**
 
-[Use the shape’s effective properties](/slides/ru/nodejs-java/shape-effective-properties/): API возвращает вычисленные значения, учитывающие стили темы, макет и локальные настройки, упрощая анализ форматирования.
+[Используйте эффективные свойства фигуры](/slides/ru/nodejs-java/shape-effective-properties/): API возвращает вычисленные значения, учитывающие стили темы, макет и локальные настройки, упрощая анализ форматирования.

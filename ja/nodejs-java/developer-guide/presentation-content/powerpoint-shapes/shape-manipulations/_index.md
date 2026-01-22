@@ -1,16 +1,38 @@
 ---
-title: シェイプ操作
+title: JavaScriptでプレゼンテーションのシェイプを管理する
+linktitle: シェイプ操作
 type: docs
 weight: 40
 url: /ja/nodejs-java/shape-manipulations/
+keywords:
+- PowerPoint シェイプ
+- プレゼンテーション シェイプ
+- スライド上のシェイプ
+- シェイプを検索
+- シェイプをクローン
+- シェイプを削除
+- シェイプを非表示
+- シェイプの順序変更
+- Interop シェイプ ID を取得
+- シェイプ代替テキスト
+- シェイプのレイアウト形式
+- シェイプを SVG として
+- シェイプを SVG に変換
+- シェイプの配置
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "JavaScript と Aspose.Slides for Node.js via Java を使用してシェイプの作成、編集、最適化を学び、高パフォーマンスな PowerPoint プレゼンテーションを提供します。"
 ---
 
 ## **スライド内のシェイプを検索**
-このトピックでは、開発者がスライド上の特定のシェイプを内部 Id を使用せずに見つけやすくするためのシンプルなテクニックを説明します。PowerPoint プレゼンテーション ファイルでは、スライド上のシェイプを識別できるのは内部の一意な Id だけであることを理解しておくことが重要です。内部の一意な Id を使ってシェイプを見つけるのは開発者にとって難しい場合があります。スライドに追加されたすべてのシェイプには Alt Text が設定されています。開発者には、特定のシェイプを検索するために代替テキストを使用することを推奨します。将来変更する予定のオブジェクトの代替テキストは、MS PowerPoint で定義できます。
+このトピックでは、開発者が内部 ID を使用せずにスライド上の特定のシェイプを簡単に見つけるためのシンプルな手法を説明します。PowerPoint プレゼンテーション ファイルでは、内部の一意の ID 以外にスライド上のシェイプを識別する方法がないことを知っておくことが重要です。内部の一意の ID を使用してシェイプを見つけることは開発者にとって困難です。スライドに追加されたすべてのシェイプには Alt Text が設定されています。特定のシェイプを検索するために代替テキストを使用することを推奨します。将来変更する予定のオブジェクトの代替テキストは、MS PowerPoint で定義できます。
 
-任意のシェイプの代替テキストを設定した後、Aspose.Slides for Node.js via Java を使用してそのプレゼンテーションを開き、スライドに追加されたすべてのシェイプを反復処理できます。各反復でシェイプの代替テキストを確認し、代替テキストが一致するシェイプが目的のシェイプになります。このテクニックをより分かりやすく示すために、スライド内の特定のシェイプを検索し、単にそのシェイプを返すメソッド [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) を作成しました。
+目的のシェイプに代替テキストを設定した後、Aspose.Slides for Node.js via Java を使用してプレゼンテーションを開き、スライドに追加されたすべてのシェイプを反復処理できます。各反復でシェイプの代替テキストを確認し、代替テキストが一致するシェイプが目的のシェイプになります。この手法をより分かりやすく示すために、スライド内の特定のシェイプを検索し、単にそのシェイプを返すメソッド[findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-)を作成しました。
 ```javascript
-// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成する
 var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -44,18 +66,18 @@ function findShape(slide, altText) {
 
 
 ## **シェイプのクローン作成**
-Aspose.Slides for Node.js via Java を使用してシェイプをスライドにクローンするには、次の手順を実行します。
+Aspose.Slides for Node.js via Java を使用してシェイプをスライドにクローンする手順:
 
-1. Presentation クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. 元スライドのシェイプ コレクションにアクセスします。
+1. ソーススライドのシェイプ コレクションにアクセスします。
 1. プレゼンテーションに新しいスライドを追加します。
-1. 元スライドのシェイプ コレクションから新しいスライドへシェイプをクローンします。
-1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
+1. ソーススライドのシェイプ コレクションから新しいスライドへシェイプをクローンします。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例は、スライドにグループ シェイプを追加します。
+以下の例はスライドにグループ シェイプを追加します。
 ```javascript
-// Presentation クラスをインスタンス化します
+// Presentation クラスのインスタンスを作成する
 var pres = new aspose.slides.Presentation("Source Frame.pptx");
 try {
     var sourceShapes = pres.getSlides().get_Item(0).getShapes();
@@ -65,7 +87,7 @@ try {
     destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
     destShapes.addClone(sourceShapes.get_Item(2));
     destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // PPTX ファイルをディスクに保存します
+    // PPTX ファイルを書き込む
     pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -76,20 +98,20 @@ try {
 
 
 ## **シェイプの削除**
-Aspose.Slides for Node.js via Java を使用すると、開発者は任意のシェイプを削除できます。スライドからシェイプを削除するには、以下の手順に従ってください。
+Aspose.Slides for Node.js via Java では任意のシェイプを削除できます。スライドからシェイプを削除する手順は次のとおりです:
 
-1. Presentation クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. 特定の AlternativeText を持つシェイプを検索します。
 1. シェイプを削除します。
 1. ファイルをディスクに保存します。
 ```javascript
-// Presentation オブジェクトを作成
+// Presentation オブジェクトを作成する
 var pres = new aspose.slides.Presentation();
 try {
-    // 最初のスライドを取得
+    // 最初のスライドを取得する
     var sld = pres.getSlides().get_Item(0);
-    // 矩形タイプのオートシェイプを追加
+    // 長方形タイプのオートシェイプを追加する
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
     var altText = "User Defined";
@@ -100,7 +122,7 @@ try {
             sld.getShapes().remove(ashp);
         }
     }
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存する
     pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -111,9 +133,9 @@ try {
 
 
 ## **シェイプの非表示**
-Aspose.Slides for Node.js via Java を使用すると、開発者は任意のシェイプを非表示にできます。スライドからシェイプを非表示にするには、以下の手順に従ってください。
+Aspose.Slides for Node.js via Java では任意のシェイプを非表示にできます。スライドからシェイプを非表示にする手順は次のとおりです:
 
-1. Presentation クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. 特定の AlternativeText を持つシェイプを検索します。
 1. シェイプを非表示にします。
@@ -146,13 +168,13 @@ try {
 
 
 ## **シェイプの順序変更**
-Aspose.Slides for Node.js via Java を使用すると、開発者はシェイプの順序を変更できます。シェイプの順序変更により、どのシェイプが前面に、どのシェイプが背面にあるかが決まります。スライド上でシェイプの順序を変更するには、以下の手順に従ってください。
+Aspose.Slides for Node.js via Java ではシェイプの順序を変更できます。順序の変更は、どのシェイプが前面にあるか、または背面にあるかを指定します。スライド上のシェイプの順序を変更する手順は次のとおりです:
 
-1. Presentation クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. シェイプを追加します。
 1. シェイプのテキスト フレームにテキストを追加します。
-1. 同じ座標で別のシェイプを追加します。
+1. 同じ座標に別のシェイプを追加します。
 1. シェイプの順序を変更します。
 1. ファイルをディスクに保存します。
 ```javascript
@@ -177,11 +199,11 @@ try {
 
 
 ## **Interop シェイプ ID の取得**
-Aspose.Slides for Node.js via Java を使用すると、開発者はスライド スコープで一意のシェイプ識別子を取得できます。これは、プレゼンテーション スコープで一意の識別子を取得できる [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) メソッドとは対照的です。[getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) メソッドが [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) クラスに追加されました。[getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) メソッドが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプルコードを示します。
+Aspose.Slides for Node.js via Java では、スライド スコープ内で一意のシェイプ識別子を取得できます。これは、プレゼンテーション スコープで一意の識別子を取得する[getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--)メソッドとは対照的です。[getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) メソッドが [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) クラスに追加され、返される値は Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプルコードを示します。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // スライド スコープでの一意のシェイプ識別子を取得
+    // スライドスコープ内の一意のシェイプ識別子を取得
     var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
 } finally {
     if (pres != null) {
@@ -192,17 +214,17 @@ try {
 
 
 ## **シェイプの代替テキストの設定**
-Aspose.Slides for Node.js via Java を使用すると、開発者は任意のシェイプに AlternateText を設定できます。プレゼンテーション内のシェイプは、[AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) または [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-) メソッドで区別できます。[setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) および [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) メソッドは、Aspose.Slides と Microsoft PowerPoint のいずれでも読み取り・設定できます。このメソッドを使用すると、シェイプにタグを付け、シェイプの削除、非表示、スライド上での順序変更などのさまざまな操作を実行できます。シェイプの AlternateText を設定するには、以下の手順に従ってください。
+Aspose.Slides for Node.js via Java では任意のシェイプの AlternateText を設定できます。プレゼンテーション内のシェイプは、[AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) または [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-) メソッドで区別できます。[setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) と [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) メソッドは、Aspose.Slides と Microsoft PowerPoint の両方で読み書きできます。このメソッドを使用すると、シェイプにタグを付け、シェイプの削除、非表示、スライド上の順序変更などのさまざまな操作を実行できます。シェイプの AlternateText を設定する手順は次のとおりです:
 
-1. Presentation クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. スライドに任意のシェイプを追加します。
-1. 新しく追加したシェイプで何らかの処理を行います。
+1. 任意のシェイプをスライドに追加します。
+1. 新しく追加したシェイプで作業を行います。
 1. シェイプを走査して目的のシェイプを見つけます。
 1. AlternativeText を設定します。
 1. ファイルをディスクに保存します。
 ```javascript
-// PPTX を表す Presentation クラスをインスタンス化
+// PPTX を表す Presentation クラスのインスタンス化
 var pres = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得
@@ -229,7 +251,7 @@ try {
 
 
 ## **シェイプのレイアウト形式へのアクセス**
-Aspose.Slides for Node.js via Java は、シェイプのレイアウト形式にアクセスするためのシンプルな API を提供します。本記事では、レイアウト形式へのアクセス方法を示します。
+Aspose.Slides for Node.js via Java は、シェイプのレイアウト形式にアクセスするシンプルな API を提供します。この記事では、レイアウト形式へのアクセス方法を示します。
 
 以下にサンプルコードを示します。
 ```javascript
@@ -252,7 +274,7 @@ try {
 
 
 ## **シェイプを SVG としてレンダリング**
-現在、Aspose.Slides for Node.js via Java はシェイプを SVG としてレンダリングする機能をサポートしています。[writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) メソッド（およびそのオーバーロード）が [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) クラスに追加されました。このメソッドにより、シェイプの内容を SVG ファイルとして保存できます。以下のコード スニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示しています。
+現在、Aspose.Slides for Node.js via Java ではシェイプを SVG としてレンダリングする機能がサポートされています。[writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-)（およびそのオーバーロード）メソッドが [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) クラスに追加されました。このメソッドを使用すると、シェイプの内容を SVG ファイルとして保存できます。以下のコード スニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示しています。
 ```javascript
 var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -274,9 +296,9 @@ try {
 
 
 ## **シェイプの配置**
-Aspose.Slides は、シェイプをスライドの余白に対して、または相互に対して配置することができます。そのために、オーバーロードされたメソッド [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) 列挙型は、可能な配置オプションを定義しています。
+Aspose.Slides では、シェイプをスライドの余白に対して、または相互に対して配置できます。その目的のために、オーバーロードされたメソッド[SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) 列挙体は、可能な配置オプションを定義します。
 
-**Example 1**
+**例 1**
 
 以下のソースコードは、インデックス 1、2、4 のシェイプをスライドの上端に沿って配置します。
 ```javascript
@@ -295,9 +317,9 @@ try {
 ```
 
 
-**Example 2**
+**例 2**
 
-以下の例は、コレクション内の最下部のシェイプに対して、シェイプ全体のコレクションを配置する方法を示しています。
+以下の例は、コレクション内の最下部シェイプに対してコレクション全体を配置する方法を示します。
 ```javascript
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
@@ -310,16 +332,16 @@ try {
 ```
 
 
-## **フリップ プロパティ**
-Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) クラスが `flipH` および `flipV` プロパティを通じてシェイプの水平・垂直ミラーリングを制御します。両プロパティは `byte` 型で、`1` はフリップ、`0` はフリップなし、`-1` はデフォルト動作を使用することを示します。これらの値はシェイプの [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) から取得できます。
+## **フリップ属性**
+Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) クラスが `flipH` および `flipV` プロパティを通じてシェイプの水平・垂直ミラーリングを制御します。両プロパティは `byte` 型で、`1` がフリップ、`0` がフリップなし、`-1` がデフォルト動作を使用することを表します。これらの値はシェイプの [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) から取得できます。
 
-フリップ設定を変更するには、シェイプの現在の位置とサイズ、希望する `flipH` と `flipV` の値、回転角度を指定して新しい [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) インスタンスを作成します。このインスタンスをシェイプの [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) に割り当て、プレゼンテーションを保存すると、ミラー変換が適用され、出力ファイルに反映されます。
+フリップ設定を変更するには、シェイプの現在の位置とサイズ、希望する `flipH` と `flipV` の値、および回転角度を持つ新しい [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) インスタンスを作成します。このインスタンスをシェイプの [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) に割り当て、プレゼンテーションを保存すると、ミラー変換が適用され、出力ファイルに反映されます。
 
-例えば、sample.pptx ファイルの最初のスライドにデフォルトのフリップ設定のシェイプが 1 つだけ含まれているとします。下図のようになります。
+以下の例では、最初のスライドにデフォルトのフリップ設定を持つ単一シェイプが含まれる sample.pptx ファイルを使用します。
 
 ![The shape to be flipped](shape_to_be_flipped.png)
 
-以下のコード例は、シェイプの現在のフリップ プロパティを取得し、水平および垂直の両方でフリップします。
+次のコード例はシェイプの現在のフリップ属性を取得し、水平および垂直にフリップします。
 ```js
 var presentation = new asposeSlides.Presentation("sample.pptx");
 try {
@@ -351,15 +373,20 @@ try {
 ```
 
 
+結果:
+
 ![The flipped shape](flipped_shape.png)
 
 ## **FAQ**
 
-**Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?**  
-デスクトップ エディタのようにスライド上でシェイプを結合（union/ intersect/ subtract）する組み込みのブール演算 API はありません。代わりに、目的のアウトラインを自分で構築することで近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しいシェイプを作成し、必要に応じて元のシェイプを削除します。
+**スライド上でデスクトップ エディタのようにシェイプを結合（union/intersect/subtract）できますか？**
 
-**How can I control the stacking order (z-order) so a shape always stays "on top"?**  
-スライドの [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) コレクション内で挿入順序や移動順序を変更します。予測可能な結果を得るには、他のすべてのスライド変更が完了した後に z‑order を最終的に設定します。
+組み込みのブール演算 API はありません。代わりに、目的の輪郭を自分で構築することで近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しいシェイプを作成し、元のシェイプをオプションで削除します。
 
-**Can I "lock" a shape to prevent users from editing it in PowerPoint?**  
-はい。[shape-level protection flags](/slides/ja/nodejs-java/applying-protection-to-presentation/) を設定して、選択、移動、サイズ変更、テキスト編集などをロックできます。必要に応じて、マスターやレイアウトでも制限を反映できます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強固な保護が必要な場合は、[read-only 推奨やパスワード](/slides/ja/nodejs-java/password-protected-presentation/) などのファイルレベルの制限と組み合わせて使用してください。
+**シェイプのスタック順序（z-order）を制御して、常に「最前面」に表示させるにはどうすればよいですか？**
+
+スライドの [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) コレクション内で挿入/移動順序を変更します。予測可能な結果を得るには、他のすべてのスライド変更が完了した後に z-order を確定させてください。
+
+**PowerPoint でユーザーがシェイプを編集できないように「ロック」できますか？**
+
+可能です。シェイプレベルの保護フラグ（例: 選択ロック、移動ロック、サイズ変更ロック、テキスト編集ロック）を設定します。必要に応じて、マスターやレイアウトにも同様の制限を設定できます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強固な保護が必要な場合は、[読み取り専用推奨やパスワード](/slides/ja/nodejs-java/password-protected-presentation/) などのファイルレベルの制限と組み合わせて使用してください。

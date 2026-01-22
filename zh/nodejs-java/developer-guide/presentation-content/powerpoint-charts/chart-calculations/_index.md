@@ -1,13 +1,29 @@
 ---
-title: 图表计算
+title: 在 JavaScript 中优化演示文稿的图表计算
+linktitle: 图表计算
 type: docs
 weight: 50
 url: /zh/nodejs-java/chart-calculations/
+keywords:
+- 图表计算
+- 图表元素
+- 元素位置
+- 实际位置
+- 子元素
+- 父元素
+- 图表值
+- 实际值
+- PowerPoint
+- 演示文稿
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "了解 Aspose.Slides for Node.js 在 PPT 与 PPTX 中的图表计算、数据更新以及精度控制，并附有实用的 JavaScript 代码示例。"
 ---
 
 ## **计算图表元素的实际值**
 
-Aspose.Slides for Node.js via Java 提供了一个简单的 API 用于获取这些属性。[Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) 类的属性提供了轴图表元素实际位置的信息（[Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--)、[Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--)、[Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--)、[Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--)、[Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--)、[Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)。需要先调用方法[Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--)来填充属性的实际值。
+Aspose.Slides for Node.js via Java 提供了一个简单的 API 用于获取这些属性。 [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) 类的属性提供有关轴图表元素实际位置的信息（[Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--)、[Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--)、[Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--)、[Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--)、[Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--)、[Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)）。 必须先调用方法 [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) 以填充属性的实际值。
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -27,7 +43,7 @@ try {
 
 ## **计算父图表元素的实际位置**
 
-Aspose.Slides for Node.js via Java 提供了一个简单的 API 用于获取这些属性。[ActualLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout) 类的属性提供了父图表元素实际位置的信息（[ActualLayout.getActualX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualX--)、[ActualLayout.getActualY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualY--)、[ActualLayout.getActualWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualWidth--)、[ActualLayout.getActualHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualHeight--)）。需要先调用方法[Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--)来填充属性的实际值。
+Aspose.Slides for Node.js via Java 提供了一个简单的 API 用于获取这些属性。 `ActualLayout` 类的属性提供有关父图表元素实际位置的信息，例如 `ActualLayout.getActualX`、`ActualLayout.getActualY`、`ActualLayout.getActualWidth`、`ActualLayout.getActualHeight`。 必须先调用方法 [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) 以填充属性的实际值。
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -47,7 +63,7 @@ try {
 
 ## **隐藏图表信息**
 
-本主题帮助您了解如何隐藏图表中的信息。使用 Aspose.Slides for Node.js via Java，您可以隐藏 **标题, 垂直轴, 水平轴** 和 **网格线**。下面的代码示例展示了如何使用这些属性。
+本主题帮助您了解如何从图表中隐藏信息。 使用 Aspose.Slides for Node.js via Java 您可以隐藏图表的 **标题、垂直轴、水平轴** 和 **网格线**。 以下代码示例展示了如何使用这些属性。
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -55,7 +71,7 @@ try {
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 140, 118, 320, 370);
     // 隐藏图表标题
     chart.setTitle(false);
-    // /隐藏数值轴
+    // /隐藏值轴
     chart.getAxes().getVerticalAxis().setVisible(false);
     // 类别轴可见性
     chart.getAxes().getHorizontalAxis().setVisible(false);
@@ -84,16 +100,16 @@ try {
 ```
 
 
-## **常见问题**
+## **FAQ**
 
 **外部 Excel 工作簿可以作为数据源吗？这会如何影响重新计算？**
 
-是的。图表可以引用外部工作簿：当您连接或刷新外部源时，公式和数值会从该工作簿中获取，图表在打开/编辑操作期间会反映更新。API 允许您[指定外部工作簿](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/)路径并管理链接的数据。
+是的。图表可以引用外部工作簿：当您连接或刷新外部源时，公式和数值将从该工作簿获取，图表在打开/编辑操作期间会反映这些更新。API 允许您 [指定外部工作簿](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) 路径并管理关联数据。
 
 **我可以在不自行实现回归的情况下计算并显示趋势线吗？**
 
-是的。[趋势线](/slides/zh/nodejs-java/trend-line/)（线性、指数等）由 Aspose.Slides 添加和更新；其参数会根据系列数据自动重新计算，您无需自行实现计算。
+是的。 [趋势线](/slides/zh/nodejs-java/trend-line/)（线性、指数等）由 Aspose.Slides 添加并更新；其参数会从系列数据自动重新计算，因此您无需实现自己的计算。
 
-**如果演示文稿中有多个带外部链接的图表，我可以控制每个图表使用哪本工作簿进行计算吗？**
+**如果演示文稿中有多个带有外部链接的图表，我能控制每个图表使用哪个工作簿进行计算吗？**
 
-是的。每个图表可以指向其自己的[外部工作簿](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/)，或者您可以为每个图表独立创建/替换外部工作簿，而不影响其他图表。
+是的。每个图表都可以指向自己的 [外部工作簿](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/)，或者您可以为每个图表单独创建/替换外部工作簿，互不影响。

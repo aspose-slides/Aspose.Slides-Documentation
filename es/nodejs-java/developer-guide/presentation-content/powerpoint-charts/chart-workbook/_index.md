@@ -1,16 +1,30 @@
 ---
-title: Libro de trabajo del gráfico
+title: Gestionar libros de trabajo de gráficos en presentaciones usando JavaScript
+linktitle: Libro de trabajo del gráfico
 type: docs
 weight: 70
 url: /es/nodejs-java/chart-workbook/
-keywords: "Libro de trabajo del gráfico, datos del gráfico, presentación PowerPoint, Java, Aspose.Slides para Node.js vía Java"
-description: "Libro de trabajo del gráfico en una presentación PowerPoint en JavaScript"
+keywords:
+- libro de trabajo del gráfico
+- datos del gráfico
+- celda del libro de trabajo
+- etiqueta de datos
+- hoja de cálculo
+- origen de datos
+- libro de trabajo externo
+- datos externos
+- PowerPoint
+- presentación
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Descubra Aspose.Slides para Node.js a través de Java: gestione sin esfuerzo los libros de trabajo de gráficos en PowerPoint y formatos OpenDocument para optimizar los datos de su presentación."
 ---
 
 ## **Establecer datos del gráfico desde el libro de trabajo**
-Aspose.Slides proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) y [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) que le permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben organizarse de la misma manera o deben tener una estructura similar a la fuente.
+Aspose.Slides proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) y [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) que le permiten leer y escribir libros de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben organizarse de la misma manera o deben tener una estructura similar a la del origen.
 
-Este código JavaScript muestra una operación de ejemplo:
+Este código JavaScript demuestra una operación de ejemplo:
 ```javascript
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -28,12 +42,12 @@ try {
 ```
 
 
-## **Establecer la celda del libro de trabajo como etiqueta de datos del gráfico**
+## **Establecer celda del libro de trabajo como etiqueta de datos del gráfico**
 1. Crear una instancia de la clase [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. Obtener la referencia de una diapositiva a través de su índice.
-1. Agregar un gráfico de burbujas con algunos datos.
+1. Obtener una referencia a una diapositiva mediante su índice.
+1. Agregar un gráfico de burbuja con algunos datos.
 1. Acceder a la serie del gráfico.
-1. Establecer la celda del libro de trabajo como una etiqueta de datos.
+1. Establecer la celda del libro de trabajo como etiqueta de datos.
 1. Guardar la presentación.
 
 Este código JavaScript le muestra cómo establecer una celda del libro de trabajo como etiqueta de datos del gráfico:
@@ -63,7 +77,7 @@ try {
 
 
 ## **Administrar hojas de cálculo**
-Este código JavaScript demuestra una operación donde se usa el método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) para acceder a una colección de hojas de cálculo:
+Este código JavaScript demuestra una operación en la que se utiliza el método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) para acceder a una colección de hojas de cálculo:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -101,12 +115,10 @@ try {
 
 
 ## **Libro de trabajo externo**
-{{% alert color="primary" %}} 
-En [Aspose.Slides 19.4](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-19-4-release-notes/), implementamos soporte para libros de trabajo externos como origen de datos para los gráficos.
-{{% /alert %}} 
+Aspose.Slides admite libros de trabajo externos como origen de datos para los gráficos.
 
 ### **Crear libro de trabajo externo**
-Usando los métodos **`readWorkbookStream`** y **`setExternalWorkbook`**, puede crear un libro de trabajo externo desde cero o convertir un libro de trabajo interno en externo.
+Con los métodos **`readWorkbookStream`** y **`setExternalWorkbook`** puede crear un libro de trabajo externo desde cero o convertir un libro de trabajo interno en externo.
 
 Este código JavaScript demuestra el proceso de creación del libro de trabajo externo:
 ```javascript
@@ -135,9 +147,9 @@ try {
 
 
 ### **Establecer libro de trabajo externo**
-Usando el método **`setExternalWorkbook`**, puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este se ha movido).
+Con el método **`setExternalWorkbook`** puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este último se ha movido).
 
-Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones o recursos remotos, aún puede usar dichos libros de trabajo como origen de datos externo. Si se proporciona una ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
+Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones o recursos remotos, aún puede usar dichos libros como origen de datos externo. Si se proporciona una ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
 
 Este código JavaScript le muestra cómo establecer un libro de trabajo externo:
 ```javascript
@@ -163,9 +175,9 @@ try {
 ```
 
 
-El parámetro `ChartData` (en el método `setExternalWorkbook`) se utiliza para especificar si se cargará o no un libro de trabajo de Excel. 
+El parámetro `ChartData` (bajo el método `setExternalWorkbook`) se usa para especificar si se cargará o no un libro de trabajo Excel. 
 
-* Cuando el valor de `ChartData` se establece en `false`, solo se actualiza la ruta del libro de trabajo; los datos del gráfico no se cargarán ni actualizarán desde el libro de trabajo de destino. Puede usar esta configuración cuando el libro de trabajo de destino no exista o no esté disponible. 
+* Cuando el valor de `ChartData` se establece en `false`, solo se actualiza la ruta del libro de trabajo — los datos del gráfico no se cargarán ni actualizarán desde el libro de trabajo de destino. Puede usar esta configuración cuando el libro de trabajo de destino no exista o no esté disponible. 
 * Cuando el valor de `ChartData` se establece en `true`, los datos del gráfico se actualizan desde el libro de trabajo de destino.
 ```javascript
 // Crea una instancia de la clase Presentation
@@ -183,12 +195,12 @@ try {
 ```
 
 
-### **Obtener la ruta del libro de trabajo externo del origen de datos del gráfico**
+### **Obtener ruta del libro de trabajo externo de origen de datos del gráfico**
 1. Crear una instancia de la clase [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. Obtener la referencia de una diapositiva a través de su índice.
+1. Obtener una referencia a una diapositiva mediante su índice.
 1. Crear un objeto para la forma del gráfico.
 1. Crear un objeto para el tipo de origen (`ChartDataSourceType`) que representa el origen de datos del gráfico.
-1. Especificar la condición relevante basándose en que el tipo de origen sea el mismo que el tipo de origen de datos del libro de trabajo externo.
+1. Especificar la condición relevante según que el tipo de origen sea el mismo que el tipo de origen de libro de trabajo externo.
 
 Este código JavaScript demuestra la operación:
 ```javascript
@@ -212,7 +224,7 @@ try {
 
 
 ### **Editar datos del gráfico**
-Puede editar los datos en libros de trabajo externos de la misma manera que realiza cambios en el contenido de libros de trabajo internos. Cuando no se puede cargar un libro de trabajo externo, se lanza una excepción.
+Puede editar los datos en libros de trabajo externos de la misma forma que modifica el contenido de libros de trabajo internos. Cuando no se puede cargar un libro de trabajo externo, se lanza una excepción.
 
 Este código JavaScript es una implementación del proceso descrito:
 ```javascript
@@ -233,19 +245,25 @@ try {
 
 ## **Preguntas frecuentes**
 **¿Puedo determinar si un gráfico específico está vinculado a un libro de trabajo externo o incrustado?**
-Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); si el origen es un libro de trabajo externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
 
-**¿Se admiten rutas relativas a libros de trabajo externos y cómo se almacenan?**
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); si el origen es un libro de trabajo externo, puede leer la ruta completa para asegurarse de que se está usando un archivo externo.
+
+**¿Se admiten rutas relativas a libros de trabajo externos, y cómo se almacenan?**
+
 Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. Esto es conveniente para la portabilidad del proyecto; sin embargo, tenga en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
 
 **¿Puedo usar libros de trabajo ubicados en recursos/redes compartidas?**
-Sí, esos libros de trabajo pueden usarse como origen de datos externo. Sin embargo, la edición de libros de trabajo remotos directamente desde Aspose.Slides no está soportada; solo pueden usarse como fuente.
+
+Sí, dichos libros de trabajo pueden usarse como origen de datos externo. Sin embargo, la edición directa de libros de trabajo remotos desde Aspose.Slides no está soportada; solo pueden usarse como origen.
 
 **¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
-No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) y lo utiliza para leer los datos. El archivo externo en sí no se modifica al guardar la presentación.
+
+No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) y lo usa para leer los datos. El archivo externo no se modifica cuando se guarda la presentación.
 
 **¿Qué debo hacer si el archivo externo está protegido con contraseña?**
-Aspose.Slides no acepta una contraseña al vincular. Un enfoque común es eliminar la protección con anticipación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](/cells/nodejs-java/)) y enlazar a esa copia.
+
+Aspose.Slides no acepta una contraseña al enlazar. Un enfoque común es eliminar la protección de antemano o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](/cells/nodejs-java/)) y enlazar a esa copia.
 
 **¿Pueden varios gráficos referenciar el mismo libro de trabajo externo?**
-Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, actualizar ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.
+
+Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, al actualizar ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.

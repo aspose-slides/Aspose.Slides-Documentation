@@ -1,13 +1,29 @@
 ---
-title: Diagrammberechnungen
+title: Diagrammberechnungen für Präsentationen in JavaScript optimieren
+linktitle: Diagrammberechnungen
 type: docs
 weight: 50
 url: /de/nodejs-java/chart-calculations/
+keywords:
+- Diagrammberechnungen
+- Diagrammelemente
+- Elementposition
+- tatsächliche Position
+- Kindelement
+- Elternelement
+- Diagrammwerte
+- tatsächlicher Wert
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Verstehen Sie Diagrammberechnungen, Datenaktualisierungen und Präzisionskontrolle in Aspose.Slides für Node.js für PPT und PPTX, mit praktischen JavaScript-Codebeispielen."
 ---
 
-## **Tatsächliche Werte der Diagrammelemente berechnen**
+## **Tatsächliche Werte von Diagrammelementen berechnen**
 
-Aspose.Slides für Node.js über Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Die Eigenschaften der Klasse [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) liefern Informationen über die tatsächliche Position des Achsen‑Diagrammelements ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). Es ist erforderlich, vorher die Methode [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
+Aspose.Slides for Node.js via Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Eigenschaften der [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) Klasse liefern Informationen über die tatsächliche Position des Achsdiagrammelements ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). Es ist notwendig, die Methode [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) vorher aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -27,7 +43,7 @@ try {
 
 ## **Tatsächliche Position von übergeordneten Diagrammelementen berechnen**
 
-Aspose.Slides für Node.js über Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Die Eigenschaften der Klasse [ActualLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout) liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements ([ActualLayout.getActualX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualX--), [ActualLayout.getActualY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualY--), [ActualLayout.getActualWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualWidth--), [ActualLayout.getActualHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualHeight--)). Es ist erforderlich, vorher die Methode [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
+Aspose.Slides for Node.js via Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Eigenschaften der `ActualLayout` Klasse liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements `ActualLayout.getActualX`, `ActualLayout.getActualY`, `ActualLayout.getActualWidth`, `ActualLayout.getActualHeight`. Es ist notwendig, die Methode [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) vorher aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -45,9 +61,9 @@ try {
 ```
 
 
-## **Informationen im Diagramm ausblenden**
+## **Informationen aus Diagramm ausblenden**
 
-Dieses Thema hilft Ihnen zu verstehen, wie Sie Informationen im Diagramm ausblenden können. Mit Aspose.Slides für Node.js über Java können Sie **Titel, Vertikale Achse, Horizontale Achse** und **Gitternetzlinien** im Diagramm ausblenden. Das nachstehende Code‑Beispiel zeigt, wie diese Eigenschaften verwendet werden.
+Dieses Thema hilft Ihnen zu verstehen, wie Informationen aus einem Diagramm ausgeblendet werden können. Mit Aspose.Slides for Node.js via Java können Sie **Titel, Vertikale Achse, Horizontale Achse** und **Gitternetzlinien** aus dem Diagramm ausblenden. Das nachstehende Codebeispiel zeigt, wie diese Eigenschaften verwendet werden.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -55,7 +71,7 @@ try {
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 140, 118, 320, 370);
     // Diagrammtitel ausblenden
     chart.setTitle(false);
-    // /Ausblenden der Werteachse
+    // /Werte-Achse ausblenden
     chart.getAxes().getVerticalAxis().setVisible(false);
     // Sichtbarkeit der Kategorienachse
     chart.getAxes().getHorizontalAxis().setVisible(false);
@@ -71,7 +87,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.Top);
     series.getMarker().setSize(15);
-    // Festlegen der Linienfarbe der Serie
+    // Festlegen der Serienlinienfarbe
     series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
     series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Solid);
@@ -86,14 +102,14 @@ try {
 
 ## **FAQ**
 
-**Do external Excel workbooks work as a data source, and how does that affect recalculation?**
+**Unterstützen externe Excel‑Arbeitsmappen eine Datenquelle, und wie wirkt sich das auf die Neuberechnung aus?**
 
-Ja. Ein Diagramm kann auf eine externe Arbeitsmappe verweisen: Wenn Sie die externe Quelle verbinden oder aktualisieren, werden Formeln und Werte aus dieser Arbeitsmappe übernommen, und das Diagramm spiegelt die Updates während Öffnen/Bearbeiten wider. Die API lässt Sie den [specify the external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) Pfad angeben und die verknüpften Daten verwalten.
+Ja. Ein Diagramm kann auf eine externe Arbeitsmappe verweisen: Wenn Sie die externe Quelle verbinden oder aktualisieren, werden Formeln und Werte aus dieser Arbeitsmappe übernommen, und das Diagramm spiegelt die Änderungen während der Öffnungs‑/Bearbeitungsvorgänge wider. Die API ermöglicht das [Festlegen des Pfads zur externen Arbeitsmappe](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) und die Verwaltung der verknüpften Daten.
 
-**Can I compute and display trendlines without implementing regression myself?**
+**Kann ich Trendlinien berechnen und anzeigen, ohne die Regression selbst zu implementieren?**
 
-Ja. [Trendlines](/slides/de/nodejs-java/trend-line/) (linear, exponential und andere) werden von Aspose.Slides hinzugefügt und automatisch aus den Seriendaten neu berechnet, sodass Sie keine eigenen Berechnungen durchführen müssen.
+Ja. [Trendlinien](/slides/de/nodejs-java/trend-line/) (linear, exponentiell und andere) werden von Aspose.Slides hinzugefügt und automatisch aktualisiert; ihre Parameter werden aus den Seriendaten neu berechnet, sodass Sie keine eigenen Berechnungen durchführen müssen.
 
-**If a presentation has multiple charts with external links, can I control which workbook each chart uses for computed values?**
+**Wenn eine Präsentation mehrere Diagramme mit externen Verknüpfungen enthält, kann ich steuern, welche Arbeitsmappe jedes Diagramm für berechnete Werte verwendet?**
 
-Ja. Jedes Diagramm kann auf seine eigene [external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) verweisen, oder Sie können pro Diagramm unabhängig von den anderen ein externes Arbeitsbuch erstellen/ersetzen.
+Ja. Jedes Diagramm kann auf seine eigene [externe Arbeitsmappe](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) verweisen, oder Sie können für jedes Diagramm unabhängig voneinander eine externe Arbeitsmappe erstellen/ersetzen.

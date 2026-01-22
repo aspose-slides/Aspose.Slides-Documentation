@@ -1,27 +1,45 @@
 ---
-title: Commentaires de présentation
+title: Gestion des commentaires de présentation en JavaScript
+linktitle: Commentaires de présentation
 type: docs
 weight: 100
 url: /fr/nodejs-java/presentation-comments/
-keywords: "Commentaires, commentaires PowerPoint, présentation PowerPoint, Java, Aspose.Slides for Node.js via Java"
-description: "Ajouter des commentaires et des réponses dans une présentation PowerPoint en JavaScript"
+keywords:
+- commentaire
+- commentaire moderne
+- commentaires PowerPoint
+- commentaires de présentation
+- commentaires de diapositive
+- ajouter un commentaire
+- accéder au commentaire
+- modifier le commentaire
+- répondre au commentaire
+- supprimer le commentaire
+- effacer le commentaire
+- PowerPoint
+- OpenDocument
+- présentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Maîtrisez les commentaires de présentation avec Aspose.Slides pour Node.js : ajoutez, lisez, modifiez et supprimez des commentaires dans les fichiers PowerPoint en utilisant JavaScript rapidement et facilement."
 ---
 
-Dans PowerPoint, un commentaire apparaît comme une note ou une annotation sur une diapositive. Lorsqu'un commentaire est cliqué, son contenu ou ses messages sont révélés.
+Dans PowerPoint, un commentaire apparaît comme une note ou une annotation sur une diapositive. Lorsqu'un commentaire est cliqué, son contenu ou ses messages sont révélés. 
 
 ## **Pourquoi ajouter des commentaires aux présentations ?**
 
-Vous pouvez vouloir utiliser des commentaires pour fournir des retours ou communiquer avec vos collègues lors de la révision des présentations.
+Vous pouvez souhaiter utiliser les commentaires pour fournir des retours ou communiquer avec vos collègues lors de la révision de présentations.
 
-Pour vous permettre d'utiliser des commentaires dans les présentations PowerPoint, Aspose.Slides for Node.js via Java fournit
+Pour vous permettre d'utiliser les commentaires dans les présentations PowerPoint, Aspose.Slides for Node.js via Java fournit
 
-* La classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) qui contient les collections d'auteurs (à partir de la classe [CommentAuthorCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthorCollection)). Les auteurs ajoutent des commentaires aux diapositives.
+* La classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) qui contient les collections d'auteurs (provenant de la classe [CommentAuthorCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthorCollection)). Les auteurs ajoutent des commentaires aux diapositives.
 * La classe [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) qui contient la collection de commentaires pour chaque auteur.
-* La classe [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) qui contient des informations sur les auteurs et leurs commentaires : qui a ajouté le commentaire, l'heure d'ajout, la position du commentaire, etc.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthor) qui contient des informations sur chaque auteur : le nom de l'auteur, ses initiales, les commentaires associés à son nom, etc.
+* La classe [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) qui contient des informations sur les auteurs et leurs commentaires : qui a ajouté le commentaire, l'heure à laquelle le commentaire a été ajouté, la position du commentaire, etc.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthor) qui contient des informations sur chaque auteur : le nom de l'auteur, ses initiales, les commentaires associés au nom de l'auteur, etc.
 
 ## **Ajouter un commentaire à une diapositive**
-Ce code JavaScript vous montre comment ajouter un commentaire à une diapositive dans une présentation PowerPoint :
+Ce code JavaScript montre comment ajouter un commentaire à une diapositive dans une présentation PowerPoint :
 ```javascript
 // Instancie la classe Presentation
 var pres = new aspose.slides.Presentation();
@@ -38,7 +56,7 @@ try {
     author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, java.newInstanceSync("java.util.Date"));
     // Accède à ISlide 1
     var slide = pres.getSlides().get_Item(0);
-    // Lorsque null est passé en argument, les commentaires de tous les auteurs sont récupérés pour la diapositive sélectionnée
+    // Lorsqu'un null est passé en argument, les commentaires de tous les auteurs sont récupérés pour la diapositive sélectionnée
     var Comments = slide.getSlideComments(author);
     // Accède au commentaire à l'index 0 pour la diapositive 1
     var str = Comments[0].getText();
@@ -56,8 +74,8 @@ try {
 ```
 
 
-## **Accéder aux commentaires d’une diapositive**
-Ce code JavaScript vous montre comment accéder à un commentaire existant sur une diapositive dans une présentation PowerPoint :
+## **Accéder aux commentaires de la diapositive**
+Ce code JavaScript montre comment accéder à un commentaire existant sur une diapositive dans une présentation PowerPoint :
 ```javascript
 var pres = new aspose.slides.Presentation("Comments1.pptx");
 try {
@@ -79,18 +97,18 @@ try {
 ## **Répondre aux commentaires**
 Un commentaire parent est le commentaire principal ou original dans une hiérarchie de commentaires ou de réponses. En utilisant les méthodes [getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#getParentComment--) ou [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) (de la classe [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment)), vous pouvez définir ou obtenir un commentaire parent.
 
-Ce code JavaScript vous montre comment ajouter des commentaires et obtenir leurs réponses :
+Ce code JavaScript montre comment ajouter des commentaires et obtenir leurs réponses :
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
     // Ajoute un commentaire
     var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
     var comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    // Ajoute une réponse au commentaire 1
+    // Ajoute une réponse au commentaire1
     var author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
     var reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
     reply1.setParentComment(comment1);
-    // Ajoute une autre réponse au commentaire 1
+    // Ajoute une autre réponse au commentaire1
     var reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
     reply2.setParentComment(comment1);
     // Ajoute une réponse à une réponse existante
@@ -113,7 +131,7 @@ try {
         console.log();
     }
     pres.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
-    // Supprime le commentaire 1 et toutes ses réponses
+    // Supprime le commentaire1 et toutes ses réponses
     comment1.remove();
     pres.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -127,17 +145,17 @@ try {
 {{% alert color="warning" title="Attention" %}} 
 
 * Lorsque la méthode [Remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#remove--) (de la classe [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment)) est utilisée pour supprimer un commentaire, les réponses au commentaire sont également supprimées.
-* Si le paramètre [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) entraîne une référence circulaire, [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) sera levée.
+* Si le paramètre [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) entraîne une référence circulaire, une [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) sera levée.
 
 {{% /alert %}}
 
 ## **Ajouter un commentaire moderne**
 
-En 2021, Microsoft a introduit les *commentaires modernes* dans PowerPoint. La fonctionnalité de commentaires modernes améliore considérablement la collaboration dans PowerPoint. Grâce aux commentaires modernes, les utilisateurs de PowerPoint peuvent résoudre des commentaires, ancrer des commentaires à des objets et du texte, et interagir beaucoup plus facilement qu'auparavant. 
+En 2021, Microsoft a introduit les *commentaires modernes* dans PowerPoint. La fonctionnalité des commentaires modernes améliore considérablement la collaboration dans PowerPoint. Grâce aux commentaires modernes, les utilisateurs de PowerPoint peuvent résoudre les commentaires, ancrer les commentaires à des objets et du texte, et interagir beaucoup plus facilement qu'auparavant. 
 
-Dans [Aspose.Slides for Node.js via Java 21.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-21-11-release-notes/), nous avons implémenté la prise en charge des commentaires modernes en ajoutant la classe [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ModernComment). Les méthodes [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) et [insertModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) ont été ajoutées à la classe [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection).
+Aspose.Slides prend en charge les commentaires modernes via la classe [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ModernComment). Les méthodes [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) et [insertModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) ont été ajoutées à la classe [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection).
 
-Ce code JavaScript vous montre comment ajouter un commentaire moderne à une diapositive dans une présentation PowerPoint :
+Ce code JavaScript montre comment ajouter un commentaire moderne à une diapositive dans une présentation PowerPoint :
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -154,8 +172,8 @@ try {
 
 ## **Supprimer un commentaire**
 
-### **Supprimer tous les commentaires et les auteurs**
-Ce code JavaScript vous montre comment supprimer tous les commentaires et auteurs dans une présentation :
+### **Supprimer tous les commentaires et auteurs**
+Ce code JavaScript montre comment supprimer tous les commentaires et auteurs d'une présentation :
 ```javascript
 var presentation = new aspose.slides.Presentation("example.pptx");
 try {
@@ -176,16 +194,16 @@ try {
 
 
 ### **Supprimer des commentaires spécifiques**
-Ce code JavaScript vous montre comment supprimer des commentaires spécifiques sur une diapositive :
+Ce code JavaScript montre comment supprimer des commentaires spécifiques sur une diapositive :
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
     var slide = presentation.getSlides().get_Item(0);
-    // ajouter des commentaires...
+    // ajoutez des commentaires...
     var author = presentation.getCommentAuthors().addAuthor("Author", "A");
     author.getComments().addComment("comment 1", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.2), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
     author.getComments().addComment("comment 2", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.3), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
-    // supprimer tous les commentaires contenant le texte "comment 1"
+    // supprime tous les commentaires contenant le texte "comment 1"
     
     
     for (var i = 0; i < presentation.getCommentAuthors().length; i++) {
@@ -213,11 +231,14 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides prend‑t‑il en charge un statut tel que « résolu » pour les commentaires modernes ?**  
-Oui. Les [commentaires modernes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/) exposent les méthodes [getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) et [setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setStatus/) ; vous pouvez lire et définir l'[état d'un commentaire](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/) (par exemple, le marquer comme résolu), et cet état est enregistré dans le fichier et reconnu par PowerPoint.
+**Aspose.Slides prend-il en charge un état tel que « résolu » pour les commentaires modernes ?**
 
-**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et y a‑t‑il une limite de profondeur ?**  
-Oui. Chaque commentaire peut référencer son [commentaire parent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/), ce qui permet des chaînes de réponses arbitraires. L’API ne déclare pas de limite de profondeur spécifique.
+Oui. Les [commentaires modernes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/) exposent les méthodes [getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) et [setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setStatus/). Vous pouvez lire et définir l'[état d’un commentaire](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/) (par exemple, le marquer comme résolu), et cet état est enregistré dans le fichier et reconnu par PowerPoint.
 
-**Dans quel système de coordonnées la position d’un marqueur de commentaire est‑elle définie sur une diapositive ?**  
-La position est stockée sous forme d’un point à virgule flottante dans le système de coordonnées de la diapositive. Cela vous permet de placer le marqueur de commentaire exactement où vous le souhaitez.
+**Les discussions en fil (chaînes de réponses) sont-elles prises en charge, et existe-t-il une limite d’imbrication ?**
+
+Oui. Chaque commentaire peut référencer son [commentaire parent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/), ce qui permet des chaînes de réponses arbitraires. L'API ne déclare pas de limite d'imbrication précise.
+
+**Dans quel système de coordonnées la position d’un marqueur de commentaire est‑elle définie sur une diapositive ?**
+
+La position est stockée comme un point à virgule flottante dans le système de coordonnées de la diapositive. Cela vous permet de placer le marqueur de commentaire exactement où vous le souhaitez.

@@ -1,20 +1,20 @@
 ---
-title: Gestionar OLE en presentaciones usando JavaScript
+title: Gestionar OLE en presentaciones con JavaScript
 linktitle: Gestionar OLE
 type: docs
 weight: 40
 url: /es/nodejs-java/manage-ole/
 keywords:
 - objeto OLE
-- Enlace y incrustación de objetos
-- agregar OLE
+- Vinculación y incrustación de objetos
+- añadir OLE
 - incrustar OLE
-- agregar objeto
+- añadir objeto
 - incrustar objeto
-- agregar archivo
+- añadir archivo
 - incrustar archivo
-- objeto enlazado
-- archivo enlazado
+- objeto vinculado
+- archivo vinculado
 - cambiar OLE
 - icono OLE
 - título OLE
@@ -26,34 +26,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Optimice la gestión de objetos OLE en PowerPoint y archivos OpenDocument con Aspose.Slides para Node.js. Incruste, actualice y exporte contenido OLE sin problemas."
+description: "Optimice la gestión de objetos OLE en PowerPoint y archivos OpenDocument con Aspose.Slides para Node.js mediante Java. Incruste, actualice y exporte contenido OLE sin problemas."
 ---
 
 {{% alert color="primary" %}} 
 
-OLE (Object Linking & Embedding) es una tecnología de Microsoft que permite que datos y objetos creados en una aplicación se coloquen en otra aplicación mediante enlace o incrustación. 
+OLE (Object Linking & Embedding) es una tecnología de Microsoft que permite que los datos y objetos creados en una aplicación se coloquen en otra aplicación mediante enlace o incrustación. 
 
 {{% /alert %}} 
 
 Considere un gráfico creado en MS Excel. El gráfico se coloca dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE. 
 
-- Un objeto OLE puede aparecer como un ícono. En este caso, al hacer doble clic en el ícono, el gráfico se abre en su aplicación asociada (Excel), o se le solicita seleccionar una aplicación para abrir o editar el objeto. 
+- Un objeto OLE puede aparecer como un icono. En este caso, al hacer doble clic en el icono, el gráfico se abre en su aplicación asociada (Excel), o se le solicita seleccionar una aplicación para abrir o editar el objeto. 
 - Un objeto OLE puede mostrar su contenido real, como el contenido de un gráfico. En este caso, el gráfico se activa en PowerPoint, se carga la interfaz del gráfico y puede modificar los datos del gráfico dentro de PowerPoint.
 
 [Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/nodejs-java/) permite insertar objetos OLE en diapositivas como marcos de objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame)).
 
-## **Agregar marcos de objetos OLE a diapositivas**
+## **Añadir marcos de objetos OLE a diapositivas**
 
-Supongamos que ya ha creado un gráfico en Microsoft Excel y desea incrustarlo en una diapositiva como un marco de objeto OLE usando Aspose.Slides for Node.js via Java, puede hacerlo de la siguiente manera:
+Suponiendo que ya haya creado un gráfico en Microsoft Excel y desee incrustarlo en una diapositiva como un marco de objeto OLE mediante Aspose.Slides for Node.js via Java, puede hacerlo de la siguiente manera:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). 
-1. Obtener la referencia de una diapositiva mediante su índice. 
-1. Leer el archivo Excel como una matriz de bytes. 
-1. Agregar el [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) a la diapositiva que contiene la matriz de bytes y otra información sobre el objeto OLE. 
-1. Escribir la presentación modificada como un archivo PPTX. 
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
+1. Obtener la referencia de una diapositiva mediante su índice.  
+1. Leer el archivo de Excel como una matriz de bytes.  
+1. Añadir el [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) a la diapositiva que contenga la matriz de bytes y otra información sobre el objeto OLE.  
+1. Guardar la presentación modificada como un archivo PPTX.  
 
-En el ejemplo a continuación, agregamos un gráfico de un archivo Excel a una diapositiva como un marco de objeto OLE usando Aspose.Slides for Node.js via Java.  
-**Nota** que el constructor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleEmbeddedDataInfo) recibe una extensión de objeto incrustable como segundo parámetro. Esta extensión permite a PowerPoint interpretar correctamente el tipo de archivo y elegir la aplicación adecuada para abrir este objeto OLE.  
+En el ejemplo siguiente, añadimos un gráfico de un archivo Excel a una diapositiva como un marco de objeto OLE mediante Aspose.Slides for Node.js via Java.  
+**Nota** que el constructor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleEmbeddedDataInfo) acepta una extensión de objeto incrustable como segundo parámetro. Esta extensión permite a PowerPoint interpretar correctamente el tipo de archivo y elegir la aplicación adecuada para abrir este objeto OLE.  
 ```javascript
 var presentation = new asposeSlides.Presentation();
 var slideSize = presentation.getSlideSize().getSize();
@@ -72,16 +72,16 @@ presentation.dispose();
 ```
 
 
-### **Agregar marcos de objetos OLE enlazados**
+### **Añadir marcos de objetos OLE enlazados**
 
-Aspose.Slides for Node.js via Java permite agregar un [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) sin incrustar datos, solo con un enlace al archivo.  
+Aspose.Slides for Node.js via Java permite añadir un [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) sin incrustar datos, sino sólo con un enlace al archivo.
 
-Este código JavaScript muestra cómo agregar un [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) con un archivo Excel enlazado a una diapositiva:  
+Este código JavaScript muestra cómo añadir un [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) con un archivo Excel enlazado a una diapositiva:  
 ```javascript
 var presentation = new asposeSlides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
-// Add an OLE object frame with a linked Excel file.
+// Añadir un marco de objeto OLE con un archivo Excel enlazado.
 slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
@@ -91,14 +91,14 @@ presentation.dispose();
 
 ## **Acceder a marcos de objetos OLE**
 
-Si un objeto OLE ya está incrustado en una diapositiva, puede encontrarlo o acceder a él fácilmente de esta manera:
+Si un objeto OLE ya está incrustado en una diapositiva, puede encontrarlo o acceder a él fácilmente de la siguiente manera:
 
-1. Cargar una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). 
-2. Obtener la referencia de la diapositiva usando su índice. 
-3. Acceder a la forma [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame). En nuestro ejemplo, usamos el PPTX creado anteriormente que tiene solo una forma en la primera diapositiva. 
-4. Una vez accedido al marco del objeto OLE, puede realizar cualquier operación sobre él. 
+1. Cargar una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
+2. Obtener la referencia de la diapositiva mediante su índice.  
+3. Acceder a la forma [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame). En nuestro ejemplo, utilizamos el PPTX creado previamente que tiene sólo una forma en la primera diapositiva.  
+4. Una vez accedido al marco de objeto OLE, puede realizar cualquier operación sobre él.  
 
-En el ejemplo a continuación, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y a sus datos de archivo.  
+En el ejemplo siguiente, se accede a un marco de objeto OLE (un objeto de gráfico Excel incrustado en una diapositiva) y a sus datos de archivo.  
 ```javascript
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
@@ -118,11 +118,11 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
 ```
 
 
-### **Acceder a propiedades del marco de objeto OLE enlazado**
+### **Acceder a propiedades de marcos de objetos OLE enlazados**
 
-Aspose.Slides permite acceder a las propiedades del marco de objeto OLE enlazado.  
+Aspose.Slides permite acceder a las propiedades de los marcos de objetos OLE enlazados.
 
-Este código JavaScript muestra cómo comprobar si un objeto OLE está enlazado y luego obtener la ruta al archivo enlazado:  
+Este código JavaScript muestra cómo comprobar si un objeto OLE está enlazado y, a continuación, obtener la ruta al archivo enlazado:  
 ```javascript
 var presentation = new asposeSlides.Presentation("sample.ppt");
 var slide = presentation.getSlides().get_Item(0);
@@ -131,12 +131,12 @@ var shape = slide.getShapes().get_Item(0);
 if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     var oleFrame = shape;
 
-    // Verificar si el objeto OLE está enlazado.
+    // Comprobar si el objeto OLE está enlazado.
     if (oleFrame.isObjectLink()) {
-        // Imprimir la ruta completa al archivo enlazado.
+        // Mostrar la ruta completa al archivo enlazado.
         console.log("OLE object frame is linked to:", oleFrame.getLinkPathLong());
 
-        // Imprimir la ruta relativa al archivo enlazado si está presente.
+        // Mostrar la ruta relativa al archivo enlazado si está presente.
         // Solo las presentaciones PPT pueden contener la ruta relativa.
         if (oleFrame.getLinkPathRelative() != null && oleFrame.getLinkPathRelative() != "") {
             console.log("OLE object frame relative path:", oleFrame.getLinkPathRelative());
@@ -148,26 +148,26 @@ presentation.dispose();
 ```
 
 
-## **Cambiar datos del objeto OLE**
+## **Cambiar datos de objetos OLE**
 
 {{% alert color="primary" %}} 
 
-En esta sección, el ejemplo de código a continuación usa [Aspose.Cells for Java](/cells/java/). 
+En esta sección, el ejemplo de código a continuación utiliza [Aspose.Cells for Java](/cells/java/).  
 
 {{% /alert %}}
 
-Si un objeto OLE ya está incrustado en una diapositiva, puede acceder a ese objeto y modificar sus datos de esta manera:
+Si un objeto OLE ya está incrustado en una diapositiva, puede acceder a ese objeto y modificar sus datos de la siguiente forma:
 
-1. Cargar una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). 
-2. Obtener la referencia de la diapositiva mediante su índice. 
-3. Acceder a la forma del marco de objeto OLE. En nuestro ejemplo, usamos el PPTX creado anteriormente que tiene una forma en la primera diapositiva. 
-4. Una vez accedido al marco del objeto OLE, puede realizar cualquier operación sobre él. 
-5. Crear un objeto `Workbook` y acceder a los datos OLE. 
-6. Acceder a la `Worksheet` deseada y modificar los datos. 
-7. Guardar el `Workbook` actualizado en un flujo. 
-8. Cambiar los datos del objeto OLE desde el flujo. 
+1. Cargar una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
+2. Obtener la referencia de la diapositiva mediante su índice.  
+3. Acceder a la forma del marco de objeto OLE. En nuestro ejemplo, utilizamos el PPTX creado previamente que tiene una forma en la primera diapositiva.  
+4. Una vez accedido al marco de objeto OLE, puede realizar cualquier operación sobre él.  
+5. Crear un objeto `Workbook` y acceder a los datos OLE.  
+6. Acceder a la `Worksheet` deseada y modificar los datos.  
+7. Guardar el `Workbook` actualizado en un flujo.  
+8. Cambiar los datos del objeto OLE desde el flujo.  
 
-En el ejemplo a continuación, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y se modifican sus datos de archivo para actualizar los datos del gráfico.  
+En el ejemplo siguiente, se accede a un marco de objeto OLE (un objeto de gráfico Excel incrustado en una diapositiva) y se modifican sus datos de archivo para actualizar los datos del gráfico.  
 ```javascript
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
@@ -183,7 +183,7 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
 
     var newOleStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
 
-    // Modificar los datos del Workbook.
+    // Modificar los datos del libro de trabajo.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -207,7 +207,7 @@ presentation.dispose();
 
 ## **Incrustar otros tipos de archivo en diapositivas**
 
-Además de gráficos de Excel, Aspose.Slides for Node.js via Java permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos. Cuando un usuario hace doble clic en el objeto insertado, se abre automáticamente en el programa correspondiente, o se le solicita al usuario seleccionar un programa adecuado para abrirlo.  
+Además de gráficos de Excel, Aspose.Slides for Node.js via Java permite incrustar otros tipos de archivo en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos. Cuando el usuario hace doble clic en el objeto insertado, se abre automáticamente en el programa correspondiente, o se le solicita seleccionar un programa apropiado para abrirlo.
 
 Este código JavaScript muestra cómo incrustar HTML y ZIP en una diapositiva:  
 ```javascript
@@ -233,7 +233,7 @@ presentation.dispose();
 
 ## **Establecer tipos de archivo para objetos incrustados**
 
-Al trabajar con presentaciones, puede necesitar reemplazar objetos OLE antiguos por nuevos o sustituir un objeto OLE no compatible por uno compatible. Aspose.Slides for Node.js via Java permite establecer el tipo de archivo para un objeto incrustado, lo que le permite actualizar los datos del marco OLE o su extensión.  
+Al trabajar con presentaciones, puede necesitar reemplazar objetos OLE antiguos por otros nuevos o sustituir un objeto OLE no compatible por uno compatible. Aspose.Slides for Node.js via Java permite establecer el tipo de archivo para un objeto incrustado, lo que le permite actualizar los datos del marco OLE o su extensión.
 
 Este código JavaScript muestra cómo establecer el tipo de archivo para un objeto OLE incrustado a `zip`:  
 ```javascript
@@ -255,11 +255,11 @@ presentation.dispose();
 ```
 
 
-## **Establecer imágenes de ícono y títulos para objetos incrustados**
+## **Establecer imágenes de icono y títulos para objetos incrustados**
 
-Después de incrustar un objeto OLE, se agrega automáticamente una vista previa que consiste en una imagen de ícono. Esta vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. Si desea usar una imagen y texto específicos como elementos de la vista previa, puede establecer la imagen del ícono y el título usando Aspose.Slides for Node.js via Java.  
+Después de incrustar un objeto OLE, se añade automáticamente una vista previa compuesta por una imagen de icono. Esta vista previa es lo que los usuarios ven antes de acceder u abrir el objeto OLE. Si desea utilizar una imagen y un texto específicos como elementos de la vista previa, puede establecer la imagen de icono y el título mediante Aspose.Slides for Node.js via Java.
 
-Este código JavaScript muestra cómo establecer la imagen del ícono y el título para un objeto incrustado:  
+Este código JavaScript muestra cómo establecer la imagen de icono y el título para un objeto incrustado:  
 ```javascript
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
@@ -270,7 +270,7 @@ var image = asposeSlides.Images.fromFile("image.png");
 var oleImage = presentation.getImages().addImage(image);
 image.dispose();
 
-// Establecer un título y la imagen para la vista previa del OLE.
+// Establecer un título y la imagen para la vista previa OLE.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(true);
@@ -280,9 +280,9 @@ presentation.dispose();
 ```
 
 
-## **Evitar que un marco de objeto OLE se redimensione y reposicione**
+## **Impedir que un marco de objeto OLE se redimensione y reposicione**
 
-Después de agregar un objeto OLE enlazado a una diapositiva de presentación, al abrir la presentación en PowerPoint, puede aparecer un mensaje solicitando actualizar los enlaces. Al hacer clic en el botón “Update Links” el tamaño y la posición del marco del objeto OLE pueden cambiar porque PowerPoint actualiza los datos del objeto enlazado y refresca la vista previa del objeto. Para evitar que PowerPoint solicite actualizar los datos del objeto, use el método `setUpdateAutomatic` de la clase [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) con el valor `false`:  
+Después de añadir un objeto OLE enlazado a una diapositiva de presentación, al abrir la presentación en PowerPoint puede aparecer un mensaje que le solicita actualizar los enlaces. Al hacer clic en el botón "Update Links", PowerPoint puede cambiar el tamaño y la posición del marco de objeto OLE porque actualiza los datos del objeto OLE enlazado y refresca la vista previa del objeto. Para evitar que PowerPoint solicite actualizar los datos del objeto, utilice el método `setUpdateAutomatic` de la clase [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) con el valor `false`:  
 ```javascript
 oleFrame.setUpdateAutomatic(false);
 ```
@@ -292,9 +292,9 @@ oleFrame.setUpdateAutomatic(false);
 
 Aspose.Slides for Node.js via Java permite extraer los archivos incrustados en diapositivas como objetos OLE de la siguiente manera:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) que contenga los objetos OLE que desea extraer. 
-2. Recorrer todas las formas de la presentación y acceder a las formas [OLEObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe). 
-3. Acceder a los datos de los archivos incrustados desde los marcos de objetos OLE y escribirlos en disco. 
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) que contenga los objetos OLE que desea extraer.  
+2. Recorrer todas las formas de la presentación y acceder a las formas [OLEObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame).  
+3. Acceder a los datos de los archivos incrustados desde los marcos de objetos OLE y escribirlos en disco.  
 
 Este código JavaScript muestra cómo extraer archivos incrustados en una diapositiva como objetos OLE:  
 ```javascript
@@ -319,16 +319,16 @@ presentation.dispose();
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Se renderizará el contenido OLE al exportar diapositivas a PDF/imágenes?**
 
-Lo que es visible en la diapositiva se renderiza: el ícono/imagen de sustitución (vista previa). El contenido OLE “en vivo” no se ejecuta durante el renderizado. Si es necesario, establezca su propia imagen de vista previa para garantizar la apariencia esperada en el PDF exportado.
+Lo que es visible en la diapositiva se renderiza: el icono/imagen de sustitución (vista previa). El contenido OLE "en vivo" no se ejecuta durante el renderizado. Si es necesario, establezca su propia imagen de vista previa para garantizar la apariencia esperada en el PDF exportado.
 
 **¿Cómo puedo bloquear un objeto OLE en una diapositiva para que los usuarios no puedan moverlo/editarlo en PowerPoint?**
 
-Bloquee la forma: Aspose.Slides proporciona [bloqueos a nivel de forma](/slides/es/nodejs-java/applying-protection-to-presentation/). No es encriptación, pero impide eficazmente ediciones y movimientos accidentales.
+Bloquee la forma: Aspose.Slides proporciona bloqueos a nivel de forma. No es cifrado, pero evita eficazmente ediciones y movimientos accidentales.
 
 **¿Se conservarán las rutas relativas de los objetos OLE enlazados en el formato PPTX?**
 
-En PPTX no existe información de “ruta relativa”, solo la ruta completa. Las rutas relativas se encuentran en el formato PPT más antiguo. Para portabilidad, prefiera rutas absolutas confiables/URIs accesibles o la incrustación.  
+En PPTX la información de "ruta relativa" no está disponible, solo la ruta completa. Las rutas relativas aparecen en el formato PPT antiguo. Para portabilidad, prefiera rutas absolutas fiables/URIs accesibles o incrustaciones.

@@ -1,16 +1,36 @@
 ---
-title: تحويل PowerPoint إلى HTML باستخدام JavaScript
-linktitle: تحويل PowerPoint إلى HTML
+title: تحويل عروض PowerPoint إلى HTML في JavaScript
+linktitle: PowerPoint إلى HTML
 type: docs
 weight: 30
 url: /ar/nodejs-java/convert-powerpoint-to-html/
-keywords: "PowerPoint Java إلى HTML, تحويل عرض PowerPoint, PPTX, PPT, PPT إلى HTML, PPTX إلى HTML, PowerPoint إلى HTML, حفظ PowerPoint كـ HTML, حفظ PPT كـ HTML, حفظ PPTX كـ HTML, Java, Aspose.Slides, تصدير HTML"
-description: "تحويل PowerPoint إلى HTML باستخدام JavaScript. حفظ PPTX أو PPT كـ HTML في JavaScript. حفظ الشرائح كـ HTML في JavaScript"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى HTML
+- العرض التقديمي إلى HTML
+- الشريحة إلى HTML
+- PPT إلى HTML
+- PPTX إلى HTML
+- حفظ PowerPoint كـ HTML
+- حفظ العرض التقديمي كـ HTML
+- حفظ الشريحة كـ HTML
+- حفظ PPT كـ HTML
+- حفظ PPTX كـ HTML
+- تصدير PPT إلى HTML
+- تصدير PPTX إلى HTML
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تحويل عروض PowerPoint إلى HTML متجاوب. الحفاظ على التخطيط والروابط والصور باستخدام دليل تحويل Aspose.Slides للحصول على نتائج سريعة وخالية من الأخطاء."
 ---
 
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تحويل عرض PowerPoint إلى صيغة HTML باستخدام JavaScript. تغطي المواضيع التالية:
+هذا المقال يوضح كيفية تحويل عرض تقديمي PowerPoint إلى تنسيق HTML باستخدام JavaScript. يغطي المواضيع التالية.
 
 - تحويل PowerPoint إلى HTML في JavaScript
 - تحويل PPT إلى HTML في JavaScript
@@ -18,52 +38,40 @@ description: "تحويل PowerPoint إلى HTML باستخدام JavaScript. ح�
 - تحويل ODP إلى HTML في JavaScript
 - تحويل شريحة PowerPoint إلى HTML في JavaScript
 
-## **PowerPoint إلى HTML في JavaScript**
+## **PowerPoint إلى HTML باستخدام JavaScript**
 
-للحصول على عينة كود JavaScript لتحويل PowerPoint إلى HTML، يرجى الاطلاع على القسم أدناه أي [Convert PowerPoint to HTML](#convert-powerpoint-to-html). يمكن للكود تحميل عدد من الصيغ مثل PPT و PPTX و ODP في كائن Presentation وحفظه بصيغة HTML.
+للحصول على عينة كود JavaScript لتحويل PowerPoint إلى HTML، يرجى الاطلاع على القسم أدناه أي [تحويل PowerPoint إلى HTML](#convert-powerpoint-to-html). يمكن للكود تحميل عدد من الصيغ مثل PPT و PPTX و ODP في كائن Presentation وحفظه بتنسيق HTML.
 
 ## **حول تحويل PowerPoint إلى HTML**
-باستخدام [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)، يمكن للتطبيقات والمطورين تحويل عرض PowerPoint إلى HTML: **PPTX إلى HTML** أو **PPT إلى HTML**.
 
-**Aspose.Slides** يوفر العديد من الخيارات (معظمها من فئة [**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions)) التي تحدد عملية تحويل PowerPoint إلى HTML:
+باستخدام [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)، يمكن للتطبيقات والمطورين تحويل عرض تقديمي PowerPoint إلى HTML: **PPTX إلى HTML** أو **PPT إلى HTML**.
+
+**Aspose.Slides** provides many options (mostly from the [**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) class) that define the PowerPoint to HTML conversion process:
 
 * تحويل عرض PowerPoint كامل إلى HTML.
 * تحويل شريحة محددة في عرض PowerPoint إلى HTML.
 * تحويل وسائط العرض (الصور، الفيديوهات، إلخ) إلى HTML.
-* تحويل عرض PowerPoint إلى HTML متجاوب. 
-* تحويل عرض PowerPoint إلى HTML مع تضمين أو استبعاد ملاحظات المتحدث. 
-* تحويل عرض PowerPoint إلى HTML مع تضمين أو استبعاد التعليقات. 
-* تحويل عرض PowerPoint إلى HTML مع الخطوط الأصلية أو المدمجة. 
-* تحويل عرض PowerPoint إلى HTML مع استخدام نمط CSS الجديد. 
+* تحويل عرض PowerPoint إلى HTML متجاوب.
+* تحويل عرض PowerPoint إلى HTML مع تضمين ملاحظات المتحدث أو استبعادها.
+* تحويل عرض PowerPoint إلى HTML مع تضمين التعليقات أو استبعادها.
+* تحويل عرض PowerPoint إلى HTML مع الخطوط الأصلية أو المدمجة.
+* تحويل عرض PowerPoint إلى HTML باستخدام نمط CSS الجديد.
 
 {{% alert color="primary" %}} 
-
-باستخدام API الخاص به، طوّرت Aspose محولات مجانية [من عرض إلى HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT إلى HTML](https://products.aspose.app/slides/conversion/ppt-to-html)، [PPTX إلى HTML](https://products.aspose.app/slides/conversion/pptx-to-html)، [ODP إلى HTML](https://products.aspose.app/slides/conversion/odp-to-html)، إلخ. 
+باستخدام API الخاص بها، طورت Aspose محولات مجانية من [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT إلى HTML](https://products.aspose.app/slides/conversion/ppt-to-html)، [PPTX إلى HTML](https://products.aspose.app/slides/conversion/pptx-to-html)، [ODP إلى HTML](https://products.aspose.app/slides/conversion/odp-to-html)، إلخ. 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-قد ترغب في الاطلاع على محولات مجانية أخرى من Aspose عبر هذا الرابط: [free converters from Aspose](https://products.aspose.app/slides/conversion).
-
+قد ترغب في استعراض محولات مجانية أخرى من Aspose. 
 {{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-بالإضافة إلى عمليات التحويل المذكورة هنا، يدعم Aspose.Slides عمليات التحويل التالية المتعلقة بصيغة HTML: 
-
-* [HTML إلى صورة](https://products.aspose.com/slides/nodejs-java/conversion/html-to-image/)
-* [HTML إلى JPG](https://products.aspose.com/slides/nodejs-java/conversion/html-to-jpg/)
-* [HTML إلى XML](https://products.aspose.com/slides/nodejs-java/conversion/html-to-xml/)
-* [HTML إلى TIFF](https://products.aspose.com/slides/nodejs-java/conversion/html-to-tiff/)
-
-{{% /alert %}}
 
 ## **تحويل PowerPoint إلى HTML**
 باستخدام Aspose.Slides، يمكنك تحويل عرض PowerPoint كامل إلى HTML بهذه الطريقة:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. استخدم طريقة [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) لحفظ الكائن كملف HTML.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) .
+2. استخدم الطريقة [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) لحفظ الكائن كملف HTML.
 
-يظهر هذا الكود كيفية تحويل PowerPoint إلى HTML في JavaScript:
+هذا الكود يوضح لك كيفية تحويل PowerPoint إلى HTML في JavaScript:
 ```javascript
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
@@ -71,7 +79,7 @@ try {
     var htmlOpt = new aspose.slides.HtmlOptions();
     htmlOpt.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
     htmlOpt.setHtmlFormatter(aspose.slides.HtmlFormatter.createDocumentFormatter("", false));
-    // حفظ العرض التقديمي إلى HTML
+    // حفظ العرض التقديمي كملف HTML
     pres.save("ConvertWholePresentationToHTML_out.html", aspose.slides.SaveFormat.Html, htmlOpt);
 } finally {
     if (pres != null) {
@@ -82,7 +90,7 @@ try {
 
 
 ## **تحويل PowerPoint إلى HTML متجاوب**
-توفر Aspose.Slides الفئة [ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController) التي تسمح بإنشاء ملفات HTML متجاوبة. يوضح هذا الكود كيفية تحويل عرض PowerPoint إلى HTML متجاوب في JavaScript:
+توفر Aspose.Slides الفئة [ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController) التي تتيح لك إنشاء ملفات HTML متجاوبة. يوضح هذا الكود كيفية تحويل عرض PowerPoint إلى HTML متجاوب في JavaScript:
 ```javascript
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
@@ -100,7 +108,7 @@ try {
 ```
 
 
-## **تحويل PowerPoint إلى HTML مع ملاحظات**
+## **تحويل PowerPoint إلى HTML مع الملاحظات**
 يظهر هذا الكود كيفية تحويل PowerPoint إلى HTML مع الملاحظات في JavaScript:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
@@ -119,12 +127,11 @@ try {
 
 
 ## **تحويل PowerPoint إلى HTML مع الخطوط الأصلية**
+توفر Aspose.Slides الفئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) التي تتيح لك تضمين جميع الخطوط في العرض أثناء تحويله إلى HTML.
 
-توفر Aspose.Slides الفئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) التي تسمح بدمج جميع الخطوط في العرض أثناء تحويله إلى HTML.
+لمنع تضمين بعض الخطوط، يمكنك تمرير مصفوفة من أسماء الخطوط إلى مُنشئ معلمات من فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController). الخطوط الشائعة مثل Calibri أو Arial، عندما تُستخدم في عرض، لا تحتاج إلى تضمينها لأن معظم الأنظمة تحتوي بالفعل على هذه الخطوط. عندما يتم تضمين هذه الخطوط، يصبح مستند HTML الناتج كبيرًا بشكل غير ضروري.
 
-لمنع دمج خطوط معينة، يمكنك تمرير مصفوفة من أسماء الخطوط إلى المُنشئ المParameterized من فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController). الخطوط الشائعة، مثل Calibri أو Arial، عند استخدامها في العرض، لا يلزم دمجها لأن معظم الأنظمة تحتوي عليها مسبقًا. عندما يتم دمج تلك الخطوط، يصبح مستند HTML الناتج كبيرًا بشكل غير ضروري.
-
-تدعم فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) الميراث وتوفر طريقة [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) التي يُقصد تجاوزها.
+فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) تدعم الوراثة وتوفر الطريقة [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) التي يُقصد تجاوزها.
 ```javascript
 var pres = new aspose.slides.Presentation("input.pptx");
 try {
@@ -143,10 +150,9 @@ try {
 
 
 ## **تحويل PowerPoint إلى HTML مع صور عالية الجودة**
+بشكل افتراضي، عندما تقوم بتحويل PowerPoint إلى HTML، ينتج Aspose.Slides HTML صغير مع صور بدقة 72 DPI ومساحات مقصوصة محذوفة. للحصول على ملفات HTML بصور ذات جودة أعلى، يجب تمرير `96` إلى طريقة `setPicturesCompression` من فئة `HtmlOptions` (أي `PicturesCompression.Dpi96`) أو قيم أعلى[قائمة القيم](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression).
 
-بشكل افتراضي، عند تحويل PowerPoint إلى HTML، ينتج Aspose.Slides ملفات HTML صغيرة مع صور بدقة 72 DPI ومناطق مقصوصة محذوفة. للحصول على ملفات HTML بصور ذات جودة أعلى، عليك تمرير القيمة `96` إلى طريقة `setPicturesCompression` من فئة `HtmlOptions` (أي `PicturesCompression.Dpi96`) أو قيم أعلى كما هو موضح في [القيم المتاحة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression).
-
-يُظهر هذا الكود JavaScript كيفية تحويل عرض PowerPoint إلى HTML مع الحصول على صور عالية الجودة بدقة 150 DPI (أي `PicturesCompression.Dpi150`):
+هذا الكود JavaScript يوضح لك كيفية تحويل عرض PowerPoint إلى HTML مع الحصول على صور عالية الجودة بدقة 150 DPI (أي `PicturesCompression.Dpi150`):
 ```javascript
 var pres = new aspose.slides.Presentation("InputDoc.pptx");
 try {
@@ -161,7 +167,7 @@ try {
 ```
 
 
-هذا الكود في JavaScript يُظهر كيفية إخراج HTML مع صور بجودة كاملة:
+هذا الكود في JavaScript يوضح لك كيفية إخراج HTML بصور جودة كاملة:
 ```javascript
 var pres = new aspose.slides.Presentation("InputDoc.pptx");
 try {
@@ -177,9 +183,8 @@ try {
 
 
 ## **تحويل الشريحة إلى HTML**
-لتحويل شريحة معينة في PowerPoint إلى HTML، عليك إنشاء مثيل من نفس الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) (المستخدمة لتحويل العروض الكلية إلى HTML) ثم استخدام طريقة [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) لحفظ الملف كـ HTML. يمكن استخدام فئة [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) لتحديد خيارات تحويل إضافية:
+لتحويل شريحة محددة في PowerPoint إلى HTML، يجب إنشاء كائن من نفس فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) (المستخدمة لتحويل العروض كاملة إلى HTML) ثم استخدم طريقة [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) لحفظ الملف كـ HTML. يمكن استخدام فئة [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) لتحديد خيارات تحويل إضافية:
 
-يُظهر هذا الكود JavaScript كيفية تحويل شريحة في عرض PowerPoint إلى HTML:
 ```javascript
 var pres = new aspose.slides.Presentation("Individual-Slide.pptx");
 try {
@@ -227,7 +232,7 @@ try {
 ## **حفظ CSS والصور عند التصدير إلى HTML**
 باستخدام ملفات نمط CSS الجديدة، يمكنك بسهولة تغيير نمط ملف HTML الناتج عن عملية تحويل PowerPoint إلى HTML.
 
-يُظهر الكود JavaScript في هذا المثال كيفية استخدام طرق يمكن تجاوزها لإنشاء مستند HTML مخصص مع رابط إلى ملف CSS:
+الكود JavaScript في هذا المثال يوضح لك كيفية استخدام طرق قابلة للتجاوز لإنشاء مستند HTML مخصص مع رابط إلى ملف CSS:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -242,8 +247,8 @@ try {
 }
 ```
 
-ستحتاج إلى تنفيذ `CustomHeaderAndFontsController` في Java، تجميعه، وإضافته إلى موقع الوحدة \aspose.slides.via.java\lib\.
-يُظهر هذا الكود Java كيفية تنفيذ `CustomHeaderAndFontsController`:
+ستحتاج إلى تنفيذ CustomHeaderAndFontsController في Java، تجميعه، وإضافته إلى موقع الوحدة \aspose.slides.via.java\lib\.
+هذا الكود Java يوضح لك كيفية تنفيذ `CustomHeaderAndFontsController`:
 ```java
 public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 {
@@ -281,10 +286,9 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 
 
 ## **ربط جميع الخطوط عند تحويل العرض إلى HTML**
+إذا كنت لا تريد تضمين الخطوط (لتجنب زيادة حجم HTML الناتج)، يمكنك ربط جميع الخطوط بتنفيذ نسخة خاصة من `LinkAllFontsHtmlController`.
 
-إذا كنت لا ترغب في دمج الخطوط (لتجنب زيادة حجم HTML الناتج)، يمكنك ربط جميع الخطوط عبر تنفيذ نسخة خاصة من `LinkAllFontsHtmlController`.
-
-يُظهر هذا الكود JavaScript كيفية تحويل PowerPoint إلى HTML مع ربط جميع الخطوط واستثناء "Calibri" و "Arial" (لأنهما موجودتان بالفعل في النظام):
+هذا الكود JavaScript يوضح لك كيفية تحويل PowerPoint إلى HTML مع ربط جميع الخطوط واستثناء "Calibri" و "Arial" (لأنهما موجودان بالفعل في النظام):
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -302,8 +306,8 @@ try {
 ```
 
 
-ستحتاج إلى تنفيذ `LinkAllFontsHtmlController` في Java، تجميعه، وإضافته إلى موقع الوحدة \aspose.slides.via.java\lib\.
-يُظهر هذا الكود Java كيفية تنفيذ `LinkAllFontsHtmlController`:
+ستحتاج إلى تنفيذ LinkAllFontsHtmlController في Java، تجميعه، وإضافته إلى موقع الوحدة \aspose.slides.via.java\lib\.
+هذا الكود Java يوضح لك كيفية تنفيذ `LinkAllFontsHtmlController`:
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
@@ -326,7 +330,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
     {
         try {
             String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // قد يكون من الضروري تنقية المسار
+            String path = fontName + ".woff"; // قد تكون هناك حاجة إلى بعض تنظيف المسار
             Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
 
             generator.addHtml("<style>");
@@ -345,7 +349,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 
 
 ## **تحويل PowerPoint إلى HTML متجاوب**
-يُظهر هذا الكود JavaScript كيفية تحويل عرض PowerPoint إلى HTML متجاوب:
+هذا الكود JavaScript يوضح لك كيفية تحويل عرض PowerPoint إلى HTML متجاوب:
 ```javascript
 var pres = new aspose.slides.Presentation("SomePresentation.pptx");
 try {
@@ -360,15 +364,15 @@ try {
 ```
 
 
-## **استخراج ملفات الوسائط إلى HTML**
-باستخدام Aspose.Slides for Node.js via Java، يمكنك استخراج ملفات الوسائط بهذه الطريقة:
+## **تصدير ملفات الوسائط إلى HTML**
+باستخدام Aspose.Slides for Node.js via Java، يمكنك تصدير ملفات الوسائط بهذه الطريقة:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. الحصول على مرجع إلى الشريحة.
 1. إضافة فيديو إلى الشريحة.
 1. كتابة العرض كملف HTML.
 
-يُظهر هذا الكود JavaScript كيفية إضافة فيديو إلى العرض ثم حفظه كـ HTML:
+هذا الكود JavaScript يوضح لك كيفية إضافة فيديو إلى العرض ثم حفظه كـ HTML:
 ```javascript
 // تحميل عرض تقديمي
 var pres = new aspose.slides.Presentation();
@@ -380,7 +384,7 @@ try {
     var video = pres.getVideos().addVideo(videoData);
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
     var controller = new aspose.slides.VideoPlayerHtmlController(path, fileName, baseUri);
-    // تعيين خيارات HTML
+    // إعداد خيارات HTML
     var htmlOptions = new aspose.slides.HtmlOptions(controller);
     var svgOptions = new aspose.slides.SVGOptions(controller);
     htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(controller));
@@ -396,16 +400,16 @@ try {
 ```
 
 
-## **الأسئلة المتكررة**
+## **FAQ**
 
-**ما هو أداء Aspose.Slides عند تحويل عروض متعددة إلى HTML؟**
+**ما هو أداء Aspose.Slides عند تحويل عروض تقديمية متعددة إلى HTML؟**
 
-يعتمد الأداء على حجم وتعقيد العروض. Aspose.Slides فعال للغاية وقابل للتوسع للعمليات الدفعية. لتحقيق الأداء المثالي عند تحويل عدد كبير من العروض، يُنصح باستخدام المعالجة المتعددة الخيوط أو المعالجة المتوازية كلما كان ذلك ممكنًا.
+يعتمد الأداء على حجم وتعقيد العروض. Aspose.Slides فعال للغاية وقابل للتوسع للعمليات الدفعية. لتحقيق أفضل أداء عند تحويل عدد كبير من العروض، يوصى باستخدام تعدد الخيوط أو المعالجة المتوازية كلما كان ذلك ممكنًا.
 
 **هل يدعم Aspose.Slides تصدير الروابط التشعبية إلى HTML؟**
 
-نعم، يدعم Aspose.Slides بالكامل تصدير الروابط التشعبية المدمجة إلى HTML. عندما تقوم بتحويل العروض إلى صيغة HTML، تُحافظ الروابط التشعبية تلقائيًا وتظل قابلة للنقر.
+نعم، يدعم Aspose.Slides بالكامل تصدير الروابط التشعبية المدمجة إلى HTML. عند تحويل العروض إلى تنسيق HTML، تُحافظ الروابط التشعبية تلقائيًا وتبقى قابلة للنقر.
 
-**هل هناك حد لعدد الشرائح عند تحويل العروض إلى HTML؟**
+**هل هناك أي حد لعدد الشرائح عند تحويل العروض إلى HTML؟**
 
 لا يوجد حد لعدد الشرائح عند استخدام Aspose.Slides. يمكنك تحويل عروض بأي حجم. ومع ذلك، بالنسبة للعروض التي تحتوي على عدد كبير جدًا من الشرائح، قد يعتمد الأداء على الموارد المتاحة على الخادم أو النظام الخاص بك.

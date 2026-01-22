@@ -1,19 +1,35 @@
 ---
-title: Shape Effektive Eigenschaften
+title: Abrufen von Shape-Effekteigenschaften aus Präsentationen in JavaScript
+linktitle: Effekteigenschaften
 type: docs
 weight: 50
 url: /de/nodejs-java/shape-effective-properties/
+keywords:
+- Shape-Eigenschaften
+- Kameraeigenschaften
+- Lichtanlage
+- Schräge Form
+- Textfeld
+- Textstil
+- Schriftgröße
+- Füllformat
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Erfahren Sie, wie Aspose.Slides für Node.js via Java effektive Shape-Eigenschaften berechnet und anwendet, um eine präzise PowerPoint-Darstellung zu gewährleisten."
 ---
 
-In diesem Thema besprechen wir **effektive** und **lokale** Eigenschaften. Wenn wir Werte direkt auf diesen Ebenen festlegen
+In diesem Thema werden wir **effektive** und **lokale** Eigenschaften besprechen. Wenn wir Werte direkt auf diesen Ebenen festlegen
 
 1. In Abschnittseigenschaften auf der Folie des Abschnitts;
-1. In Prototyp‑Form‑Textstil auf Layout‑ oder Masterfolie (wenn das Textfeld des Abschnitts einen hat);
+1. Im Textstil der Prototyp-Form auf Layout‑ oder Master‑Folie (falls die Textfeld‑Form des Abschnitts einen hat);
 1. In den globalen Texteinstellungen der Präsentation;
 
-werden diese Werte **lokale** Werte genannt. Auf jeder Ebene können **lokale** Werte definiert oder weggelassen werden. Aber wenn eine Anwendung wissen muss, wie der Abschnitt aussehen soll, verwendet sie **effektive** Werte. Sie können effektive Werte erhalten, indem Sie die **getEffective()**‑Methode des lokalen Formats verwenden.
+diese Werte werden **lokale** Werte genannt. Auf jeder Ebene können **lokale** Werte definiert oder weggelassen werden. Wenn jedoch eine Anwendung wissen muss, wie der Abschnitt aussehen soll, verwendet sie **effektive** Werte. Sie können effektive Werte erhalten, indem Sie die **getEffective()**‑Methode des lokalen Formats verwenden.
 
-Dieser Beispielcode zeigt, wie Sie effektive Werte erhalten:
+Dieses Beispielcode zeigt, wie man effektive Werte erhält:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -30,10 +46,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften der Kamera abrufen**
-Aspose.Slides for Node.js via Java ermöglicht Entwicklern, effektive Eigenschaften der Kamera abzurufen. Zu diesem Zweck wurde die Klasse [**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) zu Aspose.Slides hinzugefügt. Die Klasse [CameraEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine Instanz der [**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData)‑Klasse wird als Teil der [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData)‑Klasse verwendet, die ein [effektiver Werte](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) darstellt.
+## **Erhalten von effektiven Eigenschaften der Kamera**
+Aspose.Slides für Node.js via Java ermöglicht Entwicklern, effektive Eigenschaften der Kamera zu erhalten. Zu diesem Zweck wurde die Klasse **CameraEffectiveData** zu Aspose.Slides hinzugefügt. Die Klasse **CameraEffectiveData** stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine Instanz der Klasse **CameraEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) darstellt.
 
-Dieser Beispielcode zeigt, wie Sie effektive Eigenschaften für die Kamera erhalten:
+Dieses Beispielcode‑Beispiel zeigt, wie man effektive Eigenschaften für die Kamera erhält:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -50,10 +66,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften des Light Rig abrufen**
-Aspose.Slides for Node.js via Java ermöglicht Entwicklern, effektive Eigenschaften des Light Rig abzurufen. Zu diesem Zweck wurde die Klasse [**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) zu Aspose.Slides hinzugefügt. Die [LightRigEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData)‑Klasse stellt ein unveränderliches Objekt dar, das effektive Light‑Rig‑Eigenschaften enthält. Eine Instanz der [**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData)‑Klasse wird als Teil der [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData)‑Klasse verwendet, die ein [effektiver Werte](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) darstellt.
+## **Erhalten von effektiven Eigenschaften der Lichtanlage**
+Aspose.Slides für Node.js via Java ermöglicht Entwicklern, effektive Eigenschaften der Lichtanlage zu erhalten. Zu diesem Zweck wurde die Klasse **LightRigEffectiveData** zu Aspose.Slides hinzugefügt. Die Klasse **LightRigEffectiveData** stellt ein unveränderliches Objekt dar, das effektive Eigenschaften der Lichtanlage enthält. Eine Instanz der Klasse **LightRigEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) darstellt.
 
-Dieser Beispielcode zeigt, wie Sie effektive Eigenschaften des Light Rig erhalten:
+Dieses Beispielcode‑Beispiel zeigt, wie man effektive Eigenschaften der Lichtanlage erhält:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -69,10 +85,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften der Bevel Shape abrufen**
-Aspose.Slides for Node.js via Java ermöglicht Entwicklern, effektive Eigenschaften der Bevel Shape abzurufen. Zu diesem Zweck wurde die [**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData)‑Klasse zu Aspose.Slides hinzugefügt. Die [ShapeBevelEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData)‑Klasse stellt ein unveränderliches Objekt dar, das effektive Relief‑Eigenschaften der Shape‑Fläche enthält. Eine Instanz der [**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData)‑Klasse wird als Teil der [**ThreeDFormatEffectiveData**]([**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData))‑Klasse verwendet, die ein [effektiver Werte](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) darstellt.
+## **Erhalten von effektiven Eigenschaften der Schräge Form**
+Aspose.Slides für Node.js via Java ermöglicht Entwicklern, effektive Eigenschaften der Schräge Form zu erhalten. Zu diesem Zweck wurde die Klasse **ShapeBevelEffectiveData** zu Aspose.Slides hinzugefügt. Die Klasse **ShapeBevelEffectiveData** stellt ein unveränderliches Objekt dar, das effektive Reliefeigenschaften der Form enthält. Eine Instanz der Klasse **ShapeBevelEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) darstellt.
 
-Dieser Beispielcode zeigt, wie Sie effektive Eigenschaften für die Bevel Shape erhalten:
+Dieses Beispielcode‑Beispiel zeigt, wie man effektive Eigenschaften für die Schräge Form erhält:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -89,10 +105,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften eines Textfelds abrufen**
-Mit Aspose.Slides for Node.js via Java können Sie effektive Eigenschaften eines Textfelds abrufen. Zu diesem Zweck wurde die Klasse [**TextFrameFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormatEffectiveData) zu Aspose.Slides hinzugefügt. Sie enthält effektive Formatierungseigenschaften für Textfelder.
+## **Erhalten von effektiven Eigenschaften eines Textfelds**
+Mit Aspose.Slides für Node.js via Java können Sie effektive Eigenschaften eines Textfelds erhalten. Zu diesem Zweck wurde die Klasse **TextFrameFormatEffectiveData** zu Aspose.Slides hinzugefügt. Sie enthält effektive Formatierungseigenschaften des Textfelds.
 
-Dieser Beispielcode zeigt, wie Sie effektive Textfeld‑Formatierungseigenschaften erhalten:
+Dieses Beispielcode zeigt, wie man effektive Formatierungseigenschaften des Textfelds erhält:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -114,10 +130,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften eines Textstils abrufen**
-Mit Aspose.Slides for Node.js via Java können Sie effektive Eigenschaften eines Textstils abrufen. Zu diesem Zweck wurde die [**TextStyleEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextStyleEffectiveData)‑Klasse zu Aspose.Slides hinzugefügt. Sie enthält effektive Textstileigenschaften.
+## **Erhalten von effektiven Eigenschaften eines Textstils**
+Mit Aspose.Slides für Node.js via Java können Sie effektive Eigenschaften eines Textstils erhalten. Zu diesem Zweck wurde die Klasse **TextStyleEffectiveData** zu Aspose.Slides hinzugefügt. Sie enthält effektive Textstileigenschaften.
 
-Dieser Beispielcode zeigt, wie Sie effektive Textstileigenschaften erhalten:
+Dieses Beispielcode‑Beispiel zeigt, wie man effektive Textstileigenschaften erhält:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -139,8 +155,8 @@ try {
 ```
 
 
-## **Effektiven Schriftgrößenwert abrufen**
-Mit Aspose.Slides for Node.js via Java können Sie effektive Eigenschaften der Schriftgröße abrufen. Hier stellen wir einen Code bereit, der zeigt, wie sich der effektive Schriftgrößenwert eines Abschnitts ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur gesetzt wurden:
+## **Erhalten des effektiven Schriftgrößenwerts**
+Mit Aspose.Slides für Node.js via Java können Sie effektive Eigenschaften der Schriftgröße erhalten. Hier stellen wir einen Code bereit, der zeigt, wie sich der effektive Schriftgrößenwert eines Abschnitts ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur festgelegt wurden:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -179,8 +195,8 @@ try {
 ```
 
 
-## **Effektives Füllformat für Tabellen abrufen**
-Mit Aspose.Slides for Node.js via Java können Sie effektive Füllformatierung für verschiedene logische Teile einer Tabelle abrufen. Zu diesem Zweck wurde die [**CellFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CellFormatEffectiveData)‑Klasse in Aspose.Slides hinzugefügt. Sie enthält effektive Füllformatierungseigenschaften. Bitte beachten Sie: Zellformatierung hat immer Vorrang vor Zeilenformatierung; Zeilenformatierung hat Vorrang vor Spaltenformatierung; und Spaltenformatierung hat Vorrang vor der gesamten Tabelle.
+## **Erhalten eines effektiven Füllformats für Tabellen**
+Mit Aspose.Slides für Node.js via Java können Sie das effektive Füllformat für verschiedene logische Teile einer Tabelle erhalten. Zu diesem Zweck wurde die Klasse **CellFormatEffectiveData** zu Aspose.Slides hinzugefügt. Sie enthält effektive Füllformat-Eigenschaften. Bitte beachten Sie: Zellformat hat immer Vorrang vor Zeilenformat; Zeilenformat hat Vorrang vor Spaltenformat; und Spaltenformat hat Vorrang vor dem Gesamttableau.
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -203,30 +219,30 @@ try {
 
 ## **FAQ**
 
-**Wie kann ich erkennen, dass ich einen „Snapshot“ und kein „Live‑Objekt“ habe, und wann sollte ich effektive Eigenschaften erneut auslesen?**
+**Wie kann ich feststellen, dass ich einen „Snapshot“ und kein „Live‑Objekt“ erhalten habe, und wann sollte ich effektive Eigenschaften erneut auslesen?**
 
-EffectiveData‑Objekte sind unveränderliche Schnappschüsse der zum Zeitpunkt des Aufrufs berechneten Werte. Wenn Sie lokale oder vererbte Einstellungen der Shape ändern, rufen Sie die effektiven Daten erneut ab, um die aktualisierten Werte zu erhalten.
+EffectiveData‑Objekte sind unveränderliche Schnappschüsse der berechneten Werte zum Zeitpunkt des Aufrufs. Wenn Sie lokale oder geerbte Einstellungen der Form ändern, rufen Sie die effektiven Daten erneut ab, um die aktualisierten Werte zu erhalten.
 
-**Wirkt sich das Ändern der Layout‑/Master‑Folien auf bereits abgerufene effektive Eigenschaften aus?**
+**Wirkt sich das Ändern der Layout‑/Master‑Folie auf bereits abgerufene effektive Eigenschaften aus?**
 
-Ja, jedoch erst, nachdem Sie sie erneut ausgelesen haben. Ein bereits erhaltenes EffectiveData‑Objekt aktualisiert sich nicht automatisch – fordern Sie es nach einer Änderung des Layouts oder Masters erneut an.
+Ja, jedoch erst, nachdem Sie sie erneut ausgelesen haben. Ein bereits erhaltenes EffectiveData‑Objekt aktualisiert sich nicht selbst – fordern Sie es nach einer Änderung des Layouts oder Masters erneut an.
 
 **Kann ich Werte über EffectiveData ändern?**
 
-Nein. EffectiveData ist schreibgeschützt. Änderungen nehmen Sie in den lokalen Formatierungsobjekten (Shape/Text/3D usw.) vor und holen dann bei Bedarf die effektiven Werte erneut.
+Nein. EffectiveData ist schreibgeschützt. Nehmen Sie Änderungen in den lokalen Formatierungsobjekten (Form/Text/3D usw.) vor und holen Sie anschließend die effektiven Werte erneut.
 
-**Was passiert, wenn eine Eigenschaft weder auf Shape‑Ebene, noch im Layout/Master und nicht in den globalen Einstellungen gesetzt ist?**
+**Was passiert, wenn eine Eigenschaft weder auf Form‑Ebene, noch im Layout‑/Master‑Folie oder in den globalen Einstellungen festgelegt ist?**
 
-Der effektive Wert wird durch den Standard‑Mechanismus (PowerPoint/Aspose.Slides‑Standardeinstellungen) bestimmt. Dieser aufgelöste Wert wird Teil des EffectiveData‑Snapshots.
+Der effektive Wert wird durch den Standardmechanismus (PowerPoint‑/Aspose.Slides‑Standardeinstellungen) bestimmt. Dieser aufgelöste Wert wird Teil des EffectiveData‑Snapshots.
 
-**Kann ich aus einem effektiven Schriftwert ableiten, auf welcher Ebene Größe oder Schriftart festgelegt wurde?**
+**Kann ich aus einem effektiven Schriftwert ableiten, welche Ebene die Größe oder den Schriftschnitt bereitgestellt hat?**
 
-Nicht direkt. EffectiveData liefert nur den endgültigen Wert. Um die Quelle zu ermitteln, prüfen Sie die lokalen Werte auf Abschnitt/Absatz/Textfeld‑Ebene sowie die Textstile im Layout/Master/Präsentation, um die erste explizite Definition zu finden.
+Nicht unmittelbar. EffectiveData liefert den finalen Wert. Um die Quelle zu finden, prüfen Sie die lokalen Werte im Abschnitt/Absatz/Textfeld und die Textstile im Layout/Master/Präsentation, um festzustellen, wo die erste explizite Definition erscheint.
 
 **Warum sehen EffectiveData‑Werte manchmal identisch zu den lokalen aus?**
 
-Weil der lokale Wert letztlich final war (keine höhere Vererbung nötig). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
+Weil der lokale Wert letztlich endgültig war (keine höhere Vererbung erforderlich). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
 
-**Wann sollte ich effektive Eigenschaften verwenden und wann nur lokale?**
+**Wann sollte ich effektive Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
 
-Verwenden Sie EffectiveData, wenn Sie das „wie gerenderte“ Ergebnis nach vollständiger Vererbung benötigen (z. B. zum Angleichen von Farben, Einzügen oder Größen). Wenn Sie Formatierungen auf einer bestimmten Ebene ändern wollen, bearbeiten Sie die lokalen Eigenschaften und lesen Sie bei Bedarf EffectiveData erneut, um das Ergebnis zu prüfen.
+Verwenden Sie EffectiveData, wenn Sie das „wie gerenderte“ Ergebnis nach Anwendung aller Vererbungen benötigen (z. B. zum Ausrichten von Farben, Einzügen oder Größen). Wenn Sie die Formatierung auf einer bestimmten Ebene ändern möchten, modifizieren Sie lokale Eigenschaften und lesen Sie bei Bedarf EffectiveData erneut, um das Ergebnis zu prüfen.

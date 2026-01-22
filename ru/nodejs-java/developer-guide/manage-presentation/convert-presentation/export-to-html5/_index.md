@@ -1,28 +1,30 @@
 ---
-title: Экспорт в HTML5
+title: Преобразование презентаций в HTML5 на JavaScript
+linktitle: Презентация в HTML5
 type: docs
 weight: 40
 url: /ru/nodejs-java/export-to-html5/
 keywords:
-- PowerPoint в HTML
-- слайды в HTML
-- HTML5
-- Экспорт HTML
-- экспорт презентации
-- преобразование презентации
-- преобразование слайдов
-- Java
-- Aspose.Slides для Node.js через Java
-description: "Экспорт PowerPoint в HTML5 на JavaScript"
+- PowerPoint в HTML5
+- OpenDocument в HTML5
+- презентация в HTML5
+- слайд в HTML5
+- PPT в HTML5
+- PPTX в HTML5
+- ODP в HTML5
+- сохранить PPT как HTML5
+- сохранить PPTX как HTML5
+- сохранить ODP как HTML5
+- экспортировать PPT в HTML5
+- экспортировать PPTX в HTML5
+- экспортировать ODP в HTML5
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Экспорт презентаций PowerPoint и OpenDocument в адаптивный HTML5 с помощью Aspose.Slides для Node.js. Сохранение форматирования, анимаций и интерактивности."
 ---
 
-{{% alert title="Информация" color="info" %}}
-
-В [Aspose.Slides 21.9](/slides/ru/nodejs-java/aspose-slides-for-java-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5.
-
-{{% /alert %}} 
-
-Процесс экспорта в HTML5 позволяет преобразовать PowerPoint в HTML без веб‑расширений и зависимостей. Таким образом, используя собственные шаблоны, вы можете задавать гибкие параметры, определяющие процесс экспорта и полученные HTML, CSS, JavaScript и атрибуты анимации. 
+Aspose.Slides поддерживает экспорт в HTML5. Процесс экспорта в HTML5 позволяет преобразовать PowerPoint в HTML без веб‑расширений и зависимостей. Таким образом, используя собственные шаблоны, вы можете применять очень гибкие параметры, определяющие процесс экспорта и полученные HTML, CSS, JavaScript и атрибуты анимации. 
 
 ## **Экспорт PowerPoint в HTML5**
 
@@ -40,12 +42,10 @@ try {
 
 
 {{% alert color="primary" %}} 
-
 В этом случае вы получаете чистый HTML. 
-
 {{% /alert %}}
 
-Вы можете задать настройки анимаций фигур и переходов между слайдами следующим образом:
+Вы можете задать параметры анимации фигур и переходов слайдов следующим образом:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -76,7 +76,7 @@ try {
 ```
 
 
-В этом случае содержимое презентации отображается через SVG в виде:
+В этом случае содержимое презентации визуализируется через SVG в виде, как показано ниже:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -88,17 +88,15 @@ try {
 ```
 
 
-{{% alert title="Примечание" color="warning" %}} 
-
-При использовании этого метода экспорта PowerPoint в HTML из‑за рендеринга SVG вы не сможете применять стили или анимировать отдельные элементы. 
-
+{{% alert title="Note" color="warning" %}} 
+При использовании этого метода экспорта PowerPoint в HTML, из‑за визуализации SVG вы не сможете применять стили или анимировать отдельные элементы. 
 {{% /alert %}}
 
-## **Экспорт PowerPoint в режим просмотра слайдов HTML5**
+## **Экспорт PowerPoint в HTML5 в режиме просмотра слайдов**
 
-**Aspose.Slides** позволяет преобразовать презентацию PowerPoint в документ HTML5, в котором слайды представлены в режиме просмотра слайдов. В этом случае, открывая полученный файл HTML5 в браузере, вы видите презентацию в режиме просмотра слайдов на веб‑странице. 
+**Aspose.Slides** позволяет преобразовать презентацию PowerPoint в документ HTML5, в котором слайды отображаются в режиме просмотра слайдов. В этом случае, открывая полученный файл HTML5 в браузере, вы видите презентацию в режиме просмотра слайдов на веб‑странице. 
 
-Этот JavaScript‑код демонстрирует процесс экспорта PowerPoint в режим просмотра слайдов HTML5:
+Этот JavaScript‑код демонстрирует процесс экспорта PowerPoint в HTML5 в режиме просмотра слайдов:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -114,15 +112,15 @@ try {
 ```
 
 
-## **Преобразование презентации в документ HTML5 с комментариями**
+## **Преобразовать презентацию в документ HTML5 с комментариями**
 
 Комментарии в PowerPoint — это инструмент, позволяющий пользователям оставлять заметки или отзывы к слайдам презентации. Они особенно полезны в совместных проектах, где несколько человек могут добавлять свои предложения или замечания к конкретным элементам слайда, не изменяя основное содержание. Каждый комментарий отображает имя автора, что упрощает отслеживание, кто оставил замечание.
 
-Предположим, у нас есть следующая презентация PowerPoint, сохранённая в файле «sample.pptx».
+Допустим, у нас есть следующая презентация PowerPoint, сохранённая в файле "sample.pptx".
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+![Два комментария на слайде презентации](two_comments_pptx.png)
 
-При преобразовании презентации PowerPoint в документ HTML5 вы можете указать, включать ли комментарии из презентации в выходной документ. Для этого необходимо задать параметры отображения комментариев в свойстве `notes_comments_layouting` класса [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/).
+При преобразовании презентации PowerPoint в документ HTML5 вы можете легко указать, следует ли включать комментарии из презентации в выходной документ. Для этого необходимо задать параметры отображения комментариев в свойстве `notes_comments_layouting` класса [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/).
 
 Следующий пример кода преобразует презентацию в документ HTML5 с комментариями, отображаемыми справа от слайдов.
 ```javascript
@@ -135,20 +133,17 @@ presentation.dispose();
 ```
 
 
-Документ «output.html» показан на изображении ниже.
+Документ "output.html" показан на изображении ниже.
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+![Комментарии в выводимом документе HTML5](two_comments_html5.png)
 
 ## **FAQ**
 
-**Могу ли я управлять тем, будут ли анимации объектов и переходы между слайдами воспроизводиться в HTML5?**
+**Могу ли я контролировать, будут ли анимации объектов и переходы слайдов воспроизводиться в HTML5?**  
+Да, в HTML5 имеются отдельные параметры для включения или отключения [анимации фигур](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimateshapes/) и [переходов слайдов](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimatetransitions/).
 
-Да, в HTML5 есть отдельные параметры для включения или отключения [анимаций фигур](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimateshapes/) и [переходов между слайдами](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimatetransitions/).
+**Поддерживается ли вывод комментариев и где их можно разместить относительно слайда?**  
+Да, комментарии могут быть добавлены в HTML5 и размещены (например, справа от слайда) с помощью [настроек расположения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setNotesCommentsLayouting) для заметок и комментариев.
 
-**Поддерживается ли вывод комментариев и где их можно разместить относительно слайда?**
-
-Да, комментарии могут быть добавлены в HTML5 и размещены (например, справа от слайда) с помощью [настроек размещения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setNotesCommentsLayouting) для заметок и комментариев.
-
-**Можно ли отключить ссылки, вызывающие JavaScript, по соображениям безопасности или CSP?**
-
-Да, существует [параметр](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), позволяющий пропускать гиперссылки с вызовами JavaScript при сохранении. Это помогает соответствовать строгим политикам безопасности.
+**Могу ли я пропустить ссылки, вызывающие JavaScript, по соображениям безопасности или CSP?**  
+Да, существует [параметр](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), позволяющий пропускать гиперссылки с вызовами JavaScript при сохранении. Это помогает соответствовать строгим политическим требованиям безопасности.

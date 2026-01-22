@@ -1,18 +1,30 @@
 ---
-title: Datenpunkte von Treemap- und Sunburst-Diagrammen
+title: Datenpunkte in Treemap- und Sunburst-Diagrammen mit JavaScript anpassen
+linktitle: Datenpunkte in Treemap- und Sunburst-Diagrammen
 type: docs
 url: /de/nodejs-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
-keywords: "Sunburst-Graph in Aspose.Slides für Node.js via Java"
-description: "Sunburst-Graph, Sunburst-Diagramm, Sunburst-Chart, Radial-Chart, Radial-Graph oder Mehrstufiges-Pie-Diagramm mit Aspose.Slides für Node.js via Java."
+keywords:
+- treemap-Diagramm
+- sunburst-Diagramm
+- Datenpunkt
+- Beschriftungsfarbe
+- Astfarbe
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Datenpunkte in Treemap- und Sunburst-Diagrammen mit JavaScript und Aspose.Slides für Node.js via Java verwalten, kompatibel mit PowerPoint-Formaten."
 ---
 
-Unter den verschiedenen Diagrammtypen in PowerPoint gibt es zwei „hierarchische“ Typen – **Treemap** und **Sunburst**‑Diagramm (auch bekannt als Sunburst‑Graph, Sunburst‑Diagramm, Radial‑Diagramm, Radial‑Grafik oder Mehrstufiges‑Kreis‑Diagramm). Diese Diagramme zeigen hierarchische Daten, die als Baum strukturiert sind – von den Blättern bis zur Spitze des Astes. Die Blätter werden durch die Datenpunkte der Serie definiert, und jede nachfolgende verschachtelte Gruppierungsebene wird durch die entsprechende Kategorie definiert. Aspose.Slides für Node.js via Java ermöglicht das Formatieren von Datenpunkten des Sunburst‑Diagramms und des Treemap‑Diagramms in JavaScript.
+Unter den anderen PowerPoint‑Diagrammtypen gibt es zwei „hierarchische“ Typen – **Treemap** und **Sunburst**‑Diagramm (auch bekannt als Sunburst‑Graph, Sunburst‑Diagramm, Radial‑Diagramm, Radial‑Graph oder Mehrstufiges Kreis‑Diagramm). Diese Diagramme stellen hierarchische Daten dar, die als Baum strukturiert sind – von den Blättern bis zur Spitze des Astes. Blätter werden durch die Datenpunkte der Serie definiert, und jede nachfolgende verschachtelte Gruppierungsebene wird durch die entsprechende Kategorie bestimmt. Aspose.Slides für Node.js via Java ermöglicht das Formatieren von Datenpunkten des Sunburst‑Diagramms und des Treemap‑Diagramms in JavaScript.
 
-Hier ist ein Sunburst‑Diagramm, bei dem die Daten in der Spalte Series1 die Blattknoten definieren, während die anderen Spalten die hierarchischen Datenpunkte definieren:
+Hier ein Sunburst‑Diagramm, bei dem die Daten in der Spalte Series1 die Blattknoten definieren, während die anderen Spalten hierarchische Datenpunkte definieren:
+
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-Lassen Sie uns beginnen, ein neues Sunburst‑Diagramm zur Präsentation hinzuzufügen:
+Lassen Sie uns ein neues Sunburst‑Diagramm zur Präsentation hinzufügen:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -27,17 +39,26 @@ try {
 
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [**Erstellen eines Sunburst‑Diagramms**](/slides/de/nodejs-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Create or Update PowerPoint Presentation Charts in JavaScript**](/slides/de/nodejs-java/create-chart/)
 {{% /alert %}}
 
-Wenn Sie Datenpunkte des Diagramms formatieren müssen, sollten Sie Folgendes verwenden:
+Falls Datenpunkte des Diagramms formatiert werden müssen, sollten die folgenden Klassen verwendet werden:
+
 [**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
 [ChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) Klassen 
 und [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) Methode 
-bieten Zugriff auf das Formatieren von Datenpunkten der Treemap‑ und Sunburst‑Diagramme. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager) wird verwendet, um auf mehrstufige Kategorien zuzugreifen – es stellt den Container von [**ChartDataPointLevel**]‑Objekten dar. Im Grunde ist es ein Wrapper für [**ChartCategoryLevelsManager**] mit den speziell für Datenpunkte hinzugefügten Eigenschaften. Die Klasse [**ChartDataPointLevel**] verfügt über zwei Methoden: [**getFormat**] und [**getDataLabel**], die Zugriff auf die jeweiligen Einstellungen bieten.
+bieten Zugriff zum Formatieren von Datenpunkten von Treemap‑ und Sunburst‑Diagrammen. 
+[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager) 
+wird zum Zugriff auf mehrstufige Kategorien verwendet – er stellt den Container für 
+[**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel)‑Objekte dar.
+Im Grunde ist er ein Wrapper für 
+[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartCategoryLevelsManager) 
+mit Eigenschaften, die speziell für Datenpunkte hinzugefügt wurden. 
+Die Klasse [**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) 
+verfügt über zwei Methoden: [**getFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) und 
+[**getDataLabel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) – sie ermöglichen den Zugriff auf die jeweiligen Einstellungen.
 
-## **Datenpunktwert anzeigen**
+## **Show Data Point Value**
 Wert des Datenpunkts „Leaf 4“ anzeigen:
 ```javascript
 var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
@@ -47,8 +68,8 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
-## **Datenpunktbeschriftung und -farbe festlegen**
-Setzen Sie die Datenbeschriftung von „Branch 1“ so, dass sie den Seriennamen ("Series1") anstelle des Kategorienamens anzeigt. Danach setzen Sie die Textfarbe auf Gelb:
+## **Set Data Point Label and Color**
+Datenbeschriftung von „Branch 1“ so einstellen, dass der Serienname („Series1“) anstelle des Kategorienamens angezeigt wird. Anschließend die Textfarbe auf Gelb setzen:
 ```javascript
 var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
@@ -60,8 +81,8 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
-## **Farbe des Datenpunktzweigs festlegen**
-Farbe des Zweigs „Steam 4“ ändern:
+## **Set Data Point Branch Color**
+Farbe des Astes „Steam 4“ ändern:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -85,16 +106,16 @@ try {
 
 **Kann ich die Reihenfolge (Sortierung) der Segmente in Sunburst/Treemap ändern?**
 
-Nein. PowerPoint sortiert Segmente automatisch (in der Regel absteigend nach Wert, im Uhrzeigersinn). Aspose.Slides spiegelt dieses Verhalten wider: Sie können die Reihenfolge nicht direkt ändern; Sie erreichen dies durch Vorverarbeitung der Daten.
+Nein. PowerPoint sortiert die Segmente automatisch (in der Regel absteigend, im Uhrzeigersinn). Aspose.Slides spiegelt dieses Verhalten wider: Die Reihenfolge kann nicht direkt geändert werden; sie wird durch Vorverarbeitung der Daten erreicht.
 
 **Wie wirkt sich das Präsentationsthema auf die Farben von Segmenten und Beschriftungen aus?**
 
-Diagrammfarben übernehmen das [Thema/Palette](/slides/de/nodejs-java/presentation-theme/) der Präsentation, sofern Sie keine Füllungen/Schriften explizit festlegen. Für konsistente Ergebnisse sollten Sie feste Füllungen und Textformatierungen auf den erforderlichen Ebenen festlegen.
+Diagramm‑Farben erben das [Thema/Palette](/slides/de/nodejs-java/presentation-theme/) der Präsentation, sofern nicht ausdrücklich Füllungen/Schriften gesetzt werden. Für konsistente Ergebnisse sollten feste Füllungen und Textformatierungen auf den erforderlichen Ebenen festgelegt werden.
 
-**Wird der Export nach PDF/PNG benutzerdefinierte Zweigfarben und Beschriftungseinstellungen beibehalten?**
+**Werden beim Export nach PDF/PNG benutzerdefinierte Ast‑Farben und Beschriftungseinstellungen erhalten?**
 
-Ja. Beim Export der Präsentation bleiben die Diagrammeinstellungen (Füllungen, Beschriftungen) in den Ausgabedateien erhalten, da Aspose.Slides das Diagramm mit den angewendeten Formatierungen rendert.
+Ja. Beim Export der Präsentation werden Diagramm‑Einstellungen (Füllungen, Beschriftungen) in den Ausgabedateien beibehalten, weil Aspose.Slides das Diagramm mit den angewendeten Formatierungen rendert.
 
-**Kann ich die tatsächlichen Koordinaten einer Beschriftung/eines Elements ermitteln, um benutzerdefinierte Overlays über dem Diagramm zu platzieren?**
+**Kann ich die tatsächlichen Koordinaten einer Beschriftung/eines Elements berechnen, um ein benutzerdefiniertes Overlay über dem Diagramm zu platzieren?**
 
-Ja. Nachdem das Diagrammlayout validiert wurde, stehen für Elemente die tatsächlichen X‑ und Y‑Werte zur Verfügung (zum Beispiel für ein [DataLabel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/)), was eine präzise Platzierung von Overlays ermöglicht.
+Ja. Nach der Validierung des Diagrammlayouts stehen die tatsächlichen X‑ und Y‑Werte für Elemente (z. B. ein [DataLabel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/)) zur Verfügung, was eine präzise Positionierung von Overlays ermöglicht.

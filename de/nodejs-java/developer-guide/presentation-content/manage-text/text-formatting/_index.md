@@ -6,7 +6,7 @@ weight: 50
 url: /de/nodejs-java/text-formatting/
 keywords:
 - Text hervorheben
-- Regulärer Ausdruck
+- regulärer Ausdruck
 - Absatz ausrichten
 - Textstil
 - Texthintergrund
@@ -16,10 +16,10 @@ keywords:
 - Schriftfamilie
 - Textrotation
 - Rotationswinkel
-- Textfeld
+- Textrahmen
 - Zeilenabstand
 - Autofit-Eigenschaft
-- Textfeld-Anker
+- Textrahmen-Anker
 - Texttabulator
 - Standardsprache
 - PowerPoint
@@ -28,23 +28,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Node.js via Java formatieren und gestalten. Passen Sie Schriftarten, Farben, Ausrichtungen und mehr mit leistungsstarken JavaScript-Codebeispielen an."
+description: "Formatieren und gestalten Sie Text in PowerPoint- und OpenDocument-Präsentationen mit JavaScript und Aspose.Slides für Node.js. Passen Sie Schriftarten, Farben, Ausrichtung und mehr an."
 ---
 
 ## **Text hervorheben**
 
-Die Methode [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightText-java.lang.String-java.awt.Color-) wurde zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) und zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) hinzugefügt.
+Methode [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightText-java.lang.String-java.awt.Color-) wurde zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) und zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) hinzugefügt.
 
-Sie ermöglicht das Hervorheben eines Textteils mit Hintergrundfarbe anhand eines Textbeispiels, ähnlich dem Tool „Textmarkerfarbe“ in PowerPoint 2019.
+Sie ermöglicht, einen Textteil mit Hintergrundfarbe zu markieren, indem ein Textbeispiel verwendet wird, ähnlich dem Tool Text Highlight Color in PowerPoint 2019.
 
-Der nachstehende Code‑Snippet zeigt, wie diese Funktion verwendet wird:
+Das Code‑Snippet unten zeigt, wie man diese Funktion verwendet:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var textHighlightingOptions = new aspose.slides.TextHighlightingOptions();
     textHighlightingOptions.setWholeWordsOnly(true);
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// Alle Wörter 'important' hervorheben
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// Alle einzelnen Vorkommen von 'the' hervorheben
+    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// Hervorheben aller Wörter 'important'
+    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// Hervorheben aller einzelnen 'the'-Vorkommen
     pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -55,21 +55,21 @@ try {
 
 
 {{% alert color="primary" %}} 
-Aspose bietet einen einfachen, [kostenlosen Online‑PowerPoint‑Editor](https://products.aspose.app/slides/editor)
+Aspose bietet einen einfachen, [kostenlosen Online‑PowerPoint‑Bearbeitungsservice](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
 ## **Text mit regulärem Ausdruck hervorheben**
 
-Die Methode [highlightRegex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightRegex-java.lang.String-java.awt.Color-aspose.slides.ITextHighlightingOptions-) wurde zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) und zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) hinzugefügt.
+Methode [highlightRegex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightRegex-java.lang.String-java.awt.Color-aspose.slides.ITextHighlightingOptions-) wurde zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) und zur Klasse [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) hinzugefügt.
 
-Sie ermöglicht das Hervorheben eines Textteils mit Hintergrundfarbe anhand eines regulären Ausdrucks, ähnlich dem Tool „Textmarkerfarbe“ in PowerPoint 2019.
+Sie ermöglicht, einen Textteil mit Hintergrundfarbe zu markieren, indem ein regulärer Ausdruck verwendet wird, ähnlich dem Tool Text Highlight Color in PowerPoint 2019.
 
-Der nachstehende Code‑Snippet zeigt, wie diese Funktion verwendet wird:
+Das Code‑Snippet unten zeigt, wie man diese Funktion verwendet:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var options = new aspose.slides.TextHighlightingOptions();
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// Alle Wörter mit 10 oder mehr Zeichen hervorheben
+    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// Hervorheben aller Wörter mit 10 Zeichen oder länger
     pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -79,11 +79,11 @@ try {
 ```
 
 
-## **Hintergrundfarbe für Text festlegen**
+## **Text‑Hintergrundfarbe festlegen**
 
-Aspose.Slides erlaubt es, die gewünschte Farbe für den Hintergrund eines Textes anzugeben.
+Aspose.Slides ermöglicht es, die bevorzugte Farbe für den Hintergrund eines Textes anzugeben.
 
-Dieser JavaScript‑Code zeigt, wie die Hintergrundfarbe für einen gesamten Text festgelegt wird:
+Dieser JavaScript‑Code zeigt, wie man die Hintergrundfarbe für einen gesamten Text festlegt:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -128,7 +128,7 @@ try {
 ```
 
 
-Dieser JavaScript‑Code zeigt, wie die Hintergrundfarbe nur für einen Teil eines Textes festgelegt wird:
+Dieser JavaScript‑Code zeigt, wie man die Hintergrundfarbe nur für einen Teil eines Textes festlegt:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -168,35 +168,35 @@ try {
 
 ## **Textabsätze ausrichten**
 
-Die Textformatierung ist ein Schlüsselelement beim Erstellen von Dokumenten oder Präsentationen. Wir wissen, dass Aspose.Slides für Node.js via Java das Hinzufügen von Text zu Folien unterstützt. In diesem Abschnitt sehen wir, wie die Ausrichtung von Textabsätzen in einer Folie gesteuert werden kann. Bitte folgen Sie den nachstehenden Schritten, um Textabsätze mit Aspose.Slides für Node.js via Java auszurichten:
+Textformatierung ist ein Schlüsselelement beim Erstellen von Dokumenten oder Präsentationen. Wir wissen, dass Aspose.Slides für Node.js via Java das Hinzufügen von Text zu Folien unterstützt, aber in diesem Thema zeigen wir, wie man die Ausrichtung von Textabsätzen in einer Folie steuern kann. Bitte folgen Sie den untenstehenden Schritten, um Textabsätze mit Aspose.Slides für Node.js via Java auszurichten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Holen Sie sich die Referenz einer Folie über deren Index.
-3. Greifen Sie auf die Platzhalter‑Shapes in der Folie zu und casten Sie sie zu einer [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-4. Lesen Sie den Absatz (der ausgerichtet werden soll) aus dem [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getTextFrame--) der [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) aus.
-5. Richten Sie den Absatz aus. Ein Absatz kann rechts, links, zentriert oder block‑justiert ausgerichtet werden.
-6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Holen Sie die Referenz einer Folie, indem Sie deren Index verwenden.
+3. Greifen Sie auf die Platzhalterformen in der Folie zu und casten Sie sie zu einem [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+4. Erhalten Sie den Absatz (der ausgerichtet werden soll) aus dem [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getTextFrame--) des [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+5. Richten Sie den Absatz aus. Ein Absatz kann rechts, links, zentriert oder im Blocksatz ausgerichtet werden.
+6. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
 
-Die Umsetzung der obigen Schritte ist nachfolgend dargestellt.
+Die Implementierung der obigen Schritte ist unten angegeben.
 ```javascript
-// Instanziieren Sie ein Presentation-Objekt, das eine PPTX-Datei repräsentiert
+// Instanziieren eines Presentation-Objekts, das eine PPTX-Datei darstellt
 var pres = new aspose.slides.Presentation("ParagraphsAlignment.pptx");
 try {
     // Zugriff auf die erste Folie
     var slide = pres.getSlides().get_Item(0);
-    // Zugriff auf den ersten und zweiten Platzhalter in der Folie und Typumwandlung in AutoShape
+    // Zugriff auf den ersten und zweiten Platzhalter in der Folie und Typumwandlung zu AutoShape
     var tf1 = slide.getShapes().get_Item(0).getTextFrame();
     var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-    // Ändern Sie den Text in beiden Platzhaltern
+    // Text in beiden Platzhaltern ändern
     tf1.setText("Center Align by Aspose");
     tf2.setText("Center Align by Aspose");
-    // Abrufen des ersten Absatzes der Platzhalter
+    // Den ersten Absatz der Platzhalter abrufen
     var para1 = tf1.getParagraphs().get_Item(0);
     var para2 = tf2.getParagraphs().get_Item(0);
-    // Ausrichten des Textabsatzes zentriert
+    // Textabsatz zentrieren
     para1.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
     para2.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
-    // Schreiben der Präsentation als PPTX-Datei
+    // Die Präsentation als PPTX-Datei speichern
     pres.save("Centeralign_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -208,14 +208,14 @@ try {
 
 ## **Transparenz für Text festlegen**
 
-Dieser Artikel zeigt, wie die Transparenzeigenschaft für beliebige Text‑Shapes mit Aspose.Slides für Node.js via Java gesetzt wird. Gehen Sie dazu wie folgt vor:
+Dieser Artikel demonstriert, wie man die Transparenzeigenschaft für jede Textform mit Aspose.Slides für Node.js via Java festlegt. Bitte folgen Sie den untenstehenden Schritten, um die Transparenz für Text einzustellen:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Holen Sie sich die Referenz einer Folie.
-3. Legen Sie die Schattenfarbe fest.
-4. Schreiben Sie die Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Holen Sie die Referenz einer Folie.
+3. Setzen Sie die Schattenfarbe.
+4. Speichern Sie die Präsentation als PPTX‑Datei.
 
-Die Umsetzung der obigen Schritte ist nachfolgend dargestellt.
+Die Implementierung der obigen Schritte ist unten angegeben.
 ```javascript
 var pres = new aspose.slides.Presentation("transparency.pptx");
 try {
@@ -237,41 +237,41 @@ try {
 
 ## **Zeichenabstand für Text festlegen**
 
-Aspose.Slides ermöglicht das Festlegen des Abstands zwischen Zeichen in einem Textfeld. So können Sie die optische Dichte einer Zeile oder eines Textblocks durch Vergrößern oder Verkleinern des Zeichenabstands anpassen.
+Aspose.Slides ermöglicht es, den Abstand zwischen Zeichen in einem Textfeld festzulegen. Auf diese Weise können Sie die visuelle Dichte einer Zeile oder eines Textblocks durch Vergrößern oder Verkleinern des Zeichenabstands anpassen.
 
-Der folgende JavaScript‑Code zeigt, wie der Abstand für eine Zeile vergrößert und für eine andere verkleinert wird:
+Dieser JavaScript‑Code zeigt, wie man den Abstand für eine Zeile Text erweitert und für eine andere Zeile verkleinert:
 ```javascript
 var presentation = new aspose.slides.Presentation("in.pptx");
 var textBox1 = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 var textBox2 = presentation.getSlides().get_Item(0).getShapes().get_Item(1);
 textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20);// erweitern
-textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2);// verdichten
+textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2);// komprimieren
 presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 
 
 ## **Schrifteigenschaften von Absätzen verwalten**
 
-Präsentationen enthalten meist Text und Bilder. Der Text kann auf verschiedene Weise formatiert werden, etwa um bestimmte Abschnitte hervorzuheben oder um Unternehmensrichtlinien zu entsprechen. Die Textformatierung unterstützt Benutzer dabei, das Erscheinungsbild des Präsentationsinhalts zu variieren. Dieser Artikel zeigt, wie Aspose.Slides für Node.js via Java verwendet wird, um die Schrifteigenschaften von Absätzen auf Folien zu konfigurieren. Vorgehensweise:
+Präsentationen enthalten in der Regel Text und Bilder. Der Text kann auf verschiedene Arten formatiert werden, um bestimmte Abschnitte und Wörter hervorzuheben oder um Unternehmensrichtlinien zu entsprechen. Textformatierung hilft Benutzern, das Aussehen von Präsentationsinhalten zu variieren. Dieser Artikel zeigt, wie man mit Aspose.Slides für Node.js via Java die Schrifteigenschaften von Absätzen auf Folien konfiguriert:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Holen Sie sich die Referenz einer Folie über deren Index.
-3. Greifen Sie auf die Platzhalter‑Shapes in der Folie zu und casten Sie sie zu einer [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-4. Lesen Sie den [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) aus dem [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) der [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) aus.
-5. Justieren Sie den Absatz.
-6. Greifen Sie auf den Text‑Portion eines Absatzes zu.
-7. Definieren Sie die Schriftart mit FontData und setzen Sie die Schriftart des Portion‑Texts entsprechend.
-   - Setzen Sie die Schrift auf fett.
-   - Setzen Sie die Schrift auf kursiv.
-8. Setzen Sie die Schriftfarbe über die Methode [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BasePortionFormat#getFillFormat--) des [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion)-Objekts.
-9. Schreiben Sie die geänderte Präsentation in eine [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Holen Sie die Referenz einer Folie, indem Sie deren Index verwenden.
+1. Greifen Sie auf die Platzhalterformen in der Folie zu und casten Sie sie zu einem [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+1. Erhalten Sie den [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) aus dem [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) des [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+1. Richten Sie den Absatz aus (Blocksatz).
+1. Greifen Sie auf den Textanteil eines Absatzes zu.
+1. Definieren Sie die Schriftart mit FontData und setzen Sie die Schriftart des Textanteils entsprechend.
+   1. Setzen Sie die Schriftart auf fett.
+   1. Setzen Sie die Schriftart auf kursiv.
+1. Setzen Sie die Schriftfarbe mithilfe von [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BasePortionFormat#getFillFormat--) des [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion)-Objekts.
+1. Schreiben Sie die modifizierte Präsentation in eine [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.
 
-Die Umsetzung der obigen Schritte ist nachfolgend dargestellt. Sie verwendet eine unformatierte Präsentation und formatiert die Schriften einer Folie.
+Die Implementierung der obigen Schritte ist unten angegeben. Sie nimmt eine unveränderte Präsentation und formatiert die Schriften auf einer der Folien.
 ```javascript
-// Instanziieren Sie ein Presentation‑Objekt, das eine PPTX‑Datei darstellt
+// Erstelle ein Presentation-Objekt, das eine PPTX-Datei darstellt
 var pres = new aspose.slides.Presentation("FontProperties.pptx");
 try {
-    // Zugriff auf eine Folie anhand ihrer Position
+    // Zugriff auf eine Folie mittels ihrer Position
     var slide = pres.getSlides().get_Item(0);
     // Zugriff auf den ersten und zweiten Platzhalter in der Folie und Typumwandlung zu AutoShape
     var tf1 = slide.getShapes().get_Item(0).getTextFrame();
@@ -279,27 +279,27 @@ try {
     // Zugriff auf den ersten Absatz
     var para1 = tf1.getParagraphs().get_Item(0);
     var para2 = tf2.getParagraphs().get_Item(0);
-    // Zugriff auf die erste Portion
+    // Zugriff auf den ersten Textteil
     var port1 = para1.getPortions().get_Item(0);
     var port2 = para2.getPortions().get_Item(0);
     // Neue Schriftarten definieren
     var fd1 = new aspose.slides.FontData("Elephant");
     var fd2 = new aspose.slides.FontData("Castellar");
-    // Neue Schriftarten der Portion zuweisen
+    // Neue Schriftarten dem Textteil zuweisen
     port1.getPortionFormat().setLatinFont(fd1);
     port2.getPortionFormat().setLatinFont(fd2);
-    // Schrift auf fett setzen
+    // Schriftart fett setzen
     port1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
     port2.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    // Schrift auf kursiv setzen
+    // Schriftart kursiv setzen
     port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Schriftfarbe setzen
+    // Schriftfarbe festlegen
     port1.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
     port2.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // PPTX auf Festplatte schreiben
+    // PPTX auf die Festplatte schreiben
     pres.save("WelcomeFont_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -311,49 +311,49 @@ try {
 
 ## **Schriftfamilie von Text verwalten**
 
-Eine Portion enthält Text mit einheitlicher Formatierung innerhalb eines Absatzes. Dieser Artikel zeigt, wie Aspose.Slides für Node.js via Java verwendet wird, um ein Textfeld zu erzeugen, Text hinzuzufügen und eine bestimmte Schriftart sowie weitere Eigenschaften der Schriftfamilie festzulegen. Vorgehensweise:
+Ein Portion wird verwendet, um Text mit ähnlichem Formatierungsstil in einem Absatz zu halten. Dieser Artikel zeigt, wie man mit Aspose.Slides für Node.js via Java ein Textfeld mit Text erstellt und anschließend eine bestimmte Schriftart sowie weitere Eigenschaften der Schriftfamilie definiert. So erstellen Sie ein Textfeld und setzen Schriftarteigenschaften des darin enthaltenen Textes:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Holen Sie sich die Referenz einer Folie über deren Index.
-3. Fügen Sie der Folie eine [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) vom Typ [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) hinzu.
-4. Entfernen Sie den Füllstil der [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. Greifen Sie auf das TextFrame der AutoShape zu.
-6. Fügen Sie dem TextFrame Text hinzu.
-7. Greifen Sie auf das Portion‑Objekt des [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) zu.
-8. Definieren Sie die für die [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion) zu verwendende Schriftart.
-9. Setzen Sie weitere Schrifteigenschaften wie fett, kursiv, unterstrichen, Farbe und Höhe über die entsprechenden Eigenschaften des Portion‑Objekts.
-10. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Holen Sie die Referenz einer Folie, indem Sie deren Index verwenden.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) des Typs [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) zur Folie hinzu.
+4. Entfernen Sie den Füllstil, der mit dem [AutoShape] verknüpft ist.
+5. Greifen Sie auf das TextFrame des AutoShape zu.
+6. Fügen Sie dem TextFrame etwas Text hinzu.
+7. Greifen Sie auf das Portion-Objekt zu, das mit dem TextFrame verknüpft ist.
+8. Definieren Sie die für die Portion zu verwendende Schriftart.
+9. Setzen Sie weitere Schrifteigenschaften wie fett, kursiv, unterstrichen, Farbe und Höhe mittels der entsprechenden Eigenschaften des Portion-Objekts.
+10. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 
-Die Umsetzung der obigen Schritte ist nachfolgend dargestellt.
+Die Implementierung der obigen Schritte ist unten angegeben.
 ```javascript
-// Instanziieren Sie ein Presentation-Objekt
+// Präsentation instanziieren
 var pres = new aspose.slides.Presentation();
 try {
-    // Erste Folie abrufen
+    // Erste Folie holen
     var sld = pres.getSlides().get_Item(0);
-    // Ein AutoShape vom Typ Rechteck hinzufügen
+    // AutoShape vom Typ Rectangle hinzufügen
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
-    // Entfernen Sie den mit dem AutoShape verknüpften Füllstil
+    // Alle Füllstile des AutoShape entfernen
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Zugriff auf das TextFrame des AutoShape
+    // Auf das zum AutoShape gehörige TextFrame zugreifen
     var tf = ashp.getTextFrame();
     tf.setText("Aspose TextBox");
-    // Zugriff auf die Portion des TextFrame
+    // Auf den zum TextFrame gehörigen Portion zugreifen
     var port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    // Schriftart für die Portion festlegen
+    // Schriftart für den Portion festlegen
     port.getPortionFormat().setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // Fetteigenschaft der Schrift setzen
+    // Fettdruck-Eigenschaft der Schrift setzen
     port.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
     // Kursiv-Eigenschaft der Schrift setzen
     port.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Unterstreichung der Schrift festlegen
+    // Unterstreichungs-Eigenschaft der Schrift setzen
     port.getPortionFormat().setFontUnderline(aspose.slides.TextUnderlineType.Single);
-    // Schrifthöhe festlegen
+    // Schriftgröße festlegen
     port.getPortionFormat().setFontHeight(25);
     // Farbe der Schrift festlegen
     port.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // PPTX auf Festplatte schreiben
+    // PPTX auf die Festplatte schreiben
     pres.save("SetTextFontProperties_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -365,21 +365,21 @@ try {
 
 ## **Schriftgröße für Text festlegen**
 
-Aspose.Slides ermöglicht die Auswahl einer gewünschten Schriftgröße für vorhandenen Text in einem Absatz sowie für später hinzugefügten Text.
+Aspose.Slides ermöglicht es, die bevorzugte Schriftgröße für vorhandenen Text in einem Absatz und für später hinzuzufügenden Text festzulegen.
 
-Der nachstehende JavaScript‑Code zeigt, wie die Schriftgröße für Texte in einem Absatz festgelegt wird:
+Dieser JavaScript‑Code zeigt, wie man die Schriftgröße für Texte in einem Absatz festlegt:
 ```javascript
 var presentation = new aspose.slides.Presentation("example.pptx");
 try {
-    // Ermittelt das erste Shape, zum Beispiel.
+    // Holt das erste Shape, zum Beispiel.
     var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
         var autoShape = shape;
-        // Ermittelt den ersten Absatz, zum Beispiel.
+        // Holt den ersten Absatz, zum Beispiel.
         var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-        // Setzt die Standardschriftgröße auf 20 pt für alle Textportionen im Absatz.
+        // Setzt die Standard-Schriftgröße auf 20 pt für alle Textteile im Absatz.
         paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
-        // Setzt die Schriftgröße auf 20 pt für die aktuellen Textportionen im Absatz.
+        // Setzt die Schriftgröße auf 20 pt für die aktuellen Textteile im Absatz.
         for (let i = 0; i < paragraph.getPortions().getCount(); i++) {
             let portion = paragraph.getPortions().get_Item(i);
             portion.getPortionFormat().setFontHeight(20);
@@ -393,28 +393,28 @@ try {
 ```
 
 
-## **Text rotieren**
+## **Textrotation festlegen**
 
-Aspose.Slides für Node.js via Java ermöglicht es Entwicklern, Text zu rotieren. Der Text kann als [Horizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#MongolianVertical) oder [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft) dargestellt werden. Um den Text eines beliebigen TextFrames zu rotieren, folgen Sie diesen Schritten:
+Aspose.Slides für Node.js via Java ermöglicht Entwicklern, Text zu rotieren. Der Text kann als [Horizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#MongolianVertical) oder [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft) anzeigen lassen. Um den Text eines beliebigen TextFrames zu rotieren, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie der Folie eine beliebige Shape hinzu.
+3. Fügen Sie ein beliebiges Shape zur Folie hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) zu.
-5. [Rotieren Sie den Text](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setTextVerticalType-byte-).
-6. Speichern Sie die Datei auf dem Datenträger.
+5. [Drehen Sie den Text](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setTextVerticalType-byte-).
+6. Speichern Sie die Datei auf der Festplatte.
 ```javascript
 // Instanz der Klasse Presentation erstellen
 var pres = new aspose.slides.Presentation();
 try {
-    // Erste Folie abrufen
+    // Erste Folie holen
     var slide = pres.getSlides().get_Item(0);
     // AutoShape vom Typ Rectangle hinzufügen
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
     // TextFrame zum Rechteck hinzufügen
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Zugriff auf das TextFrame
+    // Auf das TextFrame zugreifen
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
     // Paragraph-Objekt für das TextFrame erstellen
@@ -436,26 +436,26 @@ try {
 
 ## **Benutzerdefinierten Rotationswinkel für TextFrame festlegen**
 
-Aspose.Slides für Node.js via Java unterstützt jetzt das Festlegen eines benutzerdefinierten Rotationswinkels für TextFrames. In diesem Abschnitt wird anhand eines Beispiels gezeigt, wie die Eigenschaft RotationAngle in Aspose.Slides gesetzt wird. Die neuen Methoden [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-) und [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getRotationAngle--) wurden zur Klasse [ChartTextBlockFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartTextBlockFormat) und zur Klasse [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) hinzugefügt und ermöglichen das Setzen eines benutzerdefinierten Rotationswinkels für TextFrames. Vorgehensweise:
+Aspose.Slides für Node.js via Java unterstützt nun das Festlegen eines benutzerdefinierten Rotationswinkels für TextFrame. In diesem Thema zeigen wir anhand eines Beispiels, wie man die Eigenschaft RotationAngle in Aspose.Slides setzt. Die neuen Methoden [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-) und [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getRotationAngle--) wurden zur Klasse [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) hinzugefügt und ermöglichen das Setzen eines benutzerdefinierten Rotationswinkels für TextFrame. Um den RotationAngle zu setzen, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Fügen Sie der Folie ein Diagramm hinzu.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Fügen Sie ein Diagramm auf der Folie hinzu.
 3. [Setzen Sie die Eigenschaft RotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-).
 4. Schreiben Sie die Präsentation als PPTX‑Datei.
 
-Im nachfolgenden Beispiel wird die Eigenschaft RotationAngle gesetzt.
+Im folgenden Beispiel setzen wir die Eigenschaft RotationAngle.
 ```javascript
 // Instanz der Klasse Presentation erstellen
 var pres = new aspose.slides.Presentation();
 try {
-    // Erste Folie abrufen
+    // Erste Folie holen
     var slide = pres.getSlides().get_Item(0);
     // AutoShape vom Typ Rectangle hinzufügen
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
     // TextFrame zum Rechteck hinzufügen
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Zugriff auf das TextFrame
+    // Auf das TextFrame zugreifen
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setRotationAngle(25);
     // Paragraph-Objekt für das TextFrame erstellen
@@ -475,25 +475,25 @@ try {
 ```
 
 
-## **Zeilenabstand von Absätzen**
+## **Zeilenabstand eines Absatzes**
 
-Aspose.Slides stellt unter [`ParagraphFormat`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ParagraphFormat) die Eigenschaften `SpaceAfter`, `SpaceBefore` und `SpaceWithin` bereit, mit denen der Zeilenabstand eines Absatzes verwaltet werden kann. Die drei Eigenschaften werden folgendermaßen verwendet:
+Aspose.Slides bietet Eigenschaften unter [`ParagraphFormat`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ParagraphFormat)—`SpaceAfter`, `SpaceBefore` und `SpaceWithin`—die es ermöglichen, den Zeilenabstand für einen Absatz zu verwalten. Die drei Eigenschaften werden wie folgt verwendet:
 
-* Um den Zeilenabstand prozentual anzugeben, verwenden Sie einen positiven Wert.  
-* Um den Zeilenabstand in Punkten anzugeben, verwenden Sie einen negativen Wert.
+* Um den Zeilenabstand für einen Absatz in Prozent anzugeben, verwenden Sie einen positiven Wert. 
+* Um den Zeilenabstand für einen Absatz in Punkten anzugeben, verwenden Sie einen negativen Wert.
 
-Beispiel: Ein Zeilenabstand von 16 pt wird erreicht, indem `SpaceBefore` auf ‑16 gesetzt wird.
+Beispielsweise können Sie einen Zeilenabstand von 16 pt für einen Absatz anwenden, indem Sie die Eigenschaft `SpaceBefore` auf -16 setzen.
 
 So geben Sie den Zeilenabstand für einen bestimmten Absatz an:
 
-1. Laden Sie eine Präsentation, die eine AutoShape mit Text enthält.
+1. Laden Sie eine Präsentation, die ein AutoShape mit Text enthält.
 2. Holen Sie die Referenz einer Folie über deren Index.
 3. Greifen Sie auf das TextFrame zu.
-4. Greifen Sie auf den Paragraph zu.
-5. Setzen Sie die Paragraph‑Eigenschaften.
+4. Greifen Sie auf den Absatz zu.
+5. Setzen Sie die Absatz‑Eigenschaften.
 6. Speichern Sie die Präsentation.
 
-Der folgende JavaScript‑Code zeigt, wie der Zeilenabstand für einen Absatz festgelegt wird:
+Dieser JavaScript‑Code zeigt, wie man den Zeilenabstand für einen Absatz festlegt:
 ```javascript
 // Instanz der Klasse Presentation erstellen
 var pres = new aspose.slides.Presentation("Fonts.pptx");
@@ -520,14 +520,14 @@ try {
 
 ## **AutofitType‑Eigenschaft für TextFrame festlegen**
 
-In diesem Abschnitt werden die verschiedenen Formatierungseigenschaften von TextFrames erläutert. Der Artikel beschreibt, wie die AutofitType‑Eigenschaft, die Anker‑Position von Text und die Drehung von Text in einer Präsentation gesetzt werden können. Aspose.Slides für Node.js via Java ermöglicht das Setzen der AutofitType‑Eigenschaft jedes TextFrames. AutofitType kann auf [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) oder [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape) gesetzt werden. Bei **Normal** bleibt die Form unverändert, während der Text angepasst wird; bei **Shape** wird die Form so modifiziert, dass nur der erforderliche Text darin enthalten ist. Vorgehensweise:
+In diesem Thema untersuchen wir verschiedene Formatierungseigenschaften von TextFrames. Dieser Artikel behandelt, wie man die AutofitType‑Eigenschaft eines TextFrames, den Anker von Text und die Textrotation in einer Präsentation setzt. Aspose.Slides für Node.js via Java erlaubt Entwicklern, die AutofitType‑Eigenschaft jedes TextFrames zu setzen. AutofitType kann auf [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) oder [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape) gesetzt werden. Wenn sie auf [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) gesetzt ist, bleibt die Form unverändert, während der Text angepasst wird, ohne die Form zu verändern. Wird AutofitType auf [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape) gesetzt, wird die Form so angepasst, dass nur der erforderliche Text darin enthalten ist. Um die AutofitType‑Eigenschaft eines TextFrames zu setzen, führen Sie bitte die folgenden Schritte aus:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) .
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) .
 2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie der Folie eine beliebige Shape hinzu.
+3. Fügen Sie ein beliebiges Shape zur Folie hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) zu.
-5. [Setzen Sie das AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType-byte-) des TextFrames.
-6. Speichern Sie die Datei auf dem Datenträger.
+5. [Setzen Sie die AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType-byte-) des TextFrames.
+6. Speichern Sie die Datei auf der Festplatte.
 ```javascript
 // Instanz der Klasse Presentation erstellen
 var pres = new aspose.slides.Presentation();
@@ -539,7 +539,7 @@ try {
     // TextFrame zum Rechteck hinzufügen
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Zugriff auf das TextFrame
+    // Auf das TextFrame zugreifen
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAutofitType(aspose.slides.TextAutofitType.Shape);
     // Paragraph-Objekt für das TextFrame erstellen
@@ -561,26 +561,26 @@ try {
 
 ## **Anker von TextFrame festlegen**
 
-Aspose.Slides für Node.js via Java ermöglicht das Setzen des Ankers eines beliebigen TextFrames. TextAnchorType legt fest, wo der Text innerhalb der Form platziert wird. Der Anker‑Typ kann auf [Top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Justified) oder [Distributed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Distributed) gesetzt werden. Vorgehensweise:
+Aspose.Slides für Node.js via Java erlaubt Entwicklern, den Anker eines beliebigen TextFrames zu setzen. TextAnchorType gibt an, wo der Text innerhalb der Form platziert wird. AnchorType kann auf [Top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Justified) oder [Distributed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Distributed) gesetzt werden. Um den Anker eines beliebigen TextFrames zu setzen, führen Sie bitte die folgenden Schritte aus:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie der Folie eine beliebige Shape hinzu.
+3. Fügen Sie ein beliebiges Shape zur Folie hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) zu.
 5. [Setzen Sie TextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAnchoringType-byte-) des TextFrames.
-6. Speichern Sie die Datei auf dem Datenträger.
+6. Speichern Sie die Datei auf der Festplatte.
 ```javascript
 // Instanz der Klasse Presentation erstellen
 var pres = new aspose.slides.Presentation();
 try {
-    // Erste Folie abrufen
+    // Erste Folie holen
     var slide = pres.getSlides().get_Item(0);
     // AutoShape vom Typ Rectangle hinzufügen
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
     // TextFrame zum Rechteck hinzufügen
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Zugriff auf das TextFrame
+    // Auf das TextFrame zugreifen
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAnchoringType(aspose.slides.TextAnchorType.Bottom);
     // Paragraph-Objekt für das TextFrame erstellen
@@ -600,24 +600,24 @@ try {
 ```
 
 
-## **Tabs und EffectiveTabs in einer Präsentation**
+## **Tabs und EffectiveTabs in Präsentation**
 
-Alle Texttabulatoren werden in Pixeln angegeben.
+Alle Texttabulatoren werden in Pixel angegeben.
 
 |![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
 | :- |
 |**Abbildung: 2 explizite Tabs und 2 Standard‑Tabs**|
 
-- EffectiveTabs.ExplicitTabCount (in unserem Beispiel 2) entspricht Tabs.Count.  
-- Die EffectiveTabs‑Kollektion enthält alle Tabs (aus der Tabs‑Kollektion und die Standard‑Tabs).  
-- EffectiveTabs.ExplicitTabCount (in unserem Beispiel 2) entspricht Tabs.Count.  
-- EffectiveTabs.DefaultTabSize (294) gibt den Abstand zwischen den Standard‑Tabs an (Tabs 3 und 4 in unserem Beispiel).  
-- EffectiveTabs.GetTabByIndex(index) liefert bei index = 0 den ersten expliziten Tab (Position = 731), bei index = 1 den zweiten Tab (Position = 1241). Bei index = 2 erhalten Sie den ersten Standard‑Tab (Position = 1470) usw.  
-- EffectiveTabs.GetTabAfterPosition(pos) wird verwendet, um den nächsten Tab nach einem Textabschnitt zu ermitteln. Beispiel: Sie haben den Text „Hello World!“. Um diesen Text korrekt zu rendern, müssen Sie zuerst die Länge von „Hello“ in Pixeln berechnen und GetTabAfterPosition mit diesem Wert aufrufen. Das Ergebnis ist die Position des nächsten Tabs, an der „world!“ gezeichnet wird.
+- EffectiveTabs.ExplicitTabCount (2 in unserem Fall) ist gleich Tabs.Count.
+- Die EffectiveTabs‑Sammlung enthält alle Tabs (aus der Tabs‑Sammlung und den Standard‑Tabs).
+- EffectiveTabs.ExplicitTabCount (2 in unserem Fall) ist gleich Tabs.Count.
+- EffectiveTabs.DefaultTabSize (294) gibt den Abstand zwischen Standard‑Tabs (3 und 4 in unserem Beispiel) an.
+- EffectiveTabs.GetTabByIndex(index) mit index = 0 liefert den ersten expliziten Tab (Position = 731), index = 1 – zweiten Tab (Position = 1241). Bei index = 2 wird der erste Standard‑Tab (Position = 1470) zurückgegeben usw.
+- EffectiveTabs.GetTabAfterPosition(pos) wird verwendet, um nach einem Text die nächste Tabulation zu ermitteln. Beispiel: Sie haben den Text „Hello World!“. Um diesen Text zu rendern, müssen Sie wissen, wo Sie „world!“ beginnen lassen. Zuerst berechnen Sie die Länge von „Hello“ in Pixel und rufen GetTabAfterPosition mit diesem Wert auf. Sie erhalten die nächste Tab‑Position, um „world!“ zu zeichnen.
 
 ## **Standard‑Textstil festlegen**
 
-Wenn Sie dieselbe Standard‑Textformatierung für alle Textelemente einer Präsentation gleichzeitig anwenden möchten, können Sie die Methode `getDefaultTextStyle` der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) verwenden und die gewünschte Formatierung festlegen. Das folgende Code‑Beispiel zeigt, wie die Standardschriftart **fett** (14 pt) für den Text aller Folien einer neuen Präsentation gesetzt wird.
+Wenn Sie denselben Standard‑Textformatierungsstil auf alle Textelemente einer Präsentation gleichzeitig anwenden möchten, können Sie die Methode `getDefaultTextStyle` der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse verwenden und das gewünschte Format festlegen. Das folgende Beispiel zeigt, wie man die Standard‑Fettschrift (14 pt) für den Text auf allen Folien einer neuen Präsentation festlegt.
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -636,13 +636,13 @@ try {
 
 ## **Text mit All‑Caps‑Effekt extrahieren**
 
-In PowerPoint bewirkt die Anwendung des **All Caps**‑Schrifteffekts, dass der Text auf der Folie großgeschrieben angezeigt wird, selbst wenn er ursprünglich kleingeschrieben eingegeben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides auslesen, gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um dies zu berücksichtigen, prüfen Sie [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) – wenn er `All` anzeigt, konvertieren Sie den zurückgegebenen String einfach in Großbuchstaben, damit Ihre Ausgabe mit dem, was Benutzer auf der Folie sehen, übereinstimmt.
+In PowerPoint bewirkt die Anwendung des **All Caps**‑Schrifteffekts, dass Text auf der Folie in Großbuchstaben angezeigt wird, auch wenn er ursprünglich klein geschrieben wurde. Wenn Sie einen solchen Textanteil mit Aspose.Slides abrufen, liefert die Bibliothek den Text exakt so, wie er eingegeben wurde. Um dies zu handhaben, prüfen Sie [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) – wenn er `All` anzeigt, konvertieren Sie die zurückgegebene Zeichenfolge einfach in Großbuchstaben, sodass Ihre Ausgabe dem entspricht, was Benutzer auf der Folie sehen.
 
-Angenommen, wir haben das folgende Textfeld auf der ersten Folie der Datei **sample2.pptx**.
+Nehmen wir an, wir haben das folgende Textfeld auf der ersten Folie der Datei sample2.pptx.
 
 ![Der All‑Caps‑Effekt](all_caps_effect.png)
 
-Der nachstehende Code‑Abschnitt zeigt, wie der Text mit dem **All Caps**‑Effekt extrahiert wird:
+Der folgende Code zeigt, wie man den Text mit dem **All Caps**‑Effekt extrahiert:
 ```js
 var presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
@@ -673,10 +673,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Wie kann Text in einer Tabelle auf einer Folie geändert werden?**
+**Wie kann man Text in einer Tabelle auf einer Folie ändern?**
 
-Um Text in einer Tabelle zu ändern, verwenden Sie das Objekt [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). Sie können durch alle Zellen der Tabelle iterieren und den Text jeder Zelle ändern, indem Sie deren `TextFrame`‑ und `ParagraphFormat`‑Eigenschaften ansprechen.
+Um Text in einer Tabelle auf einer Folie zu ändern, nutzen Sie das [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/)‑Objekt. Sie können durch alle Zellen der Tabelle iterieren und den Text in jeder Zelle ändern, indem Sie auf deren `TextFrame`‑ und `ParagraphFormat`‑Eigenschaften innerhalb jeder Zelle zugreifen.
 
-**Wie kann ein Farbverlauf auf Text in einer PowerPoint‑Folien angewendet werden?**
+**Wie kann man Farbverlauf auf Text in einer PowerPoint‑Folien anwenden?**
 
-Verwenden Sie dazu die Eigenschaft Fill Format im [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/). Setzen Sie das Fill Format auf `Gradient` und definieren Sie Start‑ und Endfarbe sowie weitere Eigenschaften wie Richtung und Transparenz, um den Verlaufseffekt auf den Text anzuwenden.
+Um Farbverlauf auf Text anzuwenden, verwenden Sie die Fill‑Format‑Eigenschaft in [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/). Setzen Sie das Fill‑Format auf `Gradient`, wobei Sie die Start‑ und Endfarben des Verlaufs sowie weitere Eigenschaften wie Richtung und Transparenz definieren, um den Verlaufseffekt auf den Text zu erzeugen.

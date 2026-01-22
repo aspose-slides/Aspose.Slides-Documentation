@@ -1,50 +1,62 @@
 ---
-title: Конвертировать PPTX в PPT на JavaScript
-linktitle: Конвертировать PPTX в PPT
+title: Преобразовать PPTX в PPT на JavaScript
+linktitle: PPTX в PPT
 type: docs
 weight: 21
 url: /ru/nodejs-java/convert-pptx-to-ppt/
-keywords: "Java Конвертировать PPTX в PPT, Конвертировать презентацию PowerPoint, PPTX в PPT, Java, Aspose.Slides"
-description: "Конвертировать PowerPoint PPTX в PPT на JavaScript"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPTX
+- PPTX в PPT
+- сохранить PPTX как PPT
+- экспортировать PPTX в PPT
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Легко конвертировать PPTX в PPT с помощью Aspose.Slides — обеспечьте бесшовную совместимость с форматами PowerPoint, сохраняя макет и качество вашей презентации."
 ---
 
 ## **Обзор**
 
-В этой статье объясняется, как с помощью JavaScript преобразовать презентацию PowerPoint в формате PPTX в формат PPT. Рассматривается следующая тема.
+В этой статье объясняется, как преобразовать презентацию PowerPoint в формате PPTX в формат PPT с помощью JavaScript. Рассматривается следующая тема.
 
-- Конвертировать PPTX в PPT с помощью JavaScript
+- Преобразовать PPTX в PPT с помощью JavaScript
 
 ## **Java Конвертировать PPTX в PPT**
 
-Для примера кода JavaScript, который конвертирует PPTX в PPT, см. раздел ниже [Convert PPTX to PPT](#convert-pptx-to-ppt). Он просто загружает файл PPTX и сохраняет его в формате PPT. Указывая различные форматы сохранения, вы также можете сохранить файл PPTX в many other formats like PDF, XPS, ODP, HTML etc. as discussed in these articles.
+Для примера кода JavaScript, конвертирующего PPTX в PPT, смотрите раздел ниже, а именно [Convert PPTX to PPT](#convert-pptx-to-ppt). Он просто загружает файл PPTX и сохраняет его в формате PPT. Указывая разные форматы сохранения, вы также можете сохранять файл PPTX во многих других форматах, таких как PDF, XPS, ODP, HTML и т.д., как описано в этих статьях.
 
-- [Java Конвертировать PPTX в PDF](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-pdf/)
-- [Java Конвертировать PPTX в XPS](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-xps/)
-- [Java Конвертировать PPTX в HTML](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-html/)
-- [Java Конвертировать PPTX в ODP](https://docs.aspose.com/slides/nodejs-java/save-presentation/)
-- [Java Конвертировать PPTX в Image](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-png/)
+- [Преобразовать PPTX в PDF на JavaScript](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/)
+- [Преобразовать PPTX в XPS на JavaScript](/slides/ru/nodejs-java/convert-powerpoint-to-xps/)
+- [Преобразовать PPTX в HTML на JavaScript](/slides/ru/nodejs-java/convert-powerpoint-to-html/)
+- [Преобразовать PPTX в ODP на JavaScript](/slides/ru/nodejs-java/save-presentation/)
+- [Преобразовать PPTX в PNG на JavaScript](/slides/ru/nodejs-java/convert-powerpoint-to-png/)
 
 ## **Конвертировать PPTX в PPT**
 
-Чтобы конвертировать PPTX в PPT, просто передайте имя файла и формат сохранения методу **Save** класса [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). Пример кода JavaScript ниже конвертирует презентацию из PPTX в PPT, используя параметры по умолчанию.
+Чтобы конвертировать PPTX в PPT, просто передайте имя файла и формат сохранения методу **Save** класса [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). Приведённый ниже пример кода JavaScript конвертирует презентацию из PPTX в PPT, используя параметры по умолчанию.
 ```javascript
-// создайте объект Presentation, который представляет файл PPTX
+// создать объект Presentation, который представляет файл PPTX
 var presentation = new aspose.slides.Presentation("template.pptx");
-// сохраните презентацию в формате PPT
+// сохранить презентацию в формате PPT
 presentation.save("output.ppt", aspose.slides.SaveFormat.Ppt);
 ```
 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Все ли эффекты и функции PPTX сохраняются при сохранении в устаревший формат PPT (97–2003)?**
+**Сохраняются ли все эффекты и функции PPTX при сохранении в устаревший формат PPT (97–2003)?**
 
-Не всегда. Формат PPT не поддерживает некоторые новейшие возможности (например, определённые эффекты, объекты и поведения), поэтому функции могут быть упрощены или растрированы при конвертации.
+Не всегда. Формат PPT не поддерживает некоторые новые возможности (например, определённые эффекты, объекты и поведения), поэтому функции могут быть упрощены или растровыми при конвертации.
 
 **Могу ли я конвертировать только выбранные слайды в PPT вместо всей презентации?**
 
-Прямое сохранение охватывает всю презентацию. Чтобы конвертировать определённые слайды, создайте новую презентацию, содержащую только эти слайды, и сохраните её как PPT; либо используйте сервис/API, поддерживающий параметры конвертации по отдельным слайдам.
+Прямое сохранение охватывает всю презентацию. Чтобы конвертировать отдельные слайды, создайте новую презентацию, содержащую только эти слайды, и сохраните её в PPT; альтернативно используйте сервис/API, поддерживающий параметры конвертации по слайдам.
 
 **Поддерживаются ли презентации, защищённые паролем?**
 
-Да. Вы можете определить, защищён ли файл паролем, открыть его с паролем и также [настроить параметры защиты/шифрования](/slides/ru/nodejs-java/password-protected-presentation/) для сохраняемого PPT.
+Да. Вы можете определить, защищён ли файл, открыть его с паролем, а также [configure protection/encryption settings](/slides/ru/nodejs-java/password-protected-presentation/) для сохраняемого PPT.

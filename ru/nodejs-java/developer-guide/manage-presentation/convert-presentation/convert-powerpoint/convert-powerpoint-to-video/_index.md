@@ -1,36 +1,58 @@
 ---
-title: Преобразовать PowerPoint в видео
+title: Конвертировать презентации PowerPoint в видео с помощью JavaScript
+linktitle: PowerPoint в видео
 type: docs
 weight: 130
 url: /ru/nodejs-java/convert-powerpoint-to-video/
-keywords: "Конвертировать PowerPoint, PPT, PPTX, Презентация, Видео, MP4, PPT в видео, PPT в MP4, Java, Aspose.Slides"
-description: "Конвертировать PowerPoint в видео с помощью JavaScript"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в видео
+- презентация в видео
+- PPT в видео
+- PPTX в видео
+- PowerPoint в MP4
+- презентация в MP4
+- PPT в MP4
+- PPTX в MP4
+- сохранить PPT как MP4
+- сохранить PPTX как MP4
+- экспортировать PPT в MP4
+- экспортировать PPTX в MP4
+- конвертация видео
+- PowerPoint
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Узнайте, как конвертировать презентации PowerPoint в видео с помощью JavaScript. Откройте для себя образцы кода и техники автоматизации, упрощающие ваш рабочий процесс."
 ---
 
 Преобразуя вашу презентацию PowerPoint в видео, вы получаете 
 
 * **Повышение доступности:** Все устройства (независимо от платформы) по умолчанию оснащены видеоплеерами, в отличие от приложений для открытия презентаций, поэтому пользователям проще открывать или воспроизводить видео.
-* **Больший охват:** С помощью видео вы можете достичь широкой аудитории и предоставить им информацию, которая иначе могла бы показаться скучной в презентации. Большинство опросов и статистических данных свидетельствуют, что люди смотрят и потребляют видео чаще, чем другие формы контента, и обычно предпочитают такой контент.
+* **Больший охват:** С помощью видео вы можете достичь широкой аудитории и предоставить ей информацию, которая иначе могла бы показаться утомительной в презентации. Большинство опросов и статистических данных показывают, что люди чаще просматривают и потребляют видео, чем другие формы контента, и обычно предпочитают именно его.
 
 {{% alert color="primary" %}} 
 
-Возможно, вам стоит ознакомиться с нашим [**Онлайн-конвертером PowerPoint в видео**](https://products.aspose.app/slides/conversion/ppt-to-word), так как это живой и эффективный пример реализации описанного процесса.
+Возможно, вам стоит проверить наш [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word), так как это живой и эффективный пример реализации процесса, описанного здесь.
 
 {{% /alert %}} 
 
 ## **Преобразование PowerPoint в видео в Aspose.Slides**
 
-В [Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-22-11-release-notes/) мы внедрили поддержку преобразования презентаций в видео.
+Aspose.Slides поддерживает преобразование презентаций в видео.
 
-* Используйте **Aspose.Slides** для генерации набора кадров (из слайдов презентации), соответствующих определённому FPS (кадров в секунду)
-* Используйте стороннюю утилиту, такую как **ffmpeg** ([для java](https://github.com/bramp/ffmpeg-cli-wrapper)), чтобы создать видео на основе этих кадров. 
+* Используйте **Aspose.Slides** для создания набора кадров (из слайдов презентации), соответствующих определённому FPS (кадрам в секунду)
+* Используйте стороннюю утилиту, например **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)), чтобы создать видео на основе кадров. 
 
 ### **Преобразовать PowerPoint в видео**
 
 1. Скачайте ffmpeg [здесь](https://ffmpeg.org/download.html).
 2. Запустите JavaScript‑код преобразования PowerPoint в видео.
 
-Этот JavaScript‑код демонстрирует, как преобразовать презентацию (с рисунком и двумя эффектами анимации) в видео:
+Этот JavaScript‑код показывает, как преобразовать презентацию (содержащую схему и два анимационных эффекта) в видео:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -67,7 +89,7 @@ try {
             animationsGenerator.dispose();
         }
     }
-    // Настройте папку с бинарниками ffmpeg. См. эту страницу: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Настройте папку с бинарными файлами ffmpeg. Смотрите эту страницу: https://github.com/rosenbjerg/FFMpegCore#installation
     var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
     var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
     var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
@@ -79,17 +101,17 @@ try {
 ```
 
 
-## **Эффекты видео**
+## **Видеоэффекты**
 
 Вы можете применять анимацию к объектам на слайдах и использовать переходы между слайдами. 
 
 {{% alert color="primary" %}} 
 
-Вам может быть интересно ознакомиться со следующими статьями: [PowerPoint Animation](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/nodejs-java/shape-animation/), и [Shape Effect](https://docs.aspose.com/slides/nodejs-java/shape-effect/).
+Возможно, вам будет интересно ознакомиться со статьями: [Анимация PowerPoint](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/), [Анимация фигур](https://docs.aspose.com/slides/nodejs-java/shape-animation/), и [Эффект фигур](https://docs.aspose.com/slides/nodejs-java/shape-effect/).
 
 {{% /alert %}} 
 
-Анимации и переходы делают презентации более увлекательными и интересными — и то же самое происходит с видео. Добавим ещё один слайд и переход в код предыдущей презентации:
+Анимация и переходы делают презентацию более захватывающей и интересной — и то же самое происходит с видео. Добавим ещё один слайд и переход в код для предыдущей презентации:
 ```javascript
 // Добавляет форму улыбки и анимирует её
 // ...
@@ -102,15 +124,79 @@ newSlide.getSlideShowTransition().setType(aspose.slides.TransitionType.Push);
 ```
 
 
-## **Классы преобразования видео**
+Aspose.Slides также поддерживает анимацию текста. Мы анимируем абзацы на объектах, которые будут появляться один за другим (с задержкой в одну секунду):
+```javascript
+var presentation = new aspose.slides.Presentation();
+try {
+    // Добавляет текст и анимацию
+    var autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 120, 300, 300);
+    var para1 = new aspose.slides.Paragraph();
+    para1.getPortions().add(new aspose.slides.Portion("Aspose Slides for Node.js via Java"));
+    var para2 = new aspose.slides.Paragraph();
+    para2.getPortions().add(new aspose.slides.Portion("convert PowerPoint Presentation with text to video"));
+    var para3 = new aspose.slides.Paragraph();
+    para3.getPortions().add(new aspose.slides.Portion("paragraph by paragraph"));
+    var paragraphCollection = autoShape.getTextFrame().getParagraphs();
+    paragraphCollection.add(para1);
+    paragraphCollection.add(para2);
+    paragraphCollection.add(para3);
+    paragraphCollection.add(new aspose.slides.Paragraph());
+    var mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
+    var effect1 = mainSequence.addEffect(para1, aspose.slides.EffectType.Appear, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
+    var effect2 = mainSequence.addEffect(para2, aspose.slides.EffectType.Appear, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
+    var effect3 = mainSequence.addEffect(para3, aspose.slides.EffectType.Appear, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
+    var effect4 = mainSequence.addEffect(para3, aspose.slides.EffectType.Appear, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
+    effect1.getTiming().setTriggerDelayTime(1.0);
+    effect2.getTiming().setTriggerDelayTime(1.0);
+    effect3.getTiming().setTriggerDelayTime(1.0);
+    effect4.getTiming().setTriggerDelayTime(1.0);
+    final var fps = 33;
+    var frames = java.newInstanceSync("java.util.ArrayList");
+    var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
+    try {
+        var player = new aspose.slides.PresentationPlayer(animationsGenerator, fps);
+        try {
+            player.setFrameTick((sender, arguments) -> {
+                try {
+                    var frame = java.callStaticMethodSync("java.lang.String", "format", "frame_%04d.png", sender.getFrameIndex());
+                    arguments.getFrame().save(frame, aspose.slides.ImageFormat.Png);
+                    frames.add(frame);
+                } catch (e) {console.log(e);
+                    throw java.newInstanceSync("java.lang.RuntimeException", e);
+                }
+            });
+            animationsGenerator.run(presentation.getSlides());
+        } finally {
+            if (player != null) {
+                player.dispose();
+            }
+        }
+    } finally {
+        if (animationsGenerator != null) {
+            animationsGenerator.dispose();
+        }
+    }
+    // Настройте папку с бинарными файлами ffmpeg. Смотрите эту страницу: https://github.com/rosenbjerg/FFMpegCore#installation
+    var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
+    var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
+    var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
+    var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
+    executor.createJob(builder).run();
+} catch (e) {console.log(e);
+    console.log(e);
+}
+```
+
+
+## **Классы конвертации видео**
 
 Для выполнения задач по преобразованию PowerPoint в видео Aspose.Slides предоставляет классы [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) и [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) позволяет задать размер кадра для будущего видео через конструктор. Если передать экземпляр презентации, будет использован `Presentation.getSlideSize`, и он генерирует анимации, которые использует [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) позволяет задать размер кадра для будущего видео через конструктор. Если передать экземпляр презентации, будет использован `Presentation.getSlideSize`, и он генерирует анимацию, которую использует [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).
 
-При генерации анимаций для каждой последующей анимации создаётся событие `NewAnimation`, которому передаётся параметр [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/). Последний представляет собой класс, отвечающий за воспроизведение отдельной анимации.
+При генерации анимаций создаётся событие `NewAnimation` для каждой последующей анимации, которое имеет параметр плеера анимации презентации. Этот класс представляет плеер отдельной анимации.
 
-Для работы с [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/) используются метод [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#getDuration--) (полная продолжительность анимации) и метод [setTimePosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#setTimePosition-double-). Позиция каждой анимации задаётся в диапазоне от *0 до duration*, после чего метод `getFrame` возвращает BufferedImage, соответствующее состоянию анимации в данный момент:
+Для работы с плеером анимации презентации используют методы `getDuration` (полная длительность анимации) и `setTimePosition`. Каждая позиция анимации задаётся в диапазоне *0 до длительности*, после чего метод `getFrame` возвращает BufferedImage, соответствующий состоянию анимации в данный момент:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -132,7 +218,7 @@ try {
             } catch (e) {console.log(e);
                 throw java.newInstanceSync("java.lang.RuntimeException", e);
             }
-            animationPlayer.setTimePosition(animationPlayer.getDuration());// конечное состояние анимации
+            animationPlayer.setTimePosition(animationPlayer.getDuration());// final state of the animation
             try {
                 // последний кадр анимации
                 animationPlayer.getFrame().save("lastFrame.png", aspose.slides.ImageFormat.Png);
@@ -153,7 +239,7 @@ try {
 ```
 
 
-Чтобы все анимации в презентации воспроизводились одновременно, используется класс [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/). Этот класс принимает экземпляр [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) и FPS для эффектов в конструкторе, а затем вызывает событие `FrameTick` для всех анимаций, чтобы они запустились:
+Чтобы все анимации в презентации воспроизводились одновременно, используется класс [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/). Этот класс принимает экземпляр [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) и FPS для эффектов в конструкторе, после чего вызывает событие `FrameTick` для всех анимаций, чтобы они проигрывались:
 ```javascript
 var presentation = new aspose.slides.Presentation("animated.pptx");
 try {
@@ -187,7 +273,7 @@ try {
 ```
 
 
-Затем сгенерированные кадры могут быть скомпилированы в видео. См. раздел [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Затем сгенерированные кадры могут быть собраны в виде видео. См. раздел [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Поддерживаемые анимации и эффекты**
 
@@ -195,65 +281,65 @@ try {
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Fade** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Fly In** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Float In** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Split** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Wipe** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shape** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Wheel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Random Bars** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Grow & Turn** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Zoom** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Swivel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Bounce** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Появление** | ![not supported](x.png) | ![supported](v.png) |
+| **Исчезание** | ![supported](v.png) | ![supported](v.png) |
+| **Влёт** | ![supported](v.png) | ![supported](v.png) |
+| **Плавный полёт** | ![supported](v.png) | ![supported](v.png) |
+| **Разделение** | ![supported](v.png) | ![supported](v.png) |
+| **Смахивание** | ![supported](v.png) | ![supported](v.png) |
+| **Форма** | ![supported](v.png) | ![supported](v.png) |
+| **Колесо** | ![supported](v.png) | ![supported](v.png) |
+| **Случайные полосы** | ![supported](v.png) | ![supported](v.png) |
+| **Рост и поворот** | ![not supported](x.png) | ![supported](v.png) |
+| **Увеличение** | ![supported](v.png) | ![supported](v.png) |
+| **Вращение** | ![supported](v.png) | ![supported](v.png) |
+| **Отскок** | ![supported](v.png) | ![supported](v.png) |
 
-**Акцент**:
+**Эффект**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Color Pulse** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Teeter** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Spin** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Grow/Shrink** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Desaturate** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Darken** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Lighten** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Transparency** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Object Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Complementary Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Line Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Fill Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Пульс** | ![not supported](x.png) | ![supported](v.png) |
+| **Цветовой пульс** | ![not supported](x.png) | ![supported](v.png) |
+| **Качание** | ![supported](v.png) | ![supported](v.png) |
+| **Вращение** | ![supported](v.png) | ![supported](v.png) |
+| **Увеличение/Уменьшение** | ![not supported](x.png) | ![supported](v.png) |
+| **Обесцвечивание** | ![not supported](x.png) | ![supported](v.png) |
+| **Затемнение** | ![not supported](x.png) | ![supported](v.png) |
+| **Осветление** | ![not supported](x.png) | ![supported](v.png) |
+| **Прозрачность** | ![not supported](x.png) | ![supported](v.png) |
+| **Цвет объекта** | ![not supported](x.png) | ![supported](v.png) |
+| **Дополнительный цвет** | ![not supported](x.png) | ![supported](v.png) |
+| **Цвет линии** | ![not supported](x.png) | ![supported](v.png) |
+| **Цвет заливки** | ![not supported](x.png) | ![supported](v.png) |
 
 **Выход**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Fade** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Fly Out** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Float Out** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Split** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Wipe** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shape** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Random Bars** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shrink & Turn** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Zoom** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Swivel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Bounce** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Исчезновение** | ![not supported](x.png) | ![supported](v.png) |
+| **Исчезание** | ![supported](v.png) | ![supported](v.png) |
+| **Вылет** | ![supported](v.png) | ![supported](v.png) |
+| **Плавный вылет** | ![supported](v.png) | ![supported](v.png) |
+| **Разделение** | ![supported](v.png) | ![supported](v.png) |
+| **Смахивание** | ![supported](v.png) | ![supported](v.png) |
+| **Форма** | ![supported](v.png) | ![supported](v.png) |
+| **Случайные полосы** | ![supported](v.png) | ![supported](v.png) |
+| **Уменьшение и поворот** | ![not supported](x.png) | ![supported](v.png) |
+| **Увеличение** | ![supported](v.png) | ![supported](v.png) |
+| **Вращение** | ![supported](v.png) | ![supported](v.png) |
+| **Отскок** | ![supported](v.png) | ![supported](v.png) |
 
-**Пути движения:**
+**Траектории движения**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Arcs** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Turns** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shapes** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Loops** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Custom Path** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Линии** | ![supported](v.png) | ![supported](v.png) |
+| **Дуги** | ![supported](v.png) | ![supported](v.png) |
+| **Повороты** | ![supported](v.png) | ![supported](v.png) |
+| **Фигуры** | ![supported](v.png) | ![supported](v.png) |
+| **Петли** | ![supported](v.png) | ![supported](v.png) |
+| **Пользовательский путь** | ![supported](v.png) | ![supported](v.png) |
 
 ## **Часто задаваемые вопросы**
 
@@ -267,4 +353,4 @@ try {
 
 **Есть ли ограничения по размеру презентаций при конвертации?**
 
-Aspose.Slides способен обрабатывать презентации практически любого размера. Тем не менее, при работе с очень большими файлами могут потребоваться дополнительные системные ресурсы, и иногда рекомендуется оптимизировать презентацию для повышения производительности.
+Aspose.Slides способен обрабатывать презентации практически любого размера. Однако при работе с очень большими файлами могут потребоваться дополнительные системные ресурсы, и иногда рекомендуется оптимизировать презентацию для повышения производительности.

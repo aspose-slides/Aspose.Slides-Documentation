@@ -1,30 +1,48 @@
 ---
-title: Конвертировать PowerPoint в Markdown на JavaScript
+title: Конвертировать презентации PowerPoint в Markdown на JavaScript
+linktitle: PowerPoint в Markdown
 type: docs
 weight: 140
 url: /ru/nodejs-java/convert-powerpoint-to-markdown/
-keywords: "Конвертировать PowerPoint в Markdown, Конвертировать ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, Java, Aspose.Slides for Node.js via Java"
-description: "Конвертировать PowerPoint в Markdown на JavaScript"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в MD
+- презентация в MD
+- слайд в MD
+- PPT в MD
+- PPTX в MD
+- сохранить PowerPoint как Markdown
+- сохранить презентацию как Markdown
+- сохранить слайд как Markdown
+- сохранить PPT как MD
+- сохранить PPTX как MD
+- экспортировать PPT в MD
+- exportPPTX в MD
+- PowerPoint
+- презентация
+- Markdown
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Конвертировать слайды PowerPoint в JavaScript — PPT, PPTX — в чистый Markdown с помощью Aspose.Slides для Node.js через Java, автоматизировать документацию и сохранять форматирование."
 ---
 
-{{% alert color="info" %}} 
+{{% alert color="warning" %}}
 
-Поддержка конвертации PowerPoint в markdown реализована в [Aspose.Slides 23.7](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-23-7-release-notes/).
+Экспорт PowerPoint в markdown по умолчанию **без изображений**. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, вам нужно вызвать `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` и также задать `BasePath`, куда будут сохраняться изображения, на которые ссылается markdown‑документ.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-{{% alert color="warning" %}} 
+## **Преобразование PowerPoint в Markdown**
 
-Экспорт PowerPoint в markdown **по умолчанию без изображений**. Если нужно экспортировать документ PowerPoint с изображениями, вызовите `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` и также задайте `BasePath`, куда будут сохраняться изображения, используемые в markdown‑документе.
-
-{{% /alert %}} 
-
-## **Конвертация PowerPoint в Markdown**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) для представления объекта презентации.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), представляющий объект презентации.
 2. Используйте метод [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save-aspose.slides.IXamlOptions-) для сохранения объекта в файл markdown.
 
-Этот JavaScript‑код демонстрирует, как конвертировать PowerPoint в markdown:
+Этот код JavaScript показывает, как преобразовать PowerPoint в markdown:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -37,11 +55,11 @@ try {
 ```
 
 
-## **Конвертация PowerPoint в различные варианты markdown**
+## **Преобразование PowerPoint в варианты Markdown**
 
-Aspose.Slides позволяет конвертировать PowerPoint в markdown (с базовым синтаксисом), CommonMark, GitHub‑flavored markdown, Trello, XWiki, GitLab и ещё 17 вариантов markdown.
+Aspose.Slides позволяет преобразовать PowerPoint в markdown (с базовым синтаксисом), CommonMark, markdown в стиле GitHub, Trello, XWiki, GitLab и ещё 17 вариантов markdown.
 
-Этот JavaScript‑код показывает, как конвертировать PowerPoint в CommonMark:
+Этот код JavaScript показывает, как преобразовать PowerPoint в CommonMark:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -58,13 +76,13 @@ try {
 
 23 поддерживаемых варианта markdown перечислены в [перечислении Flavor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/flavor/) класса [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownsaveoptions/).
 
-## **Конвертация презентации с изображениями в Markdown**
+## **Преобразование презентации с изображениями в Markdown**
 
-Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownsaveoptions/) предоставляет свойства и перечисления, позволяющие задать параметры для результирующего markdown‑файла. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownexporttype/) может принимать значения, определяющие способ обработки изображений: `Sequential`, `TextOnly`, `Visual`.
+Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownsaveoptions/) предоставляет свойства и перечисления, позволяющие задавать различные параметры для результирующего markdown‑файла. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownexporttype/) может быть установлено в значения, определяющие, как изображения отображаются или обрабатываются: `Sequential`, `TextOnly`, `Visual`.
 
-### **Последовательная конвертация изображений**
+### **Последовательное преобразование изображений**
 
-Если требуется, чтобы изображения появлялись по одному в результирующем markdown, выберите вариант `Sequential`. Этот JavaScript‑код демонстрирует, как конвертировать презентацию с изображениями в markdown:
+Если вы хотите, чтобы изображения появлялись одно за другим в результирующем markdown, выберите последовательный вариант. Этот код JavaScript показывает, как преобразовать презентацию с изображениями в markdown:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -83,11 +101,11 @@ try {
 ```
 
 
-### **Визуальная конвертация изображений**
+### **Визуальное преобразование изображений**
 
-Если нужно, чтобы изображения отображались вместе в результирующем markdown, выберите вариант `Visual`. В этом случае изображения сохраняются в текущий каталог приложения (и в markdown‑документе будет построен относительный путь), либо можно указать свой путь и имя папки.
+Если вы хотите, чтобы изображения отображались вместе в результирующем markdown, выберите визуальный вариант. В этом случае изображения будут сохранены в текущий каталог приложения (и в markdown‑документе будет построен относительный путь к ним), либо вы можете указать предпочтительный путь и имя папки.
 
-Этот JavaScript‑код демонстрирует процесс:
+Этот код JavaScript демонстрирует операцию:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -109,12 +127,12 @@ try {
 
 **Сохраняются ли гиперссылки при экспорте в Markdown?**
 
-Да. Текстовые [гиперссылки](/slides/ru/nodejs-java/manage-hyperlinks/) сохраняются как обычные ссылки Markdown. [Переходы](/slides/ru/nodejs-java/slide-transition/) и [анимации](/slides/ru/nodejs-java/powerpoint-animation/) слайдов не конвертируются.
+Да. Текстовые [гиперссылки](/slides/ru/nodejs-java/manage-hyperlinks/) сохраняются как стандартные ссылки Markdown. [Переходы](/slides/ru/nodejs-java/slide-transition/) и [анимации](/slides/ru/nodejs-java/powerpoint-animation/) слайдов не преобразуются.
 
-**Можно ли ускорить конвертацию, запустив её в нескольких потоках?**
+**Могу ли я ускорить конвертацию, запустив её в нескольких потоках?**
 
-Можно выполнять параллельную обработку файлов, но [не следует делить](/slides/ru/nodejs-java/multithreading/) один и тот же объект [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) между потоками. Используйте отдельные экземпляры или процессы для каждого файла, чтобы избежать конфликтов.
+Можно выполнять конвертацию параллельно для разных файлов, но [не делитесь](/slides/ru/nodejs-java/multithreading/) одним и тем же объектом [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) между потоками. Используйте отдельные экземпляры/процессы для каждого файла, чтобы избежать конфликтов.
 
 **Что происходит с изображениями — где они сохраняются и являются ли пути относительными?**
 
-[Изображения](/slides/ru/nodejs-java/image/) экспортируются в отдельную папку, а markdown‑файл по умолчанию ссылается на них относительными путями. Можно настроить базовый путь вывода и имя папки ресурсов, чтобы обеспечить предсказуемую структуру репозитория.
+[Изображения](/slides/ru/nodejs-java/image/) экспортируются в отдельную папку, а Markdown‑файл по умолчанию ссылается на них относительными путями. Вы можете настроить базовый путь вывода и имя папки ресурсов, чтобы поддерживать предсказуемую структуру репозитория.

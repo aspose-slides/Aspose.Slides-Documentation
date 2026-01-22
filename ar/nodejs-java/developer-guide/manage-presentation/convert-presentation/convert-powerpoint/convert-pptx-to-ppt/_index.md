@@ -1,50 +1,62 @@
 ---
-title: تحويل PPTX إلى PPT باستخدام JavaScript
-linktitle: تحويل PPTX إلى PPT
+title: تحويل PPTX إلى PPT في JavaScript
+linktitle: PPTX إلى PPT
 type: docs
 weight: 21
 url: /ar/nodejs-java/convert-pptx-to-ppt/
-keywords: "تحويل PPTX إلى PPT باستخدام Java, تحويل عرض PowerPoint, PPTX إلى PPT, Java, Aspose.Slides"
-description: "تحويل PowerPoint PPTX إلى PPT باستخدام JavaScript"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPTX
+- PPTX إلى PPT
+- حفظ PPTX كـ PPT
+- تصدير PPTX إلى PPT
+- PowerPoint
+- العرض التقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تحويل PPTX إلى PPT بسهولة باستخدام Aspose.Slides—ضمان توافق سلس مع صيغ PowerPoint مع الحفاظ على تخطيط وجودة العرض التقديمي الخاص بك."
 ---
 
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تحويل عرض PowerPoint بصيغة PPTX إلى صيغة PPT باستخدام JavaScript. الموضوع التالي مغطى.
+توضح هذه المقالة كيفية تحويل عرض PowerPoint بتنسيق PPTX إلى تنسيق PPT باستخدام JavaScript. الموضوع التالي مغطى.
 
-- تحويل PPTX إلى PPT باستخدام JavaScript
+- تحويل PPTX إلى PPT في JavaScript
 
 ## **Java تحويل PPTX إلى PPT**
 
-للحصول على عينة شفرة JavaScript لتحويل PPTX إلى PPT، يرجى الاطلاع على القسم أدناه أي [Convert PPTX to PPT](#convert-pptx-to-ppt). يقوم بتحميل ملف PPTX وحفظه بصيغة PPT. عن طريق تحديد صيغ حفظ مختلفة، يمكنك أيضًا حفظ ملف PPTX بصيغ أخرى مثل PDF و XPS و ODP و HTML وغيرها كما نوقش في هذه المقالات.
+للحصول على عينة شفرة JavaScript لتحويل PPTX إلى PPT، يرجى الاطلاع على القسم أدناه أي [Convert PPTX to PPT](#convert-pptx-to-ppt). تقوم بتحميل ملف PPTX وحفظه بتنسيق PPT. من خلال تحديد تنسيقات حفظ مختلفة، يمكنك أيضًا حفظ ملف PPTX إلى العديد من التنسيقات الأخرى مثل PDF و XPS و ODP و HTML وغيرها كما نوقش في هذه المقالات. 
 
-- [Java تحويل PPTX إلى PDF](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-pdf/)
-- [Java تحويل PPTX إلى XPS](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-xps/)
-- [Java تحويل PPTX إلى HTML](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-html/)
-- [Java تحويل PPTX إلى ODP](https://docs.aspose.com/slides/nodejs-java/save-presentation/)
-- [Java تحويل PPTX إلى صورة](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-png/)
+- [تحويل PPTX إلى PDF في JavaScript](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/)
+- [تحويل PPTX إلى XPS في JavaScript](/slides/ar/nodejs-java/convert-powerpoint-to-xps/)
+- [تحويل PPTX إلى HTML في JavaScript](/slides/ar/nodejs-java/convert-powerpoint-to-html/)
+- [تحويل PPTX إلى ODP في JavaScript](/slides/ar/nodejs-java/save-presentation/)
+- [تحويل PPTX إلى PNG في JavaScript](/slides/ar/nodejs-java/convert-powerpoint-to-png/)
 
 ## **تحويل PPTX إلى PPT**
 
-لتحويل PPTX إلى PPT، ما عليك سوى تمرير اسم الملف وصيغة الحفظ إلى طريقة **Save** في فئة [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). عينة الشفرة JavaScript أدناه تحول Presentation من PPTX إلى PPT باستخدام الخيارات الافتراضية.
+لتحويل PPTX إلى PPT ببساطة مرّر اسم الملف وتنسيق الحفظ إلى طريقة **Save** من الفئة [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). عينة الشفرة JavaScript أدناه تحول عرضًا من PPTX إلى PPT باستخدام الإعدادات الافتراضية.
 ```javascript
 // إنشاء كائن Presentation يمثل ملف PPTX
 var presentation = new aspose.slides.Presentation("template.pptx");
-// حفظ العرض كملف PPT
+// save the presentation as PPT
 presentation.save("output.ppt", aspose.slides.SaveFormat.Ppt);
 ```
 
 
 ## **الأسئلة الشائعة**
 
-**هل جميع تأثيرات وميزات PPTX تبقى عند الحفظ بصيغة PPT القديمة (97–2003)؟**
+**هل تبقى جميع تأثيرات وميزات PPTX عند حفظها بتنسيق PPT القديم (97–2003)؟**
 
-ليس دائماً. صيغة PPT تفتقر إلى بعض القدرات الأحدث (مثل بعض التأثيرات، الكائنات، والسلوكيات)، لذا قد يتم تبسيط الميزات أو تحويلها إلى صورة raster أثناء التحويل.
+ليس دائمًا. يفتقر تنسيق PPT إلى بعض القدرات الأحدث (مثل بعض التأثيرات والكائنات والسلوكيات)، لذا قد يتم تبسيط أو تحويل الميزات إلى صورة raster أثناء التحويل.
 
 **هل يمكنني تحويل شرائح محددة فقط إلى PPT بدلاً من العرض الكامل؟**
 
-الحفظ المباشر يستهدف العرض كاملًا. لتحويل شرائح محددة، أنشئ عرضًا جديدًا يحتوي فقط على تلك الشرائح وقم بحفظه كـ PPT؛ أو استخدم خدمة/API تدعم معلمات التحويل لكل شريحة.
+الحفظ المباشر يستهدف العرض كاملًا. لتحويل شرائح محددة، أنشئ عرضًا جديدًا يحتوي على تلك الشرائح فقط واحفظه كـ PPT؛ أو استخدم خدمة/واجهة برمجة تطبيقات تدعم معلمات تحويل لكل شريحة.
 
-**هل يتم دعم العروض المحمية بكلمة مرور؟**
+**هل تدعم العروض المحمية بكلمة مرور؟**
 
-نعم. يمكنك اكتشاف ما إذا كان الملف محميًا، فتحه باستخدام كلمة مرور، وأيضًا [تكوين إعدادات الحماية/التشفير](/slides/ar/nodejs-java/password-protected-presentation/) للـ PPT المحفوظ.
+نعم. يمكنك اكتشاف ما إذا كان الملف محميًا، فتحه باستخدام كلمة مرور، وكذلك [تكوين إعدادات الحماية/التشفير](/slides/ar/nodejs-java/password-protected-presentation/) للـ PPT المحفوظ.

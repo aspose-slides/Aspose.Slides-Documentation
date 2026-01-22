@@ -1,11 +1,11 @@
 ---
-title: Форматирование текста PowerPoint в JavaScript
+title: Форматировать текст PowerPoint в JavaScript
 linktitle: Форматирование текста
 type: docs
 weight: 50
 url: /ru/nodejs-java/text-formatting/
 keywords:
-- выделение текста
+- выделить текст
 - регулярное выражение
 - выравнивание абзаца
 - стиль текста
@@ -14,12 +14,12 @@ keywords:
 - межсимвольный интервал
 - свойства шрифта
 - семейство шрифтов
-- вращение текста
-- угол вращения
-- текстовый фрейм
+- поворот текста
+- угол поворота
+- текстовый кадр
 - межстрочный интервал
 - свойство автоподгонки
-- привязка текстового фрейма
+- привязка текстового кадра
 - табуляция текста
 - язык по умолчанию
 - PowerPoint
@@ -28,23 +28,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как форматировать и оформлять текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Node.js через Java. Настраивайте шрифты, цвета, выравнивание и многое другое с помощью мощных примеров кода на JavaScript."
+description: "Форматировать и оформлять текст в презентациях PowerPoint и OpenDocument с помощью JavaScript и Aspose.Slides для Node.js. Настраивайте шрифты, цвета, выравнивание и многое другое."
 ---
 
-## **Выделение текста**
+## **Выделить текст**
 
 Метод [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightText-java.lang.String-java.awt.Color-) был добавлен в класс [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) и класс [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame).
 
 Он позволяет выделять часть текста фоновым цветом, используя образец текста, аналогично инструменту Text Highlight Color в PowerPoint 2019.
 
-Ниже показан фрагмент кода, демонстрирующий, как использовать эту функцию:
+Ниже приведён фрагмент кода, показывающий, как использовать эту функцию:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var textHighlightingOptions = new aspose.slides.TextHighlightingOptions();
     textHighlightingOptions.setWholeWordsOnly(true);
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// выделение всех слов 'important'
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// выделение всех отдельных вхождений 'the'
+    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// подсветка всех слов 'important'
+    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// подсветка всех отдельных вхождений 'the' 
     pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -55,23 +55,21 @@ try {
 
 
 {{% alert color="primary" %}} 
-
 Aspose предоставляет простой, [бесплатный онлайн‑сервис редактирования PowerPoint](https://products.aspose.app/slides/editor)
-
 {{% /alert %}} 
 
-## **Выделение текста с помощью регулярного выражения**
+## **Выделить текст с помощью регулярного выражения**
 
 Метод [highlightRegex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightRegex-java.lang.String-java.awt.Color-aspose.slides.ITextHighlightingOptions-) был добавлен в класс [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) и класс [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame).
 
 Он позволяет выделять часть текста фоновым цветом, используя регулярное выражение, аналогично инструменту Text Highlight Color в PowerPoint 2019.
 
-Ниже показан фрагмент кода, демонстрирующий, как использовать эту функцию:
+Ниже приведён фрагмент кода, показывающий, как использовать эту функцию:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var options = new aspose.slides.TextHighlightingOptions();
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// выделение всех слов длиной 10 символов и более
+    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// подсветка всех слов, состоящих из 10 и более символов
     pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -81,11 +79,11 @@ try {
 ```
 
 
-## **Установка фонового цвета текста**
+## **Установить цвет фона текста**
 
-Aspose.Slides позволяет указать предпочитаемый цвет фона текста.
+Aspose.Slides позволяет указать предпочтительный цвет фона текста.
 
-Этот JavaScript‑код показывает, как установить фоновой цвет для всего текста:
+Этот JavaScript‑код показывает, как установить цвет фона для всего текста:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -130,7 +128,7 @@ try {
 ```
 
 
-Этот JavaScript‑код показывает, как установить фоновой цвет только для части текста:
+Этот JavaScript‑код показывает, как установить цвет фона только для части текста:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -170,32 +168,32 @@ try {
 
 ## **Выравнивание абзацев текста**
 
-Форматирование текста — один из ключевых элементов при создании любых документов или презентаций. Мы знаем, что Aspose.Slides for Node.js via Java поддерживает добавление текста на слайды, но в этой теме мы посмотрим, как можно управлять выравниванием абзацев текста на слайде. Пожалуйста, выполните следующие шаги, чтобы выровнять абзацы текста, используя Aspose.Slides for Node.js via Java:
+Форматирование текста является одним из ключевых элементов при создании любых документов или презентаций. Мы знаем, что Aspose.Slides for Node.js via Java поддерживает добавление текста на слайды, но в этой теме мы посмотрим, как управлять выравниванием абзацев текста на слайде. Пожалуйста, выполните следующие шаги для выравнивания абзацев текста с помощью Aspose.Slides for Node.js via Java:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Получите ссылку на слайд, используя его индекс.
-3. Получите доступ к Placeholder‑формам на слайде и приведите их к типу [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+3. Доступ к фигурам‑заместителям, находящимся на слайде, и приведите их к типу [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
 4. Получите абзац (который нужно выровнять) из [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getTextFrame--) объекта [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. Выровняйте абзац. Абзац может быть выровнен по правому, левому, центру или с выравниванием по ширине.
-6. Сохраните изменённую презентацию в файл PPTX.
+5. Выравнивайте абзац. Абзац может быть выровнен по правому, левому краю, по центру или по ширине.
+6. Запишите изменённую презентацию в файл PPTX.
 
-Реализация вышеуказанных шагов приведена ниже.
+Реализация указанных шагов приведена ниже.
 ```javascript
 // Создать объект Presentation, представляющий файл PPTX
 var pres = new aspose.slides.Presentation("ParagraphsAlignment.pptx");
 try {
-    // Доступ к первому слайду
+    // Получение первого слайда
     var slide = pres.getSlides().get_Item(0);
-    // Доступ к первому и второму placeholder на слайде и приведение их к AutoShape
+    // Получение первого и второго заполнителей на слайде и приведение их к типу AutoShape
     var tf1 = slide.getShapes().get_Item(0).getTextFrame();
     var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-    // Изменить текст в обоих placeholder
+    // Изменение текста в обоих заполнителях
     tf1.setText("Center Align by Aspose");
     tf2.setText("Center Align by Aspose");
-    // Получение первого абзаца в placeholder
+    // Получение первого абзаца из заполнителей
     var para1 = tf1.getParagraphs().get_Item(0);
     var para2 = tf2.getParagraphs().get_Item(0);
-    // Выравнивание абзаца текста по центру
+    // Выровнять абзац текста по центру
     para1.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
     para2.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
     // Сохранение презентации в файл PPTX
@@ -208,16 +206,16 @@ try {
 ```
 
 
-## **Установка прозрачности текста**
+## **Установить прозрачность текста**
 
-В этой статье показано, как задать свойство прозрачности для любой текстовой формы с помощью Aspose.Slides for Node.js via Java. Чтобы установить прозрачность текста, выполните следующие шаги:
+В этой статье показано, как задать свойство прозрачности любой текстовой фигуре с помощью Aspose.Slides for Node.js via Java. Чтобы установить прозрачность текста, выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Получите ссылку на слайд.
-3. Установите цвет тени.
-4. Сохраните презентацию в файл PPTX.
+3. Задайте цвет тени.
+4. Запишите презентацию в файл PPTX.
 
-Реализация вышеуказанных шагов приведена ниже.
+Реализация указанных шагов приведена ниже.
 ```javascript
 var pres = new aspose.slides.Presentation("transparency.pptx");
 try {
@@ -226,7 +224,7 @@ try {
     var outerShadowEffect = effects.getOuterShadowEffect();
     var shadowColor = outerShadowEffect.getShadowColor().getColor();
     console.log((shadowColor.toString() + " - transparency is: ") + ((shadowColor.getAlpha() / 255.0) * 100));
-    // установить прозрачность в 0 процентов
+    // установить прозрачность в ноль процентов
     outerShadowEffect.getShadowColor().setColor(java.newInstanceSync("java.awt.Color", shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
     pres.save("transparency-2.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -237,9 +235,9 @@ try {
 ```
 
 
-## **Установка межсимвольного интервала для текста**
+## **Установить межсимвольный интервал текста**
 
-Aspose.Slides позволяет задать интервал между буквами в текстовом поле. Таким образом, вы можете регулировать визуальную плотность строки или блока текста, расширяя или сужая интервал между символами.
+Aspose.Slides позволяет задавать расстояние между буквами в текстовом поле. Таким образом, вы можете регулировать визуальную плотность строки или блока текста, расширяя или сжимая интервал между символами.
 
 Этот JavaScript‑код показывает, как увеличить интервал для одной строки текста и уменьшить его для другой строки:
 ```javascript
@@ -254,40 +252,40 @@ presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 
 ## **Управление свойствами шрифта абзаца**
 
-Презентации обычно содержат как текст, так и изображения. Текст может быть отформатирован различными способами — либо для выделения определённых разделов и слов, либо в соответствии с корпоративными стилями. Форматирование текста помогает пользователям варьировать внешний вид содержимого презентации. Эта статья показывает, как с помощью Aspose.Slides for Node.js via Java настроить свойства шрифта абзацев текста на слайдах. Чтобы управлять свойствами шрифта абзаца, выполните следующие шаги:
+Презентации обычно содержат как текст, так и изображения. Текст может быть отформатирован по‑разному: для выделения определённых разделов и слов или в соответствии с корпоративными стилями. Форматирование текста помогает пользователям менять внешний вид содержимого презентации. В этой статье показано, как с помощью Aspose.Slides for Node.js via Java настроить свойства шрифта абзацев текста на слайдах. Для управления свойствами шрифта абзаца выполните:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. Получите ссылку на слайд, используя его индекс.
-1. Получите доступ к Placeholder‑формам на слайде и приведите их к типу [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-1. Получите [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) из [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), предоставленного объектом [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-1. Выравняйте абзац.
-1. Получите текстовую Portion абзаца.
-1. Определите шрифт с помощью FontData и задайте шрифт Portion соответственно.  
-   1. Установите шрифт полужирным.  
-   1. Установите шрифт курсивом.
+1. Доступ к фигурам‑заместителям на слайде и приведите их к типу [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+1. Получите [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) из [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), связанного с [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+1. Выравняйте абзац по ширине.
+1. Получите объект Portion текста абзаца.
+1. Определите шрифт с помощью FontData и задайте шрифт Portion соответственно.
+   1. Сделайте шрифт полужирным.
+   1. Сделайте шрифт курсивом.
 1. Задайте цвет шрифта, используя [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BasePortionFormat#getFillFormat--) объекта [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion).
-1. Сохраните изменённую презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. Запишите изменённую презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).
 
-Реализация вышеуказанных шагов приведена ниже. Она берёт простую презентацию и форматирует шрифты на одном из слайдов.
+Реализация указанных шагов приведена ниже. Она берёт простую презентацию и форматирует шрифты на одном из слайдов.
 ```javascript
 // Создать объект Presentation, представляющий файл PPTX
 var pres = new aspose.slides.Presentation("FontProperties.pptx");
 try {
-    // Доступ к слайду по его индексу
+    // Получение слайда по его позиции
     var slide = pres.getSlides().get_Item(0);
-    // Доступ к первому и второму placeholder на слайде и приведение их к AutoShape
+    // Получение первого и второго заполнителя на слайде и приведение их к типу AutoShape
     var tf1 = slide.getShapes().get_Item(0).getTextFrame();
     var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-    // Доступ к первому абзацу
+    // Получение первого абзаца
     var para1 = tf1.getParagraphs().get_Item(0);
     var para2 = tf2.getParagraphs().get_Item(0);
-    // Доступ к первой части текста
+    // Получение первой части
     var port1 = para1.getPortions().get_Item(0);
     var port2 = para2.getPortions().get_Item(0);
     // Определить новые шрифты
     var fd1 = new aspose.slides.FontData("Elephant");
     var fd2 = new aspose.slides.FontData("Castellar");
-    // Присвоить новые шрифты части текста
+    // Назначить новые шрифты части
     port1.getPortionFormat().setLatinFont(fd1);
     port2.getPortionFormat().setLatinFont(fd2);
     // Установить шрифт полужирным
@@ -301,7 +299,7 @@ try {
     port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
     port2.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Сохранить PPTX на диск
+    // Записать PPTX на диск
     pres.save("WelcomeFont_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -313,20 +311,20 @@ try {
 
 ## **Управление семейством шрифтов текста**
 
-Portion используется для хранения текста с одинаковым стилем форматирования в абзаце. Эта статья показывает, как с помощью Aspose.Slides for Node.js via Java создать текстовое поле с некоторым текстом, а затем задать конкретный шрифт и другие свойства семейства шрифтов. Чтобы создать текстовое поле и задать свойства шрифта текста в нём:
+Portion используется для хранения текста с одинаковым стилем в абзаце. Эта статья показывает, как с помощью Aspose.Slides for Node.js via Java создать текстовое поле с текстом, затем задать конкретный шрифт и другие свойства семейства шрифтов. Для создания текстового поля и установки свойств шрифта текста выполните:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Получите ссылку на слайд, используя его индекс.
 3. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) типа [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) на слайд.
-4. Удалите стиль заполнения, связанный с [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. Получите TextFrame AutoShape.
+4. Удалите заливку, связанную с [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+5. Доступ к TextFrame AutoShape.
 6. Добавьте некоторый текст в TextFrame.
-7. Получите объект Portion, связанный с [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+7. Доступ к объекту Portion, связанному с [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
 8. Определите шрифт, который будет использоваться для [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion).
-9. Задайте другие свойства шрифта, такие как полужирный, курсив, подчеркивание, цвет и высота, используя соответствующие свойства объекта Portion.
-10. Сохраните изменённую презентацию в файл PPTX.
+9. Задайте другие свойства шрифта, такие как полужирный, курсив, подчёркивание, цвет и размер, используя соответствующие свойства Portion.
+10. Запишите изменённую презентацию в файл PPTX.
 
-Реализация вышеуказанных шагов приведена ниже.
+Реализация указанных шагов приведена ниже.
 ```javascript
 // Создать объект Presentation
 var pres = new aspose.slides.Presentation();
@@ -335,7 +333,7 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Добавить AutoShape типа Rectangle
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
-    // Удалить любой стиль заполнения, связанный с AutoShape
+    // Удалить любой стиль заливки, связанный с AutoShape
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Получить TextFrame, связанный с AutoShape
     var tf = ashp.getTextFrame();
@@ -365,9 +363,9 @@ try {
 ```
 
 
-## **Установка размера шрифта текста**
+## **Установить размер шрифта текста**
 
-Aspose.Slides позволяет выбрать предпочтительный размер шрифта для существующего текста в абзаце и для текста, который может быть добавлен позже в тот же абзац.
+Aspose.Slides позволяет задать предпочтительный размер шрифта для существующего текста в абзаце и для другого текста, который может быть добавлен позже.
 
 Этот JavaScript‑код показывает, как задать размер шрифта для текста, содержащегося в абзаце:
 ```javascript
@@ -379,9 +377,9 @@ try {
         var autoShape = shape;
         // Получаем первый абзац, например.
         var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-        // Устанавливает размер шрифта по умолчанию 20 pt для всех текстовых частей в абзаце.
+        // Устанавливает размер шрифта по умолчанию 20 пунктов для всех текстовых частей в абзаце.
         paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
-        // Устанавливает размер шрифта 20 pt для текущих текстовых частей в абзаце.
+        // Устанавливает размер шрифта 20 пунктов для текущих текстовых частей в абзаце.
         for (let i = 0; i < paragraph.getPortions().getCount(); i++) {
             let portion = paragraph.getPortions().get_Item(i);
             portion.getPortionFormat().setFontHeight(20);
@@ -395,14 +393,14 @@ try {
 ```
 
 
-## **Установка вращения текста**
+## **Установить поворот текста**
 
-Aspose.Slides for Node.js via Java позволяет разработчикам вращать текст. Текст может быть отображён как [Horizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#MongolianVertical) или [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). Чтобы вращать текст в любом TextFrame, выполните следующие шаги:
+Aspose.Slides for Node.js via Java позволяет разработчикам поворачивать текст. Текст может отображаться как [Horizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#MongolianVertical) или [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). Чтобы повернуть текст любого TextFrame, выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Получите доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+2. Доступ к первому слайду.
+3. Добавьте любую фигуру на слайд.
+4. Доступ к [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
 5. [Rotate the text](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setTextVerticalType-byte-).
 6. Сохраните файл на диск.
 ```javascript
@@ -416,10 +414,10 @@ try {
     // Добавить TextFrame к прямоугольнику
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Доступ к текстовому фрейму
+    // Получение текстового кадра
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
-    // Создать объект Paragraph для текстового фрейма
+    // Создать объект Paragraph для текстового кадра
     var para = txtFrame.getParagraphs().get_Item(0);
     // Создать объект Portion для абзаца
     var portion = para.getPortions().get_Item(0);
@@ -436,16 +434,16 @@ try {
 ```
 
 
-## **Установка пользовательского угла вращения для TextFrame**
+## **Установить пользовательский угол поворота для TextFrame**
 
-Aspose.Slides for Node.js via Java теперь поддерживает установку пользовательского угла вращения для TextFrame. В этой теме мы покажем пример, как задать свойство RotationAngle в Aspose.Slides. В новые методы [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-) и [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getRotationAngle--) были добавлены в классы [ChartTextBlockFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartTextBlockFormat) и [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat), позволяя задавать пользовательский угол вращения для TextFrame. Чтобы задать RotationAngle, выполните следующие шаги:
+Aspose.Slides for Node.js via Java теперь поддерживает задание пользовательского угла поворота для TextFrame. В этой теме показан пример, как задать свойство RotationAngle в Aspose.Slides. Были добавлены новые методы [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-) и [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getRotationAngle--) в класс [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat), позволяющие задать собственный угол поворота для TextFrame. Чтобы задать RotationAngle, выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Добавьте диаграмму на слайд.
 3. [Set RotationAngle property](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-).
-4. Сохраните презентацию в файл PPTX.
+4. Запишите презентацию в файл PPTX.
 
-В примере ниже задается свойство RotationAngle.
+В примере ниже задаётся свойство RotationAngle.
 ```javascript
 // Создать экземпляр класса Presentation
 var pres = new aspose.slides.Presentation();
@@ -457,10 +455,10 @@ try {
     // Добавить TextFrame к прямоугольнику
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Доступ к текстовому фрейму
+    // Получение текстового кадра
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setRotationAngle(25);
-    // Создать объект Paragraph для текстового фрейма
+    // Создать объект Paragraph для текстового кадра
     var para = txtFrame.getParagraphs().get_Item(0);
     // Создать объект Portion для абзаца
     var portion = para.getPortions().get_Item(0);
@@ -479,19 +477,19 @@ try {
 
 ## **Межстрочный интервал абзаца**
 
-Aspose.Slides предоставляет свойства в [`ParagraphFormat`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ParagraphFormat) — `SpaceAfter`, `SpaceBefore` и `SpaceWithin` — позволяющие управлять межстрочным интервалом абзаца. Эти три свойства используются следующим образом:
+Aspose.Slides предоставляет свойства в [`ParagraphFormat`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ParagraphFormat)—`SpaceAfter`, `SpaceBefore` и `SpaceWithin`—которые позволяют управлять межстрочным интервалом абзаца. Свойства используются следующим образом:
 
-* Чтобы задать межстрочный интервал в процентах, используйте положительное значение.  
+* Чтобы задать межстрочный интервал в процентах, используйте положительное значение. 
 * Чтобы задать межстрочный интервал в пунктах, используйте отрицательное значение.
 
-Например, можно задать межстрочный интервал 16 pt, установив свойство `SpaceBefore` в ‑16.
+Например, можно задать интервал 16 pt, установив свойство `SpaceBefore` в -16.
 
-Так задаётся межстрочный интервал для конкретного абзаца:
+Как задать межстрочный интервал для конкретного абзаца:
 
 1. Загрузите презентацию, содержащую AutoShape с текстом.
-2. Получите ссылку на слайд через его индекс.
-3. Получите TextFrame.
-4. Получите Paragraph.
+2. Получите ссылку на слайд по его индексу.
+3. Доступ к TextFrame.
+4. Доступ к Paragraph.
 5. Задайте свойства Paragraph.
 6. Сохраните презентацию.
 
@@ -502,11 +500,11 @@ var pres = new aspose.slides.Presentation("Fonts.pptx");
 try {
     // Получить ссылку на слайд по его индексу
     var sld = pres.getSlides().get_Item(0);
-    // Получить доступ к TextFrame
+    // Доступ к TextFrame
     var tf1 = sld.getShapes().get_Item(0).getTextFrame();
-    // Получить доступ к абзацу
+    // Доступ к Paragraph
     var para = tf1.getParagraphs().get_Item(0);
-    // Установить свойства абзаца
+    // Установить свойства Paragraph
     para.getParagraphFormat().setSpaceWithin(80);
     para.getParagraphFormat().setSpaceBefore(40);
     para.getParagraphFormat().setSpaceAfter(40);
@@ -520,31 +518,31 @@ try {
 ```
 
 
-## **Установка свойства AutofitType для TextFrame**
+## **Установить свойство AutofitType для TextFrame**
 
-В этой теме мы рассматриваем различные свойства форматирования текстового фрейма. Статья описывает, как задать свойство AutofitType текстового фрейма, привязку текста и вращение текста в презентации. Aspose.Slides for Node.js via Java позволяет разработчикам задать свойство AutofitType любого текстового фрейма. AutofitType может быть установлен в [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) или [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape). Если установлено значение [Normal], форма остаётся прежней, а текст подгоняется без изменения формы. Если AutofitType установлен в [Shape], форма изменяется так, чтобы в ней помещался только необходимый текст. Чтобы задать свойство AutofitType текстового фрейма, выполните следующие шаги:
+В этой теме рассматриваются различные свойства форматирования текстового кадра. Статья описывает, как установить свойство AutofitType текстового кадра, привязку текста и поворот текста в презентации. Aspose.Slides for Node.js via Java позволяет разработчикам задавать свойство AutofitType любого текстового кадра. AutofitType может принимать значение [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) или [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape). При значении [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) форма остаётся неизменной, а текст подгоняется, не изменяя форму. При значении [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape) форма изменяется так, чтобы в ней помещался только необходимый текст. Чтобы задать свойство AutofitType текстового кадра, выполните:
 
-1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)class.
-2. Получите доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. [Set the AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType-byte-) TextFrame.
+1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Доступ к первому слайду.
+3. Добавьте любую фигуру на слайд.
+4. Доступ к [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+5. [Set the AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType-byte-) для TextFrame.
 6. Сохраните файл на диск.
 ```javascript
 // Создать экземпляр класса Presentation
 var pres = new aspose.slides.Presentation();
 try {
-    // Получить доступ к первому слайду
+    // Получить первый слайд
     var slide = pres.getSlides().get_Item(0);
     // Добавить AutoShape типа Rectangle
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 150);
     // Добавить TextFrame к прямоугольнику
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Доступ к текстовому фрейму
+    // Получение текстового кадра
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAutofitType(aspose.slides.TextAutofitType.Shape);
-    // Создать объект Paragraph для текстового фрейма
+    // Создать объект Paragraph для текстового кадра
     var para = txtFrame.getParagraphs().get_Item(0);
     // Создать объект Portion для абзаца
     var portion = para.getPortions().get_Item(0);
@@ -561,65 +559,64 @@ try {
 ```
 
 
-## **Установка привязки (Anchor) TextFrame**
+## **Установить привязку TextFrame**
 
-Aspose.Slides for Node.js via Java позволяет разработчикам задавать привязку любого TextFrame. TextAnchorType указывает, где текст размещён внутри формы. AnchorType может быть установлен в [Top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Justified) или [Distributed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Distributed). Чтобы задать привязку любого TextFrame, выполните следующие шаги:
+Aspose.Slides for Node.js via Java позволяет установить привязку любого TextFrame. TextAnchorType определяет, где расположен текст внутри фигуры. TextAnchorType может принимать значения [Top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Justified) или [Distributed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Distributed). Чтобы задать привязку TextFrame, выполните:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
-2. Получите доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. [Set TextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAnchoringType-byte-) TextFrame.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Доступ к первому слайду.
+3. Добавьте любую фигуру на слайд.
+4. Доступ к [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
+5. [Set TextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAnchoringType-byte-) для TextFrame.
 6. Сохраните файл на диск.
 ```javascript
-    // Создать экземпляр класса Presentation
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Получить первый слайд
-        var slide = pres.getSlides().get_Item(0);
-        // Добавить AutoShape типа Rectangle
-        var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
-        // Добавить TextFrame к прямоугольнику
-        ashp.addTextFrame("");
-        ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-        // Доступ к текстовому фрейму
-        var txtFrame = ashp.getTextFrame();
-        txtFrame.getTextFrameFormat().setAnchoringType(aspose.slides.TextAnchorType.Bottom);
-        // Создать объект Paragraph для текстового фрейма
-        var para = txtFrame.getParagraphs().get_Item(0);
-        // Создать объект Portion для абзаца
-        var portion = para.getPortions().get_Item(0);
-        portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-        portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        // Сохранить презентацию
-        pres.save("AnchorText_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Создать экземпляр класса Presentation
+var pres = new aspose.slides.Presentation();
+try {
+    // Получить первый слайд
+    var slide = pres.getSlides().get_Item(0);
+    // Добавить AutoShape типа Rectangle
+    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
+    // Добавить TextFrame к прямоугольнику
+    ashp.addTextFrame("");
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    // Получение текстового кадра
+    var txtFrame = ashp.getTextFrame();
+    txtFrame.getTextFrameFormat().setAnchoringType(aspose.slides.TextAnchorType.Bottom);
+    // Создать объект Paragraph для текстового кадра
+    var para = txtFrame.getParagraphs().get_Item(0);
+    // Создать объект Portion для абзаца
+    var portion = para.getPortions().get_Item(0);
+    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    // Сохранить презентацию
+    pres.save("AnchorText_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 
 ## **Табы и EffectiveTabs в презентации**
 
-Все табуляции текста задаются в пикселах.
+Все табуляции текста указаны в пикселях.
 
 |![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
 | :- |
-|**Figure: 2 Explicit Tabs and 2 Default Tabs**|
-
+|**Рисунок: 2 явных таба и 2 таба по умолчанию**|
 - Свойство EffectiveTabs.ExplicitTabCount (2 в нашем случае) равно Tabs.Count.  
 - Коллекция EffectiveTabs включает все табы (из коллекции Tabs и табы по умолчанию).  
 - Свойство EffectiveTabs.ExplicitTabCount (2 в нашем случае) равно Tabs.Count.  
 - Свойство EffectiveTabs.DefaultTabSize (294) показывает расстояние между табами по умолчанию (3 и 4 в нашем примере).  
-- EffectiveTabs.GetTabByIndex(index) с index = 0 возвращает первый явный таб (Position = 731), index = 1 — второй таб (Position = 1241). При попытке получить таб с index = 2 вернётся первый таб по умолчанию (Position = 1470) и т.д.  
-- EffectiveTabs.GetTabAfterPosition(pos) используется для получения следующей табуляции после некоторого текста. Например, есть текст «Hello World!». Чтобы отрисовать такой текст, нужно знать, где начать рисовать «world!». Сначала вычислите длину «Hello» в пикселях и вызовите GetTabAfterPosition с этим значением. Вы получите позицию следующей табуляции для рисования «world!».
+- EffectiveTabs.GetTabByIndex(index) с index = 0 вернёт первый явный таб (Position = 731), index = 1 – второй таб (Position = 1241). При запросе index = 2 будет возвращён первый таб по умолчанию (Position = 1470) и т.д.  
+- EffectiveTabs.GetTabAfterPosition(pos) используется для получения следующей табуляции после некоторого текста. Например, имеется текст: "Hello World!". Чтобы отобразить такой текст, необходимо знать, откуда начинать рисовать "world!". Сначала вычислите длину слова "Hello" в пикселях и вызовите GetTabAfterPosition с этим значением. Вы получите позицию следующего таба для рисования "world!".
 
-## **Установка стиля текста по умолчанию**
+## **Установить стиль текста по умолчанию**
 
-Если нужно применить одинаковое форматирование текста ко всем элементам текста презентации сразу, используйте метод `getDefaultTextStyle` класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) и задайте предпочтительное форматирование. Пример кода ниже показывает, как задать шрифт полужирный (14 pt) по умолчанию для текста на всех слайдах новой презентации.
+Если необходимо применить одинаковое форматирование текста ко всем элементам текста презентации одновременно, можно использовать метод `getDefaultTextStyle` класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) и задать предпочтительное форматирование. Пример кода ниже показывает, как установить полужирный шрифт (14 pt) по умолчанию для текста на всех слайдах новой презентации.
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -636,9 +633,9 @@ try {
 ```
 
 
-## **Извлечение текста с эффектом All‑Caps**
+## **Извлечь текст с эффектом All‑Caps**
 
-В PowerPoint применение эффекта **All Caps** делает текст заглавным на слайде, даже если он изначально набран строчными. При извлечении такой части текста с помощью Aspose.Slides библиотека возвращает текст именно так, как он был введён. Чтобы обработать это, проверьте [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) — если он указывает `All`, просто преобразуйте возвращённую строку в верхний регистр, чтобы ваш вывод соответствовал тому, что видят пользователи на слайде.
+В PowerPoint применение эффекта шрифта **All Caps** делает текст заглавными буквами на слайде, даже если он был введён строчными. При получении такого фрагмента текста с помощью Aspose.Slides библиотека возвращает текст в том виде, в каком он был введён. Чтобы обработать это, проверьте [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) — если он указывает `All`, просто преобразуйте возвращённую строку в верхний регистр, чтобы вывод соответствовал тому, что видит пользователь на слайде.
 
 Предположим, у нас есть следующий текстовый блок на первом слайде файла sample2.pptx.
 
@@ -666,7 +663,7 @@ try {
 ```
 
 
-Output:
+Вывод:
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
@@ -677,8 +674,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Как изменить текст в таблице на слайде?**
 
-Чтобы изменить текст в таблице на слайде, используйте объект [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). Можно перебрать все ячейки таблицы и изменить текст в каждой ячейке, получив её `TextFrame` и свойства `ParagraphFormat`.
+Для изменения текста в таблице на слайде необходимо использовать объект [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). Можно пройтись по всем ячейкам таблицы и изменить текст в каждой ячейке, получив её `TextFrame` и свойства `ParagraphFormat`.
 
 **Как применить градиентный цвет к тексту в слайде PowerPoint?**
 
-Чтобы применить градиентный цвет к тексту, используйте свойство Fill Format в [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/). Установите Fill Format в `Gradient`, где можно задать начальный и конечный цвета градиента, а также другие свойства, такие как направление и прозрачность, чтобы создать градиентный эффект на тексте.
+Для применения градиентного цвета к тексту используйте свойство Fill Format в [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/). Установите Fill Format в `Gradient`, где можно задать начальный и конечный цвета градиента, а также другие параметры, такие как направление и прозрачность, чтобы создать градиентный эффект текста.

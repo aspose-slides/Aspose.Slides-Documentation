@@ -1,36 +1,62 @@
 ---
-title: تحويل OpenOffice ODP
+title: تحويل عروض OpenDocument في JavaScript
+linktitle: تحويل OpenDocument
 type: docs
 weight: 10
 url: /ar/nodejs-java/convert-openoffice-odp/
-keywords: "تحويل ODP إلى PDF، ODP إلى HTML، ODP إلى TIFF في JavaScript"
-description: "تحويل ODP إلى PDF، ODP إلى PPT، ODP إلى PPTX، ODP إلى HTML في JavaScript"
+keywords:
+- تحويل ODP
+- ODP إلى صورة
+- ODP إلى GIF
+- ODP إلى HTML
+- ODP إلى JPG
+- ODP إلى MD
+- ODP إلى PDF
+- ODP إلى PNG
+- ODP إلى PPT
+- ODP إلى PPTX
+- ODP إلى TIFF
+- ODP إلى فيديو
+- ODP إلى Word
+- ODP إلى XPS
+- OpenDocument
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides ل Node.js يتيح لك تحويل ODP إلى PDF و HTML وتنسيقات الصور بسهولة. عزّز تطبيقاتك بتحويل عروض تقديمية سريع ودقيق."
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/nodejs-java/) يسمح بتحويل عروض OpenOffice ODP إلى صيغ متعددة. واجهة برمجة التطبيقات لتحويل ODP إلى صيغ أخرى هي نفسها المستخدمة لأنواع PowerPoint. يمكنك استخدام الأمثلة التالية لتحويل ODP، فقط بتغيير ملف المصدر إلى ملف عرض ODP:
+[**Aspose.Slides API**](https://products.aspose.com/slides/nodejs-java/) يسمح لك بتحويل عروض OpenDocument (ODP) إلى صيغ متعددة (HTML ، PDF ، TIFF ، SWF ، XPS ، إلخ). واجهة برمجة التطبيقات المستخدمة لتحويل ملفات ODP إلى صيغ مستندات أخرى هي نفسها المستخدمة لعمليات تحويل PowerPoint (PPT و PPTX).
 
-- [تحويل ODP إلى HTML](/slides/ar/nodejs-java/convert-powerpoint-ppt-and-pptx-to-html/)
-- [تحويل ODP إلى PDF](/slides/ar/nodejs-java/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [تحويل ODP إلى TIFF](/slides/ar/nodejs-java/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [تحويل ODP إلى SWF Flash](/slides/ar/nodejs-java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [تحويل ODP إلى XPS](/slides/ar/nodejs-java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [تحويل ODP إلى PDF مع الملاحظات](/slides/ar/nodejs-java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
-- [تحويل ODP إلى TIFF مع الملاحظات](/slides/ar/nodejs-java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+على سبيل المثال ، إذا كنت بحاجة إلى تحويل عرض ODP إلى PDF ، يمكنك القيام بذلك كما يلي:
+```js
+let presentation = null;
+try {
+  presentation = new aspose.slides.Presentation("presentation.odp");
+  presentation.save("presentation.pdf", aspose.slides.SaveFormat.Pdf);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
+    }
+}
+```
+
 
 ## **الأسئلة الشائعة**
 
 **ماذا لو تغير تنسيق ملف ODP بعد التحويل؟**
 
-ODP وPowerPoint يستخدمان نماذج عرض مختلفة، وقد لا يتم عرض بعض العناصر—مثل الجداول، الخطوط المخصصة، أو أنماط التعبئة—بنفس الشكل تمامًا. يوصى بمراجعة الناتج وضبط التخطيط أو التنسيق في الكود إذا لزم الأمر.
+تستخدم ODP و PowerPoint نماذج عرض مختلفة ، وبعض العناصر — مثل الجداول أو الخطوط المخصصة أو أنماط التعبئة — قد لا يتم عرضها بنفس الشكل تمامًا. يُنصح بمراجعة الناتج وتعديل التخطيط أو التنسيق في الكود إذا لزم الأمر.
 
 **هل أحتاج إلى تثبيت OpenOffice أو LibreOffice لاستخدام تحويل ODP؟**
 
-لا، Aspose.Slides مكتبة مستقلة ولا تتطلب تثبيت OpenOffice أو LibreOffice على نظامك.
+لا ، Aspose.Slides مكتبة مستقلة ولا تتطلب تثبيت OpenOffice أو LibreOffice على نظامك.
 
-**هل يمكنني تخصيص صيغة الإخراج أثناء تحويل ODP (مثل ضبط خيارات PDF)؟**
+**هل يمكنني تخصيص صيغة الإخراج أثناء تحويل ODP (مثل تعيين خيارات PDF)؟**
 
-نعم، Aspose.Slides يوفر خيارات غنية لتخصيص الإخراج. على سبيل المثال، عند الحفظ كملف PDF، يمكنك التحكم في الضغط، جودة الصورة، عرض النص، والمزيد عبر الفئة [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/).
+نعم ، يوفر Aspose.Slides خيارات غنية لتخصيص الإخراج. على سبيل المثال ، عند الحفظ إلى PDF ، يمكنك التحكم في الضغط وجودة الصورة وعرض النص والمزيد عبر فئة [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/).
 
-**هل Aspose.Slides مناسب لمعالجة ODP من جانب الخادم أو السحابة؟**
+**هل Aspose.Slides مناسب للمعالجة على الخادم أو السحابة لـ ODP؟**
 
-بالتأكيد. Aspose.Slides مصمم للعمل في بيئات سطح المكتب والخادم، بما في ذلك المنصات السحابية مثل Azure وAWS وحاويات Docker، دون أي تبعيات لواجهة المستخدم.
+بالطبع. تم تصميم Aspose.Slides للعمل في بيئات سطح المكتب والخادم على حد سواء ، بما في ذلك المنصات السحابية مثل Azure و AWS وحاويات Docker ، دون أي تبعيات واجهة مستخدم.

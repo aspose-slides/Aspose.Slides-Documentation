@@ -1,32 +1,34 @@
 ---
-title: HTML5 へのエクスポート
+title: JavaScript でプレゼンテーションを HTML5 に変換
+linktitle: プレゼンテーションを HTML5 に変換
 type: docs
 weight: 40
 url: /ja/nodejs-java/export-to-html5/
 keywords:
-- PowerPoint を HTML に変換
-- スライドを HTML に変換
-- HTML5
-- HTML エクスポート
-- プレゼンテーションのエクスポート
-- プレゼンテーションの変換
-- スライドの変換
-- Java
-- Node.js 用 Aspose.Slides (Java 経由)
-description: "JavaScript で PowerPoint を HTML5 にエクスポート"
+- PowerPoint を HTML5 に変換
+- OpenDocument を HTML5 に変換
+- プレゼンテーションを HTML5 に変換
+- スライドを HTML5 に変換
+- PPT を HTML5 に変換
+- PPTX を HTML5 に変換
+- ODP を HTML5 に変換
+- PPT を HTML5 として保存
+- PPTX を HTML5 として保存
+- ODP を HTML5 として保存
+- PPT を HTML5 にエクスポート
+- PPTX を HTML5 にエクスポート
+- ODP を HTML5 にエクスポート
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js を使用して、PowerPoint と OpenDocument のプレゼンテーションをレスポンシブな HTML5 にエクスポートします。書式設定、アニメーション、インタラクティブ性を保持します。"
 ---
 
-{{% alert title="Info" color="info" %}}
+Aspose.Slides は HTML5 エクスポートをサポートしています。この HTML5 エクスポートプロセスを使用すると、Web 拡張機能や依存関係なしで PowerPoint を HTML に変換できます。独自のテンプレートを使用して、エクスポートプロセスと生成される HTML、CSS、JavaScript、アニメーション属性を定義する非常に柔軟なオプションを適用できます。
 
-In [Aspose.Slides 21.9](/slides/ja/nodejs-java/aspose-slides-for-java-21-9-release-notes/), we implemented support for HTML5 export.
+## **PowerPoint を HTML5 にエクスポート**
 
-{{% /alert %}} 
-
-The export to HTML5 process here allows you to convert PowerPoint to HTML without web extensions or dependencies. This way, using your own templates, you can apply very flexible options that define the export process and the resulting HTML, CSS, JavaScript, and animation attributes. 
-
-## **Export PowerPoint to HTML5**
-
-This JavaScript code shows how you to export a presentation to HTML5 without web extensions and dependencies:
+この JavaScript コードは、Web 拡張機能や依存関係なしでプレゼンテーションを HTML5 にエクスポートする方法を示しています:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -40,11 +42,10 @@ try {
 
 
 {{% alert color="primary" %}} 
-
-In this case, you get clean HTML. 
+この場合、クリーンな HTML が得られます。 
 {{% /alert %}}
 
-You may want to specify settings for shape animations and slide transitions this way:
+シェイプ アニメーションやスライド トランジションの設定をこのように指定したい場合:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -60,9 +61,9 @@ try {
 ```
 
 
-## **Export PowerPoint to HTML**
+## **PowerPoint を HTML にエクスポート**
 
-This JavaScript demonstrates the standard PowerPoint to HTML process:
+この JavaScript は標準的な PowerPoint → HTML プロセスを示しています:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -75,7 +76,7 @@ try {
 ```
 
 
-In this case, the presentation content is rendered through SVG in a form like this:
+この場合、プレゼンテーションのコンテンツは以下のような形で SVG を通じてレンダリングされます:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -88,16 +89,14 @@ In this case, the presentation content is rendered through SVG in a form like th
 
 
 {{% alert title="Note" color="warning" %}} 
-
-When you use this method to export PowerPoint to HTML, due to the SVG rendering, you will not be to apply styles or animate specific elements. 
-
+この方法で PowerPoint を HTML にエクスポートすると、SVG レンダリングのため、特定の要素にスタイルを適用したりアニメーションを付けたりすることができなくなります。 
 {{% /alert %}}
 
-## **Export PowerPoint to HTML5 Slide View**
+## **PowerPoint を HTML5 スライド ビューにエクスポート**
 
-**Aspose.Slides** allows you to convert a PowerPoint presentation to an HTML5 document in which the slides are presented in a slide view mode. In this case, when you open the resulting HTML5 file in a browser, you see the presentation in slide view mode on a web page. 
+**Aspose.Slides** を使用すると、スライドがスライド ビュー モードで表示される HTML5 ドキュメントに PowerPoint プレゼンテーションを変換できます。この場合、生成された HTML5 ファイルをブラウザーで開くと、Web ページ上でスライド ビュー モードのプレゼンテーションが表示されます。
 
-This JavaScript code demonstrates the PowerPoint to HTML5 Slide View export process:
+この JavaScript コードは、PowerPoint → HTML5 スライド ビュー エクスポートプロセスを示しています:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -113,17 +112,17 @@ try {
 ```
 
 
-## **Convert a Presentation to an HTML5 Document with Comments**
+## **コメント付き HTML5 ドキュメントへのプレゼンテーション変換**
 
-Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
+PowerPoint のコメントは、スライド上の特定の要素に対してノートやフィードバックを残すためのツールです。特に共同プロジェクトで有用で、複数のユーザーがメイン コンテンツを変更せずにコメントや提案を追加できます。各コメントには作成者の名前が表示されるため、誰がコメントしたかを簡単に追跡できます。
 
-Let's say we have the following PowerPoint presentation saved in the "sample.pptx" file.
+たとえば、"sample.pptx" ファイルに保存された以下の PowerPoint プレゼンテーションがあるとします。
 
-![プレゼンテーションスライド上の 2 つのコメント](two_comments_pptx.png)
+![プレゼンテーションスライドの 2 つのコメント](two_comments_pptx.png)
 
-When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `notes_comments_layouting` property of the [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/) class.
+PowerPoint プレゼンテーションを HTML5 ドキュメントに変換するとき、出力ドキュメントにコメントを含めるかどうかを簡単に指定できます。そのためには、[Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/) クラスの `notes_comments_layouting` プロパティでコメントの表示パラメータを指定します。
 
-The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
+以下のコード例は、スライドの右側にコメントを表示した状態でプレゼンテーションを HTML5 ドキュメントに変換します。
 ```javascript
 let html5Options = new aspose.slides.Html5Options();
 html5Options.getNotesCommentsLayouting().setCommentsPosition(aspose.slides.CommentsPositions.Right);
@@ -134,20 +133,20 @@ presentation.dispose();
 ```
 
 
-The "output.html" document is shown in the image below.
+"output.html" ドキュメントは以下の画像に示されています。
 
-![出力された HTML5 ドキュメント内のコメント](two_comments_html5.png)
+![出力された HTML5 ドキュメントのコメント](two_comments_html5.png)
 
 ## **FAQ**
 
-**Can I control whether object animations and slide transitions will play in HTML5?**
+**HTML5 でオブジェクト アニメーションやスライド トランジションの再生を制御できますか？**
 
-Yes, HTML5 provides separate options to enable or disable [shape animations](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimateshapes/) and [slide transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimatetransitions/).
+はい、HTML5 では [shape animations](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimateshapes/) と [slide transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimatetransitions/) を個別に有効または無効にするオプションが用意されています。
 
-**Is the output of comments supported, and where can they be placed relative to the slide?**
+**コメントの出力はサポートされていますか？また、スライドに対してどこに配置できますか？**
 
-Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setNotesCommentsLayouting) for notes and comments.
+はい、HTML5 でコメントを追加でき、[layout settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setNotesCommentsLayouting) を使用してスライドの右側など任意の位置に配置できます。
 
-**Can I skip links that invoke JavaScript for security or CSP reasons?**
+**セキュリティまたは CSP の理由で JavaScript を呼び出すリンクをスキップできますか？**
 
-Yes, there is a [setting](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) that allows you to skip hyperlinks with JavaScript calls during saving. This helps comply with strict security policies.
+はい、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップできる [setting](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) が用意されています。これにより、厳格なセキュリティ ポリシーに準拠できます。

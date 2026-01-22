@@ -1,53 +1,51 @@
 ---
-title: 画像
+title: JavaScript を使用したプレゼンテーションの画像管理の最適化
+linktitle: 画像の管理
 type: docs
 weight: 10
 url: /ja/nodejs-java/image/
 keywords:
 - 画像を追加
-- 写真を追加
+- 画像を追加
 - ビットマップを追加
-- 画像を置換
-- 写真を置換
-- Webから
+- 画像を置き換える
+- 画像を置き換える
+- Web から
 - 背景
-- PNGを追加
-- JPGを追加
-- SVGを追加
-- EMFを追加
-- WMFを追加
-- TIFFを追加
+- PNG を追加
+- JPG を追加
+- SVG を追加
+- EMF を追加
+- WMF を追加
+- TIFF を追加
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - EMF
 - SVG
 - Node.js
+- JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js を使用して、PowerPoint および OpenDocument の画像管理を効率化し、パフォーマンスを最適化し、ワークフローを自動化します。"
+description: "JavaScript と Aspose.Slides for Node.js を使用して PowerPoint および OpenDocument の画像管理を効率化し、パフォーマンスを最適化しながらワークフローを自動化します。"
 ---
 
 ## **プレゼンテーションのスライド内の画像**
 
-画像はプレゼンテーションをより魅力的で興味深いものにします。Microsoft PowerPoint では、ファイル、インターネット、または他の場所から画像をスライドに挿入できます。同様に、Aspose.Slides ではさまざまな手順でプレゼンテーションのスライドに画像を追加できます。
+画像はプレゼンテーションをより魅力的で興味深いものにします。Microsoft PowerPointでは、ファイル、インターネット、または他の場所から画像をスライドに挿入できます。同様に、Aspose.Slidesを使用すると、さまざまな手順でプレゼンテーションのスライドに画像を追加できます。
 
 {{% alert  title="Tip" color="primary" %}} 
-Aspose は無料コンバータ—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) を提供しており、画像から素早くプレゼンテーションを作成できます。 
+Asposeは無料コンバータ—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—を提供しており、画像からプレゼンテーションをすばやく作成できます。 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
-画像をフレームオブジェクトとして追加したい場合、特にサイズ変更やエフェクト追加など標準の書式設定オプションを使用する予定がある場合は、[Picture Frame](https://docs.aspose.com/slides/nodejs-java/picture-frame/) を参照してください。 
+画像をフレームオブジェクトとして追加したい場合—特に、サイズ変更や効果追加などの標準書式設定オプションを使用する予定がある場合は—[Picture Frame](https://docs.aspose.com/slides/nodejs-java/picture-frame/) を参照してください。
 {{% /alert %}} 
 
-{{% alert title="Note" color="warning" %}}
-画像と PowerPoint プレゼンテーションに関わる入出力操作を操作して、画像を別の形式に変換できます。次のページをご確認ください: 画像を [JPG に変換](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/)；[JPG を画像に変換](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/)；[JPG を PNG に変換](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/)；[PNG を JPG に変換](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/)；[PNG を SVG に変換](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/)；[SVG を PNG に変換](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/)。 
-{{% /alert %}}
-
-Aspose.Slides は JPEG、PNG、GIF などの一般的な形式の画像操作をサポートします。 
+Aspose.SlidesはJPEG、PNG、GIFなどの一般的なフォーマットの画像操作をサポートしています。
 
 ## **ローカルに保存された画像をスライドに追加する**
 
-コンピュータ上の 1 つまたは複数の画像をプレゼンテーションのスライドに追加できます。この JavaScript サンプルコードは、スライドに画像を追加する方法を示しています:
+コンピューター上の1つまたは複数の画像をプレゼンテーションのスライドに追加できます。以下のJavaScriptサンプルコードは、スライドに画像を追加する方法を示しています：
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -73,20 +71,20 @@ try {
 
 ## **ストリームから画像をスライドに追加する**
 
-コンピュータに画像がない場合は、Web から直接画像を取得してスライドに追加できます。
+コンピューターに画像がない場合、Webから直接画像を追加できます。
 
-この JavaScript サンプルコードは、Web から画像を取得してスライドに追加する方法を示しています:
+以下のサンプルコードは、Webから画像を取得してJavaScriptでスライドに追加する方法を示しています：
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
     // 最初のスライドにアクセスします
     var sld = pres.getSlides().get_Item(0);
-    // Excel ファイルをストリームに読み込みます
+    // Excel ファイルをストリームとして読み込みます
     var readStream = fs.readFileSync("book1.xlsx");
     var byteArray = Array.from(readStream);
-    // 埋め込み用データオブジェクトを作成します
+    // 埋め込み用のデータオブジェクトを作成します
     var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-    // Ole オブジェクトフレーム形状を追加します
+    // Ole オブジェクト フレーム シェイプを追加します
     var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
     // PPTX ファイルを書き込みます
     pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -101,9 +99,9 @@ try {
 
 ## **スライドマスターに画像を追加する**
 
-スライドマスターは、下位のすべてのスライドに関する情報（テーマ、レイアウトなど）を保存および管理する最上位のスライドです。そのため、スライドマスターに画像を追加すると、その画像はマスター配下のすべてのスライドに表示されます。
+スライドマスターは、下位スライドのテーマやレイアウト情報を管理する最上位のスライドです。スライドマスターに画像を追加すると、その画像はそのマスター配下のすべてのスライドに表示されます。
 
-この JavaScript サンプルコードは、スライドマスターに画像を追加する方法を示しています:
+以下のJavaScriptサンプルコードは、スライドマスターに画像を追加する方法を示しています：
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -133,15 +131,15 @@ try {
 特定のスライドまたは複数のスライドの背景に画像を使用したい場合は、*[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)* を参照してください。
 
 ## **プレゼンテーションに SVG を追加する**
-[addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) メソッド（[ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) クラス所属）を使用して、任意の画像をプレゼンテーションに追加または挿入できます。
+任意の画像をプレゼンテーションに追加するには、[ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) クラスの[addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-)メソッドを使用します。
 
-SVG 画像に基づく画像オブジェクトを作成するには、次の手順で行います。
+SVG 画像に基づく画像オブジェクトを作成する手順は次のとおりです。
 
-1. SvgImage オブジェクトを作成し、ImageShapeCollection に挿入する  
+1. SvgImage オブジェクトを作成して ImageShapeCollection に挿入する  
 2. ISvgImage から PPImage オブジェクトを作成する  
 3. PPImage クラスを使用して PictureFrame オブジェクトを作成する  
 
-このサンプルコードは、上記手順を実装して SVG 画像をプレゼンテーションに追加する方法を示しています:
+以下のサンプルコードは、上記手順を実装して SVG 画像をプレゼンテーションに追加する方法を示しています：
 ```javascript
 // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation();
@@ -160,14 +158,14 @@ try {
 ```
 
 
-## **SVG をシェイプの集合に変換する**
-Aspose.Slides の SVG をシェイプ集合に変換する機能は、SVG 画像を操作するための PowerPoint の機能と同様です:
+## **SVG を形状のセットに変換する**
+Aspose.Slides の SVG から形状への変換は、PowerPoint の SVG 画像操作機能と同様です：
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-この機能は、[ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) クラスの [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) メソッドのオーバーロードの一つで提供され、最初の引数として [SvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgImage) オブジェクトを受け取ります。
+この機能は、[ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) クラスの[addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-)メソッド（最初の引数に [SvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgImage) オブジェクトを取るオーバーロード）の1つによって提供されます。
 
-このサンプルコードは、上記メソッドを使用して SVG ファイルをシェイプの集合に変換する方法を示しています:
+以下のサンプルコードは、記述されたメソッドを使用して SVG ファイルを形状のセットに変換する方法を示しています：
 ```javascript
 // 新しいプレゼンテーションを作成します
 var presentation = new aspose.slides.Presentation();
@@ -191,10 +189,10 @@ try {
 ```
 
 
-## **スライドに EMF 画像として追加する**
-Aspose.Slides for Node.js via Java を使用すると、Excel シートから EMF 画像を生成し、Aspose.Cells と組み合わせてスライドに EMF として画像を追加できます。
+## **スライドに EMF として画像を追加する**
+Aspose.Slides for Node.js via Java を使用すると、Excel シートから EMF 画像を生成し、Aspose.Cells と組み合わせてスライドに EMF 画像として追加できます。
 
-このサンプルコードは、記述されたタスクを実行する方法を示しています:
+以下のサンプルコードは、上記タスクを実行する方法を示しています：
 ```javascript
 var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
 var sheet = book.getWorksheets().get(0);
@@ -202,7 +200,7 @@ var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
 options.setHorizontalResolution(200);
 options.setVerticalResolution(200);
 options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
- // ワークブックをストリームに保存します
+// ワークブックをストリームに保存
 var sr = java.newInstanceSync("SheetRender", sheet, options);
 var pres = new aspose.slides.Presentation();
 try {
@@ -233,38 +231,38 @@ try {
 ```
 
 
-## **画像コレクション内の画像を置換する**
+## **画像コレクション内の画像を置き換える**
 
-Aspose.Slides は、プレゼンテーションの画像コレクション（スライドシェイプが使用している画像を含む）に格納された画像を置換できます。このセクションでは、コレクション内の画像を更新するいくつかのアプローチを示します。API は、バイトデータ、[IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) インスタンス、またはコレクション内に既に存在する別の画像を使用して画像を置換するシンプルなメソッドを提供します。
+Aspose.Slides は、プレゼンテーションの画像コレクション（スライドシェイプで使用されている画像を含む）に保存されている画像の置き換えをサポートします。このセクションでは、コレクション内の画像を更新する複数のアプローチを示します。API は、生バイト データ、[IImage](/slides/ja/nodejs-java/iimage/) インスタンス、またはコレクションに既に存在する別の画像を使用して画像を置き換えるシンプルなメソッドを提供します。
 
-以下の手順に従ってください:
+以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスを使用して、画像を含むプレゼンテーション ファイルを読み込みます。  
-2. ファイルから新しい画像をバイト配列に読み込みます。  
-3. バイト配列を使用して対象画像を新しい画像に置換します。  
-4. 2 番目のアプローチでは、画像を [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) オブジェクトにロードし、そのオブジェクトで対象画像を置換します。  
-5. 3 番目のアプローチでは、プレゼンテーションの画像コレクションに既に存在する画像で対象画像を置換します。  
-6. 変更されたプレゼンテーションを PPTX ファイルとして書き出します。  
+1. [Presentation](/slides/ja/nodejs-java/presentation/) クラスを使用して画像を含むプレゼンテーション ファイルをロードします。  
+2. ファイルから新しい画像をバイト配列にロードします。  
+3. バイト配列を使用して対象画像を新しい画像に置き換えます。  
+4. 2 番目のアプローチでは、画像を [IImage](/slides/ja/nodejs-java/iimage/) オブジェクトにロードし、そのオブジェクトで対象画像を置き換えます。  
+5. 3 番目のアプローチでは、プレゼンテーションの画像コレクションに既に存在する画像で対象画像を置き換えます。  
+6. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // 1 番目の方法
+    // 最初の方法。
     const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
     let oldImage = presentation.getImages().get_Item(0);
     oldImage.replaceImage(imageData);
     
-    // 2 番目の方法
+    // 2 番目の方法。
     const newImage = aspose.slides.Images.fromFile("image1.png");
     oldImage = presentation.getImages().get_Item(1);
     oldImage.replaceImage(newImage);
     newImage.dispose();
     
-    // 3 番目の方法
+    // 3 番目の方法。
     oldImage = presentation.getImages().get_Item(2);
     oldImage.replaceImage(presentation.getImages().get_Item(3));
     
-    // プレゼンテーションをファイルに保存します
+    // プレゼンテーションをファイルに保存します。
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -273,27 +271,22 @@ try {
 
 
 {{% alert title="Info" color="info" %}}
-Aspose の無料 [Text to GIF](https://products.aspose.app/slides/text-to-gif) コンバータを使用すると、テキストを簡単にアニメーション化したり、テキストから GIF を作成したりできます。 
+Aspose FREE の[Text to GIF](https://products.aspose.app/slides/text-to-gif) コンバータを使用すると、テキストを簡単にアニメーション化したり、テキストから GIF を作成したりできます。  
 {{% /alert %}}
 
 ## **FAQ**
 
-**挿入後も元の画像解像度は維持されますか？**
+**挿入後も元の画像解像度は維持されますか？**  
+はい。元のピクセルは保持されますが、最終的な表示はスライド上での[picture](/slides/ja/nodejs-java/picture-frame/) のスケーリングや保存時の圧縮に依存します。
 
-はい。元のピクセルは保持されますが、最終的な見た目はスライド上で [picture](/slides/ja/nodejs-java/picture-frame/) がどのようにスケーリングされるかや、保存時に適用される圧縮に依存します。
+**多数のスライドで同じロゴを一括で置き換える最適な方法は何ですか？**  
+ロゴをマスタースライドまたはレイアウトに配置し、プレゼンテーションの画像コレクションで置き換えると、すべての該当要素に自動的に反映されます。
 
-**多数のスライドに同じロゴを一括で置換する最適な方法は？**
+**挿入した SVG を編集可能な形状に変換できますか？**  
+はい。SVG を形状のグループに変換でき、個々のパーツは標準の形状プロパティで編集可能になります。
 
-マスタースライドまたはレイアウトにロゴを配置し、プレゼンテーションの画像コレクションで置換すると、該当リソースを使用しているすべての要素に自動的に反映されます。
+**複数のスライドの背景として画像を一括で設定するには？**  
+[Assign the image as the background](/slides/ja/nodejs-java/presentation-background/) をマスタースライドまたは該当レイアウトに設定すると、そこを使用するすべてのスライドが背景を継承します。
 
-**挿入した SVG を編集可能なシェイプに変換できますか？**
-
-はい。SVG をシェイプのグループに変換でき、その後個々のパーツは標準のシェイププロパティで編集可能になります。
-
-**複数のスライドに同時に画像を背景として設定するには？**
-
-マスタースライドまたは該当レイアウトで画像を背景として割り当てます（[Assign the image as the background](/slides/ja/nodejs-java/presentation-background/)）。そのマスター/レイアウトを使用しているすべてのスライドが背景を継承します。
-
-**多数の画像でプレゼンテーションがサイズ肥大化するのを防ぐには？**
-
-画像の重複を避けて単一のリソースを再利用し、適切な解像度を選択し、保存時に圧縮を適用し、必要に応じてマスターに繰り返し使用するグラフィックスを配置してください。
+**多数の画像によりプレゼンテーションのサイズが膨らむのを防ぐには？**  
+画像を重複せずに単一リソースとして再利用し、適切な解像度を選択、保存時に圧縮を適用し、必要に応じてマスタに共通グラフィックを置くことでサイズ増大を抑えられます。

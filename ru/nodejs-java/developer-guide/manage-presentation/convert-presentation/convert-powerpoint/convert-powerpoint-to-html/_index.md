@@ -1,73 +1,82 @@
 ---
-title: Преобразовать PowerPoint в HTML с помощью JavaScript
-linktitle: Преобразовать PowerPoint в HTML
+title: Конвертировать презентации PowerPoint в HTML на JavaScript
+linktitle: PowerPoint в HTML
 type: docs
 weight: 30
 url: /ru/nodejs-java/convert-powerpoint-to-html/
-keywords: "Java PowerPoint в HTML, Преобразовать презентацию PowerPoint, PPTX, PPT, PPT в HTML, PPTX в HTML, PowerPoint в HTML, Сохранить PowerPoint как HTML, Сохранить PPT как HTML, Сохранить PPTX как HTML, Java, Aspose.Slides, экспорт HTML"
-description: "Преобразовать PowerPoint в HTML с помощью JavaScript. Сохранить PPTX или PPT как HTML в JavaScript. Сохранить слайды как HTML в JavaScript"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в HTML
+- презентация в HTML
+- слайд в HTML
+- PPT в HTML
+- PPTX в HTML
+- сохранить PowerPoint как HTML
+- сохранить презентацию как HTML
+- сохранить слайд как HTML
+- сохранить PPT как HTML
+- сохранить PPTX как HTML
+- экспортировать PPT в HTML
+- экспортировать PPTX в HTML
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Конвертируйте презентации PowerPoint в адаптивный HTML. Сохраните макет, ссылки и изображения с помощью руководства по конвертации Aspose.Slides для быстрых и безошибочных результатов."
 ---
 
 ## **Обзор**
 
-В этой статье объясняется, как преобразовать презентацию PowerPoint в формат HTML с помощью JavaScript. Рассматриваются следующие темы.
+В этой статье объясняется, как преобразовать презентацию PowerPoint в формат HTML с помощью JavaScript. Она охватывает следующие темы.
 
-- Преобразовать PowerPoint в HTML с помощью JavaScript
-- Преобразовать PPT в HTML с помощью JavaScript
-- Преобразовать PPTX в HTML с помощью JavaScript
-- Преобразовать ODP в HTML с помощью JavaScript
-- Преобразовать слайд PowerPoint в HTML с помощью JavaScript
+- Преобразовать PowerPoint в HTML на JavaScript
+- Преобразовать PPT в HTML на JavaScript
+- Преобразовать PPTX в HTML на JavaScript
+- Преобразовать ODP в HTML на JavaScript
+- Преобразовать слайд PowerPoint в HTML на JavaScript
 
-## **Java PowerPoint в HTML**
+## **PowerPoint в HTML на JavaScript**
 
-Для примера кода JavaScript, преобразующего PowerPoint в HTML, см. раздел ниже, а именно [Convert PowerPoint to HTML](#convert-powerpoint-to-html). Код может загружать различные форматы, такие как PPT, PPTX и ODP, в объект Presentation и сохранять их в формат HTML.
+Для примера кода JavaScript, конвертирующего PowerPoint в HTML, см. раздел ниже, а именно [Convert PowerPoint to HTML](#convert-powerpoint-to-html). Код может загружать различные форматы, такие как PPT, PPTX и ODP, в объект Presentation и сохранять его в формате HTML.
 
-## **О преобразовании PowerPoint в HTML**
+## **О конвертации PowerPoint в HTML**
 
-С помощью [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), приложения и разработчики могут преобразовать презентацию PowerPoint в HTML: **PPTX в HTML** или **PPT в HTML**.
+Используя [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), приложения и разработчики могут преобразовать презентацию PowerPoint в HTML: **PPTX в HTML** или **PPT в HTML**.
 
-**Aspose.Slides** предоставляет множество параметров (в основном из класса [**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions)), определяющих процесс преобразования PowerPoint в HTML:
+**Aspose.Slides** предоставляет множество параметров (в основном из класса [**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions)), определяющих процесс конвертации PowerPoint в HTML:
 
 * Преобразовать всю презентацию PowerPoint в HTML.
 * Преобразовать конкретный слайд презентации PowerPoint в HTML.
 * Преобразовать медиа презентации (изображения, видео и т.д.) в HTML.
 * Преобразовать презентацию PowerPoint в адаптивный HTML.
-* Преобразовать презентацию PowerPoint в HTML с включёнными или исключёнными заметками выступающего.
+* Преобразовать презентацию PowerPoint в HTML с включёнными или исключёнными заметками докладчика.
 * Преобразовать презентацию PowerPoint в HTML с включёнными или исключёнными комментариями.
 * Преобразовать презентацию PowerPoint в HTML с оригинальными или встроенными шрифтами.
-* Преобразовать презентацию PowerPoint в HTML, используя новый стиль CSS.
+* Преобразовать презентацию PowerPoint в HTML с использованием нового стиля CSS.
 
 {{% alert color="primary" %}} 
 
-С помощью собственного API Aspose разработала бесплатные конвертеры [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html) и т.д.
+С помощью собственного API Aspose разработала бесплатные конвертеры [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT в HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX в HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP в HTML](https://products.aspose.app/slides/conversion/odp-to-html) и т.д. 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-Возможно, вам будет интересно ознакомиться с другими [бесплатными конвертерами от Aspose](https://products.aspose.app/slides/conversion).
+Возможно, вам будет интересно посмотреть другие [бесплатные конвертеры от Aspose](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-Помимо описанных здесь процессов преобразования, Aspose.Slides также поддерживает следующие операции преобразования, связанные с форматом HTML:
-
-* [HTML в изображение](https://products.aspose.com/slides/nodejs-java/conversion/html-to-image/)
-* [HTML в JPG](https://products.aspose.com/slides/nodejs-java/conversion/html-to-jpg/)
-* [HTML в XML](https://products.aspose.com/slides/nodejs-java/conversion/html-to-xml/)
-* [HTML в TIFF](https://products.aspose.com/slides/nodejs-java/conversion/html-to-tiff/)
-
-{{% /alert %}}
 
 ## **Преобразовать PowerPoint в HTML**
 
 С помощью Aspose.Slides вы можете преобразовать всю презентацию PowerPoint в HTML следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Вызовите метод [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) для сохранения объекта в виде HTML‑файла.
+1. Вызовите метод [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) чтобы сохранить объект в файл HTML.
 
-Этот код показывает, как преобразовать PowerPoint в HTML с помощью JavaScript:
+Этот код демонстрирует, как преобразовать PowerPoint в HTML на JavaScript:
 ```javascript
-// Создать объект Presentation, представляющий файл презентации
+// Создайте объект Presentation, представляющий файл презентации
 var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
 try {
     var htmlOpt = new aspose.slides.HtmlOptions();
@@ -85,9 +94,9 @@ try {
 
 ## **Преобразовать PowerPoint в адаптивный HTML**
 
-Aspose.Slides предоставляет класс [ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController), который позволяет генерировать адаптивные HTML‑файлы. Этот код показывает, как преобразовать презентацию PowerPoint в адаптивный HTML с помощью JavaScript:
+Aspose.Slides предоставляет класс [ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController), который позволяет генерировать адаптивные HTML‑файлы. Этот код демонстрирует, как преобразовать презентацию PowerPoint в адаптивный HTML на JavaScript:
 ```javascript
-// Создать объект Presentation, который представляет файл презентации
+// Создать объект Presentation, представляющий файл презентации
 var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
 try {
     var controller = new aspose.slides.ResponsiveHtmlController();
@@ -105,14 +114,14 @@ try {
 
 ## **Преобразовать PowerPoint в HTML с заметками**
 
-Этот код показывает, как преобразовать PowerPoint в HTML с заметками с помощью JavaScript:
+Этот код демонстрирует, как преобразовать PowerPoint в HTML с заметками на JavaScript:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var opt = new aspose.slides.HtmlOptions();
     var options = opt.getNotesCommentsLayouting();
     options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    // Сохранение страниц заметок
+    // Сохранение страниц с заметками
     pres.save("Output.html", aspose.slides.SaveFormat.Html, opt);
 } finally {
     if (pres != null) {
@@ -124,15 +133,15 @@ try {
 
 ## **Преобразовать PowerPoint в HTML с оригинальными шрифтами**
 
-Aspose.Slides предоставляет класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController), который позволяет внедрять все шрифты презентации при её преобразовании в HTML.
+Aspose.Slides предоставляет класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController), который позволяет внедрять все шрифты презентации при конвертации в HTML.
 
-Чтобы предотвратить встраивание некоторых шрифтов, вы можете передать массив имён шрифтов в параметризованный конструктор класса [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController). Популярные шрифты, такие как Calibri или Arial, используемые в презентации, не требуют встраивания, поскольку большинство систем уже содержат эти шрифты. Если такие шрифты будут встроены, полученный HTML‑документ станет избыточно большим.
+Для предотвращения внедрения определённых шрифтов вы можете передать массив имён шрифтов в параметризованный конструктор класса [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController). Популярные шрифты, такие как Calibri или Arial, используемые в презентации, не обязаны внедряться, так как большинство систем уже содержат такие шрифты. Если эти шрифты внедряются, получаемый HTML‑документ становится ненужно большим.
 
-Класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) поддерживает наследование и предоставляет метод [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-), предназначенный для переопределения.
+Класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) поддерживает наследование и предоставляет метод [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-), который следует переопределять.
 ```javascript
 var pres = new aspose.slides.Presentation("input.pptx");
 try {
-    // исключить шрифты презентации по умолчанию
+    // исключить шрифты по умолчанию презентации
     var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
     var embedFontsController = new aspose.slides.EmbedAllFontsHtmlController(fontNameExcludeList);
     var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
@@ -148,9 +157,9 @@ try {
 
 ## **Преобразовать PowerPoint в HTML с изображениями высокого качества**
 
-По умолчанию при преобразовании PowerPoint в HTML Aspose.Slides создает небольшие HTML‑файлы с изображениями 72 DPI и удалёнными обрезанными областями. Чтобы получить HTML‑файлы с изображениями более высокого качества, необходимо передать значение `96` в метод `setPicturesCompression` класса `HtmlOptions` (т.е. `PicturesCompression.Dpi96`) или более высокие [значения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression).
+По умолчанию при конвертации PowerPoint в HTML Aspose.Slides выводит небольшие HTML‑файлы с изображениями 72 DPI и удалёнными обрезанными областями. Чтобы получить HTML‑файлы с изображениями более высокого качества, необходимо передать `96` в метод `setPicturesCompression` класса `HtmlOptions` (т.е. `PicturesCompression.Dpi96`) или более высокие [значения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression).
 
-Этот код JavaScript показывает, как преобразовать презентацию PowerPoint в HTML, получая изображения высокого качества с разрешением 150 DPI (т.е. `PicturesCompression.Dpi150`):
+Этот JavaScript‑код демонстрирует, как преобразовать презентацию PowerPoint в HTML, получая изображения высокого качества 150 DPI (т.е. `PicturesCompression.Dpi150`):
 ```javascript
 var pres = new aspose.slides.Presentation("InputDoc.pptx");
 try {
@@ -165,7 +174,7 @@ try {
 ```
 
 
-Этот код JavaScript показывает, как вывести HTML с изображениями полного качества:
+Этот код на JavaScript демонстрирует, как выводить HTML с изображениями полной чёткости:
 ```javascript
 var pres = new aspose.slides.Presentation("InputDoc.pptx");
 try {
@@ -182,7 +191,9 @@ try {
 
 ## **Преобразовать слайд в HTML**
 
-Чтобы преобразовать конкретный слайд PowerPoint в HTML, необходимо создать экземпляр того же класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) (используемого для преобразования всей презентации в HTML), а затем вызвать метод [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) для сохранения файла в формате HTML. Класс [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) можно использовать для указания дополнительных параметров преобразования:
+Чтобы преобразовать конкретный слайд PowerPoint в HTML, необходимо создать экземпляр того же класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation), который используется для конвертации целых презентаций, и затем вызвать метод [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) для сохранения файла в формате HTML. Класс [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) можно использовать для указания дополнительных параметров конвертации:
+
+Этот JavaScript‑код демонстрирует, как преобразовать слайд презентации PowerPoint в HTML:
 ```javascript
 var pres = new aspose.slides.Presentation("Individual-Slide.pptx");
 try {
@@ -229,9 +240,9 @@ try {
 
 ## **Сохранить CSS и изображения при экспорте в HTML**
 
-С помощью новых файлов стилей CSS вы можете легко изменить стиль HTML‑файла, полученного в результате преобразования PowerPoint в HTML.
+Используя новые файлы стилей CSS, вы можете легко изменить внешний вид HTML‑файла, полученного в результате конвертации PowerPoint в HTML.
 
-Код JavaScript в этом примере показывает, как использовать переопределяемые методы для создания пользовательского HTML‑документа со ссылкой на файл CSS:
+JavaScript‑код в этом примере показывает, как использовать переопределяемые методы для создания пользовательского HTML‑документа со ссылкой на файл CSS:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -246,9 +257,8 @@ try {
 }
 ```
 
-Вам потребуется реализовать CustomHeaderAndFontsController в Java, скомпилировать его и добавить в каталог модуля \aspose.slides.via.java\lib\.
-
-Этот код Java показывает, как реализован `CustomHeaderAndFontsController`:
+Вам потребуется реализовать `CustomHeaderAndFontsController` на Java, скомпилировать его и добавить в каталог модуля \aspose.slides.via.java\lib\.
+Этот Java‑код показывает, как реализован `CustomHeaderAndFontsController`:
 ```java
 public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 {
@@ -285,11 +295,11 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 ```
 
 
-## **Связать все шрифты при преобразовании презентации в HTML**
+## **Связывание всех шрифтов при конвертации презентации в HTML**
 
-Если вы не хотите встраивать шрифты (чтобы избежать увеличения размера получаемого HTML), вы можете связать все шрифты, реализовав собственную версию `LinkAllFontsHtmlController`.
+Если вы не хотите внедрять шрифты (чтобы не увеличивать размер получаемого HTML), вы можете связать все шрифты, реализовав собственную версию `LinkAllFontsHtmlController`.
 
-Этот код JavaScript показывает, как преобразовать PowerPoint в HTML, связывая все шрифты и исключая "Calibri" и "Arial" (поскольку они уже присутствуют в системе):
+Этот JavaScript‑код показывает, как преобразовать PowerPoint в HTML, связывая все шрифты и исключая «Calibri» и «Arial» (поскольку они уже присутствуют в системе):
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -307,9 +317,8 @@ try {
 ```
 
 
-Вам потребуется реализовать LinkAllFontsHtmlController в Java, скомпилировать его и добавить в каталог модуля \aspose.slides.via.java\lib\.
-
-Этот код Java показывает, как реализован `LinkAllFontsHtmlController`:
+Вам потребуется реализовать `LinkAllFontsHtmlController` на Java, скомпилировать его и добавить в каталог модуля \aspose.slides.via.java\lib\.
+Этот Java‑код показывает, как реализован `LinkAllFontsHtmlController`:
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
@@ -352,7 +361,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 
 ## **Преобразовать PowerPoint в адаптивный HTML**
 
-Этот код JavaScript показывает, как преобразовать презентацию PowerPoint в адаптивный HTML:
+Этот JavaScript‑код показывает, как преобразовать презентацию PowerPoint в адаптивный HTML:
 ```javascript
 var pres = new aspose.slides.Presentation("SomePresentation.pptx");
 try {
@@ -367,16 +376,16 @@ try {
 ```
 
 
-## **Экспортировать медиа‑файлы в HTML**
+## **Экспортировать медиафайлы в HTML**
 
-С помощью Aspose.Slides for Node.js via Java вы можете экспортировать медиа‑файлы следующим образом:
+Используя Aspose.Slides for Node.js via Java, вы можете экспортировать медиафайлы следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд.
-3. Добавьте видео на слайд.
-4. Запишите презентацию в виде HTML‑файла.
+1. Получите ссылку на слайд.
+1. Добавьте видео на слайд.
+1. Запишите презентацию как HTML‑файл.
 
-Этот код JavaScript показывает, как добавить видео в презентацию и затем сохранить её как HTML:
+Этот JavaScript‑код демонстрирует, как добавить видео в презентацию и затем сохранить её как HTML:
 ```javascript
 // Загрузка презентации
 var pres = new aspose.slides.Presentation();
@@ -404,16 +413,13 @@ try {
 ```
 
 
-## **Вопросы и ответы**
+## **FAQ**
 
-**Какова производительность Aspose.Slides при преобразовании нескольких презентаций в HTML?**
+**What is the performance of Aspose.Slides when converting multiple presentations to HTML?**  
+Performance depends on the size and complexity of presentations. Aspose.Slides is highly efficient and scalable for batch operations. To achieve optimal performance when converting many presentations, it’s recommended to use multithreading or parallel processing whenever possible.
 
-Производительность зависит от размера и сложности презентаций. Aspose.Slides обладает высокой эффективностью и масштабируемостью для пакетных операций. Чтобы достичь оптимальной производительности при преобразовании большого количества презентаций, рекомендуется использовать многопоточность или параллельную обработку, когда это возможно.
+**Does Aspose.Slides support exporting hyperlinks to HTML?**  
+Yes, Aspose.Slides fully supports exporting embedded hyperlinks to HTML. When you convert presentations to HTML format, hyperlinks are preserved automatically and remain clickable.
 
-**Поддерживает ли Aspose.Slides экспорт гиперссылок в HTML?**
-
-Да, Aspose.Slides полностью поддерживает экспорт встроенных гиперссылок в HTML. При преобразовании презентаций в формат HTML гиперссылки автоматически сохраняются и остаются кликабельными.
-
-**Существует ли ограничение на количество слайдов при преобразовании презентаций в HTML?**
-
-При использовании Aspose.Slides нет ограничения на количество слайдов. Вы можете преобразовать презентации любого объёма. Однако для презентаций с очень большим числом слайдов производительность может зависеть от доступных ресурсов вашего сервера или системы.
+**Is there any limit on the number of slides when converting presentations to HTML?**  
+There is no limit on the number of slides when using Aspose.Slides. You can convert presentations of any size. However, for presentations containing a very large number of slides, performance may depend on the available resources of your server or system.

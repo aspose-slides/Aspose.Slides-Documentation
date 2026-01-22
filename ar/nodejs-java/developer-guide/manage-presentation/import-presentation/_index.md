@@ -1,25 +1,43 @@
 ---
-title: استيراد عرض تقديمي
+title: استيراد العروض التقديمية من PDF أو HTML في JavaScript
+linktitle: استيراد عرض تقديمي
 type: docs
 weight: 60
 url: /ar/nodejs-java/import-presentation/
-keywords: "استيراد PowerPoint, PDF إلى عرض تقديمي, PDF إلى PPTX, PDF إلى PPT, Java, Aspose.Slides for Node.js via Java"
-description: "استيراد عرض تقديمي PowerPoint من PDF. تحويل PDF إلى PowerPoint"
+keywords:
+- استيراد عرض تقديمي
+- استيراد شريحة
+- استيراد PDF
+- استيراد HTML
+- PDF إلى عرض تقديمي
+- PDF إلى PPT
+- PDF إلى PPTX
+- PDF إلى ODP
+- HTML إلى عرض تقديمي
+- HTML إلى PPT
+- HTML إلى PPTX
+- HTML إلى ODP
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "استيراد مستندات PDF وHTML إلى عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js لمعالجة شرائح سلسة وعالية الأداء."
 ---
 
-باستخدام [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)، يمكنك استيراد العروض التقديمية من ملفات بصيغ أخرى. توفر Aspose.Slides الفئة [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) للسماح لك باستيراد العروض التقديمية من ملفات PDF، ومستندات HTML، وغيرها.
+باستخدام [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)، يمكنك استيراد العروض التقديمية من ملفات بصيغ أخرى. توفر Aspose.Slides الفئة [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) لتمكينك من استيراد العروض من ملفات PDF، مستندات HTML، وما إلى ذلك.
 
 ## **استيراد PowerPoint من PDF**
 
-في هذه الحالة، ستحول ملف PDF إلى عرض تقديمي PowerPoint.
+في هذه الحالة، يمكنك تحويل ملف PDF إلى عرض PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) .
-2. استدعِ الطريقة [addFromPdf()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addFromPdf-java.lang.String-) ومرّر ملف PDF.
-3. استخدم الطريقة [save()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/).
+2. استدعاء الطريقة [addFromPdf()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addFromPdf-java.lang.String-) وتمرير ملف PDF.
+3. استخدام الطريقة [save()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
 
-يوضح هذا الشيفرة JavaScript عملية التحويل من PDF إلى PowerPoint:
+هذا الكود JavaScript يوضح عملية تحويل PDF إلى PowerPoint:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -33,21 +51,19 @@ try {
 ```
 
 
-{{% alert title="نصيحة" color="primary" %}} 
-
-قد ترغب في تجربة تطبيق الويب **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) لأنه تنفيذ حي للعملية الموضحة هنا. 
-
+{{% alert  title="Tip" color="primary" %}} 
+قد ترغب في تجربة تطبيق الويب **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) لأنه تنفيذ مباشر للعملية الموضحة هنا.
 {{% /alert %}} 
 
 ## **استيراد PowerPoint من HTML**
 
-في هذه الحالة، ستحول مستند HTML إلى عرض تقديمي PowerPoint.
+في هذه الحالة، يمكنك تحويل مستند HTML إلى عرض PowerPoint.
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) .
-2. استدعِ الطريقة [addFromHtml()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) ومرّر ملف HTML.
-3. استخدم الطريقة [save()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/).
+2. استدعاء الطريقة [addFromHtml()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) وتمرير ملف HTML.
+3. استخدام الطريقة [save()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
 
-يوضح هذا الشيفرة JavaScript عملية التحويل من HTML إلى PowerPoint:
+هذا الكود JavaScript يوضح عملية تحويل HTML إلى PowerPoint:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -70,19 +86,8 @@ try {
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يتم حفظ الجداول عند استيراد PDF، وهل يمكن تحسين اكتشافها؟**
+**هل يتم الحفاظ على الجداول عند استيراد PDF، وهل يمكن تحسين اكتشافها؟**
 
-يمكن اكتشاف الجداول أثناء الاستيراد؛ تضم فئة [PdfImportOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfimportoptions/) طريقة [setDetectTables](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfimportoptions/#setDetectTables) التي تُفعّل التعرف على الجداول. تعتمد الفعالية على بنية ملف PDF.
-
-{{% alert title="ملاحظة" color="warning" %}} 
-
-يمكنك أيضًا استخدام Aspose.Slides لتحويل HTML إلى صيغ ملفات شائعة أخرى: 
-
-* [HTML إلى صورة](https://products.aspose.com/slides/nodejs-java/conversion/html-to-image/)
-* [HTML إلى JPG](https://products.aspose.com/slides/nodejs-java/conversion/html-to-jpg/)
-* [HTML إلى XML](https://products.aspose.com/slides/nodejs-java/conversion/html-to-xml/)
-* [HTML إلى TIFF](https://products.aspose.com/slides/nodejs-java/conversion/html-to-tiff/)
-
-{{% /alert %}}
+يمكن اكتشاف الجداول أثناء الاستيراد؛ تتضمن الفئة [PdfImportOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfimportoptions/) الطريقة [setDetectTables](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfimportoptions/#setDetectTables) التي تمكّن من التعرف على الجداول. وتعتمد الفعالية على بنية ملف PDF.

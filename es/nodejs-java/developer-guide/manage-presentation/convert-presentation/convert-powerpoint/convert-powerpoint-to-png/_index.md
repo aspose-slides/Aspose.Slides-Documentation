@@ -1,10 +1,28 @@
 ---
-title: Convertir PowerPoint a PNG
+title: Convertir diapositivas de PowerPoint a PNG en JavaScript
+linktitle: PowerPoint a PNG
 type: docs
 weight: 30
 url: /es/nodejs-java/convert-powerpoint-to-png/
-keywords: PowerPoint a PNG, PPT a PNG, PPTX a PNG, java, Aspose.Slides para Node.js mediante Java
-description: Convertir presentación de PowerPoint a PNG
+keywords:
+- convertir PowerPoint
+- convertir presentación
+- convertir diapositiva
+- convertir PPT
+- convertir PPTX
+- PowerPoint a PNG
+- presentación a PNG
+- diapositiva a PNG
+- PPT a PNG
+- PPTX a PNG
+- guardar PPT como PNG
+- guardar PPTX como PNG
+- exportar PPT a PNG
+- exportar PPTX a PNG
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convierta presentaciones de PowerPoint a imágenes PNG de alta calidad en JavaScript rápidamente con Aspose.Slides para Node.js, garantizando resultados precisos y automatizados."
 ---
 
 ## **Acerca de la conversión de PowerPoint a PNG**
@@ -13,18 +31,18 @@ El formato PNG (Portable Network Graphics) no es tan popular como JPEG (Joint Ph
 
 **Caso de uso:** Cuando tienes una imagen compleja y el tamaño no es un problema, PNG es un formato de imagen mejor que JPEG. 
 
-{{% alert title="Tip" color="primary" %}} Es posible que desees consultar los convertidores gratuitos de Aspose **PowerPoint a PNG**: [PPTX a PNG](https://products.aspose.app/slides/conversion/pptx-to-png) y [PPT a PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Son una implementación en vivo del proceso descrito en esta página. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Puede que desee consultar los conversores gratuitos de Aspose **PowerPoint a PNG**: [PPTX a PNG](https://products.aspose.app/slides/conversion/pptx-to-png) y [PPT a PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Son una implementación en vivo del proceso descrito en esta página. {{% /alert %}}
 
 ## **Convertir PowerPoint a PNG**
 
-Sigue estos pasos:
+Siga estos pasos:
 
 1. Instanciar la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Obtener el objeto de diapositiva de la colección devuelta por el método [Presentation.getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) bajo la clase [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide).
 3. Utilizar el método [Slide.getImage()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) para obtener la miniatura de cada diapositiva.
-4. Utilizar el método [**Image.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Image#save(String formatName, int imageFormat)) para guardar la miniatura de la diapositiva en formato PNG.
+4. Utilizar el método [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) para guardar la miniatura de la diapositiva en formato PNG.
 
-Este código JavaScript muestra cómo convertir una presentación de PowerPoint a PNG:
+Este código JavaScript le muestra cómo convertir una presentación PowerPoint a PNG:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -49,9 +67,9 @@ try {
 
 ## **Convertir PowerPoint a PNG con dimensiones personalizadas**
 
-Si deseas obtener archivos PNG con una escala determinada, puedes establecer los valores de `desiredX` y `desiredY`, que determinan las dimensiones de la miniatura resultante. 
+Si desea obtener archivos PNG con una determinada escala, puede establecer los valores de `desiredX` y `desiredY`, que determinan las dimensiones de la miniatura resultante. 
 
-Este código en JavaScript demuestra la operación descrita:
+Este código JavaScript demuestra la operación descrita:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -78,9 +96,9 @@ try {
 
 ## **Convertir PowerPoint a PNG con tamaño personalizado**
 
-Si deseas obtener archivos PNG con un tamaño determinado, puedes pasar tus argumentos preferidos `width` y `height` para `ImageSize`. 
+Si desea obtener archivos PNG con un tamaño determinado, puede pasar los argumentos `width` y `height` que prefiera para `ImageSize`. 
 
-Este código muestra cómo convertir un PowerPoint a PNG especificando el tamaño de las imágenes: 
+Este código le muestra cómo convertir un PowerPoint a PNG especificando el tamaño de las imágenes: 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -104,15 +122,15 @@ try {
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Cómo puedo exportar solo una forma específica (por ejemplo, un gráfico o una imagen) en lugar de toda la diapositiva?**
+**¿Cómo puedo exportar solo una forma específica (p. ej., gráfico o imagen) en lugar de toda la diapositiva?**
 
-Aspose.Slides admite [generar miniaturas para formas individuales](/slides/es/nodejs-java/create-shape-thumbnails/); puedes renderizar una forma a una imagen PNG.
+Aspose.Slides admite [generar miniaturas para formas individuales](/slides/es/nodejs-java/create-shape-thumbnails/); puede renderizar una forma a una imagen PNG.
 
 **¿Se admite la conversión paralela en un servidor?**
 
-Sí, pero [no compartas](/slides/es/nodejs-java/multithreading/) una única instancia de presentación entre hilos. Usa una instancia separada por hilo o proceso.
+Sí, pero [no comparta](/slides/es/nodejs-java/multithreading/) una única instancia de presentación entre hilos. Utilice una instancia separada por hilo o proceso.
 
 **¿Cuáles son las limitaciones de la versión de prueba al exportar a PNG?**
 

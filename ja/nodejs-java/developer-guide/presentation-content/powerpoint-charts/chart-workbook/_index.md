@@ -1,16 +1,29 @@
 ---
-title: チャート ワークブック
+title: JavaScript を使用したプレゼンテーションでのチャート ワークブックの管理
+linktitle: チャート ワークブック
 type: docs
 weight: 70
 url: /ja/nodejs-java/chart-workbook/
-keywords: "チャート ワークブック, チャート データ, PowerPoint プレゼンテーション, Java, Node.js via Java 用 Aspose.Slides"
-description: "PowerPoint プレゼンテーション内のチャート ワークブック（JavaScript）"
+keywords:
+- チャート ワークブック
+- チャート データ
+- ワークブック セル
+- データ ラベル
+- ワークシート
+- データ ソース
+- 外部ワークブック
+- 外部データ
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Java を介して Aspose.Slides for Node.js を発見し、PowerPoint および OpenDocument 形式でチャート ワークブックを簡単に管理してプレゼンテーション データを効率化します。"
 ---
 
 ## **ワークブックからチャート データを設定**
-Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) および [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) メソッドを提供し、チャート データ ワークブック（Aspose.Cells で編集されたチャート データを含む）を読み書きできます。**注**: チャート データは同じ形式で構成されているか、元と同様の構造である必要があります。
+Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) と [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) メソッドを提供し、チャート データ ワークブック（Aspose.Cells で編集されたチャート データを含む）を読み書きできます。**注意**: チャート データは同じ方式で構成されているか、元データと同様の構造である必要があります。
 
-この JavaScript コードはサンプル操作を示します:
 ```javascript
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -32,17 +45,16 @@ try {
 
 1. [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドの参照を取得します。  
-1. データを含むバブル チャートを追加します。  
-1. チャート シリーズにアクセスします。  
-1. ワークブック セルをデータ ラベルとして設定します。  
+1. いくつかのデータを含むバブル チャートを追加します。  
+1. チャートの系列にアクセスします。  
+1. ワークブックのセルをデータ ラベルとして設定します。  
 1. プレゼンテーションを保存します。
 
-この JavaScript コードは、ワークブック セルをチャート データ ラベルとして設定する方法を示します:
 ```javascript
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// プレゼンテーション ファイルを表すプレゼンテーション クラスのインスタンスを作成します
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -65,7 +77,8 @@ try {
 
 ## **ワークシートの管理**
 
-この JavaScript コードは、[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) メソッドを使用してワークシート コレクションにアクセスする操作を示します:
+この JavaScript コードは、[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) メソッドを使用してワークシート コレクションにアクセスする操作を示しています：
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -84,7 +97,8 @@ try {
 
 ## **データ ソース タイプの指定**
 
-この JavaScript コードは、データ ソースのタイプを指定する方法を示します:
+この JavaScript コードは、データ ソースのタイプを指定する方法を示しています：
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -105,15 +119,12 @@ try {
 
 ## **外部ワークブック**
 
-{{% alert color="primary" %}} 
-[Aspose.Slides 19.4](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-19-4-release-notes/) では、チャートのデータ ソースとして外部ワークブックをサポートしました。 
-{{% /alert %}} 
+Aspose.Slides は、チャートのデータ ソースとして外部ワークブックをサポートしています。
 
 ### **外部ワークブックの作成**
 
-**`readWorkbookStream`** と **`setExternalWorkbook`** メソッドを使用すると、外部ワークブックを新規作成するか、既存の内部ワークブックを外部化できます。
+`readWorkbookStream` と `setExternalWorkbook` メソッドを使用すると、最初から外部ワークブックを作成するか、内部ワークブックを外部化できます。
 
-この JavaScript コードは外部ワークブックの作成プロセスを示します:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -141,11 +152,10 @@ try {
 
 ### **外部ワークブックの設定**
 
-**`setExternalWorkbook`** メソッドを使用して、外部ワークブックをチャートのデータ ソースとして割り当てられます。このメソッドは、外部ワークブックのパスが移動された場合などにパスを更新する際にも使用できます。
+`setExternalWorkbook` メソッドを使用して、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが移動された場合にパスを更新するためにも使用できます。
 
-リモート ロケーションやリソースに保存されているワークブックのデータを直接編集することはできませんが、外部データ ソースとして使用できます。相対パスが指定された場合、フル パスに自動変換されます。
+リモート場所やリソースに保存されたワークブックのデータは編集できませんが、外部データ ソースとして使用できます。外部ワークブックの相対パスが指定された場合、自動的にフルパスに変換されます。
 
-この JavaScript コードは外部ワークブックの設定方法を示します:
 ```javascript
 // Presentation クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation("chart.pptx");
@@ -169,10 +179,11 @@ try {
 ```
 
 
-`ChartData` パラメーター（`setExternalWorkbook` メソッドの下）は、Excel ワークブックをロードするかどうかを指定するために使用されます。
+`ChartData` パラメータ（`setExternalWorkbook` メソッドの下）は、Excel ワークブックをロードするかどうかを指定するために使用されます。
 
-* `ChartData` の値が `false` に設定されている場合、ワークブック パスのみが更新され、チャート データはターゲット ワークブックから読み込まれません。ターゲット ワークブックが存在しない、または利用できない状況でこの設定を使用できます。  
-* `ChartData` の値が `true` に設定されている場合、チャート データはターゲット ワークブックから更新されます。
+* `ChartData` の値が `false` に設定されている場合、ワークブック パスのみが更新され、チャート データは対象ワークブックからロードまたは更新されません。対象ワークブックが存在しない、または利用できない状況でこの設定を使用できます。  
+* `ChartData` の値が `true` に設定されている場合、チャート データは対象ワークブックから更新されます。
+
 ```javascript
 // Presentation クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation("chart.pptx");
@@ -193,11 +204,10 @@ try {
 
 1. [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドの参照を取得します。  
-1. チャート シェイプ用のオブジェクトを作成します。  
-1. チャートのデータ ソースを表すソース (`ChartDataSourceType`) オブジェクトを作成します。  
+1. チャート シェイプのオブジェクトを作成します。  
+1. チャートのデータ ソースを表す `ChartDataSourceType` オブジェクトを作成します。  
 1. ソース タイプが外部ワークブック データ ソース タイプと同じであることを条件として指定します。
 
-この JavaScript コードは操作を示します:
 ```javascript
 // Presentation クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation("chart.pptx");
@@ -220,9 +230,8 @@ try {
 
 ### **チャート データの編集**
 
-外部ワークブックのデータは、内部ワークブックの内容を変更するのと同じ方法で編集できます。外部ワークブックをロードできない場合、例外がスローされます。
+外部ワークブックのデータは、内部ワークブックの内容を変更するのと同じ方法で編集できます。外部ワークブックをロードできない場合は例外がスローされます。
 
-この JavaScript コードは上記プロセスの実装例です:
 ```javascript
 // Presentation クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation("chart.pptx");
@@ -241,26 +250,26 @@ try {
 
 ## **FAQ**
 
-**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判別できますか？**
+**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判定できますか？**
 
-はい。チャートには [データ ソース タイプ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) と [外部ワークブックへのパス](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) があり、ソースが外部ワークブックの場合はフル パスを取得して外部ファイルが使用されているか確認できます。
+はい。チャートには [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) と [外部ワークブックへのパス](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) があり、外部ワークブックがソースである場合はフルパスを読み取ることで外部ファイルが使用されていることを確認できます。
 
-**外部ワークブックへの相対パスはサポートされていますか？ どのように保存されますか？**
+**外部ワークブックへの相対パスはサポートされていますか？ また、どのように保存されますか？**
 
-はい。相対パスを指定すると自動的に絶対パスに変換されます。これによりプロジェクトのポータビリティが向上しますが、プレゼンテーションは PPTX ファイル内に絶対パスを保存します。
+はい。相対パスを指定すると自動的に絶対パスに変換されます。これはプロジェクトの移植性に便利ですが、PPTX ファイル内には絶対パスが保存されることに注意してください。
 
-**ネットワーク リソース/共有上にあるワークブックを使用できますか？**
+**ネットワーク リソースや共有フォルダーにあるワークブックを使用できますか？**
 
-はい、そのようなワークブックは外部データ ソースとして使用可能です。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。ソースとしてのみ使用できます。
+はい、これらのワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモートワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
 
 **プレゼンテーション保存時に外部 XLSX が上書きされますか？**
 
-いいえ。プレゼンテーションは [外部ファイルへのリンク](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) を保存し、データ読み取り時に使用します。保存時に外部ファイル自体は変更されません。
+いいえ。プレゼンテーションは [外部ファイルへのリンク](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) を保存し、データ読み取りに使用します。保存時に外部ファイル自体は変更されません。
 
-**外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
+**外部ファイルがパスワードで保護されている場合はどうすべきですか？**
 
-Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策として、事前に保護を解除するか、[Aspose.Cells](/cells/nodejs-java/) などで復号化したコピーを作成し、そのコピーにリンクします。
+Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対処法は、事前に保護を解除するか、[Aspose.Cells](/cells/nodejs-java/) などで復号化したコピーを用意してそのコピーにリンクすることです。
 
 **複数のチャートが同じ外部ワークブックを参照できますか？**
 
-はい。各チャートは独自のリンクを保持します。すべてが同じファイルを指す場合、そのファイルを更新すると次回データが読み込まれる際に各チャートに反映されます。
+はい。各チャートは個別にリンクを保持します。同じファイルを指す場合、ファイルを更新すれば次回データがロードされる際にすべてのチャートに反映されます。

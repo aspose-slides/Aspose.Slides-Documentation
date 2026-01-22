@@ -1,19 +1,33 @@
 ---
-title: Fallback-Schriftartensammlung erstellen
+title: Fallback-Schriftartkollektionen in JavaScript konfigurieren
+linktitle: Fallback-Schriftartkollektion
 type: docs
 weight: 20
 url: /de/nodejs-java/create-fallback-fonts-collection/
+keywords:
+- Fallback-Schriftart
+- Fallback-Regel
+- Schriftartsammlung
+- Schriftart konfigurieren
+- Schriftart einrichten
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Richten Sie eine Fallback-Schriftartkollektion in JavaScript mit Aspose.Slides für Node.js ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar darzustellen."
 ---
 
 ## **Fallback-Regeln anwenden**
 
-Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) können in einer [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) organisiert werden, die die Klasse [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
+Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) können in [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) organisiert werden, die die Klasse [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Dann kann diese Sammlung der Methode [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) der Klasse [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) zugewiesen werden. FontsManager steuert die Schriftarten in der gesamten Präsentation. Mehr dazu [Über FontsManager und FontsLoader](/slides/de/nodejs-java/about-fontsmanager-and-fontsloader/).
+Dann kann diese Sammlung der Methode [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) der Klasse [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) zugewiesen werden. FontsManager steuert die Schriftarten in der gesamten Präsentation.
 
 Jede [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) hat eine Methode [getFontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) mit ihrer eigenen Instanz der Klasse [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager).
 
-Hier ein Beispiel, wie man eine Sammlung von Fallback-Schriftartregeln erstellt und sie dem [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist:  
+Hier ist ein Beispiel, wie man eine Sammlung von Fallback-Schriftartenregeln erstellt und sie dem [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist:  
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -29,26 +43,26 @@ try {
 ```
 
 
-Nachdem der FontsManager mit einer Fallback-Schriftartsammlung initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsrendering angewendet.
+Nachdem FontsManager mit einer Fallback-Schriftarten-Sammlung initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsrendering angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr, wie Sie eine Präsentation mit Fallback‑Schriftart rendern [Render Presentation with Fallback Font](/slides/de/nodejs-java/render-presentation-with-fallback-font/).
+Lesen Sie mehr, wie man [Präsentation mit Fallback-Schriftart rendern](/slides/de/nodejs-java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **FAQ**
 
 **Werden meine Fallback-Regeln in die PPTX-Datei eingebettet und nach dem Speichern in PowerPoint sichtbar sein?**
 
-Nein. Fallback‑Regeln sind Laufzeit‑Render‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
+Nein. Fallback-Regeln sind Laufzeit-Rendering-Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint-Oberfläche.
 
-**Wendet sich das Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen an?**
+**Wird Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
 
-Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeglichen Text in diesen Objekten verwendet.
+Ja. Der gleiche Glyph‑Substitutionsmechanismus wird für jeglichen Text in diesen Objekten verwendet.
 
-**Stellt Aspose Schriftarten mit der Bibliothek bereit?**
+**Stellt Aspose irgendwelche Schriftarten mit der Bibliothek bereit?**
 
-Nein. Sie fügen Schriftarten selbst hinzu und verwenden sie auf eigene Verantwortung.
+Nein. Sie fügen Schriftarten hinzu und verwenden sie auf Ihrer Seite und auf eigene Verantwortung.
 
-**Können Ersetzung/Substitution fehlender Schriftarten und Fallback für fehlende Glyphen zusammen verwendet werden?**
+**Kann Ersatz/Substitution fehlender Schriftarten und Fallback für fehlende Glyphen zusammen verwendet werden?**
 
-Ja. Sie sind unabhängige Stufen derselben Font‑Auflösungspipeline: Zuerst löst die Engine die Verfügbarkeit von Schriftarten ([replacement](/slides/de/nodejs-java/font-replacement/)/[substitution](/slides/de/nodejs-java/font-substitution/)) auf, dann füllt das Fallback Lücken für fehlende Glyphen in verfügbaren Schriftarten.
+Ja. Sie sind unabhängige Stufen derselben Schriftartenauflösungs-Pipeline: Zuerst ermittelt die Engine die Verfügbarkeit von Schriftarten ([replacement](/slides/de/nodejs-java/font-replacement/)/[substitution](/slides/de/nodejs-java/font-substitution/)), dann füllt Fallback Lücken für fehlende Glyphen in verfügbaren Schriftarten.

@@ -1,31 +1,54 @@
 ---
-title: ウォーターマーク
+title: "JavaScript でプレゼンテーションにウォーターマークを追加する"
+linktitle: "ウォーターマーク"
 type: docs
 weight: 40
 url: /ja/nodejs-java/watermark/
-keywords: "プレゼンテーションのウォーターマーク"
-description: "Aspose.Slides を使用して PowerPoint にウォーターマークを使用します。ppt プレゼンテーションにウォーターマークを追加したり、削除したりできます。画像ウォーターマークまたはテキストウォーターマークを挿入します。"
+keywords:
+- "ウォーターマーク"
+- "テキストウォーターマーク"
+- "画像ウォーターマーク"
+- "ウォーターマークを追加"
+- "ウォーターマークを変更"
+- "ウォーターマークを削除"
+- "ウォーターマークを削除"
+- "PPT にウォーターマークを追加"
+- "PPTX にウォーターマークを追加"
+- "ODP にウォーターマークを追加"
+- "PPT からウォーターマークを削除"
+- "PPTX からウォーターマークを削除"
+- "ODP からウォーターマークを削除"
+- "PPT からウォーターマークを削除"
+- "PPTX からウォーターマークを削除"
+- "ODP からウォーターマークを削除"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Node.js で PowerPoint および OpenDocument のプレゼンテーションのテキストと画像のウォーターマークを管理し、ドラフトや機密情報、著作権などを示すことができます。"
 ---
 
 ## **ウォーターマークについて**
 
-**ウォーターマーク** は、プレゼンテーションのスライドまたはすべてのスライドに使用されるテキストまたは画像のスタンプです。通常、ドラフトであることを示す（例: 「Draft」ウォーターマーク）、機密情報が含まれていることを示す（例: 「Confidential」ウォーターマーク）、所属企業を示す（例: 「Company Name」ウォーターマーク）、プレゼンテーションの作成者を特定する、などに使用されます。ウォーターマークは、プレゼンテーションがコピーされるべきでないことを示すことで著作権侵害を防止するのに役立ちます。ウォーターマークは、PowerPoint と OpenOffice のプレゼンテーション形式の両方で使用されます。Aspose.Slides では、PowerPoint の PPT、PPTX、OpenOffice の ODP ファイル形式にウォーターマークを追加できます。
+**プレゼンテーション**の**ウォーターマーク**は、スライドまたはすべてのスライド全体で使用されるテキストまたは画像のスタンプです。通常、ドラフトであることを示す（例:「Draft」ウォーターマーク）、機密情報を含むことを示す（例:「Confidential」ウォーターマーク）、所属企業を示す（例:「Company Name」ウォーターマーク）、作成者を特定するなどに使用されます。ウォーターマークは、プレゼンテーションをコピーすべきでないことを示すことで著作権侵害を防止する役割も果たします。ウォーターマークは PowerPoint と OpenOffice のプレゼンテーション形式の両方で使用されます。Aspose.Slides では、PowerPoint PPT、PPTX、OpenOffice ODP ファイル形式にウォーターマークを追加できます。
 
-[**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/) では、PowerPoint または OpenOffice ドキュメントにウォーターマークを作成し、デザインや動作を変更するさまざまな方法が用意されています。共通点は、テキストウォーターマークを追加する場合は [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 型を使用し、画像ウォーターマークを追加する場合は [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) クラスを使用するか、ウォーターマーク シェイプに画像を塗りつぶすことです。`PictureFrame` は [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 型を実装しているため、シェイプ オブジェクトのすべての柔軟な設定を使用できます。`TextFrame` はシェイプではなく設定が限られているため、[Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) オブジェクトにラップされています。
+[**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/) では、PowerPoint または OpenOffice ドキュメントにウォーターマークを作成し、そのデザインや動作を変更するさまざまな方法が用意されています。共通点は、テキストウォーターマークを追加する場合は [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 型を使用し、画像ウォーターマークを追加する場合は [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) クラスまたはウォーターマーク形状に画像を塗りつぶすことです。`PictureFrame` は [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 型を実装しているため、形状オブジェクトの柔軟な設定すべてを利用できます。`TextFrame` は形状ではなく設定が限定的なので、[Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) オブジェクトにラップされます。
 
-ウォーターマークの適用方法は 2 通りあります。単一スライドに適用するか、プレゼンテーション全体のスライドに適用するかです。スライドマスターを使用すると、ウォーターマークをすべてのスライドに適用できます。ウォーターマークはスライドマスターに追加され、そこで完全にデザインされ、個々のスライドの編集権限に影響を与えることなくすべてのスライドに適用されます。
+ウォーターマークの適用方法は 2 通りあります: 単一スライドに適用するか、すべてのスライドに適用するかです。すべてのスライドにウォーターマークを適用するには **Slide Master** を使用します。ウォーターマークは Slide Master に追加され、そこで完全にデザインされ、個々のスライドの編集権限に影響を与えることなくすべてのスライドに適用されます。
 
-ウォーターマークは通常、他のユーザーが編集できないように設定されます。ウォーターマーク（正確にはウォーターマークの親シェイプ）が編集されないようにするために、Aspose.Slides はシェイプ ロック機能を提供します。特定のシェイプは通常のスライドまたはスライドマスター上でロックできます。スライドマスター上でウォーターマーク シェイプがロックされると、すべてのスライドでロックされます。
+通常、ウォーターマークは他のユーザーによる編集ができないように設定されます。ウォーターマーク（正確にはウォーターマークの親形状）の編集を防止するために、Aspose.Slides は形状ロック機能を提供します。特定の形状は通常のスライドまたは Slide Master 上でロックできます。Slide Master 上でウォーターマーク形状がロックされると、すべてのスライドでロックされた状態になります。
 
-将来的にウォーターマークを削除したい場合に備えて、名前を設定しておくとスライドのシェイプ一覧から名前で検索できます。
+将来ウォーターマークを削除したい場合に備えて、名前を設定しておくとスライドの形状コレクションから名前で検索できます。
 
-ウォーターマークはさまざまなデザインが可能ですが、一般的には中央揃え、回転、前面表示などの共通特徴があります。以下の例でこれらの使い方を説明します。
+ウォーターマークのデザインは自由ですが、一般的に中央揃え、回転、前面表示などの共通の特徴があります。以下の例でそれらの使い方を説明します。
 
 ## **テキストウォーターマーク**
 
 ### **スライドにテキストウォーターマークを追加**
 
-PPT、PPTX、ODP にテキストウォーターマークを追加するには、まずスライドにシェイプを追加し、そのシェイプにテキスト フレームを追加します。テキスト フレームは [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) 型で表されます。この型は [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) から継承されておらず、柔軟な位置設定プロパティがありません。そのため、[TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) オブジェクトは [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) オブジェクトでラップされます。シェイプにウォーターマーク テキストを追加するには、ウォーターマーク テキストを引数に取る [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) メソッドを使用します:
+PPT、PPTX、ODP にテキストウォーターマークを追加するには、まずスライドに形状を追加し、その形状にテキストフレームを追加します。テキストフレームは [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) 型で表されます。この型は [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) から継承されておらず、柔軟な位置指定プロパティがありません。そのため、[TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) オブジェクトは [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) オブジェクトにラップされます。形状にウォーターマークテキストを追加するには、ウォーターマークテキストを引数として渡す [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) メソッドを使用します:
 ```javascript
 const watermarkText = "CONFIDENTIAL";
 
@@ -39,13 +62,13 @@ presentation.dispose();
 ```
 
 
-{{% alert color="primary" title="参考" %}} 
-- [How to use](/slides/ja/nodejs-java/slide-master/)[TextFrame](/slides/ja/nodejs-java/adding-and-formatting-text/)
+{{% alert color="primary" title="See also" %}} 
+- 使用方法 [TextFrame](/slides/ja/nodejs-java/text-formatting/)
 {{% /alert %}}
 
 ### **プレゼンテーション全体にテキストウォーターマークを追加**
 
-プレゼンテーション全体（すべてのスライド）にテキストウォーターマークを追加したい場合は、[**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) に追加します。残りのロジックは単一スライドに追加する場合と同様です。まず [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) オブジェクトを作成し、次に [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) メソッドでウォーターマークを追加します:
+プレゼンテーション全体（すべてのスライド）にテキストウォーターマークを追加したい場合は、[**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) に追加します。残りのロジックは単一スライドに追加する場合と同じです。まず [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) オブジェクトを作成し、次に [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) メソッドでウォーターマークを追加します:
 ```javascript
 const watermarkText = "CONFIDENTIAL";
 
@@ -59,13 +82,13 @@ presentation.dispose();
 ```
 
 
-{{% alert color="primary" title="参考" %}} 
-- [How to use](/slides/ja/nodejs-java/slide-master/)[Slide Master](/slides/ja/nodejs-java/slide-master/)
+{{% alert color="primary" title="See also" %}} 
+- [使用方法 ](/slides/ja/nodejs-java/slide-master/)[Slide Master](/slides/ja/nodejs-java/slide-master/)
 {{% /alert %}}
 
-### **ウォーターマーク シェイプの透明度を設定**
+### **ウォーターマーク形状の透明度を設定**
 
-デフォルトでは、矩形シェイプは塗りつぶしと線の色が設定されています。次のコードでシェイプを透明にします。
+デフォルトでは、長方形形状は塗りつぶしと線の色が設定されています。次のコードで形状を透明にします。
 ```javascript
 watermarkShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 watermarkShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
@@ -82,9 +105,9 @@ textFormat.setFontHeight(50);
 ```
 
 
-### **ウォーターマーク テキストの色を設定**
+### **ウォーターマークテキストの色を設定**
 
-ウォーターマーク テキストの色を設定するには、次のコードを使用します。
+ウォーターマークテキストの色を設定するには、次のコードを使用します。
 ```java
 let alpha = 150;
 let red = 200;
@@ -99,7 +122,7 @@ fillFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", r
 
 ### **テキストウォーターマークを中央揃え**
 
-スライド上でウォーターマークを中央揃えにするには、次のようにします。
+スライド上でウォーターマークを中央に配置するには、次のようにします。
 ```javascript
 const watermarkWidth = 400;
 const watermarkHeight = 40;
@@ -119,7 +142,7 @@ let watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 
 ## **画像ウォーターマーク**
 
-### **プレゼンテーション全体に画像ウォーターマークを追加**
+### **プレゼンテーションに画像ウォーターマークを追加**
 
 すべてのスライドに画像ウォーターマークを追加するには、次の手順を実行します。
 ```javascript
@@ -136,9 +159,9 @@ watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.
 
 ### **ウォーターマークの編集をロック**
 
-ウォーターマークの編集を防止する必要がある場合は、シェイプの [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getShapeLock--) メソッドを使用します。このプロパティにより、シェイプの選択、サイズ変更、位置変更、他の要素とのグループ化、テキストの編集ロックなどが保護できます。
+ウォーターマークの編集を防止する必要がある場合は、形状の [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getShapeLock--) メソッドを使用します。このプロパティを使用すると、形状の選択、サイズ変更、位置変更、他の要素とのグループ化、テキストの編集ロックなどを保護できます。
 ```javascript
-// ウォーターマークシェイプの変更をロック
+// ウォーターマーク形状の変更をロック
 watermarkShape.getShapeLock().setSelectLocked(true);
 watermarkShape.getShapeLock().setSizeLocked(true);
 watermarkShape.getShapeLock().setTextLocked(true);
@@ -147,13 +170,9 @@ watermarkShape.getShapeLock().setGroupingLocked(true);
 ```
 
 
-{{% alert color="primary" title="参考" %}} 
-- [How to Lock Shapes from Editing](/slides/ja/nodejs-java/presentation-locking/)
-{{% /alert %}}
-
 ### **ウォーターマークを前面に持ってくる**
 
-Aspose.Slides では、シェイプの Z 順序を [**SlideCollection.reorder**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#reorder-int-aspose.slides.ISlide...-) メソッドで設定できます。このメソッドをプレゼンテーションのスライドリストから呼び出し、シェイプ参照と順序番号を渡します。これにより、シェイプを前面に持ってくる、または背面に送ることが可能です。プレゼンテーションの前面にウォーターマークを配置したい場合に便利です。
+Aspose.Slides では、形状の Z オーダーを [**SlideCollection.reorder**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#reorder-int-aspose.slides.ISlide...-) メソッドで設定できます。このメソッドをプレゼンテーションのスライドリストから呼び出し、形状参照と順序番号を渡します。これにより、形状を前面に持ってくるか、背面に送ることができます。この機能は、ウォーターマークをスライドの前面に配置したい場合に特に便利です。
 ```javascript
 let shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
@@ -162,7 +181,7 @@ slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 
 ### **ウォーターマークの回転を設定**
 
-ウォーターマークをスライド全体に対して対角線上に配置する回転例を次に示します。
+次のコード例は、ウォーターマークをスライド全体に対角線状に配置するための回転設定方法を示しています。
 ```javascript
 const diagonalAngle = Math.atan(slideSize.getHeight() / slideSize.getWidth()) * 180 / Math.PI;
 
@@ -170,9 +189,9 @@ watermarkShape.setRotation(diagonalAngle);
 ```
 
 
-### **ウォーターマークに名前を設定**
+### **ウォーターマークに名前を付ける**
 
-Aspose.Slides ではシェイプに名前を設定できます。名前を付けておくと、将来そのシェイプにアクセスして変更または削除できます。ウォーターマーク シェイプの名前を設定するには、[**AutoShape.getName**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) メソッドを使用します。
+Aspose.Slides では形状に名前を設定できます。形状名を使用すれば、将来その形状にアクセスして変更または削除できます。ウォーターマーク形状に名前を付けるには、[**AutoShape.getName**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) メソッドを使用します。
 ```javascript
 watermarkShape.setName("watermark");
 ```
@@ -180,7 +199,7 @@ watermarkShape.setName("watermark");
 
 ### **ウォーターマークを削除**
 
-ウォーターマーク シェイプを削除するには、[AutoShape.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) メソッドでスライドのシェイプ一覧から見つけ、[**ShapeCollection.remove**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#remove-aspose.slides.IShape-) メソッドにシェイプを渡します。
+ウォーターマーク形状を削除するには、[AutoShape.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) メソッドでスライドの形状コレクションから検索し、[**ShapeCollection.remove**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#remove-aspose.slides.IShape-) メソッドに形状を渡します。
 ```javascript
 for (var i = 0; i < slide.getShapes().size(); i++) {
     var shape = slide.getShapes().get_Item(i);
@@ -193,26 +212,26 @@ for (var i = 0; i < slide.getShapes().size(); i++) {
 
 ## **FAQ**
 
-**ウォーターマークとは何ですか？また、なぜ使用すべきですか？**
+**ウォーターマークとは何ですか、なぜ使用すべきですか？**
 
-ウォーターマークは、スライドに適用されるテキストまたは画像のオーバーレイで、知的財産を保護したり、ブランド認知度を高めたり、プレゼンテーションの不正使用を防止したりするのに役立ちます。
+ウォーターマークはスライドに適用されるテキストまたは画像のオーバーレイで、知的財産を保護したり、ブランド認知を高めたり、プレゼンテーションの不正使用を防止したりするために使用されます。
 
 **プレゼンテーションのすべてのスライドにウォーターマークを追加できますか？**
 
-はい、Aspose.Slides を使用すると、プレゼンテーション内のすべてのスライドにウォーターマークを追加できます。すべてのスライドを反復処理し、個別にウォーターマーク設定を適用します。
+はい、Aspose.Slides を使用すれば、プレゼンテーションの各スライドにウォーターマークを追加できます。すべてのスライドをループし、個別にウォーターマーク設定を適用します。
 
-**ウォーターマークの透明度はどのように調整できますか？**
+**ウォーターマークの透明度を調整するには？**
 
-シェイプの [fill 設定](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getfillformat/) を変更することで、ウォーターマークの透明度を調整できます。これにより、ウォーターマークが控えめになり、スライドの内容の妨げにならなくなります。
+形状の [fill 設定](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getfillformat/) を変更することで、ウォーターマークの透明度を調整できます。これにより、ウォーターマークが控えめになり、スライド内容の妨げになりません。
 
-**ウォーターマークで使用できる画像形式は何ですか？**
+**ウォーターマークでサポートされている画像形式は何ですか？**
 
 Aspose.Slides は PNG、JPEG、GIF、BMP、SVG などのさまざまな画像形式をサポートしています。
 
-**テキストウォーターマークのフォントやスタイルはカスタマイズできますか？**
+**テキストウォーターマークのフォントやスタイルをカスタマイズできますか？**
 
-はい、フォント、サイズ、スタイルを自由に選択して、プレゼンテーションのデザインやブランドの一貫性に合わせることができます。
+はい、プレゼンテーションのデザインやブランドの一貫性に合わせて、任意のフォント、サイズ、スタイルを選択できます。
 
-**ウォーターマークの位置や向きはどのように変更できますか？**
+**ウォーターマークの位置や向きを変更するには？**
 
-シェイプの座標、サイズ、回転プロパティを変更することで、ウォーターマークの位置や向きを調整できます。
+形状の座標、サイズ、回転プロパティを変更することで、ウォーターマークの位置や向きを調整できます。

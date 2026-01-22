@@ -1,19 +1,35 @@
 ---
-title: 形状有效属性
+title: 在 JavaScript 中从演示文稿获取形状有效属性
+linktitle: 有效属性
 type: docs
 weight: 50
 url: /zh/nodejs-java/shape-effective-properties/
+keywords:
+- 形状属性
+- 相机属性
+- 光源装置
+- 斜角形状
+- 文本框
+- 文本样式
+- 字体高度
+- 填充格式
+- PowerPoint
+- 演示文稿
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "了解 Aspose.Slides for Node.js via Java 如何计算并应用形状的有效属性，以实现精确的 PowerPoint 渲染。"
 ---
 
-在本主题中，我们将讨论 **effective**（有效）和 **local**（本地）属性。当我们在以下层级直接设置值时
+在本主题中，我们将讨论 **effective** 和 **local** 属性。当我们在这些层级直接设置值时
 
-1. 在部分所在幻灯片的部分属性；
-1. 在布局或母版幻灯片上的原型形状文本样式（如果该部分的文本框形状有的话）；
-1. 在演示文稿的全局文本设置；
+1. 在片段所在幻灯片的片段属性上；
+1. 在布局或母版幻灯片上的原型形状文本样式中（如果片段的文本框形状具有该样式）；
+1. 在演示文稿的全局文本设置中；
 
-这些值称为 **local**（本地）值。 在任意层级，都可以定义或省略 **local**（本地）值。但当应用程序需要了解该部分应如何呈现时，它会使用 **effective**（有效）值。您可以通过从本地格式调用 **getEffective()** 方法获取有效值。
+这些值称为 **local** 值。在任何层级，**local** 值都可以被定义或省略。但当应用程序需要了解片段应该呈现怎样的外观时，它会使用 **effective** 值。您可以通过对本地格式调用 **getEffective()** 方法来获取 **effective** 值。
 
-以下示例代码展示如何获取有效值：
+此示例代码演示如何获取 **effective** 值：
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -30,10 +46,10 @@ try {
 ```
 
 
-## **获取相机的有效属性**
-Aspose.Slides for Node.js via Java 允许开发人员获取相机的有效属性。为此，已在 Aspose.Slides 中添加了 [**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) 类。该 [CameraEffectiveData] 类表示一个不可变对象，包含有效的相机属性。[**CameraEffectiveData**] 类的实例作为 [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData) 类的一部分使用，该类是 [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) 类的 [有效值](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) 对。
+## **获取相机的 Effective 属性**
+Aspose.Slides for Node.js via Java 允许开发人员获取相机的 Effective 属性。为此，Aspose.Slides 中添加了 **CameraEffectiveData** 类。**CameraEffectiveData** 类表示一个包含 Effective 相机属性的不可变对象。**CameraEffectiveData** 类的实例被用作 **ThreeDFormatEffectiveData** 类的一部分，该类是 [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) 与 [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) 类的配对。
 
-以下示例代码展示如何获取相机的有效属性：
+此示例代码演示如何获取相机的 Effective 属性：
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -50,10 +66,10 @@ try {
 ```
 
 
-## **获取灯光装置的有效属性**
-Aspose.Slides for Node.js via Java 允许开发人员获取灯光装置的有效属性。为此，已在 Aspose.Slides 中添加了 [**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) 类。该 [LightRigEffectiveData] 类表示一个不可变对象，包含有效的灯光装置属性。[**LightRigEffectiveData**] 类的实例作为 [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData) 类的一部分使用，该类是 [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) 类的 [有效值](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) 对。
+## **获取 Light Rig 的 Effective 属性**
+Aspose.Slides for Node.js via Java 允许开发人员获取 Light Rig 的 Effective 属性。为此，Aspose.Slides 中添加了 **LightRigEffectiveData** 类。**LightRigEffectiveData** 类表示一个包含 Effective Light Rig 属性的不可变对象。**LightRigEffectiveData** 类的实例被用作 **ThreeDFormatEffectiveData** 类的一部分，该类是 [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) 与 [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) 类的配对。
 
-以下示例代码展示如何获取灯光装置的有效属性：
+此示例代码演示如何获取 Light Rig 的 Effective 属性：
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -69,10 +85,10 @@ try {
 ```
 
 
-## **获取斜面形状的有效属性**
-Aspose.Slides for Node.js via Java 允许开发人员获取斜面形状的有效属性。为此，已在 Aspose.Slides 中添加了 [**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) 类。该 [ShapeBevelEffectiveData] 类表示一个不可变对象，包含有效的形状面部斜坡属性。[**ShapeBevelEffectiveData**] 类的实例作为 [**ThreeDFormatEffectiveData**]([**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData)) 类的一部分使用，该类是 [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) 类的 [有效值](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) 对。
+## **获取 Bevel Shape 的 Effective 属性**
+Aspose.Slides for Node.js via Java 允许开发人员获取 Bevel Shape 的 Effective 属性。为此，Aspose.Slides 中添加了 **ShapeBevelEffectiveData** 类。**ShapeBevelEffectiveData** 类表示一个包含形状面部凸起的 Effective 属性的不可变对象。**ShapeBevelEffectiveData** 类的实例被用作 **ThreeDFormatEffectiveData** 类的一部分，该类是 [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) 与 [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) 类的配对。
 
-以下示例代码展示如何获取斜面形状的有效属性：
+此示例代码演示如何获取 Bevel Shape 的 Effective 属性：
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -89,10 +105,10 @@ try {
 ```
 
 
-## **获取文本框的有效属性**
-使用 Aspose.Slides for Node.js via Java，您可以获取文本框的有效属性。为此，已在 Aspose.Slides 中添加了 [**TextFrameFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormatEffectiveData) 类。它包含有效的文本框格式属性。
+## **获取文本框的 Effective 属性**
+使用 Aspose.Slides for Node.js via Java，您可以获取文本框的 Effective 属性。为此，Aspose.Slides 中添加了 **TextFrameFormatEffectiveData** 类。它包含文本框的 Effective 格式属性。
 
-以下示例代码展示如何获取有效的文本框格式属性：
+此示例代码演示如何获取文本框的 Effective 格式属性：
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -114,10 +130,10 @@ try {
 ```
 
 
-## **获取文本样式的有效属性**
-使用 Aspose.Slides for Node.js via Java，您可以获取文本样式的有效属性。为此，已在 Aspose.Slides 中添加了 [**TextStyleEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextStyleEffectiveData) 类。它包含有效的文本样式属性。
+## **获取文本样式的 Effective 属性**
+使用 Aspose.Slides for Node.js via Java，您可以获取文本样式的 Effective 属性。为此，Aspose.Slides 中添加了 **TextStyleEffectiveData** 类。它包含 Effective 文本样式属性。
 
-以下示例代码展示如何获取有效的文本样式属性：
+此示例代码演示如何获取文本样式的 Effective 属性：
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -139,8 +155,8 @@ try {
 ```
 
 
-## **获取有效的字体高度值**
-使用 Aspose.Slides for Node.js via Java，您可以获取字体高度的有效属性。下面提供的代码演示了在不同演示文稿结构层级上设置本地字体高度后，部分的有效字体高度值如何变化：
+## **获取 Effective 字体高度值**
+使用 Aspose.Slides for Node.js via Java，您可以获取字体高度的 Effective 属性。在此我们提供一段代码，展示在演示文稿的不同结构层级上设置本地字体高度后，片段的 Effective 字体高度值如何变化：
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -179,8 +195,8 @@ try {
 ```
 
 
-## **获取表格的有效填充格式**
-使用 Aspose.Slides for Node.js via Java，您可以获取不同表格逻辑部分的有效填充格式。为此，已在 Aspose.Slides 中添加了 [**CellFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CellFormatEffectiveData) 类。它包含有效的填充格式属性。请注意：单元格格式始终优先于行格式；行格式优先于列格式；列格式优先于整个表格。
+## **获取表格的 Effective 填充格式**
+使用 Aspose.Slides for Node.js via Java，您可以获取不同表格逻辑部分的 Effective 填充格式。为此，Aspose.Slides 中添加了 **CellFormatEffectiveData** 类。它包含 Effective 填充格式属性。请注意：单元格格式始终优先于行格式；行格式优先于列格式；列格式优先于整个表格。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -203,30 +219,23 @@ try {
 
 ## **FAQ**
 
-**如何判断我得到的是“快照”而不是“实时对象”，以及何时需要重新读取有效属性？**
+**我如何判断得到的是“快照”而不是“实时对象”，以及何时应重新读取 Effective 属性？**  
+EffectiveData 对象是调用时计算值的不可变快照。如果您更改形状的本地或继承设置，需要再次检索 EffectiveData 以获取更新后的值。
 
-EffectiveData 对象是调用时计算值的不可变快照。如果您更改了形状的本地或继承设置，请重新获取有效数据以获得更新后的值。
+**更改布局/母版幻灯片会影响已检索的 Effective 属性吗？**  
+会，但只有在您再次读取时才会生效。已获取的 EffectiveData 对象不会自行更新——在更改布局或母版后需要再次请求获取。
 
-**更改布局/母版幻灯片会影响已经获取的有效属性吗？**
+**我可以通过 EffectiveData 修改值吗？**  
+不能。EffectiveData 是只读的。请在本地格式对象（形状/文本/3D 等）中进行更改，然后再次获取 Effective 值。
 
-会，但只有在您再次读取时才会生效。已经获取的 EffectiveData 对象不会自动更新——在更改布局或母版后请再次请求。
+**如果属性既未在形状层级设置，也未在布局/母版或全局设置中定义，会怎样？**  
+Effective 值将由默认机制（PowerPoint/Aspose.Slides 的默认设置）决定。该解析后的值将成为 EffectiveData 快照的一部分。
 
-**我可以通过 EffectiveData 修改值吗？**
+**从 Effective 字体值，我能判断是哪一级提供了大小或字体吗？**  
+不能直接。EffectiveData 只返回最终值。若要找出来源，需要检查片段、段落、文本框的本地值以及布局、母版或演示文稿的文本样式，查看首次出现显式定义的位置。
 
-不能。EffectiveData 是只读的。请在本地格式对象（形状/文本/3D 等）中进行更改，然后再次获取有效值。
+**为什么 EffectiveData 值有时看起来与本地值相同？**  
+因为本地值最终成为了最终值（无需更高层级的继承）。在这种情况下，Effective 值与本地值相同。
 
-**如果在形状层级、布局/母版以及全局设置中都未设置某属性，会怎样？**
-
-有效值将由默认机制（PowerPoint/Aspose.Slides 默认值）决定。该解析后的值会成为 EffectiveData 快照的一部分。
-
-**从有效的字体值中，我能判断是哪个层级提供了大小或字体吗？**
-
-不能直接判断。EffectiveData 只返回最终值。若要找出来源，请检查部分/段落/文本框的本地值以及布局/母版/演示文稿的文本样式，查看首次出现的显式定义。
-
-**为什么 EffectiveData 值有时看起来与本地值相同？**
-
-因为本地值最终成为了最终值（不需要更高层级的继承）。在这种情况下，有效值与本地值相匹配。
-
-**何时应该使用有效属性，何时仅使用本地属性？**
-
-当您需要在所有继承应用后获得“渲染后”结果时（例如对齐颜色、缩进或大小），请使用 EffectiveData。如果您只需在特定层级修改格式，请修改本地属性，然后在需要时重新读取 EffectiveData 以验证结果。
+**何时应使用 Effective 属性，何时仅使用本地属性？**  
+当您需要在所有继承应用后得到“实际渲染”结果时（例如对齐颜色、缩进或大小），应使用 EffectiveData。如果您只需在特定层级修改格式，则更改本地属性，然后在需要时重新读取 EffectiveData 以验证结果。

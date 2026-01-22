@@ -1,37 +1,56 @@
 ---
-title: Convertir PowerPoint a Video
+title: Convertir presentaciones de PowerPoint a video en JavaScript
+linktitle: PowerPoint a video
 type: docs
 weight: 130
 url: /es/nodejs-java/convert-powerpoint-to-video/
-keywords: "Convertir PowerPoint, PPT, PPTX, Presentación, Video, MP4, PPT a video, PPT a MP4, Java, Aspose.Slides"
-description: "Convertir PowerPoint a Video en JavaScript"
+keywords:
+- convertir PowerPoint
+- convertir presentación
+- convertir PPT
+- convertir PPTX
+- PowerPoint a video
+- presentación a video
+- PPT a video
+- PPTX a video
+- PowerPoint a MP4
+- presentación a MP4
+- PPT a MP4
+- PPTX a MP4
+- guardar PPT como MP4
+- guardar PPTX como MP4
+- exportar PPT a MP4
+- exportar PPTX a MP4
+- conversión de video
+- PowerPoint
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aprenda cómo convertir presentaciones de PowerPoint a video en JavaScript. Descubra código de ejemplo y técnicas de automatización para optimizar su flujo de trabajo."
 ---
 
-Al convertir su presentación de PowerPoint a video, obtiene 
+Al convertir su presentación de PowerPoint a vídeo, obtiene 
 
-* **Aumento de accesibilidad:** Todos los dispositivos (independientemente de la plataforma) están equipados con reproductores de video por defecto en comparación con las aplicaciones de apertura de presentaciones, por lo que a los usuarios les resulta más fácil abrir o reproducir videos.
-* **Mayor alcance:** A través de los videos, puede llegar a una gran audiencia y dirigirse a ella con información que de otro modo podría parecer tediosa en una presentación. La mayoría de encuestas y estadísticas sugieren que la gente ve y consume videos más que otras formas de contenido, y generalmente prefieren ese tipo de contenido.
+* **Aumento de accesibilidad:** Todos los dispositivos (independientemente de la plataforma) disponen por defecto de reproductores de vídeo, a diferencia de las aplicaciones de apertura de presentaciones, por lo que a los usuarios les resulta más fácil abrir o reproducir vídeos.
+* **Mayor alcance:** Con los vídeos puede llegar a una gran audiencia y dirigirse a ella con información que de otro modo podría parecer tediosa en una presentación. La mayoría de encuestas y estadísticas sugieren que la gente ve y consume vídeos más que otras formas de contenido, y generalmente prefieren ese tipo de contenido.
 
 {{% alert color="primary" %}} 
-
-Es posible que desee consultar nuestro [**Convertidor en línea de PowerPoint a Video**](https://products.aspose.app/slides/conversion/ppt-to-word) porque es una implementación en vivo y eficaz del proceso descrito aquí.
-
+Es posible que desee consultar nuestro [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) porque es una implementación en directo y eficaz del proceso descrito aquí.
 {{% /alert %}} 
 
-## **Conversión de PowerPoint a Video en Aspose.Slides**
+## **Conversión de PowerPoint a vídeo en Aspose.Slides**
 
-En [Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-22-11-release-notes/), implementamos soporte para la conversión de presentaciones a video.
+Aspose.Slides admite la conversión de presentaciones a vídeo.
 
 * Utilice **Aspose.Slides** para generar un conjunto de fotogramas (a partir de las diapositivas de la presentación) que correspondan a un determinado FPS (fotogramas por segundo)
-* Utilice una utilidad de terceros como **ffmpeg** ([para java](https://github.com/bramp/ffmpeg-cli-wrapper)) para crear un video a partir de los fotogramas. 
+* Utilice una utilidad de terceros como **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) para crear un vídeo a partir de los fotogramas. 
 
-### **Convertir PowerPoint a Video**
+### **Convertir PowerPoint a vídeo**
 
-1. Descargue ffmpeg [aquí](https://ffmpeg.org/download.html).
+1. Descargue ffmpeg [here](https://ffmpeg.org/download.html).
+2. Ejecute el código JavaScript de conversión de PowerPoint a vídeo.
 
-2. Ejecute el código JavaScript de PowerPoint a video.
-
-Este código JavaScript le muestra cómo convertir una presentación (que contiene una figura y dos efectos de animación) a un video:
+Este código JavaScript le muestra cómo convertir una presentación (que contiene una figura y dos efectos de animación) a vídeo:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -80,21 +99,19 @@ try {
 ```
 
 
-## **Efectos de Video**
+## **Efectos de vídeo**
 
-Puede aplicar animaciones a objetos en las diapositivas y usar transiciones entre diapositivas. 
+Puede aplicar animaciones a los objetos de las diapositivas y usar transiciones entre diapositivas. 
 
 {{% alert color="primary" %}} 
-
-Es posible que desee ver estos artículos: [Animación de PowerPoint](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/), [Animación de Forma](https://docs.aspose.com/slides/nodejs-java/shape-animation/), y [Efecto de Forma](https://docs.aspose.com/slides/nodejs-java/shape-effect/).
-
+Es posible que desee ver estos artículos: [PowerPoint Animation](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/nodejs-java/shape-animation/), y [Shape Effect](https://docs.aspose.com/slides/nodejs-java/shape-effect/).
 {{% /alert %}} 
 
-Las animaciones y transiciones hacen que las presentaciones sean más atractivas e interesantes—y hacen lo mismo con los videos. Añadamos otra diapositiva y transición al código de la presentación anterior:
+Las animaciones y transiciones hacen que las presentaciones sean más atractivas e interesantes, y lo mismo ocurre con los vídeos. Añadamos otra diapositiva y transición al código de la presentación anterior:
 ```javascript
 // Añade una forma de sonrisa y la anima
 // ...
-// Añade una diapositiva nueva y transición animada
+// Añade una nueva diapositiva y una transición animada
 var newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 newSlide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
 newSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -103,7 +120,7 @@ newSlide.getSlideShowTransition().setType(aspose.slides.TransitionType.Push);
 ```
 
 
-Aspose.Slides también admite animación para textos. Así animamos párrafos en objetos, que aparecerán uno tras otro (con el retraso establecido en un segundo):
+Aspose.Slides también admite animación de textos. Así animamos párrafos en objetos, que aparecerán uno tras otro (con el retardo fijado a un segundo):
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -167,15 +184,15 @@ try {
 ```
 
 
-## **Clases de Conversión de Video**
+## **Clases de conversión de vídeo**
 
-Para permitirle realizar tareas de conversión de PowerPoint a video, Aspose.Slides proporciona las clases [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) y [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).
+Para permitirle realizar tareas de conversión de PowerPoint a vídeo, Aspose.Slides proporciona las clases [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) y [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) le permite establecer el tamaño del fotograma para el video (que se creará más adelante) a través de su constructor. Si pasa una instancia de la presentación, `Presentation.getSlideSize` se utilizará y genera animaciones que [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) usa.
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) le permite establecer el tamaño del fotograma para el vídeo (que se creará más adelante) a través de su constructor. Si pasa una instancia de la presentación, `Presentation.getSlideSize` se utilizará y genera animaciones que [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) usa.
 
-Cuando se generan animaciones, se genera un evento `NewAnimation` para cada animación subsiguiente, que tiene el parámetro [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/). Este último es una clase que representa un reproductor para una animación independiente.
+Cuando se generan animaciones, se genera un evento `NewAnimation` para cada animación sucesiva, que tiene el parámetro del reproductor de animación de la presentación. Este último es una clase que representa un reproductor para una animación independiente.
 
-Para trabajar con [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/), se utilizan los métodos [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#getDuration--) (la duración total de la animación) y [setTimePosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#setTimePosition-double-). Cada posición de animación se establece dentro del rango *0 a duration*, y luego el método `getFrame` devolverá un BufferedImage que corresponde al estado de la animación en ese momento:
+Para trabajar con el reproductor de animación de la presentación, se utilizan los métodos `getDuration` (la duración completa de la animación) y `setTimePosition`. Cada posición de animación se establece dentro del rango *0 to duration*, y luego el método `getFrame` devolverá un BufferedImage que corresponde al estado de la animación en ese momento:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -190,14 +207,14 @@ try {
     try {
         animationsGenerator.setNewAnimation(animationPlayer -> {
             console.log(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0);// estado inicial de la animación
+            animationPlayer.setTimePosition(0); // estado inicial de la animación
             try {
-                // bitmap del estado inicial de la animación
+                // mapa de bits del estado inicial de la animación
                 animationPlayer.getFrame().save("firstFrame.png", aspose.slides.ImageFormat.Png);
             } catch (e) {console.log(e);
                 throw java.newInstanceSync("java.lang.RuntimeException", e);
             }
-            animationPlayer.setTimePosition(animationPlayer.getDuration());// estado final de la animación
+            animationPlayer.setTimePosition(animationPlayer.getDuration()); // estado final de la animación
             try {
                 // último fotograma de la animación
                 animationPlayer.getFrame().save("lastFrame.png", aspose.slides.ImageFormat.Png);
@@ -252,84 +269,84 @@ try {
 ```
 
 
-Luego los fotogramas generados pueden compilarse para producir un video. Consulte la sección [Convertir PowerPoint a Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Luego los fotogramas generados pueden compilarse para producir un vídeo. Consulte la sección [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **Animaciones y Efectos admitidos**
+## **Animaciones y efectos compatibles**
 
 **Entrada**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Appear** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Fade** | ![compatible](v.png) | ![compatible](v.png) |
+| **Fly In** | ![compatible](v.png) | ![compatible](v.png) |
+| **Float In** | ![compatible](v.png) | ![compatible](v.png) |
+| **Split** | ![compatible](v.png) | ![compatible](v.png) |
+| **Wipe** | ![compatible](v.png) | ![compatible](v.png) |
+| **Shape** | ![compatible](v.png) | ![compatible](v.png) |
+| **Wheel** | ![compatible](v.png) | ![compatible](v.png) |
+| **Random Bars** | ![compatible](v.png) | ![compatible](v.png) |
+| **Grow & Turn** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Zoom** | ![compatible](v.png) | ![compatible](v.png) |
+| **Swivel** | ![compatible](v.png) | ![compatible](v.png) |
+| **Bounce** | ![compatible](v.png) | ![compatible](v.png) |
 
 **Énfasis**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Color Pulse** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Teeter** | ![compatible](v.png) | ![compatible](v.png) |
+| **Spin** | ![compatible](v.png) | ![compatible](v.png) |
+| **Grow/Shrink** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Desaturate** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Darken** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Lighten** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Transparency** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Object Color** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Complementary Color** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Line Color** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Fill Color** | ![no compatible](x.png) | ![compatible](v.png) |
 
 **Salida**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Fade** | ![compatible](v.png) | ![compatible](v.png) |
+| **Fly Out** | ![compatible](v.png) | ![compatible](v.png) |
+| **Float Out** | ![compatible](v.png) | ![compatible](v.png) |
+| **Split** | ![compatible](v.png) | ![compatible](v.png) |
+| **Wipe** | ![compatible](v.png) | ![compatible](v.png) |
+| **Shape** | ![compatible](v.png) | ![compatible](v.png) |
+| **Random Bars** | ![compatible](v.png) | ![compatible](v.png) |
+| **Shrink & Turn** | ![no compatible](x.png) | ![compatible](v.png) |
+| **Zoom** | ![compatible](v.png) | ![compatible](v.png) |
+| **Swivel** | ![compatible](v.png) | ![compatible](v.png) |
+| **Bounce** | ![compatible](v.png) | ![compatible](v.png) |
 
-**Rutas de Movimiento:**
+**Rutas de movimiento**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![compatible](v.png) | ![compatible](v.png) |
+| **Arcs** | ![compatible](v.png) | ![compatible](v.png) |
+| **Turns** | ![compatible](v.png) | ![compatible](v.png) |
+| **Shapes** | ![compatible](v.png) | ![compatible](v.png) |
+| **Loops** | ![compatible](v.png) | ![compatible](v.png) |
+| **Custom Path** | ![compatible](v.png) | ![compatible](v.png) |
 
 ## **Preguntas frecuentes**
 
 **¿Es posible convertir presentaciones protegidas con contraseña?**
 
-Sí, Aspose.Slides permite trabajar con presentaciones protegidas con contraseña. Al procesar dichos archivos, debe proporcionar la contraseña correcta para que la biblioteca pueda acceder al contenido de la presentación.
+Sí, Aspose.Slides permite trabajar con presentaciones protegidas con contraseña. Al procesar estos archivos, debe proporcionar la contraseña correcta para que la biblioteca pueda acceder al contenido de la presentación.
 
-**¿Aspose.Slides admite su uso en soluciones en la nube?**
+**¿Aspose.Slides es compatible con su uso en soluciones en la nube?**
 
 Sí, Aspose.Slides puede integrarse en aplicaciones y servicios en la nube. La biblioteca está diseñada para funcionar en entornos de servidor, garantizando alto rendimiento y escalabilidad para el procesamiento por lotes de archivos.
 
 **¿Existen limitaciones de tamaño para las presentaciones durante la conversión?**
 
-Aspose.Slides es capaz de manejar presentaciones de prácticamente cualquier tamaño. Sin embargo, al trabajar con archivos muy grandes, pueden requerirse recursos adicionales del sistema, y a veces se recomienda optimizar la presentación para mejorar el rendimiento.
+Aspose.Slides es capaz de manejar presentaciones de prácticamente cualquier tamaño. Sin embargo, al trabajar con archivos muy grandes, pueden requerirse recursos del sistema adicionales, y a veces se recomienda optimizar la presentación para mejorar el rendimiento.

@@ -1,12 +1,26 @@
 ---
-title: SmartArt の管理
+title: JavaScript を使用した PowerPoint プレゼンテーションの SmartArt 管理
+linktitle: SmartArt の管理
 type: docs
 weight: 10
 url: /ja/nodejs-java/manage-smartart/
+keywords:
+- スマートアート
+- スマートアートのテキスト
+- レイアウトタイプ
+- 非表示プロパティ
+- 組織図
+- 画像組織図
+- パワーポイント
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js を使用し、明快な JavaScript コードサンプルで PowerPoint の SmartArt を構築・編集し、スライドデザインと自動化を迅速に行う方法を学びます。"
 ---
 
 ## **SmartArt からテキストを取得**
-Now TextFrame method has been added to [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) class and [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
+現在、TextFrame メソッドが [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) クラスおよび [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) クラスに追加されました。このプロパティを使用すると、ノードのテキストだけでなく、[SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) からすべてのテキストを取得できます。以下のサンプルコードは、SmartArt ノードからテキストを取得するのに役立ちます。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
@@ -33,20 +47,20 @@ try {
 
 
 ## **SmartArt のレイアウト タイプを変更**
-In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt). Please follow the steps below:
+SmartArt のレイアウト タイプを変更するには、以下の手順に従ってください。
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
-- Change [LayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt#setLayout-int-) to BasicProcess.
-- Write the presentation as a PPTX file.
-  In the example given below, we have added a connector between two shapes.
+- [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+- インデックスを使用してスライドの参照を取得します。
+- [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) の BasicBlockList を追加します。
+- [LayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt#setLayout-int-) を BasicProcess に変更します。
+- プレゼンテーションを PPTX ファイルとして保存します。
+以下の例では、2 つの図形の間にコネクタを追加しています。
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
     // SmartArt BasicProcess を追加
     var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
-    // レイアウトタイプを BasicProcess に変更
+    // LayoutType を BasicProcess に変更
     smart.setLayout(aspose.slides.SmartArtLayoutType.BasicProcess);
     // プレゼンテーションを保存
     pres.save("ChangeSmartArtLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -58,16 +72,15 @@ try {
 ```
 
 
-## **SmartArt の非表示プロパティをチェック**
-Please note: method [SmartArtNode.isHidden()]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#isHidden--)) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt). Please follow the steps below:
+## **SmartArt の可視性プロパティを確認**
+注意: メソッド [SmartArtNode.isHidden()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/ishidden/) は、データモデルでこのノードが非表示の場合に true を返します。[SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) の任意のノードの非表示プロパティを確認するには、以下の手順に従ってください。
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
-- Add [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
-- Add node on SmartArt.
-- Check [isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#isHidden--) property.
-- Write the presentation as a PPTX file.
-
-In the example given below, we have added a connector between two shapes.
+- [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+- [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) の RadialCycle を追加します。
+- SmartArt にノードを追加します。
+- [visibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/ishidden/) プロパティを確認します。
+- プレゼンテーションを PPTX ファイルとして保存します。
+以下の例では、2 つの図形の間にコネクタを追加しています。
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -78,7 +91,7 @@ try {
     // isHidden プロパティを確認
     var hidden = node.isHidden();// true を返す
     if (hidden) {
-        // 何らかのアクションや通知を行う
+        // いくつかの処理や通知を行う
     }
     // プレゼンテーションを保存
     pres.save("CheckSmartArtHiddenProperty_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -91,13 +104,13 @@ try {
 
 
 ## **組織図のタイプを取得または設定**
-Methods [SmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getOrganizationChartLayout--) , [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#setOrganizationChartLayout-int-) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
+メソッド [SmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getOrganizationChartLayout--) と [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#setOrganizationChartLayout-int-) を使用すると、現在のノードに関連付けられた組織図のタイプを取得または設定できます。組織図のタイプを取得または設定するには、以下の手順に従ってください。
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
-- Add [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
-- Get or [set the organization chart type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#setOrganizationChartLayout-int-).
-- Write the presentation as a PPTX file.
-  In the example given below, we have added a connector between two shapes.
+- [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+- スライドに [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) を追加します。
+- 組織図のタイプを取得または [set the organization chart type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#setOrganizationChartLayout-int-) します。
+- プレゼンテーションを PPTX ファイルとして保存します。
+以下の例では、2 つの図形の間にコネクタを追加しています。
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -116,14 +129,14 @@ try {
 
 
 ## **ピクチャー組織図の作成**
-Aspose.Slides for Node.js via Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
+Aspose.Slides for Node.js via Java は、ピクチャー組織図を簡単に作成できるシンプルな API を提供します。スライドにチャートを作成するには、以下の手順を実行します。
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.PictureOrganizationChart).
-1. Write the modified presentation to a PPTX file
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. インデックスでスライドの参照を取得します。
+1. デフォルトデータと目的のタイプ (ChartType.PictureOrganizationChart) を使用してチャートを追加します。
+1. 変更したプレゼンテーションを PPTX ファイルに書き込みます。
 
-The following code is used to create a chart.
+以下のコードはチャートを作成するために使用されます。
 ```javascript
 var pres = new aspose.slides.Presentation("test.pptx");
 try {
@@ -138,21 +151,21 @@ try {
 
 
 ## **SmartArt の状態を取得または設定**
-In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt). Please follow the steps below:
+SmartArt のレイアウト タイプを変更するには、以下の手順に従ってください。
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
-1. Add [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
-1. [Get](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt#isReversed--) or [Set](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt#setReversed-boolean-) the state of SmartArt Diagram.
-1. Write the presentation as a PPTX file.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. スライドに [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) を追加します。
+1. [Get](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt#isReversed--) または [Set](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt#setReversed-boolean-) で SmartArt 図の状態を取得または設定します。
+1. プレゼンテーションを PPTX ファイルとして保存します。
 
-The following code is used to create a chart.
+以下のコードはチャートを作成するために使用されます。
 ```javascript
-// PPTX ファイルを表す Presentation クラスをインスタンス化
+// PPTX ファイルを表す Presentation クラスのインスタンス化
 var pres = new aspose.slides.Presentation();
 try {
     // SmartArt BasicProcess を追加
     var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicProcess);
-    // SmartArt ダイアグラムの状態を取得または設定
+    // SmartArt 図の状態を取得または設定
     smart.setReversed(true);
     var flag = smart.isReversed();
     // プレゼンテーションを保存
@@ -167,18 +180,18 @@ try {
 
 ## **FAQ**
 
-**SmartArt は RTL 言語のミラーリング/反転をサポートしていますか？**
+**SmartArt は RTL 言語向けのミラーリング/反転をサポートしますか？**
 
-Yes. The [setReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setreversed/) method switches the diagram direction (LTR/RTL) if the selected SmartArt type supports reversal.
+はい。[setReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setreversed/) メソッドは、選択した SmartArt タイプが反転をサポートしている場合、図の方向（LTR/RTL）を切り替えます。
 
-**SmartArt を同じスライドまたは別のプレゼンテーションにコピーして書式を保持するにはどうすればよいですか？**
+**SmartArt を同じスライドまたは別のプレゼンテーションにコピーし、書式設定を保持するにはどうすればよいですか？**
 
-You can [clone the SmartArt shape](/slides/ja/nodejs-java/shape-manipulations/) via the shapes collection ([ShapeCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addclone/)) or [clone the entire slide](/slides/ja/nodejs-java/clone-slides/) containing this shape. Both approaches preserve size, position, and styling.
+形状コレクション（[ShapeCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addclone/)）を使用して [SmartArt の形状をクローン](/slides/ja/nodejs-java/shape-manipulations/) するか、またはこの形状が含まれるスライド全体を [クローン](/slides/ja/nodejs-java/clone-slides/) できます。どちらの方法でもサイズ、位置、スタイルが保持されます。
 
-**SmartArt をプレビューや Web エクスポート用にラスター画像としてレンダリングするにはどうすればよいですか？**
+**SmartArt をプレビューやウェブエクスポート用のラスタ画像にレンダリングするにはどうすればよいですか？**
 
-[Render the slide](/slides/ja/nodejs-java/convert-powerpoint-to-png/) (or the whole presentation) to PNG/JPEG through the API that converts slides/presentations to images—SmartArt will be drawn as part of the slide.
+スライド（またはプレゼンテーション全体）を PNG/JPEG に変換する API を使用して、[スライドをレンダリング](/slides/ja/nodejs-java/convert-powerpoint-to-png/) します。SmartArt はスライドの一部として描画されます。
 
-**複数の SmartArt がある場合、特定の SmartArt をプログラムで選択するにはどうすればよいですか？**
+**スライド上に複数の SmartArt がある場合、特定の SmartArt をプログラムで選択するにはどうすればよいですか？**
 
-A common practice is to use [alternative text](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setalternativetext/) (Alt Text) or [setName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setname/) and search for the shape by that attribute using [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes), then check the type to confirm it’s [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/). The documentation describes typical techniques for finding and working with shapes.
+一般的な方法は、[代替テキスト](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setalternativetext/)（Alt Text）または [setName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setname/) を使用し、その属性で形状を検索するために [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) を使用することです。その後、タイプを確認してそれが [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/) であることを確認します。ドキュメントでは、形状の検索と操作のための一般的なテクニックが説明されています。
