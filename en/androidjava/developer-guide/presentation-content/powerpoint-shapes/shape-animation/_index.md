@@ -375,7 +375,7 @@ try {
 
 ### **Extract an Animation Effect Sound**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 
 3. Get the main sequence of effects. 
 4. Extract the [setSound(IAudio value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) embedded to each animation effect.

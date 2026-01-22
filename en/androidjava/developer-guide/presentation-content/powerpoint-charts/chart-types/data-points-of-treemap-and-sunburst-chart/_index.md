@@ -38,7 +38,7 @@ try {
 ```
 
 {{% alert color="primary" title="See also" %}} 
-- [**Creating Sunburst Chart**](/slides/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Create or Update PowerPoint Presentation Charts on Android**](/slides/androidjava/create-chart/)
 {{% /alert %}}
 
 

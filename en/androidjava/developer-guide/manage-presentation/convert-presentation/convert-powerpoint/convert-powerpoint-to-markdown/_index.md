@@ -31,11 +31,7 @@ keywords:
 description: "Convert PowerPoint slides—PPT, PPTX—to clean Markdown with Aspose.Slides for Android via Java, automate documentation and keep formatting."
 ---
 
-{{% alert color="info" %}} 
-
-Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 23.7](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-23-7-release-notes/).
-
-{{% /alert %}} 
+Aspose.Slides supports presentation-to-markdown conversion.
 
 {{% alert color="warning" %}} 
 

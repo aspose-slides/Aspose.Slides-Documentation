@@ -114,4 +114,4 @@ No. A regular line (an [AutoShape](https://reference.aspose.com/slides/androidja
 
 **Can I lock a line against editing (moving, resizing)?**
 
-Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) that let you [disallow editing operations](/slides/androidjava/applying-protection-to-presentation/).
+Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) that let you disallow editing operations.

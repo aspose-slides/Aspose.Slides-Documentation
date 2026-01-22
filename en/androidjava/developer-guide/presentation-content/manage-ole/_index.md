@@ -339,7 +339,7 @@ What is visible on the slide is rendered—the icon/substitute image (preview). 
 
 **How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
 
-Lock the shape: Aspose.Slides provides [shape-level locks](/slides/androidjava/applying-protection-to-presentation/). This is not encryption, but it effectively prevents accidental edits and movement.
+Lock the shape: Aspose.Slides provides shape-level locks. This is not encryption, but it effectively prevents accidental edits and movement.
 
 **Why does a linked Excel object "jump" or change size when I open the presentation?**
 

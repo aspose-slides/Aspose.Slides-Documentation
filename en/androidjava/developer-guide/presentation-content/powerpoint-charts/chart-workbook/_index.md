@@ -121,9 +121,7 @@ try {
 
 ## **External Workbook**
 
-{{% alert color="primary" %}} 
-In [Aspose.Slides 19.4](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
-{{% /alert %}} 
+Aspose.Slides supports external workbooks as a data source for charts.
 
 ### **Create an External Workbook**
 

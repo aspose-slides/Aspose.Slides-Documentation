@@ -53,13 +53,6 @@ To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary 
   * The folder containing Aspose.Slides.jar
 * To avoid the limitations associated with the evaluation version, you need to set a license before using **Aspose.Slides**. You only have to set a license once per application or process.
 
-{{% alert color="primary" %}} 
-
-You may want to see [Metered Licensing](/slides/androidjava/metered-licensing/).
-
-{{% /alert %}} 
-
-
 ## **Applying a License**
 
 A license can be loaded from a **file** or **stream**.
