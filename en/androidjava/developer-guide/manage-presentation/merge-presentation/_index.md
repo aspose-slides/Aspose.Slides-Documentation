@@ -57,16 +57,6 @@ With Aspose.Slides, you can merge
 * specific slides. Selected slides end up in one presentation
 * presentations in one format (PPT to PPT, PPTX to PPTX, etc) and in different formats (PPT to PPTX, PPTX to ODP, etc) to one another. 
 
-{{% alert title="Note" color="warning" %}} 
-
-Besides presentations, Aspose.Slides allows you to merge other files:
-
-* [Images](https://products.aspose.com/slides/androidjava/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/androidjava/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/androidjava/merger/png-to-png/)
-* Documents, such as [PDF to PDF](https://products.aspose.com/slides/androidjava/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/androidjava/merger/html-to-html/)
-* And two different files such as [image to PDF](https://products.aspose.com/slides/androidjava/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/androidjava/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/androidjava/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
 ### **Merging Options**
 
 You can apply options that determine whether

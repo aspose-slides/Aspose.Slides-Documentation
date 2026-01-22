@@ -102,7 +102,7 @@ Each [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.s
 
 ## **What a Slide Master Contains**
 
-To understand how a Slide Master can be changed, you need to know its constituents. These are [MasterSlide](https://reference.aspose.com/slides/androidjava/aspose.slides/masterslide/) core properties.
+To understand how a Slide Master can be changed, you need to know its constituents. These are [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) core properties.
 
 - [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) get/set slide background.
 - [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) - get/set text styles of the slide’s body.

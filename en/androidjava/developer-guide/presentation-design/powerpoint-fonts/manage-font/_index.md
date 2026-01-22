@@ -29,14 +29,14 @@ To manage font properties of a paragraph using Aspose.Slides for Android via Jav
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. Obtain a slide's reference by using its index.
-1. Access the [Placeholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Placeholder) shapes in the slide and typecast them to [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/AutoShape).
-1. Get the [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Paragraph) from the [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame) exposed by [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/AutoShape).
+1. Access the [Placeholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) shapes in the slide and typecast them to [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
+1. Get the [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) from the [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) exposed by [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
 1. Justify the paragraph.
-1. Access a [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Paragraph)'s text [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion).
-1. Define the font using [FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/FontData) and set the **Font** of the text [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) accordingly.
+1. Access a [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/)'s text [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
+1. Define the font using [FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) and set the **Font** of the text [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) accordingly.
    1. Set the font to bold.
    1. Set the font to italic.
-1. Set the font color using the [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/FillFormat) exposed by the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) object.
+1. Set the font color using the [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) exposed by the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) object.
 1. Save the modified presentation to a PPTX file.
 
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides. The screenshots that follow show the input file and how the code snippets change it. The code changes the font, the color, and the font style.
@@ -104,7 +104,7 @@ try {
 ## **Set Text Font Properties**
 {{% alert color="primary" %}} 
 
-As mentioned in **Managing Font Related Properties**, a [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Android via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
+As mentioned in **Managing Font Related Properties**, a [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Android via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
 
 {{% /alert %}} 
 
@@ -112,13 +112,13 @@ To create a textbox and set font properties of the text in it:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/AutoShape) of the type **Rectangle** to the slide.
-1. Remove the fill style associated with the [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/AutoShape).
-1. Access the of the [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/AutoShape)'s [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame).
-1. Add some text to the [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame).
-1. Access the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) object associated with the [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame).
-1. Define the font to be used for the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion).
-1. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) object.
+1. Add an [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) of the type **Rectangle** to the slide.
+1. Remove the fill style associated with the [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
+1. Access the of the [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/)'s [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
+1. Add some text to the [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
+1. Access the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) object associated with the [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
+1. Define the font to be used for the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
+1. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) object.
 1. Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.

@@ -18,7 +18,7 @@ description: "Learn how to manage text portions in PowerPoint presentations usin
 ---
 
 ## **Get Coordinates of a Text Portion**
-[**getCoordinates()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) method has been added to [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPortion) and [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) class which allows retrieving the coordinates of the beginning of the portion.
+[**getCoordinates()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) method has been added to [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) and [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) class which allows retrieving the coordinates of the beginning of the portion.
 
 ```java
 // Instantiate Prseetation class that represents the PPTX

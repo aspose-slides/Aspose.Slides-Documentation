@@ -66,5 +66,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Read more about [Save and Convertion in Presentation](/slides/androidjava/creating-saving-and-converting-a-presentation/).
+Read more about [Convert PPT and PPTX to JPG on Android](/slides/androidjava/convert-powerpoint-to-jpg/).
 {{% /alert %}}

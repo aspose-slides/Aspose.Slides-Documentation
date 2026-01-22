@@ -42,7 +42,7 @@ You may want to check our [**PowerPoint to Video Online Converter**](https://pro
 
 ## **PowerPoint to Video Conversion in Aspose.Slides**
 
-In [Aspose.Slides 22.11](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-22-11-release-notes/), we implemented support for presentation to video conversion.
+Aspose.Slides supports presentation-to-video conversion.
 
 * Use **Aspose.Slides** to generate a set of frames (from the presentation slides) that correspond to a certain FPS (frames per second)
 * Use a third-party utility like **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) to create a video based on the frames. 

@@ -22,7 +22,7 @@ description: "Learn how Aspose.Slides for Android via Java leverages ActiveX to 
 
 {{% alert color="primary" %}} 
 
-ActiveX controls are used in presentations. Aspose.Slides for Android via Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IShapeCollection). They are part of the separate [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection) instead. In this topic, we will show you how to work with them.
+ActiveX controls are used in presentations. Aspose.Slides for Android via Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/). They are part of the separate [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/) instead. In this topic, we will show you how to work with them.
 
 {{% /alert %}} 
 
@@ -31,7 +31,7 @@ To add an ActiveX Media Player control, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class and generate an empty presentation instance.
 1. Access the target slide in [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Add the Media Player ActiveX control using the [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
+1. Add the Media Player ActiveX control using the [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/).
 1. Access the Media Player ActiveX control and set the video path by using its properties.
 1. Save the presentation as a PPTX file.
 
@@ -65,8 +65,8 @@ To manage a simple ActiveX control like a text box and simple command button on 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class and load the presentation with ActiveX controls in it.
 1. Obtain a slide reference by its index.
-1. Access the ActiveX controls in the slide by accessing the [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
-1. Access the TextBox1 ActiveX control using the [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControl) object.
+1. Access the ActiveX controls in the slide by accessing the [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/).
+1. Access the TextBox1 ActiveX control using the [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/) object.
 1. Change the properties of the TextBox1 ActiveX control that include text, font, font height, and frame position.
 1. Access the second access control called CommandButton1.
 1. Change the button caption, font, and position.
