@@ -6,21 +6,21 @@ weight: 60
 url: /ja/nodejs-java/manage-bullet/
 keywords:
 - 箇条書き
--箇条書きリスト
--番号付きリスト
--シンボル箇条書き
--画像箇条書き
--カスタム箇条書き
--階層化リスト
--箇条書き作成
--箇条書き追加
--リスト追加
--PowerPoint
--OpenDocument
--プレゼンテーション
--Node.js
--JavaScript
--Aspose.Slides
+- 箇条書きリスト
+- 番号付きリスト
+- シンボル箇条書き
+- 画像箇条書き
+- カスタム箇条書き
+- 階層化リスト
+- 箇条書き作成
+- 箇条書き追加
+- リスト追加
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
 description: "Aspose.Slides for Node.js を使用して、JavaScript で PowerPoint および OpenDocument のプレゼンテーションにおける箇条書きと番号付きリストの管理方法を学びます。ステップバイステップのガイドです。"
 ---
 
