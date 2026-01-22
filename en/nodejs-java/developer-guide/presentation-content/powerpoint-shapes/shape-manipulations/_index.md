@@ -394,4 +394,4 @@ Change the insertion/move order within the slide’s [shapes](https://reference.
 
 **Can I "lock" a shape to prevent users from editing it in PowerPoint?**
 
-Yes. Set [shape-level protection flags](/slides/nodejs-java/applying-protection-to-presentation/) (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/nodejs-java/password-protected-presentation/).
+Yes. Set shape-level protection flags (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/nodejs-java/password-protected-presentation/).

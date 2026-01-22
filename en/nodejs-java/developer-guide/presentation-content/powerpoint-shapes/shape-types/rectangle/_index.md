@@ -109,7 +109,7 @@ Yes. [Assign a hyperlink](/slides/nodejs-java/manage-hyperlinks/) to the shape c
 
 **How can I protect a rectangle from moving and changes?**
 
-[Use shape locks](/slides/nodejs-java/applying-protection-to-presentation/): you can forbid moving, resizing, selection, or text editing to preserve the layout.
+Use shape locks: you can forbid moving, resizing, selection, or text editing to preserve the layout.
 
 **Can I convert a rectangle to a raster image or SVG?**
 

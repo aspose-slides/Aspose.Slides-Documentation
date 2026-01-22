@@ -108,7 +108,7 @@ To understand how a Slide Master can be changed, you need to know its constituen
 - [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getBodyStyle--) - get/set text styles of the slide’s body.
 - [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getShapes--) get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
 - [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getControls--) get/set ActiveX controls.
-- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterThemeable#getThemeManager--) - get theme manager.
+- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getThemeManager) - get theme manager.
 - [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getHeaderFooterManager--) - get header and footer manager.
 
 Slide Master methods:

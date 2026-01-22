@@ -63,7 +63,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="See also" %}} 
-- [How to use ](/slides/nodejs-java/slide-master/)[TextFrame](/slides/nodejs-java/adding-and-formatting-text/)
+- How to use [TextFrame](/slides/nodejs-java/text-formatting/).
 {{% /alert %}}
 
 ### **Add Text Watermark to Presentation**
@@ -170,10 +170,6 @@ watermarkShape.getShapeLock().setTextLocked(true);
 watermarkShape.getShapeLock().setPositionLocked(true);
 watermarkShape.getShapeLock().setGroupingLocked(true);
 ```
-
-{{% alert color="primary" title="See also" %}} 
-- [How to Lock Shapes from Editing](/slides/nodejs-java/presentation-locking/)
-{{% /alert %}}
 
 ### **Bring a Watermark to Front**
 

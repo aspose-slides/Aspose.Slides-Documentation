@@ -47,7 +47,7 @@ try {
 ```
 
 ## **Getting Effective Properties of the Camera**
-Aspose.Slides for Node.js via Java allows developers to get effective properties of the camera. For this purpose, the [**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) class was added to Aspose.Slides. The [CameraEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) class represents an immutable object that contains effective camera properties. An instance of [**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) class is used as part of the [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData) class, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
+Aspose.Slides for Node.js via Java allows developers to get effective properties of the camera. For this purpose, the **CameraEffectiveData** class was added to Aspose.Slides. The **CameraEffectiveData** class represents an immutable object that contains effective camera properties. An instance of **CameraEffectiveData** class is used as part of the **ThreeDFormatEffectiveData** class, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
 This sample code sample shows you how to get effective properties for the camera:
 
@@ -67,7 +67,7 @@ try {
 ```
 
 ## **Getting Effective Properties of Light Rig**
-Aspose.Slides for Node.js via Java allows developers to get effective properties of Light Rig. For this purpose, the [**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) class was added to Aspose.Slides. The [LightRigEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) class represents an immutable object that contains effective light rig properties. An instance of the [**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) class is used as part of [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData) class, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
+Aspose.Slides for Node.js via Java allows developers to get effective properties of Light Rig. For this purpose, the **LightRigEffectiveData** class was added to Aspose.Slides. The **LightRigEffectiveData** class represents an immutable object that contains effective light rig properties. An instance of the **LightRigEffectiveData** class is used as part of **ThreeDFormatEffectiveData** class, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
 This sample code sample shows you how to get effective properties of Light Rig:
 
@@ -86,7 +86,7 @@ try {
 ```
 
 ## **Getting Effective Properties of Bevel Shape**
-Aspose.Slides for Node.js via Java allows developers to get effective properties of Bevel Shape. For this purpose, the [**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) class was added to Aspose.Slides. The [ShapeBevelEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) class represents an immutable object that contains effective shape's face relief properties. An instance of the [**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) class is used as part of [**ThreeDFormatEffectiveData**]([**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData)) class, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
+Aspose.Slides for Node.js via Java allows developers to get effective properties of Bevel Shape. For this purpose, the **ShapeBevelEffectiveData** class was added to Aspose.Slides. The **ShapeBevelEffectiveData** class represents an immutable object that contains effective shape's face relief properties. An instance of the **ShapeBevelEffectiveData** class is used as part of **ThreeDFormatEffectiveData** class, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
 This sample code sample shows you how to get effective properties for the Bevel Shape:
 
@@ -106,7 +106,7 @@ try {
 ```
 
 ## **Getting Effective Properties of a Text Frame**
-Using Aspose.Slides for Node.js via Java, you can get effective properties of a Text Frame. For this purpose, the [**TextFrameFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormatEffectiveData) class was added to Aspose.Slides. It contains effective text frame formatting properties. 
+Using Aspose.Slides for Node.js via Java, you can get effective properties of a Text Frame. For this purpose, the **TextFrameFormatEffectiveData** class was added to Aspose.Slides. It contains effective text frame formatting properties. 
 
 This sample code shows you how to get effective text frame formatting properties:
 
@@ -131,7 +131,7 @@ try {
 ```
 
 ## **Getting Effective Properties of a Text Style**
-Using Aspose.Slides for Node.js via Java, you can get effective properties of Text Style. For this purpose, the [**TextStyleEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextStyleEffectiveData) class was added to Aspose.Slides. It contains effective text style properties.
+Using Aspose.Slides for Node.js via Java, you can get effective properties of Text Style. For this purpose, the **TextStyleEffectiveData** class was added to Aspose.Slides. It contains effective text style properties.
 
 This sample code sample shows you how to get effective text style properties:
 
@@ -196,7 +196,7 @@ try {
 ```
 
 ## **Getting Effective Fill Format for Table**
-Using Aspose.Slides for Node.js via Java, you can get effective fill formatting for different table logic parts. For this purpose, the [**CellFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CellFormatEffectiveData) class was added in Aspose.Slides. It contains effective fill formatting properties. Please note this: cell formatting always gets priority over row formatting; row gets priority over column; and column gets priority over the whole table.
+Using Aspose.Slides for Node.js via Java, you can get effective fill formatting for different table logic parts. For this purpose, the **CellFormatEffectiveData** class was added in Aspose.Slides. It contains effective fill formatting properties. Please note this: cell formatting always gets priority over row formatting; row gets priority over column; and column gets priority over the whole table.
 
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");

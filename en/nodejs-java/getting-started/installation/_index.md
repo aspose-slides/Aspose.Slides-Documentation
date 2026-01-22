@@ -38,7 +38,7 @@ You can easily install Aspose.Slides for Node.js via Java from [NPM](https://www
 	$ npm install aspose.slides.via.java
 	```
 
-If you encounter any problem during the installation process, please refer to this [article](/nodejs-java/troubleshooting-installation/).
+If you encounter any problem during the installation process, please refer to this [article](/slides/nodejs-java/troubleshooting-installation/).
 
 **Usage Example**:
 
