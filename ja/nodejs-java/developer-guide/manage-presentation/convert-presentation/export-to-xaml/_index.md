@@ -1,29 +1,47 @@
 ---
-title: XAMLへのエクスポート
+title: JavaScript でプレゼンテーションを XAML にエクスポート
+linktitle: プレゼンテーションを XAML に変換
 type: docs
 weight: 30
 url: /ja/nodejs-java/export-to-xaml/
+keywords:
+- PowerPoint のエクスポート
+- OpenDocument のエクスポート
+- プレゼンテーションのエクスポート
+- PowerPoint の変換
+- OpenDocument の変換
+- プレゼンテーションの変換
+- PowerPoint を XAML に変換
+- OpenDocument を XAML に変換
+- プレゼンテーションを XAML に変換
+- PPT を XAML に変換
+- PPTX を XAML に変換
+- ODP を XAML に変換
+- PPT を XAML として保存
+- PPTX を XAML として保存
+- ODP を XAML として保存
+- PPT を XAML にエクスポート
+- PPTX を XAML にエクスポート
+- ODP を XAML にエクスポート
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Node.js 用 Aspose.Slides を使用し、JavaScript で PowerPoint と OpenDocument のスライドを XAML に変換します—レイアウトをそのまま保持する、迅速で Office 不要のソリューションです。"
 ---
 
-## **プレゼンテーションのXAMLへのエクスポート**
+## **プレゼンテーションの XAML へのエクスポート**
 
-{{% alert color="primary" %}} 
-
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML.
-
-Aspose.Slides 21.6 で、XAML エクスポートのサポートを実装しました。これでプレゼンテーションを XAML にエクスポートできるようになりました。
-
-{{% /alert %}} 
+Aspose.Slides は XAML エクスポートをサポートしています。プレゼンテーションを XAML に変換できます。
 
 ## **XAML について**
 
-XAML は記述型プログラミング言語で、特に WPF（Windows Presentation Foundation）、UWP（Universal Windows Platform）、Xamarin Forms を使用するアプリ向けにユーザークラスを構築または記述することができます。
+XAML は記述型プログラミング言語で、特に WPF (Windows Presentation Foundation)、UWP (Universal Windows Platform)、Xamarin Forms を使用するアプリのユーザークラスを構築または記述するために使用されます。
 
-XML ベースの言語である XAML は、GUI を記述するための Microsoft のバリアントです。ほとんどの場合、デザイナーを使って XAML ファイルを操作しますが、GUI を手動で記述・編集することも可能です。
+XML ベースの言語である XAML は、GUI を記述するための Microsoft の独自形式です。ほとんどの場合、デザイナーを使用して XAML ファイルを操作しますが、GUI を手動で記述・編集することも可能です。
 
-## **デフォルトオプションでプレゼンテーションを XAML にエクスポート**
+## **既定のオプションでプレゼンテーションを XAML にエクスポートする**
 
-この JavaScript コードは、デフォルト設定でプレゼンテーションを XAML にエクスポートする方法を示しています:
+この JavaScript コードは、既定の設定でプレゼンテーションを XAML にエクスポートする方法を示しています:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -36,11 +54,11 @@ try {
 ```
 
 
-## **カスタムオプションでプレゼンテーションを XAML にエクスポート**
+## **カスタム オプションでプレゼンテーションを XAML にエクスポートする**
 
-[XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions) クラスからエクスポートプロセスを制御し、Aspose.Slides がプレゼンテーションを XAML にエクスポートする方法を決定するオプションを選択できます。
+エクスポート プロセスを制御し、Aspose.Slides がプレゼンテーションを XAML にエクスポートする方法を決定するオプションは、[XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions) クラスから選択できます。
 
-例えば、XAML にエクスポートする際に隠しスライドも含めたい場合は、[setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions#setExportHiddenSlides-boolean-) メソッドを true に設定できます。このサンプル JavaScript コードをご覧ください:
+たとえば、エクスポート時にプレゼンテーション内の非表示スライドも XAML に含めたい場合は、[setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions#setExportHiddenSlides-boolean-) メソッドを true に設定します。このサンプル JavaScript コードをご覧ください:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -57,14 +75,14 @@ try {
 
 ## **FAQ**
 
-**元のフォントがマシンに存在しない場合、予測可能なフォントを確保するにはどうすればよいですか？**
+**元のフォントがマシンに存在しない場合、フォントを予測可能にするにはどうすればよいですか？**
 
-[XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) の [setDefaultRegularFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) を使用します。元のフォントが見つからない場合のフォールバックフォントとして使用され、予期しない置き換えを防止します。
+[XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) の [setDefaultRegularFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) を使用します。元のフォントが欠落している場合のフォールバック フォントとして使用され、予期しない置き換えを防止します。
 
-**エクスポートされた XAML は WPF のみを対象としていますか、それとも他の XAML スタックでも使用できますか？**
+**エクスポートされた XAML は WPF のみを対象としていますか？それとも他の XAML スタックでも使用できますか？**
 
-XAML は WPF、UWP、Xamarin.Forms で使用される汎用 UI マークアップ言語です。エクスポートは Microsoft の XAML スタックとの互換性を対象としており、具体的な動作や特定の構文のサポートは対象プラットフォームに依存します。ご使用の環境でマークアップをテストしてください。
+XAML は WPF、UWP、Xamarin.Forms で使用される汎用 UI マークアップ言語です。エクスポートは Microsoft の XAML スタックとの互換性を目指していますが、具体的な動作や特定構文のサポートは対象プラットフォームに依存します。使用環境でマークアップをテストしてください。
 
-**隠しスライドはサポートされていますか？また、デフォルトでエクスポートされないようにするにはどうすればよいですか？**
+**非表示スライドはサポートされていますか？デフォルトでエクスポートされないようにするにはどうすればよいですか？**
 
-デフォルトでは隠しスライドは含まれません。これを制御するには、[XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) の [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/setexporthiddenslides/) を使用します。エクスポートが不要な場合は無効のままにしてください。
+デフォルトでは非表示スライドは含まれません。[XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) の [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/setexporthiddenslides/) でこの動作を制御できます。エクスポートが不要な場合はこのオプションを無効にしてください。

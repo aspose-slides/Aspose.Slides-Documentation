@@ -1,33 +1,52 @@
 ---
-title: 文字艺术
+title: 在 JavaScript 中创建和应用 WordArt 效果
+linktitle: WordArt
 type: docs
 weight: 110
 url: /zh/nodejs-java/wordart/
+keywords:
+- WordArt
+- 创建 WordArt
+- WordArt 模板
+- WordArt 效果
+- 阴影效果
+- 显示效果
+- 辉光效果
+- WordArt 变换
+- 3D 效果
+- 外部阴影效果
+- 内部阴影效果
+- PowerPoint
+- 演示文稿
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "在 Aspose.Slides for Node.js 中创建和自定义 WordArt 效果。本分步指南帮助开发者使用专业文本增强演示文稿。"
 ---
 
 ## **关于 WordArt？**
 
-WordArt 或 Word Art 是一种功能，可让您对文本应用效果，使其脱颖而出。例如，使用 WordArt，您可以为文本添加轮廓或填充颜色（或渐变），为其添加 3D 效果等。您还可以倾斜、弯曲和拉伸文本的形状。
+WordArt 或 Word Art 是一种功能，允许您对文本应用效果，使其脱颖而出。使用 WordArt，例如，您可以为文本添加轮廓或填充颜色（或渐变），为其添加 3D 效果等。您还可以倾斜、弯曲和拉伸文本的形状。
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-WordArt 允许您将文本视为图形对象来处理。通常，WordArt 包括对文本进行的各种效果或特殊修改，以使其更具吸引力或更显眼。
+WordArt 允许您像对待图形对象一样对待文本。一般而言，WordArt 由对文本进行的效果或特殊修改组成，使其更具吸引力或更显眼。 
 
-{{% /alert %}}
+{{% /alert %}} 
 
 **Microsoft PowerPoint 中的 WordArt**
 
-要在 Microsoft PowerPoint 中使用 WordArt，必须选择预定义的 WordArt 模板之一。WordArt 模板是一组将应用于文本或其形状的效果。
+要在 Microsoft PowerPoint 中使用 WordArt，您必须选择一个预定义的 WordArt 模板。WordArt 模板是一组会应用于文本或其形状的效果。
 
 **Aspose.Slides 中的 WordArt**
 
-在 Aspose.Slides for Node.js via Java 20.10 中，我们实现了对 WordArt 的支持，并在后续的 Aspose.Slides for Node.js via Java 版本中对该功能进行了改进。
+在 Aspose.Slides for Node.js via Java 20.10 中，我们实现了对 WordArt 的支持，并在后续的 Aspose.Slides for Node.js via Java 发行版中对该功能进行了改进。
 
-使用 Aspose.Slides for Node.js via Java，您可以轻松在 JavaScript 中创建自己的 WordArt 模板（单个效果或效果组合），并将其应用于文本。
+使用 Aspose.Slides for Node.js via Java，您可以轻松地在 JavaScript 中创建自己的 WordArt 模板（单个效果或效果组合），并将其应用于文本。
 
 ## **创建简单的 WordArt 模板并将其应用于文本**
 
-**使用 Aspose.Slides**
+**使用 Aspose.Slides** 
 
 首先，我们使用以下 JavaScript 代码创建一个简单的文本：
 ```javascript
@@ -45,7 +64,7 @@ try {
 }
 ```
 
-现在，通过以下代码将文本的字体高度设置为更大的值，以使效果更明显：
+接下来，我们通过以下代码将文本的字体高度设置为更大的值，以便更明显地呈现效果：
 ```javascript
 var fontData = new aspose.slides.FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
@@ -55,11 +74,11 @@ portion.getPortionFormat().setFontHeight(36);
 
 **使用 Microsoft PowerPoint**
 
-转到 Microsoft PowerPoint 中的 WordArt 效果菜单：
+在 Microsoft PowerPoint 中转到 WordArt 效果菜单：
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-在右侧的菜单中，您可以选择预定义的 WordArt 效果。在左侧的菜单中，您可以为新的 WordArt 指定设置。
+在右侧菜单中，您可以选择预定义的 WordArt 效果；在左侧菜单中，您可以为新的 WordArt 指定设置。
 
 以下是一些可用的参数或选项：
 
@@ -67,7 +86,7 @@ portion.getPortionFormat().setFontHeight(36);
 
 **使用 Aspose.Slides**
 
-在此，我们将 [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) 图案颜色应用于文本，并使用以下代码添加宽度为 1 的黑色文本边框：
+在此示例中，我们使用以下代码将 [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) 图案颜色应用于文本，并添加 1 宽度的黑色文本边框：
 ```javascript
 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -78,7 +97,7 @@ portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().s
 ```
 
 
-生成的文本：
+得到的文本：
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
@@ -86,15 +105,15 @@ portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().s
 
 **使用 Microsoft PowerPoint**
 
-在程序的类中，您可以将这些效果应用于文本、文本框、形状或类似元素：
+在程序的类别中，您可以将这些效果应用于文本、文本块、形状或类似元素：
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-例如，Shadow、Reflection 和 Glow 效果可以应用于文本；3D Format 和 3D Rotation 效果可以应用于文本框；Soft Edges 属性可以应用于形状对象（即使未设置 3D Format 属性，也仍会产生效果）。
+例如，可将 Shadow、Reflection 和 Glow 效果应用于文本；可将 3D Format 和 3D Rotation 效果应用于文本块；可将 Soft Edges 属性应用于 Shape 对象（即使未设置 3D Format 属性，它仍然有效）。
 
 ### **应用阴影效果**
 
-这里，我们仅针对文本设置属性。使用以下 JavaScript 代码将阴影效果应用于文本：
+在此，我们仅打算设置与文本相关的属性。我们使用以下 JavaScript 代码将阴影效果应用于文本：
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
@@ -111,24 +130,24 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowCol
 
 Aspose.Slides API 支持三种阴影类型：OuterShadow、InnerShadow 和 PresetShadow。
 
-使用 PresetShadow，您可以为文本应用预设值的阴影。
+使用 PresetShadow，您可以对文本应用预设值的阴影。
 
 **使用 Microsoft PowerPoint**
 
-在 PowerPoint 中，您只能使用一种阴影类型。以下是示例：
+在 PowerPoint 中，您只能使用一种阴影类型。示例：
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
 **使用 Aspose.Slides**
 
-Aspose.Slides 实际上允许您一次同时应用两种阴影：InnerShadow 和 PresetShadow。
+Aspose.Slides 实际上允许同时应用两种阴影：InnerShadow 和 PresetShadow。
 
 **注意：**
 
-- 当同时使用 OuterShadow 和 PresetShadow 时，仅会应用 OuterShadow 效果。
-- 如果同时使用 OuterShadow 和 InnerShadow，所产生或应用的效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会加倍；但在 PowerPoint 2007 中，只会应用 OuterShadow 效果。
+- 当 OuterShadow 和 PresetShadow 同时使用时，仅会应用 OuterShadow 效果。 
+- 当 OuterShadow 和 InnerShadow 同时使用时，产生或应用的效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会加倍；但在 PowerPoint 2007 中，仅会应用 OuterShadow 效果。
 
-### **将显示效果应用于文本**
+### **应用显示效果到文本**
 
 我们通过以下 JavaScript 示例代码为文本添加显示效果：
 ```javascript
@@ -146,9 +165,9 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 ```
 
 
-### **将 Glow 效果应用于文本**
+### **为文本应用辉光效果**
 
-我们使用以下代码将 Glow 效果应用于文本，使其发光或突出显示：
+我们使用以下代码将辉光效果应用于文本，使其发光或突出：
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
@@ -161,15 +180,15 @@ portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-您可以更改阴影、显示和 Glow 的参数。这些效果的属性分别设置在文本的每个部分上。
+您可以更改阴影、显示和辉光的参数。这些效果的属性会分别设置在文本的每个部分上。 
 
-{{% /alert %}}
+{{% /alert %}} 
 
 ### **在 WordArt 中使用变换**
 
-我们通过以下代码使用 Transform 属性（作用于整个文本块）：
+我们通过以下代码使用 Transform 属性（适用于整个文本块）：
 ```javascript
 textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
 ```
@@ -179,21 +198,21 @@ textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShape
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-Microsoft PowerPoint 和 Aspose.Slides for Node.js via Java 均提供一定数量的预定义变换类型。
+Microsoft PowerPoint 和 Aspose.Slides for Node.js via Java 均提供若干预定义的变换类型。 
 
-{{% /alert %}}
+{{% /alert %}} 
 
 **使用 PowerPoint**
 
-要访问预定义变换类型，请依次选择：**Format** -> **TextEffect** -> **Transform**
+要访问预定义的变换类型，请依次选择：**格式** -> **文字效果** -> **变换**
 
 **使用 Aspose.Slides**
 
 要选择变换类型，请使用 TextShapeType 枚举。
 
-### **将 3D 效果应用于文本和形状**
+### **为文本和形状应用 3D 效果**
 
 我们使用以下示例代码为文本形状设置 3D 效果：
 ```javascript
@@ -245,38 +264,38 @@ textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspos
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-将 3D 效果应用于文本或其形状以及效果之间的交互遵循一定规则。
+对文本或其形状应用 3D 效果以及效果之间的交互遵循特定规则。
 
-考虑文本及其包含文本的形状的场景。3D 效果包括 3D 对象表示以及放置该对象的场景。
+考虑文本及其所在形状的场景。3D 效果包括 3D 对象的表示以及对象所在的场景。
 
-- 当场景同时为图形和文本设置时，图形场景拥有更高优先级——文本场景被忽略。
-- 当图形缺少自身场景但具有 3D 表示时，使用文本场景。
-- 否则——当形状原本没有 3D 效果时，形状保持平面，3D 效果仅应用于文本。
+- 当场景同时为图形和文本设置时，以图形的场景为最高优先级——文本的场景被忽略。 
+- 当图形没有自己的场景但具有 3D 表示时，使用文本的场景。 
+- 否则——当形状原本没有 3D 效果时，形状保持平面，仅对文本应用 3D 效果。
 
-这些描述与 ThreeDFormat.getLightRig() 和 ThreeDFormat.getCamera() 方法相关。
+这些说明与 ThreeDFormat.getLightRig() 和 ThreeDFormat.getCamera() 方法相关。 
 
-{{% /alert %}}
+{{% /alert %}} 
 
-## **对文本应用外阴影效果**
+## **对文本应用外部阴影效果**
 
-Aspose.Slides for Node.js via Java 提供了 [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IOuterShadow) 和 [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IInnerShadow) 类，允许您对由 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/classes/TextFrame) 承载的文本应用阴影效果。请按照以下步骤操作：
+Aspose.Slides for Node.js via Java 提供了 [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/) 和 [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/innershadow/) 类，允许您对由 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 承载的文本应用阴影效果。请按照以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。
-2. 使用索引获取幻灯片的引用。
-3. 向幻灯片添加矩形类型的 AutoShape。
-4. 访问与 AutoShape 关联的 TextFrame。
-5. 将 AutoShape 的 FillType 设置为 NoFill。
-6. 实例化 OuterShadow 类。
-7. 设置阴影的 BlurRadius。
-8. 设置阴影的 Direction。
-9. 设置阴影的 Distance。
-10. 将 RectanglelAlign 设置为 TopLeft。
-11. 将阴影的 PresetColor 设置为 Black。
-12. 将演示文稿写入为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。  
+2. 使用索引获取幻灯片的引用。  
+3. 向幻灯片添加矩形类型的 AutoShape。  
+4. 访问与该 AutoShape 关联的 TextFrame。  
+5. 将 AutoShape 的 FillType 设置为 NoFill。  
+6. 实例化 OuterShadow 类。  
+7. 设置阴影的 BlurRadius。  
+8. 设置阴影的 Direction。  
+9. 设置阴影的 Distance。  
+10. 将 RectanglelAlign 设置为 TopLeft。  
+11. 将阴影的 PresetColor 设置为 Black。  
+12. 将演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。  
 
-以下 Java 示例代码实现了上述步骤，演示如何对文本应用外阴影效果：
+下面的 Java 示例代码实现了上述步骤，演示了如何对文本应用外部阴影效果：
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -288,7 +307,7 @@ try {
     ashp.addTextFrame("Aspose TextBox");
     // 禁用形状填充，以便获取文本的阴影
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 添加外阴影并设置所有必要的参数
+    // 添加外部阴影并设置所有必要参数
     ashp.getEffectFormat().enableOuterShadowEffect();
     var shadow = ashp.getEffectFormat().getOuterShadowEffect();
     shadow.setBlurRadius(4.0);
@@ -306,20 +325,20 @@ try {
 ```
 
 
-## **对形状应用内阴影效果**
+## **对形状应用内部阴影效果**
 
-按以下步骤操作：
+请按照以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。
-2. 获取幻灯片的引用。
-3. 添加矩形类型的 AutoShape。
-4. 启用 InnerShadowEffect。
-5. 设置所有必要参数。
-6. 将 ColorType 设置为 Scheme。
-7. 设置 Scheme Color。
-8. 将演示文稿写入为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。  
+2. 获取幻灯片的引用。  
+3. 添加矩形类型的 AutoShape。  
+4. 启用 InnerShadowEffect。  
+5. 设置所有必要的参数。  
+6. 将 ColorType 设置为 Scheme。  
+7. 设置 Scheme Color。  
+8. 将演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。  
 
-以下示例代码（基于上述步骤）展示了如何在 JavaScript 中为两个形状之间添加连接器：
+下面的示例代码（基于上述步骤）演示了如何在 JavaScript 中为两个形状之间添加连接器：
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -343,7 +362,7 @@ try {
     ef.getInnerShadowEffect().getShadowColor().setB(189);
     // 将 ColorType 设置为 Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // 设置 Scheme Color
+    // 设置 Scheme 颜色
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
     // 保存演示文稿
     pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -355,20 +374,20 @@ try {
 ```
 
 
-## **FAQ**
+## **常见问题**
 
-**是否可以将 WordArt 效果与不同的字体或脚本（例如阿拉伯语、中文）一起使用？**
+**我可以在不同的字体或文字（例如阿拉伯文、中文）上使用 WordArt 效果吗？**
 
-是的，Aspose.Slides 支持 Unicode，并可与所有主流字体和脚本一起使用。无论语言如何，都可以应用阴影、填充和轮廓等 WordArt 效果，尽管字体的可用性和渲染可能取决于系统字体。
+是的，Aspose.Slides 支持 Unicode 并可与所有主流字体和文字系统一起使用。无论语言如何，都可以应用诸如阴影、填充和轮廓等 WordArt 效果，但字体的可用性和渲染可能取决于系统字体。
 
-**是否可以将 WordArt 效果应用于幻灯片母版元素？**
+**我可以将 WordArt 效果应用于幻灯片母版元素吗？**
 
-是的，您可以将 WordArt 效果应用于母版幻灯片上的形状，包括标题占位符、页脚或背景文本。对母版布局所做的更改将反映在所有相关幻灯片中。
+是的，您可以对母版幻灯片上的形状（包括标题占位符、页脚或背景文字）应用 WordArt 效果。对母版布局所做的更改会影响所有使用该母版的幻灯片。
 
-**WordArt 效果是否会影响演示文稿文件大小？**
+**WordArt 效果会影响演示文稿文件大小吗？**
 
-略有影响。阴影、Glow 和渐变填充等 WordArt 效果可能会因添加的格式元数据而略微增加文件大小，但差异通常可以忽略不计。
+会有轻微影响。阴影、辉光和渐变填充等 WordArt 效果可能会因添加的格式元数据而略微增加文件大小，但差异通常可以忽略不计。
 
-**是否可以在不保存演示文稿的情况下预览 WordArt 效果的结果？**
+**我可以在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
 
-是的，您可以使用 [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 或 [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) 类的 `getImage` 方法将包含 WordArt 的幻灯片渲染为图像（例如 PNG、JPEG），从而在内存中或屏幕上预览结果，然后再保存或导出完整演示文稿。
+是的，您可以使用 [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 或 [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) 类的 `getImage` 方法，将包含 WordArt 的幻灯片渲染为图像（例如 PNG、JPEG）。这样可以在内存中或屏幕上预览结果，而无需保存或导出完整的演示文稿。

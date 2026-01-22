@@ -1,36 +1,56 @@
 ---
-title: تحويل PowerPoint إلى فيديو
+title: تحويل عروض PowerPoint إلى فيديو باستخدام JavaScript
+linktitle: PowerPoint إلى فيديو
 type: docs
 weight: 130
 url: /ar/nodejs-java/convert-powerpoint-to-video/
-keywords: "تحويل PowerPoint, PPT, PPTX, عرض تقديمي, فيديو, MP4, PPT إلى فيديو, PPT إلى MP4, Java, Aspose.Slides"
-description: "تحويل PowerPoint إلى فيديو باستخدام JavaScript"
+keywords:
+- تحويل PowerPoint
+- تحويل عرض تقديمي
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى فيديو
+- عرض تقديمي إلى فيديو
+- PPT إلى فيديو
+- PPTX إلى فيديو
+- PowerPoint إلى MP4
+- عرض تقديمي إلى MP4
+- PPT إلى MP4
+- PPTX إلى MP4
+- حفظ PPT كـ MP4
+- حفظ PPTX كـ MP4
+- تصدير PPT إلى MP4
+- تصدير PPTX إلى MP4
+- تحويل الفيديو
+- PowerPoint
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تعلم كيفية تحويل عروض PowerPoint إلى فيديو باستخدام JavaScript. اكتشف الشيفرة النموذجية وتقنيات الأتمتة لتبسيط سير العمل الخاص بك."
 ---
 
-بتحويل عرض PowerPoint الخاص بك إلى فيديو، ستحصل على  
+عن طريق تحويل عرض PowerPoint إلى فيديو، ستحصل على 
 
-* **زيادة في إمكانية الوصول:** جميع الأجهزة (بغض النظر عن النظام) مزودة بمشغلات فيديو بشكل افتراضي مقارنةً بتطبيقات فتح العروض، لذا يجد المستخدمون أنه من الأسهل فتح أو تشغيل مقاطع الفيديو.  
-* **وصول أوسع:** من خلال الفيديوهات، يمكنك الوصول إلى جمهور كبير وتوجيههم إلى معلومات قد تبدو مملة في العرض التقديمي. معظم الاستطلاعات والإحصاءات تشير إلى أن الأشخاص يشاهدون ويستهلكون الفيديوهات أكثر من أشكال المحتوى الأخرى، وهم يفضلون هذا النوع من المحتوى بشكل عام.  
+* **زيادة في إمكانية الوصول:** جميع الأجهزة (بغض النظر عن المنصة) مزودة بأدوات تشغيل الفيديو بشكل افتراضي مقارنةً بتطبيقات فتح العروض، لذلك يجد المستخدمون أنه من الأسهل فتح أو تشغيل الفيديوهات.
+* **وصول أوسع:** من خلال الفيديوهات، يمكنك الوصول إلى جمهور كبير واستهدافه بمعلومات قد تبدو مملة في عرض تقديمي. معظم الاستطلاعات والإحصاءات تشير إلى أن الأشخاص يشاهدون الفيديوهات ويستهلكونها أكثر من غيرها من أشكال المحتوى، وعادةً ما يفضلون هذا النوع من المحتوى.
 
 {{% alert color="primary" %}} 
-
-قد ترغب في تجربة [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) لأنه تنفيذ حي وفعّال للعملية الموضحة هنا.
-
+قد ترغب في تجربة [**أداة تحويل PowerPoint إلى فيديو عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لأنها تنفيذ حي وفعّال للعملية الموصوفة هنا.
 {{% /alert %}} 
 
 ## **تحويل PowerPoint إلى فيديو في Aspose.Slides**
 
-في [Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-22-11-release-notes/)، أضفنا دعمًا لتحويل العروض إلى فيديو.  
+يدعم Aspose.Slides تحويل العروض إلى فيديو.
 
-* استخدم **Aspose.Slides** لإنشاء مجموعة من الإطارات (من شرائح العرض) التي تتطابق مع معدل FPS معين (إطارات في الثانية).  
-* استخدم أداة طرف ثالث مثل **ffmpeg** ([لـ java](https://github.com/bramp/ffmpeg-cli-wrapper)) لإنشاء فيديو بناءً على تلك الإطارات.  
+* استخدم **Aspose.Slides** لتوليد مجموعة من الإطارات (من شرائح العرض) التي تتطابق مع معدل إطارات معين (FPS)
+* استخدم أداة طرف ثالث مثل **ffmpeg** ([للجافا](https://github.com/bramp/ffmpeg-cli-wrapper)) لإنشاء فيديو بناءً على هذه الإطارات. 
 
 ### **تحويل PowerPoint إلى فيديو**
 
-1. حمّل ffmpeg [من هنا](https://ffmpeg.org/download.html).  
-2. شغّل كود JavaScript لتحويل PowerPoint إلى فيديو.
+1. نزّل ffmpeg [هنا](https://ffmpeg.org/download.html).
+2. نفّذ شفرة JavaScript الخاصة بتحويل PowerPoint إلى فيديو.
 
-هذا الكود يوضح لك كيفية تحويل عرض (يتضمن شكلًا وتأثيري حركة) إلى فيديو:  
+تُظهر لك هذه الشفرة كيفية تحويل عرض (يحتوي على شكل وتأثيرين حركيين) إلى فيديو:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -67,7 +87,7 @@ try {
             animationsGenerator.dispose();
         }
     }
-    // تكوين مجلد ملفات ffmpeg. انظر هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
+    // تهيئة مجلد ملفات ffmpeg التنفيذية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
     var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
     var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
     var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
@@ -81,19 +101,17 @@ try {
 
 ## **تأثيرات الفيديو**
 
-يمكنك تطبيق الحركات على الكائنات داخل الشرائح واستخدام الانتقالات بين الشرائح.  
+يمكنك تطبيق الحركات على العناصر داخل الشرائح واستخدام الانتقالات بين الشرائح. 
 
 {{% alert color="primary" %}} 
-
 قد ترغب في الاطلاع على هذه المقالات: [PowerPoint Animation](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/)، [Shape Animation](https://docs.aspose.com/slides/nodejs-java/shape-animation/)، و[Shape Effect](https://docs.aspose.com/slides/nodejs-java/shape-effect/).
-
 {{% /alert %}} 
 
-الحركات والانتقالات تجعل عروض الشرائح أكثر جاذبية وإثارة—وبالمثل بالنسبة للفيديوهات. لنضيف شريحة وانتقال آخر إلى الكود للعرض السابق:  
+الحركات والانتقالات تجعل عروض الشرائح أكثر جذبًا وإثارة — وتؤدي نفس الغرض للفيديوهات. لنضيف شريحة وانتقال إضافي إلى الشفرة الخاصة بالعرض السابق:
 ```javascript
 // يضيف شكل ابتسامة ويحركه
 // ...
-// يضيف شريحة جديدة وانتقالًا متحركًا
+// يضيف شريحة جديدة وانتقال متحرك
 var newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 newSlide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
 newSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -102,11 +120,11 @@ newSlide.getSlideShowTransition().setType(aspose.slides.TransitionType.Push);
 ```
 
 
-يدعم Aspose.Slides أيضًا تحريك النصوص. لذا نقوم بتحريك الفقرات على الكائنات، لتظهر واحدة تلو الأخرى (مع تأخير ثانية واحدة):  
+يدعم Aspose.Slides أيضًا الحركات للنصوص. لذا نقوم بتحريك الفقرات على الكائنات لتظهر واحدةً تلو الأخرى (مع تأخير ثانية واحدة):
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
-    // يضيف نصًا وحركات
+    // يضيف النص والحركات
     var autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 120, 300, 300);
     var para1 = new aspose.slides.Paragraph();
     para1.getPortions().add(new aspose.slides.Portion("Aspose Slides for Node.js via Java"));
@@ -154,7 +172,7 @@ try {
             animationsGenerator.dispose();
         }
     }
-    // تكوين مجلد ملفات ffmpeg. انظر هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
+    // تكوين مجلد ملفات ffmpeg التنفيذية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
     var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
     var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
     var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
@@ -168,13 +186,13 @@ try {
 
 ## **فئات تحويل الفيديو**
 
-لتمكينك من تنفيذ مهام تحويل PowerPoint إلى فيديو، توفر Aspose.Slides الفئتين [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) و[PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).  
+لتسهيل مهام تحويل PowerPoint إلى فيديو، يوفر Aspose.Slides الفئتين [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) و[PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) يتيح لك ضبط حجم الإطار للفيديو (الذي سيُنشأ لاحقًا) عبر بنائه. إذا مررّت نسخة من العرض، سيتم استخدام `Presentation.getSlideSize` وتُولِّد الحركات التي يستخدمها [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).  
+يتيح لك [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) ضبط حجم الإطار للفيديو (الذي سيُنشأ لاحقًا) من خلال مُنشئه. إذا مررت كائن العرض، سيُستخدم `Presentation.getSlideSize` ويولد حركات يستخدمها [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/).
 
-عند توليد الحركات، يُولَّد حدث `NewAnimation` لكل حركة لاحقة، ويحمل معلمة [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/). الأخيرة هي فئة تمثِّل مشغلًا لحركة منفصلة.  
+عند توليد الحركات، يُنشأ حدث `NewAnimation` لكل حركة لاحقة، ويتضمن معلمة مشغل حركات العرض. هذا الأخير هو فئة تمثل المشغل لحركة منفصلة.
 
-للعمل مع [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/)، تُستَخدم طريقة [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#getDuration--) (المدة الكاملة للحركة) وطريقة [setTimePosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#setTimePosition-double-). يتم ضبط موضع كل حركة ضمن النطاق *0 إلى المدة*، ثم تُعيد طريقة `getFrame` صورة BufferedImage تتطابق مع حالة الحركة في تلك اللحظة:  
+للعمل مع مشغل حركات العرض، تُستخدم طريقة `getDuration` (المدة الكلية للحركة) وطريقة `setTimePosition`. يتم ضبط كل موقع حركة ضمن النطاق *0 إلى المدة*، ثم تُرجع طريقة `getFrame` صورة BufferedImage تمثل حالة الحركة في تلك اللحظة:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -191,7 +209,7 @@ try {
             console.log(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
             animationPlayer.setTimePosition(0);// الحالة الأولية للرسوم المتحركة
             try {
-                // صورة حالة الرسوم المتحركة الأولية
+                // صورة الحالة الأولية للرسوم المتحركة
                 animationPlayer.getFrame().save("firstFrame.png", aspose.slides.ImageFormat.Png);
             } catch (e) {console.log(e);
                 throw java.newInstanceSync("java.lang.RuntimeException", e);
@@ -217,7 +235,7 @@ try {
 ```
 
 
-لجعل جميع الحركات في عرض ما تُشَغَل مرة واحدة، تُستَخدم فئة [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/). تأخذ هذه الفئة نسخة من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) ومعدل FPS للتأثيرات في مُنشئها ثم تُطلق حدث `FrameTick` لكل الحركات لتُشَغَلها:  
+لجعل جميع الحركات في عرض ما تُشغل مرة واحدة، تُست‑خدم فئة [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/). هذه الفئة تأخذ مثيلًا من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) ومعدل FPS للEffects في مُنشئها ثم تُستدعي حدث `FrameTick` لكل الحركات لتشغيلها:
 ```javascript
 var presentation = new aspose.slides.Presentation("animated.pptx");
 try {
@@ -251,9 +269,9 @@ try {
 ```
 
 
-بعد ذلك يمكن تجميع الإطارات المُولَّدة لإنتاج فيديو. راجع قسم [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).  
+بعد ذلك يمكن تجميع الإطارات المُولدة لإنتاج فيديو. راجع قسم [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **الحركات والتأثيرات المدعومة**
+## **الحركات والEffects المدعومة**
 
 **الدخول**:
 
@@ -321,14 +339,14 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل يمكن تحويل العروض التي محمية بكلمة مرور؟**  
+**هل يمكن تحويل العروض المحمية بكلمة مرور؟**
 
-نعم، يتيح Aspose.Slides العمل مع العروض المحمية بكلمة مرور. عند معالجة هذه الملفات، يجب توفير كلمة المرور الصحيحة حتى تتمكن المكتبة من الوصول إلى محتوى العرض.
+نعم، يتيح Aspose.Slides العمل مع العروض المحمية بكلمة مرور. عند معالجة هذه الملفات، تحتاج إلى تقديم كلمة المرور الصحيحة حتى يتمكن المكتبة من الوصول إلى محتوى العرض.
 
-**هل يدعم Aspose.Slides الاستخدام في حلول السحابة؟**  
+**هل يدعم Aspose.Slides الاستخدام في الحلول السحابية؟**
 
-نعم، يمكن دمج Aspose.Slides في التطبيقات والخدمات السحابية. صُممت المكتبة للعمل في بيئات الخوادم، مما يضمن أداءً عاليًا وقابلية توسيع للمعالجة الجماعية للملفات.
+نعم، يمكن دمج Aspose.Slides في التطبيقات والخدمات السحابية. تم تصميم المكتبة للعمل في بيئات الخوادم، مما يضمن أداءً عاليًا وقابلية توسع لمعالجة دفعات الملفات.
 
-**هل هناك قيود على حجم العروض أثناء التحويل؟**  
+**هل هناك قيود على حجم العروض أثناء التحويل؟**
 
-يستطيع Aspose.Slides معالجة عروض بأي حجم تقريبًا. ومع ذلك، قد تتطلب الملفات الكبيرة موارد نظام إضافية، ومن المفضَّل أحيانًا تحسين العرض لتحسين الأداء.  
+يستطيع Aspose.Slides التعامل مع عروض بحجم شبه غير محدود. ومع ذلك، عند العمل مع ملفات كبيرة جدًا قد تحتاج إلى موارد نظام إضافية، ومن المستحسن أحيانًا تحسين العرض لتحسين الأداء.

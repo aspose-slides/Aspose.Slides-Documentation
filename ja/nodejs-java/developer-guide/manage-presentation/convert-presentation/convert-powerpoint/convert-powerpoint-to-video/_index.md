@@ -1,38 +1,63 @@
 ---
-title: PowerPoint をビデオに変換
+title: JavaScriptでPowerPointプレゼンテーションを動画に変換する
+linktitle: PowerPointから動画へ
 type: docs
 weight: 130
 url: /ja/nodejs-java/convert-powerpoint-to-video/
-keywords: "PowerPoint を変換, PPT, PPTX, プレゼンテーション, ビデオ, MP4, PPT をビデオに変換, PPT を MP4 に変換, Java, Aspose.Slides"
-description: "JavaScript で PowerPoint をビデオに変換"
+keywords:
+- PowerPointを変換
+- プレゼンテーションを変換
+- PPTを変換
+- PPTXを変換
+- PowerPointから動画へ
+- プレゼンテーションから動画へ
+- PPTから動画へ
+- PPTXから動画へ
+- PowerPointからMP4へ
+- プレゼンテーションからMP4へ
+- PPTからMP4へ
+- PPTXからMP4へ
+- PPTをMP4として保存
+- PPTXをMP4として保存
+- PPTをMP4へエクスポート
+- PPTXをMP4へエクスポート
+- 動画変換
+- PowerPoint
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "JavaScriptでPowerPointプレゼンテーションを動画に変換する方法を学びます。サンプルコードと自動化技術を活用してワークフローを効率化しましょう。"
 ---
 
-PowerPoint プレゼンテーションをビデオに変換することで、次のメリットがあります  
+PowerPointプレゼンテーションを動画に変換することで、以下のメリットが得られます
 
-* **アクセシビリティの向上:** すべてのデバイス (プラットフォームに関係なく) はデフォルトでビデオプレーヤーを搭載しているため、プレゼンテーション用アプリケーションよりもビデオの再生や開くが容易です。  
-* **リーチの拡大:** ビデオを通じて多くの視聴者にリーチでき、プレゼンテーションで退屈に感じられる情報も提供できます。多くの調査や統計によれば、人々は他のコンテンツ形態よりもビデオを視聴・消費する傾向があり、一般的にそのようなコンテンツを好みます。  
+* **アクセシビリティの向上:** プレゼンテーションを開くアプリケーションに比べ、すべてのデバイス（プラットフォームを問わず）にはデフォルトで動画プレーヤーが搭載されているため、ユーザーは動画の再生や開封が容易です。
+* **リーチの拡大:** 動画を通じて大規模なオーディエンスに情報を届けることができ、プレゼンテーションでは退屈に感じられるかもしれない情報も効果的に伝えられます。多くの調査や統計は、動画が他のコンテンツ形態よりも視聴・消費されやすく、一般的に好まれることを示しています。
 
 {{% alert color="primary" %}} 
-以下の [**PowerPoint ビデオオンラインコンバーター**](https://products.aspose.app/slides/conversion/ppt-to-word) をご確認ください。この記事で説明したプロセスの実際かつ効果的な実装です。 
+
+以下の[**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) をご確認ください。こちらは本稿で説明したプロセスの実装例です。
+
 {{% /alert %}} 
 
-## **Aspose.Slides における PowerPoint からビデオへの変換**
+## **PowerPoint to Video Conversion in Aspose.Slides**
 
-[Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-22-11-release-notes/) では、プレゼンテーションからビデオへの変換機能を実装しました。
+Aspose.Slides はプレゼンテーションから動画への変換をサポートします。
 
-* **Aspose.Slides** を使用して、プレゼンテーションのスライドから特定の FPS (フレーム毎秒) に対応するフレームのセットを生成します  
-* **ffmpeg** のようなサードパーティユーティリティ ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) を使用して、フレームからビデオを作成します  
+* **Aspose.Slides** を使用して、プレゼンテーションのスライドから特定の FPS（1 秒あたりフレーム数）に対応するフレームセットを生成します
+* **ffmpeg** などのサードパーティユーティリティ（[for java](https://github.com/bramp/ffmpeg-cli-wrapper)）を使用して、フレームから動画を作成します。
 
-### **PowerPoint をビデオに変換**
+### **Convert PowerPoint to Video**
 
-1. ffmpeg を [ここ](https://ffmpeg.org/download.html) からダウンロードします。  
-2. PowerPoint からビデオへの JavaScript コードを実行します。  
+1. ffmpeg を[こちら](https://ffmpeg.org/download.html)からダウンロードします。
 
-この JavaScript コードは、図と 2 つのアニメーション効果を含むプレゼンテーションをビデオに変換する方法を示しています:  
+2. PowerPoint to video 用の JavaScript コードを実行します。
+
+この JavaScript コードは、図と 2 つのアニメーション効果を含むプレゼンテーションを動画に変換する方法を示しています:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
-    // 笑顔のシェイプを追加し、アニメーションを適用します
+    // 笑顔のシェイプを追加し、アニメーションを付けます
     var smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.SmileyFace, 110, 20, 500, 500);
     var mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     var effectIn = mainSequence.addEffect(smile, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.TopLeft, aspose.slides.EffectTriggerType.AfterPrevious);
@@ -65,7 +90,7 @@ try {
             animationsGenerator.dispose();
         }
     }
-    // ffmpeg バイナリフォルダを設定します。このページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg バイナリーフォルダーを設定します。こちらのページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
     var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
     var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
     var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
@@ -77,17 +102,19 @@ try {
 ```
 
 
-## **ビデオエフェクト**
+## **Video Effects**
 
-スライド上のオブジェクトにアニメーションを適用したり、スライド間のトランジションを使用したりできます。  
+スライド上のオブジェクトにアニメーションを適用したり、スライド間でトランジションを使用したりできます。
 
 {{% alert color="primary" %}} 
-以下の記事をご覧ください: [PowerPoint アニメーション](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/)、[シェイプ アニメーション](https://docs.aspose.com/slides/nodejs-java/shape-animation/)、および [シェイプ エフェクト](https://docs.aspose.com/slides/nodejs-java/shape-effect/)。 
+
+以下の記事をご参照ください: [PowerPoint Animation](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/)、[Shape Animation](https://docs.aspose.com/slides/nodejs-java/shape-animation/)、および [Shape Effect](https://docs.aspose.com/slides/nodejs-java/shape-effect/)。
+
 {{% /alert %}} 
 
-アニメーションとトランジションはスライドショーをより魅力的にし、ビデオでも同様の効果があります。前のプレゼンテーションのコードに別のスライドとトランジションを追加してみましょう:  
+アニメーションとトランジションはスライドショーをより魅力的で興味深いものにし、動画でも同様の効果があります。前述のプレゼンテーションのコードに別のスライドとトランジションを追加してみましょう:
 ```javascript
-// 笑顔のシェイプを追加し、アニメーションを適用します
+// 笑顔のシェイプを追加し、アニメーションを付けます
 // ...
 // 新しいスライドを追加し、アニメーション付きトランジションを設定します
 var newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
@@ -98,7 +125,7 @@ newSlide.getSlideShowTransition().setType(aspose.slides.TransitionType.Push);
 ```
 
 
-Aspose.Slides はテキストのアニメーションもサポートしています。オブジェクト上の段落をアニメーションさせ、1 秒の遅延で順番に表示させます:  
+Aspose.Slides はテキストのアニメーションもサポートしています。オブジェクト上の段落をアニメーションさせ、1 秒の遅延で順に表示させます:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -150,7 +177,7 @@ try {
             animationsGenerator.dispose();
         }
     }
-    // ffmpeg バイナリフォルダを設定します。このページをご覧ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg バイナリーフォルダーを設定します。こちらのページをご覧ください: https://github.com/rosenbjerg/FFMpegCore#installation
     var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
     var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
     var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
@@ -162,19 +189,19 @@ try {
 ```
 
 
-## **ビデオ変換クラス**
+## **Video Conversion Classes**
 
-PowerPoint からビデオへの変換タスクを実行できるように、Aspose.Slides は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) と [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) クラスを提供します。  
+PowerPoint から動画への変換タスクを実行できるように、Aspose.Slides は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) と [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) クラスを提供します。
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) は、コンストラクタでビデオのフレームサイズを設定できます。プレゼンテーションのインスタンスを渡すと `Presentation.getSlideSize` が使用され、生成されたアニメーションは [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) が使用します。  
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) は、コンストラクタで動画（後で作成される）のフレームサイズを設定できます。プレゼンテーションのインスタンスを渡すと `Presentation.getSlideSize` が使用され、[PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) が使用するアニメーションを生成します。
 
-アニメーションが生成されると、各アニメーションごとに `NewAnimation` イベントが発生し、[PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/) パラメータが渡されます。後者は個別アニメーション用のプレーヤークラスです。  
+アニメーションが生成されると、各後続アニメーションごとに `NewAnimation` イベントが生成され、プレゼンテーションアニメーションプレーヤー パラメータが渡されます。後者は個別アニメーションのプレーヤーを表すクラスです。
 
-[PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/) を使用するには、`getDuration` (アニメーションの全長) メソッドと `setTimePosition` メソッドを利用します。各アニメーション位置は *0 から duration* の範囲で設定され、`getFrame` メソッドはその時点のアニメーション状態に対応する BufferedImage を返します:  
+プレゼンテーションアニメーションプレーヤーを操作するには、`getDuration`（アニメーションの全期間）メソッドと `setTimePosition` メソッドを使用します。各アニメーション位置は *0 から duration* の範囲で設定され、`getFrame` メソッドはその時点のアニメーション状態に対応する BufferedImage を返します:
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
-    // 笑顔のシェイプを追加し、アニメーションさせます
+    // 笑顔のシェイプを追加し、アニメーションを付けます
     var smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.SmileyFace, 110, 20, 500, 500);
     var mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     var effectIn = mainSequence.addEffect(smile, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.TopLeft, aspose.slides.EffectTriggerType.AfterPrevious);
@@ -192,7 +219,7 @@ try {
             } catch (e) {console.log(e);
                 throw java.newInstanceSync("java.lang.RuntimeException", e);
             }
-            animationPlayer.setTimePosition(animationPlayer.getDuration());// アニメーションの最後のフレーム
+            animationPlayer.setTimePosition(animationPlayer.getDuration());// アニメーションの最終状態
             try {
                 // アニメーションの最後のフレーム
                 animationPlayer.getFrame().save("lastFrame.png", aspose.slides.ImageFormat.Png);
@@ -213,7 +240,7 @@ try {
 ```
 
 
-すべてのアニメーションを同時に再生するには、[PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) クラスを使用します。このクラスは [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) インスタンスと FPS をコンストラクタで受け取り、すべてのアニメーションに対して `FrameTick` イベントを呼び出して再生させます:  
+プレゼンテーション内のすべてのアニメーションを同時に再生させるには、[PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) クラスを使用します。このクラスはコンストラクタで [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) インスタンスと FPS を受け取り、すべてのアニメーションに対して `FrameTick` イベントを呼び出して再生させます:
 ```javascript
 var presentation = new aspose.slides.Presentation("animated.pptx");
 try {
@@ -247,13 +274,13 @@ try {
 ```
 
 
-その後、生成されたフレームをまとめてビデオにコンパイルできます。詳細は [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video) セクションをご参照ください。  
+その後、生成されたフレームをコンパイルして動画を作成できます。詳しくは [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video) セクションをご参照ください。
 
-## **サポートされているアニメーションとエフェクト**
+## **Supported Animations and Effects**
 
-**開始**:
+**Entrance**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -269,9 +296,9 @@ try {
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**強調**:
+**Emphasis**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -287,9 +314,9 @@ try {
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**終了**:
+**Exit**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -304,9 +331,9 @@ try {
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**モーション パス**:
+**Motion Paths**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -317,11 +344,14 @@ try {
 
 ## **FAQ**
 
-**パスワードで保護されたプレゼンテーションの変換は可能ですか？**  
-はい、Aspose.Slides はパスワードで保護されたプレゼンテーションの操作をサポートしています。これらのファイルを処理する際は、正しいパスワードを提供してライブラリがプレゼンテーションの内容にアクセスできるようにしてください。  
+**プレゼンテーションがパスワードで保護されている場合、変換は可能ですか？**
 
-**Aspose.Slides はクラウド ソリューションでの使用をサポートしていますか？**  
-はい、Aspose.Slides はクラウド アプリケーションやサービスに統合できます。このライブラリはサーバー環境での動作を前提に設計されており、バッチ処理において高いパフォーマンスとスケーラビリティを提供します。  
+はい、Aspose.Slides はパスワード保護されたプレゼンテーションの取り扱いをサポートしています。そのようなファイルを処理する際は、正しいパスワードを提供してライブラリがプレゼンテーションの内容にアクセスできるようにしてください。
 
-**変換時にプレゼンテーションのサイズ制限はありますか？**  
-Aspose.Slides は事実上あらゆるサイズのプレゼンテーションを処理できます。ただし、非常に大きなファイルを扱う場合は追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨されることがあります。
+**Aspose.Slides はクラウドソリューションでの使用をサポートしていますか？**
+
+はい、Aspose.Slides はクラウドアプリケーションやサービスに統合可能です。このライブラリはサーバー環境での動作を前提に設計されており、ファイルのバッチ処理において高いパフォーマンスとスケーラビリティを提供します。
+
+**変換時にプレゼンテーションのサイズ制限はありますか？**
+
+Aspose.Slides は実質的にあらゆるサイズのプレゼンテーションを処理できます。ただし、非常に大容量のファイルを扱う場合は、追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションの最適化が推奨されることがあります。

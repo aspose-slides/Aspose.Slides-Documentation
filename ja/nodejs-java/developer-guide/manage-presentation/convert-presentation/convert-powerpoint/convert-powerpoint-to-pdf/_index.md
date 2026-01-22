@@ -1,35 +1,37 @@
 ---
-title: "JavaScriptでPPTとPPTXをPDFに変換する [高度な機能を含む]"
-linktitle: "PPTとPPTXをPDFに変換"
+title: JavaScript で PPT と PPTX を PDF に変換 [高度な機能を含む]
+linktitle: PowerPoint を PDF に変換
 type: docs
 weight: 40
 url: /ja/nodejs-java/convert-powerpoint-to-pdf/
 keywords:
-- "PowerPoint を変換"
-- "プレゼンテーションを変換"
-- "PowerPoint を PDF に変換"
-- "プレゼンテーションを PDF に変換"
-- "PPT を PDF に変換"
-- "PPT を PDF に変換"
-- "PPTX を PDF に変換"
-- "PPTX を PDF に変換"
-- "ODP を PDF に変換"
-- "ODP を PDF に変換"
-- "PowerPoint を PDF として保存"
-- "PDF/A1a"
-- "PDF/A1b"
-- "PDF/UA"
-- "JavaScript"
-- "Node.js"
-- "Aspose.Slides for Node.js via Java"
-description: "Aspose.Slides を使用して、JavaScript で PPT、PPTX、ODP プレゼンテーションを PDF に変換する方法を学びます。パスワード保護やコンプライアンス基準、カスタムオプションなどの高度な機能を実装し、高品質でアクセシブルな PDF ドキュメントを作成します。"
+- PowerPoint を変換
+- プレゼンテーションを変換
+- PowerPoint を PDF に変換
+- プレゼンテーションを PDF に変換
+- PPT を PDF に変換
+- PPT を PDF に変換
+- PPTX を PDF に変換
+- PPTX を PDF に変換
+- PowerPoint を PDF として保存
+- PPT を PDF として保存
+- PPTX を PDF として保存
+- PPT を PDF にエクスポート
+- PPTX を PDF にエクスポート
+- PDF/A1a
+- PDF/A1b
+- PDF/UA
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js を使用して、PowerPoint PPT/PPTX を高品質で検索可能な PDF に変換します。高速なコード例と高度な変換オプションを提供します。"
 ---
 
 ## **概要**
 
-PowerPoint および OpenDocument プレゼンテーション（PPT、PPTX、ODP など）を JavaScript で PDF 形式に変換すると、さまざまなデバイス間での互換性や、プレゼンテーションのレイアウトと書式設定を保持できるといった利点があります。本ガイドでは、プレゼンテーションを PDF に変換する方法、画像品質を制御するオプションの使用、非表示スライドの含め方、PDF のパスワード保護、フォント置換の検出、変換対象スライドの選択、そして出力ドキュメントに適用できるコンプライアンス基準について説明します。
+JavaScript で PowerPoint および OpenDocument のプレゼンテーション (PPT、PPTX、ODP など) を PDF 形式に変換すると、さまざまなデバイス間での互換性や、プレゼンテーションのレイアウトと書式設定を保持できるという利点があります。このガイドでは、プレゼンテーションを PDF 文書に変換する方法、画像品質を制御するオプションの使用、非表示スライドの含め方、PDF ファイルへのパスワード保護、フォント置換の検出、変換対象スライドの選択、出力文書へのコンプライアンス基準の適用方法を示します。
 
-## **PowerPoint から PDF への変換**
+## **PowerPointからPDFへの変換**
 
 Aspose.Slides を使用すると、次の形式のプレゼンテーションを PDF に変換できます。
 
@@ -37,23 +39,23 @@ Aspose.Slides を使用すると、次の形式のプレゼンテーションを
 * **PPTX**
 * **ODP**
 
-プレゼンテーションを PDF に変換するには、ファイル名を [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスの引数として渡し、`save` メソッドで PDF として保存します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスは、通常プレゼンテーションを PDF に変換するために使用される `save` メソッドを公開しています。
+プレゼンテーションを PDF に変換するには、ファイル名を引数として [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスに渡し、`save` メソッドを使用して PDF として保存します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスは、通常プレゼンテーションを PDF に変換するために使用される `save` メソッドを公開しています。
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for Node.js via Java は、出力ドキュメントに API 情報とバージョン番号を挿入します。たとえば、プレゼンテーションを PDF に変換すると、Application フィールドに "*Aspose.Slides*" が、PDF Producer フィールドに "*Aspose.Slides v XX.XX*" 形式の値が設定されます。**注意:** この情報を出力ドキュメントから変更または除去することはできません。
+Aspose.Slides for Node.js via Java は、API 情報とバージョン番号を出力文書に挿入します。たとえば、プレゼンテーションを PDF に変換する際、Aspose.Slides は Application フィールドに「*Aspose.Slides*」を、PDF Producer フィールドに「*Aspose.Slides v XX.XX*」形式の値を設定します。**Note** 出力文書からこの情報を変更または削除するよう指示することはできません。
 
 {{% /alert %}}
 
-Aspose.Slides では次の変換が可能です。
+Aspose.Slides では次のように変換できます。
 
 * プレゼンテーション全体を PDF に変換
-* プレゼンテーションの特定スライドを PDF に変換
+* プレゼンテーションの特定のスライドを PDF に変換
 
-Aspose.Slides はプレゼンテーションを PDF にエクスポートし、生成された PDF が元のプレゼンテーションに極めて近い状態になるようにします。変換時に正確にレンダリングされる要素と属性は次のとおりです。
+Aspose.Slides はプレゼンテーションを PDF にエクスポートし、生成された PDF が元のプレゼンテーションに極めて近い形になるよう保証します。変換時に正確にレンダリングされる要素と属性は以下のとおりです。
 
 * 画像
-* テキストボックスとシェイプ
+* テキスト ボックスと図形
 * テキスト書式設定
 * 段落書式設定
 * ハイパーリンク
@@ -61,16 +63,16 @@ Aspose.Slides はプレゼンテーションを PDF にエクスポートし、�
 * 箇条書き
 * 表
 
-## **PowerPoint を PDF に変換する**
+## **PowerPointをPDFに変換**
 
-標準の PowerPoint から PDF への変換プロセスはデフォルトオプションを使用します。この場合、Aspose.Slides は最高品質レベルで最適な設定を用いてプレゼンテーションを PDF に変換しようとします。
+標準の PowerPoint から PDF への変換プロセスはデフォルト オプションを使用します。この場合、Aspose.Slides は最高品質レベルの最適設定で提供されたプレゼンテーションを PDF に変換しようとします。
 
-以下のコードは、プレゼンテーション（PPT、PPTX、ODP など）を PDF に変換する方法を示しています。
+次のコードは、プレゼンテーション (PPT、PPTX、ODP など) を PDF に変換する方法を示しています:
 ```js
-// PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
+// PowerPointまたはOpenDocumentファイルを表すPresentationクラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation("PowerPoint.ppt");
 try {
-    // プレゼンテーションを PDF として保存します。
+    // プレゼンテーションをPDFとして保存します。
     presentation.save("PPT-to-PDF.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     presentation.dispose();
@@ -80,19 +82,19 @@ try {
 
 {{%  alert  color="primary"  %}} 
 
-Aspose は、プレゼンテーションから PDF への変換プロセスをデモンストレーションする無料のオンライン [**PowerPoint to PDF コンバータ**](https://products.aspose.app/slides/conversion/ppt-to-pdf) を提供しています。このコンバータでテストを実行し、ここで説明した手順の実装例を確認できます。
+Aspose は、プレゼンテーションから PDF への変換プロセスをデモンストレーションする無料のオンライン **PowerPoint to PDF converter**(https://products.aspose.app/slides/conversion/ppt-to-pdf) を提供しています。このコンバータでテストを実行すると、ここで説明した手順をライブで実装できます。
 
 {{% /alert %}}
 
-## **オプション付きで PowerPoint を PDF に変換する**
+## **オプション付きでPowerPointをPDFに変換**
 
-Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) クラスのプロパティとしてカスタムオプションを提供し、生成される PDF のカスタマイズ、パスワード保護、変換プロセスの制御が可能です。
+Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) クラスのプロパティとしてカスタム オプションを提供し、生成される PDF のカスタマイズ、パスワードによるロック、変換プロセスの進行方法を指定できます。
 
-### **カスタムオプションで PowerPoint を PDF に変換する**
+### **カスタムオプションでPowerPointをPDFに変換**
 
-カスタム変換オプションを使用すると、ラスター画像の品質設定、メタファイルの処理方法、テキストの圧縮レベル、画像の DPI 設定などを指定できます。
+カスタム変換オプションを使用すると、ラスタ画像の品質設定、メタファイルの処理方法、テキストの圧縮レベル、画像の DPI などを定義できます。
 
-以下のコード例は、複数のカスタムオプションを使用して PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+以下のコード例は、複数のカスタム オプションを使用して PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
 ```js
 // PdfOptions クラスのインスタンスを作成します。
 let pdfOptions = new aspose.slides.PdfOptions();
@@ -103,13 +105,13 @@ pdfOptions.setJpegQuality(java.newByte(90));
 // 画像の DPI を設定します。
 pdfOptions.setSufficientResolution(300);
 
-// メタファイルの処理方法を設定します。
+// メタファイルの動作を設定します。
 pdfOptions.setSaveMetafilesAsPng(true);
 
 // テキストコンテンツの圧縮レベルを設定します。
 pdfOptions.setTextCompression(aspose.slides.PdfTextCompression.Flate);
 
-// PDF の準拠モードを定義します。
+// PDF コンプライアンスモードを定義します。
 pdfOptions.setCompliance(aspose.slides.PdfCompliance.Pdf15);
 
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
@@ -123,16 +125,16 @@ try {
 ```
 
 
-### **非表示スライドを含めて PowerPoint を PDF に変換する**
+### **非表示スライドを含めてPowerPointをPDFに変換**
 
 プレゼンテーションに非表示スライドが含まれている場合、[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスの [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions#setShowHiddenSlides) メソッドを使用して、非表示スライドを生成される PDF のページとして含めることができます。
 
-以下の JavaScript コードは、非表示スライドを含めて PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+次の JavaScript コードは、非表示スライドを含めて PowerPoint プレゼンテーションを PDF に変換する方法を示しています:
 ```js
-// PowerPointまたはOpenDocumentファイルを表すPresentationクラスのインスタンスを作成します。
+// PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
-    // PdfOptionsクラスのインスタンスを作成します。
+    // PdfOptions クラスのインスタンスを作成します。
     let pdfOptions = new aspose.slides.PdfOptions();
 
     // 非表示スライドを追加します。
@@ -146,9 +148,9 @@ try {
 ```
 
 
-### **パスワード保護された PDF に PowerPoint を変換する**
+### **パスワード保護PDFにPowerPointを変換**
 
-以下の JavaScript コードは、[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスの保護パラメータを使用して、PowerPoint プレゼンテーションをパスワード保護された PDF に変換する方法を示しています。
+次の JavaScript コードは、[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスの保護パラメータを使用して、PowerPoint プレゼンテーションをパスワード保護 PDF に変換する方法を示しています。
 ```js
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
@@ -156,7 +158,7 @@ try {
     // PdfOptions クラスのインスタンスを作成します。
     let pdfOptions = new aspose.slides.PdfOptions();
 
-    // PDF のパスワードとアクセス権限を設定します。
+    // PDF のパスワードとアクセス許可を設定します。
     pdfOptions.setPassword("password");
     pdfOptions.setAccessPermissions(aspose.slides.PdfAccessPermissions.PrintDocument | aspose.slides.PdfAccessPermissions.HighQualityPrint);
 
@@ -172,9 +174,9 @@ try {
 
 Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスの下にある [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setWarningCallback) メソッドを提供し、プレゼンテーションから PDF への変換プロセス中にフォント置換を検出できます。
 
-以下の JavaScript コードは、フォント置換を検出する方法を示しています。
+次の JavaScript コードは、フォント置換を検出する方法を示しています:
 ```js
-// PDF オプションに警告コールバックを設定します。
+// PDF オプションで警告コールバックを設定します。
 let pdfOptions = new aspose.slides.PdfOptions();
 pdfOptions.setWarningCallback(FontSubstitutionHandler);
 
@@ -200,15 +202,13 @@ const FontSubstitutionHandler = java.newProxy("com.aspose.slides.IWarningCallbac
 
 {{%  alert color="primary"  %}} 
 
-レンダリング中のフォント置換に対するコールバック取得に関する詳細は、[Getting Warning Callbacks for Fonts Substitution](/slides/ja/nodejs-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/) を参照してください。
-
-フォント置換に関する詳細は、[Font Substitution](/slides/ja/nodejs-java/font-substitution/) 記事をご覧ください。
+フォント置換の詳細については、[Font Substitution](/slides/ja/nodejs-java/font-substitution/) 記事をご参照ください。
 
 {{% /alert %}} 
 
-## **選択したスライドだけを PowerPoint から PDF に変換する**
+## **PowerPointの選択スライドをPDFに変換**
 
-以下の JavaScript コードは、PowerPoint プレゼンテーションの特定スライドのみを PDF に変換する方法を示しています。
+次の JavaScript コードは、PowerPoint プレゼンテーションの特定のスライドだけを PDF に変換する方法を示しています:
 ```js
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
@@ -224,9 +224,9 @@ try {
 ```
 
 
-## **カスタムスライドサイズで PowerPoint を PDF に変換する**
+## **カスタムスライドサイズでPowerPointをPDFに変換**
 
-以下の JavaScript コードは、指定したスライドサイズで PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+次の JavaScript コードは、指定したスライド サイズで PowerPoint プレゼンテーションを PDF に変換する方法を示しています:
 ```js
 const slideWidth = 612;
 const slideHeight = 792;
@@ -241,11 +241,11 @@ try {
     // カスタムスライドサイズを設定します。
     resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.EnsureFit);
 
-    // 元のプレゼンテーションから最初のスライドをクローンします。
+    // 元のプレゼンテーションから最初のスライドを複製します。
     let slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // リサイズされたプレゼンテーションをノート付きの PDF として保存します。
+    // ノート付きでリサイズされたプレゼンテーションを PDF に保存します。
     resizedPresentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
@@ -254,20 +254,20 @@ try {
 ```
 
 
-## **ノートスライドビューで PowerPoint を PDF に変換する**
+## **ノートスライドビューでPowerPointをPDFに変換**
 
-以下の JavaScript コードは、ノートを含む PDF に PowerPoint プレゼンテーションを変換する方法を示しています。
+次の JavaScript コードは、ノートを含む PDF を生成するために PowerPoint プレゼンテーションを変換する方法を示しています:
 ```js
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
 try {
-    // PDF オプションをノートレイアウトで構成します。
+    // ノートレイアウトで PDF オプションを構成します。
     let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
     let pdfOptions = new aspose.slides.PdfOptions();
     pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-    // ノート付きの PDF としてプレゼンテーションを保存します。
+    // プレゼンテーションをノート付きの PDF に保存します。
     presentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
@@ -275,11 +275,11 @@ try {
 ```
 
 
-## **PDF のアクセシビリティとコンプライアンス基準**
+## **PDFのアクセシビリティとコンプライアンス基準**
 
-Aspose.Slides は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) に準拠した変換手順を使用できます。次のコンプライアンス基準のいずれかで PowerPoint ドキュメントを PDF にエクスポートできます: **PDF/A1a**、**PDF/A1b**、**PDF/UA**。
+Aspose.Slides は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) に準拠した変換手順を使用することができます。次のコンプライアンス標準のいずれかを使用して PowerPoint 文書を PDF にエクスポートできます: **PDF/A1a**、**PDF/A1b**、および **PDF/UA**。
 
-以下の JavaScript コードは、異なるコンプライアンス基準に基づいて複数の PDF を生成する PowerPoint から PDF への変換プロセスをデモンストレーションします。
+次の JavaScript コードは、異なるコンプライアンス基準に基づいて複数の PDF を生成する PowerPoint から PDF への変換プロセスを示しています:
 ```js
 let presentation = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -298,7 +298,7 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides は PDF 変換機能もサポートしており、PDF ファイルを一般的な形式に変換できます。[PDF to HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/)、[PDF to JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/)、[PDF to PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) の変換が可能です。また、[PDF to SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/)、[PDF to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) など、特殊フォーマットへの変換もサポートされています。
+Aspose.Slides は PDF 変換操作をサポートしており、PDF ファイルを一般的な形式に変換できます。[PDF to HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/)、[PDF to JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/)、[PDF to PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) の変換が可能です。また、[PDF to SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/)、[PDF to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) などの専門フォーマットへの変換もサポートされています。
 
 {{% /alert %}}
 
@@ -306,23 +306,23 @@ Aspose.Slides は PDF 変換機能もサポートしており、PDF ファイル
 
 **複数の PowerPoint ファイルを一括で PDF に変換できますか？**
 
-はい、Aspose.Slides は複数の PPT または PPTX ファイルをバッチ変換して PDF にすることをサポートしています。ファイルを列挙し、プログラムで変換プロセスを適用できます。
+はい、Aspose.Slides は複数の PPT または PPTX ファイルをバッチ変換して PDF にすることをサポートしています。ファイルを順に処理し、プログラムから変換プロセスを適用できます。
 
-**変換した PDF にパスワードを設定できますか？**
+**変換後の PDF にパスワードを設定できますか？**
 
-もちろんです。[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスを使用して、変換時にパスワードとアクセス権限を設定できます。
+もちろんです。[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスを使用して、変換プロセス中にパスワードとアクセス許可を設定できます。
 
 **PDF に非表示スライドを含めるにはどうすればよいですか？**
 
-[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスの `setShowHiddenSlides` メソッドを使用して、生成される PDF に非表示スライドを含められます。
+[PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスの `setShowHiddenSlides` メソッドを使用して、生成された PDF に非表示スライドを含めることができます。
 
-**Aspose.Slides は PDF で高画像品質を維持できますか？**
+**Aspose.Slides は PDF の画像品質を高く保てますか？**
 
-はい、`setJpegQuality` や `setSufficientResolution` などのメソッドを [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスで使用することで、PDF 内の画像品質を高く保つことができます。
+はい、`setJpegQuality` や `setSufficientResolution` などのメソッドを [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) クラスで使用することで、PDF の画像品質を高く保つことが可能です。
 
 **Aspose.Slides は PDF/A コンプライアンス基準をサポートしていますか？**
 
-はい、Aspose.Slides は PDF/A1a、PDF/A1b、PDF/UA などのさまざまな基準に準拠した PDF のエクスポートをサポートしており、アクセシビリティやアーカイブ要件を満たすことができます。
+はい、Aspose.Slides は PDF/A1a、PDF/A1b、PDF/UA などのさまざまな基準に準拠した PDF のエクスポートをサポートしており、アクセシビリティとアーカイブ要件を満たすことができます。
 
 ## **追加リソース**
 

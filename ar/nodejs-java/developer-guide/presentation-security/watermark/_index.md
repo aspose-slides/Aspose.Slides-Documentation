@@ -1,30 +1,53 @@
 ---
-title: "علامة مائية"
+title: إضافة علامات مائية إلى العروض التقديمية في JavaScript
+linktitle: العلامة المائية
 type: docs
 weight: 40
 url: /ar/nodejs-java/watermark/
-keywords: "علامة مائية في العرض التقديمي"
-description: "استخدم العلامة المائية في PowerPoint مع Aspose.Slides. أضف علامة مائية إلى عرض ppt أو احذف العلامة المائية. أدخل علامة مائية صورة أو علامة مائية نصية."
+keywords:
+- علامة مائية
+- علامة مائية نصية
+- علامة مائية صورة
+- إضافة علامة مائية
+- تغيير علامة مائية
+- إزالة علامة مائية
+- حذف علامة مائية
+- إضافة علامة مائية إلى PPT
+- إضافة علامة مائية إلى PPTX
+- إضافة علامة مائية إلى ODP
+- إزالة علامة مائية من PPT
+- إزالة علامة مائية من PPTX
+- إزالة علامة مائية من ODP
+- حذف علامة مائية من PPT
+- حذف علامة مائية من PPTX
+- حذف علامة مائية من ODP
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "إدارة العلامات المائية النصية والصورية في عروض PowerPoint وOpenDocument التقديمية باستخدام Node.js لتحديد مسودة أو معلومات سرية أو حقوق طبع والنشر والمزيد."
 ---
 
 ## **حول العلامة المائية**
 
-**علامة مائية** في عرض تقديمي هي ختم نصي أو صورة يُستخدم على شريحة أو عبر جميع شرائح العرض. عادةً تُستخدم العلامة المائية للدلالة على أن العرض مسودة (مثل علامة "مسودة")، أو أنه يحتوي على معلومات سرية (مثل علامة "سري")، لتحديد الشركة المالكة (مثل علامة "اسم الشركة")، لتحديد مؤلف العرض، إلخ. تساعد العلامة المائية في منع انتهاكات حقوق النشر من خلال الإشارة إلى أنه لا ينبغي نسخ العرض. تُستخدم العلامات المائية في صيغ عروض PowerPoint وOpenOffice. في Aspose.Slides، يمكنك إضافة علامة مائية إلى صيغ ملفات PowerPoint PPT وPPTX وOpenOffice ODP.
+**العلامة المائية** في العرض التقديمي هي ختم نصي أو صورة يُستخدم على شريحة واحدة أو عبر جميع شرائح العرض. عادةً ما تُستعمل العلامة المائية للإشارة إلى أن العرض مسودة (مثل علامة "مسودة")، أو أنه يحتوي على معلومات سرية (مثل علامة "سري")، لتحديد الشركة المالكة (مثل علامة "اسم الشركة")، لتحديد مؤلف العرض، وما إلى ذلك. تساعد العلامة المائية على منع انتهاك حقوق النشر من خلال الإشارة إلى أن العرض لا يجب نسخه. تُستخدم العلامات المائية في صيغتي PowerPoint وOpenOffice. في Aspose.Slides، يمكنك إضافة علامة مائية إلى صيغ ملفات PowerPoint PPT وPPTX وOpenOffice ODP.
 
-في [**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/)، هناك طرق مختلفة يمكنك من خلالها إنشاء علامات مائية في مستندات PowerPoint أو OpenOffice وتعديل تصميمها وسلوكها. الجانب المشترك هو أن إضافة علامات مائية نصية يتطلب استخدام النوع [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/)، ولإضافة علامات مائية صور استخدم الفئة [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) أو ملء شكل العلامة المائية بصورة. `PictureFrame` يطبق النوع [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)، مما يتيح لك استخدام جميع إعدادات الشكل المرنة. بما أن `TextFrame` ليس شكلًا وإعداداته محدودة، فإنه يُغلف داخل كائن [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
+في [**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/)، توجد طرق مختلفة لإنشاء علامات مائية في مستندات PowerPoint أو OpenOffice وتعديل تصميمها وسلوكها. الجانب المشترك هو أنه لإضافة علامات مائية نصية، يجب استخدام نوع [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/)، ولإضافة علامات مائية صورة، استخدم فئة [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) أو ملء شكل العلامة المائية بصورة. `PictureFrame` يطبق نوع [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)، مما يتيح لك استخدام جميع الإعدادات المرنة لكائن الشكل. بما أن `TextFrame` ليس شكلاً وإعداداته محدودة، فهو يُلف داخل كائن [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
 
-هناك طريقتان لتطبيق العلامة المائية: على شريحة واحدة أو على جميع شرائح العرض. يُستخدم الـ Slide Master لتطبيق العلامة المائية على جميع الشرائح — تُضاف العلامة المائية إلى الـ Slide Master، يتم تصميمها بالكامل هناك، وتُطبق على جميع الشرائح دون التأثير على إذن تعديل العلامة المائية على الشرائح الفردية.
+هناك طريقتان لتطبيق العلامة المائية: على شريحة واحدة أو على جميع شرائح العرض. يُستخدم **Slide Master** لتطبيق العلامة المائية على جميع الشرائح — تُضاف العلامة إلى الـ Slide Master، يتم تصميمها بالكامل هناك، وتُطبّق على جميع الشرائح دون أن تؤثر على إذن تعديل العلامة على الشرائح الفردية.
 
-عادةً ما تُعتبر العلامة المائية غير متاحة للتحرير من قبل المستخدمين الآخرين. لمنع تعديل العلامة المائية (أو الشكل الأب للعلامة المائية) يُوفر Aspose.Slides وظيفة قفل الشكل. يمكن قفل شكل محدد على شريحة عادية أو على Slide Master. عندما يُقفل شكل العلامة المائية على الـ Slide Master، سيُقفل على جميع شرائح العرض.
+عادةً ما تُعتبر العلامة المائية غير قابلة للتحرير من قبل المستخدمين الآخرين. لمنع تحرير العلامة المائية (أو الشكل الأب للعلامة المائية)، توفر Aspose.Slides وظيفة قفل الشكل. يمكن قفل شكل معين على شريحة عادية أو على Slide Master. عندما يُقفل شكل العلامة المائية على الـ Slide Master، يُقفل على جميع شرائح العرض.
 
-يمكنك تعيين اسم للعلامة المائية حتى تتمكن في المستقبل، إذا رغبت في حذفها، من العثور عليها في أشكال الشريحة عبر الاسم.
+يمكنك تعيين اسم للعلامة المائية بحيث يمكنك في المستقبل، إذا رغبت بحذفها، العثور عليها بين أشكال الشريحة بالاسم.
 
-يمكنك تصميم العلامة المائية بأي طريقة؛ ومع ذلك، توجد عادةً ميزات شائعة في العلامات المائية مثل المحاذاة إلى المركز، الدوران، الموضع الأمامي، إلخ. سنستعرض كيفية استخدام هذه الخصائص في الأمثلة أدناه.
+يمكنك تصميم العلامة المائية بأي طريقة؛ مع ذلك، هناك ميزات شائعة في العلامات المائية مثل المحاذاة المركزية، الدوران، الموضع الأمامي، إلخ. سنستعرض كيفية استخدامها في الأمثلة أدناه.
 
 ## **علامة مائية نصية**
 
-### **إضافة علامة مائية نصية إلى شريحة**
-لإضافة علامة مائية نصية في PPT أو PPTX أو ODP، يمكنك أولاً إضافة شكل إلى الشريحة، ثم إضافة إطار نص إلى هذا الشكل. يُمثَّل إطار النص بالنوع [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame). هذا النوع لا يرث من [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape)، الذي يملك مجموعة واسعة من الخصائص لتحديد موضع العلامة المائية بشكل مرن. لذلك، يتم تغليف كائن [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) داخل كائن [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape). لإضافة نص العلامة المائية إلى الشكل، استخدم طريقة [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) مع تمرير نص العلامة المائية إليها:
+### **إضافة علامة مائية نصية إلى الشريحة**
+لإضافة علامة مائية نصية في PPT أو PPTX أو ODP، يمكنك أولاً إضافة شكل إلى الشريحة، ثم إضافة إطار نص إلى هذا الشكل. يُمثَّل إطار النص بنوع [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame). هذا النوع غير وراث من [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape)، الذي يحتوي على مجموعة واسعة من الخصائص لتحديد موضع العلامة المائية بطريقة مرنة. لذلك، يُلف كائن [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) داخل كائن [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape). لإضافة نص العلامة المائية إلى الشكل، استخدم طريقة [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) مع تمرير نص العلامة المائية إليها:
 ```javascript
 const watermarkText = "CONFIDENTIAL";
 
@@ -39,11 +62,11 @@ presentation.dispose();
 
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية الاستخدام ](/slides/ar/nodejs-java/slide-master/)[TextFrame](/slides/ar/nodejs-java/adding-and-formatting-text/)
+- كيفية استخدام [TextFrame](/slides/ar/nodejs-java/text-formatting/).
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى العرض**
-إذا رغبت في إضافة علامة مائية نصية إلى العرض بأكمله (أي جميع الشرائح مرة واحدة)، أضفها إلى [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide). بقية المنطق هي نفسها كما عند إضافة علامة مائية إلى شريحة واحدة — أنشئ كائن [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) ثم أضف العلامة المائية إليه باستخدام طريقة [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-).
+إذا رغبت في إضافة علامة مائية نصية إلى العرض بالكامل (أي جميع الشرائح مرة واحدة)، أضفها إلى [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide). باقي المنطق هو نفسه كما عند إضافة علامة مائية إلى شريحة واحدة — أنشئ كائن [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) ثم أضف العلامة المائية إليه باستخدام طريقة [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-):
 ```javascript
 const watermarkText = "CONFIDENTIAL";
 
@@ -61,16 +84,16 @@ presentation.dispose();
 - [كيفية الاستخدام ](/slides/ar/nodejs-java/slide-master/)[Slide Master](/slides/ar/nodejs-java/slide-master/)
 {{% /alert %}}
 
-### **ضبط شفافية شكل العلامة المائية**
-افتراضيًا، يكون شكل المستطيل مُصممًا بألوان التعبئة والحد. تجعل السطور البرمجية التالية الشكل شفافًا.
+### **تعيين شفافية شكل العلامة المائية**
+افتراضيًا، يكون شكل المستطيل مُصممًا بألوان التعبئة والحد. الأسطر التالية من الشيفرة تجعل الشكل شفافًا.
 ```javascript
 watermarkShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 watermarkShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 ```
 
 
-### **تعيين الخط لعلامة مائية نصية**
-تستطيع تغيير خط العلامة المائية النصية كما هو موضح أدناه.
+### **تعيين الخط للعلامة المائية النصية**
+يمكنك تغيير خط العلامة المائية النصية كما هو موضح أدناه.
 ```javascript
 let textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new aspose.slides.FontData("Arial"));
@@ -79,7 +102,7 @@ textFormat.setFontHeight(50);
 
 
 ### **تعيين لون نص العلامة المائية**
-لتعيين لون نص العلامة المائية، استخدم هذا الكود:
+لتعيين لون نص العلامة المائية، استخدم الشيفرة التالية:
 ```java
 let alpha = 150;
 let red = 200;
@@ -92,8 +115,8 @@ fillFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", r
 ```
 
 
-### **توسيط العلامة المائية النصية**
-يمكن توسيط العلامة المائية على الشريحة ويمكنك القيام بما يلي:
+### **محاذاة العلامة المائية نصيًا إلى الوسط**
+يمكنك مركزية العلامة المائية على الشريحة كما يلي:
 ```javascript
 const watermarkWidth = 400;
 const watermarkHeight = 40;
@@ -107,11 +130,13 @@ let watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 ```
 
 
-![العلامة المائية النصية](text_watermark.png)
+الصورة أدناه تُظهر النتيجة النهائية.
+
+![The text watermark](text_watermark.png)
 
 ## **علامة مائية صورة**
 
-### **إضافة علامة مائية صورة إلى عرض**
+### **إضافة علامة مائية صورة إلى العرض**
 لإضافة علامة مائية صورة إلى جميع شرائح العرض، يمكنك القيام بما يلي:
 ```javascript
 let watermarkImage = aspose.slides.Images.fromFile("watermark.png");
@@ -126,7 +151,7 @@ watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.
 
 
 ### **قفل العلامة المائية من التحرير**
-إذا كان من الضروري منع تعديل العلامة المائية، استخدم طريقة [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getShapeLock--) على الشكل. باستخدام هذه الخاصية، يمكنك حماية الشكل من الاختيار، إعادة الحجم، إعادة الموضع، تجميعه مع عناصر أخرى، قفل نصه من التحرير، وغير ذلك الكثير:
+إذا كان من الضروري منع تحرير العلامة المائية، استخدم طريقة [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getShapeLock--) على الشكل. بهذه الخاصية، يمكنك حماية الشكل من الاختيار، وإعادة الحجم، وإعادة التموضع، وتجميعه مع عناصر أخرى، وقفل النص من التحرير، وأكثر من ذلك:
 ```javascript
 // قفل شكل العلامة المائية من التعديل
 watermarkShape.getShapeLock().setSelectLocked(true);
@@ -137,20 +162,16 @@ watermarkShape.getShapeLock().setGroupingLocked(true);
 ```
 
 
-{{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية قفل الأشكال من التحرير](/slides/ar/nodejs-java/presentation-locking/)
-{{% /alert %}}
-
 ### **إحضار العلامة المائية إلى الأمام**
-في Aspose.Slides، يمكن تعيين ترتيب Z للأشكال عبر طريقة [**SlideCollection.reorder**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#reorder-int-aspose.slides.ISlide...-) . للقيام بذلك، عليك استدعاء هذه الطريقة من قائمة شرائح العرض وتمرير مرجع الشكل ورقمه الترتيبي إلى الطريقة. بهذه الطريقة، يمكن إحضار شكل إلى الأمام أو إرساله إلى الخلف. هذه الميزة مفيدة خاصة إذا كنت تحتاج إلى وضع علامة مائية أمام العرض:
+في Aspose.Slides، يمكن ضبط ترتيب الأشكال (Z-order) عبر طريقة [**SlideCollection.reorder**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#reorder-int-aspose.slides.ISlide...-). للقيام بذلك، استدعِ هذه الطريقة من قائمة شرائح العرض ومرّر مرجع الشكل ورقم ترتيبه إلى الطريقة. بهذه الطريقة، يمكن إحضار شكل إلى الأمام أو إرساله إلى الخلف. هذه الميزة مفيدة خاصة إذا كنت تحتاج وضع العلامة المائية أمام محتوى العرض:
 ```javascript
 let shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 ```
 
 
-### **ضبط دوران العلامة المائية**
-هذا مثال على الشيفرة لتعديل دوران العلامة المائية بحيث تكون مائلة عبر الشريحة:
+### **تعيين دوران العلامة المائية**
+إليك مثال شيفرة لضبط دوران العلامة المائية بحيث تكون مائلة عبر الشريحة:
 ```javascript
 const diagonalAngle = Math.atan(slideSize.getHeight() / slideSize.getWidth()) * 180 / Math.PI;
 
@@ -159,14 +180,14 @@ watermarkShape.setRotation(diagonalAngle);
 
 
 ### **تعيين اسم للعلامة المائية**
-يتيح Aspose.Slides لك تعيين اسم للشكل. باستخدام اسم الشكل، يمكنك الوصول إليه مستقبلًا لتعديله أو حذفه. لتعيين اسم شكل العلامة المائية، استخدم طريقة [**AutoShape.getName**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) .
+تتيح Aspose.Slides لك تعيين اسم للشكل. باستخدام اسم الشكل، يمكنك الوصول إليه في المستقبل لتعديله أو حذفه. لتعيين اسم شكل العلامة المائية، استخدم طريقة [**AutoShape.getName**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--):
 ```javascript
 watermarkShape.setName("watermark");
 ```
 
 
 ### **إزالة العلامة المائية**
-لإزالة شكل العلامة المائية، استخدم طريقة [AutoShape.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) للعثور عليه في أشكال الشريحة. ثم مرّر شكل العلامة المائية إلى طريقة [**ShapeCollection.remove**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#remove-aspose.slides.IShape-) .
+لإزالة شكل العلامة المائية، استخدم طريقة [AutoShape.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) للعثور عليه في أشكال الشريحة. ثم مرّر الشكل إلى طريقة [**ShapeCollection.remove**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#remove-aspose.slides.IShape-):
 ```javascript
 for (var i = 0; i < slide.getShapes().size(); i++) {
     var shape = slide.getShapes().get_Item(i);
@@ -177,22 +198,28 @@ for (var i = 0; i < slide.getShapes().size(); i++) {
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما هي العلامة المائية ولماذا يجب أن أستخدمها؟**  
-العلامة المائية هي طبقة نصية أو صورة تُطبق على الشرائح تساعد على حماية الملكية الفكرية، تعزيز التعرف على العلامة التجارية، أو منع الاستخدام غير المصرح به للعرض.
+**ما هي العلامة المائية ولماذا يجب علي استخدامها؟**
 
-**هل يمكنني إضافة علامة مائية إلى جميع الشرائح في عرض تقديمي؟**  
-نعم، يتيح Aspose.Slides إضافة علامة مائية إلى كل شريحة في العرض. يمكنك المرور على جميع الشرائح وتطبيق إعدادات العلامة المائية على كل واحدة على حدة.
+العلامة المائية هي تراكب نصي أو صوري يُطبق على الشرائح يساعد في حماية الملكية الفكرية، تعزيز التعرف على العلامة التجارية، أو منع الاستخدام غير المصرح به للعروض التقديمية.
 
-**كيف يمكنني تعديل شفافية العلامة المائية؟**  
-يمكنك تعديل شفافية العلامة المائية عن طريق تعديل [إعدادات التعبئة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getfillformat/) للشكل. وهذا يضمن أن تكون العلامة المائية خفيفة ولا تشوش محتوى الشريحة.
+**هل يمكنني إضافة علامة مائية إلى جميع الشرائح في العرض؟**
 
-**ما هي صيغ الصور المدعومة للعلامات المائية؟**  
-يدعم Aspose.Slides صيغ صور متعددة مثل PNG وJPEG وGIF وBMP وSVG وغيرها.
+نعم، تتيح Aspose.Slides إضافة علامة مائية إلى كل شريحة في العرض. يمكنك تكرار العملية عبر جميع الشرائح وتطبيق إعدادات العلامة المائية لكل شريحة على حدة.
 
-**هل يمكنني تخصيص الخط والنمط للعلامة المائية النصية؟**  
-نعم، يمكنك اختيار أي خط وحجم ونمط لتتناسب مع تصميم عرضك والحفاظ على تناسق العلامة التجارية.
+**كيف يمكنني ضبط شفافية العلامة المائية؟**
 
-**كيف أغير موضع أو اتجاه العلامة المائية؟**  
-يمكنك تعديل موضع واتجاه العلامة المائية عن طريق تعديل إحداثيات الشكل، حجمه، وخصائص الدوران.
+يمكنك ضبط شفافية العلامة المائية عن طريق تعديل [إعدادات التعبئة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getfillformat/) للشكل. يضمن ذلك أن تكون العلامة خفيفة ولا تشوش على محتوى الشريحة.
+
+**ما صيغ الصور المدعومة للعلامات المائية؟**
+
+تدعم Aspose.Slides صيغ صور متعددة مثل PNG وJPEG وGIF وBMP وSVG وغير ذلك.
+
+**هل يمكنني تخصيص الخط والأسلوب للعلامة المائية النصية؟**
+
+نعم، يمكنك اختيار أي خط، حجم، وأسلوب ليتناسب مع تصميم العرض ويحافظ على اتساق العلامة التجارية.
+
+**كيف أغيّر موضع أو اتجاه العلامة المائية؟**
+
+يمكنك تعديل موضع واتجاه العلامة المائية عن طريق تغيير إحداثيات الشكل، حجمه، وخصائص الدوران.

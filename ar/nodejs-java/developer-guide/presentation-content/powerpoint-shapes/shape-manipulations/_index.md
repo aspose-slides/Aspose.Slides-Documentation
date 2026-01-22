@@ -1,20 +1,42 @@
 ---
-title: معالجة الأشكال
+title: إدارة أشكال العرض التقديمي باستخدام JavaScript
+linktitle: معالجة الشكل
 type: docs
 weight: 40
 url: /ar/nodejs-java/shape-manipulations/
+keywords:
+- شكل PowerPoint
+- شكل العرض التقديمي
+- شكل على الشريحة
+- البحث عن شكل
+- استنساخ الشكل
+- إزالة الشكل
+- إخفاء الشكل
+- تغيير ترتيب الشكل
+- الحصول على معرف الشكل Interop
+- النص البديل للشكل
+- تنسيقات تخطيط الشكل
+- الشكل بصيغة SVG
+- تحويل الشكل إلى SVG
+- محاذاة الشكل
+- PowerPoint
+- العرض التقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تعلم كيفية إنشاء وتحرير وتحسين الأشكال باستخدام JavaScript و Aspose.Slides لـ Node.js عبر Java وتقديم عروض PowerPoint ذات أداء عالي."
 ---
 
 ## **العثور على الشكل في الشريحة**
-ستصف هذه المادة تقنية بسيطة لتسهيل عملية البحث عن شكل معين في شريحة دون الحاجة إلى استخدام المعرف الداخلي الخاص به. من المهم معرفة أن ملفات PowerPoint Presentation لا تتوفر لديها أي طريقة لتحديد الأشكال في الشريحة باستثناء المعرف الفريد الداخلي. يبدو أن العثور على شكل باستخدام المعرف الفريد الداخلي يمثل صعوبة للمطورين. جميع الأشكال المضافة إلى الشرائح تحتوي على نص بديل (Alt Text). نقترح على المطورين استخدام النص البديل للعثور على شكل محدد. يمكنك استخدام MS PowerPoint لتحديد النص البديل للكائنات التي تخطط لتغييرها في المستقبل.
+سوف يصف هذا القسم تقنية بسيطة لتسهيل عملية العثور على شكل محدد في شريحة دون الحاجة إلى استخدام المعرف الداخلي الخاص به. من المهم معرفة أن ملفات PowerPoint لا توفر طريقة لتحديد الأشكال في الشريحة إلا باستخدام معرف فريد داخلي. يبدو أن المطورين يواجهون صعوبة في العثور على شكل باستخدام هذا المعرف الفريد. جميع الأشكال المضافة إلى الشرائح تحتوي على نص بديل. نوصي المطورين باستخدام النص البديل للعثور على شكل معين. يمكنك استخدام Microsoft PowerPoint لتحديد النص البديل للكائنات التي تخطط لتغييرها في المستقبل.
 
-بعد تعيين النص البديل لأي شكل مطلوب، يمكنك فتح ذلك العرض التقديمي باستخدام Aspose.Slides for Node.js via Java والمرور عبر جميع الأشكال المضافة إلى الشريحة. خلال كل تكرار، يمكنك فحص النص البديل للشكل، وسيكون الشكل الذي يطابق النص البديل هو الشكل المطلوب. لتوضيح هذه التقنية بشكل أفضل، أنشأنا طريقة [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) تقوم بالعثور على شكل معين في الشريحة وتعيد ذلك الشكل ببساطة.
+بعد تعيين النص البديل لأي شكل مرغوب، يمكنك فتح ذلك العرض التقديمي باستخدام Aspose.Slides for Node.js via Java وتكرار جميع الأشكال المضافة إلى الشريحة. خلال كل تكرار، يمكنك فحص النص البديل للشكل، وسيكون الشكل الذي يطابق النص البديل هو الشكل المطلوب. لتوضيح هذه التقنية بشكل أفضل، أنشأنا طريقة [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) تقوم بالمهمة للعثور على شكل محدد في الشريحة وتعيد ذلك الشكل ببساطة.
 ```javascript
-// إنشاء فئة Presentation التي تمثل ملف العرض التقديمي
+// إنشاء كائن من فئة Presentation يمثل ملف العرض التقديمي
 var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
-    // النص البديل للشكل المراد العثور عليه
+    // النص البديل للشكل الذي سيتم العثور عليه
     var shape = findShape(slide, "Shape1");
     if (shape != null) {
         console.log("Shape Name: " + shape.getName());
@@ -43,19 +65,19 @@ function findShape(slide, altText) {
 ```
 
 
-## **استنساخ الشكل**
-لاستنساخ شكل إلى شريحة باستخدام Aspose.Slides for Node.js via Java:
+## **نسخ الشكل**
+لنسخ شكل إلى شريحة باستخدام Aspose.Slides for Node.js via Java:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة باستخدام فهرستها.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. الحصول على مرجع الشريحة باستخدام فهرسها.
 1. الوصول إلى مجموعة أشكال الشريحة المصدر.
 1. إضافة شريحة جديدة إلى العرض التقديمي.
-1. استنساخ الأشكال من مجموعة أشكال الشريحة المصدر إلى الشريحة الجديدة.
+1. نسخ الأشكال من مجموعة أشكال الشريحة المصدر إلى الشريحة الجديدة.
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-المثال أدناه يضيف مجموعة أشكال إلى شريحة.
+المثال أدناه يضيف شكل مجموعة إلى شريحة.
 ```javascript
-// إنشاء فئة Presentation
+// إنشاء كائن من فئة Presentation
 var pres = new aspose.slides.Presentation("Source Frame.pptx");
 try {
     var sourceShapes = pres.getSlides().get_Item(0).getShapes();
@@ -65,7 +87,7 @@ try {
     destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
     destShapes.addClone(sourceShapes.get_Item(2));
     destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // كتابة ملف PPTX إلى القرص
+    // حفظ ملف PPTX إلى القرص
     pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -76,11 +98,11 @@ try {
 
 
 ## **إزالة الشكل**
-Aspose.Slides for Node.js via Java تسمح للمطورين بإزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
+يسمح Aspose.Slides for Node.js via Java للمطورين بإزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل بواسطة نص بديل محدد.
+1. العثور على الشكل الذي يملك نصًا بديلًا محددًا.
 1. إزالة الشكل.
 1. حفظ الملف إلى القرص.
 ```javascript
@@ -89,7 +111,7 @@ var pres = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى
     var sld = pres.getSlides().get_Item(0);
-    // إضافة شكل تلقائي من نوع مستطيل
+    // إضافة شكل أوتوماتيكي من نوع مستطيل
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
     var altText = "User Defined";
@@ -111,20 +133,20 @@ try {
 
 
 ## **إخفاء الشكل**
-Aspose.Slides for Node.js via Java تسمح للمطورين بإخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
+يسمح Aspose.Slides for Node.js via Java للمطورين بإخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل بواسطة نص بديل محدد.
+1. العثور على الشكل الذي يملك نصًا بديلًا محددًا.
 1. إخفاء الشكل.
 1. حفظ الملف إلى القرص.
 ```javascript
-// إنشاء فئة Presentation التي تمثل ملف PPTX
+// إنشاء كائن من فئة Presentation يمثل ملف PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى
     var sld = pres.getSlides().get_Item(0);
-    // إضافة شكل تلقائي من نوع مستطيل
+    // إضافة شكل أوتوماتيكي من نوع مستطيل
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
     var alttext = "User Defined";
@@ -146,12 +168,12 @@ try {
 
 
 ## **تغيير ترتيب الأشكال**
-Aspose.Slides for Node.js via Java تسمح للمطورين بإعادة ترتيب الأشكال. يحدد إعادة ترتيب الشكل أي شكل يكون في المقدمة أو في الخلف. لإعادة ترتيب الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
+يسمح Aspose.Slides for Node.js via Java للمطورين بإعادة ترتيب الأشكال. يحدد إعادة ترتيب الشكل أي شكل يكون في المقدمة أو في الخلفية. لإعادة ترتيب الأشكال في أي شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
 1. إضافة شكل.
-1. إضافة نص إلى إطار النص الخاص بالشكل.
+1. إضافة نص في إطار النص الخاص بالشكل.
 1. إضافة شكل آخر بنفس الإحداثيات.
 1. إعادة ترتيب الأشكال.
 1. حفظ الملف إلى القرص.
@@ -176,8 +198,8 @@ try {
 ```
 
 
-## **الحصول على معرف الشكل للتكامل (Interop)**
-Aspose.Slides for Node.js via Java تسمح للمطورين بالحصول على معرف شكل فريد في نطاق الشريحة على عكس طريقة [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) التي تسمح بالحصول على معرف فريد في نطاق العرض التقديمي. تم إضافة الطريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) إلى فئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) وفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) على التوالي. القيمة التي ترجعها طريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) تتطابق مع قيمة المعرف لكائن Microsoft.Office.Interop.PowerPoint.Shape. أدناه عينة من الشيفرة.
+## **الحصول على معرّف الشكل بين الأنظمة (Interop)**
+يسمح Aspose.Slides for Node.js via Java للمطورين بالحصول على معرف فريد للشكل في نطاق الشريحة بالمقارنة مع طريقة [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) التي تتيح الحصول على معرف فريد في نطاق العرض التقديمي. تمت إضافة الطريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) إلى الفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). القيمة التي تُرجعها طريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) تتوافق مع قيمة المعرف لكائن Microsoft.Office.Interop.PowerPoint.Shape. أدناه مثال على الشيفرة.
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
@@ -192,22 +214,22 @@ try {
 
 
 ## **تعيين النص البديل للشكل**
-Aspose.Slides for Node.js via Java تسمح للمطورين بتعيين AlternateText لأي شكل. يمكن تمييز الأشكال في عرض تقديمي باستخدام طريقة [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) أو [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-). يمكن قراءة أو تعيين طريقتي [setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) و [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) باستخدام Aspose.Slides وكذلك Microsoft PowerPoint. باستخدام هذه الطريقة، يمكنك وسم الشكل وتنفيذ عمليات مختلفة مثل إزالة الشكل، إخفاء الشكل أو إعادة ترتيب الأشكال على الشريحة. لتعيين AlternateText لشكل، يرجى اتباع الخطوات التالية:
+يسمح Aspose.Slides for Node.js via Java للمطورين بتعيين الخاصية AlternateText لأي شكل. يمكن تمييز الأشكال في العرض التقديمي باستخدام طريقة [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) أو طريقة [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-). يمكن قراءة أو تعيين النص البديل باستخدام الطريقتين [setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) و[getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) عبر Aspose.Slides أو Microsoft PowerPoint. باستخدام هذه الطريقة، يمكنك وسم الشكل وإجراء عمليات مختلفة مثل إزالة الشكل، إخفاء الشكل أو إعادة ترتيب الأشكال في الشريحة. لتعيين AlternateText لشكل، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
 1. إضافة أي شكل إلى الشريحة.
 1. القيام ببعض الأعمال مع الشكل المضاف حديثًا.
-1. التنقل عبر الأشكال للعثور على الشكل.
-1. تعيين AlternativeText.
+1. التجول بين الأشكال للعثور على الشكل المطلوب.
+1. تعيين قيمة AlternativeText.
 1. حفظ الملف إلى القرص.
 ```javascript
-// إنشاء فئة Presentation التي تمثل ملف PPTX
+// إنشاء كائن من فئة Presentation يمثل ملف PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى
     var sld = pres.getSlides().get_Item(0);
-    // إضافة شكل تلقائي من نوع مستطيل
+    // إضافة شكل أوتوماتيكي من نوع مستطيل
     var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
     shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -228,10 +250,10 @@ try {
 ```
 
 
-## **الوصول إلى صيغ التخطيط للشكل**
-Aspose.Slides for Node.js via Java توفر واجهة برمجة تطبيقات بسيطة للوصول إلى صيغ التخطيط لشكل. توضح هذه المقالة كيفية الوصول إلى صيغ التخطيط.
+## **الوصول إلى تنسيقات التخطيط للشكل**
+يوفر Aspose.Slides for Node.js via Java واجهة برمجة تطبيقات بسيطة للوصول إلى تنسيقات التخطيط لشكل. يوضح هذا المقال كيفية الوصول إلى تنسيقات التخطيط.
 
-أدناه عينة من الشيفرة.
+أدناه مثال على الشيفرة.
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -251,8 +273,8 @@ try {
 ```
 
 
-## **تصدير الشكل كملف SVG**
-الآن يدعم Aspose.Slides for Node.js via Java تصدير الشكل كملف svg. تم إضافة الطريقة [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (مع التحميل الزائد) إلى فئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) وفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). تتيح هذه الطريقة حفظ محتوى الشكل كملف SVG. يوضح المقتطف البرمجي أدناه كيفية تصدير شكل الشريحة إلى ملف SVG.
+## **تصيير الشكل كملف SVG**
+الآن يدعم Aspose.Slides for Node.js via Java تصيير شكل كملف SVG. تمت إضافة الطريقة [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (مع تجاوزها) إلى الفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). تسمح هذه الطريقة بحفظ محتوى الشكل كملف SVG. يوضح المقتطف البرمجي أدناه كيفية تصدير شكل الشريحة إلى ملف SVG.
 ```javascript
 var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -274,11 +296,11 @@ try {
 
 
 ## **محاذاة الأشكال**
-Aspose.Slides تسمح بمحاذاة الأشكال إما بالنسبة إلى هوامش الشريحة أو بالنسبة إلى بعضها البعض. لهذا الغرض، تم إضافة الطريقة الزائدة [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-). تحدد تعداد [ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) خيارات المحاذاة الممكنة.
+يسمح Aspose.Slides بمحاذاة الأشكال إما بالنسبة لهامش الشريحة أو بالنسبة لبعضها البعض. لهذا الغرض، تمت إضافة طريقة محملة [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-). تحدد تعداد [ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) خيارات المحاذاة المتاحة.
 
 **مثال 1**
 
-الكود المصدر أدناه يمحّ الأشكال ذات الفهارس 1،2 و4 على الحد العلوي للشريحة.
+الكود المصدر أدناه يوافق الأشكال ذات الفهارس 1،2 و4 على الحافة العليا للشريحة.
 ```javascript
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
@@ -297,7 +319,7 @@ try {
 
 **مثال 2**
 
-المثال أدناه يظهر كيفية محاذاة مجموعة الأشكال بالكامل بالنسبة إلى الشكل الأسفل في المجموعة.
+المثال أدناه يوضح كيفية محاذاة مجموعة الأشكال بالكامل بالنسبة لأدنى شكل في المجموعة.
 ```javascript
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
@@ -312,11 +334,11 @@ try {
 
 ## **خصائص الانعكاس**
 
-في Aspose.Slides، توفر فئة [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) التحكم في الانعكاس الأفقي والعمودي للأشكال عبر خاصيتي `flipH` و `flipV`. كلا الخاصيتين من نوع `byte`، وتقبل القيم `1` للإشارة إلى انعكاس، `0` لعدم وجود انعكاس، أو `-1` لاستخدام السلوك الافتراضي. هذه القيم يمكن الوصول إليها من خلال [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) الخاص بالشكل.
+في Aspose.Slides، توفر الفئة [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) التحكم في الانعكاس الأفقي والعمودي للأشكال عبر خاصيتي `flipH` و`flipV`. كلا الخصيتين من نوع `byte`، حيث القيمة `1` تشير إلى الانعكاس، `0` لعدم الانعكاس، أو `-1` لاستخدام السلوك الافتراضي. يمكن الوصول إلى هذه القيم من خلال [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) الخاص بالشكل.
 
-لتعديل إعدادات الانعكاس، يتم إنشاء نسخة جديدة من فئة [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) باستخدام الموقع والحجم الحاليين للشكل، القيم المطلوبة لـ `flipH` و `flipV`، وزاوية الدوران. تعيين هذه النسخة إلى [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) الخاص بالشكل وحفظ العرض التقديمي يطبق التحولات العكسية ويثبتها في ملف الإخراج.
+لتعديل إعدادات الانعكاس، يتم إنشاء مثيل جديد من [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) مع الموضع الحالي للشكل وحجمه، والقيم المطلوبة لـ `flipH` و`flipV`، وزاوية الدوران. يتم تعيين هذا المثيل إلى [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) الخاص بالشكل وحفظ العرض التقديمي لتطبيق التحولات العاكسة وتطبيقها على ملف الإخراج.
 
-لنفترض أن لدينا ملف sample.pptx يحتوي على الشريحة الأولى شكلًا واحدًا بإعدادات انعكاس افتراضية، كما هو موضح أدناه.
+لنفترض أن لدينا ملف sample.pptx يحتوي على شريحة أولى تشمل شكلًا واحدًا بإعدادات انعكاس افتراضية، كما هو موضح أدناه.
 
 ![The shape to be flipped](shape_to_be_flipped.png)
 
@@ -358,14 +380,14 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني دمج الأشكال (الاتحاد/التقاطع/الطرح) على شريحة كما في محرر سطح المكتب؟**
+**هل يمكنني دمج الأشكال (اتحاد/تقاطع/طرح) في شريحة كما في محررات سطح المكتب؟**
 
-لا توجد واجهة برمجة تطبيقات مدمجة لعمليات Boolean. يمكنك تقليد ذلك بإنشاء المخطط المطلوب يدويًا—على سبيل المثال حساب الهندسة الناتجة (باستخدام [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)) وإنشاء شكل جديد بذلك الحد، وإزالة الأشكال الأصلية إذا رغبت.
+لا توجد واجهة برمجة تطبيقات مدمجة للعمليات البوليانية. يمكنك تقريب ذلك بإنشاء الشكل المطلوب يدويًا—مثلاً حساب الهندسة الناتجة عبر [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) وإنشاء شكل جديد بهذه الحدود، مع إمكانية حذف الأشكال الأصلية.
 
-**كيف يمكنني التحكم بترتيب الطبقات (z-order) بحيث يبقى الشكل دائمًا "في الأعلى"؟**
+**كيف يمكنني التحكم في ترتيب التراكب (z-order) بحيث يظل الشكل دائمًا "في القمة"؟**
 
-قم بتغيير ترتيب الإدراج/النقل داخل مجموعة [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) الخاصة بالشريحة. للحصول على نتائج متوقعة، أكمل ضبط ترتيب z بعد إتمام جميع التعديلات الأخرى على الشريحة.
+غير ترتيب الإدراج/النقل داخل مجموعة [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) الخاص بالشريحة. للحصول على نتائج متوقعة، قم بتثبيت ترتيب z-order بعد إتمام جميع تعديلات الشريحة الأخرى.
 
-**هل يمكنني "قفل" الشكل لمنع المستخدمين من تحريره في PowerPoint؟**
+**هل يمكنني "قفل" شكل لمنع المستخدمين من تحريره في PowerPoint؟**
 
-نعم. عيّن [علامات حماية على مستوى الشكل](/slides/ar/nodejs-java/applying-protection-to-presentation/) (مثل قفل التحديد، الحركة، تغيير الحجم، تحرير النص). إذا لزم الأمر، يمكنك تطبيق القيود على القالب أو التخطيط. لاحظ أن هذه الحماية على مستوى واجهة المستخدم وليست ميزة أمان؛ للحصول على حماية أقوى، يمكن دمجها مع قيود على مستوى الملف مثل توصيات للقراءة فقط أو كلمات مرور [/slides/nodejs-java/password-protected-presentation/].
+نعم. اضبط علامات الحماية على مستوى الشكل (مثل قفل التحديد، الحركة، تغيير الحجم، تحرير النص). إذا لزم الأمر، يمكن تطبيق قيود مماثلة على القالب أو التخطيط. تجدر الإشارة إلى أن هذه الحماية هي على مستوى واجهة المستخدم، ليست ميزة أمان؛ للحصول على حماية أقوى، يمكن دمجها مع قيود على مستوى الملف مثل التوصيات للقراءة فقط أو كلمات المرور [/slides/nodejs-java/password-protected-presentation/].

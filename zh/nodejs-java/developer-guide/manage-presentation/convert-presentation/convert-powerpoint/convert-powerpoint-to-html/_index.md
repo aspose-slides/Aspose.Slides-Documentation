@@ -1,72 +1,79 @@
 ---
-title: 在 JavaScript 中将 PowerPoint 转换为 HTML
-linktitle: 将 Powerpoint 转换为 HTML
+title: 使用 JavaScript 将 PowerPoint 演示文稿转换为 HTML
+linktitle: PowerPoint 转 HTML
 type: docs
 weight: 30
 url: /zh/nodejs-java/convert-powerpoint-to-html/
-keywords: "Java PowerPoint 转 HTML, Convert PowerPoint 演示文稿, PPTX, PPT, PPT 转 HTML, PPTX 转 HTML, PowerPoint 转 HTML, 将 PowerPoint 保存为 HTML, 将 PPT 保存为 HTML, 将 PPTX 保存为 HTML, Java, Aspose.Slides, HTML 导出"
-description: "在 JavaScript 中将 PowerPoint 转换为 HTML。将 PPTX 或 PPT 保存为 HTML。将幻灯片保存为 HTML。"
+keywords:
+- 转换 PowerPoint
+- 转换演示文稿
+- 转换幻灯片
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转 HTML
+- 演示文稿转 HTML
+- 幻灯片转 HTML
+- PPT 转 HTML
+- PPTX 转 HTML
+- 将 PowerPoint 保存为 HTML
+- 将演示文稿保存为 HTML
+- 将幻灯片保存为 HTML
+- 将 PPT 保存为 HTML
+- 将 PPTX 保存为 HTML
+- 将 PPT 导出为 HTML
+- 将 PPTX 导出为 HTML
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides 转换指南，快速、完美地保留布局、链接和图像。"
 ---
 
 ## **概述**
 
-本文介绍如何使用 JavaScript 将 PowerPoint 演示文稿转换为 HTML 格式。内容包括以下主题。
+本文说明如何使用 JavaScript 将 PowerPoint 演示文稿转换为 HTML 格式。它涵盖以下主题。
 
-- 使用 JavaScript 将 PowerPoint 转换为 HTML
-- 使用 JavaScript 将 PPT 转换为 HTML
-- 使用 JavaScript 将 PPTX 转换为 HTML
-- 使用 JavaScript 将 ODP 转换为 HTML
-- 使用 JavaScript 将 PowerPoint 幻灯片转换为 HTML
+- 在 JavaScript 中将 PowerPoint 转换为 HTML
+- 在 JavaScript 中将 PPT 转换为 HTML
+- 在 JavaScript 中将 PPTX 转换为 HTML
+- 在 JavaScript 中将 ODP 转换为 HTML
+- 在 JavaScript 中将 PowerPoint 幻灯片转换为 HTML
 
-## **JavaScript PowerPoint 转 HTML**
+## **JavaScript 将 PowerPoint 转换为 HTML**
 
-为了获取将 PowerPoint 转换为 HTML 的 JavaScript 示例代码，请参阅下面的章节，即[Convert PowerPoint to HTML](#convert-powerpoint-to-html)。该代码能够在 Presentation 对象中加载 PPT、PPTX 和 ODP 等多种格式并保存为 HTML。
+有关将 PowerPoint 转换为 HTML 的 JavaScript 示例代码，请参见下面的章节，即[Convert PowerPoint to HTML](#convert-powerpoint-to-html)。该代码可以在 Presentation 对象中加载 PPT、PPTX 和 ODP 等多种格式，并将其保存为 HTML 格式。
 
-## **关于 PowerPoint 转 HTML 转换**
+## **关于 PowerPoint 转换为 HTML**
 
-使用 [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)，应用程序和开发者可以将 PowerPoint 演示文稿转换为 HTML：**PPTX 转 HTML** 或 **PPT 转 HTML**。
+使用[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)，应用程序和开发人员可以将 PowerPoint 演示文稿转换为 HTML：**PPTX to HTML** 或 **PPT to HTML**。
 
-**Aspose.Slides** 提供许多选项（主要来自 [**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) 类），用于定义 PowerPoint 转 HTML 的转换过程：
+**Aspose.Slides** 提供许多选项（主要来自[**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) 类），用于定义 PowerPoint 转换为 HTML 的过程：
 
-* 将整个 PowerPoint 演示文稿转换为 HTML。  
-* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。  
-* 将演示文稿媒体（图像、视频等）转换为 HTML。  
-* 将 PowerPoint 演示文稿转换为响应式 HTML。  
-* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。  
-* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。  
-* 将 PowerPoint 演示文稿转换为使用原始字体或嵌入字体的 HTML。  
-* 在使用新 CSS 样式的情况下将 PowerPoint 演示文稿转换为 HTML。  
+* 将整个 PowerPoint 演示文稿转换为 HTML。
+* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
+* 将演示文稿媒体（图像、视频等）转换为 HTML。
+* 将 PowerPoint 演示文稿转换为响应式 HTML。
+* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。
+* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。
+* 将 PowerPoint 演示文稿转换为使用原始或嵌入字体的 HTML。
+* 在使用新 CSS 样式的情况下将 PowerPoint 演示文稿转换为 HTML。
 
 {{% alert color="primary" %}} 
 
-使用其自己的 API，Aspose 开发了免费的 [演示文稿转 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) 转换器：[PPT 转 HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX 转 HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP 转 HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。 
+使用 Aspose 自己的 API，Aspose 开发了免费[演示文稿转 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)转换器：[PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html)等。
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-您可能想查看其他来自 Aspose 的 [免费转换器](https://products.aspose.app/slides/conversion)。
+您可能想要查看 Aspose 提供的其他[免费转换器](https://products.aspose.app/slides/conversion)。
 
 {{% /alert %}} 
 
-{{% alert title="Note" color="warning" %}} 
-
-除本文描述的转换过程外，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作： 
-
-* [HTML 转图像](https://products.aspose.com/slides/nodejs-java/conversion/html-to-image/)  
-* [HTML 转 JPG](https://products.aspose.com/slides/nodejs-java/conversion/html-to-jpg/)  
-* [HTML 转 XML](https://products.aspose.com/slides/nodejs-java/conversion/html-to-xml/)  
-* [HTML 转 TIFF](https://products.aspose.com/slides/nodejs-java/conversion/html-to-tiff/)  
-
-{{% /alert %}}
-
 ## **将 PowerPoint 转换为 HTML**
+使用 Aspose.Slides，您可以这样将整个 PowerPoint 演示文稿转换为 HTML：
 
-使用 Aspose.Slides，您可以通过以下方式将整个 PowerPoint 演示文稿转换为 HTML：
+1. 创建一个[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)类的实例。
+2. 使用[save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-)方法将对象保存为 HTML 文件。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。  
-1. 使用 [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) 方法将对象保存为 HTML 文件。  
-
-以下代码展示了如何在 JavaScript 中将 PowerPoint 转换为 HTML：
-
+下面的代码演示了如何在 JavaScript 中将 PowerPoint 转换为 HTML：
 ```javascript
 // 实例化一个表示演示文稿文件的 Presentation 对象
 var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
@@ -85,9 +92,7 @@ try {
 
 
 ## **将 PowerPoint 转换为响应式 HTML**
-
-Aspose.Slides 提供了 [ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController) 类，可生成响应式 HTML 文件。以下代码展示了如何在 JavaScript 中将 PowerPoint 演示文稿转换为响应式 HTML：
-
+Aspose.Slides 提供了[ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController)类，允许生成响应式 HTML 文件。下面的代码演示了如何在 JavaScript 中将 PowerPoint 演示文稿转换为响应式 HTML：
 ```javascript
 // 实例化一个表示演示文稿文件的 Presentation 对象
 var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
@@ -106,16 +111,14 @@ try {
 
 
 ## **将 PowerPoint 转换为带备注的 HTML**
-
-以下代码展示了如何在 JavaScript 中将 PowerPoint 转换为带备注的 HTML：
-
+下面的代码演示了如何在 JavaScript 中将 PowerPoint 转换为带备注的 HTML：
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var opt = new aspose.slides.HtmlOptions();
     var options = opt.getNotesCommentsLayouting();
     options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    // 保存备注页
+    // 保存备注页面
     pres.save("Output.html", aspose.slides.SaveFormat.Html, opt);
 } finally {
     if (pres != null) {
@@ -127,12 +130,11 @@ try {
 
 ## **将 PowerPoint 转换为带原始字体的 HTML**
 
-Aspose.Slides 提供了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) 类，可在将演示文稿转换为 HTML 时嵌入所有字体。
+Aspose.Slides 提供了[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController)类，允许在将演示文稿转换为 HTML 时嵌入所有字体。
 
-为防止嵌入某些字体，您可以向 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) 类的带参数构造函数传递字体名称数组。像 Calibri 或 Arial 这样常用的字体在演示文稿中使用时不必嵌入，因为大多数系统已包含这些字体。若嵌入这些字体，生成的 HTML 文档会不必要地增大。
+为了防止嵌入某些字体，您可以向[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController)类的带参数构造函数传递字体名称数组。常用字体，如 Calibri 或 Arial，在演示文稿中使用时无需嵌入，因为大多数系统已经包含这些字体。嵌入这些字体会导致生成的 HTML 文档体积不必要地增大。
 
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) 类支持继承，并提供了 [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) 方法，供重写使用。
-
+[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) 类支持继承，并提供 [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) 方法，供子类重写。
 ```javascript
 var pres = new aspose.slides.Presentation("input.pptx");
 try {
@@ -151,11 +153,9 @@ try {
 
 
 ## **将 PowerPoint 转换为高质量图像的 HTML**
+默认情况下，将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出带有 72 DPI 图像且已删除裁剪区域的精简 HTML。要获取图像质量更高的 HTML 文件，需要向 `HtmlOptions` 类的 `setPicturesCompression` 方法传递 `96`（即 `PicturesCompression.Dpi96`）或更高的[值](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression)。
 
-默认情况下，将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出的 HTML 较小，图像分辨率为 72 DPI 并删除裁剪区域。要获得更高质量图像的 HTML 文件，需要向 `HtmlOptions` 类的 `setPicturesCompression` 方法传入 `96`（即 `PicturesCompression.Dpi96`）或更高的[值](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression)。
-
-以下 JavaScript 代码展示了如何在转换 PowerPoint 演示文稿为 HTML 时以 150 DPI（即 `PicturesCompression.Dpi150`）获取高质量图像：
-
+下面的 JavaScript 代码演示了如何在将 PowerPoint 演示文稿转换为 HTML 时获取 150 DPI（即 `PicturesCompression.Dpi150`）的高质量图像：
 ```javascript
 var pres = new aspose.slides.Presentation("InputDoc.pptx");
 try {
@@ -170,8 +170,7 @@ try {
 ```
 
 
-以下 JavaScript 代码展示了如何输出带完整质量图像的 HTML：
-
+下面的 JavaScript 代码演示了如何输出带有完整质量图像的 HTML：
 ```javascript
 var pres = new aspose.slides.Presentation("InputDoc.pptx");
 try {
@@ -187,11 +186,9 @@ try {
 
 
 ## **将幻灯片转换为 HTML**
+要将 PowerPoint 中的特定幻灯片转换为 HTML，需要实例化相同的[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)类（用于将整个演示文稿转换为 HTML），然后使用[save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-)方法将文件保存为 HTML。[HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) 类可用于指定其他转换选项：
 
-要将 PowerPoint 中的特定幻灯片转换为 HTML，需要实例化相同的 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类（用于将整个演示文稿转换为 HTML），然后使用 [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) 方法将文件保存为 HTML。[HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) 类可用于指定其他转换选项：
-
-以下 JavaScript 代码展示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：
-
+下面的 JavaScript 代码演示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：
 ```javascript
 var pres = new aspose.slides.Presentation("Individual-Slide.pptx");
 try {
@@ -236,12 +233,10 @@ try {
 ```
 
 
-## **导出为 HTML 时保存 CSS 与图像**
+## **导出为 HTML 时保存 CSS 和图像**
+使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转换为 HTML 过程生成的 HTML 文件的样式。
 
-使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转 HTML 过程生成的 HTML 文件的样式。
-
-本示例中的 JavaScript 代码展示了如何使用可重写方法创建带有 CSS 文件链接的自定义 HTML 文档：
-
+本例中的 JavaScript 代码演示了如何使用可重写的方法创建带有 CSS 文件链接的自定义 HTML 文档：
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -256,11 +251,9 @@ try {
 }
 ```
 
+您需要在 Java 中实现 CustomHeaderAndFontsController，编译后将其添加到模块位置 \\aspose.slides.via.java\\lib\\。
 
-您需要在 Java 中实现 CustomHeaderAndFontsController，编译后添加到模块位置 \aspose.slides.via.java\lib\。
-
-以下 Java 代码展示了 `CustomHeaderAndFontsController` 的实现方式：
-
+下面的 Java 代码展示了 `CustomHeaderAndFontsController` 的实现方式：
 ```java
 public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 {
@@ -297,12 +290,11 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 ```
 
 
-## **将演示文稿转换为 HTML 时链接所有字体**
+## **在将演示文稿转换为 HTML 时链接所有字体**
 
-如果您不想嵌入字体（以避免增加生成的 HTML 大小），可以通过实现自己的 `LinkAllFontsHtmlController` 版本来链接所有字体。
+如果您不想嵌入字体（以避免增大生成的 HTML 大小），可以通过实现自定义的 `LinkAllFontsHtmlController` 来链接所有字体。
 
-以下 JavaScript 代码展示了如何在链接所有字体的同时将 PowerPoint 转换为 HTML，并排除 "Calibri" 和 "Arial"（因为系统已存在这些字体）：
-
+下面的 JavaScript 代码演示了如何在将 PowerPoint 转换为 HTML 时链接所有字体，并排除 "Calibri" 和 "Arial"（因为系统中已经存在这些字体）：
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -320,10 +312,9 @@ try {
 ```
 
 
-您需要在 Java 中实现 LinkAllFontsHtmlController，编译后添加到模块位置 \aspose.slides.via.java\lib\。
+您需要在 Java 中实现 LinkAllFontsHtmlController，编译后将其添加到模块位置 \\aspose.slides.via.java\\lib\\。
 
-以下 Java 代码展示了 `LinkAllFontsHtmlController` 的实现方式：
-
+下面的 Java 代码展示了 `LinkAllFontsHtmlController` 的实现方式：
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
@@ -346,7 +337,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
     {
         try {
             String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // 可能需要进行路径清理
+            String path = fontName + ".woff"; // 可能需要对路径进行清理
             Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
 
             generator.addHtml("<style>");
@@ -365,9 +356,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 
 
 ## **将 PowerPoint 转换为响应式 HTML**
-
-以下 JavaScript 代码展示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
-
+下面的 JavaScript 代码演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
 ```javascript
 var pres = new aspose.slides.Presentation("SomePresentation.pptx");
 try {
@@ -382,17 +371,15 @@ try {
 ```
 
 
-## **将媒体文件导出为 HTML**
+## **导出媒体文件为 HTML**
+使用 Aspose.Slides for Node.js via Java，您可以通过以下方式导出媒体文件：
 
-使用 Aspose.Slides for Node.js via Java，您可以按如下方式导出媒体文件：
+1. 创建一个[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)类的实例。
+2. 获取对幻灯片的引用。
+3. 向幻灯片添加视频。
+4. 将演示文稿写入为 HTML 文件。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。  
-1. 获取该幻灯片的引用。  
-1. 向幻灯片添加视频。  
-1. 将演示文稿写为 HTML 文件。  
-
-以下 JavaScript 代码展示了如何向演示文稿添加视频，然后保存为 HTML：
-
+下面的 JavaScript 代码演示了如何向演示文稿添加视频并将其保存为 HTML：
 ```javascript
 // 加载演示文稿
 var pres = new aspose.slides.Presentation();
@@ -420,13 +407,16 @@ try {
 ```
 
 
-## **常见问题**
+## **FAQ**
 
-**在将多个演示文稿转换为 HTML 时，Aspose.Slides 的性能如何？**  
-性能取决于演示文稿的大小和复杂度。Aspose.Slides 对批量操作具有高效且可扩展的性能。为了在转换大量演示文稿时获得最佳性能，建议尽可能使用多线程或并行处理。
+**将多个演示文稿转换为 HTML 时，Aspose.Slides 的性能如何？**
 
-**Aspose.Slides 是否支持将超链接导出为 HTML？**  
+性能取决于演示文稿的大小和复杂度。Aspose.Slides 在批量操作中非常高效且具可扩展性。为了在转换大量演示文稿时获得最佳性能，建议尽可能使用多线程或并行处理。
+
+**Aspose.Slides 是否支持将超链接导出为 HTML？**
+
 是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。转换为 HTML 格式时，超链接会自动保留并保持可点击。
 
-**在将演示文稿转换为 HTML 时，是否对幻灯片数量有限制？**  
-使用 Aspose.Slides 时对幻灯片数量没有限制，您可以转换任意规模的演示文稿。但是，对于包含大量幻灯片的演示文稿，性能可能取决于服务器或系统的可用资源。
+**在将演示文稿转换为 HTML 时，幻灯片数量是否有限制？**
+
+使用 Aspose.Slides 时对幻灯片数量没有限制。您可以转换任意大小的演示文稿。但对于包含非常多幻灯片的演示文稿，性能可能取决于服务器或系统的可用资源。

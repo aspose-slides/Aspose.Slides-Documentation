@@ -1,13 +1,29 @@
 ---
-title: Расчёты диаграмм
+title: Оптимизация вычислений диаграмм для презентаций на JavaScript
+linktitle: Вычисления диаграмм
 type: docs
 weight: 50
 url: /ru/nodejs-java/chart-calculations/
+keywords:
+- вычисления диаграмм
+- элементы диаграммы
+- позиция элемента
+- фактическая позиция
+- дочерний элемент
+- родительский элемент
+- значения диаграммы
+- фактическое значение
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Поймите вычисления диаграмм, обновление данных и контроль точности в Aspose.Slides для Node.js для PPT и PPTX, с практическими примерами кода на JavaScript."
 ---
 
 ## **Вычисление фактических значений элементов диаграммы**
 
-Aspose.Slides for Node.js via Java предоставляет простой API для получения этих свойств. Свойства класса [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) предоставляют информацию о фактическом положении элемента диаграммы оси ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). Необходимо предварительно вызвать метод [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) , чтобы заполнить свойства фактическими значениями.
+Aspose.Slides for Node.js via Java предоставляет простой API для получения этих свойств. Свойства класса [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) предоставляют информацию о фактическом положении оси элемента диаграммы ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). Необходимо предварительно вызвать метод [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) для заполнения свойств фактическими значениями.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -27,7 +43,7 @@ try {
 
 ## **Вычисление фактического положения родительских элементов диаграммы**
 
-Aspose.Slides for Node.js via Java предоставляет простой API для получения этих свойств. Свойства класса [ActualLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout) предоставляют информацию о фактическом положении родительского элемента диаграммы ([ActualLayout.getActualX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualX--), [ActualLayout.getActualY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualY--), [ActualLayout.getActualWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualWidth--), [ActualLayout.getActualHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualHeight--)). Необходимо предварительно вызвать метод [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) , чтобы заполнить свойства фактическими значениями.
+Aspose.Slides for Node.js via Java предоставляет простой API для получения этих свойств. Свойства класса `ActualLayout` предоставляют информацию о фактическом положении родительского элемента диаграммы `ActualLayout.getActualX`, `ActualLayout.getActualY`, `ActualLayout.getActualWidth`, `ActualLayout.getActualHeight`. Необходимо предварительно вызвать метод [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) для заполнения свойств фактическими значениями.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -45,23 +61,23 @@ try {
 ```
 
 
-## **Скрыть информацию на диаграмме**
+## **Скрытие информации на диаграмме**
 
-Эта тема поможет вам понять, как скрыть информацию на диаграмме. С помощью Aspose.Slides for Node.js via Java вы можете скрыть **Заголовок, Вертикальную ось, Горизонтальную ось** и **Линии сетки** на диаграмме. Пример кода ниже показывает, как использовать эти свойства.
+Эта тема поможет вам понять, как скрыть информацию на диаграмме. С помощью Aspose.Slides for Node.js via Java вы можете скрыть **Title, Vertical Axis, Horizontal Axis** и **Grid Lines** на диаграмме. Приведённый ниже пример кода показывает, как использовать эти свойства.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 140, 118, 320, 370);
-    // Сокрытие заголовка диаграммы
+    // Скрытие заголовка диаграммы
     chart.setTitle(false);
-    // /Сокрытие оси значений
+    // /Скрытие оси значений
     chart.getAxes().getVerticalAxis().setVisible(false);
     // Видимость оси категорий
     chart.getAxes().getHorizontalAxis().setVisible(false);
-    // Сокрытие легенды
+    // Скрытие легенды
     chart.setLegend(false);
-    // Сокрытие основных линий сетки
+    // Скрытие основных линий сетки
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
         chart.getChartData().getSeries().removeAt(i);
@@ -86,14 +102,14 @@ try {
 
 ## **FAQ**
 
-**Работают ли внешние книги Excel в качестве источника данных и как это влияет на пересчет?**
+**Работают ли внешние Excel‑книги в качестве источника данных и как это влияет на пересчёт?**
 
-Да. Диаграмма может ссылаться на внешнюю книгу: при подключении или обновлении внешнего источника формулы и значения берутся из этой книги, и диаграмма отражает изменения во время операций открытия/редактирования. API позволяет вам [указать путь к внешней книге](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) и управлять связанными данными.
+Да. Диаграмма может ссылаться на внешнюю книгу: когда вы подключаете или обновляете внешний источник, формулы и значения берутся из этой книги, и диаграмма отражает изменения во время операций открытия/редактирования. API позволяет вам [указать внешний рабочий файл](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) путь и управлять связанными данными.
 
-**Могу ли я вычислять и отображать линии тренда без собственной реализации регрессии?**
+**Могу ли я вычислять и отображать линии тренда без реализации регрессии самостоятельно?**
 
-Да. [Линии тренда](/slides/ru/nodejs-java/trend-line/) (линейные, экспоненциальные и др.) добавляются и обновляются Aspose.Slides; их параметры автоматически пересчитываются из данных серии, поэтому вам не нужно реализовывать собственные вычисления.
+Да. [Trendlines](/slides/ru/nodejs-java/trend-line/) (linear, exponential, and others) добавляются и обновляются Aspose.Slides; их параметры автоматически пересчитываются из данных серии, поэтому вам не нужно реализовывать собственные вычисления.
 
 **Если презентация содержит несколько диаграмм с внешними ссылками, могу ли я контролировать, какую книгу использует каждая диаграмма для вычисляемых значений?**
 
-Да. Каждая диаграмма может указывать на свою собственную [внешнюю книгу](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/), либо вы можете создавать/заменять внешнюю книгу для каждой диаграммы независимо от остальных.
+Да. Каждая диаграмма может указывать на свою [external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/), или вы можете создать/заменить внешний рабочий файл для каждой диаграммы независимо от других.

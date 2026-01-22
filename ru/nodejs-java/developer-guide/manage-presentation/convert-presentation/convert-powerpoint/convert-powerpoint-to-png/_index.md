@@ -1,30 +1,48 @@
 ---
-title: Преобразовать PowerPoint в PNG
+title: Конвертировать слайды PowerPoint в PNG на JavaScript
+linktitle: PowerPoint в PNG
 type: docs
 weight: 30
 url: /ru/nodejs-java/convert-powerpoint-to-png/
-keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, java, Aspose.Slides для Node.js через Java
-description: Преобразовать презентацию PowerPoint в PNG
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в PNG
+- презентацию в PNG
+- слайд в PNG
+- PPT в PNG
+- PPTX в PNG
+- сохранить PPT как PNG
+- сохранить PPTX как PNG
+- экспортировать PPT в PNG
+- экспортировать PPTX в PNG
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Конвертировать презентации PowerPoint в высококачественные PNG-изображения на JavaScript быстро с помощью Aspose.Slides для Node.js, обеспечивая точные, автоматизированные результаты."
 ---
 
 ## **О преобразовании PowerPoint в PNG**
 
 Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но всё равно очень популярен. 
 
-**Случай использования:** Когда у вас сложное изображение и размер не имеет значения, PNG — лучший формат изображения, чем JPEG. 
+**Случай использования:** Когда у вас сложное изображение и размер не критичен, PNG — лучший формат изображения по сравнению с JPEG. 
 
-{{% alert title="Tip" color="primary" %}} Возможно, вам стоит взглянуть на бесплатные конвертеры Aspose **PowerPoint в PNG**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Это живой пример реализации процесса, описанного на этой странице. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Возможно, вам будет интересно ознакомиться с бесплатными конвертерами Aspose **PowerPoint в PNG**: [PPTX в PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT в PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Это живой пример процесса, описанного на этой странице. {{% /alert %}}
 
 ## **Преобразовать PowerPoint в PNG**
 
-Пройдите следующие шаги:
+Выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 2. Получите объект слайда из коллекции, возвращаемой методом [Presentation.getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) класса [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide).
-3. Воспользуйтесь методом [Slide.getImage()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) для получения миниатюры каждого слайда.
-4. Используйте метод [**Image.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Image#save(String formatName, int imageFormat)) для сохранения миниатюры слайда в формате PNG.
+3. Используйте метод [Slide.getImage()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) для получения миниатюры каждого слайда.
+4. Используйте [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) метод для сохранения миниатюры слайда в формате PNG.
 
-Этот код на JavaScript демонстрирует, как конвертировать презентацию PowerPoint в PNG:
+Этот код JavaScript показывает, как преобразовать презентацию PowerPoint в PNG:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -49,7 +67,7 @@ try {
 
 ## **Преобразовать PowerPoint в PNG с пользовательскими размерами**
 
-Если вы хотите получить PNG‑файлы определённого масштаба, вы можете задать значения `desiredX` и `desiredY`, которые определяют размеры получаемой миниатюры. 
+Если вам нужны PNG‑файлы определённого масштаба, вы можете установить значения `desiredX` и `desiredY`, которые определяют размеры получаемой миниатюры. 
 
 Этот код на JavaScript демонстрирует описанную операцию:
 ```javascript
@@ -78,9 +96,9 @@ try {
 
 ## **Преобразовать PowerPoint в PNG с пользовательским размером**
 
-Если вы хотите получить PNG‑файлы определённого размера, вы можете передать желаемые аргументы `width` и `height` для `ImageSize`. 
+Если вам нужны PNG‑файлы определённого размера, вы можете передать желаемые аргументы `width` и `height` для `ImageSize`. 
 
-Этот код показывает, как конвертировать PowerPoint в PNG, задавая размер изображений: 
+Этот код показывает, как преобразовать PowerPoint в PNG, задав размер изображений: 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -104,16 +122,16 @@ try {
 ```
 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Как экспортировать только конкретную форму (например, диаграмму или изображение), а не весь слайд?**
+**Как экспортировать только определённую форму (например, диаграмму или изображение), а не весь слайд?**
 
-Aspose.Slides поддерживает [создание миниатюр отдельных фигур](/slides/ru/nodejs-java/create-shape-thumbnails/); вы можете отобразить форму в PNG‑изображение.
+Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/nodejs-java/create-shape-thumbnails/); вы можете отрисовать форму в PNG‑изображение.
 
 **Поддерживается ли параллельное преобразование на сервере?**
 
-Да, но [не следует совместно использовать](/slides/ru/nodejs-java/multithreading/) один экземпляр презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
+Да, но [не делите](/slides/ru/nodejs-java/multithreading/) один экземпляр презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
 
 **Каковы ограничения пробной версии при экспорте в PNG?**
 
-В режиме оценки к экспортируемым изображениям добавляется водяной знак, а также применяются [другие ограничения](/slides/ru/nodejs-java/licensing/) до установки лицензии.
+В режиме оценки к выходным изображениям добавляется водяной знак и действуют [другие ограничения](/slides/ru/nodejs-java/licensing/), пока не будет применена лицензия.

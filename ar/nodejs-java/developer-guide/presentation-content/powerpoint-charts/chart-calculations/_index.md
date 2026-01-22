@@ -1,13 +1,29 @@
 ---
-title: حسابات المخطط
+title: تحسين حسابات المخطط للعروض التقديمية في جافا سكريبت
+linktitle: حسابات المخطط
 type: docs
 weight: 50
 url: /ar/nodejs-java/chart-calculations/
+keywords:
+- حسابات المخطط
+- عناصر المخطط
+- موقع العنصر
+- الموقع الفعلي
+- العنصر الفرعي
+- العنصر الأصل
+- قيم المخطط
+- القيمة الفعلية
+- PowerPoint
+- العرض التقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "فهم حسابات المخطط وتحديثات البيانات والتحكم في الدقة في Aspose.Slides لـ Node.js للـ PPT و PPTX، مع أمثلة عملية على شفرة JavaScript."
 ---
 
 ## **حساب القيم الفعلية لعناصر المخطط**
 
-توفر Aspose.Slides for Node.js عبر Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص صف [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) معلومات حول الموضع الفعلي لعنصر المخطط المحوري ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). من الضروري استدعاء الطريقة [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
+Aspose.Slides for Node.js via Java توفر واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص فئة [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) معلومات حول الموقع الفعلي لعنصر مخطط المحور ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). من الضروري استدعاء الطريقة [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -25,9 +41,9 @@ try {
 ```
 
 
-## **حساب الموضع الفعلي لعناصر المخطط الأصلية**
+## **حساب الموقع الفعلي لعناصر المخطط الأصلية**
 
-توفر Aspose.Slides for Node.js عبر Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص صف [ActualLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout) معلومات حول الموضع الفعلي لعنصر المخطط الأصلية ([ActualLayout.getActualX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualX--), [ActualLayout.getActualY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualY--), [ActualLayout.getActualWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualWidth--), [ActualLayout.getActualHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualHeight--)). من الضروري استدعاء الطريقة [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
+Aspose.Slides for Node.js via Java توفر واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. خصائص فئة `ActualLayout` توفر معلومات حول الموقع الفعلي لعنصر المخطط الأصل `ActualLayout.getActualX`, `ActualLayout.getActualY`, `ActualLayout.getActualWidth`, `ActualLayout.getActualHeight`. من الضروري استدعاء الطريقة [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -47,7 +63,7 @@ try {
 
 ## **إخفاء المعلومات من المخطط**
 
-هذه المقالة تساعدك على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides for Node.js عبر Java يمكنك إخفاء **العنوان، المحور الرأسي، المحور الأفقي** و **خطوط الشبكة** من المخطط. يعرض مثال الشيفرة أدناه كيفية استخدام هذه الخصائص.
+هذا الموضوع يساعدك على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides for Node.js via Java يمكنك إخفاء **العنوان، المحور الرأسي، المحور الأفقي** و **خطوط الشبكة** من المخطط. يوضح مثال الشفرة أدناه كيفية استخدام هذه الخصائص.
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -57,7 +73,7 @@ try {
     chart.setTitle(false);
     // /إخفاء محور القيم
     chart.getAxes().getVerticalAxis().setVisible(false);
-    // إظهار محور الفئات
+    // إظهار محور الفئة
     chart.getAxes().getHorizontalAxis().setVisible(false);
     // إخفاء وسيلة الإيضاح
     chart.setLegend(false);
@@ -84,16 +100,16 @@ try {
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **هل تعمل دفاتر Excel الخارجية كمصدر للبيانات، وكيف يؤثر ذلك على إعادة الحساب؟**
 
-نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عند الاتصال بالمصدر الخارجي أو تحديثه، تُؤخذ المعادلات والقيم من ذلك الدفتر، ويعكس المخطّط التحديثات أثناء عمليات الفتح/التعديل. تُتيح لك الواجهة برمجة التطبيقات [تحديد دفتر العمل الخارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) المسار وإدارة البيانات المرتبطة.
+نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عند الاتصال أو تحديث المصدر الخارجي، تُؤخذ الصيغ والقيم من ذلك الدفتر، ويعكس المخطط التحديثات أثناء عمليات الفتح/التحرير. تسمح لك الواجهة البرمجية [تحديد دفتر العمل الخارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) بتحديد مسار دفتر العمل الخارجي وإدارة البيانات المرتبطة.
 
 **هل يمكنني حساب وعرض خطوط الاتجاه دون تنفيذ الانحدار بنفسي؟**
 
-نعم. يتم إضافة [خطوط الاتجاه](/slides/ar/nodejs-java/trend-line/) (خطية، أسية، وغيرها) وتحديثها بواسطة Aspose.Slides؛ يتم إعادة حساب معلماتها تلقائيًا من بيانات السلسلة، لذا لا تحتاج إلى تنفيذ حساباتك الخاصة.
+نعم. [خطوط الاتجاه](/slides/ar/nodejs-java/trend-line/) (خطية، أسية، وغيرها) تُضاف وتُحدّث بواسطة Aspose.Slides؛ يتم إعادة حساب معلماتها من بيانات السلسلة تلقائيًا، لذا لا تحتاج إلى تنفيذ حساباتك الخاصة.
 
-**إذا كان العرض التقديمي يحتوي على مخططات متعددة بروابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**
+**إذا كان للعرض تقديمي عدة مخططات بروابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**
 
-نعم. يمكن لكل مخطط الإشارة إلى [دفتر عمل خارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) خاص به، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.
+نعم. يمكن لكل مخطط الإشارة إلى [دفتر عمل خارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/)، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.

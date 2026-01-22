@@ -1,14 +1,36 @@
 ---
-title: Manipulations de formes
+title: Gérer les formes de présentation en JavaScript
+linktitle: Manipulation de formes
 type: docs
 weight: 40
 url: /fr/nodejs-java/shape-manipulations/
+keywords:
+- forme PowerPoint
+- forme de présentation
+- forme sur diapositive
+- trouver forme
+- cloner forme
+- supprimer forme
+- masquer forme
+- modifier l'ordre des formes
+- obtenir l'ID Interop de la forme
+- texte alternatif de forme
+- formats de mise en page de forme
+- forme en SVG
+- forme vers SVG
+- aligner forme
+- PowerPoint
+- présentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Apprenez à créer, modifier et optimiser les formes en utilisant JavaScript et Aspose.Slides pour Node.js via Java, et à produire des présentations PowerPoint haute performance."
 ---
 
 ## **Trouver une forme dans la diapositive**
-Cet article décrit une technique simple pour faciliter la recherche d’une forme spécifique sur une diapositive sans utiliser son Id interne. Il est important de savoir que les fichiers de présentation PowerPoint ne disposent d’aucun moyen d’identifier les formes sur une diapositive autre qu’un Id unique interne. Il semble difficile pour les développeurs de trouver une forme en utilisant son Id unique interne. Toutes les formes ajoutées aux diapositives possèdent un texte alternatif. Nous suggérons aux développeurs d’utiliser le texte alternatif pour rechercher une forme spécifique. Vous pouvez utiliser MS PowerPoint pour définir le texte alternatif des objets que vous prévoyez de modifier ultérieurement.
+Ce sujet décrira une technique simple pour faciliter aux développeurs la recherche d’une forme spécifique sur une diapositive sans utiliser son Id interne. Il est important de savoir que les fichiers de présentation PowerPoint ne possèdent aucun moyen d’identifier les formes sur une diapositive, à l’exception d’un Id unique interne. Il semble difficile pour les développeurs de trouver une forme en utilisant son Id unique interne. Toutes les formes ajoutées aux diapositives possèdent un texte alternatif. Nous suggérons aux développeurs d’utiliser le texte alternatif pour rechercher une forme spécifique. Vous pouvez utiliser MS PowerPoint pour définir le texte alternatif des objets que vous prévoyez de modifier ultérieurement.
 
-Après avoir défini le texte alternatif de la forme souhaitée, vous pouvez ouvrir cette présentation avec Aspose.Slides for Node.js via Java et parcourir toutes les formes ajoutées à une diapositive. À chaque itération, vous pouvez vérifier le texte alternatif de la forme et la forme dont le texte alternatif correspond sera celle dont vous avez besoin. Pour illustrer cette technique de manière plus claire, nous avons créé une méthode, [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) qui permet de trouver une forme spécifique dans une diapositive et renvoie simplement cette forme.
+Après avoir défini le texte alternatif de la forme souhaitée, vous pouvez ouvrir cette présentation en utilisant Aspose.Slides for Node.js via Java et parcourir toutes les formes ajoutées à une diapositive. À chaque itération, vous pouvez vérifier le texte alternatif de la forme et la forme dont le texte alternatif correspond sera celle que vous recherchez. Pour illustrer mieux cette technique, nous avons créé une méthode, [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) qui permet de trouver une forme spécifique dans une diapositive et renvoie simplement cette forme.
 ```javascript
 // Instancier une classe Presentation qui représente le fichier de présentation
 var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
@@ -44,14 +66,16 @@ function findShape(slide, altText) {
 
 
 ## **Cloner une forme**
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Obtenir la référence d’une diapositive en utilisant son indice.
-1. Accéder à la collection de formes de la diapositive source.
-1. Ajouter une nouvelle diapositive à la présentation.
-1. Cloner les formes de la collection de formes de la diapositive source vers la nouvelle diapositive.
-1. Enregistrer la présentation modifiée au format PPTX.
+Pour cloner une forme sur une diapositive en utilisant Aspose.Slides for Node.js via Java :
 
-L’exemple ci‑dessous ajoute une forme groupe à une diapositive.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Obtenez la référence d’une diapositive en utilisant son index.
+1. Accédez à la collection de formes de la diapositive source.
+1. Ajoutez une nouvelle diapositive à la présentation.
+1. Clonez les formes de la collection de formes de la diapositive source vers la nouvelle diapositive.
+1. Enregistrez la présentation modifiée au format PPTX.
+
+L’exemple ci‑dessous ajoute une forme groupée à une diapositive.
 ```javascript
 // Instancier la classe Presentation
 var pres = new aspose.slides.Presentation("Source Frame.pptx");
@@ -63,7 +87,7 @@ try {
     destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
     destShapes.addClone(sourceShapes.get_Item(2));
     destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // Enregistrer le fichier PPTX sur le disque
+    // Écrire le fichier PPTX sur le disque
     pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -75,13 +99,14 @@ try {
 
 ## **Supprimer une forme**
 Aspose.Slides for Node.js via Java permet aux développeurs de supprimer n’importe quelle forme. Pour supprimer la forme d’une diapositive, veuillez suivre les étapes ci‑dessous :
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Accéder à la première diapositive.
-1. Rechercher la forme avec un AlternativeText spécifique.
-1. Supprimer la forme.
-1. Enregistrer le fichier sur le disque.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Accédez à la première diapositive.
+1. Trouvez la forme avec un AlternativeText spécifique.
+1. Supprimez la forme.
+1. Enregistrez le fichier sur le disque.
 ```javascript
-// Créer l'objet Presentation
+// Créer un objet Presentation
 var pres = new aspose.slides.Presentation();
 try {
     // Obtenir la première diapositive
@@ -109,11 +134,12 @@ try {
 
 ## **Masquer une forme**
 Aspose.Slides for Node.js via Java permet aux développeurs de masquer n’importe quelle forme. Pour masquer la forme d’une diapositive, veuillez suivre les étapes ci‑dessus :
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Accéder à la première diapositive.
-1. Rechercher la forme avec un AlternativeText spécifique.
-1. Masquer la forme.
-1. Enregistrer le fichier sur le disque.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Accédez à la première diapositive.
+1. Trouvez la forme avec un AlternativeText spécifique.
+1. Masquez la forme.
+1. Enregistrez le fichier sur le disque.
 ```javascript
 // Instancier la classe Presentation qui représente le PPTX
 var pres = new aspose.slides.Presentation();
@@ -142,14 +168,15 @@ try {
 
 
 ## **Modifier l’ordre des formes**
-Aspose.Slides for Node.js via Java permet aux développeurs de réorganiser les formes. Réorganiser les formes définit quelle forme est au premier plan ou à l’arrière-plan. Pour réorganiser les formes d’une diapositive, veuillez suivre les étapes ci‑dessous :
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Accéder à la première diapositive.
-1. Ajouter une forme.
-1. Ajouter du texte dans le cadre de texte de la forme.
-1. Ajouter une autre forme aux mêmes coordonnées.
-1. Réorganiser les formes.
-1. Enregistrer le fichier sur le disque.
+Aspose.Slides for Node.js via Java permet aux développeurs de réorganiser les formes. Réorganiser les formes indique quelle forme est au premier plan ou à l’arrière-plan. Pour réorganiser les formes d’une diapositive, veuillez suivre les étapes ci‑dessous :
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Accédez à la première diapositive.
+1. Ajoutez une forme.
+1. Ajoutez du texte dans le cadre de texte de la forme.
+1. Ajoutez une autre forme avec les mêmes coordonnées.
+1. Réorganisez les formes.
+1. Enregistrez le fichier sur le disque.
 ```javascript
 var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
 try {
@@ -171,12 +198,12 @@ try {
 ```
 
 
-## **Obtenir l’ID de forme Interop**
-Aspose.Slides for Node.js via Java permet aux développeurs d’obtenir un identifiant unique de forme au niveau de la diapositive, contrairement à la méthode [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) qui permet d’obtenir un identifiant unique au niveau de la présentation. La méthode [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) a été ajoutée aux classes [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) et [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). La valeur renvoyée par la méthode [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) correspond à la valeur de l’Id de l’objet Microsoft.Office.Interop.PowerPoint.Shape. Vous trouverez ci‑dessous un exemple de code.
+## **Obtenir l’identifiant Interop de la forme**
+Aspose.Slides for Node.js via Java permet aux développeurs d’obtenir un identifiant de forme unique au niveau de la diapositive, contrairement à la méthode [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) qui fournit un identifiant unique au niveau de la présentation. La méthode [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) a été ajoutée aux classes [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) respectivement. La valeur renvoyée par la méthode [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) correspond à la valeur de l’Id de l’objet Microsoft.Office.Interop.PowerPoint.Shape. Le code d’exemple ci‑dessous est fourni.
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Obtention de l'identifiant de forme unique dans la portée de la diapositive
+    // Obtention de l'identifiant unique de la forme dans la portée de la diapositive
     var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
 } finally {
     if (pres != null) {
@@ -187,14 +214,20 @@ try {
 
 
 ## **Définir le texte alternatif pour une forme**
-Aspose.Slides for Node.js via Java permet aux développeurs de définir l’AlternateText de n’importe quelle forme. Les formes d’une présentation peuvent être distinguées à l’aide de la méthode [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) ou du [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-). Les méthodes [setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) et [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) peuvent être lues ou définies avec Aspose.Slides ainsi qu’avec Microsoft PowerPoint. En utilisant cette méthode, vous pouvez marquer une forme et effectuer différentes opérations telles que la suppression d’une forme, son masquage ou son réordonnancement sur une diapositive. Pour définir l’AlternateText d’une forme, veuillez suivre les étapes ci‑dessous :
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Accéder à la première diapositive.
-1. Ajouter n’importe quelle forme à la diapositive.
-1. Effectuer des opérations avec la forme nouvellement ajoutée.
-1. Parcourir les formes pour en trouver une.
-1. Définir l’AlternativeText.
-1. Enregistrer le fichier sur le disque.
+Aspose.Slides for Node.js via Java permet aux développeurs de définir le AlternateText de toute forme.
+Les formes d’une présentation peuvent être distinguées à l’aide de la méthode [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) ou [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-).
+Les méthodes [setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) et [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) peuvent être lues ou définies en utilisant Aspose.Slides ainsi que Microsoft PowerPoint.
+En utilisant cette méthode, vous pouvez marquer une forme et effectuer différentes opérations comme la suppression d’une forme,
+le masquage d’une forme ou le réordonnancement des formes sur une diapositive.
+Pour définir le AlternateText d’une forme, veuillez suivre les étapes ci‑dessous :
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Accédez à la première diapositive.
+1. Ajoutez n’importe quelle forme à la diapositive.
+1. Effectuez des opérations avec la forme nouvellement ajoutée.
+1. Parcourez les formes pour en trouver une.
+1. Définissez le AlternativeText.
+1. Enregistrez le fichier sur le disque.
 ```javascript
 // Instancier la classe Presentation qui représente le PPTX
 var pres = new aspose.slides.Presentation();
@@ -223,9 +256,9 @@ try {
 
 
 ## **Accéder aux formats de mise en page d’une forme**
-Aspose.Slides for Node.js via Java fournit une API simple pour accéder aux formats de mise en page d’une forme. Cet article montre comment accéder à ces formats.
+Aspose.Slides for Node.js via Java fournit une API simple pour accéder aux formats de mise en page d’une forme. Cet article montre comment accéder aux formats de mise en page.
 
-Vous trouverez ci‑dessous un exemple de code.
+Le code d’exemple ci‑dessus est fourni.
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -245,8 +278,8 @@ try {
 ```
 
 
-## **Rendu d’une forme au format SVG**
-À présent, Aspose.Slides for Node.js via Java prend en charge le rendu d’une forme au format SVG. La méthode [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (et ses surcharges) a été ajoutée aux classes [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) et [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). Cette méthode permet d’enregistrer le contenu de la forme sous forme de fichier SVG. L’extrait de code ci‑dessous montre comment exporter la forme d’une diapositive vers un fichier SVG.
+## **Rendre une forme au format SVG**
+Maintenant, Aspose.Slides for Node.js via Java prend en charge le rendu d’une forme au format SVG. La méthode [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (et sa surcharge) a été ajoutée aux classes [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). Cette méthode permet d’enregistrer le contenu de la forme dans un fichier SVG. L’extrait de code ci‑dessous montre comment exporter la forme d’une diapositive vers un fichier SVG.
 ```javascript
 var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -268,11 +301,11 @@ try {
 
 
 ## **Alignement des formes**
-Aspose.Slides permet d’aligner les formes soit par rapport aux marges de la diapositive, soit les unes par rapport aux autres. À cette fin, la méthode surchargée [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) a été ajoutée. L’enumération [ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) définit les options d’alignement possibles.
+Aspose.Slides permet d’aligner les formes soit par rapport aux marges de la diapositive, soit par rapport les unes aux autres. À cet effet, la méthode surchargée [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) a été ajoutée. L’énumération [ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) définit les options d’alignement possibles.
 
 **Exemple 1**
 
-Le code source ci‑dessous aligne les formes avec les indices 1, 2 et 4 le long du bord supérieur de la diapositive.
+Le code source ci‑dessous aligne les formes d’indices 1, 2 et 4 le long de la bordure supérieure de la diapositive.
 ```javascript
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
@@ -305,11 +338,11 @@ try {
 
 
 ## **Propriétés de retournement**
-Dans Aspose.Slides, la classe [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) offre un contrôle du miroir horizontal et vertical des formes via ses propriétés `flipH` et `flipV`. Ces deux propriétés sont de type `byte`, autorisant les valeurs `1` pour indiquer un retournement, `0` pour aucun retournement, ou `-1` pour le comportement par défaut. Ces valeurs sont accessibles depuis le [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) d’une forme.
+Dans Aspose.Slides, la classe [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) offre un contrôle du miroir horizontal et vertical des formes via ses propriétés `flipH` et `flipV`. Les deux propriétés sont de type `byte`, autorisant les valeurs `1` pour indiquer un retournement, `0` pour aucun retournement, ou `-1` pour utiliser le comportement par défaut. Ces valeurs sont accessibles depuis le [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) d’une forme.
 
-Pour modifier les réglages de retournement, une nouvelle instance de [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) est créée avec la position et la taille actuelles de la forme, les valeurs souhaitées pour `flipH` et `flipV`, ainsi que l’angle de rotation. L’attribution de cette instance au [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) de la forme et l’enregistrement de la présentation appliquent les transformations de miroir et les enregistrent dans le fichier de sortie.
+Pour modifier les paramètres de retournement, une nouvelle instance de [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) est construite avec la position et la taille actuelles de la forme, les valeurs souhaitées pour `flipH` et `flipV`, ainsi que l’angle de rotation. L’affectation de cette instance au [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) de la forme et l’enregistrement de la présentation appliquent les transformations de miroir et les enregistrent dans le fichier de sortie.
 
-Supposons que nous ayons un fichier sample.pptx dont la première diapositive contient une seule forme avec les réglages de retournement par défaut, comme indiqué ci‑dessus.
+Supposons que nous disposions d’un fichier sample.pptx dans lequel la première diapositive contient une seule forme avec les paramètres de retournement par défaut, comme indiqué ci‑dessous.
 
 ![The shape to be flipped](shape_to_be_flipped.png)
 
@@ -345,20 +378,18 @@ try {
 ```
 
 
-Le résultat :
-
 ![The flipped shape](flipped_shape.png)
 
 ## **FAQ**
 
-**Puis‑je combiner des formes (union/intersection/soustraction) sur une diapositive comme dans un éditeur de bureau ?**
+**Puis-je combiner des formes (union/intersection/soustraction) sur une diapositive comme dans un éditeur de bureau ?**
 
-Il n’existe pas d’API d’opérations booléennes intégrée. Vous pouvez l’approximer en construisant vous‑même le contour désiré — par exemple, calculer la géométrie résultante (via [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)) et créer une nouvelle forme avec ce contour, en supprimant éventuellement les originales.
+Il n’existe pas d’API d’opération booléenne intégrée. Vous pouvez l’approcher en construisant vous‑même le contour désiré — par exemple, calculer la géométrie résultante (via [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)) et créer une nouvelle forme avec ce contour, en supprimant éventuellement les originales.
 
-**Comment contrôler l’ordre d’empilement (z‑order) pour qu’une forme reste toujours « au premier plan » ?**
+**Comment puis‑je contrôler l’ordre d’empilement (z‑order) afin qu’une forme reste toujours « au premier plan » ?**
 
-Modifiez l’ordre d’insertion ou de déplacement dans la collection [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) de la diapositive. Pour des résultats prévisibles, finalisez le z‑order après toutes les autres modifications de la diapositive.
+Modifiez l’ordre d’insertion/déplacement au sein de la collection [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) de la diapositive. Pour des résultats prévisibles, finalisez le z‑order après toutes les autres modifications de la diapositive.
 
 **Puis‑je « verrouiller » une forme pour empêcher les utilisateurs de la modifier dans PowerPoint ?**
 
-Oui. Définissez les [drapeaux de protection au niveau de la forme](/slides/fr/nodejs-java/applying-protection-to-presentation/) (par exemple, verrouiller la sélection, le déplacement, le redimensionnement, les modifications de texte). Si nécessaire, appliquez des restrictions similaires sur la diapositive maître ou le masque. Notez qu’il s’agit d’une protection au niveau de l’interface utilisateur, pas d’une fonctionnalité de sécurité ; pour une protection plus forte, combinez‑la avec des restrictions au niveau du fichier comme les [recommandations en lecture seule ou les mots de passe](/slides/fr/nodejs-java/password-protected-presentation/).
+Oui. Définissez les drapeaux de protection au niveau de la forme (par ex. verrouiller la sélection, le déplacement, le redimensionnement, les modifications de texte). Si nécessaire, appliquez les restrictions sur le masque ou la disposition. Notez qu’il s’agit d’une protection au niveau de l’interface utilisateur, et non d’une fonctionnalité de sécurité ; pour une protection plus forte, combinez‑la avec des restrictions au niveau du fichier comme les [recommandations en lecture seule ou mots de passe](/slides/fr/nodejs-java/password-protected-presentation/).

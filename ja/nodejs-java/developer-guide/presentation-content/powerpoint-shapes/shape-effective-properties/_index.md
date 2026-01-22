@@ -1,19 +1,35 @@
 ---
-title: シェイプの有効プロパティ
+title: JavaScript でプレゼンテーションからシェイプの有効プロパティを取得
+linktitle: 有効プロパティ
 type: docs
 weight: 50
 url: /ja/nodejs-java/shape-effective-properties/
+keywords:
+- シェイプ プロパティ
+- カメラ プロパティ
+- ライトリグ
+- ベベル シェイプ
+- テキスト フレーム
+- テキスト スタイル
+- フォント 高さ
+- 塗りつぶし 書式
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java が、正確な PowerPoint 表示のためにシェイプの有効なプロパティを計算し適用する方法を紹介します。"
 ---
 
-このトピックでは、**effective** と **local** のプロパティについて説明します。これらのレベルで直接値を設定した場合
+このトピックでは、**effective** と **local** プロパティについて説明します。これらのレベルで値を直接設定する場合
 
-1. スライド上の部分プロパティ;
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプのテキストスタイル（該当するテキストフレームシェイプがある場合）;
-1. プレゼンテーションのグローバルテキスト設定;
+1. パーツのスライド上のプロパティで;
+1. レイアウトまたはマスタースライド上のプロトタイプシェイプテキストスタイルで（パーツのテキストフレームシェイプにある場合）;
+1. プレゼンテーション全体のテキスト設定で;
 
-これらの値は **local** 値と呼ばれます。任意のレベルで **local** 値は定義されても、省略されても構いません。しかし、アプリケーションがその部分の見た目を知る必要があるときは **effective** 値を使用します。ローカルフォーマットから **getEffective()** メソッドを呼び出すことで、effective 値を取得できます。
+これらの値は **local** 値と呼ばれます。任意のレベルで、**local** 値は定義されても、されなくてもかまいません。但し、アプリケーションがパーツの外観を知る必要があるときは、**effective** 値を使用します。**getEffective()** メソッドをローカルフォーマットから呼び出すことで、effective 値を取得できます。
 
-このサンプルコードは effective 値の取得方法を示しています:
+このサンプルコードは、effective 値の取得方法を示しています。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -30,10 +46,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of the Camera**
-Aspose.Slides for Node.js via Java を使用すると、カメラの effective プロパティを取得できます。この目的のために、[**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) クラスが Aspose.Slides に追加されました。[CameraEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) クラスは、effective カメラプロパティを含む不変オブジェクトを表します。[**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) クラスのインスタンスは、[**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData) クラスの一部として使用されます。このクラスは、[ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) ペアです。
+## **カメラのEffectiveプロパティの取得**
+Aspose.Slides for Node.js via Java を使用すると、開発者はカメラの effective プロパティを取得できます。この目的のために、Aspose.Slides に **CameraEffectiveData** クラスが追加されました。**CameraEffectiveData** クラスは、effective カメラ プロパティを保持する不変オブジェクトを表します。**CameraEffectiveData** クラスのインスタンスは **ThreeDFormatEffectiveData** クラスの一部として使用され、これは [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) のペアである [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスに対応します。
 
-このサンプルコードはカメラの effective プロパティ取得方法を示しています:
+このサンプルコードは、カメラの effective プロパティを取得する方法を示しています。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -50,10 +66,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of Light Rig**
-Aspose.Slides for Node.js via Java を使用すると、ライトリグの effective プロパティを取得できます。この目的のために、[**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) クラスが Aspose.Slides に追加されました。[LightRigEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) クラスは、effective ライトルィグプロパティを含む不変オブジェクトを表します。[**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) クラスのインスタンスは、[**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData) クラスの一部として使用され、[ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) ペアとなります。
+## **Light Rig のEffectiveプロパティの取得**
+Aspose.Slides for Node.js via Java を使用すると、開発者は Light Rig の effective プロパティを取得できます。この目的のために、Aspose.Slides に **LightRigEffectiveData** クラスが追加されました。**LightRigEffectiveData** クラスは、effective ライトリグ プロパティを保持する不変オブジェクトを表します。**LightRigEffectiveData** クラスのインスタンスは **ThreeDFormatEffectiveData** クラスの一部として使用され、これは [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) のペアである [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスに対応します。
 
-このサンプルコードはライトリグの effective プロパティ取得方法を示しています:
+このサンプルコードは、Light Rig の effective プロパティを取得する方法を示しています。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -69,10 +85,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of Bevel Shape**
-Aspose.Slides for Node.js via Java を使用すると、ベベルシェイプの effective プロパティを取得できます。この目的のために、[**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) クラスが Aspose.Slides に追加されました。[ShapeBevelEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) クラスは、effective なシェイプの面リリーフプロパティを含む不変オブジェクトを表します。[**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) クラスのインスタンスは、[**ThreeDFormatEffectiveData**]([**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData)) クラスの一部として使用され、[ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) ペアです。
+## **ベベルシェイプの Effective プロパティの取得**
+Aspose.Slides for Node.js via Java を使用すると、開発者はベベルシェイプの effective プロパティを取得できます。この目的のために、Aspose.Slides に **ShapeBevelEffectiveData** クラスが追加されました。**ShapeBevelEffectiveData** クラスは、effective なシェイプの面リリーフ プロパティを保持する不変オブジェクトを表します。**ShapeBevelEffectiveData** クラスのインスタンスは **ThreeDFormatEffectiveData** クラスの一部として使用され、これは [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) のペアである [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスに対応します。
 
-このサンプルコードはベベルシェイプの effective プロパティ取得方法を示しています:
+このサンプルコードは、ベベルシェイプの effective プロパティを取得する方法を示しています。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -89,10 +105,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of a Text Frame**
-Aspose.Slides for Node.js via Java を使用すると、テキストフレームの effective プロパティを取得できます。この目的のために、[**TextFrameFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormatEffectiveData) クラスが Aspose.Slides に追加されました。このクラスは effective なテキストフレームの書式プロパティを保持します。
+## **テキストフレームの Effective プロパティの取得**
+Aspose.Slides for Node.js via Java を使用すると、テキストフレームの effective プロパティを取得できます。この目的のために、Aspose.Slides に **TextFrameFormatEffectiveData** クラスが追加されました。これは effective なテキストフレームの書式設定プロパティを含みます。
 
-このサンプルコードはテキストフレームの effective 書式プロパティ取得方法を示しています:
+このサンプルコードは、effective なテキストフレーム書式設定プロパティを取得する方法を示しています。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -114,10 +130,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of a Text Style**
-Aspose.Slides for Node.js via Java を使用すると、テキストスタイルの effective プロパティを取得できます。この目的のために、[**TextStyleEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextStyleEffectiveData) クラスが Aspose.Slides に追加されました。このクラスは effective なテキストスタイルプロパティを保持します。
+## **テキストスタイルの Effective プロパティの取得**
+Aspose.Slides for Node.js via Java を使用すると、テキストスタイルの effective プロパティを取得できます。この目的のために、Aspose.Slides に **TextStyleEffectiveData** クラスが追加されました。これは effective なテキストスタイル プロパティを含みます。
 
-このサンプルコードはテキストスタイルの effective プロパティ取得方法を示しています:
+このサンプルコードは、effective なテキストスタイル プロパティを取得する方法を示しています。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -139,8 +155,8 @@ try {
 ```
 
 
-## **Getting Effective Font Height Value**
-Aspose.Slides for Node.js via Java を使用すると、フォント高さの effective プロパティを取得できます。ここでは、プレゼンテーション構造の異なるレベルでローカルフォント高さを設定した後に、部分の effective フォント高さがどのように変化するかを示すコードを提供します:
+## **Effective フォント高さ値の取得**
+Aspose.Slides for Node.js via Java を使用すると、フォント高さの effective プロパティを取得できます。ここでは、プレゼンテーションの各レベルでローカルフォント高さが設定された後に、パーツの effective フォント高さ値が変化する様子を示すコードを提供します。
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -179,8 +195,8 @@ try {
 ```
 
 
-## **Getting Effective Fill Format for Table**
-Aspose.Slides for Node.js via Java を使用すると、テーブルの各論理部品に対する effective 塗りつぶし書式を取得できます。この目的のために、[**CellFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CellFormatEffectiveData) クラスが Aspose.Slides に追加されました。このクラスは effective な塗りつぶし書式プロパティを保持します。注意点として、セルの書式は常に行の書式より優先され、行は列の書式より優先され、列はテーブル全体の書式より優先されます。
+## **テーブルの Effective 塗りつぶし書式の取得**
+Aspose.Slides for Node.js via Java を使用すると、テーブルのさまざまな論理部分の effective 塗りつぶし書式を取得できます。この目的のために、Aspose.Slides に **CellFormatEffectiveData** クラスが追加されました。これは effective な塗りつぶし書式プロパティを含みます。次の点に注意してください：セルの書式設定は常に行の書式設定より優先され、行は列の書式設定より優先され、列はテーブル全体の書式設定より優先されます。
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -203,30 +219,23 @@ try {
 
 ## **FAQ**
 
-**How can I tell that I got a "snapshot" rather than a "live object," and when should I read effective properties again?**
+**取得したオブジェクトが「スナップショット」か「ライブオブジェクト」かをどのように判断し、いつ effective プロパティを再取得すべきですか？**
+EffectiveData オブジェクトは、呼び出し時点で計算された値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合、更新された値を取得するために effective データを再取得してください。
 
-EffectiveData オブジェクトは呼び出し時点で計算された値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合は、再度 effective データを取得して更新された値を取得してください。
+**レイアウト/マスタースライドを変更すると、すでに取得した effective プロパティに影響しますか？**
+はい、ただし再度読み取ったときにのみ反映されます。すでに取得した EffectiveData オブジェクトは自動で更新されません—レイアウトまたはマスターを変更した後に再度取得してください。
 
-**Does changing the layout/master slide affect effective properties that have already been retrieved?**
+**EffectiveData を通じて値を変更できますか？**
+いいえ。EffectiveData は読み取り専用です。ローカルの書式設定オブジェクト（シェイプ/テキスト/3D など）を変更し、必要に応じて再度 effective 値を取得してください。
 
-はい、ただし再取得したときにのみ反映されます。既に取得した EffectiveData オブジェクトは自動的に更新されないため、レイアウトやマスターを変更した後に再度要求してください。
+**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
+effective 値はデフォルトのメカニズム（PowerPoint/Aspose.Slides の既定値）により決定されます。その解決された値が EffectiveData のスナップショットに含まれます。
 
-**Can I modify values through EffectiveData?**
+**effective フォント値から、どのレベルがサイズまたはフォント名を提供したか判断できますか？**
+直接はできません。EffectiveData は最終的な値を返すだけです。元を調べるには、パーツ/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを確認し、最初の明示的な定義がどこにあるかを見つけます。
 
-できません。EffectiveData は読み取り専用です。ローカルの書式オブジェクト（シェイプ/テキスト/3D など）で変更し、必要に応じて再度 effective 値を取得してください。
+**EffectiveData の値がローカル値と同じに見えることがあるのはなぜですか？**
+ローカル値が最終的な値となったため（上位レベルからの継承が不要）です。その場合、effective 値はローカル値と同一になります。
 
-**What happens if a property is not set at the shape level, nor in the layout/master, nor in global settings?**
-
-そのプロパティは PowerPoint/Aspose.Slides のデフォルトメカニズムに従って決定されます。解決されたデフォルト値が EffectiveData スナップショットに含まれます。
-
-**From an effective font value, can I tell which level provided the size or typeface?**
-
-直接は分かりません。EffectiveData は最終的な値のみを返します。どのレベルで設定されたかを知りたい場合は、部分/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを順に確認し、最初に明示的に定義された場所を特定してください。
-
-**Why do EffectiveData values sometimes look identical to the local ones?**
-
-ローカルの値が最終的な値となり、上位レベルからの継承が不要だった場合です。このようなケースでは effective 値とローカル値が一致します。
-
-**When should I use effective properties, and when should I work only with local ones?**
-
-すべての継承が適用された「実際に表示される」結果が必要なときは EffectiveData を使用します（例: 色、インデント、サイズの調整）。特定のレベルで書式を変更したい場合はローカルプロパティを操作し、必要に応じて EffectiveData を再取得して結果を確認してください。
+**effective プロパティを使用すべき時と、ローカルプロパティだけで作業すべき時はいつですか？**
+すべての継承が適用された「実際に表示される」結果が必要なときは EffectiveData を使用します（例：色、インデント、サイズを合わせる場合）。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて EffectiveData を再取得して結果を確認してください。

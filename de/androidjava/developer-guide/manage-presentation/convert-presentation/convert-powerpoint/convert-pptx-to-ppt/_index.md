@@ -17,28 +17,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertieren Sie PPTX mühelos zu PPT mit Aspose.Slides für Android über Java – stellen Sie nahtlose Kompatibilität mit PowerPoint-Formaten sicher und bewahren Sie das Layout und die Qualität Ihrer Präsentation."
+description: "PPTX einfach mit Aspose.Slides für Android via Java in PPT konvertieren - sorgen Sie für nahtlose Kompatibilität mit PowerPoint-Formaten und erhalten Sie das Layout und die Qualität Ihrer Präsentation."
 ---
 
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man eine PowerPoint‑Präsentation im PPTX‑Format mit Java in das PPT‑Format konvertiert. Das folgende Thema wird behandelt.
+Dieser Artikel erklärt, wie man PowerPoint-Präsentationen im PPTX‑Format mit Java in das PPT‑Format konvertiert. Das folgende Thema wird behandelt.
 
 - PPTX in PPT mit Java konvertieren
 
 ## **PPTX in PPT unter Android konvertieren**
 
-Für Java‑Beispielcode zum Konvertieren von PPTX nach PPT siehe bitte den folgenden Abschnitt, d.h. [Convert PPTX to PPT](#convert-pptx-to-ppt). Er lädt lediglich die PPTX‑Datei und speichert sie im PPT‑Format. Durch Angabe verschiedener Speicherformate kann die PPTX‑Datei auch in viele andere Formate wie PDF, XPS, ODP, HTML usw. gespeichert werden, wie in diesen Artikeln erläutert.
+Für Java‑Beispielcode zur Konvertierung von PPTX in PPT siehe den Abschnitt unten, also [PPTX in PPT konvertieren](#convert-pptx-to-ppt). Er lädt einfach die PPTX‑Datei und speichert sie im PPT‑Format. Durch Angabe verschiedener Speicherformate können Sie die PPTX‑Datei auch in viele andere Formate wie PDF, XPS, ODP, HTML usw. speichern, wie in diesen Artikeln beschrieben.
 
-- [Java Convert PPTX zu PDF](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-pdf/)
-- [Java Convert PPTX zu XPS](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-xps/)
-- [Java Convert PPTX zu HTML](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-html/)
-- [Java Convert PPTX zu ODP](https://docs.aspose.com/slides/androidjava/save-presentation/)
-- [Java Convert PPTX zu Bild](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-png/)
+- [PPTX in PDF konvertieren unter Android](/slides/de/androidjava/convert-powerpoint-to-pdf/)
+- [PPTX in XPS konvertieren unter Android](/slides/de/androidjava/convert-powerpoint-to-xps/)
+- [PPTX in HTML konvertieren unter Android](/slides/de/androidjava/convert-powerpoint-to-html/)
+- [PPTX in ODP konvertieren unter Android](/slides/de/androidjava/save-presentation/)
+- [PPTX in PNG konvertieren unter Android](/slides/de/androidjava/convert-powerpoint-to-png/)
 
 ## **PPTX in PPT konvertieren**
-
-Um eine PPTX in PPT zu konvertieren, übergeben Sie einfach den Dateinamen und das Speicherformat an die **Save**‑Methode der Klasse [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). Das Java‑Codebeispiel unten konvertiert eine Präsentation von PPTX nach PPT mit den Standardoptionen.
+Um ein PPTX in PPT zu konvertieren, übergeben Sie einfach den Dateinamen und das Speicherformat an die **Save**‑Methode der Klasse [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). Der Java‑Code unten konvertiert eine Präsentation von PPTX nach PPT mit den Standardoptionen.
 ```java
 // Instanziieren Sie ein Presentation-Objekt, das eine PPTX-Datei darstellt
 Presentation presentation = new Presentation("template.pptx");
@@ -50,14 +49,14 @@ presentation.save("output.ppt", SaveFormat.Ppt);
 
 ## **FAQ**
 
-**Überleben alle PPTX‑Effekte und -Funktionen beim Speichern im legacy PPT (97–2003)-Format?**
+**Überleben alle PPTX‑Effekte und -Funktionen beim Speichern im Legacy‑PPT‑Format (97–2003)?**
 
-Nicht immer. Das PPT‑Format fehlt einige neuere Möglichkeiten (z.B. bestimmte Effekte, Objekte und Verhaltensweisen), sodass Funktionen während der Konvertierung vereinfacht oder gerastert werden können.
+Nicht immer. Das PPT‑Format fehlt es an einigen neueren Möglichkeiten (z. B. bestimmte Effekte, Objekte und Verhaltensweisen), sodass Funktionen bei der Konvertierung vereinfacht oder gerastert werden können.
 
-**Kann ich nur ausgewählte Folien in PPT konvertieren anstatt der gesamten Präsentation?**
+**Kann ich nur ausgewählte Folien in PPT konvertieren, anstatt die gesamte Präsentation?**
 
-Ein direktes Speichern richtet sich an die gesamte Präsentation. Um bestimmte Folien zu konvertieren, erstellen Sie eine neue Präsentation, die nur diese Folien enthält, und speichern Sie sie als PPT; alternativ können Sie einen Dienst/eine API verwenden, die Parameter für die Konvertierung pro Folie unterstützt.
+Direktes Speichern zielt auf die gesamte Präsentation ab. Um bestimmte Folien zu konvertieren, erstellen Sie eine neue Präsentation mit nur diesen Folien und speichern sie als PPT; alternativ verwenden Sie einen Dienst/API, der Parameter für die Konvertierung pro Folie unterstützt.
 
 **Werden passwortgeschützte Präsentationen unterstützt?**
 
-Ja. Sie können erkennen, ob eine Datei geschützt ist, sie mit einem Passwort öffnen und zudem die [Schutz-/Verschlüsselungseinstellungen](/slides/de/androidjava/password-protected-presentation/) für das gespeicherte PPT konfigurieren.
+Ja. Sie können erkennen, ob eine Datei geschützt ist, sie mit einem Passwort öffnen und auch [Schutz‑/Verschlüsselungseinstellungen](/slides/de/androidjava/password-protected-presentation/) für das gespeicherte PPT konfigurieren.

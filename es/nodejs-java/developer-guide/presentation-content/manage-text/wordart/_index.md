@@ -1,35 +1,52 @@
 ---
-title: WordArt
+title: Crear y aplicar efectos WordArt en JavaScript
+linktitle: WordArt
 type: docs
 weight: 110
 url: /es/nodejs-java/wordart/
+keywords:
+- WordArt
+- crear WordArt
+- plantilla WordArt
+- efecto WordArt
+- efecto sombra
+- efecto de visualización
+- efecto resplandor
+- transformación WordArt
+- efecto 3D
+- efecto sombra exterior
+- efecto sombra interior
+- PowerPoint
+- presentación
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Crear y personalizar efectos WordArt en Aspose.Slides para Node.js. Esta guía paso a paso ayuda a los desarrolladores a mejorar presentaciones con texto profesional."
 ---
 
-## **¿Acerca de WordArt?**
+## **¿Qué es WordArt?**
 
-WordArt o Word Art es una característica que permite aplicar efectos a los textos para que destaquen. Con WordArt, por ejemplo, puedes contornear un texto o rellenarlo con un color (o degradado), añadirle efectos 3D, etc. También puedes inclinar, doblar y estirar la forma de un texto. 
+WordArt o Word Art es una característica que permite aplicar efectos a los textos para que destaquen. Con WordArt, por ejemplo, puedes trazar un contorno a un texto o rellenarlo con un color (o degradado), añadir efectos 3D, etc. También puedes inclinar, doblar y estirar la forma de un texto. 
 
 {{% alert color="primary" %}} 
-
-WordArt le permite tratar un texto como lo haría con un objeto gráfico. En general, WordArt consiste en efectos o modificaciones especiales aplicadas a los textos para hacerlos más atractivos o notorios. 
-
+WordArt permite tratar un texto como lo harías con un objeto gráfico. En general, WordArt consiste en efectos o modificaciones especiales aplicadas a los textos para que resulten más atractivos o llamativos. 
 {{% /alert %}} 
 
 **WordArt en Microsoft PowerPoint**
 
-Para usar WordArt en Microsoft PowerPoint, debe seleccionar una de las plantillas de WordArt predefinidas. Una plantilla de WordArt es un conjunto de efectos que se aplican a un texto o a su forma. 
+Para usar WordArt en Microsoft PowerPoint, debes seleccionar una de las plantillas de WordArt predefinidas. Una plantilla de WordArt es un conjunto de efectos que se aplica a un texto o a su forma. 
 
 **WordArt en Aspose.Slides**
 
-En Aspose.Slides para Node.js a través de Java 20.10, implementamos soporte para WordArt y mejoramos la funcionalidad en versiones posteriores de Aspose.Slides para Node.js a través de Java. 
+En Aspose.Slides for Node.js via Java 20.10, implementamos compatibilidad con WordArt y mejoramos la función en versiones posteriores de Aspose.Slides for Node.js via Java. 
 
-Con Aspose.Slides para Node.js a través de Java, puede crear fácilmente su propia plantilla de WordArt (un efecto o combinación de efectos) en JavaScript y aplicarla a los textos. 
+Con Aspose.Slides for Node.js via Java, puedes crear fácilmente tu propia plantilla de WordArt (un efecto o combinación de efectos) en JavaScript y aplicarla a los textos. 
 
-## **Creación de una Plantilla Simple de WordArt y su Aplicación a un Texto**
+## **Crear una plantilla de WordArt sencilla y aplicarla a un texto**
 
-**Uso de Aspose.Slides** 
+**Usando Aspose.Slides** 
 
-Primero, creamos un texto simple usando este código JavaScript:
+Primero, creamos un texto sencillo usando este código JavaScript:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -45,7 +62,7 @@ try {
 }
 ```
 
-Ahora, establecemos la altura de fuente del texto a un valor mayor para que el efecto sea más notorio mediante este código:
+Ahora, establecemos la altura de la fuente del texto a un valor mayor para que el efecto sea más visible mediante este código:
 ```javascript
 var fontData = new aspose.slides.FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
@@ -53,21 +70,21 @@ portion.getPortionFormat().setFontHeight(36);
 ```
 
 
-**Uso de Microsoft PowerPoint**
+**Usando Microsoft PowerPoint**
 
-Vaya al menú de efectos de WordArt en Microsoft PowerPoint:
+Ve al menú de efectos de WordArt en Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-En el menú de la derecha, puede elegir un efecto de WordArt predefinido. En el menú de la izquierda, puede especificar la configuración de un nuevo WordArt. 
+En el menú de la derecha, puedes elegir un efecto de WordArt predefinido. En el menú de la izquierda, puedes especificar la configuración de un WordArt nuevo. 
 
 Estos son algunos de los parámetros u opciones disponibles:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Uso de Aspose.Slides**
+**Usando Aspose.Slides**
 
-Aquí, aplicamos el color de patrón [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) al texto y añadimos un borde de texto negro de ancho 1 mediante este código:
+Aquí, aplicamos el color de patrón [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) al texto y añadimos un borde negro de ancho 1 al texto usando este código:
 ```javascript
 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -82,19 +99,19 @@ El texto resultante:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## **Aplicación de Otros Efectos de WordArt**
+## **Aplicar otros efectos de WordArt**
 
-**Uso de Microsoft PowerPoint**
+**Usando Microsoft PowerPoint**
 
-Desde la clase del programa, puede aplicar estos efectos a un texto, bloque de texto, forma o elemento similar:
+Desde la clase del programa, puedes aplicar estos efectos a un texto, bloque de texto, forma u otro elemento similar:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Por ejemplo, los efectos Sombra, Reflexión y Resplandor pueden aplicarse a un texto; los efectos Formato 3D y Rotación 3D pueden aplicarse a un bloque de texto; la propiedad Bordes Suaves puede aplicarse a un objeto Forma (todavía tiene efecto cuando no se establece la propiedad Formato 3D). 
+Por ejemplo, los efectos Sombra, Reflexión y Resplandor pueden aplicarse a un texto; los efectos Formato 3D y Rotación 3D pueden aplicarse a un bloque de texto; la propiedad Borde Suave puede aplicarse a un Objeto Forma (aún tiene efecto cuando no se establece la propiedad Formato 3D). 
 
-### **Aplicación de Efectos de Sombra**
+### **Aplicar efectos de Sombra**
 
-Aquí, pretendemos establecer solo las propiedades relacionadas con un texto. Aplicamos el efecto de sombra a un texto usando este código en JavaScript:
+Aquí, pretendemos establecer únicamente las propiedades relacionadas con un texto. Aplicamos el efecto de sombra a un texto usando este código en JavaScript:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
@@ -109,28 +126,27 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowCol
 ```
 
 
-La API de Aspose.Slides admite tres tipos de sombras: OuterShadow, InnerShadow y PresetShadow. 
-
-Con PresetShadow, puede aplicar una sombra a un texto (utilizando valores predefinidos). 
+La API Aspose.Slides admite tres tipos de sombras: OuterShadow, InnerShadow y PresetShadow.  
+Con PresetShadow, puedes aplicar una sombra a un texto (usando valores predefinidos).  
 
 **Uso de Microsoft PowerPoint**
 
-En PowerPoint, puede usar un tipo de sombra. Aquí hay un ejemplo:
+En PowerPoint, puedes usar un tipo de sombra. Aquí tienes un ejemplo:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
 **Uso de Aspose.Slides**
 
-Aspose.Slides en realidad le permite aplicar dos tipos de sombras a la vez: InnerShadow y PresetShadow.
+Aspose.Slides en realidad permite aplicar dos tipos de sombras simultáneamente: InnerShadow y PresetShadow.  
 
 **Notas:**
 
-- Cuando se usan OuterShadow y PresetShadow juntos, solo se aplica el efecto OuterShadow. 
-- Si OuterShadow e InnerShadow se usan simultáneamente, el efecto resultante o aplicado depende de la versión de PowerPoint. Por ejemplo, en PowerPoint 2013, el efecto se duplica. Pero en PowerPoint 2007, se aplica el efecto OuterShadow. 
+- Cuando se usan OuterShadow y PresetShadow juntos, solo se aplica el efecto OuterShadow.  
+- Si se usan OuterShadow e InnerShadow simultáneamente, el efecto resultante o aplicado depende de la versión de PowerPoint. Por ejemplo, en PowerPoint 2013, el efecto se duplica. Pero en PowerPoint 2007, se aplica el efecto OuterShadow.  
 
-### **Aplicación de Visualización a Textos**
+### **Aplicar Display a los textos**
 
-Añadimos visualización al texto mediante este ejemplo de código en JavaScript:
+Añadimos display al texto mediante este ejemplo de código en JavaScript:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -146,7 +162,7 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 ```
 
 
-### **Aplicación del Efecto Resplandor a Textos**
+### **Aplicar efecto de Resplandor a los textos**
 
 Aplicamos el efecto de resplandor al texto para que brille o destaque usando este código:
 ```javascript
@@ -162,12 +178,10 @@ El resultado de la operación:
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-
-Puede cambiar los parámetros de sombra, visualización y resplandor. Las propiedades de los efectos se establecen en cada porción del texto por separado. 
-
+Puedes cambiar los parámetros de sombra, display y resplandor. Las propiedades de los efectos se establecen por separado en cada porción del texto. 
 {{% /alert %}} 
 
-### **Uso de Transformaciones en WordArt**
+### **Usar Transformaciones en WordArt**
 
 Utilizamos la propiedad Transform (inherente a todo el bloque de texto) mediante este código:
 ```javascript
@@ -180,20 +194,18 @@ El resultado:
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-
-Tanto Microsoft PowerPoint como Aspose.Slides para Node.js a través de Java proporcionan una serie de tipos de transformación predefinidos.
-
+Tanto Microsoft PowerPoint como Aspose.Slides for Node.js via Java proporcionan un número determinado de tipos de transformación predefinidos. 
 {{% /alert %}} 
 
 **Uso de PowerPoint**
 
-Para acceder a los tipos de transformación predefinidos, vaya a: **Formato** → **Efecto de texto** → **Transformar**
+Para acceder a los tipos de transformación predefinidos, navega a: **Formato** -> **Efecto de texto** -> **Transformar**  
 
 **Uso de Aspose.Slides**
 
-Para seleccionar un tipo de transformación, use el enum TextShapeType. 
+Para seleccionar un tipo de transformación, utiliza el enum TextShapeType.  
 
-### **Aplicación de efectos 3D a Textos y Formas**
+### **Aplicar efectos 3D a textos y formas**
 
 Establecemos un efecto 3D a una forma de texto usando este código de ejemplo:
 ```javascript
@@ -246,49 +258,47 @@ El resultado de la operación:
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
+La aplicación de efectos 3D a textos o a sus formas y la interacción entre efectos se basa en ciertas reglas. 
 
-La aplicación de efectos 3D a textos o a sus formas y las interacciones entre los efectos se basan en ciertas reglas. 
+Considera una escena para un texto y la forma que contiene ese texto. El efecto 3D contiene la representación del objeto 3D y la escena en la que se coloca el objeto. 
 
-Considere una escena para un texto y la forma que contiene ese texto. El efecto 3D contiene la representación del objeto 3D y la escena en la que se coloca el objeto. 
-
-- Cuando la escena está configurada tanto para la figura como para el texto, la escena de la figura tiene mayor prioridad y la escena del texto se ignora. 
-- Cuando la figura no tiene su propia escena pero posee representación 3D, se usa la escena del texto. 
-- De lo contrario, cuando la forma originalmente no tiene efecto 3D, la forma es plana y el efecto 3D solo se aplica al texto. 
+- Cuando la escena está configurada tanto para la figura como para el texto, la escena de la figura tiene mayor prioridad—se ignora la escena del texto.  
+- Cuando la figura no tiene su propia escena pero dispone de representación 3D, se usa la escena del texto.  
+- En caso contrario—cuando la forma originalmente no tiene efecto 3D—la forma es plana y el efecto 3D sólo se aplica al texto.  
 
 Estas descripciones están relacionadas con los métodos ThreeDFormat.getLightRig() y ThreeDFormat.getCamera(). 
-
 {{% /alert %}} 
 
-## **Aplicar Efectos de Sombra Externa a Textos**
+## **Aplicar efectos de Sombra Exterior a los textos**
 
-Aspose.Slides para Node.js a través de Java proporciona las clases [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IOuterShadow) y [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IInnerShadow) que permiten aplicar efectos de sombra a un texto contenido en [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/classes/TextFrame). Siga estos pasos:
+Aspose.Slides for Node.js via Java proporciona las clases [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/) y [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/innershadow/) que permiten aplicar efectos de sombra a un texto contenido en [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/). Sigue estos pasos:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation). 
-2. Obtenga la referencia de una diapositiva usando su índice. 
-3. Añada un AutoShape de tipo Rectángulo a la diapositiva. 
-4. Acceda al TextFrame asociado con el AutoShape. 
-5. Establezca el FillType del AutoShape a NoFill. 
-6. Instancie la clase OuterShadow 
-7. Establezca el BlurRadius de la sombra. 
-8. Establezca la Direction de la sombra 
-9. Establezca la Distance de la sombra. 
-10. Establezca el RectanglelAlign a TopLeft. 
-11. Establezca el PresetColor de la sombra a Black. 
-12. Guarde la presentación como un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/) . 
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).  
+2. Obtén la referencia de una diapositiva usando su índice.  
+3. Añade un AutoShape de tipo Rectángulo a la diapositiva.  
+4. Accede al TextFrame asociado al AutoShape.  
+5. Establece el FillType del AutoShape a NoFill.  
+6. Instancia la clase OuterShadow.  
+7. Establece el BlurRadius de la sombra.  
+8. Establece la Direction de la sombra.  
+9. Establece la Distance de la sombra.  
+10. Establece el RectanglelAlign a TopLeft.  
+11. Establece el PresetColor de la sombra a Black.  
+12. Guarda la presentación como un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/) .  
 
-Este código de ejemplo en Java —una implementación de los pasos anteriores— muestra cómo aplicar el efecto de sombra externa a un texto:
+Este código de ejemplo en Java—una implementación de los pasos anteriores—muestra cómo aplicar el efecto de sombra exterior a un texto:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
     // Obtener referencia de la diapositiva
     var sld = pres.getSlides().get_Item(0);
-    // Añadir una AutoShape del tipo Rectángulo
+    // Añadir un AutoShape de tipo Rectángulo
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
     // Añadir TextFrame al Rectángulo
     ashp.addTextFrame("Aspose TextBox");
-    // Desactivar el relleno de la forma por si queremos obtener la sombra del texto
+    // Desactivar el relleno de la forma en caso de que queramos obtener la sombra del texto
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Añadir sombra externa y establecer todos los parámetros necesarios
+    // Añadir sombra exterior y establecer todos los parámetros necesarios
     ashp.getEffectFormat().enableOuterShadowEffect();
     var shadow = ashp.getEffectFormat().getOuterShadowEffect();
     shadow.setBlurRadius(4.0);
@@ -306,18 +316,18 @@ try {
 ```
 
 
-## **Aplicar Efecto de Sombra Interna a Formas**
+## **Aplicar efecto de Sombra Interior a formas**
 
-Siga estos pasos:
+Sigue estos pasos:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation). 
-2. Obtenga una referencia de la diapositiva. 
-3. Añada un AutoShape del tipo Rectángulo. 
-4. Habilite InnerShadowEffect. 
-5. Establezca todos los parámetros necesarios. 
-6. Establezca el ColorType como Scheme. 
-7. Establezca el Scheme Color. 
-8. Guarde la presentación como un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/) . 
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).  
+2. Obtén una referencia de la diapositiva.  
+3. Añade un AutoShape del tipo Rectángulo.  
+4. Habilita InnerShadowEffect.  
+5. Establece todos los parámetros necesarios.  
+6. Establece ColorType como Scheme.  
+7. Establece el Scheme Color.  
+8. Guarda la presentación como un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/) .  
 
 Este código de ejemplo (basado en los pasos anteriores) muestra cómo añadir un conector entre dos formas en JavaScript:
 ```javascript
@@ -325,7 +335,7 @@ var pres = new aspose.slides.Presentation();
 try {
     // Obtener referencia de la diapositiva
     var slide = pres.getSlides().get_Item(0);
-    // Agregar una AutoShape del tipo Rectángulo
+    // Agregar un AutoShape de tipo Rectángulo
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Agregar TextFrame al Rectángulo
@@ -343,9 +353,9 @@ try {
     ef.getInnerShadowEffect().getShadowColor().setB(189);
     // Establecer ColorType como Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // Establecer color del esquema
+    // Establecer Scheme Color
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
-    // Guardar la presentación
+    // Guardar presentación
     pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -357,18 +367,18 @@ try {
 
 ## **Preguntas frecuentes**
 
-**¿Puedo usar los efectos de WordArt con diferentes fuentes o escrituras (p. ej., árabe, chino)?**
+**¿Puedo usar efectos de WordArt con diferentes fuentes o escrituras (p. ej., árabe, chino)?**
 
-Sí, Aspose.Slides admite Unicode y funciona con todas las fuentes y escrituras principales. Los efectos de WordArt como sombra, relleno y contorno pueden aplicarse independientemente del idioma, aunque la disponibilidad de fuentes y el renderizado pueden depender de las fuentes del sistema.
+Sí, Aspose.Slides es compatible con Unicode y funciona con todas las fuentes y escrituras principales. Los efectos de WordArt como sombra, relleno y contorno pueden aplicarse independientemente del idioma, aunque la disponibilidad de fuentes y el renderizado pueden depender de las fuentes del sistema.  
 
-**¿Puedo aplicar los efectos de WordArt a los elementos del patrón de diapositivas?**
+**¿Puedo aplicar efectos de WordArt a elementos de la diapositiva maestra?**
 
-Sí, puede aplicar efectos de WordArt a formas en las diapositivas maestra, incluidos los marcadores de título, pies de página o texto de fondo. Los cambios realizados en el diseño maestro se reflejarán en todas las diapositivas asociadas.
+Sí, puedes aplicar efectos de WordArt a las formas en las diapositivas maestras, incluidos los marcadores de posición de título, pies de página o texto de fondo. Los cambios realizados en el diseño maestro se reflejarán en todas las diapositivas asociadas.  
 
 **¿Los efectos de WordArt afectan al tamaño del archivo de la presentación?**
 
-Levemente. Los efectos de WordArt como sombras, resplandores y rellenos degradados pueden incrementar ligeramente el tamaño del archivo debido a los metadatos de formato añadidos, pero la diferencia suele ser insignificante.
+Un poco. Los efectos de WordArt como sombras, resplandores y rellenos degradados pueden incrementar ligeramente el tamaño del archivo debido a los metadatos de formato añadidos, pero la diferencia suele ser insignificante.  
 
 **¿Puedo previsualizar el resultado de los efectos de WordArt sin guardar la presentación?**
 
-Sí, puede renderizar diapositivas que contienen WordArt a imágenes (p. ej., PNG, JPEG) usando el método `getImage` de las clases [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) o [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/). Esto le permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.
+Sí, puedes renderizar diapositivas que contengan WordArt a imágenes (p. ej., PNG, JPEG) usando el método `getImage` de las clases [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) o [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/). Esto te permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.

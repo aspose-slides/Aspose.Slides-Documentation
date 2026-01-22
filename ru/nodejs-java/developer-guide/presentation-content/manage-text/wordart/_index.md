@@ -1,35 +1,51 @@
 ---
-title: WordArt
+title: Создание и применение эффектов WordArt на JavaScript
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ru/nodejs-java/wordart/
+keywords:
+- WordArt
+- Создать WordArt
+- Шаблон WordArt
+- Эффект WordArt
+- Эффект тени
+- Эффект отображения
+- Эффект свечения
+- Трансформация WordArt
+- 3D‑эффект
+- Эффект внешней тени
+- Эффект внутренней тени
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Создавайте и настраивайте эффекты WordArt в Aspose.Slides для Node.js. Это пошаговое руководство помогает разработчикам улучшать презентации с профессиональным текстом."
 ---
 
 ## **О WordArt?**
 
-WordArt или Word Art — это функция, позволяющая применять эффекты к тексту, чтобы он выделялся. С помощью WordArt, например, можно обвести текст контуром или заполнить его цветом (или градиентом), добавить 3D‑эффекты и т.д. Также можно наклонять, изгибать и растягивать форму текста. 
+WordArt (или Word Art) — это функция, позволяющая применять эффекты к тексту, чтобы он выделялся. С помощью WordArt, например, можно обвести текст линией или залить его цветом (или градиентом), добавить 3D‑эффекты и т.д. Также можно наклонять, изгибать и растягивать форму текста. 
 
 {{% alert color="primary" %}} 
-
-WordArt позволяет обращаться с текстом так же, как с графическим объектом. Как правило, WordArt состоит из эффектов или специальных модификаций текста, делая его более привлекательным или заметным. 
-
+WordArt позволяет обращаться с текстом так же, как с графическим объектом. Обычно WordArt представляет собой набор эффектов или специальных модификаций текста, делающих его более привлекательным или заметным. 
 {{% /alert %}} 
 
 **WordArt в Microsoft PowerPoint**
 
-Чтобы использовать WordArt в Microsoft PowerPoint, нужно выбрать один из предустановленных шаблонов WordArt. Шаблон WordArt — это набор эффектов, применяемый к тексту или его форме. 
+Чтобы использовать WordArt в Microsoft PowerPoint, необходимо выбрать один из предопределённых шаблонов WordArt. Шаблон WordArt — это набор эффектов, применяемый к тексту или его форме. 
 
 **WordArt в Aspose.Slides**
 
-В Aspose.Slides for Node.js via Java 20.10 мы реализовали поддержку WordArt и внесли улучшения в эту функцию в последующих выпусках Aspose.Slides for Node.js via Java. 
-
-С Aspose.Slides for Node.js via Java вы можете легко создать собственный шаблон WordArt (один эффект или их комбинацию) на JavaScript и применить его к тексту. 
+В Aspose.Slides для Node.js через Java версии 20.10 мы реализовали поддержку WordArt и внесли улучшения в эту функцию в последующих выпусках Aspose.Slides для Node.js через Java.  
+С помощью Aspose.Slides для Node.js через Java вы можете легко создавать собственные шаблоны WordArt (один эффект или комбинацию эффектов) на JavaScript и применять их к текстам.
 
 ## **Создание простого шаблона WordArt и применение его к тексту**
 
 **Использование Aspose.Slides** 
 
-Сначала мы создаём простой текст с помощью следующего кода JavaScript:
+Сначала мы создаём простой текст с помощью этого кода JavaScript:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -45,7 +61,7 @@ try {
 }
 ```
 
-Затем мы устанавливаем высоту шрифта текста на большее значение, чтобы эффект был более заметным, с помощью этого кода:
+Затем мы увеличиваем высоту шрифта текста, чтобы эффект был более заметным, используя следующий код:
 ```javascript
 var fontData = new aspose.slides.FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
@@ -59,15 +75,15 @@ portion.getPortionFormat().setFontHeight(36);
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-В меню справа можно выбрать предустановленный эффект WordArt. В меню слева можно задать параметры нового WordArt. 
+В меню справа вы можете выбрать предопределённый эффект WordArt. В меню слева можно задать настройки для нового WordArt. 
 
-Это некоторые из доступных параметров или опций:
+Ниже перечислены некоторые доступные параметры или опции:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
 **Использование Aspose.Slides**
 
-Здесь мы применяем цвет узора [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) к тексту и добавляем чёрную границу шириной 1 с помощью этого кода:
+Здесь мы применяем к тексту цвет шаблона [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid), а также добавляем черную границу толщиной 1 с помощью следующего кода:
 ```javascript
 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -86,15 +102,15 @@ portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().s
 
 **Использование Microsoft PowerPoint**
 
-Из класса программы можно применять эти эффекты к тексту, текстовому блоку, фигуре или похожему элементу:
+Из раздела программы можно применять эти эффекты к тексту, блоку текста, фигуре или аналогичному элементу:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Например, к тексту могут быть применены эффекты Тень, Отражение и Свечение; к текстовому блоку — эффекты 3D-формат и 3D-поворот; свойство Мягкие края может быть применено к объекту Shape (оно сохраняет эффект, даже если свойство 3D‑формат не задано). 
+Например, к тексту можно применить эффекты Тень, Отражение и Светящееся; к блоку текста — эффекты 3D‑формат и 3D‑поворачивания; к объекту Shape можно применить свойство Мягкие края (оно действует, даже если свойство 3D‑формат не задано). 
 
-### **Применение эффектов Тени**
+### **Применение эффектов тени**
 
-Здесь мы намерены задать свойства, относящиеся только к тексту. Мы применяем эффект тени к тексту с помощью этого кода на JavaScript:
+Здесь мы будем задавать свойства, относящиеся только к тексту. Применяем эффект тени к тексту с помощью следующего кода на JavaScript:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
@@ -109,9 +125,9 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowCol
 ```
 
 
-API Aspose.Slides поддерживает три типа теней: OuterShadow, InnerShadow и PresetShadow. 
+API Aspose.Slides поддерживает три типа теней: OuterShadow, InnerShadow и PresetShadow.  
 
-С PresetShadow можно применить тень к тексту (используя предустановленные значения). 
+С помощью PresetShadow можно применить тень к тексту (используя предустановленные значения). 
 
 **Использование Microsoft PowerPoint**
 
@@ -121,16 +137,16 @@ API Aspose.Slides поддерживает три типа теней: OuterShad
 
 **Использование Aspose.Slides**
 
-Aspose.Slides действительно позволяет применять одновременно два типа теней: InnerShadow и PresetShadow. 
+Aspose.Slides действительно позволяет одновременно применять два типа теней: InnerShadow и PresetShadow.
 
-**Примечания:**
+Примечания:
 
-- Если одновременно используются OuterShadow и PresetShadow, применяется только эффект OuterShadow. 
-- Если одновременно используются OuterShadow и InnerShadow, конечный эффект зависит от версии PowerPoint. Например, в PowerPoint 2013 эффект удваивается, а в PowerPoint 2007 применяется эффект OuterShadow. 
+- При одновременном использовании OuterShadow и PresetShadow применяется только эффект OuterShadow.  
+- Если одновременно используют OuterShadow и InnerShadow, результирующий эффект зависит от версии PowerPoint. Например, в PowerPoint 2013 эффект удваивается, а в PowerPoint 2007 применяется OuterShadow. 
 
 ### **Применение отображения к текстам**
 
-Мы добавляем отображение к тексту с помощью этого примера кода на JavaScript:
+Мы добавляем отображение к тексту с помощью следующего примера кода на JavaScript:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -148,7 +164,7 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 
 ### **Применение эффекта свечения к текстам**
 
-Мы применяем эффект свечения к тексту, чтобы он светился или выделялся, используя этот код:
+Мы применяем к тексту эффект свечения, чтобы он светился или выделялся, используя следующий код:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
@@ -157,19 +173,17 @@ portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
 ```
 
 
-Результат операции:
+Результат выполнения:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-
-Вы можете менять параметры тени, отображения и свечения. Свойства эффектов задаются отдельно для каждой части текста. 
-
+Вы можете изменять параметры тени, отображения и свечения. Свойства эффектов задаются отдельно для каждой части текста. 
 {{% /alert %}} 
 
 ### **Использование трансформаций в WordArt**
 
-Мы используем свойство Transform (присущее всему блоку текста) с помощью этого кода:
+Мы используем свойство Transform (присущее всему блоку текста) с помощью следующего кода:
 ```javascript
 textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
 ```
@@ -180,22 +194,20 @@ textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShape
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-
-И Microsoft PowerPoint, и Aspose.Slides for Node.js via Java предоставляют определённое количество предустановленных типов трансформаций.
-
+И Microsoft PowerPoint, и Aspose.Slides для Node.js через Java предоставляют определённое количество предопределённых типов трансформаций. 
 {{% /alert %}} 
 
 **Использование PowerPoint**
 
-Чтобы получить доступ к предустановленным типам трансформаций, пройдите: **Format** -> **TextEffect** -> **Transform** 
+Чтобы получить доступ к предопределённым типам трансформаций, перейдите: **Format** → **TextEffect** → **Transform**
 
 **Использование Aspose.Slides**
 
 Чтобы выбрать тип трансформации, используйте перечисление TextShapeType. 
 
-### **Применение 3D-эффектов к текстам и фигурам**
+### **Применение 3D‑эффектов к текстам и фигурам**
 
-Мы задаём 3D-эффект для текстовой фигуры с помощью этого образца кода:
+Мы задаём 3D‑эффект для текстовой фигуры с помощью следующего примера кода:
 ```javascript
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
@@ -220,7 +232,7 @@ autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPreset
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-Мы применяем 3D-эффект к тексту с помощью этого кода JavaScript:
+Мы применяем 3D‑эффект к тексту с помощью следующего кода JavaScript:
 ```javascript
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
@@ -241,42 +253,39 @@ textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspos
 ```
 
 
-Результат операции:
+Результат выполнения:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
+Применение 3D‑эффектов к текстам или их формам и взаимодействие эффектов основаны на определённых правилах.  
 
-Применение 3D-эффектов к текстам или их формам и взаимодействие между эффектами основаны на определённых правилах. 
+Рассмотрим сцену для текста и фигуры, содержащей этот текст. 3D‑эффект включает представление 3D‑объекта и сцену, на которой объект размещён.  
 
-Рассмотрим сцену для текста и фигуру, содержащую этот текст. 3D-эффект содержит представление 3D‑объекта и сцену, в которой объект размещён. 
-
-- Если сцена задана и для фигуры, и для текста, приоритет имеет сцена фигуры — сцена текста игнорируется. 
-- Если у фигуры нет собственной сцены, но есть 3D‑представление, используется сцена текста. 
-- В противном случае, когда у фигуры изначально нет 3D‑эффекта, фигура остаётся плоской, и 3D‑эффект применяется только к тексту. 
+- Когда сцена задана и для фигуры, и для текста, приоритет имеет сцена фигуры — сцена текста игнорируется.  
+- Если у фигуры нет собственной сцены, но есть 3D‑представление, используется сцена текста.  
+- В остальных случаях, когда у фигуры изначально нет 3D‑эффекта, фигура остаётся плоской, и 3D‑эффект применяется только к тексту.  
 
 Эти описания связаны с методами ThreeDFormat.getLightRig() и ThreeDFormat.getCamera(). 
-
 {{% /alert %}} 
 
-## **Применение внешних теней к тексту**
+## **Применение внешних теней к текстам**
 
-Aspose.Slides for Node.js via Java предоставляет классы [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IOuterShadow) и [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IInnerShadow), позволяющие применять эффекты теней к тексту, содержащемуся в [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/classes/TextFrame). Выполните следующие шаги:
+Aspose.Slides для Node.js через Java предоставляет классы [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/) и [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/innershadow/) , позволяющие применять эффекты теней к тексту, находящемуся в [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/). Выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).  
 2. Получите ссылку на слайд, используя его индекс.  
-3. Добавьте к слайду AutoShape прямоугольного типа.  
+3. Добавьте к слайду AutoShape типа Rectangle.  
 4. Получите доступ к TextFrame, связанному с AutoShape.  
-5. Установите FillType AutoShape в значение NoFill.  
-6. Создайте экземпляр класса OuterShadow  
-7. Установите BlurRadius тени.  
-8. Установите Direction тени  
-9. Установите Distance тени.  
+5. Установите свойство FillType у AutoShape в значение NoFill.  
+6. Создайте экземпляр класса OuterShadow.  
+7. Задайте BlurRadius тени.  
+8. Задайте Direction тени.  
+9. Задайте Distance тени.  
 10. Установите RectanglelAlign в TopLeft.  
-11. Установите PresetColor тени в Black.  
-12. Запишите презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).  
+11. Задайте PresetColor тени в Black.  
+12. Сохраните презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/) .  
 
-Этот пример кода на Java — реализация вышеуказанных шагов — показывает, как применить эффект внешней тени к тексту:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -284,7 +293,7 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Добавить AutoShape типа Rectangle
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Добавить TextFrame к Rectangle
+    // Добавить TextFrame к прямоугольнику
     ashp.addTextFrame("Aspose TextBox");
     // Отключить заливку фигуры, если нужно получить тень текста
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
@@ -296,7 +305,7 @@ try {
     shadow.setDistance(3);
     shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
     shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
-    // Сохранить презентацию на диск
+    // Write the presentation to disk
     pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -312,14 +321,13 @@ try {
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).  
 2. Получите ссылку на слайд.  
-3. Добавьте AutoShape прямоугольного типа.  
+3. Добавьте AutoShape типа Rectangle.  
 4. Включите InnerShadowEffect.  
-5. Установите все необходимые параметры.  
-6. Установите ColorType как Scheme.  
-7. Установите Scheme Color.  
-8. Запишите презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).  
+5. Задайте все необходимые параметры.  
+6. Установите ColorType в Scheme.  
+7. Задайте Scheme Color.  
+8. Сохраните презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/) .  
 
-Этот пример кода (основываясь на указанных шагах) показывает, как добавить соединитель между двумя фигурами на JavaScript:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -333,7 +341,7 @@ try {
     var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     var pf = port.getPortionFormat();
     pf.setFontHeight(50);
-    // Включить InnerShadowEffect
+    // Включить эффект внутренней тени
     var ef = pf.getEffectFormat();
     ef.enableInnerShadowEffect();
     // Установить все необходимые параметры
@@ -357,18 +365,18 @@ try {
 
 ## **FAQ**
 
-**Можно ли использовать эффекты WordArt с различными шрифтами или системами письма (например, арабским, китайским)?**
+**Можно ли использовать эффекты WordArt с разными шрифтами или системами письма (например, арабским, китайским)?**
 
-Да, Aspose.Slides поддерживает Unicode и работает со всеми основными шрифтами и системами письма. Эффекты WordArt, такие как тень, заливка и контур, могут применяться независимо от языка, хотя доступность шрифтов и их отображение могут зависеть от системных шрифтов.
+Да, Aspose.Slides поддерживает Unicode и работает со всеми основными шрифтами и системами письма. Эффекты WordArt, такие как тень, заливка и контур, можно применять независимо от языка, хотя доступность шрифтов и их отображение могут зависеть от системных шрифтов.
 
 **Можно ли применять эффекты WordArt к элементам шаблона слайдов?**
 
-Да, вы можете применять эффекты WordArt к фигурам на мастер‑слайдах, включая заполнители заголовков, нижние колонтитулы или фоновой текст. Изменения, внесённые в макет мастера, будут отражены на всех связанных слайдах.
+Да, вы можете применять эффекты WordArt к фигурам на шаблонах слайдов, включая заполнители заголовков, нижние колонтитулы или фоновый текст. Изменения, внесённые в шаблон, отразятся на всех связанных слайдах.
 
 **Влияют ли эффекты WordArt на размер файла презентации?**
 
-Незначительно. Эффекты WordArt, такие как тени, свечения и градиентные заливки, могут слегка увеличить размер файла из‑за добавления метаданных форматирования, но разница обычно пренебрежимо мала.
+Незначительно. Эффекты WordArt, такие как тени, свечения и градиентные заливки, могут немного увеличить размер файла за счёт добавления метаданных форматирования, но разница обычно несущественна.
 
 **Можно ли предварительно просмотреть результат эффектов WordArt без сохранения презентации?**
 
-Да, вы можете рендерить слайды с WordArt в изображения (например, PNG, JPEG), используя метод `getImage` из классов [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) или [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/). Это позволяет предварительно просмотреть результат в памяти или на экране до сохранения или экспорта полной презентации.
+Да, вы можете визуализировать слайды с WordArt в виде изображений (например, PNG, JPEG), используя метод `getImage` из классов [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) или [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/). Это позволяет просмотреть результат в памяти или на экране до сохранения или экспорта полной презентации.

@@ -1,5 +1,6 @@
 ---
-title: Рамка изображения
+title: Управление рамками изображений в презентациях с помощью JavaScript
+linktitle: Рамка изображения
 type: docs
 weight: 10
 url: /ru/nodejs-java/picture-frame/
@@ -10,89 +11,55 @@ keywords:
 - добавить изображение
 - создать изображение
 - извлечь изображение
+- растровое изображение
+- векторное изображение
 - обрезать изображение
+- обрезанная область
 - свойство StretchOff
 - форматирование рамки изображения
 - свойства рамки изображения
+- относительный масштаб
 - эффект изображения
 - соотношение сторон
+- прозрачность изображения
 - PowerPoint
+- OpenDocument
 - презентация
 - Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "Добавить рамку изображения в презентацию PowerPoint с помощью JavaScript"
+- Aspose.Slides
+description: "Добавьте рамки изображений в презентации PowerPoint и OpenDocument с помощью Aspose.Slides for Node.js via Java. Оптимизируйте рабочий процесс и улучшите дизайн слайдов."
 ---
 
-Picture Frame — это фигура, содержащая изображение, подобно картине в рамке.  
+Рамка изображения — это форма, содержащая изображение, почти как картина в рамке. 
 
-Вы можете добавить изображение на слайд через Picture Frame. Таким способом вы форматируете изображение, форматируя саму рамку.  
+Вы можете добавить изображение на слайд через рамку изображения. Таким образом, вы форматируете изображение, форматируя рамку изображения.
 
-{{% alert title="Совет" color="primary" %}}  
-Aspose предоставляет бесплатные конвертеры — [JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — позволяющие быстро создавать презентации из изображений.  
-{{% /alert %}}  
+{{% alert  title="Подсказка" color="primary" %}} 
+Aspose предоставляет бесплатные конвертеры — [JPEG в PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений. 
+{{% /alert %}} 
 
-## **Создание Picture Frame**  
+## **Создать рамку изображения**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
-2. Получите ссылку на слайд по его индексу.  
-3. Создайте объект `PPImage`, добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection), связанную с объектом презентации, которое будет использоваться для заполнения фигуры.  
-4. Укажите ширину и высоту изображения.  
-5. Создайте [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) на основе ширины и высоты изображения с помощью метода `addPictureFrame`, доступного у объекта формы, связанного с выбранным слайдом.  
-6. Добавьте рамку (с изображением) на слайд.  
-7. Запишите изменённую презентацию в файл PPTX.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Получите ссылку на слайд по его индексу. 
+3. Создайте объект `PPImage`, добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection), связанный с объектом презентации, который будет использоваться для заполнения формы.
+4. Укажите ширину и высоту изображения.
+5. Создайте [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) на основе ширины и высоты изображения через метод `addPictureFrame`, предоставляемый объектом формы, связанным с указанным слайдом.
+6. Добавьте рамку изображения (содержащую картинку) на слайд.
+7. Запишите изменённую презентацию в файл PPTX.
 
-Этот JavaScript‑код показывает, как создать Picture Frame:  
+Этот код JavaScript показывает, как создать рамку изображения:
 ```javascript
-    // Создает экземпляр класса Presentation, представляющего файл PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Получает первый слайд
-        var sld = pres.getSlides().get_Item(0);
-        // Создает экземпляр класса Image
-        var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-        // Добавляет рамку изображения с эквивалентными высотой и шириной картинки
-        sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-        // Записывает файл PPTX на диск
-        pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
-    }
-```
-  
-
-{{% alert color="warning" %}}  
-Picture Frames позволяют быстро создавать слайды на основе изображений. Комбинируя Picture Frame с параметрами сохранения Aspose.Slides, вы можете управлять операциями ввода/вывода для конвертации изображений между форматами. Полезные страницы: конвертация [изображения в JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); конвертация [JPG в изображение](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); конвертация [JPG в PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), конвертация [PNG в JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); конвертация [PNG в SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), конвертация [SVG в PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).  
-{{% /alert %}}  
-
-## **Создание Picture Frame с относительным масштабом**  
-
-Изменяя относительное масштабирование изображения, можно создать более сложный Picture Frame.  
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте изображение в коллекцию изображений презентации.  
-4. Создайте объект [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage), добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection), связанную с объектом презентации, которое будет использоваться для заполнения фигуры.  
-5. Укажите относительные ширину и высоту изображения в рамке.  
-6. Запишите изменённую презентацию в файл PPTX.  
-
-Этот JavaScript‑код показывает, как создать Picture Frame с относительным масштабом:  
-```javascript
-// Создает экземпляр класса Presentation, представляющего PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Получает первый слайд
     var sld = pres.getSlides().get_Item(0);
     // Создает экземпляр класса Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Добавляет рамку изображения с высотой и шириной, равными картинке
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Устанавливает относительные масштаб ширины и высоты
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
+    // Добавляет рамку изображения с эквивалентной высотой и шириной изображения
+    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // Сохраняет файл PPTX на диск
     pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -102,11 +69,49 @@ try {
     }
 }
 ```
-  
 
-## **Извлечение растровых изображений из Picture Frames**  
 
-Можно извлекать растровые изображения из объектов [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) и сохранять их в PNG, JPG и другие форматы. Пример кода ниже демонстрирует, как извлечь изображение из документа «sample.pptx» и сохранить его в формате PNG.  
+Рамки изображения позволяют быстро создавать слайды презентаций на основе изображений. Комбинируя рамку изображения с параметрами сохранения Aspose.Slides, вы можете управлять операциями ввода/вывода для преобразования изображений из одного формата в другой.
+
+## **Создать рамку изображения с относительным масштабом**
+
+Изменяя относительный масштаб изображения, можно создать более сложную рамку изображения. 
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Получите ссылку на слайд по его индексу. 
+3. Добавьте изображение в коллекцию изображений презентации.
+4. Создайте объект [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage), добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection), связанный с объектом презентации, который будет использоваться для заполнения формы.
+5. Укажите относительную ширину и высоту изображения в рамке.
+6. Запишите изменённую презентацию в файл PPTX.
+
+Этот код JavaScript показывает, как создать рамку изображения с относительным масштабом:
+```javascript
+// Создать класс Presentation, представляющий PPTX
+var pres = new aspose.slides.Presentation();
+try {
+    // Получить первый слайд
+    var sld = pres.getSlides().get_Item(0);
+    // Создать экземпляр класса Image
+    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
+    // Добавить рамку изображения с высотой и шириной, эквивалентными изображению
+    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
+    // Установка относительного масштаба ширины и высоты
+    pf.setRelativeScaleHeight(0.8);
+    pf.setRelativeScaleWidth(1.35);
+    // Сохранить файл PPTX на диск
+    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
+```
+
+
+## **Извлечь растровые изображения из рамок**
+
+Вы можете извлекать растровые изображения из объектов [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) и сохранять их в форматах PNG, JPG и других. Пример кода ниже демонстрирует, как извлечь изображение из документа «sample.pptx» и сохранить его в формате PNG.
 ```javascript
 var presentation = new aspose.slides.Presentation("sample.pptx");
 try {
@@ -128,13 +133,13 @@ try {
     presentation.dispose();
 }
 ```
-  
 
-## **Извлечение SVG‑изображений из Picture Frames**  
 
-Когда презентация содержит векторную графику SVG, помещённую в формы [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides for Node.js via Java позволяет получить оригинальные векторные изображения с полной точностью. Проходя по коллекции фигур слайда, можно определить каждый [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), проверить, содержит ли связанный [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) SVG‑контент, и затем сохранить изображение в нативном формате SVG.  
+## **Извлечь SVG‑изображения из рамок**
 
-Следующий пример кода демонстрирует извлечение SVG‑изображения из рамки:  
+Когда презентация содержит SVG‑графику, размещённую внутри фигур [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides for Node.js via Java позволяет получить оригинальные векторные изображения с полной точностью. Перебирая коллекцию фигур слайда, вы можете определить каждый [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), проверить, содержит ли нижележащий [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) SVG‑контент, и затем сохранить это изображение на диск или в поток в его нативном SVG‑формате.
+
+Следующий пример кода демонстрирует, как извлечь SVG‑изображение из рамки:
 ```js
 var presentation = new aspose.slides.Presentation("sample.pptx");
 
@@ -155,11 +160,11 @@ try {
     presentation.dispose();
 }
 ```
-  
 
-## **Получение прозрачности изображения**  
 
-Aspose.Slides позволяет получить эффект прозрачности, применённый к изображению. Этот JavaScript‑код демонстрирует операцию:  
+## **Получить прозрачность изображения**
+
+Aspose.Slides позволяет получить эффект прозрачности, применённый к изображению. Этот код JavaScript демонстрирует операцию:
 ```javascript
 var presentation = new aspose.slides.Presentation("Test.pptx");
 var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -173,36 +178,36 @@ for (var i = 0; i < imageTransform.size(); i++) {
     }
 }
 ```
-  
 
-## **Форматирование Picture Frame**  
 
-Aspose.Slides предоставляет множество параметров форматирования, которые можно применить к Picture Frame. С их помощью вы можете изменить рамку так, чтобы она отвечала конкретным требованиям.  
+## **Форматирование рамки изображения**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
-2. Получите ссылку на слайд по его индексу.  
-3. Создайте объект [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage), добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection), связанную с объектом презентации, которое будет использоваться для заполнения формы.  
-4. Укажите ширину и высоту изображения.  
-5. Создайте `PictureFrame` на основе ширины и высоты изображения через метод [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) объекта [Shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection), связанного с выбранным слайдом.  
-6. Добавьте Picture Frame (с изображением) на слайд.  
-7. Установите цвет линии рамки.  
-8. Установите ширину линии рамки.  
-9. Поверните рамку, задав положительное или отрицательное значение.  
-   * Положительное значение вращает изображение по часовой стрелке.  
-   * Отрицательное значение вращает изображение против часовой стрелки.  
-10. Добавьте Picture Frame (с изображением) на слайд.  
-11. Запишите изменённую презентацию в файл PPTX.  
+Aspose.Slides предоставляет множество параметров форматирования, которые можно применить к рамке изображения. С их помощью вы можете изменить рамку, чтобы она соответствовала конкретным требованиям.
 
-Этот JavaScript‑код демонстрирует процесс форматирования Picture Frame:  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Получите ссылку на слайд по его индексу. 
+3. Создайте объект [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage), добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection), связанный с объектом презентации, который будет использоваться для заполнения формы.
+4. Укажите ширину и высоту изображения.
+5. Создайте `PictureFrame` на основе ширины и высоты изображения через метод [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) объекта [Shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection), связанного с указанным слайдом.
+6. Добавьте рамку изображения (содержащую картинку) на слайд.
+7. Установите цвет линии рамки изображения.
+8. Установите ширину линии рамки изображения.
+9. Поверните рамку изображения, задав ей положительное или отрицательное значение.
+   * Положительное значение вращает изображение по часовой стрелке. 
+   * Отрицательное значение вращает изображение против часовой стрелки.
+10. Добавьте рамку изображения (содержащую картинку) на слайд.
+11. Запишите изменённую презентацию в файл PPTX.
+
+Этот код JavaScript демонстрирует процесс форматирования рамки изображения:
 ```javascript
-// Создаёт экземпляр класса Presentation, представляющего PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Получает первый слайд
     var sld = pres.getSlides().get_Item(0);
     // Создаёт экземпляр класса Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Добавляет рамку изображения с высотой и шириной, равными изображению
+    // Добавляет рамку изображения с высотой и шириной, эквивалентными изображению
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // Применяет некоторое форматирование к PictureFrameEx
     pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -218,15 +223,15 @@ try {
     }
 }
 ```
-  
 
-{{% alert title="Совет" color="primary" %}}  
-Aspose недавно разработал [бесплатный Collage Maker](https://products.aspose.app/slides/collage). Если вам нужно [объединить JPG/JPEG](https://products.aspose.app/slides/collage/jpg) или PNG‑изображения, [создать сетку из фото](https://products.aspose.app/slides/collage/photo-grid), используйте этот сервис.  
-{{% /alert %}}  
 
-## **Добавление изображения в виде ссылки**  
+{{% alert title="Подсказка" color="primary" %}}
+Aspose недавно разработал [бесплатный Collage Maker](https://products.aspose.app/slides/collage). Если вам нужно [объединить JPG/JPEG](https://products.aspose.app/slides/collage/jpg) или PNG‑изображения, [создать сетку из фотографий](https://products.aspose.app/slides/collage/photo-grid), вы можете воспользоваться этим сервисом. 
+{{% /alert %}}
 
-Чтобы уменьшить размер презентации, вместо внедрения файлов можно добавлять изображения (или видео) через ссылки. Этот JavaScript‑код показывает, как добавить изображение и видео в заполнитель:  
+## **Добавить изображение как ссылку**
+
+Чтобы избежать большого размера презентаций, вы можете добавлять изображения (или видео) через ссылки вместо встраивания файлов непосредственно в презентацию. Этот код JavaScript показывает, как добавить изображение и видео в заполнитель:
 ```javascript
 var presentation = new aspose.slides.Presentation("input.pptx");
 try {
@@ -262,11 +267,11 @@ try {
     }
 }
 ```
-  
 
-## **Обрезка изображения**  
 
-Этот JavaScript‑код показывает, как обрезать существующее изображение на слайде:  
+## **Обрезать изображение**
+
+Этот код JavaScript показывает, как обрезать существующее изображение на слайде:
 ```javascript
 var pres = new aspose.slides.Presentation();
 // Создаёт новый объект изображения
@@ -296,13 +301,13 @@ try {
     }
 }
 ```
-  
 
-## **Удаление обрезанных областей из рамки**  
 
-Если нужно удалить обрезанные области изображения, содержащегося в рамке, используйте метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--). Метод возвращает обрезанное изображение или оригинал, если обрезка не требуется.  
+## **Удалить обрезанные области рисунка**
 
-Этот JavaScript‑код демонстрирует операцию:  
+Если необходимо удалить обрезанные области изображения, содержащегося в рамке, используйте метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--). Метод возвращает обрезанное изображение или оригинальное, если обрезка не требуется.
+
+Этот код JavaScript демонстрирует операцию:
 ```javascript
 var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
 try {
@@ -319,19 +324,19 @@ try {
     }
 }
 ```
-  
 
-{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}  
-Метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанном [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), это может сократить размер презентации. В противном случае количество изображений в полученной презентации увеличится.  
 
-Метод конвертирует метафайлы WMF/EMF в растровое PNG‑изображение во время операции обрезки.  
-{{% /alert %}}  
+{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}} 
+Метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанном [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), такая настройка может уменьшить размер презентации. В противном случае количество изображений в результирующей презентации увеличится.
 
-## **Блокировка соотношения сторон**  
+Метод преобразует метафайлы WMF/EMF в растровое PNG‑изображение во время операции обрезки. 
+{{% /alert %}}
 
-Чтобы форма, содержащая изображение, сохраняла соотношение сторон при изменении размеров изображения, используйте метод [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-), задающий параметр *Lock Aspect Ratio*.  
+## **Блокировать соотношение сторон**
 
-Этот JavaScript‑код показывает, как заблокировать соотношение сторон формы:  
+Если необходимо, чтобы форма, содержащая изображение, сохраняла своё соотношение сторон после изменения размеров изображения, используйте метод [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) для установки параметра *Lock Aspect Ratio*.
+
+Этот код JavaScript показывает, как заблокировать соотношение сторон формы:
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -347,7 +352,7 @@ try {
         }
     }
     var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // установить форму, чтобы сохранять соотношение сторон при изменении размеров
+    // установить форму для сохранения соотношения сторон при изменении размера
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch (e) {console.log(e);
 } finally {
@@ -356,29 +361,29 @@ try {
     }
 }
 ```
-  
 
-{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}  
-Параметр *Lock Aspect Ratio* сохраняет только соотношение сторон формы, но не изображения, которое она содержит.  
-{{% /alert %}}  
 
-## **Использование свойства StretchOff**  
+{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}} 
+Данный параметр *Lock Aspect Ratio* сохраняет только соотношение сторон формы, а не изображения, которое она содержит. 
+{{% /alert %}}
 
-С помощью методов [setStretchOffsetLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) и [setStretchOffsetBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) класса [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat) можно задать прямоугольник заполнения.  
+## **Использовать свойство StretchOff**
 
-При указании растягивания для изображения исходный прямоугольник масштабируется, чтобы вписаться в заданный прямоугольник заполнения. Каждая грань прямоугольника заполнения задаётся процентным смещением от соответствующей грани ограничивающего прямоугольника формы. Положительный процент задаёт врезку, отрицательный — выступ.  
+С помощью методов [setStretchOffsetLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) и [setStretchOffsetBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) класса [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat) вы можете задать прямоугольник заполнения.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentatio).  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте прямоугольник `AutoShape`.  
-4. Создайте изображение.  
-5. Задайте тип заполнения формы.  
-6. Установите режим заполнения формы изображением.  
-7. Добавьте изображение для заполнения формы.  
-8. Укажите смещения изображения от соответствующей грани ограничивающего прямоугольника формы.  
-9. Запишите изменённую презентацию в файл PPTX.  
+При указании растягивания для изображения исходный прямоугольник масштабируется до размеров заданного прямоугольника заполнения. Каждая грань прямоугольника заполнения определяется процентным смещением от соответствующей грани ограничивающего прямоугольника формы. Положительный процент задаёт внутренний отступ, отрицательный — наружный отступ.
 
-Этот JavaScript‑код демонстрирует процесс применения свойства StretchOff:  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте прямоугольник `AutoShape`. 
+4. Создайте изображение.
+5. Установите тип заполнения формы.
+6. Установите режим заполнения формы изображением.
+7. Добавьте изображение для заполнения формы.
+8. Задайте смещения изображения от соответствующей грани ограничивающего прямоугольника формы.
+9. Запишите изменённую презентацию в файл PPTX.
+
+Этот код JavaScript демонстрирует процесс использования свойства StretchOff:
 ```javascript
 // Создаёт экземпляр класса Presentation, представляющего файл PPTX
 var pres = new aspose.slides.Presentation();
@@ -397,13 +402,13 @@ try {
     }
     // Добавляет AutoShape типа Rectangle
     var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Устанавливает тип заливки формы
+    // Устанавливает тип заполнения фигуры
     aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Устанавливает режим заливки формы изображением
+    // Устанавливает режим заполнения фигурой изображением
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Устанавливает изображение для заливки формы
+    // Устанавливает изображение для заполнения фигуры
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Указывает смещения изображения от соответствующей грани ограничивающего прямоугольника формы
+    // Указывает смещения изображения от соответствующей грани ограничивающего прямоугольника фигуры
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
@@ -417,22 +422,18 @@ try {
     }
 }
 ```
-  
 
-## **FAQ**  
 
-**Как узнать, какие форматы изображений поддерживаются для Picture Frame?**  
+## **FAQ**
 
-Aspose.Slides поддерживает как растровые изображения (PNG, JPEG, BMP, GIF и др.), так и векторные (например, SVG) через объект изображения, назначенный [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/). Список поддерживаемых форматов в целом совпадает с возможностями движка конвертации слайдов и изображений.  
+**Как узнать, какие форматы изображений поддерживаются для PictureFrame?**  
+Aspose.Slides поддерживает как растровые изображения (PNG, JPEG, BMP, GIF и т.д.), так и векторные (например, SVG) через объект изображения, назначенный [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/). Список поддерживаемых форматов обычно перекрывается возможностями движка конвертации слайдов и изображений.
 
-**Как добавление десятков крупных изображений влияет на размер и производительность PPTX?**  
+**Как добавление десятков больших изображений повлияет на размер PPTX и производительность?**  
+Встраивание больших изображений увеличивает размер файла и потребление памяти; использование ссылок на изображения помогает уменьшить размер презентации, но требует доступности внешних файлов. Aspose.Slides предоставляет возможность добавлять изображения по ссылке для снижения размера файла.
 
-Встраивание больших изображений увеличивает размер файла и потребление памяти; привязка изображений через ссылки помогает уменьшить размер презентации, но требует постоянной доступности внешних файлов. Aspose.Slides позволяет добавлять изображения по ссылке, чтобы сократить размер файла.  
+**Как заблокировать объект изображения от случайного перемещения/изменения размеров?**  
+Используйте [блокировки формы](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) для [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) (например, отключить перемещение или изменение размеров). Механизм блокировки поддерживается для различных типов фигур, включая [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/).
 
-**Как заблокировать объект изображения от случайного перемещения/изменения размера?**  
-
-Используйте [блокировки форм](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) для [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) (например, отключить перемещение или изменение размера). Механизм блокировки описан в отдельной статье о [защите](/slides/ru/nodejs-java/applying-protection-to-presentation/) и поддерживается для различных типов форм, включая [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/).  
-
-**Сохраняется ли точность векторного SVG при экспорте презентации в PDF/изображения?**  
-
-Aspose.Slides позволяет извлекать SVG из [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) как оригинальный вектор. При [экспорте в PDF](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/) или в [растровые форматы](/slides/ru/nodejs-java/convert-powerpoint-to-png/) результат может быть растеризован в зависимости от настроек экспорта; факт того, что оригинальный SVG хранится как вектор, подтверждается поведением извлечения.  
+**Сохраняется ли векторная точность SVG при экспорте презентации в PDF/изображения?**  
+Aspose.Slides позволяет извлекать SVG из [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) как оригинальный вектор. При [экспорте в PDF](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/) или [растровые форматы](/slides/ru/nodejs-java/convert-powerpoint-to-png/) результат может быть растровым в зависимости от настроек экспорта; факт хранения оригинального SVG как вектора подтверждается поведением извлечения.

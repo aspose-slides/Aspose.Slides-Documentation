@@ -1,27 +1,40 @@
 ---
-title: Gérer le tableau
+title: Gérer les tableaux de présentation en JavaScript
+linktitle: Gérer le tableau
 type: docs
 weight: 10
 url: /fr/nodejs-java/manage-table/
-keywords: "Table, créer un tableau, accéder au tableau, ratio d'aspect du tableau, présentation PowerPoint, Java, Aspose.Slides pour Node.js via Java"
-description: "Créer et gérer des tableaux dans les présentations PowerPoint en JavaScript"
+keywords:
+- ajouter un tableau
+- créer un tableau
+- accéder au tableau
+- rapport d'aspect
+- aligner le texte
+- mise en forme du texte
+- style de tableau
+- PowerPoint
+- présentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Créer et modifier des tableaux dans les diapositives PowerPoint avec JavaScript et Aspose.Slides pour Node.js. Découvrez des exemples de code simples pour simplifier vos flux de travail de tableaux."
 ---
 
-Un tableau dans PowerPoint est un moyen efficace d'afficher et de présenter des informations. Les informations dans une grille de cellules (organisées en lignes et colonnes) sont simples et faciles à comprendre.
+Un tableau dans PowerPoint est un moyen efficace d'afficher et de présenter des informations. Les informations disposées dans une grille de cellules (organisées en lignes et colonnes) sont simples et faciles à comprendre.
 
-Aspose.Slides fournit la classe [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, la classe [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, la classe [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) class, la classe [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) class, et d'autres types pour vous permettre de créer, mettre à jour et gérer des tableaux dans tous les types de présentations.
+Aspose.Slides fournit la classe [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table), la classe [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) et d'autres types pour vous permettre de créer, mettre à jour et gérer des tableaux dans tous types de présentations.
 
 ## **Créer un tableau à partir de zéro**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Obtenez une référence à la diapositive via son indice. 
-3. Définissez un tableau de `columnWidth`.
-4. Définissez un tableau de `rowHeight`.
-5. Ajoutez un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) à la diapositive via la méthode [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Parcourez chaque [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) pour appliquer le formatage aux bordures supérieure, inférieure, droite et gauche.
-7. Fusionnez les deux premières cellules de la première ligne du tableau. 
-8. Accédez au [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) d'une [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/).
-9. Ajoutez du texte au [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
+2. Obtenez la référence d’une diapositive via son index.  
+3. Définissez un tableau `columnWidth`.  
+4. Définissez un tableau `rowHeight`.  
+5. Ajoutez un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) à la diapositive en utilisant la méthode [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).  
+6. Parcourez chaque [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) pour appliquer le formatage aux bordures supérieure, inférieure, droite et gauche.  
+7. Fusionnez les deux premières cellules de la première ligne du tableau.  
+8. Accédez au [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) d’une [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/).  
+9. Ajoutez du texte au [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).  
 10. Enregistrez la présentation modifiée.
 
 Ce code JavaScript vous montre comment créer un tableau dans une présentation :
@@ -70,9 +83,9 @@ try {
 
 ## **Numérotation dans un tableau standard**
 
-Dans un tableau standard, la numérotation des cellules est simple et commence à zéro. La première cellule d'un tableau est indexée à 0,0 (colonne 0, ligne 0). 
+Dans un tableau standard, la numérotation des cellules est simple et commence à zéro. La première cellule d’un tableau est indexée 0,0 (colonne 0, ligne 0).
 
-Par exemple, les cellules d'un tableau comportant 4 colonnes et 4 lignes sont numérotées ainsi :
+Par exemple, les cellules d’un tableau de 4 colonnes et 4 lignes sont numérotées ainsi :
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -123,21 +136,21 @@ try {
 
 ## **Accéder à un tableau existant**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
 
-2. Obtenez une référence à la diapositive contenant le tableau via son indice. 
+2. Obtenez la référence de la diapositive contenant le tableau via son index.  
 
-3. Créez un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) et définissez-le sur null.
+3. Créez un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) et initialisez‑le à null.  
 
-4. Parcourez tous les objets [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) jusqu'à ce que le tableau soit trouvé.
+4. Parcourez tous les objets [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) jusqu’à ce que le tableau soit trouvé.  
 
-   Si vous pensez que la diapositive que vous traitez ne contient qu'un seul tableau, vous pouvez simplement vérifier toutes les formes qu'elle contient. Lorsqu'une forme est identifiée comme un tableau, vous pouvez la convertir en objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table). Mais si la diapositive que vous traitez contient plusieurs tableaux, il vaut mieux rechercher le tableau dont vous avez besoin via son [setAlternativeText(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).
+   Si vous pensez que la diapositive que vous traitez ne contient qu’un seul tableau, vous pouvez simplement vérifier toutes les formes qu’elle contient. Lorsqu’une forme est identifiée comme un tableau, vous pouvez la convertir en objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table). Mais si la diapositive contient plusieurs tableaux, il vaut mieux rechercher le tableau souhaité via sa méthode [setAlternativeText(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).  
 
-5. Utilisez l'objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) pour travailler avec le tableau. Dans l'exemple ci‑dessous, nous avons ajouté une nouvelle ligne au tableau.
+5. Utilisez l’objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) pour travailler avec le tableau. Dans l’exemple ci‑dessous, nous avons ajouté une nouvelle ligne au tableau.  
 
 6. Enregistrez la présentation modifiée.
 
-Ce code JavaScript vous montre comment accéder à un tableau existant et travailler avec :
+Ce code JavaScript vous montre comment accéder à un tableau existant et le manipuler :
 ```javascript
 // Instancie la classe Presentation qui représente un fichier PPTX
 var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
@@ -167,12 +180,12 @@ try {
 
 ## **Aligner le texte dans un tableau**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Obtenez une référence à la diapositive via son indice. 
-3. Ajoutez un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) à la diapositive.
-4. Accédez à un objet [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) du tableau.
-5. Accédez au [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) du [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-6. Alignez le texte verticalement.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
+2. Obtenez la référence d’une diapositive via son index.  
+3. Ajoutez un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) à la diapositive.  
+4. Accédez à un objet [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) depuis le tableau.  
+5. Accédez au [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) du [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).  
+6. Alignez le texte verticalement.  
 7. Enregistrez la présentation modifiée.
 
 Ce code JavaScript vous montre comment aligner le texte dans un tableau :
@@ -215,15 +228,15 @@ try {
 
 ## **Définir le formatage du texte au niveau du tableau**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Obtenez une référence à la diapositive via son indice. 
-3. Accédez à un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) depuis la diapositive.
-4. Définissez la [setFontHeight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) pour le texte.
-5. Définissez la [setAlignment(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) et la [setMarginRight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).
-6. Définissez la [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Enregistrez la présentation modifiée. 
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).  
+2. Obtenez la référence d’une diapositive via son index.  
+3. Accédez à un objet [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) depuis la diapositive.  
+4. Définissez la hauteur de police avec [setFontHeight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-).  
+5. Définissez l’alignement avec [setAlignment(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) et la marge droite avec [setMarginRight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).  
+6. Définissez le type de texte vertical avec [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).  
+7. Enregistrez la présentation modifiée.
 
-Ce code JavaScript vous montre comment appliquer vos options de formatage préférées au texte d'un tableau :
+Ce code JavaScript vous montre comment appliquer vos options de formatage préférées au texte d’un tableau :
 ```javascript
 // Crée une instance de la classe Presentation
 var pres = new aspose.slides.Presentation("simpletable.pptx");
@@ -254,12 +267,12 @@ try {
 
 ## **Obtenir les propriétés de style du tableau**
 
-Aspose.Slides vous permet de récupérer les propriétés de style d'un tableau afin de pouvoir utiliser ces détails pour un autre tableau ou ailleurs. Ce code JavaScript vous montre comment obtenir les propriétés de style à partir d'un style de tableau prédéfini :
+Aspose.Slides vous permet de récupérer les propriétés de style d’un tableau afin que vous puissiez réutiliser ces détails pour un autre tableau ou ailleurs. Ce code JavaScript vous montre comment obtenir les propriétés de style à partir d’un style de tableau prédéfini :
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
     var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// modifier le thème de style prédéfini par défaut
     pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -269,11 +282,11 @@ try {
 ```
 
 
-## **Verrouiller le ratio d'aspect du tableau**
+## **Verrouiller le rapport d’aspect d’un tableau**
 
-Le ratio d'aspect d'une forme géométrique est le rapport de ses dimensions. Aspose.Slides fournit la propriété [**setAspectRatioLocked**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) pour vous permettre de verrouiller le réglage du ratio d'aspect des tableaux et d'autres formes.
+Le rapport d’aspect d’une forme géométrique est le rapport de ses dimensions dans différents axes. Aspose.Slides fournit la propriété [**setAspectRatioLocked**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) pour vous permettre de verrouiller le réglage du rapport d’aspect des tableaux et d’autres formes.
 
-Ce code JavaScript vous montre comment verrouiller le ratio d'aspect d'un tableau :
+Ce code JavaScript vous montre comment verrouiller le rapport d’aspect d’un tableau :
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -292,14 +305,14 @@ try {
 
 ## **FAQ**
 
-**Puis-je activer le sens de lecture de droite à gauche (RTL) pour un tableau entier et le texte dans ses cellules ?**
+**Puis‑je activer la direction de lecture de droite à gauche (RTL) pour l’ensemble d’un tableau et le texte de ses cellules ?**
 
-Oui. Le tableau expose une méthode [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/setrighttoleft/), et les paragraphes possèdent [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/). En les utilisant tous les deux, vous assurez le bon ordre RTL et le rendu correct à l'intérieur des cellules.
+Oui. Le tableau expose la méthode [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/setrighttoleft/), et les paragraphes ont [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/). L’utilisation des deux assure le bon ordre RTL et le rendu à l’intérieur des cellules.
 
-**Comment puis‑je empêcher les utilisateurs de déplacer ou de redimensionner un tableau dans le fichier final ?**
+**Comment empêcher les utilisateurs de déplacer ou de redimensionner un tableau dans le fichier final ?**
 
-Utilisez les [verrous de forme](/slides/fr/nodejs-java/applying-protection-to-presentation/) pour désactiver le déplacement, le redimensionnement, la sélection, etc. Ces verrouillages s'appliquent également aux tableaux.
+Utilisez les verrous de forme pour désactiver le déplacement, le redimensionnement, la sélection, etc. Ces verrous s’appliquent également aux tableaux.
 
-**L'insertion d'une image à l'intérieur d'une cellule comme arrière‑plan est‑elle prise en charge ?**
+**L’insertion d’une image à l’intérieur d’une cellule comme arrière‑plan est‑elle prise en charge ?**
 
-Oui. Vous pouvez définir un [picture fill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) pour une cellule ; l'image couvrira la zone de la cellule selon le mode choisi (étirement ou mosaïque).
+Oui. Vous pouvez définir un [picture fill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) pour une cellule ; l’image couvrira la zone de la cellule selon le mode choisi (étirement ou mosaïque).

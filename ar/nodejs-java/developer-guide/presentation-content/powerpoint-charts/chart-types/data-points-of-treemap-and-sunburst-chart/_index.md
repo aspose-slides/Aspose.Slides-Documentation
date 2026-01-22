@@ -1,15 +1,27 @@
 ---
-title: نقاط البيانات لمخطط Treemap و Sunburst
+title: تخصيص نقاط البيانات في مخططات Treemap و Sunburst باستخدام JavaScript
+linktitle: نقاط البيانات في مخططات Treemap و Sunburst
 type: docs
 url: /ar/nodejs-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
-keywords: "رسوم Sunburst في Aspose.Slides لـ Node.js عبر Java"
-description: "رسوم Sunburst، مخطط Sunburst، مخطط شجري، مخطط دائري، رسم دائري أو مخطط فطيرة متعدد المستويات باستخدام Aspose.Slides لـ Node.js عبر Java."
+keywords:
+- مخطط treemap
+- مخطط sunburst
+- نقطة بيانات
+- لون التسمية
+- لون الفرع
+- PowerPoint
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تعرّف على كيفية إدارة نقاط البيانات في مخططات treemap و sunburst باستخدام JavaScript و Aspose.Slides لـ Node.js عبر Java، مع توافق مع صيغ PowerPoint."
 ---
 
-بالإضافة إلى أنواع أخرى من مخططات PowerPoint، هناك نوعان "هرميان" - **Treemap** و**Sunburst** (المعروف أيضًا باسم Sunburst Graph أو Sunburst Diagram أو Radial Chart أو Radial Graph أو Multi Level Pie Chart). تعرض هذه المخططات بيانات هرمية منظمة كشجرة - من الأوراق إلى أعلى الفرع. يتم تعريف الأوراق بنقاط بيانات السلسلة، ويُحدد كل مستوى تجميع متداخل لاحقًا بالفئة المقابلة. يتيح Aspose.Slides for Node.js عبر Java تنسيق نقاط البيانات لمخططي Sunburst وTreemap باستخدام JavaScript.
+إلى جانب أنواع أخرى من مخططات PowerPoint ، هناك نوعان "هرميان" - مخطط **Treemap** ومخطط **Sunburst** (المعروف أيضًا باسم Sunburst Graph أو Sunburst Diagram أو Radial Chart أو Radial Graph أو Multi Level Pie Chart). تعرض هذه المخططات بيانات هرمية منظمة كشجرة - من الأوراق إلى أعلى الفرع. تُعرّف الأوراق بنقاط بيانات السلسلة ، ويُحدَّد كل مستوى تجميع متداخل لاحق بالفئة المقابلة. يتيح Aspose.Slides لـ Node.js عبر Java تنسيق نقاط بيانات مخطط Sunburst و Treemap في JavaScript.
 
-فيما يلي مخطط Sunburst، حيث تُعرّف البيانات في عمود Series1 عقد الأوراق، بينما تُعرّف الأعمدة الأخرى نقاط البيانات الهرمية:
+هنا مخطط Sunburst ، حيث تحدد البيانات في عمود Series1 عقد الأوراق ، بينما تحدد الأعمدة الأخرى نقاط البيانات الهرمية:
+
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
 لنبدأ بإضافة مخطط Sunburst جديد إلى العرض التقديمي:
@@ -27,27 +39,14 @@ try {
 
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [**إنشاء مخطط Sunburst**](/slides/ar/nodejs-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**إنشاء أو تحديث مخططات عرض PowerPoint في JavaScript**](/slides/ar/nodejs-java/create-chart/)
 {{% /alert %}}
 
-إذا كان هناك حاجة لتنسيق نقاط البيانات في المخطط، يجب استخدام ما يلي:
+إذا كان هناك حاجة لتنسيق نقاط بيانات المخطط ، يجب استخدام ما يلي:
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
-[ChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) classes 
-and [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) method 
-provide access to format data points of Treemap and Sunburst charts. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager)
-is used for accessing multi-level categories - it represents the container of 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) objects.
-Basically it is a wrapper for 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartCategoryLevelsManager) with
-the properties added specific for data points. 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) class has
-two methods: [**getFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) and 
-[**getDataLabel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) which
-provide access to corresponding settings.
+[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager)، [ChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) الفئات و[**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) الطريقة توفر إمكانية الوصول إلى تنسيق نقاط بيانات مخططات Treemap و Sunburst. يستخدم [**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager) للوصول إلى الفئات متعددة المستويات - فهو يمثل الحاوية لـ [**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) الكائنات. أساساً هو غلاف لـ [**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartCategoryLevelsManager) مع الخصائص المضافة المحددة لنقاط البيانات. تحتوي فئة [**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) على طريقتين: [**getFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) و[**getDataLabel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) اللتين توفران إمكانية الوصول إلى الإعدادات المقابلة.
 
-## **إظهار قيمة نقطة البيانات**
+## **عرض قيمة نقطة البيانات**
 عرض قيمة نقطة البيانات "Leaf 4":
 ```javascript
 var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
@@ -57,8 +56,8 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
-## **تعيين تسمية نقطة البيانات واللون**
-قم بتعيين تسمية بيانات "Branch 1" لتعرض اسم السلسلة ("Series1") بدلاً من اسم الفئة. ثم اضبط لون النص إلى الأصفر:
+## **تعيين تسمية ولون نقطة البيانات**
+عيّن تسمية بيانات "Branch 1" لإظهار اسم السلسلة ("Series1") بدلاً من اسم الفئة. ثم عيّن لون النص إلى الأصفر:
 ```javascript
 var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
@@ -71,7 +70,7 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
 ## **تعيين لون فرع نقطة البيانات**
-تغيير لون فرع "Steam 4":
+غيّر لون الفرع "Steam 4":
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -93,18 +92,14 @@ try {
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني تغيير ترتيب (الفرز) القطاعات في مخطط Sunburst/Treemap؟**
-
-لا. يقوم PowerPoint بفرز القطاعات تلقائيًا (عادةً حسب القيم المتناقصة، باتجاه عقارب الساعة). تقوم Aspose.Slides بمحاكاة هذا السلوك: لا يمكنك تغيير الترتيب مباشرة؛ بل يمكنك تحقيق ذلك من خلال معالجة البيانات مسبقًا.
+**هل يمكنني تغيير ترتيب (فرز) القطاعات في مخطط Sunburst/Treemap؟**
+لا. يقوم PowerPoint بفرز القطاعات تلقائيًا (عادةً حسب القيم تنازليًا، باتجاه عقارب الساعة). يطابق Aspose.Slides هذا السلوك: لا يمكنك تغيير الترتيب مباشرة؛ بل يتم ذلك عبر التحضير المسبق للبيانات.
 
 **كيف يؤثر سمة العرض التقديمي على ألوان القطاعات والتسميات؟**
+وراثة ألوان المخطط لسمة العرض التقديمي [theme/palette](/slides/ar/nodejs-java/presentation-theme/) ما لم تقم بتعيين التعبئة أو الخطوط صراحةً. للحصول على نتائج متسقة، قم بتثبيت التعبئات الصلبة وتنسيق النص في المستويات المطلوبة.
 
-تورث ألوان المخطط سمة العرض التقديمي [theme/palette](/slides/ar/nodejs-java/presentation-theme/) ما لم تقم بتعيين التعبئات/الخطوط صراحةً. للحصول على نتائج متسقة، احرص على تثبيت التعبئات الصلبة وتنسيق النص في المستويات المطلوبة.
+**هل سيحافظ التصدير إلى PDF/PNG على ألوان الفروع المخصصة وإعدادات التسميات؟**
+نعم. عند تصدير العرض التقديمي، تُحافظ إعدادات المخطط (التعبئات، التسميات) في صيغ الإخراج لأن Aspose.Slides يُظهر المخطط بتطبيق التنسيق.
 
-**هل سيحافظ تصدير إلى PDF/PNG على ألوان الفروع المخصصة وإعدادات التسميات؟**
-
-نعم. عند تصدير العرض التقديمي، يتم الاحتفاظ بإعدادات المخطط (التعبئات، التسميات) في صيغ الإخراج لأن Aspose.Slides تقوم بإجراء عرض المخطط مع تطبيق التنسيق.
-
-**هل يمكنني حساب الإحداثيات الفعلية لتسمية/عنصر من أجل وضع تغطية مخصصة فوق المخطط؟**
-
-نعم. بعد التحقق من صحة تخطيط المخطط، تكون قيم X و Y الفعلية متاحة للعناصر (على سبيل المثال، [DataLabel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/))، مما يساعد في وضع التغطيات بدقة.
+**هل يمكنني حساب الإحداثيات الفعلية لتسمية/عنصر لتحديد موضع تغطية مخصصة فوق المخطط؟**
+نعم. بعد التحقق من تخطيط المخطط، تتوفر قيم X وY الفعلية للعناصر (على سبيل المثال، [DataLabel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/))، مما يساعد على تحديد موضع الدُسُور بدقة.

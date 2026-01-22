@@ -1,19 +1,33 @@
 ---
-title: フォールバックフォントコレクションの作成
+title: JavaScriptでフォールバックフォントコレクションを構成する
+linktitle: フォールバックフォントコレクション
 type: docs
 weight: 20
 url: /ja/nodejs-java/create-fallback-fonts-collection/
+keywords:
+- フォールバックフォント
+- フォールバック規則
+- フォントコレクション
+- フォントの構成
+- フォントの設定
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Node.js 用 Aspose.Slides を使用して JavaScript でフォールバックフォントコレクションを設定し、PowerPoint および OpenDocument のプレゼンテーションでテキストを一貫して鮮明に保ちます。"
 ---
 
-## **フォールバック ルールの適用**
+## **フォールバック規則の適用**
 
-[FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) に整理でき、[FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) クラスを実装します。コレクションからルールを追加または削除することが可能です。
+Instances of [FontFallBackRule] class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection), that implements [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) class. It is possible to add or remove rules from the collection.
 
-このコレクションは、[FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) クラスの [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) メソッドに割り当てることができます。FontsManager はプレゼンテーション全体のフォントを管理します。さらに詳しくは、[About FontsManager and FontsLoader](/slides/ja/nodejs-java/about-fontsmanager-and-fontsloader/) をご覧ください。
+Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation.
 
-各 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) には、独自の [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) クラスのインスタンスを返す [getFontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) メソッドがあります。
+Each [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) has a [getFontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) method with its own instance of the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class.
 
-以下は、フォールバックフォントルールコレクションを作成し、特定のプレゼンテーションの [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) に割り当てる例です:  
+Here is an examples how to create fallback fonts rules collection and assign in into the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) of a certain presentation:  
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -29,26 +43,26 @@ try {
 ```
 
 
-FontsManager がフォールバックフォントコレクションで初期化されると、プレゼンテーションのレンダリング時にフォールバックフォントが適用されます。
+After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.
 
 {{% alert color="primary" %}} 
-さらに詳しくは、[Render Presentation with Fallback Font](/slides/ja/nodejs-java/render-presentation-with-fallback-font/) をご覧ください。
+フォールバックフォントでのプレゼンテーションのレンダリングの詳細については、[Render Presentation with Fallback Font](/slides/ja/nodejs-java/render-presentation-with-fallback-font/) をご覧ください。 
 {{% /alert %}}
 
 ## **よくある質問**
 
-**フォールバック ルールは PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
+**私のフォールバック規則は PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
 
-いいえ。フォールバック ルールは実行時のレンダリング設定であり、PPTX にシリアライズされず、PowerPoint の UI には表示されません。
+いいえ。フォールバック規則は実行時のレンダリング設定であり、PPTX にシリアライズされず、PowerPoint の UI には表示されません。
 
 **フォールバックは SmartArt、WordArt、チャート、テーブル内のテキストにも適用されますか？**
 
-はい。これらのオブジェクト内のテキストすべてに同じグリフ置換メカニズムが使用されます。
+はい。これらのオブジェクト内のテキストには同じグリフ置換メカニズムが使用されます。
 
-**Aspose はライブラリにフォントを同梱していますか？**
+**Aspose はライブラリと共にフォントを配布しますか？**
 
-いいえ。フォントはご自身で追加・使用し、自己責任で管理してください。
+いいえ。フォントはご自身で追加・使用し、自己の責任で管理してください。
 
-**欠落フォントの置換/代替と、欠落グリフのフォールバックは併用できますか？**
+**欠落フォントの置換/代替と欠落グリフのフォールバックは同時に使用できますか？**
 
-はい。これらは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可否を解決し（[replacement](/slides/ja/nodejs-java/font-replacement/)/[substitution](/slides/ja/nodejs-java/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠落グリフを補完します。
+はい。これらは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可能性を解決し（[replacement](/slides/ja/nodejs-java/font-replacement/)/[substitution](/slides/ja/nodejs-java/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠落グリフのギャップを埋めます。

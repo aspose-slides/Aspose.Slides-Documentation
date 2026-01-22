@@ -1,19 +1,35 @@
 ---
-title: الخصائص الفعالة للشكل
+title: الحصول على الخصائص الفعالة للأشكال من العروض التقديمية في JavaScript
+linktitle: الخصائص الفعالة
 type: docs
 weight: 50
 url: /ar/nodejs-java/shape-effective-properties/
+keywords:
+- خصائص الشكل
+- خصائص الكاميرا
+- إضاءة التجهيز
+- شكل الحافة
+- إطار النص
+- نمط النص
+- ارتفاع الخط
+- تنسيق التعبئة
+- PowerPoint
+- العرض التقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "اكتشف كيف تقوم Aspose.Slides for Node.js عبر Java بحساب وتطبيق الخصائص الفعالة للأشكال للحصول على عرض PowerPoint دقيق."
 ---
 
-في هذا الموضوع، سنناقش الخصائص **effective** و **local**. عندما نقوم بتعيين القيم مباشرةً على هذه المستويات
+في هذا الموضوع، سنناقش الخصائص **الفعالة** و **المحلية**. عندما نقوم بتعيين القيم مباشرةً في هذه المستويات
 
 1. في خصائص الجزء على شريحة الجزء؛
-1. في نمط نص الشكل النموذجي على شريحة التخطيط أو الشريحة الرئيسية (إذا كان شكل الإطار النصي للجزء يمتلك واحدًا)؛
-1. في إعدادات النص العالمية للعرض التقديمي؛
+1. في نمط نص الشكل النموذجي على الشريحة التخطيطية أو الشريحة الرئيسية (إذا كان لشكل إطار النص للجزء أحدهما)؛
+1. في إعدادات النص العامة للعرض التقديمي؛
 
-تُسمى تلك القيم **local**. في أي مستوى، يمكن تعريف قيم **local** أو إغفالها. ولكن عندما تحتاج تطبيقًا إلى معرفة مظهر الجزء، يستخدم القيم **effective**. يمكنك الحصول على القيم **effective** باستخدام طريقة **getEffective()** من التنسيق المحلي.
+تُسمى تلك القيم **القيم المحلية**. في أي مستوى، يمكن تعريف **القيم المحلية** أو إهمالها. ولكن عندما يحتاج التطبيق إلى معرفة كيف يجب أن يبدو الجزء، يستخدم **القيم الفعالة**. يمكنك الحصول على القيم الفعالة باستخدام طريقة **getEffective()** من التنسيق المحلي.
 
-يعرض هذا الكود النموذجي كيفية الحصول على القيم **effective**:
+يظهر لك هذا المثال البرمجي كيفية الحصول على القيم الفعالة:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -30,10 +46,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of the Camera**
-يسمح Aspose.Slides for Node.js via Java للمطورين بالحصول على خصائص الكاميرا **effective**. لهذا الغرض، تمت إضافة الفئة [**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) إلى Aspose.Slides. تمثل فئة [CameraEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص كاميرا **effective**. تُستخدم نسخة من فئة [**CameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CameraEffectiveData) كجزء من فئة [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData)، وهي زوج من [القيم **effective**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) لفئة [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat).
+## **الحصول على الخصائص الفعالة للكاميرا**
+يسمح Aspose.Slides for Node.js عبر Java للمطورين بالحصول على الخصائص الفعالة للكاميرا. لهذا الغرض، أضيفت الفئة **CameraEffectiveData** إلى Aspose.Slides. تمثل الفئة **CameraEffectiveData** كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. يُستخدم كائن من فئة **CameraEffectiveData** كجزء من فئة **ThreeDFormatEffectiveData**، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) للصف [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
-يعرض هذا الكود النموذجي كيفية الحصول على خصائص الكاميرا **effective**:
+يظهر لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة للكاميرا:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -50,10 +66,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of Light Rig**
-يسمح Aspose.Slides for Node.js via Java للمطورين بالحصول على خصائص Light Rig **effective**. لهذا الغرض، تمت إضافة الفئة [**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) إلى Aspose.Slides. تمثل فئة [LightRigEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص Light Rig **effective**. تُستخدم نسخة من فئة [**LightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRigEffectiveData) كجزء من فئة [**ThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormatEffectiveData)، وهي زوج من [القيم **effective**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) لفئة [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat).
+## **الحصول على الخصائص الفعالة لـ Light Rig**
+يسمح Aspose.Slides for Node.js عبر Java للمطورين بالحصول على الخصائص الفعالة لـ Light Rig. لهذا الغرض، أضيفت الفئة **LightRigEffectiveData** إلى Aspose.Slides. تمثل الفئة **LightRigEffectiveData** كائنًا غير قابل للتغيير يحتوي على خصائص إضاءة التجهيز الفعالة. يُستخدم كائن من فئة **LightRigEffectiveData** كجزء من فئة **ThreeDFormatEffectiveData**، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) للصف [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
-يعرض هذا الكود النموذجي كيفية الحصول على خصائص Light Rig **effective**:
+يظهر لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لـ Light Rig:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -69,10 +85,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of Bevel Shape**
-يسمح Aspose.Slides for Node.js via Java للمطورين بالحصول على خصائص Bevel Shape **effective**. لهذا الغرض، تمت إضافة الفئة [**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) إلى Aspose.Slides. تمثل فئة [ShapeBevelEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص التجاويف الوجهية للشكلة **effective**. تُستخدم نسخة من فئة [**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData) كجزء من فئة [**ThreeDFormatEffectiveData**]([**ShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeBevelEffectiveData))، وهي زوج من [القيم **effective**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) لفئة [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat).
+## **الحصول على الخصائص الفعالة لشكل الحافة**
+يسمح Aspose.Slides for Node.js عبر Java للمطورين بالحصول على الخصائص الفعالة لشكل الحافة. لهذا الغرض، أضيفت الفئة **ShapeBevelEffectiveData** إلى Aspose.Slides. تمثل الفئة **ShapeBevelEffectiveData** كائنًا غير قابل للتغيير يحتوي على خصائص بروز وجه الشكل الفعالة. يُستخدم كائن من فئة **ShapeBevelEffectiveData** كجزء من فئة **ThreeDFormatEffectiveData**، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) للصف [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
-يعرض هذا الكود النموذجي كيفية الحصول على خصائص Bevel Shape **effective**:
+يظهر لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لشكل الحافة:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -89,10 +105,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of a Text Frame**
-باستخدام Aspose.Slides for Node.js via Java، يمكنك الحصول على خصائص Text Frame **effective**. لهذا الغرض، تمت إضافة الفئة [**TextFrameFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص **effective**.
+## **الحصول على الخصائص الفعالة لإطار النص**
+باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على الخصائص الفعالة لإطار النص. لهذا الغرض، أضيفت الفئة **TextFrameFormatEffectiveData** إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص الفعالة.
 
-يعرض هذا الكود النموذجي كيفية الحصول على خصائص تنسيق إطار النص **effective**:
+يظهر لك هذا المثال البرمجي كيفية الحصول على خصائص تنسيق إطار النص الفعالة:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -114,10 +130,10 @@ try {
 ```
 
 
-## **Getting Effective Properties of a Text Style**
-باستخدام Aspose.Slides for Node.js via Java، يمكنك الحصول على خصائص Text Style **effective**. لهذا الغرض، تمت إضافة الفئة [**TextStyleEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextStyleEffectiveData) إلى Aspose.Slides. تحتوي على خصائص نمط النص **effective**.
+## **الحصول على الخصائص الفعالة لنمط النص**
+باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على الخصائص الفعالة لنمط النص. لهذا الغرض، أضيفت الفئة **TextStyleEffectiveData** إلى Aspose.Slides. تحتوي على خصائص نمط النص الفعالة.
 
-يعرض هذا الكود النموذجي كيفية الحصول على خصائص نمط النص **effective**:
+يظهر لك هذا المثال البرمجي كيفية الحصول على خصائص نمط النص الفعالة:
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -139,8 +155,8 @@ try {
 ```
 
 
-## **Getting Effective Font Height Value**
-باستخدام Aspose.Slides for Node.js via Java، يمكنك الحصول على خصائص ارتفاع الخط **effective**. هنا، نوفر كودًا يُظهر قيمة ارتفاع الخط **effective** للجزء والتي تتغير بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من هيكلة العرض التقديمي:
+## **الحصول على قيمة ارتفاع الخط الفعالة**
+باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على الخصائص الفعالة لارتفاع الخط. هنا نوفر مثالًا يُظهر تغيير قيمة ارتفاع الخط الفعالة للجزء بعد ضبط قيم ارتفاع الخط المحلية على مستويات بنية العرض المختلفة:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -179,8 +195,8 @@ try {
 ```
 
 
-## **Getting Effective Fill Format for Table**
-باستخدام Aspose.Slides for Node.js via Java، يمكنك الحصول على تنسيق التعبئة **effective** لجداول مختلفة. لهذا الغرض، تمت إضافة الفئة [**CellFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CellFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة **effective**. يرجى ملاحظة ما يلي: تنسيق الخلية يحصل دائمًا على الأولوية على تنسيق الصف؛ والصف يحصل على الأولوية على العمود؛ والعمود يحصل على الأولوية على كامل الجدول.
+## **الحصول على تنسيق التعبئة الفعال للجدول**
+باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء منطقية مختلفة في الجدول. لهذا الغرض، أضيفت الفئة **CellFormatEffectiveData** إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعالة. يرجى ملاحظة ما يلي: تنسيق الخلية يحصل دائمًا على الأولوية على تنسيق الصف؛ الصف يحصل على الأولوية على العمود؛ والعمود يحصل على الأولوية على الجدول بأكمله.
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation1.pptx");
 try {
@@ -201,32 +217,25 @@ try {
 ```
 
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
-**How can I tell that I got a "snapshot" rather than a "live object," and when should I read effective properties again?**
+كيف يمكنني معرفة أنني حصلت على “لقطة” بدلاً من “كائن حي”، ومتى يجب علي قراءة الخصائص الفعالة مرة أخرى؟
+كائنات EffectiveData هي لقطات غير قابلة للتغيير للقيم التي تم حسابها في لحظة الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل، استخرج البيانات الفعالة مرة أخرى للحصول على القيم المحدّثة.
 
-كائنات EffectiveData هي لقطات ثابتة للقيم المحسوبة في وقت الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل، استرجع البيانات **effective** مرة أخرى للحصول على القيم المحدثة.
+هل يؤثر تغيير شريحة التخطيط/الرئيسية على الخصائص الفعالة التي تم استرجاعها بالفعل؟
+نعم، ولكن فقط بعد قراءة القيم مرة أخرى. كائن EffectiveData الذي تم الحصول عليه مسبقًا لا يحدث نفسه تلقائيًا—اطلبه مرة أخرى بعد تغيير التخطيط أو الشريحة الرئيسية.
 
-**Does changing the layout/master slide affect effective properties that have already been retrieved?**
+هل يمكنني تعديل القيم عبر EffectiveData؟
+لا. EffectiveData للقراءة فقط. قم بتعديل القيم في كائنات التنسيق المحلية (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعالة مرة أخرى.
 
-نعم، ولكن فقط بعد قراءتها مرة أخرى. كائن EffectiveData المستخرج مسبقًا لا يتم تحديثه تلقائيًا—اطلبه مرة أخرى بعد تعديل التخطيط أو الشريحة الرئيسية.
+ماذا يحدث إذا لم يتم تعيين الخاصية على مستوى الشكل، ولا في التخطيط/الرئيسية، ولا في الإعدادات العامة؟
+يتم تحديد القيمة الفعالة بواسطة النظام الافتراضي (القيم الافتراضية لـ PowerPoint/Aspose.Slides). تصبح هذه القيمة المحسومة جزءًا من لقطة EffectiveData.
 
-**Can I modify values through EffectiveData?**
+من قيمة الخط الفعالة، هل يمكنني معرفة المستوى الذي قدم الحجم أو نوع الخط؟
+ليس مباشرة. تُعيد EffectiveData القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية في الجزء/الفقرة/إطار النص والأنماط النصية في التخطيط/الرئيسية/العرض لتحديد أين ظهرت أول تعريف صريح.
 
-لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلية (shape/text/3D، إلخ)، ثم احصل على القيم **effective** مرة أخرى.
+لماذا تبدو قيم EffectiveData أحيانًا مطابقة للقيم المحلية؟
+لأن القيمة المحلية أصبحت النهائية (لم يتطلب الأمر وراثة من مستوى أعلى). في مثل هذه الحالات، تكون القيمة الفعالة مساوية للقيمة المحلية.
 
-**What happens if a property is not set at the shape level, nor in the layout/master, nor in global settings?**
-
-تحدد القيمة **effective** بواسطة آلية الافتراضية (الافتراضات في PowerPoint/Aspose.Slides). تلك القيمة المح resolved تُصبح جزءًا من لقطة EffectiveData.
-
-**From an effective font value, can I tell which level provided the size or typeface?**
-
-ليس مباشرة. EffectiveData تُعيد القيمة النهائية. لتحديد المصدر، تفقد القيم المحلية على مستوى الجزء/الفقرة/إطار النص والأنماط النصية على التخطيط/الشريحة الرئيسية/العرض التقديمي لمعرفة أين ظهرت التعريف الأول.
-
-**Why do EffectiveData values sometimes look identical to the local ones?**
-
-لأن القيمة المحلية أصبحت نهائية (لم يُستدعَ أي مستوى أعلى). في هذه الحالات تكون القيمة **effective** مطابقة للقيمة المحلية.
-
-**When should I use effective properties, and when should I work only with local ones?**
-
-استخدم EffectiveData عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع الوراثيات (مثل محاذاة الألوان أو المسافات أو الأحجام). إذا كنت بحاجة لتغيير التنسيق على مستوى محدد، عدل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.
+متى يجب استخدام الخصائص الفعالة، ومتى ينبغي العمل فقط بالقيم المحلية؟
+استخدم EffectiveData عندما تحتاج إلى النتيجة “كما تم عرضها” بعد تطبيق جميع الوراثات (مثلاً لتطابق الألوان أو المسافات البادئة أو الأحجام). إذا كنت تحتاج إلى تعديل التنسيق في مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.

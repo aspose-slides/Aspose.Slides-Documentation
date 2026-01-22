@@ -1,25 +1,41 @@
 ---
-title: Präsentation zusammenführen
+title: Präsentationen effizient in JavaScript zusammenführen
+linktitle: Präsentationen zusammenführen
 type: docs
 weight: 40
 url: /de/nodejs-java/merge-presentation/
-keywords: "PowerPoint zusammenführen, PPTX, PPT, PowerPoint kombinieren, Präsentation zusammenführen, Präsentation kombinieren, Java"
-description: "PowerPoint‑Präsentation in JavaScript zusammenführen oder kombinieren"
+keywords:
+- PowerPoint zusammenführen
+- Präsentationen zusammenführen
+- Folien zusammenführen
+- PPT zusammenführen
+- PPTX zusammenführen
+- ODP zusammenführen
+- PowerPoint kombinieren
+- Präsentationen kombinieren
+- Folien kombinieren
+- PPT kombinieren
+- PPTX kombinieren
+- ODP kombinieren
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Müheloses Zusammenführen von PowerPoint (PPT, PPTX) und OpenDocument (ODP)-Präsentationen in JavaScript mit Aspose.Slides für Node.js, um Ihren Arbeitsablauf zu optimieren."
 ---
 
 ## **Präsentationszusammenführung**
 
-Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie praktisch deren Folien zu einer einzigen Präsentation, um eine Datei zu erhalten. 
+Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie effektiv deren Folien in einer einzigen Präsentation, um eine Datei zu erhalten. 
 
 {{% alert title="Info" color="info" %}}
 
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht über Funktionen, die es Benutzern ermöglichen, Präsentationen auf diese Weise zu kombinieren. 
+Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) besitzen keine Funktionen, die es Benutzern ermöglichen, Präsentationen auf diese Weise zu kombinieren. 
 
-[**Aspose.Slides für Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), ermöglicht jedoch das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust Sorgen machen zu müssen.
+[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), ermöglicht es Ihnen jedoch, Präsentationen auf verschiedene Arten zusammenzuführen. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust sorgen zu müssen.
 
 **Siehe auch**
 
-[Folien klonen](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
+[Clone Slides](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
 
 {{% /alert %}}
 
@@ -27,36 +43,26 @@ Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht
 
 Mit Aspose.Slides können Sie zusammenführen 
 
-* gesamte Präsentationen. Alle Folien aus den Präsentationen werden in einer Präsentation zusammengeführt
-* bestimmte Folien. Ausgewählte Folien werden in einer Präsentation zusammengeführt
-* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX usw.) und in verschiedenen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander. 
-
-{{% alert title="Hinweis" color="warning" %}} 
-
-Neben Präsentationen ermöglicht Aspose.Slides das Zusammenführen anderer Dateien:
-
-* [Bilder](https://products.aspose.com/slides/nodejs-java/merger/image-to-image/), wie z. B. [JPG zu JPG](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/nodejs-java/merger/png-to-png/)
-* Dokumente, wie z. B. [PDF zu PDF](https://products.aspose.com/slides/nodejs-java/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/nodejs-java/merger/html-to-html/)
-* Und zwei unterschiedliche Dateien, wie z. B. [Bild zu PDF](https://products.aspose.com/slides/nodejs-java/merger/image-to-pdf/) oder [JPG zu PDF](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/nodejs-java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
+* gesamte Präsentationen. Alle Folien aus den Präsentationen landen in einer einzigen Präsentation
+* bestimmte Folien. Ausgewählte Folien landen in einer einzigen Präsentation
+* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX, etc.) und in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP, etc.) miteinander. 
 
 ### **Zusammenführungsoptionen**
 
 Sie können Optionen anwenden, die bestimmen, ob
 
-* jede Folie in der Ausgabepäsentation einen eindeutigen Stil beibehält
+* jede Folie in der Ausgabepäsentation einen einzigartigen Stil beibehält
 * ein bestimmter Stil für alle Folien in der Ausgabepäsentation verwendet wird. 
 
-Um Präsentationen zusammenzuführen, stellt Aspose.Slides die [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-)‑Methoden (aus der [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection)-Klasse) bereit. Es gibt mehrere Implementierungen der `addClone`‑Methoden, die die Parameter des Zusammenführungsprozesses definieren. Jedes Presentation‑Objekt besitzt eine [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--)‑Sammlung, sodass Sie die `addClone`‑Methode von der Präsentation aus aufrufen können, in die Sie Folien einfügen möchten.
+Um Präsentationen zusammenzuführen, stellt Aspose.Slides die [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-)‑Methoden (aus der [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection)‑Klasse) bereit. Es gibt mehrere Implementierungen der `addClone`‑Methoden, die die Parameter des Präsentationszusammenführungsprozesses festlegen. Jedes Presentation‑Objekt besitzt eine Slides‑Sammlung, sodass Sie die `addClone`‑Methode von der Präsentation aus aufrufen können, zu der Sie Folien zusammenführen möchten.
 
-Die `addClone`‑Methode gibt ein `Slide`‑Objekt zurück, das eine Kopie der Quellfolie ist. Die Folien in einer Ausgabepäsentation sind einfach Kopien der Folien aus der Quelle. Daher können Sie die resultierenden Folien ändern (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen beeinflusst werden. 
+Die `addClone`‑Methode gibt ein `Slide`‑Objekt zurück, das eine Kopie der Quellfolie ist. Die Folien in einer Ausgabepäsentation sind einfach eine Kopie der Folien aus der Quelle. Daher können Sie Änderungen an den resultierenden Folien vornehmen (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen betroffen werden. 
 
 ## **Präsentationen zusammenführen** 
 
-Aspose.Slides stellt die [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-)‑Methode bereit, die das Kombinieren von Folien ermöglicht, während die Folien ihre Layouts und Stile beibehalten (Standardparameter).
+Aspose.Slides stellt die [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-)‑Methode bereit, die es ermöglicht, Folien zu kombinieren, wobei die Folien ihre Layouts und Stile beibehalten (Standardparameter).
 
-Dieser JavaScript‑Code zeigt, wie Präsentationen zusammengeführt werden:
+Dieser JavaScript‑Code zeigt, wie Sie Präsentationen zusammenführen:
 ```javascript
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
@@ -82,7 +88,7 @@ try {
 
 ## **Präsentationen mit Folienmaster zusammenführen**
 
-Aspose.Slides stellt die [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)‑Methode bereit, die das Kombinieren von Folien ermöglicht, wobei eine Folienmaster‑Vorlage angewendet wird. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepäsentation ändern.
+Aspose.Slides stellt die [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)‑Methode bereit, die es ermöglicht, Folien zu kombinieren und dabei eine Folienmaster‑Präsentationsvorlage anzuwenden. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepäsentation ändern.
 
 Dieser JavaScript‑Code demonstriert den beschriebenen Vorgang:
 ```javascript
@@ -108,19 +114,19 @@ try {
 ```
 
 
-{{% alert title="Hinweis" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Das Folienlayout für den Folienmaster wird automatisch ermittelt. Wenn kein geeignetes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `addClone`‑Methode auf true gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) ausgelöst.
+Der Folienlayout für den Folienmaster wird automatisch bestimmt. Wenn kein geeignetes Layout bestimmt werden kann, wird bei gesetztem `allowCloneMissingLayout`‑Booleschen Parameter der `addClone`‑Methode das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) ausgelöst.
 
 {{% /alert %}}
 
-Wenn Sie möchten, dass die Folien in der Ausgabepäsentation ein anderes Folienlayout erhalten, verwenden Sie stattdessen die [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-)‑Methode beim Zusammenführen.
+Wenn die Folien in der Ausgabepäsentation ein anderes Folienlayout erhalten sollen, verwenden Sie stattdessen die Methode [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) beim Zusammenführen.
 
 ## **Bestimmte Folien aus Präsentationen zusammenführen**
 
-Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Foliensätze zu erstellen. Aspose.Slides für Node.js via Java ermöglicht das Auswählen und Importieren nur der benötigten Folien. Die API bewahrt Formatierung, Layout und Design der Originalfolien.
+Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Folienpakete zu erstellen. Aspose.Slides für Node.js via Java ermöglicht es Ihnen, nur die benötigten Folien auszuwählen und zu importieren. Die API bewahrt Formatierung, Layout und Design der Originalfolien.
 
-Der folgende JavaScript‑Code erzeugt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
+Der folgende JavaScript‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
 ```js
 function getTitleSlide(presentation) {
   for (let i = 0; i < presentation.getSlides().size(); i++) {
@@ -161,7 +167,7 @@ try {
 
 ## **Präsentationen mit Folienlayout zusammenführen**
 
-Dieser JavaScript‑Code zeigt, wie Folien aus Präsentationen kombiniert werden, während ein bevorzugtes Folienlayout angewendet wird, um eine Ausgabepäsentation zu erhalten:
+Dieser JavaScript‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren und dabei Ihr bevorzugtes Folienlayout anwenden, um eine einzige Ausgabepäsentation zu erhalten:
 ```javascript
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
@@ -187,13 +193,13 @@ try {
 
 ## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
 
-{{% alert title="Hinweis" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Sie können keine Präsentationen mit unterschiedlichen Foliengrößen zusammenführen. 
+Sie können Präsentationen mit unterschiedlichen Foliengrößen nicht zusammenführen. 
 
 {{% /alert %}}
 
-Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen skalieren, sodass ihre Größe der der anderen Präsentation entspricht. 
+Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen so skalieren, dass ihre Größe der der anderen Präsentation entspricht. 
 
 Dieser Beispielcode demonstriert den beschriebenen Vorgang:
 ```javascript
@@ -220,9 +226,9 @@ try {
 ```
 
 
-## **Folien in Präsentationsabschnitt zusammenführen**
+## **Folien zu einem Präsentationsabschnitt zusammenführen**
 
-Dieser JavaScript‑Code zeigt, wie Sie eine bestimmte Folie in einen Abschnitt einer Präsentation zusammenführen:
+Dieser JavaScript‑Code zeigt, wie Sie eine bestimmte Folie zu einem Abschnitt in einer Präsentation zusammenführen:
 ```javascript
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
@@ -250,26 +256,26 @@ Die Folie wird am Ende des Abschnitts eingefügt.
 
 ## **FAQ**
 
-**Werden Notizen beim Zusammenführen erhalten?**
+**Werden Sprecher‑Notizen beim Zusammenführen erhalten?**
 
 Ja. Beim Klonen von Folien übernimmt Aspose.Slides alle Folienelemente, einschließlich Notizen, Formatierungen und Animationen.
 
 **Werden Kommentare und deren Autoren übertragen?**
 
-Kommentare, als Teil des Folieninhalts, werden mit der Folie kopiert. Kommentare‑Autor‑Labels bleiben als Kommentarobjekte in der resultierenden Präsentation erhalten.
+Kommentare, als Teil des Folieninhalts, werden mit der Folie kopiert. Kommentar‑Autor‑Labels werden als Kommentarobjekte in der resultierenden Präsentation erhalten.
 
 **Was ist, wenn die Quellpräsentation passwortgeschützt ist?**
 
-Sie muss [mit dem Passwort geöffnet werden](/slides/de/nodejs-java/password-protected-presentation/) über [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/); nach dem Laden können diese Folien sicher in eine ungeschützte Zieldatei (oder ebenfalls in eine geschützte) geklont werden.
+Sie muss [mit dem Passwort geöffnet](/slides/de/nodejs-java/password-protected-presentation/) über [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/) werden; nach dem Laden können diese Folien sicher in eine ungeschützte Zieldatei (oder ebenfalls geschützt) geklont werden.
 
-**Wie thread‑sicher ist der Zusammenführungsvorgang?**
+**Wie thread‑sicher ist der Zusammenführungs­vorgang?**
 
-Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Instanz aus [mehreren Threads](/slides/de/nodejs-java/multithreading/). Die empfohlene Regel lautet „ein Dokument – ein Thread“; verschiedene Dateien können parallel in separaten Threads verarbeitet werden.
+Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Instanz aus mehreren Threads. Die empfohlene Regel lautet „ein Dokument – ein Thread“; verschiedene Dateien können parallel in separaten Threads bearbeitet werden.
 
 ## **Siehe auch**
 
-Aspose bietet einen [KOSTENLOSEN Online‑Collage‑Ersteller](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG zu PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und mehr.
+Aspose bietet einen [KOSTENLOSEN Online‑Collage‑Maker](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie JPG‑zu‑JPG‑ oder PNG‑zu‑PNG‑Bilder zusammenführen, Fotogitter erstellen und mehr.
 
-Probieren Sie den [Aspose KOSTENLOSEN Online‑Zusammenführer](https://products.aspose.app/slides/merger). Er ermöglicht das Zusammenführen von PowerPoint‑Präsentationen im gleichen Format (z. B. PPT zu PPT, PPTX zu PPTX) oder über verschiedene Formate hinweg (z. B. PPT zu PPTX, PPTX zu ODP).
+Probieren Sie den Aspose **KOSTENLOSEN Online‑Zusammenführer** aus. Er ermöglicht das Zusammenführen von PowerPoint‑Präsentationen im selben Format (z. B. PPT zu PPT, PPTX zu PPTX) oder über verschiedene Formate hinweg (z. B. PPT zu PPTX, PPTX zu ODP).
 
-[![Aspose KOSTENLOSER Online‑Zusammenführer](slides-merger.png)](https://products.aspose.app/slides/merger)
+[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)

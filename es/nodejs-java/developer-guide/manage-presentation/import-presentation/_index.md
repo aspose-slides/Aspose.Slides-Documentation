@@ -1,17 +1,35 @@
 ---
-title: Importar Presentación
+title: Importar presentaciones desde PDF o HTML en JavaScript
+linktitle: Importar presentación
 type: docs
 weight: 60
 url: /es/nodejs-java/import-presentation/
-keywords: "Importar PowerPoint, PDF a Presentación, PDF a PPTX, PDF a PPT, Java, Aspose.Slides for Node.js via Java"
-description: "Importar presentación PowerPoint desde PDF. Convertir PDF a PowerPoint"
+keywords:
+- importar presentación
+- importar diapositiva
+- importar PDF
+- importar HTML
+- PDF a presentación
+- PDF a PPT
+- PDF a PPTX
+- PDF a ODP
+- HTML a presentación
+- HTML a PPT
+- HTML a PPTX
+- HTML a ODP
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Importa documentos PDF y HTML en presentaciones PowerPoint y OpenDocument con Aspose.Slides para Node.js, ofreciendo un procesamiento de diapositivas fluido y de alto rendimiento."
 ---
 
-Usando [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), puedes importar presentaciones desde archivos en otros formatos. Aspose.Slides proporciona la clase [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) para permitirte importar presentaciones desde PDFs, documentos HTML, etc.
+Usando [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), puedes importar presentaciones desde archivos en otros formatos. Aspose.Slides proporciona la clase [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) para permitir la importación de presentaciones desde PDFs, documentos HTML, etc.
 
-## **Importar PowerPoint desde PDF**
+## **Import PowerPoint from PDF**
 
-En este caso, conviertes un PDF a una presentación PowerPoint.
+En este caso, conviertes un PDF en una presentación PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
@@ -34,12 +52,12 @@ try {
 
 
 {{% alert  title="Tip" color="primary" %}} 
-Puede que quieras echar un vistazo a la aplicación web **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) porque es una implementación en vivo del proceso descrito aquí. 
+Puede que quieras probar la aplicación web **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) porque es una implementación en vivo del proceso descrito aquí. 
 {{% /alert %}} 
 
-## **Importar PowerPoint desde HTML**
+## **Import PowerPoint from HTML**
 
-En este caso, conviertes un documento HTML a una presentación PowerPoint.
+En este caso, conviertes un documento HTML en una presentación PowerPoint.
 
 1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/).
 2. Llama al método [addFromHtml()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) y pasa el archivo PDF.
@@ -70,16 +88,6 @@ try {
 
 ## **FAQ**
 
-**¿Se conservan las tablas al importar un PDF, y puede mejorarse su detección?**
+**¿Se conservan las tablas al importar un PDF y puede mejorarse su detección?**
 
 Las tablas pueden detectarse durante la importación; [PdfImportOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfimportoptions/) incluye un método [setDetectTables](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfimportoptions/#setDetectTables) que habilita el reconocimiento de tablas. La efectividad depende de la estructura del PDF.
-
-{{% alert title="Note" color="warning" %}} 
-También puedes usar Aspose.Slides para convertir HTML a otros formatos de archivo populares: 
-
-* [HTML a imagen](https://products.aspose.com/slides/nodejs-java/conversion/html-to-image/)
-* [HTML a JPG](https://products.aspose.com/slides/nodejs-java/conversion/html-to-jpg/)
-* [HTML a XML](https://products.aspose.com/slides/nodejs-java/conversion/html-to-xml/)
-* [HTML a TIFF](https://products.aspose.com/slides/nodejs-java/conversion/html-to-tiff/)
-
-{{% /alert %}}

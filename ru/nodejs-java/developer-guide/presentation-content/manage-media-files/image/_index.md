@@ -1,14 +1,15 @@
 ---
-title: Изображение
+title: Оптимизация управления изображениями в презентациях с использованием JavaScript
+linktitle: Управлять изображениями
 type: docs
 weight: 10
 url: /ru/nodejs-java/image/
 keywords:
 - добавить изображение
-- добавить рисунок
+- добавить картинку
 - добавить bitmap
 - заменить изображение
-- заменить рисунок
+- заменить картинку
 - из интернета
 - фон
 - добавить PNG
@@ -23,35 +24,30 @@ keywords:
 - EMF
 - SVG
 - Node.js
+- JavaScript
 - Aspose.Slides
-description: "Оптимизируйте управление изображениями в PowerPoint и OpenDocument с помощью Aspose.Slides для Node.js, повышая производительность и автоматизируя ваш рабочий процесс."
+description: "Оптимизируйте управление изображениями в PowerPoint и OpenDocument с помощью JavaScript и Aspose.Slides для Node.js, повышая производительность и автоматизируя ваш рабочий процесс."
 ---
 
 ## **Изображения на слайдах в презентациях**
 
-Изображения делают презентации более увлекательными и интересными. В Microsoft PowerPoint вы можете вставлять картинки из файла, интернета или других мест на слайды. Аналогично, Aspose.Slides позволяет добавлять изображения на слайды в ваших презентациях различными способами. 
+Изображения делают презентации более увлекательными и интересными. В Microsoft PowerPoint вы можете вставлять картинки из файла, интернета или других источников на слайды. Аналогично, Aspose.Slides позволяет добавлять изображения на слайды в ваших презентациях различными способами. 
 
-{{% alert  title="Tip" color="primary" %}} 
+{{% alert  title="Подсказка" color="primary" %}} 
 
-Aspose предоставляет бесплатные конвертеры — [JPEG в PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений. 
-
-{{% /alert %}} 
-
-{{% alert title="Info" color="info" %}}
-
-Если вы хотите добавить изображение как объект кадра — особенно если планируете использовать стандартные параметры форматирования для изменения его размера, добавления эффектов и т.п., см. [Picture Frame](https://docs.aspose.com/slides/nodejs-java/picture-frame/).
+Aspose предоставляет бесплатные конвертеры —[JPEG в PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений. 
 
 {{% /alert %}} 
 
-{{% alert title="Note" color="warning" %}}
+{{% alert title="Информация" color="info" %}}
 
-Вы можете управлять операциями ввода/вывода, связанными с изображениями и презентациями PowerPoint, чтобы конвертировать изображение из одного формата в другой. См. эти страницы: конвертировать [изображение в JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), конвертировать [PNG в JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), конвертировать [SVG в PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
+Если вы хотите добавить изображение как объект рамки — особенно если планируете использовать стандартные параметры форматирования для изменения его размера, добавления эффектов и т.д. — см. [Picture Frame](https://docs.aspose.com/slides/nodejs-java/picture-frame/).
 
-{{% /alert %}}
+{{% /alert %}} 
 
-Aspose.Slides поддерживает работу с изображениями в этих популярных форматах: JPEG, PNG, GIF и другие. 
+Aspose.Slides поддерживает работу с изображениями в следующих популярных форматах: JPEG, PNG, GIF и другие. 
 
-## **Добавление изображений, хранящихся локально, на слайды**
+## **Добавление локально хранящихся изображений на слайды**
 
 Вы можете добавить одно или несколько изображений с вашего компьютера на слайд в презентации. Этот пример кода на JavaScript показывает, как добавить изображение на слайд:
 ```javascript
@@ -85,12 +81,12 @@ try {
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
-    // Получает первый слайд
+    // Доступ к первому слайду
     var sld = pres.getSlides().get_Item(0);
     // Загружает файл Excel в поток
     var readStream = fs.readFileSync("book1.xlsx");
     var byteArray = Array.from(readStream);
-    // Создает объект данных для встраивания
+    // Создаёт объект данных для встраивания
     var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
     // Добавляет форму Ole Object Frame
     var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
@@ -105,11 +101,11 @@ try {
 ```
 
 
-## **Добавление изображений в шаблоны слайдов**
+## **Добавление изображений в мастер-слайды**
 
-Шаблон слайда (slide master) — это основной слайд, который хранит и управляет информацией (тема, макет и т.д.) обо всех слайдах, находящихся под ним. Поэтому, когда вы добавляете изображение в шаблон слайда, это изображение появляется на каждом слайде, использующем данный шаблон. 
+Мастер-слайд — это главный слайд, который хранит и контролирует информацию (тема, макет и т.д.) о всех слайдах под ним. Поэтому, когда вы добавляете изображение в мастер-слайд, это изображение появляется на каждом слайде под этим мастером. 
 
-Этот пример кода на JavaScript показывает, как добавить изображение в шаблон слайда:
+Этот пример кода на JavaScript показывает, как добавить изображение в мастер-слайд:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -136,20 +132,20 @@ try {
 
 ## **Добавление изображений в качестве фона слайда**
 
-Вы можете решить использовать картинку в качестве фона для конкретного слайда или нескольких слайдов. В этом случае вам следует посмотреть *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
+Вы можете решить использовать картинку в качестве фона для конкретного слайда или нескольких слайдов. В этом случае см. *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Добавление SVG в презентации**
-Вы можете добавить или вставить любое изображение в презентацию, используя метод [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) класса [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection).
+Вы можете добавить или вставить любое изображение в презентацию, используя метод [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) класса [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection). 
 
-Чтобы создать объект изображения на основе SVG, вы можете сделать это следующим образом:
+Чтобы создать объект изображения на основе SVG, можно сделать следующее:
 
-1. Создать объект SvgImage для вставки его в ImageShapeCollection
+1. Создать объект SvgImage для вставки в ImageShapeCollection
 2. Создать объект PPImage из ISvgImage
 3. Создать объект PictureFrame, используя класс PPImage
 
 Этот пример кода показывает, как реализовать указанные шаги для добавления SVG‑изображения в презентацию:
 ```javascript
-// Создать экземпляр класса Presentation, представляющего файл PPTX
+// Создать объект класса Presentation, представляющий файл PPTX
 var pres = new aspose.slides.Presentation();
 try {
     var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
@@ -169,11 +165,11 @@ try {
 ## **Преобразование SVG в набор фигур**
 Преобразование SVG в набор фигур в Aspose.Slides аналогично функции PowerPoint, используемой для работы с SVG‑изображениями:
 
-![Всплывающее меню PowerPoint](img_01_01.png)
+![PowerPoint Popup Menu](img_01_01.png)
 
-Функциональность предоставляется одной из перегрузок метода [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) класса [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection), который принимает объект [SvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgImage) в качестве первого аргумента.
+Эта функциональность предоставляется одной из перегрузок метода [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) класса [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection), который принимает объект [SvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgImage) в качестве первого аргумента.
 
-Этот пример кода показывает, как использовать описанный метод для преобразования файла SVG в набор фигур:
+Этот пример кода показывает, как использовать описанный метод для преобразования SVG‑файла в набор фигур:
 ```javascript
 // Создать новую презентацию
 var presentation = new aspose.slides.Presentation();
@@ -198,8 +194,9 @@ try {
 
 
 ## **Добавление изображений в формате EMF на слайды**
-Aspose.Slides for Node.js via Java позволяет генерировать EMF‑изображения из листов Excel и добавлять их в слайды в виде EMF с помощью Aspose.Cells. 
+Aspose.Slides для Node.js через Java позволяет генерировать EMF‑изображения из листов Excel и добавлять их в слайды в формате EMF с помощью Aspose.Cells. 
 
+Этот пример кода показывает, как выполнить описанную задачу:
 ```javascript
 var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
 var sheet = book.getWorksheets().get(0);
@@ -207,7 +204,7 @@ var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
 options.setHorizontalResolution(200);
 options.setVerticalResolution(200);
 options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
-// Save the workbook to stream
+// Сохранить рабочую книгу в поток
 var sr = java.newInstanceSync("SheetRender", sheet, options);
 var pres = new aspose.slides.Presentation();
 try {
@@ -240,14 +237,16 @@ try {
 
 ## **Замена изображений в коллекции изображений**
 
-Aspose.Slides позволяет заменять изображения, хранящиеся в коллекции изображений презентации (включая те, что используются фигурами слайдов). В этом разделе показаны несколько подходов к обновлению изображений в коллекции. API предоставляет простые методы замены изображения, используя необработанные байтовые данные, экземпляр [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) или другое изображение, уже существующее в коллекции.
+Aspose.Slides позволяет заменять изображения, хранящиеся в коллекции изображений презентации (включая те, которые используются в фигурах слайдов). В этом разделе показаны несколько подходов к обновлению изображений в коллекции. API предоставляет простые методы замены изображения с использованием необработанных байтовых данных, экземпляра [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) или другого изображения, уже существующего в коллекции. 
 
-1. Загрузите файл презентации, содержащий изображения, используя класс [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. Загрузите новое изображение из файла в массив байтов.
-1. Замените целевое изображение новым, используя массив байтов.
-1. Во втором подходе загрузите изображение в объект [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) и замените целевое изображение этим объектом.
-1. В третьем подходе замените целевое изображение изображением, которое уже существует в коллекции изображений презентации.
-1. Запишите изменённую презентацию в файл PPTX.
+Выполните следующие шаги:
+
+1. Загрузите файл презентации, содержащий изображения, с помощью класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Загрузите новое изображение из файла в массив байтов.
+3. Замените целевое изображение новым изображением, используя массив байтов.
+4. Во втором подходе загрузите изображение в объект [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) и замените целевое изображение этим объектом.
+5. В третьем подходе замените целевое изображение изображением, которое уже существует в коллекции изображений презентации.
+6. Сохраните изменённую презентацию в формате PPTX.
 ```js
 // Создать экземпляр класса Presentation, представляющего файл презентации.
 const presentation = new aspose.slides.Presentation("sample.pptx");
@@ -275,30 +274,30 @@ try {
 ```
 
 
-{{% alert title="Info" color="info" %}}
+{{% alert title="Информация" color="info" %}}
 
-С помощью бесплатного конвертера Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) вы можете легко анимировать тексты, создавать GIF‑изображения из текста и т.д. 
+С помощью бесплатного конвертера Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) вы можете легко анимировать текст, создавать GIF‑файлы из текста и т.д. 
 
 {{% /alert %}}
 
 ## **Часто задаваемые вопросы**
 
-**Сохранится ли исходное разрешение изображения после вставки?**
+**Сохраняется ли оригинальное разрешение изображения после вставки?**
 
-Да. Исходные пиксели сохраняются, но окончательный вид зависит от того, как [picture](/slides/ru/nodejs-java/picture-frame/) масштабируется на слайде и от любой компрессии при сохранении.
+Да. Исходные пиксели сохраняются, но конечный вид зависит от того, как [изображение](/slides/ru/nodejs-java/picture-frame/) масштабируется на слайде и от любой компрессии при сохранении.
 
-**Какой лучший способ заменить один и тот же логотип на десятках слайдов одновременно?**
+**Какой лучший способ заменить один и тот же логотип сразу на десятках слайдов?**
 
-Разместите логотип на слайде‑мастере или макете и замените его в коллекции изображений презентации — изменения распространятся на все элементы, использующие этот ресурс.
+Разместите логотип на мастер‑слайде или макете и замените его в коллекции изображений презентации — изменения распространятся на все элементы, использующие этот ресурс.
 
-**Можно ли преобразовать вставленный SVG в редактируемые фигуры?**
+**Можно ли вставленный SVG преобразовать в редактируемые фигуры?**
 
-Да. Вы можете конвертировать SVG в группу фигур, после чего отдельные части станут редактируемыми с помощью стандартных свойств фигур.
+Да. Вы можете преобразовать SVG в группу фигур, после чего отдельные части становятся редактируемыми с помощью стандартных свойств фигур.
 
-**Как установить изображение в качестве фона для нескольких слайдов сразу?**
+**Как установить картинку в качестве фона сразу для нескольких слайдов?**
 
-[Назначьте изображение как фон](/slides/ru/nodejs-java/presentation-background/) на слайде‑мастере или соответствующем макете — любой слайд, использующий этот мастер/макет, унаследует фон.
+[Назначьте изображение в качестве фона](/slides/ru/nodejs-java/presentation-background/) на мастер‑слайде или соответствующем макете — все слайды, использующие этот мастер/макет, унаследуют фон.
 
-**Как предотвратить «раздувание» презентации из‑за большого количества картинок?**
+**Как предотвратить «раздувание» презентации из‑за большого количества изображений?**
 
-Переиспользуйте один ресурс изображения вместо дублирования, выбирайте разумные разрешения, применяйте компрессию при сохранении и размещайте повторяющиеся графики на мастере, где это уместно.
+Повторно используйте один ресурс изображения вместо дубликатов, выбирайте разумные разрешения, применяйте компрессию при сохранении и размещайте повторяющуюся графику на мастере, где это уместно.

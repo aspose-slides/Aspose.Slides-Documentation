@@ -1,35 +1,54 @@
 ---
-title: ووردآرت
+title: إنشاء وتطبيق تأثيرات WordArt في JavaScript
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ar/nodejs-java/wordart/
+keywords:
+- WordArt
+- إنشاء WordArt
+- قالب WordArt
+- تأثير WordArt
+- تأثير الظل
+- تأثير العرض
+- تأثير التوهج
+- تحويل WordArt
+- تأثير ثلاثي الأبعاد
+- تأثير الظل الخارجي
+- تأثير الظل الداخلي
+- PowerPoint
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides لـ Node.js. يوجهك هذا الدليل خطوة بخطوة لمساعدة المطورين على تحسين العروض التقديمية بنص احترافي."
 ---
 
 ## **حول WordArt؟**
 
-WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك تلوين حدود النص أو ملئه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد إليه، إلخ. كما يمكنك إمالة، انحناء، وتمديد شكل النص.
+WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك تحديد حدود للنص أو ملئه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد إليه، إلخ. يمكنك أيضًا إمالة النص، انحنائه، وتمديد شكل النص. 
 
 {{% alert color="primary" %}} 
 
-WordArt يسمح لك بمعالجة النص كما لو كان كائنًا رسوميًا. بشكل عام، يتكون WordArt من تأثيرات أو تعديلات خاصة تُطبق على النصوص لجعلها أكثر جذبًا أو وضوحًا. 
+WordArt يسمح لك بمعاملة النص كما تفعل مع كائن رسومي. بشكل عام، يتكون WordArt من تأثيرات أو تعديلات خاصة تُجرى على النصوص لجعلها أكثر جاذبية أو وضوحًا. 
 
 {{% /alert %}} 
 
 **WordArt في Microsoft PowerPoint**
 
-لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد قوالب WordArt المحددة مسبقًا. قالب WordArt هو مجموعة من التأثيرات تُطبق على النص أو شكله.
+لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد قوالب WordArt المعرفة مسبقًا. قالب WordArt هو مجموعة من التأثيرات التي تُطبق على نص أو على شكله. 
 
 **WordArt في Aspose.Slides**
 
-في Aspose.Slides for Node.js via Java 20.10، قمنا بتنفيذ دعم WordArt وأجرينا تحسينات على الميزة في إصدارات Aspose.Slides for Node.js via Java اللاحقة.
+في Aspose.Slides for Node.js via Java 20.10، نفّذنا دعمًا لـ WordArt وأجرينا تحسينات على الميزة في الإصدارات اللاحقة من Aspose.Slides for Node.js via Java.
 
-مع Aspose.Slides for Node.js via Java، يمكنك بسهولة إنشاء قالب WordArt الخاص بك (تأثير واحد أو مجموعة من التأثيرات) بجافا سكريبت وتطبيقه على النصوص.
+مع Aspose.Slides for Node.js via Java، يمكنك بسهولة إنشاء قالب WordArt الخاص بك (تأثير واحد أو مجموعة من التأثيرات) في JavaScript وتطبيقه على النصوص.
 
-## **إنشاء قالب WordArt بسيط وتطبيقه على نص**
+## **إنشاء نموذج WordArt بسيط وتطبيقه على نص**
 
 **استخدام Aspose.Slides** 
 
-أولاً، ننشئ نصًا بسيطًا باستخدام شيفرة جافا سكريبت التالية:
+أولاً، ننشئ نصًا بسيطًا باستخدام هذا الكود JavaScript:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -45,7 +64,7 @@ try {
 }
 ```
 
-الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا عبر الشيفرة التالية:
+الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الكود:
 ```javascript
 var fontData = new aspose.slides.FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
@@ -59,15 +78,15 @@ portion.getPortionFormat().setFontHeight(36);
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-من القائمة على اليمين، يمكنك اختيار تأثير WordArt محدد مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات WordArt جديد.
+من القائمة على اليمين، يمكنك اختيار تأثير WordArt معرف مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات WordArt جديد. 
 
-هذه بعض المعلمات أو الخيارات المتوفرة:
+هذه بعض المعلمات أو الخيارات المتاحة:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
 **استخدام Aspose.Slides**
 
-هنا، نطبق نمط اللون [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) على النص ونضيف حدًا أسودًا بعرض 1 باستخدام الشيفرة التالية:
+هنا، نطبق نمط اللون [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) على النص ونضيف حدًا نصيًا أسود بعرض 1 باستخدام هذا الكود:
 ```javascript
 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -90,11 +109,11 @@ portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().s
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ وتأثيرات تنسيق ثلاثي الأبعاد وتدوير ثلاثي الأبعاد على كتلة النص؛ وتطبيق خاصية الحواف الناعمة على كائن الشكل (تظل لها تأثير حتى إذا لم يتم تعيين خاصية تنسيق ثلاثي الأبعاد).
+على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ وتأثيرات تنسيق ثلاثي الأبعاد وتدوير ثلاثي الأبعاد على كتلة النص؛ ويمكن تطبيق خاصية الحواف الناعمة على كائن الشكل (لا يزال لها تأثير عندما لا يتم تعيين خاصية تنسيق ثلاثي الأبعاد). 
 
 ### **تطبيق تأثيرات الظل**
 
-هنا نعتزم ضبط الخصائص المتعلقة بنص فقط. نطبق تأثير الظل على النص باستخدام الشيفرة التالية بجافا سكريبت:
+هنا، نهدف إلى ضبط الخصائص المتعلقة بالنص فقط. نطبق تأثير الظل على النص باستخدام هذا الكود في JavaScript:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
@@ -109,28 +128,28 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowCol
 ```
 
 
-يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow و InnerShadow و PresetShadow.
+يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow و InnerShadow و PresetShadow. 
 
-مع PresetShadow، يمكنك تطبيق ظل على نص (باستخدام قيم مسبقة).
+باستخدام PresetShadow، يمكنك تطبيق ظل للنص (باستخدام قيم مسبقة). 
 
 **استخدام Microsoft PowerPoint**
 
-في PowerPoint، يمكنك استخدام نوع واحد من الظلال. إليك مثالًا:
+في PowerPoint، يمكنك استخدام نوع واحد من الظل. إليك مثالًا:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
 **استخدام Aspose.Slides**
 
-يسمح Aspose.Slides فعليًا بتطبيق نوعين من الظلال في آنٍ واحد: InnerShadow و PresetShadow.
+في الواقع، يسمح Aspose.Slides لك بتطبيق نوعين من الظلال في آن واحد: InnerShadow و PresetShadow.
 
 **ملاحظات:**
 
-- عند استخدام OuterShadow و PresetShadow معًا، يُطبق تأثير OuterShadow فقط. 
-- إذا تم استخدام OuterShadow و InnerShadow معًا، يعتمد التأثير الناتج على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013 يتضاعف التأثير، بينما في PowerPoint 2007 يُطبق تأثير OuterShadow.
+- عند استخدام OuterShadow و PresetShadow معًا، يتم تطبيق تأثير OuterShadow فقط. 
+- إذا تم استخدام OuterShadow و InnerShadow معًا، يعتمد التأثير الناتج أو المطبق على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير. ولكن في PowerPoint 2007، يُطبق تأثير OuterShadow. 
 
 ### **تطبيق العرض على النصوص**
 
-نضيف العرض إلى النص عبر عينة الشيفرة التالية بجافا سكريبت:
+نضيف عرضًا إلى النص من خلال هذا المثال في JavaScript:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -148,7 +167,7 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 
 ### **تطبيق تأثير التوهج على النصوص**
 
-نطبق تأثير التوهج على النص لجعله يلمع أو يبرز باستخدام الشيفرة التالية:
+نطبق تأثير التوهج على النص لجعله يلمع أو يبرز باستخدام هذا الكود:
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
@@ -163,13 +182,13 @@ portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
 
 {{% alert color="primary" %}} 
 
-يمكنك تغيير معلمات الظل، العرض، والتوهج. يتم ضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
+يمكنك تغيير المعلمات للظل، العرض، والتوهج. تُضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
 
 {{% /alert %}} 
 
 ### **استخدام التحويلات في WordArt**
 
-نستخدم خاصية Transform (الموجودة في كتلة النص بالكامل) عبر الشيفرة التالية:
+نستخدم خاصية Transform (الموجودة في الكتلة النصية بأكملها) من خلال هذا الكود:
 ```javascript
 textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
 ```
@@ -181,21 +200,21 @@ textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShape
 
 {{% alert color="primary" %}} 
 
-يقدم كل من Microsoft PowerPoint و Aspose.Slides for Node.js via Java عددًا معينًا من أنواع التحويلات المحددة مسبقًا.
+توفر كل من Microsoft PowerPoint و Aspose.Slides for Node.js via Java عددًا محددًا من أنواع التحويلات المعرفة مسبقًا.
 
 {{% /alert %}} 
 
 **استخدام PowerPoint**
 
-للوصول إلى أنواع التحويلات المحددة مسبقًا، انتقل إلى: **Format** → **TextEffect** → **Transform**
+للوصول إلى أنواع التحويلات المعرفة مسبقًا، انتقل عبر: **Format** -> **TextEffect** -> **Transform**
 
 **استخدام Aspose.Slides**
 
-لاختيار نوع التحويل، استخدم تعداد TextShapeType.
+لتحديد نوع التحويل، استخدم تعداد TextShapeType. 
 
 ### **تطبيق تأثيرات ثلاثية الأبعاد على النصوص والأشكال**
 
-نضبط تأثير ثلاثي الأبعاد على شكل نص باستخدام عينة الشيفرة التالية:
+نضبط تأثيرًا ثلاثيًا الأبعاد على شكل نص باستخدام هذا الكود النموذجي:
 ```javascript
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
@@ -216,11 +235,11 @@ autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPreset
 ```
 
 
-النص والشكل الناتج:
+النص والشكل الناتجين:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-نطبق تأثيرًا ثلاثيًا الأبعاد على النص باستخدام الشيفرة التالية بجافا سكريبت:
+نطبق تأثيرًا ثلاثيًا الأبعاد على النص باستخدام هذا الكود JavaScript:
 ```javascript
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
@@ -247,48 +266,48 @@ textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspos
 
 {{% alert color="primary" %}} 
 
-تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها والتفاعلات بين التأثيرات تستند إلى قواعد معينة.
+تطبيق التأثيرات ثلاثية الأبعاد على النصوص أو أشكالها وتفاعل التأثيرات معًا يعتمد على قواعد معينة. 
 
-اعتبر مشهدًا للنص والشكل الذي يحتوي على النص. يحتوي تأثير ثلاثي الأبعاد على تمثيل كائن ثلاثي الأبعاد والمشهد الذي يُوضع فيه الكائن.
+اعتبر مشهدًا للنص والشكل الذي يحتوي على ذلك النص. يحتوي تأثير ثلاثي الأبعاد على تمثيل كائن ثلاثي الأبعاد والمشهد الذي وضع فيه الكائن. 
 
-- عندما يُحدد المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى—يُتجاهل مشهد النص. 
-- عندما يفتقر الشكل إلى مشهد خاص به لكنه يحتوي على تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص. 
-- وإلا—عندما لا يحتوي الشكل أصلاً على تأثير ثلاثي الأبعاد—يكون الشكل مسطحًا ويُطبق التأثير ثلاثي الأبعاد فقط على النص. 
+- عندما يتم تعيين المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى—يُتجاهل مشهد النص. 
+- عندما يفتقر الشكل إلى مشهد خاص به ولكن لديه تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص. 
+- وإلا—عندما لا يحتوي الشكل أصلاً على تأثير ثلاثي الأبعاد—يظل الشكل مسطحًا ويتم تطبيق التأثير ثلاثي الأبعاد فقط على النص. 
 
 هذه الأوصاف مرتبطة بالطرق ThreeDFormat.getLightRig() و ThreeDFormat.getCamera().
 
 {{% /alert %}} 
 
-## **تطبيق تأثيرات الظل الخارجي على النصوص**
+## **تطبيق تأثير الظل الخارجي على النصوص**
 
-توفر Aspose.Slides for Node.js via Java الفئات [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IOuterShadow) و [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IInnerShadow) التي تسمح لك بتطبيق تأثيرات الظل على نص داخل [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/classes/TextFrame). اتبع الخطوات التالية:
+توفر Aspose.Slides for Node.js via Java فصول [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/) و [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/innershadow/) التي تسمح لك بتطبيق تأثيرات الظل على نص محمول بواسطة [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/). اتبع الخطوات التالية:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).  
-2. الحصول على مرجع شريحة باستخدام فهارسها.  
-3. إضافة AutoShape من النوع Rectangle إلى الشريحة.  
-4. الوصول إلى TextFrame المرتبط بـ AutoShape.  
-5. ضبط FillType الخاص بـ AutoShape إلى NoFill.  
-6. إنشاء مثيل من فئة OuterShadow.  
-7. ضبط BlurRadius للظل.  
-8. ضبط Direction للظل.  
-9. ضبط Distance للظل.  
-10. ضبط RectanglelAlign إلى TopLeft.  
-11. ضبط PresetColor للظل إلى Black.  
-12. حفظ العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation). 
+2. الحصول على مرجع الشريحة باستخدام فهرسها. 
+3. إضافة AutoShape من النوع Rectangle إلى الشريحة. 
+4. الوصول إلى TextFrame المرتبط بـ AutoShape. 
+5. ضبط FillType للـ AutoShape على NoFill. 
+6. إنشاء فئة OuterShadow. 
+7. تعيين BlurRadius للظل. 
+8. تعيين Direction للظل. 
+9. تعيين Distance للظل. 
+10. تعيين RectanglelAlign إلى TopLeft. 
+11. تعيين PresetColor للظل إلى Black. 
+12. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/). 
 
-تظهر شيفرة Java التالية—تنفيذ للخطوات أعلاه—كيفية تطبيق تأثير الظل الخارجي على نص:
+هذا الكود النموذجي في Java—تنفيذ للخطوات أعلاه—يوضح كيفية تطبيق تأثير الظل الخارجي على نص:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
-    // الحصول على مرجع الشريحة
+    // احصل على مرجع الشريحة
     var sld = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من النوع Rectangle
+    // أضف AutoShape من نوع المستطيل
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // إضافة TextFrame إلى المستطيل
+    // أضف TextFrame إلى المستطيل
     ashp.addTextFrame("Aspose TextBox");
-    // إلغاء ملء الشكل في حالة رغبتنا بالحصول على ظل النص
+    // عطّل تعبئة الشكل في حال أردنا الحصول على ظل النص
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // إضافة ظل خارجي وتعيين جميع المعلمات اللازمة
+    // أضف ظلًا خارجيًا واضبط جميع المعلمات الضرورية
     ashp.getEffectFormat().enableOuterShadowEffect();
     var shadow = ashp.getEffectFormat().getOuterShadowEffect();
     shadow.setBlurRadius(4.0);
@@ -296,7 +315,7 @@ try {
     shadow.setDistance(3);
     shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
     shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
-    // كتابة العرض إلى القرص
+    // اكتب العرض التقديمي إلى القرص
     pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -310,42 +329,42 @@ try {
 
 اتبع الخطوات التالية:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).  
-2. الحصول على مرجع الشريحة.  
-3. إضافة AutoShape من النوع Rectangle.  
-4. تمكين InnerShadowEffect.  
-5. ضبط جميع المعلمات الضرورية.  
-6. ضبط ColorType إلى Scheme.  
-7. ضبط Scheme Color.  
-8. حفظ العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation). 
+2. الحصول على مرجع الشريحة. 
+3. إضافة AutoShape من نوع Rectangle. 
+4. تمكين InnerShadowEffect. 
+5. ضبط جميع المعلمات اللازمة. 
+6. تعيين ColorType إلى Scheme. 
+7. تعيين Scheme Color. 
+8. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/). 
 
-تظهر شيفرة العينة (المبنية على الخطوات أعلاه) كيفية إضافة موصل بين شكلين في جافا سكريبت:
+هذا الكود (المستند إلى الخطوات أعلاه) يوضح كيفية إضافة موصل بين شكلين في JavaScript:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
-    // الحصول على مرجع الشريحة
+    // احصل على مرجع الشريحة
     var slide = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من نوع Rectangle
+    // أضف AutoShape من نوع مستطيل
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
     ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // إضافة TextFrame إلى المستطيل
+    // أضف TextFrame إلى المستطيل
     ashp.addTextFrame("Aspose TextBox");
     var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     var pf = port.getPortionFormat();
     pf.setFontHeight(50);
-    // تمكين InnerShadowEffect
+    // فعّل تأثير الظل الداخلي
     var ef = pf.getEffectFormat();
     ef.enableInnerShadowEffect();
-    // تعيين جميع المعلمات اللازمة
+    // عيّن جميع المعلمات الضرورية
     ef.getInnerShadowEffect().setBlurRadius(8.0);
     ef.getInnerShadowEffect().setDirection(90.0);
     ef.getInnerShadowEffect().setDistance(6.0);
     ef.getInnerShadowEffect().getShadowColor().setB(189);
-    // تعيين ColorType كـ Scheme
+    // عيّن ColorType كـ Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // تعيين Scheme Color
+    // عيّن لون المخطط
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
-    // حفظ العرض
+    // احفظ العرض التقديمي
     pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -359,16 +378,16 @@ try {
 
 **هل يمكنني استخدام تأثيرات WordArt مع خطوط أو نصوص مختلفة (مثل العربية أو الصينية)؟**
 
-نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد على أي لغة، رغم أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
+نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخط وعرضه قد يعتمد على خطوط النظام.
 
-**هل يمكنني تطبيق تأثيرات WordArt على عناصر ماستر الشريحة؟**
+**هل يمكنني تطبيق تأثيرات WordArt على عناصر شريحة القالب (master)؟**
 
-نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في ماستر الشرائح، بما في ذلك نوافذ العناوين، التذييلات، أو النص الخلفي. سيُنعكس أي تغيير يُجرى على تخطيط الماستر على جميع الشرائح المرتبطة.
+نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في شرائح القالب، بما في ذلك نُسخ العناوين، التذييلات، أو النص الخلفي. ستنعكس التغييرات التي تُجرى على تخطيط القالب على جميع الشرائح المرتبطة.
 
-**هل تؤثر تأثيرات WordArt على حجم ملف العرض؟**
+**هل تؤثر تأثيرات WordArt على حجم ملف العرض التقديمي؟**
 
-قليلًا. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئة التدرجات من حجم الملف قليلاً بسبب إضافة بيانات تنسيق، لكن الفرق عادةً ما يكون ضئيلًا.
+قليلًا. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئة التدرجات من حجم الملف قليلًا بسبب إضافة بيانات تنسيق، إلا أن الفارق عادةً ما يكون ضئيلًا.
 
-**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض؟**
+**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض التقديمي؟**
 
-نعم، يمكنك تصيير الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام الطريقة `getImage` من فئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) أو فئة [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض بالكامل.
+نعم، يمكنك تصيير الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `getImage` من فئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) أو [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض التقديمي بالكامل.

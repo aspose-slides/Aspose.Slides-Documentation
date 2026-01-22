@@ -1,19 +1,35 @@
 ---
-title: Форматирование диаграмм
+title: Форматирование диаграмм презентации в JavaScript
+linktitle: Форматирование диаграмм
 type: docs
 weight: 60
 url: /ru/nodejs-java/chart-formatting/
+keywords:
+- формат диаграммы
+- форматирование диаграмм
+- элемент диаграммы
+- свойства диаграммы
+- настройки диаграммы
+- опции диаграммы
+- свойства шрифта
+- скруглённые границы
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Изучите форматирование диаграмм в Aspose.Slides для Node.js на JavaScript и улучшите свою презентацию PowerPoint с профессиональным, броским оформлением."
 ---
 
 ## **Форматирование элементов диаграммы**
 
-Aspose.Slides for Node.js via Java позволяет разработчикам добавлять пользовательские диаграммы на слайды с нуля. Эта статья объясняет, как форматировать различные элементы диаграммы, включая оси категорий и значений.
+Aspose.Slides for Node.js via Java позволяет разработчикам добавлять пользовательские диаграммы в слайды с нуля. В этой статье объясняется, как форматировать различные элементы диаграммы, включая категориальную и ось значений.
 
-Aspose.Slides for Node.js via Java предоставляет простой API для управления различными элементами диаграммы и их форматированием с помощью пользовательских значений:
+Aspose.Slides for Node.js via Java предоставляет простой API для управления различными элементами диаграммы и их форматирования с помощью пользовательских значений:
 
 1. Создайте экземпляр класса [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию и выбранным типом (в этом примере мы используем ChartType.LineWithMarkers).
+1. Добавьте диаграмму с данными по умолчанию любого требуемого типа (в этом примере мы используем ChartType.LineWithMarkers).
 1. Получите доступ к оси значений диаграммы и задайте следующие свойства:
    1. Установка **Line format** для основных линий сетки оси значений
    1. Установка **Line format** для вспомогательных линий сетки оси значений
@@ -22,22 +38,22 @@ Aspose.Slides for Node.js via Java предоставляет простой API
    1. Установка **Text Properties** для данных оси значений
    1. Установка **Title** для оси значений
    1. Установка **Line Format** для оси значений
-1. Получите доступ к оси категорий диаграммы и задайте следующие свойства:
-   1. Установка **Line format** для основных линий сетки оси категорий
-   1. Установка **Line format** для вспомогательных линий сетки оси категорий
-   1. Установка **Text Properties** для данных оси категорий
-   1. Установка **Title** для оси категорий
-   1. Установка **Label Positioning** для оси категорий
-   1. Установка **Rotation Angle** для меток оси категорий
+1. Получите доступ к категориальной оси диаграммы и задайте следующие свойства:
+   1. Установка **Line format** для основных линий сетки категориальной оси
+   1. Установка **Line format** для вспомогательных линий сетки категориальной оси
+   1. Установка **Text Properties** для данных категориальной оси
+   1. Установка **Title** для категориальной оси
+   1. Установка **Label Positioning** для категориальной оси
+   1. Установка **Rotation Angle** для подписей категориальной оси
 1. Получите доступ к легенде диаграммы и задайте **Text Properties** для неё
-1. Отобразите легенды диаграммы без перекрытия с диаграммой
+1. Установите отображение легенд диаграммы без перекрытия графика
 1. Получите доступ к **Secondary Value Axis** диаграммы и задайте следующие свойства:
-   1. Включите вторичную **Value Axis**
+   1. Включить вторичную **Value Axis**
    1. Установка **Line Format** для вторичной оси значений
    1. Установка **Number Format** для вторичной оси значений
    1. Установка **Min, Max, Major and Minor units** для вторичной оси значений
-1. Теперь построьте первый ряд диаграммы на вторичной оси значений
-1. Установите цвет заливки задней стены диаграммы
+1. Теперь построьте первую серию диаграммы на вторичной оси значений
+1. Установите цвет заливки задней стенки диаграммы
 1. Установите цвет заливки области построения диаграммы
 1. Запишите изменённую презентацию в файл PPTX
 ```javascript
@@ -46,7 +62,7 @@ var pres = new aspose.slides.Presentation();
 try {
     // Получение первого слайда
     var slide = pres.getSlides().get_Item(0);
-    // Добавление примера диаграммы
+    // Добавление образцовой диаграммы
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
     // Установка заголовка диаграммы
     chart.hasTitle();
@@ -58,12 +74,12 @@ try {
     chartTitle.getPortionFormat().setFontHeight(20);
     chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Установка формата основных линий сетки для оси значений
+    // Установка формата основных линий сетки оси значений
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Установка формата вспомогательных линий сетки для оси значений
+    // Установка формата вспомогательных линий сетки оси значений
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
@@ -80,7 +96,7 @@ try {
     chart.getAxes().getVerticalAxis().setMinValue(-2.0);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
-    // Установка текстовых свойств оси значений
+    // Установка свойств текста оси значений
     var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
     txtVal.setFontBold(aspose.slides.NullableBool.True);
     txtVal.setFontHeight(16);
@@ -98,15 +114,15 @@ try {
     valtitle.getPortionFormat().setFontHeight(20);
     valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
     valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Установка формата основных линий сетки для оси категорий
+    // Установка формата основных линий сетки оси категорий
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    // Установка формата вспомогательных линий сетки для оси категорий
+    // Установка формата вспомогательных линий сетки оси категорий
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setFillFormat(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // Установка текстовых свойств оси категорий
+    // Установка свойств текста оси категорий
     var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
     txtCat.setFontBold(aspose.slides.NullableBool.True);
     txtCat.setFontHeight(16);
@@ -126,16 +142,16 @@ try {
     catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     // Установка позиции меток оси категорий
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
-    // Установка угла вращения меток оси категорий
+    // Установка угла поворота меток оси категорий
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
-    // Установка текстовых свойств легенд
+    // Установка свойств текста легенд
     var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
     txtleg.setFontBold(aspose.slides.NullableBool.True);
     txtleg.setFontHeight(16);
     txtleg.setFontItalic(aspose.slides.NullableBool.True);
     txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
-    // Отображать легенды диаграммы без перекрытия диаграммы
+    // Настроить отображение легенд диаграммы без наложения на диаграмму
     chart.getLegend().setOverlay(true);
     // chart.ChartData.Series[0].PlotOnSecondAxis=true;
     chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
@@ -156,7 +172,7 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5.0);
     chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
-    // Установка цвета задней стены диаграммы
+    // Установка цвета задней стенки диаграммы
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -175,10 +191,9 @@ try {
 ```
 
 
-
 ## **Установка свойств шрифта для диаграммы**
 
-Aspose.Slides for Node.js via Java предоставляет поддержку настройки шрифтовых свойств для диаграммы. Пожалуйста, следуйте нижеприведённым шагам для установки свойств шрифта для диаграммы.
+Aspose.Slides for Node.js via Java поддерживает установку свойств шрифта для диаграммы. Следуйте этим шагам, чтобы задать свойства шрифта.
 
 - Создайте объект класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 - Добавьте диаграмму на слайд.
@@ -208,12 +223,12 @@ Aspose.Slides for Node.js via Java предоставляет простой API
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию и выбранным типом (в этом примере используется **ChartType.ClusteredColumn**).
-1. Установите предустановленный числовой формат из возможных значений.
-1. Пройдитесь по ячейкам данных диаграммы в каждом ряду и задайте числовой формат данных.
+1. Добавьте диаграмму с данными по умолчанию любого требуемого типа (в этом примере используется **ChartType.ClusteredColumn**).
+1. Установите предустановленный числовой формат из доступных значений.
+1. Пройдите по ячейкам данных диаграммы в каждой серии и задайте числовой формат данных.
 1. Сохраните презентацию.
 1. Установите пользовательский числовой формат.
-1. Пройдитесь по ячейкам данных диаграммы в каждом ряду и задайте иной числовой формат.
+1. Пройдите по ячейкам данных диаграммы в каждой серии и задайте различный числовой формат данных.
 1. Сохраните презентацию.
 ```javascript
 // Создать экземпляр класса Presentation
@@ -221,21 +236,21 @@ var pres = new aspose.slides.Presentation();
 try {
     // Получить первый слайд презентации
     var slide = pres.getSlides().get_Item(0);
-    // Добавление диаграммы кластерных столбцов по умолчанию
+    // Добавить диаграмму группированных столбцов по умолчанию
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
-    // Получение коллекции рядов диаграммы
+    // Получить коллекцию серий диаграммы
     var series = chart.getChartData().getSeries();
-    // Перебор всех рядов диаграммы
+    // Перебрать все серии диаграммы
     for (var i = 0; i < series.size(); i++) {
         var ser = series.get_Item(i);
-        // Перебор каждой ячейки данных в ряду
+        // Перебрать все ячейки данных в серии
         for (var j = 0; j < ser.getDataPoints().size(); j++) {
             var cell = ser.getDataPoints().get_Item(j);
-            // Установка числового формата
+            // Установить числовой формат
             cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
         }
     }
-    // Сохранение презентации
+    // Сохранить презентацию
     pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -245,7 +260,9 @@ try {
 ```
 
 
-|**0**|Общий|
+Возможные предустановленные значения числового формата вместе с их индексами:
+
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -278,19 +295,19 @@ try {
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
 ## **Установка скруглённых границ области диаграммы**
 
-Aspose.Slides for Node.js via Java предоставляет поддержку настройки области диаграммы. Методы [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) и [**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) были добавлены в класс [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart).
+Aspose.Slides for Node.js via Java поддерживает настройку области диаграммы. Методы [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) и [**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) добавлены в класс [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart).
 
 1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
 1. Добавьте диаграмму на слайд.
-1. Установите тип заливки и цвет заливки диаграммы
-1. Установите свойство скруглённого угла в значение True.
+1. Установите тип заливки и цвет заливки диаграммы.
+1. Установите свойство скруглённых углов в **True**.
 1. Сохраните изменённую презентацию.
 
 Ниже приведён пример.
@@ -314,14 +331,14 @@ try {
 
 ## **FAQ**
 
-**Могу ли я задать полупрозрачные заливки для столбцов/областей, оставив границу непрозрачной?**
+**Можно ли задать полупрозрачные заливки для столбцов/областей, оставив границы непрозрачными?**
 
-Да. Прозрачность заливки и контур настраиваются отдельно. Это полезно для улучшения читаемости сетки и данных в плотных визуализациях.
+Да. Прозрачность заливки и обводка настраиваются независимо. Это удобно для повышения читаемости сетки и данных в плотных визуализациях.
 
-**Как справиться с наложением подпечатей данных?**
+**Как поступить с подписью данных, если они перекрываются?**
 
-Уменьшите размер шрифта, отключите несущественные компоненты подписи (например, категории), задайте смещение/позицию подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на "значение + легенда".
+Уменьшить размер шрифта, отключить несущественные компоненты подписи (например, категории), задать смещение/позицию подписи, показывать подписи только для выбранных точек или переключить формат на «значение + легенда».
 
-**Могу ли я применять градиентные или шаблонные заливки к рядам?**
+**Можно ли применять градиентные или узорные заливки к сериям?**
 
-Да. Обычно доступны как сплошные, так и градиентные/шаблонные заливки. На практике используйте градиенты экономно и избегайте комбинаций, снижающих контрастность с сеткой и текстом.
+Да. Обычно доступны как сплошные, так и градиентные/узорные заливки. На практике используйте градиенты умеренно и избегайте сочетаний, снижающих контрастность с сеткой и текстом.

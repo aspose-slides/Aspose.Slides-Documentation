@@ -1,16 +1,38 @@
 ---
-title: Манипуляции фигурами
+title: Управление фигурами презентации в JavaScript
+linktitle: Работа с фигурами
 type: docs
 weight: 40
 url: /ru/nodejs-java/shape-manipulations/
+keywords:
+- Фигура PowerPoint
+- Фигура презентации
+- Фигура на слайде
+- Найти фигуру
+- Клонировать фигуру
+- Удалить фигуру
+- Скрыть фигуру
+- Изменить порядок фигур
+- Получить Interop ID фигуры
+- Альтернативный текст фигуры
+- Форматы макета фигуры
+- Фигура как SVG
+- Фигура в SVG
+- Выровнять фигуру
+- PowerPoint
+- Презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Узнайте, как создавать, редактировать и оптимизировать фигуры с помощью JavaScript и Aspose.Slides для Node.js через Java, а также создавать высокопроизводительные презентации PowerPoint."
 ---
 
 ## **Найти фигуру на слайде**
-В этой статье описывается простая техника, позволяющая разработчикам проще находить конкретную фигуру на слайде без использования её внутреннего Id. Важно знать, что файлы презентаций PowerPoint не предоставляют способа идентифицировать фигуры на слайде, кроме внутреннего уникального Id. Разработчикам часто сложно находить фигуру по её внутреннему уникальному Id. Все фигуры, добавленные на слайды, имеют альтернативный текст. Мы предлагаем разработчикам использовать альтернативный текст для поиска конкретной фигуры. Вы можете использовать MS PowerPoint, чтобы задать альтернативный текст объектам, которые планируете изменять в будущем.
+В этой статье описывается простая техника, упрощающая разработчикам поиск конкретной фигуры на слайде без использования её внутреннего Id. Важно знать, что файлы PowerPoint Presentation не предоставляют способа идентифицировать фигуры на слайде, кроме внутреннего уникального Id. Разработчикам часто сложно найти фигуру по её внутреннему уникальному Id. Все фигуры, добавленные на слайды, имеют альтернативный текст. Мы рекомендуем использовать альтернативный текст для поиска конкретной фигуры. Вы можете использовать MS PowerPoint для задания альтернативного текста объектам, которые планируете изменять в будущем.
 
-После установки альтернативного текста нужной фигуры вы можете открыть эту презентацию с помощью Aspose.Slides for Node.js via Java и перебрать все фигуры, добавленные на слайд. На каждой итерации вы проверяете альтернативный текст фигуры, и фигура с совпадающим альтернативным текстом будет требуемой. Чтобы продемонстрировать эту технику, мы создали метод [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) , который выполняет поиск конкретной фигуры на слайде и просто возвращает её.
+После задания альтернативного текста нужной фигуры вы можете открыть эту презентацию с помощью Aspose.Slides for Node.js via Java и пройтись по всем фигурам, добавленным на слайд. Во время каждой итерации можно проверить альтернативный текст фигуры, и фигура с совпадающим альтернативным текстом будет требуемой. Чтобы лучше продемонстрировать эту технику, мы создали метод [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-), который реализует поиск конкретной фигуры на слайде и просто возвращает эту фигуру.
 ```javascript
-// Создать экземпляр класса Presentation, представляющий файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -46,14 +68,14 @@ function findShape(slide, altText) {
 ## **Клонировать фигуру**
 Чтобы клонировать фигуру на слайд с помощью Aspose.Slides for Node.js via Java:
 
-1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Получить ссылку на слайд, используя его индекс.
-1. Получить коллекцию фигур исходного слайда.
-1. Добавить новый слайд в презентацию.
-1. Клонировать фигуры из коллекции фигур исходного слайда в новый слайд.
-1. Сохранить изменённую презентацию как файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Получите ссылку на слайд, используя его индекс.
+1. Получите коллекцию фигур исходного слайда.
+1. Добавьте новый слайд в презентацию.
+1. Клонируйте фигуры из коллекции фигур исходного слайда в новый слайд.
+1. Сохраните изменённую презентацию в файл PPTX.
 
-Ниже приведён пример, который добавляет групповую фигуру на слайд.
+Пример ниже добавляет групповую фигуру на слайд.
 ```javascript
 // Создать экземпляр класса Presentation
 var pres = new aspose.slides.Presentation("Source Frame.pptx");
@@ -76,20 +98,20 @@ try {
 
 
 ## **Удалить фигуру**
-Aspose.Slides for Node.js via Java позволяет разработчикам удалять любую фигуру. Чтобы удалить фигуру с любого слайда, выполните следующие шаги:
+Aspose.Slides for Node.js via Java позволяет разработчикам удалять любые фигуры. Чтобы удалить фигуру с любого слайда, выполните следующие шаги:
 
-1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Получить доступ к первому слайду.
-1. Найти фигуру с заданным AlternativeText.
-1. Удалить фигуру.
-1. Сохранить файл на диск.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Получите доступ к первому слайду.
+1. Найдите фигуру с определённым AlternativeText.
+1. Удалите фигуру.
+1. Сохраните файл на диск.
 ```javascript
 // Создать объект Presentation
 var pres = new aspose.slides.Presentation();
 try {
     // Получить первый слайд
     var sld = pres.getSlides().get_Item(0);
-    // Добавить автоконтур типа прямоугольник
+    // Добавить автофигуру прямоугольного типа
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
     var altText = "User Defined";
@@ -111,20 +133,20 @@ try {
 
 
 ## **Скрыть фигуру**
-Aspose.Slides for Node.js via Java позволяет разработчикам скрывать любую фигуру. Чтобы скрыть фигуру на любом слайде, выполните следующие шаги:
+Aspose.Slides for Node.js via Java позволяет разработчикам скрывать любые фигуры. Чтобы скрыть фигуру на любом слайде, выполните следующие шаги:
 
-1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Получить доступ к первому слайду.
-1. Найти фигуру с заданным AlternativeText.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Получите доступ к первому слайду.
+1. Найдите фигуру с определённым AlternativeText.
 1. Скрыть фигуру.
-1. Сохранить файл на диск.
+1. Сохраните файл на диск.
 ```javascript
 // Создать экземпляр класса Presentation, представляющего PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Получить первый слайд
     var sld = pres.getSlides().get_Item(0);
-    // Добавить автофигуру типа прямоугольник
+    // Добавить автофигуру прямоугольного типа
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
     var alttext = "User Defined";
@@ -146,15 +168,15 @@ try {
 
 
 ## **Изменить порядок фигур**
-Aspose.Slides for Node.js via Java позволяет разработчикам менять порядок расположения фигур. Перестановка фигур определяет, какая фигура находится спереди, а какая — сзади. Чтобы изменить порядок фигур на любом слайде, выполните следующие шаги:
+Aspose.Slides for Node.js via Java позволяет разработчикам менять порядок фигур. Перестановка фигур определяет, какая фигура находится спереди, а какая — сзади. Чтобы изменить порядок фигур на любом слайде, выполните следующие шаги:
 
-1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Получить доступ к первому слайду.
-1. Добавить фигуру.
-1. Добавить текст в текстовый фрейм фигуры.
-1. Добавить ещё одну фигуру с теми же координатами.
-1. Переставить фигуры.
-1. Сохранить файл на диск.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Получите доступ к первому слайду.
+1. Добавьте фигуру.
+1. Добавьте текст во фрейм текста фигуры.
+1. Добавьте другую фигуру с теми же координатами.
+1. Переставьте фигуры.
+1. Сохраните файл на диск.
 ```javascript
 var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
 try {
@@ -177,7 +199,7 @@ try {
 
 
 ## **Получить Interop Shape ID**
-Aspose.Slides for Node.js via Java позволяет разработчикам получить уникальный идентификатор фигуры в пределах слайда, в отличие от метода [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) , который возвращает уникальный идентификатор в масштабе всей презентации. Метод [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) был добавлен в класс [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). Значение, возвращаемое методом [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) , соответствует Id объекта Microsoft.Office.Interop.PowerPoint.Shape. Ниже приведён пример кода.
+Aspose.Slides for Node.js via Java позволяет разработчикам получать уникальный идентификатор фигуры в пределах слайда, в отличие от метода [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) , который возвращает уникальный идентификатор в пределах презентации. Метод [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) был добавлен в класс [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). Возвращаемое методом [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) значение соответствует Id объекта Microsoft.Office.Interop.PowerPoint.Shape. Ниже приведён пример кода.
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
@@ -192,23 +214,26 @@ try {
 
 
 ## **Установить альтернативный текст для фигуры**
-Aspose.Slides for Node.js via Java позволяет разработчикам задавать AlternateText любой фигуры. Фигуры в презентации могут быть различены с помощью метода [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) или [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-). Методы [setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) и [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) могут быть использованы как в Aspose.Slides, так и в Microsoft PowerPoint. С их помощью вы можете пометить фигуру и выполнять различные операции, такие как удаление, скрытие или переупорядочивание фигур на слайде.
-Чтобы установить AlternateText для фигуры, выполните следующие шаги:
+Aspose.Slides for Node.js via Java позволяет разработчикам задавать AlternateText любой фигуры.
+Фигуры в презентации можно различать с помощью метода [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) или [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setName-java.lang.String-).
+Методы [setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) и [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) могут быть использованы для чтения и задания значений как в Aspose.Slides, так и в Microsoft PowerPoint.
+С помощью этого метода вы можете пометить фигуру и выполнять различные операции, такие как удаление фигуры, скрытие фигуры или изменение порядка фигур на слайде.
+Чтобы установить AlternateText фигуры, выполните следующие шаги:
 
-1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Получить доступ к первому слайду.
-1. Добавить любую фигуру на слайд.
-1. Выполнить необходимые действия с добавленной фигурой.
-1. Пройтись по фигурам, чтобы найти нужную.
-1. Установить AlternativeText.
-1. Сохранить файл на диск.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
+1. Получите доступ к первому слайду.
+1. Добавьте любую фигуру на слайд.
+1. Выполните некоторые действия с только что добавленной фигурой.
+1. Пройдитесь по фигурам, чтобы найти нужную.
+1. Задайте AlternativeText.
+1. Сохраните файл на диск.
 ```javascript
 // Создать экземпляр класса Presentation, представляющего PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Получить первый слайд
     var sld = pres.getSlides().get_Item(0);
-    // Добавить автофигуру типа прямоугольник
+    // Добавить автофигуру прямоугольного типа
     var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
     shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -229,7 +254,7 @@ try {
 ```
 
 
-## **Доступ к форматам макета для фигуры**
+## **Получить форматы макета для фигуры**
 Aspose.Slides for Node.js via Java предоставляет простой API для доступа к форматам макета фигуры. В этой статье показано, как получить доступ к форматам макета.
 
 Ниже приведён пример кода.
@@ -253,7 +278,7 @@ try {
 
 
 ## **Отрисовать фигуру как SVG**
-Теперь Aspose.Slides for Node.js via Java поддерживает отрисовку фигуры в формате SVG. Метод [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (и его перегрузка) был добавлен в класс [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). Этот метод позволяет сохранять содержимое фигуры в SVG‑файл. Ниже показан фрагмент кода, экспортирующий фигуру слайда в SVG‑файл.
+Теперь Aspose.Slides for Node.js via Java поддерживает рендеринг фигуры в SVG. Метод [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (и его перегрузка) был добавлен в класс [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape). Этот метод позволяет сохранить содержимое фигуры в файл SVG. Ниже приведён фрагмент кода, показывающий, как экспортировать фигур� со слайда в файл SVG.
 ```javascript
 var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -275,11 +300,11 @@ try {
 
 
 ## **Выравнивание фигур**
-Aspose.Slides позволяет выравнивать фигуры либо относительно полей слайда, либо относительно друг друга. Для этой цели была добавлена перегруженная версия метода [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-). Перечисление [ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) определяет возможные варианты выравнивания.
+Aspose.Slides позволяет выравнивать фигуры как относительно полей слайда, так и относительно друг друга. Для этой цели была добавлена перегруженная версия метода [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-). Перечисление [ShapesAlignmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapesAlignmentType) определяет возможные варианты выравнивания.
 
-**Пример 1**
+**Example 1**
 
-Приведённый ниже код выравнивает фигуры с индексами 1, 2 и 4 по верхней границе слайда.
+Исходный код ниже выравнивает фигуры с индексами 1,2 и 4 по верхней границе слайда.
 ```javascript
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
@@ -296,9 +321,9 @@ try {
 ```
 
 
-**Пример 2**
+**Example 2**
 
-В этом примере показано, как выравнивать всю коллекцию фигур относительно самой нижней фигуры в коллекции.
+Пример ниже показывает, как выровнять всю коллекцию фигур относительно самой нижней фигуры в наборе.
 ```javascript
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
@@ -311,17 +336,16 @@ try {
 ```
 
 
-## **Свойства отражения**
+## **Flip Properties**
+В Aspose.Slides класс [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) предоставляет управление горизонтальным и вертикальным зеркалированием фигур через свойства `flipH` и `flipV`. Оба свойства имеют тип `byte` и могут принимать значения `1` для включения отражения, `0` для отсутствия отражения или `-1` для использования поведения по умолчанию. Эти значения доступны через [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) фигуры.
 
-В Aspose.Slides класс [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) предоставляет управление горизонтальным и вертикальным отражением фигур через свойства `flipH` и `flipV`. Оба свойства имеют тип `byte` и могут принимать значение `1` для отражения, `0` — без отражения, или `-1` для использования поведения по умолчанию. Эти значения доступны через [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) фигуры.
+Для изменения настроек отражения создаётся новый экземпляр [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) , в котором указываются текущие позиция и размер фигуры, желаемые значения `flipH` и `flipV` и угол поворота. Присвоив этот экземпляр свойству [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) фигуры и сохранив презентацию, вы применяете зеркальные трансформации и фиксируете их в выходном файле.
 
-Чтобы изменить настройки отражения, создаётся новый экземпляр [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) с текущими позицией и размерами фигуры, желаемыми значениями `flipH` и `flipV` и углом вращения. Присвоив этот экземпляр свойству [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) и сохранив презентацию, вы применяете зеркальные трансформации и фиксируете их в выходном файле.
+Допустим, у нас есть файл sample.pptx, на первом слайде которого находится единственная фигура с настройками отражения по умолчанию, как показано ниже.
 
-Предположим, у нас есть файл sample.pptx, в котором на первом слайде находится одна фигура с настройками отражения по умолчанию, как показано ниже.
+![Фигура для отражения](shape_to_be_flipped.png)
 
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Следующий пример кода получает текущие свойства отражения фигуры и отражает её горизонтально и вертикально.
+Следующий пример кода получает текущие свойства отражения фигуры и отражает её как по горизонтали, так и по вертикали.
 ```js
 var presentation = new asposeSlides.Presentation("sample.pptx");
 try {
@@ -355,18 +379,18 @@ try {
 
 Результат:
 
-![The flipped shape](flipped_shape.png)
+![Отражённая фигура](flipped_shape.png)
 
 ## **FAQ**
 
-**Можно ли объединять фигуры (union/intersect/subtract) на слайде, как в настольных редакторах?**
+**Могу ли я объединять фигуры (объединение/пересечение/вычитание) на слайде, как в настольном редакторе?**
 
-Встроенного API для булевых операций нет. Можно приблизительно реализовать это, построив желаемый контур самостоятельно — например, вычислив полученную геометрию через [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) и создав новую фигуру с этим контуром, при необходимости удалив исходные.
+Встроенного API для булевых операций нет. Можно приблизительно выполнить её, построив нужный контур вручную — например, вычислить получающуюся геометрию (через [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)) и создать новую фигуру с этим контуром, при желании удалив исходные.
 
-**Как контролировать порядок наложения (z‑order), чтобы фигура всегда была «наверху»?**
+**Как контролировать порядок наложения (z-order), чтобы фигура всегда оставалась «поверх»?**
 
-Изменяйте порядок вставки/перемещения внутри коллекции [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) слайда. Для предсказуемых результатов фиксируйте z‑order после всех остальных изменений слайда.
+Измените порядок вставки/перемещения в коллекции [shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) слайда. Для предсказуемых результатов завершайте настройку z-order после всех остальных изменений слайда.
 
-**Можно ли «запретить» редактирование фигуры пользователями в PowerPoint?**
+**Могу ли я «заблокировать» фигуру, чтобы пользователи не могли её редактировать в PowerPoint?**
 
-Да. Установите [флаги защиты уровня фигуры](/slides/ru/nodejs-java/applying-protection-to-presentation/) (например, блокировку выбора, перемещения, изменения размера, редактирования текста). При необходимости наложите аналогичные ограничения на мастер или макет. Учтите, что это защита уровня пользовательского интерфейса, а не полноценная безопасность; для более надёжной защиты комбинируйте её с ограничениями на уровне файла, например, рекомендациями в режиме только чтения или паролями [/slides/nodejs-java/password-protected-presentation/](#/slides/nodejs-java/password-protected-presentation/).
+Да. Установите флаги защиты на уровне фигуры (например, блокировка выбора, перемещения, изменения размера, редактирования текста). При необходимости аналогичные ограничения можно задать на мастере или макете. Учтите, что это защита на уровне UI, а не безопасность; для более надёжной защиты комбинируйте с ограничениями уровня файла, например, рекомендациями только для чтения или паролями [read-only recommendations or passwords](/slides/ru/nodejs-java/password-protected-presentation/).

@@ -1,136 +1,158 @@
 ---
-title: Maître de diapositive
+title: Gérer les masques de diapositives de présentation en JavaScript
+linktitle: Masque de diapositive
 type: docs
 weight: 70
 url: /fr/nodejs-java/slide-master/
-keywords: "Ajouter maître de diapositive, diapositive maître PPT, maître de diapositive PowerPoint, image au maître de diapositive, espace réservé, plusieurs maîtres de diapositive, comparer les maîtres de diapositive, Java, Aspose.Slides pour Node.js via Java"
-description: "Ajouter ou modifier le maître de diapositive dans une présentation PowerPoint en JavaScript"
+keywords:
+- masque de diapositive
+- diapositive maître
+- diapositive maître PPT
+- plusieurs diapositives maîtres
+- comparer les diapositives maîtres
+- arrière-plan
+- espace réservé
+- cloner diapositive maître
+- copier diapositive maître
+- dupliquer diapositive maître
+- diapositive maître inutilisée
+- PowerPoint
+- OpenDocument
+- présentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Gérez les masques de diapositives dans Aspose.Slides pour Node.js via Java: créez, modifiez et appliquez des mises en page, des thèmes et des espaces réservés aux fichiers PPT, PPTX et ODP avec des exemples concis."
 ---
 
-## **Qu'est-ce qu'un Maître de diapositive dans PowerPoint**
+## **Qu’est‑ce qu’un Masque de diapositive dans PowerPoint**
 
-Un **Slide Master** est un modèle de diapositive qui définit la mise en page, les styles, le thème, les polices, l'arrière-plan et d'autres propriétés pour les diapositives d'une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un maître de diapositive.
+Un **Masque de diapositive** est un modèle de diapositive qui définit la mise en page, les styles, le thème, les polices, l’arrière‑plan et d’autres propriétés pour les diapositives d’une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un masque de diapositive.  
 
-Un maître de diapositive est utile car il vous permet de définir et de modifier l'apparence de toutes les diapositives d'une présentation en même temps. Aspose.Slides prend en charge le mécanisme du maître de diapositive de PowerPoint.
+Un masque de diapositive est utile parce qu’il vous permet de définir et de modifier l’apparence de toutes les diapositives de la présentation en une seule fois. Aspose.Slides prend en charge le mécanisme de masque de diapositive de PowerPoint.  
 
-VBA permet également de manipuler un maître de diapositive et d'exécuter les mêmes opérations prises en charge dans PowerPoint : modifier les arrière-plans, ajouter des formes, personnaliser la mise en page, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d'utiliser les maîtres de diapositive et d'effectuer des tâches de base avec eux.
+VBA permet également de manipuler un masque de diapositive et d’exécuter les mêmes opérations prises en charge dans PowerPoint : changer les arrière‑plans, ajouter des formes, personnaliser la mise en page, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d’utiliser les masques de diapositives et d’effectuer les tâches de base avec eux.  
 
-Voici les opérations de base sur les maîtres de diapositive :
+Voici les opérations de base sur les masques de diapositives :
 
-- Créer un Slide Master.
-- Appliquer le Slide Master aux diapositives de la présentation.
-- Modifier l'arrière‑plan du Slide Master. 
-- Ajouter une image, un espace réservé, un Smart Art, etc. au Slide Master.
+- Créer ou supprimer un masque de diapositive.  
+- Appliquer le masque de diapositives aux diapositives de la présentation.  
+- Modifier l’arrière‑plan du masque de diapositive.  
+- Ajouter une image, un espace réservé, un SmartArt, etc. au masque de diapositive.  
 
-Voici des opérations plus avancées impliquant le maître de diapositive :
+Voici des opérations plus avancées impliquant les masques de diapositives :  
 
-- Comparer les maîtres de diapositive.
-- Fusionner les maîtres de diapositive.
-- Appliquer plusieurs maîtres de diapositive.
-- Copier une diapositive avec son maître de diapositive vers une autre présentation.
-- Détecter les maîtres de diapositive en double dans les présentations.
-- Définir le maître de diapositive comme vue par défaut de la présentation.
+- Comparer des masques de diapositives.  
+- Fusionner des masques de diapositives.  
+- Appliquer plusieurs masques de diapositives.  
+- Copier une diapositive avec son masque de diapositive vers une autre présentation.  
+- Trouver les masques de diapositives en double dans les présentations.  
+- Définir le masque de diapositive comme vue par défaut de la présentation.  
 
 {{% alert color="primary" %}} 
 
-Vous souhaiterez peut‑être consulter l'[**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) d'Aspose, car il s'agit d'une implémentation en direct de certains des processus principaux décrits ici.
+Vous pouvez consulter l’[**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) d’Aspose car il s’agit d’une implémentation en direct de certains des processus fondamentaux décrits ici.
 
 {{% /alert %}} 
 
 
-## **Comment le maître de diapositive est appliqué**
+## **Comment le masque de diapositive est‑il appliqué**
 
-Avant de travailler avec un maître de diapositive, vous voudrez peut‑être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives. 
+Avant de travailler avec un masque de diapositive, vous voudrez peut‑être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives.  
 
-* Chaque présentation possède au moins un maître de diapositive par défaut. 
-* Une présentation peut contenir plusieurs maîtres de diapositive. Vous pouvez ajouter plusieurs maîtres de diapositive et les utiliser pour styliser différentes parties d'une présentation de façon distincte. 
+* Chaque présentation possède au moins un masque de diapositive par défaut.  
+* Une présentation peut contenir plusieurs masques de diapositives. Vous pouvez ajouter plusieurs masques de diapositives et les utiliser pour styliser différentes parties d’une présentation de manières différentes.  
 
-Dans **Aspose.Slides**, un maître de diapositive est représenté par le type [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/).
+Dans **Aspose.Slides**, un masque de diapositive est représenté par le type [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/).  
 
-L'objet [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) d'Aspose.Slides contient la liste [**getMasters**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--) de type [**MasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), qui renvoie la liste de tous les maîtres de diapositive définis dans une présentation.
+L’objet [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) d’Aspose.Slides contient la liste [**getMasters**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--) de type [**MasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), qui réunit toutes les masques de diapositives définis dans une présentation.  
 
-Outre les opérations CRUD, la classe [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) propose ces méthodes utiles : [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) et [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-). Ces méthodes sont héritées de la fonction de clonage de base des diapositives. Mais lorsqu'on travaille avec des maîtres de diapositive, elles permettent de mettre en place des configurations complexes.
+Outre les opérations CRUD, la classe [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) propose les méthodes utiles : [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) et [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-). Ces méthodes héritent de la fonction de clonage de diapositive de base. Mais lorsqu’on travaille avec des masques de diapositives, elles permettent d’implémenter des configurations complexes.  
 
-Lorsqu'une nouvelle diapositive est ajoutée à une présentation, un maître de diapositive lui est appliqué automatiquement. Le maître de diapositive de la diapositive précédente est sélectionné par défaut. 
+Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un masque de diapositive lui est appliqué automatiquement. Le masque de la diapositive précédente est sélectionné par défaut.  
 
-**Note** : Les diapositives de la présentation sont stockées dans la liste [getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides--), et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne comporte qu'un seul maître de diapositive, ce maître est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas besoin de définir le maître de diapositive pour chaque nouvelle diapositive que vous créez.
+**Remarque** : les diapositives de la présentation sont stockées dans la liste [getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides--) et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne contient qu’un seul masque de diapositive, ce masque est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas à définir le masque de diapositive pour chaque nouvelle diapositive que vous créez.  
 
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle diapositive, il suffit de cliquer sur la ligne située sous la dernière diapositive et une nouvelle diapositive (avec le maître de diapositive de la dernière présentation) sera créée :
+Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle diapositive, il suffit de cliquer sur la ligne du bas sous la dernière diapositive et une nouvelle diapositive (avec le masque de la dernière présentation) sera créée :  
 
-![todo:image_alt_text](slide-master_1.jpg)
+![todo:image_alt_text](slide-master_1.jpg)  
 
-Dans Aspose.Slides, vous pouvez réaliser l’opération équivalente avec la méthode [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-
-
-## **Maître de diapositive dans la hiérarchie des diapositives**
-
-L’utilisation des mises en page de diapositive avec le maître de diapositive offre une flexibilité maximale. Une mise en page de diapositive vous permet de définir les mêmes styles que le maître de diapositive (arrière‑plan, polices, formes, etc.). Cependant, lorsqu’il existe plusieurs mises en page de diapositive combinées à un maître de diapositive, un nouveau style est créé. Lorsque vous appliquez une mise en page de diapositive à une diapositive unique, vous pouvez modifier son style par rapport à celui appliqué par le maître de diapositive.
-
-Le maître de diapositive prime sur tous les éléments de configuration : Maître de diapositive → Mise en page de diapositive → Diapositive :
-
-![todo:image_alt_text](slide-master_2)
+Dans Aspose.Slides, vous pouvez réaliser la tâche équivalente avec la méthode [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).  
 
 
 
-Chaque objet [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) possède la propriété [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getLayoutSlides--) contenant une liste de mises en page de diapositive. Un type [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) possède la propriété [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getLayoutSlide--) pointant vers la mise en page de diapositive appliquée à la diapositive. L’interaction entre une diapositive et le maître de diapositive s’effectue via une mise en page de diapositive.
+## **Masque de diapositive dans la hiérarchie des diapositives**
 
-{{% alert color="info" title="Note" %}}
+Utiliser des dispositions de diapositive avec le masque de diapositive offre une flexibilité maximale. Une disposition de diapositive vous permet de définir les mêmes styles que le masque de diapositive (arrière‑plan, polices, formes, etc.). Cependant, lorsque plusieurs dispositions de diapositive sont combinées sur un masque de diapositive, un nouveau style est créé. Lorsque vous appliquez une disposition de diapositive à une seule diapositive, vous pouvez modifier son style par rapport à celui appliqué par le masque de diapositive.  
 
-* Dans Aspose.Slides, toutes les configurations de diapositive (maître de diapositive, mise en page de diapositive et la diapositive elle‑même) sont en fait des objets de diapositive implémentant la classe [**BaseSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide).
-* Par conséquent, le maître de diapositive et la mise en page de diapositive peuvent implémenter les mêmes propriétés et vous devez connaître la façon dont leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide). Le maître de diapositive est appliqué en premier à une diapositive, puis la mise en page de diapositive est appliquée. Par exemple, si le maître de diapositive et la mise en page de diapositive possèdent tous deux une valeur d'arrière‑plan, la diapositive finira par afficher l'arrière‑plan de la mise en page de diapositive.
+Le masque de diapositive domine tous les éléments de configuration : Masque de diapositive → Disposition de diapositive → Diapositive :  
 
-{{% /alert %}}
-
-
-## **Ce qui compose un maître de diapositive**
-
-Pour comprendre comment un maître de diapositive peut être modifié, il faut connaître ses composants. Voici les propriétés principales de [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) :
-
-- [getBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getBackground--) : obtenir/definir l'arrière‑plan de la diapositive.
-- [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getBodyStyle--) : obtenir/definir les styles de texte du corps de la diapositive.
-- [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getShapes--) : obtenir/definir toutes les formes du maître de diapositive (espaces réservés, cadres image, etc.).
-- [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getControls--) : obtenir/definir les contrôles ActiveX.
-- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterThemeable#getThemeManager--) : obtenir le gestionnaire de thèmes.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getHeaderFooterManager--) : obtenir le gestionnaire d’en‑têtes et de pieds de page.
-
-Méthodes du maître de diapositive :
-
-- [getDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getDependingSlides--) : obtenir toutes les diapositives dépendant du maître de diapositive.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) : crée un nouveau maître de diapositive basé sur le maître actuel et un nouveau thème. Le nouveau maître sera alors appliqué à toutes les diapositives dépendantes.
-
-
-## **Obtenir le maître de diapositive**
-
-Dans PowerPoint, le maître de diapositive est accessible via le menu Affichage → Maître de diapositive :
-
-![todo:image_alt_text](slide-master_3.jpg)
+![todo:image_alt_text](slide-master_2)  
 
 
 
-Avec Aspose.Slides, vous pouvez accéder à un maître de diapositive de cette façon :
+Chaque objet [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) possède la propriété [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getLayoutSlides--) contenant la liste des dispositions de diapositive. Un type [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) possède la propriété [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getLayoutSlide--) qui fait le lien vers la disposition de diapositive appliquée à la diapositive. L’interaction entre une diapositive et le masque de diapositive s’opère via la disposition de diapositive.  
+
+{{% alert color="info" title="Remarque" %}}
+
+* Dans Aspose.Slides, toutes les configurations de diapositive (masque de diapositive, disposition de diapositive et la diapositive elle‑même) sont en réalité des objets diapositive implémentant la classe [**BaseSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide).  
+* Ainsi, le masque de diapositive et la disposition de diapositive peuvent implémenter les mêmes propriétés et il faut savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide). Le masque de diapositive est appliqué en premier à une diapositive, puis la disposition de diapositive. Par exemple, si le masque de diapositive et la disposition de diapositive possèdent tous deux une valeur d’arrière‑plan, la diapositive affichera l’arrière‑plan de la disposition de diapositive.
+
+{{% /alert %}}  
+
+
+
+## **Ce que comprend un masque de diapositive**
+
+Pour comprendre comment un masque de diapositive peut être modifié, vous devez connaître ses constituants. Ce sont les propriétés de base du [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) :  
+
+- [getBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getBackground--) obtenir/definir l’arrière‑plan de la diapositive.  
+- [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getBodyStyle--) obtenir/definir les styles de texte du corps de la diapositive.  
+- [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getShapes--) obtenir/definir toutes les formes du masque de diapositive (espaces réservés, cadres d’image, etc.).  
+- [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getControls--) obtenir/definir les contrôles ActiveX.  
+- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getThemeManager) – obtenir le gestionnaire de thèmes.  
+- [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getHeaderFooterManager--) – obtenir le gestionnaire d’en‑tête et de pied de page.  
+
+Méthodes du masque de diapositive :  
+
+- [getDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getDependingSlides--) – obtenir toutes les diapositives dépendant du masque de diapositive.  
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – permet de créer un nouveau masque de diapositive basé sur le masque actuel et un nouveau thème. Le nouveau masque sera alors appliqué à toutes les diapositives dépendantes.  
+
+
+
+## **Obtenir le masque de diapositive**
+
+Dans PowerPoint, le masque de diapositive est accessible via le menu Affichage → Masque des diapositives :  
+
+![todo:image_alt_text](slide-master_3.jpg)  
+
+
+
+Avec Aspose.Slides, vous pouvez accéder à un masque de diapositive de cette manière :  
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
-    // Donne accès à la diapositive maître de la présentation
+    // Donne accès au masque de la présentation
     var masterSlide = pres.getMasters().get_Item(0);
 } finally {
     pres.dispose();
 }
 ```
+  
+
+La classe [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) représente un masque de diapositive. La propriété [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) (associée au type [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlideCollection)) contient la liste de tous les masques de diapositives définis dans la présentation.  
 
 
-La classe [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) représente un maître de diapositive. La propriété [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) (relative au type [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlideCollection)) contient la liste de tous les maîtres de diapositive définis dans la présentation.
 
+## **Ajouter une image au masque de diapositive**
 
-## **Ajouter une image au maître de diapositive**
+Lorsque vous ajoutez une image à un masque de diapositive, cette image apparaît sur toutes les diapositives dépendant de ce masque.  
 
-Lorsque vous ajoutez une image à un maître de diapositive, cette image apparaîtra sur toutes les diapositives dépendant de ce maître.
+Par exemple, vous pouvez placer le logo de votre entreprise et quelques images sur le masque de diapositive, puis revenir en mode édition de diapositive. Vous devriez voir l’image sur chaque diapositive.  
 
-Par exemple, vous pouvez placer le logo de votre société et quelques images sur le maître de diapositive, puis repasser en mode édition des diapositives. Vous verrez alors l’image sur chaque diapositive.
+![todo:image_alt_text](slide-master_4.png)  
 
-![todo:image_alt_text](slide-master_4.png)
-
-Vous pouvez ajouter des images à un maître de diapositive avec Aspose.Slides :
+Vous pouvez ajouter des images à un masque de diapositive avec Aspose.Slides :  
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -153,39 +175,40 @@ try {
     }
 }
 ```
-
+  
 
 {{% alert color="primary" title="Voir aussi" %}} 
 
 Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Picture Frame](/slides/fr/nodejs-java/picture-frame/#create-picture-frame).
 
-{{% /alert %}}
+{{% /alert %}}  
 
 
-## **Ajouter un espace réservé au maître de diapositive**
 
-Ces champs de texte sont des espaces réservés standard sur un maître de diapositive :
+## **Ajouter un espace réservé au masque de diapositive**
 
-* Cliquez pour modifier le style du titre du maître
-* Modifier les styles de texte du maître
-* Deuxième niveau
-* Troisième niveau
+Ces champs de texte sont des espaces réservés standard sur un masque de diapositive :  
 
-Ils apparaissent également sur les diapositives basées sur le maître de diapositive. Vous pouvez modifier ces espaces réservés sur le maître de diapositive et les changements seront appliqués automatiquement aux diapositives.
+* Cliquer pour modifier le style du titre du masque  
+* Modifier les styles de texte du masque  
+* Niveau 2  
+* Niveau 3  
 
-Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Maître de diapositive → Insérer un espace réservé :
+Ils apparaissent également sur les diapositives basées sur le masque de diapositive. Vous pouvez modifier ces espaces réservés sur le masque et les changements seront appliqués automatiquement aux diapositives.  
 
-![todo:image_alt_text](slide-master_5.png)
+Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Masque de diapositive → Insérer un espace réservé :  
 
-Examinons un exemple plus compliqué d'espaces réservés avec Aspose.Slides. Considérons une diapositive contenant des espaces réservés provenant du maître de diapositive :
+![todo:image_alt_text](slide-master_5.png)  
 
-![todo:image_alt_text](slide-master_6.png)
+Examinons un exemple plus compliqué d’espaces réservés avec Aspose.Slides. Considérez une diapositive avec des espaces réservés issus du masque de diapositive :  
 
-Nous voulons modifier le format du titre et du sous‑titre sur le maître de diapositive ainsi :
+![todo:image_alt_text](slide-master_6.png)  
 
-![todo:image_alt_text](slide-master_7.png)
+Nous voulons modifier le format du titre et du sous‑titre sur le masque de diapositive de cette façon :  
 
-Tout d'abord, nous récupérons le contenu de l'espace réservé du titre depuis l'objet MasterSlide, puis nous utilisons le champ `PlaceHolder.FillFormat` :
+![todo:image_alt_text](slide-master_7.png)  
+
+Tout d’abord, nous récupérons le contenu de l’espace réservé titre depuis l’objet masque de diapositive, puis nous utilisons le champ `PlaceHolder.FillFormat` :  
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -219,23 +242,24 @@ function findPlaceholder(master, type)
     return null;
 }
 ```
+  
 
+Le style et le format du titre changeront pour toutes les diapositives basées sur le masque de diapositive :  
 
-Le style et le format du titre changeront pour toutes les diapositives basées sur le maître de diapositive :
-
-![todo:image_alt_text](slide-master_8.png)
+![todo:image_alt_text](slide-master_8.png)  
 
 {{% alert color="primary" title="Voir aussi" %}} 
 
-* [Définir le texte d’invite dans un espace réservé](https://docs.aspose.com/slides/nodejs-java/manage-placeholder/)
-* [Mise en forme du texte](https://docs.aspose.com/slides/nodejs-java/text-formatting/)
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/nodejs-java/manage-placeholder/)  
+* [Text Formatting](https://docs.aspose.com/slides/nodejs-java/text-formatting/)
 
-{{% /alert %}}
+{{% /alert %}}  
 
 
-## **Modifier l'arrière‑plan du maître de diapositive**
 
-Lorsque vous modifiez la couleur d’arrière‑plan d’un maître de diapositive, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code JavaScript démontre l’opération :
+## **Modifier l’arrière‑plan du masque de diapositive**
+
+Lorsque vous modifiez la couleur d’arrière‑plan d’un masque de diapositive, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code JavaScript démontre l’opération :  
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -250,18 +274,20 @@ try {
     }
 }
 ```
-
+  
 
 {{% alert color="primary" title="Voir aussi" %}} 
 
-- [Arrière‑plan de la présentation](https://docs.aspose.com/slides/nodejs-java/presentation-background/)
-- [Thème de la présentation](https://docs.aspose.com/slides/nodejs-java/presentation-theme/)
+- [Presentation Background](https://docs.aspose.com/slides/nodejs-java/presentation-background/)  
+- [Presentation Theme](https://docs.aspose.com/slides/nodejs-java/presentation-theme/)
 
-{{% /alert %}}
+{{% /alert %}}  
 
-## **Cloner le maître de diapositive vers une autre présentation**
 
-Pour cloner un maître de diapositive vers une autre présentation, appelez la méthode [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) depuis la présentation de destination en lui passant le maître de diapositive. Ce code JavaScript montre comment cloner un maître de diapositive vers une autre présentation :
+
+## **Cloner un masque de diapositive vers une autre présentation**
+
+Pour cloner un masque de diapositive vers une autre présentation, appelez la méthode [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) de la présentation de destination en lui transmettant le masque de diapositive à cloner. Ce code JavaScript montre comment cloner un masque de diapositive vers une autre présentation :  
 ```javascript
 var presSource = new aspose.slides.Presentation();
 var presTarget = new aspose.slides.Presentation();
@@ -273,42 +299,45 @@ try {
     }
 }
 ```
+  
 
 
 
-## **Ajouter plusieurs maîtres de diapositive à une présentation**
+## **Ajouter plusieurs masques de diapositive à une présentation**
 
-Aspose.Slides vous permet d’ajouter plusieurs maîtres de diapositive et mises en page de diapositive à n’importe quelle présentation. Cela vous permet de configurer les styles, les mises en page et les options de mise en forme des diapositives de présentation de multiples façons.
+Aspose.Slides vous permet d’ajouter plusieurs masques de diapositives et dispositions de diapositives à une présentation donnée. Cela vous permet de configurer les styles, les mises en page et les options de formatage des diapositives de présentation de nombreuses manières.  
 
-Dans PowerPoint, vous pouvez ajouter de nouveaux maîtres de diapositive et mises en page (depuis le « Menu Maître de diapositive ») ainsi :
+Dans PowerPoint, vous pouvez ajouter de nouveaux masques de diapositives et dispositions (via le « Menu Masque de diapositive ») de cette façon :  
 
-![todo:image_alt_text](slide-master_9.jpg)
+![todo:image_alt_text](slide-master_9.jpg)  
 
-Avec Aspose.Slides, vous pouvez ajouter un nouveau maître de diapositive en appelant la méthode [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) :
+Avec Aspose.Slides, vous pouvez ajouter un nouveau masque de diapositive en appelant la méthode [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) :  
 ```javascript
-// Ajoute une nouvelle diapositive maître
+// Ajoute un nouveau masque de diapositive
 var secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
+  
 
 
 
-## **Comparer les maîtres de diapositive**
+## **Comparer les masques de diapositives**
 
-Un Master Slide implémente la classe [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide) contenant la méthode [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#equals-aspose.slides.IBaseSlide-), qui peut être utilisée pour comparer les diapositives. Elle renvoie `true` pour les maîtres de diapositive identiques en structure et en contenu statique.
+Un MasterSlide implémente la classe [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide) contenant la méthode [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#equals-aspose.slides.IBaseSlide-), qui peut être utilisée pour comparer les masques. Elle renvoie `true` lorsque les masques sont identiques en structure et en contenu statique.  
 
-Deux maîtres de diapositive sont égaux si leurs formes, styles, textes, animations et autres paramètres sont identiques. La comparaison ne prend pas en compte les valeurs d’identifiants uniques (p. ex. SlideId) ni le contenu dynamique (p. ex. la date actuelle dans un espace réservé de date).
+Deux masques de diapositives sont égaux si leurs formes, styles, textes, animations et autres paramètres sont identiques. La comparaison ne prend pas en compte les valeurs d’identifiants uniques (par ex. SlideId) ni le contenu dynamique (par ex. valeur de date dans un espace réservé de date).  
 
 
-## **Définir le maître de diapositive comme vue par défaut de la présentation**
 
-Aspose.Slides vous permet de définir un maître de diapositive comme vue par défaut d’une présentation. La vue par défaut est ce que vous voyez en premier lors de l’ouverture d’une présentation.
+## **Définir le masque de diapositive comme vue par défaut de la présentation**
 
-Ce code montre comment définir un maître de diapositive comme vue par défaut d’une présentation en JavaScript :
+Aspose.Slides vous permet de définir un masque de diapositive comme vue par défaut d’une présentation. La vue par défaut est ce que vous voyez en premier lorsque vous ouvrez une présentation.  
+
+Ce code montre comment définir un masque de diapositive comme vue par défaut d’une présentation en JavaScript :  
 ```javascript
 // Instancie une classe Presentation qui représente le fichier de présentation
 var presentation = new aspose.slides.Presentation();
 try {
-    // Définit la vue par défaut sur SlideMasterView
+    // Définit la vue par défaut comme SlideMasterView
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
     // Enregistre la présentation
     presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
@@ -316,11 +345,13 @@ try {
     presentation.dispose();
 }
 ```
+  
 
 
-## **Supprimer les maîtres de diapositive inutilisés**
 
-Aspose.Slides propose la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/)) pour vous permettre de supprimer les maîtres de diapositive indésirables et inutilisés. Ce code JavaScript montre comment supprimer un maître de diapositive d’une présentation PowerPoint :
+## **Supprimer un masque de diapositive inutilisé**
+
+Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/)) pour vous permettre de supprimer les masques de diapositives indésirables et inutilisés. Ce code JavaScript montre comment supprimer un masque de diapositive d’une présentation PowerPoint :  
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -332,45 +363,47 @@ try {
     }
 }
 ```
+  
+
 
 
 ## **FAQ**
 
-**Qu’est‑ce qu’un maître de diapositive dans PowerPoint ?**
+**Qu’est‑ce qu’un masque de diapositive dans PowerPoint ?**  
 
-Un maître de diapositive est un modèle de diapositive qui définit la mise en page, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés pour les diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une seule fois.  
+Un masque de diapositive est un modèle qui définit la mise en page, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés pour les diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une fois.  
 
-**Comment un maître de diapositive est‑il appliqué dans une présentation ?**
+**Comment le masque de diapositive est‑il appliqué dans une présentation ?**  
 
-Chaque présentation possède au moins un maître de diapositive par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un maître de diapositive lui est appliqué automatiquement, généralement en héritant du maître de la diapositive précédente. Une présentation peut contenir plusieurs maîtres de diapositive pour styliser différentes parties de façon distincte.  
+Chaque présentation possède au moins un masque de diapositive par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un masque de diapositive lui est appliqué automatiquement, héritant généralement du masque de la diapositive précédente. Une présentation peut contenir plusieurs masques de diapositives pour styliser différentes parties de manière unique.  
 
-**Quels éléments peuvent être personnalisés dans un maître de diapositive ?**
+**Quels éléments peuvent être personnalisés dans un masque de diapositive ?**  
 
-Un maître de diapositive comprend plusieurs propriétés de base pouvant être personnalisées :
+Un masque de diapositive comprend plusieurs propriétés de base pouvant être personnalisées :  
 
-- **Arrière‑plan** : définir l’arrière‑plan de la diapositive.
-- **BodyStyle** : définir les styles de texte du corps de la diapositive.
-- **Shapes** : gérer toutes les formes du maître de diapositive, y compris les espaces réservés et les cadres image.
-- **Controls** : gérer les contrôles ActiveX.
-- **ThemeManager** : accéder au gestionnaire de thèmes.
+- **Background** : définir l’arrière‑plan de la diapositive.  
+- **BodyStyle** : définir les styles de texte du corps de la diapositive.  
+- **Shapes** : gérer toutes les formes du masque, y compris les espaces réservés et les cadres d’image.  
+- **Controls** : gérer les contrôles ActiveX.  
+- **ThemeManager** : accéder au gestionnaire de thèmes.  
 - **HeaderFooterManager** : gérer les en‑têtes et pieds de page.  
 
-**Comment ajouter une image à un maître de diapositive ?**
+**Comment ajouter une image à un masque de diapositive ?**  
 
-Ajouter une image à un maître de diapositive garantit qu’elle apparaît sur toutes les diapositives dépendant de ce maître. Par exemple, placer le logo de l’entreprise sur le maître de diapositive l’affichera sur chaque diapositive de la présentation.  
+Ajouter une image à un masque de diapositive garantit qu’elle apparaît sur toutes les diapositives dépendant de ce masque. Par exemple, placer le logo de l’entreprise sur le masque affichera le logo sur chaque diapositive de la présentation.  
 
-**Comment les maîtres de diapositive sont‑ils liés aux mises en page de diapositive ?**
+**Comment les masques de diapositives sont‑ils liés aux dispositions de diapositives ?**  
 
-Les mises en page de diapositive fonctionnent avec le maître de diapositive pour offrir une flexibilité dans la conception des diapositives. Le maître de diapositive définit les styles et thèmes globaux, tandis que les mises en page de diapositive permettent des variations dans la disposition du contenu. La hiérarchie est la suivante :
+Les dispositions de diapositives fonctionnent conjointement avec les masques pour offrir une grande flexibilité de conception. Un masque définit les styles et thèmes globaux, tandis que les dispositions permettent des variations dans l’arrangement du contenu. La hiérarchie est la suivante :  
 
-- **Maître de diapositive** → Définit les styles globaux.
-- **Mise en page de diapositive** → Fournit différentes dispositions de contenu.
-- **Diapositive** → Hérite du design de sa mise en page de diapositive.
+- **Masque de diapositive** → définit les styles globaux.  
+- **Disposition de diapositive** → propose différents arrangements de contenu.  
+- **Diapositive** → hérite du design de sa disposition.  
 
-**Puis‑je avoir plusieurs maîtres de diapositive dans une même présentation ?**
+**Puis‑je avoir plusieurs masques de diapositives dans une même présentation ?**  
 
-Oui, une présentation peut contenir plusieurs maîtres de diapositive. Cela vous permet de styliser différentes sections d’une présentation de diverses manières, offrant ainsi une grande flexibilité de conception.  
+Oui, une présentation peut contenir plusieurs masques de diapositives. Cela vous permet de styliser différentes sections d’une présentation de manière variée, offrant ainsi une plus grande flexibilité de conception.  
 
-**Comment accéder et modifier un maître de diapositive avec Aspose.Slides ?**
+**Comment accéder et modifier un masque de diapositive avec Aspose.Slides ?**  
 
-Dans Aspose.Slides, un maître de diapositive est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/). Vous pouvez accéder à un maître de diapositive en utilisant la méthode [getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmasters/) de l’objet [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+Dans Aspose.Slides, un masque de diapositive est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/). Vous pouvez accéder à un masque de diapositive en utilisant la méthode [getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmasters/) de l’objet [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).

@@ -1,59 +1,68 @@
 ---
-title: دمج العرض التقديمي
+title: دمج العروض التقديمية بكفاءة في JavaScript
+linktitle: دمج العروض التقديمية
 type: docs
 weight: 40
 url: /ar/nodejs-java/merge-presentation/
-keywords: "دمج PowerPoint, PPTX, PPT, دمج PowerPoint, دمج العرض التقديمي, دمج العرض, Java"
-description: "دمج أو دمج عرض PowerPoint في JavaScript"
+keywords:
+- دمج PowerPoint
+- دمج العروض التقديمية
+- دمج الشرائح
+- دمج PPT
+- دمج PPTX
+- دمج ODP
+- جمع PowerPoint
+- جمع العروض التقديمية
+- جمع الشرائح
+- جمع PPT
+- جمع PPTX
+- جمع ODP
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "دمج عروض PowerPoint (PPT, PPTX) وOpenDocument (ODP) بسهولة في JavaScript باستخدام Aspose.Slides لـ Node.js، مما يبسط سير عملك."
 ---
 
 ## **دمج العروض التقديمية**
 
-عند دمج عرض تقديمي بآخر، فإنك في الواقع تجمع الشرائح الخاصة بهما في عرض تقديمي واحد للحصول على ملف واحد. 
+عند دمج عرض تقديمي بآخر، فإنك فعليًا تجمع شرائحه في عرض تقديمي واحد للحصول على ملف واحد. 
 
-{{% alert title="Info" color="info" %}}
+{{% alert title="معلومات" color="info" %}}
+
 معظم برامج العروض التقديمية (PowerPoint أو OpenOffice) تفتقر إلى وظائف تسمح للمستخدمين بدمج العروض بهذه الطريقة. 
-{{% /alert %}}
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)، ومع ذلك، يتيح لك دمج العروض بطرق متعددة. يمكنك دمج العروض مع جميع الأشكال والأنماط والنصوص والتنسيقات والتعليقات والرسوم المتحركة، إلخ، دون القلق بشأن فقدان الجودة أو البيانات.
+[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)، يسمح لك بدمج عروض تقديمية بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال والأنماط والنصوص والتنسيقات والتعليقات والرسوم المتحركة، إلخ، دون القلق بشأن فقدان الجودة أو البيانات.
 
 **انظر أيضًا**
 
-[Clone Slides](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
-
-{{% alert title="Note" color="warning" %}} 
-إلى جانب العروض التقديمية، يتيح لك Aspose.Slides دمج ملفات أخرى:
-
-* [الصور](https://products.aspose.com/slides/nodejs-java/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/nodejs-java/merger/png-to-png/)
-* المستندات، مثل [PDF إلى PDF](https://products.aspose.com/slides/nodejs-java/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/nodejs-java/merger/html-to-html/)
-* ملفين مختلفين مثل [صورة إلى PDF](https://products.aspose.com/slides/nodejs-java/merger/image-to-pdf/) أو [JPG إلى PDF](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-pdf/) أو [TIFF إلى PDF](https://products.aspose.com/slides/nodejs-java/merger/tiff-to-pdf/).
+[استنساخ الشرائح](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
 
 {{% /alert %}}
 
-### **ما يمكن دمجه**
+### **ما الذي يمكن دمجه**
 
-باستخدام Aspose.Slides، يمكنك دمج 
+مع Aspose.Slides، يمكنك دمج 
 
-* العروض التقديمية بالكامل. جميع الشرائح من العروض تنتهي في عرض تقديمي واحد
-* شرائح محددة. الشرائح المختارة تنتهي في عرض تقديمي واحد
-* العروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) أو بصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) مع بعضها البعض. 
+* العروض الكاملة. جميع الشرائح من العروض تنتهي في عرض واحد  
+* شرائح محددة. الشرائح المختارة تنتهي في عرض واحد  
+* عروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) وبصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) إلى بعضها البعض.  
 
 ### **خيارات الدمج**
 
 يمكنك تطبيق خيارات تحدد ما إذا كان
 
-* كل شريحة في العرض الناتج تحتفظ بنمط فريد
-* يُستخدم نمط محدد لجميع الشرائح في العرض الناتج. 
+* كل شريحة في عرض الإخراج تحتفظ بنمط فريد  
+* يُستخدم نمط محدد لجميع الشرائح في عرض الإخراج.  
 
-لدمج العروض، يوفر Aspose.Slides طريقة [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (من فئة [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection)). هناك عدة تطبيقات لطرق `addClone` تُعرِّف معايير عملية دمج العروض. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--)، لذا يمكنك استدعاء طريقة `addClone` من العرض الذي تريد دمج الشرائح إليه.
+لدمج العروض، توفر Aspose.Slides طريقة [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (من فئة [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection)). هناك عدة تطبيقات لطريقة `addClone` تحدد معاملات عملية دمج العروض. كل كائن Presentation يمتلك مجموعة [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--)، لذا يمكنك استدعاء طريقة `addClone` من العرض الذي تريد دمج الشرائح إليه.
 
-طريقة `addClone` تُعيد كائن `Slide`، وهو نسخة مستنسخة من شريحة المصدر. الشرائح في العرض الناتج هي مجرد نسخة من الشرائح الموجودة في المصدر. لذلك يمكنك تعديل الشرائح الناتجة (مثلاً تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق من أن تتأثر عروض المصدر.
+طريقة `addClone` تُعيد كائن `Slide`، وهو نسخة مستنسخة من الشريحة المصدر. الشرائح في عرض الإخراج هي مجرد نسخة من الشرائح المصدر. لذلك يمكنك تعديل الشرائح الناتجة (مثلاً تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق من تأثيرها على العروض المصدر.
 
-## **دمج العروض التقديمية** 
+## **دمج العروض**
 
-يوفر Aspose.Slides طريقة [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) التي تسمح لك بدمج الشرائح مع احتفاظ الشرائح بتخطيطاتها وأنماطها (معلمات افتراضية).
+توفر Aspose.Slides الطريقة [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) التي تسمح لك بدمج الشرائح مع الاحتفاظ بتخطيطاتها وأنماطها (معلمات افتراضية).
 
-يعرض هذا الكود JavaScript كيفية دمج العروض التقديمية:
+هذا الكود JavaScript يوضح كيفية دمج العروض:
 ```javascript
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
@@ -77,9 +86,9 @@ try {
 ```
 
 
-## **دمج العروض التقديمية مع Slide Master** 
+## **دمج العروض مع القالب الرئيسي للشرائح**
 
-يوفر Aspose.Slides طريقة [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) التي تسمح لك بدمج الشرائح مع تطبيق قالب شريحة رئيسية. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في العرض الناتج.
+توفر Aspose.Slides الطريقة [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) التي تسمح لك بدمج الشرائح مع تطبيق قالب رئيسي للشرائح. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في عرض الإخراج.
 
 هذا الكود JavaScript يوضح العملية الموصوفة:
 ```javascript
@@ -105,17 +114,19 @@ try {
 ```
 
 
-{{% alert title="Note" color="warning" %}} 
-يتم تحديد تخطيط الشريحة للـ slide master تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم تعيين المعامل المنطقي `allowCloneMissingLayout` لطريقة `addClone` إلى true، يُستخدم تخطيط شريحة المصدر. وإلا، سيتم إطلاق استثناء [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException). 
+{{% alert title="ملاحظة" color="warning" %}} 
+
+يتم تحديد تخطيط الشريحة للقالب الرئيسي تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط المعامل المنطقي `allowCloneMissingLayout` في طريقة `addClone` على true، يُستخدم تخطيط الشريحة المصدر. خلاف ذلك، سيتم إلقاء [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException).
+
 {{% /alert %}}
 
-إذا رغبت في أن تكون الشرائح في العرض الناتج ذات تخطيط شريحة مختلف، استخدم طريقة [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) بدلاً من ذلك عند الدمج.
+إذا كنت تريد أن تكون للشرائح في عرض الإخراج تخطيط شريحة مختلف، استخدم طريقة [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) عند الدمج.
 
-## **دمج شرائح محددة من العروض التقديمية** 
+## **دمج شرائح محددة من العروض**
 
-يُعد دمج شرائح محددة من عروض متعددة مفيدًا لإنشاء مجموعات شرائح مخصصة. يتيح لك Aspose.Slides for Node.js via Java تحديد واستيراد الشرائح التي تحتاجها فقط. يحافظ API على تنسيق وتخطيط وتصميم الشرائح الأصلية.
+دمج شرائح محددة من عروض متعددة مفيد لإنشاء مجموعات شرائح مخصصة. يسمح Aspose.Slides for Node.js via Java لك باختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ API على التنسيق والتخطيط وتصميم الشرائح الأصلية.
 
-الكود JavaScript التالي ينشئ عرض تقديمي جديد، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
+الكود JavaScript التالي ينشئ عرضًا تقديميًا جديدًا، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
 ```js
 function getTitleSlide(presentation) {
   for (let i = 0; i < presentation.getSlides().size(); i++) {
@@ -154,9 +165,9 @@ try {
 ```
 
 
-## **دمج العروض التقديمية مع تخطيط الشريحة** 
+## **دمج العروض مع تخطيط الشرائح**
 
-يعرض هذا الكود JavaScript كيفية دمج الشرائح من العروض التقديمية مع تطبيق تخطيط الشريحة المفضل لديك للحصول على عرض تقديمي ناتج واحد:
+هذا الكود JavaScript يوضح كيفية دمج الشرائح من العروض مع تطبيق تخطيط شريحة مفضل للحصول على عرض إخراج واحد:
 ```javascript
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
@@ -180,15 +191,17 @@ try {
 ```
 
 
-## **دمج العروض التقديمية بأحجام شرائح مختلفة** 
+## **دمج العروض بأحجام شرائح مختلفة**
 
-{{% alert title="Note" color="warning" %}} 
-لا يمكنك دمج عروض تقديمية ذات أحجام شرائح مختلفة. 
+{{% alert title="ملاحظة" color="warning" %}} 
+
+لا يمكنك دمج عروض بأحجام شرائح مختلفة. 
+
 {{% /alert %}}
 
-لدمج عرضين بحجم شريحة مختلف، يجب تغيير حجم أحد العروض ليتطابق مع حجم العرض الآخر.
+لدمج عرضين بأحجام شرائح مختلفة، عليك تغيير حجم أحد العروض لتطابق حجم العرض الآخر.
 
-يظهر هذا المثال الكود الذي يوضح العملية الموصوفة:
+هذا الكود النموذجي يوضح العملية الموصوفة:
 ```javascript
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
@@ -213,9 +226,9 @@ try {
 ```
 
 
-## **دمج الشرائح إلى قسم في العرض التقديمي** 
+## **دمج الشرائح إلى قسم في العرض**
 
-يعرض هذا الكود JavaScript كيفية دمج شريحة محددة إلى قسم في العرض التقديمي:
+هذا الكود JavaScript يوضح كيفية دمج شريحة محددة إلى قسم في عرض:
 ```javascript
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
@@ -239,26 +252,30 @@ try {
 ```
 
 
-يتم إضافة الشريحة في نهاية القسم. 
+تُضاف الشريحة في نهاية القسم. 
 
-## **الأسئلة المتكررة** 
+## **الأسئلة المتكررة**
 
-**هل يتم الاحتفاظ بملاحظات المتحدث أثناء الدمج؟**  
-نعم. عند استنساخ الشرائح، ينقل Aspose.Slides جميع عناصر الشريحة بما في ذلك الملاحظات والتنسيق والرسوم المتحركة.
+**هل يتم الحفاظ على ملاحظات المتحدث أثناء الدمج؟**
 
-**هل يتم نقل التعليقات ومؤلفيها؟**  
+نعم. عند استنساخ الشرائح، تنقل Aspose.Slides جميع عناصر الشريحة، بما في ذلك الملاحظات والتنسيق والرسوم المتحركة.
+
+**هل يتم نقل التعليقات ومؤلفيها؟**
+
 التعليقات، كجزء من محتوى الشريحة، تُنسخ مع الشريحة. تُحافظ تسميات مؤلفي التعليقات ككائنات تعليق في العرض الناتج.
 
-**ماذا لو كان العرض المصدر محمياً بكلمة مرور؟**  
-يجب [فتحه باستخدام كلمة المرور](/slides/ar/nodejs-java/password-protected-presentation/) عبر [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/)؛ بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي كذلك).
+**ماذا لو كان العرض المصدر محمياً بكلمة مرور؟**
 
-**ما مدى أمان العملية من ناحية الخيوط المتعددة؟**  
+يجب [فتح العرض باستخدام كلمة المرور](/slides/ar/nodejs-java/password-protected-presentation/) عبر [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/); بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي كذلك).
+
+**ما مدى أمان العملية من حيث الترابط (thread‑safe)؟**
+
 لا تستخدم نفس كائن [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/nodejs-java/multithreading/). القاعدة الموصى بها هي "مستند واحد — خيط واحد"؛ يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.
 
-## **انظر أيضًا** 
+## **انظر أيضًا**
 
-توفر Aspose أداة [FREE Online Collage Maker](https://products.aspose.app/slides/collage) مجانية عبر الإنترنت. باستخدام هذه الخدمة يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو صور PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، والمزيد.
+توفر Aspose أداة [صانع كولاج مجاني على الإنترنت](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة على الإنترنت، يمكنك دمج صور [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، إنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، والمزيد.
 
-تحقق من [Aspose FREE Online Merger](https://products.aspose.app/slides/merger). يتيح لك دمج عروض PowerPoint بنفس الصيغة (مثل PPT إلى PPT، PPTX إلى PPTX) أو عبر صيغ مختلفة (مثل PPT إلى PPTX، PPTX إلى ODP).
+جرب [أداة الدمج المجانية على الإنترنت من Aspose](https://products.aspose.app/slides/merger). تسمح لك بدمج عروض PowerPoint بنفس الصيغة (مثل PPT إلى PPT، PPTX إلى PPTX) أو عبر صيغ مختلفة (مثل PPT إلى PPTX، PPTX إلى ODP).
 
 [![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
