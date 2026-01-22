@@ -1,5 +1,5 @@
 ---
-title: Android で PowerPoint プレゼンテーションの SmartArt を管理する
+title: Android 上の PowerPoint プレゼンテーションで SmartArt を管理する
 linktitle: SmartArt の管理
 type: docs
 weight: 10
@@ -7,16 +7,16 @@ url: /ja/androidjava/manage-smartart/
 keywords:
 - SmartArt
 - SmartArt テキスト
-- レイアウトタイプ
+- レイアウト タイプ
 - 非表示プロパティ
 - 組織図
-- ピクチャー組織図
+- 画像組織図
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して、スライドのデザインと自動化を高速化する明確な Java コードサンプルで、PowerPoint の SmartArt を作成および編集する方法を学びます。"
+description: "Aspose.Slides for Android を使用し、スライドの設計と自動化を高速化する明確な Java コードサンプルで、PowerPoint の SmartArt の作成と編集を学びましょう。"
 ---
 
 ## **SmartArt オブジェクトからテキストを取得する**
@@ -42,16 +42,16 @@ try {
 ```
 
 
-## **SmartArt オブジェクトのレイアウトタイプを変更する**
-[SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) のレイアウトタイプを変更するには、以下の手順に従ってください。
+## **SmartArt オブジェクトのレイアウト タイプを変更する**
+[SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) のレイアウト タイプを変更するには、以下の手順に従ってください。
 
 - [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。
-- [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) BasicBlockList を追加します。
+- BasicBlockList の [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) を追加します。
 - [LayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setLayout-int-) を BasicProcess に変更します。
 - プレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例では、2つの図形の間にコネクタを追加しています。
+以下の例では、2 つの図形の間にコネクタを追加しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -69,16 +69,16 @@ try {
 ```
 
 
-## **SmartArt オブジェクトの Hidden プロパティを確認する**
-ご注意: メソッド [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#isHidden--)) は、データモデルでこのノードが非表示ノードである場合に true を返します。[SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) の任意のノードの Hidden プロパティを確認するには、以下の手順に従ってください。
+## **SmartArt オブジェクトの Visibility プロパティを確認する**
+注意: メソッド [ISmartArtNode.isHidden()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#isHidden) は、データモデルでこのノードが非表示ノードである場合に true を返します。[SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) の任意のノードの非表示プロパティを確認するには、以下の手順に従ってください。
 
 - [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-- [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) RadialCycle を追加します。
+- [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) の RadialCycle を追加します。
 - SmartArt にノードを追加します。
-- [isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#isHidden--) プロパティを確認します。
+- [visibility](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#isHidden) プロパティを確認します。
 - プレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例では、2つの図形の間にコネクタを追加しています。
+以下の例では、2 つの図形の間にコネクタを追加しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -93,7 +93,7 @@ try {
 
     if (hidden)
     {
-        // いくつかのアクションまたは通知を実行
+        // 何らかのアクションまたは通知を実行
     }
     // プレゼンテーションを保存
     pres.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
@@ -103,22 +103,22 @@ try {
 ```
 
 
-## **組織図タイプの取得または設定**
-メソッド [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) と [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) は、現在のノードに関連付けられた組織図タイプの取得および設定を可能にします。組織図タイプを取得または設定するには、以下の手順に従ってください。
+## **組織図のタイプを取得または設定する**
+メソッド [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--)、[setOrganizationChartLayout(int)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) は、現在のノードに関連付けられた組織図タイプの取得または設定を行います。組織図タイプを取得または設定するには、以下の手順に従ってください。
 
 - [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-- スライドに [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) を追加します。
+- スライド上に [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) を追加します。
 - 組織図タイプを取得または [set the organization chart type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) します。
 - プレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例では、2つの図形の間にコネクタを追加しています。
+以下の例では、2 つの図形の間にコネクタを追加しています。
 ```java
 Presentation pres = new Presentation();
 try {
     // SmartArt BasicProcess を追加
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // 組織図タイプを取得または設定
+    // 組織図のタイプを取得または設定
     smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
     // プレゼンテーションを保存
@@ -129,15 +129,15 @@ try {
 ```
 
 
-## **ピクチャー組織図の作成**
-Aspose.Slides for Android via Java は、簡単に PictureOrganization チャートを作成できるシンプルな API を提供します。スライド上にチャートを作成する手順は次のとおりです:
+## **画像組織図の作成**
+Aspose.Slides for Android via Java は、PictureOrganization チャートを簡単に作成するためのシンプルな API を提供します。スライド上にチャートを作成する手順は以下の通りです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルトデータと目的のタイプ (ChartType.PictureOrganizationChart) を使用してチャートを追加します。
-4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+1. インデックスでスライドの参照を取得します。
+1. デフォルトデータと希望のタイプ (ChartType.PictureOrganizationChart) のチャートを追加します。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。
 
-以下のコードはチャートを作成するために使用されます。
+以下のコードはチャート作成に使用されます。
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -149,15 +149,15 @@ try {
 ```
 
 
-## **SmartArt の状態の取得または設定**
-SmartArt の状態を取得または設定するには、以下の手順に従ってください。
+## **SmartArt の状態を取得または設定する**
+SmartArt のレイアウト タイプを変更するには、以下の手順に従ってください。
 
-- [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-- スライドに [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) を追加します。
-- SmartArt ダイアグラムの状態を [Get](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#isReversed--) または [Set](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setReversed-boolean-) します。
-- プレゼンテーションを PPTX ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. スライド上に [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) を追加します。
+1. [Get](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#isReversed--) または [Set](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setReversed-boolean-) で SmartArt ダイアグラムの状態を取得または設定します。
+1. プレゼンテーションを PPTX ファイルとして保存します。
 
-以下のコードはチャートを作成するために使用されます。
+以下のコードは SmartArt の状態を取得または設定するために使用されます。
 ```java
 // PPTX ファイルを表す Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
@@ -179,18 +179,18 @@ try {
 
 ## **FAQ**
 
-**SmartArt は RTL 言語向けのミラーリング/反転をサポートしていますか？**
+**SmartArt は RTL 言語のミラーリング/反転をサポートしていますか？**
 
-はい。メソッド [setReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/#setReversed-boolean-) は、選択した SmartArt タイプが反転をサポートしている場合、ダイアグラムの方向 (LTR/RTL) を切り替えます。
+はい。選択された SmartArt タイプが反転をサポートしている場合、[setReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/#setReversed-boolean-) メソッドはダイアグラムの方向 (LTR/RTL) を切り替えます。
 
-**同じスライドまたは別のプレゼンテーションに SmartArt をコピーし、書式を保持するにはどうすればよいですか？**
+**同じスライドまたは別のプレゼンテーションに SmartArt をコピーして書式を保持するにはどうすればよいですか？**
 
-シェイプコレクションの [clone the SmartArt shape](/slides/ja/androidjava/shape-manipulations/) (ShapeCollection.addClone) またはこのシェイプを含むスライド全体を [clone the entire slide](/slides/ja/androidjava/clone-slides/) できます。どちらの方法でもサイズ、位置、スタイリングが保持されます。
+Shapes コレクションの [SmartArt シェイプをクローンする](/slides/ja/androidjava/shape-manipulations/)（[ShapeCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)) またはこのシェイプを含むスライド全体を [スライド全体をクローンする](/slides/ja/androidjava/clone-slides/) することでコピーできます。どちらの方法もサイズ、位置、スタイリングを保持します。
 
-**プレビューやウェブエクスポートのために SmartArt をラスタ画像にレンダリングする方法は？**
+**プレビューやウェブエクスポートのために SmartArt をラスタ画像にレンダリングするには？**
 
-[Render the slide](/slides/ja/androidjava/convert-powerpoint-to-png/) (またはプレゼンテーション全体) して PNG/JPEG に変換する API を使用します。SmartArt はスライドの一部として描画されます。
+スライド (/slides/ja/androidjava/convert-powerpoint-to-png/)（またはプレゼンテーション全体）を PNG/JPEG に変換する API を使用してレンダリングすると、SmartArt はスライドの一部として描画されます。
 
-**スライド上に複数の SmartArt がある場合、特定の SmartArt をプログラムで選択するにはどうすればよいですか？**
+**スライドに複数の SmartArt がある場合、特定の SmartArt をプログラムで選択するにはどうすればよいですか？**
 
-一般的な方法は、[alternative text](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getAlternativeText--) (Alt Text) または [name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getName--) を使用して、[slide shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) 内でその属性でシェイプを検索し、タイプが [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/) であることを確認します。ドキュメントに典型的なテクニックが記載されています。
+一般的な方法は、[代替テキスト](/slides/ja/androidjava/alternative-text/)（Alt Text）や [名前](/slides/ja/androidjava/name/) を使用して属性でシェイプを検索し、[スライド シェープ](/slides/ja/androidjava/slide-shapes/) 内でその属性でシェイプを探し、タイプが [SmartArt] であることを確認することです。ドキュメントはシェイプの検索と操作の典型的な手法を説明しています。

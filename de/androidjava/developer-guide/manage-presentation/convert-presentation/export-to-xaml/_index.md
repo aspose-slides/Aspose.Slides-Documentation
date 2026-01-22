@@ -26,41 +26,37 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertieren Sie PowerPoint- und OpenDocument-Folien nach XAML in Java mit Aspose.Slides für Android - eine schnelle, Office-freie Lösung, die Ihr Layout unverändert lässt."
+description: "Konvertieren Sie PowerPoint- und OpenDocument-Folien in Java mit Aspose.Slides für Android - schnelle, Office-freie Lösung, die Ihr Layout unverändert beibehält."
 ---
 
 ## **Präsentationen nach XAML exportieren**
 
-{{% alert color="primary" %}} 
-
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-21-6-release-notes/), haben wir die Unterstützung für den XAML‑Export implementiert. Sie können nun Ihre Präsentationen nach XAML exportieren.
-
-{{% /alert %}} 
+Aspose.Slides unterstützt den Export nach XAML. Sie können Ihre Präsentationen in XAML konvertieren.
 
 ## **Über XAML**
 
-XAML ist eine beschreibende Programmiersprache, die es Ihnen ermöglicht, Benutzeroberflächen für Apps zu erstellen oder zu schreiben, insbesondere für solche, die WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) und Xamarin Forms verwenden.  
+XAML ist eine beschreibende Programmiersprache, mit der Sie Benutzeroberflächen für Apps erstellen oder schreiben können, insbesondere für solche, die WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) und Xamarin-Forms verwenden.  
 
-XAML, eine XML‑basierte Sprache, ist Microsofts Variante zur Beschreibung einer GUI. Sie werden höchstwahrscheinlich die meiste Zeit einen Designer verwenden, um an XAML‑Dateien zu arbeiten, aber Sie können Ihre GUI auch selbst schreiben und bearbeiten. 
+XAML, eine XML-basierte Sprache, ist Microsofts Variante zur Beschreibung einer GUI. Sie werden die meiste Zeit wahrscheinlich einen Designer verwenden, um an XAML-Dateien zu arbeiten, können aber auch Ihre GUI selbst schreiben und bearbeiten.
 
-## **Präsentationen nach XAML mit Standardoptionen exportieren**
+## **Präsentationen mit den Standardeinstellungen nach XAML exportieren**
 
-Dieser Java‑Code zeigt, wie Sie eine Präsentation mit den Standardeinstellungen nach XAML exportieren:
+Dieser Java-Code zeigt, wie Sie eine Präsentation mit den Standardeinstellungen nach XAML exportieren:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
-	pres.save(new XamlOptions());
+    pres.save(new XamlOptions());
 } finally {
-	if (pres != null) pres.dispose();
+    if (pres != null) pres.dispose();
 }
 ```
 
 
-## **Präsentationen nach XAML mit benutzerdefinierten Optionen exportieren**
+## **Präsentationen mit benutzerdefinierten Optionen nach XAML exportieren**
 
-Sie können Optionen aus der Schnittstelle [IXamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions) auswählen, die den Exportvorgang steuern und festlegen, wie Aspose.Slides Ihre Präsentation nach XAML exportiert.
+Sie können Optionen aus dem [IXamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions)-Interface auswählen, die den Exportvorgang steuern und bestimmen, wie Aspose.Slides Ihre Präsentation nach XAML exportiert.
 
-Beispielsweise, wenn Sie möchten, dass Aspose.Slides beim Export nach XAML versteckte Folien aus Ihrer Präsentation hinzufügt, können Sie die Eigenschaft [ExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) auf true setzen. Siehe diesen Beispiel‑Java‑Code:
+Zum Beispiel, wenn Sie möchten, dass Aspose.Slides beim Export nach XAML versteckte Folien Ihrer Präsentation einfügt, können Sie die Eigenschaft [ExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) auf true setzen. Siehe dieses Beispiel-Java-Code:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -75,14 +71,14 @@ try {
 
 ## **FAQ**
 
-**Wie kann ich vorhersehbare Schriftarten sicherstellen, wenn die Originalschriftart nicht auf dem Computer verfügbar ist?**
+**Wie kann ich vorhersehbare Schriftarten sicherstellen, wenn die Originalschriftart auf dem Rechner nicht verfügbar ist?**
 
-Setzen Sie [eine Standard‑Normal‑Schriftart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setDefaultRegularFont-java.lang.String-) in [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) — sie wird als Ersatzschriftart verwendet, wenn die Originalschrift fehlt. Das hilft, unerwartete Ersetzungen zu vermeiden.
+Legen Sie in [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) eine [Standard-Normalschriftart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setDefaultRegularFont-java.lang.String-) fest – sie wird als Ersatzschriftart verwendet, wenn die Originalschriftart fehlt. Das verhindert unerwartete Ersetzungen.
 
-**Ist das exportierte XAML nur für WPF gedacht oder kann es auch in anderen XAML‑Stacks verwendet werden?**
+**Ist das exportierte XAML nur für WPF gedacht oder kann es auch in anderen XAML-Stacks verwendet werden?**
 
-XAML ist eine allgemeine UI‑Markup‑Sprache, die in WPF, UWP und Xamarin.Forms verwendet wird. Der Export zielt auf die Kompatibilität mit Microsoft‑XAML‑Stacks ab; das genaue Verhalten und die Unterstützung spezifischer Konstrukte hängen vom Ziel‑Plattform ab. Testen Sie das Markup in Ihrer Umgebung.
+XAML ist eine allgemeine UI-Markup-Sprache, die in WPF, UWP und Xamarin.Forms verwendet wird. Der Export zielt auf die Kompatibilität mit den Microsoft-XAML-Stacks ab; das genaue Verhalten und die Unterstützung bestimmter Konstrukte hängen von der Zielplattform ab. Testen Sie das Markup in Ihrer Umgebung.
 
 **Werden versteckte Folien unterstützt und wie kann ich verhindern, dass sie standardmäßig exportiert werden?**
 
-Standardmäßig werden versteckte Folien nicht einbezogen. Sie können dieses Verhalten über [setExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/#setExportHiddenSlides-boolean-) in [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) steuern — deaktivieren Sie es, wenn Sie diese nicht exportieren möchten.
+Standardmäßig werden versteckte Folien nicht einbezogen. Sie können dieses Verhalten über [setExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/#setExportHiddenSlides-boolean-) in [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) steuern – deaktivieren Sie es, wenn Sie sie nicht exportieren möchten.

@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Aufzählungs- und nummerierten Listen in Präsentationen auf Android
+title: Verwalten von Aufzählungs‑ und Nummerierungslisten in Präsentationen auf Android
 linktitle: Listen verwalten
 type: docs
 weight: 60
@@ -8,8 +8,8 @@ keywords:
 - Aufzählungszeichen
 - Aufzählungsliste
 - Nummerierte Liste
-- Symbolaufzählungszeichen
-- Bildaufzählungszeichen
+- Symbol‑Aufzählungszeichen
+- Bild‑Aufzählungszeichen
 - Benutzerdefiniertes Aufzählungszeichen
 - Mehrstufige Liste
 - Aufzählungszeichen erstellen
@@ -21,10 +21,10 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Aufzählungs- und nummerierte Listen in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android via Java verwalten. Schritt-für-Schritt-Anleitung."
+description: "Erfahren Sie, wie Sie Aufzählungs‑ und nummerierte Listen in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Android via Java verwalten. Schritt‑für‑Schritt‑Anleitung."
 ---
 
-In **Microsoft PowerPoint** können Sie Aufzählungs‑ und nummerierte Listen auf dieselbe Weise erstellen wie in Word und anderen Texteditoren. **Aspose.Slides for Android via Java** ermöglicht es Ihnen ebenfalls, Aufzählungszeichen und Nummern in Folien Ihrer Präsentationen zu verwenden.
+In **Microsoft PowerPoint** können Sie Aufzählungs- und Nummerierungslisten auf die gleiche Weise erstellen wie in Word und anderen Texteditoren. **Aspose.Slides for Android via Java** ermöglicht ebenfalls die Verwendung von Aufzählungszeichen und Zahlen in Folien Ihrer Präsentationen.
 
 ## **Warum Aufzählungslisten verwenden?**
 
@@ -35,83 +35,84 @@ Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisi
 In den meisten Fällen erfüllt eine Aufzählungsliste drei Hauptfunktionen:
 
 - lenkt die Aufmerksamkeit Ihrer Leser oder Zuschauer auf wichtige Informationen
-- ermöglicht es Ihren Lesern oder Zuschauern, Schlüsselpunkte leicht zu überfliegen
+- ermöglicht es Ihren Lesern oder Zuschauern, Schlüssel‑Points leicht zu überfliegen
 - kommuniziert und liefert wichtige Details effizient.
 
 ## **Warum nummerierte Listen verwenden?**
 
-Nummerierte Listen helfen ebenfalls bei der Organisation und Präsentation von Informationen. Idealerweise sollten Sie Zahlen (statt Aufzählungszeichen) verwenden, wenn die Reihenfolge der Einträge (z. B. *Schritt 1, Schritt 2* usw.) wichtig ist oder wenn ein Eintrag referenziert werden muss (z. B. *siehe Schritt 3*).
+Nummerierte Listen unterstützen ebenfalls die Organisation und Darstellung von Informationen. Ideal ist die Verwendung von Zahlen (anstelle von Aufzählungszeichen), wenn die Reihenfolge der Einträge (z. B. *Schritt 1, Schritt 2* usw.) wichtig ist oder wenn ein Eintrag referenziert werden muss (z. B. *siehe Schritt 3*).
 
 **Beispiel für eine nummerierte Liste**
 
-Dies ist eine Zusammenfassung der Schritte (Schritt 1 bis Schritt 15) im nachstehenden Verfahren **Erstellen von Aufzählungen**:
+Dies ist eine Zusammenfassung der Schritte (Schritt 1 bis Schritt 15) im **Creating Bullets**‑Verfahren unten:
 
-1. Erstellen Sie eine Instanz der Präsentationsklasse. 
+1. Erstellen Sie eine Instanz der Präsentations‑Klasse. 
 2. Führen Sie mehrere Aufgaben aus (Schritt 3 bis Schritt 14).
 3. Speichern Sie die Präsentation. 
 
-## **Aufzählungen erstellen**
-Dieses Thema ist ebenfalls Teil der Themenreihe zur Verwaltung von Textabsätzen. Diese Seite zeigt, wie wir Aufzählungszeichen für Absätze verwalten können. Aufzählungen sind besonders nützlich, wenn etwas in Schritten beschrieben werden soll. Darüber hinaus wirkt der Text dank Aufzählungen gut organisiert. Aufgezählte Absätze sind immer leichter zu lesen und zu verstehen. Wir zeigen, wie Entwickler diese kleine, aber leistungsstarke Funktion von Aspose.Slides for Android via Java nutzen können. Bitte folgen Sie den nachstehenden Schritten, um Absatz‑Aufzählungszeichen mit Aspose.Slides for Android via Java zu verwalten:
+## **Aufzählungszeichen erstellen**
+Dieses Thema ist ebenfalls Teil der Themenreihe zur Verwaltung von Textabsätzen. Auf dieser Seite wird gezeigt, wie wir Absatz‑Aufzählungszeichen verwalten können. Aufzählungszeichen sind besonders nützlich, wenn etwas in Schritten beschrieben werden soll. Zudem wirkt der Text durch Aufzählungen gut strukturiert. Aufzählungs‑Absätze sind stets leichter zu lesen und zu verstehen. Wir sehen, wie Entwickler diese kleine, aber leistungsstarke Funktion von Aspose.Slides for Android via Java nutzen können. Folgen Sie den nachstehenden Schritten, um die Absatz‑Aufzählungszeichen mit Aspose.Slides for Android via Java zu verwalten:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Greifen Sie über das Objekt [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) auf die gewünschte Folie in der Folienkollektion zu.
-1. Fügen Sie in der ausgewählten Folie eine [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText) hinzu.
-1. Greifen Sie auf den [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) der hinzugefügten Form zu.
-1. Entfernen Sie den Standardabsatz im TextFrame.
-1. Erstellen Sie die erste Absatzinstanz mithilfe der Klasse [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph).
-1. Legen Sie den Aufzählungstyp des Absatzes fest.
-1. Setzen Sie den Aufzählungstyp auf [Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BulletType#Symbol) und legen Sie das Aufzählungszeichen fest.
-1. Setzen Sie den Absatztext.
-1. Stellen Sie den Absatz‑Einzug ein, um die Aufzählung zu setzen.
-1. Legen Sie die Farbe der Aufzählung fest.
-1. Stellen Sie die Höhe der Aufzählungszeichen ein.
-1. Fügen Sie den erstellten Absatz zur Absatz‑Collection des TextFrames hinzu.
-1. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie den Vorgang aus den Schritten **7 bis 13**.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)‑Klasse.
+1. Greifen Sie über das [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide)‑Objekt auf die gewünschte Folie in der Folien‑Sammlung zu.
+1. Fügen Sie der ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText) hinzu.
+1. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) der hinzugefügten Form zu.
+1. Entfernen Sie den Standard‑Absatz im TextFrame.
+1. Erstellen Sie die erste Absatz‑Instanz mit der [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph)‑Klasse.
+1. Setzen Sie den Aufzählungstyp des Absatzes.
+1. Setzen Sie den Aufzählungstyp auf [Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BulletType#Symbol) und definieren Sie das Aufzählungszeichen.
+1. Setzen Sie den Absatz‑Text.
+1. Setzen Sie den Absatz‑Einzug, um das Aufzählungszeichen zu positionieren.
+1. Setzen Sie die Farbe des Aufzählungszeichens.
+1. Setzen Sie die Höhe der Aufzählungszeichen.
+1. Fügen Sie den erstellten Absatz zur Absatz‑Sammlung des TextFrames hinzu.
+1. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte **7 bis 13**.
 1. Speichern Sie die Präsentation.
 
+Dieser Java‑Beispielcode – eine Umsetzung der obigen Schritte – zeigt, wie Sie eine Aufzählungsliste in einer Folie erstellen:
 ```java
 // Instanziieren einer Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
-    // Erste Folie abrufen
+    // Zugriff auf die erste Folie
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // AutoShape hinzufügen und darauf zugreifen
+    // Autoshape hinzufügen und darauf zugreifen
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // TextFrame der erstellten AutoShape abrufen
+    // Zugriff auf das TextFrame des erstellten Autoshape
     ITextFrame txtFrm = aShp.getTextFrame();
     
-    // Entfernen des standardmäßigen vorhandenen Paragraphen
+    // Entfernen des standardmäßigen vorhandenen Absatzes
     txtFrm.getParagraphs().removeAt(0);
     
-    // Einen Paragraph erstellen
+    // Erstellen eines Absatzes
     Paragraph para = new Paragraph();
     
-    // Bullet‑Stil und Symbol des Paragraphen festlegen
+    // Festlegen des Aufzählungsstils und Symbols für den Absatz
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char) 8226);
     
-    // Paragraph‑Text festlegen
+    // Festlegen des Absatztextes
     para.setText("Welcome to Aspose.Slides");
     
-    // Einzug des Bullets festlegen
+    // Festlegen des Einzugs des Aufzählungszeichens
     para.getParagraphFormat().setIndent(25);
     
-    // Bullet‑Farbe festlegen
+    // Festlegen der Farbe des Aufzählungszeichens
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
     
-    // IsBulletHardColor auf true setzen, um eine eigene Bullet‑Farbe zu verwenden
+    // IsBulletHardColor auf true setzen, um eine eigene Aufzählungsfarbe zu verwenden
     para.getParagraphFormat().getBullet().isBulletHardColor();
     
-    // Bullet‑Höhe festlegen
+    // Festlegen der Höhe des Aufzählungszeichens
     para.getParagraphFormat().getBullet().setHeight(100);
     
-    // Paragraph zum TextFrame hinzufügen
+    // Hinzufügen des Absatzes zum TextFrame
     txtFrm.getParagraphs().add(para);
     
-    // Präsentation als PPTX‑Datei speichern
+    // Speichern der Präsentation als PPTX-Datei
     pres.save("Bullet.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
@@ -119,40 +120,41 @@ try {
 ```
 
 
-## **Bildaufzählungen erstellen**
+## **Bild‑Aufzählungszeichen erstellen**
 
-Aspose.Slides for Android via Java ermöglicht es Ihnen, die Aufzählungszeichen in Aufzählungslisten zu ändern. Sie können die Aufzählungszeichen durch benutzerdefinierte Symbole oder Bilder ersetzen. Wenn Sie einer Liste visuelles Interesse verleihen oder die Aufmerksamkeit auf Listeneinträge noch stärker lenken möchten, können Sie Ihr eigenes Bild als Aufzählungszeichen verwenden.
+Aspose.Slides for Android via Java ermöglicht es Ihnen, die Aufzählungszeichen in Aufzählungslisten zu ändern. Sie können die Aufzählungszeichen durch eigene Symbole oder Bilder ersetzen. Wenn Sie einer Liste visuelles Interesse verleihen oder die Aufmerksamkeit noch stärker auf Listeneinträge lenken möchten, können Sie Ihr eigenes Bild als Aufzählungszeichen verwenden.
 
 {{% alert color="primary" %}} 
 
-Idealerweise sollten Sie, wenn Sie das reguläre Aufzählungszeichen durch ein Bild ersetzen möchten, ein einfaches Grafikbild mit transparentem Hintergrund auswählen. Solche Bilder eignen sich am besten als benutzerdefinierte Aufzählungszeichen. 
+Idealerweise, wenn Sie das reguläre Aufzählungszeichen durch ein Bild ersetzen wollen, sollten Sie ein einfaches Grafik‑Bild mit transparentem Hintergrund wählen. Solche Bilder eignen sich am besten als benutzerdefinierte Aufzählungszeichen. 
 
-In jedem Fall wird das ausgewählte Bild auf eine sehr kleine Größe reduziert, daher empfehlen wir dringend, ein Bild zu wählen, das (als Ersatz für das Aufzählungszeichen) in einer Liste gut aussieht. 
+In jedem Fall wird das von Ihnen gewählte Bild auf eine sehr kleine Größe reduziert, daher empfehlen wir dringend, ein Bild zu wählen, das auch als Ersatz für das Aufzählungszeichen in einer Liste gut aussieht. 
 
 {{% /alert %}} 
 
-Um ein Bild‑Aufzählungszeichen zu erstellen, gehen Sie wie folgt vor:
+So erstellen Sie ein Bild‑Aufzählungszeichen:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Greifen Sie über das Objekt [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) auf die gewünschte Folie in der Folienkollektion zu.
-1. Fügen Sie in der ausgewählten Folie eine AutoShape hinzu.
-1. Greifen Sie auf den [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) der hinzugefügten Form zu.
-1. Entfernen Sie den Standardabsatz im [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
-1. Erstellen Sie die erste Absatzinstanz mithilfe der Klasse Paragraph.
-1. Laden Sie ein Bild von der Festplatte in [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPPImage) laden.
-1. Setzen Sie den Aufzählungstyp auf Bild und legen Sie das Bild fest.
-1. Setzen Sie den Absatztext.
-1. Stellen Sie den Absatz‑Einzug ein, um die Aufzählung zu setzen.
-1. Legen Sie die Farbe der Aufzählung fest.
-1. Stellen Sie die Höhe der Aufzählungszeichen ein.
-1. Fügen Sie den erstellten Absatz zur Absatz‑Collection des [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) hinzu.
-1. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie den Vorgang aus den vorherigen Schritten.
-1. Speichern Sie die Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)‑Klasse
+1. Greifen Sie über das [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide)‑Objekt auf die gewünschte Folie in der Folien‑Sammlung zu
+1. Fügen Sie der ausgewählten Folie ein Autoshape hinzu
+1. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) der hinzugefügten Form zu
+1. Entfernen Sie den Standard‑Absatz im [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)
+1. Erstellen Sie die erste Absatz‑Instanz mit der Paragraph‑Klasse
+1. Laden Sie das Bild von der Festplatte in [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)
+1. Setzen Sie den Aufzählungstyp auf Picture und legen Sie das Bild fest
+1. Setzen Sie den Absatz‑Text
+1. Setzen Sie den Absatz‑Einzug, um das Aufzählungszeichen zu positionieren
+1. Setzen Sie die Farbe des Aufzählungszeichens
+1. Setzen Sie die Höhe der Aufzählungszeichen
+1. Fügen Sie den erstellten Absatz zur [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)‑Absatz‑Sammlung hinzu
+1. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die vorherigen Schritte
+1. Speichern Sie die Präsentation
 
+Dieser Java‑Code zeigt, wie Sie ein Bild‑Aufzählungszeichen in einer Folie erstellen:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Erste Folie abrufen
+    // Zugriff auf die erste Folie
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Bild für Aufzählungszeichen instanziieren
@@ -164,26 +166,26 @@ try {
         if (image != null) image.dispose();
     }
 
-    // AutoShape hinzufügen und darauf zugreifen
+    // Autoshape hinzufügen und darauf zugreifen
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // TextFrame der erstellten AutoShape abrufen
+    // Zugriff auf das Textfeld des erstellten Autoshape
     ITextFrame txtFrm = aShp.getTextFrame();
     // Entfernen des standardmäßigen vorhandenen Absatzes
     txtFrm.getParagraphs().removeAt(0);
 
-    // Neuen Absatz erstellen
+    // Neuer Absatz erstellen
     Paragraph para = new Paragraph();
     para.setText("Welcome to Aspose.Slides");
 
-    // Aufzählungsstil und Bild des Absatzes festlegen
+    // Festlegen des Absatzaufzählungsstils und Bildes
     para.getParagraphFormat().getBullet().setType(BulletType.Picture);
     para.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // Aufzählungs-Höhe festlegen
+    // Festlegen der Aufzählungshöhe
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // Absatz zum TextFrame hinzufügen
+    // Absatz zum Textfeld hinzufügen
     txtFrm.getParagraphs().add(para);
 
     // Präsentation als PPTX-Datei schreiben
@@ -195,22 +197,23 @@ try {
 ```
 
 
-## **Mehrstufige Aufzählungen erstellen**
+## **Mehrstufige Aufzählungszeichen erstellen**
 
-Um eine Aufzählungsliste zu erstellen, die Elemente auf verschiedenen Ebenen enthält – zusätzliche Listen unter der Hauptauflistung – gehen Sie wie folgt vor:
+Um eine Aufzählungsliste zu erstellen, die Elemente auf verschiedenen Ebenen enthält – zusätzliche Listen unter der Haupt‑Aufzählungsliste – gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Greifen Sie über das Objekt [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) auf die gewünschte Folie in der Folienkollektion zu.
-1. Fügen Sie in der ausgewählten Folie eine AutoShape hinzu.
-1. Greifen Sie auf den [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) der hinzugefügten Form zu.
-1. Entfernen Sie den Standardabsatz im [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
-1. Erstellen Sie die erste Absatzinstanz mithilfe der Klasse Paragraph und setzen Sie die Tiefe auf 0.
-1. Erstellen Sie die zweite Absatzinstanz mithilfe der Klasse Paragraph und setzen Sie die Tiefe auf 1.
-1. Erstellen Sie die dritte Absatzinstanz mithilfe der Klasse Paragraph und setzen Sie die Tiefe auf 2.
-1. Erstellen Sie die vierte Absatzinstanz mithilfe der Klasse Paragraph und setzen Sie die Tiefe auf 3.
-1. Fügen Sie die erstellten Absätze zur Absatz‑Collection des [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) hinzu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)‑Klasse.
+1. Greifen Sie über das [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide)‑Objekt auf die gewünschte Folie in der Folien‑Sammlung zu.
+1. Fügen Sie der ausgewählten Folie ein Autoshape hinzu.
+1. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) der hinzugefügten Form zu.
+1. Entfernen Sie den Standard‑Absatz im [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
+1. Erstellen Sie die erste Absatz‑Instanz mit der Paragraph‑Klasse und setzen Sie die Tiefe auf 0.
+1. Erstellen Sie die zweite Absatz‑Instanz mit der Paragraph‑Klasse und setzen Sie die Tiefe auf 1.
+1. Erstellen Sie die dritte Absatz‑Instanz mit der Paragraph‑Klasse und setzen Sie die Tiefe auf 2.
+1. Erstellen Sie die vierte Absatz‑Instanz mit der Paragraph‑Klasse und setzen Sie die Tiefe auf 3.
+1. Fügen Sie die erstellten Absätze zur [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)‑Absatz‑Sammlung hinzu.
 1. Speichern Sie die Präsentation.
 
+Dieser Code, eine Umsetzung der obigen Schritte, zeigt, wie Sie in Java eine mehrstufige Aufzählungsliste erstellen:
 ```java
 // Instanziieren einer Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
@@ -218,10 +221,10 @@ try {
     // Zugriff auf die erste Folie
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Hinzufügen und Zugriff auf AutoShape
+    // Hinzufügen und Zugriff auf Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // Zugriff auf den TextFrame der erstellten AutoShape
+    // Zugriff auf das Textfeld des erstellten Autoshape
     ITextFrame txtFrm = aShp.addTextFrame("");
     
     // Entfernen des standardmäßigen vorhandenen Absatzes
@@ -235,7 +238,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar((char) 8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Festlegen der Aufzählungsebene
+    //Festlegen der Aufzählungsebene
     para1.getParagraphFormat().setDepth ((short)0);
     
     // Erstellen des zweiten Absatzes
@@ -246,7 +249,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Festlegen der Aufzählungsebene
+    //Festlegen der Aufzählungsebene
     para2.getParagraphFormat().setDepth ((short)1);
     
     // Erstellen des dritten Absatzes
@@ -257,7 +260,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar((char) 8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Festlegen der Aufzählungsebene
+    //Festlegen der Aufzählungsebene
     para3.getParagraphFormat().setDepth ((short)2);
     
     // Erstellen des vierten Absatzes
@@ -268,10 +271,10 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Festlegen der Aufzählungsebene
+    //Festlegen der Aufzählungsebene
     para4.getParagraphFormat().setDepth ((short)3);
     
-    // Hinzufügen des Absatzes zum TextFrame
+    // Hinzufügen des Absatzes zum Textfeld
     txtFrm.getParagraphs().add(para1);
     txtFrm.getParagraphs().add(para2);
     txtFrm.getParagraphs().add(para3);
@@ -286,31 +289,31 @@ try {
 
 
 ## **Benutzerdefinierte nummerierte Listen erstellen**
+Aspose.Slides for Android via Java bietet eine einfache API zur Verwaltung von Absätzen mit benutzerdefinierten Zahlenformaten. Um einer Absatz‑Liste eine benutzerdefinierte Nummerierung hinzuzufügen, gehen Sie wie folgt vor:
 
-Aspose.Slides for Android via Java bietet eine einfache API zur Verwaltung von Absätzen mit benutzerdefinierten Nummerierungsformaten. Um einer Absatzliste eine benutzerdefinierte Nummerierung hinzuzufügen, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Greifen Sie über das Objekt [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) auf die gewünschte Folie in der Folienkollektion zu.
-1. Fügen Sie in der ausgewählten Folie eine AutoShape hinzu.
-1. Greifen Sie auf den [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) der hinzugefügten Form zu.
-1. Entfernen Sie den Standardabsatz im [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
-1. Erstellen Sie die erste Absatzinstanz mithilfe der Klasse Paragraph und setzen Sie **NumberedBulletStartWith** auf 2.
-1. Erstellen Sie die zweite Absatzinstanz mithilfe der Klasse Paragraph und setzen Sie **NumberedBulletStartWith** auf 3.
-1. Erstellen Sie die dritte Absatzinstanz mithilfe der Klasse Paragraph und setzen Sie **NumberedBulletStartWith** auf 7.
-1. Fügen Sie die erstellten Absätze zur Absatz‑Collection des [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) hinzu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)‑Klasse.
+1. Greifen Sie über das [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide)‑Objekt auf die gewünschte Folie in der Folien‑Sammlung zu.
+1. Fügen Sie der ausgewählten Folie ein Autoshape hinzu.
+1. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) der hinzugefügten Form zu.
+1. Entfernen Sie den Standard‑Absatz im [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
+1. Erstellen Sie die erste Absatz‑Instanz mit der Paragraph‑Klasse und setzen **NumberedBulletStartWith** auf 2.
+1. Erstellen Sie die zweite Absatz‑Instanz mit der Paragraph‑Klasse und setzen **NumberedBulletStartWith** auf 3.
+1. Erstellen Sie die dritte Absatz‑Instanz mit der Paragraph‑Klasse und setzen **NumberedBulletStartWith** auf 7.
+1. Fügen Sie die erstellten Absätze zur [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)‑Absatz‑Sammlung hinzu.
 1. Speichern Sie die Präsentation.
 
+Dieser Java‑Code zeigt, wie Sie in einer Folie eine nummerierte Liste erstellen:
 ```java
-// Instanziieren einer Presentation-Klasse, die eine PPTX-Datei darstellt
+// Instanzieren einer Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
     // Zugriff auf die erste Folie
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Hinzufügen und Zugriff auf AutoShape
+    // Hinzufügen und Zugriff auf Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Zugriff auf den TextFrame der erstellten AutoShape
+    // Zugriff auf das Textfeld des erstellten Autoshape
     ITextFrame txtFrm = aShp.addTextFrame("");
 
     // Entfernen des standardmäßigen vorhandenen Absatzes
@@ -348,14 +351,14 @@ try {
 
 ## **FAQ**
 
-**Kann man mit Aspose.Slides erstellte Aufzählungs‑ und nummerierte Listen in andere Formate wie PDF oder Bilder exportieren?**
+**Können Aufzählungs‑ und nummerierte Listen, die mit Aspose.Slides erstellt wurden, in andere Formate wie PDF oder Bilder exportiert werden?**
 
-Ja, Aspose.Slides bewahrt die Formatierung und Struktur von Aufzählungs‑ und nummerierten Listen vollständig, wenn Präsentationen in Formate wie PDF, Bilder und andere exportiert werden, und sorgt so für konsistente Ergebnisse.
+Ja, Aspose.Slides bewahrt das Format und die Struktur von Aufzählungs‑ und nummerierten Listen vollständig bei, wenn Präsentationen in Formate wie PDF, Bilder und andere exportiert werden, und sorgt so für konsistente Ergebnisse.
 
 **Ist es möglich, Aufzählungs‑ oder nummerierte Listen aus bestehenden Präsentationen zu importieren?**
 
-Ja, Aspose.Slides ermöglicht das Importieren und Bearbeiten von Aufzählungs‑ oder nummerierten Listen aus bestehenden Präsentationen, wobei deren ursprüngliche Formatierung und Darstellung erhalten bleibt.
+Ja, Aspose.Slides ermöglicht das Importieren und Bearbeiten von Aufzählungs‑ oder nummerierten Listen aus bestehenden Präsentationen, wobei das ursprüngliche Format und Aussehen erhalten bleibt.
 
 **Unterstützt Aspose.Slides Aufzählungs‑ und nummerierte Listen in Präsentationen, die in mehreren Sprachen erstellt wurden?**
 
-Ja, Aspose.Slides unterstützt mehrsprachige Präsentationen vollständig und ermöglicht das Erstellen von Aufzählungs‑ und nummerierten Listen in jeder Sprache, einschließlich der Verwendung spezieller oder nicht‑lateinischer Zeichen.
+Ja, Aspose.Slides unterstützt mehrsprachige Präsentationen vollständig und ermöglicht das Erstellen von Aufzählungs‑ und nummerierten Listen in jeder Sprache, einschließlich spezieller oder nicht‑lateinischer Zeichen.

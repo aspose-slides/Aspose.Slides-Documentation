@@ -15,16 +15,16 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda cómo gestionar los puntos de datos en gráficos treemap y sunburst con Aspose.Slides para Android mediante Java, compatible con los formatos de PowerPoint."
+description: "Aprenda a gestionar puntos de datos en gráficos treemap y sunburst con Aspose.Slides para Android vía Java, compatible con los formatos de PowerPoint."
 ---
 
-Entre otros tipos de gráficos de PowerPoint, existen dos tipos "jerárquicos": el gráfico **Treemap** y el gráfico **Sunburst** (también conocido como Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph o Multi Level Pie Chart). Estos gráficos muestran datos jerárquicos organizados como un árbol, desde las hojas hasta la parte superior de la rama. Las hojas se definen mediante los puntos de datos de la serie, y cada nivel de agrupación anidado posterior se define por la categoría correspondiente. Aspose.Slides for Android mediante Java permite formatear los puntos de datos del gráfico Sunburst y del Treemap en Java.
+Entre los demás tipos de gráficos de PowerPoint, existen dos tipos "jerárquicos": el gráfico **Treemap** y el gráfico **Sunburst** (también conocido como Gráfico de Sunburst, Diagrama Sunburst, Gráfico radial, Diagrama radial o Gráfico de pastel multinivel). Estos gráficos muestran datos jerárquicos organizados como un árbol, desde las hojas hasta la parte superior de la rama. Las hojas se definen mediante los puntos de datos de la serie, y cada nivel de agrupación anidado posterior se define mediante la categoría correspondiente. Aspose.Slides for Android via Java permite formatear los puntos de datos del gráfico Sunburst y Treemap en Java.
 
-Este es un gráfico Sunburst, donde los datos en la columna Series1 definen los nodos hoja, mientras que las demás columnas definen puntos de datos jerárquicos:
+Aquí hay un gráfico Sunburst, donde los datos en la columna Series1 definen los nodos hoja, mientras que las demás columnas definen los puntos de datos jerárquicos:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-Comencemos añadiendo un nuevo gráfico Sunburst a la presentación:
+Empecemos añadiendo un nuevo gráfico Sunburst a la presentación:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -38,7 +38,7 @@ try {
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [**Crear gráfico Sunburst**](/slides/es/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Crear o actualizar gráficos de presentación de PowerPoint en Android**](/slides/es/androidjava/create-chart/)
 {{% /alert %}}
 
 Si es necesario formatear los puntos de datos del gráfico, debemos usar lo siguiente:
@@ -46,10 +46,10 @@ Si es necesario formatear los puntos de datos del gráfico, debemos usar lo sigu
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevelsManager), 
 [IChartDataPointLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) clases 
 y [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPoint#getDataPointLevels--) método 
-proporcionan acceso para formatear los puntos de datos de los gráficos Treemap y Sunburst. 
+proporcionan acceso a formatear los puntos de datos de los gráficos Treemap y Sunburst. 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevelsManager)
-se utiliza para acceder a categorías de varios niveles; representa el contenedor de 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) objetos.  
+se utiliza para acceder a categorías multilínea - representa el contenedor de 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) objetos.
 Básicamente es un contenedor para 
 [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartCategoryLevelsManager) con
 las propiedades añadidas específicas para los puntos de datos. 
@@ -68,7 +68,7 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
 ## **Establecer la etiqueta y el color de un punto de datos**
-Establecer la etiqueta del punto de datos "Branch 1" para que muestre el nombre de la serie ("Series1") en lugar del nombre de la categoría. Luego establecer el color del texto a amarillo:
+Establecer la etiqueta del dato "Branch 1" para que muestre el nombre de la serie ("Series1") en lugar del nombre de la categoría. Luego establecer el color del texto a amarillo:
 ```java
 IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
@@ -104,20 +104,20 @@ try {
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Puedo cambiar el orden (clasificación) de los segmentos en Sunburst/Treemap?**
 
-No. PowerPoint clasifica los segmentos automáticamente (normalmente por valores descendentes, en sentido horario). Aspose.Slides reproduce este comportamiento: no es posible cambiar el orden directamente; se logra mediante el preprocesamiento de los datos.
+No. PowerPoint ordena los segmentos automáticamente (normalmente por valores descendentes, en sentido horario). Aspose.Slides refleja este comportamiento: no se puede cambiar el orden directamente; se logra mediante el pre-procesamiento de los datos.
 
-**¿Cómo afecta el tema de la presentación a los colores de los segmentos y etiquetas?**
+**¿Cómo afecta el tema de la presentación a los colores de los segmentos y las etiquetas?**
 
-Los colores del gráfico heredan el [tema/paleta](/slides/es/androidjava/presentation-theme/) de la presentación a menos que se establezcan explícitamente rellenos/fuentes. Para obtener resultados consistentes, fije rellenos sólidos y el formato de texto en los niveles requeridos.
+Los colores del gráfico heredan el [tema/paleta](/slides/es/androidjava/presentation-theme/) de la presentación a menos que establezca explícitamente rellenos/fuentes. Para obtener resultados coherentes, fije rellenos sólidos y formato de texto en los niveles requeridos.
 
-**¿La exportación a PDF/PNG preserva los colores personalizados de las ramas y la configuración de las etiquetas?**
+**¿Se conservarán los colores de rama personalizados y la configuración de etiquetas al exportar a PDF/PNG?**
 
-Sí. Al exportar la presentación, la configuración del gráfico (rellenos, etiquetas) se conserva en los formatos de salida porque Aspose.Slides renderiza con el formato del gráfico aplicado.
+Sí. Al exportar la presentación, la configuración del gráfico (rellenos, etiquetas) se conserva en los formatos de salida porque Aspose.Slides renderiza con el formato aplicado al gráfico.
 
 **¿Puedo calcular las coordenadas reales de una etiqueta/elemento para colocar una superposición personalizada sobre el gráfico?**
 
-Sí. Después de validar el diseño del gráfico, están disponibles los valores reales de *x* e *y* para los elementos (por ejemplo, un [DataLabel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/)), lo que ayuda a posicionar con precisión superposiciones.
+Sí. Después de que se valida el diseño del gráfico, las coordenadas *x* y *y* reales están disponibles para los elementos (por ejemplo, una [DataLabel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/)), lo que ayuda a posicionar con precisión las superposiciones.

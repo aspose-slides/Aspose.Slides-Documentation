@@ -1,5 +1,5 @@
 ---
-title: Android 用プレゼンテーション シェイプの管理
+title: Android でプレゼンテーション シェイプを管理する
 linktitle: シェイプ操作
 type: docs
 weight: 40
@@ -14,8 +14,8 @@ keywords:
 - シェイプの非表示
 - シェイプの順序変更
 - Interop シェイプ ID の取得
-- シェイプ代替テキスト
-- シェイプのレイアウト形式
+- シェイプの代替テキスト
+- シェイプのレイアウト書式
 - SVG 形式のシェイプ
 - シェイプを SVG に変換
 - シェイプの配置
@@ -27,17 +27,17 @@ keywords:
 description: "Aspose.Slides for Android via Java でシェイプを作成、編集、最適化し、高性能な PowerPoint プレゼンテーションを提供する方法を学びます。"
 ---
 
-## **スライド上のシェイプを見つける**
-このトピックでは、開発者が内部 Id を使用せずにスライド上の特定のシェイプを簡単に見つけるためのシンプルな手法を説明します。PowerPoint プレゼンテーション ファイルは、内部の一意の Id 以外にスライド上のシェイプを識別する方法を持っていないことを知っておくことが重要です。内部の一意の Id を使用してシェイプを見つけるのは開発者にとって難しいことがあります。スライドに追加されたすべてのシェイプには Alt Text が設定されています。開発者には特定のシェイプを見つけるために代替テキストの使用を推奨します。将来変更する予定のオブジェクトの代替テキストは、MS PowerPoint で定義できます。
+## **スライド上のシェイプを検索する**
+このトピックでは、開発者が内部 ID を使用せずにスライド上の特定のシェイプを簡単に見つけるためのシンプルな手法について説明します。PowerPoint プレゼンテーションファイルでは、内部の一意な ID 以外にスライド上のシェイプを識別する方法がありません。内部の一意な ID を使用してシェイプを見つけるのは開発者にとって困難なようです。スライドに追加されたすべてのシェイプには代替テキスト（Alt Text）が設定されています。開発者には特定のシェイプを検索するために代替テキストを使用することを推奨します。将来変更する予定のオブジェクトの代替テキストは、MS PowerPoint で定義できます。
 
-任意のシェイプの代替テキストを設定した後、Aspose.Slides for Android via Java でプレゼンテーションを開き、スライドに追加されたすべてのシェイプを反復処理できます。各反復でシェイプの代替テキストを確認し、一致する代替テキストを持つシェイプが目的のシェイプとなります。この手法をより分かりやすく示すため、スライド内の特定のシェイプを見つけてそのシェイプを返すメソッド[findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-)を作成しました。
+任意のシェイプの代替テキストを設定した後、Aspose.Slides for Android via Java を使用してそのプレゼンテーションを開き、スライドに追加されたすべてのシェイプを反復処理できます。各反復でシェイプの代替テキストを確認し、一致する代替テキストを持つシェイプが目的のシェイプとなります。この手法を分かりやすく示すために、[findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) メソッドを作成しました。このメソッドはスライド内の特定のシェイプを検索し、単にそのシェイプを返します。
 ```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成する
+// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します
 Presentation pres = new Presentation("FindingShapeInSlide.pptx");
 try {
 
     ISlide slide = pres.getSlides().get_Item(0);
-    //    検索するシェイプの代替テキスト
+    // 検索対象シェイプの代替テキスト
     IShape shape = findShape(slide, "Shape1");
     if (shape != null)
     {
@@ -52,10 +52,10 @@ try {
 // スライド内のシェイプを代替テキストで検索するメソッド実装
 public static IShape findShape(ISlide slide, String alttext)
 {
-    // スライド内のすべてのシェイプを反復処理
+    // スライド内のすべてのシェイプを走査
     for (int i = 0; i < slide.getShapes().size(); i++)
     {
-        // スライドの代替テキストが要求されたものと一致する場合
+        // スライドの代替テキストが要求されたものと一致した場合
         // シェイプを返す
         if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
             return slide.getShapes().get_Item(i);
@@ -66,18 +66,18 @@ public static IShape findShape(ISlide slide, String alttext)
 
 
 ## **シェイプをクローンする**
-Aspose.Slides for Android via Java を使用してシェイプをスライドにクローンする手順:
+Aspose.Slides for Android via Java を使用してスライドにシェイプをクローンするには、次の手順を実行します：
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. ソース スライドのシェイプ コレクションにアクセスします。
+1. ソーススライドのシェイプコレクションにアクセスします。
 1. プレゼンテーションに新しいスライドを追加します。
-1. ソース スライドのシェイプ コレクションから新しいスライドへシェイプをクローンします。
-1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+1. ソーススライドのシェイプコレクションから新しいスライドへシェイプをクローンします。
+1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例は、スライドにグループ シェイプを追加します。
+以下の例はスライドにグループシェイプを追加します。
 ```java
-// Presentation クラスのインスタンスを作成
+// Presentation クラスをインスタンス化
 Presentation pres = new Presentation("Source Frame.pptx");
 try {
     IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
@@ -88,7 +88,7 @@ try {
     destShapes.addClone(sourceShapes.get_Item(2));
     destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
-    // PPTX ファイルをディスクに保存
+    // PPTX ファイルを書き込む
     pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -96,8 +96,8 @@ try {
 ```
 
 
-## **シェイプを削除する**
-Aspose.Slides for Android via Java は開発者に任意のシェイプを削除する機能を提供します。スライドからシェイプを削除するには、以下の手順に従ってください。
+## **シェイプの削除**
+Aspose.Slides for Android via Java は開発者が任意のシェイプを削除できるようにします。任意のスライドからシェイプを削除するには、以下の手順に従ってください：
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
@@ -111,7 +111,7 @@ try {
     // 最初のスライドを取得
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 長方形タイプのオートシェイプを追加
+    // 四角形タイプのオートシェイプを追加
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
@@ -134,8 +134,8 @@ try {
 ```
 
 
-## **シェイプを非表示にする**
-Aspose.Slides for Android via Java は開発者に任意のシェイプを非表示にする機能を提供します。スライドからシェイプを非表示にするには、以下の手順に従ってください。
+## **シェイプの非表示**
+Aspose.Slides for Android via Java は開発者が任意のシェイプを非表示にできるようにします。任意のスライドからシェイプを非表示にするには、以下の手順に従ってください：
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
@@ -143,13 +143,13 @@ Aspose.Slides for Android via Java は開発者に任意のシェイプを非表
 1. シェイプを非表示にします。
 1. ファイルをディスクに保存します。
 ```java
-// PPTX を表す Presentation クラスのインスタンスを作成
+// PPTX を表す Presentation クラスをインスタンス化
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 長方形タイプのオートシェイプを追加
+    // 矩形タイプのオートシェイプを追加
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
@@ -172,13 +172,13 @@ try {
 ```
 
 
-## **シェイプの順序を変更する**
-Aspose.Slides for Android via Java は開発者にシェイプの順序変更を可能にします。シェイプの順序を変更すると、前面に表示するシェイプや背面に表示するシェイプを指定できます。スライド上のシェイプの順序を変更するには、以下の手順に従ってください。
+## **シェイプの順序変更**
+Aspose.Slides for Android via Java は開発者がシェイプの順序を変更できるようにします。シェイプの順序変更により、どのシェイプが前面に、どのシェイプが背面にあるかを指定できます。任意のスライドでシェイプの順序を変更するには、以下の手順に従ってください：
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. シェイプを追加します。
-1. シェイプのテキスト フレームにテキストを追加します。
+1. シェイプのテキストフレームにテキストを追加します。
 1. 同じ座標で別のシェイプを追加します。
 1. シェイプの順序を変更します。
 1. ファイルをディスクに保存します。
@@ -205,12 +205,12 @@ try {
 ```
 
 
-## **Interop シェイプ ID を取得する**
-Aspose.Slides for Android via Java は、[getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--) メソッドがプレゼンテーション スコープで一意の識別子を取得できるのに対し、スライド スコープで一意のシェイプ識別子を取得できる機能を提供します。[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) インターフェイスと[Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) クラスにそれぞれ[ getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) メソッドが追加されました。[getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) メソッドが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプル コードを示します。
+## **Interop シェイプ ID の取得**
+Aspose.Slides for Android via Java は、プレゼンテーション スコープで一意な識別子を取得できる [getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--) メソッドとは対照的に、スライド スコープで一意なシェイプ識別子を取得できるようにします。メソッド [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) は、[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) インターフェイスおよび [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) クラスに追加されました。[getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) メソッドが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプルコードを示します。
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // スライド スコープ内のユニークなシェイプ識別子を取得
+    // スライドスコープでの一意なシェイプ識別子を取得
     long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
 
 } finally {
@@ -220,23 +220,23 @@ try {
 
 
 ## **シェイプの代替テキストを設定する**
-Aspose.Slides for Android via Java は開発者が任意のシェイプの AlternateText を設定できるようにします。プレゼンテーション内のシェイプは[AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-)または[Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-)メソッドで区別できます。[setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-)および[getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) メソッドは、Aspose.Slides と Microsoft PowerPoint の両方で読み取りおよび設定できます。このメソッドを使用すると、シェイプにタグを付けて、シェイプの削除、非表示、スライド上のシェイプの順序変更などの操作を実行できます。シェイプの AlternateText を設定する手順は以下の通りです。
+Aspose.Slides for Android via Java は、任意のシェイプの AlternateText を設定できるようにします。プレゼンテーション内のシェイプは、[AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) または [Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-) メソッドで識別できます。[setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) および [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) メソッドは、Aspose.Slides と Microsoft PowerPoint の両方で読み書きできます。このメソッドを使用すると、シェイプにタグを付け、シェイプの削除、非表示、スライド上での順序変更などのさまざまな操作を実行できます。シェイプの AlternateText を設定するには、以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. [Presentation] クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. 任意のシェイプをスライドに追加します。
-1. 追加したシェイプで作業を行います。
-1. シェイプを走査して対象シェイプを見つけます。
+1. スライドに任意のシェイプを追加します。
+1. 新しく追加したシェイプで何らかの処理を行います。
+1. シェイプを走査して目的のシェイプを検索します。
 1. AlternativeText を設定します。
 1. ファイルをディスクに保存します。
 ```java
-// PPTX を表す Presentation クラスのインスタンスを作成
+// PPTX を表す Presentation クラスをインスタンス化
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 長方形タイプのオートシェイプを追加
+    // 矩形タイプのオートシェイプを追加
     IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
     shp2.getFillFormat().setFillType(FillType.Solid);
@@ -259,10 +259,10 @@ try {
 ```
 
 
-## **シェイプのレイアウト形式にアクセスする**
-Aspose.Slides for Android via Java はシェイプのレイアウト形式にアクセスするためのシンプルな API を提供します。この記事ではレイアウト形式へのアクセス方法を示します。
+## **シェイプのレイアウト書式にアクセスする**
+Aspose.Slides for Android via Java は、シェイプのレイアウト書式にアクセスするためのシンプルな API を提供します。この記事では、レイアウト書式へのアクセス方法を示します。
 
-以下にサンプル コードを示します。
+以下にサンプルコードを示します。
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -281,7 +281,7 @@ try {
 
 
 ## **シェイプを SVG としてレンダリングする**
-Aspose.Slides for Android via Java はシェイプを SVG としてレンダリングする機能をサポートしています。メソッド[writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-)（およびそのオーバーロード）が[Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) クラスと[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) インターフェイスに追加されました。このメソッドを使用するとシェイプの内容を SVG ファイルとして保存できます。以下のコード スニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示します。
+現在、Aspose.Slides for Android via Java はシェイプを SVG としてレンダリングする機能をサポートしています。[writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) メソッド（およびオーバーロード）が [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) クラスと [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) インターフェイスに追加されました。このメソッドを使用すると、シェイプの内容を SVG ファイルとして保存できます。以下のコードスニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示しています。
 ```java
 Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -298,12 +298,12 @@ try {
 ```
 
 
-## **シェイプを配置する**
-Aspose.Slides はシェイプをスライドの余白に対してまたは相互に対して配置できます。この目的のために、オーバーロードされたメソッド[SlidesUtil.alignShape()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) 列挙体は可能な配置オプションを定義します。
+## **シェイプの配置**
+Aspose.Slides は、シェイプをスライドの余白に対してまたは互いに対して配置できるようにします。この目的のために、オーバーロードされたメソッド [SlidesUtil.alignShape()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) 列挙体は、利用可能な配置オプションを定義します。
 
-**例 1**
+**Example 1**
 
-以下のソースコードはインデックス 1、2、4 のシェイプをスライドの上端に沿って配置します。
+以下のソースコードは、インデックス 1、2、4 のシェイプをスライドの上端に沿って配置します。
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -324,9 +324,9 @@ try {
 ```
 
 
-**例 2**
+**Example 2**
 
-以下の例はコレクション内の最下部シェイプに対してコレクション全体を配置する方法を示します。
+以下の例は、コレクション内の最下部のシェイプに対して、全シェイプのコレクションを配置する方法を示します。
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -337,28 +337,27 @@ try {
 ```
 
 
-## **フリップ プロパティ**
+## **反転プロパティ**
+Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) クラスが `flipH` および `flipV` プロパティを介してシェイプの水平・垂直ミラーリングを制御します。これらのプロパティは `byte` 型で、`1` は反転、`0` は非反転、`-1` はデフォルトの動作を示します。これらの値はシェイプの [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) から取得できます。
 
-Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) クラスが `flipH` と `flipV` プロパティを使用したシェイプの水平および垂直ミラーリングを制御します。両プロパティは `byte` 型で、`1` がフリップ、`0` がフリップなし、`-1` がデフォルト動作を示します。これらの値はシェイプの[Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--)から取得できます。
+反転設定を変更するには、シェイプの現在の位置とサイズ、希望する `flipH` と `flipV` の値、回転角度を指定して新しい [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) インスタンスを作成します。このインスタンスをシェイプの [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) に設定し、プレゼンテーションを保存すると、ミラー変換が適用され、出力ファイルに反映されます。
 
-フリップ設定を変更するには、シェイプの現在の位置とサイズ、希望する `flipH` と `flipV` の値、および回転角度で新しい[ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/)インスタンスを作成します。このインスタンスをシェイプの[Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--)に割り当て、プレゼンテーションを保存するとミラートランスフォーメーションが適用され、出力ファイルに反映されます。
-
-以下のサンプルでは、最初のスライドにデフォルトのフリップ設定を持つ単一シェイプがある sample.pptx ファイルを使用します。
+例として、sample.pptx ファイルの最初のスライドにデフォルトの反転設定を持つ単一のシェイプがあるとします。以下に示す通りです。
 
 ![The shape to be flipped](shape_to_be_flipped.png)
 
-次のコード例はシェイプの現在のフリップ プロパティを取得し、水平および垂直にフリップします。
+以下のコード例は、シェイプの現在の反転プロパティを取得し、水平・垂直の両方で反転させます。
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IShape shape = slide.getShapes().get_Item(0);
 
-    // シェイプの水平フリップ プロパティを取得します。
+    // シェイプの水平反転プロパティを取得します。
     byte horizontalFlip = shape.getFrame().getFlipH();
     System.out.println("Horizontal flip: " + horizontalFlip);
 
-    // シェイプの垂直フリップ プロパティを取得します。
+    // シェイプの垂直反転プロパティを取得します。
     byte verticalFlip = shape.getFrame().getFlipV();
     System.out.println("Vertical flip: " + verticalFlip);
 
@@ -366,8 +365,8 @@ try {
     float y = shape.getFrame().getY();
     float width = shape.getFrame().getWidth();
     float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // 水平にフリップします。
-    byte flipV = NullableBool.True; // 水平にフリップします。
+    byte flipH = NullableBool.True; // 水平に反転します。
+    byte flipV = NullableBool.True; // 水平に反転します。
     float rotation = shape.getFrame().getRotation();
 
     shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
@@ -379,20 +378,13 @@ try {
 ```
 
 
-結果:
-
-![The flipped shape](flipped_shape.png)
-
 ## **FAQ**
 
-**スライド上でシェイプを結合（union/intersect/subtract）できますか？**
+**デスクトップ エディタのように、スライド上でシェイプを結合（ユニオン/インターセクト/サブトラクト）できますか？**  
+組み込みのブール演算 API はありません。目的のアウトラインを自分で構築することで近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しいシェイプを作成し、元のシェイプをオプションで削除します。
 
-組み込みのブール演算 API はありません。代わりに、目的の輪郭を自分で構築して近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しいシェイプを作成し、元のシェイプを削除するといった方法です。
+**シェイプが常に「最上位」にあるように、スタック順序（z-order）を制御するにはどうすればよいですか？**  
+スライドの [shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) コレクション内で挿入/移動順序を変更します。予測可能な結果を得るには、他のすべてのスライド変更が完了した後に z-order を最終決定してください。
 
-**シェイプを常に「最前面」に表示させるためのスタック順（z-order）を制御できますか？**
-
-スライドの[shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) コレクション内で挿入/移動順序を変更します。予測可能な結果を得るには、他のスライド変更がすべて完了した後に z-order を最終決定してください。
-
-**PowerPoint でシェイプを「ロック」してユーザーが編集できないようにできますか？**
-
-はい。シェイプレベルの保護フラグを設定します（例: 選択、移動、サイズ変更、テキスト編集のロック）。必要に応じてマスターやレイアウトでも同様の制限を適用できます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強力な保護が必要な場合は、[読み取り専用推奨やパスワード](/slides/ja/androidjava/password-protected-presentation/) などのファイルレベルの制限と組み合わせて使用してください。
+**PowerPoint でユーザーがシェイプを編集できないように「ロック」できますか？**  
+はい。シェイプレベルの保護フラグ（選択ロック、移動ロック、サイズ変更ロック、テキスト編集ロックなど）を設定します。必要に応じて、マスターやレイアウトに制限を反映させることもできます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強力な保護が必要な場合は、[読み取り専用の推奨やパスワード](/slides/ja/androidjava/password-protected-presentation/) などのファイルレベルの制限と組み合わせて使用してください。

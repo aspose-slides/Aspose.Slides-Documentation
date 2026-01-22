@@ -1,5 +1,5 @@
 ---
-title: Effizientes Zusammenführen von Präsentationen auf Android
+title: Efficientes Zusammenführen von Präsentationen auf Android
 linktitle: Präsentationen zusammenführen
 type: docs
 weight: 40
@@ -20,12 +20,12 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen mühelos mit Aspose.Slides für Android via Java zusammenführen und Ihren Arbeitsablauf optimieren."
+description: "Müheloses Zusammenführen von PowerPoint‑ (PPT, PPTX) und OpenDocument‑ (ODP) Präsentationen mit Aspose.Slides für Android via Java, um Ihren Arbeitsablauf zu optimieren."
 ---
 
-{{% alert  title="Hinweis" color="primary" %}} 
+{{% alert  title="Tipp" color="primary" %}} 
 
-Vielleicht möchten Sie die **Aspose free online** [Merger app](https://products.aspose.app/slides/merger) ausprobieren. Sie ermöglicht das Zusammenführen von PowerPoint-Präsentationen im gleichen Format (PPT zu PPT, PPTX zu PPTX usw.) und das Zusammenführen von Präsentationen in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.).
+Vielleicht möchten Sie die **Aspose kostenlos online** [Merger‑App](https://products.aspose.app/slides/merger) ausprobieren. Sie ermöglicht es, PowerPoint‑Präsentationen im gleichen Format (PPT zu PPT, PPTX zu PPTX usw.) sowie Präsentationen in verschiedenen Formaten (PPT zu PPTX, PPTX zu ODP usw.) zusammenzuführen.
 
 [![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
 
@@ -34,52 +34,42 @@ Vielleicht möchten Sie die **Aspose free online** [Merger app](https://products
 
 ## **Präsentationszusammenführung**
 
-Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie deren Folien zu einer einzigen Präsentation, um eine Datei zu erhalten. 
+Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie damit effektiv deren Folien in einer einzigen Präsentation, um eine Datei zu erhalten. 
 
 {{% alert title="Info" color="info" %}}
 
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) besitzen keine Funktionen, mit denen Benutzer Präsentationen auf diese Weise kombinieren können. 
+Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht über Funktionen, die es Benutzern ermöglichen, Präsentationen auf diese Weise zu kombinieren. 
 
-[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/), ermöglicht jedoch das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit allen ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne Qualitäts- oder Datenverlust befürchten zu müssen.
+[**Aspose.Slides für Android via Java**](https://products.aspose.com/slides/androidjava/), ermöglicht jedoch das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit allen ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust sorgen zu müssen.
 
 **Siehe auch**
 
-[Clone Slides](https://docs.aspose.com/slides/androidjava/clone-slides/).
+[Folien klonen](https://docs.aspose.com/slides/androidjava/clone-slides/).
 
 {{% /alert %}}
 
 ### **Was kann zusammengeführt werden**
 
-Mit Aspose.Slides können Sie Folgendes zusammenführen: 
+Mit Aspose.Slides können Sie Folgendes zusammenführen:
 
-* gesamte Präsentationen. Alle Folien aus den Präsentationen werden zu einer einzigen Präsentation zusammengeführt
-* bestimmte Folien. Ausgewählte Folien werden zu einer einzigen Präsentation zusammengeführt
-* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX usw.) sowie in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander. 
-
-{{% alert title="Hinweis" color="warning" %}} 
-
-Zusätzlich zu Präsentationen ermöglicht Aspose.Slides das Zusammenführen anderer Dateien:
-
-* [Images](https://products.aspose.com/slides/androidjava/merger/image-to-image/), wie z. B. [JPG to JPG](https://products.aspose.com/slides/androidjava/merger/jpg-to-jpg/) oder [PNG to PNG](https://products.aspose.com/slides/androidjava/merger/png-to-png/)
-* [Documents](https://products.aspose.com/slides/androidjava/merger/document-to-document/), wie z. B. [PDF to PDF](https://products.aspose.com/slides/androidjava/merger/pdf-to-pdf/) oder [HTML to HTML](https://products.aspose.com/slides/androidjava/merger/html-to-html/)
-* Und zwei verschiedene Dateitypen, wie z. B. [image to PDF](https://products.aspose.com/slides/androidjava/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/androidjava/merger/jpg-to-pdf/) oder [TIFF to PDF](https://products.aspose.com/slides/androidjava/merger/tiff-to-pdf/).
-
-{{% /alert %}}
+* gesamte Präsentationen. Alle Folien der Präsentationen landen in einer einzigen Präsentation
+* spezifische Folien. Ausgewählte Folien landen in einer einzigen Präsentation
+* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX usw.) und in verschiedenen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander. 
 
 ### **Zusammenführungsoptionen**
 
 Sie können Optionen festlegen, die bestimmen, ob
 
-* jede Folie in der Ausgabepresentation einen einzigartigen Stil beibehält
-* ein bestimmter Stil für alle Folien in der Ausgabepresentation verwendet wird. 
+* jede Folie in der Ausgabepäsentation einen eindeutigen Stil beibehält
+* ein bestimmter Stil für alle Folien in der Ausgabepäsentation verwendet wird. 
 
-Um Präsentationen zusammenzuführen, stellt Aspose.Slides die [AddClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methoden (aus dem [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection) Interface) bereit. Es gibt mehrere Implementierungen der `AddClone`‑Methoden, die die Parameter des Zusammenführungsprozesses definieren. Jedes Presentation‑Objekt besitzt eine [Slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Sammlung, sodass Sie eine `AddClone`‑Methode von der Präsentation aus aufrufen können, in die Sie Folien einfügen möchten.
+Um Präsentationen zusammenzuführen, stellt Aspose.Slides [AddClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methoden (aus dem [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection)‑Interface) bereit. Es gibt mehrere Implementierungen der `AddClone`‑Methoden, die die Parameter des Zusammenführungsprozesses definieren. Jedes Presentation‑Objekt besitzt eine [Slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Sammlung, sodass Sie die `AddClone`‑Methode der Präsentation aufrufen können, zu der Sie Folien zusammenführen möchten.
 
-Die `AddClone`‑Methode gibt ein `ISlide`‑Objekt zurück, das eine Kopie der Quellfolie ist. Die Folien in der Ausgabepresentation sind einfach Kopien der Quellfolien. Daher können Sie die resultierenden Folien (z. B. Stile, Formatierungsoptionen oder Layouts) ändern, ohne dass die Quellpräsentationen beeinflusst werden. 
+Die `AddClone`‑Methode gibt ein `ISlide`‑Objekt zurück, das ein Klon der Quellfolie ist. Die Folien in einer Ausgabepäsentation sind einfach eine Kopie der Folien aus der Quelle. Daher können Sie die resultierenden Folien ändern (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen beeinflusst werden. 
 
 ## **Präsentationen zusammenführen** 
 
-Aspose.Slides stellt die [**AddClone(ISlide)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode bereit, die das Kombinieren von Folien ermöglicht, wobei die Folien ihre Layouts und Stile beibehalten (Standardparameter).
+Aspose.Slides bietet die Methode [**AddClone(ISlide)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) an, mit der Sie Folien kombinieren können, wobei die Folien ihre Layouts und Stile beibehalten (Standard­parameter).
 
 Dieser Java‑Code zeigt, wie Sie Präsentationen zusammenführen:
 ```java
@@ -101,11 +91,11 @@ try {
 ```
 
 
-## **Präsentationen mit einem Folienmaster zusammenführen**
+## **Präsentationen mit einem Folienmaster zusammenführen** 
 
-Aspose.Slides stellt die [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) Methode bereit, die das Kombinieren von Folien ermöglicht, wobei ein Folienmaster‑Vorlagendokument angewendet wird. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepresentation ändern.
+Aspose.Slides stellt die Methode [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) bereit, mit der Sie Folien kombinieren können, wobei eine Folienmaster‑Präsentationsvorlage angewendet wird. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepäsentation ändern.
 
-Dieser Java‑Code demonstriert die beschriebene Vorgangsweise:
+Dieser Java‑Code demonstriert den beschriebenen Vorgang:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -127,15 +117,15 @@ try {
 
 {{% alert title="Hinweis" color="warning" %}} 
 
-Das Layout für den Folienmaster wird automatisch ermittelt. Wenn kein geeignetes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf **true** gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) ausgelöst.
+Das Folienlayout für den Folienmaster wird automatisch ermittelt. Wenn kein passendes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf true gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) ausgelöst.
 
 {{% /alert %}}
 
-Wenn Sie möchten, dass die Folien in der Ausgabepresentation ein anderes Folienlayout erhalten, verwenden Sie stattdessen die [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) Methode beim Zusammenführen.
+Wenn die Folien in der Ausgabepäsentation ein anderes Folienlayout erhalten sollen, verwenden Sie stattdessen beim Zusammenführen die Methode [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-). 
 
-## **Bestimmte Folien aus Präsentationen zusammenführen**
+## **Bestimmte Folien aus Präsentationen zusammenführen** 
 
-Das Zusammenführen ausgewählter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Foliensets zu erstellen. Aspose.Slides for Android via Java ermöglicht das Auswählen und Importieren nur der benötigten Folien. Die API bewahrt Formatierung, Layout und Design der Originalfolien.
+Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um individuelle Foliensets zu erstellen. Aspose.Slides für Android via Java ermöglicht es, nur die benötigten Folien auszuwählen und zu importieren. Die API bewahrt die Formatierung, das Layout und das Design der Originalfolien.
 
 Der folgende Java‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
 ```java
@@ -175,9 +165,9 @@ static ISlide getTitleSlide(IPresentation presentation) {
 ```
 
 
-## **Präsentationen mit einem Folienlayout zusammenführen**
+## **Präsentationen mit einem Folienlayout zusammenführen** 
 
-Dieser Java‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren und dabei ein bevorzugtes Folienlayout anwenden, um eine einzige Ausgabepresentation zu erhalten:
+Dieser Java‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren und dabei Ihr bevorzugtes Folienlayout anwenden, um eine einzige Ausgabepäsentation zu erhalten:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -197,7 +187,7 @@ try {
 ```
 
 
-## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
+## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen** 
 
 {{% alert title="Hinweis" color="warning" %}} 
 
@@ -205,9 +195,8 @@ Sie können keine Präsentationen mit unterschiedlichen Foliengrößen zusammenf
 
 {{% /alert %}}
 
-Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie die Größe einer Präsentation an die Größe der anderen anpassen. 
+Um zwei Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen auf die Größe der anderen anpassen. 
 
-Dieser Beispielcode demonstriert die beschriebene Vorgehensweise:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -229,9 +218,9 @@ try {
 ```
 
 
-## **Folien zu einem Präsentationsabschnitt zusammenführen**
+## **Folien zu einem Präsentationsabschnitt zusammenführen** 
 
-Dieser Java‑Code zeigt, wie Sie eine bestimmte Folie zu einem Abschnitt einer Präsentation hinzufügen:
+Dieser Java‑Code zeigt, wie Sie eine bestimmte Folie zu einem Abschnitt in einer Präsentation zusammenführen:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -251,24 +240,24 @@ try {
 ```
 
 
-Die Folie wird am Ende des Abschnitts eingefügt. 
+Die Folie wird am Ende des Abschnitts hinzugefügt. 
 
-{{% alert title="Hinweis" color="primary" %}}
+{{% alert title="Tipp" color="primary" %}}
 
-Aspose bietet eine [FREE Collage web app](https://products.aspose.app/slides/collage). Mit diesem Onlinedienst können Sie [JPG to JPG](https://products.aspose.app/slides/collage/jpg) oder PNG zu PNG Bilder zusammenführen, [photo grids](https://products.aspose.app/slides/collage/photo-grid) erstellen und vieles mehr. 
+Aspose bietet eine [KOSTENLOSE Collage-Web‑App](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg)‑ oder PNG‑zu‑PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und vieles mehr. 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Gibt es Begrenzungen für die Anzahl der Folien beim Zusammenführen von Präsentationen?**
+**Gibt es Einschränkungen hinsichtlich der Folienzahl beim Zusammenführen von Präsentationen?**
 
-Keine strengen Begrenzungen. Aspose.Slides kann große Dateien verarbeiten, die Leistung hängt jedoch von Dateigröße und Systemressourcen ab. Für sehr große Präsentationen wird empfohlen, eine 64‑Bit‑JVM zu verwenden und ausreichend Heap‑Speicher zuzuweisen.
+Keine festen Einschränkungen. Aspose.Slides kann große Dateien verarbeiten, aber die Leistung hängt von der Größe und den Systemressourcen ab. Für sehr große Präsentationen wird empfohlen, eine 64‑Bit‑JVM zu verwenden und ausreichend Heap‑Speicher zuzuweisen.
 
-**Kann ich Präsentationen mit eingebetteten Video‑ oder Audiodateien zusammenführen?**
+**Kann ich Präsentationen mit eingebettetem Video oder Audio zusammenführen?**
 
-Ja, Aspose.Slides bewahrt multimediale Inhalte, die in Folien eingebettet sind, jedoch kann die resultierende Präsentation deutlich größer werden.
+Ja, Aspose.Slides bewahrt multimediale Inhalte, die in Folien eingebettet sind, jedoch kann die endgültige Präsentation deutlich größer werden.
 
-**Werden Schriftarten beim Zusammenführen von Präsentationen erhalten?**
+**Werden Schriftarten beim Zusammenführen von Präsentationen erhalten bleiben?**
 
-Ja. Schriftarten, die in den Quellpräsentationen verwendet werden, bleiben im Ausgabedokument erhalten, vorausgesetzt, sie sind im System installiert oder [embedded](/slides/de/androidjava/embedded-font/).
+Ja. In Quellpräsentationen verwendete Schriftarten werden im Ausgabedokument erhalten, vorausgesetzt, sie sind im System installiert oder [eingebettet](/slides/de/androidjava/embedded-font/).

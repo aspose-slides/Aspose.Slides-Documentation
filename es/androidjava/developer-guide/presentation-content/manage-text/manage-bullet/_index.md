@@ -1,6 +1,6 @@
 ---
-title: Administrar listas con viñetas y numeradas en presentaciones en Android
-linktitle: Administrar listas
+title: Gestionar listas con viñetas y numeradas en presentaciones en Android
+linktitle: Gestionar listas
 type: docs
 weight: 60
 url: /es/androidjava/manage-bullet/
@@ -8,8 +8,8 @@ keywords:
 - viñeta
 - lista con viñetas
 - lista numerada
-- viñeta de símbolo
-- viñeta de imagen
+- viñeta símbolo
+- viñeta imagen
 - viñeta personalizada
 - lista multinivel
 - crear viñeta
@@ -24,95 +24,94 @@ keywords:
 description: "Aprenda a gestionar listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Android mediante Java. Guía paso a paso."
 ---
 
-En **Microsoft PowerPoint**, puedes crear listas con viñetas y numeradas de la misma manera que lo haces en Word y otros editores de texto. **Aspose.Slides for Android via Java** también permite usar viñetas y números en las diapositivas de tus presentaciones.
+En **Microsoft PowerPoint**, puedes crear listas con viñetas y numeradas de la misma manera que lo haces en Word y otros editores de texto. **Aspose.Slides for Android via Java** también te permite usar viñetas y números en diapositivas de tus presentaciones.
 
 ## **¿Por qué usar listas con viñetas?**
 
-Las listas con viñetas te ayudan a organizar y presentar información rápida y eficientemente. 
+Las listas con viñetas te ayudan a organizar y presentar información de forma rápida y eficiente. 
 
 **Ejemplo de lista con viñetas**
 
 En la mayoría de los casos, una lista con viñetas cumple estas tres funciones principales:
 
-- llama la atención de tus lectores o espectadores a información importante
-- permite que tus lectores o espectadores escaneen fácilmente los puntos clave
-- comunica y entrega detalles importantes de manera eficiente.
+- atrae la atención de tus lectores o espectadores a la información importante
+- permite a tus lectores o espectadores escanear fácilmente los puntos clave
+- comunica y entrega los detalles importantes de manera eficiente.
 
 ## **¿Por qué usar listas numeradas?**
 
-Las listas numeradas también ayudan a organizar y presentar información. Idealmente, deberías usar números (en lugar de viñetas) cuando el orden de las entradas (por ejemplo, *paso 1, paso 2*, etc.) es importante o cuando una entrada debe referenciarse (por ejemplo, *ver paso 3*).
+Las listas numeradas también ayudan a organizar y presentar información. Idealmente, deberías usar números (en lugar de viñetas) cuando el orden de las entradas (por ejemplo, *paso 1, paso 2*, etc.) es importante o cuando una entrada debe ser referenciada (por ejemplo, *ver paso 3*).
 
 **Ejemplo de lista numerada**
 
-Este es un resumen de los pasos (paso 1 al paso 15) en el procedimiento **Creating Bullets** a continuación:
+Este es un resumen de los pasos (del paso 1 al paso 15) en el procedimiento **Crear viñetas** a continuación:
 
 1. Crear una instancia de la clase Presentation. 
-2. Realizar varias tareas (paso 3 al paso 14).
+2. Realizar varias tareas (del paso 3 al paso 14).
 3. Guardar la presentación. 
 
-## **Create Bullets**
-Este tema también forma parte de la serie de temas sobre la gestión de párrafos de texto. Esta página ilustrará cómo podemos gestionar viñetas de párrafo. Las viñetas son más útiles cuando algo se describe en pasos. Además, el texto se ve bien organizado con el uso de viñetas. Los párrafos con viñetas siempre son más fáciles de leer y comprender. Veremos cómo los desarrolladores pueden usar esta característica pequeña pero poderosa de Aspose.Slides for Android via Java. Sigue los pasos a continuación para gestionar las viñetas de párrafo usando Aspose.Slides for Android via Java:
+## **Crear viñetas**
+Este tema también forma parte de la serie de temas sobre la gestión de párrafos de texto. Esta página ilustrará cómo podemos gestionar viñetas en los párrafos. Las viñetas son más útiles cuando se describe algo en pasos. Además, el texto se ve bien organizado con el uso de viñetas. Los párrafos con viñetas siempre son más fáciles de leer y comprender. Veremos cómo los desarrolladores pueden usar esta característica pequeña pero poderosa de Aspose.Slides for Android via Java. Sigue los pasos a continuación para gestionar las viñetas de los párrafos usando Aspose.Slides for Android via Java:
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide).
-1. Añadir una [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText) en la diapositiva seleccionada.
-1. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) de la forma añadida.
-1. Eliminar el párrafo predeterminado en el TextFrame.
-1. Crear la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph).
-1. Establecer el tipo de viñeta del párrafo.
-1. Establecer el tipo de viñeta a [Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BulletType#Symbol) y definir el carácter de la viñeta.
-1. Establecer el texto del párrafo.
-1. Establecer la sangría del párrafo para definir la viñeta.
-1. Establecer el color de la viñeta.
-1. Establecer la altura de las viñetas.
-1. Añadir el párrafo creado a la colección de párrafos del TextFrame.
-1. Añadir el segundo párrafo y repetir el proceso descrito en los pasos **7 a 13**.
-1. Guardar la presentación.
+2. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide).
+3. Añadir una [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText) en la diapositiva seleccionada.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) de la forma añadida.
+5. Eliminar el párrafo predeterminado en el TextFrame.
+6. Crear la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph).
+7. Establecer el tipo de viñeta del párrafo.
+8. Establecer el tipo de viñeta a [Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BulletType#Symbol) y establecer el carácter de la viñeta.
+9. Establecer el texto del párrafo.
+10. Establecer la sangría del párrafo para definir la viñeta.
+11. Establecer el color de la viñeta.
+12. Establecer la altura de las viñetas.
+13. Añadir el párrafo creado a la colección de párrafos del TextFrame.
+14. Añadir el segundo párrafo y repetir el proceso descrito en los pasos **7 a 13**.
+15. Guardar la presentación.
 
-Este código de ejemplo en Java—una implementación de los pasos anteriores—muestra cómo crear una lista con viñetas en una diapositiva:
 ```java
 // Instanciar una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
 try {
-    // Accediendo a la primera diapositiva
+    // Acceder a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Añadiendo y accediendo a Autoshape
+    // Añadir y acceder a Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // Accediendo al marco de texto del autoshape creado
+    // Acceder al marco de texto del autoshape creado
     ITextFrame txtFrm = aShp.getTextFrame();
     
-    // Eliminando el párrafo predeterminado existente
+    // Eliminar el párrafo predeterminado existente
     txtFrm.getParagraphs().removeAt(0);
     
-    // Creando un párrafo
+    // Crear un párrafo
     Paragraph para = new Paragraph();
     
-    // Estableciendo el estilo de viñeta del párrafo y el símbolo
+    // Establecer el estilo de viñeta y símbolo del párrafo
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char) 8226);
     
-    // Estableciendo el texto del párrafo
+    // Establecer el texto del párrafo
     para.setText("Welcome to Aspose.Slides");
     
-    // Estableciendo la sangría de la viñeta
+    // Establecer la sangría de la viñeta
     para.getParagraphFormat().setIndent(25);
     
-    // Estableciendo el color de la viñeta
+    // Establecer el color de la viñeta
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
     
-    // Establecer IsBulletHardColor en true para usar un color de viñeta propio
+    // establecer IsBulletHardColor a true para usar el propio color de la viñeta
     para.getParagraphFormat().getBullet().isBulletHardColor();
     
-    // Estableciendo la altura de la viñeta
+    // Establecer la altura de la viñeta
     para.getParagraphFormat().getBullet().setHeight(100);
     
-    // Añadiendo el párrafo al marco de texto
+    // Añadir párrafo al marco de texto
     txtFrm.getParagraphs().add(para);
     
-    // Guardando la presentación como archivo PPTX
+    // Guardar la presentación como archivo PPTX
     pres.save("Bullet.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
@@ -120,41 +119,41 @@ try {
 ```
 
 
-## **Create Picture Bullets**
+## **Crear viñetas con imágenes**
 
-Aspose.Slides for Android via Java permite cambiar las viñetas en listas con viñetas. Puedes sustituir las viñetas por símbolos o imágenes personalizadas. Si deseas añadir interés visual a una lista o llamar aún más la atención sobre las entradas de una lista, puedes usar tu propia imagen como viñeta.
+Aspose.Slides for Android via Java permite cambiar las viñetas en listas con viñetas. Puedes reemplazar las viñetas con símbolos o imágenes personalizados. Si deseas añadir interés visual a una lista o atraer aún más la atención a las entradas de una lista, puedes usar tu propia imagen como viñeta.
 
 {{% alert color="primary" %}} 
 
-Idealmente, si planeas reemplazar el símbolo de viñeta regular por una imagen, deberías seleccionar una gráfica simple con fondo transparente. Ese tipo de imágenes funciona mejor como símbolos de viñeta personalizados. 
+Idealmente, si pretendes reemplazar el símbolo de viñeta tradicional por una imagen, querrás seleccionar una imagen gráfica sencilla con fondo transparente. Este tipo de imágenes funciona mejor como símbolos de viñeta personalizados. 
 
-En cualquier caso, la imagen que elijas se reducirá a un tamaño muy pequeño, por lo que recomendamos encarecidamente seleccionar una imagen que se vea bien (como reemplazo del símbolo de viñeta) en una lista. 
+En cualquier caso, la imagen que elijas se reducirá a un tamaño muy pequeño, por lo que recomendamos encarecidamente que selecciones una imagen que se vea bien (como sustituto del símbolo de viñeta) en una lista. 
 
 {{% /alert %}} 
 
 Para crear una viñeta con imagen, sigue estos pasos:
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)
-1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide)
-1. Añadir una autoshape en la diapositiva seleccionada
-1. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) de la forma añadida
-1. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)
-1. Crear la primera instancia de párrafo usando la clase Paragraph
-1. Cargar la imagen desde disco en [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPPImage)
-1. Establecer el tipo de viñeta a Picture y asignar la imagen
-1. Establecer el texto del párrafo
-1. Establecer la sangría del párrafo para definir la viñeta
-1. Establecer el color de la viñeta
-1. Establecer la altura de las viñetas
-1. Añadir el párrafo creado a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)
-1. Añadir el segundo párrafo y repetir el proceso descrito en los pasos anteriores
-1. Guardar la presentación
+2. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide)
+3. Añadir una autoshape en la diapositiva seleccionada
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) de la forma añadida
+5. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)
+6. Crear la primera instancia de párrafo usando la clase Paragraph
+7. Cargar la imagen desde disco en [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)
+8. Establecer el tipo de viñeta a Picture y establecer la imagen
+9. Establecer el texto del párrafo
+10. Establecer la sangría del párrafo para definir la viñeta
+11. Establecer el color de la viñeta
+12. Establecer la altura de las viñetas
+13. Añadir el párrafo creado a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)
+14. Añadir el segundo párrafo y repetir el proceso descrito en los pasos anteriores
+15. Guardar la presentación
 
 Este código Java muestra cómo crear una viñeta con imagen en una diapositiva:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Accediendo a la primera diapositiva
+    // Acceder a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Instanciar la imagen para viñetas
@@ -166,29 +165,29 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Añadiendo y accediendo a Autoshape
+    // Añadir y acceder a Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Accediendo al marco de texto del autoshape creado
+    // Acceder al marco de texto del autoshape creado
     ITextFrame txtFrm = aShp.getTextFrame();
-    // Eliminando el párrafo predeterminado existente
+    // Eliminar el párrafo predeterminado existente
     txtFrm.getParagraphs().removeAt(0);
 
-    // Creando nuevo párrafo
+    // Crear nuevo párrafo
     Paragraph para = new Paragraph();
     para.setText("Welcome to Aspose.Slides");
 
-    // Estableciendo el estilo de viñeta del párrafo y la imagen
+    // Establecer el estilo de viñeta del párrafo y la imagen
     para.getParagraphFormat().getBullet().setType(BulletType.Picture);
     para.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // Estableciendo la altura de la viñeta
+    // Establecer la altura de la viñeta
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // Añadiendo el párrafo al marco de texto
+    // Añadir párrafo al marco de texto
     txtFrm.getParagraphs().add(para);
 
-    // Guardando la presentación como archivo PPTX
+    // Guardar la presentación como archivo PPTX
     pres.save("Bullet.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -197,23 +196,23 @@ try {
 ```
 
 
-## **Create Multilevel Bullets**
+## **Crear viñetas multinivel**
 
 Para crear una lista con viñetas que contenga elementos en diferentes niveles—listas adicionales bajo la lista principal—sigue estos pasos:
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide).
-1. Añadir una autoshape en la diapositiva seleccionada.
-1. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) de la forma añadida.
-1. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
-1. Crear la primera instancia de párrafo usando la clase Paragraph y con la profundidad establecida en 0.
-1. Crear la segunda instancia de párrafo usando la clase Paragraph y con la profundidad establecida en 1.
-1. Crear la tercera instancia de párrafo usando la clase Paragraph y con la profundidad establecida en 2.
-1. Crear la cuarta instancia de párrafo usando la clase Paragraph y con la profundidad establecida en 3.
-1. Añadir los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
-1. Guardar la presentación.
+2. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide).
+3. Añadir una autoshape en la diapositiva seleccionada.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) de la forma añadida.
+5. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
+6. Crear la primera instancia de párrafo usando la clase Paragraph y con profundidad establecida en 0.
+7. Crear la segunda instancia de párrafo usando la clase Paragraph y con profundidad establecida en 1.
+8. Crear la tercera instancia de párrafo usando la clase Paragraph y con profundidad establecida en 2.
+9. Crear la cuarta instancia de párrafo usando la clase Paragraph y con profundidad establecida en 3.
+10. Añadir los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
+11. Guardar la presentación.
 
-Este código, que implementa los pasos anteriores, muestra cómo crear una lista con viñetas multinivel en Java:
+Este código, que es una implementación de los pasos anteriores, muestra cómo crear una lista de viñetas multinivel en Java:
 ```java
 // Instanciar una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
@@ -238,7 +237,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar((char) 8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Estableciendo el nivel de viñeta
+    //Estableciendo el nivel de la viñeta
     para1.getParagraphFormat().setDepth ((short)0);
     
     // Creando el segundo párrafo
@@ -249,7 +248,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Estableciendo el nivel de viñeta
+    //Estableciendo el nivel de la viñeta
     para2.getParagraphFormat().setDepth ((short)1);
     
     // Creando el tercer párrafo
@@ -260,7 +259,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar((char) 8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Estableciendo el nivel de viñeta
+    //Estableciendo el nivel de la viñeta
     para3.getParagraphFormat().setDepth ((short)2);
     
     // Creando el cuarto párrafo
@@ -271,7 +270,7 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Estableciendo el nivel de viñeta
+    //Estableciendo el nivel de la viñeta
     para4.getParagraphFormat().setDepth ((short)3);
     
     // Añadiendo el párrafo al marco de texto
@@ -288,35 +287,36 @@ try {
 ```
 
 
-## **Create Custom Numbered Lists**
-Aspose.Slides for Android via Java proporciona una API sencilla para gestionar párrafos con formato de números personalizado. Para añadir una lista numérica personalizada en un párrafo, sigue los pasos a continuación:
+## **Crear listas numeradas personalizadas**
+
+Aspose.Slides for Android via Java proporciona una API sencilla para gestionar párrafos con formatos numéricos personalizados. Para añadir una lista numerada personalizada en un párrafo, sigue los pasos a continuación:
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide).
-1. Añadir una autoshape en la diapositiva seleccionada.
-1. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) de la forma añadida.
-1. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
-1. Crear la primera instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 2
-1. Crear la segunda instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 3
-1. Crear la tercera instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 7
-1. Añadir los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
-1. Guardar la presentación.
+2. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide).
+3. Añadir una autoshape en la diapositiva seleccionada.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) de la forma añadida.
+5. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
+6. Crear la primera instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 2
+7. Crear la segunda instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 3
+8. Crear la tercera instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 7
+9. Añadir los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe).
+10. Guardar la presentación.
 
 Este código Java muestra cómo crear una lista numerada en una diapositiva:
 ```java
 // Instanciar una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
 try {
-    // Accediendo a la primera diapositiva
+    // Acceder a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Añadiendo y accediendo a Autoshape
+    // Añadir y acceder a Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Accediendo al marco de texto del autoshape creado
+    // Acceder al marco de texto del autoshape creado
     ITextFrame txtFrm = aShp.addTextFrame("");
 
-    // Eliminando el párrafo predeterminado existente
+    // Eliminar el párrafo predeterminado existente
     txtFrm.getParagraphs().clear();
 
     // Primera lista
@@ -349,16 +349,16 @@ try {
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Se pueden exportar las listas con viñetas y numeradas creadas con Aspose.Slides a otros formatos como PDF o imágenes?**
 
-Sí, Aspose.Slides conserva completamente el formato y la estructura de las listas con viñetas y numeradas al exportar presentaciones a formatos como PDF, imágenes y otros, garantizando resultados consistentes.
+Sí, Aspose.Slides preserva completamente el formato y la estructura de las listas con viñetas y numeradas cuando las presentaciones se exportan a formatos como PDF, imágenes y otros, garantizando resultados coherentes.
 
-**¿Es posible importar listas con viñetas o numeradas desde presentaciones existentes?**
+**¿Es posible importar listas con viñetas o numeradas de presentaciones existentes?**
 
-Sí, Aspose.Slides permite importar y editar listas con viñetas o numeradas de presentaciones existentes conservando su formato y apariencia originales.
+Sí, Aspose.Slides permite importar y editar listas con viñetas o numeradas de presentaciones existentes mientras se preserva su formato y apariencia original.
 
 **¿Aspose.Slides admite listas con viñetas y numeradas en presentaciones creadas en varios idiomas?**
 
-Sí, Aspose.Slides admite completamente presentaciones multilingües, permitiendo crear listas con viñetas y numeradas en cualquier idioma, incluido el uso de caracteres especiales o no latinos.
+Sí, Aspose.Slides admite completamente presentaciones multilingües, lo que permite crear listas con viñetas y numeradas en cualquier idioma, incluido el uso de caracteres especiales o no latinos.

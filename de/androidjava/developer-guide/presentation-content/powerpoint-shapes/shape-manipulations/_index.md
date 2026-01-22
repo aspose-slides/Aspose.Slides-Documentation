@@ -24,15 +24,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Formen in Aspose.Slides für Android via Java erstellen, bearbeiten und optimieren und leistungsstarke PowerPoint‑Präsentationen bereitstellen."
+description: "Erfahren Sie, wie Sie Formen in Aspose.Slides für Android via Java erstellen, bearbeiten und optimieren und leistungsstarke PowerPoint-Präsentationen bereitstellen."
 ---
 
 ## **Eine Form auf einer Folie finden**
-Dieses Thema beschreibt eine einfache Technik, die es Entwicklern erleichtert, eine bestimmte Form auf einer Folie zu finden, ohne deren interne ID zu verwenden. Es ist wichtig zu wissen, dass PowerPoint-Präsentationsdateien keine Möglichkeit haben, Formen auf einer Folie zu identifizieren, außer über eine interne eindeutige ID. Es scheint für Entwickler schwierig zu sein, eine Form anhand ihrer internen eindeutigen ID zu finden. Alle Formen, die zu den Folien hinzugefügt werden, besitzen einen Alt-Text. Wir empfehlen Entwicklern, den Alternativtext zu verwenden, um eine bestimmte Form zu finden. Sie können MS PowerPoint verwenden, um den Alternativtext für Objekte zu definieren, die Sie in Zukunft ändern möchten.
+Dieses Thema beschreibt eine einfache Technik, um es Entwicklern zu erleichtern, eine bestimmte Form auf einer Folie zu finden, ohne deren interne Id zu verwenden. Es ist wichtig zu wissen, dass PowerPoint‑Präsentationsdateien keine Möglichkeit haben, Formen auf einer Folie zu identifizieren, außer über eine interne eindeutige Id. Es erscheint schwierig für Entwickler, eine Form anhand ihrer internen eindeutigen Id zu finden. Allen Formen, die zu den Folien hinzugefügt werden, ist ein Alternativtext zugewiesen. Wir empfehlen Entwicklern, den Alternativtext zu verwenden, um eine bestimmte Form zu finden. Sie können MS PowerPoint nutzen, um den Alternativtext für Objekte festzulegen, die Sie in Zukunft ändern möchten.
 
-Nachdem Sie den Alternativtext einer gewünschten Form festgelegt haben, können Sie die Präsentation mit Aspose.Slides für Android via Java öffnen und durch alle zu einer Folie hinzugefügten Formen iterieren. Bei jeder Iteration können Sie den Alternativtext der Form prüfen, und die Form mit dem passenden Alternativtext ist die von Ihnen gesuchte Form. Um diese Technik besser zu demonstrieren, haben wir eine Methode erstellt, [findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-), die das Finden einer bestimmten Form in einer Folie übernimmt und dann einfach diese Form zurückgibt.
+Nachdem Sie den Alternativtext einer gewünschten Form festgelegt haben, können Sie die Präsentation mit Aspose.Slides für Android via Java öffnen und alle Formen auf einer Folie durchlaufen. Bei jeder Iteration können Sie den Alternativtext der Form prüfen, und die Form mit dem übereinstimmenden Alternativtext ist die gesuchte Form. Um diese Technik besser zu demonstrieren, haben wir eine Methode, [findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) erstellt, die das Auffinden einer bestimmten Form in einer Folie übernimmt und einfach diese Form zurückgibt.
 ```java
-// Instanziieren einer Presentation-Klasse, die die Präsentationsdatei repräsentiert
+// Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
 Presentation pres = new Presentation("FindingShapeInSlide.pptx");
 try {
 
@@ -52,11 +52,11 @@ try {
 // Methodenimplementierung zum Finden einer Form in einer Folie anhand ihres Alternativtexts
 public static IShape findShape(ISlide slide, String alttext)
 {
-    // Durchlaufen aller Formen in der Folie
+    // Durchlaufen aller Formen innerhalb der Folie
     for (int i = 0; i < slide.getShapes().size(); i++)
     {
-        // Wenn der Alternativtext der Folie mit dem gewünschten übereinstimmt, dann
-        // Rückgabe der Form
+        // Wenn der Alternativtext der Folie mit dem gewünschten übereinstimmt dann
+        // Gibt die Form zurück
         if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
             return slide.getShapes().get_Item(i);
     }
@@ -65,17 +65,17 @@ public static IShape findShape(ISlide slide, String alttext)
 ```
 
 
-## **Eine Form klonen**
-Um eine Form zu einer Folie zu klonen, verwenden Sie Aspose.Slides für Android via Java:
+## **Eine Form duplizieren**
+Um eine Form zu einer Folie zu duplizieren mit Aspose.Slides für Android via Java:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Holen Sie die Referenz einer Folie über deren Index.
-1. Greifen Sie auf die Formensammlung der Quellfolie zu.
-1. Fügen Sie der Präsentation eine neue Folie hinzu.
-1. Klonen Sie Formen aus der Formensammlung der Quellfolie in die neue Folie.
-1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.  
+1. Holen Sie die Referenz einer Folie über deren Index.  
+1. Greifen Sie auf die Formsammlung der Quellfolie zu.  
+1. Fügen Sie der Präsentation eine neue Folie hinzu.  
+1. Duplizieren Sie Formen aus der Formsammlung der Quellfolie in die neue Folie.  
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Das nachstehende Beispiel fügt einer Folie eine Gruppierung von Formen hinzu.
+Das nachstehende Beispiel fügt einer Folie ein Gruppierungsobjekt hinzu.
 ```java
 // Instanziieren der Presentation-Klasse
 Presentation pres = new Presentation("Source Frame.pptx");
@@ -88,7 +88,7 @@ try {
     destShapes.addClone(sourceShapes.get_Item(2));
     destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
-    // PPTX-Datei auf die Festplatte schreiben
+    // PPTX-Datei auf Festplatte schreiben
     pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -97,21 +97,21 @@ try {
 
 
 ## **Eine Form entfernen**
-Aspose.Slides für Android via Java ermöglicht Entwicklern das Entfernen jeder Form. Um eine Form von einer Folie zu entfernen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für Android via Java ermöglicht Entwicklern das Entfernen jeder Form. Um eine Form von einer Folie zu entfernen, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Suchen Sie die Form mit einem bestimmten AlternativeText.
-1. Entfernen Sie die Form.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.  
+1. Greifen Sie auf die erste Folie zu.  
+1. Finden Sie die Form mit einem bestimmten AlternativeText.  
+1. Entfernen Sie die Form.  
 1. Speichern Sie die Datei auf dem Datenträger.
 ```java
-// Erstelle Presentation-Objekt
+// Präsentationsobjekt erstellen
 Presentation pres = new Presentation();
 try {
-    // Hole die erste Folie
+    // Erste Folie abrufen
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Füge Autoform vom Typ Rechteck hinzu
+    // Autoform vom Typ Rechteck hinzufügen
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
@@ -126,7 +126,7 @@ try {
         }
     }
 
-    // Speichere Präsentation auf die Festplatte
+    // Präsentation auf Festplatte speichern
     pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -135,21 +135,21 @@ try {
 
 
 ## **Eine Form ausblenden**
-Aspose.Slides für Android via Java ermöglicht Entwicklern das Ausblenden jeder Form. Um eine Form auf einer Folie auszublenden, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für Android via Java ermöglicht Entwicklern das Ausblenden jeder Form. Um eine Form von einer Folie auszublenden, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Suchen Sie die Form mit einem bestimmten AlternativeText.
-1. Blenden Sie die Form aus.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.  
+1. Greifen Sie auf die erste Folie zu.  
+1. Finden Sie die Form mit einem bestimmten AlternativeText.  
+1. Blenden Sie die Form aus.  
 1. Speichern Sie die Datei auf dem Datenträger.
 ```java
-// Instanziieren der Presentation-Klasse, die die PPTX darstellt
+// Instanziieren der Presentation-Klasse, die das PPTX repräsentiert
 Presentation pres = new Presentation();
 try {
-    // Hole die erste Folie
+    // Erste Folie abrufen
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Füge Autoform vom Typ Rechteck hinzu
+    // Autoform vom Typ Rechteck hinzufügen
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
@@ -164,7 +164,7 @@ try {
         }
     }
 
-    // Speichere die Präsentation auf die Festplatte
+    // Präsentation auf Festplatte speichern
     pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -173,14 +173,14 @@ try {
 
 
 ## **Reihenfolge einer Form ändern**
-Aspose.Slides für Android via Java ermöglicht Entwicklern das Neuanordnen von Formen. Das Neuanordnen bestimmt, welche Form im Vordergrund und welche im Hintergrund liegt. Um die Reihenfolge von Formen auf einer Folie zu ändern, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für Android via Java ermöglicht Entwicklern das Neuanordnen von Formen. Das Neuanordnen legt fest, welche Form im Vordergrund bzw. im Hintergrund liegt. Um die Reihenfolge einer Form auf einer Folie zu ändern, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie eine Form hinzu.
-1. Fügen Sie etwas Text im Textfeld der Form hinzu.
-1. Fügen Sie eine weitere Form mit denselben Koordinaten hinzu.
-1. Ordnen Sie die Formen neu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.  
+1. Greifen Sie auf die erste Folie zu.  
+1. Fügen Sie eine Form hinzu.  
+1. Fügen Sie Text im Textfeld der Form ein.  
+1. Fügen Sie eine weitere Form mit denselben Koordinaten hinzu.  
+1. Ordnen Sie die Formen neu.  
 1. Speichern Sie die Datei auf dem Datenträger.
 ```java
 Presentation pres = new Presentation("ChangeShapeOrder.pptx");
@@ -205,12 +205,12 @@ try {
 ```
 
 
-## **Interop Shape ID abrufen**
-Aspose.Slides für Android via Java ermöglicht Entwicklern das Abrufen eines eindeutigen Form-Identifiers im Folienbereich im Gegensatz zur Methode [getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--) , die einen eindeutigen Identifier im Präsentationsbereich liefert. Die Methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) wurde zu den Schnittstellen [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) und der Klasse [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) hinzugefügt. Der von [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) zurückgegebene Wert entspricht dem Id-Wert des Microsoft.Office.Interop.PowerPoint.Shape-Objekts. Nachfolgend wird ein Beispielcode gezeigt.
+## **Interop‑Form‑ID erhalten**
+Aspose.Slides für Android via Java ermöglicht Entwicklern das Abrufen einer eindeutigen Form‑Kennung im Folien‑Umfang im Gegensatz zur [getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--)‑Methode, die eine eindeutige Kennung im Präsentations‑Umfang liefert. Die Methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) wurde zu den [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape)-Schnittstellen und der [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape)-Klasse hinzugefügt. Der von [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) zurückgegebene Wert entspricht dem Id‑Wert des Microsoft.Office.Interop.PowerPoint.Shape‑Objekts. Im Folgenden finden Sie ein Beispiel.
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Abrufen des eindeutigen Form-Identifiers im Folienbereich
+    // Abrufen der eindeutigen Formkennung im Folienbereich
     long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
 
 } finally {
@@ -220,28 +220,23 @@ try {
 
 
 ## **Alternativtext für eine Form festlegen**
-Aspose.Slides für Android via Java ermöglicht Entwicklern das Festlegen von AlternateText für jede Form.
-Formen in einer Präsentation können über die Methoden [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) oder [Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-) unterschieden werden.
-Die Methoden [setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) und [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) können sowohl mit Aspose.Slides als auch mit Microsoft PowerPoint gelesen oder gesetzt werden.
-Mit dieser Methode können Sie eine Form kennzeichnen und verschiedene Vorgänge ausführen, wie das Entfernen einer Form,
-das Ausblenden einer Form oder das Neuanordnen von Formen auf einer Folie.
-Um den AlternateText einer Form festzulegen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für Android via Java ermöglicht Entwicklern das Festlegen von AlternateText für jede Form. Formen in einer Präsentation können über die [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-)‑ oder [Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-)‑Methode unterschieden werden. Die Methoden [setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) und [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) können sowohl mit Aspose.Slides als auch mit Microsoft PowerPoint gelesen bzw. gesetzt werden. Mit dieser Methode können Sie einer Form ein Tag zuweisen und verschiedene Vorgänge ausführen, z. B. das Entfernen, Ausblenden oder Neuanordnen von Formen auf einer Folie. Um den AlternateText einer Form festzulegen, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie eine beliebige Form zur Folie hinzu.
-1. Arbeiten Sie mit der neu hinzugefügten Form.
-1. Durchlaufen Sie die Formen, um eine bestimmte Form zu finden.
-1. Setzen Sie den AlternativeText.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.  
+1. Greifen Sie auf die erste Folie zu.  
+1. Fügen Sie der Folie eine beliebige Form hinzu.  
+1. Arbeiten Sie mit der neu hinzugefügten Form.  
+1. Durchlaufen Sie die Formen, um eine bestimmte Form zu finden.  
+1. Setzen Sie den AlternativeText.  
 1. Speichern Sie die Datei auf dem Datenträger.
 ```java
-// Instanziieren der Presentation-Klasse, die die PPTX darstellt
+// Instanziieren der Presentation-Klasse, die das PPTX darstellt
 Presentation pres = new Presentation();
 try {
-    // Hole die erste Folie
+    // Erste Folie abrufen
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Füge Autoform vom Typ Rechteck hinzu
+    // Autoform vom Typ Rechteck hinzufügen
     IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
     shp2.getFillFormat().setFillType(FillType.Solid);
@@ -256,7 +251,7 @@ try {
         }
     }
 
-    // Speichere die Präsentation auf die Festplatte
+    // Präsentation auf Festplatte speichern
     pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -264,10 +259,10 @@ try {
 ```
 
 
-## **Layoutformate für eine Form zugreifen**
-Aspose.Slides für Android via Java bietet eine einfache API zum Zugreifen auf Layoutformate für eine Form. Dieser Artikel zeigt, wie Sie auf Layoutformate zugreifen können.
+## **Layout‑Formate einer Form abrufen**
+Aspose.Slides für Android via Java bietet eine einfache API zum Abrufen von Layout‑Formaten einer Form. Dieser Artikel zeigt, wie Sie auf Layout‑Formate zugreifen können.
 
-Nachfolgend wird ein Beispielcode gezeigt.
+Im Folgenden finden Sie Beispielcode.
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -286,7 +281,7 @@ try {
 
 
 ## **Eine Form als SVG rendern**
-Jetzt unterstützt Aspose.Slides für Android via Java das Rendern einer Form als SVG. Die Methode [writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (und ihre Überladung) wurde zur Klasse [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) und zur Schnittstelle [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) hinzugefügt. Diese Methode ermöglicht das Speichern des Inhalts einer Form als SVG-Datei. Der nachstehende Codeausschnitt zeigt, wie die Form einer Folie in eine SVG-Datei exportiert wird.
+Jetzt unterstützt Aspose.Slides für Android via Java das Rendern einer Form als SVG. Die Methode [writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (und ihre Überladung) wurde zur [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape)-Klasse und zur [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape)-Schnittstelle hinzugefügt. Diese Methode ermöglicht das Speichern des Inhalts einer Form als SVG‑Datei. Der nachstehende Code‑Auszug zeigt, wie Sie die Form einer Folie in eine SVG‑Datei exportieren.
 ```java
 Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -308,7 +303,7 @@ Aspose.Slides ermöglicht das Ausrichten von Formen entweder relativ zu den Foli
 
 **Beispiel 1**
 
-Der nachstehende Quellcode richtet die Formen mit den Indizes 1, 2 und 4 am oberen Rand der Folie aus.
+Der Quellcode unten richtet die Formen mit den Indizes 1, 2 und 4 entlang der oberen Folienkante aus.
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -331,7 +326,7 @@ try {
 
 **Beispiel 2**
 
-Das nachstehende Beispiel zeigt, wie die gesamte Sammlung von Formen relativ zur untersten Form in der Sammlung ausgerichtet wird.
+Das nachstehende Beispiel zeigt, wie die gesamte Formsammlung relativ zur untersten Form der Sammlung ausgerichtet wird.
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -342,27 +337,28 @@ try {
 ```
 
 
-## **Spiegeleigenschaften**
-In Aspose.Slides bietet die Klasse [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) Steuerungsmöglichkeiten für horizontales und vertikales Spiegeln von Formen über die Eigenschaften `flipH` und `flipV`. Beide Eigenschaften sind vom Typ `byte` und erlauben Werte von `1` für ein Spiegeln, `0` für kein Spiegeln oder `-1` für das Standardverhalten. Diese Werte sind über das [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) einer Form zugänglich.
+## **Flip‑Eigenschaften**
 
-Um die Spiegeleinstellungen zu ändern, wird eine neue Instanz von [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) mit der aktuellen Position und Größe der Form, den gewünschten Werten für `flipH` und `flipV` sowie dem Rotationswinkel erstellt. Durch Zuweisung dieser Instanz zum [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) der Form und dem Speichern der Präsentation werden die Spiegelungen angewendet und in die Ausgabedatei geschrieben.
+In Aspose.Slides stellt die Klasse [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) die Kontrolle über die horizontale und vertikale Spiegelung von Formen über die Eigenschaften `flipH` und `flipV` bereit. Beide Eigenschaften sind vom Typ `byte` und akzeptieren `1` für eine Spiegelung, `0` für keine Spiegelung oder `-1` für das Standardverhalten. Diese Werte sind über das [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) einer Form zugänglich.
 
-Angenommen, wir haben eine Datei sample.pptx, in der die erste Folie eine einzelne Form mit Standard‑Spiegeleinstellungen enthält, wie unten gezeigt.
+Um die Flip‑Einstellungen zu ändern, wird ein neues [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/)‑Objekt mit der aktuellen Position und Größe der Form, den gewünschten Werten für `flipH` und `flipV` sowie dem Rotationswinkel erstellt. Dieses Objekt wird dem [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) der Form zugewiesen und das Dokument wird gespeichert, wodurch die Spiegeltransformationen angewendet und in die Ausgabedatei übernommen werden.
 
-![Die zu spiegelnde Form](shape_to_be_flipped.png)
+Angenommen, wir haben eine Datei sample.pptx, in der die erste Folie eine einzelne Form mit den Standard‑Flip‑Einstellungen enthält, wie unten gezeigt.
 
-Der folgende Codebeispiel ruft die aktuellen Spiegeleigenschaften der Form ab und spiegelt sie sowohl horizontal als auch vertikal.
+![The shape to be flipped](shape_to_be_flipped.png)
+
+Der folgende Code‑Auszug ruft die aktuellen Flip‑Eigenschaften der Form ab und spiegelt sie sowohl horizontal als auch vertikal.
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IShape shape = slide.getShapes().get_Item(0);
 
-    // Horizontale Flip‑Eigenschaft der Form abrufen.
+    // Abrufen der horizontalen Flip-Eigenschaft der Form.
     byte horizontalFlip = shape.getFrame().getFlipH();
     System.out.println("Horizontal flip: " + horizontalFlip);
 
-    // Vertikale Flip‑Eigenschaft der Form abrufen.
+    // Abrufen der vertikalen Flip-Eigenschaft der Form.
     byte verticalFlip = shape.getFrame().getFlipV();
     System.out.println("Vertical flip: " + verticalFlip);
 
@@ -383,18 +379,20 @@ try {
 ```
 
 
-![Die gespiegelte Form](flipped_shape.png)
+Das Ergebnis:
+
+![The flipped shape](flipped_shape.png)
 
 ## **FAQ**
 
-**Kann ich Formen (Vereinigung/Überschneidung/Subtraktion) auf einer Folie wie in einem Desktop‑Editor kombinieren?**
+**Kann ich Formen (Vereinen/Überschneiden/Subtrahieren) auf einer Folie wie in einem Desktop‑Editor kombinieren?**
 
-Es gibt keine integrierte API für boolesche Operationen. Sie können dies annähern, indem Sie die gewünschte Kontur selbst konstruieren – z. B. die resultierende Geometrie (über [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)) berechnen und eine neue Form mit dieser Kontur erstellen, optional die Originalformen entfernen.
+Eine integrierte Boolesche‑Operation‑API gibt es nicht. Sie können sie annähern, indem Sie die gewünschte Kontur selbst erstellen – z. B. die resultierende Geometrie über [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) berechnen und eine neue Form mit dieser Kontur erzeugen, optional die Originalformen entfernen.
 
-**Wie kann ich die Stapelreihenfolge (Z‑Order) steuern, damit eine Form immer "oben" bleibt?**
+**Wie kann ich die Stapelreihenfolge (Z‑Order) steuern, sodass eine Form immer „oben“ bleibt?**
 
-Ändern Sie die Einfüge‑/Verschiebe‑Reihenfolge innerhalb der [shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--)‑Sammlung der Folie. Für vorhersehbare Ergebnisse sollten Sie den Z‑Order nach allen anderen Folienänderungen finalisieren.
+Ändern Sie die Einfüge‑/Verschiebe‑Reihenfolge innerhalb der [shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--)‑Sammlung der Folie. Für vorhersehbare Ergebnisse sollten Sie die Z‑Order nach allen anderen Folienbearbeitungen finalisieren.
 
-**Kann ich eine Form "sperren", um zu verhindern, dass Benutzer sie in PowerPoint bearbeiten?**
+**Kann ich eine Form „sperren“, damit Nutzer sie in PowerPoint nicht bearbeiten können?**
 
-Ja. Setzen Sie die [shape-level protection flags](/slides/de/androidjava/applying-protection-to-presentation/) (z. B. Auswahl, Bewegung, Größenänderung, Textbearbeitung sperren). Bei Bedarf spiegeln Sie die Beschränkungen auf die Master‑ oder Layout‑Folien wider. Beachten Sie, dass dies ein UI‑basierter Schutz ist und keine Sicherheitsfunktion; für stärkeren Schutz kombinieren Sie ihn mit dateibezogenen Einschränkungen wie [Leseempfehlungen oder Passwörtern](/slides/de/androidjava/password-protected-presentation/).
+Ja. Setzen Sie schutzbezogene Flags auf Form‑Ebene (z. B. Auswahl, Bewegung, Größenänderung, Textbearbeitung sperren). Bei Bedarf können Sie die Beschränkungen auf dem Master‑ oder Layout‑Folientyp spiegeln. Beachten Sie, dass dies ein UI‑Schutz ist und keine Sicherheitsfunktion; für stärkeren Schutz kombinieren Sie ihn mit Dateischutz‑Optionen wie Lese‑Only‑Empfehlungen oder Passwörtern [/slides/androidjava/password-protected-presentation/](#/slides/androidjava/password-protected-presentation/).

@@ -1,5 +1,5 @@
 ---
-title: Configurer les collections de polices de secours sur Android
+title: Configurer des collections de polices de secours sur Android
 linktitle: Collection de polices de secours
 type: docs
 weight: 20
@@ -21,13 +21,13 @@ description: "Configurez une collection de polices de secours dans Aspose.Slides
 
 ## **Appliquer les règles de secours**
 
-Les instances de la classe [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) peuvent être organisées en [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection), qui implémente l'interface [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection). Il est possible d'ajouter ou de supprimer des règles de la collection.
+Les instances de la classe [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) peuvent être organisées en [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection), qui implémente l’interface [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection). Il est possible d’ajouter ou de supprimer des règles de la collection.
 
-Ensuite, cette collection peut être affectée à la méthode [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) de la classe [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager). FontsManager contrôle les polices dans toute la présentation. En savoir plus [À propos de FontsManager et FontsLoader](/slides/fr/androidjava/about-fontsmanager-and-fontsloader/).
+Ensuite, cette collection peut être affectée à la méthode [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) de la classe [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager). FontsManager contrôle les polices dans l’ensemble de la présentation.
 
 Chaque [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) possède une méthode [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) avec sa propre instance de la classe [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager).
 
-Voici un exemple montrant comment créer une collection de règles de police de secours et l'assigner au [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) d'une présentation donnée :
+Voici un exemple de création d’une collection de règles de polices de secours et de son affectation au [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) d’une présentation donnée :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -46,23 +46,23 @@ try {
 Après que FontsManager a été initialisé avec la collection de polices de secours, les polices de secours sont appliquées lors du rendu de la présentation.
 
 {{% alert color="primary" %}} 
-En savoir plus sur la façon de [Render Presentation with Fallback Font](/slides/fr/androidjava/render-presentation-with-fallback-font/).
+En savoir plus sur la façon de [Rendre la présentation avec une police de secours](/slides/fr/androidjava/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **FAQ**
 
 **Mes règles de secours seront‑elles intégrées au fichier PPTX et visibles dans PowerPoint après l’enregistrement ?**
 
-Non. Les règles de secours sont des paramètres de rendu à l'exécution ; elles ne sont pas sérialisées dans le PPTX et n'apparaîtront pas dans l'interface de PowerPoint.
+Non. Les règles de secours sont des paramètres de rendu au moment de l’exécution ; elles ne sont pas sérialisées dans le PPTX et n’apparaîtront pas dans l’interface de PowerPoint.
 
-**Le secours s'applique‑t‑il au texte à l'intérieur des SmartArt, WordArt, graphiques et tableaux ?**
+**Le repli s’applique‑t‑il au texte à l’intérieur de SmartArt, WordArt, graphiques et tableaux ?**
 
-Oui. Le même mécanisme de substitution de glyphes est utilisé pour tout texte dans ces objets.
+Oui. Le même mécanisme de substitution de glyphes est utilisé pour tout texte présent dans ces objets.
 
-**Aspose distribue‑t‑il des polices avec la bibliothèque ?**
+**Aspose distribue‑t‑elle des polices avec la bibliothèque ?**
 
-Non. Vous ajoutez et utilisez les polices de votre côté, sous votre propre responsabilité.
+Non. Vous ajoutez et utilisez les polices de votre côté et sous votre propre responsabilité.
 
-**Le remplacement/substitution pour les polices manquantes et le secours pour les glyphes manquants peuvent‑ils être utilisés ensemble ?**
+**La substitution/remplacement des polices manquantes et le repli pour les glyphes manquants peuvent‑ils être utilisés conjointement ?**
 
-Oui. Ce sont des étapes indépendantes du même pipeline de résolution de police : d'abord le moteur résout la disponibilité des polices ([replacement](/slides/fr/androidjava/font-replacement/)/[substitution](/slides/fr/androidjava/font-substitution/)), puis le secours comble les lacunes des glyphes manquants dans les polices disponibles.
+Oui. Ce sont des étapes indépendantes du même pipeline de résolution des polices : d’abord le moteur résout la disponibilité des polices ([replacement](/slides/fr/androidjava/font-replacement/)/[substitution](/slides/fr/androidjava/font-substitution/)), puis le repli comble les lacunes des glyphes manquants dans les polices disponibles.

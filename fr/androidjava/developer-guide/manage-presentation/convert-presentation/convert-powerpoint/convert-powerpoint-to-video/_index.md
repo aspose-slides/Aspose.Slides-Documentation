@@ -1,5 +1,5 @@
 ---
-title: Convertir les présentations PowerPoint en vidéo sur Android
+title: Convertir des présentations PowerPoint en vidéo sur Android
 linktitle: PowerPoint en vidéo
 type: docs
 weight: 130
@@ -26,24 +26,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez à convertir des présentations PowerPoint en vidéo avec Java. Découvrez du code d'exemple et des techniques d'automatisation pour rationaliser votre flux de travail."
+description: "Apprenez comment convertir des présentations PowerPoint en vidéo en Java. Découvrez des exemples de code et des techniques d'automatisation pour rationaliser votre flux de travail."
 ---
 
 En convertissant votre présentation PowerPoint en vidéo, vous obtenez 
 
 * **Augmentation de l'accessibilité**: Tous les appareils (indépendamment de la plateforme) sont équipés de lecteurs vidéo par défaut, contrairement aux applications d'ouverture de présentations, ce qui facilite l'ouverture ou la lecture des vidéos pour les utilisateurs.
-* **Plus grande portée**: Grâce aux vidéos, vous pouvez toucher un large public et le cibler avec des informations qui, autrement, pourraient sembler fastidieuses dans une présentation. La plupart des enquêtes et des statistiques indiquent que les gens regardent et consomment davantage les vidéos que les autres formes de contenu, et ils préfèrent généralement ce type de contenu.
+* **Plus grande portée**: Grâce aux vidéos, vous pouvez atteindre un large public et les cibler avec des informations qui pourraient autrement sembler fastidieuses dans une présentation. La plupart des enquêtes et des statistiques suggèrent que les gens regardent et consomment davantage les vidéos que les autres formes de contenu, et ils préfèrent généralement ce type de contenu.
 
 {{% alert color="primary" %}} 
-Vous pouvez consulter notre [**Convertisseur en ligne PowerPoint vers Vidéo**](https://products.aspose.app/slides/conversion/ppt-to-word) car il s'agit d'une implémentation en direct et efficace du processus décrit ici.
+
+Vous voudrez peut-être consulter notre [**Convertisseur en ligne PowerPoint vers Vidéo**](https://products.aspose.app/slides/conversion/ppt-to-word) car il s'agit d'une implémentation en direct et efficace du processus décrit ici.
+
 {{% /alert %}} 
 
-## **Conversion PowerPoint vers Vidéo avec Aspose.Slides**
+## **Conversion PowerPoint en Vidéo avec Aspose.Slides**
 
-Dans [Aspose.Slides 22.11](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-22-11-release-notes/), nous avons implémenté la prise en charge de la conversion de présentations en vidéo.
+Aspose.Slides prend en charge la conversion de présentations en vidéo.
 
-* Utilisez **Aspose.Slides** pour générer un ensemble d'images (à partir des diapositives de la présentation) correspondant à un certain nombre d'IPS (frames per second)
-* Utilisez un utilitaire tiers comme **ffmpeg** ([pour java](https://github.com/bramp/ffmpeg-cli-wrapper)) pour créer une vidéo à partir des images. 
+* Utilisez **Aspose.Slides** pour générer un ensemble d'images (à partir des diapositives de la présentation) correspondant à un certain nombre d'IPS (images par seconde)
+* Utilisez un utilitaire tiers comme **ffmpeg** ([pour Java](https://github.com/bramp/ffmpeg-cli-wrapper)) pour créer une vidéo à partir des images. 
 
 ### **Convertir PowerPoint en Vidéo**
 
@@ -59,7 +61,7 @@ Dans [Aspose.Slides 22.11](https://docs.aspose.com/slides/androidjava/aspose-sli
 
 2. Téléchargez ffmpeg [ici](https://ffmpeg.org/download.html).
 
-4. Exécutez le code Java de conversion PowerPoint en vidéo.
+4. Exécutez le code Java PowerPoint vers vidéo.
 
 Ce code Java vous montre comment convertir une présentation (contenant une figure et deux effets d'animation) en vidéo :
 ```java
@@ -121,15 +123,17 @@ try {
 
 ## **Effets Vidéo**
 
-Vous pouvez appliquer des animations aux objets des diapositives et utiliser des transitions entre les diapositives. 
+Vous pouvez appliquer des animations aux objets sur les diapositives et utiliser des transitions entre les diapositives. 
 
 {{% alert color="primary" %}} 
-Vous pouvez consulter ces articles : [Animation PowerPoint](https://docs.aspose.com/slides/androidjava/powerpoint-animation/), [Animation de forme](https://docs.aspose.com/slides/androidjava/shape-animation/), et [Effet de forme](https://docs.aspose.com/slides/androidjava/shape-effect/).
+
+Vous voudrez peut-être consulter ces articles : [Animation PowerPoint](https://docs.aspose.com/slides/androidjava/powerpoint-animation/), [Animation de Forme](https://docs.aspose.com/slides/androidjava/shape-animation/), et [Effet de Forme](https://docs.aspose.com/slides/androidjava/shape-effect/).
+
 {{% /alert %}} 
 
 Les animations et les transitions rendent les diaporamas plus attrayants et intéressants — et elles font de même pour les vidéos. Ajoutons une autre diapositive et une transition au code de la présentation précédente :
 ```java
-// Ajoute une forme de sourire et l'anime
+// Ajoute une forme de sourire et l’anime
 
 // ...
 
@@ -147,7 +151,7 @@ newSlide.getSlideShowTransition().setType(TransitionType.Push);
 ```
 
 
-Aspose.Slides prend également en charge l'animation du texte. Nous animons donc les paragraphes sur les objets, qui apparaîtront les uns après les autres (avec un délai d'une seconde) :
+Aspose.Slides prend également en charge l'animation du texte. Nous animons donc les paragraphes sur les objets, qui apparaîtront successivement (avec un délai d'une seconde) :
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -225,11 +229,11 @@ try {
 
 ## **Classes de Conversion Vidéo**
 
-Afin de vous permettre d'effectuer des tâches de conversion PowerPoint en vidéo, Aspose.Slides fournit les classes [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) et [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/).
+Pour vous permettre d'effectuer des tâches de conversion PowerPoint en vidéo, Aspose.Slides fournit les classes [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) et [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) vous permet de définir la taille des images pour la vidéo (qui sera créée ultérieurement) via son constructeur. Si vous transmettez une instance de la présentation, `Presentation.SlideSize` sera utilisé et il génère les animations que [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) utilise.
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) vous permet de définir la taille des images pour la vidéo (qui sera créée plus tard) via son constructeur. Si vous passez une instance de la présentation, `Presentation.SlideSize` sera utilisée et il génère les animations que [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) utilise.
 
-Lorsque les animations sont générées, un événement `NewAnimation` est déclenché pour chaque animation suivante, qui possède le paramètre [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/). Ce dernier est une classe qui représente un lecteur pour une animation distincte.
+Lorsque les animations sont générées, un événement `NewAnimation` est créé pour chaque animation successive, qui possède le paramètre [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/). Ce dernier est une classe qui représente un lecteur pour une animation distincte.
 
 Pour travailler avec [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/), la propriété [Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (la durée totale de l'animation) et la méthode [SetTimePosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) sont utilisées. Chaque position d'animation est définie dans la plage *0 à durée*, puis la méthode `GetFrame` renverra un BufferedImage correspondant à l'état de l'animation à ce moment :
 ```java
@@ -272,7 +276,7 @@ try {
 ```
 
 
-Pour faire jouer toutes les animations d'une présentation simultanément, la classe [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) est utilisée. Cette classe prend une instance de [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) et le nombre d'IPS pour les effets dans son constructeur, puis déclenche l'événement `FrameTick` pour toutes les animations afin de les faire jouer :
+Pour faire jouer toutes les animations d'une présentation simultanément, la classe [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) est utilisée. Cette classe prend une instance de [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) et les IPS pour les effets dans son constructeur, puis déclenche l'événement `FrameTick` pour toutes les animations afin de les faire jouer :
 ```java
 Presentation presentation = new Presentation("animated.pptx");
 try {
@@ -301,11 +305,11 @@ try {
 ```
 
 
-Ensuite, les images générées peuvent être assemblées pour produire une vidéo. Voir la section [Convertir PowerPoint en Vidéo](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Ensuite, les images générées peuvent être compilées pour produire une vidéo. Voir la section [Convertir PowerPoint en Vidéo](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Animations et Effets Pris en Charge**
 
-### **Entrée**
+**Entrée**:
 
 | Type d'animation | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -323,7 +327,7 @@ Ensuite, les images générées peuvent être assemblées pour produire une vid�
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-### **Mise en évidence**
+**Mise en valeur**:
 
 | Type d'animation | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -341,7 +345,7 @@ Ensuite, les images générées peuvent être assemblées pour produire une vid�
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-### **Sortie**
+**Sortie**:
 
 | Type d'animation | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -358,7 +362,7 @@ Ensuite, les images générées peuvent être assemblées pour produire une vid�
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-### **Chemins de mouvement**
+**Chemins de mouvement**:
 
 | Type d'animation | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -371,11 +375,14 @@ Ensuite, les images générées peuvent être assemblées pour produire une vid�
 
 ## **FAQ**
 
-**Est‑il possible de convertir des présentations protégées par mot de passe ?**  
-Oui, Aspose.Slides permet de travailler avec des [présentations protégées par mot de passe](/slides/fr/androidjava/password-protected-presentation/). Lors du traitement de ces fichiers, vous devez fournir le mot de passe correct afin que la bibliothèque puisse accéder au contenu de la présentation.
+**Est-il possible de convertir des présentations protégées par mot de passe ?**
 
-**Aspose.Slides prend‑il en charge une utilisation dans des solutions cloud ?**  
-Oui, Aspose.Slides peut être intégré aux applications et services cloud. La bibliothèque est conçue pour fonctionner dans des environnements serveur, garantissant des performances élevées et une évolutivité pour le traitement par lots de fichiers.
+Oui, Aspose.Slides permet de travailler avec les [présentations protégées par mot de passe](/slides/fr/androidjava/password-protected-presentation/). Lors du traitement de ces fichiers, vous devez fournir le mot de passe correct afin que la bibliothèque puisse accéder au contenu de la présentation.
 
-**Existe‑t‑il des limitations de taille pour les présentations lors de la conversion ?**  
-Aspose.Slides est capable de gérer des présentations de pratiquement n'importe quelle taille. Cependant, lors du traitement de fichiers très volumineux, des ressources système supplémentaires peuvent être nécessaires, et il est parfois recommandé d'optimiser la présentation pour améliorer les performances.
+**Aspose.Slides prend-il en charge une utilisation dans des solutions cloud ?**
+
+Oui, Aspose.Slides peut être intégré aux applications et services cloud. La bibliothèque est conçue pour fonctionner dans des environnements serveur, garantissant haute performance et évolutivité pour le traitement batch des fichiers.
+
+**Existe-t-il des limites de taille pour les présentations lors de la conversion ?**
+
+Aspose.Slides peut gérer des présentations de pratiquement n'importe quelle taille. Cependant, lorsqu'on travaille avec des fichiers très volumineux, des ressources système supplémentaires peuvent être nécessaires, et il est parfois recommandé d'optimiser la présentation pour améliorer les performances.

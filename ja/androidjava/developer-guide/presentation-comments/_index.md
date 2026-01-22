@@ -1,6 +1,6 @@
 ---
-title: Android でプレゼンテーション コメントを管理する
-linktitle: プレゼンテーション コメント
+title: Androidでプレゼンテーションコメントを管理する
+linktitle: プレゼンテーションコメント
 type: docs
 weight: 100
 url: /ja/androidjava/presentation-comments/
@@ -11,7 +11,7 @@ keywords:
 - プレゼンテーション コメント
 - スライド コメント
 - コメントを追加
-- コメントにアクセス
+- コメントへアクセス
 - コメントを編集
 - コメントに返信
 - コメントを削除
@@ -22,57 +22,57 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java を使用してプレゼンテーション コメントをマスターし、PowerPoint ファイル内のコメントを迅速かつ簡単に追加、読み取り、編集、削除できます。"
+description: "Aspose.Slides for Android via Java を使用してプレゼンテーションコメントをマスターし、PowerPoint ファイル内のコメントを高速かつ簡単に追加、読み取り、編集、削除できます。"
 ---
 
-PowerPoint では、コメントはスライド上のメモまたは注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。
+PowerPoint では、コメントはスライド上のメモや注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。
 
-### **プレゼンテーションにコメントを追加する理由は？**
+### **プレゼンテーションにコメントを追加する理由**
 
-プレゼンテーションをレビューする際に、フィードバックを提供したり同僚とやり取りしたりするためにコメントを使用したい場合があります。
+プレゼンテーションをレビューする際、フィードバックを提供したり同僚とやり取りしたりするためにコメントを使用したくなることがあります。
 
-PowerPoint プレゼンテーションでコメントを使用できるように、Aspose.Slides for Android via Java は以下を提供します。
+PowerPoint プレゼンテーションでコメントを使用できるように、Aspose.Slides for Android via Java は以下を提供します
 
-* [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスは、著者コレクション（[ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection) インターフェイス）を含みます。著者はスライドにコメントを追加します。
-* [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection) インターフェイスは、個々の著者に対するコメントのコレクションを保持します。
-* [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) クラスは、著者とそのコメントに関する情報（コメントを追加した人、追加時刻、コメントの位置など）を含みます。
-* [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentAuthor) クラスは、個々の著者に関する情報（著者名、イニシャル、著者名に紐づくコメントなど）を保持します。
+* The [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスは、著者のコレクション（[ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection) インターフェイス）を含みます。著者はスライドにコメントを追加します。
+* The [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection) インターフェイスは、個々の著者のコメントコレクションを含みます。
+* The [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) クラスは、著者とそのコメントに関する情報（コメントを追加した人物、追加された日時、コメントの位置など）を含みます。
+* The [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentAuthor) クラスは、個々の著者に関する情報（著者名、イニシャル、著者名に関連付けられたコメントなど）を含みます。
 
-## **スライド コメントの追加**
-次の Java コードは、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています。
+## **スライドコメントの追加**
+以下の Java コードは、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示します：
 ```java
-// Presentation クラスのインスタンスを作成します
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
-    // 空のスライドを追加します
+    // 空のスライドを追加
     pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
 
-    // 著者を追加します
+    // 著者を追加
     ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
 
-    // コメントの位置を設定します
+    // コメントの位置を設定
     Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
 
-    // スライド 1 の著者用スライドコメントを追加します
+    // スライド1の著者用スライドコメントを追加
     author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
 
-    // スライド 2 の著者用スライドコメントを追加します
+    // スライド2の著者用スライドコメントを追加
     author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
 
-    // ISlide 1 にアクセスします
+    // ISlide 1 にアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 引数に null を渡すと、すべての著者のコメントが選択されたスライドに取得されます
+    // 引数に null を渡すと、すべての著者のコメントが選択したスライドに取得されます
     IComment[] Comments = slide.getSlideComments(author);
 
-    // スライド 1 のインデックス 0 のコメントにアクセスします
+    // スライド1のインデックス0のコメントにアクセス
     String str = Comments[0].getText();
 
     pres.save("Comments_out.pptx", SaveFormat.Pptx);
 
     if (Comments.length > 0)
     {
-        // インデックス 0 の著者のコメントコレクションを選択します
+        // インデックス0の著者のコメントコレクションを取得
         ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
         String Comment = commentCollection.get_Item(0).getText();
     }
@@ -82,10 +82,10 @@ try {
 ```
 
 
-## **スライド コメントへのアクセス**
-次の Java コードは、PowerPoint プレゼンテーションのスライド上に既存のコメントにアクセスする方法を示しています。
+## **スライドコメントへのアクセス**
+以下の Java コードは、PowerPoint プレゼンテーションのスライド上に既存のコメントにアクセスする方法を示します：
 ```java
-// Presentation クラスのインスタンスを作成します
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation("Comments1.pptx");
 try {
     for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
@@ -105,9 +105,9 @@ try {
 
 
 ## **コメントへの返信**
-親コメントは、コメントや返信の階層構造における最上位（元）コメントです。[IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) インターフェイスの [getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#getParentComment--) または [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) メソッドを使用して、親コメントの取得または設定ができます。
+親コメントは、コメントや返信の階層で最上位または元となるコメントです。[getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#getParentComment--) または [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) メソッド（[IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) インターフェイス）を使用して、親コメントを取得または設定できます。
 
-次の Java コードは、コメントを追加し、その返信を取得する方法を示しています。
+以下の Java コードは、コメントを追加し、それへの返信を取得する方法を示します：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -115,16 +115,16 @@ try {
     ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
     IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
 
-    // comment1 への返信を追加します
+    // comment1 に対する返信を追加します
     ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
     IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
     reply1.setParentComment(comment1);
 
-    // comment1 への別の返信を追加します
+    // comment1 に対する別の返信を追加します
     IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
     reply2.setParentComment(comment1);
 
-    // 既存の返信に対して返信を追加します
+    // 既存の返信に対するサブ返信を追加します
     IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
     subReply.setParentComment(reply2);
 
@@ -162,19 +162,17 @@ try {
 
 
 {{% alert color="warning" title="Attention" %}} 
-
-* [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) インターフェイスの [Remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#remove--) メソッドでコメントを削除すると、そのコメントへの返信もすべて削除されます。
-* [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) の設定が循環参照を生じさせた場合、[PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) がスローされます。
-
+* [Remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#remove--) メソッド（[IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) インターフェイス）を使用してコメントを削除すると、そのコメントへの返信も削除されます。
+* [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) 設定で循環参照が発生した場合、[PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) がスローされます。
 {{% /alert %}}
 
-## **モダン コメントの追加**
+## **モダンコメントの追加**
 
-2021 年に Microsoft は PowerPoint に *モダン コメント* を導入しました。モダン コメント機能は PowerPoint におけるコラボレーションを大幅に向上させます。モダン コメントを使用すると、コメントの解決、オブジェクトやテキストへのコメントの固定、そして従来よりもずっと簡単にやり取りが行えるようになります。
+2021 年に、Microsoft は PowerPoint に *モダンコメント* を導入しました。モダンコメント機能は、PowerPoint におけるコラボレーションを大幅に向上させます。モダンコメントを使用すると、PowerPoint ユーザーはコメントを解決したり、オブジェクトやテキストにコメントを固定したり、従来よりもはるかに簡単にやり取りできるようになります。
 
-[Aspose Slides for Java 21.11](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-21-11-release-notes/) では、[ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment) クラスを追加してモダン コメントのサポートを実装しました。[CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection) クラスに [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) と [insertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) メソッドが追加されました。
+Aspose.Slides は [ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment) クラスによりモダンコメントをサポートします。[addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) および [insertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) メソッドが [CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection) クラスに追加されました。
 
-次の Java コードは、PowerPoint プレゼンテーションのスライドにモダン コメントを追加する方法を示しています。 
+以下の Java コードは、PowerPoint プレゼンテーションのスライドにモダンコメントを追加する方法を示します： 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -192,11 +190,11 @@ try {
 
 ### **すべてのコメントと著者を削除**
 
-次の Java コードは、プレゼンテーション内のすべてのコメントと著者を削除する方法を示しています。
+以下の Java コードは、プレゼンテーション内のすべてのコメントと著者を削除する方法を示します：
 ```java
 Presentation presentation = new Presentation("example.pptx");
 try {
-    // プレゼンテーション内のすべてのコメントを削除します
+    // プレゼンテーションからすべてのコメントを削除します
     for (ICommentAuthor author : presentation.getCommentAuthors())
     {
         author.getComments().clear();
@@ -214,7 +212,7 @@ try {
 
 ### **特定のコメントを削除**
 
-次の Java コードは、スライド上の特定のコメントを削除する方法を示しています。
+以下の Java コードは、スライド上の特定のコメントを削除する方法を示します：
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -225,7 +223,7 @@ try {
     author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
     author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
 
-    // "comment 1" を含むすべてのコメントを削除します
+    // 「comment 1」というテキストを含むすべてのコメントを削除します
     for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
     {
         ArrayList<IComment> toRemove = new ArrayList<IComment>();
@@ -250,16 +248,16 @@ try {
 ```
 
 
-## **FAQ**
+## **よくある質問**
 
-**Aspose.Slides はモダン コメントに「解決済み」などのステータスをサポートしていますか？**
+**Aspose.Slides はモダンコメントに「解決済み」などのステータスをサポートしていますか？**
 
-はい。[Modern comments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/) は [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-) メソッドを公開しており、コメントの状態（例: 解決済みとしてマーク）を書き込むことができます。この状態はファイルに保存され、PowerPoint でも認識されます。
+はい。 [Modern comments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/) は [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-) メソッドを提供しています。コメントの状態（例: 解決済みとしてマーク）を書き込むことができ、この状態はファイルに保存され、PowerPoint で認識されます。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、入れ子の上限はありますか？**
+**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、ネストの上限はありますか？**
 
-はい。各コメントは [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/comment/#getParentComment--) を参照できるため、任意の深さの返信チェーンを構築できます。API には具体的な入れ子深さの制限は定義されていません。
+はい。 各コメントは [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/comment/#getParentComment--) を参照できるため、任意の返信チェーンを構築できます。API では特定のネスト深さの上限は明示されていません。
 
 **スライド上のコメントマーカーの位置はどの座標系で定義されていますか？**
 
-位置はスライドの座標系における浮動小数点のポイントとして保存されます。これにより、コメントマーカーを必要な正確な場所に配置できます。
+位置はスライドの座標系での浮動小数点ポイントとして保存されます。これにより、コメントマーカーを必要な場所に正確に配置できます。

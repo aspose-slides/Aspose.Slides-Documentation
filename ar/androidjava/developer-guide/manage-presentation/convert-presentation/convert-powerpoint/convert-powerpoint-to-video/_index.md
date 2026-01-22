@@ -6,15 +6,15 @@ weight: 130
 url: /ar/androidjava/convert-powerpoint-to-video/
 keywords:
 - تحويل PowerPoint
-- تحويل عرض تقديمي
+- تحويل العرض التقديمي
 - تحويل PPT
 - تحويل PPTX
 - PowerPoint إلى فيديو
-- عرض تقديمي إلى فيديو
+- العرض التقديمي إلى فيديو
 - PPT إلى فيديو
 - PPTX إلى فيديو
 - PowerPoint إلى MP4
-- عرض تقديمي إلى MP4
+- العرض التقديمي إلى MP4
 - PPT إلى MP4
 - PPTX إلى MP4
 - حفظ PPT كـ MP4
@@ -26,28 +26,28 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية تحويل عروض PowerPoint إلى فيديو باستخدام Java. اكتشف عينة الكود وتقنيات الأتمتة لتبسيط سير العمل الخاص بك."
+description: "تعلم كيفية تحويل عروض PowerPoint إلى فيديو باستخدام Java. اكتشف نموذج الشيفرة وتقنيات الأتمتة لتبسيط سير العمل الخاص بك."
 ---
 
-من خلال تحويل عرض PowerPoint إلى فيديو، ستحصل على 
+عن طريق تحويل عرض PowerPoint إلى فيديو، ستحصل على 
 
-* **زيادة في إمكانية الوصول:** جميع الأجهزة (بغض النظر عن النظام) مزودة بمشغلات الفيديو بشكل افتراضي مقارنةً بتطبيقات فتح العروض التقديمية، لذا يجد المستخدمون سهولة أكبر في فتح أو تشغيل الفيديوهات.
-* **نطاق أوسع:** عبر الفيديوهات، يمكنك الوصول إلى جمهور كبير وتوجيههم بمعلومات قد تبدو مملة في عرض تقديمي. تشير معظم الاستطلاعات والإحصاءات إلى أن الناس يشاهدون الفيديوهات ويستهلكونها أكثر من غيرها من أشكال المحتوى، وعادةً ما يفضلون هذا النوع من المحتوى.
+* **زيادة في إمكانية الوصول:** جميع الأجهزة (بغض النظر عن النظام) مجهزة بمشغلات فيديو افتراضيًا مقارنةً بتطبيقات فتح العروض، لذا يجد المستخدمون أن تشغيل الفيديو أسهل.
+* **وصول أوسع:** عبر الفيديوهات، يمكنك الوصول إلى جمهور كبير واستهدافه بمعلومات قد تبدو مملة في العرض. تشير معظم الدراسات والإحصاءات إلى أن الناس يشاهدون الفيديوهات ويستهلكونها أكثر من أشكال المحتوى الأخرى، ويفضلونها عمومًا.
 
 {{% alert color="primary" %}} 
-قد ترغب في تجربة [**محول PowerPoint إلى فيديو عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لأنه تنفيذ مباشر وفعّال للعملية الموصوفة هنا.
+قد ترغب في تجربة [**محول PowerPoint إلى فيديو عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لأنه تنفيذ مباشر وفعّال للعملية المذكورة هنا.
 {{% /alert %}} 
 
-## **تحويل PowerPoint إلى فيديو في Aspose.Slides**
+## **تحويل PowerPoint إلى فيديو باستخدام Aspose.Slides**
 
-في [Aspose.Slides 22.11](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-22-11-release-notes/)، نفّذنا دعم تحويل العروض التقديمية إلى فيديو.
+يدعم Aspose.Slides تحويل العروض إلى فيديو.
 
-* استخدم **Aspose.Slides** لإنشاء مجموعة من الإطارات (من شرائح العرض) التي توافق عددًا معينًا من الإطارات في الثانية (FPS).
-* استخدم أداة طرف ثالث مثل **ffmpeg** ([لـ java](https://github.com/bramp/ffmpeg-cli-wrapper)) لإنشاء فيديو بناءً على الإطارات. 
+* استخدم **Aspose.Slides** لتوليد مجموعة من الإطارات (من شرائح العرض) التي تتطابق مع عدد معين من الإطارات في الثانية (FPS).
+* استخدم أداة خارجية مثل **ffmpeg** ([لـ Java](https://github.com/bramp/ffmpeg-cli-wrapper)) لإنشاء فيديو بناءً على الإطارات. 
 
 ### **تحويل PowerPoint إلى فيديو**
 
-1. أضف هذا إلى ملف POM الخاص بك:
+1. أضف ما يلي إلى ملف POM الخاص بك:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -57,11 +57,11 @@ description: "تعلم كيفية تحويل عروض PowerPoint إلى فيدي
 ```
 
 
-2. نزِّل ffmpeg [هنا](https://ffmpeg.org/download.html).
+2. حمّل ffmpeg [هنا](https://ffmpeg.org/download.html).
 
-4. شغِّل كود Java لتحويل PowerPoint إلى فيديو.
+4. شغّل كود Java لتحويل PowerPoint إلى فيديو.
 
-هذا الكود بلغة Java يوضح كيفية تحويل عرض تقديمي (يحتوي على شكل وتأثيرين حركيين) إلى فيديو:
+يعرض هذا الكود Java كيفية تحويل عرض (يحتوي على شكل وتأثيري تحريك) إلى فيديو:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -99,7 +99,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // تكوين مجلد ملفات ffmpeg التنفيذية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
+    // تكوين مجلد ملفات ffmpeg الثنائية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -121,19 +121,19 @@ try {
 
 ## **تأثيرات الفيديو**
 
-يمكنك تطبيق الحركات على الكائنات داخل الشرائح واستخدام الانتقالات بين الشرائح. 
+يمكنك تطبيق رسومات متحركة على الكائنات داخل الشرائح واستخدام الانتقالات بين الشرائح. 
 
 {{% alert color="primary" %}} 
-قد ترغب في الاطلاع على هذه المقالات: [حركة PowerPoint](https://docs.aspose.com/slides/androidjava/powerpoint-animation/)، [حركة الشكل](https://docs.aspose.com/slides/androidjava/shape-animation/)، و[تأثير الشكل](https://docs.aspose.com/slides/androidjava/shape-effect/).
+قد ترغب في الاطلاع على هذه المقالات: [PowerPoint Animation](https://docs.aspose.com/slides/androidjava/powerpoint-animation/)، [Shape Animation](https://docs.aspose.com/slides/androidjava/shape-animation/)، و[Shape Effect](https://docs.aspose.com/slides/androidjava/shape-effect/).
 {{% /alert %}} 
 
-الحركات والانتقالات تجعل عروض الشرائح أكثر جذبًا وإثارة—وتفعل نفس الشيء مع الفيديوهات. دعنا نضيف شريحة وانتقالًا آخرين إلى الكود الخاص بالعرض السابق:
+تجعل الرسوم المتحركة والانتقالات عروض الشرائح أكثر جاذبية وإثارة—وتفعل الشيء نفسه للفيديوهات. لنضيف شريحة وانتقالًا آخر إلى الكود للعرض السابق:
 ```java
 // يضيف شكل ابتسامة ويحركه
 
 // ...
 
-// يضيف شريحة جديدة وانتقال متحرك
+// يضيف شريحة جديدة وانتقالًا متحركًا
 
 ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
@@ -147,11 +147,11 @@ newSlide.getSlideShowTransition().setType(TransitionType.Push);
 ```
 
 
-كما يدعم Aspose.Slides حركة النصوص. لذا نقوم بتحريك الفقرات على الكائنات لتظهر واحدة تلو الأخرى (مع تأخير ثانية واحدة):
+يدعم Aspose.Slides أيضًا تحريك النصوص. لذا نقوم بتحريك الفقرات على الكائنات، بحيث تظهر واحدة تلو الأخرى (مع تأخير ثانية):
 ```java
 Presentation presentation = new Presentation();
 try {
-    // يضيف النصوص والرسوم المتحركة
+    // يضيف النص والرسوم المتحركة
     IAutoShape autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
     para1.getPortions().add(new Portion("Aspose Slides for Java"));
@@ -203,7 +203,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // تكوين مجلد ملفات ffmpeg التنفيذية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
+    // تكوين مجلد ملفات ffmpeg الثنائية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -225,13 +225,13 @@ try {
 
 ## **فئات تحويل الفيديو**
 
-لتمكينك من تنفيذ مهام تحويل PowerPoint إلى فيديو، يوفر Aspose.Slides الفئتين [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) و[PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/).
+لتمكينك من أداء مهام تحويل PowerPoint إلى فيديو، توفر Aspose.Slides الفئات [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) و[PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) يسمح لك بتحديد حجم الإطار للفيديو (الذي سيُنشأ لاحقًا) من خلال المُنشئ الخاص به. إذا قمت بتمرير نسخة من العرض، سيتم استخدام `Presentation.SlideSize` ويولد حركات يستخدمها [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/).
+تسمح لك فئة [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) بتحديد حجم إطار الفيديو (الذي سيُنشأ لاحقًا) عبر منشئها. إذا مررت كائنًا للعرض، سيتم استخدام `Presentation.SlideSize` وتوليد الرسوم المتحركة التي يستخدمها [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/).
 
-عند توليد الحركات، يتم إنشاء حدث `NewAnimation` لكل حركة تالية، ويحمل معامل [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/). الأخيرة هي فئة تمثل مشغلًا لحركة منفصلة.
+عند توليد الرسوم المتحركة، يُنشأ حدث `NewAnimation` لكل حركة تالية، والذي يحتوي على معامل [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/). هذا الأخير هو فئة تمثِّل مشغلًا لحركة منفصلة.
 
-للعمل مع [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/)، يتم استخدام خاصية [Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (المدة الكاملة للحركة) وطريقة [SetTimePosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). يتم ضبط موضع كل حركة ضمن النطاق *0 إلى المدة*، ثم تُعيد طريقة `GetFrame` صورة BufferedImage تمثل حالة الحركة في تلك اللحظة:
+للعمل مع [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/)، تُستخدم الخاصية [Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (المدة الكاملة للرسوم المتحركة) والطريقة [SetTimePosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). يُحدَّد موقع كل حركة داخل النطاق *0 إلى المدة*، ثم تُعيد طريقة `GetFrame` كائن BufferedImage يتطابق مع حالة الرسوم المتحركة في تلك اللحظة:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -272,7 +272,7 @@ try {
 ```
 
 
-لجعل جميع الحركات في عرض تقديمي تُشغل مرة واحدة، تُستخدم فئة [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/). تأخذ هذه الفئة نسخة من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) وعدد FPS للتأثيرات في مُنشئها ثم تستدعي حدث `FrameTick` لجميع الحركات لتشغيلها:
+لجعل جميع الرسوم المتحركة في عرض ما تُشغل مرةً واحدة، تُستَخدم فئة [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/). تأخذ هذه الفئة كائنًا من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) ومعدل FPS للفعّالات في منشئها ثم تستدعي حدث `FrameTick` لجميع الرسوم المتحركة لتشغيلها:
 ```java
 Presentation presentation = new Presentation("animated.pptx");
 try {
@@ -301,13 +301,13 @@ try {
 ```
 
 
-بعد ذلك يمكن تجميع الإطارات المُولدة لإنتاج فيديو. راجع قسم [تحويل PowerPoint إلى فيديو](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+بعد ذلك يمكن تجميع الإطارات المولَّدة لإنتاج فيديو. راجع قسم [Convert PowerPoint to Video](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **الرسوم المتحركة والتأثيرات المدعومة**
+## **الرسوم المتحركة والفعّالات المدعومة**
 
 **الدخول**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -325,7 +325,7 @@ try {
 
 **التأكيد**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -343,7 +343,7 @@ try {
 
 **الخروج**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -360,7 +360,7 @@ try {
 
 **مسارات الحركة**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -369,16 +369,16 @@ try {
 | **Loops** | ![supported](v.png) | ![supported](v.png) |
 | **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكن تحويل العروض التقديمية المحمية بكلمة مرور؟**
+**هل يمكن تحويل العروض المحمية بكلمة مرور؟**
 
-نعم، يسمح Aspose.Slides بالعمل مع [العروض التقديمية المحمية بكلمة مرور](/slides/ar/androidjava/password-protected-presentation/). عند معالجة مثل هذه الملفات، تحتاج إلى توفير كلمة المرور الصحيحة لكي يتمكن المكتبة من الوصول إلى محتوى العرض.
+نعم، يتيح Aspose.Slides العمل مع [العروض المحمية بكلمة مرور](/slides/ar/androidjava/password-protected-presentation/). عند معالجة مثل هذه الملفات، عليك توفير كلمة المرور الصحيحة لتمكين المكتبة من الوصول إلى محتوى العرض.
 
-**هل يدعم Aspose.Slides الاستخدام في حلول السحابة؟**
+**هل يدعم Aspose.Slides الاستخدام في الحلول السحابية؟**
 
-نعم، يمكن دمج Aspose.Slides في التطبيقات والخدمات السحابية. تم تصميم المكتبة للعمل في بيئات الخادم، مما يضمن أداءً عاليًا وقابلية توسيع للمعالجة الدفعية للملفات.
+نعم، يمكن دمج Aspose.Slides في التطبيقات والخدمات السحابية. صُممت المكتبة للعمل في بيئات الخادم، مع ضمان أداء عالي وقابلية توسع لمعالجة ملفات دفعة.
 
-**هل هناك أية قيود على حجم العروض أثناء التحويل؟**
+**هل توجد قيود على حجم العروض أثناء التحويل؟**
 
-يمكن لـ Aspose.Slides التعامل مع عروض تقديمية بحجم شبه غير محدود. ومع ذلك، عند العمل مع ملفات كبيرة جدًا، قد تحتاج إلى موارد نظام إضافية، وقد يُنصح أحيانًا بتحسين العرض لتحسين الأداء.
+يمكن لـ Aspose.Slides التعامل مع عروض بحجم شبه غير محدود. ومع ذلك، عند التعامل مع ملفات ضخمة جدًا قد تحتاج إلى موارد نظام إضافية، ويُفضَّل أحيانًا تحسين العرض لتحسين الأداء.

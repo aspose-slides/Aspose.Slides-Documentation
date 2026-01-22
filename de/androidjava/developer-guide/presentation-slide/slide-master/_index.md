@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Folienmastern in Präsentationen auf Android
+title: Verwaltung von Folienmastern auf Android
 linktitle: Folienmaster
 type: docs
 weight: 70
@@ -15,109 +15,121 @@ keywords:
 - Masterfolie klonen
 - Masterfolie kopieren
 - Masterfolie duplizieren
-- unbenutzte Masterfolie
+- ungenutzte Masterfolie
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Verwalten Sie Folienmaster in Aspose.Slides für Android: Erstellen, Bearbeiten und Anwenden von Layouts, Designs und Platzhaltern für PPT, PPTX und ODP mit knappen Java-Beispielen."
+description: "Verwalten Sie Folienmaster in Aspose.Slides für Android: Erstellen, Bearbeiten und Anwenden von Layouts, Themes und Platzhaltern auf PPT, PPTX und ODP mit prägnanten Java-Beispielen."
 ---
 
-## **Was ist ein Folienmaster in PowerPoint**
+## **Was ist ein Slide Master in PowerPoint**
 
-Ein **Slide Master** ist eine Folienvorlage, die Layout, Stile, Design, Schriften, Hintergrund und weitere Eigenschaften für Folien einer Präsentation definiert. Wenn Sie eine Präsentation (oder eine Reihe von Präsentationen) mit demselben Stil und derselben Vorlage für Ihr Unternehmen erstellen möchten, können Sie einen Folienmaster verwenden.
+Ein **Slide Master** ist eine Folienvorlage, die Layout, Stile, Thema, Schriften, Hintergrund und weitere Eigenschaften für Folien in einer Präsentation definiert. Wenn Sie eine Präsentation (oder eine Reihe von Präsentationen) mit demselben Stil und derselben Vorlage für Ihr Unternehmen erstellen möchten, können Sie einen Slide Master verwenden.  
 
-Ein Folienmaster ist nützlich, weil er es ermöglicht, das Aussehen aller Folien einer Präsentation gleichzeitig festzulegen und zu ändern. Aspose.Slides unterstützt den Folienmaster‑Mechanismus von PowerPoint.
+Ein Slide Master ist nützlich, weil er Ihnen ermöglicht, das Aussehen aller Folien einer Präsentation gleichzeitig festzulegen und zu ändern. Aspose.Slides unterstützt den Slide‑Master‑Mechanismus von PowerPoint.  
 
-VBA ermöglicht ebenfalls die Manipulation eines Folienmasters und die Ausführung derselben Operationen, die in PowerPoint unterstützt werden: Hintergründe ändern, Formen hinzufügen, Layout anpassen usw. Aspose.Slides bietet flexible Mechanismen, um Folienmaster zu verwenden und grundlegende Aufgaben damit auszuführen.
+VBA ermöglicht ebenfalls die Manipulation eines Slide Masters und die Ausführung derselben Operationen, die in PowerPoint unterstützt werden: Hintergründe ändern, Formen hinzufügen, Layout anpassen usw. Aspose.Slides bietet flexible Mechanismen, um Slide Masters zu nutzen und grundlegende Aufgaben damit auszuführen.  
 
-Dies sind grundlegende Folienmaster‑Operationen:
+Dies sind grundlegende Slide‑Master‑Operationen:
 
 - Erstellen oder **Slide Master**.
-- Folienmaster auf Präsentationsfolien anwenden.
-- Hintergrund des Folienmasters ändern. 
-- Ein Bild, Platzhalter, SmartArt usw. zum Folienmaster hinzufügen.
+- **Slide Master** auf Präsentationsfolien anwenden.
+- Hintergrund des **Slide Master** ändern. 
+- Ein Bild, Platzhalter, SmartArt usw. zum **Slide Master** hinzufügen.
 
-Dies sind weiterführende Operationen mit Folienmastern:
+Dies sind weiterführende Operationen mit Slide Master:
 
-- Folienmaster vergleichen.
-- Folienmaster zusammenführen.
-- Mehrere Folienmaster anwenden.
-- Folie mit Folienmaster in eine andere Präsentation kopieren.
-- Doppelte Folienmaster in Präsentationen finden.
-- Folienmaster als Standardansicht der Präsentation festlegen.
+- Slide Masters vergleichen.
+- Slide Masters zusammenführen.
+- Mehrere Slide Masters anwenden.
+- Folie mit Slide Master in eine andere Präsentation kopieren.
+- Doppelte Slide Masters in Präsentationen finden.
+- Slide Master als Standardansicht der Präsentation festlegen.
 
 {{% alert color="primary" %}} 
-Vielleicht möchten Sie den Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) ausprobieren, da er eine Live‑Implementierung einiger hier beschriebener Kernprozesse darstellt. 
+
+Vielleicht möchten Sie Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) ausprobieren, da er eine Live‑Implementierung einiger hier beschriebener Kernvorgänge darstellt.
+
 {{% /alert %}} 
 
-## **Wie wird ein Folienmaster angewendet**
 
-Bevor Sie mit einem Folienmaster arbeiten, sollten Sie verstehen, wie er in Präsentationen verwendet und auf Folien angewendet wird. 
+## **Wie ein Slide Master angewendet wird**
 
-* Jede Präsentation enthält standardmäßig mindestens einen Folienmaster. 
-* Eine Präsentation kann mehrere Folienmaster enthalten. Sie können mehrere Folienmaster hinzufügen und sie verwenden, um verschiedene Teile einer Präsentation unterschiedlich zu gestalten. 
+Bevor Sie mit einem Slide Master arbeiten, sollten Sie verstehen, wie er in Präsentationen verwendet und auf Folien angewendet wird. 
 
-In **Aspose.Slides** wird ein Folienmaster durch den Typ [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) repräsentiert.
+* Jede Präsentation besitzt standardmäßig mindestens einen Slide Master. 
+* Eine Präsentation kann mehrere Slide Masters enthalten. Sie können mehrere Slide Masters hinzufügen und sie verwenden, um verschiedene Teile einer Präsentation unterschiedlich zu gestalten. 
 
-Das Aspose.Slides‑Objekt [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) enthält die Liste [**getMasters**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) des Typs [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/), die alle in einer Präsentation definierten Folienmaster auflistet.
+In **Aspose.Slides** wird ein Slide Master durch den Typ [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) repräsentiert.
 
-Neben CRUD‑Operationen enthält die Schnittstelle [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) nützliche Methoden: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) und [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-). Diese Methoden stammen aus der Grundfunktion zum Klonen von Folien. Beim Arbeiten mit Folienmastern ermöglichen sie jedoch komplizierte Setups.
+Das Aspose.Slides‑[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Objekt enthält die [**getMasters**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--)‑Liste des Typs [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/), die eine Liste aller in einer Präsentation definierten Master‑Folien enthält.
 
-Wenn einer Präsentation eine neue Folie hinzugefügt wird, wird automatisch ein Folienmaster darauf angewendet. Standardmäßig wird der Folienmaster der vorherigen Folie übernommen. 
+Neben CRUD‑Operationen liefert die [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/)‑Schnittstelle nützliche Methoden: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) und [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-). Diese Methoden werden von der Grundfunktion zum Klonen von Folien geerbt, ermöglichen jedoch bei Slide Masters komplexere Setups.
 
-**Hinweis**: Präsentationsfolien werden in der Liste [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) gespeichert, und jede neue Folie wird standardmäßig am Ende der Sammlung eingefügt. Enthält eine Präsentation nur einen Folienmaster, wird dieser für alle neuen Folien verwendet. Deshalb müssen Sie den Folienmaster nicht für jede neu erstellte Folie explizit festlegen.
+Wird einer Präsentation eine neue Folie hinzugefügt, wird automatisch ein Slide Master darauf angewendet. Standardmäßig wird der Slide Master der vorherigen Folie übernommen. 
 
-Das Prinzip ist für PowerPoint und Aspose.Slides identisch. In PowerPoint können Sie beispielsweise am unteren Rand der letzten Folie klicken, um eine neue Folie (mit dem Folienmaster der vorherigen Folie) zu erzeugen:
+**Hinweis**: Präsentationsfolien werden in der [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--)‑Liste gespeichert, und jede neue Folie wird standardmäßig am Ende der Sammlung eingefügt. Enthält eine Präsentation nur einen Slide Master, wird dieser Master für alle neuen Folien verwendet. Deshalb müssen Sie den Slide Master nicht für jede neu erstellte Folie explizit festlegen.
+
+Das Prinzip ist für PowerPoint und Aspose.Slides identisch. In PowerPoint können Sie beim Hinzufügen einer neuen Folie einfach auf die untere Zeile unterhalb der letzten Folie klicken; es wird dann eine neue Folie (mit dem Slide Master der vorherigen Folie) erstellt:
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-In Aspose.Slides erledigen Sie dieselbe Aufgabe mit der Methode [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+In Aspose.Slides können Sie denselben Vorgang mit der [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)‑Methode der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Klasse ausführen.
 
-## **Folienmaster in der Folienhierarchie**
 
-Die Verwendung von Folienlayouts zusammen mit dem Folienmaster bietet maximale Flexibilität. Ein Folienlayout ermöglicht das Festlegen derselben Stile wie beim Folienmaster (Hintergrund, Schriften, Formen usw.). Wenn mehrere Folienlayouts auf einem Folienmaster kombiniert werden, entsteht ein neuer Stil. Wird ein Folienlayout auf eine einzelne Folie angewendet, überschreibt es den vom Folienmaster übernommenen Stil.
+## **Slide Master in der Slides‑Hierarchie**
 
-Der Folienmaster steht über allen anderen Elementen: Folienmaster → Folienlayout → Folie:
+Die Kombination von Slide Layouts mit einem Slide Master bietet maximale Flexibilität. Ein Slide Layout ermöglicht es Ihnen, dieselben Stile wie beim Slide Master (Hintergrund, Schriften, Formen usw.) festzulegen. Wenn mehrere Slide Layouts auf einem Slide Master kombiniert werden, entsteht ein neuer Stil. Wird ein Slide Layout einer einzelnen Folie zugewiesen, kann dessen Stil den vom Slide Master vorgegebenen Stil überschreiben.
+
+Slide Master hat Vorrang vor allen anderen Einstellungen: Slide Master → Slide Layout → Folie:
 
 ![todo:image_alt_text](slide-master_2)
 
-Jedes [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide)-Objekt besitzt die Eigenschaft [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--) mit einer Liste von Folienlayouts. Ein [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide)-Typ hat die Eigenschaft [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--) mit einem Verweis auf das auf die Folie angewendete Folienlayout. Die Interaktion zwischen Folie und Folienmaster erfolgt über ein Folienlayout.
+
+
+Jedes [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide)-Objekt besitzt die [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--)‑Eigenschaft mit einer Liste von Slide Layouts. Ein [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide)-Typ hat die [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--)‑Eigenschaft, die auf das dem Slide zugewiesene Layout verweist. Die Interaktion zwischen einer Folie und dem Slide Master erfolgt über ein Slide Layout.
 
 {{% alert color="info" title="Hinweis" %}}
-* In Aspose.Slides sind alle Folieneinstellungen (Folienmaster, Folienlayout und die Folie selbst) tatsächlich Folienobjekte, die das Interface [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) implementieren. 
-* Daher können Folienmaster und Folienlayout dieselben Eigenschaften besitzen. Der Folienmaster wird zuerst auf die Folie angewendet, danach das Folienlayout. Hat beispielsweise sowohl der Folienmaster als auch das Folienlayout einen Hintergrundwert, übernimmt die Folie den Hintergrund des Folienlayouts. 
+
+* In Aspose.Slides sind alle Folieneinstellungen (Slide Master, Slide Layout und die Folie selbst) tatsächlich Folienobjekte, die das [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide)‑Interface implementieren.
+* Daher können Slide Master und Slide Layout dieselben Eigenschaften besitzen; Sie sollten wissen, wie deren Werte auf ein [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide)-Objekt angewendet werden. Zuerst wird der Slide Master auf die Folie angewendet, anschließend das Slide Layout. Hat beispielsweise sowohl der Slide Master als auch das Slide Layout einen Hintergrundwert, so endet die Folie mit dem Hintergrund des Slide Layouts.
+
 {{% /alert %}}
 
-## **Was ein Folienmaster enthält**
 
-Um zu verstehen, wie ein Folienmaster geändert werden kann, müssen Sie seine Bestandteile kennen. Das sind die Kerneigenschaften des [MasterSlide](https://reference.aspose.com/slides/androidjava/aspose.slides/masterslide/):
+## **Inhalt eines Slide Masters**
 
-- [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) – Liest/Schreibt den Folienhintergrund. 
-- [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) – Liest/Schreibt Textstile des Folienkörpers. 
-- [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getShapes--) – Liest/Schreibt alle Formen des Folienmasters (Platzhalter, Bildrahmen usw.). 
-- [getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getControls--) – Liest/Schreibt ActiveX‑Steuerelemente. 
-- [getThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterThemeable#getThemeManager--) – Liest den Theme‑Manager. 
-- [getHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) – Liest den Header‑ und Footer‑Manager. 
+Um zu verstehen, wie ein Slide Master geändert werden kann, müssen Sie dessen Bestandteile kennen. Dazu gehören die Kern‑Properties des [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/):
 
-Methoden des Folienmasters:
+- [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) – Liest/legt den Folienhintergrund fest.
+- [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) – Liest/legt Textstile des Folienkörpers fest.
+- [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getShapes--) – Liest/legt alle Formen des Slide Masters (Platzhalter, Bildrahmen usw.) fest.
+- [getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getControls--) – Liest/legt ActiveX‑Steuerelemente fest.
+- [getThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterThemeable#getThemeManager--) – Liest den Theme‑Manager.
+- [getHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) – Liest das Header‑ und Footer‑Management.
 
-- [getDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getDependingSlides--) – liefert alle Folien, die vom Folienmaster abhängen. 
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – ermöglicht das Erstellen eines neuen Folienmasters auf Basis des aktuellen Masters und eines neuen Themes; der neue Master wird anschließend auf alle abhängigen Folien angewendet. 
+Methoden des Slide Masters:
 
-## **Einen Folienmaster abrufen**
+- [getDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getDependingSlides--) – Ermittelt alle Folien, die vom Slide Master abhängen.
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – Erstellt einen neuen Slide Master auf Basis des aktuellen Masters und eines neuen Themes; der neue Master wird anschließend auf alle abhängigen Folien angewendet.
 
-In PowerPoint kann der Folienmaster über das Menü **Ansicht → Folienmaster** aufgerufen werden:
+
+## **Einen Slide Master abrufen**
+
+In PowerPoint kann man den Slide Master über das Menü **Ansicht → Folienmaster** öffnen:
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-Mit Aspose.Slides greifen Sie wie folgt auf einen Folienmaster zu: 
+
+
+Mit Aspose.Slides greifen Sie auf einen Slide Master folgendermaßen zu: 
 ```java
 Presentation pres = new Presentation();
 try {
-    // Gibt Zugriff auf den Master-Slide der Präsentation
+    // Gibt Zugriff auf die Master‑Folien der Präsentation
     IMasterSlide masterSlide = pres.getMasters().get_Item(0);
 } finally {
     pres.dispose();
@@ -125,17 +137,18 @@ try {
 ```
 
 
-Das Interface [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) repräsentiert einen Folienmaster. Die Eigenschaft [Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--) (bezogen auf den Typ [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection)) enthält eine Liste aller in der Präsentation definierten Folienmaster. 
+Das [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide)-Interface repräsentiert einen Slide Master. Die [Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--)‑Eigenschaft (bezogen auf den Typ [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection)) enthält eine Liste aller in der Präsentation definierten Slide Masters.
 
-## **Ein Bild zu einem Folienmaster hinzufügen**
 
-Wenn Sie ein Bild zu einem Folienmaster hinzufügen, wird dieses Bild auf allen Folien angezeigt, die von diesem Master abhängen. 
+## **Ein Bild zu einem Slide Master hinzufügen**
 
-Beispielsweise können Sie das Firmenlogo und einige weitere Bilder auf dem Folienmaster platzieren und anschließend in den Folien‑Bearbeitungsmodus zurückwechseln – das Bild erscheint dann auf jeder Folie. 
+Wird ein Bild zu einem Slide Master hinzugefügt, erscheint es auf allen Folien, die von diesem Master abhängen. 
+
+Beispielsweise können Sie das Firmenlogo und weitere Bilder auf dem Slide Master platzieren und anschließend in den Bearbeitungsmodus zurückkehren – das Bild wird auf jeder Folie sichtbar sein. 
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Bilder zu einem Folienmaster fügen Sie mit Aspose.Slides hinzu:
+Sie können Bilder zu einem Slide Master mit Aspose.Slides hinzufügen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -157,33 +170,45 @@ try {
 
 
 {{% alert color="primary" title="Siehe auch" %}} 
-Weitere Informationen zum Hinzufügen von Bildern zu einer Folie finden Sie im Artikel [Picture Frame](/slides/de/androidjava/picture-frame/#create-picture-frame). 
+
+Weitere Informationen zum Hinzufügen von Bildern zu einer Folie finden Sie im Artikel [Picture Frame](/slides/de/androidjava/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
-## **Einen Platzhalter zu einem Folienmaster hinzufügen**
 
-Diese Textfelder sind Standard‑Platzhalter auf einem Folienmaster: 
+## **Einen Platzhalter zu einem Slide Master hinzufügen**
 
-* Klick zum Bearbeiten des Master‑Titelstils  
-* Master‑Textstile bearbeiten  
-* Zweite Ebene  
-* Dritte Ebene  
+Diese Textfelder sind Standard‑Platzhalter auf einem Slide Master: 
 
-Sie erscheinen ebenfalls auf den von dem Folienmaster abgeleiteten Folien. Sie können diese Platzhalter auf dem Folienmaster bearbeiten und die Änderungen werden automatisch auf die Folien übertragen. 
+* Klick zum Bearbeiten des Master‑Titelstils
+* Master‑Textstile bearbeiten
+* Zweite Ebene
+* Dritte Ebene 
 
-In PowerPoint können Sie über **Folienmaster → Platzhalter einfügen** einen Platzhalter hinzufügen:
+Sie erscheinen auch auf Folien, die auf dem Slide Master basieren. Änderungen an diesen Platzhaltern auf dem Slide Master werden automatisch auf die Folien übernommen. 
+
+In PowerPoint können Sie einen Platzhalter über den Pfad **Slide Master → Platzhalter einfügen** hinzufügen:
+
+
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Ein etwas komplexeres Beispiel für Platzhalter mit Aspose.Slides sehen Sie unten. Eine Folie enthält Platzhalter, die aus dem Folienmaster stammen:
+
+
+Ein komplexeres Beispiel für Platzhalter mit Aspose.Slides sehen Sie hier: Eine Folie mit vom Slide Master vorgefertigten Platzhaltern:
+
+
 
 ![todo:image_alt_text](slide-master_6.png)
 
-Wir möchten die Titel‑ und Untertitel‑Formatierung auf dem Folienmaster wie folgt ändern:
+
+
+Wir wollen die Formatierung von Titel und Untertitel auf dem Slide Master wie folgt ändern:
 
 ![todo:image_alt_text](slide-master_7.png)
 
-Zunächst holen wir den Inhalt des Titel‑Platzhalters vom Folienmaster‑Objekt und nutzen anschließend das Feld `PlaceHolder.FillFormat`:
+
+
+Zunächst holen wir den Inhalt des Titel‑Platzhalters vom Slide Master‑Objekt und verwenden das Feld `PlaceHolder.FillFormat`:
 ```java
 public static void main(String[] args) {
     Presentation pres = new Presentation();
@@ -220,18 +245,23 @@ static IAutoShape findPlaceholder(IMasterSlide master, int type)
 ```
 
 
-Der Titelstil und die Formatierung ändern sich für alle Folien, die den Folienmaster verwenden:
+Der Titel‑Stil und die Formatierung ändern sich für alle Folien, die auf dem Slide Master basieren:
+
+
 
 ![todo:image_alt_text](slide-master_8.png)
 
 {{% alert color="primary" title="Siehe auch" %}} 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/androidjava/manage-placeholder/) 
-* [Text Formatting](https://docs.aspose.com/slides/androidjava/text-formatting/) 
+
+* [Prompt‑Text in Platzhaltern festlegen](https://docs.aspose.com/slides/androidjava/manage-placeholder/)
+* [Textformatierung](https://docs.aspose.com/slides/androidjava/text-formatting/)
+
 {{% /alert %}}
 
-## **Den Hintergrund eines Folienmasters ändern**
 
-Wenn Sie die Hintergrundfarbe eines Master‑Slides ändern, erhalten alle normalen Folien der Präsentation die neue Farbe. Dieser Java‑Code demonstriert die Vorgehensweise:
+## **Den Hintergrund eines Slide Masters ändern**
+
+Ändern Sie die Hintergrundfarbe eines Master‑Slides, erhalten alle normalen Folien in der Präsentation die neue Farbe. Der folgende Java‑Code demonstriert die Operation:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -248,13 +278,15 @@ try {
 
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/androidjava/presentation-background/) 
-- [Presentation Theme](https://docs.aspose.com/slides/androidjava/presentation-theme/) 
+
+- [Presentation Background](https://docs.aspose.com/slides/androidjava/presentation-background/)
+- [Presentation Theme](https://docs.aspose.com/slides/androidjava/presentation-theme/)
+
 {{% /alert %}}
 
-## **Einen Folienmaster in eine andere Präsentation klonen**
+## **Einen Slide Master in eine andere Präsentation klonen**
 
-Um einen Folienmaster in eine andere Präsentation zu klonen, rufen Sie die Methode [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) der Zielpräsentation auf und übergeben den zu klonenden Folienmaster. Dieser Java‑Code zeigt, wie ein Folienmaster in eine andere Präsentation geklont wird:
+Um einen Slide Master in eine andere Präsentation zu klonen, rufen Sie die [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)‑Methode der Zielpräsentation auf und übergeben den zu klonenden Slide Master. Der folgende Java‑Code zeigt, wie ein Slide Master geklont wird:
 ```java
 Presentation presSource = new Presentation();
 Presentation presTarget = new Presentation();
@@ -266,32 +298,35 @@ try {
 ```
 
 
-## **Mehrere Folienmaster zu einer Präsentation hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen mehrerer Folienmaster und Folienlayouts zu einer beliebigen Präsentation. Damit können Sie Stile, Layouts und Formatierungsoptionen für Präsentationsfolien auf vielfältige Weise festlegen. 
+## **Mehrere Slide Masters zu einer Präsentation hinzufügen**
 
-In PowerPoint können Sie neue Folienmaster und Layouts (über das **Folienmaster‑Menü**) folgendermaßen hinzufügen:
+Aspose.Slides ermöglicht das Hinzufügen mehrerer Slide Masters und Slide Layouts zu einer beliebigen Präsentation. Dadurch können Stile, Layouts und Formatierungsoptionen für Präsentationsfolien auf vielfältige Weise festgelegt werden. 
+
+In PowerPoint können Sie neue Slide Masters und Layouts (über das **Slide‑Master‑Menü**) wie folgt hinzufügen:
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-Mit Aspose.Slides fügen Sie einen neuen Folienmaster hinzu, indem Sie die Methode [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) aufrufen:
+Mit Aspose.Slides fügen Sie einen neuen Slide Master hinzu, indem Sie die [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)‑Methode verwenden:
 ```java
 // Fügt eine neue Masterfolie hinzu
 IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
 
 
-## **Folienmaster vergleichen**
 
-Ein Master‑Slide implementiert das Interface [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) mit der Methode [**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-), die zum Vergleich von Folien verwendet werden kann. Sie liefert `true`, wenn Master‑Slides in Struktur und statischem Inhalt identisch sind.
+## **Slide Masters vergleichen**
 
-Zwei Master‑Slides sind gleich, wenn ihre Formen, Stile, Texte, Animationen und weitere Einstellungen übereinstimmen. Der Vergleich berücksichtigt nicht die eindeutigen Kennungen (z. B. SlideId) und dynamische Inhalte (z. B. das aktuelle Datum in einem Datums‑Platzhalter). 
+Ein Master‑Slide implementiert das [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide)‑Interface mit der [**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-)‑Methode, die zum Vergleich von Folien verwendet werden kann. Sie liefert `true`, wenn Master‑Slides in Struktur und statischem Inhalt identisch sind.
 
-## **Einen Folienmaster als Standardansicht der Präsentation festlegen**
+Zwei Master‑Slides sind gleich, wenn ihre Formen, Stile, Texte, Animationen und weitere Einstellungen exakt übereinstimmen. Der Vergleich berücksichtigt keine eindeutigen Kennungen (z. B. SlideId) und keinen dynamischen Inhalt (z. B. aktuelles Datum in einem Datums‑Platzhalter).
 
-Aspose.Slides erlaubt das Festlegen eines Folienmasters als Standardansicht einer Präsentation. Die Standardansicht ist das, was Sie zuerst sehen, wenn Sie eine Präsentation öffnen. 
 
-Der folgende Code zeigt, wie ein Folienmaster in Java als Standardansicht einer Präsentation gesetzt wird:
+## **Slide Master als Standardansicht einer Präsentation festlegen**
+
+Aspose.Slides ermöglicht das Festlegen eines Slide Masters als Standardansicht einer Präsentation. Die Standardansicht ist das, was Sie zuerst sehen, wenn Sie eine Präsentation öffnen. 
+
+Der folgende Code zeigt, wie Sie in Java einen Slide Master als Standardansicht festlegen:
 ```java
 // Instanziiert eine Presentation-Klasse, die die Präsentationsdatei darstellt
 Presentation presentation = new Presentation();
@@ -307,9 +342,10 @@ try {
 ```
 
 
-## **Unbenutzte Master‑Slides entfernen**
 
-Aspose.Slides stellt die Methode [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (aus der Klasse [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)) bereit, um nicht mehr benötigte Master‑Slides zu löschen. Dieser Java‑Code zeigt, wie ein Master‑Slide aus einer PowerPoint‑Präsentation entfernt wird:
+## **Ungenutzte Master‑Slides entfernen**
+
+Aspose.Slides stellt die Methode [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) der [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)‑Klasse bereit, um unerwünschte und ungenutzte Master‑Slides zu löschen. Der folgende Java‑Code demonstriert das Entfernen eines Master‑Slides aus einer PowerPoint‑Präsentation:
 ```java
 Presentation pres = new Presentation("pres.pptx");
  try {
@@ -322,36 +358,44 @@ Presentation pres = new Presentation("pres.pptx");
 ```
 
 
+
 ## **FAQ**
 
-**Was ist ein Folienmaster in PowerPoint?**  
-Ein Folienmaster ist eine Folienvorlage, die Layout, Stile, Design, Schriften, Hintergrund und weitere Eigenschaften für Folien einer Präsentation definiert. Er ermöglicht das gleichzeitige Festlegen und Ändern des Aussehens aller Präsentationsfolien.  
+**Was ist ein Slide Master in PowerPoint?**
 
-**Wie wird ein Folienmaster in einer Präsentation angewendet?**  
-Jede Präsentation enthält standardmäßig mindestens einen Folienmaster. Beim Hinzufügen einer neuen Folie wird automatisch ein Folienmaster darauf angewendet, in der Regel der Master der vorherigen Folie. Eine Präsentation kann mehrere Folienmaster enthalten, um verschiedene Teile individuell zu gestalten.  
+Ein Slide Master ist eine Folienvorlage, die Layout, Stile, Themen, Schriften, Hintergrund und weitere Eigenschaften für Folien einer Präsentation definiert. Sie können damit das Aussehen aller Folien gleichzeitig festlegen und ändern.  
 
-**Welche Elemente können in einem Folienmaster angepasst werden?**  
-Ein Folienmaster besteht aus mehreren Kerneigenschaften, die angepasst werden können:
+**Wie wird ein Slide Master in einer Präsentation angewendet?**
 
-- **Background** : Hintergrund der Folie festlegen.  
-- **BodyStyle** : Textstile des Folienkörpers definieren.  
-- **Shapes** : Alle Formen auf dem Folienmaster verwalten, einschließlich Platzhaltern und Bildrahmen.  
-- **Controls** : ActiveX‑Steuerelemente handhaben.  
-- **ThemeManager** : Zugriff auf den Theme‑Manager.  
-- **HeaderFooterManager** : Kopf- und Fußzeilen verwalten.  
+Jede Präsentation enthält standardmäßig mindestens einen Slide Master. Beim Hinzufügen einer neuen Folie wird automatisch ein Slide Master darauf angewendet, meist der Master der vorherigen Folie. Eine Präsentation kann mehrere Slide Masters enthalten, um verschiedene Teile individuell zu gestalten.  
 
-**Wie füge ich ein Bild zu einem Folienmaster hinzu?**  
-Durch das Hinzufügen eines Bildes zu einem Folienmaster erscheint es auf allen Folien, die von diesem Master abhängen. Beispielsweise wird ein Firmenlogo, das auf dem Folienmaster platziert wird, auf jeder Folie der Präsentation angezeigt.  
+**Welche Elemente können in einem Slide Master angepasst werden?**
 
-**Wie stehen Folienmaster und Folienlayouts zueinander?**  
-Folienlayouts arbeiten zusammen mit Folienmastern, um Flexibilität im Foliendesign zu bieten. Der Folienmaster definiert globale Stile und Designs, während Folienlayouts Variationen in der Anordnung des Inhalts ermöglichen. Die Hierarchie lautet:
+Ein Slide Master besteht aus mehreren Kern‑Properties, die angepasst werden können:
 
-- **Folienmaster** → Definiert globale Stile.  
-- **Folienlayout** → Bietet unterschiedliche Inhaltsanordnungen.  
-- **Folie** → Erbt das Design vom zugewiesenen Folienlayout.  
+- **Background**: Folienhintergrund festlegen.
+- **BodyStyle**: Textstile des Folienkörpers definieren.
+- **Shapes**: Alle Formen auf dem Slide Master verwalten, inkl. Platzhalter und Bildrahmen.
+- **Controls**: ActiveX‑Steuerelemente verwalten.
+- **ThemeManager**: Zugriff auf den Theme‑Manager.
+- **HeaderFooterManager**: Header‑ und Footer‑Verwaltung.  
 
-**Kann ich mehrere Folienmaster in einer einzigen Präsentation haben?**  
-Ja, eine Präsentation kann mehrere Folienmaster enthalten. Dies ermöglicht das unterschiedlich gestylte Gestalten verschiedener Abschnitte einer Präsentation und bietet Design‑Flexibilität.  
+**Wie füge ich ein Bild zu einem Slide Master hinzu?**
 
-**Wie greife ich in Aspose.Slides auf einen Folienmaster zu und ändere ihn?**  
-In Aspose.Slides wird ein Folienmaster durch das Interface [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) repräsentiert. Sie können einen Folienmaster über die Methode [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) des [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Objekts abrufen.
+Ein Bild, das Sie zu einem Slide Master hinzufügen, erscheint auf allen Folien, die von diesem Master abhängen. Beispiel: Das Firmenlogo auf dem Slide Master wird auf jeder Folie der Präsentation angezeigt.  
+
+**Wie stehen Slide Masters zu Slide Layouts?**
+
+Slide Layouts arbeiten zusammen mit Slide Masters, um Flexibilität im Foliendesign zu bieten. Während ein Slide Master globale Stile und Themen definiert, ermöglichen Slide Layouts Variationen in der Anordnung des Inhalts. Die Hierarchie lautet:
+
+- **Slide Master** → Definiert globale Stile.
+- **Slide Layout** → Bietet unterschiedliche Inhaltsanordnungen.
+- **Slide** → Erbt das Design vom zugewiesenen Slide Layout.
+
+**Kann ich mehrere Slide Masters in einer einzelnen Präsentation haben?**
+
+Ja, eine Präsentation kann mehrere Slide Masters enthalten. Dadurch lassen sich verschiedene Abschnitte einer Präsentation unterschiedlich gestalten, was mehr Design‑Flexibilität bietet.  
+
+**Wie greife ich mit Aspose.Slides auf einen Slide Master zu und ändere ihn?**
+
+In Aspose.Slides wird ein Slide Master durch das [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/)‑Interface repräsentiert. Sie können einen Slide Master über die [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--)‑Methode des [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Objekts abrufen.

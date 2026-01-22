@@ -1,19 +1,19 @@
 ---
-title: Verwalten von Präsentationskommentaren auf Android
+title: Verwalten von Präsentationskommentaren unter Android
 linktitle: Präsentationskommentare
 type: docs
 weight: 100
 url: /de/androidjava/presentation-comments/
 keywords:
-- kommentar
-- moderner kommentar
+- Kommentar
+- moderner Kommentar
 - PowerPoint-Kommentare
 - Präsentationskommentare
 - Folienkommentare
 - Kommentar hinzufügen
-- Kommentar lesen
+- Kommentar abrufen
 - Kommentar bearbeiten
-- Kommentar beantworten
+- Antwortkommentar
 - Kommentar entfernen
 - Kommentar löschen
 - PowerPoint
@@ -25,23 +25,23 @@ keywords:
 description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für Android via Java: Kommentare in PowerPoint-Dateien schnell und einfach hinzufügen, lesen, bearbeiten und löschen."
 ---
 
-In PowerPoint erscheint ein Kommentar als Notiz oder Anmerkung auf einer Folie. Wenn ein Kommentar angeklickt wird, werden dessen Inhalt oder Nachrichten angezeigt. 
+In PowerPoint wird ein Kommentar als Notiz oder Anmerkung auf einer Folie angezeigt. Wenn ein Kommentar angeklickt wird, werden dessen Inhalt oder Nachrichten angezeigt. 
 
 ### **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Möglicherweise möchten Sie Kommentare verwenden, um Feedback zu geben oder mit Ihren Kollegen zu kommunizieren, wenn Sie Präsentationen überprüfen.
+Vielleicht möchten Sie Kommentare verwenden, um Feedback zu geben oder mit Ihren Kollegen zu kommunizieren, wenn Sie Präsentationen überprüfen.
 
-Um Ihnen die Verwendung von Kommentaren in PowerPoint-Präsentationen zu ermöglichen, bietet Aspose.Slides für Android via Java
+Um Ihnen die Verwendung von Kommentaren in PowerPoint‑Präsentationen zu ermöglichen, bietet Aspose.Slides für Android via Java:
 
-* Die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Sammlungen von Autoren enthält (aus der [ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection)-Schnittstelle). Die Autoren fügen Folien Kommentare hinzu.
+* Die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Sammlungen von Autoren (aus der [ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection)-Schnittstelle) enthält. Die Autoren fügen Folien Kommentare hinzu.
 * Die [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection)-Schnittstelle, die die Sammlung von Kommentaren für einzelne Autoren enthält.
-* Die [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)-Klasse, die Informationen zu Autoren und deren Kommentaren enthält: wer den Kommentar hinzugefügt hat, wann der Kommentar hinzugefügt wurde, die Position des Kommentars usw.
-* Die [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentAuthor)-Klasse, die Informationen zu einzelnen Autoren enthält: den Namen des Autors, seine Initialen, mit dem Namen des Autors verbundene Kommentare usw.
+* Die [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)-Klasse, die Informationen über Autoren und deren Kommentare enthält: wer den Kommentar hinzugefügt hat, wann der Kommentar hinzugefügt wurde, die Position des Kommentars usw.
+* Die [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentAuthor)-Klasse, die Informationen über einzelne Autoren enthält: den Namen des Autors, dessen Initialen, mit dem Autorennamen verbundene Kommentare usw.
 
 ## **Einen Folienkommentar hinzufügen**
-Dieser Java-Code zeigt, wie Sie einen Kommentar zu einer Folie in einer PowerPoint-Präsentation hinzufügen:
+Dieser Java‑Code zeigt, wie Sie einen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
 ```java
-// Instanziert die Presentation-Klasse
+// Instanziiert die Presentation-Klasse
 Presentation pres = new Presentation();
 try {
     // Fügt eine leere Folie hinzu
@@ -65,14 +65,14 @@ try {
     // Wenn null als Argument übergeben wird, werden Kommentare aller Autoren zur ausgewählten Folie gebracht
     IComment[] Comments = slide.getSlideComments(author);
 
-    // Greift auf den Kommentar an Index 0 für Folie 1 zu
+    // Greift auf den Kommentar am Index 0 für Folie 1 zu
     String str = Comments[0].getText();
 
     pres.save("Comments_out.pptx", SaveFormat.Pptx);
 
     if (Comments.length > 0)
     {
-        // Wählt die Kommentar Sammlung des Autors an Index 0 aus
+        // Wählt die Kommentare des Autorsammlung am Index 0 aus
         ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
         String Comment = commentCollection.get_Item(0).getText();
     }
@@ -83,9 +83,9 @@ try {
 
 
 ## **Auf Folienkommentare zugreifen**
-Dieser Java-Code zeigt, wie Sie auf einen vorhandenen Kommentar einer Folie in einer PowerPoint-Präsentation zugreifen:
+Dieser Java‑Code zeigt, wie Sie auf einen vorhandenen Kommentar einer Folie in einer PowerPoint‑Präsentation zugreifen:
 ```java
-// Instanziert die Presentation-Klasse
+// Instanziiert die Presentation-Klasse
 Presentation pres = new Presentation("Comments1.pptx");
 try {
     for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
@@ -105,10 +105,9 @@ try {
 
 
 ## **Antwortkommentare**
+Ein übergeordneter Kommentar ist der oberste bzw. ursprüngliche Kommentar in einer Hierarchie von Kommentaren oder Antworten. Mit den Methoden [getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#getParentComment--) oder [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (aus der [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)-Schnittstelle) können Sie einen übergeordneten Kommentar festlegen oder abrufen.
 
-Ein Elternkommentar ist der oberste oder ursprüngliche Kommentar in einer Hierarchie von Kommentaren oder Antworten. Mit den Methoden [getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#getParentComment--) oder [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (aus der [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)-Schnittstelle) können Sie einen Elternkommentar setzen oder abrufen.
-
-Dieser Java-Code zeigt, wie Sie Kommentare hinzufügen und Antworten darauf erhalten:
+Dieser Java‑Code zeigt, wie Sie Kommentare hinzufügen und Antworten darauf erhalten:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -152,7 +151,7 @@ try {
     }
     pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Entfernt Kommentar1 und alle dazugehörigen Antworten
+    // Entfernt Kommentar1 und alle Antworten darauf
     comment1.remove();
 
     pres.save("remove_comment.pptx",SaveFormat.Pptx);
@@ -162,20 +161,21 @@ try {
 ```
 
 
+
 {{% alert color="warning" title="Achtung" %}} 
 
-* Wenn die Methode [Remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#remove--) (aus der [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)-Schnittstelle) verwendet wird, um einen Kommentar zu löschen, werden auch die Antworten auf den Kommentar gelöscht.
-* Führt die Einstellung [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) zu einer zirkulären Referenz, wird [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) ausgelöst.
+* Wenn die [Remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#remove--)‑Methode (aus der [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)-Schnittstelle) verwendet wird, um einen Kommentar zu löschen, werden auch die Antworten auf diesen Kommentar gelöscht.
+* Führt die Einstellung [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) zu einer zirkulären Referenz, wird eine [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) ausgelöst.
 
 {{% /alert %}}
 
 ## **Einen modernen Kommentar hinzufügen**
 
-Im Jahr 2021 hat Microsoft *moderne Kommentare* in PowerPoint eingeführt. Die Funktion moderner Kommentare verbessert die Zusammenarbeit in PowerPoint erheblich. Durch moderne Kommentare können PowerPoint‑Benutzer Kommentare lösen, Kommentare an Objekten und Texten verankern und viel einfacher interagieren als zuvor. 
+Im Jahr 2021 hat Microsoft *moderne Kommentare* in PowerPoint eingeführt. Die Funktion moderne Kommentare verbessert die Zusammenarbeit in PowerPoint erheblich. Durch moderne Kommentare können PowerPoint‑Benutzer Kommentare auflösen, Kommentare an Objekten und Texten verankern und viel einfacher miteinander interagieren als zuvor. 
 
-In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-21-11-release-notes/) haben wir die Unterstützung für moderne Kommentare implementiert, indem wir die [ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment)-Klasse hinzugefügt haben. Die Methoden [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) und [insertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) wurden zur [CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection)-Klasse hinzugefügt.
+Aspose.Slides unterstützt moderne Kommentare über die [ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment)-Klasse. Die Methoden [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) und [insertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) wurden zur [CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection)-Klasse hinzugefügt.
 
-Dieser Java-Code zeigt, wie Sie einen modernen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen: 
+Dieser Java‑Code zeigt, wie Sie einen modernen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen: 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -193,7 +193,7 @@ try {
 
 ### **Alle Kommentare und Autoren löschen**
 
-Dieser Java-Code zeigt, wie Sie alle Kommentare und Autoren in einer Präsentation entfernen:
+Dieser Java‑Code zeigt, wie Sie alle Kommentare und Autoren in einer Präsentation entfernen:
 ```java
 Presentation presentation = new Presentation("example.pptx");
 try {
@@ -215,7 +215,7 @@ try {
 
 ### **Bestimmte Kommentare löschen**
 
-Dieser Java-Code zeigt, wie Sie bestimmte Kommentare auf einer Folie löschen:
+Dieser Java‑Code zeigt, wie Sie bestimmte Kommentare auf einer Folie löschen:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -226,7 +226,7 @@ try {
     author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
     author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
 
-    // Alle Kommentare entfernen, die den Text "comment 1" enthalten
+    // Entfernt alle Kommentare, die den Text "comment 1" enthalten
     for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
     {
         ArrayList<IComment> toRemove = new ArrayList<IComment>();
@@ -255,12 +255,12 @@ try {
 
 **Unterstützt Aspose.Slides einen Status wie „gelöst“ für moderne Kommentare?**
 
-Ja. [Modern comments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/) stellen eine [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-)‑Methode bereit; Sie können einen [Kommentar‑Zustand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) festlegen (z. B. als gelöst markieren), und dieser Zustand wird in der Datei gespeichert und von PowerPoint erkannt.
+Ja. [Moderne Kommentare](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/) stellen eine [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-)‑Methode bereit; Sie können den [Status eines Kommentars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) festlegen (z. B. ihn als gelöst markieren), und dieser Status wird in der Datei gespeichert und von PowerPoint erkannt.
 
-**Werden Thread‑Diskussionen (Antwortketten) unterstützt und gibt es ein Verschachtelungs‑Limit?**
+**Werden verschachtelte Diskussionen (Antwortketten) unterstützt, und gibt es ein Begrenzungsniveau?**
 
-Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/comment/#getParentComment--) verweisen, wodurch beliebige Antwortketten ermöglicht werden. Die API gibt keine spezifische Begrenzung der Verschachtelungstiefe vor.
+Ja. Jeder Kommentar kann auf seinen [übergeordneten Kommentar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/comment/#getParentComment--) verweisen, wodurch beliebige Antwortketten ermöglicht werden. Die API legt kein konkretes Begrenzungsniveau für die Verschachtelungstiefe fest.
 
-**In welchem Koordinatensystem ist die Position eines Kommentar‑Markers auf einer Folie definiert?**
+**In welchem Koordinatensystem ist die Position eines Kommentarmarkers auf einer Folie definiert?**
 
-Die Position wird als Fließkomma‑Punkt im Koordinatensystem der Folie gespeichert. Dadurch können Sie den Kommentar‑Marker genau dort platzieren, wo Sie ihn benötigen.
+Die Position wird als Gleitkommapunkt im Koordinatensystem der Folie gespeichert. Dadurch können Sie den Kommentarmarker exakt dort platzieren, wo Sie ihn benötigen.

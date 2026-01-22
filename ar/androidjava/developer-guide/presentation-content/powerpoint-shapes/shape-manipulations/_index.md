@@ -1,5 +1,5 @@
 ---
-title: إدارة أشكال العروض التقديمية على Android
+title: إدارة أشكال العرض التقديمي على Android
 linktitle: معالجة الأشكال
 type: docs
 weight: 40
@@ -7,16 +7,16 @@ url: /ar/androidjava/shape-manipulations/
 keywords:
 - شكل PowerPoint
 - شكل العرض التقديمي
-- شكل على الشريحة
-- العثور على شكل
-- استنساخ شكل
-- إزالة شكل
-- إخفاء شكل
+- شكل في الشريحة
+- البحث عن شكل
+- نسخ الشكل
+- إزالة الشكل
+- إخفاء الشكل
 - تغيير ترتيب الشكل
-- الحصول على معرف Interop للشكل
+- الحصول على معرّف الشكل التفاعلي
 - النص البديل للشكل
 - تنسيقات تخطيط الشكل
-- الشكل كـ SVG
+- شكل كـ SVG
 - تحويل الشكل إلى SVG
 - محاذاة الشكل
 - PowerPoint
@@ -24,13 +24,13 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتحرير وتحسين الأشكال في Aspose.Slides للـ Android عبر Java وتقديم عروض PowerPoint عالية الأداء."
+description: "تعلم كيفية إنشاء وتحرير وتحسين الأشكال في Aspose.Slides لـ Android عبر Java وتقديم عروض PowerPoint عالية الأداء."
 ---
 
-## **ابحث عن شكل على الشريحة**
-سوف يصف هذا الموضوع تقنية بسيطة لتسهيل عملية العثور على شكل محدد في الشريحة للمطورين دون استخدام المعرف الداخلي الخاص به. من المهم معرفة أن ملفات عرض PowerPoint لا تحتوي على أي طريقة لتحديد الأشكال في الشريحة سوى المعرف الفريد الداخلي. يبدو أن العثور على شكل باستخدام المعرف الفريد الداخلي صعب بالنسبة للمطورين. جميع الأشكال المضافة إلى الشرائح تحتوي على نص بديل. نقترح على المطورين استخدام النص البديل للعثور على شكل محدد. يمكنك استخدام MS PowerPoint لتحديد النص البديل للكائنات التي تخطط لتغييرها في المستقبل.
+## **العثور على شكل في شريحة**
+سيتناول هذا الموضوع تقنية بسيطة لتسهيل عملية العثور على شكل محدد في شريحة دون الحاجة إلى استخدام معرفه الداخلي. من المهم معرفة أن ملفات PowerPoint لا تحتوي على أي طريقة لتحديد الأشكال في الشريحة باستثناء معرف فريد داخلي. يبدو أن المطورين يواجهون صعوبة في العثور على شكل باستخدام معرفه الفريد الداخلي. جميع الأشكال المضافة إلى الشرائح تحتوي على نص بديل. نقترح على المطورين استخدام النص البديل للعثور على شكل معين. يمكنك استخدام MS PowerPoint لتحديد النص البديل للكائنات التي تخطط لتغييرها في المستقبل.
 
-بعد تعيين النص البديل لأي شكل مرغوب، يمكنك بعد ذلك فتح هذا العرض باستخدام Aspose.Slides للـ Android عبر Java وتتجول عبر جميع الأشكال المضافة إلى شريحة. خلال كل تكرار، يمكنك فحص النص البديل للشكل وسيكون الشكل الذي يمتلك النص البديل المطابق هو الشكل المطلوب. لتوضيح هذه التقنية بشكل أفضل، أنشأنا طريقة، [findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) التي تقوم بالعثور على شكل محدد في شريحة وتُرجع ذلك الشكل ببساطة.
+بعد تعيين النص البديل لأي شكل مطلوب، يمكنك فتح ذلك العرض التقديمي باستخدام Aspose.Slides for Android via Java والمرور عبر جميع الأشكال المضافة إلى شريحة. أثناء كل تكرار، يمكنك فحص النص البديل لل shape، وسيكون الشكل الذي يطابق النص البديل هو الشكل المطلوب. لتوضيح هذه التقنية بطريقة أفضل، قمنا بإنشاء طريقة [findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) تقوم بالمهمة للعثور على شكل معين في شريحة وتعيد ذلك الشكل ببساطة.
 ```java
 // إنشاء كائن من فئة Presentation يمثل ملف العرض التقديمي
 Presentation pres = new Presentation("FindingShapeInSlide.pptx");
@@ -49,7 +49,7 @@ try {
 ```
 
 ```java
-// تنفيذ طريقة للعثور على شكل في شريحة باستخدام النص البديل لها
+// تنفيذ طريقة للعثور على شكل في شريحة باستخدام النص البديل
 public static IShape findShape(ISlide slide, String alttext)
 {
     // التكرار عبر جميع الأشكال داخل الشريحة
@@ -66,14 +66,16 @@ public static IShape findShape(ISlide slide, String alttext)
 
 
 ## **استنساخ شكل**
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. الحصول على مرجع شريحة باستخدام فهرستها.
-1. الوصول إلى مجموعة أشكال الشريحة المصدر.
-1. إضافة شريحة جديدة إلى العرض.
-1. استنساخ الأشكال من مجموعة أشكال الشريحة المصدر إلى الشريحة الجديدة.
-1. حفظ العرض المعدل كملف PPTX.
+لاستنساخ شكل إلى شريحة باستخدام Aspose.Slides for Android via Java:
 
-المثال أدناه يضيف شكل مجموعة إلى شريحة.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. الحصول على مرجع الشريحة باستخدام فهارسها.
+1. الوصول إلى مجموعة أشكال الشريحة المصدر.
+1. إضافة شريحة جديدة إلى العرض التقديمي.
+1. استنساخ الأشكال من مجموعة أشكال الشريحة المصدر إلى الشريحة الجديدة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+المثال أدناه يضيف مجموعة أشكال إلى شريحة.
 ```java
 // إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation("Source Frame.pptx");
@@ -86,7 +88,7 @@ try {
     destShapes.addClone(sourceShapes.get_Item(2));
     destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
-    // حفظ ملف PPTX إلى القرص
+    // كتابة ملف PPTX إلى القرص
     pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -95,11 +97,11 @@ try {
 
 
 ## **إزالة شكل**
-يسمح Aspose.Slides للـ Android عبر Java للمطورين بإزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
+يسمح Aspose.Slides for Android via Java للمطورين بإزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
-1. البحث عن الشكل بنص بديل محدد.
+1. العثور على الشكل بالنص البديل المحدد.
 1. إزالة الشكل.
 1. حفظ الملف إلى القرص.
 ```java
@@ -109,7 +111,7 @@ try {
     // الحصول على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // إضافة AutoShape من نوع مستطيل
+    // إضافة شكل تلقائي من النوع مستطيل
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
@@ -133,21 +135,21 @@ try {
 
 
 ## **إخفاء شكل**
-يسمح Aspose.Slides للـ Android عبر Java للمطورين بإخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
+يسمح Aspose.Slides for Android via Java للمطورين بإخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
-1. البحث عن الشكل بنص بديل محدد.
+1. العثور على الشكل بالنص البديل المحدد.
 1. إخفاء الشكل.
 1. حفظ الملف إلى القرص.
 ```java
-// إنشاء كائن من فئة Presentation يمثل ملف PPTX
+// إنشاء كائن Presentation يمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // الحصول على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // إضافة AutoShape من نوع مستطيل
+    // إضافة شكل تلقائي من نوع مستطيل
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
@@ -171,12 +173,12 @@ try {
 
 
 ## **تغيير ترتيب الشكل**
-يسمح Aspose.Slides للـ Android عبر Java للمطورين بإعادة ترتيب الأشكال. يحدد إعادة ترتيب الشكل أي شكل يكون في المقدمة أو في الخلف. لإعادة ترتيب الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
+يسمح Aspose.Slides for Android via Java للمطورين بإعادة ترتيب الأشكال. يحدد إعادة ترتيب الشكل أي شكل يكون في المقدمة أو في الخلفية. لإعادة ترتيب الشكل في أي شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
 1. إضافة شكل.
-1. إضافة بعض النص إلى إطار النص الخاص بالشكل.
+1. إضافة نص إلى إطار نص الشكل.
 1. إضافة شكل آخر بنفس الإحداثيات.
 1. إعادة ترتيب الأشكال.
 1. حفظ الملف إلى القرص.
@@ -203,8 +205,8 @@ try {
 ```
 
 
-## **الحصول على معرف Interop للشكل**
-يسمح Aspose.Slides للـ Android عبر Java للمطورين بالحصول على معرّف شكل فريد ضمن نطاق الشريحة بالمقارنة مع طريقة [getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--)، التي تسمح بالحصول على معرّف فريد ضمن نطاق العرض. تمت إضافة طريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) إلى واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) وفئة [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape). القيمة التي تُرجعها طريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) تتطابق مع قيمة المعرف لكائن Microsoft.Office.Interop.PowerPoint.Shape. أدناه عينة من الشفرة.
+## **الحصول على معرف الشكل التفاعلي**
+يسمح Aspose.Slides for Android via Java للمطورين بالحصول على معرف شكل فريد في نطاق الشريحة بالمقابل مع طريقة [getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--) التي تسمح بالحصول على معرف فريد في نطاق العرض التقديمي. تم إضافة الطريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) إلى واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) وفئة [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) على التوالي. القيمة المرجعة من طريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) تتطابق مع قيمة معرف كائن Microsoft.Office.Interop.PowerPoint.Shape. أدناه مثال على الشيفرة.
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -217,24 +219,28 @@ try {
 ```
 
 
-## **تعيين النص البديل لشكل**
-يسمح Aspose.Slides للـ Android عبر Java للمطورين بتعيين AlternateText لأي شكل. يمكن تمييز الأشكال في عرض بواسطة طريقة [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) أو طريقة [Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-). يمكن قراءة أو تعيين الطريقتين [setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) و [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) باستخدام Aspose.Slides وكذلك Microsoft PowerPoint. باستخدام هذه الطريقة، يمكنك وسم شكل وتنفيذ عمليات مختلفة مثل إزالة الشكل، إخفاء الشكل أو إعادة ترتيب الأشكال في شريحة. لتعيين AlternateText لشكل، يرجى اتباع الخطوات التالية:
+## **تعيين نص بديل لشكل**
+يسمح Aspose.Slides for Android via Java للمطورين بتعيين AlternativeText لأي شكل.
+يمكن تمييز الأشكال في العرض التقديمي باستخدام طريقة [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) أو [Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-).
+يمكن قراءة أو تعيين طريقتي [setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) و [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) باستخدام Aspose.Slides وكذلك Microsoft PowerPoint.
+باستخدام هذه الطريقة، يمكنك وسم الشكل وإجراء عمليات مختلفة مثل إزالة الشكل، إخفاء الشكل أو إعادة ترتيب الأشكال على الشريحة.
+لتعيين AlternativeText لشكل، يرجى اتباع الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 1. الوصول إلى الشريحة الأولى.
 1. إضافة أي شكل إلى الشريحة.
-1. تنفيذ بعض الأعمال مع الشكل المضاف حديثاً.
-1. التنقل عبر الأشكال للعثور على الشكل.
+1. القيام ببعض العمل مع الشكل المضاف حديثًا.
+1. المرور عبر الأشكال للعثور على الشكل.
 1. تعيين AlternativeText.
 1. حفظ الملف إلى القرص.
 ```java
-// إنشاء كائن من فئة Presentation يمثل ملف PPTX
+// إنشاء كائن Presentation يمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // الحصول على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // إضافة AutoShape من نوع مستطيل
+    // إضافة شكل تلقائي من نوع مستطيل
     IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
     shp2.getFillFormat().setFillType(FillType.Solid);
@@ -258,9 +264,9 @@ try {
 
 
 ## **الوصول إلى تنسيقات التخطيط لشكل**
-يوفر Aspose.Slides للـ Android عبر Java واجهة برمجة تطبيقات بسيطة للوصول إلى تنسيقات التخطيط لشكل. توضح هذه المقالة كيفية الوصول إلى تنسيقات التخطيط.
+يوفر Aspose.Slides for Android via Java واجهة برمجة تطبيقات بسيطة للوصول إلى تنسيقات التخطيط لشكل. يوضح هذا المقال كيفية الوصول إلى تنسيقات التخطيط.
 
-العينة التالية من الشفرة موضحة.
+أدناه مثال على الشيفرة.
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -278,8 +284,8 @@ try {
 ```
 
 
-## **تحويل شكل إلى SVG**
-الآن يدعم Aspose.Slides للـ Android عبر Java تحويل شكل إلى SVG. تمت إضافة طريقة [writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (وإصدارها المتعدد) إلى فئة [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) وواجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape). تسمح هذه الطريقة بحفظ محتوى الشكل كملف SVG. يُظهر مقتطف الشفرة أدناه كيفية تصدير شكل الشريحة إلى ملف SVG.
+## **تصيير شكل كملف SVG**
+الآن يدعم Aspose.Slides for Android via Java تصيير شكل كملف SVG. تمت إضافة طريقة [writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (وتجاوزاتها) إلى فئة [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) وواجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape). تسمح هذه الطريقة بحفظ محتوى الشكل كملف SVG. يوضح المقتطف البرمجي أدناه كيفية تصدير شكل الشريحة إلى ملف SVG.
 ```java
 Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -297,11 +303,11 @@ try {
 
 
 ## **محاذاة شكل**
-يسمح Aspose.Slides بمحاذاة الأشكال إما بالنسبة لهوامش الشريحة أو بالنسبة لبعضها البعض. لهذا الغرض، تمت إضافة الطريقة المحملة بالعديد من المعلمات [SlidesUtil.alignShape()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-). تحدد enumeration [ShapesAlignmentType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) خيارات المحاذاة الممكنة.
+يسمح Aspose.Slides بمحاذاة الأشكال إما بالنسبة لهوامش الشريحة أو بالنسبة لبعضها البعض. لهذا الغرض، تمت إضافة طريقة [SlidesUtil.alignShape()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) المتعددة التحميلات. تحدد تعداد [ShapesAlignmentType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) خيارات المحاذاة الممكنة.
 
 **مثال 1**
 
-الشفرة المصدرية أدناه تحاذي الأشكال ذات الفهارس 1 و2 و4 على الحافة العليا للشريحة.
+الكود المصدر أدناه يحاذي الأشكال ذات الفهارس 1 و2 و4 على الحد العلوي للشريحة.
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -324,7 +330,7 @@ try {
 
 **مثال 2**
 
-المثال أدناه يوضح كيفية محاذاة مجموعة الأشكال بالكامل بالنسبة إلى الشكل الأدنى في المجموعة.
+المثال أدناه يوضح كيفية محاذاة مجموعة الأشكال بأكملها بالنسبة للشكل الأسفل في المجموعة.
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -336,26 +342,27 @@ try {
 
 
 ## **خصائص الانعكاس**
-في Aspose.Slides، توفر فئة [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) التحكم في الانعكاس الأفقي والرأسي للأشكال عبر خصائصها `flipH` و `flipV`. كلا الخصيصتين من النوع `byte`، حيث القيم `1` تعني انعكاس، `0` لا انعكاس، أو `-1` لاستخدام السلوك الافتراضي. هذه القيم يمكن الوصول إليها من خلال [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--).
 
-لتعديل إعدادات الانعكاس، يتم إنشاء مثيل جديد من [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) باستخدام الموقع والحجم الحاليين للشكل، القيم المطلوبة لـ `flipH` و `flipV`، وزاوية الدوران. تعيين هذا المثيل إلى [Frame] الخاص بالشكل وحفظ العرض يطبق التحولات الانعكاسية ويضيفها إلى ملف الإخراج.
+في Aspose.Slides، توفر الفئة [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) التحكم في انعكاس الشكل أفقيًا وعموديًا عبر خاصيتي `flipH` و `flipV`. كلتا الخصيتين من نوع `byte`، حيث تشير القيمة `1` إلى انعكاس، `0` إلى عدم الانعكاس، أو `-1` لاستخدام السلوك الافتراضي. يمكن الوصول إلى هذه القيم من خلال [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) الخاص بالشكل.
 
-لنفترض أن لدينا ملف sample.pptx يحتوي على شريحة أولى بها شكل واحد بإعدادات الانعكاس الافتراضية، كما هو موضح أدناه.
+لتعديل إعدادات الانعكاس، يُنشأ كائن جديد من [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) باستخدام موضع الشكل الحالي وحجمه، والقيم المطلوبة لـ `flipH` و `flipV`، وزاوية الدوران. يُعيّن هذا الكائن إلى [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) الخاص بالشكل، ثم يُحفظ العرض التقديمي لتطبيق التحويلات وتأكيدها في ملف الإخراج.
+
+لنفترض أن لدينا ملف sample.pptx يحتوي على الشريحة الأولى التي تضم شكلًا واحدًا بإعدادات انعكاس افتراضية، كما هو موضح أدناه.
 
 ![The shape to be flipped](shape_to_be_flipped.png)
 
-الشيفرة التالية تسترجع خصائص الانعكاس الحالية للشكل وتقوم بعكسه أفقياً ورأسياً.
+الكود التالي يسترجع خصائص الانعكاس الحالية للشكل ويقوم بإنعكاسه أفقياً وعمودياً.
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IShape shape = slide.getShapes().get_Item(0);
 
-    // استرداد خاصية القلب الأفقي للشكل.
+    // استرجاع خاصية الانعكاس الأفقي للشكل.
     byte horizontalFlip = shape.getFrame().getFlipH();
     System.out.println("Horizontal flip: " + horizontalFlip);
 
-    // استرداد خاصية القلب العمودي للشكل.
+    // استرجاع خاصية الانعكاس العمودي للشكل.
     byte verticalFlip = shape.getFrame().getFlipV();
     System.out.println("Vertical flip: " + verticalFlip);
 
@@ -363,8 +370,8 @@ try {
     float y = shape.getFrame().getY();
     float width = shape.getFrame().getWidth();
     float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // قلب أفقي.
-    byte flipV = NullableBool.True; // قلب أفقي.
+    byte flipH = NullableBool.True; // انعكاس أفقي.
+    byte flipV = NullableBool.True; // انعكاس أفقي.
     float rotation = shape.getFrame().getRotation();
 
     shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
@@ -376,18 +383,20 @@ try {
 ```
 
 
+النتيجة:
+
 ![The flipped shape](flipped_shape.png)
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني دمج الأشكال (اتحاد/تقاطع/طرح) على شريحة كما في محرر سطح المكتب؟**
+**هل يمكنني دمج الأشكال (اتحاد/تقاطع/طرح) في شريحة كما هو موجود في محرر سطح المكتب؟**
 
-ليس هناك واجهة برمجة تطبيقات مدمجة للعمليات البوليانية. يمكنك تقريب ذلك بإنشاء المخطط المطلوب بنفسك—مثلاً حساب الهندسة الناتجة (باستخدام [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)) وإنشاء شكل جديد بذلك المخطط، مع إمكانية إزالة الأشكال الأصلية.
+لا توجد واجهة برمجة تطبيقات للعمليات البوليانية مدمجة. يمكنك تقريب ذلك بإنشاء المخطط المطلوب بنفسك—مثلاً حساب الهندسة الناتجة عبر [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) وإنشاء شكل جديد بهذا الحد، مع إمكانية إزالة الأشكال الأصلية.
 
-**كيف يمكنني التحكم بترتيب الرفع (z-order) بحيث يبقى الشكل دائماً "في الأعلى"؟**
+**كيف يمكنني التحكم في ترتيب الطبقات (z-order) بحيث يبقى الشكل دائمًا "في الأعلى"؟**
 
-غيّر ترتيب الإدراج/النقل داخل مجموعة [shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) الخاصة بالشريحة. للحصول على نتائج متوقعة، أنهِ ترتيب z-order بعد إتمام جميع التعديلات الأخرى على الشريحة.
+غيّر ترتيب الإدخال/النقل داخل مجموعة [shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) الخاصة بالشريحة. للحصول على نتائج متوقعة، أكمل ترتيب z-order بعد جميع تعديلات الشريحة الأخرى.
 
-**هل يمكنني "قفل" شكل لمنع المستخدمين من تحريره في PowerPoint؟**
+**هل يمكنني "قفل" شكل لمنع المستخدمين من تعديله في PowerPoint؟**
 
-نعم. عيّن [علامات حماية على مستوى الشكل](/slides/ar/androidjava/applying-protection-to-presentation/) (مثل قفل التحديد، التحريك، تغيير الحجم، تحرير النص). إذا لزم الأمر، طبق القيود على القالب أو التخطيط. لاحظ أن هذه الحماية على مستوى واجهة المستخدم، وليست خاصية أمان؛ لتعزيز الحماية، يمكن دمجها مع قيود على مستوى الملف مثل [توصيات القراءة فقط أو كلمات المرور](/slides/ar/androidjava/password-protected-presentation/).
+نعم. عيّن أعلام حماية على مستوى الشكل (مثل قفل التحديد، الحركة، تغيير الحجم، تعديل النص). إذا لزم الأمر، يمكنك تطبيق قيود مماثلة على القالب أو التخطيط. لاحظ أن هذا حماية على مستوى واجهة المستخدم، وليس ميزة أمان؛ للحصول على حماية أقوى، اجمعها مع قيود على مستوى الملف مثل [توصيات القراءة فقط أو كلمات المرور](/slides/ar/androidjava/password-protected-presentation/).

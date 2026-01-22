@@ -1,35 +1,35 @@
 ---
-title: الحصول على الخصائص الفعّالة للأشكال من العروض التقديمية على Android
-linktitle: الخصائص الفعّالة
+title: الحصول على خصائص الشكل الفعّالة من العروض التقديمية على Android
+linktitle: خصائص فعّالة
 type: docs
 weight: 50
 url: /ar/androidjava/shape-effective-properties/
 keywords:
 - خصائص الشكل
 - خصائص الكاميرا
-- جهاز إضاءة
-- شكل مسنن
+- معدات إضاءة
+- شكل الإزاحة
 - إطار النص
 - نمط النص
 - ارتفاع الخط
 - تنسيق التعبئة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides for Android عبر Java بحساب وتطبيق الخصائص الفعّالة للأشكال لضمان عرض PowerPoint بدقة."
+description: "اكتشف كيف تقوم Aspose.Slides لنظام Android عبر Java بحساب وتطبيق خصائص الشكل الفعّالة لتحقيق عرض دقيق لـ PowerPoint."
 ---
 
-في هذا الموضوع، سنناقش الخصائص **الفعّالة** و **المحلية**. عندما نعيّن القيم مباشرةً على هذه المستويات
+في هذا الموضوع، سنناقش الخصائص **الفعّالة** و **المحلية**. عندما نحدد القيم مباشرةً على هذه المستويات
 
-1. في خصائص الجزء على شريحة الجزء;
-1. في نمط نص الشكل النموذجي على شريحة التخطيط أو الشريحة الرئيسة (إذا كان لشكل إطار النص الخاص بالجزء واحد);
-1. في إعدادات النص العامة للعرض التقديمي;
+1. في خصائص الجزء على شريحة الجزء؛
+1. في نمط نص الشكل الأولي على شريحة التخطيط أو الشريحة الرئيسة (إذا كان لشكل إطار النص للجزء واحد);  
+1. في إعدادات النص العامة للعرض التقديمي؛
 
-تُطلق على هذه القيم **القيم المحلية**. في أي مستوى، يمكن تعريف أو حذف القيم **المحلية**. ولكن عندما يحتاج التطبيق إلى معرفة مظهر الجزء، يستخدم القيم **الفعّالة**. يمكنك الحصول على القيم الفعّالة باستخدام طريقة **getEffective()** من التنسيق المحلي.
+تُسمى تلك القيم **قيمة محلية**. في أي مستوى، يمكن تعريف القيم **المحلية** أو حذفها. ولكن عندما يحتاج التطبيق إلى معرفة شكل الجزء، يستخدم القيم **الفعّالة**. يمكنك الحصول على القيم الفعّالة باستخدام طريقة **getEffective()** من التنسيق المحلي.
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على القيم الفعّالة:
+يُظهر لك مثال الشيفرة التالي كيف تحصل على القيم الفعّالة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -47,9 +47,9 @@ try {
 
 
 ## **الحصول على الخصائص الفعّالة للكاميرا**
-تسمح Aspose.Slides for Android via Java للمطورين بالحصول على الخصائص الفعّالة للكاميرا. لهذا الغرض، تم إضافة الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) إلى Aspose.Slides. تمثّل الواجهة [ICameraEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعّالة. تُستخدم نسخة من الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) كجزء من الواجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)، والتي تُعدّ [القيم الفعّالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) زوجًا لصفّ [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat).
+يتيح Aspose.Slides for Android via Java للمطورين الحصول على الخصائص الفعّالة للكاميرا. لهذا الغرض، تمت إضافة الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) إلى Aspose.Slides. تمثل الواجهة [ICameraEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعّالة. يُستخدم مثال من الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) كجزء من الواجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)، وهي زوج [قيمة فعّالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) لفئة [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat).
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعّالة للكاميرا:
+يُظهر لك مثال الشيفرة التالي كيف تحصل على الخصائص الفعّالة للكاميرا:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -65,10 +65,10 @@ try {
 ```
 
 
-## **الحصول على الخصائص الفعّالة لجهاز إضاءة Light Rig**
-تسمح Aspose.Slides for Android via Java للمطورين بالحصول على الخصائص الفعّالة لجهاز إضاءة Light Rig. لهذا الغرض، تم إضافة الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) إلى Aspose.Slides. تمثّل الواجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص إضاءة Light Rig الفعّالة. تُستخدم نسخة من الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) كجزء من الواجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)، والتي تُعدّ [القيم الفعّالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) زوجًا لصفّ [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat).
+## **الحصول على الخصائص الفعّالة لتجهيز الإضاءة**
+يتيح Aspose.Slides for Android via Java للمطورين الحصول على الخصائص الفعّالة لتجهيز الإضاءة. لهذا الغرض، تمت إضافة الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) إلى Aspose.Slides. تمثل الواجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص تجهيز الإضاءة الفعّالة. يُستخدم مثال من الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) كجزء من الواجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)، وهي زوج [قيمة فعّالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) لفئة [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat).
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعّالة لجهاز إضاءة Light Rig:
+يُظهر لك مثال الشيفرة التالي كيف تحصل على الخصائص الفعّالة لتجهيز الإضاءة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -83,10 +83,10 @@ try {
 ```
 
 
-## **الحصول على الخصائص الفعّالة للشكل المسنن**
-تسمح Aspose.Slides for Android via Java للمطورين بالحصول على الخصائص الفعّالة للشكل المسنن. لهذا الغرض، تمت إضافة الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) إلى Aspose.Slides. تمثّل الواجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص إ Relief للوجه الفعّالة. تُستخدم نسخة من الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) كجزء من الواجهة [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData))، والتي تُعدّ [القيم الفعّالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) زوجًا لصفّ [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat).
+## **الحصول على الخصائص الفعّالة لشكل الإزاحة**
+يتيح Aspose.Slides for Android via Java للمطورين الحصول على الخصائص الفعّالة لشكل الإزاحة. لهذا الغرض، تمت إضافة الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) إلى Aspose.Slides. تمثل الواجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص إزاحة سطح الشكل الفعّالة. يُستخدم مثال من الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) كجزء من الواجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)، وهي زوج [قيمة فعّالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) لفئة [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat).
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعّالة للشكل المسنن:
+يُظهر لك مثال الشيفرة التالي كيف تحصل على الخصائص الفعّالة لشكل الإزاحة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -105,7 +105,7 @@ try {
 ## **الحصول على الخصائص الفعّالة لإطار النص**
 باستخدام Aspose.Slides for Android via Java، يمكنك الحصول على الخصائص الفعّالة لإطار النص. لهذا الغرض، تمت إضافة الواجهة [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص الفعّالة.
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على خصائص تنسيق إطار النص الفعّال:
+يُظهر لك مثال الشيفرة التالي كيف تحصل على خصائص تنسيق إطار النص الفعّالة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -129,7 +129,7 @@ try {
 ## **الحصول على الخصائص الفعّالة لنمط النص**
 باستخدام Aspose.Slides for Android via Java، يمكنك الحصول على الخصائص الفعّالة لنمط النص. لهذا الغرض، تمت إضافة الواجهة [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextStyleEffectiveData) إلى Aspose.Slides. تحتوي على خصائص نمط النص الفعّالة.
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على خصائص نمط النص الفعّالة:
+يُظهر لك مثال الشيفرة التالي كيف تحصل على خصائص نمط النص الفعّالة:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -153,7 +153,7 @@ try {
 
 
 ## **الحصول على قيمة ارتفاع الخط الفعّالة**
-باستخدام Aspose.Slides for Android via Java، يمكنك الحصول على الخصائص الفعّالة لارتفاع الخط. هنا نقدم لك كودًا يوضح تغير قيمة ارتفاع الخط الفعّالة للجزء بعد ضبط قيم ارتفاع الخط المحلي على مستويات هيكلية مختلفة في العرض التقديمي:
+باستخدام Aspose.Slides for Android via Java، يمكنك الحصول على الخصائص الفعّالة لارتفاع الخط. هنا نقدم شيفرة تُظهر قيمة ارتفاع الخط الفعّالة للجزء بعد ضبط قيم ارتفاع الخط المحلي على مستويات مختلفة في بنية العرض التقديمي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -199,7 +199,7 @@ try {
 
 
 ## **الحصول على تنسيق التعبئة الفعّال لجدول**
-باستخدام Aspose.Slides for Android via Java، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء منطقية مختلفة في الجدول. لهذا الغرض، تم إضافة الواجهة [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICellFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعّالة. يرجى ملاحظة ما يلي: تنسيق الخلية يحصل دائمًا على الأولوية على تنسيق الصف؛ الصف يحصل على الأولوية على العمود؛ والعمود يحصل على الأولوية على كامل الجدول.
+باستخدام Aspose.Slides for Android via Java، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء منطقية مختلفة من الجدول. لهذا الغرض، تمت إضافة الواجهة [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICellFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعّالة. يرجى ملاحظة ما يلي: تنسيق الخلية دائمًا يحصل على أولوية على تنسيق الصف؛ والصف يحصل على أولوية على العمود؛ والعمود يحصل على أولوية على كامل الجدول.
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -219,32 +219,32 @@ try {
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني معرفة أنني حصلت على “لقطة” بدلاً من “كائن حي”، ومتى يجب أن أقراً الخصائص الفعّالة مرة أخرى؟**
+**كيف يمكنني معرفة أنني حصلت على "لقطة" بدلاً من "كائن حي"، ومتى يجب قراءة الخصائص الفعّالة مرة أخرى؟**
 
-كائنات EffectiveData هي لقطات ثابتة للقيم المحسوبة في وقت الاستدعاء. إذا غيرت الإعدادات المحلية أو الموروثة للشكل، استرجع البيانات الفعّالة مرة أخرى للحصول على القيم المحدثة.
+الكائنات من نوع EffectiveData هي لقطات غير قابلة للتغيير للقيم المحسوبة في وقت الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل، استرجع البيانات الفعّالة مرة أخرى للحصول على القيم المحدثة.
 
-**هل يؤثر تغيير شريحة التخطيط/الرئيسية على الخصائص الفعّالة التي تم استردادها مسبقًا؟**
+**هل يؤثر تعديل شريحة التخطيط/الرئيسية على الخصائص الفعّالة التي تم استرجاعها مسبقًا؟**
 
-نعم، ولكن فقط بعد قراءتها مرة أخرى. كائن EffectiveData الذي تم الحصول عليه مسبقًا لا يُحدّث نفسه—اطلبه مرة أخرى بعد تغيير التخطيط أو الشريحة الرئيسة.
+نعم، ولكن فقط بعد قراءتها مرة أخرى. الكائن EffectiveData الذي تم الحصول عليه لا يُحدّث نفسه—اطلبه مرة أخرى بعد تعديل التخطيط أو الشريحة الرئيسية.
 
 **هل يمكنني تعديل القيم عبر EffectiveData؟**
 
-لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلية (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعّالة مرة أخرى.
+لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي (شكل/نص/3D، إلخ)، ثم احصل على القيم الفعّالة مرة أخرى.
 
 **ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل، ولا في التخطيط/الرئيسية، ولا في الإعدادات العامة؟**
 
-تُحدّد القيمة الفعّالة وفقًا للآلية الافتراضية (الافتراضات في PowerPoint/Aspose.Slides). تلك القيمة المحلولة تصبح جزءًا من لقطة EffectiveData.
+تُحدد القيمة الفعّالة بواسطة الآلية الافتراضية (الافتراضات الخاصة بـ PowerPoint/Aspose.Slides). تلك القيمة المُستخرجة تصبح جزءًا من لقطة EffectiveData.
 
-**من قيمة الخط الفعّالة، هل يمكنني معرفة أي مستوى قدم الحجم أو الخط؟**
+**من قيمة الخط الفعّال، هل يمكنني معرفة المستوى الذي وفر الحجم أو نوع الخط؟**
 
-ليس مباشرة. EffectiveData تُعيد القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية في الجزء/الفقرة/إطار النص والأنماط النصية في التخطيط/الرئيسية/العرض التقديمي لتحديد أول تعريف صريح.
+ليس مباشرة. EffectiveData تُعيد القيمة النهائية. لتحديد المصدر، راجع القيم المحلية في الجزء/الفقرة/إطار النص والأنماط النصية في التخطيط/الرئيسية/العرض التقديمي لترى أين يظهر التعريف الصريح الأول.
 
 **لماذا تبدو قيم EffectiveData أحيانًا مطابقة للقيم المحلية؟**
 
-لأن القيمة المحلية انتهت إلى أن تكون النهائية (لم يُطلب وراثة من مستوى أعلى). في هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
+لأن القيمة المحلية هي التي أصبحت النهائية (لم تُستَخدم وراثة من مستوى أعلى). في هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
 
-**متى يجب أن أستخدم الخصائص الفعّالة، ومتى أكتفي بالخصائص المحلية؟**
+**متى ينبغي استخدام الخصائص الفعّالة، ومتى أعمل فقط مع الخصائص المحلية؟**
 
-استخدم EffectiveData عندما تحتاج إلى النتيجة “كما تُعرض” بعد تطبيق كل الوراثة (مثلاً لتطابق الألوان أو الهوامش أو الأحجام). إذا كنت تحتاج إلى تعديل التنسيق على مستوى محدد، عدِّل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.
+استخدم EffectiveData عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع الوراثات (مثل مطابقة الألوان، الهوامش، أو الأحجام). إذا كنت تحتاج إلى تعديل التنسيق على مستوى معين، غيّر الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.

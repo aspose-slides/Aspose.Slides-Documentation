@@ -26,24 +26,22 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Convierta diapositivas PowerPoint y OpenDocument a XAML en Java usando Aspose.Slides para Android: solución rápida, sin Office, que mantiene intacto su diseño."
+description: "Convertir diapositivas PowerPoint y OpenDocument a XAML en Java usando Aspose.Slides para Android—solución rápida y sin Office que mantiene intacto el diseño."
 ---
 
 ## **Exportar presentaciones a XAML**
 
-{{% alert color="primary" %}} 
-En [Aspose.Slides 21.6](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-21-6-release-notes/), implementamos soporte para la exportación a XAML. Ahora puede exportar sus presentaciones a XAML.
-{{% /alert %}} 
+Aspose.Slides admite la exportación a XAML. Puedes convertir tus presentaciones a XAML.
 
 ## **Acerca de XAML**
 
-XAML es un lenguaje de programación descriptivo que le permite crear o escribir interfaces de usuario para aplicaciones, especialmente aquellas que usan WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) y Xamarin Forms.  
+XAML es un lenguaje de programación descriptivo que permite crear o escribir interfaces de usuario para aplicaciones, especialmente aquellas que utilizan WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) y Xamarin Forms.  
 
-XAML, que es un lenguaje basado en XML, es la variante de Microsoft para describir una GUI. Lo más probable es que use un diseñador para trabajar con archivos XAML la mayor parte del tiempo, pero aún puede escribir y editar su GUI. 
+XAML, que es un lenguaje basado en XML, es la variante de Microsoft para describir una GUI. Lo más probable es que utilices un diseñador para trabajar con archivos XAML la mayor parte del tiempo, pero también puedes escribir y editar tu GUI.
 
 ## **Exportar presentaciones a XAML con opciones predeterminadas**
 
-Este código Java le muestra cómo exportar una presentación a XAML con la configuración predeterminada:
+Este código Java muestra cómo exportar una presentación a XAML con la configuración predeterminada:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -56,9 +54,9 @@ try {
 
 ## **Exportar presentaciones a XAML con opciones personalizadas**
 
-Puede seleccionar opciones de la interfaz [IXamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions) que controlan el proceso de exportación y determinan cómo Aspose.Slides exporta su presentación a XAML.
+Puedes seleccionar opciones de la interfaz [IXamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions) que controlan el proceso de exportación y determinan cómo Aspose.Slides exporta tu presentación a XAML.
 
-Por ejemplo, si desea que Aspose.Slides añada diapositivas ocultas de su presentación al exportarla a XAML, puede establecer la propiedad [ExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) en true. Vea este código Java de ejemplo:
+Por ejemplo, si deseas que Aspose.Slides añada diapositivas ocultas de tu presentación al exportarla a XAML, puedes establecer la propiedad [ExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) en true. Consulta este código de ejemplo en Java:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -71,16 +69,16 @@ try {
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Cómo puedo garantizar fuentes predecibles si la fuente original no está disponible en la máquina?**
+**¿Cómo puedo asegurar fuentes predecibles si la fuente original no está disponible en el equipo?**
 
-Establezca [una fuente regular predeterminada](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setDefaultRegularFont-java.lang.String-) en [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) — se utiliza como fuente de reserva cuando la original falta. Esto ayuda a evitar sustituciones inesperadas.
+Establece [una fuente regular predeterminada](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setDefaultRegularFont-java.lang.String-) en [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) — se usa como fuente de reserva cuando falta la original. Esto ayuda a evitar sustituciones inesperadas.
 
-**¿El XAML exportado está destinado solo a WPF, o también puede usarse en otras pilas XAML?**
+**¿El XAML exportado está pensado solo para WPF o puede usarse también en otras pilas XAML?**
 
-XAML es un lenguaje de marcado UI general utilizado en WPF, UWP y Xamarin.Forms. La exportación tiene como objetivo la compatibilidad con las pilas XAML de Microsoft; el comportamiento exacto y el soporte para constructos específicos dependen de la plataforma de destino. Pruebe el marcado en su entorno.
+XAML es un lenguaje de marcado de UI general usado en WPF, UWP y Xamarin.Forms. La exportación tiene como objetivo la compatibilidad con las pilas XAML de Microsoft; el comportamiento exacto y la compatibilidad con constructos específicos dependen de la plataforma de destino. Prueba el marcado en tu entorno.
 
 **¿Se admiten diapositivas ocultas y cómo puedo evitar que se exporten por defecto?**
 
-Por defecto, las diapositivas ocultas no se incluyen. Puede controlar este comportamiento mediante [setExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/#setExportHiddenSlides-boolean-) en [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) — manténgalo desactivado si no necesita exportarlas.
+Por defecto, las diapositivas ocultas no se incluyen. Puedes controlar este comportamiento mediante [setExportHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/#setExportHiddenSlides-boolean-) en [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/) — mantenlo desactivado si no necesitas exportarlas.

@@ -1,17 +1,29 @@
 ---
-title: Rendre la présentation avec une police de secours
+title: Rendre les présentations avec des polices de secours sur Android
+linktitle: Rendre les présentations
 type: docs
 weight: 30
 url: /fr/androidjava/render-presentation-with-fallback-font/
+keywords:
+- police de secours
+- rendre PowerPoint
+- rendre présentation
+- rendre diapositive
+- PowerPoint
+- OpenDocument
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Rendez les présentations avec des polices de secours dans Aspose.Slides pour Android – maintenez le texte cohérent entre PPT, PPTX et ODP avec des exemples de code Java étape par étape."
 ---
 
 L'exemple suivant comprend ces étapes :
 
-1. Nous [créons une collection de règles de police de secours](/slides/fr/androidjava/create-fallback-fonts-collection/).
-1. [Supprimez](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) une règle de police de secours et [ajoutez des polices de secours](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) à une autre règle.
-1. Définissez la collection de règles pour [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) méthode.
-1. Avec la méthode [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) nous pouvons enregistrer la présentation dans le même format ou l'enregistrer dans un autre format. Après que la collection de règles de police de secours est définie sur [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager), ces règles sont appliquées lors de toutes les opérations sur la présentation : enregistrer, rendre, convertir, etc.
-
+1. Nous [créer une collection de règles de polices de secours](/slides/fr/androidjava/create-fallback-fonts-collection/).
+1. [Supprimer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) une règle de police de secours et [addFallBackFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) à une autre règle.
+1. Définissez la collection de règles sur la méthode [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) .
+1. Avec la méthode [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) nous pouvons enregistrer la présentation dans le même format, ou l'enregistrer dans un autre. Après que la collection de règles de polices de secours soit définie sur [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager), ces règles sont appliquées lors de toutes les opérations sur la présentation : enregistrement, rendu, conversion, etc.
 ```java
 // Créer une nouvelle instance d'une collection de règles
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
@@ -24,7 +36,7 @@ for (IFontFallBackRule fallBackRule : rulesList)
     //Essayer de supprimer la police de secours "Tahoma" des règles chargées
     fallBackRule.remove("Tahoma");
 
-    //Et de mettre à jour les règles pour la plage spécifiée
+    //Et mettre à jour les règles pour la plage spécifiée
     if ((fallBackRule.getRangeEndIndex() >= 0x4000) && (fallBackRule.getRangeStartIndex() < 0x5000))
         fallBackRule.addFallBackFonts("Verdana");
 }
@@ -35,10 +47,10 @@ if (rulesList.size() > 0)
 
 Presentation pres = new Presentation("input.pptx");
 try {
-    //Attribution d'une liste de règles préparées pour utilisation
+    //Attribuer une liste de règles préparée pour l'utilisation
     pres.getFontsManager().setFontFallBackRulesCollection(rulesList);
 
-    // Rendu de la miniature en utilisant la collection de règles initialisées et sauvegarde en JPEG
+    // Rendu de la miniature en utilisant la collection de règles initialisée et en l'enregistrant au format JPEG
    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
 
    //Enregistrer l'image sur le disque au format JPEG
@@ -52,6 +64,7 @@ try {
 }
 ```
 
+
 {{% alert color="primary" %}} 
-En savoir plus sur [Sauvegarde et Conversion dans la Présentation](/slides/fr/androidjava/creating-saving-and-converting-a-presentation/).
+En savoir plus sur [Convertir PPT et PPTX en JPG sur Android](/slides/fr/androidjava/convert-powerpoint-to-jpg/).
 {{% /alert %}}

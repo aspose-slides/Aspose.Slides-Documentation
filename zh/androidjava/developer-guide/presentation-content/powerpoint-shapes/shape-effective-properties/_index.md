@@ -1,5 +1,5 @@
 ---
-title: 在 Android 上从演示文稿获取形状的有效属性
+title: 在 Android 上从演示文稿获取形状有效属性
 linktitle: 有效属性
 type: docs
 weight: 50
@@ -8,7 +8,7 @@ keywords:
 - 形状属性
 - 相机属性
 - 灯光装置
-- 斜角形状
+- 斜面形状
 - 文本框
 - 文本样式
 - 字体高度
@@ -18,18 +18,18 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解 Aspose.Slides for Android via Java 如何计算并应用形状的有效属性，以实现精确的 PowerPoint 渲染。"
+description: "了解 Aspose.Slides for Android via Java 如何计算并应用有效形状属性，以实现精确的 PowerPoint 渲染。"
 ---
 
-在本主题中，我们将讨论 **effective** 和 **local** 属性。当我们在以下层级直接设置值时
+在本主题中，我们将讨论 **effective** 和 **local** 属性。当我们在这些层级直接设置值时
 
-1. 在段落所在幻灯片的段落属性中；
-1. 在布局或母版幻灯片的原型形状文本样式中（如果段落的文本框形状具有该样式）；
+1. 在部分的幻灯片上设置部分属性；
+1. 在布局或母版幻灯片的原型形状文本样式上（如果该部分的文本框形状有的话）；
 1. 在演示文稿的全局文本设置中；
 
-这些值称为 **local** 值。在任何层级，**local** 值都可能被定义或省略。但当应用程序需要了解段落的实际外观时，它会使用 **effective** 值。您可以通过本地格式的 **getEffective()** 方法获取有效值。
+这些值称为 **local** 值。 在任何层级，**local** 值可以被定义或省略。但是当应用程序需要了解该部分应如何显示时，它会使用 **effective** 值。您可以通过从本地格式调用 **getEffective()** 方法来获取有效值。
 
-以下示例代码展示了如何获取有效值：
+此示例代码展示了如何获取有效值：
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -47,9 +47,9 @@ try {
 
 
 ## **获取相机的有效属性**
-Aspose.Slides for Android via Java 允许开发者获取相机的有效属性。为此，Aspose.Slides 添加了 [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) 接口。该 [ICameraEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) 接口表示一个不可变对象，包含有效的相机属性。 [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) 接口的实例作为 [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData) 接口的一部分使用，该接口是 [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) 类的 [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) 对。
+Aspose.Slides for Android via Java 允许开发人员获取相机的有效属性。为此，添加了 [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) 接口。 [ICameraEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) 接口表示一个不可变对象，包含有效的相机属性。 [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) 接口的实例作为 [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData) 接口的一部分使用，该接口是 [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) 类的 [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) 对。
 
-以下示例代码展示了如何获取相机的有效属性：
+此示例代码展示了如何获取相机的有效属性：
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -66,9 +66,9 @@ try {
 
 
 ## **获取灯光装置的有效属性**
-Aspose.Slides for Android via Java 允许开发者获取灯光装置的有效属性。为此，Aspose.Slides 添加了 [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) 接口。该 [ILightRigEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) 接口表示一个不可变对象，包含有效的灯光装置属性。 [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) 接口的实例作为 [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData) 接口的一部分使用，该接口是 [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) 类的 [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) 对。
+Aspose.Slides for Android via Java 允许开发人员获取灯光装置的有效属性。为此，添加了 [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) 接口。 [ILightRigEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) 接口表示一个不可变对象，包含有效的灯光装置属性。 [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) 接口的实例作为 [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData) 接口的一部分使用，该接口是 [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) 类的 [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) 对。
 
-以下示例代码展示了如何获取灯光装置的有效属性：
+此示例代码展示了如何获取灯光装置的有效属性：
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -83,10 +83,10 @@ try {
 ```
 
 
-## **获取斜角形状的有效属性**
-Aspose.Slides for Android via Java 允许开发者获取斜角形状的有效属性。为此，Aspose.Slides 添加了 [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) 接口。该 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) 接口表示一个不可变对象，包含有效的形状面部浮雕属性。 [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) 接口的实例作为 [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData)) 接口的一部分使用，该接口是 [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) 类的 [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) 对。
+## **获取斜面形状的有效属性**
+Aspose.Slides for Android via Java 允许开发人员获取斜面形状的有效属性。为此，添加了 [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) 接口。 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) 接口表示一个不可变对象，包含有效的形状面部浮雕属性。 [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) 接口的实例作为 [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData) 接口的一部分使用，该接口是 [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) 类的 [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) 对。
 
-以下示例代码展示了如何获取斜角形状的有效属性：
+此示例代码展示了如何获取斜面形状的有效属性：
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -103,9 +103,9 @@ try {
 
 
 ## **获取文本框的有效属性**
-使用 Aspose.Slides for Android via Java，您可以获取文本框的有效属性。为此，Aspose.Slides 添加了 [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormatEffectiveData) 接口，其中包含有效的文本框格式属性。
+使用 Aspose.Slides for Android via Java，您可以获取文本框的有效属性。为此，添加了 [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormatEffectiveData) 接口，包含有效的文本框格式属性。
 
-以下示例代码展示了如何获取有效的文本框格式属性：
+此示例代码展示了如何获取有效的文本框格式属性：
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -127,9 +127,9 @@ try {
 
 
 ## **获取文本样式的有效属性**
-使用 Aspose.Slides for Android via Java，您可以获取文本样式的有效属性。为此，Aspose.Slides 添加了 [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextStyleEffectiveData) 接口，其中包含有效的文本样式属性。
+使用 Aspose.Slides for Android via Java，您可以获取文本样式的有效属性。为此，添加了 [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextStyleEffectiveData) 接口，包含有效的文本样式属性。
 
-以下示例代码展示了如何获取有效的文本样式属性：
+此示例代码展示了如何获取有效的文本样式属性：
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -153,7 +153,7 @@ try {
 
 
 ## **获取有效的字体高度值**
-使用 Aspose.Slides for Android via Java，您可以获取字体高度的有效属性。下面的代码演示了在不同演示文稿结构层级上设置本地字体高度后，段落的有效字体高度值如何变化：
+使用 Aspose.Slides for Android via Java，您可以获取字体高度的有效属性。此处提供的代码显示在不同演示文稿结构层级上设置本地字体高度后，部分的有效字体高度值会发生变化：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -199,7 +199,7 @@ try {
 
 
 ## **获取表格的有效填充格式**
-使用 Aspose.Slides for Android via Java，您可以获取不同表格逻辑部分的有效填充格式。为此，Aspose.Slides 添加了 [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICellFormatEffectiveData) 接口，其中包含有效的填充格式属性。请注意：单元格格式始终优先于行格式；行格式优先于列格式；列格式优先于整张表格。
+使用 Aspose.Slides for Android via Java，您可以获取不同表格逻辑部分的有效填充格式。为此，添加了 [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICellFormatEffectiveData) 接口，包含有效的填充格式属性。请注意：单元格格式始终优先于行格式；行格式优先于列格式；列格式优先于整张表。
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -221,23 +221,23 @@ try {
 
 ## **FAQ**
 
-**How can I tell that I got a "snapshot" rather than a "live object", and when should I read effective properties again?**  
-EffectiveData objects are immutable snapshots of computed values at the time of the call. If you change local or inherited settings of the shape, retrieve the effective data again to get the updated values.
+**如何判断我得到的是“快照”而不是“实时对象”，以及何时需要重新读取有效属性？**
+EffectiveData 对象是计算时刻的不可变快照。如果您更改了形状的本地或继承设置，需要再次检索有效数据以获得更新后的值。
 
-**Does changing the layout/master slide affect effective properties that have already been retrieved?**  
-Yes, but only after you read them again. An already obtained EffectiveData object does not update itself—request it again after changing the layout or master.
+**更改布局/母版幻灯片会影响已检索的有效属性吗？**
+会，但只有在再次读取后才会生效。已经获得的 EffectiveData 对象不会自行更新——在更改布局或母版后请重新请求。
 
-**Can I modify values through EffectiveData?**  
-No. EffectiveData is read-only. Make changes in the local formatting objects (shape/text/3D, etc.), and then obtain the effective values again.
+**可以通过 EffectiveData 修改值吗？**
+不能。EffectiveData 是只读的。请在本地格式对象（形状/文本/3D 等）中进行更改，然后再次获取有效值。
 
-**What happens if a property is not set at the shape level, nor in the layout/master, nor in global settings?**  
-The effective value is determined by the default mechanism (PowerPoint/Aspose.Slides defaults). That resolved value becomes part of the EffectiveData snapshot.
+**如果属性在形状层级、布局/母版以及全局设置中都未设置，会发生什么？**
+有效值将由默认机制（PowerPoint/Aspose.Slides 默认值）决定。该解析后的值将成为 EffectiveData 快照的一部分。
 
-**From an effective font value, can I tell which level provided the size or typeface?**  
-Not directly. EffectiveData returns the final value. To find the source, check local values at the portion/paragraph/text frame and the text styles at the layout/master/presentation to see where the first explicit definition appears.
+**从有效的字体值能否判断是哪一级提供了大小或字体？**
+不能直接判断。EffectiveData 返回最终值。若需追溯来源，请检查部分/段落/文本框的本地值以及布局/母版/演示文稿的文本样式，寻找首次出现的显式定义。
 
-**Why do EffectiveData values sometimes look identical to the local ones?**  
-Because the local value ended up being final (no higher-level inheritance was needed). In such cases, the effective value matches the local one.
+**为什么 EffectiveData 值有时看起来与本地值相同？**
+因为本地值已成为最终值（无需更高层级的继承）。在这种情况下，有效值与本地值相匹配。
 
-**When should I use effective properties, and when should I work only with local ones?**  
-Use EffectiveData when you need the "as rendered" result after all inheritance is applied (e.g., to align colors, indents, or sizes). If you need to change formatting at a specific level, modify local properties and then, if needed, re-read EffectiveData to verify the outcome.
+**何时应使用有效属性，何时仅使用本地属性？**
+当您需要在所有继承应用后的“渲染结果”（例如对齐颜色、缩进或尺寸）时使用 EffectiveData。如果您需要在特定层级修改格式，请修改本地属性，然后在需要时重新读取 EffectiveData 以验证结果。

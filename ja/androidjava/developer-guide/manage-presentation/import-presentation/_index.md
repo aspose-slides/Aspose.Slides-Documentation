@@ -16,28 +16,28 @@ keywords:
 - HTML からプレゼンテーションへ
 - HTML から PPT へ
 - HTML から PPTX へ
-- HTML から ODPへ
+- HTML から ODP へ
 - PowerPoint
 - OpenDocument
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して、Java で PDF と HTML ドキュメントを PowerPoint および OpenDocument のプレゼンテーションにシームレスかつ高性能にスライド処理できるようにインポートします。"
+description: "Aspose.Slides for Android を使用した Java で、PDF および HTML ドキュメントを PowerPoint および OpenDocument のプレゼンテーションにシームレスかつ高性能にスライド処理できます。"
 ---
 
-[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/) を使用すると、他の形式のファイルからプレゼンテーションをインポートできます。Aspose.Slides は、PDF、HTML ドキュメントなどからプレゼンテーションをインポートできるように、[SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) クラスを提供します。
+[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/) を使用すると、他の形式のファイルからプレゼンテーションをインポートできます。Aspose.Slides は、PDF や HTML ドキュメントなどからプレゼンテーションをインポートできるように、[SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) クラスを提供します。
 
-## **PowerPoint を PDF からインポート**
+## **PDF から PowerPoint をインポート**
 
 この場合、PDF を PowerPoint プレゼンテーションに変換できます。
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) クラスのインスタンスを作成します。
-2. [addFromPdf()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) メソッドを呼び出し、PDF ファイルを渡します。
-3. [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) メソッドを使用して、PowerPoint 形式でファイルを保存します。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) クラスのインスタンスを作成します。  
+2. [addFromPdf()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) メソッドを呼び出し、PDF ファイルを渡します。  
+3. [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) メソッドを使用して、ファイルを PowerPoint 形式で保存します。
 
-この Java コードは PDF から PowerPoint への変換操作を示しています：
+この Java コードは PDF から PowerPoint への変換を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -50,18 +50,18 @@ try {
 
 
 {{% alert  title="Tip" color="primary" %}} 
-**Aspose free** の [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web アプリを確認した方が良いかもしれません。このアプリは、ここで説明したプロセスの実際の実装です。 
+ここで説明したプロセスのライブ実装である **Aspose free** の [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web アプリをチェックするとよいでしょう。 
 {{% /alert %}} 
 
 ## **HTML から PowerPoint をインポート**
 
 この場合、HTML ドキュメントを PowerPoint プレゼンテーションに変換できます。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) クラスのインスタンスを作成します。
-2. [addFromHtml()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) メソッドを呼び出し、PDF ファイルを渡します。
-3. [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) メソッドを使用して、PowerPoint 形式でファイルを保存します。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) クラスのインスタンスを作成します。  
+2. [addFromHtml()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) メソッドを呼び出し、HTML ファイルを渡します。  
+3. [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) メソッドを使用して、ファイルを PowerPoint 形式で保存します。
 
-この Java コードは HTML から PowerPoint への変換操作を示しています： 
+この Java コードは HTML から PowerPoint への変換を示しています: 
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -85,13 +85,3 @@ try {
 **PDF をインポートする際にテーブルは保持されますか、また検出を改善できますか？**
 
 インポート時にテーブルを検出できます。[PdfImportOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/) にはテーブル認識を有効にする [setDetectTables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) メソッドが含まれています。効果は PDF の構造に依存します。
-
-{{% alert title="Note" color="warning" %}} 
-また、Aspose.Slides を使用して HTML を他の一般的なファイル形式に変換することもできます： 
-
-* [HTML to image](https://products.aspose.com/slides/androidjava/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/androidjava/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/androidjava/conversion/html-to-xml/)
-* [HTML to TIFF](https://products.aspose.com/slides/androidjava/conversion/html-to-tiff/)
-
-{{% /alert %}}
