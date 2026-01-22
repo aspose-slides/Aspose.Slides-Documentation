@@ -30,11 +30,11 @@ This article explains how to convert PowerPoint Presentation in PPTX format into
 
 For JavaScript sample code to convert PPTX to PPT, please see the section below i.e. [Convert PPTX to PPT](#convert-pptx-to-ppt). It just loads the PPTX file and saves in PPT format. By specifiying different save formats, you can also save PPTX file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles. 
 
-- [Java Convert PPTX to PDF](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-pdf/)
-- [Java Convert PPTX to XPS](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-xps/)
-- [Java Convert PPTX to HTML](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-html/)
-- [Java Convert PPTX to ODP](https://docs.aspose.com/slides/nodejs-java/save-presentation/)
-- [Java Convert PPTX to Image](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-png/)
+- [Convert PPTX to PDF in JavaScript](/slides/nodejs-java/convert-powerpoint-to-pdf/)
+- [Convert PPTX to XPS in JavaScript](/slides/nodejs-java/convert-powerpoint-to-xps/)
+- [Convert PPTX to HTML in JavaScript](/slides/nodejs-java/convert-powerpoint-to-html/)
+- [Convert PPTX to ODP in JavaScript](/slides/nodejs-java/save-presentation/)
+- [Convert PPTX to PNG in JavaScript](/slides/nodejs-java/convert-powerpoint-to-png/)
 
 ## **Convert PPTX to PPT**
 

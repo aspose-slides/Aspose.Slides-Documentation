@@ -43,7 +43,7 @@ try {
 
 ## **Calculate Actual Position of Parent Chart Elements**
 
-Aspose.Slides for Node.js via Java provides a simple API for getting these properties. Properties of [ActualLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout) class provide information about actual position of parent chart element ([ActualLayout.getActualX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualX--), [ActualLayout.getActualY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualY--), [ActualLayout.getActualWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualWidth--), [ActualLayout.getActualHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualHeight--)). It is necessary to call method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) previously to fill properties with actual values.
+Aspose.Slides for Node.js via Java provides a simple API for getting these properties. Properties of `ActualLayout` class provide information about actual position of parent chart element `ActualLayout.getActualX`, `ActualLayout.getActualY`, `ActualLayout.getActualWidth`, `ActualLayout.getActualHeight`. It is necessary to call method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) previously to fill properties with actual values.
 
 ```javascript
 var pres = new aspose.slides.Presentation();

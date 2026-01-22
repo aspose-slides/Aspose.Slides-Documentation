@@ -31,12 +31,6 @@ keywords:
 description: "Convert PowerPoint slides in JavaScript—PPT, PPTX—to clean Markdown with Aspose.Slides for Node.js via Java, automate documentation and keep formatting."
 ---
 
-{{% alert color="info" %}} 
-
-Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 23.7](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-23-7-release-notes/).
-
-{{% /alert %}} 
-
 {{% alert color="warning" %}} 
 
 PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to call `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.

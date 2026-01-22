@@ -109,4 +109,4 @@ No. A regular line (an [AutoShape](https://reference.aspose.com/slides/nodejs-ja
 
 **Can I lock a line against editing (moving, resizing)?**
 
-Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/getautoshapelock/) that let you [disallow editing operations](/slides/nodejs-java/applying-protection-to-presentation/).
+Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/getautoshapelock/) that let you disallow editing operations.

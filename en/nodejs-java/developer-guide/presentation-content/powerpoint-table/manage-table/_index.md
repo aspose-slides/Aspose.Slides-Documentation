@@ -312,7 +312,7 @@ Yes. The table exposes a [setRightToLeft](https://reference.aspose.com/slides/no
 
 **How can I prevent users from moving or resizing a table in the final file?**
 
-Use [shape locks](/slides/nodejs-java/applying-protection-to-presentation/) to disable moving, resizing, selection, etc. These locks apply to tables as well.
+Use shape locks to disable moving, resizing, selection, etc. These locks apply to tables as well.
 
 **Is inserting an image inside a cell as a background supported?**
 

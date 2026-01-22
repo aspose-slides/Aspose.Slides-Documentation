@@ -295,8 +295,8 @@ The possible preset number format values along with their preset index and that 
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 

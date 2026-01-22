@@ -39,7 +39,7 @@ try {
 ```
 
 {{% alert color="primary" title="See also" %}} 
-- [**Creating Sunburst Chart**](/slides/nodejs-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Create or Update PowerPoint Presentation Charts in JavaScript**](/slides/nodejs-java/create-chart/)
 {{% /alert %}}
 
 

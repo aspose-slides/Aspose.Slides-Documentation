@@ -21,7 +21,7 @@ keywords:
 description: "Troubleshoot Aspose.Slides for Node.js via Java installation issues, fix common errors and dependencies, and ensure smooth work with PPT, PPTX and ODP."
 ---
 
-When [installing](/nodejs-java/installation/) `aspose.slides.via.java` using `npm`, there are cases where errors occur during the compilation of `java` and `node-gyp` modules. We have investigated these errors in more detail and identified specific requirements for the versions of installed programs and packages. 
+When [installing](/slides/nodejs-java/installation/) `aspose.slides.via.java` using `npm`, there are cases where errors occur during the compilation of `java` and `node-gyp` modules. We have investigated these errors in more detail and identified specific requirements for the versions of installed programs and packages. 
 
 ## **Version requirements**
 

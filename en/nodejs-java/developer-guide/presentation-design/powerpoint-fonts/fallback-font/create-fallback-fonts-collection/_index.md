@@ -23,7 +23,7 @@ description: "Set up a fallback fonts collection in JavaScript with Aspose.Slide
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection), that implements [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) class. It is possible to add or remove rules from the collection.
 
-Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/nodejs-java/about-fontsmanager-and-fontsloader/).
+Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation.
 
 Each [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) has a [getFontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) method with its own instance of the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class.
 

@@ -65,5 +65,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Read more about [Save and Convertion in Presentation](/slides/nodejs-java/creating-saving-and-converting-a-presentation/).
+Read more about how to [Convert PPT and PPTX to JPG in JavaScript](/slides/nodejs-java/convert-powerpoint-to-jpg/).
 {{% /alert %}}
