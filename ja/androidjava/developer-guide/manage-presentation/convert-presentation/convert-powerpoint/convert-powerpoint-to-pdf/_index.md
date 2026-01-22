@@ -1,17 +1,17 @@
 ---
-title: Android で PPT と PPTX を PDF に変換（高度な機能を含む）
-linktitle: PowerPoint を PDF に変換
+title: Android で PPT および PPTX を PDF に変換【高度な機能を含む】
+linktitle: PowerPoint から PDF へ
 type: docs
 weight: 40
 url: /ja/androidjava/convert-powerpoint-to-pdf/
 keywords:
 - PowerPoint を変換
 - プレゼンテーションを変換
-- PowerPoint を PDF に変換
-- プレゼンテーションを PDF に変換
+- PowerPoint から PDF へ
+- プレゼンテーションから PDF へ
+- PPT から PDF へ
 - PPT を PDF に変換
-- PPT を PDF に変換
-- PPTX を PDF に変換
+- PPTX から PDF へ
 - PPTX を PDF に変換
 - PowerPoint を PDF として保存
 - PPT を PDF として保存
@@ -24,14 +24,14 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して、Java で PowerPoint PPT/PPTX を高品質で検索可能な PDF に変換します。高速なコード例と高度な変換オプションを提供します。"
+description: "Aspose.Slides for Android を使用して、Java で PowerPoint PPT/PPTX を高品質かつ検索可能な PDF に変換します。高速なコード例と高度な変換オプションを提供します。"
 ---
 
 ## **概要**
 
-Android で PowerPoint プレゼンテーション（PPT、PPTX、ODP など）を PDF 形式に変換すると、さまざまなデバイス間での互換性が確保され、プレゼンテーションのレイアウトや書式が保持されます。このガイドでは、プレゼンテーションを PDF に変換する方法、画像品質を制御するオプション、非表示スライドの含め方、PDF ファイルへのパスワード保護、フォント置換の検出、変換対象スライドの選択、出力ドキュメントへのコンプライアンス標準の適用方法を示します。
+Android で PowerPoint プレゼンテーション（PPT、PPTX、ODP など）を PDF 形式に変換すると、デバイス間の互換性やプレゼンテーションのレイアウト・書式を保持できるなど、さまざまな利点があります。このガイドでは、プレゼンテーションを PDF に変換する方法、画像品質を制御するオプションの使用、非表示スライドの含め方、PDF ファイルへのパスワード保護、フォント置換の検出、特定のスライドのみを変換する方法、そして出力ドキュメントに適用できるコンプライアンス基準について説明します。
 
-## **PowerPoint to PDF 変換**
+## **PowerPointからPDFへの変換**
 
 Aspose.Slides を使用すると、次の形式のプレゼンテーションを PDF に変換できます。
 
@@ -39,40 +39,40 @@ Aspose.Slides を使用すると、次の形式のプレゼンテーションを
 * **PPTX**
 * **ODP**
 
-プレゼンテーションを PDF に変換するには、ファイル名を [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスの引数として渡し、`save` メソッドで PDF として保存します。[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスは、プレゼンテーションを PDF に変換する際に通常使用される `save` メソッドを提供します。
+プレゼンテーションを PDF に変換するには、ファイル名を引数として [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスに渡し、`save` メソッドを使用してプレゼンテーションを PDF として保存します。[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスは、通常プレゼンテーションを PDF に変換するために使用される `save` メソッドを公開しています。
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for Android via Java は、API 情報とバージョン番号を出力ドキュメントに挿入します。たとえば、プレゼンテーションを PDF に変換すると、Application フィールドに「*Aspose.Slides*」が、PDF Producer フィールドに「*Aspose.Slides v XX.XX*」の形式で値が設定されます。**注意**：出力ドキュメントからこの情報を削除または変更するよう指示することはできません。
+Aspose.Slides for Android via Java は、出力ドキュメントに API 情報とバージョン番号を挿入します。たとえば、プレゼンテーションを PDF に変換すると、Aspose.Slides は Application フィールドに "*Aspose.Slides*"、PDF Producer フィールドに "*Aspose.Slides v XX.XX*" 形式の値を設定します。**注意** この情報を出力ドキュメントから変更または削除することはできません。
 
 {{% /alert %}}
 
 Aspose.Slides では、次の変換が可能です。
 
 * プレゼンテーション全体を PDF に変換
-* プレゼンテーションから特定のスライドだけを PDF に変換
+* プレゼンテーションから特定のスライドを PDF に変換
 
-Aspose.Slides はプレゼンテーションを PDF にエクスポートし、結果の PDF が元のプレゼンテーションに極めて近い形になるようレンダリングします。変換時に正確に描画される要素と属性は次のとおりです。
+Aspose.Slides はプレゼンテーションを PDF にエクスポートし、生成された PDF が元のプレゼンテーションにできるだけ忠実になるようにします。変換時に正確にレンダリングされる要素と属性は次のとおりです。
 
 * 画像
 * テキスト ボックスとシェイプ
-* テキスト書式
-* 段落書式
+* テキスト書式設定
+* 段落書式設定
 * ハイパーリンク
 * ヘッダーとフッター
 * 箇条書き
 * 表
 
-## **PowerPoint を PDF に変換**
+## **PowerPointからPDFへの変換**
 
-標準の PowerPoint‑to‑PDF 変換プロセスはデフォルトオプションを使用します。この場合、Aspose.Slides は最高品質レベルの最適設定でプレゼンテーションを PDF に変換しようとします。
+標準の PowerPoint から PDF への変換プロセスは既定のオプションを使用します。この場合、Aspose.Slides は最高品質レベルで最適な設定を使用して提供されたプレゼンテーションを PDF に変換しようとします。
 
-以下のコードは、プレゼンテーション（PPT、PPTX、ODP など）を PDF に変換する方法を示しています。
+このコードは、プレゼンテーション（PPT、PPTX、ODP など）を PDF に変換する方法を示しています:
 ```java
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("PowerPoint.ppt");
 try {
-    // プレゼンテーションを PDF として保存します。
+    //    プレゼンテーションを PDF として保存します。
     presentation.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
 } finally {
     presentation.dispose();
@@ -82,27 +82,27 @@ try {
 
 {{%  alert  color="primary"  %}} 
 
-Aspose は、プレゼンテーションから PDF への変換プロセスをデモンストレーションする無料のオンライン **PowerPoint to PDF converter**（https://products.aspose.app/slides/conversion/ppt-to-pdf）を提供しています。このコンバータでテストを実行し、ここで説明した手順のライブ実装を確認できます。
+Aspose は、プレゼンテーションから PDF への変換プロセスをデモンストレーションする無料のオンライン **PowerPointからPDFへのコンバータ** を提供しています。このコンバータでテストを実行し、ここで説明した手順をライブで確認できます。
 
 {{% /alert %}}
 
-## **オプション付きで PowerPoint を PDF に変換**
+## **PowerPointからPDFへの変換（オプションあり）**
 
-Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスのプロパティとしてカスタム オプションを提供し、結果の PDF をカスタマイズしたり、パスワードでロックしたり、変換プロセスの動作を指定したりできます。
+Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスのプロパティとしてカスタムオプションを提供し、結果の PDF をカスタマイズしたり、パスワードでロックしたり、変換プロセスの進行方法を指定したりできます。
 
-### **カスタム オプションで PowerPoint を PDF に変換**
+### **カスタムオプションでPowerPointからPDFへ変換**
 
-カスタム変換オプションを使用すると、ラスター画像の品質設定、メタファイルの取り扱い、テキストの圧縮レベル、画像の DPI などを自由に定義できます。
+カスタム変換オプションを使用すると、ラスター画像の品質設定、メタファイルの処理方法、テキストの圧縮レベル、画像の DPI などを定義できます。
 
-以下のコード例は、複数のカスタム オプションを使用して PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+以下のコード例は、いくつかのカスタムオプションを使用して PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
 ```java
 // PdfOptions クラスのインスタンスを作成します。
 PdfOptions pdfOptions = new PdfOptions();
 
-// Set the quality for JPG images.
+// JPG 画像の品質を設定します。
 pdfOptions.setJpegQuality((byte)90);
 
-// Set DPI for images.
+// 画像の DPI を設定します。
 pdfOptions.setSufficientResolution(300);
 
 /// メタファイルの動作を設定します。
@@ -111,7 +111,7 @@ pdfOptions.setSaveMetafilesAsPng(true);
 // テキストコンテンツの圧縮レベルを設定します。
 pdfOptions.setTextCompression(PdfTextCompression.Flate);
 
-// PDF コンプライアンスモードを定義します。
+// PDF の準拠モードを定義します。
 pdfOptions.setCompliance(PdfCompliance.Pdf15);
 
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
@@ -125,11 +125,11 @@ try {
 ```
 
 
-### **非表示スライドを含めて PowerPoint を PDF に変換**
+### **非表示スライドを含むPowerPointからPDFへの変換**
 
-プレゼンテーションに非表示スライドが含まれる場合、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスの [setShowHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) メソッドを使用して、非表示スライドを結果の PDF のページとして含めることができます。
+プレゼンテーションに非表示スライドが含まれている場合、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスの [setShowHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) メソッドを使用して、非表示スライドを結果の PDF にページとして含めることができます。
 
-以下のコードは、非表示スライドを含めて PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+このコードは、非表示スライドを含めて PowerPoint プレゼンテーションを PDF に変換する方法を示しています:
 ```java
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("PowerPoint.pptx");
@@ -137,7 +137,7 @@ try {
     // PdfOptions クラスのインスタンスを作成します。
     PdfOptions pdfOptions = new PdfOptions();
 
-    // 非表示スライドを追加します。
+    // 非表示スライドを含めます。
     pdfOptions.setShowHiddenSlides(true);
 
     // プレゼンテーションを PDF として保存します。
@@ -148,9 +148,9 @@ try {
 ```
 
 
-### **パスワード保護された PDF に PowerPoint を変換**
+### **パスワード保護されたPDFへのPowerPoint変換**
 
-以下のコードは、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスの保護パラメータを使用して、PowerPoint プレゼンテーションをパスワード保護された PDF に変換する方法を示しています。
+このコードは、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスの保護パラメータを使用して、PowerPoint プレゼンテーションをパスワード保護された PDF に変換する方法を示しています:
 ```java
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("PowerPoint.pptx");
@@ -158,7 +158,7 @@ try {
     // PdfOptions クラスのインスタンスを作成します。
     PdfOptions pdfOptions = new PdfOptions();
 
-    // PDF のパスワードとアクセス許可を設定します。
+    // PDF のパスワードとアクセス権限を設定します。
     pdfOptions.setPassword("password");
     pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
 
@@ -174,13 +174,13 @@ try {
 
 Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスの下にある [setWarningCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) メソッドを提供し、プレゼンテーションから PDF への変換プロセス中にフォント置換を検出できます。
 
-以下のコードは、フォント置換を検出する方法を示しています。
+このコードは、フォント置換を検出する方法を示しています:
 ```java
 public static void main(String[] args) {
     // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
     Presentation presentation = new Presentation("sample.pptx");
 
-    // PDF オプションに警告コールバックを設定します。
+    // PDF オプションで警告コールバックを設定します。
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setWarningCallback(new FontSubstitutionHandler());
 
@@ -188,7 +188,7 @@ public static void main(String[] args) {
     presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 
-// 警告コールバックの実装。
+// 警告コールバックの実装です。
 private static class FontSubstitutionHandler implements IWarningCallback {
     public int warning(IWarningInfo warning) {
         if (warning.getWarningType() == WarningType.DataLoss &&
@@ -204,15 +204,13 @@ private static class FontSubstitutionHandler implements IWarningCallback {
 
 {{%  alert color="primary"  %}} 
 
-レンダリング中のフォント置換に関するコールバック取得の詳細は、[Getting Warning Callbacks for Fonts Substitution](/slides/ja/androidjava/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/) を参照してください。
-
-フォント置換に関する詳細は、[Font Substitution](/slides/ja/androidjava/font-substitution/) 記事をご覧ください。
+フォント置換の詳細については、[フォント置換](/slides/ja/androidjava/font-substitution/) 記事をご覧ください。
 
 {{% /alert %}} 
 
-## **選択したスライドだけを PowerPoint から PDF に変換**
+## **PowerPointから選択したスライドをPDFへ変換**
 
-以下のコードは、PowerPoint プレゼンテーションから特定のスライドだけを PDF に変換する方法を示しています。
+このコードは、PowerPoint プレゼンテーションから特定のスライドだけを PDF に変換する方法を示しています:
 ```java
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("PowerPoint.pptx");
@@ -228,9 +226,9 @@ try {
 ```
 
 
-## **カスタム スライドサイズで PowerPoint を PDF に変換**
+## **カスタムスライドサイズでPowerPointをPDFに変換**
 
-以下のコードは、指定したスライドサイズで PowerPoint プレゼンテーションを PDF に変換する方法を示しています。
+このコードは、指定したスライドサイズで PowerPoint プレゼンテーションを PDF に変換する方法を示しています:
 ```java
 float slideWidth = 612;
 float slideHeight = 792;
@@ -249,7 +247,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // 調整したプレゼンテーションをノート付きの PDF として保存します。
+    // リサイズしたプレゼンテーションをノート付きの PDF として保存します。
     resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
@@ -258,20 +256,20 @@ try {
 ```
 
 
-## **ノート スライド ビューで PowerPoint を PDF に変換**
+## **ノートスライドビューでPowerPointをPDFに変換**
 
-以下のコードは、ノートを含む PDF を作成するために PowerPoint プレゼンテーションを変換する方法を示しています。
+このコードは、ノートを含む PDF に PowerPoint プレゼンテーションを変換する方法を示しています:
 ```java
 // PowerPoint または OpenDocument ファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("SelectedSlides.pptx");
 try {
-    // Notes レイアウトで PDF オプションを設定します。
+    // Notes レイアウトで PDF オプションを構成します。
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-    // プレゼンテーションをノート付きの PDF として保存します。
+    // プレゼンテーションをノート付き PDF として保存します。
     presentation.save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
@@ -279,11 +277,11 @@ try {
 ```
 
 
-## **PDF のアクセシビリティとコンプライアンス標準**
+## **PDFのアクセシビリティと準拠基準**
 
-Aspose.Slides は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) に準拠した変換手順を使用できます。次のコンプライアンス標準のいずれかで PowerPoint 文書を PDF にエクスポートできます：**PDF/A1a**、**PDF/A1b**、**PDF/UA**。
+Aspose.Slides は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) に準拠した変換手順を使用できるようにします。次のコンプライアンス標準のいずれかを使用して PowerPoint ドキュメントを PDF にエクスポートできます：**PDF/A1a**、**PDF/A1b**、および **PDF/UA**。
 
-以下のコードは、異なるコンプライアンス標準に基づいて複数の PDF を生成する PowerPoint‑to‑PDF 変換プロセスを示しています。
+このコードは、異なるコンプライアンス標準に基づいて複数の PDF を生成する PowerPoint から PDF への変換プロセスを示しています:
 ```java
 Presentation presentation = new Presentation("pres.pptx");
 try {
@@ -305,34 +303,34 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides は PDF 変換操作もサポートし、PDF ファイルを一般的な形式に変換できます。[PDF to HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/)、[PDF to image](https://products.aspose.com/slides/java/conversion/pdf-to-image/)、[PDF to JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/)、[PDF to PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/) の変換が可能です。さらに、[PDF to SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/)、[PDF to TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/)、[PDF to XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/) といった特殊フォーマットへの変換もサポートされています。
+Aspose.Slides は PDF 変換操作をサポートしており、PDF ファイルをさまざまな一般的な形式に変換できます。[PDF to HTML]、[PDF to image]、[PDF to JPG]、[PDF to PNG] 変換を実行できます。また、[PDF to SVG]、[PDF to TIFF]、[PDF to XML] といった専門的な形式への変換もサポートされています。
 
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**複数の PowerPoint ファイルを一括で PDF に変換できますか？**
+**複数のPowerPointファイルを一括でPDFに変換できますか？**
 
-はい、Aspose.Slides は複数の PPT または PPTX ファイルをバッチ変換して PDF に出力できます。ファイルを列挙し、プログラムで変換処理を適用してください。
+はい、Aspose.Slides は複数の PPT または PPTX ファイルを一括で PDF に変換することをサポートしています。ファイルを反復処理し、プログラムで変換プロセスを適用できます。
 
-**変換した PDF にパスワードを設定できますか？**
+**変換されたPDFにパスワード保護を設定できますか？**
 
-もちろんです。[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスを使用して、変換時にパスワードとアクセス許可を設定できます。
+もちろんです。[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスを使用して、変換プロセス中にパスワードとアクセス許可を設定できます。
 
-**PDF に非表示スライドを含めるにはどうすればよいですか？**
+**PDFに非表示スライドを含めるにはどうすればよいですか？**
 
-[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスの `setShowHiddenSlides` メソッドを使用して、結果の PDF に非表示スライドを含めてください。
+[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスの `setShowHiddenSlides` メソッドを使用して、結果の PDF に非表示スライドを含めることができます。
 
-**Aspose.Slides は PDF の画像品質を高く保てますか？**
+**Aspose.SlidesはPDFの画像品質を高く保つことができますか？**
 
-はい、`setJpegQuality` や `setSufficientResolution` などのメソッドを [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) で利用し、高品質な画像を PDF に保持できます。
+はい、`setJpegQuality` や `setSufficientResolution` などのメソッドを使用して、PDF 内の画像品質を高く保つことができます。
 
-**Aspose.Slides は PDF/A コンプライアンス標準をサポートしていますか？**
+**Aspose.SlidesはPDF/A準拠基準をサポートしていますか？**
 
-はい、Aspose.Slides は PDF/A1a、PDF/A1b、PDF/UA などのさまざまな標準に準拠した PDF のエクスポートをサポートし、アクセシビリティと長期保存要件を満たします。
+はい、Aspose.Slides は PDF/A1a、PDF/A1b、PDF/UA などのさまざまな基準に準拠した PDF のエクスポートをサポートしており、アクセシビリティとアーカイブ要件を満たすことができます。
 
 ## **追加リソース**
 
-- [Aspose.Slides for Android via Java Documentation](/slides/ja/androidjava/)
-- [Aspose.Slides for Android via Java API Reference](https://reference.aspose.com/slides/androidjava/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides for Android via Java ドキュメント](/slides/ja/androidjava/)
+- [Aspose.Slides for Android via Java API リファレンス](https://reference.aspose.com/slides/androidjava/)
+- [Aspose 無料オンラインコンバータ](https://products.aspose.app/slides/conversion)

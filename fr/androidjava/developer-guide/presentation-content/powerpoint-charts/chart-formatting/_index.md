@@ -1,12 +1,12 @@
 ---
-title: Formatage des graphiques de présentation sur Android
-linktitle: Formatage des graphiques
+title: Format des graphiques de présentation sur Android
+linktitle: Mise en forme des graphiques
 type: docs
 weight: 60
 url: /fr/androidjava/chart-formatting/
 keywords:
 - format de graphique
-- formatage de graphique
+- mise en forme de graphique
 - entité de graphique
 - propriétés de graphique
 - paramètres de graphique
@@ -18,43 +18,43 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez le formatage des graphiques dans Aspose.Slides pour Android via Java et améliorez votre présentation PowerPoint avec un style professionnel et attrayant."
+description: "Apprenez la mise en forme des graphiques dans Aspose.Slides pour Android via Java et améliorez votre présentation PowerPoint avec un style professionnel et accrocheur."
 ---
 
-## **Format des entités de diagramme**
-Aspose.Slides for Android via Java permet aux développeurs d’ajouter des diagrammes personnalisés à leurs diapositives à partir de zéro. Cet article explique comment formater différentes entités de diagramme, y compris l’axe des catégories et l’axe des valeurs.
+## **Formater les entités de graphique**
+Aspose.Slides for Android via Java permet aux développeurs d’ajouter des graphiques personnalisés à leurs diapositives depuis le début. Cet article explique comment formater différentes entités de graphique, y compris les axes de catégorie et de valeur.
 
-Aspose.Slides for Android via Java fournit une API simple pour gérer différentes entités de diagramme et les formater à l’aide de valeurs personnalisées :
+Aspose.Slides for Android via Java fournit une API simple pour gérer différentes entités de graphique et les formater en utilisant des valeurs personnalisées :
 
-1. Créez une instance de la classe [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Obtenez la référence d’une diapositive par son indice.
-1. Ajoutez un diagramme avec des données par défaut ainsi que le type souhaité (dans cet exemple nous utiliserons ChartType.LineWithMarkers).
-1. Accédez à l’axe des valeurs du diagramme et définissez les propriétés suivantes :
-   1. Définir le **format de ligne** pour les lignes de quadrillage majeures de l’axe des valeurs
-   1. Définir le **format de ligne** pour les lignes de quadrillage mineures de l’axe des valeurs
-   1. Définir le **format numérique** pour l’axe des valeurs
-   1. Définir les unités **Min, Max, majeures et mineures** pour l’axe des valeurs
-   1. Définir les **propriétés du texte** pour les données de l’axe des valeurs
-   1. Définir le **titre** pour l’axe des valeurs
-   1. Définir le **format de ligne** pour l’axe des valeurs
-1. Accédez à l’axe des catégories du diagramme et définissez les propriétés suivantes :
-   1. Définir le **format de ligne** pour les lignes de quadrillage majeures de l’axe des catégories
-   1. Définir le **format de ligne** pour les lignes de quadrillage mineures de l’axe des catégories
-   1. Définir les **propriétés du texte** pour les données de l’axe des catégories
-   1. Définir le **titre** pour l’axe des catégories
-   1. Définir le **positionnement des étiquettes** pour l’axe des catégories
-   1. Définir l’**angle de rotation** pour les étiquettes de l’axe des catégories
-1. Accédez à la légende du diagramme et définissez les **propriétés du texte** correspondantes.
-1. Affichez les légendes du diagramme sans chevaucher le diagramme.
-1. Accédez à l’**axe des valeurs secondaire** du diagramme et définissez les propriétés suivantes :
-   1. Activez l’**axe des valeurs secondaire**
+1. Créer une instance de la classe [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenir la référence d’une diapositive par son indice.
+1. Ajouter un graphique avec des données par défaut ainsi que le type souhaité (dans cet exemple, nous utiliserons ChartType.LineWithMarkers).
+1. Accéder à l’axe des valeurs du graphique et définir les propriétés suivantes :
+   1. Définir le **format de ligne** pour les lignes de grille majeures de l’axe des valeurs
+   1. Définir le **format de ligne** pour les lignes de grille mineures de l’axe des valeurs
+   1. Définir le **format de nombre** pour l’axe des valeurs
+   1. Définir les **unités Min, Max, majeures et mineures** pour l’axe des valeurs
+   1. Définir les **propriétés de texte** pour les données de l’axe des valeurs
+   1. Définir le **titre** de l’axe des valeurs
+   1. Définir le **format de ligne** de l’axe des valeurs
+1. Accéder à l’axe des catégories du graphique et définir les propriétés suivantes :
+   1. Définir le **format de ligne** pour les lignes de grille majeures de l’axe des catégories
+   1. Définir le **format de ligne** pour les lignes de grille mineures de l’axe des catégories
+   1. Définir les **propriétés de texte** pour les données de l’axe des catégories
+   1. Définir le **titre** de l’axe des catégories
+   1. Définir le **positionnement des libellés** pour l’axe des catégories
+   1. Définir l’**angle de rotation** des libellés de l’axe des catégories
+1. Accéder à la légende du graphique et définir les **propriétés de texte** pour celle‑ci
+1. Afficher les légendes du graphique sans chevaucher le graphique
+1. Accéder à l’**axe des valeurs secondaire** du graphique et définir les propriétés suivantes :
+   1. Activer l’**axe des valeurs secondaire**
    1. Définir le **format de ligne** pour l’axe des valeurs secondaire
-   1. Définir le **format numérique** pour l’axe des valeurs secondaire
-   1. Définir les unités **Min, Max, majeures et mineures** pour l’axe des valeurs secondaire
-1. Tracez maintenant la première série du diagramme sur l’axe des valeurs secondaire
-1. Définissez la couleur de remplissage du mur arrière du diagramme
-1. Définissez la couleur de remplissage de la zone de traçage du diagramme
-1. Enregistrez la présentation modifiée dans un fichier PPTX
+   1. Définir le **format de nombre** pour l’axe des valeurs secondaire
+   1. Définir les **unités Min, Max, majeures et mineures** pour l’axe des valeurs secondaire
+1. Tracer maintenant la première série de graphique sur l’axe des valeurs secondaire
+1. Définir la couleur de remplissage du mur arrière du graphique
+1. Définir la couleur de remplissage de la zone de tracé du graphique
+1. Enregistrer la présentation modifiée dans un fichier PPTX
 ```java
 // Créer une instance de la classe Presentation
 Presentation pres = new Presentation();
@@ -62,10 +62,10 @@ try {
     // Accéder à la première diapositive
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Ajouter le diagramme d'exemple
+    // Ajouter le graphique d'exemple
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Définir le titre du diagramme
+    // Définir le titre du graphique
     chart.hasTitle();
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
@@ -76,13 +76,13 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Définir le format des lignes de quadrillage majeures pour l'axe des valeurs
+    // Définir le format des lignes de grille majeures pour l'axe des valeurs
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Définir le format des lignes de quadrillage mineures pour l'axe des valeurs
+    // Définir le format des lignes de grille mineures pour l'axe des valeurs
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
@@ -92,7 +92,7 @@ try {
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Définir les valeurs maximale et minimale du diagramme
+    // Définir les valeurs maximale et minimale du graphique
     chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
@@ -103,7 +103,7 @@ try {
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Définir les propriétés du texte de l'axe des valeurs
+    // Définir les propriétés de texte de l'axe des valeurs
     IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
     txtVal.setFontBold(NullableBool.True);
     txtVal.setFontHeight(16);
@@ -123,17 +123,17 @@ try {
     valtitle.getPortionFormat().setFontBold(NullableBool.True);
     valtitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Définir le format des lignes de quadrillage majeures pour l'axe des catégories
+    // Définir le format des lignes de grille majeures pour l'axe des catégories
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Définir le format des lignes de quadrillage mineures pour l'axe des catégories
+    // Définir le format des lignes de grille mineures pour l'axe des catégories
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Définir les propriétés du texte de l'axe des catégories
+    // Définir les propriétés de texte de l'axe des catégories
     IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
     txtCat.setFontBold(NullableBool.True);
     txtCat.setFontHeight(16);
@@ -160,7 +160,7 @@ try {
     // Définir l'angle de rotation des étiquettes de l'axe des catégories
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Définir les propriétés du texte des légendes
+    // Définir les propriétés de texte des légendes
     IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
     txtleg.setFontBold(NullableBool.True);
     txtleg.setFontHeight(16);
@@ -168,7 +168,7 @@ try {
     txtleg.getFillFormat().setFillType(FillType.Solid);
     txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
 
-    // Afficher les légendes du diagramme sans chevaucher le diagramme
+    // Afficher les légendes du graphique sans chevaucher le graphique
 
     chart.getLegend().setOverlay(true);
     // chart.ChartData.Series[0].PlotOnSecondAxis=true;
@@ -184,7 +184,7 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
     chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
 
-    // Définir les valeurs maximale et minimale du diagramme
+    // Définir les valeurs maximale et minimale du graphique
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
@@ -195,14 +195,14 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
 
-    // Définir la couleur du mur arrière du diagramme
+    // Définir la couleur du mur arrière du graphique
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
     chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Définir la couleur de la zone de traçage
+    // Définir la couleur de la zone de tracé
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
@@ -214,15 +214,15 @@ try {
 ```
 
 
-## **Définir les propriétés de police d’un diagramme**
-Aspose.Slides for Android via Java prend en charge la définition des propriétés liées aux polices pour le diagramme. Veuillez suivre les étapes ci‑dessous pour définir les propriétés de police du diagramme.
+## **Définir les propriétés de police pour un graphique**
+Aspose.Slides for Android via Java prend en charge la définition des propriétés liées à la police pour le graphique. Veuillez suivre les étapes ci‑dessous pour définir les propriétés de police du graphique.
 
-- Instanciez un objet de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-- Ajoutez un diagramme sur la diapositive.
-- Définissez la hauteur de la police.
-- Enregistrez la présentation modifiée.
+- Instancier l’objet de classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+- Ajouter un graphique sur la diapositive.
+- Définir la hauteur de la police.
+- Enregistrer la présentation modifiée.
 
-L’exemple suivant est fourni.
+L’exemple de code ci‑dessous est fourni.
 ```java
 // Créer une instance de la classe Presentation
 Presentation pres = new Presentation();
@@ -240,17 +240,17 @@ try {
 
 
 ## **Définir le format numérique**
-Aspose.Slides for Android via Java fournit une API simple pour gérer le format des données de diagramme :
+Aspose.Slides for Android via Java fournit une API simple pour gérer le format des données du graphique :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Obtenez la référence d’une diapositive par son indice.
-1. Ajoutez un diagramme avec des données par défaut et le type souhaité (cet exemple utilise **ChartType.ClusteredColumn**).
-1. Définissez le format numérique prédéfini parmi les valeurs prédéfinies possibles.
-1. Parcourez chaque cellule de données de diagramme dans chaque série et définissez le format numérique des données de diagramme.
-1. Enregistrez la présentation.
-1. Définissez le format numérique personnalisé.
-1. Parcourez les cellules de données de diagramme dans chaque série et définissez un format numérique différent pour les données du diagramme.
-1. Enregistrez la présentation.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+1. Obtenir la référence d’une diapositive par son indice.
+1. Ajouter un graphique avec des données par défaut ainsi que le type souhaité (cet exemple utilise **ChartType.ClusteredColumn**).
+1. Définir le format numérique prédéfini parmi les valeurs prédéfinies possibles.
+1. Parcourir les cellules de données du graphique dans chaque série et définir le format numérique des données du graphique.
+1. Enregistrer la présentation.
+1. Définir le format numérique personnalisé.
+1. Parcourir les cellules de données du graphique dans chaque série et définir un format numérique différent pour les données du graphique.
+1. Enregistrer la présentation.
 ```java
 // Créer une instance de la classe Presentation
 Presentation pres = new Presentation();
@@ -267,11 +267,11 @@ try {
     // Parcourir chaque série du diagramme
     for (IChartSeries ser : series) 
     {
-        // Parcourir chaque cellule de données dans la série
+        // Parcourir chaque cellule de données de la série
         for (IChartDataPoint cell : ser.getDataPoints()) 
         {
             // Définir le format numérique
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
         }
     }
 
@@ -283,7 +283,7 @@ try {
 ```
 
 
-Les valeurs possibles de format numérique prédéfini, avec leur indice de présélection, qui peuvent être utilisées, sont indiquées ci‑dessous :
+Les valeurs de format numérique prédéfini possibles ainsi que leur index sont indiquées ci‑dessous :
 
 |**0**|Général|
 | :- | :- |
@@ -318,20 +318,19 @@ Les valeurs possibles de format numérique prédéfini, avec leur indice de pré
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **Définir les coins arrondis de la zone du diagramme**
-Aspose.Slides for Android via Java prend en charge la configuration de la zone du diagramme. Les méthodes [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) et [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) ont été ajoutées à l’interface [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) et à la classe [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart).
+## **Définir les bords arrondis de la zone du graphique**
+Aspose.Slides for Android via Java prend en charge la définition de la zone du graphique. Les méthodes [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) et [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) ont été ajoutées à l’interface [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) et à la classe [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart).
 
-1. Instanciez un objet de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Ajoutez un diagramme sur la diapositive.
-1. Définissez le type de remplissage et la couleur de remplissage du diagramme
-1. Définissez la propriété de coins arrondis sur True.
-1. Enregistrez la présentation modifiée.
-
+1. Instancier l’objet de classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+2. Ajouter un graphique sur la diapositive.
+3. Définir le type de remplissage et la couleur de remplissage du graphique
+4. Définir la propriété d’angle arrondi à true.
+5. Enregistrer la présentation modifiée.
 ```java
 // Créer une instance de la classe Presentation
 Presentation pres = new Presentation();
@@ -352,14 +351,14 @@ try {
 
 ## **FAQ**
 
-**Puis-je définir des remplissages semi‑transparents pour les colonnes/zones tout en conservant le contour opaque ?**
+**Puis‑je définir des remplissages semi‑transparents pour les colonnes/aires tout en conservant le contour opaque ?**
 
-Oui. La transparence du remplissage et le contour sont configurés séparément. Cela permet d’améliorer la lisibilité de la grille et des données dans les visualisations denses.
+Oui. La transparence du remplissage et le contour sont configurés séparément. Cela est utile pour améliorer la lisibilité de la grille et des données dans les visualisations denses.
 
-**Comment gérer les étiquettes de données lorsqu’elles se chevauchent ?**
+**Comment gérer les libellés de données lorsqu’ils se chevauchent ?**
 
-Réduisez la taille de la police, désactivez les composants d’étiquettes non essentiels (par exemple, les catégories), définissez le décalage/position de l’étiquette, n’affichez les étiquettes que pour les points sélectionnés si nécessaire, ou passez au format « valeur + légende ».
+Réduisez la taille de la police, désactivez les composants de libellé non essentiels (par exemple les catégories), définissez le décalage/position du libellé, n’affichez les libellés que pour les points sélectionnés si nécessaire, ou passez au format « valeur + légende ».
 
-**Puis-je appliquer des remplissages en dégradé ou à motif aux séries ?**
+**Puis‑je appliquer des remplissages en dégradé ou à motifs aux séries ?**
 
-Oui. Les remplissages unis et en dégradé/motif sont généralement disponibles. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.
+Oui. Les remplissages unis ainsi que les remplissages en dégradé/motif sont généralement disponibles. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.

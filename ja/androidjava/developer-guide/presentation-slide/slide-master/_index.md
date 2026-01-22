@@ -1,127 +1,123 @@
 ---
-title: Android でプレゼンテーション スライド マスターを管理
-linktitle: スライド マスター
+title: Androidでプレゼンテーションスライドマスターを管理する
+linktitle: スライドマスター
 type: docs
 weight: 70
 url: /ja/androidjava/slide-master/
 keywords:
-- スライド マスター
-- マスター スライド
-- PPT マスター スライド
-- 複数のマスター スライド
-- マスター スライドの比較
+- スライドマスター
+- マスタースライド
+- PPTマスタースライド
+- 複数のマスタースライド
+- マスタースライドの比較
 - 背景
 - プレースホルダー
-- マスター スライドのクローン
-- マスター スライドのコピー
-- マスター スライドの重複
-- 未使用のマスター スライド
+- マスタースライドのクローン
+- マスタースライドのコピー
+- マスタースライドの複製
+- 未使用のマスタースライド
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android でスライド マスターを管理します：レイアウト、テーマ、プレースホルダーを PPT、PPTX、ODP に作成、編集、適用し、簡潔な Java サンプルで示します。"
+description: "Android 用 Aspose.Slides でスライドマスターを管理: PPT、PPTX、ODP にレイアウト、テーマ、プレースホルダーを作成・編集・適用する簡潔な Java サンプル"
 ---
 
-## **PowerPoint のスライド マスターとは**
+## **PowerPoint のスライドマスターとは何か**
 
-**スライド マスター** は、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、およびその他のプロパティを定義するスライド テンプレートです。会社の同一スタイルやテンプレートでプレゼンテーション（または一連のプレゼンテーション）を作成したい場合は、スライド マスターを使用できます。
+**スライドマスター** は、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライドテンプレートです。会社の同じスタイルとテンプレートでプレゼンテーション（または一連のプレゼンテーション）を作成したい場合は、スライドマスターを使用できます。
 
-スライド マスターは、すべてのプレゼンテーション スライドの外観を一括で設定および変更できるため便利です。Aspose.Slides は PowerPoint のスライド マスター機構をサポートしています。
+スライドマスターは、すべてのプレゼンテーションスライドの外観を一括で設定および変更できるため便利です。Aspose.Slides は PowerPoint のスライドマスター機構をサポートしています。
 
-VBA でもスライド マスターを操作でき、PowerPoint でサポートされている操作（背景の変更、図形の追加、レイアウトのカスタマイズなど）を実行できます。Aspose.Slides はスライド マスターを使用し、基本的なタスクを柔軟に実行できるメカニズムを提供します。
+VBA でもスライドマスターを操作でき、PowerPoint でサポートされている操作（背景の変更、図形の追加、レイアウトのカスタマイズなど）を実行できます。Aspose.Slides は柔軟な機構を提供し、スライドマスターの利用と基本的なタスクの実行を可能にします。
 
-基本的なスライド マスター操作は次のとおりです：
+これらは基本的なスライドマスター操作です：
 
-- スライド マスターの作成または取得。
-- スライド マスターをプレゼンテーション スライドに適用。
-- スライド マスターの背景を変更。
-- スライド マスターに画像、プレースホルダー、SmartArt などを追加。
+- スライドマスターを作成または取得。
+- プレゼンテーションスライドにスライドマスターを適用。
+- スライドマスターの背景を変更。
+- スライドマスターに画像、プレースホルダー、SmartArt などを追加。
 
-より高度なスライド マスター操作は次のとおりです：
+これらはスライドマスターに関わる高度な操作です：
 
-- スライド マスターの比較。
-- スライド マスターの結合。
-- 複数のスライド マスターの適用。
-- スライド マスター付きのスライドを別のプレゼンテーションにコピー。
-- プレゼンテーション内の重複スライド マスターを検出。
-- スライド マスターをプレゼンテーションのデフォルト表示として設定。
+- スライドマスターを比較。
+- スライドマスターをマージ。
+- 複数のスライドマスターを適用。
+- スライドマスター付きスライドを別のプレゼンテーションにコピー。
+- プレゼンテーション内の重複スライドマスターを検出。
+- スライドマスターをプレゼンテーションのデフォルトビューに設定。
 
 {{% alert color="primary" %}} 
-Aspose の[**オンライン PowerPoint ビューア**](https://products.aspose.app/slides/viewer)は、ここで説明した主要プロセスの実装例として確認できます。
+Aspose の [**オンライン PowerPoint ビューア**](https://products.aspose.app/slides/viewer) をチェックするとよいでしょう。これは、本稿で説明したコアプロセスのいくつかのライブ実装です。
 {{% /alert %}} 
 
+## **スライドマスターはどのように適用されるか**
 
-## **スライド マスターの適用方法**
+スライドマスターを扱う前に、プレゼンテーションでの使用方法とスライドへの適用方法を理解するとよいでしょう。
 
-スライド マスターを操作する前に、プレゼンテーションでの使用方法とスライドへの適用方法を理解しておくとよいでしょう。
+* すべてのプレゼンテーションはデフォルトで少なくとも 1 つのスライドマスターを持ちます。  
+* プレゼンテーションには複数のスライドマスターを含めることができ、異なる部分を異なる方法でスタイル設定できます。  
 
-* すべてのプレゼンテーションには、デフォルトで少なくとも 1 つのスライド マスターがあります。
-* プレゼンテーションには複数のスライド マスターを含めることができ、異なる部分を別々のスタイルで装飾できます。
+**Aspose.Slides** では、スライドマスターは [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) 型で表されます。
 
-**Aspose.Slides** では、スライド マスターは [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) 型で表されます。
+Aspose.Slides の [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) オブジェクトは、[**getMasters**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) リストである [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) を保持し、プレゼンテーションで定義されたすべてのスライドマスターの一覧を取得できます。
 
-Aspose.Slides の [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) オブジェクトは、[**getMasters**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) リストとして [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) 型を保持し、プレゼンテーションで定義されたすべてのマスター スライドの一覧を提供します。
+CRUD 操作に加えて、[IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) インターフェイスには次の便利なメソッドが含まれます: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) と [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-)。これらは基本的なスライド複製機能から継承されていますが、スライドマスターを扱う際には複雑な設定を実装するために使用できます。
 
-CRUD 操作に加えて、[IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) インターフェイスは次の便利なメソッドを備えています： [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) および [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-)。これらは基本的なスライド クローン機能から継承されますが、スライド マスターに対して使用すると複雑な設定を実装できます。
+新しいスライドがプレゼンテーションに追加されると、スライドマスターが自動的に適用されます。デフォルトでは前のスライドのスライドマスターが選択されます。
 
-新しいスライドがプレゼンテーションに追加されると、スライド マスターが自動的に適用されます。既定では前のスライドのマスターが選択されます。
+**Note**: プレゼンテーションスライドは [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) リストに格納され、新しいスライドはデフォルトでコレクションの末尾に追加されます。プレゼンテーションが単一のスライドマスターしか持たない場合、そのスライドマスターがすべての新規スライドに適用されます。これにより、各新規スライドごとにスライドマスターを明示的に指定する必要がなくなります。
 
-**注**: プレゼンテーション スライドは [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) リストに格納され、新しいスライドは既定でコレクションの末尾に追加されます。プレゼンテーションに単一のスライド マスターしかない場合、そのマスターがすべての新規スライドに適用されます。このため、各スライドごとにスライド マスターを指定する必要はありません。
-
-PowerPoint と Aspose.Slides では原理が同じです。たとえば PowerPoint では、最後のスライドの下にある線をクリックすると、直前のスライドのマスターが適用された新しいスライドが作成されます：
+PowerPoint と Aspose.Slides の原理は同じです。たとえば PowerPoint では、最後のスライドの下の線をクリックすると、前のプレゼンテーションのスライドマスターを引き継いだ新しいスライドが作成されます：
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-Aspose.Slides では、[addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) メソッドを使用して同等の操作が可能です。
+Aspose.Slides では、[addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) メソッドを使用して同等の操作を行えます。
 
+## **スライド階層におけるスライドマスター**
 
-## **スライド マスターとスライド階層**
+スライドレイアウトとスライドマスターを組み合わせることで、最大限の柔軟性が得られます。スライドレイアウトはスライドマスターと同じスタイル（背景、フォント、図形など）を設定できますが、複数のスライドレイアウトがスライドマスターに組み合わさると新しいスタイルが生成されます。スライドレイアウトを単一スライドに適用すると、スライドマスターが適用したスタイルから変更できます。
 
-スライド レイアウトとスライド マスターを組み合わせて使用すると、最大の柔軟性が得られます。スライド レイアウトはスライド マスターと同じスタイル（背景、フォント、図形など）を設定できますが、複数のレイアウトがマスター上に組み合わさると新たなスタイルが生成されます。スライド レイアウトを単一のスライドに適用すると、マスターが設定したスタイルから上書きされます。
-
-スライド マスターはすべての設定項目の上位に位置します： スライド マスター → スライド レイアウト → スライド：
+スライドマスターはすべての設定項目の上位に位置します: スライドマスター → スライドレイアウト → スライド：
 
 ![todo:image_alt_text](slide-master_2)
 
-各 [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) オブジェクトは、スライド レイアウトの一覧を保持する [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--) プロパティを持ちます。[Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide) 型は、適用されたスライド レイアウトへのリンクを保持する [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--) プロパティを持ちます。スライドとスライド マスターの相互作用はスライド レイアウトを介して行われます。
+各 [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) オブジェクトは、スライドレイアウトの一覧を持つ [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--) プロパティを持ちます。スライド型は、適用されたスライドレイアウトへのリンクを持つ [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--) プロパティを持ちます。スライドとスライドマスターの相互作用はスライドレイアウトを通じて行われます。
 
-{{% alert color="info" title="注" %}}
-* Aspose.Slides では、スライドのすべての設定（スライド マスター、スライド レイアウト、スライド自体）は、[**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) インターフェイスを実装したスライド オブジェクトです。
-* したがって、スライド マスターとスライド レイアウトは同じプロパティを実装する可能性があり、どの値が最終的に [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide) オブジェクトに適用されるかを理解する必要があります。スライド マスターがまず適用され、次にスライド レイアウトが適用されます。たとえば、両方に背景が設定されている場合、最終的なスライドの背景はスライド レイアウト側のものになります。
+{{% alert color="info" title="Note" %}}
+* Aspose.Slides では、スライドマスター、スライドレイアウト、スライド自体すべてが [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) インターフェイスを実装するスライドオブジェクトです。  
+* したがって、スライドマスターとスライドレイアウトは同じプロパティを実装する可能性があり、各プロパティが [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide) オブジェクトにどのように適用されるかを理解する必要があります。スライドマスターが最初に適用され、次にスライドレイアウトが適用されます。たとえば、スライドマスターとスライドレイアウトの両方に背景が設定されている場合、最終的なスライドはスライドレイアウトの背景を使用します。
 {{% /alert %}}
 
+## **スライドマスターに含まれるもの**
 
-## **スライド マスターの構成要素**
+スライドマスターを変更する方法を理解するには、その構成要素を把握する必要があります。以下は [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) の主なプロパティです。
 
-スライド マスターを変更する方法を理解するには、構成要素を把握する必要があります。以下は [MasterSlide](https://reference.aspose.com/slides/androidjava/aspose.slides/masterslide/) の主要プロパティです。
+- [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) スライドの背景を取得/設定します。  
+- [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) スライド本文のテキストスタイルを取得/設定します。  
+- [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getShapes--) プレースホルダー、画像枠など、スライドマスター上のすべての図形を取得/設定します。  
+- [getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getControls--) ActiveX コントロールを取得/設定します。  
+- [getThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterThemeable#getThemeManager--) テーママネージャーを取得します。  
+- [getHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) ヘッダーとフッターマネージャーを取得します。  
 
-- [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) – スライドの背景を取得/設定。
-- [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) – スライド本体のテキストスタイルを取得/設定。
-- [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getShapes--) – スライド マスター上のすべての図形（プレースホルダー、画像フレームなど）を取得/設定。
-- [getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getControls--) – ActiveX コントロールを取得/設定。
-- [getThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterThemeable#getThemeManager--) – テーマ マネージャーを取得。
-- [getHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) – ヘッダーとフッターのマネージャーを取得。
+スライドマスターのメソッド:
 
-スライド マスターのメソッド：
+- [getDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getDependingSlides--) このスライドマスターに依存するすべてのスライドを取得します。  
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) 現在のスライドマスターと新しいテーマに基づいて新しいスライドマスターを作成し、依存スライドすべてに適用します。  
 
-- [getDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getDependingSlides--) – マスターに依存するすべてのスライドを取得。
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – 現在のスライド マスターと新しいテーマから新しいスライド マスターを作成し、依存スライドすべてに適用します。
+## **スライドマスターを取得する**
 
-
-## **スライド マスターの取得方法**
-
-PowerPoint では、[表示] → [スライド マスター] メニューからスライド マスターにアクセスできます：
+PowerPoint では、[表示] → [スライドマスター] メニューからスライドマスターにアクセスできます：
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-Aspose.Slides を使用すると、次のようにスライド マスターにアクセスできます：
+Aspose.Slides を使用すると、次のようにスライドマスターにアクセスできます：  
 ```java
 Presentation pres = new Presentation();
 try {
-    // Presentation のマスタースライドにアクセスします
+    // プレゼンテーションのマスタースライドへのアクセスを取得
     IMasterSlide masterSlide = pres.getMasters().get_Item(0);
 } finally {
     pres.dispose();
@@ -129,18 +125,15 @@ try {
 ```
 
 
-[IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) インターフェイスがスライド マスターを表します。Presentation の [Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--) プロパティ（[IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) 型）は、プレゼンテーションで定義されたすべてのスライド マスターの一覧を保持します。
+[IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) インターフェイスはスライドマスターを表します。[Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--) プロパティ（[IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) 型に関連）には、プレゼンテーションで定義されたすべてのスライドマスターの一覧が含まれます。  
 
+## **スライドマスターに画像を追加する**
 
-## **スライド マスターに画像を追加する方法**
-
-スライド マスターに画像を追加すると、そのマスターに依存するすべてのスライドに同じ画像が表示されます。
-
-たとえば、会社のロゴや数枚の画像をスライド マスターに配置すれば、スライド編集モードに戻したときにすべてのスライドで画像が表示されます。
+スライドマスターに画像を追加すると、その画像はそのマスターに依存するすべてのスライドに表示されます。たとえば、会社のロゴをスライドマスターに配置すれば、プレゼンテーション内のすべてのスライドでロゴが表示されます。
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Aspose.Slides でスライド マスターに画像を追加する方法：
+Aspose.Slides でスライドマスターに画像を追加できます：  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -161,35 +154,34 @@ try {
 ```
 
 
-{{% alert color="primary" title="関連項目" %}} 
+{{% alert color="primary" title="See also" %}} 
 スライドへの画像追加に関する詳細は、[Picture Frame](/slides/ja/androidjava/picture-frame/#create-picture-frame) 記事をご参照ください。
 {{% /alert %}}
 
+## **スライドマスターにプレースホルダーを追加する**
 
-## **スライド マスターにプレースホルダーを追加する方法**
+次のテキストフィールドはスライドマスター上の標準プレースホルダーです:
 
-スライド マスター上の標準プレースホルダー例：
-
-* マスター タイトル スタイルの編集
-* マスターテキスト スタイルの編集
+* マスタータイトルスタイルを編集するにはクリック
+* マスターテキストスタイルを編集
 * 第 2 レベル
 * 第 3 レベル
 
-これらはスライド マスターに基づくスライドにも表示されます。スライド マスター上でプレースホルダーを編集すると、スライドに自動的に反映されます。
+これらはスライドマスターに基づくスライドにも表示されます。スライドマスター上でプレースホルダーを編集すると、変更が自動的にスライドに適用されます。
 
-PowerPoint では、[スライド マスター] → [プレースホルダーの挿入] パスでプレースホルダーを追加できます：
+PowerPoint では、[スライドマスター] → [プレースホルダーの挿入] パスを使ってプレースホルダーを追加できます：
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Aspose.Slides でのプレースホルダーの複雑な例を見てみましょう。次のスライドはスライド マスターからテンプレート化されたプレースホルダーを持ちます：
+次に、Aspose.Slides を使用したプレースホルダーのより複雑な例を見てみましょう。スライドマスターからテンプレート化されたプレースホルダーを持つスライドです：
 
 ![todo:image_alt_text](slide-master_6.png)
 
-次のようにスライド マスター上でタイトルとサブタイトルの書式を変更したいとします：
+以下のようにスライドマスター上でタイトルとサブタイトルの書式を変更します：
 
 ![todo:image_alt_text](slide-master_7.png)
 
-まず、スライド マスター オブジェクトからタイトル プレースホルダーのコンテンツを取得し、`PlaceHolder.FillFormat` フィールドを使用します：
+まず、スライドマスターオブジェクトからタイトルプレースホルダーの内容を取得し、`PlaceHolder.FillFormat` フィールドを使用します：  
 ```java
 public static void main(String[] args) {
     Presentation pres = new Presentation();
@@ -226,19 +218,18 @@ static IAutoShape findPlaceholder(IMasterSlide master, int type)
 ```
 
 
-タイトルのスタイルと書式が、スライド マスターに基づくすべてのスライドで変更されます：
+タイトルのスタイルと書式が、スライドマスターに基づくすべてのスライドで変更されます：
 
 ![todo:image_alt_text](slide-master_8.png)
 
-{{% alert color="primary" title="関連項目" %}} 
-* [プレースホルダーへのプロンプト テキストの設定](https://docs.aspose.com/slides/androidjava/manage-placeholder/)
-* [テキストの書式設定](https://docs.aspose.com/slides/androidjava/text-formatting/)
+{{% alert color="primary" title="See also" %}} 
+* [プレースホルダーにプロンプトテキストを設定](https://docs.aspose.com/slides/androidjava/manage-placeholder/)  
+* [テキスト書式設定](https://docs.aspose.com/slides/androidjava/text-formatting/)
 {{% /alert %}}
 
+## **スライドマスターの背景を変更する**
 
-## **スライド マスターの背景を変更する方法**
-
-マスター スライドの背景色を変更すると、プレゼンテーション内のすべての通常スライドが新しい色になります。以下の Java コードがその操作例です：
+マスタースライドの背景色を変更すると、プレゼンテーション内のすべての通常スライドが新しい色になります。この Java コードが操作を示しています：  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -254,14 +245,14 @@ try {
 ```
 
 
-{{% alert color="primary" title="関連項目" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/androidjava/presentation-background/)
-- [Presentation Theme](https://docs.aspose.com/slides/androidjava/presentation-theme/)
+{{% alert color="primary" title="See also" %}} 
+- [プレゼンテーションの背景](https://docs.aspose.com/slides/androidjava/presentation-background/)  
+- [プレゼンテーションのテーマ](https://docs.aspose.com/slides/androidjava/presentation-theme/)
 {{% /alert %}}
 
-## **スライド マスターを別のプレゼンテーションにクローンする方法**
+## **スライドマスターを別のプレゼンテーションにクローンする**
 
-スライド マスターを別のプレゼンテーションにクローンするには、対象プレゼンテーションの [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) メソッドを呼び出し、クローンしたいスライド マスターを引数に渡します。以下の Java コードがその手順を示しています：
+目的のプレゼンテーションからスライドマスターを別のプレゼンテーションへクローンするには、対象プレゼンテーションの [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) メソッドにスライドマスターを渡して呼び出します。この Java コードはスライドマスターを別のプレゼンテーションにクローンする方法を示しています：  
 ```java
 Presentation presSource = new Presentation();
 Presentation presTarget = new Presentation();
@@ -273,37 +264,34 @@ try {
 ```
 
 
+## **プレゼンテーションに複数のスライドマスターを追加する**
 
-## **プレゼンテーションに複数のスライド マスターを追加する方法**
+Aspose.Slides を使用すると、任意のプレゼンテーションに複数のスライドマスターとスライドレイアウトを追加できます。これにより、プレゼンテーションスライドのスタイル、レイアウト、書式設定オプションを多様に設定できます。
 
-Aspose.Slides では、任意のプレゼンテーションに複数のスライド マスターとスライド レイアウトを追加できます。これにより、スライドのスタイル、レイアウト、書式設定オプションを多様に構成できます。
-
-PowerPoint では、[スライド マスター] メニューから新しいスライド マスターとレイアウトを次のように追加できます：
+PowerPoint では、[スライドマスターメニュー] から新しいスライドマスターとレイアウトを次のように追加できます：
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-Aspose.Slides では、[**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) メソッドを呼び出すことで新しいスライド マスターを追加できます：
+Aspose.Slides では、[**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) メソッドを呼び出すことで新しいスライドマスターを追加できます：  
 ```java
 // 新しいマスタースライドを追加します
 IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
 
 
+## **スライドマスターを比較する**
 
-## **スライド マスターの比較方法**
+マスタースライドは [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) インターフェイスを実装しており、[**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) メソッドでスライドを比較できます。構造と静的コンテンツが同一のマスタースライドは `true` を返します。
 
-マスター スライドは [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) インターフェイスを実装し、[**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) メソッドを提供します。このメソッドを使用してスライドを比較できます。構造と静的コンテンツが同一のマスター スライドは `true` を返します。
+2 つのマスタースライドは、図形、スタイル、テキスト、アニメーションおよびその他の設定がすべて等しい場合に等しいと見なされます。比較はスライド ID などの一意識別子や日付プレースホルダーの現在の日付などの動的コンテンツは考慮しません。
 
-2 つのマスター スライドは、形状、スタイル、テキスト、アニメーション、その他の設定がすべて一致している場合に等しいとみなされます。比較は SlideId などの一意識別子や、日付プレースホルダーの現在日のような動的コンテンツは考慮しません。
+## **スライドマスターをプレゼンテーションのデフォルトビューに設定する**
 
+Aspose.Slides を使用すると、スライドマスターをプレゼンテーションのデフォルトビューとして設定できます。デフォルトビューはプレゼンテーションを開いたときに最初に表示されるビューです。
 
-## **スライド マスターをプレゼンテーションのデフォルト表示に設定する方法**
-
-Aspose.Slides では、スライド マスターをプレゼンテーションのデフォルト表示として設定できます。デフォルト表示は、プレゼンテーションを開いたときに最初に表示されるビューです。
-
-以下のコードは、Java でスライド マスターをプレゼンテーションのデフォルト表示に設定する方法を示しています：
+このコードは Java でスライドマスターをプレゼンテーションのデフォルトビューに設定する方法を示しています：  
 ```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
 try {
     // デフォルトビューを SlideMasterView に設定します
@@ -317,10 +305,9 @@ try {
 ```
 
 
+## **未使用のマスタースライドを削除する**
 
-## **未使用のマスター スライドを削除する方法**
-
-Aspose.Slides は、[Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) クラスの [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) メソッドを提供し、不要なマスター スライドを削除できます。以下の Java コードが PowerPoint プレゼンテーションからマスター スライドを削除する手順を示しています：
+Aspose.Slides は [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) クラスの [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) メソッドを提供し、不要なマスタースライドを削除できます。この Java コードは PowerPoint プレゼンテーションからマスタースライドを削除する方法を示しています：  
 ```java
 Presentation pres = new Presentation("pres.pptx");
  try {
@@ -333,44 +320,43 @@ Presentation pres = new Presentation("pres.pptx");
 ```
 
 
-
 ## **FAQ**
 
-**PowerPoint のスライド マスターとは何ですか？**
+**PowerPoint のスライドマスターとは何ですか？**
 
-スライド マスターは、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライド テンプレートです。すべてのスライドの外観を一括で設定および変更できます。
+スライドマスターは、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライドテンプレートです。すべてのプレゼンテーションスライドの外観を一括で設定および変更できます。
 
-**スライド マスターはプレゼンテーションでどのように適用されますか？**
+**スライドマスターはプレゼンテーションでどのように適用されますか？**
 
-すべてのプレゼンテーションにはデフォルトで最低 1 つのスライド マスターがあります。新しいスライドが追加されると、スライド マスターが自動的に適用され、通常は前のスライドのマスターが継承されます。複数のスライド マスターを持つことで、プレゼンテーションの異なる部分を個別に装飾できます。
+すべてのプレゼンテーションはデフォルトで少なくとも 1 つのスライドマスターを持ちます。新しいスライドが追加されると、スライドマスターが自動的に適用され、通常は前のスライドのマスターが継承されます。複数のスライドマスターを持つことで、異なる部分を個別にスタイル設定できます。
 
-**スライド マスターでカスタマイズできる要素は何ですか？**
+**スライドマスターでカスタマイズできる要素は何ですか？**
 
-スライド マスターは以下の主要プロパティをカスタマイズできます：
+スライドマスターは次の主要プロパティをカスタマイズできます：
 
-- **Background**：スライドの背景を設定。
-- **BodyStyle**：スライド本体のテキストスタイルを定義。
-- **Shapes**：プレースホルダーや画像フレームを含むすべての図形を管理。
-- **Controls**：ActiveX コントロールを扱う。
-- **ThemeManager**：テーマ マネージャーにアクセス。
-- **HeaderFooterManager**：ヘッダーとフッターを管理。
+- **Background**: スライドの背景を設定。  
+- **BodyStyle**: スライド本文のテキストスタイルを定義。  
+- **Shapes**: プレースホルダーや画像枠を含むすべての図形を管理。  
+- **Controls**: ActiveX コントロールを操作。  
+- **ThemeManager**: テーママネージャーにアクセス。  
+- **HeaderFooterManager**: ヘッダーとフッターを管理。  
 
-**スライド マスターに画像を追加するには？**
+**スライドマスターに画像を追加する方法は？**
 
-スライド マスターに画像を追加すると、そのマスターに依存するすべてのスライドに画像が表示されます。たとえば、会社のロゴをスライド マスターに配置すれば、プレゼンテーション内のすべてのスライドに表示されます。
+スライドマスターに画像を追加すると、そのマスターに依存するすべてのスライドに画像が表示されます。たとえば、会社ロゴをスライドマスターに配置すれば、プレゼンテーション内のすべてのスライドに表示されます。
 
-**スライド マスターとスライド レイアウトの関係は？**
+**スライドマスターとスライドレイアウトの関係は？**
 
-スライド レイアウトはスライド マスターと連携してスライド デザインに柔軟性を提供します。スライド マスターが全体的なスタイルとテーマを定義し、スライド レイアウトがコンテンツ配置のバリエーションを可能にします。階層は以下の通りです：
+スライドレイアウトはスライドマスターと連携してスライドデザインに柔軟性を提供します。スライドマスターが全体的なスタイルとテーマを定義し、スライドレイアウトがコンテンツ配置のバリエーションを可能にします。階層は次のとおりです：
 
-- **Slide Master** → グローバルスタイルを定義。
-- **Slide Layout** → 異なるコンテンツ配置を提供。
-- **Slide** → スライド レイアウトからデザインを継承。
+- **スライドマスター** → 全体スタイルを定義。  
+- **スライドレイアウト** → コンテンツ配置のバリエーションを提供。  
+- **スライド** → スライドレイアウトからデザインを継承。  
 
-**1 つのプレゼンテーションに複数のスライド マスターを持てますか？**
+**1 つのプレゼンテーションに複数のスライドマスターを持てますか？**
 
-はい。プレゼンテーションは複数のスライド マスターを含めることができ、セクションごとに異なるデザインを適用して柔軟に装飾できます。
+はい。プレゼンテーションは複数のスライドマスターを含めることができ、プレゼンテーションの異なるセクションをさまざまな方法でスタイル設定でき、デザインの柔軟性が向上します。
 
-**Aspose.Slides でスライド マスターにアクセスし、変更するには？**
+**Aspose.Slides でスライドマスターにアクセスし、変更するには？**
 
-Aspose.Slides では、スライド マスターは [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) インターフェイスで表されます。Presentation オブジェクトの [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) メソッドを使用してスライド マスターにアクセスできます。
+Aspose.Slides では、スライドマスターは [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) インターフェイスで表されます。プレゼンテーションオブジェクトの [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) メソッドを使用してスライドマスターにアクセスできます。

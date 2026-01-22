@@ -22,10 +22,10 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android，在 Java 中将 PDF 和 HTML 文档导入为 PowerPoint 和 OpenDocument 演示文稿，实现无缝、高性能的幻灯片处理。"
+description: "使用 Aspose.Slides for Android，在 Java 中将 PDF 和 HTML 文档导入 PowerPoint 和 OpenDocument 演示文稿，实现流畅的高性能幻灯片处理。"
 ---
 
-使用 [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/)，您可以从其他格式的文件导入演示文稿。Aspose.Slides 提供 [SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) 类，以允许您从 PDF、HTML 文档等导入演示文稿。
+使用 [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/)，您可以从其他格式的文件导入演示文稿。Aspose.Slides 提供了 [SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) 类，允许您从 PDF、HTML 文档等导入演示文稿。
 
 ## **从 PDF 导入 PowerPoint**
 
@@ -33,11 +33,11 @@ description: "使用 Aspose.Slides for Android，在 Java 中将 PDF 和 HTML �
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) 类的实例。
-2. 调用 [addFromPdf()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) 方法并传入 PDF 文件。
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) 类的实例。  
+2. 调用 [addFromPdf()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) 方法并传入 PDF 文件。  
 3. 使用 [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法将文件保存为 PowerPoint 格式。
 
-以下 Java 代码演示了 PDF 转 PowerPoint 操作：
+以下 Java 代码演示了 PDF 转换为 PowerPoint 的操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -49,19 +49,19 @@ try {
 ```
 
 
-{{% alert title="提示" color="primary" %}} 
-您可能想查看 **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) 网络应用，因为它是本文所述过程的实时实现。 
+{{% alert  title="Tip" color="primary" %}} 
+您可能想查看 **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) 网页应用，因为它是本文所述过程的实时实现。 
 {{% /alert %}} 
 
 ## **从 HTML 导入 PowerPoint**
 
 在这种情况下，您可以将 HTML 文档转换为 PowerPoint 演示文稿。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) 类的实例。
-2. 调用 [addFromHtml()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) 方法并传入 HTML 文件。
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) 类的实例。  
+2. 调用 [addFromHtml()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) 方法并传入 PDF 文件。  
 3. 使用 [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法将文件保存为 PowerPoint 格式。
 
-以下 Java 代码演示了 HTML 转 PowerPoint 操作： 
+以下 Java 代码演示了 HTML 转换为 PowerPoint 的操作： 
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -82,16 +82,6 @@ try {
 
 ## **常见问题**
 
-**导入 PDF 时表格是否会被保留，且能否改进其检测？**
+**在导入 PDF 时表格会被保留吗？是否可以改进表格检测？**
 
 在导入过程中可以检测表格；[PdfImportOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/) 包含一个 [setDetectTables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) 方法，可启用表格识别。其效果取决于 PDF 的结构。
-
-{{% alert title="注意" color="warning" %}} 
-您也可以使用 Aspose.Slides 将 HTML 转换为其他常用文件格式： 
-
-* [HTML 转图片](https://products.aspose.com/slides/androidjava/conversion/html-to-image/)
-* [HTML 转 JPG](https://products.aspose.com/slides/androidjava/conversion/html-to-jpg/)
-* [HTML 转 XML](https://products.aspose.com/slides/androidjava/conversion/html-to-xml/)
-* [HTML 转 TIFF](https://products.aspose.com/slides/androidjava/conversion/html-to-tiff/)
-
-{{% /alert %}}

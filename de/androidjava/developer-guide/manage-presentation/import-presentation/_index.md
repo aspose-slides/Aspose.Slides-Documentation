@@ -1,5 +1,5 @@
 ---
-title: Importieren von Präsentationen aus PDF oder HTML auf Android
+title: Präsentationen aus PDF oder HTML auf Android importieren
 linktitle: Präsentation importieren
 type: docs
 weight: 60
@@ -25,7 +25,7 @@ keywords:
 description: "Importieren Sie PDF- und HTML-Dokumente in PowerPoint- und OpenDocument-Präsentationen in Java mit Aspose.Slides für Android für nahtlose, leistungsstarke Folienverarbeitung."
 ---
 
-Mit [**Aspose.Slides für Android via Java**](https://products.aspose.com/slides/androidjava/) können Sie Präsentationen aus Dateien anderer Formate importieren. Aspose.Slides stellt die Klasse [SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) zur Verfügung, um Präsentationen aus PDFs, HTML‑Dokumenten usw. zu importieren.
+Mit **Aspose.Slides for Android via Java** können Sie Präsentationen aus Dateien anderer Formate importieren. Aspose.Slides stellt die Klasse [SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) zur Verfügung, um Präsentationen aus PDFs, HTML‑Dokumenten usw. zu importieren.
 
 ## **PowerPoint aus PDF importieren**
 
@@ -35,9 +35,8 @@ In diesem Fall können Sie ein PDF in eine PowerPoint‑Präsentation konvertier
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/).
 2. Rufen Sie die Methode [addFromPdf()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) auf und übergeben Sie die PDF‑Datei.
-3. Verwenden Sie die Methode [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-), um die Datei im PowerPoint‑Format zu speichern.
+3. Verwenden Sie die Methode [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) , um die Datei im PowerPoint‑Format zu speichern.
 
-Dieser Java‑Code demonstriert die PDF‑zu‑PowerPoint‑Operation:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -50,18 +49,17 @@ try {
 
 
 {{% alert  title="Tip" color="primary" %}} 
-Vielleicht möchten Sie die **Aspose free**‑Web‑App [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) ausprobieren, da sie eine Live‑Implementierung des hier beschriebenen Vorgangs darstellt. 
+Vielleicht möchten Sie die **Aspose free**-Webanwendung [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) ausprobieren, da sie eine Live‑Implementierung des hier beschriebenen Vorgangs bietet. 
 {{% /alert %}} 
 
 ## **PowerPoint aus HTML importieren**
 
 In diesem Fall können Sie ein HTML‑Dokument in eine PowerPoint‑Präsentation konvertieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/).
-2. Rufen Sie die Methode [addFromHtml()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) auf und übergeben Sie die PDF‑Datei.
-3. Verwenden Sie die Methode [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-), um die Datei im PowerPoint‑Format zu speichern.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) .
+2. Rufen Sie die Methode [addFromHtml()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) auf und übergeben Sie die HTML‑Datei.
+3. Verwenden Sie die Methode [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) , um die Datei im PowerPoint‑Format zu speichern.
 
-Dieser Java‑Code demonstriert die HTML‑zu‑PowerPoint‑Operation: 
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -82,16 +80,6 @@ try {
 
 ## **FAQ**
 
-**Werden Tabellen beim Importieren eines PDFs beibehalten, und kann deren Erkennung verbessert werden?**
+**Werden Tabellen beim Importieren eines PDFs erhalten und kann deren Erkennung verbessert werden?**
 
-Tabellen können beim Import erkannt werden; [PdfImportOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/) enthält die Methode [setDetectTables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-), die die Tabellenerkennung aktiviert. Die Wirksamkeit hängt von der Struktur des PDFs ab.
-
-{{% alert title="Note" color="warning" %}} 
-Sie können Aspose.Slides auch verwenden, um HTML in andere gängige Dateiformate zu konvertieren: 
-
-* [HTML zu Bild](https://products.aspose.com/slides/androidjava/conversion/html-to-image/)
-* [HTML zu JPG](https://products.aspose.com/slides/androidjava/conversion/html-to-jpg/)
-* [HTML zu XML](https://products.aspose.com/slides/androidjava/conversion/html-to-xml/)
-* [HTML zu TIFF](https://products.aspose.com/slides/androidjava/conversion/html-to-tiff/)
-
-{{% /alert %}}
+Tabellen können beim Import erkannt werden; [PdfImportOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/) enthält eine [setDetectTables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-)‑Methode, die die Tabellenerkennung aktiviert. Die Wirksamkeit hängt von der Struktur des PDFs ab.

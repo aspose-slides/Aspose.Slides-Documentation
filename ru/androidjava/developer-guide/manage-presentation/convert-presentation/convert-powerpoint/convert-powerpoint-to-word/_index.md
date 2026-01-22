@@ -1,5 +1,5 @@
 ---
-title: Конвертация презентаций PowerPoint в документы Word на Android
+title: Конвертировать презентации PowerPoint в документы Word на Android
 linktitle: PowerPoint в Word
 type: docs
 weight: 110
@@ -32,33 +32,34 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: Конвертируйте слайды PowerPoint PPT и PPTX в редактируемые документы Word на Java с помощью Aspose.Slides для Android, сохраняя точный макет, изображения и форматирование.
+description: "Конвертировать слайды PowerPoint PPT и PPTX в редактируемые документы Word в Java с помощью Aspose.Slides for Android, сохраняя точный макет, изображения и форматирование."
 ---
 
-Если вы планируете использовать текстовый контент или информацию из презентации (PPT или PPTX) новыми способами, вам может быть полезно конвертировать презентацию в Word (DOC или DOCX). 
 
-* По сравнению с Microsoft PowerPoint, приложение Microsoft Word более оснащено инструментами и функциями для работы с контентом. 
-* Помимо функций редактирования в Word, вы также можете воспользоваться улучшенными возможностями совместной работы, печати и обмена. 
+Если вы планируете использовать текстовое содержание или информацию из презентации (PPT или PPTX) новыми способами, вам может быть полезно преобразовать презентацию в Word (DOC или DOCX). 
+
+* По сравнению с Microsoft PowerPoint, приложение Microsoft Word более оснащено инструментами и функциями для работы с содержимым. 
+* Помимо функций редактирования в Word, вы также можете воспользоваться расширенными возможностями совместной работы, печати и обмена. 
 
 {{% alert color="primary" %}} 
 
-Возможно, вам стоит попробовать наш [**Presentation to Word Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word), чтобы увидеть, что вы можете получить, работая с текстовым содержимым слайдов. 
+Вы можете попробовать наш [**Конвертер презентаций в Word Online**](https://products.aspose.app/slides/conversion/ppt-to-word), чтобы увидеть, что вы можете получить, работая с текстовым содержимым слайдов. 
 
 {{% /alert %}} 
 
-## **Aspose.Slides and Aspose.Words**
+## **Aspose.Slides и Aspose.Words**
 
-Чтобы конвертировать файл PowerPoint (PPTX или PPT) в Word (DOC или DOCX), вам нужны как [Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/), так и [Aspose.Words for Android via Java](https://products.aspose.com/words/androidjava/).
+Для преобразования файла PowerPoint (PPTX или PPT) в Word (DOCX или DOCX) вам понадобятся как [Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/), так и [Aspose.Words for Android via Java](https://products.aspose.com/words/android-java/). 
 
 Как самостоятельный API, [Aspose.Slides](https://products.aspose.app/slides) для Java предоставляет функции, позволяющие извлекать текст из презентаций. 
 
-[Aspose.Words](https://docs.aspose.com/words/androidjava/) — это передовой API обработки документов, который позволяет приложениям создавать, изменять, конвертировать, рендерить, печатать файлы и выполнять другие задачи с документами без использования Microsoft Word.
+[Aspose.Words](https://docs.aspose.com/words/androidjava/) — это расширенный API обработки документов, который позволяет приложениям создавать, изменять, конвертировать, отрисовывать, печатать файлы и выполнять другие операции с документами без использования Microsoft Word. 
 
-## **Convert PowerPoint to Word**
+## **Конвертировать PowerPoint в Word**
 
-1. Скачайте библиотеки [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/java) и [Aspose.Words for Java](https://downloads.aspose.com/words/java).
-2. Добавьте *aspose-slides-x.x-jdk16.jar* и *aspose-words-x.x-jdk16.jar* в ваш CLASSPATH.
-3. Используйте этот фрагмент кода для конвертации PowerPoint в Word:
+1. Скачайте библиотеки [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/java) и [Aspose.Words for Java](https://downloads.aspose.com/words/java). 
+2. Добавьте *aspose-slides-x.x-jdk16.jar* и *aspose-words-x.x-jdk16.jar* в ваш CLASSPATH. 
+3. Используйте следующий фрагмент кода для конвертации PowerPoint в Word: 
 ```java
 Presentation pres = new Presentation("sample.pptx");
 
@@ -93,8 +94,8 @@ pres.dispose();
 
 **Какие компоненты необходимо установить для конвертации презентаций PowerPoint и OpenDocument в документы Word?**
 
-Вам достаточно добавить соответствующий пакет [Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/) и [Aspose.Words for Android via Java](https://releases.aspose.com/words/androidjava/) в ваш проект. Обе библиотеки работают как самостоятельные API, и установка Microsoft Office не требуется.
+Вам достаточно добавить соответствующий пакет для [Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/) и [Aspose.Words for Android via Java](https://releases.aspose.com/words/androidjava/) в ваш проект. Обе библиотеки работают как самостоятельные API, и установка Microsoft Office не требуется. 
 
 **Поддерживаются ли все форматы презентаций PowerPoint и OpenDocument?**
 
-Aspose.Slides [поддерживает все форматы презентаций](/slides/ru/androidjava/supported-file-formats/), включая PPT, PPTX, ODP и другие распространённые типы файлов. Это гарантирует, что вы можете работать с презентациями, созданными в разных версиях Microsoft PowerPoint.
+Aspose.Slides [поддерживает все форматы презентаций](/slides/ru/androidjava/supported-file-formats/), включая PPT, PPTX, ODP и другие распространённые типы файлов. Это гарантирует, что вы сможете работать с презентациями, созданными в разных версиях Microsoft PowerPoint.

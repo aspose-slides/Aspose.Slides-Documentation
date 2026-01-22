@@ -1,5 +1,5 @@
 ---
-title: 在 Android 上管理演示文稿表格
+title: 管理 Android 上的演示文稿表格
 linktitle: 管理表格
 type: docs
 weight: 10
@@ -17,29 +17,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 在 PowerPoint 幻灯片中创建和编辑表格。发现简洁的 Java 示例代码，简化您的表格工作流程。"
+description: "使用 Aspose.Slides for Android 在 PowerPoint 幻灯片中创建和编辑表格。发现简洁的 Java 示例代码，简化您的表格工作流。"
 ---
 
-PowerPoint 中的表格是一种高效显示和呈现信息的方式。以行列排列的单元格网格中的信息直观且易于理解。
+PowerPoint 中的表格是显示和呈现信息的高效方式。以网格单元格（按行列排列）的形式呈现的信息直观且易于理解。
 
-Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table) 类、[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) 接口、[Cell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) 类、[ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) 接口以及其他类型，帮助您在各种演示文稿中创建、更新和管理表格。
+Aspose.Slides 提供了[Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table)类、[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable)接口、[Cell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/)类、[ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/)接口以及其他类型，以便您在各种演示文稿中创建、更新和管理表格。
 
-## **Create a Table from Scratch**
+## **从头创建表格**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 定义 `columnWidth` 数组。
-4. 定义 `rowHeight` 数组。
-5. 通过 [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) 方法向幻灯片添加 [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) 对象。
-6. 遍历每个 [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) ，为其上、下、左、右边框应用格式。
-7. 合并表格第一行的前两个单元格。
-8. 访问 [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/)'s [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/)。
-9. 向 [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) 添加一些文本。
+1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 定义 `columnWidth` 数组。  
+4. 定义 `rowHeight` 数组。  
+5. 通过[addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-)方法向幻灯片添加[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable)对象。  
+6. 遍历每个[ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/)，对上、下、左、右边框应用格式设置。  
+7. 合并表格第一行的前两个单元格。  
+8. 访问[ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/)的[TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/)。  
+9. 向[TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/)添加一些文本。  
 10. 保存修改后的演示文稿。
 
-This Java code shows you how to create a table in a presentation:
+下面的 Java 代码展示了如何在演示文稿中创建表格：
 ```java
-// 实例化表示 PPTX 文件的 Presentation 类
+// 实例化一个表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
     // 访问第一张幻灯片
@@ -76,7 +76,7 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // 合并第 1 行的第 1 和第 2 个单元格
+    // 合并第 1 行的第 1 与第 2 个单元格
     tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
 
     // 向合并后的单元格添加文本
@@ -90,11 +90,11 @@ try {
 ```
 
 
-## **Numbering in a Standard Table**
+## **标准表格的编号**
 
-在标准表格中，单元格的编号方式直观且从零开始。表格中的第一个单元格索引为 0,0（第 0 列，第 0 行）。
+在标准表格中，单元格的编号是直接且从零开始的。表格中的第一个单元格索引为 0,0（第 0 列，第 0 行）。
 
-例如，具有 4 列和 4 行的表格的单元格编号如下：
+例如，具有 4 列 4 行的表格单元格编号如下：
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,9 +102,9 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-下面的 Java 代码演示了如何为表格中的单元格指定编号：
+下面的 Java 代码展示了如何为表格中的单元格指定编号：
 ```java
-// 实例化表示 PPTX 文件的 Presentation 类
+// 实例化一个表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
     // 访问第一张幻灯片
@@ -148,16 +148,17 @@ try {
 ```
 
 
-## **Access an Existing Table**
+## **访问现有表格**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取包含该表格的幻灯片的引用。
-3. 创建一个 [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) 对象并将其设置为 null。
-4. 遍历所有 [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) 对象，直到找到表格。  
-   如果您怀疑当前幻灯片只包含一个表格，可以直接检查其所有形状。当形状被识别为表格时，您可以将其强制转换为 [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table) 对象。但如果幻灯片包含多个表格，最好通过其 [setAlternativeText(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) 来搜索所需的表格。
-5. 使用 [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) 对象操作表格。在下面的示例中，我们向表格添加了一行新行。
+1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 通过索引获取包含该表格的幻灯片的引用。  
+3. 创建一个[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable)对象并将其设为 null。  
+4. 遍历所有[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)对象，直到找到表格。  
+   如果您怀疑当前幻灯片只包含一个表格，可以直接检查其所有形状。当形状被识别为表格时，可以将其强制转换为[Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table)对象。但如果幻灯片包含多个表格，则最好通过其[setAlternativeText(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-)属性搜索所需的表格。  
+5. 使用[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable)对象对表格进行操作。在下面的示例中，我们向表格添加了一行新行。  
 6. 保存修改后的演示文稿。
 
+下面的 Java 代码展示了如何访问和操作现有表格：
 ```java
 // 实例化表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
@@ -166,16 +167,16 @@ try {
     // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 将 TableEx 初始化为 null
+    // 初始化为 null 的 TableEx
     ITable tbl = null;
 
-    // 遍历形状并将找到的表格设置为引用
+    // 遍历形状并将引用指向找到的表格
     for (IShape shp : sld.getShapes()) 
     {
         if (shp instanceof ITable) 
         {
             tbl = (ITable) shp;
-            // 为第二行第一列设置文本
+            // 为第二行的第一列设置文本
             tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
     }
@@ -188,16 +189,17 @@ try {
 ```
 
 
-## **Align Text in a Table**
+## **对齐表格中的文本**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加一个 [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) 对象。
-4. 从表格中访问 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 对象。
-5. 访问 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 的 [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/)。
-6. 垂直对齐文本。
+1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 向幻灯片添加[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable)对象。  
+4. 从表格访问[ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)对象。  
+5. 访问[ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)的[IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/)。  
+6. 垂直对齐文本。  
 7. 保存修改后的演示文稿。
 
+下面的 Java 代码展示了如何在表格中对齐文本：
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
@@ -240,16 +242,17 @@ try {
 ```
 
 
-## **Set Text Formatting on the Table Level**
+## **在表格级别设置文本格式**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 从幻灯片中访问 [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) 对象。
-4. 为文本设置 [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-)。
-5. 设置 [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) 和 [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。
-6. 设置 [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)。
+1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 从幻灯片访问[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable)对象。  
+4. 设置文本的[setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-)。  
+5. 设置[setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-)和[setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。  
+6. 设置[setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)。  
 7. 保存修改后的演示文稿。
 
+下面的 Java 代码展示了如何将首选的格式选项应用到表格中的文本：
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation("simpletable.pptx");
@@ -280,9 +283,9 @@ try {
 ```
 
 
-## **Get Table Style Properties**
+## **获取表格样式属性**
 
-Aspose.Slides 允许您检索表格的样式属性，以便在其他表格或其他位置使用这些细节。以下 Java 代码演示了如何从表格预设样式中获取样式属性：
+Aspose.Slides 允许您检索表格的样式属性，以便在其他表格或其他位置使用这些细节。下面的 Java 代码展示了如何从表格预设样式中获取样式属性：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -295,10 +298,11 @@ try {
 ```
 
 
-## **Lock Aspect Ratio of a Table**
+## **锁定表格的宽高比**
 
-几何形状的宽高比是其在不同维度上的尺寸比例。Aspose.Slides 提供了 [**setAspectRatioLocked**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) 属性，以便您锁定表格和其他形状的宽高比设置。
+几何形状的宽高比是其在不同维度上的尺寸比例。Aspose.Slides 提供了[**setAspectRatioLocked**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-)属性，以便您锁定表格及其他形状的宽高比设置。
 
+下面的 Java 代码展示了如何锁定表格的宽高比：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -316,16 +320,16 @@ try {
 ```
 
 
-## **FAQ**
+## **常见问题**
 
-**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
+**我能为整个表格及其单元格中的文本启用从右到左 (RTL) 阅读方向吗？**
 
-是的。表格提供了 [setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-) 方法，段落则有 [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-)。同时使用这两个方法可确保单元格内的 RTL 顺序和渲染正确。
+是的。表格提供了[setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-)方法，段落则有[ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-)。同时使用这两者可确保单元格内部的 RTL 顺序和渲染正确。
 
-**How can I prevent users from moving or resizing a table in the final file?**
+**我该如何防止用户在最终文件中移动或调整表格大小？**
 
-使用 [shape locks](/slides/zh/androidjava/applying-protection-to-presentation/) 禁用移动、缩放、选择等。这些锁同样适用于表格。
+使用形状锁定可禁用移动、调整大小、选择等。这些锁定同样适用于表格。
 
-**Is inserting an image inside a cell as a background supported?**
+**是否支持在单元格内插入图像作为背景？**
 
-支持。您可以为单元格设置 [picture fill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/)，图像将根据所选模式（伸展或平铺）覆盖单元格区域。
+支持。您可以为单元格设置[picture fill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/)，图像将根据所选模式（拉伸或平铺）覆盖单元格区域。

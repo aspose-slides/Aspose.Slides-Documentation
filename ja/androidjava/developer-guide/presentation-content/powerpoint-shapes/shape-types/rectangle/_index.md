@@ -1,5 +1,5 @@
 ---
-title: Androidでプレゼンテーションに矩形を追加する
+title: Androidでプレゼンテーションに矩形を追加
 linktitle: 矩形
 type: docs
 weight: 80
@@ -15,35 +15,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java を使用して矩形を追加し、PowerPoint プレゼンテーションを強化します。プログラムで形状を簡単に設計・修正できます。"
+description: "Aspose.Slides for Android via Java を使用して矩形を追加し、PowerPoint プレゼンテーションを強化します。プログラムで図形を簡単に設計・変更できます。"
 ---
 
 {{% alert color="primary" %}} 
-
-前のトピックと同様に、この記事も図形の追加についてで、今回は**矩形**について説明します。このトピックでは、開発者が Aspose.Slides for Android via Java を使用してスライドにシンプルまたは書式設定された矩形を追加できる方法を説明しました。
-
+前回のトピックと同様に、今回も図形の追加について説明します。今回取り上げる図形は**矩形**です。このトピックでは、開発者が Aspose.Slides for Android via Java を使用してスライドにシンプルまたは書式設定された矩形を追加する方法を説明しました。
 {{% /alert %}} 
 
 ## **スライドに矩形を追加する**
-プレゼンテーションの選択したスライドにシンプルな矩形を追加するには、以下の手順に従ってください：
+スライドにシンプルな矩形を追加するには、以下の手順に従ってください。
 
 - [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。
-- [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、Rectangle 型の [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) を追加します。
-- 変更したプレゼンテーションを書き出して PPTX ファイルとして保存します。
+- [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、矩形タイプの [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) を追加します。
+- 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例では、プレゼンテーションの最初のスライドにシンプルな矩形を追加しています。
+下の例では、プレゼンテーションの最初のスライドにシンプルな矩形を追加しています。
 ```java
-// PPTX を表す Presentation クラスのインスタンスを作成します
+// PPTX を表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得します
+    // 最初のスライドを取得する
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 楕円型の AutoShape を追加します
+    // 楕円タイプの AutoShape を追加する
     IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
-    // PPTX ファイルを書き出します
+    // PPTX ファイルをディスクに書き込む
     pres.save("RecShp1.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -52,38 +50,38 @@ try {
 
 
 ## **スライドに書式設定された矩形を追加する**
-スライドに書式設定された矩形を追加するには、以下の手順に従ってください：
+書式設定された矩形をスライドに追加するには、以下の手順に従ってください。
 
 - [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。
-- [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、Rectangle 型の [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) を追加します。
+- [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、矩形タイプの [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) を追加します。
 - 矩形の [Fill Type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FillType) を Solid に設定します。
-- 矩形の色を、[IFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFillFormat) オブジェクトに関連付けられた [SolidFillColor.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IColorFormat#setColor-java.awt.Color-) メソッドで設定します。
+- 矩形の色を、[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) オブジェクトに関連付けられた [IFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFillFormat) が提供する [SolidFillColor.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IColorFormat#setColor-java.awt.Color-) メソッドで設定します。
 - 矩形の線の色を設定します。
 - 矩形の線の幅を設定します。
-- 変更したプレゼンテーションを書き出して PPTX ファイルとして保存します。
+- 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-上記の手順は、以下の例で実装されています。
+上記の手順は、下の例で実装されています。
 ```java
-// PPTX を表す Presentation クラスのインスタンスを作成します
+// PPTX を表す Presentation クラスをインスタンス化
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得します
+    // 最初のスライドを取得
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 楕円型の AutoShape を追加します
+    // 楕円タイプの AutoShape を追加
     IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
-    // 楕円シェイプにいくつかの書式設定を適用します
+    // 楕円形にいくつかの書式設定を適用
     shp.getFillFormat().setFillType(FillType.Solid);
     shp.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    // 楕円の線にいくつかの書式設定を適用します
+    // 楕円の線にいくつかの書式設定を適用
     shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shp.getLineFormat().setWidth(5);
 
-    // PPTX ファイルを書き出します
+    // PPTX ファイルを書き出す
     pres.save("RecShp2.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -91,25 +89,32 @@ try {
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**矩形に丸みのある角を追加するには？**  
-丸みのある角の [shape type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/) を使用し、シェイプのプロパティでコーナー半径を調整します。ジオメトリの調整により、角ごとに丸みを適用することもできます。
+**矩形に角丸を付けるにはどうすればよいですか？**
 
-**矩形を画像（テクスチャ）で塗りつぶすには？**  
-画像 [fill type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) を選択し、画像ソースを指定し、[stretching/tiling modes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) を構成します。
+角丸の [shape type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/) を使用し、図形のプロパティでコーナー半径を調整します。ジオメトリの調整により、各コーナーごとに個別に丸めることも可能です。
 
-**矩形に影やグローを付けることはできますか？**  
-はい。外側/内側の影、グロー、ソフトエッジ [/slides/androidjava/shape-effect/] は調整可能なパラメータで利用できます。
+**矩形を画像（テクスチャ）で塗りつぶすにはどうすればよいですか？**
 
-**矩形をハイパーリンク付きのボタンに変えることはできますか？**  
-はい。シェイプのクリックに対して [Assign a hyperlink](/slides/ja/androidjava/manage-hyperlinks/) を設定すれば、スライド、ファイル、Web アドレス、またはメールにジャンプできます。
+画像 [fill type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) を選択し、画像ソースを指定して、[stretching/tiling modes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) を設定します。
 
-**矩形が移動や変更から保護するには？**  
-[Use shape locks](/slides/ja/androidjava/applying-protection-to-presentation/) を使用すると、移動、サイズ変更、選択、テキスト編集を禁止してレイアウトを保護できます。
+**矩形に影やグローを付けることはできますか？**
 
-**矩形をラスタ画像または SVG に変換できますか？**  
-はい。指定したサイズ/スケールで画像に [render the shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) したり、ベクタ用に [export it as SVG](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) したりできます。
+はい。調整可能なパラメータで、[Outer/inner shadow, glow, and soft edges](/slides/ja/androidjava/shape-effect/) を使用できます。
 
-**テーマと継承を考慮した矩形の実際（有効）プロパティをすぐに取得するには？**  
-[Use the shape’s effective properties](/slides/ja/androidjava/shape-effective-properties/) を使用すると、API がテーマスタイル、レイアウト、ローカル設定を考慮した計算値を返すため、書式解析が簡素化されます。
+**矩形をハイパーリンク付きのボタンにすることはできますか？**
+
+はい。図形のクリックに対して [Assign a hyperlink](/slides/ja/androidjava/manage-hyperlinks/) を設定すれば、スライド、ファイル、Web アドレス、またはメールへのジャンプが可能です。
+
+**矩形が移動や変更されないように保護するには？**
+
+図形ロックを使用します。移動、サイズ変更、選択、テキスト編集を禁止してレイアウトを保護できます。
+
+**矩形をラスタ画像または SVG に変換できますか？**
+
+はい。指定したサイズやスケールで [render the shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) を画像として出力するか、ベクトル用途のために [export it as SVG](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) できます。
+
+**テーマや継承を考慮した矩形の実際（有効）プロパティをすぐに取得するには？**
+
+[Use the shape’s effective properties](/slides/ja/androidjava/shape-effective-properties/) を使用します。API はテーマ設定、レイアウト、ローカル設定を考慮した計算済みの値を返すため、書式分析が簡素化されます。

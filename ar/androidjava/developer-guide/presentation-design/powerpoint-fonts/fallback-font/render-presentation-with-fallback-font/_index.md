@@ -1,19 +1,31 @@
 ---
-title: عرض تقديمي مع خط احتياطي
+title: عرض العروض التقديمية باستخدام خطوط احتياطية على Android
+linktitle: عرض العروض التقديمية
 type: docs
 weight: 30
 url: /ar/androidjava/render-presentation-with-fallback-font/
+keywords:
+- خط احتياطي
+- عرض PowerPoint
+- عرض العرض التقديمي
+- عرض الشريحة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "عرض العروض التقديمية باستخدام خطوط احتياطية في Aspose.Slides لنظام Android – الحفاظ على تناسق النص عبر ملفات PPT و PPTX و ODP مع أمثلة شيفرة Java خطوة بخطوة."
 ---
 
-يتضمن المثال التالي هذه الخطوات:
+المثال التالي يتضمن هذه الخطوات:
 
-1. نحن [نقوم بإنشاء مجموعة قواعد الخطوط الاحتياطية](/slides/ar/androidjava/create-fallback-fonts-collection/).
-1. [إزالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) قاعدة خط احتياطي و[إضافة خطوط احتياطية](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) إلى قاعدة أخرى.
-1. ضبط مجموعة القواعد على [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) طريقة.
-1. باستخدام طريقة [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) يمكننا حفظ العرض التقديمي بنفس التنسيق، أو حفظه في تنسيق آخر. بعد تعيين مجموعة قواعد الخطوط الاحتياطية إلى [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager)، يتم تطبيق هذه القواعد أثناء أي عمليات على العرض التقديمي: حفظ، عرض، تحويل، إلخ.
-
+1. نقوم ب[إنشاء مجموعة قواعد الخط الاحتياطي](/slides/ar/androidjava/create-fallback-fonts-collection/).
+1. [إزالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) قاعدة خط احتياطي و[addFallBackFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) لقاعدة أخرى.
+1. تعيين مجموعة القواعد إلى طريقة [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) .
+1. باستخدام طريقة [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) يمكننا حفظ العرض التقديمي بنفس الصيغة، أو حفظه بصيغة أخرى. بعد تعيين مجموعة قواعد الخط الاحتياطي إلى [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager)، يتم تطبيق هذه القواعد أثناء أي عمليات على العرض التقديمي: الحفظ، العرض، التحويل، إلخ.
 ```java
-// إنشاء مثيل جديد من مجموعة القواعد
+// إنشاء مثال جديد لمجموعة القواعد
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
 // إنشاء عدد من القواعد
@@ -21,7 +33,7 @@ rulesList.add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
 
 for (IFontFallBackRule fallBackRule : rulesList)
 {
-    // محاولة إزالة خط الاحتياطي "Tahoma" من القواعد المحملة
+    // محاولة إزالة خط FallBack "Tahoma" من القواعد المحملة
     fallBackRule.remove("Tahoma");
 
     // وتحديث القواعد للنطاق المحدد
@@ -35,13 +47,13 @@ if (rulesList.size() > 0)
 
 Presentation pres = new Presentation("input.pptx");
 try {
-    // تعيين قائمة القواعد المعدة للاستخدام
+    // تعيين قائمة القواعد المُعدّة للاستخدام
     pres.getFontsManager().setFontFallBackRulesCollection(rulesList);
 
-    // عرض الصورة المصغرة باستخدام مجموعة القواعد المعينة وحفظها بصيغة JPEG
+    // إنشاء صورة مصغرة باستخدام مجموعة القواعد المهيأة وحفظها كملف JPEG
    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
 
-   // حفظ الصورة على القرص بصيغة JPEG
+   // حفظ الصورة على القرص بتنسيق JPEG
    try {
          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
    } finally {
@@ -52,6 +64,7 @@ try {
 }
 ```
 
+
 {{% alert color="primary" %}} 
-اقرأ المزيد حول [الحفظ والتحويل في العرض التقديمي](/slides/ar/androidjava/creating-saving-and-converting-a-presentation/).
+اقرأ المزيد حول [تحويل PPT و PPTX إلى JPG على Android](/slides/ar/androidjava/convert-powerpoint-to-jpg/).
 {{% /alert %}}

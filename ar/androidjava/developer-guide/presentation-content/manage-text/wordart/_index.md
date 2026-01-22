@@ -17,7 +17,7 @@ keywords:
 - تأثير الظل الخارجي
 - تأثير الظل الداخلي
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
@@ -25,19 +25,19 @@ description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides 
 ---
 
 ## **حول WordArt؟**
-WordArt أو Word Art هي ميزة تتيح لك تطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك رسم إطار للنص أو ملؤه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد، إلخ. كما يمكنك أيضًا إمالة النص، وثنيه، وتمديد شكله.
+WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك رسم حد للنص أو ملئه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد، إلخ. يمكنك أيضًا إمالة النص، انحنائه، وتمديد شكله.
 
 {{% alert color="primary" %}} 
-WordArt يسمح لك بمعاملة النص ككائن رسومي. بشكل عام، يتكون WordArt من تأثيرات أو تعديلات خاصة تُجرى على النصوص لجعلها أكثر جاذبية أو وضوحًا. 
+WordArt يتيح لك التعامل مع النص كما تتعامل مع كائن رسومي. بشكل عام، يتكون WordArt من تأثيرات أو تعديلات خاصة تُجرى على النصوص لجعلها أكثر جاذبية أو وضوحًا. 
 {{% /alert %}} 
 
 **WordArt في Microsoft PowerPoint**
 
-لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد القوالب المعرّفة مسبقًا. القالب هو مجموعة من التأثيرات تُطبّق على النص أو شكله.
+لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد قوالب WordArt المحددة مسبقًا. قالب WordArt هو مجموعة من التأثيرات تُطبق على نص أو شكله.
 
 **WordArt في Aspose.Slides**
 
-في Aspose.Slides for Android via Java 20.10، قمنا بتنفيذ دعم WordArt وأجرينا تحسينات على الميزة في الإصدارات اللاحقة من Aspose.Slides for Android via Java.
+في Aspose.Slides for Android via Java 20.10، قمنا بتنفيذ دعم WordArt وأجرينا تحسينات على الميزة في إصدارات Aspose.Slides for Android via Java اللاحقة.
 
 مع Aspose.Slides for Android via Java، يمكنك بسهولة إنشاء قالب WordArt الخاص بك (تأثير واحد أو مجموعة من التأثيرات) في Java وتطبيقه على النصوص.
 
@@ -45,7 +45,7 @@ WordArt يسمح لك بمعاملة النص ككائن رسومي. بشكل ع
 
 **باستخدام Aspose.Slides** 
 
-أولاً، ننشئ نصًا بسيطًا باستخدام كود Java هذا:
+أولاً، ننشئ نصًا بسيطًا باستخدام كود Java هذا: 
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -60,7 +60,7 @@ try {
 }
 ```
 
-الآن، نعيّن ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال الكود التالي:
+الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الكود:
 ``` java 
 FontData fontData = new FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
@@ -70,11 +70,11 @@ portion.getPortionFormat().setFontHeight(36);
 
 **باستخدام Microsoft PowerPoint**
 
-انتقل إلى قائمة تأثيرات WordArt في Microsoft PowerPoint:
+اذهب إلى قائمة تأثيرات WordArt في Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-من القائمة على اليمين، يمكنك اختيار تأثير WordArt معرّف مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات WordArt جديد.
+من القائمة على اليمين، يمكنك اختيار تأثير WordArt محدد مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات WordArt جديد.
 
 هذه بعض المعلمات أو الخيارات المتاحة:
 
@@ -82,7 +82,7 @@ portion.getPortionFormat().setFontHeight(36);
 
 **باستخدام Aspose.Slides**
 
-هنا، نطبق نمط اللون [SmallGrid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternStyle#SmallGrid) على النص ونضيف حدًا أسود بسُمْك 1 باستخدام الكود التالي:
+هنا، نطبق نمط اللون [SmallGrid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternStyle#SmallGrid) على النص ونضيف حد نص أسود بسمك 1 باستخدام هذا الكود:
 ``` java 
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
@@ -106,11 +106,11 @@ portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().s
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ وتأثيرات تنسيق 3D وتدوير 3D على كتلة النص؛ وخصائص الحواف الناعمة على كائن الشكل (تظل فعّالة حتى إذا لم يتم تعيين خاصية تنسيق 3D).
+على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ وتأثيرات الشكل ثلاثي الأبعاد والدوران ثلاثي الأبعاد على كتلة نصية؛ ويمكن تطبيق خاصية الحواف الناعمة على كائن الشكل (لا يزال لها تأثير عندما لا يتم ضبط خاصية الشكل ثلاثي الأبعاد).
 
 ### **تطبيق تأثيرات الظل**
 
-نحن هنا نهدف إلى ضبط الخصائص المتعلقة بالنص فقط. نقوم بتطبيق تأثير الظل على النص باستخدام الكود التالي في Java:
+هنا، نهدف إلى ضبط الخصائص المتعلقة بالنص فقط. نطبق تأثير الظل على النص باستخدام هذا الكود في Java:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
@@ -125,28 +125,28 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowCol
 ```
 
 
-يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow و InnerShadow و PresetShadow.
+يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow، InnerShadow، و PresetShadow.
 
 مع PresetShadow، يمكنك تطبيق ظل للنص (باستخدام قيم مسبقة).
 
 **باستخدام Microsoft PowerPoint**
 
-في PowerPoint يمكنك استخدام نوع واحد من الظل. إليك مثالًا:
+في PowerPoint، يمكنك استخدام نوع واحد من الظل. إليك مثالًا:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
 **باستخدام Aspose.Slides**
 
-في الواقع يسمح Aspose.Slides لك بتطبيق نوعين من الظلال في آنٍ واحد: InnerShadow و PresetShadow.
+يسمح Aspose.Slides فعليًا بتطبيق نوعين من الظلال في آن واحد: InnerShadow و PresetShadow.
 
 **ملاحظات:**
 
-- عند استخدام OuterShadow و PresetShadow معًا، يتم تطبيق فقط تأثير OuterShadow. 
-- إذا تم استخدام OuterShadow و InnerShadow معًا، فإن النتيجة أو التأثير المطبق يعتمد على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013 يُضاعف التأثير. ولكن في PowerPoint 2007 يُطبق تأثير OuterShadow فقط. 
+- عندما يُستخدم OuterShadow و PresetShadow معًا، يتم تطبيق تأثير OuterShadow فقط. 
+- إذا استُخدم OuterShadow و InnerShadow معًا، فإن النتيجة أو التأثير المطبق يعتمد على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير. لكن في PowerPoint 2007، يتم تطبيق تأثير OuterShadow. 
 
 ### **تطبيق تأثيرات الانعكاس على النص**
 
-نضيف انعكاسًا إلى النص باستخدام عينة الكود هذه في Java:
+نضيف عرضًا للنص عبر مثال الكود هذا في Java:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -164,7 +164,7 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 
 ### **تطبيق تأثيرات التوهج على النص**
 
-نطبق تأثير التوهج على النص لجعله يلمع أو يبرز باستخدام الكود التالي:
+نطبق تأثير التوهج على النص لجعله يلمع أو يبرز باستخدام هذا الكود:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
@@ -178,12 +178,12 @@ portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-يمكنك تغيير معلمات الظل، الانعكاس، والتوهج. تُضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
+يمكنك تغيير المعلمات للظل، العرض، والتوهج. يتم ضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
 {{% /alert %}} 
 
-### **استخدام التحويلات في WordArt**
+### **استخدام التحولات في WordArt**
 
-نستخدم خاصية Transform (الموجودة على كتلة النص بالكامل) عبر الكود التالي:
+نستخدم خاصية Transform (المطبقة على كتلة النص بأكملها) عبر هذا الكود:
 ``` java 
 textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
 ```
@@ -194,20 +194,20 @@ textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-يوفر كل من Microsoft PowerPoint و Aspose.Slides for Android via Java عددًا معينًا من أنواع التحويل المعرّفة مسبقًا. 
+يقدم كل من Microsoft PowerPoint و Aspose.Slides for Android via Java عددًا من أنواع التحولات المحددة مسبقًا. 
 {{% /alert %}} 
 
 **باستخدام PowerPoint**
 
-للوصول إلى أنواع التحويل المعرّفة مسبقًا، انتقل عبر: **Format** -> **TextEffect** -> **Transform**
+للوصول إلى أنواع التحولات المحددة مسبقًا، انتقل عبر: **Format** -> **TextEffect** -> **Transform**
 
 **باستخدام Aspose.Slides**
 
-لاختيار نوع التحويل، استخدم تعداد TextShapeType.
+لاختيار نوع التحول، استخدم تعداد TextShapeType.
 
-### **تطبيق تأثيرات 3D على النصوص والأشكال**
+### **تطبيق تأثيرات ثلاثية الأبعاد على النصوص والأشكال**
 
-نُعيّن تأثير 3D على شكل نص باستخدام عينة الكود هذه:
+نضع تأثيرًا ثلاثيًا الأبعاد على شكل نص باستخدام مثال الكود هذا:
 ``` java
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
@@ -235,11 +235,11 @@ autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.Perspecti
 ```
 
 
-النص والشكل الناتجين:
+النص والشكل الناتج:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-نطبق تأثير 3D على النص باستخدام كود Java التالي:
+نطبق تأثيرًا ثلاثيًا الأبعاد على النص عبر هذا الكود في Java:
 ``` java
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
@@ -272,50 +272,50 @@ textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(Camer
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
-يستند تطبيق تأثيرات 3D على النصوص أو أشكالها وتفاعل التأثيرات بينهما إلى قواعد معينة. 
+تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها وتفاعل التأثيرات معًا يعتمد على قواعد معينة.
 
-تخيل مشهدًا للنص والشكل الذي يحتويه. يتضمن تأثير 3D تمثيلًا كائنًا ثلاثي الأبعاد والمشهد الذي يُوضع فيه الكائن. 
+اعتبر مشهدًا للنص والشكل الذي يحتويه. يحتوي تأثير ثلاثي الأبعاد على تمثيل كائن ثلاثي الأبعاد والمشهد الذي وضُع فيه الكائن.
 
-- عندما يتم تعيين المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى—ويُتجاهل مشهد النص. 
-- عندما يفتقر الشكل إلى مشهد خاص به لكنه يحتوي على تمثيل 3D، يُستخدم مشهد النص. 
-- وإلا—عندما لا يكون لدى الشكل أصلاً تأثير 3D—يكون الشكل مسطحًا ويُطبق تأثير 3D فقط على النص. 
+- عندما يُضبط المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى—يُتجاهل مشهد النص. 
+- عندما لا يملك الشكل مشهدًا خاصًا به لكن لديه تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص. 
+- وإلا—عند عدم وجود تأثير ثلاثي الأبعاد أصلاً للشكل—يظل الشكل مسطحًا ويتم تطبيق التأثير ثلاثي الأبعاد على النص فقط.
 
-ترتبط هذه الأوصاف بطريقة ThreeDFormat.getLightRig() وطريقة ThreeDFormat.getCamera(). 
+هذه الأوصاف مرتبطة بأساليب ThreeDFormat.getLightRig() و ThreeDFormat.getCamera().
 {{% /alert %}} 
 
 ## **تطبيق تأثيرات الظل الخارجي على النص**
-يوفر Aspose.Slides for Android via Java الفئتين [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IOuterShadow) و[**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IInnerShadow) اللتين تتيحان لك تطبيق تأثيرات الظل على نص موجود داخل [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame). اتبع الخطوات التالية:
+توفر Aspose.Slides for Android via Java الفئتين [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/) و [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iinnershadow/) اللتين تتيحان لك تطبيق تأثيرات الظل على نص داخل [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/). اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
-2. الحصول على مرجع الشريحة باستخدام فهرسها.  
-3. إضافة AutoShape من النوع Rectangle إلى الشريحة.  
-4. الوصول إلى TextFrame المرتبط بـ AutoShape.  
-5. تعيين FillType الخاص بـ AutoShape إلى NoFill.  
-6. إنشاء كائن OuterShadow.  
-7. تعيين BlurRadius للظل.  
-8. تعيين Direction للظل.  
-9. تعيين Distance للظل.  
-10. تعيين RectanglelAlign إلى TopLeft.  
-11. تعيين PresetColor للظل إلى Black.  
-12. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).  
+1. أنشئ مثالًا لفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation). 
+2. احصل على مرجع الشريحة باستخدام فهرسها. 
+3. أضف AutoShape من نوع Rectangle إلى الشريحة. 
+4. وصول إلى TextFrame المرتبط بـ AutoShape. 
+5. اضبط FillType للـ AutoShape إلى NoFill. 
+6. أنشئ كائن OuterShadow. 
+7. اضبط BlurRadius للظل. 
+8. اضبط Direction للظل. 
+9. اضبط Distance للظل. 
+10. اضبط RectanglelAlign إلى TopLeft. 
+11. اضبط PresetColor للظل إلى Black. 
+12. احفظ العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/). 
 
-تُظهر لك عينة الكود هذه في Java—تنفيذ الخطوات أعلاه—كيفية تطبيق تأثير الظل الخارجي على نص:
+يعرض لك هذا المثال البرمجي في Java—تنفيذ الخطوات السابقة—كيفية تطبيق تأثير الظل الخارجي على نص:
 ```java
 Presentation pres = new Presentation();
 try {
     // الحصول على مرجع الشريحة
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // إضافة AutoShape من نوع مستطيل
+    // إضافة AutoShape من نوع Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // إضافة TextFrame إلى المستطيل
+    // إضافة TextFrame إلى الشكل المستطيل
     ashp.addTextFrame("Aspose TextBox");
 
     // تعطيل تعبئة الشكل في حال نريد الحصول على ظل النص
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // إضافة ظل خارجي وتعيين جميع المعاملات الضرورية
+    // إضافة ظل خارجي وتعيين جميع المعلمات اللازمة
     ashp.getEffectFormat().enableOuterShadowEffect();
     IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
     shadow.setBlurRadius(4.0);
@@ -324,7 +324,7 @@ try {
     shadow.setRectangleAlign(RectangleAlignment.TopLeft);
     shadow.getShadowColor().setPresetColor(PresetColor.Black);
 
-    // كتابة العرض التقديمي إلى القرص
+    // كتابة العرض على القرص
     pres.save("pres_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -335,37 +335,37 @@ try {
 ## **تطبيق تأثيرات الظل الداخلي على الأشكال**
 اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
-2. الحصول على مرجع الشريحة.  
-3. إضافة AutoShape من النوع Rectangle.  
-4. تمكين InnerShadowEffect.  
-5. تعيين جميع المعلمات الضرورية.  
-6. تعيين ColorType إلى Scheme.  
-7. تعيين Scheme Color.  
-8. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).  
+1. أنشئ مثالًا لفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation). 
+2. احصل على مرجع الشريحة. 
+3. أضف AutoShape من نوع Rectangle. 
+4. فعّل InnerShadowEffect. 
+5. اضبط جميع المعلمات الضرورية. 
+6. اضبط ColorType إلى Scheme. 
+7. اضبط Scheme Color. 
+8. احفظ العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/). 
 
-تُظهر لك عينة الكود (المستندة إلى الخطوات أعلاه) كيفية إضافة موصل بين شكلين في Java:
+يعرض لك هذا المثال البرمجي (المستند إلى الخطوات السابقة) كيفية إضافة موصل بين شكلين في Java:
 ```java
 Presentation pres = new Presentation();
 try {
     // الحصول على مرجع الشريحة
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // إضافة AutoShape من نوع مستطيل
+    // إضافة AutoShape من نوع Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // إضافة TextFrame إلى المستطيل
+    // إضافة TextFrame إلى الشكل المستطيل
     ashp.addTextFrame("Aspose TextBox");
     IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     IPortionFormat pf = port.getPortionFormat();
     pf.setFontHeight(50);
 
-    // تمكين InnerShadowEffect
+    // تمكين تأثير الظل الداخلي
     IEffectFormat ef = pf.getEffectFormat();
     ef.enableInnerShadowEffect();
 
-    // تعيين جميع المعلمات الضرورية
+    // تعيين جميع المعلمات اللازمة
     ef.getInnerShadowEffect().setBlurRadius(8.0);
     ef.getInnerShadowEffect().setDirection(90.0F);
     ef.getInnerShadowEffect().setDistance(6.0);
@@ -374,7 +374,7 @@ try {
     // تعيين ColorType كـ Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
 
-    // تعيين لون Scheme
+    // تعيين لون المخطط
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
 
     // حفظ العرض التقديمي
@@ -385,16 +385,20 @@ try {
 ```
 
 
-## **الأسئلة المتداولة**
+## **FAQ**
 
-**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو سكربتات مختلفة (مثل العربية أو الصينية)؟**  
-نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والسكربتات الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والإطار بغض النظر عن اللغة، رغم أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
+**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو لغات مختلفة (مثل العربية أو الصينية)؟**
 
-**هل يمكنني تطبيق تأثيرات WordArt على عناصرماستر الشريحة؟**  
-نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في ماستر الشريحة، بما في ذلك نوافذ العناوين، التذييلات، أو النص الخلفي. ستنعكس التغييرات التي تُجرى على تخطيط الماستر على جميع الشرائح المرتبطة.
+نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط واللغات الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
 
-**هل تؤثر تأثيرات WordArt على حجم ملف العرض التقديمي؟**  
-قليلًا. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئة التدرجات من حجم الملف بسبب إضافة بيانات تنسيق، لكن الفارق عادة ما يكون ضئيلًا.
+**هل يمكنني تطبيق تأثيرات WordArt على عناصر قالب الشريحة؟**
 
-**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض التقديمي؟**  
-نعم، يمكنك تحويل الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `getImage` من واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) أو [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض التقديمي بالكامل.
+نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في شرائح القالب، بما في ذلك نوافل العنوان، التذييلات، أو النص الخلفي. ستنعكس التغييرات التي تجريها على القالب على جميع الشرائح المرتبطة.
+
+**هل تؤثر تأثيرات WordArt على حجم ملف العرض؟**
+
+تأثير طفيف. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، والتعبئة المتدرجة حجم الملف قليلًا بسبب إضافة بيانات تنسيق، لكن الفارق عادة ما يكون ضئيلًا.
+
+**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض؟**
+
+نعم، يمكنك تحويل الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `getImage` من واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) أو [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض بالكامل.

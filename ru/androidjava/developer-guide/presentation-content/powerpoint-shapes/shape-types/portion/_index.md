@@ -14,13 +14,13 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Узнайте, как управлять текстовыми частями в презентациях PowerPoint с помощью Aspose.Slides для Android через Java, повышая производительность и возможности настройки."
+description: "Узнайте, как управлять текстовыми частями в презентациях PowerPoint с помощью Aspose.Slides для Android на Java, повышая производительность и возможности настройки."
 ---
 
 ## **Получить координаты части текста**
-[**getCoordinates()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) метод был добавлен в [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPortion) и [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) класс, который позволяет получить координаты начала части.
+[**getCoordinates()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) метод был добавлен в классы [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) и [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/), что позволяет получить координаты начала части.
 ```java
-// Создать экземпляр класса Presentation, представляющего PPTX
+// Создать объект класса Presentation, который представляет PPTX
 Presentation pres = new Presentation();
 try {
     // Переформирование контекста презентации
@@ -42,20 +42,20 @@ try {
 ```
 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Могу ли я применить гиперссылку только к части текста в одном абзаце?**
+**Можно ли применить гиперссылку только к части текста в одном абзаце?**
 
 Да, вы можете [назначить гиперссылку](/slides/ru/androidjava/manage-hyperlinks/) отдельной части; только этот фрагмент будет кликабельным, а не весь абзац.
 
-**Как работает наследование стилей: что переопределяет Portion и что берется из Paragraph/TextFrame?**
+**Как работает наследование стилей: что переопределяет Portion и что берётся из Paragraph/TextFrame?**
 
-Свойства уровня [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) имеют высший приоритет. Если свойство не задано в [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/), движок берёт его из [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/); если оно не задано и там, — из [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) или стиля [theme](https://reference.aspose.com/slides/androidjava/com.aspose.slides/theme/).
+Свойства уровня Portion имеют наивысший приоритет. Если свойство не задано у [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/), движок берёт его из [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/); если и там оно не задано, из [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) или стиля [theme](https://reference.aspose.com/slides/androidjava/com.aspose.slides/theme/).
 
-**Что произойдет, если шрифт, указанный для Portion, отсутствует на целевой машине/сервере?**
+**Что происходит, если шрифт, указанный для Portion, отсутствует на целевой машине/сервере?**
 
-[Правила подстановки шрифтов](/slides/ru/androidjava/font-selection-sequence/) применяются. Текст может перераспределиться: метрики, переносы и ширина могут измениться, что важно для точного позиционирования.
+Применяются [правила подстановки шрифтов](/slides/ru/androidjava/font-selection-sequence/). Текст может перераспределиться: метрики, переносы и ширина могут измениться, что важно для точного позиционирования.
 
-**Могу ли я задать прозрачность заливки текста или градиент для конкретного Portion независимо от остального абзаца?**
+**Можно ли задать прозрачность или градиент заливки текста для конкретного Portion, независимый от остального абзаца?**
 
 Да, цвет текста, заливка и прозрачность на уровне [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) могут отличаться от соседних фрагментов.

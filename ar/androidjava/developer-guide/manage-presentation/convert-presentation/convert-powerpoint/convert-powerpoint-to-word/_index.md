@@ -6,57 +6,59 @@ weight: 110
 url: /ar/androidjava/convert-powerpoint-to-word/
 keywords:
 - تحويل PowerPoint
-- تحويل عرض تقديمي
-- تحويل شريحة
+- تحويل العرض التقديمي
+- تحويل الشريحة
 - تحويل PPT
 - تحويل PPTX
 - PowerPoint إلى Word
-- عرض تقديمي إلى Word
-- شريحة إلى Word
+- العرض التقديمي إلى Word
+- الشريحة إلى Word
 - PPT إلى Word
 - PPTX إلى Word
 - PowerPoint إلى DOCX
-- عرض تقديمي إلى DOCX
-- شريحة إلى DOCX
+- العرض التقديمي إلى DOCX
+- الشريحة إلى DOCX
 - PPT إلى DOCX
 - PPTX إلى DOCX
 - PowerPoint إلى DOC
-- عرض تقديمي إلى DOC
-- شريحة إلى DOC
+- العرض التقديمي إلى DOC
+- الشريحة إلى DOC
 - PPT إلى DOC
 - PPTX إلى DOC
-- حفظ PPT كـ DOCX
-- حفظ PPTX كـ DOCX
+- حفظ PPT بصيغة DOCX
+- حفظ PPTX بصيغة DOCX
 - تصدير PPT إلى DOCX
 - تصدير PPTX إلى DOCX
 - Android
 - Java
 - Aspose.Slides
-description: "تحويل شرائح PowerPoint PPT و PPTX إلى مستندات Word قابلة للتحرير في Java باستخدام Aspose.Slides للـ Android مع الحفاظ على التصميم الدقيق والصور والتنسيق."
+description: "تحويل شرائح PowerPoint بصيغة PPT و PPTX إلى مستندات Word قابلة للتحرير في Java باستخدام Aspose.Slides لنظام Android مع الحفاظ على التخطيط الدقيق والصور والتنسيق."
 ---
 
-إذا كنت تخطط لاستخدام المحتوى النصي أو المعلومات من عرض تقديمي (PPT أو PPTX) بطرق جديدة، فقد تستفيد من تحويل العرض إلى Word (DOC أو DOCX). 
+إذا كنت تخطط لاستخدام المحتوى النصي أو المعلومات من عرض تقديمي (PPT أو PPTX) بطرق جديدة، قد تستفيد من تحويل العرض إلى Word (DOC أو DOCX). 
 
-* بالمقارنة مع Microsoft PowerPoint، فإن تطبيق Microsoft Word مزود بأدوات أو وظائف أكثر للمحتوى. 
-* بالإضافة إلى وظائف التحرير في Word، يمكنك أيضًا الاستفادة من ميزات التعاون، والطباعة، والمشاركة المحسّنة. 
+* مقارنةً بـ Microsoft PowerPoint، تطبيق Microsoft Word مزود بأدوات أو وظائف أكثر للمحتوى. 
+* بالإضافة إلى وظائف التحرير في Word، قد تستفيد أيضًا من ميزات التعاون المتطورة والطباعة والمشاركة. 
 
 {{% alert color="primary" %}} 
-قد ترغب في تجربة [**محول العرض إلى Word عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لمعرفة ما يمكنك تحقيقه من العمل بالمحتوى النصي للشرائح. 
+
+قد ترغب في تجربة [**محول العروض إلى Word عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لمعرفة ما يمكنك الاستفادة منه عند العمل بالمحتوى النصي من الشرائح. 
+
 {{% /alert %}} 
 
 ## **Aspose.Slides و Aspose.Words**
 
-لتحويل ملف PowerPoint (PPTX أو PPT) إلى Word (DOCX أو DOCX)، تحتاج إلى كل من [Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/) و [Aspose.Words for Android via Java](https://products.aspose.com/words/androidjava/).
+لتحويل ملف PowerPoint (PPTX أو PPT) إلى Word (DOCX أو DOCX)، تحتاج إلى كل من [Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/) و [Aspose.Words for Android via Java](https://products.aspose.com/words/android-java/).
 
-كواجهة برمجة تطبيقات مستقلة، يوفر [Aspose.Slides](https://products.aspose.app/slides) لـ java وظائف تسمح لك باستخراج النصوص من العروض التقديمية. 
+كواجهة برمجة تطبيقات مستقلة، يوفر [Aspose.Slides](https://products.aspose.app/slides) for java وظائف تمكّنك من استخراج النصوص من العروض التقديمية. 
 
-[Aspose.Words](https://docs.aspose.com/words/androidjava/) هو واجهة برمجة تطبيقات متقدمة لمعالجة المستندات تتيح للتطبيقات إنشاء، تعديل، تحويل، عرض، طباعة الملفات، وأداء مهام أخرى مع المستندات دون الحاجة إلى استخدام Microsoft Word.
+[Aspose.Words](https://docs.aspose.com/words/androidjava/) هي واجهة برمجة تطبيقات متقدمة لمعالجة المستندات تتيح للتطبيقات إنشاء، تعديل، تحويل، عرض، طباعة الملفات، وغيرها من المهام مع المستندات دون الحاجة إلى استخدام Microsoft Word.
 
 ## **تحويل PowerPoint إلى Word**
 
-1. حمّل مكتبات [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/java) و [Aspose.Words for Java](https://downloads.aspose.com/words/java). 
-2. أضف *aspose-slides-x.x-jdk16.jar* و *aspose-words-x.x-jdk16.jar* إلى CLASSPATH الخاص بك. 
-3. استخدم مقطع الشيفرة التالي لتحويل PowerPoint إلى Word:
+1. قم بتنزيل مكتبات [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/java) و [Aspose.Words for Java](https://downloads.aspose.com/words/java).
+2. أضف *aspose-slides-x.x-jdk16.jar* و *aspose-words-x.x-jdk16.jar* إلى الـ CLASSPATH الخاص بك.
+3. استخدم مقتطف الشيفرة هذا لتحويل PowerPoint إلى Word:
 ```java
 Presentation pres = new Presentation("sample.pptx");
 
@@ -64,7 +66,7 @@ Document doc = new Document();
 DocumentBuilder builder = new DocumentBuilder(doc);
 
 for (ISlide slide : pres.getSlides()) {
-    // ينشئ صورة شريحة على شكل تدفق بايت
+    // ينشئ صورة الشريحة كتيار من مصفوفة البايت
     IImage image = slide.getImage(1, 1);
     ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
     image.save(imageStream, ImageFormat.Png);
@@ -72,7 +74,7 @@ for (ISlide slide : pres.getSlides()) {
 
     builder.insertImage(imageStream.toByteArray());
 
-    // يدخل نصوص الشريحة
+    // يدرج نصوص الشريحة
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof AutoShape) {
             builder.writeln(((AutoShape) shape).getTextFrame().getText());
@@ -89,10 +91,10 @@ pres.dispose();
 
 ## **الأسئلة المتكررة**
 
-**ما المكونات التي يجب تثبيتها لتحويل عروض PowerPoint وOpenDocument إلى مستندات Word؟**
+**ما المكونات التي تحتاج إلى تثبيتها لتحويل عروض PowerPoint و OpenDocument إلى مستندات Word؟**
 
-كل ما تحتاجه هو إضافة الحزمة الخاصة بـ [Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/) و [Aspose.Words for Android via Java](https://releases.aspose.com/words/androidjava/) إلى مشروعك. كلا المكتبتين تعملان كواجهات برمجة تطبيقات مستقلة، ولا يلزم تثبيت Microsoft Office.
+كل ما عليك هو إضافة الحزمة المناسبة لـ [Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/) و [Aspose.Words for Android via Java](https://releases.aspose.com/words/androidjava/) إلى مشروعك. تعمل المكتبتان كواجهات برمجة تطبيقات مستقلة، ولا يلزم تثبيت Microsoft Office.
 
-**هل يتم دعم جميع صيغ عروض PowerPoint وOpenDocument؟**
+**هل يتم دعم جميع صيغ عروض PowerPoint و OpenDocument؟**
 
-يدعم Aspose.Slides [جميع صيغ العروض التقديمية](/slides/ar/androidjava/supported-file-formats/)، بما في ذلك PPT و PPTX و ODP وأنواع ملفات شائعة أخرى. يضمن لك ذلك إمكانية العمل مع العروض التي تم إنشاؤها بإصدارات مختلفة من Microsoft PowerPoint.
+Aspose.Slides [يدعم جميع صيغ العروض التقديمية](/slides/ar/androidjava/supported-file-formats/)، بما في ذلك PPT، PPTX، ODP، وغيرها من الأنواع الشائعة. يضمن ذلك إمكانية العمل مع العروض التي تم إنشاؤها بإصدارات مختلفة من Microsoft PowerPoint.

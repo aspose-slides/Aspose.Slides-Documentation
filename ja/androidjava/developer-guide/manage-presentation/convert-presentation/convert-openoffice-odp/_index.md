@@ -1,18 +1,63 @@
 ---
-title: OpenOffice ODPを変換
+title: Android で OpenDocument プレゼンテーションを変換
+linktitle: OpenDocument を変換
 type: docs
 weight: 10
 url: /ja/androidjava/convert-openoffice-odp/
-keywords: "ODPをPDFに変換, ODPをHTMLに変換, ODPをTIFFに変換, Java"
-description: "ODPをPDFに変換, ODPをPPTに変換, ODPをPPTXに変換, ODPをHTMLに変換, Java"
+keywords:
+- ODP を変換
+- ODP から画像へ
+- ODP から GIF へ
+- ODP から HTML へ
+- ODP から JPG へ
+- ODP から MD へ
+- ODP から PDF へ
+- ODP から PNG へ
+- ODP から PPT へ
+- ODP から PPTX へ
+- ODP から TIFF へ
+- ODP から動画へ
+- ODP から Word へ
+- ODP から XPS へ
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android を使用すると、ODP を PDF、HTML、画像形式に簡単に変換できます。高速で正確なプレゼンテーション変換により、Java アプリを強化します。"
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/androidjava/) は、OpenOffice ODPプレゼンテーションを多くのタイプに変換することを可能にします。他のタイプへのODPを変換するAPIは、PowerPointタイプと同じです。以下の例を使用してODPを変換できます。ODPプレゼンテーションファイルのソースファイルを変更するだけです。
+[**Aspose.Slides API**](https://products.aspose.com/slides/androidjava/) は、OpenDocument（ODP）プレゼンテーションを多数の形式（HTML、PDF、TIFF、SWF、XPS など）に変換できます。ODP ファイルを他のドキュメント形式に変換するために使用する API は、PowerPoint（PPT と PPTX）変換操作で使用するものと同じです。
 
-- [ODPをHTMLに変換](/slides/ja/androidjava/convert-powerpoint-ppt-and-pptx-to-html/)
-- [ODPをPDFに変換](/slides/ja/androidjava/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [ODPをTIFFに変換](/slides/ja/androidjava/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [ODPをSWFフラッシュに変換](/slides/ja/androidjava/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [ODPをXPSに変換](/slides/ja/androidjava/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [メモ付きODPをPDFに変換](/slides/ja/androidjava/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
-- [メモ付きODPをTIFFに変換](/slides/ja/androidjava/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+たとえば、ODP プレゼンテーションを PDF に変換する必要がある場合、次のように実行できます:
+```java
+Presentation presentation = null;
+try {
+    presentation = new Presentation("pres.odp");
+    presentation.save("pres.pdf", SaveFormat.Pdf);
+    
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
+    }
+}
+```
+
+
+## **FAQ**
+
+**変換後に ODP ファイルの書式が変わってしまう場合はどうすればよいですか？**
+
+ODP と PowerPoint は異なるプレゼンテーションモデルを使用しているため、テーブルやカスタム フォント、塗りつぶしスタイルなどの一部の要素が完全に同じようにレンダリングされないことがあります。出力を確認し、必要に応じてコードでレイアウトや書式を調整することを推奨します。
+
+**ODP 変換を使用するために OpenOffice や LibreOffice をインストールする必要がありますか？**
+
+いいえ、Aspose.Slides はスタンドアロン ライブラリであり、システムに OpenOffice や LibreOffice をインストールする必要はありません。
+
+**ODP 変換中に出力形式をカスタマイズできますか（例: PDF のオプションを設定）？**
+
+はい、Aspose.Slides は出力をカスタマイズするための豊富なオプションを提供します。たとえば、PDF に保存する際は、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) クラスを使用して圧縮、画像品質、テキストレンダリングなどを制御できます。
+
+**Aspose.Slides はサーバー側またはクラウドベースの ODP 処理に適していますか？**
+
+もちろんです。Aspose.Slides はデスクトップ環境だけでなく、Azure、AWS、Docker コンテナなどのクラウドベース プラットフォームを含むサーバー環境でも動作するよう設計されています。

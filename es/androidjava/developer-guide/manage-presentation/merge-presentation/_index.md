@@ -20,67 +20,58 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Fusiona sin esfuerzo presentaciones PowerPoint (PPT, PPTX) y OpenDocument (ODP) con Aspose.Slides para Android mediante Java, optimizando tu flujo de trabajo."
+description: "Fusiona sin esfuerzo presentaciones de PowerPoint (PPT, PPTX) y OpenDocument (ODP) con Aspose.Slides para Android mediante Java, optimizando tu flujo de trabajo."
 ---
 
-{{% alert  title="Tip" color="primary" %}}
+{{% alert  title="Tip" color="primary" %}} 
 
-Puede que le interese probar la **aplicación web gratuita de Aspose** [Merger app](https://products.aspose.app/slides/merger). Permite combinar presentaciones de PowerPoint en el mismo formato (PPT a PPT, PPTX a PPTX, etc.) y combinar presentaciones en formatos diferentes (PPT a PPTX, PPTX a ODP, etc.).
+Quizá quieras probar la **aplicación gratuita en línea de Aspose** [Merger app](https://products.aspose.app/slides/merger). Permite combinar presentaciones de PowerPoint en el mismo formato (PPT a PPT, PPTX a PPTX, etc.) y combinar presentaciones en distintos formatos (PPT a PPTX, PPTX a ODP, etc.).
 
 [![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
 
-{{% /alert %}}
+{{% /alert %}} 
 
-## **Fusión de presentaciones**
 
-Al fusionar una presentación con otra, está combinando efectivamente sus diapositivas en una sola presentación para obtener un único archivo.
+## **Presentation Merging**
+
+Cuando combinas una presentación con otra, básicamente estás uniendo sus diapositivas en una sola presentación para obtener un único archivo. 
 
 {{% alert title="Info" color="info" %}}
 
-La mayoría de los programas de presentación (PowerPoint o OpenOffice) carecen de funciones que permitan a los usuarios combinar presentaciones de esta manera.
+La mayoría de los programas de presentación (PowerPoint u OpenOffice) carecen de funciones que permitan a los usuarios combinar presentaciones de esa manera. 
 
-[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/), sin embargo, le permite fusionar presentaciones de distintas formas. Puede combinar presentaciones con todas sus formas, estilos, textos, formato, comentarios, animaciones, etc., sin preocuparse por la pérdida de calidad o datos.
+[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/), sin embargo, permite combinar presentaciones de diferentes maneras. Puedes combinar presentaciones con todas sus formas, estilos, textos, formato, comentarios, animaciones, etc., sin preocuparte por la pérdida de calidad o datos.
 
-**Ver también**
+**See also**
 
 [Clone Slides](https://docs.aspose.com/slides/androidjava/clone-slides/).
 
 {{% /alert %}}
 
-### **Qué se puede fusionar**
+### **What Can Be Merged**
 
-Con Aspose.Slides, puede fusionar
+Con Aspose.Slides, puedes combinar 
 
 * presentaciones completas. Todas las diapositivas de las presentaciones terminan en una sola presentación
 * diapositivas específicas. Las diapositivas seleccionadas terminan en una sola presentación
-* presentaciones en un mismo formato (PPT a PPT, PPTX a PPTX, etc.) y en formatos diferentes (PPT a PPTX, PPTX a ODP, etc.) entre sí.
+* presentaciones en un mismo formato (PPT a PPT, PPTX a PPTX, etc.) y en diferentes formatos (PPT a PPTX, PPTX a ODP, etc.) entre sí. 
 
-{{% alert title="Note" color="warning" %}}
+### **Merging Options**
 
-Además de presentaciones, Aspose.Slides le permite fusionar otros archivos:
-
-* [Imágenes](https://products.aspose.com/slides/androidjava/merger/image-to-image/), como [JPG a JPG](https://products.aspose.com/slides/androidjava/merger/jpg-to-jpg/) o [PNG a PNG](https://products.aspose.com/slides/androidjava/merger/png-to-png/)
-* Documentos, como [PDF a PDF](https://products.aspose.com/slides/androidjava/merger/pdf-to-pdf/) o [HTML a HTML](https://products.aspose.com/slides/androidjava/merger/html-to-html/)
-* Y **dos** archivos diferentes, como [imagen a PDF](https://products.aspose.com/slides/androidjava/merger/image-to-pdf/), [JPG a PDF](https://products.aspose.com/slides/androidjava/merger/jpg-to-pdf/) o [TIFF a PDF](https://products.aspose.com/slides/androidjava/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Opciones de fusión**
-
-Puede aplicar opciones que determinen si
+Puedes aplicar opciones que determinen si
 
 * cada diapositiva en la presentación de salida conserva un estilo único
-* se utiliza un estilo específico para todas las diapositivas en la presentación de salida.
+* se utiliza un estilo específico para todas las diapositivas en la presentación de salida. 
 
-Para fusionar presentaciones, Aspose.Slides ofrece los métodos [AddClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (de la interfaz [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection)). Existen varias implementaciones de los métodos `AddClone` que definen los parámetros del proceso de fusión de presentaciones. Cada objeto Presentation tiene una colección [Slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) , por lo que puede invocar un método `AddClone` desde la presentación a la que desea fusionar diapositivas.
+Para combinar presentaciones, Aspose.Slides proporciona los métodos [AddClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (de la interfaz [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection)). Existen varias implementaciones de los métodos `AddClone` que definen los parámetros del proceso de combinación de presentaciones. Cada objeto Presentation tiene una colección [Slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--), por lo que puedes llamar al método `AddClone` desde la presentación a la que deseas combinar diapositivas.
 
-El método `AddClone` devuelve un objeto `ISlide`, que es una clonación de la diapositiva de origen. Las diapositivas en la presentación de salida son simplemente una copia de las diapositivas de origen. Por lo tanto, puede modificar las diapositivas resultantes (por ejemplo, aplicar estilos, opciones de formato o diseños) sin que las presentaciones de origen se vean afectadas.
+El método `AddClone` devuelve un objeto `ISlide`, que es una copia de la diapositiva origen. Las diapositivas en la presentación de salida son simplemente una copia de las diapositivas de origen. Por lo tanto, puedes modificar las diapositivas resultantes (por ejemplo, aplicar estilos, opciones de formato o diseños) sin preocuparte de que las presentaciones origen se vean afectadas. 
 
-## **Fusionar presentaciones**
+## **Merge Presentations** 
 
-Aspose.Slides proporciona el método [**AddClone(ISlide)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) que permite combinar diapositivas mientras estas conservan sus diseños y estilos (parámetros predeterminados).
+Aspose.Slides ofrece el método [**AddClone(ISlide)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) que permite combinar diapositivas mientras estas conservan sus diseños y estilos (parámetros predeterminados).
 
-Este código Java muestra cómo fusionar presentaciones:
+Este código Java muestra cómo combinar presentaciones:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -100,11 +91,11 @@ try {
 ```
 
 
-## **Fusionar presentaciones con una diapositiva maestra**
+## **Merge Presentations with a Slide Master**
 
-Aspose.Slides proporciona el método [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) que permite combinar diapositivas aplicando una plantilla de presentación maestra. De este modo, si es necesario, puede cambiar el estilo de las diapositivas en la presentación de salida.
+Aspose.Slides proporciona el método [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) que permite combinar diapositivas aplicando una plantilla maestra de presentación. De este modo, si es necesario, puedes cambiar el estilo de las diapositivas en la presentación de salida.
 
-Este código Java muestra la operación descrita:
+Este código Java demuestra la operación descrita:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -124,19 +115,19 @@ try {
 ```
 
 
-{{% alert title="Note" color="warning" %}}
+{{% alert title="Note" color="warning" %}} 
 
-El diseño de la diapositiva maestra se determina automáticamente. Cuando no se puede determinar un diseño apropiado, si el parámetro booleano `allowCloneMissingLayout` del método `AddClone` está establecido en true, se utiliza el diseño de la diapositiva de origen. De lo contrario, se lanzará una [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException).
+El diseño de diapositiva para la diapositiva maestra se determina automáticamente. Cuando no se puede determinar un diseño apropiado, si el parámetro booleano `allowCloneMissingLayout` del método `AddClone` está establecido en true, se utiliza el diseño de la diapositiva origen. En caso contrario, se lanzará una [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException).
 
 {{% /alert %}}
 
-Si desea que las diapositivas en la presentación de salida tengan un diseño de diapositiva diferente, utilice el método [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) en su lugar al fusionar.
+Si deseas que las diapositivas en la presentación de salida tengan un diseño de diapositiva diferente, utiliza el método [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) en su lugar al combinar.
 
-## **Fusionar diapositivas específicas de presentaciones**
+## **Merge Specific Slides from Presentations**
 
-Fusionar diapositivas específicas de varias presentaciones es útil para crear decks personalizados. Aspose.Slides for Android via Java le permite seleccionar e importar solo las diapositivas que necesita. La API conserva el formato, el diseño y la apariencia de las diapositivas originales.
+Combinar diapositivas específicas de varias presentaciones es útil para crear conjuntos de diapositivas personalizados. Aspose.Slides para Android mediante Java permite seleccionar e importar solo las diapositivas que necesitas. La API conserva el formato, el diseño y el estilo de las diapositivas originales.
 
-El siguiente código Java crea una nueva presentación, añade diapositivas de título de dos presentaciones distintas y guarda el resultado en un archivo:
+El siguiente código Java crea una nueva presentación, añade diapositivas de título de otras dos presentaciones y guarda el resultado en un archivo:
 ```java
 Presentation presentation = new Presentation();
 Presentation presentation1 = new Presentation("presentation1.pptx");
@@ -174,9 +165,9 @@ static ISlide getTitleSlide(IPresentation presentation) {
 ```
 
 
-## **Fusionar presentaciones con un diseño de diapositiva**
+## **Merge Presentations with a Slide Layout**
 
-Este código Java muestra cómo combinar diapositivas de presentaciones aplicando el diseño de diapositiva preferido para obtener una única presentación de salida:
+Este código Java muestra cómo combinar diapositivas de presentaciones aplicando el diseño de diapositiva que prefieras para obtener una única presentación de salida:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -196,17 +187,17 @@ try {
 ```
 
 
-## **Fusionar presentaciones con tamaños de diapositiva diferentes**
+## **Merge Presentations with Different Slide Sizes**
 
-{{% alert title="Note" color="warning" %}}
+{{% alert title="Note" color="warning" %}} 
 
-No se pueden fusionar presentaciones con tamaños de diapositiva diferentes.
+No puedes combinar presentaciones con diferentes tamaños de diapositiva. 
 
 {{% /alert %}}
 
-Para fusionar 2 presentaciones con tamaños de diapositiva distintos, debe redimensionar una de ellas para que coincida con el tamaño de la otra presentación.
+Para combinar 2 presentaciones con diferentes tamaños de diapositiva, debes redimensionar una de las presentaciones para que coincida con el tamaño de la otra.
 
-Este fragmento de código muestra la operación descrita:
+Este código de ejemplo demuestra la operación descrita:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -228,9 +219,9 @@ try {
 ```
 
 
-## **Fusionar diapositivas a una sección de presentación**
+## **Merge Slides to a Presentation Section**
 
-Este código Java muestra cómo fusionar una diapositiva específica a una sección de una presentación:
+Este código Java muestra cómo combinar una diapositiva específica en una sección de una presentación:
 ```java
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
@@ -250,24 +241,24 @@ try {
 ```
 
 
-La diapositiva se añade al final de la sección.
+La diapositiva se añade al final de la sección. 
 
 {{% alert title="Tip" color="primary" %}}
 
-Aspose ofrece una aplicación web **GRATUITA** de Collage ([FREE Collage web app](https://products.aspose.app/slides/collage)). Con este servicio en línea, puede fusionar imágenes [JPG a JPG](https://products.aspose.app/slides/collage/jpg) o PNG a PNG, crear [rejillas de fotos](https://products.aspose.app/slides/collage/photo-grid), etc.
+Aspose ofrece una [aplicación web GRATUITA de Collage](https://products.aspose.app/slides/collage). Con este servicio en línea, puedes combinar [JPG a JPG](https://products.aspose.app/slides/collage/jpg) o PNG a PNG, crear [cuadrículas de fotos](https://products.aspose.app/slides/collage/photo-grid), etc. 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**¿Existen limitaciones en la cantidad de diapositivas al fusionar presentaciones?**
+**¿Existen limitaciones en el número de diapositivas al combinar presentaciones?**
 
 No hay limitaciones estrictas. Aspose.Slides puede manejar archivos grandes, pero el rendimiento depende del tamaño y los recursos del sistema. Para presentaciones muy extensas, se recomienda usar una JVM de 64 bits y asignar suficiente memoria heap.
 
-**¿Puedo fusionar presentaciones con video o audio incrustados?**
+**¿Puedo combinar presentaciones con vídeo o audio incrustados?**
 
-Sí, Aspose.Slides conserva el contenido multimedia incorporado en las diapositivas, aunque la presentación final puede volverse significativamente mayor.
+Sí, Aspose.Slides conserva el contenido multimedia incrustado en las diapositivas, aunque la presentación final puede volverse significativamente más grande.
 
-**¿Se conservan las fuentes al fusionar presentaciones?**
+**¿Se conservarán las fuentes al combinar presentaciones?**
 
-Sí. Las fuentes utilizadas en las presentaciones de origen se preservan en el archivo resultante, siempre que estén instaladas en el sistema o [incrustadas](/slides/es/androidjava/embedded-font/).
+Sí. Las fuentes empleadas en las presentaciones origen se conservan en el archivo de salida, siempre que estén instaladas en el sistema o [incrustadas](/slides/es/androidjava/embedded-font/).

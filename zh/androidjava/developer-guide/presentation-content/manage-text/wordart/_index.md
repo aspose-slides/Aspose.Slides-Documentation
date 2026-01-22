@@ -12,24 +12,24 @@ keywords:
 - 阴影效果
 - 显示效果
 - 发光效果
-- WordArt 变形
+- WordArt 变换
 - 3D 效果
-- 外部阴影效果
-- 内部阴影效果
+- 外阴影效果
+- 内阴影效果
 - PowerPoint
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Android 中创建和自定义 WordArt 效果。本分步指南帮助开发者使用 Java 在演示文稿中添加专业文本。"
+description: "在 Aspose.Slides for Android 中创建和自定义 WordArt 效果。本分步指南帮助开发者使用 Java 为演示文稿添加专业文本。"
 ---
 
 ## **关于 WordArt？**
-WordArt 或 Word Art 是一种功能，可对文本应用效果，使其更加突出。例如，通过 WordArt，您可以为文本描边或填充颜色（或渐变），为其添加 3D 效果等。您还可以倾斜、弯曲和拉伸文本的形状。
+WordArt 或 Word Art 是一种功能，可让您对文本应用效果，使其更加突出。例如，使用 WordArt，您可以为文本描边或填充颜色（或渐变），为其添加 3D 效果等。您还可以对文本的形状进行倾斜、弯曲和拉伸。
 
 {{% alert color="primary" %}} 
 
-WordArt 允许您像对待图形对象一样处理文本。通常，WordArt 包含对文本进行的效果或特殊修改，以使其更具吸引力或更明显。 
+WordArt 允许您将文本当作图形对象来处理。一般而言，WordArt 包含对文本进行的效果或特殊修改，以使其更具吸引力或更显眼。 
 
 {{% /alert %}} 
 
@@ -41,13 +41,13 @@ WordArt 允许您像对待图形对象一样处理文本。通常，WordArt 包�
 
 在 Aspose.Slides for Android via Java 20.10 中，我们实现了对 WordArt 的支持，并在后续的 Aspose.Slides for Android via Java 版本中对该功能进行了改进。
 
-使用 Aspose.Slides for Android via Java，您可以在 Java 中轻松创建自己的 WordArt 模板（单个效果或多个效果的组合），并将其应用于文本。
+使用 Aspose.Slides for Android via Java，您可以轻松地在 Java 中创建自己的 WordArt 模板（单个效果或组合效果），并将其应用于文本。
 
 ## **创建简单的 WordArt 模板并将其应用于文本**
 
 **使用 Aspose.Slides** 
 
-首先，使用以下 Java 代码创建一个简单的文本： 
+首先，我们使用以下 Java 代码创建一段简单的文本： 
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -62,7 +62,7 @@ try {
 }
 ```
 
-现在，通过下面的代码将文本的字体高度设置为较大的值，以便更明显地看到效果：
+现在，通过下面的代码将文本的字体高度设置为更大的值，以使效果更明显： 
 ``` java 
 FontData fontData = new FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
@@ -72,11 +72,11 @@ portion.getPortionFormat().setFontHeight(36);
 
 **使用 Microsoft PowerPoint**
 
-在 Microsoft PowerPoint 中进入 WordArt 效果菜单：
+在 Microsoft PowerPoint 中转到 WordArt 效果菜单：
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-在右侧菜单中，您可以选择预定义的 WordArt 效果；在左侧菜单中，您可以为新 WordArt 指定设置。
+在右侧菜单中，您可以选择预定义的 WordArt 效果；在左侧菜单中，您可以为新的 WordArt 指定设置。
 
 以下是一些可用的参数或选项：
 
@@ -84,7 +84,8 @@ portion.getPortionFormat().setFontHeight(36);
 
 **使用 Aspose.Slides**
 
-在此示例中，我们使用 [SmallGrid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternStyle#SmallGrid) 图案颜色填充文本，并通过以下代码为文本添加 1 宽度的黑色边框：
+在这里，我们使用此代码将 [SmallGrid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternStyle#SmallGrid) 图案颜色应用于文本，并使用宽度为 1 的黑色文本边框：
+
 ``` java 
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
@@ -104,15 +105,15 @@ portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().s
 
 **使用 Microsoft PowerPoint**
 
-在程序界面中，您可以将这些效果应用于文本、文本块、形状或类似的元素：
+在程序界面中，您可以将这些效果应用于文本、文本块、形状或类似元素：
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-例如，可将阴影、反射和发光效果应用于文本；将三维格式和三维旋转效果应用于文本块；将柔化边缘属性应用于形状对象（即使未设置三维格式属性也会生效）。
+例如，可以将阴影、反射和发光效果应用于文本；将 3D 格式和 3D 旋转效果应用于文本块；将柔和边缘属性应用于形状对象（即使未设置 3D 格式属性，也仍会产生效果）。
 
 ### **应用阴影效果**
 
-此处我们仅针对文本设置属性。使用以下 Java 代码为文本应用阴影效果：
+此处我们仅针对文本设置属性。使用以下 Java 代码将阴影效果应用于文本： 
 ``` java
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
@@ -129,7 +130,7 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowCol
 
 Aspose.Slides API 支持三种阴影类型：OuterShadow、InnerShadow 和 PresetShadow。
 
-使用 PresetShadow，您可以使用预设值为文本应用阴影。
+使用 PresetShadow，您可以为文本应用预设值的阴影。
 
 **使用 Microsoft PowerPoint**
 
@@ -139,16 +140,16 @@ Aspose.Slides API 支持三种阴影类型：OuterShadow、InnerShadow 和 Prese
 
 **使用 Aspose.Slides**
 
-Aspose.Slides 实际上允许一次同时应用两种阴影：InnerShadow 和 PresetShadow。
+Aspose.Slides 实际上允许一次应用两种阴影：InnerShadow 和 PresetShadow。
 
 **注意：**
 
-- 当同时使用 OuterShadow 和 PresetShadow 时，仅会应用 OuterShadow 效果。  
-- 若同时使用 OuterShadow 和 InnerShadow，实际应用的效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中会出现双重阴影；而在 PowerPoint 2007 中仅应用 OuterShadow 效果。 
+- 当同时使用 OuterShadow 和 PresetShadow 时，仅会应用 OuterShadow 效果。 
+- 如果同时使用 OuterShadow 和 InnerShadow，最终效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会叠加；但在 PowerPoint 2007 中，仅会应用 OuterShadow 效果。 
 
 ### **将反射效果应用于文本**
 
-使用以下 Java 示例代码向文本添加反射效果：
+我们通过以下 Java 示例代码向文本添加反射效果： 
 ``` java
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -166,7 +167,7 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 
 ### **将发光效果应用于文本**
 
-使用下面的代码为文本应用发光效果，使其更加光亮或突出：
+我们使用以下代码将发光效果应用于文本，使其更加闪亮或突出： 
 ``` java
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
@@ -181,13 +182,13 @@ portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
 
 {{% alert color="primary" %}} 
 
-您可以更改阴影、反射和发光的参数。效果属性会分别设置在文本的每一部分。 
+您可以更改阴影、反射和发光的参数。这些效果的属性会分别设置在文本的每个部分上。 
 
 {{% /alert %}} 
 
 ### **在 WordArt 中使用变形**
 
-通过以下代码使用 Transform 属性（作用于整个文本块）：
+我们通过下面的代码使用 Transform 属性（作用于整个文本块）： 
 ``` java 
 textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
 ```
@@ -205,15 +206,15 @@ Microsoft PowerPoint 和 Aspose.Slides for Android via Java 都提供了一定�
 
 **使用 PowerPoint**
 
-进入预定义变形类型的路径为：**格式** → **文本效果** → **变形**。
+要访问预定义的变形类型，请依次选择：**格式** → **文字效果** → **变形**
 
 **使用 Aspose.Slides**
 
-要选择变形类型，请使用 TextShapeType 枚举。
+要选择变形类型，请使用 TextShapeType 枚举。 
 
 ### **将 3D 效果应用于文本和形状**
 
-使用以下示例代码为文本形状设置 3D 效果：
+我们使用以下示例代码为文本形状设置 3D 效果： 
 ``` java
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
@@ -245,7 +246,7 @@ autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.Perspecti
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-使用下面的 Java 代码为文本本身应用 3D 效果：
+我们使用以下 Java 代码为文本应用 3D 效果： 
 ``` java
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
@@ -281,22 +282,22 @@ textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(Camer
 
 将 3D 效果应用于文本或其形状以及效果之间的交互遵循一定规则。
 
-考虑文本及其所在形状的场景。3D 效果包含 3D 对象的表示以及放置该对象的场景。
+考虑包含文本的形状的场景。3D 效果包括 3D 对象表示以及对象所在的场景。
 
-- 当图形和文本都设置了场景时，图形场景优先——文本场景被忽略。  
-- 当图形没有自己的场景但具有 3D 表示时，使用文本场景。  
-- 否则——即图形本身没有 3D 效果时，图形保持平面，仅对文本应用 3D 效果。  
+- 当形状和文本都设置了场景时，形状的场景优先——文本的场景被忽略。 
+- 当形状没有自己的场景但具有 3D 表现时，使用文本的场景。 
+- 否则——当形状本身没有 3D 效果时，形状保持平面，3D 效果仅应用于文本。 
 
-这些说明与 ThreeDFormat.getLightRig() 和 ThreeDFormat.getCamera() 方法相关。
+这些描述与 ThreeDFormat.getLightRig() 和 ThreeDFormat.getCamera() 方法相关。
 
 {{% /alert %}} 
 
-## **将外部阴影效果应用于文本**
-Aspose.Slides for Android via Java 提供了 [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IOuterShadow) 和 [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IInnerShadow) 接口，可对由 [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame) 承载的文本应用阴影效果。请按以下步骤操作：
+## **将外阴影效果应用于文本**
+Aspose.Slides for Android via Java 提供了 [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/) 和 [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iinnershadow/) 类，允许您对由 [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) 承载的文本应用阴影效果。请按以下步骤操作：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) 类的实例。  
 2. 使用索引获取幻灯片的引用。  
-3. 向幻灯片添加矩形类型的 AutoShape。  
+3. 向幻灯片添加一个矩形类型的 AutoShape。  
 4. 访问该 AutoShape 关联的 TextFrame。  
 5. 将 AutoShape 的 FillType 设置为 NoFill。  
 6. 实例化 OuterShadow 类。  
@@ -307,7 +308,7 @@ Aspose.Slides for Android via Java 提供了 [**IOuterShadow**](https://referenc
 11. 将阴影的 PresetColor 设置为 Black。  
 12. 将演示文稿保存为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
 
-下面的 Java 示例代码演示了上述步骤，展示了如何对文本应用外部阴影效果：
+以下 Java 示例代码演示了上述步骤，展示如何将外阴影效果应用于文本： 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -317,10 +318,10 @@ try {
     // 添加矩形类型的 AutoShape
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // 在矩形中添加 TextFrame
+    // 向矩形添加 TextFrame
     ashp.addTextFrame("Aspose TextBox");
 
-    // 禁用形状填充，以便获取文本的阴影
+    // 禁用形状填充，以便获取文本阴影
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
     // 添加外部阴影并设置所有必要参数
@@ -340,19 +341,19 @@ try {
 ```
 
 
-## **将内部阴影效果应用于形状**
+## **将内阴影效果应用于形状**
 请按以下步骤操作：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) 类的实例。  
 2. 获取幻灯片的引用。  
-3. 添加矩形类型的 AutoShape。  
+3. 添加一个矩形类型的 AutoShape。  
 4. 启用 InnerShadowEffect。  
 5. 设置所有必要的参数。  
 6. 将 ColorType 设置为 Scheme。  
 7. 设置 Scheme Color。  
 8. 将演示文稿保存为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
 
-下面的 Java 示例代码（基于上述步骤）展示了如何在两形状之间添加连接器：
+以下示例代码（基于上述步骤）展示了如何在 Java 中为两个形状之间添加连接器： 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -363,7 +364,7 @@ try {
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // 在矩形中添加 TextFrame
+    // 向矩形添加 TextFrame
     ashp.addTextFrame("Aspose TextBox");
     IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     IPortionFormat pf = port.getPortionFormat();
@@ -382,7 +383,7 @@ try {
     // 将 ColorType 设置为 Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
 
-    // 设置 Scheme Color
+    // 设置 Scheme 颜色
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
 
     // 保存演示文稿
@@ -395,18 +396,18 @@ try {
 
 ## **FAQ**
 
-**我可以在不同的字体或脚本（如阿拉伯语、中文）上使用 WordArt 效果吗？**
+**我可以将 WordArt 效果与不同的字体或文字系统（例如阿拉伯语、中文）一起使用吗？**
 
-可以，Aspose.Slides 支持 Unicode，能够与所有主流字体和脚本配合使用。阴影、填充和描边等 WordArt 效果均可在任意语言下应用，只是具体的字体可用性和渲染效果取决于系统安装的字体。
+可以，Aspose.Slides 支持 Unicode，并兼容所有主流字体和文字系统。阴影、填充和描边等 WordArt 效果均可在任何语言下应用，尽管字体的可用性和渲染效果取决于系统字体。
 
-**我可以将 WordArt 效果应用于母版幻灯片元素吗？**
+**我可以将 WordArt 效果应用于母版幻灯片的元素吗？**
 
-可以，您可以在母版幻灯片上的形状（包括标题占位符、页脚或背景文字）上应用 WordArt 效果。对母版布局所做的更改会在所有使用该母版的幻灯片中生效。
+可以，您可以将 WordArt 效果应用于母版幻灯片上的形状，包括标题占位符、页脚或背景文字。对母版布局的更改会反映到所有关联的幻灯片中。
 
 **WordArt 效果会影响演示文稿的文件大小吗？**
 
-会有轻微影响。阴影、发光和渐变填充等效果会因额外的格式元数据而略微增大文件体积，但通常影响可以忽略不计。
+会有轻微影响。阴影、发光和渐变填充等效果会因额外的格式元数据略微增大文件大小，但差异通常可以忽略不计。
 
-**我可以在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
+**我能在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
 
-可以，您可以使用 [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) 或 [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) 接口的 `getImage` 方法将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），从而在内存或屏幕上预览效果，而无需先保存完整的演示文稿。
+可以，您可以使用 [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) 或 [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) 接口的 `getImage` 方法将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），从而在内存或屏幕上预览效果，而无需保存或导出完整的演示文稿。

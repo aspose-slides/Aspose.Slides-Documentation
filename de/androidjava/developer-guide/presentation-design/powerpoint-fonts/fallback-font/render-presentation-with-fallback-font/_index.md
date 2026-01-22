@@ -1,47 +1,59 @@
 ---
-title: Präsentation mit Fallback-Schriftart rendern
+title: Präsentationen mit Fallback-Schriftarten auf Android rendern
+linktitle: Präsentationen rendern
 type: docs
 weight: 30
 url: /de/androidjava/render-presentation-with-fallback-font/
+keywords:
+- Fallback-Schriftart
+- PowerPoint rendern
+- Präsentation rendern
+- Folien rendern
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Präsentationen mit Fallback-Schriftarten in Aspose.Slides für Android rendern – Text über PPT, PPTX und ODP hinweg konsistent halten mit schrittweisen Java-Codebeispielen."
 ---
 
-Das folgende Beispiel umfasst diese Schritte:
+Das folgende Beispiel enthält diese Schritte:
 
-1. Wir [erstellen eine Fallback-Schriftartregel-Sammlung](/slides/de/androidjava/create-fallback-fonts-collection/).
-1. [Entfernen](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) einer Fallback-Schriftartregel und [fügen SieFallbackFonts hinzu](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einer anderen Regel.
-1. Setzen Sie die Regel-Sammlung auf [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) Methode.
-1. Mit der [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) Methode können wir die Präsentation im gleichen Format speichern oder in ein anderes speichern. Nachdem die Fallback-Schriftartregel-Sammlung auf [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) gesetzt ist, werden diese Regeln während aller Operationen über die Präsentation angewendet: speichern, rendern, konvertieren usw.
-
+1. Wir [erstellen die Sammlung von Fallback‑Schriftartregeln](/slides/de/androidjava/create-fallback-fonts-collection/).
+1. Entfernen Sie eine Fallback‑Schriftartregel und [addFallBackFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einer anderen Regel.
+1. Setzen Sie die Sammlung der Regeln über die Methode [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) fest.
+1. Mit der Methode [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) können wir die Präsentation im selben Format speichern oder in einem anderen Format. Nachdem die Sammlung von Fallback‑Schriftartregeln im [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) festgelegt ist, werden diese Regeln bei allen Vorgängen mit der Präsentation angewendet: speichern, rendern, konvertieren usw.
 ```java
-// Erstellen Sie eine neue Instanz einer Regelsammlung
+// Neue Instanz einer Regel-Sammlung erstellen
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
-// Erstellen Sie eine Anzahl von Regeln
+// Eine Reihe von Regeln erstellen
 rulesList.add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
 
 for (IFontFallBackRule fallBackRule : rulesList)
 {
-    // Versuchen, die Fallback-Schriftart "Tahoma" aus den geladenen Regeln zu entfernen
+    // Versuch, die Fallback-Schriftart "Tahoma" aus geladenen Regeln zu entfernen
     fallBackRule.remove("Tahoma");
 
-    // Und Aktualisierung der Regeln für den angegebenen Bereich
+    // Und die Regeln für den angegebenen Bereich aktualisieren
     if ((fallBackRule.getRangeEndIndex() >= 0x4000) && (fallBackRule.getRangeStartIndex() < 0x5000))
         fallBackRule.addFallBackFonts("Verdana");
 }
 
-// Wir können auch vorhandene Regeln von der Liste entfernen
+// Auch können wir vorhandene Regeln aus der Liste entfernen
 if (rulesList.size() > 0)
     rulesList.remove(rulesList.get_Item(0));
 
 Presentation pres = new Presentation("input.pptx");
 try {
-    // Zuweisen einer vorbereiteten Regelliste zur Verwendung
+    // Zuweisung einer vorbereiteten Regel-Liste zur Verwendung
     pres.getFontsManager().setFontFallBackRulesCollection(rulesList);
 
-    // Rendering des Thumbnails mit Verwendung der initialisierten Regelsammlung und Speichern als JPEG
+    // Rendern des Thumbnails unter Verwendung der initialisierten Regel-Sammlung und Speicherung als JPEG
    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
 
-   // Speichern des Bildes auf der Festplatte im JPEG-Format
+   // Bild im JPEG-Format auf die Festplatte speichern
    try {
          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
    } finally {
@@ -52,6 +64,7 @@ try {
 }
 ```
 
+
 {{% alert color="primary" %}} 
-Erfahren Sie mehr über [Speichern und Konvertieren in Präsentationen](/slides/de/androidjava/creating-saving-and-converting-a-presentation/).
+Erfahren Sie mehr über [PPT und PPTX auf Android in JPG konvertieren](/slides/de/androidjava/convert-powerpoint-to-jpg/).
 {{% /alert %}}

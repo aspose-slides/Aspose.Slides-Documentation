@@ -22,24 +22,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Maîtrisez les commentaires de présentation avec Aspose.Slides pour Android via Java : ajoutez, lisez, modifiez et supprimez des commentaires dans les fichiers PowerPoint rapidement et facilement."
+description: "Maîtrisez les commentaires de présentation avec Aspose.Slides pour Android via Java : ajoutez, lisez, modifiez et supprimez les commentaires dans les fichiers PowerPoint rapidement et facilement."
 ---
 
-Dans PowerPoint, un commentaire apparaît comme une note ou une annotation sur une diapositive. Lorsque vous cliquez sur un commentaire, son contenu ou ses messages sont révélés. 
+Dans PowerPoint, un commentaire apparaît comme une note ou une annotation sur une diapositive. Lorsqu'un commentaire est cliqué, son contenu ou ses messages sont révélés. 
 
 ### **Pourquoi ajouter des commentaires aux présentations ?**
 
 Vous pouvez vouloir utiliser les commentaires pour fournir des retours ou communiquer avec vos collègues lors de la révision des présentations.
 
-Pour vous permettre d’utiliser les commentaires dans les présentations PowerPoint, Aspose.Slides for Android via Java fournit
+Pour vous permettre d'utiliser des commentaires dans les présentations PowerPoint, Aspose.Slides for Android via Java fournit
 
-* La classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), qui contient les collections d’auteurs (de l’interface [ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection)). Les auteurs ajoutent des commentaires aux diapositives.
-* L’interface [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection), qui contient la collection de commentaires pour chaque auteur.
-* La classe [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment), qui contient des informations sur les auteurs et leurs commentaires : qui a ajouté le commentaire, l’heure à laquelle il a été ajouté, la position du commentaire, etc.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentAuthor), qui contient des informations sur chaque auteur : le nom de l’auteur, ses initiales, les commentaires associés à son nom, etc.
+* La classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), qui contient les collections d'auteurs (provenant de l'interface [ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection)). Les auteurs ajoutent des commentaires aux diapositives.
+* L'interface [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection), qui contient la collection de commentaires pour chaque auteur.
+* La classe [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment), qui contient des informations sur les auteurs et leurs commentaires : qui a ajouté le commentaire, l'heure à laquelle le commentaire a été ajouté, la position du commentaire, etc.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentAuthor), qui contient des informations sur chaque auteur : le nom de l'auteur, ses initiales, les commentaires associés au nom de l'auteur, etc.
 
 ## **Ajouter un commentaire à une diapositive**
-Ce code Java vous montre comment ajouter un commentaire à une diapositive dans une présentation PowerPoint :
+Ce code Java montre comment ajouter un commentaire à une diapositive dans une présentation PowerPoint :
 ```java
 // Instancie la classe Presentation
 Presentation pres = new Presentation();
@@ -82,8 +82,8 @@ try {
 ```
 
 
-## **Accéder aux commentaires d’une diapositive**
-Ce code Java vous montre comment accéder à un commentaire existant sur une diapositive dans une présentation PowerPoint :
+## **Accéder aux commentaires d'une diapositive**
+Ce code Java montre comment accéder à un commentaire existant sur une diapositive dans une présentation PowerPoint :
 ```java
 // Instancie la classe Presentation
 Presentation pres = new Presentation("Comments1.pptx");
@@ -105,9 +105,10 @@ try {
 
 
 ## **Répondre aux commentaires**
-Un commentaire parent est le commentaire principal ou original dans une hiérarchie de commentaires ou de réponses. En utilisant les méthodes [getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#getParentComment--) ou [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (de l’interface [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)), vous pouvez définir ou obtenir un commentaire parent.
 
-Ce code Java vous montre comment ajouter des commentaires et récupérer leurs réponses :
+Un commentaire parent est le commentaire principal ou original dans une hiérarchie de commentaires ou de réponses. En utilisant les méthodes [getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#getParentComment--) ou [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (de l'interface [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)), vous pouvez définir ou obtenir un commentaire parent.
+
+Ce code Java montre comment ajouter des commentaires et obtenir leurs réponses :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -151,7 +152,7 @@ try {
     }
     pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Supprime le commentaire1 et toutes les réponses associées
+    // Supprime le commentaire1 et toutes ses réponses
     comment1.remove();
 
     pres.save("remove_comment.pptx",SaveFormat.Pptx);
@@ -162,16 +163,19 @@ try {
 
 
 {{% alert color="warning" title="Attention" %}} 
-* Lorsque la méthode [Remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#remove--) (de l’interface [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)) est utilisée pour supprimer un commentaire, les réponses à ce commentaire sont également supprimées.
-* Si le paramètre [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) entraîne une référence circulaire, l’exception [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) sera levée.
+
+* Lorsque la méthode [Remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#remove--) (de l'interface [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment)) est utilisée pour supprimer un commentaire, les réponses au commentaire sont également supprimées.
+* Si le paramètre [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) entraîne une référence circulaire, l'exception [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) sera levée.
+
 {{% /alert %}}
 
 ## **Ajouter un commentaire moderne**
-En 2021, Microsoft a introduit les *commentaires modernes* dans PowerPoint. La fonction de commentaires modernes améliore considérablement la collaboration dans PowerPoint. Grâce aux commentaires modernes, les utilisateurs de PowerPoint peuvent résoudre les commentaires, ancrer les commentaires à des objets et du texte, et interagir beaucoup plus facilement qu’auparavant. 
 
-Dans [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-21-11-release-notes/), nous avons implémenté la prise en charge des commentaires modernes en ajoutant la classe [ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment). Les méthodes [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) et [insertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) ont été ajoutées à la classe [CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection).
+En 2021, Microsoft a introduit les *commentaires modernes* dans PowerPoint. La fonctionnalité de commentaires modernes améliore considérablement la collaboration dans PowerPoint. Grâce aux commentaires modernes, les utilisateurs de PowerPoint peuvent résoudre les commentaires, ancrer les commentaires à des objets et des textes, et interagir beaucoup plus facilement qu'auparavant. 
 
-Ce code Java vous montre comment ajouter un commentaire moderne à une diapositive dans une présentation PowerPoint :
+Aspose.Slides prend en charge les commentaires modernes via la classe [ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment). Les méthodes [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) et [insertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) ont été ajoutées à la classe [CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection).
+
+Ce code Java montre comment ajouter un commentaire moderne à une diapositive dans une présentation PowerPoint : 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -188,7 +192,8 @@ try {
 ## **Supprimer un commentaire**
 
 ### **Supprimer tous les commentaires et auteurs**
-Ce code Java vous montre comment supprimer tous les commentaires et auteurs d’une présentation :
+
+Ce code Java montre comment supprimer tous les commentaires et auteurs d'une présentation :
 ```java
 Presentation presentation = new Presentation("example.pptx");
 try {
@@ -209,7 +214,8 @@ try {
 
 
 ### **Supprimer des commentaires spécifiques**
-Ce code Java vous montre comment supprimer des commentaires spécifiques sur une diapositive :
+
+Ce code Java montre comment supprimer des commentaires spécifiques sur une diapositive :
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -247,14 +253,14 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides prend‑t‑il en charge un statut comme « résolu » pour les commentaires modernes ?**
+**Aspose.Slides prend-il en charge un statut tel que « résolu » pour les commentaires modernes ?**
 
-Oui. Les [commentaires modernes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/) exposent la méthode [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-); vous pouvez définir l’[état du commentaire](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) (par exemple, le marquer comme résolu), et cet état est enregistré dans le fichier et reconnu par PowerPoint.
+Oui. Les [commentaires modernes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/) exposent une méthode [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-) ; vous pouvez définir l'état d'un commentaire (par exemple, le marquer comme résolu), et cet état est enregistré dans le fichier et reconnu par PowerPoint.
 
-**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et existe‑t‑il une limite de profondeur ?**
+**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et y a‑t‑il une limite de profondeur ?**
 
-Oui. Chaque commentaire peut référencer son [commentaire parent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/comment/#getParentComment--), ce qui permet des chaînes de réponses arbitraires. L’API ne spécifie pas de limite de profondeur de nidification.
+Oui. Chaque commentaire peut référencer son [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/comment/#getParentComment--), ce qui permet des chaînes de réponses arbitraires. L'API ne spécifie pas de limite de profondeur de nidification.
 
-**Dans quel système de coordonnées la position d’un marqueur de commentaire est‑elle définie sur une diapositive ?**
+**Dans quel système de coordonnées la position du marqueur de commentaire est‑elle définie sur une diapositive ?**
 
-La position est stockée sous forme de point à virgule flottante dans le système de coordonnées de la diapositive. Cela vous permet de placer le marqueur de commentaire exactement à l’endroit souhaité.
+La position est enregistrée sous forme d'un point à virgule flottante dans le système de coordonnées de la diapositive. Cela vous permet de placer le marqueur de commentaire exactement où vous le souhaitez.

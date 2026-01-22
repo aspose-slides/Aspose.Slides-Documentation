@@ -9,42 +9,42 @@ keywords:
 - إنشاء خط
 - إضافة خط
 - خط عادي
-- تكوين الخط
-- تخصيص الخط
-- نمط الشرطية المتقطعة
+- تكوين خط
+- تخصيص خط
+- نمط المتقطع
 - رأس السهم
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية تعديل تنسيق الخط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Android. اكتشف الخصائص والطرق وأمثلة Java."
+description: "تعلم كيفية تعديل تنسيق الخط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Android. اكتشف الخصائص والأساليب وأمثلة Java."
 ---
 
 {{% alert color="primary" %}} 
 
-يدعم Aspose.Slides for Android عبر Java إضافة أنواع مختلفة من الأشكال إلى الشرائح. في هذا الموضوع، سنبدأ العمل مع الأشكال عن طريق إضافة خطوط إلى الشرائح. باستخدام Aspose.Slides for Android عبر Java، يمكن للمطورين ليس فقط إنشاء خطوط بسيطة، بل يمكن أيضًا رسم بعض الخطوط المتقنة على الشرائح.
+يدعم Aspose.Slides for Android via Java إضافة أنواع مختلفة من الأشكال إلى الشرائح. في هذا الموضوع، سنبدأ العمل مع الأشكال عن طريق إضافة خطوط إلى الشرائح. باستخدام Aspose.Slides for Android via Java، لا يستطيع المطورون إنشاء خطوط بسيطة فقط، بل يمكنهم أيضًا رسم خطوط مزخرفة على الشرائح.
 
 {{% /alert %}} 
 
 ## **إنشاء خط عادي**
 
-لإضافة خط عادي بسيط إلى شريحة محددة في العرض التقديمي، يرجى اتباع الخطوات أدناه:
+لإضافة خط عادي بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-- إنشاء نسخة من الفئة [العرض التقديمي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- الحصول على مرجع الشريحة باستخدام فهرسها.
-- إضافة AutoShape من نوع Line باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) المعروضة في كائن [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
-- كتابة العرض التقديمي المعدل كملف PPTX.
+- إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- احصل على مرجع الشريحة باستخدام الفهرس الخاص بها.
+- أضف AutoShape من النوع Line باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) المعروضة بواسطة كائن [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+- احفظ العرض التقديمي المعدل كملف PPTX.
 
-في المثال المعطى أدناه، أضفنا خطًا إلى الشريحة الأولى من العرض التقديمي.
+في المثال الوارد أدناه، قمنا بإضافة خط إلى الشريحة الأولى من العرض التقديمي.
 ```java
-// إنشاء كائن من فئة PresentationEx التي تمثل ملف PPTX
+// إنشاء فئة PresentationEx التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الحصول على الشريحة الأولى
+    // احصل على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // إضافة AutoShape من النوع line
+    // إضافة AutoShape من النوع خط
     sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
     
     // حفظ ملف PPTX إلى القرص
@@ -57,28 +57,28 @@ try {
 
 ## **إنشاء خط على شكل سهم**
 
-يسمح Aspose.Slides for Android عبر Java أيضًا للمطورين بتكوين بعض خصائص الخط لجعله يبدو أكثر جاذبية. لنحاول تكوين بعض خصائص الخط لجعله يبدو كسهم. يرجى اتباع الخطوات أدناه للقيام بذلك:
+يوفر Aspose.Slides for Android via Java أيضًا للمطورين القدرة على تكوين بعض خصائص الخط لجعله أكثر جاذبية. دعونا نجرب تكوين بعض خصائص الخط لجعله يبدو كسهم. يرجى اتباع الخطوات أدناه للقيام بذلك:
 
-- إنشاء نسخة من الفئة [العرض التقديمي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- الحصول على مرجع الشريحة باستخدام فهرسها.
-- إضافة AutoShape من نوع Line باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) المعروضة في كائن [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
-- تعيين [نمط الخط](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineStyle) إلى أحد الأنماط التي توفرها Aspose.Slides for Android عبر Java.
-- تعيين عرض الخط.
-- تعيين [نمط الشرطية المتقطعة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineDashStyle) للخط إلى أحد الأنماط المتاحة في Aspose.Slides for Android عبر Java.
-- تعيين [نمط رأس السهم](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) و[الطول](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) لنقطة البداية للخط.
-- تعيين [نمط رأس السهم](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) و[الطول](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) لنقطة النهاية للخط.
-- كتابة العرض التقديمي المعدل كملف PPTX.
+- إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- احصل على مرجع الشريحة باستخدام الفهرس الخاص بها.
+- أضف AutoShape من النوع Line باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) المعروضة بواسطة كائن [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+- حدد [Line Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineStyle) إلى أحد الأنماط المتاحة في Aspose.Slides for Android via Java.
+- حدد عرض الخط.
+- حدد [Dash Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineDashStyle) للخط إلى أحد الأنماط المتاحة في Aspose.Slides for Android via Java.
+- حدد [Arrow Head Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) و[Length](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) لنقطة البداية للخط.
+- حدد [Arrow Head Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) و[Length](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) لنقطة النهاية للخط.
+- احفظ العرض التقديمي المعدل كملف PPTX.
 ```java
-// إنشاء كائن من فئة PresentationEx التي تمثل ملف PPTX
+// إنشاء فئة PresentationEx التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الحصول على الشريحة الأولى
+    // احصل على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // إضافة AutoShape من النوع line
+    // إضافة AutoShape من النوع خط
     IAutoShape shp = sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // تطبيق بعض التنسيقات على الخط
+    // تطبيق بعض التنسيق على الخط
     shp.getLineFormat().setStyle(LineStyle.ThickBetweenThin);
     shp.getLineFormat().setWidth(10);
 
@@ -103,14 +103,14 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تحويل خط عادي إلى موصل بحيث “ينغلق” على الأشكال؟**
+**هل يمكنني تحويل خط عادي إلى موصل بحيث "يلتصق" بالأشكال؟**
 
-لا. الخط العادي (وهو [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) من النوع [Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/)) لا يتحول تلقائيًا إلى موصل. لجعله يلتقط الأشكال، استخدم النوع المخصص [Connector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/connector/) و[واجهات برمجة التطبيقات المقابلة](/slides/ar/androidjava/connector/) للاتصالات.
+لا. الخط العادي (‏[AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) من النوع [Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/)) لا يتحول تلقائيًا إلى موصل. لجعله يلتصق بالأشكال، استخدم النوع المخصص [Connector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/connector/) والـ[APIs المقابلة](/slides/ar/androidjava/connector/) للاتصالات.
 
-**ماذا أفعل إذا كانت خصائص الخط موروثة من السمة وكان من الصعب تحديد القيم النهائية؟**
+**ماذا أفعل إذا كانت خصائص الخط مُورثة من السمة ويصعب تحديد القيم النهائية؟**
 
-[اقرأ الخصائص الفعّالة](/slides/ar/androidjava/shape-effective-properties/) عبر واجهات [ILineFormatEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilinefillformateffectivedata/)—هذه الواجهات تأخذ بالفعل في الاعتبار الوراثة وأنماط السمة.
+[قراءة الخصائص الفعالة](/slides/ar/androidjava/shape-effective-properties/) عبر واجهات [ILineFormatEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilinefillformateffectivedata/) — هذه الواجهات تأخذ بالفعل في الاعتبار الوراثة وأساليب السمة.
 
-**هل يمكنني قفل الخط ضد التعديل (النقل، تغيير الحجم)؟**
+**هل يمكنني قفل خط لمنع التحرير (النقل، تغيير الحجم)؟**
 
-نعم. توفر الأشكال كائنات القفل [lock objects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) التي تتيح لك [منع عمليات التحرير](/slides/ar/androidjava/applying-protection-to-presentation/).
+نعم. توفر الأشكال [lock objects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) التي تسمح لك بمنع عمليات التحرير.

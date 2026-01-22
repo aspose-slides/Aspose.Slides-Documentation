@@ -5,26 +5,26 @@ type: docs
 url: /ar/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- مخطط Treemap
-- مخطط Sunburst
-- نقطة البيانات
-- لون التسمية
-- لون الفرع
+- مخطط treemap
+- مخطط sunburst
+- نقطة بيانات
+- لون التسميات
+- لون الفروع
 - PowerPoint
-- العرض
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إدارة نقاط البيانات في مخططات Treemap و Sunburst باستخدام Aspose.Slides لنظام Android عبر Java، مع توافق مع صيغ PowerPoint."
+description: "تعلم كيفية إدارة نقاط البيانات في مخططات treemap و sunburst باستخدام Aspose.Slides للـ Android عبر Java، والمتوافق مع صيغ PowerPoint."
 ---
 
-من بين أنواع مخططات PowerPoint الأخرى، هناك نوعان “هرميان” - **Treemap** و **Sunburst** (المعروف أيضًا باسم Sunburst Graph أو Sunburst Diagram أو Radial Chart أو Radial Graph أو Multi Level Pie Chart). تعرض هذه المخططات بيانات هرمية منظمة كشجرة - من الأوراق إلى قمة الفرع. تُحدد الأوراق بنقاط بيانات السلسلة، ويُحدد كل مستوى تجميع متداخل لاحق بالفئة المقابلة. يتيح Aspose.Slides for Android عبر Java تنسيق نقاط البيانات لمخطط Sunburst ومخطط Treemap في Java.
+من بين الأنواع الأخرى لمخططات PowerPoint، هناك نوعان "هرميان" - مخطط **Treemap** ومخطط **Sunburst** (المعروف أيضًا باسم مخطط Sunburst Graph أو Sunburst Diagram أو Radial Chart أو Radial Graph أو Multi Level Pie Chart). تُظهر هذه المخططات بيانات هرمية منظمة كشجرة - من الأوراق إلى قمة الفرع. تُعرّف الأوراق بنقاط بيانات السلسلة، ويُعرّف كل مستوى تجميع متداخل لاحقًا بالفئة المقابلة. يتيح Aspose.Slides for Android عبر Java تنسيق نقاط بيانات مخطط Sunburst وTreemap في Java.
 
-فيما يلي مخطط Sunburst، حيث تحدد البيانات في عمود Series1 عقد الأوراق، بينما تحدد الأعمدة الأخرى نقاط البيانات الهرمية:
+إليك مخطط Sunburst، حيث تحدد البيانات في عمود Series1 عقد الأوراق، بينما تحدد الأعمدة الأخرى نقاط البيانات الهرمية:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-لنبدأ بإضافة مخطط Sunburst جديد إلى العرض:
+لنبدأ بإضافة مخطط Sunburst جديد إلى العرض التقديمي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -38,10 +38,12 @@ try {
 
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [**إنشاء مخطط Sunburst**](/slides/ar/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**إنشاء أو تحديث مخططات عرض PowerPoint على Android**](/slides/ar/androidjava/create-chart/)
 {{% /alert %}}
 
-إذا كان هناك حاجة لتنسيق نقاط البيانات للمخطط، يجب استخدام ما يلي:
+إذا كان هناك حاجة لتنسيق نقاط البيانات في المخطط، يجب استخدام ما يلي:
+
+توفر الفئات والطريقة التالية إمكانية الوصول إلى تنسيق نقاط البيانات لمخططي Treemap وSunburst.
 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevelsManager), 
 [IChartDataPointLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) classes 
@@ -57,8 +59,9 @@ the properties added specific for data points.
 two methods: [**getFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel#getFormat--) and 
 [**getDataLabel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel#getLabel--) which
 provide access to corresponding settings.
-## **عرض قيمة نقطة البيانات**
-عرض قيمة نقطة البيانات “Leaf 4”:
+
+## **إظهار قيمة نقطة البيانات**
+عرض قيمة نقطة البيانات "Leaf 4":
 ```java
 IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
 dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
@@ -67,8 +70,8 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
-## **تعيين تسمية نقطة البيانات واللون**
-تعيين تسمية “Branch 1” لتظهر اسم السلسلة (“Series1”) بدلاً من اسم الفئة. ثم تعيين لون النص إلى الأصفر:
+## **تعيين تسمية ولون نقطة البيانات**
+عيّن تسمية بيانات "Branch 1" لتظهر اسم السلسلة ("Series1") بدلاً من اسم الفئة. ثم اضبط لون النص إلى الأصفر:
 ```java
 IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
@@ -82,7 +85,7 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
 ## **تعيين لون فرع نقطة البيانات**
-تغيير لون فرع “Steam 4”:
+تغيير لون فرع "Steam 4":
 ```java
 Presentation pres = new Presentation();
 try {
@@ -106,18 +109,14 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تغيير ترتيب (الفرز) الأجزاء في مخطط Sunburst/Treemap؟**
+**هل يمكنني تغيير ترتيب (الفرز) الأقسام في مخطط Sunburst/Treemap؟**  
+لا. يقوم PowerPoint بفرز الأقسام تلقائيًا (عادةً حسب القيم المتناقصة، باتجاه عقارب الساعة). يطابق Aspose.Slides هذا السلوك: لا يمكنك تغيير الترتيب مباشرةً؛ يمكنك تحقيق ذلك عن طريق معالجة البيانات مسبقًا.
 
-**لا. يقوم PowerPoint بفرز الأجزاء تلقائيًا (عادةً حسب القيم تنازليًا، باتجاه عقارب الساعة). يطابق Aspose.Slides هذا السلوك: لا يمكنك تغيير الترتيب مباشرة؛ يمكنك تحقيق ذلك عبر معالجة البيانات مسبقًا.**
+**كيف يؤثر سمة العرض التقديمي على ألوان الأقسام والتسميات؟**  
+تورث ألوان المخطط سمة/لوحة ألوان العرض التقديمي [/slides/androidjava/presentation-theme/] ما لم تقم بتعيين التعبئة/الخطوط صراحةً. للحصول على نتائج متسقة، احرص على تثبيت التعبئة الصلبة وتنسيق النص في المستويات المطلوبة.
 
-**كيف يؤثر نمط (theme) العرض على ألوان الأجزاء والتسميات؟**
+**هل سيحافظ التصدير إلى PDF/PNG على ألوان الفروع المخصصة وإعدادات التسميات؟**  
+نعم. عند تصدير العرض التقديمي، تُحافظ إعدادات المخطط (التعبئة، التسميات) في صيغ الإخراج لأن Aspose.Slides يقوم بالرندر باستخدام تنسيق المخطط المطبق.
 
-**ترث ألوان المخطط نمط/لوحة الألوان للعرض ما لم تقم بتعيين التعبئة/الخطوط صراحةً. للحصول على نتائج متسقة، احفظ التعبئات الصلبة وتنسيق النص في المستويات المطلوبة.**
-
-**هل سيحافظ التصدير إلى PDF/PNG على ألوان الفروع المخصصة وإعدادات التسميات؟**
-
-**نعم. عند تصدير العرض، يتم الحفاظ على إعدادات المخطط (التعبئات، التسميات) في صيغ المخرجات لأن Aspose.Slides يُظهر المخطط بالتنسيق المطبق.**
-
-**هل يمكنني حساب الإحداثيات الفعلية لتسمية/عنصر لغرض وضع طبقة مخصصة فوق المخطط؟**
-
-**نعم. بعد التحقق من صحة تخطيط المخطط، تكون قيم *x* و*y* الفعلية متاحة للعناصر (على سبيل المثال، [DataLabel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/))، مما يساعد في تحديد موضع الطبقات بدقة.**
+**هل يمكنني حساب الإحداثيات الفعلية لتسمية/عنصر لوضع تراكب مخصص فوق المخطط؟**  
+نعم. بعد التحقق من تخطيط المخطط، يتوفر *x* الفعلي و*y* الفعلي للعناصر (مثلاً، [DataLabel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/))، مما يساعد في تحديد المواقع بدقة للتراكبات.

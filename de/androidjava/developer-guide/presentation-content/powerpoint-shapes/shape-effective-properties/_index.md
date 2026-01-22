@@ -1,35 +1,35 @@
 ---
-title: Effektive Shape-Eigenschaften aus Präsentationen auf Android abrufen
+title: Effektive Formeigenschaften aus Präsentationen unter Android abrufen
 linktitle: Effektive Eigenschaften
 type: docs
 weight: 50
 url: /de/androidjava/shape-effective-properties/
 keywords:
-- Shape-Eigenschaften
-- Kameraeigenschaften
-- Lichtanlage
-- Stufenform
-- Textfeld
-- Textstil
-- Schriftgröße
-- Füllformat
-- PowerPoint
-- Präsentation
-- Android
-- Java
-- Aspose.Slides
-description: "Erfahren Sie, wie Aspose.Slides für Android via Java effektive Shape-Eigenschaften berechnet und anwendet, um eine präzise PowerPoint-Darstellung zu gewährleisten."
+  - Formeigenschaften
+  - Kameraeigenschaften
+  - Licht-Setup
+  - Fasenform
+  - Textfeld
+  - Textstil
+  - Schriftgröße
+  - Füllformat
+  - PowerPoint
+  - Präsentation
+  - Android
+  - Java
+  - Aspose.Slides
+description: "Erfahren Sie, wie Aspose.Slides für Android via Java effektive Formeigenschaften berechnet und anwendet, um eine präzise PowerPoint-Darstellung zu gewährleisten."
 ---
 
 In diesem Thema werden wir **effektive** und **lokale** Eigenschaften besprechen. Wenn wir Werte direkt auf diesen Ebenen festlegen
 
-1. In Abschnitt‑Eigenschaften auf der Folie des Abschnitts;
-1. In der Textstil‑Vorlage der Form auf Layout‑ oder Master‑Folie (falls die Textfeld‑Form des Abschnitts einen hat);
+1. In Portionseigenschaften auf der Folie der Portion;
+1. Im Textstil der Prototypform auf Layout‑ oder Masterfolie (falls die Textfeldform der Portion einen hat);
 1. In den globalen Texteinstellungen der Präsentation;
 
-werden diese Werte **lokale** Werte genannt. Auf jeder Ebene können **lokale** Werte definiert oder weggelassen werden. Wenn jedoch eine Anwendung wissen muss, wie der Abschnitt aussehen soll, verwendet sie **effektive** Werte. Sie können effektive Werte erhalten, indem Sie die Methode **getEffective()** des lokalen Formats verwenden.
+Diese Werte werden **lokale** Werte genannt. Auf jeder Ebene können **lokale** Werte definiert oder weggelassen werden. Wenn jedoch eine Anwendung wissen muss, wie die Portion aussehen soll, verwendet sie **effektive** Werte. Sie können effektive Werte erhalten, indem Sie die **getEffective()**‑Methode des lokalen Formats verwenden.
 
-Dieses Beispielcode zeigt, wie Sie effektive Werte erhalten:
+Dieser Beispielcode zeigt, wie Sie effektive Werte erhalten:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -46,11 +46,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften einer Kamera**
+## **Effektive Eigenschaften einer Kamera abrufen**
+Aspose.Slides für Android via Java ermöglicht Entwicklern, **effektive** Eigenschaften der Kamera abzurufen. Zu diesem Zweck wurde das [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData)-Interface zu Aspose.Slides hinzugefügt. Das [ICameraEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData)-Interface stellt ein unveränderliches Objekt dar, das **effektive** Kameraeigenschaften enthält. Eine Instanz des [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData)-Interfaces wird als Teil des [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)-Interfaces verwendet, das ein [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) darstellt.
 
-Aspose.Slides für Android über Java ermöglicht Entwicklern, effektive Eigenschaften der Kamera abzurufen. Zu diesem Zweck wurde die [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) Schnittstelle zu Aspose.Slides hinzugefügt. Die [ICameraEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) Schnittstelle stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine Instanz der [**ICameraEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICameraEffectiveData) Schnittstelle wird als Teil der [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData) Schnittstelle verwendet, die ein [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) darstellt.
-
-Dieses Beispielcode zeigt, wie Sie effektive Eigenschaften für die Kamera abrufen:
+Dieses Beispiel zeigt, wie Sie effektive Eigenschaften für die Kamera erhalten:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -66,11 +65,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften einer Lichtanlage**
+## **Effektive Eigenschaften eines Light Rigs abrufen**
+Aspose.Slides für Android via Java ermöglicht Entwicklern, **effektive** Eigenschaften eines Light Rigs abzurufen. Zu diesem Zweck wurde das [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData)-Interface zu Aspose.Slides hinzugefügt. Das [ILightRigEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData)-Interface stellt ein unveränderliches Objekt dar, das **effektive** Light‑Rig‑Eigenschaften enthält. Eine Instanz des [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData)-Interfaces wird als Teil des [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)-Interfaces verwendet, das ein [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) darstellt.
 
-Aspose.Slides für Android über Java ermöglicht Entwicklern, effektive Eigenschaften einer Lichtanlage abzurufen. Zu diesem Zweck wurde die [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) Schnittstelle zu Aspose.Slides hinzugefügt. Die [ILightRigEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) Schnittstelle stellt ein unveränderliches Objekt dar, das effektive Eigenschaften einer Lichtanlage enthält. Eine Instanz der [**ILightRigEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRigEffectiveData) Schnittstelle wird als Teil der [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData) Schnittstelle verwendet, die ein [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) darstellt.
-
-Dieses Beispielcode zeigt, wie Sie effektive Eigenschaften der Lichtanlage abrufen:
+Dieses Beispiel zeigt, wie Sie effektive Eigenschaften eines Light Rigs erhalten:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -85,11 +83,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften einer Stufenform**
+## **Effektive Eigenschaften einer Bevel‑Form abrufen**
+Aspose.Slides für Android via Java ermöglicht Entwicklern, **effektive** Eigenschaften einer Bevel‑Form abzurufen. Zu diesem Zweck wurde das [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData)-Interface zu Aspose.Slides hinzugefügt. Das [IShapeBevelEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData)-Interface stellt ein unveränderliches Objekt dar, das **effektive** Eigenschaften der Flächenrelief einer Form enthält. Eine Instanz des [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData)-Interfaces wird als Teil des [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IThreeDFormatEffectiveData)-Interfaces verwendet, das ein [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--)‑Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) darstellt.
 
-Aspose.Slides für Android über Java ermöglicht Entwicklern, effektive Eigenschaften einer Stufenform abzurufen. Zu diesem Zweck wurde die [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) Schnittstelle zu Aspose.Slides hinzugefügt. Die [IShapeBevelEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) Schnittstelle stellt ein unveränderliches Objekt dar, das effektive Eigenschaften der Formenrelief‑Fläche enthält. Eine Instanz der [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData) Schnittstelle wird als Teil der [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeBevelEffectiveData)) Schnittstelle verwendet, die ein [effective values](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getEffective--) Paar für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) darstellt.
-
-Dieses Beispielcode zeigt, wie Sie effektive Eigenschaften für die Stufenform abrufen:
+Dieses Beispiel zeigt, wie Sie effektive Eigenschaften für die Bevel‑Form erhalten:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -105,11 +102,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften eines Textfelds**
+## **Effektive Eigenschaften eines Textfelds abrufen**
+Mit Aspose.Slides für Android via Java können Sie **effektive** Eigenschaften eines Textfelds abrufen. Zu diesem Zweck wurde das [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormatEffectiveData)-Interface zu Aspose.Slides hinzugefügt. Es enthält **effektive** Formatierungseigenschaften des Textfelds.
 
-Mit Aspose.Slides für Android über Java können Sie effektive Eigenschaften eines Textfelds abrufen. Zu diesem Zweck wurde die [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormatEffectiveData) Schnittstelle zu Aspose.Slides hinzugefügt. Sie enthält effektive Eigenschaften der Textfeldformatierung. 
-
-Dieses Beispielcode zeigt, wie Sie effektive Eigenschaften der Textfeldformatierung abrufen:
+Dieses Beispiel zeigt, wie Sie **effektive** Formatierungseigenschaften eines Textfelds erhalten:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -130,11 +126,10 @@ try {
 ```
 
 
-## **Effektive Eigenschaften eines Textstils**
+## **Effektive Eigenschaften eines Textstils abrufen**
+Mit Aspose.Slides für Android via Java können Sie **effektive** Eigenschaften eines Textstils abrufen. Zu diesem Zweck wurde das [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextStyleEffectiveData)-Interface zu Aspose.Slides hinzugefügt. Es enthält **effektive** Textstileigenschaften.
 
-Mit Aspose.Slides für Android über Java können Sie effektive Eigenschaften eines Textstils abrufen. Zu diesem Zweck wurde die [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextStyleEffectiveData) Schnittstelle zu Aspose.Slides hinzugefügt. Sie enthält effektive Textstileigenschaften.
-
-Dieses Beispielcode zeigt, wie Sie effektive Eigenschaften des Textstils abrufen:
+Dieses Beispiel zeigt, wie Sie **effektive** Textstileigenschaften erhalten:
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -157,9 +152,8 @@ try {
 ```
 
 
-## **Den effektiven Schriftgradwert ermitteln**
-
-Mit Aspose.Slides für Android über Java können Sie effektive Eigenschaften der Schriftgröße ermitteln. Hier stellen wir einen Code bereit, der zeigt, wie sich der effektive Schriftgradwert eines Abschnitts ändert, nachdem lokale Schriftgradwerte auf verschiedenen Präsentationsstrukturebenen gesetzt wurden:
+## **Effektiven Schriftgrößenwert erhalten**
+Mit Aspose.Slides für Android via Java können Sie **effektive** Eigenschaften der Schriftgröße erhalten. Hier stellen wir einen Code bereit, der zeigt, wie sich der **effektive** Schriftgrößenwert eines Abschnitts ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur gesetzt wurden:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,9 +198,8 @@ try {
 ```
 
 
-## **Effektives Füllformat für eine Tabelle ermitteln**
-
-Mit Aspose.Slides für Android über Java können Sie effektive Füllformatierung für verschiedene Tabellenteile ermitteln. Zu diesem Zweck wurde die [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICellFormatEffectiveData) Schnittstelle in Aspose.Slides hinzugefügt. Sie enthält effektive Füllformatierungseigenschaften. Bitte beachten Sie: Zellenformatierung hat stets Vorrang vor Zeilenformatierung; Zeilenformatierung hat Vorrang vor Spaltenformatierung; und Spaltenformatierung hat Vorrang vor der gesamten Tabelle.
+## **Effektives Füllformat für eine Tabelle erhalten**
+Mit Aspose.Slides für Android via Java können Sie **effektive** Füllformatierung für verschiedene logische Teile einer Tabelle erhalten. Zu diesem Zweck wurde das [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICellFormatEffectiveData)-Interface in Aspose.Slides hinzugefügt. Es enthält **effektive** Füllformatierungseigenschaften. Bitte beachten Sie: Zellenformatierung hat stets Vorrang vor Zeilenformatierung; Zeilen haben Vorrang vor Spaltenformatierung; und Spalten haben Vorrang vor der gesamten Tabelle.
 ```java
 Presentation pres = new Presentation("Presentation1.pptx");
 try {
@@ -228,30 +221,23 @@ try {
 
 ## **FAQ**
 
-**Wie kann ich feststellen, dass ich ein „Snapshot“ und kein „Live‑Objekt“ habe, und wann sollte ich effektive Eigenschaften erneut lesen?**
+**Wie kann ich erkennen, dass ich einen „Snapshot“ und kein „Live‑Objekt“ erhalten habe, und wann sollte ich effektive Eigenschaften erneut auslesen?**
+EffectiveData‑Objekte sind unveränderliche Snapshots von berechneten Werten zum Zeitpunkt des Aufrufs. Wenn Sie lokale oder geerbte Einstellungen der Form ändern, rufen Sie die effektiven Daten erneut ab, um die aktualisierten Werte zu erhalten.
 
-EffectiveData‑Objekte sind unveränderliche Schnappschüsse der berechneten Werte zum Zeitpunkt des Aufrufs. Wenn Sie lokale oder geerbte Einstellungen der Form ändern, holen Sie die effektiven Daten erneut ab, um die aktualisierten Werte zu erhalten.
-
-**Wirkt sich das Ändern der Layout‑/Master‑Folie auf bereits abgefragte effektive Eigenschaften aus?**
-
-Ja, jedoch nur, nachdem Sie sie erneut gelesen haben. Ein bereits erhaltenes EffectiveData‑Objekt aktualisiert sich nicht selbst — fordern Sie es nach einer Layout‑ oder Master‑Änderung erneut an.
+**Wirkt sich das Ändern der Layout‑/Masterfolie auf bereits abgerufene effektive Eigenschaften aus?**
+Ja, jedoch erst nachdem Sie sie erneut ausgelesen haben. Ein bereits erhaltenes EffectiveData‑Objekt aktualisiert sich nicht selbst – fragen Sie es nach einer Änderung des Layouts oder Masters erneut ab.
 
 **Kann ich Werte über EffectiveData ändern?**
+Nein. EffectiveData ist schreibgeschützt. Nehmen Sie Änderungen an den lokalen Formatierungsobjekten (Form/Text/3D usw.) vor und holen Sie anschließend die effektiven Werte erneut.
 
-Nein. EffectiveData ist schreibgeschützt. Änderungen erfolgen in den lokalen Formatierungsobjekten (Form/Text/3D usw.), und anschließend holen Sie die effektiven Werte erneut ab.
+**Was passiert, wenn eine Eigenschaft weder auf Form‑Ebene, noch im Layout/Master, noch in den globalen Einstellungen festgelegt ist?**
+Der effektive Wert wird durch den Standard‑Mechanismus (PowerPoint/Aspose.Slides‑Standardwerte) ermittelt. Dieser aufgelöste Wert wird Teil des EffectiveData‑Snapshots.
 
-**Was passiert, wenn an der Form‑Ebene, im Layout/Master und in den globalen Einstellungen kein Wert gesetzt ist?**
+**Kann ich anhand eines effektiven Schriftwertes erkennen, welche Ebene Größe oder Schriftart bereitgestellt hat?**
+Nicht direkt. EffectiveData liefert den endgültigen Wert. Um die Quelle zu ermitteln, prüfen Sie die lokalen Werte im Abschnitt/Absatz/Textfeld sowie die Textstile im Layout/Master/der Präsentation, um zu sehen, wo die erste explizite Definition vorkommt.
 
-Der effektive Wert wird durch den Standardmechanismus (PowerPoint/Aspose.Slides‑Standardwerte) bestimmt. Dieser ermittelte Wert wird Teil des EffectiveData‑Schnappschusses.
+**Warum sehen EffectiveData‑Werte manchmal identisch zu den lokalen aus?**
+Weil der lokale Wert letztlich final war (keine Vererbung von höheren Ebenen erforderlich war). In solchen Fällen entspricht der effektive Wert dem lokalen.
 
-**Kann ich anhand eines effektiven Schriftwertes erkennen, welche Ebene die Größe oder den Schriftschnitt bereitgestellt hat?**
-
-Nicht unmittelbar. EffectiveData liefert den endgültigen Wert. Um die Quelle zu finden, prüfen Sie die lokalen Werte auf Abschnitt/Absatz/Textfeld‑Ebene sowie die Textstile im Layout/Master/Präsentation, um zu sehen, wo die erste explizite Definition vorkommt.
-
-**Warum sehen effektive Werte manchmal identisch zu den lokalen aus?**
-
-Weil der lokale Wert letztlich final war (keine höhere Vererbung nötig). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
-
-**Wann sollte ich effektive Eigenschaften verwenden und wann nur lokale?**
-
-Verwenden Sie EffectiveData, wenn Sie das „wie gerendert“ Ergebnis nach vollständiger Vererbung benötigen (z. B. zum Angleichen von Farben, Einzügen oder Größen). Wenn Sie Formatierungen auf einer bestimmten Ebene ändern möchten, bearbeiten Sie die lokalen Eigenschaften und lesen Sie bei Bedarf erneut EffectiveData, um das Ergebnis zu prüfen.
+**Wann sollte ich effektive Eigenschaften nutzen und wann nur mit lokalen arbeiten?**
+Verwenden Sie EffectiveData, wenn Sie das „so wie gerenderte“ Ergebnis nach Anwendung aller Vererbungen benötigen (z. B. um Farben, Einzüge oder Größen auszurichten). Wenn Sie die Formatierung auf einer bestimmten Ebene ändern müssen, passen Sie die lokalen Eigenschaften an und lesen Sie bei Bedarf EffectiveData erneut ein, um das Ergebnis zu überprüfen.

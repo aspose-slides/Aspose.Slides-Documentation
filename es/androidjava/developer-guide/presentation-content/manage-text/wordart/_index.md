@@ -7,12 +7,12 @@ url: /es/androidjava/wordart/
 keywords:
 - WordArt
 - crear WordArt
-- plantilla WordArt
-- efecto WordArt
-- efecto sombra
+- plantilla de WordArt
+- efecto de WordArt
+- efecto de sombra
 - efecto de visualización
-- efecto resplandor
-- transformación WordArt
+- efecto de resplandor
+- transformación de WordArt
 - efecto 3D
 - efecto de sombra externa
 - efecto de sombra interna
@@ -21,14 +21,14 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Cree y personalice efectos de WordArt en Aspose.Slides para Android. Esta guía paso a paso ayuda a los desarrolladores a mejorar presentaciones con texto profesional en Java."
+description: "Crear y personalizar efectos de WordArt en Aspose.Slides para Android. Esta guía paso a paso ayuda a los desarrolladores a mejorar presentaciones con texto profesional en Java."
 ---
 
 ## **¿Acerca de WordArt?**
-WordArt o Word Art es una función que permite aplicar efectos a los textos para que destaquen. Con WordArt, por ejemplo, puedes contornear un texto o rellenarlo con un color (o degradado), agregarle efectos 3D, etc. También puedes inclinar, curvar y estirar la forma de un texto. 
+WordArt o Word Art es una característica que permite aplicar efectos al texto para que destaque. Con WordArt, por ejemplo, puedes contornear un texto o rellenarlo con un color (o degradado), añadirle efectos 3D, etc. También puedes sesgar, doblar y estirar la forma de un texto. 
 
 {{% alert color="primary" %}} 
-WordArt te permite tratar un texto como lo harías con un objeto gráfico. En general, WordArt consiste en efectos o modificaciones especiales realizadas a los textos para que sean más atractivos o notables. 
+WordArt le permite tratar un texto como si fuera un objeto gráfico. En general, WordArt consiste en efectos o modificaciones especiales aplicadas al texto para que sea más atractivo o llamativo. 
 {{% /alert %}} 
 
 **WordArt en Microsoft PowerPoint**
@@ -37,15 +37,14 @@ Para usar WordArt en Microsoft PowerPoint, debes seleccionar una de las plantill
 
 **WordArt en Aspose.Slides**
 
-En Aspose.Slides para Android vía Java 20.10, implementamos soporte para WordArt y mejoramos la función en versiones posteriores de Aspose.Slides para Android vía Java.
+En Aspose.Slides for Android via Java 20.10, implementamos la compatibilidad con WordArt y mejoramos la función en versiones posteriores de Aspose.Slides for Android via Java.  
+Con Aspose.Slides for Android via Java, puedes crear fácilmente tu propia plantilla de WordArt (un efecto o combinación de efectos) en Java y aplicarla a textos.
 
-Con Aspose.Slides para Android vía Java, puedes crear fácilmente tu propia plantilla de WordArt (un efecto o combinación de efectos) en Java y aplicarla a los textos.
-
-## **Crear una plantilla de WordArt sencilla y aplicarla al texto**
+## **Crear una plantilla simple de WordArt y aplicarla al texto**
 
 **Usando Aspose.Slides** 
 
-Primero, creamos un texto sencillo con este código Java: 
+Primero, creamos un texto sencillo usando este código Java: 
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -60,7 +59,7 @@ try {
 }
 ```
 
-Ahora, establecemos la altura de fuente del texto a un valor mayor para que el efecto sea más visible mediante este código:
+Ahora, establecemos la altura de la fuente del texto a un valor mayor para que el efecto sea más visible mediante este código:
 ``` java 
 FontData fontData = new FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
@@ -70,11 +69,11 @@ portion.getPortionFormat().setFontHeight(36);
 
 **Usando Microsoft PowerPoint**
 
-Ve al menú de efectos de WordArt en Microsoft PowerPoint:
+Vaya al menú de efectos de WordArt en Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-Desde el menú de la derecha, puedes elegir un efecto de WordArt predefinido. Desde el menú de la izquierda, puedes especificar la configuración de un nuevo WordArt. 
+En el menú de la derecha, puedes elegir un efecto de WordArt predefinido. En el menú de la izquierda, puedes especificar la configuración de un nuevo WordArt. 
 
 Estos son algunos de los parámetros u opciones disponibles:
 
@@ -82,7 +81,7 @@ Estos son algunos de los parámetros u opciones disponibles:
 
 **Usando Aspose.Slides**
 
-Aquí, aplicamos el patrón de color [SmallGrid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternStyle#SmallGrid) al texto y añadimos un contorno negro de ancho 1 al texto usando este código:
+Aquí, aplicamos el color de patrón [SmallGrid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternStyle#SmallGrid) al texto y añadimos un borde negro de texto con ancho 1 mediante este código:
 ``` java 
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
@@ -106,11 +105,11 @@ Desde la interfaz del programa, puedes aplicar estos efectos a un texto, bloque 
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Por ejemplo, los efectos de Sombra, Reflejo y Resplandor pueden aplicarse a un texto; los efectos de Formato 3D y Rotación 3D pueden aplicarse a un bloque de texto; la propiedad Borde Suave puede aplicarse a un Objeto Forma (aún tiene efecto cuando no se establece la propiedad Formato 3D). 
+Por ejemplo, los efectos Sombra, Reflexión y Resplandor pueden aplicarse a un texto; los efectos Formato 3D y Rotación 3D pueden aplicarse a un bloque de texto; la propiedad Borde Suave puede aplicarse a un objeto Forma (sigue teniendo efecto cuando no se establece la propiedad Formato 3D). 
 
 ### **Aplicar efectos de sombra**
 
-Aquí, queremos establecer las propiedades relacionadas solo con un texto. Aplicamos el efecto de sombra a un texto usando este código en Java:
+Aquí, pretendemos establecer solo las propiedades relacionadas con un texto. Aplicamos el efecto de sombra a un texto usando este código en Java:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
@@ -125,8 +124,7 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowCol
 ```
 
 
-La API de Aspose.Slides admite tres tipos de sombras: OuterShadow, InnerShadow y PresetShadow. 
-
+La API de Aspose.Slides admite tres tipos de sombras: OuterShadow, InnerShadow y PresetShadow.  
 Con PresetShadow, puedes aplicar una sombra a un texto (usando valores predefinidos). 
 
 **Usando Microsoft PowerPoint**
@@ -137,16 +135,15 @@ En PowerPoint, puedes usar un tipo de sombra. Aquí tienes un ejemplo:
 
 **Usando Aspose.Slides**
 
-Aspose.Slides realmente permite aplicar dos tipos de sombras a la vez: InnerShadow y PresetShadow.
+Aspose.Slides en realidad permite aplicar dos tipos de sombras a la vez: InnerShadow y PresetShadow.  
 
 **Notas:**
+- Cuando se usan OuterShadow y PresetShadow juntos, solo se aplica el efecto OuterShadow.  
+- Si se usan OuterShadow e InnerShadow simultáneamente, el efecto resultante o aplicado depende de la versión de PowerPoint. Por ejemplo, en PowerPoint 2013, el efecto se duplica. Pero en PowerPoint 2007, se aplica el efecto OuterShadow.  
 
-- Cuando se usan OuterShadow y PresetShadow juntos, solo se aplica el efecto OuterShadow. 
-- Si se usan OuterShadow e InnerShadow simultáneamente, el efecto resultante depende de la versión de PowerPoint. Por ejemplo, en PowerPoint 2013, el efecto se duplica. Pero en PowerPoint 2007, se aplica el efecto OuterShadow. 
+### **Aplicar efectos de reflexión al texto**
 
-### **Aplicar efectos de reflejo al texto**
-
-Añadimos reflejo al texto mediante este fragmento de código en Java:
+Añadimos un efecto de reflexión al texto mediante este ejemplo de código en Java:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -178,12 +175,12 @@ El resultado de la operación:
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-Puedes cambiar los parámetros de sombra, reflejo y resplandor. Las propiedades de los efectos se establecen por separado en cada porción del texto. 
+Puedes cambiar los parámetros de sombra, reflexión y resplandor. Las propiedades de los efectos se establecen en cada porción del texto por separado. 
 {{% /alert %}} 
 
 ### **Usar transformaciones en WordArt**
 
-Utilizamos la propiedad Transform (aplicable a todo el bloque de texto) mediante este código:
+Usamos la propiedad Transform (inherente a todo el bloque de texto) mediante este código:
 ``` java 
 textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
 ```
@@ -194,20 +191,20 @@ El resultado:
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-Tanto Microsoft PowerPoint como Aspose.Slides para Android vía Java ofrecen un número determinado de tipos de transformación predefinidos. 
+Tanto Microsoft PowerPoint como Aspose.Slides for Android via Java ofrecen una serie de tipos de transformación predefinidos. 
 {{% /alert %}} 
 
 **Usando PowerPoint**
 
-Para acceder a los tipos de transformación predefinidos, sigue: **Format** -> **TextEffect** -> **Transform**
+Para acceder a los tipos de transformación predefinidos, ve a: **Formato** -> **Efecto de texto** -> **Transformar**
 
 **Usando Aspose.Slides**
 
-Para seleccionar un tipo de transformación, utiliza el enumerado TextShapeType. 
+Para seleccionar un tipo de transformación, utiliza el enum TextShapeType. 
 
 ### **Aplicar efectos 3D al texto y a las formas**
 
-Establecemos un efecto 3D a una forma de texto con este fragmento de código:
+Establecemos un efecto 3D a una forma de texto usando este código de ejemplo:
 ``` java
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
@@ -235,7 +232,7 @@ autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.Perspecti
 ```
 
 
-El texto y su forma resultantes:
+El texto resultante y su forma:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
@@ -272,32 +269,29 @@ El resultado de la operación:
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
-La aplicación de efectos 3D a textos o sus formas y la interacción entre efectos se basan en ciertas reglas. 
-
-Considera una escena para un texto y la forma que contiene ese texto. El efecto 3D incluye la representación del objeto 3D y la escena en la que se coloca el objeto. 
-
-- Cuando la escena está configurada tanto para la figura como para el texto, la escena de la figura tiene mayor prioridad—la escena del texto se ignora. 
-- Cuando la figura carece de su propia escena pero tiene representación 3D, se usa la escena del texto. 
-- De lo contrario—cuando la forma originalmente no tiene efecto 3D—la forma es plana y el efecto 3D solo se aplica al texto. 
-
+La aplicación de efectos 3D a textos o sus formas y las interacciones entre efectos se basan en ciertas reglas.  
+Considera una escena para un texto y la forma que contiene ese texto. El efecto 3D contiene la representación del objeto 3D y la escena en la que se coloca el objeto.  
+- Cuando la escena está establecida tanto para la figura como para el texto, la escena de la figura tiene mayor prioridad—la escena del texto se ignora.  
+- Cuando la figura no tiene su propia escena pero posee representación 3D, se usa la escena del texto.  
+- De lo contrario—cuando la forma originalmente no tiene efecto 3D—la forma es plana y el efecto 3D solo se aplica al texto.  
 Estas descripciones están relacionadas con los métodos ThreeDFormat.getLightRig() y ThreeDFormat.getCamera(). 
 {{% /alert %}} 
 
 ## **Aplicar efectos de sombra externa al texto**
-Aspose.Slides para Android vía Java proporciona las clases [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IOuterShadow) y [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IInnerShadow) que permiten aplicar efectos de sombra a un texto contenido en [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame). Sigue estos pasos:
+Aspose.Slides for Android via Java proporciona las clases [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/) y [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iinnershadow/) que permiten aplicar efectos de sombra a un texto contenido en [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/). Sigue estos pasos:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation). 
-2. Obtén la referencia de una diapositiva usando su índice. 
-3. Añade un AutoShape de tipo Rectangle a la diapositiva. 
-4. Accede al TextFrame asociado al AutoShape. 
-5. Establece FillType del AutoShape a NoFill. 
-6. Instancia la clase OuterShadow. 
-7. Define BlurRadius de la sombra. 
-8. Define Direction de la sombra. 
-9. Define Distance de la sombra. 
-10. Establece RectanglelAlign a TopLeft. 
-11. Define PresetColor de la sombra a Black. 
-12. Guarda la presentación como archivo [PPTX](https://docs.fileformat.com/presentation/pptx/). 
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
+2. Obtén la referencia de una diapositiva usando su índice.  
+3. Añade una AutoShape de tipo Rectángulo a la diapositiva.  
+4. Accede al TextFrame asociado a la AutoShape.  
+5. Establece el FillType de la AutoShape a NoFill.  
+6. Instancia la clase OuterShadow.  
+7. Establece el BlurRadius de la sombra.  
+8. Establece la Direction de la sombra.  
+9. Establece la Distance de la sombra.  
+10. Establece el RectanglelAlign a TopLeft.  
+11. Establece el PresetColor de la sombra a Black.  
+12. Guarda la presentación como un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/).  
 
 Este código de ejemplo en Java—una implementación de los pasos anteriores—muestra cómo aplicar el efecto de sombra externa a un texto:
 ```java
@@ -324,7 +318,7 @@ try {
     shadow.setRectangleAlign(RectangleAlignment.TopLeft);
     shadow.getShadowColor().setPresetColor(PresetColor.Black);
 
-    // Escribir la presentación en disco
+    //Guardar la presentación en disco
     pres.save("pres_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -335,14 +329,14 @@ try {
 ## **Aplicar efectos de sombra interna a formas**
 Sigue estos pasos:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation). 
-2. Obtén la referencia de la diapositiva. 
-3. Añade un AutoShape de tipo Rectangle. 
-4. Habilita InnerShadowEffect. 
-5. Define todos los parámetros necesarios. 
-6. Establece ColorType como Scheme. 
-7. Define Scheme Color. 
-8. Guarda la presentación como archivo [PPTX](https://docs.fileformat.com/presentation/pptx/). 
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
+2. Obtén una referencia de la diapositiva.  
+3. Añade una AutoShape de tipo Rectángulo.  
+4. Habilita InnerShadowEffect.  
+5. Establece todos los parámetros necesarios.  
+6. Establece ColorType como Scheme.  
+7. Establece el Scheme Color.  
+8. Guarda la presentación como un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/).  
 
 Este código de ejemplo (basado en los pasos anteriores) muestra cómo añadir un conector entre dos formas en Java:
 ```java
@@ -374,10 +368,10 @@ try {
     // Establecer ColorType como Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
 
-    // Establecer Color del esquema
+    // Establecer Scheme Color
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
 
-    // Guardar presentación
+    // Guardar la presentación
     pres.save("WordArt_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -385,20 +379,16 @@ try {
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Puedo usar los efectos de WordArt con diferentes fuentes o escrituras (p. ej., árabe, chino)?**
-
+**¿Puedo usar los efectos de WordArt con diferentes fuentes o escrituras (p. ej., árabe, chino)?**  
 Sí, Aspose.Slides admite Unicode y funciona con todas las fuentes y escrituras principales. Los efectos de WordArt como sombra, relleno y contorno pueden aplicarse independientemente del idioma, aunque la disponibilidad de fuentes y el renderizado pueden depender de las fuentes del sistema.
 
-**¿Puedo aplicar efectos de WordArt a elementos del patrón de diapositivas?**
+**¿Puedo aplicar efectos de WordArt a los elementos de la diapositiva maestra?**  
+Sí, puedes aplicar efectos de WordArt a las formas en diapositivas maestras, incluidos los marcadores de posición de título, pies de página o texto de fondo. Los cambios realizados en el diseño maestro se reflejarán en todas las diapositivas asociadas.
 
-Sí, puedes aplicar efectos de WordArt a formas en las diapositivas maestras, incluidos marcadores de posición de título, pies de página o texto de fondo. Los cambios realizados en el diseño maestro se reflejarán en todas las diapositivas asociadas.
+**¿Los efectos de WordArt afectan al tamaño del archivo de la presentación?**  
+Ligeramente. Los efectos de WordArt como sombras, resplandores y rellenos degradados pueden aumentar ligeramente el tamaño del archivo debido a los metadatos de formato añadidos, pero la diferencia suele ser insignificante.
 
-**¿Los efectos de WordArt afectan al tamaño del archivo de la presentación?**
-
-Levemente. Los efectos como sombras, resplandores y rellenos degradados pueden aumentar ligeramente el tamaño del archivo debido a los metadatos de formato añadidos, pero la diferencia suele ser insignificante.
-
-**¿Puedo previsualizar el resultado de los efectos de WordArt sin guardar la presentación?**
-
-Sí, puedes renderizar diapositivas que contengan WordArt a imágenes (p. ej., PNG, JPEG) usando el método `getImage` de las interfaces [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) o [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/). Esto te permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.
+**¿Puedo previsualizar el resultado de los efectos de WordArt sin guardar la presentación?**  
+Sí, puedes renderizar las diapositivas que contienen WordArt a imágenes (p. ej., PNG, JPEG) usando el método `getImage` de las interfaces [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) o [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/). Esto te permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.

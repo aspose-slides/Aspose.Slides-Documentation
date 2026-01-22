@@ -1,6 +1,6 @@
 ---
-title: Administrar tablas de presentación en Android
-linktitle: Administrar tabla
+title: Gestionar tablas de presentaciones en Android
+linktitle: Gestionar tabla
 type: docs
 weight: 10
 url: /es/androidjava/manage-table/
@@ -17,24 +17,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Cree y edite tablas en diapositivas de PowerPoint con Aspose.Slides para Android. Descubra ejemplos sencillos de código Java para optimizar sus flujos de trabajo con tablas."
+description: "Crear y editar tablas en diapositivas de PowerPoint con Aspose.Slides para Android. Descubra ejemplos de código Java simples para agilizar sus flujos de trabajo con tablas."
 ---
 
-Una tabla en PowerPoint es una forma eficiente de mostrar y representar información. La información en una cuadrícula de celdas (dispuestas en filas y columnas) es directa y fácil de comprender.
+Una tabla en PowerPoint es una forma eficaz de mostrar y representar información. La información en una cuadrícula de celdas (organizada en filas y columnas) es directa y fácil de entender.
 
-Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table), la interfaz [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable), la clase [Cell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/), la interfaz [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) y otros tipos que le permiten crear, actualizar y administrar tablas en todo tipo de presentaciones.
+Aspose.Slides proporciona la clase [Tabla](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table), la interfaz [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable), la clase [Celda](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/), la interfaz [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) y otros tipos que le permiten crear, actualizar y gestionar tablas en todo tipo de presentaciones.
 
 ## **Crear una tabla desde cero**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva mediante su índice. 
+2. Obtenga la referencia a una diapositiva a través de su índice. 
 3. Defina una matriz de `columnWidth`.
 4. Defina una matriz de `rowHeight`.
-5. Agregue un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
+5. Añada un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
 6. Itere a través de cada [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) para aplicar formato a los bordes superior, inferior, derecho e izquierdo.
 7. Combine las dos primeras celdas de la primera fila de la tabla. 
 8. Acceda al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) de un [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/).
-9. Agregue texto al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
+9. Añada texto al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
 10. Guarde la presentación modificada.
 
 ```java
@@ -44,7 +44,7 @@ try {
     // Accede a la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Define columnas con anchos y filas con alturas
+    // Define columnas con anchuras y filas con alturas
     double[] dblCols = {50, 50, 50};
     double[] dblRows = {50, 30, 30, 30, 30};
 
@@ -93,7 +93,7 @@ try {
 
 En una tabla estándar, la numeración de las celdas es directa y comienza en cero. La primera celda de una tabla tiene el índice 0,0 (columna 0, fila 0). 
 
-Por ejemplo, las celdas de una tabla con 4 columnas y 4 filas se numeran de esta manera:
+Por ejemplo, las celdas de una tabla con 4 columnas y 4 filas se numeran de la siguiente manera:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -101,7 +101,7 @@ Por ejemplo, las celdas de una tabla con 4 columnas y 4 filas se numeran de esta
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Este código Java le muestra cómo especificar la numeración para las celdas de una tabla:
+Este código Java muestra cómo especificar la numeración de las celdas en una tabla:
 ```java
 // Instancia una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
@@ -109,7 +109,7 @@ try {
     // Accede a la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Define columnas con anchos y filas con alturas
+    // Define columnas con anchuras y filas con alturas
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
@@ -151,15 +151,15 @@ try {
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 
-2. Obtenga una referencia a la diapositiva que contiene la tabla mediante su índice. 
+2. Obtenga una referencia a la diapositiva que contiene la tabla a través de su índice. 
 
-3. Cree un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) y establézcalo en null.
+3. Cree un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) y asígnele null.
 
-4. Itere a través de todos los objetos [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) hasta encontrar la tabla.
+4. Itere a través de todos los objetos [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) hasta que se encuentre la tabla.
 
-   Si sospecha que la diapositiva con la que está trabajando contiene una sola tabla, puede simplemente comprobar todas las formas que contiene. Cuando una forma se identifica como una tabla, puede convertirla a un objeto [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table). Pero si la diapositiva contiene varias tablas, es mejor buscar la tabla que necesita mediante su [setAlternativeText(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+   Si sospecha que la diapositiva con la que está trabajando contiene una única tabla, puede simplemente comprobar todas las formas que contiene. Cuando una forma se identifica como una tabla, puede convertirla a un objeto [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table). Pero si la diapositiva contiene varias tablas, es preferible buscar la tabla que necesita a través de su [setAlternativeText(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
 
-5. Utilice el objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) para trabajar con la tabla. En el ejemplo a continuación, añadimos una nueva fila a la tabla.
+5. Utilice el objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) para trabajar con la tabla. En el ejemplo siguiente, añadimos una nueva fila a la tabla.
 
 6. Guarde la presentación modificada.
 
@@ -171,7 +171,7 @@ try {
     // Accede a la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Inicializa TableEx nula
+    // Inicializa TableEx como null
     ITable tbl = null;
 
     // Itera a través de las formas y establece una referencia a la tabla encontrada
@@ -193,11 +193,12 @@ try {
 ```
 
 
+
 ## **Alinear texto en una tabla**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Agregue un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) a la diapositiva.
+2. Obtenga la referencia a una diapositiva a través de su índice. 
+3. Añada un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) a la diapositiva.
 4. Acceda a un objeto [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) de la tabla.
 5. Acceda al [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) del [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
 6. Alinee el texto verticalmente.
@@ -210,7 +211,7 @@ try {
     // Obtiene la primera diapositiva 
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Define columnas con anchos y filas con alturas
+    // Define columnas con anchuras y filas con alturas
     double[] dblCols = { 120, 120, 120, 120 };
     double[] dblRows = { 100, 100, 100, 100 };
     
@@ -248,7 +249,7 @@ try {
 ## **Establecer formato de texto a nivel de tabla**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva mediante su índice. 
+2. Obtenga la referencia a una diapositiva a través de su índice. 
 3. Acceda a un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) de la diapositiva.
 4. Establezca [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) para el texto.
 5. Establezca [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) y [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
@@ -267,13 +268,13 @@ try {
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // Establece la alineación de texto y el margen derecho de las celdas de la tabla en una sola llamada
+    // Establece la alineación del texto y el margen derecho de las celdas de la tabla en una sola llamada
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
     someTable.setTextFormat(paragraphFormat);
     
-    // Establece el tipo vertical de texto de las celdas de la tabla
+    // Establece el tipo de texto vertical de las celdas de la tabla
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
     someTable.setTextFormat(textFrameFormat);
@@ -287,12 +288,12 @@ try {
 
 ## **Obtener propiedades de estilo de tabla**
 
-Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda usar esos detalles en otra tabla o en otro lugar. Este código Java le muestra cómo obtener las propiedades de estilo de un estilo predefinido de tabla:
+Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda usar esos detalles en otra tabla o en otro lugar. Este código Java muestra cómo obtener las propiedades de estilo de un estilo predefinido de tabla:
 ```java
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // cambia el preset de estilo predeterminado
+    table.setStylePreset(TableStylePreset.DarkStyle1); // cambia el tema predeterminado del estilo preestablecido
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -300,11 +301,10 @@ try {
 ```
 
 
-## **Bloquear relación de aspecto de una tabla**
+## **Bloquear proporción de aspecto de una tabla**
 
-La relación de aspecto de una forma geométrica es la proporción de sus tamaños en diferentes dimensiones. Aspose.Slides proporcionó la propiedad [**setAspectRatioLocked**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) para permitir bloquear la configuración de relación de aspecto para tablas y otras formas.
+La proporción de aspecto de una forma geométrica es la relación de sus dimensiones. Aspose.Slides proporciona la propiedad [**setAspectRatioLocked**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) para permitirle bloquear la configuración de proporción de aspecto de tablas y otras formas.
 
-Este código Java le muestra cómo bloquear la relación de aspecto para una tabla:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -322,16 +322,16 @@ try {
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Puedo habilitar la dirección de lectura de derecha a izquierda (RTL) para una tabla completa y el texto en sus celdas?**
+**¿Puedo habilitar la dirección de lectura de derecha a izquierda (RTL) para una tabla completa y el texto de sus celdas?**
 
-Sí. La tabla expone un método [setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), y los párrafos tienen [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Usar ambos garantiza el orden y renderizado correctos de RTL dentro de las celdas.
+Sí. La tabla expone un método [setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), y los párrafos tienen [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Utilizando ambos se garantiza el orden RTL correcto y la representación dentro de las celdas.
 
 **¿Cómo puedo evitar que los usuarios muevan o redimensionen una tabla en el archivo final?**
 
-Utilice [bloqueos de forma](/slides/es/androidjava/applying-protection-to-presentation/) para desactivar el movimiento, el cambio de tamaño, la selección, etc. Estos bloqueos también se aplican a las tablas.
+Utilice bloqueos de forma para desactivar el movimiento, el redimensionado, la selección, etc. Estos bloqueos también se aplican a las tablas.
 
 **¿Se admite insertar una imagen dentro de una celda como fondo?**
 
-Sí. Puede establecer un [relleno de imagen](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) para una celda; la imagen cubrirá el área de la celda según el modo elegido (estirado o mosaico).
+Sí. Puede establecer un [picture fill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) para una celda; la imagen cubrirá el área de la celda según el modo elegido (estiramiento o mosaico).
