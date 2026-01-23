@@ -84,9 +84,9 @@ This PHP code shows you how to use [getFontFolders](https://reference.aspose.com
 ```
 
 ## **Specify Custom Fonts Used with a Presentation**
-Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property to allow you to specify external fonts that will be used with the presentation.
+Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) method to allow you to specify external fonts that will be used with the presentation.
 
-This PHP code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property:
+This PHP code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) method:
 
 ```php
   $Array = new JavaClass("java.lang.reflect.Array");

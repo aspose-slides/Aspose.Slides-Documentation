@@ -19,9 +19,9 @@ description: "Automate PowerPoint and OpenDocument slide localization with Aspos
 ## **Change Language for a Presentation and Shape Text**
 - Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) of [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) type to the slide.
+- Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) of [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) type to the slide.
 - Add some text to the TextFrame.
-- [Setting Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) to text.
+- [Set Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) to text.
 - Write the presentation as a PPTX file.
 
 The implementation of the above steps is demonstrated below in an example.

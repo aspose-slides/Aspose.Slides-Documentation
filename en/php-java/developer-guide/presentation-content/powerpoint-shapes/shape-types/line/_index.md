@@ -33,7 +33,7 @@ To add a simple plain line to a selected slide of the presentation, please follo
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) object.
+- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) method exposed by [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) object.
 - Write the modified presentation as a PPTX file.
 
 In the example given below, we have added a line to the first slide of the presentation.
@@ -61,7 +61,7 @@ Aspose.Slides for PHP via Java also allows developers to configure some properti
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) object.
+- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) method exposed by [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) object.
 - Set the [Line Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineStyle) to one of the styles as offered by Aspose.Slides for PHP via Java.
 - Set the Width of the line.
 - Set the [Dash Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineDashStyle) of the line to one of the styles offered by Aspose.Slides for PHP via Java.
@@ -108,4 +108,4 @@ No. A regular line (an [AutoShape](https://reference.aspose.com/slides/php-java/
 
 **Can I lock a line against editing (moving, resizing)?**
 
-Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/getautoshapelock/) that let you [disallow editing operations](/slides/php-java/applying-protection-to-presentation/).
+Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/getautoshapelock/) that let you disallow editing operations.

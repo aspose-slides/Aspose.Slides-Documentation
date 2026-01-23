@@ -29,7 +29,7 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) method.
+5. Add an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) method.
 6. Iterate through each [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) to apply formatting to the top, bottom, right, and left borders.
 7. Merge the first two cells of the table's first row. 
 8. Access an [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/)'s [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
@@ -310,7 +310,7 @@ Yes. The table exposes a [setRightToLeft](https://reference.aspose.com/slides/ph
 
 **How can I prevent users from moving or resizing a table in the final file?**
 
-Use [shape locks](/slides/php-java/applying-protection-to-presentation/) to disable moving, resizing, selection, etc. These locks apply to tables as well.
+Use shape locks to disable moving, resizing, selection, etc. These locks apply to tables as well.
 
 **Is inserting an image inside a cell as a background supported?**
 

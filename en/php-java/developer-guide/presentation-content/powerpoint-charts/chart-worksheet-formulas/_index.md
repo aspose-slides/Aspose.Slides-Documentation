@@ -41,10 +41,10 @@ Usually, the chart represents complicated data (e.g. financial analysts, scienti
 **Chart spreadsheet formula** in presentation is an expression to automatically calculate and update chart spreadsheet data. Spreadsheet formula defines the data calculation logic for a certain cell or a set of cells. Spreadsheet formula is a math formula or a logical formula, which is using: cell references, math functions, logical operators, arithmetic operators, conversion functions, string constants, etc. The definition of the formula is written into a cell, and this cell does not contain a simple value. Spreadsheet formula calculates the value and returns it back, then this value is assigned to the cell. Chart spreadsheet formulas in presentations are actually the same as excel formulas, and there are supported the same default functions, operators and constants for their implementation.
 
 In [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) chart spreadsheet is represented with
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#getChartDataWorkbook--) method of the
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) type.
+[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/#getChartDataWorkbook) method of the
+[**ChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) type.
 Spreadsheet formula can be assigned and changed with 
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-) method.
+[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setFormula) method.
 The following functionality is supported for formulas in Aspose.Slides:
 
 - Logical constants
@@ -58,13 +58,13 @@ The following functionality is supported for formulas in Aspose.Slides:
 - Predefined functions
 
 
-Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - [**IChartDataCell.getValue**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#getValue--) method it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the [**CellUnsupportedDataException**](https://reference.aspose.com/slides/php-java/aspose.slides/CellUnsupportedDataException) for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
+Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - [**ChartDataCell::getValue**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#getValue) method it returns those values while reading. But, if spreadsheet data had been changed, while reading the value, it throws the [**CellUnsupportedDataException**](https://reference.aspose.com/slides/php-java/aspose.slides/CellUnsupportedDataException) for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
 
 ## **Add a Chart Spreadsheet Formula to a Presentation**
 First, add a chart to the first slide of a new presentation with 
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addChart-int-float-float-float-float-).
+[ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart).
 The worksheet of the chart is automatically created and can be accessed with 
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#getChartDataWorkbook--) method:
+[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/#getChartDataWorkbook) method:
 
 
 
@@ -81,9 +81,7 @@ The worksheet of the chart is automatically created and can be accessed with 
   }
 ```
 
-Let's write some values in cells with 
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setValue-java.lang.Object-) property 
-of the **Object** type, which means you can set any value to the property:
+Let's write some values in cells with [**ChartDataCell::setValue**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) method of the **Object** type, which means you can set any value:
 
 ```php
   $workbook->getCell(0, "F2")->setValue(-2.5);
@@ -93,11 +91,11 @@ of the **Object** type, which means you can set any value to the property:
 ```
 
 Now to write formula to the cell, you can use the 
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-) method:
+[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setFormula) method.
 
-*Note*: [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-) method is used to set A1-style cell references. 
+*Note*: [**ChartDataCell::setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setFormula) method is used to set A1-style cell references. 
 
-To set the [R1C1Formula](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#getR1C1Formula--) cell reference, you can use the [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) method:
+To set a formula in R1C1 style, you can use the [**ChartDataCell::setR1C1Formula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setR1C1Formula) method.
 
 Then if you try to read the values from the cells B2 and C2, they will be calculated:
 

@@ -21,7 +21,7 @@ description: "Extract images from shapes in PowerPoint and OpenDocument presenta
 
 {{% alert color="primary" %}} 
 
-Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [IImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/iimagecollection/), which is a collection of [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ippimage/) objects.
+Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/), which is a collection of [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) objects.
 
 This article explains how you can extract the images added to presentations. 
 

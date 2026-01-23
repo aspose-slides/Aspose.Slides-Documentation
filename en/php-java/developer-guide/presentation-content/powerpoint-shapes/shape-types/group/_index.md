@@ -58,9 +58,9 @@ This topic shows simple steps, complete with code examples, for adding a group s
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class that represents PPTX file.
 1. Obtain the reference of a slide by using its Index.
-1. Accessing the shape collection of slides.
-1. Accessing the group shape.
-1. Accessing the [AlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getAlternativeText--) property.
+1. Access the shape collection of slides.
+1. Access the group shape.
+1. Access the [Alternative Text](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getAlternativeText) property.
 
 The example below accesses alternative text of group shape.
 

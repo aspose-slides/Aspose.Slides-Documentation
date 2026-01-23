@@ -16,7 +16,7 @@ keywords:
 description: "Effortlessly remove slides from PowerPoint and OpenDocument presentations with Aspose.Slides for PHP via Java. Get clear code examples and boost your workflow."
 ---
 
-If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) object, you can specify the slide you want to remove.
+If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class that encapsulates [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) object, you can specify the slide you want to remove.
 
 ## **Remove a Slide by Reference**
 

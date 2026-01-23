@@ -26,17 +26,22 @@ keywords:
 description: "Aspose.Slides for PHP lets you convert ODP to PDF, HTML, and image formats with ease. Boost your PHP apps with fast and accurate presentation conversion."
 ---
 
-## **Overview**
+[**Aspose.Slides API**](https://products.aspose.com/slides/php-java/) allows you to convert OpenDocument (ODP) presentations to many formats (HTML, PDF, TIFF, SWF, XPS, etc.). The API used to convert ODP files to other document formats is the same as the one used for PowerPoint (PPT and PPTX) conversion operations.
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/php-java/) allows to convert OpenOffice ODP presentation to many types. The API to convert ODP to other types is the same as for PowerPoint types. You may use the following examples to convert ODP, just changing the source file on the ODP presentation file:
+For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
 
-- [Convert ODP to HTML](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-html/)
-- [Convert ODP to PDF](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Convert ODP to TIFF](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [Convert ODP to SWF Flash](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [Convert ODP to XPS](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [Convert ODP to PDF with Notes](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
-- [Convert ODP to TIFF with Notes](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+```php
+$presentation = null;
+try {
+    $presentation = new Presentation("pres.odp");
+    $presentation->save("pres.pdf", SaveFormat::Pdf);
+    
+} finally {
+    if ($presentation != null) {
+        $presentation->dispose();
+    }
+}
+```
 
 ## **FAQ**
 

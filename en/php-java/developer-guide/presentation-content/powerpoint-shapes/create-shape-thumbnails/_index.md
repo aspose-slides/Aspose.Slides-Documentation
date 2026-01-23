@@ -35,7 +35,7 @@ To generate a shape thumbnail from any slide using Aspose.Slides for PHP via Jav
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.
-1. [Get the shape thumbnail image](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getImage--) of the referenced slide on default scale.
+1. [Get the shape thumbnail image](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) of the referenced slide on default scale.
 1. Save the thumbnail image in your preferred image format.
 
 This sample code shows you how to generate a shape thumbnail from a slide:
@@ -66,7 +66,7 @@ To generate the shape thumbnail of a slide using Aspose.Slides for PHP via Java,
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.
-1. [Get the shape thumbnail image](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getImage-int-float-float-) of the referenced slide with user-defined dimensions.
+1. [Get the shape thumbnail image](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) of the referenced slide with user-defined dimensions.
 1. Save the thumbnail image in your preferred image format.
 
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:

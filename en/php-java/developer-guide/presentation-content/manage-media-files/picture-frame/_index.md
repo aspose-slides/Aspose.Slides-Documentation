@@ -44,7 +44,7 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) associated with the presentation object that will be used to fill the shape.
+3. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object by adding an image to the [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
 5. Create a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) based on the image's width and height through the `addPictureFrame` method exposed by the shape object associated with the referenced slide.
 6. Add a picture frame (containing the picture) to the slide.
@@ -85,7 +85,7 @@ By altering an image's relative scaling, you can create a more complicated pictu
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
 3. Add an image to the presentation image collection.
-4. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) associated with the presentation object that will be used to fill the shape.
+4. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object by adding an image to the [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) associated with the presentation object that will be used to fill the shape.
 5. Specify the image's relative width and height in the picture frame.
 6. Write the modified presentation as a PPTX file.
 
@@ -188,7 +188,7 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) associated with the presentation object that will be used to fill the shape.
+3. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object by adding an image to the [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
 5. Create a `PictureFrame` based on the image's width and height through the [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) method exposed by the [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) object associated with the referenced slide.
 6. Add the picture frame (containing the picture) to the slide.
@@ -443,7 +443,7 @@ Embedding large images increases file size and memory usage; linking images help
 
 **How can I lock an image object from accidental moving/resizing?**
 
-Use [shape locks](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/getpictureframelock/) for a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is described for shapes in a separate [protection article](/slides/php-java/applying-protection-to-presentation/) and is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).
+Use [shape locks](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/getpictureframelock/) for a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).
 
 **Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**
 

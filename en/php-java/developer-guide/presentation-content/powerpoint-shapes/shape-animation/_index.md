@@ -50,11 +50,11 @@ Aspose.Slides for PHP via Java allows you to apply animation to the text in a sh
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Obtain a slide reference through its index.
-3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape).
-4. Add text to [IAutoShape.TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
+3. Add a rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+4. Add text to `AutoShape`'s [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame).
 5. Get a main sequence of effects.
-6. Add an animation effect to [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape).
-7. Set the `TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
+6. Add an animation effect to [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+7. Use the `TextAnimation.setBuildType` method and the value from `BuildType` Enumeration.
 8. Write the presentation to disk as a PPTX file.
 
 This PHP code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
@@ -85,7 +85,7 @@ This PHP code shows you how to apply the `Fade` effect to AutoShape and set the 
 
 {{%  alert color="primary"  %}} 
 
-Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph). See [**Animated Text**](/slides/php-java/animated-text/).
+Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/). See [**Animated Text**](/slides/php-java/animated-text/).
 
 {{% /alert %}} 
 
@@ -134,8 +134,8 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape).
-4. Add a `Bevel` [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape) (when this object is clicked, the animation gets played).
+3. Add a rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+4. Add a bevel [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) (when this object is clicked, the animation gets played).
 5. Create a sequence of effects on the bevel shape.
 6. Create a custom `UserPath`.
 7. Add commands for moving to the `UserPath`.
@@ -268,7 +268,7 @@ Type: 134, subtype: 45            // Split, VerticalIn
 Type: 126, subtype: 22            // RandomBars, Horizontal
 ```
 
-## **Change Animation Effect Timing Properties**
+## **Change Animation Effect Timing Methods**
 
 Aspose.Slides for PHP via Java allows you to change the Timing properties of an animation effect.
 
@@ -276,16 +276,16 @@ This is the Animation Timing pane in Microsoft PowerPoint:
 
 ![example1_image](shape-animation.png)
 
-These are the correspondences between PowerPoint Timing and [Effect.Timing](https://reference.aspose.com/slides/php-java/aspose.slides/IEffect#getTiming--) properties:
+These are the correspondences between PowerPoint Timing and [Effect Timing](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming) properties:
 
-- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://reference.aspose.com/slides/php-java/aspose.slides/ITiming#getTriggerType--) property.
-- PowerPoint Timing **Duration** matches the [Effect.Timing.Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ITiming#getDuration--) property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle.
-- PowerPoint Timing **Delay** matches the [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/php-java/aspose.slides/ITiming#getTriggerDelayTime--) property.
+- PowerPoint Timing **Start** drop-down list matches the [Timing::getTriggerType](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerType) method.
+- PowerPoint Timing **Duration** matches the [Timing::getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getDuration) method. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle.
+- PowerPoint Timing **Delay** matches the [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerDelayTime) method.
 
 This is how you change the Effect Timing properties:
 
 1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set new values for the [Effect.Timing](https://reference.aspose.com/slides/php-java/aspose.slides/IEffect#getTiming--) properties you need.
+2. Set new values you need using the [Effect::getTiming](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming) method.
 3. Save the modified PPTX file.
 
 This PHP code demonstrates the operation:
@@ -315,7 +315,7 @@ This PHP code demonstrates the operation:
 
 ## **Animation Effect Sound**
 
-Aspose.Slides provides these properties to allow you to work with sounds in animation effects: 
+Aspose.Slides provides these methods to allow you to work with sounds in animation effects: 
 
 - [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
 - [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
@@ -400,14 +400,14 @@ This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
 
 ![example1_image](shape-after-animation.png)
 
-PowerPoint Effect **After animation** drop-down list matches these properties: 
+PowerPoint Effect **After animation** drop-down list matches these methods: 
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAfterAnimationType-int-) property which describes the After animation type :
+- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationType) method which describes the After animation type:
   * PowerPoint **More Colors** matches the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type;
   * PowerPoint **Don't Dim** list item matches the [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#DoNotDim) type (default after animation type);
   * PowerPoint **Hide After Animation** item matches the [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation) type;
   * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
+- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationColor) method which defines an after animation color format. This method works in conjunction with the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
 
 This PHP code shows you how to change an after animation effect:
 
@@ -433,19 +433,19 @@ This PHP code shows you how to change an after animation effect:
 
 ## **Animate Text**
 
-Aspose.Slides provides these properties to allow you to work with an animation effect's *Animate text* block:
+Aspose.Slides provides these methods to allow you to work with an animation effect's *Animate text* block:
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAnimateTextType-int-) which describes an animate text type of the effect. The shape text can be animated:
+- [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) which describes an animate text type of the effect. The shape text can be animated:
   - All at once ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#AllAtOnce) type)
   - By word ([AnimateTextType::ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByWord) type)
   - By letter ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByLetter) type)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setDelayBetweenTextParts-float-) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
+- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
 
 This is how you can change the Effect Animate text properties:
 
 1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/itextanimation/#setBuildType-int-) property to [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
-3. Set new values for the [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAnimateTextType-int-) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setDelayBetweenTextParts-float-) properties.
+2. Use the [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/textanimation/#setBuildType) method and [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
+3. Set new values using the [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts) methods.
 4. Save the modified PPTX file.
 
 This PHP code demonstrates the operation:

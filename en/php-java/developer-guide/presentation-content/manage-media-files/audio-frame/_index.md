@@ -25,7 +25,7 @@ Aspose.Slides for PHP via Java allows you to add audio files to slides. The audi
 2. Get a slide's reference through its index.
 3. Load the audio file stream you want to embed in the slide.
 4. Add the embedded audio frame (containing the audio file) to the slide.
-5. Set [PlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/AudioPlayModePreset) and `Volume` exposed by the [IAudioFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAudioFrame) object.
+5. Set [PlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/AudioPlayModePreset) and `Volume` exposed by the [AudioFrame](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/) object.
 6. Save the modified presentation.
 
 This PHP code shows you how to add an embedded audio frame to a slide:
@@ -99,21 +99,21 @@ The **Audio Options** pane in Microsoft PowerPoint:
 
 PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/) properties:
 
-- **Start** drop-down list matches the [AudioFrame.setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setPlayMode) method
-- **Volume** matches the [AudioFrame.setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolume) method
-- **Play Across Slides** matches the [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setPlayAcrossSlides) method
-- **Loop until Stopped** matches the [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setPlayLoopMode) method
-- **Hide During Show** matches the [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setHideAtShowing) method
-- **Rewind after Playing** matches the [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setRewindAudio) method
+- **Start** drop-down list matches the [AudioFrame::setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setPlayMode) method
+- **Volume** matches the [AudioFrame::setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolume) method
+- **Play Across Slides** matches the [AudioFrame::setPlayAcrossSlides](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setPlayAcrossSlides) method
+- **Loop until Stopped** matches the [AudioFrame::setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setPlayLoopMode) method
+- **Hide During Show** matches the [AudioFrame::setHideAtShowing](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setHideAtShowing) method
+- **Rewind after Playing** matches the [AudioFrame::setRewindAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setRewindAudio) method
 
 PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/) properties:
 
-- **Fade In** matches the [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeInDuration) method 
-- **Fade Out** matches the [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeOutDuration) method 
-- **Trim Audio Start Time** matches the [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) method 
-- **Trim Audio End Time** value equals the audio duration minus the value of [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) method
+- **Fade In** matches the [AudioFrame::setFadeInDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeInDuration) method 
+- **Fade Out** matches the [AudioFrame::setFadeOutDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeOutDuration) method 
+- **Trim Audio Start Time** matches the [AudioFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) method 
+- **Trim Audio End Time** value equals the audio duration minus the value of [AudioFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) method
 
-The PowerPoint **Volume controll** on the audio control panel corresponds to the [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue) method. It lets you change the audio volume as a percentage.
+The PowerPoint **Volume controll** on the audio control panel corresponds to the [AudioFrame::setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue) method. It lets you change the audio volume as a percentage.
 
 This is how you change the Audio Play options:
 
@@ -202,7 +202,7 @@ Aspose.Slides for PHP via Java allows you to extract the sound used in slide sho
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class and load the presentation containing the audio.
 2. Get the relevant slide's reference through its index.
-3. Access the [slideshow transitions](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getSlideShowTransition--) for the slide.
+3. Access the [slideshow transitions](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) for the slide.
 4. Extract the sound in byte data.
 
 This code  shows you how to extract the audio used in a slide:
