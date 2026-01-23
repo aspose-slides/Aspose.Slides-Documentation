@@ -24,7 +24,7 @@ Aspose.Slides supports the following presentation features when converting to PD
 - Bullets.
 - Tables.
 
-You can export presentations to PDFs directly using Aspose.Slides for PHP via Java: you do not need any other component. Further, you can customize the presentation to PDF export with various options as explained in [Converting to PDF](/slides/php-java/converting-a-presentation/).
+You can export presentations to PDFs directly using Aspose.Slides for PHP via Java: you do not need any other component. Further, you can customize the presentation to PDF export with various options as explained in [Converting to PDF](/slides/php-java/convert-powerpoint-to-pdf/).
 
 **The input presentation** 
 

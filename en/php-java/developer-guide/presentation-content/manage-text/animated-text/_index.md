@@ -20,7 +20,7 @@ description: "Create dynamic animated text in PowerPoint and OpenDocument presen
 
 ## **Add Animation Effects to Paragraphs**
 
-We added the [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) and [**ISequence**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
+We added the [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) class. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```php
   $presentation = new Presentation("Presentation.pptx");

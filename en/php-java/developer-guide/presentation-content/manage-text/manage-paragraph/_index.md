@@ -46,7 +46,7 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 2. Access the relevant slide's reference through its index.
 3. Add a Rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
 4. Get the ITextFrame associated with the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-5. Create two [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) objects and add them to the paragraph collection of the [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/itextframe/).
+5. Create two [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) objects and add them to the paragraph collection of the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 6. Create three [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) objects for each new `Paragraph` (two Portion objects for default Paragraph) and add each `Portion` object to the portion collection of each `Paragraph`.
 7. Set some text for each portion.
 8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `Portion` object.
@@ -713,4 +713,4 @@ You can retrieve the paragraph’s (and even a single portion’s) bounding rect
 
 **Can I set a spell-check language for just part of a paragraph (e.g., one word)?**
 
-Yes. The language is set at the portion level ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)), so multiple languages can coexist within a single paragraph.
+Yes. The language is set at the portion level ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)), so multiple languages can coexist within a single paragraph.

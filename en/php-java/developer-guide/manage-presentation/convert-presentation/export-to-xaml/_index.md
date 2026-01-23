@@ -30,11 +30,7 @@ description: "Convert PowerPoint and OpenDocument slides to XAML using Aspose.Sl
 
 ## **Export Presentations to XAML**
 
-{{% alert color="primary" %}} 
-
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML.
-
-{{% /alert %}} 
+Aspose.Slides supports XAML export. You can convert your presentations to XAML.
 
 ## **About XAML**
 

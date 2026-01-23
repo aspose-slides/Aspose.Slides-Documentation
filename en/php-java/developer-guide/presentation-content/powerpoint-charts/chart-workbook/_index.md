@@ -21,7 +21,7 @@ description: "Discover Aspose.Slides for PHP via Java: effortlessly manage chart
 ---
 
 ## **Read and Write Chart Data from a Workbook**
-Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/#readWorkbookStream) and [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/#writeWorkbookStream) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 This PHP code demonstrates a sample operation:
 
@@ -78,7 +78,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
 
 ## **Manage Worksheets**
 
-This PHP code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This PHP code demonstrates an operation where the [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getWorksheets) method is used to access a worksheet collection:
 
 ```php
   $pres = new Presentation();
@@ -118,9 +118,7 @@ This PHP code shows you how to specify a type for a data source:
 
 ## **External Workbook**
 
-{{% alert color="primary" %}} 
-In [Aspose.Slides 19.4](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
-{{% /alert %}} 
+Aspose.Slides supports external workbooks as a data source for charts.
 
 ### **Create an External Workbook**
 

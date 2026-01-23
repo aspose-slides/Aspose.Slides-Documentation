@@ -14,7 +14,7 @@ description: "Learn how to add and customize error bars in charts with Aspose.Sl
 ---
 
 ## **Add Error Bars**
-Aspose.Slides for PHP via Java provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) collection of series:
+Aspose.Slides for PHP via Java provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**data points**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/) collection of series:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Add a bubble chart on desired slide.
@@ -51,7 +51,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing error bar valu
 ```
 
 ## **Add Custom Error Bar Values**
-Aspose.Slides for PHP via Java provides a simple API for managing custom error bar values. The sample code applies when the [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) collection of series:
+Aspose.Slides for PHP via Java provides a simple API for managing custom error bar values. The sample code applies when the [**ErrorBarsFormat::getValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/#getValueType) method returns **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**data points**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/) collection of series:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Add a bubble chart on desired slide.

@@ -323,11 +323,7 @@ What is visible on the slide is rendered—the icon/substitute image (preview). 
 
 **How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
 
-Lock the shape: Aspose.Slides provides [shape-level locks](/slides/php-java/applying-protection-to-presentation/). This is not encryption, but it effectively prevents accidental edits and movement.
-
-**Why does a linked Excel object "jump" or change size when I open the presentation?**
-
-PowerPoint may refresh the preview of the linked OLE. For a stable appearance, follow the [Working Solution for Worksheet Resizing](/slides/php-java/working-solution-for-worksheet-resizing/) practices—either fit the frame to the range, or scale the range to a fixed frame and set an appropriate substitute image.
+Lock the shape: Aspose.Slides provides shape-level locks. This is not encryption, but it effectively prevents accidental edits and movement.
 
 **Will relative paths for linked OLE objects be preserved in the PPTX format?**
 

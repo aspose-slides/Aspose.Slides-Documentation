@@ -28,7 +28,7 @@ Aspose.Slides for PHP via Java has provided an API to create SmartArt shapes. To
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Index.
-1. [Add a SmartArt shape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) by setting it [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType).
+1. [Add a SmartArt shape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSmartArt) by setting it [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType).
 1. Save the modified presentation as a PPTX file.
 
 ```php

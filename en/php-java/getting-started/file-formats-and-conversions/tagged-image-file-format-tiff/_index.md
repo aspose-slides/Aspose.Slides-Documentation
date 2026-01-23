@@ -11,7 +11,7 @@ The [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) which is know
 
 ## **TIFF in Aspose.Slides for PHP via Java**
 
-Any document that can be loaded in Aspose.Slide for Java can also be converted to TIFF document directly by Aspose.Slides for PHP via Java eliminating requirement of any third party component. Further, you can optionally define the size of the images in the resulting TIFF document. You can find information about exporting the presentation documents to TIFF documents through Aspose.Slides for PHP via Java in [this topic](/slides/php-java/converting-a-presentation/).
+Any document that can be loaded in Aspose.Slide for Java can also be converted to TIFF document directly by Aspose.Slides for PHP via Java eliminating requirement of any third party component. Further, you can optionally define the size of the images in the resulting TIFF document. You can find information about exporting the presentation documents to TIFF documents through Aspose.Slides for PHP via Java in [this topic](/slides/php-java/convert-powerpoint-to-tiff/).
 
 **A Presentation Document Converted to TIFF Document through Aspose.Slides for PHP via Java**
 

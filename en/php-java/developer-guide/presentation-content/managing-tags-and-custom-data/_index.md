@@ -23,7 +23,7 @@ PPTX files—items with the .pptx extension—are stored in the PresentationML f
 
 With a *slide* being one of the elements in presentations, a *slide part* contains the content of a single slide. A slide part is allowed to have explicit relationships to many parts—such as User Defined Tags—defined by ISO/IEC 29500. 
 
-Custom data (specific to a presentation) or user can exist as tags ([ITagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ITagCollection)) and CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICustomXmlPartCollection)).
+Custom data (specific to a presentation) or user can exist as tags ([TagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/)) and CustomXmlParts ([CustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/customxmlpartcollection/)).
 
 {{% alert color="primary" %}} 
 
@@ -33,7 +33,7 @@ Tags are essentially string-key pair values.
 
 ## **Get Values of Tags**
 
-In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for PHP via Java for [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
+In slides, a tag corresponds to the [DocumentProperties::getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getKeywords) and [DocumentProperties::setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setKeywords) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for PHP via Java for [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -69,7 +69,7 @@ This sample code shows you how to add a tag to a [Presentation](https://referenc
   }
 ```
 
-Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide):
+Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/):
 
 ```php
   $pres = new Presentation();
@@ -83,7 +83,7 @@ Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/as
   }
 ```
 
-Or any individual [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape):
+Or any individual [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/):
 
 ```php
   $pres = new Presentation();
@@ -107,7 +107,7 @@ Yes. The [tag collection](https://reference.aspose.com/slides/php-java/aspose.sl
 
 **How do I delete a single tag by its name without iterating over the whole collection?**
 
-Use the [Remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) operation on [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) to delete the tag by its key.
+Use the [remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) operation on [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) to delete the tag by its key.
 
 **How can I retrieve the complete list of tag names for analytics or filtering?**
 

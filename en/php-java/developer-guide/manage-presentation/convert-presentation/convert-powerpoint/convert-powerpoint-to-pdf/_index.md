@@ -205,8 +205,6 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-For more information on receiving callbacks for font substitutions during the rendering process, see [Getting Warning Callbacks for Fonts Substitution](/slides/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
-
 For more information on font substitution, see the [Font Substitution](/slides/php-java/font-substitution/) article.
 
 {{% /alert %}} 

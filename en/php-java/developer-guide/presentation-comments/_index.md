@@ -156,7 +156,7 @@ This PHP code shows you how to add comments and get replies to them:
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) class. The [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) and [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) methods were added to the [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) class.
+Aspose Slides supports modern comments by the [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) class. The [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) and [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) methods were added to the [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) class.
 
 This PHP code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 

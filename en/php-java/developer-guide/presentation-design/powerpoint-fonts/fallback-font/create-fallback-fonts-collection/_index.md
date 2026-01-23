@@ -22,7 +22,7 @@ description: "Set up a fallback fonts collection in Aspose.Slides for PHP via Ja
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection). It is possible to add or remove rules from the collection.
 
-Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/php-java/about-fontsmanager-and-fontsloader/).
+Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation.
 
 Each [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) has a [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) method with its own instance of the [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class.
 
