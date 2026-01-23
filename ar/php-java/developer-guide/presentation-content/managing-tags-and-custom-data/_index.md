@@ -14,24 +14,26 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية إضافة، قراءة، تحديث، وإزالة العلامات والبيانات المخصصة في Aspose.Slides للـ PHP عبر Java، مع أمثلة لعروض PowerPoint وعروض OpenDocument."
+description: "تعلم كيف تضيف وتقرأ وتحدث وتزيل العلامات والبيانات المخصصة في Aspose.Slides للـ PHP عبر Java، مع أمثلة لعروض PowerPoint وعروض OpenDocument."
 ---
 
-## **تخزين البيانات في ملفات العرض**
+## **تخزين البيانات في ملفات العروض التقديمية**
 
-ملفات PPTX—العناصر ذات الامتداد .pptx—تُخزن بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML الهيكل للبيانات الموجودة في العروض التقديمية. 
+ملفات PPTX—العناصر ذات الامتداد .pptx—يتم تخزينها بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يُعرّف تنسيق Office Open XML بنية البيانات الموجودة في العروض التقديمية. 
 
-مع كون *slide* أحد العناصر في العروض التقديمية، يحتوي *slide part* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بأن يكون له علاقات صريحة مع العديد من الأجزاء—مثل العلامات المعرفة من قبل المستخدم—المعرفة وفقًا لـ ISO/IEC 29500. 
+مع اعتبار *الشريحة* واحدة من عناصر العروض التقديمية، يحتوي جزء الشريحة (*slide part*) على محتوى شريحة واحدة. يُسمح لجزء الشريحة أن يمتلك علاقات صريحة مع العديد من الأجزاء—مثل العلامات المعرفة من قبل المستخدم—المحددة وفقًا لـ ISO/IEC 29500. 
 
-يمكن أن توجد البيانات المخصصة (الخاصة بعرض تقديمي) أو للمستخدم كعلامات ([ITagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ITagCollection)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICustomXmlPartCollection)).
+يمكن أن توجد البيانات المخصصة (الخاصة بعرض تقديمي) أو المستخدم على شكل علامات ([TagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/)) وCustomXmlParts ([CustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/customxmlpartcollection/)).
 
 {{% alert color="primary" %}} 
-العلامات هي أساسًا قيم أزواج مفتاح-سلسلة. 
+
+العلامات هي في الأساس قيم أزواج مفتاح‑سلسلة. 
+
 {{% /alert %}} 
 
 ## **الحصول على قيم العلامات**
 
-في الشرائح، تتطابق علامة مع طريقتي [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) و[IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) . تُظهر لك عينة الشيفرة كيفية الحصول على قيمة علامة باستخدام Aspose.Slides للـ PHP عبر Java لـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
+في الشرائح، تتطابق العلامة مع طريقتي [DocumentProperties::getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getKeywords) و[DocumentProperties::setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setKeywords). يُظهر هذا المثال البرمجي كيفية الحصول على قيمة علامة باستخدام Aspose.Slides للـ PHP عبر Java لـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -46,13 +48,14 @@ description: "تعلم كيفية إضافة، قراءة، تحديث، وإز�
 
 ## **إضافة علامات إلى العروض التقديمية**
 
-Aspose.Slides يتيح لك إضافة علامات إلى العروض التقديمية. عادةً ما تتكون العلامة من عنصرين:
+تتيح لك Aspose.Slides إضافة علامات إلى العروض التقديمية. عادةً ما تتكون العلامة من عنصرين:
+
 - اسم الخاصية المخصصة - `MyTag` 
 - قيمة الخاصية المخصصة - `My Tag Value`
 
-إذا احتجت إلى تصنيف بعض العروض التقديمية بناءً على قاعدة أو خاصية معينة، فقد تستفيد من إضافة علامات إلى تلك العروض. على سبيل المثال، إذا أردت تصنيف أو تجميع جميع العروض من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة أمريكا الشمالية ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم.
+إذا كنت بحاجة إلى تصنيف بعض العروض التقديمية بناءً على قاعدة أو خاصية معينة، فقد تستفيد من إضافة علامات إلى تلك العروض. على سبيل المثال، إذا أردت تجميع جميع العروض من دول شمال أمريكا معًا، يمكنك إنشاء علامة “North American” ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم.
 
-تُظهر لك عينة الشيفرة كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) باستخدام Aspose.Slides للـ PHP عبر Java:
+هذا المثال البرمجي يُظهر كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) باستخدام Aspose.Slides للـ PHP عبر Java:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -66,7 +69,7 @@ Aspose.Slides يتيح لك إضافة علامات إلى العروض التق
 ```
 
 
-يمكن أيضًا تعيين العلامات لـ [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide):
+يمكن أيضًا تعيين العلامات لـ [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/):
 ```php
   $pres = new Presentation();
   try {
@@ -80,7 +83,7 @@ Aspose.Slides يتيح لك إضافة علامات إلى العروض التق
 ```
 
 
-أو لأي [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) فردي:
+أو لأي [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) فردي:
 ```php
   $pres = new Presentation();
   try {
@@ -96,16 +99,16 @@ Aspose.Slides يتيح لك إضافة علامات إلى العروض التق
 ```
 
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
 **هل يمكنني إزالة جميع العلامات من عرض تقديمي أو شريحة أو شكل في عملية واحدة؟**
 
-نعم. تدعم [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/clear/) التي تحذف جميع أزواج المفتاح‑القيمة مرة واحدة.
+نعم. يدعم [مجموعة العلامات](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/clear/) التي تحذف جميع أزواج المفتاح‑القيمة مرةً واحدة.
 
-**كيف أحذف علامة واحدة باسمها دون التكرار عبر المجموعة كاملة؟**
+**كيف أحذف علامة واحدة بحسب اسمها دون التكرار على كامل المجموعة؟**
 
-استخدم عملية [Remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) على [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) لحذف العلامة بمفتاحها.
+استخدم عملية [remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) على [مجموعة العلامات](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) لحذف العلامة بمفتاحها.
 
-**كيف يمكنني استخراج القائمة الكاملة لأسماء العلامات للتحليل أو التصفية؟**
+**كيف يمكنني استرداد القائمة الكاملة لأسماء العلامات لأغراض التحليل أو التصفية؟**
 
-استخدم [getNamesOfTags](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/getnamesoftags/) على [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/); تُعيد مصفوفة بجميع أسماء العلامات.
+استخدم [getNamesOfTags](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/getnamesoftags/) على [مجموعة العلامات](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/)؛ ستعيد مصفوفة بجميع أسماء العلامات.

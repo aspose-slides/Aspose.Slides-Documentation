@@ -13,19 +13,19 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "قم بإزالة الشرائح بسهولة من عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides للـ PHP عبر Java. احصل على أمثلة شفرة واضحة وعزز سير عملك."
+description: "أزل الشرائح بسهولة من عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides للـ PHP عبر Java. احصل على أمثلة شفرة واضحة وعزز سير عملك."
 ---
 
-إذا أصبحت الشريحة (أو محتواها) غير ضرورية، يمكنك حذفها. توفر Aspose.Slides الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) التي تُغلف [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/)، وهي مستودع لجميع الشرائح في عرض تقديمي. باستخدام المؤشرات (مرجع أو فهرس) لكائن [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) معروف، يمكنك تحديد الشريحة التي تريد إزالتها.
+إذا أصبحت شريحة (أو محتوياتها) زائدة عن الحاجة، يمكنك حذفها. توفر Aspose.Slides الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) التي تحتضن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/)، وهي مستودع لجميع الشرائح في العرض التقديمي. باستخدام مؤشرات (مرجع أو فهرس) لكائن [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) معروف، يمكنك تحديد الشريحة التي تريد إزالتها.
 
-## **إزالة شريحة بواسطة المرجع**
+## **إزالة شريحة عن طريق المرجع**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. الحصول على مرجع الشريحة التي تريد إزالتها عبر معرّفها أو فهرسها.
-1. إزالة الشريحة المرجعية من العرض التقديمي.
-1. حفظ العرض التقديمي المعدل. 
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. احصل على مرجع الشريحة التي تريد إزالتها عبر معرّفها أو فهرسها.
+1. إزالة الشريحة المشار إليها من العرض التقديمي.
+1. احفظ العرض التقديمي المعدل. 
 
-يعرض هذا الكود PHP طريقة إزالة شريحة عبر مرجعها:
+يظهر لك هذا الكود PHP كيفية إزالة شريحة عبر مرجعها:
 ```php
   # إنشاء كائن Presentation يمثل ملف عرض تقديمي
   $pres = new Presentation("demo.pptx");
@@ -42,18 +42,19 @@ description: "قم بإزالة الشرائح بسهولة من عروض PowerP
 ```
 
 
-## **إزالة شريحة بواسطة الفهرس**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+## **إزالة شريحة عن طريق الفهرس**
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
 1. إزالة الشريحة من العرض التقديمي عبر موقع الفهرس الخاص بها.
-1. حفظ العرض التقديمي المعدل. 
+1. احفظ العرض التقديمي المعدل. 
 
-يعرض هذا الكود PHP طريقة إزالة شريحة عبر فهرسها:
+يظهر لك هذا الكود PHP كيفية إزالة شريحة عبر فهرستها:
 ```php
   # ينشئ كائن Presentation يمثل ملف عرض تقديمي
   $pres = new Presentation("demo.pptx");
   try {
-    # يزيل شريحة عبر فهرسها
+    # يزيل شريحة عبر فهرس الشريحة
     $pres->getSlides()->removeAt(0);
     # يحفظ العرض التقديمي المعدل
     $pres->save("modified.pptx", SaveFormat::Pptx);
@@ -65,7 +66,7 @@ description: "قم بإزالة الشرائح بسهولة من عروض PowerP
 
 ## **إزالة شرائح التخطيط غير المستخدمة**
 
-توفر Aspose.Slides الطريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) لتتيح لك حذف شرائح التخطيط غير المرغوب فيها وغير المستخدمة. يعرض هذا الكود PHP طريقة إزالة شريحة تخطيط من عرض PowerPoint:
+توفر Aspose.Slides الطريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) للسماح لك بحذف تخطيطات الشرائح غير المرغوبة وغير المستخدمة. يوضح لك هذا الكود PHP كيفية إزالة شريحة تخطيط من عرض PowerPoint:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -79,9 +80,9 @@ description: "قم بإزالة الشرائح بسهولة من عروض PowerP
 ```
 
 
-## **إزالة شرائح القالب الرئيسي غير المستخدمة**
+## **إزالة شرائح الماستر غير المستخدمة**
 
-توفر Aspose.Slides الطريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) لتتيح لك حذف شرائح القالب الرئيسي غير المرغوب فيها وغير المستخدمة. يعرض هذا الكود PHP طريقة إزالة شريحة قالب رئيسي من عرض PowerPoint:
+توفر Aspose.Slides الطريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) للسماح لك بحذف شرائح الماستر غير المرغوبة وغير المستخدمة. يوضح لك هذا الكود PHP كيفية إزالة شريحة ماستر من عرض PowerPoint:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -95,24 +96,24 @@ description: "قم بإزالة الشرائح بسهولة من عروض PowerP
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **ماذا يحدث لمؤشرات الشرائح بعد حذف شريحة؟**
 
-بعد الحذف، تعيد [collection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) فهرستها: كل شريحة تالية تنحرف إلى اليسار بموقع واحد، لذا تصبح أرقام الفهارس السابقة غير صالحة. إذا كنت بحاجة إلى مرجع ثابت، استخدم معرف الشريحة المستمر بدلاً من فهرسها.
+بعد الحذف، تقوم الـ[collection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) بإعادة الفهرسة: كل شريحة تالية تتحرك خطوة واحدة إلى اليسار، وبالتالي تصبح أرقام الفهارس السابقة غير صالحة. إذا كنت بحاجة إلى مرجع ثابت، استخدم المعرف الدائم لكل شريحة بدلاً من فهرستها.
 
-**هل معرف الشريحة يختلف عن مؤشرها، وهل يتغير عندما تُحذف الشرائح المجاورة؟**
+**هل معرف الشريحة مختلف عن فهرسها، وهل يتغير عندما تُحذف الشرائح المجاورة؟**
 
-نعم. الفهرس هو موضع الشريحة وسيتغير عندما تُضاف أو تُحذف شرائح. معرف الشريحة هو معرف مستمر ولا يتغير عندما تُحذف شرائح أخرى.
+نعم. الفهرس هو موقع الشريحة في الترتيب ويتغير عند إضافة أو إزالة شرائح. معرف الشريحة هو معرف دائم ولا يتغير عند حذف شرائح أخرى.
 
 **كيف يؤثر حذف شريحة على أقسام الشرائح؟**
 
-إذا كانت الشريحة تنتمي إلى قسم، فإن ذلك القسم سيحتوي على شريحة أقل. يبقى هيكل القسم كما هو؛ إذا أصبح القسم فارغًا، يمكنك [إزالة أو إعادة تنظيم الأقسام](/slides/ar/php-java/slide-section/) حسب الحاجة.
+إذا كانت الشريحة جزءًا من قسم، فإن ذلك القسم سيحتوي على شريحة أقل. يبقى هيكل القسم كما هو؛ إذا أصبح القسم فارغًا، يمكنك [إزالة أو إعادة تنظيم الأقسام](/slides/ar/php-java/slide-section/) حسب الحاجة.
 
 **ماذا يحدث للملاحظات والتعليقات المرتبطة بشريحة عند حذفها؟**
 
 [الملاحظات](/slides/ar/php-java/presentation-notes/) و[التعليقات](/slides/ar/php-java/presentation-comments/) مرتبطة بتلك الشريحة المحددة وتُحذف معها. المحتوى على الشرائح الأخرى لا يتأثر.
 
-**كيف يختلف حذف الشرائح عن تنظيف التخطيطات/القوالب الرئيسية غير المستخدمة؟**
+**ما الفرق بين حذف الشرائح وتنظيف التخطيطات/الماسترات غير المستخدمة؟**
 
-الحذف يزيل الشرائح العادية المحددة من المجموعة. تنظيف التخطيطات/القوالب الرئيسية غير المستخدمة يزيل الشرائح التي لا يشير إليها شيء، مما يقلل حجم الملف دون تغيير محتوى الشرائح المتبقية. هاتان العمليتان تكملان بعضهما: عادةً احذف أولاً، ثم قم بالتنظيف.
+الحذف يزيل شرائح عادية محددة من المجموعة. تنظيف التخطيطات/الماسترات غير المستخدمة يزيل شرائح التخطيط أو الماستر التي لا يشير إليها أي شيء، مما يقلل حجم الملف دون تغيير محتوى الشرائح المتبقية. هاتان العمليتان تكملان بعضهما: عادةً يتم الحذف أولاً، ثم التنظيف.

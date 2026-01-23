@@ -1,6 +1,6 @@
 ---
 title: PHPでプレゼンテーションをXAMLにエクスポート
-linktitle: プレゼンテーションからXAMLへ
+linktitle: プレゼンテーションをXAMLへ
 type: docs
 weight: 30
 url: /ja/php-java/export-to-xaml/
@@ -25,26 +25,22 @@ keywords:
 - ODPをXAMLにエクスポート
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して PowerPoint と OpenDocument のスライドを XAML に変換します — レイアウトを保持した迅速な Office フリーのソリューションです。"
+description: "Javaを介したPHP用Aspose.Slidesを使用して、PowerPointおよびOpenDocumentのスライドをXAMLに変換します — レイアウトを維持した高速なOffice不要のソリューション。"
 ---
 
-## **プレゼンテーションを XAML にエクスポート**
+## **プレゼンテーションをXAMLにエクスポート**
 
-{{% alert color="primary" %}} 
-
-[Aspose.Slides 21.6](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-6-release-notes/) では XAML エクスポートのサポートを実装しました。これでプレゼンテーションを XAML にエクスポートできるようになりました。
-
-{{% /alert %}} 
+Aspose.Slides は XAML エクスポートをサポートしています。プレゼンテーションを XAML に変換できます。
 
 ## **XAML について**
 
-XAML は記述型プログラミング言語であり、特に WPF (Windows Presentation Foundation)、UWP (Universal Windows Platform)、Xamarin Forms を使用するアプリのユーザーインターフェイスを構築または記述するために使用できます。
+XAML は、アプリのユーザーインターフェイスを構築または記述できる記述型プログラミング言語で、特に WPF (Windows Presentation Foundation)、UWP (Universal Windows Platform)、Xamarin Forms を使用する場合に適しています。  
 
-XML ベースの言語である XAML は、Microsoft が GUI を記述するために提供する独自のバリエーションです。ほとんどの場合、デザイナーを使用して XAML ファイルを操作しますが、GUI を直接記述・編集することも可能です。
+XAML は XML ベースの言語で、Microsoft が GUI を記述するために提供するバリアントです。ほとんどの場合、デザイナーを使用して XAML ファイルを操作しますが、GUI を手書きで作成・編集することも可能です。
 
 ## **デフォルトオプションでプレゼンテーションを XAML にエクスポート**
 
-この PHP コードは、デフォルト設定でプレゼンテーションを XAML にエクスポートする方法を示しています:
+この PHP コードは、デフォルト設定でプレゼンテーションを XAML にエクスポートする方法を示します：
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -59,9 +55,9 @@ XML ベースの言語である XAML は、Microsoft が GUI を記述するた�
 
 ## **カスタムオプションでプレゼンテーションを XAML にエクスポート**
 
-[XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) クラスからオプションを選択して、エクスポートプロセスを制御し、Aspose.Slides がプレゼンテーションを XAML にエクスポートする方法を決定できます。
+エクスポートプロセスを制御し、Aspose.Slides がプレゼンテーションを XAML にエクスポートする方法を決定する、[XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) クラスからオプションを選択できます。
 
-たとえば、エクスポート時にプレゼンテーションに含まれる非表示スライドも XAML に追加したい場合は、`true` の値で [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) メソッドを使用します。以下のサンプル PHP コードをご参照ください:
+たとえば、エクスポート時にプレゼンテーションの非表示スライドを XAML に追加させたい場合、[setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) メソッドに `true` を指定できます。この PHP コードサンプルをご覧ください：
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -78,14 +74,14 @@ XML ベースの言語である XAML は、Microsoft が GUI を記述するた�
 
 ## **FAQ**
 
-**元のフォントがマシンに存在しない場合、フォントを予測可能にするにはどうすればよいですか？**
+**元のフォントがマシンに存在しない場合、予測可能なフォントを確保するにはどうすればよいですか？**
 
-[XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) の [デフォルトの通常フォント](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) を設定します。元のフォントが見つからない場合にフォールバックとして使用され、予期しない置換を防止できます。
+[XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) の [デフォルトの通常フォント](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) を設定します — 元のフォントが欠落している場合のフォールバックフォントとして使用されます。これにより予期しない置換を防げます。
 
 **エクスポートされた XAML は WPF のみを対象としていますか、それとも他の XAML スタックでも使用できますか？**
 
-XAML は WPF、UWP、Xamarin.Forms で使用される汎用 UI マークアップ言語です。エクスポートは Microsoft の XAML スタックとの互換性を目指していますが、正確な動作や特定の構文のサポートはターゲット プラットフォームに依存します。ご利用の環境でマークアップをテストしてください。
+XAML は WPF、UWP、Xamarin.Forms で使用される汎用 UI マークアップ言語です。エクスポートは Microsoft XAML スタックとの互換性を目指していますが、具体的な動作や特定構文のサポートはターゲットプラットフォームに依存します。環境でマークアップをテストしてください。
 
-**非表示スライドはサポートされていますか、デフォルトでエクスポートされないようにするにはどうすればよいですか？**
+**非表示スライドはサポートされていますか？デフォルトでエクスポートされないようにするにはどうすればよいですか？**
 
-デフォルトでは非表示スライドは含まれません。[XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) の [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) でこの動作を制御できます。エクスポートが不要な場合は無効のままにしてください。
+デフォルトでは、非表示スライドは含まれません。[XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) の [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) でこの動作を制御できます — エクスポートが不要な場合は無効にしておいてください。

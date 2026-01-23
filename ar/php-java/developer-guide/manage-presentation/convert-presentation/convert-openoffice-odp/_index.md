@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض OpenDocument التقديمية في PHP
+title: تحويل عروض OpenDocument في PHP
 linktitle: تحويل OpenDocument
 type: docs
 weight: 10
@@ -19,39 +19,44 @@ keywords:
 - ODP إلى فيديو
 - ODP إلى Word
 - ODP إلى XPS
-- OpenDocument
+- مستند مفتوح
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides لـ PHP يتيح لك تحويل ODP إلى PDF وHTML وصيغ الصور بسهولة. عزز تطبيقات PHP الخاصة بك بتحويل عروض تقديمية سريع ودقيق."
+description: Aspose.Slides للـ PHP يتيح لك تحويل ODP إلى PDF وHTML وتنسيقات الصور بسهولة. عزّز تطبيقات PHP الخاصة بك بتحويل عروض تقديمية سريع ودقيق.
 ---
 
-## **نظرة عامة**
+[**Aspose.Slides API**](https://products.aspose.com/slides/php-java/) يتيح لك تحويل عروض OpenDocument (ODP) إلى العديد من الصيغ (HTML، PDF، TIFF، SWF، XPS، إلخ). API المستخدم لتحويل ملفات ODP إلى صيغ مستندات أخرى هو نفسه المستخدم لعمليات تحويل PowerPoint (PPT و PPTX).
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/php-java/) يتيح تحويل عرض تقديمي OpenOffice ODP إلى صيغ متعددة. واجهة برمجة التطبيقات لتحويل ODP إلى صيغ أخرى هي نفسها المستخدمة مع صيغ PowerPoint. يمكنك استخدام الأمثلة التالية لتحويل ODP، مجرد تغيير ملف المصدر إلى ملف عرض ODP:
+على سبيل المثال، إذا كنت بحاجة إلى تحويل عرض ODP إلى PDF، يمكنك القيام بذلك كما يلي:
+```php
+$presentation = null;
+try {
+    $presentation = new Presentation("pres.odp");
+    $presentation->save("pres.pdf", SaveFormat::Pdf);
+    
+} finally {
+    if ($presentation != null) {
+        $presentation->dispose();
+    }
+}
+```
 
-- [تحويل ODP إلى HTML](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-html/)
-- [تحويل ODP إلى PDF](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [تحويل ODP إلى TIFF](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [تحويل ODP إلى SWF Flash](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [تحويل ODP إلى XPS](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [تحويل ODP إلى PDF مع الملاحظات](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
-- [تحويل ODP إلى TIFF مع الملاحظات](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ماذا لو تغير تنسيق ملف ODP بعد التحويل؟**
+**ماذا يحدث إذا تغير تنسيق ملف ODP بعد التحويل؟**
 
-يستخدم ODP وPowerPoint نماذج عرض تقديمي مختلفة، وقد لا يتم عرض بعض العناصر — مثل الجداول، الخطوط المخصصة، أو أنماط التعبئة — بنفس الطريقة تمامًا. يُنصح بمراجعة النتيجة وضبط التخطيط أو التنسيق في الشيفرة إذا لزم الأمر.
+تستخدم ODP و PowerPoint نماذج عرض مختلفة، وقد لا يتم عرض بعض العناصر—مثل الجداول أو الخطوط المخصصة أو أنماط التعبئة—نفس الشكل تمامًا. يُنصح بمراجعة النتيجة وضبط التخطيط أو التنسيق في الشيفرة إذا لزم الأمر.
 
 **هل أحتاج إلى تثبيت OpenOffice أو LibreOffice لاستخدام تحويل ODP؟**
 
-لا، Aspose.Slides مكتبة مستقلة ولا تتطلب تثبيت OpenOffice أو LibreOffice على نظامك.
+لا، Aspose.Slides هي مكتبة مستقلة ولا تتطلب تثبيت OpenOffice أو LibreOffice على نظامك.
 
-**هل يمكنني تخصيص صيغة الإخراج أثناء تحويل ODP (مثلاً، تعيين خيارات PDF)؟**
+**هل يمكنني تخصيص تنسيق الإخراج أثناء تحويل ODP (مثال، ضبط خيارات PDF)؟**
 
-نعم، Aspose.Slides توفر خيارات واسعة لتخصيص الإخراج. على سبيل المثال، عند الحفظ كملف PDF، يمكنك التحكم في الضغط، جودة الصورة، عرض النص، والمزيد عبر فئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/).
+نعم، توفر Aspose.Slides خيارات غنية لتخصيص الإخراج. على سبيل المثال، عند حفظ إلى PDF، يمكنك التحكم في الضغط، جودة الصورة، عرض النص، والمزيد عبر الفئة [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) .
 
-**هل Aspose.Slides مناسبة للمعالجة على الخادم أو السحابة لمعالجة ODP؟**
+**هل Aspose.Slides مناسبة لمعالجة ODP على الخادم أو السحابة؟**
 
-بالطبع. Aspose.Slides مصممة للعمل في بيئات سطح المكتب والخادم على حد سواء، بما في ذلك المنصات السحابية مثل Azure وAWS وحاويات Docker، دون أي تبعيات لواجهة المستخدم.
+بالطبع. تم تصميم Aspose.Slides للعمل في بيئات سطح المكتب والخادم، بما في ذلك المنصات السحابية مثل Azure و AWS وحاويات Docker، دون أي تبعيات واجهة مستخدم.

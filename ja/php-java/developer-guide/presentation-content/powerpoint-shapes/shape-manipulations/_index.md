@@ -5,37 +5,37 @@ type: docs
 weight: 40
 url: /ja/php-java/shape-manipulations/
 keywords:
-- PowerPointシェイプ
-- プレゼンテーションシェイプ
+- PowerPoint シェイプ
+- プレゼンテーション シェイプ
 - スライド上のシェイプ
-- シェイプを検索
-- シェイプをクローン
-- シェイプを削除
-- シェイプを非表示
+- シェイプの検索
+- シェイプのクローン作成
+- シェイプの削除
+- シェイプの非表示
 - シェイプの順序変更
-- InteropシェイプID取得
-- シェイプ代替テキスト
-- シェイプレイアウト形式
-- SVGとしてのシェイプ
-- シェイプをSVGに変換
-- シェイプの整列
+- Interop シェイプ ID の取得
+- シェイプの代替テキスト
+- シェイプのレイアウト形式
+- SVG としてのシェイプ
+- シェイプを SVG に変換
+- シェイプの配置
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Javaでシェイプを作成、編集、最適化し、高性能なPowerPointプレゼンテーションを提供する方法を学びましょう。"
+description: "Aspose.Slides for PHP via Java でシェイプを作成、編集、最適化し、高性能な PowerPoint プレゼンテーションを提供する方法を学びます。"
 ---
 
-## **スライド上のシェイプを検索する**
-このトピックでは、開発者が内部IDを使用せずにスライド上の特定のシェイプを簡単に見つけるためのシンプルな手法について説明します。PowerPointプレゼンテーション ファイルは、内部の一意なID以外でスライド上のシェイプを識別する手段がないことを理解することが重要です。内部の一意なIDを使用してシェイプを見つけるのは開発者にとって難しいようです。スライドに追加されたすべてのシェイプには Alt Text が設定されています。特定のシェイプを見つけるために代替テキストの使用を推奨します。将来変更する予定のオブジェクトの代替テキストは、MS PowerPoint で定義できます。
+## **スライド上のシェイプを見つける**
+このトピックでは、開発者が内部 ID を使用せずにスライド上の特定のシェイプを見つけやすくするシンプルな手法を説明します。PowerPoint プレゼンテーション ファイルでは、内部の一意な ID 以外にスライド上のシェイプを識別する方法がありません。内部の一意な ID を使用してシェイプを見つけるのは開発者にとって困難なことがあるようです。スライドに追加されたすべてのシェイプには Alt Text が設定されています。開発者には、特定のシェイプを見つけるために代替テキストを使用することを推奨します。将来変更する予定のオブジェクトに対して、MS PowerPoint を使用して代替テキストを定義できます。
 
-任意のシェイプの代替テキストを設定した後、Aspose.Slides for PHP via Java を使用してそのプレゼンテーションを開き、スライドに追加されたすべてのシェイプを反復処理できます。各イテレーションでシェイプの代替テキストをチェックし、一致する代替テキストを持つシェイプが目的のシェイプとなります。この手法をより分かりやすく示すために、スライド内の特定のシェイプを見つけて単に返すメソッド[findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) を作成しました。
+任意のシェイプの代替テキストを設定した後、Aspose.Slides for PHP via Java を使用してそのプレゼンテーションを開き、スライドに追加されたすべてのシェイプを走査できます。各イテレーションでシェイプの代替テキストを確認し、代替テキストが一致するシェイプが目的のシェイプとなります。この手法をより分かりやすく示すために、スライド内の特定のシェイプを見つけてそのシェイプを返すメソッド [findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) を作成しました。
 ```php
-  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
+  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを生成する
   $pres = new Presentation("FindingShapeInSlide.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    # 検索対象シェイプの代替テキスト
+    # 見つけるシェイプの代替テキスト
     $shape = findShape($slide, "Shape1");
     if (!java_is_null($shape)) {
       echo("Shape Name: " . $shape->getName());
@@ -52,18 +52,19 @@ description: "Aspose.Slides for PHP via Javaでシェイプを作成、編集、
 ```
 
 
-## **シェイプをクローンする**
-Aspose.Slides for PHP via Java を使用してシェイプをスライドにクローンするには:
+## **シェイプのクローン作成**
+Aspose.Slides for PHP via Java を使用してスライドにシェイプをクローンするには、次の手順を実行します。
+
 1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. ソーススライドのシェイプコレクションにアクセスします。
+1. 元スライドのシェイプ コレクションにアクセスします。
 1. プレゼンテーションに新しいスライドを追加します。
-1. ソーススライドのシェイプコレクションから新しいスライドへシェイプをクローンします。
+1. 元スライドのシェイプ コレクションから新しいスライドへシェイプをクローンします。
 1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例は、スライドにグループシェイプを追加します。
+以下の例は、スライドにグループ シェイプを追加します。
 ```php
-  # Presentation クラスのインスタンスを作成
+  # Presentation クラスをインスタンス化する
   $pres = new Presentation("Source Frame.pptx");
   try {
     $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
@@ -73,7 +74,7 @@ Aspose.Slides for PHP via Java を使用してシェイプをスライドにク�
     $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
     $destShapes->addClone($sourceShapes->get_Item(2));
     $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # PPTX ファイルをディスクに保存
+    # PPTX ファイルをディスクに保存する
     $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -83,20 +84,21 @@ Aspose.Slides for PHP via Java を使用してシェイプをスライドにク�
 ```
 
 
-## **シェイプを削除する**
-Aspose.Slides for PHP via Java は開発者が任意のシェイプを削除できるようにします。スライドからシェイプを削除するには、以下の手順に従ってください：
+## **シェイプの削除**
+Aspose.Slides for PHP via Java は、開発者が任意のシェイプを削除できるようにします。スライドからシェイプを削除するには、以下の手順に従ってください。
+
 1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. 特定の AlternativeText を持つシェイプを検索します。
 1. シェイプを削除します。
 1. ファイルをディスクに保存します。
 ```php
-  # Presentation オブジェクトを作成
+  # Presentation オブジェクトを作成する
   $pres = new Presentation();
   try {
-    # 最初のスライドを取得
+    # 最初のスライドを取得する
     $sld = $pres->getSlides()->get_Item(0);
-    # 矩形タイプのオートシェイプを追加
+    # 矩形タイプのオートシェイプを追加する
     $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $altText = "User Defined";
@@ -107,7 +109,7 @@ Aspose.Slides for PHP via Java は開発者が任意のシェイプを削除で�
         $sld->getShapes()->remove($ashp);
       }
     }
-    # プレゼンテーションをディスクに保存
+    # プレゼンテーションをディスクに保存する
     $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -117,21 +119,21 @@ Aspose.Slides for PHP via Java は開発者が任意のシェイプを削除で�
 ```
 
 
-## **シェイプを非表示にする**
-Aspose.Slides for PHP via Java は開発者が任意のシェイプを非表示にできるようにします。スライドからシェイプを非表示にするには、以下の手順に従ってください：
+## **シェイプの非表示**
+Aspose.Slides for PHP via Java は、開発者が任意のシェイプを非表示にできるようにします。スライドからシェイプを非表示にするには、以下の手順に従ってください。
+
 1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. 特定の AlternativeText を持つシェイプを検索します。
 1. シェイプを非表示にします。
 1. ファイルをディスクに保存します。
 ```php
-
-  # PPTX を表す Presentation クラスのインスタンスを作成
+  # PPTX を表す Presentation クラスをインスタンス化する
   $pres = new Presentation();
   try {
-    # 最初のスライドを取得
+    # 最初のスライドを取得する
     $sld = $pres->getSlides()->get_Item(0);
-    # 矩形タイプのオートシェイプを追加
+    # 矩形タイプのオートシェイプを追加する
     $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $alttext = "User Defined";
@@ -142,7 +144,7 @@ Aspose.Slides for PHP via Java は開発者が任意のシェイプを非表示�
         $ashp->setHidden(true);
       }
     }
-    # プレゼンテーションをディスクに保存
+    # プレゼンテーションをディスクに保存する
     $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -152,12 +154,13 @@ Aspose.Slides for PHP via Java は開発者が任意のシェイプを非表示�
 ```
 
 
-## **シェイプの順序を変更する**
-Aspose.Slides for PHP via Java は開発者がシェイプの順序を変更できるようにします。シェイプの順序変更により、どのシェイプが前面に、どのシェイプが背面にあるかを指定できます。スライド上のシェイプの順序を変更するには、以下の手順に従ってください：
+## **シェイプの順序変更**
+Aspose.Slides for PHP via Java は、開発者がシェイプの順序を変更できるようにします。シェイプの順序変更は、どのシェイプが前面にあるか、背面にあるかを指定します。スライド上でシェイプの順序を変更するには、以下の手順に従ってください。
+
 1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. シェイプを追加します。
-1. シェイプのテキストフレームにテキストを追加します。
+1. シェイプのテキスト フレームにテキストを追加します。
 1. 同じ座標で別のシェイプを追加します。
 1. シェイプの順序を変更します。
 1. ファイルをディスクに保存します。
@@ -182,12 +185,12 @@ Aspose.Slides for PHP via Java は開発者がシェイプの順序を変更で�
 ```
 
 
-## **Interop シェイプ ID を取得する**
-Aspose.Slides for PHP via Java は開発者がプレゼンテーション全体のスコープで一意な ID を取得できる [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getuniqueid/) メソッドとは対照的に、スライドスコープで一意なシェイプ識別子を取得できるようにします。メソッド [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) が [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) クラスに追加されました。[getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) メソッドが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプルコードを示します。
+## **Interop シェイプ ID の取得**
+Aspose.Slides for PHP via Java は、スライドスコープ内で一意なシェイプ識別子を取得できるようにします。これは、プレゼンテーションスコープで一意な識別子を取得できる [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getuniqueid/) メソッドとは対照的です。[getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) メソッドが [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) クラスに追加されました。[getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) メソッドが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプルコードを示します。
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # スライド スコープでの一意なシェイプ識別子の取得
+    # スライドスコープ内での一意なシェイプ識別子を取得
     $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
   } finally {
     if (!java_is_null($pres)) {
@@ -197,22 +200,23 @@ Aspose.Slides for PHP via Java は開発者がプレゼンテーション全体�
 ```
 
 
-## **シェイプの代替テキストを設定する**
-Aspose.Slides for PHP via Java は開発者が任意のシェイプの AlternateText を設定できるようにします。プレゼンテーション内のシェイプは `Alternative Text` または [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) メソッドで区別できます。[setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) と [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) メソッドは Aspose.Slides と Microsoft PowerPoint の両方で読み書きできます。このメソッドを使用すると、シェイプにタグ付けでき、シェイプの削除、非表示、スライド上のシェイプの順序変更などのさまざまな操作を実行できます。シェイプの AlternateText を設定するには、以下の手順に従ってください：
+## **シェイプの代替テキストの設定**
+Aspose.Slides for PHP via Java は、開発者が任意のシェイプの AlternateText を設定できるようにします。プレゼンテーション内のシェイプは `Alternative Text` または [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) メソッドで区別できます。[setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) と [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) メソッドは、Aspose.Slides および Microsoft PowerPoint の両方で読み書きできます。このメソッドを使用すると、シェイプにタグを付け、シェイプの削除、非表示、スライド上での順序変更などのさまざまな操作を実行できます。シェイプの AlternateText を設定するには、以下の手順に従ってください。
+
 1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. スライドに任意のシェイプを追加します。
-1. 新しく追加したシェイプで何らかの作業を行います。
-1. シェイプを走査してシェイプを見つけます。
+1. 任意のシェイプをスライドに追加します。
+1. 追加したシェイプで作業を行います。
+1. シェイプを走査して目的のシェイプを見つけます。
 1. AlternativeText を設定します。
 1. ファイルをディスクに保存します。
 ```php
-  # PPTX を表す Presentation クラスのインスタンスを作成
+  # PPTX を表す Presentation クラスをインスタンス化する
   $pres = new Presentation();
   try {
-    # 最初のスライドを取得
+    # 最初のスライドを取得する
     $sld = $pres->getSlides()->get_Item(0);
-    # 矩形タイプのオートシェイプを追加
+    # 矩形タイプのオートシェイプを追加する
     $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $shp2->getFillFormat()->setFillType(FillType::Solid);
@@ -223,7 +227,7 @@ Aspose.Slides for PHP via Java は開発者が任意のシェイプの Alternate
         $shape->setAlternativeText("User Defined");
       }
     }
-    # プレゼンテーションをディスクに保存
+    # プレゼンテーションをディスクに保存する
     $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -233,10 +237,10 @@ Aspose.Slides for PHP via Java は開発者が任意のシェイプの Alternate
 ```
 
 
-## **シェイプのレイアウト形式にアクセスする**
-Aspose.Slides for PHP via Java はシェイプのレイアウト形式にアクセスするためのシンプルな API を提供します。この記事では、レイアウト形式へのアクセス方法を示します。
+## **シェイプのレイアウト形式へのアクセス**
+Aspose.Slides for PHP via Java は、シェイプのレイアウト形式にアクセスするためのシンプルな API を提供します。この記事では、レイアウト形式へのアクセス方法を示します。
 
-以下にサンプルコードを示します。
+以下にサンプルコードが示されています。
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -254,8 +258,8 @@ Aspose.Slides for PHP via Java はシェイプのレイアウト形式にアク�
 ```
 
 
-## **シェイプを SVG としてレンダリングする**
-現在、Aspose.Slides for PHP via Java はシェイプを SVG としてレンダリングする機能をサポートしています。[writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) メソッド（およびそのオーバーロード）が [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) クラスに追加されました。このメソッドにより、シェイプの内容を SVG ファイルとして保存できます。以下のコードスニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示しています。
+## **シェイプを SVG としてレンダリング**
+現在、Aspose.Slides for PHP via Java はシェイプを SVG としてレンダリングする機能をサポートしています。[writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) メソッド（およびそのオーバーロード）が [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) クラスに追加されました。このメソッドにより、シェイプの内容を SVG ファイルとして保存できます。以下のコード スニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示しています。
 ```php
   $pres = new Presentation("TestExportShapeToSvg.pptx");
   try {
@@ -276,11 +280,11 @@ Aspose.Slides for PHP via Java はシェイプのレイアウト形式にアク�
 ```
 
 
-## **シェイプを整列する**
-Aspose.Slides はシェイプをスライドの余白に対してまたは互いに対して整列させることができます。そのために、オーバーロードされたメソッド [SlidesUtil::alignShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/alignshapes/) が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/shapesalignmenttype/) 列挙体は利用可能な整列オプションを定義します。
+## **シェイプの配置**
+Aspose.Slides は、シェイプをスライドの余白に対して、または互いに対して配置することができます。そのために、オーバーロードされたメソッド [SlidesUtil::alignShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/alignshapes/) が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/shapesalignmenttype/) 列挙体は、可能な配置オプションを定義します。
 
 **例 1**
-以下のソースコードは、インデックス 1、2、4 のシェイプをスライドの上端に沿って整列させます。
+以下のサンプルコードは、インデックス 1、2、4 のシェイプをスライドの上端に合わせます。
 ```php
   $pres = new Presentation("example.pptx");
   try {
@@ -298,7 +302,7 @@ Aspose.Slides はシェイプをスライドの余白に対してまたは互い
 
 
 **例 2**
-以下の例は、コレクション内の最下位シェイプに対して全シェイプコレクションを整列させる方法を示しています。
+以下の例は、コレクション内の最下部シェイプに対してコレクション全体を配置する方法を示しています。
 ```php
   $pres = new Presentation("example.pptx");
   try {
@@ -312,26 +316,26 @@ Aspose.Slides はシェイプをスライドの余白に対してまたは互い
 
 
 ## **フリップ プロパティ**
-Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) クラスが `flipH` および `flipV` プロパティを通じてシェイプの水平・垂直ミラーリングを制御します。両プロパティは [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) 型で、`True` はフリップ、`False` はフリップなし、`NotDefined` はデフォルト動作を示します。これらの値はシェイプの [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) から取得可能です。
+Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) クラスが `flipH` と `flipV` プロパティを介してシェイプの水平・垂直ミラーリングを制御します。これらのプロパティは [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) 型で、`True` はフリップ、`False` はフリップなし、`NotDefined` はデフォルト動作を示します。これらの値はシェイプの [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) から取得できます。
 
-フリップ設定を変更するには、シェイプの現在の位置とサイズ、希望する `flipH` および `flipV` の値、回転角度を指定して新しい [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) インスタンスを作成します。このインスタンスをシェイプの [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) に割り当ててプレゼンテーションを保存すると、ミラー変換が適用され、出力ファイルに反映されます。
+フリップ設定を変更するには、シェイプの現在の位置とサイズ、希望する `flipH` と `flipV` の値、回転角度を使用して新しい [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) インスタンスを作成します。そのインスタンスをシェイプの [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) に割り当て、プレゼンテーションを保存すると、ミラー変換が適用され出力ファイルに反映されます。
 
-たとえば、sample.pptx の最初のスライドにデフォルトのフリップ設定を持つ単一のシェイプが含まれているとします。以下に示す通りです。
+たとえば、最初のスライドにデフォルトのフリップ設定の単一シェイプが含まれる sample.pptx ファイルがあるとします。以下に示す通りです。
 
 ![The shape to be flipped](shape_to_be_flipped.png)
 
-以下のコード例は、シェイプの現在のフリッププロパティを取得し、水平・垂直の両方でフリップします。
+以下のコード例は、シェイプの現在のフリッププロパティを取得し、水平および垂直にフリップします。
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->get_Item(0);
 
-    // シェイプの水平フリッププロパティを取得します。
+    // シェイプの水平フリップ プロパティを取得します。
     $horizontalFlip = $shape->getFrame()->getFlipH();
     echo "Horizontal flip: ", $horizontalFlip, "\n";
 
-    // シェイプの垂直フリッププロパティを取得します。
+    // シェイプの垂直フリップ プロパティを取得します。
     $verticalFlip = $shape->getFrame()->getFlipV();
     echo "Vertical flip: ", $verticalFlip, "\n";
 
@@ -352,12 +356,16 @@ try {
 ```
 
 
-## **よくある質問**
-**スライド上でデスクトップ エディタのようにシェイプを結合（union/intersect/subtract）できますか？**
-組み込みのブーリアン演算 API はありません。目的の輪郭を自分で構築することで近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しいシェイプを作成し、元のシェイプをオプションで削除します。
+結果:
 
-**シェイプが常に「最前面」にあるように、スタック順（z-order）を制御するにはどうすればよいですか？**
-スライドの [shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) コレクション内で挿入/移動順序を変更します。予測可能な結果を得るには、他のすべてのスライド変更を終えた後で z-order を最終決定します。
+![The flipped shape](flipped_shape.png)
 
-**ユーザーが PowerPoint でシェイプを編集できないように「ロック」できますか？**
-はい。[shape-level protection flags](/slides/ja/php-java/applying-protection-to-presentation/)（例：選択、移動、サイズ変更、テキスト編集のロック）を設定します。必要に応じて、マスターやレイアウトにも同様の制限を適用できます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強固な保護が必要な場合は、[読み取り専用推奨やパスワード](/slides/ja/php-java/password-protected-presentation/) のようなファイルレベルの制限と組み合わせて使用してください。
+## **FAQ**
+**スライド上でデスクトップエディタのようにシェイプを結合（union/intersect/subtract）できますか？**
+組み込みのブール演算 API はありません。目的のアウトラインを自分で構築することで近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しいシェイプを作成し、元のシェイプをオプションで削除します。
+
+**シェイプのスタック順序（z-order）を制御して常に「最上部」に表示させるには？**
+スライドの [shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) コレクション内で挿入または移動の順序を変更します。予測可能な結果を得るために、他のすべてのスライド変更が完了した後に z-order を確定してください。
+
+**PowerPoint でユーザーがシェイプを編集できないように「ロック」できますか？**
+はい。シェイプレベルの保護フラグ（例: 選択ロック、移動ロック、サイズ変更ロック、テキスト編集ロック）を設定します。必要に応じて、マスタやレイアウト上でも同様の制限を適用できます。これは UI レベルの保護でありセキュリティ機能ではありません。より強力な保護が必要な場合は、[read-only recommendations or passwords](/slides/ja/php-java/password-protected-presentation/) などのファイルレベルの制限と組み合わせてください。

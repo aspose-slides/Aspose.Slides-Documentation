@@ -1,5 +1,5 @@
 ---
-title: Obtenir les limites du paragraphe dans les présentations en PHP
+title: Obtenir les limites du paragraphe à partir des présentations en PHP
 linktitle: Paragraphe
 type: docs
 weight: 60
@@ -20,7 +20,7 @@ description: "Apprenez à récupérer les limites du paragraphe et de la portion
 ---
 
 ## **Obtenir les coordonnées du paragraphe et de la portion dans un TextFrame**
-En utilisant Aspose.Slides pour PHP via Java, les développeurs peuvent désormais obtenir les coordonnées rectangulaires d’un Paragraph à l’intérieur de la collection de paragraphes d’un TextFrame. Cela permet également d’obtenir [les coordonnées de la portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) à l’intérieur de la collection de portions d’un paragraphe. Dans ce sujet, nous allons montrer, à l’aide d’un exemple, comment obtenir les coordonnées rectangulaires du paragraphe ainsi que la position de la portion à l’intérieur du paragraphe.
+En utilisant Aspose.Slides for PHP via Java, les développeurs peuvent désormais obtenir les coordonnées rectangulaires d’un Paragraph à l’intérieur de la collection de paragraphes d’un TextFrame. Cela permet également d’obtenir [les coordonnées de la portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getCoordinates) dans la collection de portions d’un paragraphe. Dans cet article, nous allons démontrer à l’aide d’un exemple comment obtenir les coordonnées rectangulaires d’un paragraphe ainsi que la position de la portion à l’intérieur du paragraphe.
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textFrame = $shape->getTextFrame();
@@ -33,7 +33,7 @@ En utilisant Aspose.Slides pour PHP via Java, les développeurs peuvent désorma
 
 
 ## **Obtenir les coordonnées rectangulaires d’un paragraphe**
-En utilisant la méthode [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) les développeurs peuvent obtenir le rectangle englobant du paragraphe.
+En utilisant la méthode [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect), les développeurs peuvent obtenir le rectangle des limites du paragraphe.
 ```php
   $pres = new Presentation("HelloWorld.pptx");
   try {
@@ -50,8 +50,9 @@ En utilisant la méthode [**getRect()**](https://reference.aspose.com/slides/php
 
 
 ## **Obtenir la taille d’un paragraphe et d’une portion à l’intérieur d’un TextFrame de cellule de tableau**
-Pour obtenir la taille et les coordonnées d’une [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) ou d’un [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) dans un TextFrame de cellule de tableau, vous pouvez utiliser les méthodes [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) et [IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--).
-Ce code d’exemple illustre l’opération décrite :
+Pour obtenir la taille et les coordonnées de la [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) ou du [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) dans un TextFrame de cellule de tableau, vous pouvez utiliser les méthodes [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) et [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect).
+
+Ce code d’exemple montre l’opération décrite :
 ```php
   $pres = new Presentation("source.pptx");
   try {
@@ -89,11 +90,11 @@ Ce code d’exemple illustre l’opération décrite :
 **Dans quelles unités les coordonnées retournées pour un paragraphe et les portions de texte sont‑elles mesurées ?**  
 En points, où 1 pouce = 72 points. Cela s’applique à toutes les coordonnées et dimensions sur la diapositive.
 
-**L’ajustement du texte affecte‑t‑il les limites d’un paragraphe ?**  
-Oui. Si le [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) est activé dans le [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), le texte se répartit pour s’ajuster à la largeur de la zone, ce qui modifie les limites réelles du paragraphe.
+**Le renvoi à la ligne affecte‑t‑il les limites d’un paragraphe ?**  
+Oui. Si [renvoi à la ligne](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) est activé dans le [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), le texte se coupe pour s’adapter à la largeur de la zone, ce qui modifie les limites réelles du paragraphe.
 
-**Les coordonnées du paragraphe peuvent‑elles être converties de façon fiable en pixels dans l’image exportée ?**  
+**Les coordonnées du paragraphe peuvent‑elles être mappées de manière fiable vers des pixels dans l’image exportée ?**  
 Oui. Convertissez les points en pixels en utilisant : pixels = points × (DPI / 72). Le résultat dépend du DPI choisi pour le rendu/l’exportation.
 
-**Comment obtenir les paramètres de mise en forme « effectifs » du paragraphe, en tenant compte de l’héritage de style ?**  
-Utilisez la [structure de données de mise en forme effective du paragraphe](/slides/fr/php-java/shape-effective-properties/) ; elle renvoie les valeurs consolidées finales pour les retraits, l’espacement, le wrapping, RTL, etc.
+**Comment obtenir les paramètres de mise en forme « effective » du paragraphe, en tenant compte de l’héritage des styles ?**  
+Utilisez la [structure de données de mise en forme effective du paragraphe](/slides/fr/php-java/shape-effective-properties/); elle renvoie les valeurs consolidées finales pour les retraits, l’espacement, le renvoi à la ligne, RTL, et plus.

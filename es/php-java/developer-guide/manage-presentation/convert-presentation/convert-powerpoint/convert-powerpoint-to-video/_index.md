@@ -25,30 +25,30 @@ keywords:
 - PowerPoint
 - PHP
 - Aspose.Slides
-description: "Aprenda cómo convertir presentaciones de PowerPoint a video con Aspose.Slides para PHP. Descubra código de ejemplo y técnicas de automatización para optimizar su flujo de trabajo."
+description: "Aprenda a convertir presentaciones de PowerPoint a video con Aspose.Slides para PHP. Descubra código de ejemplo y técnicas de automatización para optimizar su flujo de trabajo."
 ---
 
-Al convertir tu presentación de PowerPoint a video, obtienes 
+Al convertir su presentación de PowerPoint a video, obtiene 
 
-* **Incremento en la accesibilidad:** Todos los dispositivos (independientemente de la plataforma) vienen equipados con reproductores de video por defecto en comparación con las aplicaciones de apertura de presentaciones, por lo que los usuarios encuentran más fácil abrir o reproducir videos.
-* **Mayor alcance:** A través de videos, puedes llegar a una gran audiencia y dirigirles información que de otro modo podría parecer tediosa en una presentación. La mayoría de encuestas y estadísticas sugieren que la gente ve y consume videos más que otras formas de contenido, y generalmente prefieren este tipo de contenido.
+* **Incremento en la accesibilidad:** Todos los dispositivos (independientemente de la plataforma) están equipados con reproductores de video por defecto en comparación con las aplicaciones de apertura de presentaciones, por lo que los usuarios encuentran más fácil abrir o reproducir videos.
+* **Mayor alcance:** A través de los videos, puede llegar a una gran audiencia y dirigirse a ella con información que de otro modo podría resultar tediosa en una presentación. La mayoría de encuestas y estadísticas sugieren que las personas ven y consumen videos más que otras formas de contenido, y generalmente prefieren ese tipo de contenido.
 
 {{% alert color="primary" %}} 
 
-Es posible que desees consultar nuestro [**Convertidor en línea de PowerPoint a Video**](https://products.aspose.app/slides/conversion/ppt-to-word) porque es una implementación en vivo y eficaz del proceso descrito aquí.
+Tal vez desee consultar nuestro [**Convertidor en línea de PowerPoint a Video**](https://products.aspose.app/slides/conversion/ppt-to-word) porque es una implementación en vivo y eficaz del proceso descrito aquí.
 
 {{% /alert %}} 
 
 ## **Conversión de PowerPoint a Video en Aspose.Slides**
 
-En [Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-22-11-release-notes/), implementamos soporte para la conversión de presentaciones a video.
+Aspose.Slides admite la conversión de presentaciones a video.
 
-* Usa **Aspose.Slides** para generar un conjunto de fotogramas (a partir de las diapositivas de la presentación) que correspondan a un determinado FPS (cuadros por segundo).
-* Utiliza una herramienta de terceros como **ffmpeg** ([para java](https://github.com/bramp/ffmpeg-cli-wrapper)) para crear un video a partir de los fotogramas.
+* Utilice **Aspose.Slides** para generar un conjunto de fotogramas (a partir de las diapositivas de la presentación) que correspondan a una cierta tasa de FPS (fotogramas por segundo)
+* Utilice una utilidad de terceros como **ffmpeg** ([para java](https://github.com/bramp/ffmpeg-cli-wrapper)) para crear un video basado en los fotogramas.
 
 ### **Convertir PowerPoint a Video**
 
-1. Añade esto a tu archivo POM:
+1. Añada esto a su archivo POM:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -60,15 +60,15 @@ En [Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-f
 ```
 
 
-2. Descarga ffmpeg [aquí](https://ffmpeg.org/download.html).
+2. Descargue ffmpeg [aquí](https://ffmpeg.org/download.html).
 
-4. Ejecuta el código PHP de PowerPoint a video.
+4. Ejecute el código PHP de PowerPoint a video.
 
-Este código PHP te muestra cómo convertir una presentación (que contiene una figura y dos efectos de animación) a un video:
+Este código PHP le muestra cómo convertir una presentación (que contiene una figura y dos efectos de animación) a un video:
 ```php
   $presentation = new Presentation();
   try {
-    # Agrega una forma de sonrisa y luego la anima
+    # Añade una forma de sonrisa y luego la anima
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::TopLeft, EffectTriggerType::AfterPrevious);
@@ -118,21 +118,21 @@ Este código PHP te muestra cómo convertir una presentación (que contiene una 
 ```
 
 
-## **Efectos de Video**
+## **Efectos de video**
 
-Puedes aplicar animaciones a objetos en las diapositivas y usar transiciones entre diapositivas. 
+Puede aplicar animaciones a objetos en las diapositivas y usar transiciones entre diapositivas. 
 
 {{% alert color="primary" %}} 
 
-Es posible que desees ver estos artículos: [PowerPoint Animation](https://docs.aspose.com/slides/php-java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/php-java/shape-animation/), y [Shape Effect](https://docs.aspose.com/slides/php-java/shape-effect/).
+Tal vez desee ver estos artículos: [Animación de PowerPoint](https://docs.aspose.com/slides/php-java/powerpoint-animation/), [Animación de forma](https://docs.aspose.com/slides/php-java/shape-animation/), y [Efecto de forma](https://docs.aspose.com/slides/php-java/shape-effect/).
 
 {{% /alert %}} 
 
-Las animaciones y transiciones hacen que las presentaciones sean más atractivas e interesantes, y hacen lo mismo con los videos. Añadamos otra diapositiva y transición al código de la presentación anterior:
+Las animaciones y transiciones hacen que las presentaciones sean más atractivas e interesantes —y hacen lo mismo con los videos. Añadamos otra diapositiva y transición al código de la presentación anterior:
 ```php
-  # Agrega una forma de sonrisa y la anima
+  # Añade una forma de sonrisa y la anima
   # ...
-  # Agrega una nueva diapositiva y transición animada
+  # Añade una nueva diapositiva y una transición animada
   $newSlide = $presentation->getSlides()->addEmptySlide($presentation->getSlides()->get_Item(0)->getLayoutSlide());
   $newSlide->getBackground()->setType(BackgroundType::OwnBackground);
   $newSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
@@ -141,11 +141,11 @@ Las animaciones y transiciones hacen que las presentaciones sean más atractivas
 ```
 
 
-Aspose.Slides también admite animación para textos. Así animamos párrafos en objetos, que aparecerán uno tras otro (con el retraso establecido a un segundo):
+Aspose.Slides también admite animación de textos. Así animamos párrafos en objetos, que aparecerán uno tras otro (con el retardo configurado a un segundo):
 ```php
   $presentation = new Presentation();
   try {
-    # Agrega texto y animaciones
+    # Añade texto y animaciones
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 120, 300, 300);
     $para1 = new Paragraph();
     $para1->getPortions()->add(new Portion("Aspose Slides for Java"));
@@ -210,15 +210,15 @@ Aspose.Slides también admite animación para textos. Así animamos párrafos en
 ```
 
 
-## **Clases de Conversión de Video**
+## **Clases de conversión de video**
 
-Para permitirte realizar tareas de conversión de PowerPoint a video, Aspose.Slides proporciona las clases [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) y [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
+Para permitirle realizar tareas de conversión de PowerPoint a video, Aspose.Slides proporciona las clases [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) y [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) permite establecer el tamaño de fotograma para el video (que se creará más tarde) a través de su constructor. Si pasas una instancia de la presentación, se utilizará `Presentation.SlideSize` y genera animaciones que [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) reproduce.
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) le permite establecer el tamaño del fotograma para el video (que se creará más adelante) mediante su constructor. Si pasa una instancia de la presentación, se utilizará `Presentation::getSlideSize` y genera animaciones que utiliza [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
 
-Cuando se generan animaciones, se genera un evento `NewAnimation` para cada animación subsecuente, que tiene como parámetro [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/). Este último es una clase que representa un reproductor para una animación separada.
+Cuando se generan animaciones, se genera un evento `NewAnimation` para cada animación subsiguiente, que tiene el parámetro del reproductor de animación de la presentación. Este último es una clase que representa un reproductor para una animación separada.
 
-Para trabajar con [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/), se utilizan la propiedad [Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#getDuration--) (la duración total de la animación) y el método [SetTimePosition](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). Cada posición de animación se establece dentro del rango *0 a duración*, y luego el método `GetFrame` devolverá un `BufferedImage` que corresponde al estado de la animación en ese momento:
+Para trabajar con el reproductor de animación de la presentación, se utilizan los métodos `getDuration` (la duración total de la animación) y `setTimePosition`. Cada posición de animación se establece dentro del rango *0 a duración*, y luego el método `getFrame` devolverá un BufferedImage que corresponde al estado de la animación en ese momento:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\PresentationPlayer;
@@ -239,7 +239,7 @@ class PresentationAnimationPlayer {
             $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
         }
-        $animationPlayer->setTimePosition($animationPlayer->getDuration());// estado final de la animación
+        $animationPlayer->setTimePosition($animationPlayer->getDuration());// final state of the animation
         try {
             # último fotograma de la animación
             $animationPlayer->getFrame()->save("lastFrame.png", ImageFormat::Png);
@@ -273,7 +273,7 @@ try {
 ```
 
 
-Para que todas las animaciones de una presentación se reproduzcan a la vez, se utiliza la clase [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/). Esta clase toma una instancia de [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) y FPS para los efectos en su constructor y luego llama al evento `FrameTick` para todas las animaciones y las reproduce:
+Para hacer que todas las animaciones en una presentación se reproduzcan a la vez, se utiliza la clase [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/). Esta clase recibe una instancia de [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) y FPS para los efectos en su constructor y luego llama al evento `FrameTick` para todas las animaciones para que se reproduzcan:
 ```php
 
 class FrameTick {
@@ -312,13 +312,13 @@ class FrameTick {
 ```
 
 
-Luego los fotogramas generados pueden compilarse para producir un video. Consulta la sección [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Luego los fotogramas generados pueden compilarse para producir un video. Consulte la sección [Convertir PowerPoint a Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **Animaciones y Efectos Admitidos**
+## **Animaciones y efectos compatibles**
 
 **Entrada**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -336,7 +336,7 @@ Luego los fotogramas generados pueden compilarse para producir un video. Consult
 
 **Énfasis**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -354,7 +354,7 @@ Luego los fotogramas generados pueden compilarse para producir un video. Consult
 
 **Salida**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -369,9 +369,9 @@ Luego los fotogramas generados pueden compilarse para producir un video. Consult
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Trayectorias de Movimiento**:
+**Rutas de movimiento**:
 
-| Tipo de Animación | Aspose.Slides | PowerPoint |
+| Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -384,7 +384,7 @@ Luego los fotogramas generados pueden compilarse para producir un video. Consult
 
 **¿Es posible convertir presentaciones protegidas con contraseña?**
 
-Sí, Aspose.Slides permite trabajar con [presentaciones protegidas con contraseña](/slides/es/php-java/password-protected-presentation/). Al procesar dichos archivos, debes proporcionar la contraseña correcta para que la biblioteca pueda acceder al contenido de la presentación.
+Sí, Aspose.Slides permite trabajar con [presentaciones protegidas con contraseña](/slides/es/php-java/password-protected-presentation/). Al procesar dichos archivos, debe proporcionar la contraseña correcta para que la biblioteca pueda acceder al contenido de la presentación.
 
 **¿Aspose.Slides admite su uso en soluciones en la nube?**
 

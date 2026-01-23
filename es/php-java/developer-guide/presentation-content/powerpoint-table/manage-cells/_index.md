@@ -1,6 +1,6 @@
 ---
-title: Gestionar celdas de tabla en presentaciones usando PHP
-linktitle: Gestionar celdas
+title: Administrar celdas de tabla en presentaciones usando PHP
+linktitle: Administrar celdas
 type: docs
 weight: 30
 url: /es/php-java/manage-cells/
@@ -15,13 +15,13 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Gestiona fácilmente las celdas de tabla en PowerPoint con Aspose.Slides para PHP. Domina el acceso, la modificación y el estilo de las celdas rápidamente para una automatización fluida de diapositivas."
+description: "Gestione fácilmente las celdas de tabla en PowerPoint con Aspose.Slides para PHP. Domine el acceso, la modificación y el estilo de las celdas rápidamente para una automatización fluida de diapositivas."
 ---
 
-## **Identificar una celda de tabla combinada**
-1. Crear una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) clase.  
-2. Obtener la tabla de la primera diapositiva.  
-3. Recorrer las filas y columnas de la tabla para encontrar celdas combinadas.  
+## **Identificar una celda de tabla fusionada**
+1. Crear una instancia de la  [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2. Obtener la tabla de la primera diapositiva. 
+3. Recorrer las filas y columnas de la tabla para encontrar celdas combinadas.
 4. Mostrar un mensaje cuando se encuentren celdas combinadas.
 
 Este código PHP muestra cómo identificar celdas de tabla combinadas en una presentación:
@@ -47,22 +47,22 @@ Este código PHP muestra cómo identificar celdas de tabla combinadas en una pre
 
 
 ## **Eliminar los bordes de las celdas de la tabla**
-1. Crear una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) clase.  
-2. Obtener la referencia a una diapositiva mediante su índice.  
-3. Definir una matriz de columnas con ancho.  
-4. Definir una matriz de filas con altura.  
-5. Añadir una tabla a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .  
-6. Recorrer cada celda para borrar los bordes superior, inferior, derecho e izquierdo.  
-7. Guardar la presentación modificada como archivo PPTX.
+1. Crear una instancia de la  [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2. Obtener la referencia de una diapositiva mediante su índice. 
+3. Definir una matriz de columnas con ancho.
+4. Definir una matriz de filas con altura.
+5. Agregar una tabla a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable).
+6. Recorrer cada celda para eliminar los bordes superior, inferior, derecho e izquierdo.
+7. Guardar la presentación modificada como un archivo PPTX.
 
-Este código PHP muestra cómo eliminar los bordes de las celdas de una tabla:
+Este código PHP muestra cómo eliminar los bordes de las celdas de la tabla:
 ```php
   # Instancia la clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accede a la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Define columnas con anchuras y filas con alturas
+    # Define columnas con anchos y filas con alturas
     $dblCols = array(50, 50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
     # Añade la forma de tabla a la diapositiva
@@ -87,14 +87,14 @@ Este código PHP muestra cómo eliminar los bordes de las celdas de una tabla:
 
 
 ## **Numeración en celdas combinadas**
-Si combinamos 2 pares de celdas (1, 1) x (2, 1) y (1, 2) x (2, 2), la tabla resultante estará numerada. Este código PHP demuestra el proceso:
+Si combinamos 2 pares de celdas (1, 1) x (2, 1) y (1, 2) x (2, 2), la tabla resultante tendrá numeración. Este código PHP muestra el proceso:
 ```php
   # Instancia la clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accede a la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Define columnas con anchuras y filas con alturas
+    # Define columnas con anchos y filas con alturas
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
     # Añade una forma de tabla a la diapositiva
@@ -129,14 +129,14 @@ Si combinamos 2 pares de celdas (1, 1) x (2, 1) y (1, 2) x (2, 2), la tabla resu
 ```
 
 
-A continuación combinamos las celdas (1, 1) y (1, 2). El resultado es una tabla que contiene una gran celda combinada en el centro:
+Entonces combinamos las celdas más allá combinando (1, 1) y (1, 2). El resultado es una tabla que contiene una gran celda combinada en su centro: 
 ```php
   # Instancia la clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accede a la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Define columnas con anchuras y filas con alturas
+    # Define columnas con anchos y filas con alturas
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
     # Añade una forma de tabla a la diapositiva
@@ -174,20 +174,19 @@ A continuación combinamos las celdas (1, 1) y (1, 2). El resultado es una tabla
 ```
 
 
-
 ## **Numeración en una celda dividida**
-En los ejemplos anteriores, cuando las celdas de la tabla se combinaban, el sistema de numeración en las demás celdas no cambiaba.
+En ejemplos anteriores, cuando las celdas de la tabla se combinaron, la numeración o el sistema de números en otras celdas no cambió. 
 
-Esta vez tomamos una tabla normal (una tabla sin celdas combinadas) y dividimos la celda (1, 1) para obtener una tabla especial. Preste atención a la numeración de esta tabla, que puede parecer extraña. Sin embargo, así es como Microsoft PowerPoint numera las celdas de tabla y Aspose.Slides hace lo mismo.
+Esta vez, tomamos una tabla normal (una tabla sin celdas combinadas) y luego intentamos dividir la celda (1,1) para obtener una tabla especial. Puede que quiera prestar atención a la numeración de esta tabla, que puede parecer extraña. Sin embargo, así es como Microsoft PowerPoint numeriza las celdas de la tabla y Aspose.Slides hace lo mismo. 
 
-Este código PHP muestra el proceso descrito:
+Este código PHP muestra el proceso que describimos:
 ```php
   # Instancia la clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accede a la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Define columnas con anchuras y filas con alturas
+    # Define columnas con anchos y filas con alturas
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
     # Añade una forma de tabla a la diapositiva
@@ -249,27 +248,27 @@ Este código PHP muestra cómo cambiar el color de fondo de una celda de tabla:
 ```
 
 
-## **Añadir una imagen dentro de una celda de tabla**
+## **Agregar una imagen dentro de una celda de tabla**
 
-1. Crear una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) clase.  
-2. Obtener la referencia a una diapositiva mediante su índice.  
-3. Definir una matriz de columnas con ancho.  
-4. Definir una matriz de filas con altura.  
-5. Añadir una tabla a la diapositiva mediante el método [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .  
-6. Crear un objeto `Images` para contener el archivo de imagen.  
-7. Añadir la imagen `IImage` al objeto `IPPImage`.  
-8. Establecer el `FillFormat` de la celda de tabla a `Picture`.  
-9. Insertar la imagen en la primera celda de la tabla.  
-10. Guardar la presentación modificada como archivo PPTX.
+1. Crear una instancia de la  [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2. Obtener la referencia de una diapositiva mediante su índice.
+3. Definir una matriz de columnas con ancho.
+4. Definir una matriz de filas con altura.
+5. Agregar una tabla a la diapositiva mediante el método [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable).
+6. Crear un objeto `Images` para contener el archivo de imagen.
+7. Agregar la imagen `IImage` al objeto `IPPImage`.
+8. Establecer el `FillFormat` de la celda de la tabla a `Picture`.
+9. Agregar la imagen a la primera celda de la tabla.
+10. Guardar la presentación modificada como un archivo PPTX
 
-Este código PHP muestra cómo colocar una imagen dentro de una celda de tabla al crearla:
+Este código PHP muestra cómo colocar una imagen dentro de una celda de tabla al crear una tabla:
 ```php
   # Instancia la clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accede a la primera diapositiva
     $islide = $pres->getSlides()->get_Item(0);
-    # Define columnas con anchuras y filas con alturas
+    # Define columnas con anchos y filas con alturas
     $dblCols = array(150, 150, 150, 150 );
     $dblRows = array(100, 100, 100, 100, 90 );
     # Añade una forma de tabla a la diapositiva
@@ -302,18 +301,18 @@ Este código PHP muestra cómo colocar una imagen dentro de una celda de tabla a
 
 ## **FAQ**
 
-**¿Puedo establecer diferentes grosores y estilos de línea para los distintos lados de una sola celda?**
+**¿Puedo establecer diferentes grosores y estilos de línea para los diferentes lados de una sola celda?**
 
-Sí. Los bordes [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) poseen propiedades independientes, de modo que el grosor y el estilo de cada lado pueden diferir. Esto sigue lógicamente el control de bordes por lado presentado en el artículo.
+Sí. Los bordes [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) tienen propiedades independientes, por lo que el grosor y el estilo de cada lado pueden ser diferentes. Esto sigue lógicamente del control de bordes por lado para una celda demostrado en el artículo.
 
-**¿Qué ocurre con la imagen si modifico el tamaño de la columna/fila después de establecer una foto como fondo de la celda?**
+**¿Qué ocurre con la imagen si cambio el tamaño de la columna/fila después de establecer una imagen como fondo de la celda?**
 
-El comportamiento depende del [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). Con estiramiento, la imagen se ajusta a la nueva celda; con mosaico, los mosaicos se recalculan. El artículo menciona los modos de visualización de imágenes en una celda.
+El comportamiento depende del [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). Con estiramiento, la imagen se ajusta a la nueva celda; con mosaico, los mosaicos se recalculan. El artículo menciona los modos de visualización de la imagen en una celda.
 
 **¿Puedo asignar un hipervínculo a todo el contenido de una celda?**
 
-Los [Hyperlinks](/slides/es/php-java/manage-hyperlinks/) se establecen a nivel de porción de texto dentro del marco de texto de la celda o a nivel de toda la tabla/forma. En la práctica, se asigna el vínculo a una porción o a todo el texto de la celda.
+Los [Hyperlinks](/slides/es/php-java/manage-hyperlinks/) se establecen a nivel de texto (porción) dentro del marco de texto de la celda o a nivel de toda la tabla/forma. En la práctica, asignas el enlace a una porción o a todo el texto de la celda.
 
 **¿Puedo establecer diferentes fuentes dentro de una sola celda?**
 
-Sí. El marco de texto de una celda admite [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (runs) con formato independiente: familia, estilo, tamaño y color de fuente.
+Sí. El marco de texto de una celda soporta [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (segmentos) con formato independiente — familia de fuente, estilo, tamaño y color.

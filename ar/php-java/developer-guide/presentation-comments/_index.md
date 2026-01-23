@@ -1,5 +1,5 @@
 ---
-title: إدارة تعليقات العرض التقديمي في PHP
+title: إدارة تعليقات العروض التقديمية في PHP
 linktitle: تعليقات العرض التقديمي
 type: docs
 weight: 100
@@ -13,7 +13,7 @@ keywords:
 - إضافة تعليق
 - الوصول إلى تعليق
 - تحرير تعليق
-- الرد على التعليق
+- الرد على تعليق
 - إزالة تعليق
 - حذف تعليق
 - PowerPoint
@@ -21,26 +21,26 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides لـ PHP عبر Java: إضافة، قراءة، تحرير وحذف التعليقات في ملفات PowerPoint بسرعة وسهولة."
+description: "إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides للـ PHP عبر Java: إضافة، قراءة، تحرير، وحذف التعليقات في ملفات PowerPoint بسرعة وسهولة."
 ---
 
-في PowerPoint، يظهر التعليق كملاحظة أو توضيح على الشريحة. عند النقر على التعليق، يتم عرض محتوياته أو رسائله. 
+في PowerPoint، يظهر التعليق كملاحظة أو توضيح على الشريحة. عند النقر على التعليق، يتم إظهار محتوياته أو رسائله. 
 
-## **لماذا نضيف التعليقات إلى العروض التقديمية؟**
+## **لماذا إضافة تعليقات إلى العروض التقديمية؟**
 
-قد ترغب في استخدام التعليقات لتقديم ملاحظات أو للتواصل مع زملائك عند مراجعة العروض التقديمية.
+قد ترغب في استخدام التعليقات لتقديم ملاحظات أو التواصل مع زملائك عند مراجعة العروض التقديمية.
 
-لتمكينك من استخدام التعليقات في عروض PowerPoint، توفر Aspose.Slides for PHP via Java
+لتمكينك من استخدام التعليقات في عروض PowerPoint التقديمية، توفر Aspose.Slides for PHP عبر Java
 
-* فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) التي تحتوي على مجموعات المؤلفين (من فئة [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/) ). يضيف المؤلفون التعليقات إلى الشرائح.
-* فئة [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) التي تحتوي على مجموعة التعليقات لكل مؤلف.
-* فئة [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) التي تتضمن معلومات حول المؤلفين وتعليقاتهم: من أضاف التعليق، وقت إضافة التعليق، موقع التعليق، إلخ.
-* فئة [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) التي تتضمن معلومات عن كل مؤلف: اسم المؤلف، الحروف الأولى له، التعليقات المرتبطة باسمه، إلخ.
+* الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) التي تحتوي على مجموعات المؤلفين (من الفئة [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/)). يضيف المؤلفون تعليقات إلى الشرائح.
+* الفئة [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) التي تحتوي على مجموعة التعليقات للمؤلفين الفرديين.
+* الفئة [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) التي تحتوي على معلومات حول المؤلفين وتعليقاتهم: من أضاف التعليق، وقت إضافة التعليق، موقع التعليق، إلخ.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) التي تحتوي على معلومات حول المؤلفين الفرديين: اسم المؤلف، حرفيه، التعليقات المرتبطة باسم المؤلف، إلخ.
 
 ## **إضافة تعليقات إلى الشريحة**
-هذا الكود PHP يوضح لك كيفية إضافة تعليق إلى شريحة في عرض PowerPoint:
+هذا الكود PHP يوضح لك كيفية إضافة تعليق إلى شريحة في عرض PowerPoint التقديمي:
 ```php
-  # ينشئ كائن الفئة Presentation
+  # يخلق كائن من فئة Presentation
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
   try {
@@ -48,7 +48,7 @@ description: "إدارة تعليقات العروض التقديمية باست
     $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
     # يضيف مؤلفًا
     $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
-    # يحدد موضع التعليقات
+    # يحدد موقع التعليقات
     $point = new Point2DFloat(0.2, 0.2);
     # يضيف تعليق شريحة لمؤلف على الشريحة 1
     $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
@@ -56,13 +56,13 @@ description: "إدارة تعليقات العروض التقديمية باست
     $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
     # يصل إلى ISlide 1
     $slide = $pres->getSlides()->get_Item(0);
-    # عندما يتم تمرير null كمعامل، تُجلب التعليقات من جميع المؤلفين إلى الشريحة المحددة
+    # عندما يتم تمرير null كمعامل، تُستحضَر التعليقات من جميع المؤلفين إلى الشريحة المختارة
     $Comments = $slide->getSlideComments($author);
-    # يصل إلى التعليق عند الفهرس 0 للشريحة 1
+    # يصل إلى التعليق في الفهرس 0 للشريحة 1
     $str = $Comments[0]->getText();
     $pres->save("Comments_out.pptx", SaveFormat::Pptx);
     if (java_values($Array->getLength($Comments)) > 0) {
-      # يحدد مجموعة تعليقات المؤلف عند الفهرس 0
+      # يختار مجموعة تعليقات المؤلف في الفهرس 0
       $commentCollection = $Comments[0]->getAuthor()->getComments();
       $Comment = $commentCollection->get_Item(0)->getText();
     }
@@ -75,9 +75,9 @@ description: "إدارة تعليقات العروض التقديمية باست
 
 
 ## **الوصول إلى تعليقات الشريحة**
-هذا الكود PHP يوضح لك كيفية الوصول إلى تعليق موجود على شريحة في عرض PowerPoint:
+هذا الكود PHP يوضح لك كيفية الوصول إلى تعليق موجود على شريحة في عرض PowerPoint التقديمي:
 ```php
-  # ينشئ كائن الفئة Presentation
+  # ينشئ كائن من فئة Presentation
   $pres = new Presentation("Comments1.pptx");
   try {
     foreach($pres->getCommentAuthors() as $commentAuthor) {
@@ -96,14 +96,14 @@ description: "إدارة تعليقات العروض التقديمية باست
 
 
 ## **الرد على التعليقات**
-التعليق الرئيسي هو أعلى أو الأصلي في تسلسل التعليقات أو الردود. باستخدام طريقتي [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) أو [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) (من فئة [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/))، يمكنك الحصول على تعليق رئيسي أو تعيينه.
+التعليق الأصلي هو التعليق الأعلى أو الأصلي في تسلسل هرمي من التعليقات أو الردود. باستخدام طريقتي [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) أو [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) (من الفئة [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/))، يمكنك تعيين أو الحصول على التعليق الأصلي.
 
-هذا الكود PHP يوضح لك كيفية إضافة تعليقات والحصول على ردود عليها:
+هذا الكود PHP يوضح لك كيفية إضافة تعليقات والحصول على الردود عليها:
 ```php
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
   try {
-    # يضيف تعليقًا
+    # يضيف تعليق
     $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
     $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     # يضيف ردًا على التعليق 1
@@ -120,7 +120,7 @@ description: "إدارة تعليقات العروض التقديمية باست
     $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3->setParentComment($comment3);
-    # يعرض هيكل التعليقات في وحدة التحكم
+    # يعرض تسلسل التعليقات الهرمي في وحدة التحكم
     $slide = $pres->getSlides()->get_Item(0);
     $comments = $slide->getSlideComments(null);
     for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
@@ -144,20 +144,20 @@ description: "إدارة تعليقات العروض التقديمية باست
 ```
 
 
-{{% alert color="warning" title="Attention" %}} 
+{{% alert color="warning" title="انتباه" %}} 
 
-* عند استخدام طريقة [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) (من فئة [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/)) لحذف تعليق، يتم حذف الردود على التعليق أيضًا.
-* إذا أدى إعداد [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) إلى إشارة دائرية، سيتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/).
+* عند استخدام طريقة [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) (من الفئة [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/)) لحذف تعليق، يتم أيضًا حذف الردود على التعليق.
+* إذا أدى ضبط [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) إلى إشارة دائرية، سيتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/).
 
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-في عام 2021، أطلقت Microsoft *التعليقات الحديثة* في PowerPoint. تحسّن ميزة التعليقات الحديثة بشكل كبير التعاون في PowerPoint. من خلال التعليقات الحديثة، يحصل مستخدمو PowerPoint على إمكانية حل التعليقات، وربط التعليقات بالأجسام والنصوص، والتفاعل بسهولة أكبر مما كان عليه سابقًا. 
+في عام 2021، قدمت Microsoft *التعليقات الحديثة* في PowerPoint. ميزة التعليقات الحديثة تحسّن بشكل كبير التعاون في PowerPoint. من خلال التعليقات الحديثة، يحصل مستخدمو PowerPoint على إمكانية حل التعليقات، ربط التعليقات بالكائنات والنصوص، والمشاركة في التفاعلات بسهولة أكبر مما كان عليه سابقًا. 
 
-في [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/)، نفّذنا دعم التعليقات الحديثة بإضافة فئة [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/). أضيفت طريقتا [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) و [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) إلى فئة [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/). 
+يدعم Aspose Slides التعليقات الحديثة عبر الفئة [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/). تم إضافة الطريقتين [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) و[insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) إلى الفئة [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/).
 
-هذا الكود PHP يوضح لك كيفية إضافة تعليق حديث إلى شريحة في عرض PowerPoint:
+هذا الكود PHP يوضح لك كيفية إضافة تعليق حديث إلى شريحة في عرض PowerPoint التقديمي:
 ```php
   $pres = new Presentation();
   try {
@@ -176,15 +176,15 @@ description: "إدارة تعليقات العروض التقديمية باست
 
 ### **حذف جميع التعليقات والمؤلفين**
 
-هذا الكود PHP يوضح لك كيفية حذف جميع التعليقات والمؤلفين في عرض تقديمي:
+هذا الكود PHP يوضح لك كيفية إزالة جميع التعليقات والمؤلفين في عرض تقديمي:
 ```php
   $presentation = new Presentation("example.pptx");
   try {
-    # حذف جميع التعليقات من العرض التقديمي
+    # يحذف جميع التعليقات من العرض التقديمي
     foreach($presentation->getCommentAuthors() as $author) {
       $author->getComments()->clear();
     }
-    # حذف جميع المؤلفين
+    # يحذف جميع المؤلفين
     $presentation->getCommentAuthors()->clear();
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
   } finally {
@@ -195,18 +195,18 @@ description: "إدارة تعليقات العروض التقديمية باست
 ```
 
 
-### **حذف تعليقات معينة**
+### **حذف تعليقات محددة**
 
-هذا الكود PHP يوضح لك كيفية حذف تعليقات معينة على شريحة:
+هذا الكود PHP يوضح لك كيفية حذف تعليقات محددة على شريحة:
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # إضافة تعليقات...
+    # أضف التعليقات...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
     $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    # إزالة جميع التعليقات التي تحتوي على النص "comment 1"
+    # احذف جميع التعليقات التي تحتوي على نص "comment 1"
     foreach($presentation->getCommentAuthors() as $commentAuthor) {
       $toRemove = new Java("java.util.ArrayList");
       foreach($slide->getSlideComments($commentAuthor) as $comment) {
@@ -229,14 +229,14 @@ description: "إدارة تعليقات العروض التقديمية باست
 
 ## **الأسئلة الشائعة**
 
-**هل يدعم Aspose.Slides حالة مثل “تم الحل” للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة مثل 'تم الحل' للتعليقات الحديثة؟**
 
-نعم. توفر [التعليقات الحديثة](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) طريقة [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/); يمكنك تعيين حالة التعليق (على سبيل المثال، وضع علامة “تم الحل”)، ويتم حفظ هذه الحالة في الملف وتتعرف عليها PowerPoint.
+نعم. تعرض [التعليقات الحديثة](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) طريقة [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/); يمكنك كتابة حالة [التعليق](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) (على سبيل المثال، وضع علامة تم الحل)، ويتم حفظ هذه الحالة في الملف وتتعرف عليها PowerPoint.
 
-**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعشيق؟**
+**هل تدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [التعليق الرئيسي](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/)، مما يتيح سلاسل ردود غير محدودة. لا تحدد الـ API حدًا معينًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) الخاص به، مما يتيح سلاسل ردود غير محدودة. لا تُحدد الواجهة البرمجية حدًا معينًا لعمق التعشيق.
 
-**في أي نظام إحداثيات يتم تعريف موقع علامة التعليق على الشريحة؟**
+**في أي نظام إحداثيات يتم تحديد موضع علامة التعليق على الشريحة؟**
 
-يتم تخزين الموقع كنقطة ذات قيمة عائمة في نظام إحداثيات الشريحة. يتيح لك ذلك وضع علامة التعليق بدقة في المكان الذي تريده.
+يتم تخزين الموضع كنقطة ذات قيمة عائمة في نظام إحداثيات الشريحة. يتيح لك ذلك وضع علامة التعليق بدقة في المكان الذي تريده.

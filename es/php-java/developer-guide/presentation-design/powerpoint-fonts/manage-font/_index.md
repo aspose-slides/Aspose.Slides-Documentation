@@ -1,34 +1,44 @@
 ---
-title: Administrar fuentes - PowerPoint Java API
-linktitle: Administrar fuentes
+title: Gestionar fuentes en presentaciones usando PHP
+linktitle: Gestionar fuentes
 type: docs
 weight: 10
 url: /es/php-java/manage-fonts/
-description: Las presentaciones suelen contener tanto texto como imágenes. Este artículo muestra cómo usar PowerPoint Java API para configurar las propiedades de fuente de párrafos de texto en las diapositivas.
+keywords:
+- administrar fuentes
+- propiedades de fuentes
+- párrafo
+- formato de texto
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Controla fuentes en PHP con Aspose.Slides: incrusta, sustituye y carga fuentes personalizadas para mantener las presentaciones PPT, PPTX y ODP claras, seguras para la marca y consistentes."
 ---
 
-## **Administrar propiedades relacionadas con fuentes**
+## **Gestionar propiedades relacionadas con la fuente**
 {{% alert color="primary" %}} 
 
-Las presentaciones suelen contener tanto texto como imágenes. El texto se puede formatear de diversas maneras, ya sea para resaltar secciones y palabras específicas o para ajustarse a estilos corporativos. El formato de texto ayuda a los usuarios a variar el aspecto y la sensación del contenido de la presentación. Este artículo muestra cómo usar Aspose.Slides para PHP a través de Java para configurar las propiedades de fuente de párrafos de texto en las diapositivas.
+Las presentaciones suelen contener tanto texto como imágenes. El texto puede formatearse de diversas maneras, ya sea para resaltar secciones y palabras específicas o para ajustarse a los estilos corporativos. El formato del texto ayuda a los usuarios a variar el aspecto y la sensación del contenido de la presentación. Este artículo muestra cómo usar Aspose.Slides for PHP via Java para configurar las propiedades de fuente de los párrafos de texto en las diapositivas.
 
 {{% /alert %}} 
 
-Para gestionar las propiedades de fuente de un párrafo usando Aspose.Slides para PHP a través de Java:
+Para gestionar las propiedades de fuente de un párrafo usando Aspose.Slides for PHP via Java:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Obtén la referencia de una diapositiva utilizando su índice.
-1. Accede a las formas de [Placeholder](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Placeholder) en la diapositiva y transfórmalas a [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/classes/AutoShape).
-1. Obtén el [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Paragraph) del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame) expuesto por [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/classes/AutoShape).
-1. Justifica el párrafo.
-1. Accede al texto de un [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Paragraph) [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion).
-1. Define la fuente utilizando [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/classes/FontData) y establece la **Fuente** del texto [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion) según corresponda.
-   1. Establece la fuente en negrita.
-   1. Establece la fuente en cursiva.
-1. Establece el color de la fuente utilizando el [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/classes/FillFormat) expuesto por el objeto [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion).
-1. Guarda la presentación modificada en un archivo PPTX.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. Obtener la referencia de una diapositiva usando su índice.
+1. Acceder a las formas [Placeholder](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/) en la diapositiva y convertirlas a [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+1. Obtener el [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) expuesto por [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+1. Justificar el párrafo.
+1. Acceder al [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) de texto de un [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
+1. Definir la fuente usando [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) y establecer la **Font** del [Portion] de texto en consecuencia.
+   1. Establecer la fuente en negrita.
+   1. Establecer la fuente en cursiva.
+1. Establecer el color de la fuente usando el [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) expuesto por el objeto [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/).
+1. Guardar la presentación modificada en un archivo PPTX.
 
-La implementación de los pasos anteriores se presenta a continuación. Toma una presentación sin adornos y formatea las fuentes en una de las diapositivas. Las capturas de pantalla que siguen muestran el archivo de entrada y cómo los fragmentos de código lo cambian. El código cambia la fuente, el color y el estilo de la fuente.
+La implementación de los pasos anteriores se muestra a continuación. Toma una presentación sin formato y aplica formatos de fuente a una de las diapositivas. Las capturas de pantalla que siguen muestran el archivo de entrada y cómo los fragmentos de código lo modifican. El código cambia la fuente, el color y el estilo de la fuente.
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
@@ -38,14 +48,13 @@ La implementación de los pasos anteriores se presenta a continuación. Toma una
 |![todo:image_alt_text](http://i.imgur.com/rY27Lt9.png)|
 | :- |
 |**Figura: El mismo texto con formato actualizado**|
-
 ```php
   # Instanciar un objeto Presentation que representa un archivo PPTX
   $pres = new Presentation("FontProperties.pptx");
   try {
-    # Accediendo a una diapositiva usando su posición en la diapositiva
+    # Accediendo a una diapositiva mediante su posición
     $slide = $pres->getSlides()->get_Item(0);
-    # Accediendo al primer y segundo placeholder en la diapositiva y transformándolo como AutoShape
+    # Accediendo al primer y segundo placeholder en la diapositiva y convirtiéndolo a AutoShape
     $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
     $tf2 = $slide->getShapes()->get_Item(1)->getTextFrame();
     # Accediendo al primer párrafo
@@ -56,7 +65,7 @@ La implementación de los pasos anteriores se presenta a continuación. Toma una
     # Accediendo a la primera porción
     $port1 = $para1->getPortions()->get_Item(0);
     $port2 = $para2->getPortions()->get_Item(0);
-    # Definir nuevas fuentes
+    # Definir fuentes nuevas
     $fd1 = new FontData("Elephant");
     $fd2 = new FontData("Castellar");
     # Asignar nuevas fuentes a la porción
@@ -68,7 +77,7 @@ La implementación de los pasos anteriores se presenta a continuación. Toma una
     # Establecer la fuente en cursiva
     $port1->getPortionFormat()->setFontItalic(NullableBool::True);
     $port2->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Establecer el color de la fuente
+    # Establecer color de la fuente
     $port1->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $port1->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $port2->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -82,54 +91,54 @@ La implementación de los pasos anteriores se presenta a continuación. Toma una
   }
 ```
 
-## **Establecer propiedades de fuente de texto**
+
+## **Establecer propiedades de fuente del texto**
 {{% alert color="primary" %}} 
 
-Como se menciona en **Administrar propiedades relacionadas con fuentes**, un [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion) se utiliza para contener texto con un estilo de formato similar en un párrafo. Este artículo muestra cómo usar Aspose.Slides para PHP a través de Java para crear un cuadro de texto con algo de texto y luego definir una fuente particular, y varias otras propiedades de la categoría de familia de fuentes.
+Como se menciona en **Gestionar propiedades relacionadas con la fuente**, un [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) se utiliza para contener texto con un estilo de formato similar en un párrafo. Este artículo muestra cómo usar Aspose.Slides for PHP via Java para crear un cuadro de texto con algún texto y luego definir una fuente concreta, así como varias otras propiedades de la categoría de familia tipográfica.
 
 {{% /alert %}} 
 
-Para crear un cuadro de texto y establecer las propiedades de fuente del texto en él:
+Para crear un cuadro de texto y establecer las propiedades de fuente del texto que contiene:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Obtén la referencia de una diapositiva utilizando su índice.
-1. Agrega un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/classes/AutoShape) del tipo **Rectángulo** a la diapositiva.
-1. Elimina el estilo de relleno asociado con el [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/classes/AutoShape).
-1. Accede al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame) del [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/classes/AutoShape).
-1. Agrega algo de texto al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame).
-1. Accede al objeto [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion) asociado con el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame).
-1. Define la fuente a utilizar para el [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion).
-1. Establece otras propiedades de la fuente como negrita, cursiva, subrayado, color y altura utilizando las propiedades relevantes expuestas por el objeto [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion).
-1. Escribe la presentación modificada como un archivo PPTX.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. Obtener la referencia de una diapositiva usando su índice.
+1. Añadir un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) de tipo **Rectangle** a la diapositiva.
+1. Eliminar el estilo de relleno asociado al [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+1. Acceder al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) del [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+1. Añadir texto al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+1. Acceder al objeto [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) asociado al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+1. Definir la fuente a usar para el [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/).
+1. Establecer otras propiedades de fuente como negrita, cursiva, subrayado, color y altura mediante las propiedades relevantes expuestas por el objeto [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/).
+1. Escribir la presentación modificada como archivo PPTX.
 
-La implementación de los pasos anteriores se presenta a continuación.
+La implementación de los pasos anteriores se muestra a continuación.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
-|**Figura: Texto con algunas propiedades de fuente establecidas por Aspose.Slides para PHP a través de Java**|
-
+|**Figura: Texto con algunas propiedades de fuente establecidas por Aspose.Slides for PHP via Java**|
 ```php
   # Instanciar un objeto Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Obtener la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Agregar un AutoShape de tipo Rectángulo
+    # Añadir un AutoShape de tipo Rectángulo
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 50);
-    # Eliminar cualquier estilo de relleno asociado con el AutoShape
+    # Eliminar cualquier estilo de relleno asociado al AutoShape
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Acceder al TextFrame asociado con el AutoShape
+    # Acceder al TextFrame asociado al AutoShape
     $tf = $ashp->getTextFrame();
     $tf->setText("Aspose TextBox");
-    # Acceder a la Porción asociada con el TextFrame
+    # Acceder a la Porción asociada al TextFrame
     $port = $tf->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     # Establecer la fuente para la Porción
     $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
-    # Establecer la propiedad de negrita de la fuente
+    # Establecer la propiedad Negrita de la fuente
     $port->getPortionFormat()->setFontBold(NullableBool::True);
-    # Establecer la propiedad de cursiva de la fuente
+    # Establecer la propiedad Cursiva de la fuente
     $port->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Establecer la propiedad de subrayado de la fuente
+    # Establecer la propiedad Subrayado de la fuente
     $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
     # Establecer la altura de la fuente
     $port->getPortionFormat()->setFontHeight(25);

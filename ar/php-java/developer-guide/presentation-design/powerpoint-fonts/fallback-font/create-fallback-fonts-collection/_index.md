@@ -8,25 +8,25 @@ keywords:
 - خط احتياطي
 - قاعدة احتياطية
 - مجموعة خطوط
-- تهيئة الخط
+- تكوين الخط
 - إعداد الخط
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إعداد مجموعة خطوط احتياطية في Aspose.Slides لـ PHP عبر Java للحفاظ على النص متسقًا وواضحًا في عروض PowerPoint و OpenDocument."
+description: "إعداد مجموعة خطوط احتياطية في Aspose.Slides لـ PHP عبر Java لضمان ثبات النص ووضوحه في عروض PowerPoint و OpenDocument."
 ---
 
-## **تطبيق قواعد التعويض**
+## **تطبيق قواعد الفولباك**
 
-يمكن تنظيم كائنات فئة [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) في مجموعة [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection). يمكن إضافة القواعد أو إزالتها من المجموعة.
+يمكن تنظيم مثيلات فئة [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection). يمكن إضافة أو إزالة القواعد من المجموعة.
 
-ثم يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) في فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/ar/php-java/about-fontsmanager-and-fontsloader/).
+ثم يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) في فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager). يتحكم FontsManager في الخطوط عبر العرض التقديمي.
 
-كل [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) يحتوي على طريقة [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) مع نسخة خاصة به من فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager).
+كل [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) يحتوي على طريقة [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) مع مثيل خاص به من فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager).
 
-فيما يلي مثال على كيفية إنشاء مجموعة قواعد خطوط التعويض وتعيينها في [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) لعرض تقديمي معين:  
+فيما يلي مثال على كيفية إنشاء مجموعة قواعد خطوط الفولباك وتعيينها في [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) لعرض تقديمي معين:  
 ```php
   $pres = new Presentation();
   try {
@@ -42,26 +42,26 @@ description: "إعداد مجموعة خطوط احتياطية في Aspose.Slid
 ```
 
 
-بعد أن يتم تهيئة FontsManager بمجموعة خطوط التعويض، تُطبق خطوط التعويض أثناء عرض العرض التقديمي.
+بعد تهيئة FontsManager بمجموعة خطوط الفولباك، تُطبق خطوط الفولباك أثناء عرض التقديم.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [عرض التقديم مع الخط الاحتياطي](/slides/ar/php-java/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [عرض تقديمي مع خط الفولباك](/slides/ar/php-java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**هل سيتم تضمين قواعد التعويض الخاصة بي في ملف PPTX وستكون مرئية في PowerPoint بعد الحفظ؟**
+**هل سيتم تضمين قواعد الفولباك في ملف PPTX وتكون مرئية في PowerPoint بعد الحفظ؟**
 
-لا. قواعد التعويض هي إعدادات عرض في وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
+لا. قواعد الفولباك هي إعدادات عرض وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
 
-**هل يطبق التعويض على النص داخل SmartArt و WordArt والرسوم البيانية والجداول؟**
+**هل ينطبق الفولباك على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟**
 
-نعم. يتم استخدام نفس آلية استبدال الحروف لأي نص في هذه الكائنات.
+نعم. يتم استخدام نفس آلية استبدال الرموز لأي نص في هذه العناصر.
 
 **هل توزع Aspose أي خطوط مع المكتبة؟**
 
-لا. تقوم بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية الكاملة.
+لا. أنت تضيف وتستخدم الخطوط على جانبك وتتحمل المسؤولية كاملة.
 
-**هل يمكن استخدام الاستبدال/البديل للخطوط المفقودة وتعويض الحروف المفقودة معًا؟**
+**هل يمكن استخدام الاستبدال/الاستعاضة عن الخطوط المفقودة والفولباك للرموز المفقودة معًا؟**
 
-نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توفر الخطوط ([replacement](/slides/ar/php-java/font-replacement/)/[substitution](/slides/ar/php-java/font-substitution/))، ثم يملأ التعويض الفجوات للحروف المفقودة في الخطوط المتاحة.
+نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بتحديد توفر الخطوط ([الاستبدال](/slides/ar/php-java/font-replacement/)/[الاستعاضة](/slides/ar/php-java/font-substitution/))، ثم يملأ الفولباك الفجوات للرموز المفقودة في الخطوط المتاحة.

@@ -6,43 +6,45 @@ weight: 80
 url: /ja/php-java/animated-charts/
 keywords:
 - チャート
-- アニメーションチャート
+- アニメーション化されたチャート
 - チャートアニメーション
 - チャートシリーズ
 - チャートカテゴリ
 - シリーズ要素
 - カテゴリ要素
-- エフェクト追加
+- エフェクトを追加
 - エフェクトタイプ
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、見事なアニメーションチャートを作成しましょう。PPT と PPTX ファイルで動的なビジュアルを加えてプレゼンテーションを強化し、今すぐ始めましょう。"
+description: "Aspose.Slides for PHP via Java を使用して、魅力的なアニメーションチャートを作成しましょう。PPT および PPTX ファイルで動的なビジュアルを加えてプレゼンテーションを強化します — 今すぐ始めましょう。"
 ---
 
 {{% alert color="primary" %}} 
-Aspose.Slides for PHP via Java はチャート要素のアニメーションをサポートします。**Series**、**Categories**、**Series Elements**、**Categories Elements** は [**ISequence**.**addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) メソッドと、2つの列挙型 [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) と [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType) を使用してアニメーション化できます。
+
+Aspose.Slides for PHP via Java はチャート要素のアニメーションをサポートします。 **Series**、**Categories**、**Series Elements**、**Categories Elements** は [**Sequence::addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/#addEffect) メソッドと、2 つの列挙型 [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) および [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType) を使用してアニメーション化できます。
+
 {{% /alert %}} 
 
-## **チャートシリーズ アニメーション**
-チャートのシリーズをアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **Chart Series Animation**
+チャートシリーズをアニメーション化したい場合、以下の手順に従ってコードを記述してください。
 
-1. プレゼンテーションをロードします。
-1. チャートオブジェクトの参照を取得します。
-1. シリーズをアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き出します。
+1. プレゼンテーションをロードする。
+1. チャート オブジェクトへの参照を取得する。
+1. シリーズをアニメーション化する。
+1. プレゼンテーション ファイルを書き出す。
 
-以下の例では、チャートのシリーズをアニメーション化しています。
+以下の例では、チャートシリーズをアニメーション化しています。
 ```php
-  # プレゼンテーションファイルを表す Presentation クラスのインスタンス化
+  # プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation("ExistingChart.pptx");
   try {
     # チャートオブジェクトの参照を取得
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # シリーズをアニメート
+    # シリーズをアニメーション化
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
@@ -58,17 +60,17 @@ Aspose.Slides for PHP via Java はチャート要素のアニメーションを�
 ```
 
 
-## **チャートカテゴリ アニメーション**
-チャートのカテゴリをアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **Chart Category Animation**
+チャートカテゴリをアニメーション化したい場合、以下の手順に従ってコードを記述してください。
 
-1. プレゼンテーションをロードします。
-1. チャートオブジェクトの参照を取得します。
-1. カテゴリをアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き出します。
+1. プレゼンテーションをロードする。
+1. チャート オブジェクトへの参照を取得する。
+1. カテゴリをアニメーション化する。
+1. プレゼンテーション ファイルを書き出す。
 
-以下の例では、チャートのカテゴリをアニメーション化しています。
+以下の例では、チャートカテゴリをアニメーション化しています。
 ```php
-  # プレゼンテーションファイルを表す Presentation クラスのインスタンス化
+  # プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation("ExistingChart.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -88,20 +90,20 @@ Aspose.Slides for PHP via Java はチャート要素のアニメーションを�
 ```
 
 
-## **シリーズ要素のアニメーション**
-シリーズ要素をアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **Animation in a Series Element**
+シリーズ要素をアニメーション化したい場合、以下の手順に従ってコードを記述してください。
 
-1. プレゼンテーションをロードします。
-1. チャートオブジェクトの参照を取得します。
-1. シリーズ要素をアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き出します。
+1. プレゼンテーションをロードする。
+1. チャート オブジェクトへの参照を取得する。
+1. シリーズ要素をアニメーション化する。
+1. プレゼンテーション ファイルを書き出す。
 
-以下の例では、シリーズの要素をアニメーション化しています。
+以下の例では、シリーズ要素をアニメーション化しています。
 ```php
-  # プレゼンテーション ファイルを表す Presentation クラスをインスタンス化
+  # プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation("ExistingChart.pptx");
   try {
-    # チャート オブジェクトの参照を取得
+    # チャートオブジェクトの参照を取得
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
@@ -119,7 +121,7 @@ Aspose.Slides for PHP via Java はチャート要素のアニメーションを�
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # プレゼンテーション ファイルをディスクに書き込む
+    # プレゼンテーションファイルをディスクに保存
     $pres->save("AnimatingSeriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -129,17 +131,17 @@ Aspose.Slides for PHP via Java はチャート要素のアニメーションを�
 ```
 
 
-## **カテゴリ要素のアニメーション**
-カテゴリ要素をアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **Animation in a Category Element**
+カテゴリ要素をアニメーション化したい場合、以下の手順に従ってコードを記述してください。
 
-1. プレゼンテーションをロードします。
-1. チャートオブジェクトの参照を取得します。
-1. カテゴリ要素をアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き出します。
+1. プレゼンテーションをロードする。
+1. チャート オブジェクトへの参照を取得する。
+1. カテゴリ要素をアニメーション化する。
+1. プレゼンテーション ファイルを書き出す。
 
 以下の例では、カテゴリ要素をアニメーション化しています。
 ```php
-  # プレゼンテーションファイルを表す Presentation クラスをインスタンス化
+  # プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation("ExistingChart.pptx");
   try {
     # チャートオブジェクトの参照を取得
@@ -160,7 +162,7 @@ Aspose.Slides for PHP via Java はチャート要素のアニメーションを�
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # プレゼンテーションファイルをディスクに書き込む
+    # プレゼンテーションファイルをディスクに保存
     $pres->save("AnimatingCategoriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -172,22 +174,22 @@ Aspose.Slides for PHP via Java はチャート要素のアニメーションを�
 
 ## **FAQ**
 
-**チャートは通常のシェイプと同様に、エントランス、エンファシス、エグジットなどの異なるエフェクトタイプがサポートされていますか？**
+**異なる効果タイプ（例：入口、強調、終了）は、通常のシェイプと同様にチャートでもサポートされていますか？**
 
-はい。チャートはシェイプとして扱われるため、エントランス、エンファシス、エグジットなどの標準的なアニメーション効果タイプがサポートされており、スライドのタイムラインとアニメーションシーケンスを通じてフルコントロールできます。
+はい。チャートはシェイプとして扱われるため、入口、強調、終了を含む標準のアニメーション効果タイプをサポートし、スライドのタイムラインやアニメーション シーケンスを通じてフルコントロールできます。
 
-**チャートのアニメーションとスライド遷移を組み合わせることはできますか？**
+**チャートのアニメーションをスライド遷移と組み合わせることはできますか？**
 
-はい。[Transitions](/slides/ja/php-java/slide-transition/) はスライド全体に適用され、アニメーション効果はスライド上のオブジェクトに適用されます。両方を同じプレゼンテーション内で併用し、個別に制御することが可能です。
+はい。[Transitions](/slides/ja/php-java/slide-transition/)はスライド全体に適用され、アニメーション効果はスライド上のオブジェクトに適用されます。両方を同じプレゼンテーションで併用し、個別に制御できます。
 
-**PPTX に保存した際にチャートのアニメーションは保持されますか？**
+**PPTX に保存したときにチャートアニメーションは保持されますか？**
 
-はい。[save to PPTX](/slides/ja/php-java/save-presentation/) を実行すると、すべてのアニメーション効果と順序が保持されます。これはプレゼンテーションのネイティブなアニメーションモデルの一部であるためです。
+はい。[save to PPTX](/slides/ja/php-java/save-presentation/)すると、すべてのアニメーション効果とその順序がプレゼンテーションのネイティブ アニメーション モデルの一部として保持されます。
 
-**既存のプレゼンテーションからチャートのアニメーションを読み取り、変更することはできますか？**
+**既存のプレゼンテーションからチャートアニメーションを読み取り、変更することはできますか？**
 
-はい。API はスライドのタイムライン、シーケンス、エフェクトへのアクセスを提供しており、既存のチャートアニメーションを検査し、ゼロから作り直すことなく調整できます。
+はい。API はスライドのタイムライン、シーケンス、エフェクトへのアクセスを提供し、既存のチャートアニメーションを検査し、ゼロから作り直すことなく調整できます。
 
-**Aspose.Slides を使用して、チャートアニメーションを含むビデオを作成できますか？**
+**Aspose.Slides を使用してチャートアニメーションを含むビデオを作成できますか？**
 
-はい。[export a presentation to video](/slides/ja/php-java/convert-powerpoint-to-video/) を使用して、アニメーションを保持したままビデオにエクスポートできます。タイミングやその他のエクスポート設定を構成することで、生成されたクリップはアニメーション再生を反映します。
+はい。アニメーションを保持したまま、タイミングやその他のエクスポート設定を構成して、プレゼンテーションをビデオにエクスポートすることができます。[export a presentation to video](/slides/ja/php-java/convert-powerpoint-to-video/)をご参照ください。

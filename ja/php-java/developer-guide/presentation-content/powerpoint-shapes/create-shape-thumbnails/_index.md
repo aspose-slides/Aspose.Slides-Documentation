@@ -1,50 +1,50 @@
 ---
-title: PHPでプレゼンテーション シェイプのサムネイルを作成する
-linktitle: シェイプ サムネイル
+title: PHPでプレゼンテーションシェイプのサムネイルを作成する
+linktitle: シェイプサムネイル
 type: docs
 weight: 70
 url: /ja/php-java/create-shape-thumbnails/
 keywords:
-- シェイプ サムネイル
-- シェイプ 画像
-- シェイプ をレンダリング
-- シェイプ レンダリング
+- シェイプサムネイル
+- シェイプ画像
+- シェイプのレンダリング
+- シェイプレンダリング
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して PowerPoint スライドから高品質なシェイプ サムネイルを生成し、プレゼンテーションのサムネイルを簡単に作成およびエクスポートできます。"
+description: "Aspose.Slides for PHP via Javaを使用してPowerPointスライドから高品質なシェイプサムネイルを生成します – プレゼンテーションのサムネイルを簡単に作成・エクスポートできます。"
 ---
 
 ## **概要**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java を使用すると、各ページがスライドに対応するプレゼンテーション ファイルを作成できます。スライドは Microsoft PowerPoint で開くことで表示できます。しかし、開発者がシェイプの画像を別の画像ビューアで個別に確認したい場合があります。そのようなケースでは、Aspose.Slides for PHP via Java がスライド シェイプのサムネイル画像の生成を支援します。
+Aspose.Slides for PHP via Java は、各ページがスライドに対応するプレゼンテーションファイルを作成するために使用できます。スライドは Microsoft PowerPoint でプレゼンテーションファイルを開くことで表示できます。ただし、開発者は時々シェイプの画像を画像ビューアで個別に表示する必要があります。そのような場合、Aspose.Slides for PHP via Java はスライドシェイプのサムネイル画像を生成するのに役立ちます。
 
 {{% /alert %}} 
 
-このトピックでは、さまざまな状況でスライド サムネイルを生成する方法を示します。
+このトピックでは、さまざまな状況でスライドのサムネイルを生成する方法を示します。
 
-- スライド内のシェイプ サムネイルの生成
-- ユーザー定義のサイズでシェイプ サムネイルを生成
-- シェイプの外観の境界内でシェイプ サムネイルを生成
+- スライド内のシェイプサムネイルを生成する。
+- ユーザー定義のサイズでスライドシェイプのシェイプサムネイルを生成する。
+- シェイプの外観境界内でシェイプサムネイルを生成する。
 
-## **スライドからシェイプ サムネイルを生成する**
-Aspose.Slides for PHP via Java を使用して任意のスライドからシェイプ サムネイルを生成するには、次の手順を実行します。
+## **スライドからシェイプサムネイルを生成する**
+Aspose.Slides for PHP via Java を使用して任意のスライドからシェイプサムネイルを生成するには、次の手順を実行します。
 
-1. **[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)** クラスのインスタンスを作成します。
+1. [Presentation] クラスのインスタンスを作成します。
 1. ID またはインデックスを使用して任意のスライドの参照を取得します。
-1. 参照したスライドのデフォルト スケールで **[シェイプ サムネイル画像を取得](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getImage--)** します。
+1. 参照されたスライドのデフォルトスケールで[シェイプのサムネイル画像を取得](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage)します。
 1. 好みの画像形式でサムネイル画像を保存します。
 
-このサンプルコードは、スライドからシェイプ サムネイルを生成する方法を示しています:
+このサンプルコードは、スライドからシェイプサムネイルを生成する方法を示しています。
 ```php
-  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成する
+  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    # フルスケールの画像を作成する
+    # フルサイズの画像を作成
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage();
-    # 画像を PNG 形式でディスクに保存する
+    # 画像を PNG 形式でディスクに保存
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -60,22 +60,22 @@ Aspose.Slides for PHP via Java を使用して任意のスライドからシェ�
 ```
 
 
-## **ユーザー定義スケーリング係数でサムネイルを生成する**
-Aspose.Slides for PHP via Java を使用してスライドのシェイプ サムネイルをユーザー定義のサイズで生成するには、次の手順を実行します。
+## **ユーザー定義スケーリング係数のサムネイルを生成する**
+Aspose.Slides for PHP via Java を使用してスライドのシェイプサムネイルを生成するには、次の手順を実行します。
 
-1. **[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)** クラスのインスタンスを作成します。
+1. [Presentation] クラスのインスタンスを作成します。
 1. ID またはインデックスを使用して任意のスライドの参照を取得します。
-1. 参照したスライドの **[シェイプ サムネイル画像を取得](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getImage-int-float-float-)** し、ユーザー定義の寸法を指定します。
+1. ユーザー定義のサイズで参照されたスライドの[シェイプのサムネイル画像を取得](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage)します。
 1. 好みの画像形式でサムネイル画像を保存します。
 
-このサンプルコードは、定義されたスケーリング係数に基づいてシェイプ サムネイルを生成する方法を示しています:
+このサンプルコードは、定義されたスケーリング係数に基づいてシェイプサムネイルを生成する方法を示しています。
 ```php
-  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成する
+  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    # フルスケールの画像を作成する
+    # フルスケール画像を作成
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Shape, 1, 1);
-    # 画像を PNG 形式でディスクに保存する
+    # 画像を PNG 形式でディスクに保存
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -91,22 +91,22 @@ Aspose.Slides for PHP via Java を使用してスライドのシェイプ サム
 ```
 
 
-## **外観境界ベースのシェイプ サムネイルを作成する**
-この方法を使用すると、開発者はシェイプの外観境界内でサムネイルを生成できます。すべてのシェイプ効果が考慮され、生成されたシェイプ サムネイルはスライド境界によって制限されます。外観境界内でスライド シェイプのサムネイルを生成するには、次の手順を実行します。
+## **境界ベースのシェイプ外観サムネイルを作成する**
+このシェイプサムネイル作成方法により、開発者はシェイプの外観境界内でサムネイルを生成できます。すべてのシェイプ効果が考慮されます。生成されたシェイプサムネイルはスライドの境界で制限されます。シェイプの外観境界内でスライドシェイプのサムネイルを生成するには、次の手順を実行します。
 
-1. **[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)** クラスのインスタンスを作成します。
+1. [Presentation] クラスのインスタンスを作成します。
 1. ID またはインデックスを使用して任意のスライドの参照を取得します。
-1. 外観としてシェイプ境界を使用して、参照したスライドのサムネイル画像を取得します。
+1. シェイプ境界を外観として使用し、参照されたスライドのサムネイル画像を取得します。
 1. 好みの画像形式でサムネイル画像を保存します。
 
-このサンプルコードは、上記の手順に基づいています:
+このサンプルコードは上記の手順に基づいています。
 ```php
-  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成する
+  # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    # フルスケールの画像を作成する
+    # フルスケール画像を作成
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Appearance, 1, 1);
-    # 画像を PNG 形式でディスクに保存する
+    # 画像を PNG 形式でディスクに保存
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -124,22 +124,22 @@ Aspose.Slides for PHP via Java を使用してスライドのシェイプ サム
 
 ## **FAQ**
 
-**シェイプ サムネイルを保存するときに使用できる画像形式は何ですか？**
+**シェイプサムネイルの保存に使用できる画像形式は何ですか？**
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/)、その他。シェイプはコンテンツを SVG として保存することで、[ベクトル SVG としてエクスポート](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) も可能です。
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/) およびその他があります。シェイプは、シェイプの内容を SVG として保存することで、[ベクター SVG としてエクスポート](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) することもできます。
 
-**サムネイルのレンダリング時に Shape 境界と Appearance 境界の違いは何ですか？**
+**サムネイルをレンダリングする際の Shape と Appearance の境界の違いは何ですか？**
 
-`Shape` はシェイプのジオメトリを使用し、`Appearance` は[視覚効果](/slides/ja/php-java/shape-effect/)（影、光彩など）を考慮します。
+`Shape` はシェイプのジオメトリを使用し、`Appearance` は[視覚効果](/slides/ja/php-java/shape-effect/)（影、ぼかしなど）を考慮します。
 
-**シェイプが非表示としてマークされている場合、サムネイルは生成されますか？**
+**シェイプが非表示としてマークされた場合はどうなりますか？サムネイルとしてレンダリングされますか？**
 
-非表示シェイプはモデルの一部として残り、レンダリング可能です。非表示フラグはスライドショー表示に影響しますが、シェイプの画像生成を妨げません。
+非表示のシェイプはモデルの一部として残り、レンダリング可能です。非表示フラグはスライドショーの表示に影響しますが、シェイプの画像生成を妨げません。
 
 **グループシェイプ、チャート、SmartArt、その他の複雑なオブジェクトはサポートされていますか？**
 
-はい。[Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) として表現できるオブジェクト（[GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/)、[Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/)、[SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) など） はサムネイルまたは SVG として保存できます。
+はい。[Shape] として表現されるすべてのオブジェクト（[GroupShape]、[Chart]、[SmartArt] を含む）は、サムネイルまたは SVG として保存できます。
 
-**システムにインストールされているフォントはテキストシェイプのサムネイル品質に影響しますか？**
+**システムにインストールされたフォントはテキストシェイプのサムネイル品質に影響しますか？**
 
-はい。不要なフォント代替やテキストの再配置を防ぐために、[必要なフォントを提供](/slides/ja/php-java/custom-font/)（または[フォント置換を構成](/slides/ja/php-java/font-substitution/)）する必要があります。
+はい。不要なフォールバックやテキストの再配置を防ぐために、[必要なフォントを提供](/slides/ja/php-java/custom-font/)（または[フォント置換を構成](/slides/ja/php-java/font-substitution/)）する必要があります。

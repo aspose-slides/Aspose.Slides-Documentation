@@ -14,31 +14,31 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "عزز عروض PowerPoint التقديمية بإضافة مستطيلات باستخدام Aspose.Slides للـ PHP عبر Java — صمم وعدّل الأشكال برمجياً بسهولة."
+description: "عزّز عروض PowerPoint التقديمية الخاصة بك بإضافة مستطيلات باستخدام Aspose.Slides للـ PHP عبر Java — صمّم وعدّل الأشكال برمجياً بسهولة."
 ---
 
 {{% alert color="primary" %}} 
 
-مثل المواضيع السابقة، يتناول هذا الموضوع أيضًا إضافة شكل، وهذه المرة سنناقش الشكل **Rectangle**. في هذا الموضوع، وصفنا كيف يمكن للمطورين إضافة مستطيلات بسيطة أو مُنسقة إلى شرائحهم باستخدام Aspose.Slides for PHP عبر Java.
+مثل المواضيع السابقة، هذا الموضوع أيضًا يدور حول إضافة شكل وهذه المرة الشكل الذي سنناقشه هو **Rectangle**. في هذا الموضوع، وصفنا كيف يمكن للمطورين إضافة مستطيلات بسيطة أو مُنسقة إلى شرائحهم باستخدام Aspose.Slides للـ PHP عبر Java.
 
 {{% /alert %}} 
 
 ## **إضافة مستطيل إلى شريحة**
-لإضافة مستطيل بسيط إلى شريحة محددة في العرض التقديمي، يرجى اتباع الخطوات التالية:
+لإضافة مستطيل بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-- إضافة [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) من نوع Rectangle باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) المعروضة بواسطة كائن [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
+- الحصول على مرجع شريحة باستخدام فهرسها.
+- إضافة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) من نوع Rectangle باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) التي تُعرَض عبر كائن [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) .
 - كتابة العرض التقديمي المعدل كملف PPTX.
 
-في المثال أدناه، قمنا بإضافة مستطيل بسيط إلى الشريحة الأولى من العرض التقديمي.
+في المثال المعطى أدناه، قمنا بإضافة مستطيل بسيط إلى الشريحة الأولى من العرض التقديمي.
 ```php
-  # إنشاء كائن من فئة Presentation يمثل ملف PPTX
+  # إنشاء فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape من نوع الشكل البيضاوي
+    # إضافة AutoShape من نوع إهليلج
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 50);
     # كتابة ملف PPTX إلى القرص
     $pres->save("RecShp1.pptx", SaveFormat::Pptx);
@@ -51,30 +51,30 @@ description: "عزز عروض PowerPoint التقديمية بإضافة مست�
 
 
 ## **إضافة مستطيل مُنسق إلى شريحة**
-لإضافة مستطيل مُنسق إلى شريحة، يرجى اتباع الخطوات التالية:
+لإضافة مستطيل مُنسق إلى شريحة، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-- إضافة [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) من نوع Rectangle باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) المعروضة بواسطة كائن [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
-- ضبط [Fill Type](https://reference.aspose.com/slides/php-java/aspose.slides/FillType) للمستطيل إلى Solid.
-- ضبط لون المستطيل باستخدام طريقة [SolidFillColor.setColor](https://reference.aspose.com/slides/php-java/aspose.slides/IColorFormat#setColor-java.awt.Color-) كما هو معروض في كائن [IFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IFillFormat) المرتبط بكائن [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape).
-- ضبط لون خطوط المستطيل.
-- ضبط عرض خطوط المستطيل.
+- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
+- الحصول على مرجع شريحة باستخدام فهرسها.
+- إضافة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) من نوع Rectangle باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) التي تُعرَض عبر كائن [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) .
+- تعيين [Fill Type](https://reference.aspose.com/slides/php-java/aspose.slides/FillType) للمستطيل إلى Solid.
+- تعيين لون المستطيل باستخدام طريقة [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) التي تُعرَض عبر كائن [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) المرتبط بكائن [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
+- تعيين لون خطوط المستطيل.
+- تعيين عرض خطوط المستطيل.
 - كتابة العرض التقديمي المعدل كملف PPTX.
 
-تم تنفيذ الخطوات المذكورة أعلاه في المثال أدناه.
+تم تنفيذ الخطوات السابقة في المثال المعطى أدناه.
 ```php
-  # إنشاء كائن من فئة Presentation يمثل PPTX
+  # إنشاء فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape من نوع الشكل البيضاوي
+    # إضافة AutoShape من نوع إهليلج
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 50);
-    # تطبيق بعض التنسيقات على شكل البيضاوي
+    # تطبيق بعض التنسيقات على شكل الإهليلج
     $shp->getFillFormat()->setFillType(FillType::Solid);
     $shp->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    # تطبيق بعض التنسيقات على خط البيضاوي
+    # تطبيق بعض التنسيقات على خط الإهليلج
     $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shp->getLineFormat()->setWidth(5);
@@ -90,30 +90,23 @@ description: "عزز عروض PowerPoint التقديمية بإضافة مست�
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني إضافة مستطيل بزوايا مستديرة؟**
-
-استخدم [shape type](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/) المستديرة الزوايا وقم بتعديل نصف قطر الزاوية في خصائص الشكل؛ يمكن أيضًا تطبيق التقويس لكل زاوية عبر تعديلات الهندسة.
+**كيف أضيف مستطيل بزوايا مستديرة؟**
+استخدم [shape type](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/) ذو الزوايا المستديرة وقم بتعديل نصف قطر الزاوية في خصائص الشكل؛ يمكن أيضًا تطبيق التقويس على كل زاوية على حدة عبر تعديل الهندسة.
 
 **كيف أملأ مستطيلًا بصورة (نقش)؟**
+اختر [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) للصور، وفّر مصدر الصورة، وقم بتهيئة أوضاع [stretching/tiling modes](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) .
 
-حدد [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) للصورة، قدم مصدر الصورة، وقم بتهيئة [stretching/tiling modes](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/).
+**هل يمكن أن يحتوي المستطيل على ظل وتوهج؟**
+نعم. تتوفر [Outer/inner shadow, glow, and soft edges](/slides/ar/php-java/shape-effect/) مع معلمات قابلة للتعديل.
 
-**هل يمكن أن يكون للمستطيل ظل وتألق؟**
-
-نعم. [Outer/inner shadow, glow, and soft edges](/slides/ar/php-java/shape-effect/) متوفرون مع معلمات قابلة للتعديل.
-
-**هل يمكنني تحويل مستطيل إلى زر مع ارتباط تشعبي؟**
-
+**هل يمكن تحويل المستطيل إلى زر مع رابط تشعبي؟**
 نعم. [Assign a hyperlink](/slides/ar/php-java/manage-hyperlinks/) للنقر على الشكل (الانتقال إلى شريحة، ملف، عنوان ويب، أو بريد إلكتروني).
 
-**كيف يمكنني حماية مستطيل من الحركة والتغييرات؟**
+**كيف يمكنني حماية المستطيل من التحريك والتغييرات؟**
+استخدم أقفال الشكل: يمكنك منع التحريك، إعادة التحجيم، الاختيار، أو تحرير النص للحفاظ على التخطيط.
 
-[Use shape locks](/slides/ar/php-java/applying-protection-to-presentation/): يمكنك منع الحركة، تغيير الحجم، الاختيار، أو تحرير النص للحفاظ على التخطيط.
-
-**هل يمكنني تحويل مستطيل إلى صورة نقطية أو SVG؟**
-
+**هل يمكنني تحويل المستطيل إلى صورة نقطية أو SVG؟**
 نعم. يمكنك [render the shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) إلى صورة بحجم/مقياس محدد أو [export it as SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) للاستخدام كمتجه.
 
 **كيف أحصل بسرعة على الخصائص الفعلية (الفعّالة) للمستطيل مع مراعاة السمة والوراثة؟**
-
-[Use the shape’s effective properties](/slides/ar/php-java/shape-effective-properties/): تُرجع API قيمًا محسوبة تأخذ في الاعتبار أنماط السمة، التخطيط، والإعدادات المحلية، مما يبسط تحليل التنسيق.
+[Use the shape’s effective properties](/slides/ar/php-java/shape-effective-properties/): تُعيد API قيمًا مُحسوبة تأخذ في الاعتبار أنماط السمة، التخطيط، والإعدادات المحلية، مما يبسط تحليل التنسيق.

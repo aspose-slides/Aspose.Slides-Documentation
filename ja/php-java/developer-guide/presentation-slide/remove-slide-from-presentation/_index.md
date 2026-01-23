@@ -1,40 +1,40 @@
 ---
-title: PHPでプレゼンテーションからスライドを削除する
+title: PHP でプレゼンテーションからスライドを削除する
 linktitle: スライドを削除
 type: docs
 weight: 30
 url: /ja/php-java/remove-slide-from-presentation/
 keywords:
+- スライドを削除
 - スライドの削除
-- スライドの削除
-- 未使用スライドの削除
+- 未使用スライドを削除
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java を介した PHP 用 Aspose.Slides で、PowerPoint および OpenDocument のプレゼンテーションからスライドを簡単に削除できます。明確なコード例を取得し、ワークフローを向上させましょう。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument プレゼンテーションからスライドを簡単に削除できます。明確なコード例を取得し、ワークフローを向上させましょう。"
 ---
 
-スライド（またはその内容）が冗長になった場合は削除できます。Aspose.Slides は、プレゼンテーション内のすべてのスライドを格納するリポジトリである [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/) をカプセル化する [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスを提供します。既知の [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) オブジェクトに対して参照またはインデックスのポインタを使用すると、削除したいスライドを指定できます。
+スライド（またはその内容）が冗長になる場合は、削除できます。Aspose.Slides は、プレゼンテーション内のすべてのスライドのリポジトリである [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) をカプセル化する [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスを提供します。既知の [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) オブジェクトのポインタ（参照またはインデックス）を使用して、削除したいスライドを指定できます。
 
-## **参照でスライドを削除する**
+## **参照によるスライドの削除**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. ID またはインデックスを使用して削除したいスライドの参照を取得します。  
-1. 参照されたスライドをプレゼンテーションから削除します。  
-1. 変更されたプレゼンテーションを保存します。  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. 削除したいスライドの ID またはインデックスを使用して参照を取得します。
+1. 参照されたスライドをプレゼンテーションから削除します。
+1. 変更されたプレゼンテーションを保存します。
 
-この PHP コードは、参照を使用してスライドを削除する方法を示しています:
+この PHP コードは、参照を使用してスライドを削除する方法を示しています。
 ```php
-  # プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化する
+  # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化
   $pres = new Presentation("demo.pptx");
   try {
-    # スライドコレクション内のインデックスでスライドにアクセスする
+    # スライドコレクション内のインデックスを使用してスライドにアクセス
     $slide = $pres->getSlides()->get_Item(0);
-    # 参照を使ってスライドを削除する
+    # 参照を使用してスライドを削除
     $pres->getSlides()->remove($slide);
-    # 変更されたプレゼンテーションを保存する
+    # 変更されたプレゼンテーションを保存
     $pres->save("modified.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -42,20 +42,20 @@ description: "Java を介した PHP 用 Aspose.Slides で、PowerPoint および
 ```
 
 
-## **インデックスでスライドを削除する**
+## **インデックスによるスライドの削除**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-1. インデックス位置を指定してプレゼンテーションからスライドを削除します。  
-1. 変更されたプレゼンテーションを保存します。  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックス位置を使用してプレゼンテーションからスライドを削除します。
+1. 変更されたプレゼンテーションを保存します。
 
-この PHP コードは、インデックスを使用してスライドを削除する方法を示しています:
+この PHP コードは、インデックスを使用してスライドを削除する方法を示しています。
 ```php
-  # プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化する
+  # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化
   $pres = new Presentation("demo.pptx");
   try {
-    # スライドインデックスでスライドを削除する
+    # スライドインデックスを使用してスライドを削除
     $pres->getSlides()->removeAt(0);
-    # 変更されたプレゼンテーションを保存する
+    # 変更されたプレゼンテーションを保存
     $pres->save("modified.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -63,9 +63,9 @@ description: "Java を介した PHP 用 Aspose.Slides で、PowerPoint および
 ```
 
 
-## **未使用のレイアウトスライドを削除する**
+## **未使用のレイアウトスライドの削除**
 
-Aspose.Slides は、不要で未使用のレイアウトスライドを削除できるようにする [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) クラスの [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) メソッドを提供します。この PHP コードは、PowerPoint プレゼンテーションからレイアウトスライドを削除する方法を示しています:
+Aspose.Slides は、不要かつ未使用のレイアウトスライドを削除できるようにする [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) クラスの [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) メソッドを提供します。この PHP コードは、PowerPoint プレゼンテーションからレイアウトスライドを削除する方法を示しています：
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -79,9 +79,9 @@ Aspose.Slides は、不要で未使用のレイアウトスライドを削除で
 ```
 
 
-## **未使用のマスタースライドを削除する**
+## **未使用のマスタースライドの削除**
 
-Aspose.Slides は、不要で未使用のマスタースライドを削除できるようにする [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) クラスの [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) メソッドを提供します。この PHP コードは、PowerPoint プレゼンテーションからマスタースライドを削除する方法を示しています:
+Aspose.Slides は、不要かつ未使用のマスタースライドを削除できるようにする [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) クラスの [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) メソッドを提供します。この PHP コードは、PowerPoint プレゼンテーションからマスタースライドを削除する方法を示しています：
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -97,22 +97,22 @@ Aspose.Slides は、不要で未使用のマスタースライドを削除でき
 
 ## **FAQ**
 
-**スライドを削除した後、スライドインデックスはどうなりますか？**
+**スライドを削除した後、スライドのインデックスはどうなりますか？**
 
-削除後、[コレクション](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) は再インデックス化され、以降のすべてのスライドが左に 1 つシフトするため、以前のインデックス番号は無効になります。安定した参照が必要な場合は、インデックスではなく各スライドの永続 ID を使用してください。
+削除後、[collection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) は再インデックスされ、以降のすべてのスライドが1つ左にシフトするため、以前のインデックス番号は古くなります。安定した参照が必要な場合は、インデックスではなく各スライドの永続的な ID を使用してください。
 
 **スライドの ID はインデックスと異なりますか？また、隣接するスライドが削除されたときに変わりますか？**
 
-はい。インデックスはスライドの位置を示し、スライドの追加や削除で変わります。スライド ID は永続的な識別子であり、他のスライドが削除されても変わりません。
+はい。インデックスはスライドの位置を示し、スライドが追加または削除されると変わります。スライド ID は永続的な識別子であり、他のスライドが削除されても変わりません。
 
 **スライドを削除するとスライドセクションにどのような影響がありますか？**
 
-そのスライドがセクションに属していた場合、セクションは単に 1 つ少ないスライドになるだけです。セクションの構造は維持され、セクションが空になるときは、必要に応じて[セクションの削除または再編成](/slides/ja/php-java/slide-section/)が可能です。
+スライドがセクションに属している場合、そのセクションのスライド数が1つ減ります。セクション構造は維持され、セクションが空になる場合は、必要に応じて [セクションの削除または再編成](/slides/ja/php-java/slide-section/) を実行できます。
 
-**スライドを削除すると、そのスライドに付随していたノートやコメントはどうなりますか？**
+**スライドが削除されたとき、添付されたノートやコメントはどうなりますか？**
 
-[ノート](/slides/ja/php-java/presentation-notes/) と[コメント](/slides/ja/php-java/presentation-comments/) は対象スライドに紐付いており、スライドとともに削除されます。他のスライドのコンテンツには影響しません。
+[Notes](/slides/ja/php-java/presentation-notes/) と [comments](/slides/ja/php-java/presentation-comments/) はそのスライドに紐付いており、スライドとともに削除されます。他のスライドのコンテンツは影響を受けません。
 
-**スライドの削除と未使用のレイアウト／マスターのクリーンアップはどのように異なりますか？**
+**スライドの削除は、未使用のレイアウト/マスターのクリーンアップとどのように異なりますか？**
 
-スライドの削除はデッキから特定の通常スライドを除去します。未使用のレイアウト／マスターのクリーンアップは、参照されていないレイアウトまたはマスタースライドを削除し、ファイルサイズを削減しますが、残りのスライド内容は変更しません。これらの操作は補完的であり、通常は先にスライドを削除し、その後クリーンアップを行います。
+削除はデックから特定の通常スライドを取り除きます。未使用のレイアウト/マスターのクリーンアップは、参照されていないレイアウトスライドやマスタースライドを削除し、残りのスライドの内容を変更せずにファイルサイズを削減します。これらの操作は補完的であり、通常は最初にスライドを削除し、次にクリーンアップを行います。

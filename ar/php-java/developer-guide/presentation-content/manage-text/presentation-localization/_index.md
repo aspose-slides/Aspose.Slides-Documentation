@@ -1,6 +1,6 @@
 ---
-title: أتمتة توطين العروض التقديمية في PHP
-linktitle: توطين العروض التقديمية
+title: أتمتة تعريب العروض التقديمية في PHP
+linktitle: تعريب العروض التقديمية
 type: docs
 weight: 100
 url: /ar/php-java/presentation-localization/
@@ -13,18 +13,18 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "أتمتة توطين شرائح PowerPoint وOpenDocument مع Aspose.Slides للـ PHP عبر Java، باستخدام أمثلة شفرة عملية ونصائح لتسريع النشر العالمي."
+description: "أتمتة تعريب شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java، مع أمثلة كود عملية ونصائح لتسريع النشر العالمي."
 ---
 
-## **تغيير اللغة للعرض التقديمي ونص الشكل**
-- إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-- الحصول على مرجع الشريحة باستخدام فهرسها.
-- إضافة [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) من النوع [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) إلى الشريحة.
-- إضافة بعض النص إلى الـ TextFrame.
-- [تعيين معرّف اللغة](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) إلى النص.
-- كتابة العرض التقديمي كملف PPTX.
+## **تغيير اللغة لعروض تقديمية ونص الشكل**
+- إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+- الحصول على مرجع الشريحة باستخدام فهرستها.
+- إضافة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) من النوع [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) إلى الشريحة.
+- إضافة بعض النص إلى TextFrame.
+- [Set Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) للنص.
+- حفظ العرض التقديمي كملف PPTX.
 
-تم توضيح تنفيذ الخطوات أعلاه أدناه في مثال.
+تم توضيح تنفيذ الخطوات السابقة أدناه في مثال.
 ```php
   $pres = new Presentation("test.pptx");
   try {
@@ -42,14 +42,14 @@ description: "أتمتة توطين شرائح PowerPoint وOpenDocument مع As
 
 ## **الأسئلة الشائعة**
 
-**هل يتسبب معرّف اللغة في ترجمة النص تلقائيًا؟**
+**هل يؤدي معرف اللغة إلى ترجمة النص تلقائيًا؟**
 
-لا. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) في Aspose.Slides يخزن اللغة لتدقيق الإملاء وتصحيح القواعد، لكنه لا يترجم أو يغيّر محتوى النص. إنه بيانات وصفية تفهمها PowerPoint للتدقيق.
+لا. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) في Aspose.Slides يخزن اللغة للتحقق الإملائي وإثبات القواعد، لكنه لا يترجم أو يغيّر محتوى النص. إنه بيانات وصفية يفهمها PowerPoint لأغراض التدقيق.
 
-**هل يؤثر معرّف اللغة على التجزيء وإدراج الفواصل خلال العرض؟**
+**هل يؤثر معرف اللغة على التجزيء وتحديد الفواصل أثناء العرض؟**
 
-في Aspose.Slides، [language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) مخصص للتدقيق. تعتمد جودة التجزيء وتغليف الأسطر أساسًا على توفر [الخطوط المناسبة](/slides/ar/php-java/powerpoint-fonts/) وإعدادات التخطيط/فواصل الأسطر لنظام الكتابة. لضمان عرض صحيح، احرص على توفير الخطوط المطلوبة، وتكوين [قواعد استبدال الخطوط](/slides/ar/php-java/font-substitution/)، و/أو [تضمين الخطوط](/slides/ar/php-java/embedded-font/) في العرض التقديمي.
+في Aspose.Slides، يُستخدم [language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) لأغراض التدقيق فقط. تعتمد جودة التجزيء وتغليف السطور أساسًا على توفر [proper fonts](/slides/ar/php-java/powerpoint-fonts/) وإعدادات تخطيط/تحديد الفواصل لنظام الكتابة. لضمان عرض صحيح، يجب توفير الخطوط المطلوبة، وتكوين [font substitution rules](/slides/ar/php-java/font-substitution/)، و/أو [embed fonts](/slides/ar/php-java/embedded-font/) في العرض التقديمي.
 
 **هل يمكنني تعيين لغات مختلفة داخل فقرة واحدة؟**
 
-نعم. يتم تطبيق [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) على مستوى جزء النص، لذا يمكن لفقرة واحدة خلط لغات متعددة مع إعدادات تدقيق مميزة.
+نعم. يُطبق [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) على مستوى جزء النص، لذا يمكن لفقرة واحدة أن تحتوي على لغات متعددة بإعدادات تدقيق مختلفة.

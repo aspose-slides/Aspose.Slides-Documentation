@@ -14,13 +14,13 @@ description: "Apprenez comment ajouter et personnaliser les barres d'erreur dans
 ---
 
 ## **Ajouter des barres d'erreur**
-Aspose.Slides for PHP via Java propose une API simple pour gérer les valeurs des barres d'erreur. Le code d'exemple s'applique lors de l'utilisation d'un type de valeur personnalisé. Pour spécifier une valeur, utilisez la propriété **ErrorBarCustomValues** d'un point de données spécifique dans la collection [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) de la série :
+Aspose.Slides for PHP via Java fournit une API simple pour gérer les valeurs des barres d'erreur. Le code d'exemple s'applique lors de l'utilisation d'un type de valeur personnalisé. Pour spécifier une valeur, utilisez la propriété **ErrorBarCustomValues** d'un point de données spécifique dans la collection [**data points**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/) de la série :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Ajoutez un graphique à bulles sur la diapositive souhaitée.
-1. Accédez à la première série du graphique et définissez le format de la barre d'erreur X.
-1. Accédez à la première série du graphique et définissez le format de la barre d'erreur Y.
-1. Définissez les valeurs et le format des barres.
+1. Accédez à la première série de graphiques et définissez le format de la barre d'erreur X.
+1. Accédez à la première série de graphiques et définissez le format de la barre d'erreur Y.
+1. Définissez les valeurs des barres et le format.
 1. Enregistrez la présentation modifiée dans un fichier PPTX.
 ```php
   # Créer une instance de la classe Presentation
@@ -28,7 +28,7 @@ Aspose.Slides for PHP via Java propose une API simple pour gérer les valeurs de
   try {
     # Créer un graphique à bulles
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # Ajouter des barres d'erreur et définir leur format
+    # Ajouter des barres d'erreur et définir son format
     $errBarX = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsXFormat();
     $errBarY = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsYFormat();
     $errBarX->isVisible();
@@ -51,14 +51,14 @@ Aspose.Slides for PHP via Java propose une API simple pour gérer les valeurs de
 
 
 ## **Ajouter des valeurs de barres d'erreur personnalisées**
-Aspose.Slides for PHP via Java propose une API simple pour gérer les valeurs de barres d'erreur personnalisées. Le code d'exemple s'applique lorsque la propriété [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) est égale à **Custom**. Pour spécifier une valeur, utilisez la propriété **ErrorBarCustomValues** d'un point de données spécifique dans la collection [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) de la série :
+Aspose.Slides for PHP via Java fournit une API simple pour gérer les valeurs personnalisées des barres d'erreur. Le code d'exemple s'applique lorsque la méthode [**ErrorBarsFormat::getValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/#getValueType) renvoie **Custom**. Pour spécifier une valeur, utilisez la propriété **ErrorBarCustomValues** d'un point de données spécifique dans la collection [**data points**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/) de la série :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Ajoutez un graphique à bulles sur la diapositive souhaitée.
-1. Accédez à la première série du graphique et définissez le format de la barre d'erreur X.
-1. Accédez à la première série du graphique et définissez le format de la barre d'erreur Y.
-1. Accédez aux points de données individuels de la série et définissez les valeurs de la barre d'erreur pour chaque point de données.
-1. Définissez les valeurs et le format des barres.
+1. Accédez à la première série de graphiques et définissez le format de la barre d'erreur X.
+1. Accédez à la première série de graphiques et définissez le format de la barre d'erreur Y.
+1. Accédez aux points de données individuels de la série de graphiques et définissez les valeurs des barres d'erreur pour chaque point de données de la série.
+1. Définissez les valeurs des barres et le format.
 1. Enregistrez la présentation modifiée dans un fichier PPTX.
 ```php
   # Créer une instance de la classe Presentation
@@ -66,7 +66,7 @@ Aspose.Slides for PHP via Java propose une API simple pour gérer les valeurs de
   try {
     # Créer un graphique à bulles
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # Ajouter des barres d'erreur personnalisées et définir leur format
+    # Ajouter des barres d'erreur personnalisées et définir son format
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $errBarX = $series->getErrorBarsXFormat();
     $errBarY = $series->getErrorBarsYFormat();
@@ -74,14 +74,14 @@ Aspose.Slides for PHP via Java propose une API simple pour gérer les valeurs de
     $errBarY->isVisible();
     $errBarX->setValueType(ErrorBarValueType::Custom);
     $errBarY->setValueType(ErrorBarValueType::Custom);
-    # Accéder au point de données de la série du graphique et définir les valeurs des barres d'erreur pour
-    # point individuel
+    # Accéder au point de données de la série de graphique et définir les valeurs des barres d'erreur pour
+    # le point individuel
     $points = $series->getDataPoints();
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXPlusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXMinusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYPlusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYMinusValues(DataSourceType::DoubleLiterals);
-    # Définir les barres d'erreur pour les points de la série du graphique
+    # Définir les barres d'erreur pour les points de la série de graphique
     for($i = 0; $i < java_values($points->size()) ; $i++) {
       $points->get_Item($i)->getErrorBarsCustomValues()->getXMinus()->setAsLiteralDouble($i + 1);
       $points->get_Item($i)->getErrorBarsCustomValues()->getXPlus()->setAsLiteralDouble($i + 1);
@@ -102,11 +102,11 @@ Aspose.Slides for PHP via Java propose une API simple pour gérer les valeurs de
 
 **Que se passe-t-il avec les barres d'erreur lors de l'exportation d'une présentation vers PDF ou images ?**
 
-Elles sont rendues comme partie du graphique et conservées durant la conversion avec le reste du formatage du graphique, en supposant une version ou un moteur compatible.
+Elles sont rendues comme faisant partie du graphique et préservées lors de la conversion avec le reste du formatage du graphique, en supposant une version ou un moteur compatible.
 
 **Les barres d'erreur peuvent-elles être combinées avec des repères et des étiquettes de données ?**
 
-Oui. Les barres d'erreur sont un élément distinct et sont compatibles avec les repères et les étiquettes de données ; si les éléments se chevauchent, il peut être nécessaire d'ajuster le formatage.
+Oui. Les barres d'erreur sont un élément séparé et sont compatibles avec les repères et les étiquettes de données ; si les éléments se chevauchent, vous devrez peut-être ajuster le formatage.
 
 **Où puis-je trouver la liste des propriétés et des classes pour travailler avec les barres d'erreur dans l'API ?**
 

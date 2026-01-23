@@ -1,29 +1,29 @@
 ---
-title: Настройка точек данных в диаграммах Treemap и Sunburst с использованием PHP
+title: Настройка точек данных в диаграммах Treemap и Sunburst с помощью PHP
 linktitle: Точки данных в диаграммах Treemap и Sunburst
 type: docs
 url: /ru/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- диаграмма Treemap
-- диаграмма Sunburst
+- диаграмма treemap
+- диаграмма sunburst
 - точка данных
-- цвет метки
+- цвет подписи
 - цвет ветки
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Узнайте, как управлять точками данных в диаграммах Treemap и Sunburst с помощью Aspose.Slides for PHP via Java, совместимо с форматами PowerPoint."
+description: "Узнайте, как управлять точками данных в диаграммах Treemap и Sunburst с помощью Aspose.Slides for PHP via Java, совместимыми с форматами PowerPoint."
 ---
 
-Среди прочих типов диаграмм PowerPoint существуют два «иерархических» типа — **Treemap** и **Sunburst** (также известные как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные в виде дерева — от листьев к вершине ветви. Листья определяются точками данных серии, а каждый последующий уровень вложенной группы определяется соответствующей категорией. Aspose.Slides for PHP via Java позволяет форматировать точки данных диаграмм Sunburst и Treemap.
+Среди других типов диаграмм PowerPoint есть два «иерархических» типа — **Treemap** и **Sunburst** (также известные как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные в виде дерева — от листьев к вершине ветки. Листья определяются точками данных серии, а каждый последующий уровень вложенной группировки определяется соответствующей категорией. Aspose.Slides for PHP via Java позволяет форматировать точки данных диаграмм Sunburst и Treemap.
 
-Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, while other columns define hierarchical datapoints:
+Ниже представлена диаграмма Sunburst, где данные в колонке Series1 определяют листовые узлы, а остальные колонки определяют иерархические точки данных:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-Let’s start with adding a new Sunburst chart to the presentation:
+Начнём с добавления новой диаграммы Sunburst в презентацию:
 ```php
   $pres = new Presentation();
   try {
@@ -37,38 +37,28 @@ Let’s start with adding a new Sunburst chart to the presentation:
 ```
 
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание диаграммы Sunburst**](/slides/ru/php-java/adding-charts/#addingcharts-creatingsunburstchart)
+{{% alert color="primary" title="См. также" %}} 
+- [**Создание или обновление диаграмм PowerPoint в PHP**](/slides/ru/php-java/create-chart/)
 {{% /alert %}}
 
-If there is a need to format data points of the chart, we should use the following:
+Если необходимо форматировать точки данных диаграммы, следует использовать следующее:
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataPointLevelsManager),
-[IChartDataPointLevel](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataPointLevel) классы
-и [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataPoint#getDataPointLevels--) метод
-обеспечивают доступ к форматированию точек данных диаграмм Treemap и Sunburst.
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataPointLevelsManager)
-используется для доступа к многоуровневым категориям — он представляет контейнер
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartCategoryLevelsManager) с
-свойствами, добавленными специально для точек данных.
-Класс [**IChartDataPointLevel**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataPointLevel)
-имеет два метода: [**getFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataPointLevel#getFormat--) и
-[**getDataLabel**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataPointLevel#getLabel--) которые
-обеспечивают доступ к соответствующим настройкам.
+[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevelsmanager/), [**ChartDataPointLevel**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/) классы и метод [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) предоставляют доступ к форматированию точек данных диаграмм Treemap и Sunburst.  
+[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevelsmanager/) используется для доступа к многоуровневым категориям — он представляет контейнер объектов [**ChartDataPointLevel**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/).... По сути это оболочка для [**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/) с свойствами, добавленными специально для точек данных.  
+Класс [**ChartDataPointLevel**] имеет два метода: [**getFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/#getFormat) и [**getDataLabel**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/#getLabel), которые предоставляют доступ к соответствующим настройкам.
 
-## **Показать значение точки данных**
-Show value of "Leaf 4" data point:
+## **Отображение значения точки данных**
+Показать значение точки данных «Leaf 4»:
 ```php
   $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
   $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
-
 ```
 
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
-## **Установить метку и цвет точки данных**
-Set "Branch 1" data label to show series name ("Series1") instead of category name. Then set text color to yellow:
+## **Установка подписи и цвета точки данных**
+Установить подпись точки данных «Branch 1», чтобы отображалось имя серии («Series1») вместо имени категории. Затем установить цвет текста в желтый:
 ```php
   $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
   $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
@@ -80,8 +70,8 @@ Set "Branch 1" data label to show series name ("Series1") instead of category na
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
-## **Установить цвет ветви точки данных**
-Change color of "Steam 4" branch:
+## **Установка цвета ветки точки данных**
+Изменить цвет ветки «Steam 4»:
 ```php
   $pres = new Presentation();
   try {
@@ -103,18 +93,14 @@ Change color of "Steam 4" branch:
 
 ## **Часто задаваемые вопросы**
 
-**Могу ли я изменить порядок (сортировку) сегментов в Sunburst/Treemap?**
+**Могу ли я изменить порядок (сортировку) сегментов в Sunburst/Treemap?**  
+Нет. PowerPoint сортирует сегменты автоматически (обычно по убыванию значений, по часовой стрелке). Aspose.Slides повторяет это поведение: изменить порядок напрямую нельзя; его можно изменить только предобработкой данных.
 
-Нет. PowerPoint сортирует сегменты автоматически (обычно по убывающим значениям, по часовой стрелке). Aspose.Slides отражает это поведение: изменить порядок напрямую нельзя; его можно добиться, предварительно обработав данные.
+**Как тема презентации влияет на цвета сегментов и подписей?**  
+Цвета диаграммы наследуют [тему/палитру](/slides/ru/php-java/presentation-theme/) презентации, если явно не задать заполнения/шрифты. Для согласованных результатов фиксируйте сплошные заполнения и форматирование текста на нужных уровнях.
 
-**Как тема презентации влияет на цвета сегментов и меток?**
+**Сохранит ли экспорт в PDF/PNG пользовательские цвета веток и настройки подписей?**  
+Да. При экспорте презентации настройки диаграммы (заполнения, подписи) сохраняются в выходных форматах, так как Aspose.Slides рендерит с применённым форматированием диаграммы.
 
-Цвета диаграмм наследуют [тема/палитра](/slides/ru/php-java/presentation-theme/) презентации, если вы явно не задаёте заливки/шрифты. Для согласованных результатов фиксируйте сплошные заливки и форматирование текста на требуемых уровнях.
-
-**Сохранит ли экспорт в PDF/PNG пользовательские цвета ветвей и настройки меток?**
-
-Да. При экспортировании презентации настройки диаграммы (заливки, метки) сохраняются в выходных форматах, поскольку Aspose.Slides рендерит их с применённым форматированием.
-
-**Могу ли я вычислить фактические координаты метки/элемента для пользовательского наложения поверх диаграммы?**
-
-Да. После того как макет диаграммы проверен, доступны фактические *x* и *y* для элементов (например, [DataLabel](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/)), что помогает точно позиционировать накладки.
+**Могу ли я вычислить фактические координаты подписи/элемента для пользовательского наложения поверх диаграммы?**  
+Да. После проверки разметки диаграммы доступны фактические *x* и *y* для элементов (например, для [DataLabel](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/)), что упрощает точное позиционирование наложений.

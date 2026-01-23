@@ -1,11 +1,11 @@
 ---
-title: Formes de présentation groupées en PHP
+title: Formes de groupe de présentation en PHP
 linktitle: Groupe de formes
 type: docs
 weight: 40
 url: /fr/php-java/group/
 keywords:
-- forme groupée
+- forme de groupe
 - groupe de formes
 - ajouter un groupe
 - texte alternatif
@@ -13,19 +13,19 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Apprenez à regrouper et à dégrouper des formes dans des présentations PowerPoint à l’aide d’Aspose.Slides pour PHP via Java — guide rapide, étape par étape, avec du code gratuit."
+description: "Apprenez à regrouper et dégrouper des formes dans les présentations PowerPoint en utilisant Aspose.Slides pour PHP via Java — guide rapide, étape par étape, avec du code gratuit."
 ---
 
 ## **Ajouter une forme groupée**
-Aspose.Slides prend en charge le travail avec les formes groupées sur les diapositives. Cette fonctionnalité aide les développeurs à créer des présentations plus riches. Aspose.Slides for PHP via Java prend en charge l'ajout ou l'accès aux formes groupées. Il est possible d'ajouter des formes à une forme groupée ajoutée pour la remplir ou d'accéder à n'importe quelle propriété de la forme groupée. Pour ajouter une forme groupée à une diapositive en utilisant Aspose.Slides for PHP via Java :
+Aspose.Slides prend en charge le travail avec des formes groupées sur les diapositives. Cette fonctionnalité aide les développeurs à créer des présentations plus riches. Aspose.Slides for PHP via Java prend en charge l'ajout ou l'accès aux formes groupées. Il est possible d'ajouter des formes à une forme groupée ajoutée pour la remplir ou d'accéder à toute propriété de la forme groupée. Pour ajouter une forme groupée à une diapositive à l'aide d'Aspose.Slides for PHP via Java :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenir la référence d'une diapositive en utilisant son index.
-3. Ajouter une forme groupée à la diapositive.
-4. Ajouter les formes à la forme groupée ajoutée.
-5. Enregistrer la présentation modifiée sous forme de fichier PPTX.
+1. Créez une instance de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe.  
+1. Obtenez la référence d'une diapositive en utilisant son Index  
+1. Ajoutez une forme groupée à la diapositive.  
+1. Ajoutez les formes à la forme groupée ajoutée.  
+1. Enregistrez la présentation modifiée en tant que fichier PPTX.
 
-L'exemple ci-dessous ajoute une forme groupée à une diapositive.
+L'exemple ci‑dessous ajoute une forme groupée à une diapositive.
 ```php
   # Instancier la classe Presentation
   $pres = new Presentation();
@@ -36,14 +36,14 @@ L'exemple ci-dessous ajoute une forme groupée à une diapositive.
     $slideShapes = $sld->getShapes();
     # Ajouter une forme groupée à la diapositive
     $groupShape = $slideShapes->addGroupShape();
-    # Ajouter des formes dans la forme groupée ajoutée
+    # Ajouter des formes à l'intérieur de la forme groupée ajoutée
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 100, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 300, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 300, 100, 100);
     # Ajouter le cadre de la forme groupée
     $groupShape->setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool::False, NullableBool::False, 0));
-    # Enregistrer le fichier PPTX sur le disque
+    # Écrire le fichier PPTX sur le disque
     $pres->save("GroupShape.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -54,15 +54,15 @@ L'exemple ci-dessous ajoute une forme groupée à une diapositive.
 
 
 ## **Accéder à la propriété AltText**
-Ce sujet montre les étapes simples, accompagnées d'exemples de code, pour ajouter une forme groupée et accéder à la propriété AltText des formes groupées sur les diapositives. Pour accéder à l'AltText d'une forme groupée dans une diapositive en utilisant Aspose.Slides for PHP via Java :
+Ce sujet présente des étapes simples, accompagnées d'exemples de code, pour ajouter une forme groupée et accéder à la propriété AltText des formes groupées sur les diapositives. Pour accéder à l'AltText d'une forme groupée dans une diapositive à l'aide d'Aspose.Slides for PHP via Java :
 
-1. Instancier la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) qui représente un fichier PPTX.
-2. Obtenir la référence d'une diapositive en utilisant son index.
-3. Accéder à la collection de formes des diapositives.
-4. Accéder à la forme groupée.
-5. Accéder à la propriété [AlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getAlternativeText--).
+1. Instanciez la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe qui représente le fichier PPTX.  
+1. Obtenez la référence d'une diapositive en utilisant son Index.  
+1. Accédez à la collection de formes des diapositives.  
+1. Accédez à la forme groupée.  
+1. Accédez à la propriété [Texte alternatif](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getAlternativeText).
 
-L'exemple ci-dessous accède au texte alternatif de la forme groupée.
+L'exemple ci‑dessous accède au texte alternatif de la forme groupée.
 ```php
   # Instancier la classe Presentation qui représente le fichier PPTX
   $pres = new Presentation("AltText.pptx");
@@ -92,14 +92,14 @@ L'exemple ci-dessous accède au texte alternatif de la forme groupée.
 
 ## **FAQ**
 
-**Le groupement imbriqué (un groupe dans un groupe) est‑il pris en charge ?**
+**Le groupement imbriqué (un groupe à l'intérieur d'un autre groupe) est‑il pris en charge ?**
 
-Oui. [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) possède une méthode [getParentGroup](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getparentgroup/) qui indique directement la prise en charge de la hiérarchie (un groupe peut être un enfant d'un autre groupe).
+Oui. [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) possède une méthode [getParentGroup](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getparentgroup/) qui indique directement la prise en charge de la hiérarchie (un groupe peut être l'enfant d'un autre groupe).
 
-**Comment contrôler l’ordre Z du groupe par rapport aux autres objets de la diapositive ?**
+**Comment contrôler l'ordre Z du groupe par rapport aux autres objets de la diapositive ?**
 
-Utilisez la méthode [getZOrderPosition](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) du [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) pour examiner sa position dans la pile d'affichage.
+Utilisez la méthode [getZOrderPosition](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) du [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) pour inspecter sa position dans la pile d'affichage.
 
 **Puis‑je empêcher le déplacement/la modification/le dégroupage ?**
 
-Oui. La section de verrouillage du groupe est exposée via [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getgroupshapelock/), ce qui vous permet de restreindre les opérations sur l'objet.
+Oui. La section de verrouillage du groupe est exposée via [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getgroupshapelock/), qui vous permet de restreindre les opérations sur l'objet.

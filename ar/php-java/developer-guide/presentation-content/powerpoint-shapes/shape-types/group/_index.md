@@ -1,5 +1,5 @@
 ---
-title: أشكال مجموعة العروض التقديمية في PHP
+title: أشكال مجموعة العرض التقديمي في PHP
 linktitle: مجموعة الشكل
 type: docs
 weight: 40
@@ -13,17 +13,17 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية تجميع وفك تجميع الأشكال في عروض PowerPoint باستخدام Aspose.Slides for PHP عبر Java - دليل سريع خطوة بخطوة مع شفرة مجانية."
+description: "تعلم كيفية تجميع وإلغاء تجميع الأشكال في عروض PowerPoint باستخدام Aspose.Slides for PHP via Java — دليل سريع خطوة بخطوة مع كود مجاني."
 ---
 
 ## **إضافة شكل مجموعة**
-Aspose.Slides يدعم العمل مع أشكال المجموعات على الشرائح. هذه الميزة تساعد المطورين على إنشاء عروض تقديمية أكثر غنى. Aspose.Slides for PHP via Java يدعم إضافة أو الوصول إلى أشكال المجموعات. من الممكن إضافة أشكال إلى شكل مجموعة مضاف لملئه أو للوصول إلى أي خاصية من خصائص شكل المجموعة. لإضافة شكل مجموعة إلى شريحة باستخدام Aspose.Slides for PHP via Java:
+يدعم Aspose.Slides العمل مع أشكال المجموعات على الشرائح. تساعد هذه الميزة المطورين على إنشاء عروض تقديمية أغنى. يدعم Aspose.Slides for PHP via Java إضافة أو الوصول إلى أشكال المجموعات. يمكن إضافة أشكال إلى شكل مجموعة مضاف لتعبئته أو الوصول إلى أي خاصية من خصائص شكل المجموعة. لإضافة شكل مجموعة إلى شريحة باستخدام Aspose.Slides for PHP via Java:
 
-1. إنشاء مثيل للفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الحصول على مرجع شريحة باستخدام فهرستها
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+2. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها
 1. إضافة شكل مجموعة إلى الشريحة.
 1. إضافة الأشكال إلى شكل المجموعة المضاف.
-1. حفظ العرض المعدل كملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
 المثال أدناه يضيف شكل مجموعة إلى شريحة.
 ```php
@@ -41,9 +41,9 @@ Aspose.Slides يدعم العمل مع أشكال المجموعات على ال
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 300, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 300, 100, 100);
-    # إضافة إطار لشكل المجموعة
+    # إضافة إطار مجموعة الشكل
     $groupShape->setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool::False, NullableBool::False, 0));
-    # كتابة ملف PPTX إلى القرص
+    # حفظ ملف PPTX إلى القرص
     $pres->save("GroupShape.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -54,17 +54,17 @@ Aspose.Slides يدعم العمل مع أشكال المجموعات على ال
 
 
 ## **الوصول إلى خاصية AltText**
-هذه المقالة تعرض خطوات بسيطة، مع أمثلة شفرة، لإضافة شكل مجموعة والوصول إلى خاصية AltText لأشكال المجموعات على الشرائح. للوصول إلى AltText لشكل مجموعة في شريحة باستخدام Aspose.Slides for PHP via Java:
+يوضح هذا الموضوع خطوات بسيطة، مصحوبة بأمثلة شفرة، لإضافة شكل مجموعة والوصول إلى خاصية AltText لأشكال المجموعات على الشرائح. للوصول إلى AltText لشكل مجموعة في شريحة باستخدام Aspose.Slides for PHP via Java:
 
-1. إنشاء مثيل للفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) التي تمثل ملف PPTX.
-1. الحصول على مرجع شريحة باستخدام فهرستها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) التي تمثل ملف PPTX.
+1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
 1. الوصول إلى مجموعة الأشكال في الشرائح.
 1. الوصول إلى شكل المجموعة.
-1. الوصول إلى خاصية [AlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getAlternativeText--) .
+1. الوصول إلى خاصية [Alternative Text](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getAlternativeText).
 
 المثال أدناه يصل إلى النص البديل لشكل المجموعة.
 ```php
-  # إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX
+  # إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation("AltText.pptx");
   try {
     # الحصول على الشريحة الأولى
@@ -90,16 +90,16 @@ Aspose.Slides يدعم العمل مع أشكال المجموعات على ال
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **هل يتم دعم التجميع المتداخل (مجموعة داخل مجموعة)؟**
 
-نعم. لدى [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) طريقة [getParentGroup](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getparentgroup/) التي تشير مباشرةً إلى دعم التسلسل الهرمي (يمكن أن تكون المجموعة طفلاً لمجموعة أخرى).
+نعم. يحتوي [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) على طريقة [getParentGroup](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getparentgroup/) التي تشير مباشرةً إلى دعم الهرمية (يمكن أن تكون المجموعة طفلًا لمجموعة أخرى).
 
-**كيف يمكنني التحكم بترتيب Z للمجموعة بالنسبة للكائنات الأخرى على الشريحة؟**
+**كيف يمكنني التحكم في ترتيب Z للمجموعة بالنسبة للكائنات الأخرى على الشريحة؟**
 
-استخدم طريقة [getZOrderPosition](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) الخاصة بـ [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) لتفحص موضعها في مكدس العرض.
+استخدم طريقة [getZOrderPosition](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) الخاصة بـ [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) للتحقق من موقعها في مكدس العرض.
 
-**هل يمكنني منع التحريك/التحرير/فك التجميع؟**
+**هل يمكنني منع التحريك/التعديل/إلغاء التجميع؟**
 
 نعم. يتم كشف قسم القفل للمجموعة عبر [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getgroupshapelock/)، مما يتيح لك تقييد العمليات على الكائن.

@@ -5,29 +5,27 @@ type: docs
 weight: 100
 url: /ar/php-java/extracting-images-from-presentation-shapes/
 keywords:
-- استخراج الصورة
-- استرجاع الصورة
+- استخراج صورة
+- استرجاع صورة
 - خلفية الشريحة
 - خلفية الشكل
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "استخراج الصور من الأشكال في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لPHP عبر Java — حل سريع ومناسب للشفرة."
+description: "استخراج الصور من الأشكال في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides ل PHP عبر Java — حل سريع وسهل الكتابة."
 ---
 
 ## **استخراج الصور من الأشكال**
 
 {{% alert color="primary" %}} 
+غالبًا ما يتم إضافة الصور إلى الأشكال وتستخدم أيضًا بشكل متكرر كخلفيات للشرائح. يتم إضافة كائنات الصورة عبر [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/)، وهي مجموعة من كائنات [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
 
-غالبًا ما تُضاف الصور إلى الأشكال وتُستخدم أيضًا كخلفيات للشرائح. تُضاف كائنات الصورة من خلال [IImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ippimage/).
-
-تشرح هذه المقالة كيفية استخراج الصور التي أضيفت إلى العروض التقديمية. 
-
+تشرح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
 {{% /alert %}} 
 
-لاستخراج صورة من عرض تقديمي، يجب عليك أولاً تحديد موقع الصورة من خلال المرور على كل شريحة ثم المرور على كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. 
+لاستخراج صورة من عرض تقديمي، عليك تحديد موقع الصورة أولاً عبر المرور على كل شريحة ثم المرور على كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. 
 ```php
 
 ```
@@ -35,18 +33,18 @@ description: "استخراج الصور من الأشكال في عروض PowerP
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني استخراج الصورة الأصلية دون أي قص، أو تأثيرات، أو تحولات الشكل؟**
+**هل يمكنني استخراج الصورة الأصلية دون أي قص أو تأثيرات أو تحويلات للشكل؟**
 
-نعم. عندما تصل إلى صورة الشكل، تحصل على كائن الصورة من [مجموعة الصور](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/) الخاصة بالعرض التقديمي، ما يعني الحصول على البكسلات الأصلية دون قص أو تأثيرات تنسيقية. يتنقل سير العمل عبر مجموعة صور العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)، التي تخزن البيانات الأولية.
+نعم. عندما تصل إلى صورة الشكل، تحصل على كائن الصورة من [image collection](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/)، مما يعني الحصول على البكسلات الأصلية دون قص أو تأثيرات تنسيق. تمر عملية العمل عبر مجموعة الصور في العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) التي تخزن البيانات الأولية.
 
-**هل هناك خطر من تكرار الملفات المتطابقة عند حفظ العديد من الصور دفعة واحدة؟**
+**هل هناك خطر تكرار ملفات متماثلة عند حفظ العديد من الصور دفعة واحدة؟**
 
-نعم، إذا قمت بحفظ كل شيء دون تمييز. قد تحتوي [مجموعة الصور](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/) للعرض التقديمي على بيانات ثنائية متطابقة مشاركة بين أشكال أو شرائح مختلفة. لتجنب التكرار، قارن التجزئات أو الأحجام أو محتويات البيانات المستخرجة قبل الكتابة.
+نعم، إذا حفظت كل شيء دون تمييز. يمكن أن تحتوي [image collection](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/) في العرض التقديمي على بيانات ثنائية متماثلة يتم الإشارة إليها من قبل أشكال أو شرائح مختلفة. لتجنب التكرار، قارن التجزئات أو الأحجام أو محتويات البيانات المستخرجة قبل الكتابة.
 
 **كيف يمكنني تحديد أي الأشكال مرتبطة بصورة معينة من مجموعة الصور في العرض التقديمي؟**
 
-Aspose.Slides لا تخزن روابط عكسية من [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) إلى الأشكال. قم بإنشاء خريطة يدوية أثناء التجول: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)، سجل أي الأشكال تستخدمها.
+Aspose.Slides لا يخزن روابط عكسية من [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) إلى الأشكال. قم ببناء خريطة يدويًا أثناء الاستعراض: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)، سجّل أي الأشكال تستخدمها.
 
-**هل يمكنني استخراج الصور المدمجة داخل كائنات OLE، مثل المستندات المرفقة؟**
+**هل يمكنني استخراج الصور المضمنة داخل كائنات OLE، مثل المستندات المرفقة؟**
 
-ليس مباشرة، لأن كائن OLE هو حاوية. تحتاج إلى استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل الأشكال الصورية في العروض التقديمية عبر [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/); OLE هو نوع كائن مختلف.
+ليس مباشرة، لأن كائن OLE هو حاوية. يجب عليك استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال الصور في العرض التقديمي عبر [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)؛ OLE نوع كائن مختلف.

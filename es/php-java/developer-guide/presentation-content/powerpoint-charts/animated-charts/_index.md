@@ -5,42 +5,42 @@ type: docs
 weight: 80
 url: /es/php-java/animated-charts/
 keywords:
-- gráfico
-- gráfico animado
-- animación de gráfico
-- series de gráficos
-- categoría de gráfico
-- elemento de serie
-- elemento de categoría
-- agregar efecto
-- tipo de efecto
-- PowerPoint
-- presentación
-- PHP
-- Aspose.Slides
-description: "Crea gráficos animados impresionantes con Aspose.Slides para PHP via Java. Mejora tus presentaciones con visuales dinámicos en archivos PPT y PPTX — comienza ahora."
+  - gráfico
+  - gráfico animado
+  - animación de gráfico
+  - serie de gráfico
+  - categoría de gráfico
+  - elemento de serie
+  - elemento de categoría
+  - añadir efecto
+  - tipo de efecto
+  - PowerPoint
+  - presentación
+  - PHP
+  - Aspose.Slides
+description: "Crea gráficos animados impresionantes con Aspose.Slides for PHP via Java. Potencia las presentaciones con visuales dinámicos en archivos PPT y PPTX — comienza ahora."
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java admite la animación de los elementos del gráfico. **Series**, **Categorías**, **Elementos de Serie**, **Elementos de Categoría** pueden animarse con [**ISequence**.**addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) método y dos enumeraciones [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) y [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType).
+Aspose.Slides for PHP via Java admite la animación de los elementos del gráfico. **Series**, **Categories**, **Series Elements**, **Categories Elements** pueden animarse con [**Sequence::addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/#addEffect) y dos enumeraciones [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) y [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 
-## **Animación de Series de Gráficos**
-Si desea animar una serie de gráfico, escriba el código siguiendo los pasos enumerados a continuación:
+## **Animación de series de gráfico**
+Si desea animar una serie de gráfico, escriba el código según los pasos enumerados a continuación:
 
 1. Cargar una presentación.
 1. Obtener la referencia del objeto gráfico.
 1. Animar la serie.
-1. Guardar el archivo de presentación en disco.
+1. Guardar el archivo de presentación en el disco.
 
-En el ejemplo a continuación, animamos series de gráficos.
+En el ejemplo que se muestra a continuación, animamos series de gráfico.
 ```php
   # Instanciar la clase Presentation que representa un archivo de presentación
   $pres = new Presentation("ExistingChart.pptx");
   try {
-    # Obtener la referencia del objeto gráfico
+    # Obtener la referencia del objeto del gráfico
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
@@ -60,15 +60,15 @@ En el ejemplo a continuación, animamos series de gráficos.
 ```
 
 
-## **Animación de Categorías de Gráficos**
-Si desea animar una categoría de gráfico, escriba el código siguiendo los pasos enumerados a continuación:
+## **Animación de categoría de gráfico**
+Si desea animar una categoría de gráfico, escriba el código según los pasos enumerados a continuación:
 
 1. Cargar una presentación.
 1. Obtener la referencia del objeto gráfico.
 1. Animar la categoría.
-1. Guardar el archivo de presentación en disco.
+1. Guardar el archivo de presentación en el disco.
 
-En el ejemplo a continuación, animamos la categoría del gráfico.
+En el ejemplo que se muestra a continuación, animamos la categoría del gráfico.
 ```php
   # Instanciar la clase Presentation que representa un archivo de presentación
   $pres = new Presentation("ExistingChart.pptx");
@@ -90,24 +90,24 @@ En el ejemplo a continuación, animamos la categoría del gráfico.
 ```
 
 
-## **Animación en un Elemento de Serie**
-Si desea animar elementos de serie, escriba el código siguiendo los pasos enumerados a continuación:
+## **Animación en un elemento de serie**
+Si desea animar elementos de serie, escriba el código según los pasos enumerados a continuación:
 
 1. Cargar una presentación.
 1. Obtener la referencia del objeto gráfico.
-1. Animar los elementos de serie.
-1. Guardar el archivo de presentación en disco.
+1. Animar los elementos de la serie.
+1. Guardar el archivo de presentación en el disco.
 
-En el ejemplo a continuación, hemos animado los elementos de la serie.
+En el ejemplo que se muestra a continuación, hemos animado los elementos de la serie.
 ```php
   # Instanciar la clase Presentation que representa un archivo de presentación
   $pres = new Presentation("ExistingChart.pptx");
   try {
-    # Obtener la referencia del objeto gráfico
+    # Obtener la referencia del objeto del gráfico
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # Animar elementos de serie
+    # Animar los elementos de la serie
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 0, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 0, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
@@ -121,7 +121,7 @@ En el ejemplo a continuación, hemos animado los elementos de la serie.
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Guardar el archivo de presentación en disco
+    # Escribir el archivo de presentación en disco
     $pres->save("AnimatingSeriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -131,24 +131,24 @@ En el ejemplo a continuación, hemos animado los elementos de la serie.
 ```
 
 
-## **Animación en un Elemento de Categoría**
-Si desea animar elementos de categoría, escriba el código siguiendo los pasos enumerados a continuación:
+## **Animación en un elemento de categoría**
+Si desea animar elementos de categoría, escriba el código según los pasos enumerados a continuación:
 
 1. Cargar una presentación.
 1. Obtener la referencia del objeto gráfico.
-1. Animar los elementos de categoría.
-1. Guardar el archivo de presentación en disco.
+1. Animar los elementos de las categorías.
+1. Guardar el archivo de presentación en el disco.
 
-En el ejemplo a continuación, hemos animado los elementos de categoría.
+En el ejemplo que se muestra a continuación, hemos animado los elementos de las categorías.
 ```php
   # Instanciar la clase Presentation que representa un archivo de presentación
   $pres = new Presentation("ExistingChart.pptx");
   try {
-    # Obtener la referencia del objeto gráfico
+    # Obtener la referencia del objeto del gráfico
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # Animar los elementos de categorías
+    # Animar los elementos de las categorías
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 0, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 0, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
@@ -162,7 +162,7 @@ En el ejemplo a continuación, hemos animado los elementos de categoría.
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Guardar el archivo de presentación en disco
+    # Escribir el archivo de presentación en disco
     $pres->save("AnimatingCategoriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -174,22 +174,22 @@ En el ejemplo a continuación, hemos animado los elementos de categoría.
 
 ## **FAQ**
 
-**¿Se admiten diferentes tipos de efectos (p. ej., entrada, énfasis, salida) para gráficos como para formas normales?**
+**¿Se admiten diferentes tipos de efecto (por ejemplo, aparición, énfasis, salida) para los gráficos como para las formas normales?**
 
-Sí. Un gráfico se trata como una forma, por lo que admite los tipos estándar de efectos de animación, incluidos entrada, énfasis y salida, con control total mediante la línea de tiempo de la diapositiva y las secuencias de animación.
+Sí. Un gráfico se trata como una forma, por lo que admite los tipos de efecto de animación estándar, incluidos aparición, énfasis y salida, con control total a través de la línea de tiempo de la diapositiva y las secuencias de animación.
 
-**¿Puedo combinar la animación de gráficos con transiciones de diapositivas?**
+**¿Puedo combinar la animación del gráfico con las transiciones de diapositiva?**
 
-Sí. [Transitions](/slides/es/php-java/slide-transition/) se aplican a la diapositiva, mientras que los efectos de animación se aplican a los objetos de la diapositiva. Puede usar ambos juntos en la misma presentación y controlarlos de forma independiente.
+Sí. [Transiciones](/slides/es/php-java/slide-transition/) se aplican a la diapositiva, mientras que los efectos de animación se aplican a los objetos de la diapositiva. Puede usar ambos juntos en la misma presentación y controlarlos de forma independiente.
 
-**¿Se conservan las animaciones de los gráficos al guardar en PPTX?**
+**¿Se conservan las animaciones del gráfico al guardar en PPTX?**
 
-Sí. Cuando [save to PPTX](/slides/es/php-java/save-presentation/), todos los efectos de animación y su orden se conservan porque forman parte del modelo de animación nativo de la presentación.
+Sí. Cuando usted [guardar en PPTX](/slides/es/php-java/save-presentation/), todos los efectos de animación y su orden se conservan porque forman parte del modelo de animación nativo de la presentación.
 
-**¿Puedo leer animaciones de gráficos existentes en una presentación y modificarlas?**
+**¿Puedo leer animaciones de gráficos existentes de una presentación y modificarlas?**
 
-Sí. La API brinda acceso a la línea de tiempo de la diapositiva, secuencias y efectos, lo que permite inspeccionar las animaciones de los gráficos existentes y ajustarlas sin recrear todo desde cero.
+Sí. La API proporciona acceso a la línea de tiempo de la diapositiva, secuencias y efectos, lo que permite inspeccionar las animaciones de gráficos existentes y ajustarlas sin recrear todo desde cero.
 
-**¿Puedo crear un video que incluya animaciones de gráficos usando Aspose.Slides?**
+**¿Puedo generar un vídeo que incluya animaciones de gráficos usando Aspose.Slides?**
 
-Sí. Puede [export a presentation to video](/slides/es/php-java/convert-powerpoint-to-video/) conservando las animaciones, configurando los tiempos y otras opciones de exportación para que el clip resultante refleje la reproducción animada.
+Sí. Puede [exportar una presentación a vídeo](/slides/es/php-java/convert-powerpoint-to-video/) manteniendo las animaciones, configurando los tiempos y otros ajustes de exportación para que el clip resultante refleje la reproducción animada.

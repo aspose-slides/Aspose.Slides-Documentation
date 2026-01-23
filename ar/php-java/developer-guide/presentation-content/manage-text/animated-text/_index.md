@@ -6,28 +6,28 @@ weight: 60
 url: /ar/php-java/animated-text/
 keywords:
 - نص متحرك
-- تحريك النص
+- رسوم متحركة للنص
 - فقرة متحركة
-- تحريك الفقرة
-- تأثير حركي
+- رسوم متحركة للفقرة
+- تأثير حركة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء نص متحرك ديناميكي في عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides للـ PHP عبر Java، مع أمثلة تعليمية مُحسّنة وسهلة المتابعة."
+description: "إنشاء نص متحرك ديناميكي في عروض PowerPoint و OpenDocument التقديمية باستخدام Aspose.Slides للـ PHP عبر Java، مع أمثلة كود سهلة المتابعة ومُحسّنة."
 ---
 
-## **إضافة تأثيرات الحركية إلى الفقرات**
+## **إضافة تأثيرات الحركة إلى الفقرات**
 
-لقد أضفنا طريقة [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) إلى الفئات [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) و[**ISequence**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence). تسمح لك هذه الطريقة بإضافة تأثيرات الحركية إلى فقرة واحدة. يُظهر لك هذا المثال البرمجي كيفية إضافة تأثير حركي إلى فقرة واحدة:
+قمنا بإضافة طريقة [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) إلى الفئة [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence). تسمح لك هذه الطريقة بإضافة تأثيرات الحركة إلى فقرة واحدة. يوضح لك هذا المثال البرمجي كيفية إضافة تأثير حركة إلى فقرة واحدة:
 ```php
   $presentation = new Presentation("Presentation.pptx");
   try {
-    # حدد الفقرة لإضافة تأثير
+    # اختيار الفقرة لإضافة تأثير
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    # أضف تأثير التحليق (Fly) للفقرة المحددة
+    # إضافة تأثير الحركة Fly إلى الفقرة المحددة
     $effect = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($paragraph, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
     $presentation->save("AnimationEffectinParagraph.pptx", SaveFormat::Pptx);
   } finally {
@@ -38,11 +38,11 @@ description: "إنشاء نص متحرك ديناميكي في عروض PowerPoi
 ```
 
 
-## **الحصول على تأثيرات الحركية للفقرات**
+## **الحصول على تأثيرات الحركة للفقرات**
 
-قد ترغب في معرفة تأثيرات الحركية المضافة إلى فقرة ما—على سبيل المثال، في حالة معينة قد تريد الحصول على تأثيرات الحركية في فقرة لأنك تخطط لتطبيق تلك التأثيرات على فقرة أو شكل آخر.
+قد ترغب في معرفة تأثيرات الحركة المضافة إلى فقرة—على سبيل المثال، في سيناريو معين، تريد الحصول على تأثيرات الحركة في فقرة لأنك تخطط لتطبيق تلك التأثيرات على فقرة أو شكل آخر.
 
-يتيح لك Aspose.Slides for PHP عبر Java الحصول على جميع تأثيرات الحركية المطبقة على الفقرات الموجودة داخل إطار نص (شكل). يُظهر لك هذا المثال البرمجي كيفية الحصول على تأثيرات الحركية في فقرة:
+يسمح Aspose.Slides for PHP via Java بالحصول على جميع تأثيرات الحركة المطبقة على الفقرات الموجودة داخل إطار نص (شكل). يوضح لك هذا المثال البرمجي كيفية الحصول على تأثيرات الحركة في فقرة:
 ```php
   $pres = new Presentation("Presentation.pptx");
   $Array = new java_class("java.lang.reflect.Array");
@@ -63,14 +63,14 @@ description: "إنشاء نص متحرك ديناميكي في عروض PowerPoi
 
 ## **الأسئلة الشائعة**
 
-**كيف تختلف تأثيرات النص المتحركة عن انتقالات الشرائح، وهل يمكن دمجها؟**
+**كيف تختلف الرسوم المتحركة للنص عن انتقالات الشرائح، وهل يمكن دمجها؟**
 
-تتحكم تأثيرات النص المتحركة في سلوك الكائن مع مرور الوقت على الشريحة، بينما [transitions](/slides/ar/php-java/slide-transition/) تتحكم في كيفية تغيير الشرائح. هما مستقلان ويمكن استخدامهما معًا؛ يتم تحديد ترتيب التشغيل بواسطة خط زمني للتأثيرات وإعدادات الانتقال.
+تتحكم الرسوم المتحركة للنص في سلوك الكائن مع مرور الوقت على الشريحة، بينما [الانتقالات](/slides/ar/php-java/slide-transition/) تتحكم في طريقة تغير الشرائح. هما مستقلان ويمكن استخدامهما معًا؛ يتم تحديد ترتيب التشغيل بواسطة جدول زمني للرسوم المتحركة وإعدادات الانتقال.
 
-**هل يتم الاحتفاظ بتأثيرات النص المتحركة عند التصدير إلى PDF أو الصور؟**
+**هل يتم الحفاظ على الرسوم المتحركة للنص عند التصدير إلى PDF أو الصور؟**
 
-لا. ملفات PDF والصور النقطية ثابتة، لذلك سترى حالة واحدة من الشريحة دون حركة. للحفاظ على الحركة، استخدم تصدير [video](/slides/ar/php-java/convert-powerpoint-to-video/) أو [HTML](/slides/ar/php-java/export-to-html5/).
+لا. ملفات PDF والصور النقطية ثابتة، لذلك سترى حالة واحدة فقط من الشريحة دون حركة. للحفاظ على الحركة، استخدم التصدير إلى [فيديو](/slides/ar/php-java/convert-powerpoint-to-video/) أو [HTML](/slides/ar/php-java/export-to-html5/).
 
-**هل تعمل تأثيرات النص المتحركة في التخطيطات وسيد الشريحة؟**
+**هل تعمل الرسوم المتحركة للنص في التخطيطات وسلايدر الماستر؟**
 
-تُورّث التأثيرات المطبقة على كائنات التخطيط/السيد الرئيسي إلى الشرائح، لكن توقيتها وتفاعلها مع تأثيرات مستوى الشريحة يعتمد على التسلسل النهائي في الشريحة.
+التأثيرات المطبقة على كائنات التخطيط/الماستر تُورّث إلى الشرائح، لكن توقيتها وتفاعله مع الرسوم المتحركة على مستوى الشريحة يعتمد على التسلسل النهائي على الشريحة.

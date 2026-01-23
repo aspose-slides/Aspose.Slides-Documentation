@@ -8,32 +8,35 @@ keywords:
 - añadir rectángulo
 - crear rectángulo
 - forma de rectángulo
-- rectángulo simple
+- rectángulo sencillo
 - rectángulo con formato
 - PowerPoint
 - presentación
 - PHP
 - Aspose.Slides
-description: "Mejora tus presentaciones de PowerPoint añadiendo rectángulos con Aspose.Slides para PHP a través de Java — diseña y modifica formas de forma programada fácilmente."
+description: "Mejora tus presentaciones de PowerPoint añadiendo rectángulos con Aspose.Slides para PHP a través de Java — diseña y modifica formas de forma programática fácilmente."
 ---
 
 {{% alert color="primary" %}} 
 
-Al igual que los temas anteriores, este también trata sobre añadir una forma y, en esta ocasión, la forma que discutiremos es **Rectángulo**. En este tema, hemos descrito cómo los desarrolladores pueden añadir rectángulos simples o con formato a sus diapositivas utilizando Aspose.Slides para PHP a través de Java.
+Al igual que los temas anteriores, este también trata sobre añadir una forma y, en esta ocasión, la forma que vamos a tratar es **Rectangle**. En este tema, hemos descrito cómo los desarrolladores pueden añadir rectángulos simples o con formato a sus diapositivas usando Aspose.Slides para PHP a través de Java.
 
 {{% /alert %}} 
 
-## **Agregar un rectángulo a una diapositiva**
-Para añadir un rectángulo simple a una diapositiva seleccionada de la presentación, siga los pasos a continuación:
+## **Add a Rectangle to a Slide**
+Para añadir un rectángulo sencillo a una diapositiva seleccionada de la presentación, siga los pasos a continuación:
 
 - Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-- Obtenga la referencia de una diapositiva usando su índice.
-- Añada un [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) de tipo Rectángulo mediante el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+- Obtenga la referencia de una diapositiva mediante su Index.
+- Añada un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) de tipo Rectangle usando el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) expuesto por el objeto [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 - Guarde la presentación modificada como archivo PPTX.
 
-En el ejemplo que se muestra a continuación, hemos añadido un rectángulo simple a la primera diapositiva de la presentación.
+En el ejemplo que se muestra a continuación, hemos añadido un rectángulo sencillo a la primera diapositiva de la presentación.
 ```php
   # Instanciar la clase Presentation que representa el PPTX
+  # Obtener la primera diapositiva
+  # Añadir AutoShape de tipo elipse
+  # Escribir el archivo PPTX en disco
   $pres = new Presentation();
   try {
     # Obtener la primera diapositiva
@@ -50,16 +53,16 @@ En el ejemplo que se muestra a continuación, hemos añadido un rectángulo simp
 ```
 
 
-## **Agregar un rectángulo con formato a una diapositiva**
+## **Add a Formatted Rectangle to a Slide**
 Para añadir un rectángulo con formato a una diapositiva, siga los pasos a continuación:
 
 - Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-- Obtenga la referencia de una diapositiva usando su índice.
-- Añada un [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) de tipo Rectángulo mediante el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
-- Establezca el [Fill Type](https://reference.aspose.com/slides/php-java/aspose.slides/FillType) del rectángulo en Solid.
-- Defina el color del rectángulo mediante el método [SolidFillColor.setColor](https://reference.aspose.com/slides/php-java/aspose.slides/IColorFormat#setColor-java.awt.Color-) expuesto por el objeto [IFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IFillFormat) asociado al objeto [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape).
+- Obtenga la referencia de una diapositiva mediante su Index.
+- Añada un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) de tipo Rectangle usando el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) expuesto por el objeto [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
+- Establezca el [Fill Type](https://reference.aspose.com/slides/php-java/aspose.slides/FillType) del rectángulo a Solid.
+- Defina el color del rectángulo mediante el método [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) expuesto por el objeto [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) asociado al objeto [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
 - Establezca el color de las líneas del rectángulo.
-- Defina el ancho de las líneas del rectángulo.
+- Establezca el ancho de las líneas del rectángulo.
 - Guarde la presentación modificada como archivo PPTX.
 
 Los pasos anteriores se implementan en el ejemplo que se muestra a continuación.
@@ -88,32 +91,32 @@ Los pasos anteriores se implementan en el ejemplo que se muestra a continuación
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Cómo añado un rectángulo con esquinas redondeadas?**
+**How do I add a rectangle with rounded corners?**
 
-Utilice el tipo de forma de esquina redondeada y ajuste el radio de la esquina en las propiedades de la forma; también puede aplicar redondeo por esquina mediante ajustes de geometría.
+Use the rounded-corner [shape type](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/) and adjust the corner radius in the shape’s properties; rounding can also be applied per corner via geometry adjustments.
 
-**¿Cómo lleno un rectángulo con una imagen (textura)?**
+**How do I fill a rectangle with an image (texture)?**
 
-Seleccione el [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) de tipo picture, proporcione la fuente de la imagen y configure los [modos de estirado/teselado](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/).
+Select the picture [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), provide the image source, and configure [stretching/tiling modes](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/).
 
-**¿Puede un rectángulo tener sombra y resplandor?**
+**Can a rectangle have shadow and glow?**
 
-Sí. [Sombra exterior/interior, resplandor y bordes suaves](/slides/es/php-java/shape-effect/) están disponibles con parámetros ajustables.
+Yes. [Outer/inner shadow, glow, and soft edges](/slides/es/php-java/shape-effect/) are available with adjustable parameters.
 
-**¿Puedo convertir un rectángulo en un botón con un hipervínculo?**
+**Can I turn a rectangle into a button with a hyperlink?**
 
-Sí. [Asigne un hipervínculo](/slides/es/php-java/manage-hyperlinks/) a la forma al hacer clic (para ir a una diapositiva, archivo, dirección web o correo electrónico).
+Yes. [Assign a hyperlink](/slides/es/php-java/manage-hyperlinks/) to the shape click (jump to a slide, file, web address, or e-mail).
 
-**¿Cómo puedo proteger un rectángulo contra movimientos y cambios?**
+**How can I protect a rectangle from moving and changes?**
 
-[Utilice bloqueos de forma](/slides/es/php-java/applying-protection-to-presentation/): puede prohibir mover, cambiar el tamaño, seleccionar o editar texto para preservar el diseño.
+Use shape locks: you can forbid moving, resizing, selection, or text editing to preserve the layout.
 
-**¿Puedo convertir un rectángulo a una imagen raster o SVG?**
+**Can I convert a rectangle to a raster image or SVG?**
 
-Sí. Puede [renderizar la forma](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) a una imagen con un tamaño/escala especificados o [exportarla como SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) para uso vectorial.
+Yes. You can [render the shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) to an image with a specified size/scale or [export it as SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) for vector use.
 
-**¿Cómo obtengo rápidamente las propiedades reales (efectivas) de un rectángulo considerando el tema y la herencia?**
+**How do I quickly get the actual (effective) properties of a rectangle considering theme and inheritance?**
 
-[Utilice las propiedades efectivas de la forma](/slides/es/php-java/shape-effective-properties/): la API devuelve valores calculados que tienen en cuenta los estilos del tema, la disposición y la configuración local, simplificando el análisis de formato.
+[Use the shape’s effective properties](/slides/es/php-java/shape-effective-properties/): the API returns computed values that account for theme styles, layout, and local settings, simplifying formatting analysis.

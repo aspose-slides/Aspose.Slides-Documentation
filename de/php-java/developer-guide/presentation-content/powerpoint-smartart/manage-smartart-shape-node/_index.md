@@ -5,48 +5,48 @@ type: docs
 weight: 30
 url: /de/php-java/manage-smartart-shape-node/
 keywords:
-- SmartArt-Knoten
-- untergeordneter Knoten
+- SmartArt‑Knoten
+- Unterknoten
 - Knoten hinzufügen
 - Knotenposition
 - Knotenzugriff
 - Knoten entfernen
 - benutzerdefinierte Position
-- Assistenten-Knoten
+- Assistent‑Knoten
 - Füllformat
 - Knoten rendern
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Verwalten Sie SmartArt-Formknoten in PPT und PPTX mit Aspose.Slides für PHP via Java. Erhalten Sie klare Codebeispiele und Tipps, um Ihre Präsentationen zu optimieren."
+description: "Verwalten Sie SmartArt‑Formknoten in PPT und PPTX mit Aspose.Slides für PHP via Java. Erhalten Sie klare Code‑Beispiele und Tipps, um Ihre Präsentationen zu optimieren."
 ---
 
 ## **SmartArt‑Knoten hinzufügen**
-Aspose.Slides for PHP via Java bietet die einfachste API, um SmartArt‑Objekte auf einfachste Weise zu verwalten. Der nachstehende Beispielcode hilft dabei, einen Knoten und einen untergeordneten Knoten innerhalb eines SmartArt‑Objekts hinzuzufügen.
+Aspose.Slides for PHP via Java stellt die einfachste API zum Verwalten von SmartArt‑Formen auf höchst unkomplizierte Weise bereit. Der folgende Beispielcode hilft, einen Knoten und Unterknoten innerhalb einer SmartArt‑Form hinzuzufügen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) und laden Sie die Präsentation mit einem SmartArt‑Objekt.  
-1. Holen Sie sich die Referenz der ersten Folie über deren Index.  
-1. Durchlaufen Sie jede Form auf der ersten Folie.  
-1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) ist, und casten Sie die ausgewählte Form bei Bedarf zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) um.  
-1. [Add a new Node](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) in die SmartArt‑Form [**NodeCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#getAllNodes--) ein und setzen Sie den Text im TextFrame.  
-1. Jetzt, [Add](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) einen [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) im neu hinzugefügten [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt)‑Knoten und setzen Sie den Text im TextFrame.  
-1. Speichern Sie die Präsentation.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
+1. Ermitteln Sie die Referenz der ersten Folie mittels ihres Index.
+1. Durchlaufen Sie jede Form auf der ersten Folie.
+1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)-Typ ist, und casten Sie die ausgewählte Form zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) um, falls es sich um SmartArt handelt.
+1. [Fügen Sie einen neuen Knoten](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode) in der SmartArt‑Form **NodeCollection** hinzu und setzen Sie den Text im TextFrame.
+1. Nun [fügen Sie](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode) einen **Unterknoten** in dem neu hinzugefügten SmartArt‑Knoten hinzu und setzen Sie den Text im TextFrame.
+1. Speichern Sie die Präsentation.
 ```php
   # Laden Sie die gewünschte Präsentation
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    # Durchlaufen Sie jede Form auf der ersten Folie
+    # Durchlaufen Sie jede Form in der ersten Folie
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      # Prüfen, ob die Form vom Typ SmartArt ist
+      # Prüfen, ob die Form vom SmartArt-Typ ist
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # Shape zu SmartArt casten
+        # Form zu SmartArt casten
         $smart = $shape;
-        # Einen neuen SmartArt-Knoten hinzufügen
+        # Hinzufügen eines neuen SmartArt-Knotens
         $TemNode = $smart->getAllNodes()->addNode();
         # Text hinzufügen
         $TemNode->getTextFrame()->setText("Test");
-        # Neuen Unterknoten im Elternknoten hinzufügen. Er wird am Ende der Sammlung hinzugefügt
+        # Hinzufügen eines neuen Unterknotens im übergeordneten Knoten. Er wird am Ende der Sammlung hinzugefügt
         $newNode = $TemNode->getChildNodes()->addNode();
         # Text hinzufügen
         $newNode->getTextFrame()->setText("New Node Added");
@@ -63,23 +63,23 @@ Aspose.Slides for PHP via Java bietet die einfachste API, um SmartArt‑Objekte 
 
 
 ## **SmartArt‑Knoten an einer bestimmten Position hinzufügen**
-Im folgenden Beispielcode wird erklärt, wie Unterknoten zu den jeweiligen Knoten eines SmartArt‑Objekts an einer bestimmten Position hinzugefügt werden.
+Im folgenden Beispielcode wird erklärt, wie Kindknoten zu den jeweiligen Knoten einer SmartArt‑Form an einer bestimmten Position hinzugefügt werden.
 
-1. Erstellen Sie eine Instanz der Klasse Presentation.  
-1. Holen Sie sich die Referenz der ersten Folie über deren Index.  
-1. Fügen Sie der aufgerufenen Folie ein [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList)-Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt)‑Objekt hinzu.  
-1. Greifen Sie auf den ersten Knoten im hinzugefügten SmartArt‑Objekt zu.  
-1. Jetzt fügen Sie den [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) für den ausgewählten [**Node**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) an Position 2 hinzu und setzen dessen Text.  
-1. Speichern Sie die Präsentation.  
+1. Erstellen Sie eine Instanz der Presentation‑Klasse.
+1. Ermitteln Sie die Referenz der ersten Folie mittels ihres Index.
+1. Fügen Sie in der zugegriffenen Folie eine SmartArt‑Form des Typs [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) hinzu.
+1. Greifen Sie auf den ersten Knoten der hinzugefügten SmartArt‑Form zu.
+1. Fügen Sie nun den **Unterknoten** für den ausgewählten **Knoten** an Position 2 hinzu und setzen Sie dessen Text.
+1. Speichern Sie die Präsentation.
 ```php
   # Erstellen einer Präsentationsinstanz
   $pres = new Presentation();
   try {
     # Zugriff auf die Präsentationsfolie
     $slide = $pres->getSlides()->get_Item(0);
-    # SmartArt IShape hinzufügen
+    # Smart Art IShape hinzufügen
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
-    # Zugriff auf den SmartArt-Knoten bei Index 0
+    # Zugriff auf den SmartArt-Knoten mit Index 0
     $node = $smart->getAllNodes()->get_Item(0);
     # Neuen Unterknoten an Position 2 im übergeordneten Knoten hinzufügen
     $chNode = $node->getChildNodes()->addNodeByPosition(2);
@@ -96,27 +96,27 @@ Im folgenden Beispielcode wird erklärt, wie Unterknoten zu den jeweiligen Knote
 
 
 ## **Zugriff auf einen SmartArt‑Knoten**
-Der folgende Beispielcode hilft beim Zugriff auf Knoten innerhalb eines SmartArt‑Objekts. Bitte beachten Sie, dass Sie den LayoutType des SmartArt nicht ändern können, da er schreibgeschützt ist und nur festgelegt wird, wenn das SmartArt‑Objekt hinzugefügt wird.
+Der folgende Beispielcode hilft beim Zugriff auf Knoten innerhalb einer SmartArt‑Form. Bitte beachten Sie, dass Sie den LayoutType der SmartArt nicht ändern können, da er schreibgeschützt ist und nur beim Hinzufügen der SmartArt‑Form gesetzt wird.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einem SmartArt‑Objekt.  
-1. Holen Sie sich die Referenz der ersten Folie über deren Index.  
-1. Durchlaufen Sie jede Form auf der ersten Folie.  
-1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) ist, und casten Sie die ausgewählte Form bei Bedarf zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) um.  
-1. Durchlaufen Sie alle [**Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) innerhalb des SmartArt‑Objekts.  
-1. Greifen Sie zu und zeigen Sie Informationen wie die Position, Ebene und den Text des SmartArt‑Knotens an.  
+1. Erstellen Sie eine Instanz von [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einer SmartArt‑Form.
+1. Ermitteln Sie die Referenz der ersten Folie mittels ihres Index.
+1. Durchlaufen Sie jede Form auf der ersten Folie.
+1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) ist, und casten Sie die ausgewählte Form zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) um, falls es sich um SmartArt handelt.
+1. Durchlaufen Sie alle **Knoten** innerhalb der SmartArt‑Form.
+1. Greifen Sie auf Informationen wie Position, Ebene und Text des SmartArt‑Knotens zu und zeigen Sie sie an.
 ```php
   # Instanziieren der Presentation-Klasse
   $pres = new Presentation("SmartArtShape.pptx");
   try {
-    # Erste Folie holen
+    # Erste Folie abrufen
     $slide = $pres->getSlides()->get_Item(0);
-    # Durchlaufen jeder Form in der ersten Folie
+    # Durchlaufen jeder Form auf der ersten Folie
     foreach($slide->getShapes() as $shape) {
-      # Prüfen, ob Form vom Typ SmartArt ist
+      # Prüfen, ob die Form vom Typ SmartArt ist
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Form zu SmartArt casten
         $smart = $shape;
-        # Durchlaufen aller Knoten in SmartArt
+        # Durchlaufen aller Knoten innerhalb von SmartArt
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           # Zugriff auf SmartArt-Knoten bei Index i
           $node = $smart->getAllNodes()->get_Item($i);
@@ -134,36 +134,36 @@ Der folgende Beispielcode hilft beim Zugriff auf Knoten innerhalb eines SmartArt
 
 
 ## **Zugriff auf einen SmartArt‑Unterknoten**
-Der folgende Beispielcode hilft beim Zugriff auf die Unterknoten, die zu den jeweiligen Knoten eines SmartArt‑Objekts gehören.
+Der folgende Beispielcode hilft beim Zugriff auf die Unterknoten, die zu den jeweiligen Knoten einer SmartArt‑Form gehören.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einem SmartArt‑Objekt.  
-1. Holen Sie sich die Referenz der ersten Folie über deren Index.  
-1. Durchlaufen Sie jede Form auf der ersten Folie.  
-1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) ist, und casten Sie die ausgewählte Form bei Bedarf zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) um.  
-1. Durchlaufen Sie alle [**Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) innerhalb des SmartArt‑Objekts.  
-1. Für jeden ausgewählten SmartArt‑Knoten [**Node**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) durchlaufen Sie alle [**Child Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#getChildNodes--) innerhalb des jeweiligen Knotens.  
-1. Greifen Sie zu und zeigen Sie Informationen wie die Position, Ebene und den Text des [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) an.  
+1. Erstellen Sie eine Instanz von [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einer SmartArt‑Form.
+1. Ermitteln Sie die Referenz der ersten Folie mittels ihres Index.
+1. Durchlaufen Sie jede Form auf der ersten Folie.
+1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) ist, und casten Sie die ausgewählte Form zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) um, falls es sich um SmartArt handelt.
+1. Durchlaufen Sie alle **Knoten** innerhalb der SmartArt‑Form.
+1. Für jeden ausgewählten SmartArt‑**Knoten** durchlaufen Sie alle **Unterknoten** innerhalb des jeweiligen Knotens.
+1. Greifen Sie auf Informationen wie Position, Ebene und Text des **Unterknotens** zu und zeigen Sie sie an.
 ```php
   # Instanziieren der Presentation-Klasse
   $pres = new Presentation("AccessChildNodes.pptx");
   try {
-    # Erste Folie holen
+    # Erste Folie abrufen
     $slide = $pres->getSlides()->get_Item(0);
-    # Durchlaufen jeder Form in der ersten Folie
+    # Durchlaufen jeder Form auf der ersten Folie
     foreach($slide->getShapes() as $shape) {
-      # Prüfen, ob Form vom Typ SmartArt ist
+      # Prüfen, ob die Form vom Typ SmartArt ist
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Form zu SmartArt casten
         $smart = $shape;
-        # Durchlaufen aller Knoten in SmartArt
+        # Durchlaufen aller Knoten innerhalb von SmartArt
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           # Zugriff auf SmartArt-Knoten bei Index i
           $node0 = $smart->getAllNodes()->get_Item($i);
-          # Durchlaufen der Kindknoten im SmartArt-Knoten bei Index i
+          # Durchlaufen der Unterknoten im SmartArt-Knoten bei Index i
           for($j = 0; $j < java_values($node0->getChildNodes()->size()) ; $j++) {
-            # Zugriff auf den Kindknoten im SmartArt-Knoten
+            # Zugriff auf den Unterknoten im SmartArt-Knoten
             $node = $node0->getChildNodes()->get_Item($j);
-            # Ausgabe der SmartArt-Kindknoten-Parameter
+            # Ausgabe der SmartArt-Unterknotenparameter
             System->out->print("j = " . $j . ", Text = " . $node->getTextFrame()->getText() . ",  Level = " . $node->getLevel() . ", Position = " . $node->getPosition());
           }
         }
@@ -178,29 +178,29 @@ Der folgende Beispielcode hilft beim Zugriff auf die Unterknoten, die zu den jew
 
 
 ## **Zugriff auf einen SmartArt‑Unterknoten an einer bestimmten Position**
-In diesem Beispiel lernen wir, wie man die Unterknoten an einer bestimmten Position, die zu den jeweiligen Knoten eines SmartArt‑Objekts gehören, abruft.
+In diesem Beispiel lernen wir, wie man Unterknoten an bestimmten Positionen, die zu den jeweiligen Knoten einer SmartArt‑Form gehören, abruft.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-1. Holen Sie sich die Referenz der ersten Folie über deren Index.  
-1. Fügen Sie ein [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList)-Typ SmartArt‑Objekt hinzu.  
-1. Greifen Sie auf das hinzugefügte SmartArt‑Objekt zu.  
-1. Greifen Sie auf den Knoten mit Index 0 des aufgerufenen SmartArt‑Objekts zu.  
-1. Jetzt greifen Sie mithilfe der Methode **get_Item()** auf den [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) an Position 1 des aufgerufenen SmartArt‑Knotens zu.  
-1. Greifen Sie zu und zeigen Sie Informationen wie die Position, Ebene und den Text des [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) an.  
+1. Erstellen Sie eine Instanz von [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. Ermitteln Sie die Referenz der ersten Folie mittels ihres Index.
+1. Fügen Sie eine SmartArt‑Form des Typs [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) hinzu.
+1. Greifen Sie auf die hinzugefügte SmartArt‑Form zu.
+1. Greifen Sie auf den Knoten mit Index 0 für die zugegriffene SmartArt‑Form zu.
+1. Greifen Sie nun mit der Methode **get_Item()** auf den **Unterknoten** an Position 1 für den zugegriffenen SmartArt‑Knoten zu.
+1. Zeigen Sie Informationen wie Position, Ebene und Text des **Unterknotens** an.
 ```php
   # Instanziieren der Präsentation
   $pres = new Presentation();
   try {
-    # Zugriff auf die erste Folie
+    # Erste Folie abrufen
     $slide = $pres->getSlides()->get_Item(0);
-    # Hinzufügen der SmartArt-Form in der ersten Folie
+    # SmartArt-Form in der ersten Folie hinzufügen
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
-    # Zugriff auf den SmartArt-Knoten bei Index 0
+    # Zugriff auf SmartArt-Knoten bei Index 0
     $node = $smart->getAllNodes()->get_Item(0);
-    # Zugriff auf den Unterknoten bei Position 1 im übergeordneten Knoten
+    # Zugriff auf den Unterknoten an Position 1 im übergeordneten Knoten
     $position = 1;
     $chNode = $node->getChildNodes()->get_Item($position);
-    # Ausgabe der SmartArt-Kindknoten-Parameter
+    # Ausgabe der SmartArt-Unterknotenparameter
     System->out->print("Text = " . $chNode->getTextFrame()->getText() . ",  Level = " . $chNode->getLevel() . ", Position = " . $chNode->getPosition());
   } finally {
     if (!java_is_null($pres)) {
@@ -211,23 +211,23 @@ In diesem Beispiel lernen wir, wie man die Unterknoten an einer bestimmten Posit
 
 
 ## **Entfernen eines SmartArt‑Knotens**
-In diesem Beispiel lernen wir, wie man Knoten innerhalb eines SmartArt‑Objekts entfernt.
+In diesem Beispiel lernen wir, wie man Knoten innerhalb einer SmartArt‑Form entfernt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einem SmartArt‑Objekt.  
-1. Holen Sie sich die Referenz der ersten Folie über deren Index.  
-1. Durchlaufen Sie jede Form auf der ersten Folie.  
-1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) ist, und casten Sie die ausgewählte Form bei Bedarf zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) um.  
-1. Prüfen Sie, ob das [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) mehr als 0 Knoten enthält.  
-1. Wählen Sie den zu löschenden SmartArt‑Knoten aus.  
-1. Jetzt entfernen Sie den ausgewählten Knoten mithilfe der Methode [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) .  
-1. Speichern Sie die Präsentation.  
+1. Erstellen Sie eine Instanz von [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einer SmartArt‑Form.
+1. Ermitteln Sie die Referenz der ersten Folie mittels ihres Index.
+1. Durchlaufen Sie jede Form auf der ersten Folie.
+1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) ist, und casten Sie die ausgewählte Form zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) um, falls es sich um SmartArt handelt.
+1. Prüfen Sie, ob das SmartArt mehr als 0 Knoten enthält.
+1. Wählen Sie den zu löschenden SmartArt‑Knoten aus.
+1. Entfernen Sie nun den ausgewählten Knoten mit der Methode [**removeNode**](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#removeNode).
+1. Speichern Sie die Präsentation.
 ```php
-  # Laden Sie die gewünschte Präsentation
+  # Lade die gewünschte Präsentation
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # Durchlaufen Sie jede Form auf der ersten Folie
+    # Durchlaufe alle Formen in der ersten Folie
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
-      # Prüfen, ob die Form vom Typ SmartArt ist
+      # Prüfe, ob die Form vom Typ SmartArt ist
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Form zu SmartArt casten
         $smart = $shape;
@@ -249,24 +249,24 @@ In diesem Beispiel lernen wir, wie man Knoten innerhalb eines SmartArt‑Objekts
 ```
 
 
-## **Entfernen eines SmartArt‑Knotens von einer bestimmten Position**
-In diesem Beispiel lernen wir, wie man Knoten innerhalb eines SmartArt‑Objekts an einer bestimmten Position entfernt.
+## **Entfernen eines SmartArt‑Knotens an einer bestimmten Position**
+In diesem Beispiel lernen wir, wie man Knoten innerhalb einer SmartArt‑Form an einer bestimmten Position entfernt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einem SmartArt‑Objekt.  
-1. Holen Sie sich die Referenz der ersten Folie über deren Index.  
-1. Durchlaufen Sie jede Form auf der ersten Folie.  
-1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) ist, und casten Sie die ausgewählte Form bei Bedarf zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) um.  
-1. Wählen Sie den SmartArt‑Form‑Knoten mit Index 0 aus.  
-1. Prüfen Sie nun, ob der ausgewählte SmartArt‑Knoten mehr als 2 untergeordnete Knoten enthält.  
-1. Jetzt entfernen Sie den Knoten an **Position 1** mithilfe der Methode [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-int-) .  
-1. Speichern Sie die Präsentation.  
+1. Erstellen Sie eine Instanz von [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einer SmartArt‑Form.
+1. Ermitteln Sie die Referenz der ersten Folie mittels ihres Index.
+1. Durchlaufen Sie jede Form auf der ersten Folie.
+1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) ist, und casten Sie die ausgewählte Form zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) um, falls es sich um SmartArt handelt.
+1. Wählen Sie den SmartArt‑Formknoten mit Index 0 aus.
+1. Prüfen Sie nun, ob der ausgewählte SmartArt‑Knoten mehr als 2 Unterknoten enthält.
+1. Entfernen Sie nun den Knoten an **Position 1** mit der Methode [**removeNode**](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#removeNode).
+1. Speichern Sie die Präsentation.
 ```php
-  # Laden Sie die gewünschte Präsentation
+  # Lade die gewünschte Präsentation
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # Durchlaufen Sie jede Form auf der ersten Folie
+    # Durchlaufe jede Form in der ersten Folie
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
-      # Prüfen, ob die Form vom Typ SmartArt ist
+      # Prüfe, ob die Form vom Typ SmartArt ist
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Form zu SmartArt casten
         $smart = $shape;
@@ -274,7 +274,7 @@ In diesem Beispiel lernen wir, wie man Knoten innerhalb eines SmartArt‑Objekts
           # Zugriff auf SmartArt-Knoten bei Index 0
           $node = $smart->getAllNodes()->get_Item(0);
           if (java_values($node->getChildNodes()->size()) >= 2) {
-            # Entfernen des Kindknotens an Position 1
+            # Entfernen des Unterknotens an Position 1
             $node->getChildNodes()->removeNode(1);
           }
         }
@@ -291,9 +291,9 @@ In diesem Beispiel lernen wir, wie man Knoten innerhalb eines SmartArt‑Objekts
 
 
 ## **Benutzerdefinierte Position für einen Unterknoten in einem SmartArt‑Objekt festlegen**
-Jetzt unterstützt Aspose.Slides for PHP via Java das Setzen der [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape)-Eigenschaften [X](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setX-float-) und [Y](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setY-float-). Der nachstehende Code‑Snippet zeigt, wie man die benutzerdefinierte Position, Größe und Rotation eines SmartArtShape festlegt; beachten Sie zudem, dass das Hinzufügen neuer Knoten eine Neuberechnung der Positionen und Größen aller Knoten auslöst. Mit benutzerdefinierten Positionseinstellungen kann der Benutzer die Knoten nach Bedarf anordnen.  
+Aspose.Slides for PHP via Java unterstützt das Festlegen der [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape)‑Eigenschaften [X](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setX) und [Y](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setY). Der nachstehende Code‑Abschnitt zeigt, wie man die benutzerdefinierte Position, Größe und Drehung einer SmartArtShape festlegt. Bitte beachten Sie, dass das Hinzufügen neuer Knoten eine Neuberechnung der Positionen und Größen aller Knoten auslöst. Mit benutzerdefinierten Positionseinstellungen kann der Benutzer die Knoten nach Bedarf anordnen.
 ```php
-  # Instanziieren der Präsentationsklasse
+  # Instanziieren der Presentation-Klasse
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
     $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(20, 20, 600, 500, SmartArtLayoutType::OrganizationChart);
@@ -302,15 +302,15 @@ Jetzt unterstützt Aspose.Slides for PHP via Java das Setzen der [SmartArtShape]
     $shape = $node->getShapes()->get_Item(1);
     $shape->setX($shape->getX() . $shape->getWidth() * 2);
     $shape->setY($shape->getY() - $shape->getHeight() * 2);
-    # Breite der SmartArt-Form ändern
+    # SmartArt-Formbreiten ändern
     $node = $smart->getAllNodes()->get_Item(2);
     $shape = $node->getShapes()->get_Item(1);
     $shape->setWidth($shape->getWidth() . $shape->getWidth() * 2);
-    # Höhe der SmartArt-Form ändern
+    # SmartArt-Formhöhe ändern
     $node = $smart->getAllNodes()->get_Item(3);
     $shape = $node->getShapes()->get_Item(1);
     $shape->setHeight($shape->getHeight() . $shape->getHeight() * 2);
-    # Drehung der SmartArt-Form ändern
+    # SmartArt-Formdrehung ändern
     $node = $smart->getAllNodes()->get_Item(4);
     $shape = $node->getShapes()->get_Item(1);
     $shape->setRotation(90);
@@ -321,43 +321,44 @@ Jetzt unterstützt Aspose.Slides for PHP via Java das Setzen der [SmartArtShape]
 ```
 
 
-## **Überprüfung eines Assistenten‑Knotens**
+## **Assistant‑Knoten prüfen**
 {{% alert color="primary" %}} 
 
-In diesem Artikel werden wir die Funktionen von SmartArt‑Objekten, die programmgesteuert zu Präsentationsfolien mit Aspose.Slides für PHP via Java hinzugefügt wurden, weiter untersuchen.  
+In diesem Artikel untersuchen wir weitere Funktionen von SmartArt‑Formen, die programmgesteuert mittels Aspose.Slides for PHP via Java zu Präsentationsfolien hinzugefügt werden.
+
 {{% /alert %}} 
 
-Wir verwenden das folgende Quell‑SmartArt‑Objekt für unsere Untersuchungen in den verschiedenen Abschnitten dieses Artikels.
+Wir verwenden die folgende SmartArt‑Form als Ausgangsbasis für unsere Untersuchungen in den einzelnen Abschnitten dieses Artikels.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
-|**Abbildung: Quell‑SmartArt‑Form in Folie**|
+|**Abbildung: Ausgangs‑SmartArt‑Form in der Folie**|
 
-Im folgenden Beispielcode untersuchen wir, wie **Assistenten‑Knoten** in der SmartArt‑Knotensammlung identifiziert und geändert werden können.
+Im folgenden Beispielcode untersuchen wir, wie **Assistant‑Knoten** in der SmartArt‑Knotensammlung identifiziert und geändert werden können.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einem SmartArt‑Objekt.  
-1. Holen Sie sich die Referenz der zweiten Folie über deren Index.  
-1. Durchlaufen Sie jede Form auf der ersten Folie.  
-1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) ist, und casten Sie die ausgewählte Form bei Bedarf zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) um.  
-1. Durchlaufen Sie alle Knoten innerhalb des SmartArt‑Objekts und prüfen Sie, ob sie [**Assistant Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#isAssistant--) sind.  
-1. Ändern Sie den Status des Assistenten‑Knotens zu einem normalen Knoten.  
-1. Speichern Sie die Präsentation.  
+1. Erstellen Sie eine Instanz von [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) und laden Sie die Präsentation mit einer SmartArt‑Form.
+1. Ermitteln Sie die Referenz der zweiten Folie mittels ihres Index.
+1. Durchlaufen Sie jede Form auf der ersten Folie.
+1. Prüfen Sie, ob die Form vom Typ [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) ist, und casten Sie die ausgewählte Form zu [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) um, falls es sich um SmartArt handelt.
+1. Durchlaufen Sie alle Knoten innerhalb der SmartArt‑Form und prüfen Sie, ob sie **Assistant‑Knoten** sind.
+1. Ändern Sie den Status des Assistant‑Knotens zu einem normalen Knoten.
+1. Speichern Sie die Präsentation.
 ```php
-  # Präsentationsinstanz erstellen
+  # Erstellen einer Präsentationsinstanz
   $pres = new Presentation("AddNodes.pptx");
   try {
     # Durchlaufen jeder Form in der ersten Folie
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
-      # Prüfen, ob Form vom Typ SmartArt ist
+      # Prüfen, ob die Form vom SmartArt-Typ ist
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Form zu SmartArt casten
         $smart = $shape;
-        # Durchlaufen aller Knoten des SmartArt-Objekts
+        # Durchlaufen aller Knoten der SmartArt-Form
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           $node = $smart->getAllNodes()->get_Item($i);
-          # Prüfen, ob Knoten ein Assistent‑Knoten ist
+          # Prüfen, ob Knoten ein Assistant‑Knoten ist
           if ($node->isAssistant()) {
-            # Assistent‑Knoten auf false setzen und zu einem normalen Knoten machen
+            # Assistant‑Knoten auf false setzen und in normalen Knoten umwandeln
             $node->isAssistant();
           }
         }
@@ -375,29 +376,29 @@ Im folgenden Beispielcode untersuchen wir, wie **Assistenten‑Knoten** in der S
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Abbildung: Geänderte Assistenten‑Knoten im SmartArt‑Objekt in der Folie**|
+|**Abbildung: Assistant‑Knoten in der SmartArt‑Form geändert**|
 
 ## **Füllformat eines Knotens festlegen**
-Aspose.Slides for PHP via Java ermöglicht das Hinzufügen benutzerdefinierter SmartArt‑Objekte und das Festlegen ihres Füllformats. Dieser Artikel erklärt, wie SmartArt‑Objekte erstellt, darauf zugegriffen und ihr Füllformat mithilfe von Aspose.Slides for PHP via Java gesetzt wird.
+Aspose.Slides for PHP via Java ermöglicht das Hinzufügen benutzerdefinierter SmartArt‑Formen und das Festlegen ihres Füllformats. Dieser Artikel erklärt, wie SmartArt‑Formen erstellt, zugegriffen und ihr Füllformat über Aspose.Slides for PHP via Java gesetzt wird.
 
 Bitte folgen Sie den untenstehenden Schritten:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-1. Holen Sie sich die Referenz einer Folie über deren Index.  
-1. Fügen Sie ein [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt)-Objekt hinzu, indem Sie dessen [**LayoutType**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#ClosedChevronProcess) festlegen.  
-1. Setzen Sie das [**FillFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getFillFormat--) für die Knoten des SmartArt‑Objekts.  
-1. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)-Klasse.
+1. Ermitteln Sie die Referenz einer Folie über deren Index.
+1. Fügen Sie eine [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)-Form hinzu, indem Sie deren **LayoutType** festlegen.
+1. Legen Sie das **Fill Format** für die Knoten der SmartArt‑Form fest.
+1. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 ```php
   # Instanziieren der Präsentation
   $pres = new Presentation();
   try {
     # Zugriff auf die Folie
     $slide = $pres->getSlides()->get_Item(0);
-    # Hinzufügen der SmartArt-Form und Knoten
+    # SmartArt-Form und Knoten hinzufügen
     $chevron = $slide->getShapes()->addSmartArt(10, 10, 800, 60, SmartArtLayoutType::ClosedChevronProcess);
     $node = $chevron->getAllNodes()->addNode();
     $node->getTextFrame()->setText("Some text");
-    # Festlegen der Füllfarbe des Knotens
+    # Füllfarbe des Knotens setzen
     foreach($node->getShapes() as $item) {
       $item->getFillFormat()->setFillType(FillType::Solid);
       $item->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -412,14 +413,14 @@ Bitte folgen Sie den untenstehenden Schritten:
 ```
 
 
-## **Erzeugen eines Miniaturbilds eines SmartArt‑Unterknotens**
-Entwickler können ein Miniaturbild eines Unterknotens eines SmartArt erzeugen, indem sie die folgenden Schritte ausführen:
+## **Thumbnail eines SmartArt‑Unterknotens generieren**
+Entwickler können ein Thumbnail eines Unterknotens einer SmartArt erzeugen, indem sie die folgenden Schritte ausführen:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-1. [Add SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--).  
-1. Holen Sie sich die Referenz eines Knotens über dessen Index.  
-1. Erhalten Sie das Miniaturbild.  
-1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.  
+1. Erstellen Sie eine Instanz von [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. [SmartArt hinzufügen](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode).
+1. Ermitteln Sie die Referenz eines Knotens über dessen Index.
+1. Holen Sie das Thumbnail‑Bild.
+1. Speichern Sie das Thumbnail‑Bild in einem gewünschten Bildformat.
 ```php
   # Instanziieren der Presentation-Klasse, die die PPTX-Datei repräsentiert
   $pres = new Presentation();
@@ -428,9 +429,9 @@ Entwickler können ein Miniaturbild eines Unterknotens eines SmartArt erzeugen, 
     $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicCycle);
     # Referenz eines Knotens über dessen Index erhalten
     $node = $smart->getNodes()->get_Item(1);
-    # Miniaturbild erhalten
+    # Thumbnail abrufen
     $slideImage = $node->getShapes()->get_Item(0)->getImage();
-    # Miniaturbild speichern
+    # Thumbnail speichern
     try {
       $slideImage->save("SmartArt_ChildNote_Thumbnail.png", ImageFormat::Png);
     } finally {
@@ -450,16 +451,16 @@ Entwickler können ein Miniaturbild eines Unterknotens eines SmartArt erzeugen, 
 
 **Wird SmartArt‑Animation unterstützt?**
 
-Ja. SmartArt wird wie eine reguläre Form behandelt, sodass Sie [Standardanimationen](/slides/de/php-java/shape-animation/) (Eintritt, Austritt, Hervorhebung, Bewegungsbahnen) anwenden und das Timing anpassen können. Bei Bedarf können Sie auch Formen innerhalb von SmartArt‑Knoten animieren.
+Ja. SmartArt wird wie eine reguläre Form behandelt, sodass Sie [Standardanimationen](/slides/de/php-java/shape-animation/) (Einblenden, Ausblenden, Hervorheben, Bewegungsbahnen) anwenden und das Timing anpassen können. Bei Bedarf können Sie auch Formen innerhalb von SmartArt‑Knoten animieren.
 
-**Wie kann ich ein bestimmtes SmartArt auf einer Folie zuverlässig finden, wenn seine interne ID unbekannt ist?**
+**Wie finde ich zuverlässig ein bestimmtes SmartArt‑Element auf einer Folie, wenn seine interne ID unbekannt ist?**
 
-Weisen Sie ihm einen [alternativen Text](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) zu und suchen Sie danach. Das Festlegen eines eindeutigen AltText für das SmartArt ermöglicht es, es programmgesteuert zu finden, ohne interne Kennungen zu verwenden.
+Vergeben und suchen Sie nach [alternativem Text](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/). Das Setzen eines eindeutigen AltText auf das SmartArt ermöglicht ein programmgesteuertes Auffinden ohne interne Kennungen.
 
-**Wird das Aussehen von SmartArt beim Konvertieren der Präsentation in PDF erhalten bleiben?**
+**Wird das Aussehen von SmartArt beim Konvertieren der Präsentation in PDF erhalten?**
 
-Ja. Aspose.Slides rendert SmartArt mit hoher visueller Genauigkeit beim [PDF‑Export](/slides/de/php-java/convert-powerpoint-to-pdf/), wobei Layout, Farben und Effekte erhalten bleiben.
+Ja. Aspose.Slides rendert SmartArt mit hoher visueller Treue während des [PDF‑Exports](/slides/de/php-java/convert-powerpoint-to-pdf/), wodurch Layout, Farben und Effekte erhalten bleiben.
 
-**Kann ich ein Bild des gesamten SmartArt extrahieren (für Vorschauen oder Berichte)?**
+**Kann ich ein Bild des gesamten SmartArt‑Elements extrahieren (für Vorschaubilder oder Berichte)?**
 
-Ja. Sie können ein SmartArt‑Objekt in [Rasterformate](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) oder in [SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) rendern, um skalierbare Vektor­ausgaben zu erhalten, was es für Miniaturbilder, Berichte oder Web‑Verwendung geeignet macht.
+Ja. Sie können eine SmartArt‑Form in [Rasterformate](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) oder in [SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) rendern, um skalierbare Vektor‑Ausgaben zu erhalten – geeignet für Thumbnails, Berichte oder Web‑Verwendung.

@@ -1,5 +1,5 @@
 ---
-title: Administrar gráficos SmartArt en presentaciones usando PHP
+title: Gestionar gráficos SmartArt en presentaciones con PHP
 linktitle: Gráficos SmartArt
 type: docs
 weight: 20
@@ -19,16 +19,16 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Automatiza la creación, edición y estilo de SmartArt en PowerPoint usando PHP con Aspose.Slides, con ejemplos de código concisos y guía centrada en el rendimiento."
+description: "Automatiza la creación, edición y estilo de SmartArt en PowerPoint con PHP usando Aspose.Slides, con ejemplos de código concisos y guías centradas en el rendimiento."
 ---
 
 ## **Crear una forma SmartArt**
-Aspose.Slides for PHP via Java ha proporcionado una API para crear formas SmartArt. Para crear una forma SmartArt en una diapositiva, siga los pasos a continuación:
+Aspose.Slides para PHP a través de Java ha proporcionado una API para crear formas SmartArt. Para crear una forma SmartArt en una diapositiva, siga los pasos a continuación:
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Obtener la referencia de una diapositiva mediante su índice.
-1. [Agregar una forma SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) estableciendo su [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType).
-1. Guardar la presentación modificada como un archivo PPTX.
+1. Obtener la referencia de una diapositiva usando su Index.
+1. [Agregar una forma SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSmartArt) estableciendo su [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType).
+1. Guardar la presentación modificada como archivo PPTX.
 ```php
   # Instanciar la clase Presentation
   $pres = new Presentation();
@@ -52,7 +52,7 @@ Aspose.Slides for PHP via Java ha proporcionado una API para crear formas SmartA
 |**Figura: Forma SmartArt añadida a la diapositiva**|
 
 ## **Acceder a una forma SmartArt en una diapositiva**
-El siguiente código se utilizará para acceder a las formas SmartArt añadidas en la diapositiva de la presentación. En el código de ejemplo recorreremos cada forma dentro de la diapositiva y comprobaremos si es una forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Si la forma es de tipo SmartArt, la convertiremos a una instancia de **SmartArt**.
+El siguiente código se usará para acceder a las formas SmartArt añadidas en la diapositiva de la presentación. En el código de ejemplo recorreremos cada forma dentro de la diapositiva y comprobaremos si es una forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Si la forma es del tipo SmartArt, la convertiremos a una instancia [**SmartArt**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt).
 ```php
   # Cargar la presentación deseada
   $pres = new Presentation("AccessSmartArtShape.pptx");
@@ -74,14 +74,14 @@ El siguiente código se utilizará para acceder a las formas SmartArt añadidas 
 ```
 
 
-## **Acceder a una forma SmartArt con un tipo de diseño concreto**
-El siguiente código de ejemplo ayudará a acceder a la forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) con un LayoutType concreto. Tenga en cuenta que no puede cambiar el LayoutType del SmartArt, ya que es de solo lectura y se establece únicamente cuando se añade la forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt).
+## **Acceder a una forma SmartArt con un LayoutType concreto**
+El siguiente código de ejemplo ayudará a acceder a la forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) con un LayoutType concreto: Tenga en cuenta que no puede cambiar el LayoutType de SmartArt, ya que es de solo lectura y solo se establece cuando se agrega la forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt).
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
+1. Obtener la referencia de la primera diapositiva usando su Index.
 1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) y, si lo es, convertir la forma seleccionada a SmartArt.
-1. Comprobar la forma SmartArt con el LayoutType concreto y realizar las operaciones necesarias a continuación.
+1. Comprobar si la forma es del tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) y convertir la forma seleccionada a SmartArt si lo es.
+1. Verificar la forma SmartArt con el LayoutType concreto y ejecutar lo que sea necesario a continuación.
 ```php
   $pres = new Presentation("AccessSmartArtShape.pptx");
   try {
@@ -106,13 +106,13 @@ El siguiente código de ejemplo ayudará a acceder a la forma [SmartArt](https:/
 
 
 ## **Cambiar el estilo de una forma SmartArt**
-En este ejemplo aprenderemos a cambiar el estilo rápido de cualquier forma SmartArt.
+En este ejemplo, aprenderemos a cambiar el estilo rápido de cualquier forma SmartArt.
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
+1. Obtener la referencia de la primera diapositiva usando su Index.
 1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) y, si lo es, convertir la forma seleccionada a SmartArt.
-1. Encontrar la forma SmartArt con el estilo concreto.
+1. Comprobar si la forma es del tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) y convertir la forma seleccionada a SmartArt si lo es.
+1. Encontrar la forma SmartArt con un estilo concreto.
 1. Establecer el nuevo estilo para la forma SmartArt.
 1. Guardar la presentación.
 ```php
@@ -134,7 +134,7 @@ En este ejemplo aprenderemos a cambiar el estilo rápido de cualquier forma Smar
         }
       }
     }
-    # Guardar la presentación
+    # Guardando la presentación
     $pres->save("ChangeSmartArtStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -147,13 +147,13 @@ En este ejemplo aprenderemos a cambiar el estilo rápido de cualquier forma Smar
 |**Figura: Forma SmartArt con estilo cambiado**|
 
 ## **Cambiar el estilo de color de una forma SmartArt**
-En este ejemplo aprenderemos a cambiar el estilo de color de cualquier forma SmartArt. En el código de ejemplo se accederá a la forma SmartArt con un estilo de color concreto y se modificará su estilo.
+En este ejemplo, aprenderemos a cambiar el estilo de color de cualquier forma SmartArt. En el siguiente código de ejemplo se accederá a la forma SmartArt con un estilo de color concreto y se cambiará su estilo.
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
+1. Obtener la referencia de la primera diapositiva usando su Index.
 1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) y, si lo es, convertir la forma seleccionada a SmartArt.
-1. Encontrar la forma SmartArt con el estilo de color concreto.
+1. Comprobar si la forma es del tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) y convertir la forma seleccionada a SmartArt si lo es.
+1. Encontrar la forma SmartArt con un estilo de color concreto.
 1. Establecer el nuevo estilo de color para la forma SmartArt.
 1. Guardar la presentación.
 ```php
@@ -175,7 +175,7 @@ En este ejemplo aprenderemos a cambiar el estilo de color de cualquier forma Sma
         }
       }
     }
-    # Guardar la presentación
+    # Guardando la presentación
     $pres->save("ChangeSmartArtColorStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -189,22 +189,22 @@ En este ejemplo aprenderemos a cambiar el estilo de color de cualquier forma Sma
 
 ## **Preguntas frecuentes**
 
-**¿Puedo animar SmartArt como un único objeto?**
+**¿Puedo animar SmartArt como un solo objeto?**
 
-Sí. SmartArt es una forma, por lo que puede aplicar [animaciones estándar](/slides/es/php-java/powerpoint-animation/) mediante la API de animaciones (entrada, salida, énfasis, trayectorias de movimiento) igual que con otras formas.
+Sí. SmartArt es una forma, por lo que puede aplicar [animaciones estándar](/slides/es/php-java/powerpoint-animation/) mediante la API de animaciones (entrada, salida, énfasis, trayectorias de movimiento) al igual que con otras formas.
 
 **¿Cómo puedo encontrar un SmartArt específico en una diapositiva si no conozco su ID interno?**
 
-Establezca y utilice el Texto alternativo (AltText) y busque la forma por ese valor; es una forma recomendada de localizar la forma objetivo.
+Establezca y utilice el Texto alternativo (AltText) y busque la forma por ese valor; esta es una forma recomendada de localizar la forma objetivo.
 
 **¿Puedo agrupar SmartArt con otras formas?**
 
 Sí. Puede agrupar SmartArt con otras formas (imágenes, tablas, etc.) y luego [manipular el grupo](/slides/es/php-java/group/).
 
-**¿Cómo obtengo una imagen de un SmartArt específico (por ejemplo, para una vista previa o informe)?**
+**¿Cómo obtengo una imagen de un SmartArt específico (p. ej., para una vista previa o informe)?**
 
-Exporte una miniatura/imagen de la forma; la biblioteca puede [representar formas individuales](/slides/es/php-java/create-shape-thumbnails/) en archivos raster (PNG/JPG/TIFF).
+Exporte una miniatura/imagen de la forma; la biblioteca puede [renderizar formas individuales](/slides/es/php-java/create-shape-thumbnails/) a archivos raster (PNG/JPG/TIFF).
 
-**¿Se conservará la apariencia de SmartArt al convertir toda la presentación a PDF?**
+**¿Se preservará la apariencia de SmartArt al convertir toda la presentación a PDF?**
 
 Sí. El motor de renderizado apunta a alta fidelidad para la [exportación a PDF](/slides/es/php-java/convert-powerpoint-to-pdf/), con una variedad de opciones de calidad y compatibilidad.

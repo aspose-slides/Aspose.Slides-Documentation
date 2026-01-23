@@ -22,54 +22,54 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Descubre cómo crear y personalizar animaciones de forma en presentaciones de PowerPoint con Aspose.Slides para PHP a través de Java. ¡Destaca!"
+description: "Descubra cómo crear y personalizar animaciones de forma en presentaciones de PowerPoint con Aspose.Slides para PHP a través de Java. ¡Distíngase!"
 ---
 
 Las animaciones son efectos visuales que pueden aplicarse a textos, imágenes, formas o [gráficos](https://docs.aspose.com/slides/php-java/animated-charts/). Dan vida a las presentaciones o a sus componentes.
 
 ## **¿Por qué usar animaciones en presentaciones?**
 
-Con animaciones, puedes  
+Usando animaciones, puedes  
 
-* controlar el flujo de la información  
-* resaltar puntos importantes  
-* aumentar el interés o la participación de tu audiencia  
+* controlar el flujo de información  
+* destacar puntos importantes  
+* incrementar el interés o la participación de la audiencia  
 * hacer que el contenido sea más fácil de leer, asimilar o procesar  
-* atraer la atención de los lectores o espectadores a las partes importantes de una presentación  
+* captar la atención de los lectores o espectadores hacia partes importantes de la presentación  
 
-PowerPoint ofrece muchas opciones y herramientas para animaciones y efectos de animación en las categorías **entrada**, **salida**, **énfasis** y **trayectorias de movimiento**.  
+PowerPoint ofrece muchas opciones y herramientas para animaciones y efectos de animación en las categorías de **entrada**, **salida**, **énfasis** y **trayectorias de movimiento**. 
 
 ## **Animaciones en Aspose.Slides**
 
-* Aspose.Slides proporciona las clases y tipos que necesitas para trabajar con animaciones bajo el espacio de nombres `Aspose.Slides.Animation`,  
+* Aspose.Slides proporciona las clases y tipos que necesita para trabajar con animaciones bajo el espacio de nombres `Aspose.Slides.Animation`,  
 * Aspose.Slides ofrece más de **150 efectos de animación** bajo la enumeración [EffectType](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype). Estos efectos son esencialmente los mismos (o equivalentes) que se utilizan en PowerPoint.  
 
 ## **Aplicar animación a un TextBox**
 
-Aspose.Slides for PHP via Java permite aplicar animación al texto de una forma.
+Aspose.Slides para PHP a través de Java le permite aplicar animación al texto de una forma.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
-2. Obtén una referencia a una diapositiva mediante su índice.  
-3. Añade una `rectangle` [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape).  
-4. Añade texto a [IAutoShape.TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-).  
-5. Obtén la secuencia principal de efectos.  
-6. Añade un efecto de animación a [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape).  
-7. Establece la propiedad `TextAnimation.BuildType` al valor de la enumeración `BuildType`.  
-8. escribe la presentación en disco como archivo PPTX.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) rectangular.  
+4. Añada texto al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) de `AutoShape`.  
+5. Obtenga la secuencia principal de efectos.  
+6. Agregue un efecto de animación a [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).  
+7. Utilice el método `TextAnimation.setBuildType` y el valor de la enumeración `BuildType`.  
+8. Guarde la presentación en disco como un archivo PPTX.  
 
-Este código PHP muestra cómo aplicar el efecto `Fade` a AutoShape y establecer la animación de texto al valor *By 1st Level Paragraphs*:
+Este código PHP le muestra cómo aplicar el efecto `Fade` a AutoShape y establecer la animación de texto al valor *By 1st Level Paragraphs*:
 ```php
   # Instancia una clase de presentación que representa un archivo de presentación.
   $pres = new Presentation();
   try {
     $sld = $pres->getSlides()->get_Item(0);
-    # Añade una nueva AutoShape con texto
+    # Añade un nuevo AutoShape con texto
     $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
     $textFrame = $autoShape->getTextFrame();
     $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
     # Obtiene la secuencia principal de la diapositiva.
     $sequence = $sld->getTimeline()->getMainSequence();
-    # Añade el efecto de animación Fade a la forma
+    # Añade efecto de animación Fade a la forma
     $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
     # Anima el texto de la forma por párrafos de primer nivel
     $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
@@ -83,22 +83,22 @@ Este código PHP muestra cómo aplicar el efecto `Fade` a AutoShape y establecer
 ```
 
 
-{{%  alert color="primary"  %}}  
+{{%  alert color="primary"  %}} 
 
-Además de aplicar animaciones al texto, también puedes aplicarlas a un solo [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph). Consulta [**Texto animado**](/slides/es/php-java/animated-text/).  
+Además de aplicar animaciones al texto, también puede aplicar animaciones a un único [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/). Vea [**Texto animado**](/slides/es/php-java/animated-text/).
 
-{{% /alert %}}  
+{{% /alert %}} 
 
 ## **Aplicar animación a un PictureFrame**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
-2. Obtén una referencia a una diapositiva mediante su índice.  
-3. Añade o recupera un [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe) en la diapositiva.  
-4. Obtén la secuencia principal de efectos.  
-5. Añade un efecto de animación a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe).  
-6. escribe la presentación en disco como archivo PPTX.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Agregue o obtenga un [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe) en la diapositiva.  
+4. Obtenga la secuencia principal de efectos.  
+5. Añada un efecto de animación a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe).  
+6. Guarde la presentación en disco como un archivo PPTX.  
 
-Este código PHP muestra cómo aplicar el efecto `Fly` a un marco de imagen:
+Este código PHP le muestra cómo aplicar el efecto `Fly` a un marco de imagen:
 ```php
   # Instancia una clase de presentación que representa un archivo de presentación.
   $pres = new Presentation();
@@ -117,7 +117,7 @@ Este código PHP muestra cómo aplicar el efecto `Fly` a un marco de imagen:
     $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
     # Obtiene la secuencia principal de la diapositiva.
     $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Añade el efecto de animación Fly from Left al marco de imagen
+    # Añade la animación Fly desde la izquierda al marco de imagen
     $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
     # Guarda el archivo PPTX en disco
     $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
@@ -130,18 +130,18 @@ Este código PHP muestra cómo aplicar el efecto `Fly` a un marco de imagen:
 ```
 
 
-## **Aplicar animación a una Shape**
+## **Aplicar animación a una forma**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
-2. Obtén una referencia a una diapositiva mediante su índice.  
-3. Añade una `rectangle` [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape).  
-4. Añade un `Bevel` [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/iautoshape) (al hacer clic en este objeto, se reproducirá la animación).  
-5. Crea una secuencia de efectos sobre la forma de bisel.  
-6. Crea una `UserPath` personalizada.  
-7. Añade comandos para mover a la `UserPath`.  
-8. escribe la presentación en disco como archivo PPTX.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) rectangular.  
+4. Agregue una [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) con bisel (cuando se hace clic en este objeto, se reproduce la animación).  
+5. Cree una secuencia de efectos en la forma con bisel.  
+6. Cree un `UserPath` personalizado.  
+7. Añada comandos para mover al `UserPath`.  
+8. Guarde la presentación en disco como un archivo PPTX.  
 
-Este código PHP muestra cómo aplicar el efecto `PathFootball` (ruta de fútbol) a una forma:
+Este código PHP le muestra cómo aplicar el efecto `PathFootball` (ruta de fútbol) a una forma:
 ```php
   # Instancia una clase Presentation que representa un archivo PPTX.
   $pres = new Presentation();
@@ -150,22 +150,22 @@ Este código PHP muestra cómo aplicar el efecto `PathFootball` (ruta de fútbol
     # Crea el efecto PathFootball para una forma existente desde cero.
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
     $ashp->addTextFrame("Animated TextBox");
-    # Añade el efecto de animación PathFootBall
+    # Añade el efecto de animación PathFootball
     $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Crea algún tipo de "button".
+    # Crea una especie de "botón".
     $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
     # Crea una secuencia de efectos para este botón.
     $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
     # Crea una ruta de usuario personalizada. Nuestro objeto se moverá solo después de que se haga clic en el botón.
     $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
-    # Añade comandos de movimiento ya que la ruta creada está vacía.
-    $motionBvh = $fxUserPath->getBehaviors()->get_Item(0);
+    # Añade comandos para mover ya que la ruta creada está vacía.
+    $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
     $pts = new Point2DFloat[1];
     $pts[0] = new Point2DFloat(0.076, 0.59);
-    $motionBvh->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
+    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
     $pts[0] = new Point2DFloat(-0.076, -0.59);
-    $motionBvh->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
-    $motionBvh->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
+    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
+    $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
     # Escribe el archivo PPTX en disco
     $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
   } finally {
@@ -176,13 +176,13 @@ Este código PHP muestra cómo aplicar el efecto `PathFootball` (ruta de fútbol
 ```
 
 
-## **Obtener los efectos de animación aplicados a una Shape**
+## **Obtener los efectos de animación aplicados a una forma**
 
-Los ejemplos siguientes muestran cómo usar el método `getEffectsByShape` de la clase [Sequence](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/) para obtener todos los efectos de animación aplicados a una forma.
+Los siguientes ejemplos le muestran cómo usar el método `getEffectsByShape` de la clase [Sequence](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/) para obtener todos los efectos de animación aplicados a una forma.
 
 **Ejemplo 1: Obtener efectos de animación aplicados a una forma en una diapositiva normal**
 
-Anteriormente aprendiste cómo añadir efectos de animación a formas en presentaciones de PowerPoint. El siguiente fragmento de código muestra cómo obtener los efectos aplicados a la primera forma de la primera diapositiva normal en la presentación `AnimExample_out.pptx`.
+Anteriormente, aprendió cómo añadir efectos de animación a formas en presentaciones de PowerPoint. El siguiente fragmento de código muestra cómo obtener los efectos aplicados a la primera forma en la primera diapositiva normal de la presentación `AnimExample_out.pptx`.
 ```php
   $Array = new java_class("java.lang.reflect.Array");
   $presentation = new Presentation("AnimExample_out.pptx");
@@ -210,23 +210,23 @@ Anteriormente aprendiste cómo añadir efectos de animación a formas en present
 ```
 
 
-**Ejemplo 2: Obtener todos los efectos de animación, incluidos los heredados de marcadores de posición**
+**Ejemplo 2: Obtener todos los efectos de animación, incluidos los heredados de los marcadores de posición**
 
-Si una forma en una diapositiva normal tiene marcadores de posición que están en la diapositiva de diseño y/o en la diapositiva maestra, y se han añadido efectos de animación a esos marcadores, entonces todos los efectos de la forma se reproducirán durante la presentación, incluidos los heredados.
+Si una forma en una diapositiva normal tiene marcadores de posición que están en la diapositiva de diseño y/o en la diapositiva maestra, y se han añadido efectos de animación a esos marcadores, entonces todos los efectos de la forma se reproducirán durante la presentación, incluidos los heredados de los marcadores.
 
-Supongamos que tenemos una presentación PowerPoint `sample.pptx` con una diapositiva que contiene solo una forma de pie de página con el texto "Made with Aspose.Slides" y se le ha aplicado el efecto **Random Bars**.
+Supongamos que tenemos un archivo de presentación PowerPoint `sample.pptx` con una diapositiva que contiene solo una forma de pie de página con el texto "Made with Aspose.Slides" y se ha aplicado el efecto **Random Bars** a la forma.
 
-![Slide shape animation effect](slide-shape-animation.png)
+![Efecto de animación de forma de diapositiva](slide-shape-animation.png)
 
-Supongamos también que el efecto **Split** está aplicado al marcador de posición del pie de página en la diapositiva **de diseño**.
+Supongamos también que el efecto **Split** se ha aplicado al marcador de posición del pie de página en la diapositiva **de diseño**.
 
-![Layout shape animation effect](layout-shape-animation.png)
+![Efecto de animación de forma del diseño](layout-shape-animation.png)
 
-Y, por último, el efecto **Fly In** está aplicado al marcador de posición del pie de página en la diapositiva **maestra**.
+Y, por último, el efecto **Fly In** se ha aplicado al marcador de posición del pie de página en la diapositiva **maestra**.
 
-![Master shape animation effect](master-shape-animation.png)
+![Efecto de animación de forma maestra](master-shape-animation.png)
 
-El siguiente fragmento de código muestra cómo usar el método `getBasePlaceholder` de la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) para acceder a los marcadores de posición de la forma y obtener los efectos de animación aplicados a la forma de pie de página, incluidos los heredados de los marcadores ubicados en las diapositivas de diseño y maestra.
+El siguiente fragmento de código muestra cómo usar el método `getBasePlaceholder` de la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) para acceder a los marcadores de posición de la forma y obtener los efectos de animación aplicados a la forma del pie de página, incluidos los heredados de los marcadores ubicados en las diapositivas de diseño y maestra.
 ```php
 $presentation = new Presentation("sample.pptx");
 
@@ -264,31 +264,29 @@ function printEffects($effects) {
 Salida:
 ```text
 Main sequence of shape effects:
-Type: 47, subtype: 2              // Vuelo, Inferior
-Type: 134, subtype: 45            // Dividir, EntradaVertical
-Type: 126, subtype: 22            // BarrasAleatorias, Horizontal
+Type: 47, subtype: 2              // Fly, Abajo
+Type: 134, subtype: 45            // Split, VerticalIn
+Type: 126, subtype: 22            // RandomBars, Horizontal
 ```
 
 
-## **Cambiar las propiedades de tiempo del efecto de animación**
+## **Cambiar los métodos de sincronización de efectos de animación**
 
-Aspose.Slides for PHP via Java permite cambiar las propiedades de Timing de un efecto de animación.
-
-Este es el panel de Timing de animación en Microsoft PowerPoint:
+Aspose.Slides para PHP a través de Java le permite cambiar las propiedades de sincronización de un efecto de animación.
 
 ![example1_image](shape-animation.png)
 
-Correspondencias entre Timing de PowerPoint y las propiedades de [Effect.Timing](https://reference.aspose.com/slides/php-java/aspose.slides/IEffect#getTiming--):
+Estas son las correspondencias entre la sincronización de PowerPoint y las propiedades de [Effect Timing](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming):
 
-- La lista desplegable **Start** de PowerPoint coincide con la propiedad [Effect.Timing.TriggerType](https://reference.aspose.com/slides/php-java/aspose.slides/ITiming#getTriggerType--).  
-- **Duration** coincide con la propiedad [Effect.Timing.Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ITiming#getDuration--). La duración de una animación (en segundos) es el tiempo total que tarda en completarse un ciclo.  
-- **Delay** coincide con la propiedad [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/php-java/aspose.slides/ITiming#getTriggerDelayTime--).  
+- La lista desplegable **Inicio** de sincronización de PowerPoint coincide con el método [Timing::getTriggerType](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerType).  
+- La lista desplegable **Duración** de sincronización de PowerPoint coincide con el método [Timing::getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getDuration). La duración de una animación (en segundos) es el tiempo total que tarda la animación en completar un ciclo.  
+- La lista desplegable **Retraso** de sincronización de PowerPoint coincide con el método [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerDelayTime).  
 
-Cómo cambiar las propiedades de Timing del efecto:
+Así es como se cambian las propiedades de sincronización del efecto:
 
 1. [Aplicar](#apply-animation-to-shape) o obtener el efecto de animación.  
-2. Establecer nuevos valores para las propiedades de [Effect.Timing](https://reference.aspose.com/slides/php-java/aspose.slides/IEffect#getTiming--) que necesites.  
-3. Guardar el archivo PPTX modificado.  
+2. Establezca los nuevos valores que necesite usando el método [Effect::getTiming](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming).  
+3. Guarde el archivo PPTX modificado.  
 
 Este código PHP demuestra la operación:
 ```php
@@ -299,11 +297,11 @@ Este código PHP demuestra la operación:
     $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     # Obtiene el primer efecto de la secuencia principal.
     $effect = $sequence->get_Item(0);
-    # Cambia el tipo de activación del efecto a iniciar al hacer clic
+    # Cambia el TriggerType del efecto para iniciar con clic
     $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
     # Cambia la duración del efecto
     $effect->getTiming()->setDuration(3.0);
-    # Cambia el tiempo de retraso del activador del efecto
+    # Cambia el TriggerDelayTime del efecto
     $effect->getTiming()->setTriggerDelayTime(0.5);
     # Guarda el archivo PPTX en disco
     $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
@@ -317,14 +315,14 @@ Este código PHP demuestra la operación:
 
 ## **Sonido del efecto de animación**
 
-Aspose.Slides ofrece estas propiedades para trabajar con sonidos en efectos de animación:  
+Aspose.Slides proporciona estos métodos para trabajar con sonidos en efectos de animación: 
 
 - [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
 - [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)  
 
-### **Añadir un sonido a un efecto de animación**
+### **Agregar sonido a un efecto de animación**
 
-Este código PHP muestra cómo añadir un sonido a un efecto de animación y detenerlo cuando comienza el siguiente efecto:
+Este código PHP le muestra cómo agregar un sonido a un efecto de animación y detenerlo cuando comienza el siguiente efecto:
 ```php
   $pres = new Presentation("AnimExample_out.pptx");
   try {
@@ -347,14 +345,14 @@ try {
     $firstEffect = $sequence->get_Item(0);
     # Comprueba el efecto para "Sin sonido"
     if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
-      # Añade sonido para el primer efecto
+      # Añade sonido al primer efecto
       $firstEffect->setSound($effectSound);
     }
     # Obtiene la primera secuencia interactiva de la diapositiva.
     $interactiveSequence = $firstSlide->getTimeline()->getInteractiveSequences()->get_Item(0);
     # Establece la bandera "Detener sonido anterior" del efecto
     $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
-    # Escribe el archivo PPTX en disco
+    # Guarda el archivo PPTX en disco
     $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -366,12 +364,12 @@ try {
 
 ### **Extraer el sonido de un efecto de animación**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
-2. Obtén una referencia a una diapositiva mediante su índice.  
-3. Obtén la secuencia principal de efectos.  
-4. Extrae el método [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) incrustado en cada efecto de animación.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Obtenga la secuencia principal de efectos.  
+4. Extraiga el sonido incrustado en cada efecto de animación mediante [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-).  
 
-Este código PHP muestra cómo extraer el sonido incrustado en un efecto de animación:
+Este código PHP le muestra cómo extraer el sonido incrustado en un efecto de animación:
 ```php
   # Instancia una clase de presentación que representa un archivo de presentación.
   $presentation = new Presentation("EffectSound.pptx");
@@ -394,24 +392,22 @@ Este código PHP muestra cómo extraer el sonido incrustado en un efecto de anim
 ```
 
 
-## **After Animation**
+## **Después de la animación**
 
-Aspose.Slides for PHP via Java permite cambiar la propiedad After animation de un efecto de animación.
-
-Este es el panel de Efectos de animación y el menú ampliado en Microsoft PowerPoint:
+Aspose.Slides para PHP a través de Java le permite cambiar la propiedad After animation de un efecto de animación.
 
 ![example1_image](shape-after-animation.png)
 
-La lista desplegable **After animation** de PowerPoint coincide con estas propiedades:  
+La lista desplegable **After animation** del efecto de PowerPoint coincide con estos métodos: 
 
-- Propiedad [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAfterAnimationType-int-) que describe el tipo de After animation:  
-  * **More Colors** de PowerPoint coincide con el tipo [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color);  
-  * **Don't Dim** coincide con [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#DoNotDim) (tipo predeterminado);  
-  * **Hide After Animation** coincide con [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation);  
-  * **Hide on Next Mouse Click** coincide con [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick).  
-- Propiedad [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) que define un formato de color After animation. Esta propiedad funciona junto con el tipo [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color). Si cambias el tipo a otro, el color After animation se borrará.  
+- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationType) método que describe el tipo After animation:  
+  * PowerPoint **More Colors** coincide con el tipo [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color);  
+  * PowerPoint **Don't Dim** coincide con el tipo [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#DoNotDim) (tipo predeterminado);  
+  * PowerPoint **Hide After Animation** coincide con el tipo [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation);  
+  * PowerPoint **Hide on Next Mouse Click** coincide con el tipo [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick).  
+- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationColor) método que define el formato de color After animation. Este método funciona junto con el tipo [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color). Si cambia el tipo a otro, el color After animation se borrará.  
 
-Este código PHP muestra cómo cambiar un efecto After animation:
+Este código PHP le muestra cómo cambiar un efecto After animation:
 ```php
   # Instancia una clase de presentación que representa un archivo de presentación
   $pres = new Presentation("AnimImage_out.pptx");
@@ -421,9 +417,9 @@ Este código PHP muestra cómo cambiar un efecto After animation:
     $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
     # Cambia el tipo de animación posterior a Color
     $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
-    # Establece el color de atenuación de la animación posterior
+    # Define el color de atenuación de la animación posterior
     $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
-    # Escribe el archivo PPTX en disco
+    # Guarda el archivo PPTX en disco
     $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -435,20 +431,20 @@ Este código PHP muestra cómo cambiar un efecto After animation:
 
 ## **Animar texto**
 
-Aspose.Slides ofrece estas propiedades para trabajar con el bloque *Animate text* de un efecto de animación:  
+Aspose.Slides proporciona estos métodos para trabajar con el bloque *Animate text* de un efecto de animación:
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAnimateTextType-int-) que describe el tipo de animación de texto del efecto. El texto de la forma puede animarse:  
-  - Todo a la vez ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#AllAtOnce))  
-  - Por palabra ([AnimateTextType::ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByWord))  
-  - Por letra ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByLetter))  
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setDelayBetweenTextParts-float-) establece un retraso entre las partes animadas del texto (palabras o letras). Un valor positivo indica el porcentaje de la duración del efecto. Un valor negativo indica el retraso en segundos.  
+- [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) que describe el tipo de animación de texto del efecto. El texto de la forma puede animarse:  
+  - Todo a la vez ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#AllAtOnce));  
+  - Por palabra ([AnimateTextType::ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByWord));  
+  - Por letra ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByLetter)).  
+- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts) establece un retraso entre las partes de texto animado (palabras o letras). Un valor positivo especifica el porcentaje de la duración del efecto. Un valor negativo especifica el retraso en segundos.  
 
-Cómo cambiar las propiedades *Animate text* del efecto:
+Así es como puede cambiar las propiedades *Animate text* del efecto:
 
 1. [Aplicar](#apply-animation-to-shape) o obtener el efecto de animación.  
-2. Establecer la propiedad [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/itextanimation/#setBuildType-int-) a [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) para desactivar el modo *By Paragraphs*.  
-3. Establecer nuevos valores para las propiedades [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAnimateTextType-int-) y [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setDelayBetweenTextParts-float-).  
-4. Guardar el archivo PPTX modificado.  
+2. Use el método [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/textanimation/#setBuildType) y el valor [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) para desactivar el modo de animación *By Paragraphs*.  
+3. Establezca nuevos valores usando los métodos [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) y [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts).  
+4. Guarde el archivo PPTX modificado.  
 
 Este código PHP demuestra la operación:
 ```php
@@ -458,13 +454,13 @@ Este código PHP demuestra la operación:
     $firstSlide = $pres->getSlides()->get_Item(0);
     # Obtiene el primer efecto de la secuencia principal
     $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Cambia el tipo de animación de texto del efecto a "Como un solo objeto"
+    # Cambia el tipo de animación de texto del efecto a "As One Object"
     $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
-    # Cambia el tipo de animación de texto del efecto a "Por palabra"
+    # Cambia el tipo de animación de texto del efecto a "By word"
     $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
     # Establece el retraso entre palabras al 20% de la duración del efecto
     $firstEffect->setDelayBetweenTextParts(20.0);
-    # Escribe el archivo PPTX en disco
+    # Guarda el archivo PPTX en disco
     $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -474,16 +470,16 @@ Este código PHP demuestra la operación:
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Cómo puedo asegurar que las animaciones se conserven al publicar la presentación en la web?**
+**¿Cómo puedo garantizar que las animaciones se conserven al publicar la presentación en la web?**
 
-[Export to HTML5](/slides/es/php-java/export-to-html5/) y habilita las [opciones](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) responsables de animaciones de [shape](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) y de [transition](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/). El HTML plano no reproduce animaciones de diapositivas, mientras que HTML5 sí.
+[Exportar a HTML5](/slides/es/php-java/export-to-html5/) y habilite las [opciones](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) responsables de las animaciones de [forma](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) y de [transición](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/). El HTML plano no reproduce animaciones de diapositivas, mientras que HTML5 sí.
 
-**¿Cómo afecta el cambio del orden Z (orden de capas) de las formas a la animación?**
+**¿Cómo afecta al cambiar el orden Z (orden de capas) de las formas a la animación?**
 
-El orden de animación y el orden de dibujo son independientes: un efecto controla el momento y el tipo de aparición/desaparición, mientras que el [z-order](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) determina qué cubre a qué. El resultado visible se define por su combinación. (Este es el comportamiento general de PowerPoint; el modelo de efectos y formas de Aspose.Slides sigue la misma lógica.)
+El orden Z y el orden de dibujo son independientes: un efecto controla el momento y el tipo de aparición/desaparición, mientras que el [orden Z](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) determina qué cubre a qué. El resultado visible está definido por su combinación. (Este es el comportamiento general de PowerPoint; el modelo de efectos y formas de Aspose.Slides sigue la misma lógica.)
 
-**¿Existen limitaciones al convertir animaciones a video para ciertos efectos?**
+**¿Existen limitaciones al convertir animaciones a vídeo para ciertos efectos?**
 
-En general, [las animaciones son compatibles](/slides/es/php-java/convert-powerpoint-to-video/), pero casos raros o efectos específicos pueden renderizarse de forma distinta. Se recomienda probar con los efectos que uses y con la versión de la biblioteca.
+En general, [las animaciones son compatibles](/slides/es/php-java/convert-powerpoint-to-video/), pero casos raros o efectos específicos pueden renderizarse de forma diferente. Se recomienda probar con los efectos que utilice y con la versión de la biblioteca.

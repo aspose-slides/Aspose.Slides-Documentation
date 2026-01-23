@@ -5,7 +5,7 @@ type: docs
 weight: 130
 url: /ru/php-java/convert-powerpoint-to-video/
 keywords:
-- конвертировать PowerPoint
+- Конвертировать PowerPoint
 - конвертировать презентацию
 - конвертировать PPT
 - конвертировать PPTX
@@ -21,32 +21,32 @@ keywords:
 - сохранить PPTX как MP4
 - экспортировать PPT в MP4
 - экспортировать PPTX в MP4
-- конвертация видео
+- преобразование видео
 - PowerPoint
 - PHP
 - Aspose.Slides
-description: "Узнайте, как конвертировать презентации PowerPoint в видео с помощью Aspose.Slides для PHP. Откройте примеры кода и техники автоматизации для оптимизации вашего рабочего процесса."
+description: "Узнайте, как конвертировать презентации PowerPoint в видео с помощью Aspose.Slides для PHP. Ознакомьтесь с примером кода и техниками автоматизации для оптимизации вашего рабочего процесса."
 ---
 
-Преобразовав вашу презентацию PowerPoint в видео, вы получаете 
+Преобразуя вашу презентацию PowerPoint в видео, вы получаете 
 
 * **Повышение доступности:** Все устройства (независимо от платформы) по умолчанию оснащены видеоплеерами, в отличие от приложений для открытия презентаций, поэтому пользователям проще открывать или воспроизводить видео.
-* **Более широкая аудитория:** С помощью видео вы можете охватить большую аудиторию и предоставить им информацию, которая иначе могла бы показаться утомительной в презентации. Большинство опросов и статистических данных показывают, что люди смотрят и потребляют видео чаще, чем другие формы контента, и они обычно предпочитают такой контент.
+* **Больший охват:** С помощью видео вы можете достичь широкой аудитории и предоставить им информацию, которая в презентации могла бы показаться скучной. Большинство опросов и статистических данных показывают, что люди смотрят и потребляют видео больше, чем другие формы контента, и обычно предпочитают именно такой контент.
 
 {{% alert color="primary" %}} 
-Возможно, вам будет интересен наш [**Онлайн-конвертер PowerPoint в видео**](https://products.aspose.app/slides/conversion/ppt-to-word), так как это живой и эффективный пример реализации описанного процесса.
+Возможно, вам стоит проверить наш [**Онлайн-конвертер PowerPoint в видео**](https://products.aspose.app/slides/conversion/ppt-to-word), так как он представляет собой живую и эффективную реализацию описанного процесса.
 {{% /alert %}} 
 
-## **Конвертация PowerPoint в видео в Aspose.Slides**
+## **Преобразование PowerPoint в видео в Aspose.Slides**
 
-В [Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-22-11-release-notes/) мы реализовали поддержку конвертации презентаций в видео.
+Aspose.Slides поддерживает преобразование презентаций в видео.
 
-* Используйте **Aspose.Slides** для генерации набора кадров (из слайдов презентации), соответствующих определённому FPS (кадрам в секунду)
-* Используйте стороннюю утилиту, например **ffmpeg** ([для java](https://github.com/bramp/ffmpeg-cli-wrapper)), чтобы создать видео на основе этих кадров.
+* Используйте **Aspose.Slides** для генерации набора кадров (из слайдов презентации), соответствующего определённому FPS (кадров в секунду)
+* Используйте стороннюю утилиту, например **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)), чтобы создать видео на основе кадров.
 
-### **Конвертировать PowerPoint в видео**
+### **Преобразовать PowerPoint в видео**
 
-1. Добавьте следующее в ваш файл POM:
+1. Добавьте это в ваш файл POM:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -60,13 +60,13 @@ description: "Узнайте, как конвертировать презент
 
 2. Скачайте ffmpeg [здесь](https://ffmpeg.org/download.html).
 
-4. Запустите PHP‑код для конвертации PowerPoint в видео.
+4. Запустите PHP‑код преобразования PowerPoint в видео.
 
-Этот PHP‑код демонстрирует, как конвертировать презентацию (содержащую рисунок и два анимационных эффекта) в видео:
+Этот PHP‑код показывает, как преобразовать презентацию (с рисунком и двумя анимационными эффектами) в видео:
 ```php
   $presentation = new Presentation();
   try {
-    # Добавляет форму улыбки и анимирует её
+    # Добавляет форму улыбки и затем анимирует её
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::TopLeft, EffectTriggerType::AfterPrevious);
@@ -104,7 +104,7 @@ description: "Узнайте, как конвертировать презент
         $animationsGenerator->dispose();
       }
     }
-    # Настраивает каталог бинарных файлов ffmpeg. См. эту страницу: https://github.com/rosenbjerg/FFMpegCore#installation
+    # Настройте папку с бинарниками ffmpeg. Смотрите эту страницу: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -121,10 +121,10 @@ description: "Узнайте, как конвертировать презент
 Вы можете применять анимацию к объектам на слайдах и использовать переходы между слайдами. 
 
 {{% alert color="primary" %}} 
-Возможно, вам будет интересно ознакомиться со следующими статьями: [Анимация PowerPoint](https://docs.aspose.com/slides/php-java/powerpoint-animation/), [Анимация фигур](https://docs.aspose.com/slides/php-java/shape-animation/), и [Эффекты фигур](https://docs.aspose.com/slides/php-java/shape-effect/).
+Возможно, вам стоит ознакомиться с этими статьями: [PowerPoint Animation](https://docs.aspose.com/slides/php-java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/php-java/shape-animation/), и [Shape Effect](https://docs.aspose.com/slides/php-java/shape-effect/).
 {{% /alert %}} 
 
-Анимации и переходы делают слайдшоу более захватывающими и интересными — и то же самое происходит с видео. Добавим ещё один слайд и переход в код для предыдущей презентации:
+Анимации и переходы делают слайд‑шоу более захватывающим и интересным — и то же самое происходит с видео. Добавим ещё один слайд и переход в код предыдущей презентации:
 ```php
   # Добавляет форму улыбки и анимирует её
   # ...
@@ -137,7 +137,7 @@ description: "Узнайте, как конвертировать презент
 ```
 
 
-Aspose.Slides также поддерживает анимацию текста. Поэтому мы анимируем абзацы на объектах, которые будут появляться один за другим (с задержкой в одну секунду):
+Aspose.Slides также поддерживает анимацию текста. Мы анимируем абзацы на объектах, которые будут появляться один за другим (с задержкой в одну секунду):
 ```php
   $presentation = new Presentation();
   try {
@@ -194,7 +194,7 @@ Aspose.Slides также поддерживает анимацию текста.
         $animationsGenerator->dispose();
       }
     }
-    # Настраивает папку бинарных файлов ffmpeg. См. эту страницу: https://github.com/rosenbjerg/FFMpegCore#installation
+    # Настройте папку с бинарниками ffmpeg. Смотрите эту страницу: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -206,15 +206,15 @@ Aspose.Slides также поддерживает анимацию текста.
 ```
 
 
-## **Классы конвертации видео**
+## **Классы преобразования видео**
 
-Чтобы вы могли выполнять задачи по конвертации PowerPoint в видео, Aspose.Slides предоставляет классы [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) и [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
+Чтобы вы могли выполнять задачи преобразования PowerPoint в видео, Aspose.Slides предоставляет классы [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) и [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
 
-Класс [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) позволяет задать размер кадра для будущего видео через конструктор. Если передать экземпляр презентации, будет использован `Presentation.SlideSize`, и он генерирует анимацию, которую использует [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) позволяет задать размер кадров для будущего видео через конструктор. Если передать экземпляр презентации, будет использоваться `Presentation::getSlideSize`, и он генерирует анимацию, которую использует [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
 
-При генерации анимаций создаётся событие `NewAnimation` для каждой последующей анимации, которое содержит параметр [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/). Этот параметр представляет класс, отвечающий за воспроизведение отдельной анимации.
+При генерации анимаций для каждой последующей анимации генерируется событие `NewAnimation`, имеющее параметр игрока анимации презентации. Последний — это класс, представляющий плеер отдельной анимации.
 
-Для работы с [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/) используются свойство [Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#getDuration--) (полная продолжительность анимации) и метод [SetTimePosition](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). Каждая позиция задаётся в диапазоне от *0 до длительности*, после чего метод `GetFrame` возвращает `BufferedImage`, соответствующее состоянию анимации в данный момент:
+Для работы с плеером анимации презентации используются методы `getDuration` (полная длительность анимации) и `setTimePosition`. Позиция каждой анимации задаётся в диапазоне *0 до длительности*, после чего метод `getFrame` возвращает BufferedImage, соответствующее состоянию анимации в данный момент:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\PresentationPlayer;
@@ -231,7 +231,7 @@ class PresentationAnimationPlayer {
         echo(sprintf("Animation total duration: %f", $animationPlayer->getDuration()));
         $animationPlayer->setTimePosition(0);// начальное состояние анимации
         try {
-            # bitmap начального состояния анимации
+            # начальное состояние анимации bitmap
             $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
         }
@@ -269,7 +269,7 @@ try {
 ```
 
 
-Чтобы все анимации в презентации воспроизводились одновременно, используется класс [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/). Этот класс принимает экземпляр [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) и FPS для эффектов в конструкторе, а затем вызывает событие `FrameTick` для всех анимаций, чтобы они были воспроизведены:
+Чтобы все анимации в презентации воспроизводились одновременно, используется класс [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/). Этот класс принимает экземпляр [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) и FPS для эффектов в конструкторе, а затем вызывает событие `FrameTick` для всех анимаций, чтобы они воспроизводились:
 ```php
 
 class FrameTick {
@@ -308,7 +308,7 @@ class FrameTick {
 ```
 
 
-Затем сгенерированные кадры можно собрать в видеоролик. См. раздел [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Затем сгенерированные кадры можно собрать в видео. См. раздел [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Поддерживаемые анимации и эффекты**
 
@@ -316,76 +316,76 @@ class FrameTick {
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Fade** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Fly In** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Float In** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Split** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Wipe** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shape** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Wheel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Random Bars** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Grow & Turn** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Zoom** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Swivel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Bounce** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Emphasis**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Color Pulse** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Teeter** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Spin** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Grow/Shrink** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Desaturate** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Darken** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Lighten** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Transparency** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Object Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Complementary Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Line Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Fill Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
 **Exit**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Fade** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Fly Out** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Float Out** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Split** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Wipe** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shape** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Random Bars** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shrink & Turn** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
-| **Zoom** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Swivel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Bounce** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Motion Paths**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Arcs** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Turns** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Shapes** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Loops** | ![поддерживается](v.png) | ![поддерживается](v.png) |
-| **Custom Path** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
 ## **FAQ**
 
 **Можно ли конвертировать презентации, защищённые паролем?**
 
-Да, Aspose.Slides позволяет работать с [презентациями, защищёнными паролем](/slides/ru/php-java/password-protected-presentation/). При обработке таких файлов необходимо указать правильный пароль, чтобы библиотека могла получить доступ к содержимому презентации.
+Да, Aspose.Slides позволяет работать с [презентациями, защищёнными паролем](/slides/ru/php-java/password-protected-presentation/). При обработке таких файлов необходимо предоставить правильный пароль, чтобы библиотека могла получить доступ к содержимому презентации.
 
 **Поддерживает ли Aspose.Slides использование в облачных решениях?**
 
-Да, Aspose.Slides можно интегрировать в облачные приложения и сервисы. Библиотека разработана для работы в серверных окружениях, обеспечивая высокую производительность и масштабируемость при пакетной обработке файлов.
+Да, Aspose.Slides может быть интегрирован в облачные приложения и сервисы. Библиотека разработана для работы в серверных окружениях, обеспечивая высокую производительность и масштабируемость при пакетной обработке файлов.
 
 **Есть ли ограничения по размеру презентаций при конвертации?**
 
-Aspose.Slides способна обрабатывать презентации практически любого размера. Однако при работе с очень большими файлами может потребоваться дополнительный объём системных ресурсов, и иногда рекомендуется оптимизировать презентацию для повышения производительности.
+Aspose.Slides способен обрабатывать презентации практически любого размера. Однако при работе с очень большими файлами могут потребоваться дополнительные системные ресурсы, и иногда рекомендуется оптимизировать презентацию для повышения производительности.

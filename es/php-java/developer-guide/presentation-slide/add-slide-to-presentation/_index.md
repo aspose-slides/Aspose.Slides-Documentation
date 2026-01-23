@@ -13,23 +13,24 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Añade fácilmente diapositivas a tus presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para PHP a través de Java — inserción de diapositivas sin problemas y eficiente en segundos."
+description: "Añade fácilmente diapositivas a tus presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para PHP a través de Java — inserción de diapositivas fluida y eficiente en segundos."
 ---
 
 ## **Agregar una diapositiva a una presentación**
 {{% alert color="primary" %}} 
 
-Antes de hablar de cómo añadir diapositivas a los archivos de presentación, discutamos algunos hechos sobre las diapositivas. Cada archivo de presentación de PowerPoint contiene una diapositiva **Master / Layout** y otras diapositivas **Normal**. Esto significa que un archivo de presentación contiene al menos una o más diapositivas. Es importante saber que los archivos de presentación sin diapositivas no son compatibles con Aspose.Slides for PHP via Java. Cada diapositiva tiene un Id único y todas las diapositivas Normal se organizan en un orden especificado por el índice basado en cero.
+Antes de hablar de añadir diapositivas a los archivos de presentación, discutamos algunos datos sobre las diapositivas. Cada archivo de presentación de PowerPoint contiene una diapositiva **Master / Layout** y otras diapositivas **Normal**. Significa que un archivo de presentación contiene al menos una o más diapositivas. Es importante saber que los archivos de presentación sin diapositivas no son compatibles con Aspose.Slides for PHP via Java. Cada diapositiva tiene un Id único y todas las Diapositivas Normal se organizan en un orden especificado por el índice base cero.
 
 {{% /alert %}} 
 
-Aspose.Slides for PHP via Java permite a los desarrolladores añadir diapositivas vacías a su presentación. Para añadir una diapositiva vacía en la presentación, siga los pasos a continuación:
+Aspose.Slides for PHP via Java permite a los desarrolladores añadir diapositivas en blanco a su presentación. Para añadir una diapositiva en blanco en la presentación, siga los pasos a continuación:
 
 - Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-- Instancie la clase [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection) estableciendo una referencia a la propiedad [Slides](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) (colección de objetos Slide de contenido) expuesta por el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-- Añada una diapositiva vacía a la presentación al final de la colección de diapositivas de contenido llamando a los métodos [**addEmptySlide**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addEmptySlide-com.aspose.slides.ILayoutSlide-) expuestos por el objeto [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection).
-- Realice alguna operación con la diapositiva vacía recién añadida.
-- Finalmente, escriba el archivo de presentación usando el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+- Obtenga el objeto [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) utilizando el método [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) (colección de objetos Slide de contenido) expuesto por el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+- Añada una diapositiva en blanco a la presentación al final de la colección de diapositivas de contenido llamando a los métodos [**addEmptySlide**](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addEmptySlide) expuestos por el objeto [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/).
+- Realice alguna operación con la diapositiva en blanco recién añadida.
+- Finalmente, escriba el archivo de presentación utilizando el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+
 ```php
   # Instanciar la clase Presentation que representa el archivo de presentación
   $pres = new Presentation();
@@ -53,16 +54,16 @@ Aspose.Slides for PHP via Java permite a los desarrolladores añadir diapositiva
 
 **¿Puedo insertar una nueva diapositiva en una posición específica, no solo al final?**
 
-Sí. La biblioteca admite colecciones de diapositivas y operaciones de [insert](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/insertemptyslide/)/[clone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/insertclone/) , por lo que puede añadir una diapositiva en el índice requerido en lugar de solo al final.
+Sí. La biblioteca admite colecciones de diapositivas y operaciones de [insert](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/insertemptyslide/)/[clone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/insertclone/), por lo que puede añadir una diapositiva en el índice requerido en lugar de solo al final.
 
 **¿Se conservan los temas/estilos al añadir una diapositiva basada en un diseño?**
 
-Sí. Un diseño hereda el formato de su maestro, y la nueva diapositiva hereda del diseño seleccionado y su maestro asociado.
+Sí. Un diseño hereda el formato de su master, y la nueva diapositiva hereda del diseño seleccionado y de su master asociado.
 
 **¿Qué diapositiva está presente en una nueva presentación "vacía" antes de añadir diapositivas?**
 
-Una presentación recién creada ya contiene una diapositiva en blanco con el índice cero. Esto es importante a tener en cuenta al calcular los índices de inserción.
+Una presentación recién creada ya contiene una diapositiva en blanco con índice cero. Esto es importante a la hora de calcular los índices de inserción.
 
-**¿Cómo elijo el diseño "correcto" para una nueva diapositiva si el maestro tiene muchas opciones?**
+**¿Cómo elegir el diseño "correcto" para una nueva diapositiva si el master tiene muchas opciones?**
 
-Generalmente elija el [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) que coincida con la estructura requerida ([Title and Content, Two Content, etc.](https://reference.aspose.com/slides/php-java/aspose.slides/slidelayouttype/)). Si falta dicho diseño, puede [añádalo al maestro](/slides/es/php-java/slide-layout/) y luego usarlo.
+Generalmente elija el [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) que coincida con la estructura requerida ([Title and Content, Two Content, etc.](https://reference.aspose.com/slides/php-java/aspose.slides/slidelayouttype/)). Si falta dicho diseño, puede [añadirlo al master](/slides/es/php-java/slide-layout/) y luego usarlo.

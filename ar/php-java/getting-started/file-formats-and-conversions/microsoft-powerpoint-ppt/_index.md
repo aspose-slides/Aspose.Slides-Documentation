@@ -5,39 +5,39 @@ weight: 10
 url: /ar/php-java/microsoft-powerpoint-ppt/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) هو تنسيق ملف مستند العرض التقديمي الذي يمكن إنشاؤه وقراءته ومعالجته وكتابته بواسطة إصدارات مختلفة من مايكروسوفت باور بوينت. هذا هو التنسيق الثنائي لمستندات العرض التقديمي المطورة بواسطة مايكروسوفت.
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) هو تنسيق ملف مستند عرض تقديمي يمكن إنشاؤه وقراءته ومعالجته وكتابته بواسطة إصدارات مختلفة من Microsoft PowerPoint. هذا هو التنسيق الثنائي لمستندات العروض التقديمية التي طورتها Microsoft.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **PPT في Aspose.Slides لــ PHP عبر Java**
-يمكن لـ Aspose.Slides لــ PHP عبر Java قراءة ملفات PPT التي تم إنشاؤها بواسطة البرمجيات المذكورة أدناه.
+## **PPT في Aspose.Slides for PHP via Java**
+Aspose.Slides for PHP via Java يمكنه قراءة ملفات PPT التي تم إنشاؤها بواسطة البرامج المذكورة أدناه.
 
-- مايكروسوفت باور بوينت 97
-- مايكروسوفت باور بوينت 2000
-- مايكروسوفت باور بوينت XP
-- مايكروسوفت باور بوينت 2003
+- Microsoft PowerPoint 97
+- Microsoft PowerPoint 2000
+- Microsoft PowerPoint XP
+- Microsoft PowerPoint 2003
 
-وبالمثل، يمكن قراءة ملفات PPT التي تم إنشاؤها بواسطة Aspose.Slides لــ PHP عبر Java بواسطة مجموعة البرمجيات المذكورة أعلاه.
+وبالمثل، يمكن للبرامج المذكورة أعلاه قراءة ملفات PPT التي تم إنشاؤها بواسطة Aspose.Slides for PHP via Java.
 
 ## **دعم شامل لـ PPT**
-يوفر Aspose.Slides لــ PHP عبر Java دعمًا تقريبًا لجميع الميزات المدعومة من قِبل تنسيق ملف مستندات PPT. إنه يغطي ليس فقط الميزات الأساسية والمتقدمة التي توفرها إصدارات مختلفة من مايكروسوفت باور بوينت لمعالجة مستندات PPT، ولكن أيضًا الميزات التي لا تدعمها حتى مايكروسوفت باور بوينت. الميزة الرئيسية لاستخدام مكتبة API من Aspose.Slides لــ PHP عبر Java هي سهولة الاستخدام في التعامل مع مثل هذه الميزات.
+Aspose.Slides for PHP via Java يوفر دعمًا تقريبًا لجميع الميزات التي يدعمها تنسيق ملف مستند PPT. فهو لا يغطي فقط الميزات الأساسية والمتقدمة التي توفرها إصدارات Microsoft PowerPoint المختلفة لمعالجة مستندات PPT، بل يشمل أيضًا ميزات لا يدعمها حتى Microsoft PowerPoint. الميزة الرئيسية لاستخدام مكتبة Aspose.Slides for PHP via Java API هي سهولة الاستخدام للتعامل مع هذه الميزات.
 
-بالإضافة إلى المهام الأساسية المتعلقة بإنشاء وقراءة وكتابة ملفات مستندات PPT، هناك عدة ميزات يتم تقديمها من قِبل Aspose.Slides لــ PHP عبر Java:
+بالإضافة إلى المهام الأساسية المتعلقة بإنشاء ملفات مستند PPT وقراءتها وكتابتها، هناك العديد من الميزات التي توفرها Aspose.Slides for PHP via Java:
 
-- استيراد تنسيقات ملفات مايكروسوفت أوفيس الأخرى كـ [كائنات OLE في مستندات PPT]().
-- [تصدير مستندات PPT إلى PDF](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/).
-- تصدير الشرائح في مستندات PPT إلى تنسيقات SVG.
-- عرض الشرائح لأي تنسيق صورة مدعوم من إطار عمل Java.
-- تعيين حجم الشرائح في مستندات PPT.
+- استيراد صيغ ملفات Microsoft Office الأخرى كـ [كائنات OLE إلى مستندات PPT](/slides/ar/php-java/manage-ole/).
+- [تصدير مستندات PPT إلى PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/).
+- تصدير الشرائح في مستندات PPT إلى صيغ SVG.
+- عرض الشرائح بأي صيغة صورة يدعمها إطار عمل Java.
+- تحديد حجم الشرائح في مستندات PPT.
 - إدارة الرسوم المتحركة على الأشكال.
-- إدارة عرض الشرائح.
-- [تنسيق النصوص على الشرائح]().
+- إدارة عروض الشرائح.
+- [تنسيق النص على الشرائح](/slides/ar/php-java/text-formatting/).
 - استخراج النص من مستندات PPT.
-- [التعامل مع الجداول على الشرائح]().
-- نسخ القوالب تلقائيًا باستخدام [ميزة النسخ]().
+- [معالجة الجداول على الشرائح](/slides/ar/php-java/powerpoint-table/).
+- نسخ القوالب تلقائيًا باستخدام [ميزة الاستنساخ](/slides/ar/php-java/clone-slides/).
 
-**ملف PPT تم إنشاؤه بواسطة Aspose.Slides لــ PHP عبر Java وفتح في مايكروسوفت باور بوينت**
+**ملف PPT تم إنشاؤه بواسطة Aspose.Slides for PHP via Java وفتح في Microsoft PowerPoint**
 
 ![todo:image_alt_text](microsoft-powerpoint-ppt_1.png)

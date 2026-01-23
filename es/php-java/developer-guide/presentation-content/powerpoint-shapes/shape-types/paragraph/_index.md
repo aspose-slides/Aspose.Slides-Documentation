@@ -1,5 +1,5 @@
 ---
-title: Obtener límites de párrafo de presentaciones en PHP
+title: Obtener los límites del párrafo de presentaciones en PHP
 linktitle: Párrafo
 type: docs
 weight: 60
@@ -9,18 +9,18 @@ keywords:
 - límites de porción de texto
 - coordenada de párrafo
 - coordenada de porción
-- tamaño de párrafo
+- tamaño del párrafo
 - tamaño de porción de texto
 - marco de texto
 - PowerPoint
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aprenda a obtener los límites de párrafos y de porciones de texto en Aspose.Slides para PHP mediante Java para optimizar la posición del texto en presentaciones de PowerPoint."
+description: "Aprenda a obtener los límites de párrafos y porciones de texto en Aspose.Slides para PHP mediante Java para optimizar la posición del texto en presentaciones de PowerPoint."
 ---
 
 ## **Obtener coordenadas de párrafo y porción en un TextFrame**
-Usando Aspose.Slides para PHP a través de Java, los desarrolladores ahora pueden obtener las coordenadas rectangulares de un Paragraph dentro de la colección de párrafos de un TextFrame. También permite obtener [las coordenadas de la porción](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) dentro de la colección de porciones de un párrafo. En este tema, vamos a demostrar con la ayuda de un ejemplo cómo obtener las coordenadas rectangulares de un párrafo junto con la posición de la porción dentro de un párrafo.
+Usando Aspose.Slides para PHP a través de Java, los desarrolladores ahora pueden obtener las coordenadas rectangulares para **Paragraph** dentro de la colección de párrafos de **TextFrame**. También permite obtener [las coordenadas de la porción](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getCoordinates) dentro de la colección de porciones de un párrafo. En este tema, vamos a demostrar, con la ayuda de un ejemplo, cómo obtener las coordenadas rectangulares para un párrafo junto con la posición de la porción dentro de un párrafo.
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textFrame = $shape->getTextFrame();
@@ -33,7 +33,7 @@ Usando Aspose.Slides para PHP a través de Java, los desarrolladores ahora puede
 
 
 ## **Obtener coordenadas rectangulares de un párrafo**
-Usando el método [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) los desarrolladores pueden obtener el rectángulo de límites del párrafo.
+Utilizando el método [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect), los desarrolladores pueden obtener el rectángulo de límites del párrafo.
 ```php
   $pres = new Presentation("HelloWorld.pptx");
   try {
@@ -49,9 +49,11 @@ Usando el método [**getRect()**](https://reference.aspose.com/slides/php-java/a
 ```
 
 
-## **Obtener el tamaño de un párrafo y una porción dentro de un TextFrame de celda de tabla**
-Para obtener el tamaño y las coordenadas de la [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) o del [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) en un TextFrame de celda de tabla, puede usar los métodos [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) y [IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--).
-Este código de ejemplo demuestra la operación descrita:
+## **Obtener el tamaño de un párrafo y porción dentro de un TextFrame de celda de tabla**
+
+Para obtener el tamaño y las coordenadas de la [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) o del [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) en un **TextFrame** de celda de tabla, puede usar los métodos [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) y [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect).
+
+Este fragmento de código muestra la operación descrita:
 ```php
   $pres = new Presentation("source.pptx");
   try {
@@ -84,16 +86,20 @@ Este código de ejemplo demuestra la operación descrita:
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿En qué unidades se devuelven las coordenadas de un párrafo y de las porciones de texto?**  
-En puntos, donde 1 pulgada = 72 puntos. Esto se aplica a todas las coordenadas y dimensiones en la diapositiva.
+**¿En qué unidades se devuelven las coordenadas de un párrafo y de las porciones de texto?**
 
-**¿Afecta el ajuste de línea a los límites de un párrafo?**  
-Sí. Si el [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) está habilitado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), el texto se ajusta para adaptarse al ancho del área, lo que cambia los límites reales del párrafo.
+En puntos, donde 1 pulgada = 72 puntos. Esto se aplica a todas las coordenadas y dimensiones de la diapositiva.
 
-**¿Se pueden mapear de forma fiable las coordenadas del párrafo a píxeles en la imagen exportada?**  
-Sí. Convierta puntos a píxeles usando: píxeles = puntos × (DPI / 72). El resultado depende del DPI elegido para el renderizado/expresión.
+**¿Afecta el ajuste de texto a los límites del párrafo?**
 
-**¿Cómo obtener los parámetros de formato “effective” del párrafo, teniendo en cuenta la herencia de estilos?**  
-Utilice la [effective paragraph formatting data structure](/slides/es/php-java/shape-effective-properties/); devuelve los valores consolidados finales para sangrías, espaciado, ajuste, RTL y más.
+Sí. Si el [ajuste de texto](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) está habilitado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), el texto se divide para adaptarse al ancho del área, lo que modifica los límites reales del párrafo.
+
+**¿Se pueden mapear de forma fiable las coordenadas del párrafo a píxeles en la imagen exportada?**
+
+Sí. Convierta puntos a píxeles usando: píxeles = puntos × (DPI / 72). El resultado depende del DPI elegido para el renderizado/exportación.
+
+**¿Cómo obtener los parámetros de formato “efectivo” del párrafo, teniendo en cuenta la herencia de estilos?**
+
+Utilice la [estructura de datos de formato de párrafo efectivo](/slides/es/php-java/shape-effective-properties/); devuelve los valores consolidados finales para sangrías, espaciado, ajuste, RTL y más.

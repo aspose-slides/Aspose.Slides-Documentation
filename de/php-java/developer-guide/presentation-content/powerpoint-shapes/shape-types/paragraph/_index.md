@@ -1,6 +1,6 @@
 ---
-title: "Absatzgrenzen aus Präsentationen in PHP abrufen"
-linktitle: "Absatz"
+title: Absatzgrenzen aus Präsentationen in PHP ermitteln
+linktitle: Absatz
 type: docs
 weight: 60
 url: /de/php-java/paragraph/
@@ -11,7 +11,7 @@ keywords:
 - Abschnittskoordinate
 - Absatzgröße
 - Textabschnittsgröße
-- Textfeld
+- Textrahmen
 - PowerPoint
 - Präsentation
 - PHP
@@ -19,8 +19,8 @@ keywords:
 description: "Erfahren Sie, wie Sie Absatz- und Textabschnittsgrenzen in Aspose.Slides für PHP über Java abrufen, um die Textpositionierung in PowerPoint-Präsentationen zu optimieren."
 ---
 
-## **Abrufen von Absatz- und Portionkoordinaten in einem TextFrame**
-Mit Aspose.Slides für PHP über Java können Entwickler jetzt die rechteckigen Koordinaten für einen Paragraphen innerhalb der Absatzsammlung eines TextFrames erhalten. Es ermöglicht auch das Abrufen [die Koordinaten der Portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) innerhalb der Portionensammlung eines Absatzes. In diesem Thema zeigen wir anhand eines Beispiels, wie man die rechteckigen Koordinaten für einen Absatz zusammen mit der Position der Portion innerhalb eines Absatzes ermittelt.
+## **Absatz‑ und Abschnittskoordinaten in einem TextFrame abrufen**
+Mit Aspose.Slides für PHP über Java können Entwickler jetzt die rechteckigen Koordinaten für einen Absatz innerhalb der Absatzsammlung eines TextFrames erhalten. Außerdem können Sie die [the coordinates of portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getCoordinates) innerhalb der Abschnittssammlung eines Absatzes abrufen. In diesem Thema zeigen wir anhand eines Beispiels, wie Sie die rechteckigen Koordinaten für einen Absatz zusammen mit der Position eines Abschnitts innerhalb eines Absatzes erhalten.
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textFrame = $shape->getTextFrame();
@@ -32,8 +32,9 @@ Mit Aspose.Slides für PHP über Java können Entwickler jetzt die rechteckigen 
 ```
 
 
-## **Abrufen der rechteckigen Koordinaten eines Paragraphen**
-Mit der Methode [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) können Entwickler das Begrenzungsrechteck des Absatzes erhalten.
+
+## **Rechteckige Koordinaten eines Absatzes abrufen**
+Mit der [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect)‑Methode können Entwickler das Begrenzungsrechteck des Absatzes erhalten.
 ```php
   $pres = new Presentation("HelloWorld.pptx");
   try {
@@ -49,8 +50,9 @@ Mit der Methode [**getRect()**](https://reference.aspose.com/slides/php-java/asp
 ```
 
 
-## **Ermitteln der Größe eines Absatzes und einer Portion innerhalb eines TextFrames einer Tabellenzelle**
-Um die Größe und Koordinaten einer [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) oder eines [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) in einem TextFrame einer Tabellenzelle zu erhalten, können Sie die Methoden [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) und [IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) verwenden.
+## **Größe eines Absatzes und Abschnitts in einem TextFrame einer Tabellenzelle abrufen**
+
+Um die Größe und Koordinaten des [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion)‑ oder [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph)‑Objekts in einem TextFrame einer Tabellenzelle zu erhalten, können Sie die Methoden [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) und [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) verwenden.
 
 Dieser Beispielcode demonstriert die beschriebene Operation:
 ```php
@@ -87,18 +89,18 @@ Dieser Beispielcode demonstriert die beschriebene Operation:
 
 ## **FAQ**
 
-**In welchen Einheiten werden die Koordinaten für einen Absatz und Textportionen zurückgegeben?**
+**In welchen Einheiten werden die Koordinaten für einen Absatz und Textabschnitte zurückgegeben?**
 
-In Punkten, wobei 1 Zoll = 72 Punkte entspricht. Dies gilt für alle Koordinaten und Abmessungen auf der Folie.
+In Punkten, wobei 1 Zoll = 72 Punkte ist. Dies gilt für alle Koordinaten und Abmessungen auf der Folie.
 
-**Beeinflusst Wortumbruch die Begrenzung eines Absatzes?**
+**Beeinflusst die Zeilenumbruch‑Funktion die Grenzen eines Absatzes?**
 
-Ja. Wenn [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) im [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) aktiviert ist, bricht der Text um, um die Breite des Bereichs zu füllen, wodurch sich die tatsächliche Begrenzung des Absatzes ändert.
+Ja. Wenn das [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) im [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) aktiviert ist, wird der Text umgebrochen, um die Breite des Bereichs zu füllen, wodurch sich die tatsächlichen Grenzen des Absatzes ändern.
 
-**Können Absatzkoordinaten zuverlässig in Pixel im exportierten Bild umgewandelt werden?**
+**Können Absatzkoordinaten zuverlässig in Pixel im exportierten Bild umgerechnet werden?**
 
-Ja. Konvertieren Sie Punkte in Pixel mithilfe von: pixels = points × (DPI / 72). Das Ergebnis hängt vom für die Darstellung/den Export gewählten DPI ab.
+Ja. Konvertieren Sie Punkte in Pixel mit: pixels = points × (DPI / 72). Das Ergebnis hängt vom für das Rendering/Export gewählten DPI ab.
 
 **Wie erhalte ich die „effektiven“ Absatzformatierungsparameter unter Berücksichtigung der Stilvererbung?**
 
-Verwenden Sie die [effective paragraph formatting data structure](/slides/de/php-java/shape-effective-properties/); sie gibt die endgültigen konsolidierten Werte für Einzüge, Abstand, Umbruch, RTL und mehr zurück.
+Verwenden Sie die [effective paragraph formatting data structure](/slides/de/php-java/shape-effective-properties/); sie gibt die endgültigen konsolidierten Werte für Einzüge, Abstände, Umbruch, RTL und mehr zurück.

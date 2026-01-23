@@ -3,18 +3,29 @@ title: Ресурсы
 type: docs
 weight: 20
 url: /ru/php-java/resources/
+keywords:
+- ресурсы
+- домашняя страница
+- блог
+- скачать Aspose.Slides
+- форум поддержки
+- документация продукта
+- PowerPoint
+- OpenDocument
+- презентация
+- PHP
+- Aspose.Slides
+description: "Откройте ключевые ресурсы Aspose.Slides для PHP через Java — от загрузок и документации до форумов и обновлений блога — чтобы улучшить работу с PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
-
-Эта таблица содержит важные технические ресурсы для Aspose.Slides для PHP через Java.
-
+Эта таблица перечисляет важные технические ресурсы Aspose.Slides for PHP via Java.
 {{% /alert %}} 
 
 |**Ресурс**|**Описание**|
 | :- | :- |
-|[Домашняя страница Aspose.Slides для PHP через Java](https://products.aspose.com/slides/php-java/)|Домашняя страница продукта.|
-|[Блог Aspose.Slides](https://blog.aspose.com/category/slides/)|Проверяйте это часто для получения информации о новых релизах и полезных советах об Aspose.Slides.|
-|[Скачать Aspose.Slides для PHP через Java](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/)|Скачайте последнюю версию Aspose.Slides здесь. Мы часто выпускаем новые версии.|
-|[Форум поддержки Aspose.Slides](https://forum.aspose.com/c/slides/11)|Здесь публикуйте ваши вопросы и проблемы для быстрого решения.|
-|[Документация продукта Aspose.Slides для PHP через Java](/slides/ru/php-java/)|Полная онлайн-документация, которая включает в себя эту документацию, а также справочник по API Aspose.Slides.|
+|[Aspose.Slides for PHP via Java home page](https://products.aspose.com/slides/php-java/)|Домашняя страница продукта.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/)|Периодически проверяйте его для получения информации о новых версиях и полезных советов по Aspose.Slides.|
+|[Aspose.Slides for PHP via Java download](https://releases.aspose.com/slides/php-java/)|Скачайте последнюю версию Aspose.Slides отсюда. Мы часто выпускаем обновления.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Размещайте свои вопросы и проблемы здесь для быстрого решения.|
+|[Aspose.Slides for PHP via Java product documentation](/slides/ru/php-java/)|Полная онлайн‑документация, включающая эту документацию и справочник API Aspose.Slides.|

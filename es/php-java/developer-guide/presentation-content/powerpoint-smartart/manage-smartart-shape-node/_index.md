@@ -1,5 +1,5 @@
 ---
-title: Gestionar nodos de formas SmartArt en presentaciones usando PHP
+title: Gestionar nodos de forma SmartArt en presentaciones usando PHP
 linktitle: Nodo de forma SmartArt
 type: docs
 weight: 30
@@ -19,24 +19,24 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Gestiona los nodos de formas SmartArt en PPT y PPTX con Aspose.Slides para PHP vía Java. Obtén ejemplos de código claros y consejos para optimizar tus presentaciones."
+description: "Gestiona los nodos de forma SmartArt en PPT y PPTX con Aspose.Slides for PHP via Java. Obtén ejemplos de código claros y consejos para optimizar tus presentaciones."
 ---
 
 ## **Añadir un nodo SmartArt**
-Aspose.Slides for PHP via Java ha proporcionado la API más sencilla para gestionar las formas SmartArt de la manera más fácil. El siguiente código de ejemplo ayudará a añadir un nodo y un nodo hijo dentro de la forma SmartArt.
+Aspose.Slides for PHP via Java ha proporcionado la API más sencilla para gestionar las formas SmartArt de la manera más fácil. El siguiente fragmento de código de ejemplo le ayudará a añadir un nodo y un nodo hijo dentro de una forma SmartArt.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
-1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) y convertir la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si es SmartArt.
-1. [Añadir un nodo nuevo](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) en la forma SmartArt [**NodeCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#getAllNodes--) y establecer el texto en TextFrame.
-1. Ahora, [Añadir](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) un [**Nodo hijo**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) en el nodo SmartArt recién añadido y establecer el texto en TextFrame.
-1. Guardar la presentación.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y cargue la presentación con una forma SmartArt.  
+1. Obtenga la referencia de la primera diapositiva mediante su índice.  
+1. Recorra todas las formas dentro de la primera diapositiva.  
+1. Compruebe si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) y convierta la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si es SmartArt.  
+1. [Add a new Node](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode) en la colección **NodeCollection** de la forma SmartArt y establezca el texto en el TextFrame.  
+1. Ahora, [Add](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode) un **Child Node** en el nodo SmartArt recién añadido y establezca el texto en el TextFrame.  
+1. Guarde la presentación.  
 ```php
   # Cargar la presentación deseada
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    # Recorrer cada forma dentro de la primera diapositiva
+    # Recorrer todas las formas dentro de la primera diapositiva
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
       # Comprobar si la forma es de tipo SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -63,14 +63,14 @@ Aspose.Slides for PHP via Java ha proporcionado la API más sencilla para gestio
 
 
 ## **Añadir un nodo SmartArt en una posición específica**
-En el siguiente código de ejemplo hemos explicado cómo añadir los nodos hijos pertenecientes a los nodos respectivos de la forma SmartArt en una posición concreta.
+En el siguiente fragmento de código de ejemplo explicamos cómo añadir los nodos hijos pertenecientes a los nodos respectivos de una forma SmartArt en una posición concreta.
 
-1. Crear una instancia de la clase Presentation.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
-1. Añadir una forma [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) en la diapositiva accedida.
-1. Acceder al primer nodo en la forma SmartArt añadida.
-1. Ahora, añadir el [**Nodo hijo**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) para el [**Nodo**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) seleccionado en la posición 2 y establecer su texto.
-1. Guardar la presentación.
+1. Cree una instancia de la clase Presentation.  
+1. Obtenga la referencia de la primera diapositiva mediante su índice.  
+1. Añada una forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) del tipo **StackedList** en la diapositiva accedida.  
+1. Acceda al primer nodo de la forma SmartArt añadida.  
+1. Ahora, añada el **Child Node** para el **Node** seleccionado en la posición 2 y establezca su texto.  
+1. Guarde la presentación.  
 ```php
   # Crear una instancia de presentación
   $pres = new Presentation();
@@ -81,7 +81,7 @@ En el siguiente código de ejemplo hemos explicado cómo añadir los nodos hijos
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
     # Acceder al nodo SmartArt en el índice 0
     $node = $smart->getAllNodes()->get_Item(0);
-    # Añadir nuevo nodo hijo en la posición 2 del nodo padre
+    # Añadir un nuevo nodo hijo en la posición 2 del nodo padre
     $chNode = $node->getChildNodes()->addNodeByPosition(2);
     # Añadir texto
     $chNode->getTextFrame()->setText("Sample Text Added");
@@ -96,27 +96,27 @@ En el siguiente código de ejemplo hemos explicado cómo añadir los nodos hijos
 
 
 ## **Acceder a un nodo SmartArt**
-El siguiente código de ejemplo ayudará a acceder a los nodos dentro de la forma SmartArt. Tenga en cuenta que no puede cambiar el LayoutType del SmartArt ya que es de solo lectura y se establece únicamente cuando se añade la forma SmartArt.
+El siguiente fragmento de código de ejemplo le ayudará a acceder a los nodos dentro de una forma SmartArt. Tenga en cuenta que no puede cambiar el LayoutType del SmartArt, ya que es de solo lectura y se establece únicamente cuando se añade la forma SmartArt.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
-1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) y convertir la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si es SmartArt.
-1. Recorrer todos los [**Nodos**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) dentro de la forma SmartArt.
-1. Acceder y mostrar información como la posición del nodo SmartArt, nivel y texto.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargue la presentación con una forma SmartArt.  
+1. Obtenga la referencia de la primera diapositiva mediante su índice.  
+1. Recorra todas las formas dentro de la primera diapositiva.  
+1. Compruebe si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) y convierta la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si es SmartArt.  
+1. Recorra todos los **Nodes** dentro de la forma SmartArt.  
+1. Acceda y muestre información como la posición del nodo SmartArt, su nivel y el texto.  
 ```php
   # Instanciar la clase Presentation
   $pres = new Presentation("SmartArtShape.pptx");
   try {
     # Obtener la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Recorrer cada forma dentro de la primera diapositiva
+    # Recorrer todas las formas dentro de la primera diapositiva
     foreach($slide->getShapes() as $shape) {
       # Comprobar si la forma es de tipo SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Convertir la forma a SmartArt
         $smart = $shape;
-        # Recorrer todos los nodos dentro del SmartArt
+        # Recorrer todos los nodos dentro de SmartArt
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           # Acceder al nodo SmartArt en el índice i
           $node = $smart->getAllNodes()->get_Item($i);
@@ -134,22 +134,22 @@ El siguiente código de ejemplo ayudará a acceder a los nodos dentro de la form
 
 
 ## **Acceder a un nodo hijo SmartArt**
-El siguiente código de ejemplo ayudará a acceder a los nodos hijos pertenecientes a los nodos respectivos de la forma SmartArt.
+El siguiente fragmento de código de ejemplo le ayudará a acceder a los nodos hijos pertenecientes a los nodos respectivos de una forma SmartArt.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
-1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) y convertir la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si es SmartArt.
-1. Recorrer todos los [**Nodos**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) dentro de la forma SmartArt.
-1. Para cada [**Nodo**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) de la forma SmartArt seleccionado, recorra todos los [**Nodos hijo**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#getChildNodes--) dentro del nodo concreto.
-1. Acceder y mostrar información como la posición, nivel y texto del [**Nodo hijo**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--).
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargue la presentación con una forma SmartArt.  
+1. Obtenga la referencia de la primera diapositiva mediante su índice.  
+1. Recorra todas las formas dentro de la primera diapositiva.  
+1. Compruebe si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) y convierta la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si es SmartArt.  
+1. Recorra todos los **Nodes** dentro de la forma SmartArt.  
+1. Para cada **Node** de la forma SmartArt seleccionada, recorra todos los **Child Nodes** dentro de ese nodo concreto.  
+1. Acceda y muestre información como la posición del **Child Node**, su nivel y el texto.  
 ```php
   # Instanciar la clase Presentation
   $pres = new Presentation("AccessChildNodes.pptx");
   try {
     # Obtener la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Recorrer cada forma dentro de la primera diapositiva
+    # Recorrer todas las formas dentro de la primera diapositiva
     foreach($slide->getShapes() as $shape) {
       # Comprobar si la forma es de tipo SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -159,7 +159,7 @@ El siguiente código de ejemplo ayudará a acceder a los nodos hijos pertenecien
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           # Acceder al nodo SmartArt en el índice i
           $node0 = $smart->getAllNodes()->get_Item($i);
-          # Recorrer los nodos hijos del nodo SmartArt en el índice i
+          # Recorrer los nodos hijos en el nodo SmartArt en el índice i
           for($j = 0; $j < java_values($node0->getChildNodes()->size()) ; $j++) {
             # Acceder al nodo hijo en el nodo SmartArt
             $node = $node0->getChildNodes()->get_Item($j);
@@ -178,15 +178,15 @@ El siguiente código de ejemplo ayudará a acceder a los nodos hijos pertenecien
 
 
 ## **Acceder a un nodo hijo SmartArt en una posición específica**
-En este ejemplo aprenderemos a acceder a los nodos hijos en una posición concreta pertenecientes a los nodos respectivos de la forma SmartArt.
+En este ejemplo aprenderá a acceder a los nodos hijos en una posición concreta pertenecientes a los nodos de una forma SmartArt.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Obtener la referencia de la primera diapositiva mediante su índice.
-1. Añadir una forma SmartArt de tipo [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList).
-1. Acceder a la forma SmartArt añadida.
-1. Acceder al nodo con índice 0 de la forma SmartArt accedida.
-1. Ahora, acceder al [**Nodo hijo**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) en la posición 1 del nodo SmartArt accedido mediante el método **get_Item()**.
-1. Acceder y mostrar información como la posición, nivel y texto del [**Nodo hijo**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--).
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
+1. Obtenga la referencia de la primera diapositiva mediante su índice.  
+1. Añada una forma SmartArt del tipo **StackedList**.  
+1. Acceda a la forma SmartArt añadida.  
+1. Acceda al nodo con índice 0 de la forma SmartArt.  
+1. Ahora, acceda al **Child Node** en la posición 1 del nodo SmartArt mediante el método **get_Item()**.  
+1. Acceda y muestre información como la posición del **Child Node**, su nivel y el texto.  
 ```php
   # Instanciar la presentación
   $pres = new Presentation();
@@ -211,21 +211,21 @@ En este ejemplo aprenderemos a acceder a los nodos hijos en una posición concre
 
 
 ## **Eliminar un nodo SmartArt**
-En este ejemplo aprenderemos a eliminar los nodos dentro de la forma SmartArt.
+En este ejemplo aprenderá a eliminar los nodos dentro de una forma SmartArt.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
-1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) y convertir la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si es SmartArt.
-1. Comprobar si el [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) tiene más de 0 nodos.
-1. Seleccionar el nodo SmartArt que se eliminará.
-1. Ahora, eliminar el nodo seleccionado mediante el método [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) .
-1. Guardar la presentación.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargue la presentación con una forma SmartArt.  
+1. Obtenga la referencia de la primera diapositiva mediante su índice.  
+1. Recorra todas las formas dentro de la primera diapositiva.  
+1. Compruebe si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) y convierta la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si es SmartArt.  
+1. Compruebe si el SmartArt tiene más de 0 nodos.  
+1. Seleccione el nodo SmartArt que desea eliminar.  
+1. Ahora, elimine el nodo seleccionado mediante el método **removeNode**.  
+1. Guarde la presentación.  
 ```php
   # Cargar la presentación deseada
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # Recorrer cada forma dentro de la primera diapositiva
+    # Recorrer todas las formas dentro de la primera diapositiva
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       # Comprobar si la forma es de tipo SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -249,22 +249,22 @@ En este ejemplo aprenderemos a eliminar los nodos dentro de la forma SmartArt.
 ```
 
 
-## **Eliminar un nodo SmartArt en una posición específica**
-En este ejemplo aprenderemos a eliminar los nodos dentro de la forma SmartArt en una posición concreta.
+## **Eliminar un nodo SmartArt de una posición específica**
+En este ejemplo aprenderá a eliminar los nodos dentro de una forma SmartArt en una posición concreta.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la primera diapositiva mediante su índice.
-1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) y convertir la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si es SmartArt.
-1. Seleccionar el nodo de la forma SmartArt en el índice 0.
-1. Ahora, comprobar si el nodo SmartArt seleccionado tiene más de 2 nodos hijos.
-1. Ahora, eliminar el nodo en la **Posición 1** mediante el método [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-int-) .
-1. Guardar la presentación.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargue la presentación con una forma SmartArt.  
+1. Obtenga la referencia de la primera diapositiva mediante su índice.  
+1. Recorra todas las formas dentro de la primera diapositiva.  
+1. Compruebe si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) y convierta la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si es SmartArt.  
+1. Seleccione el nodo de la forma SmartArt en el índice 0.  
+1. Ahora, compruebe si el nodo SmartArt seleccionado tiene más de 2 nodos hijos.  
+1. Elimine el nodo en la **Posición 1** mediante el método **removeNode**.  
+1. Guarde la presentación.  
 ```php
   # Cargar la presentación deseada
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # Recorrer cada forma dentro de la primera diapositiva
+    # Recorrer todas las formas dentro de la primera diapositiva
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       # Comprobar si la forma es de tipo SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -291,7 +291,7 @@ En este ejemplo aprenderemos a eliminar los nodos dentro de la forma SmartArt en
 
 
 ## **Establecer una posición personalizada para un nodo hijo en un objeto SmartArt**
-Ahora Aspose.Slides for PHP via Java admite la configuración de las propiedades [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setX-float-) y [Y](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setY-float-). El fragmento de código a continuación muestra cómo establecer la posición, el tamaño y la rotación personalizados de SmartArtShape; también tenga en cuenta que añadir nuevos nodos provoca un recálculo de las posiciones y tamaños de todos los nodos. Con la configuración de posición personalizada, el usuario puede establecer los nodos según los requisitos.
+Aspose.Slides for PHP via Java permite establecer las propiedades **X** y **Y** de [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape). El fragmento de código a continuación muestra cómo definir la posición, tamaño y rotación personalizados de una SmartArtShape; tenga en cuenta que añadir nuevos nodos causa una recalculación de las posiciones y tamaños de todos los nodos. Con los ajustes de posición personalizados, el usuario puede situar los nodos según sus requisitos.  
 ```php
   # Instanciar la clase Presentation
   $pres = new Presentation("SimpleSmartArt.pptx");
@@ -322,32 +322,32 @@ Ahora Aspose.Slides for PHP via Java admite la configuración de las propiedades
 
 
 ## **Comprobar un nodo asistente**
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-En este artículo investigaremos más a fondo las características de las formas SmartArt añadidas en diapositivas de presentación de forma programática usando Aspose.Slides for PHP via Java.
+En este artículo investigaremos más a fondo las funciones de las formas SmartArt añadidas a las diapositivas de una presentación mediante Aspose.Slides for PHP via Java.  
 
-{{% /alert %}}
+{{% /alert %}} 
 
-Utilizaremos la siguiente forma SmartArt de origen para nuestra investigación en distintas secciones de este artículo.
+Utilizaremos la siguiente forma SmartArt como fuente para nuestras pruebas en las distintas secciones de este artículo.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
 |**Figura: Forma SmartArt de origen en la diapositiva**|
 
-En el siguiente código de ejemplo investigaremos cómo identificar **nodos asistente** en la colección de nodos SmartArt y cambiarlos.
+En el siguiente fragmento de código investigaremos cómo identificar los **Assistant Nodes** en la colección de nodos SmartArt y modificarlos.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargar la presentación con la forma SmartArt.
-1. Obtener la referencia de la segunda diapositiva mediante su índice.
-1. Recorrer cada forma dentro de la primera diapositiva.
-1. Comprobar si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) y convertir la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si es SmartArt.
-1. Recorrer todos los nodos dentro de la forma SmartArt y comprobar si son [**Nodos asistente**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#isAssistant--).
-1. Cambiar el estado del nodo asistente a nodo normal.
-1. Guardar la presentación.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargue la presentación con una forma SmartArt.  
+1. Obtenga la referencia de la segunda diapositiva mediante su índice.  
+1. Recorra todas las formas dentro de la primera diapositiva.  
+1. Compruebe si la forma es de tipo [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) y convierta la forma seleccionada a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si es SmartArt.  
+1. Recorra todos los nodos dentro de la forma SmartArt y compruebe si son **Assistant Nodes**.  
+1. Cambie el estado del nodo asistente a nodo normal.  
+1. Guarde la presentación.  
 ```php
   # Crear una instancia de presentación
   $pres = new Presentation("AddNodes.pptx");
   try {
-    # Recorrer cada forma dentro de la primera diapositiva
+    # Recorrer todas las formas dentro de la primera diapositiva
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       # Comprobar si la forma es de tipo SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -358,7 +358,7 @@ En el siguiente código de ejemplo investigaremos cómo identificar **nodos asis
           $node = $smart->getAllNodes()->get_Item($i);
           # Comprobar si el nodo es un nodo Asistente
           if ($node->isAssistant()) {
-            # Establecer el nodo Asistente a falso y convertirlo en un nodo normal
+            # Establecer el nodo Asistente a false y convertirlo en nodo normal
             $node->isAssistant();
           }
         }
@@ -376,29 +376,29 @@ En el siguiente código de ejemplo investigaremos cómo identificar **nodos asis
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Figura: Nodos asistente cambiados en la forma SmartArt dentro de la diapositiva**|
+|**Figura: Nodos asistente modificados en la forma SmartArt de la diapositiva**|
 
 ## **Establecer el formato de relleno de un nodo**
-Aspose.Slides for PHP via Java hace posible añadir formas SmartArt personalizadas y establecer su formato de relleno. Este artículo explica cómo crear y acceder a formas SmartArt y establecer su formato de relleno usando Aspose.Slides for PHP via Java.
+Aspose.Slides for PHP via Java permite añadir formas SmartArt personalizadas y definir su formato de relleno. Este artículo explica cómo crear y acceder a formas SmartArt y establecer su formato de relleno mediante Aspose.Slides for PHP via Java.
 
 Siga los pasos a continuación:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Obtener la referencia de una diapositiva mediante su índice.
-1. Añadir una forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) estableciendo su [**LayoutType**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Establecer el [**FillFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getFillFormat--) para los nodos de la forma SmartArt.
-1. Guardar la presentación modificada como archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
+1. Obtenga la referencia de una diapositiva usando su índice.  
+1. Añada una forma [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) estableciendo su **LayoutType**.  
+1. Defina el **Fill Format** para los nodos de la forma SmartArt.  
+1. Guarde la presentación modificada como archivo PPTX.  
 ```php
   # Instanciar la presentación
   $pres = new Presentation();
   try {
-    # Acceder a la diapositiva
+    # Accediendo a la diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Añadir forma SmartArt y nodos
+    # Añadiendo forma SmartArt y nodos
     $chevron = $slide->getShapes()->addSmartArt(10, 10, 800, 60, SmartArtLayoutType::ClosedChevronProcess);
     $node = $chevron->getAllNodes()->addNode();
     $node->getTextFrame()->setText("Some text");
-    # Establecer el color de relleno del nodo
+    # Estableciendo el color de relleno del nodo
     foreach($node->getShapes() as $item) {
       $item->getFillFormat()->setFillType(FillType::Solid);
       $item->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -416,22 +416,22 @@ Siga los pasos a continuación:
 ## **Generar una miniatura de un nodo hijo SmartArt**
 Los desarrolladores pueden generar una miniatura del nodo hijo de un SmartArt siguiendo los pasos a continuación:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. [Añadir SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Obtener la referencia de un nodo mediante su índice.
-1. Obtener la imagen en miniatura.
-1. Guardar la imagen en miniatura en el formato de imagen deseado.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
+1. [Add SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode).  
+1. Obtenga la referencia de un nodo mediante su índice.  
+1. Obtenga la imagen en miniatura.  
+1. Guarde la imagen en miniatura en el formato de imagen que desee.  
 ```php
   # Instanciar la clase Presentation que representa el archivo PPTX
   $pres = new Presentation();
   try {
     # Añadir SmartArt
     $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicCycle);
-    # Obtener la referencia de un nodo usando su índice
+    # Obtener la referencia de un nodo mediante su índice
     $node = $smart->getNodes()->get_Item(1);
-    # Obtener la miniatura
+    # Obtener miniatura
     $slideImage = $node->getShapes()->get_Item(0)->getImage();
-    # Guardar la miniatura
+    # Guardar miniatura
     try {
       $slideImage->save("SmartArt_ChildNote_Thumbnail.png", ImageFormat::Png);
     } finally {
@@ -455,12 +455,12 @@ Sí. SmartArt se trata como una forma normal, por lo que puede [aplicar animacio
 
 **¿Cómo puedo localizar de forma fiable un SmartArt específico en una diapositiva si su ID interno es desconocido?**
 
-Asigne y busque mediante [texto alternativo](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/). Establecer un AltText distintivo en el SmartArt permite encontrarlo programáticamente sin depender de identificadores internos.
+Asigne y busque por [texto alternativo](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/). Establecer un AltText distintivo en el SmartArt le permite encontrarlo programáticamente sin depender de identificadores internos.
 
-**¿Se preservará la apariencia del SmartArt al convertir la presentación a PDF?**
+**¿Se preservará la apariencia de SmartArt al convertir la presentación a PDF?**
 
-Sí. Aspose.Slides renderiza SmartArt con alta fidelidad visual durante la [exportación a PDF](/slides/es/php-java/convert-powerpoint-to-pdf/), preservando el diseño, colores y efectos.
+Sí. Aspose.Slides renderiza SmartArt con alta fidelidad visual durante la [exportación a PDF](/slides/es/php-java/convert-powerpoint-to-pdf/), conservando el diseño, colores y efectos.
 
 **¿Puedo extraer una imagen de todo el SmartArt (para vistas previas o informes)?**
 
-Sí. Puede renderizar una forma SmartArt a [formatos rasterizados](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) o a [SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) para salida vectorial escalable, lo que la hace adecuada para miniaturas, informes o uso web.
+Sí. Puede renderizar una forma SmartArt a [formatos raster]https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) o a [SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) para obtener una salida vectorial escalable, lo que la hace adecuada para miniaturas, informes o uso web.

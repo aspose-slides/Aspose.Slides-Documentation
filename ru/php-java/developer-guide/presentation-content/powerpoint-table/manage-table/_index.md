@@ -16,12 +16,12 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Создавайте и редактируйте таблицы в слайдах PowerPoint с помощью Aspose.Slides для PHP через Java. Откройте простые примеры кода, упрощающие работу с таблицами."
+description: "Создавайте и редактируйте таблицы в слайдах PowerPoint с помощью Aspose.Slides для PHP через Java. Откройте простые примеры кода, чтобы упростить работу с таблицами."
 ---
 
-Таблица в PowerPoint — эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) представлена просто и легко понимается.
+Таблица в PowerPoint — эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) проста и легко понимается.
 
-Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) , класс [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) , а также другие типы, позволяющие создавать, обновлять и управлять таблицами во всех типах презентаций.
+Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table), класс [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) и другие типы, позволяющие создавать, обновлять и управлять таблицами во всех типах презентаций.
 
 ## **Создание таблицы с нуля**
 
@@ -29,16 +29,16 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
 2. Получите ссылку на слайд по его индексу. 
 3. Определите массив `columnWidth`.
 4. Определите массив `rowHeight`.
-5. Добавьте объект [Table](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) на слайд с помощью метода [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
-6. Пройдитесь по каждой [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) , чтобы применить форматирование к верхней, нижней, правой и левой границам.
-7. Объедините первые две ячейки первой строки таблицы. 
-8. Получите объект [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) ячейки [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/).
+5. Добавьте объект [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) на слайд с помощью метода [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+6. Пройдитесь по каждой [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) чтобы применить форматирование к верхней, нижней, правой и левой границам.
+7. Объедините две первые ячейки первой строки таблицы. 
+8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) ячейки [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/).
 9. Добавьте некоторый текст в [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 10. Сохраните изменённую презентацию.
 
 Этот код PHP показывает, как создать таблицу в презентации:
 ```php
-  # Создает экземпляр класса Presentation, представляющего файл PPTX
+  # Создает объект класса Presentation, представляющий файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
@@ -68,7 +68,7 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
     }
     # Объединяет ячейки 1 и 2 первой строки
     $tbl->mergeCells($tbl->getRows()->get_Item(0)->get_Item(0), $tbl->getRows()->get_Item(1)->get_Item(1), false);
-    # Добавляет текст в объединённую ячейку
+    # Добавляет текст в объединенную ячейку
     $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
     # Сохраняет презентацию на диск
     $pres->save("table.pptx", SaveFormat::Pptx);
@@ -82,9 +82,9 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
 
 ## **Нумерация в стандартной таблице**
 
-В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка в таблице имеет индекс 0,0 (столбец 0, строка 0). 
+В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка таблицы имеет индекс 0,0 (столбец 0, строка 0). 
 
-Например, ячейки в таблице с 4 столбцами и 4 строками нумеруются следующим образом:
+Например, ячейки в таблице с 4 столбцами и 4 строками нумеруются так:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -136,22 +136,25 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 2. Получите ссылку на слайд, содержащий таблицу, по его индексу. 
 3. Создайте объект [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) и установите его в null.
-4. Пройдите по всем объектам [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) , пока не будет найдена таблица.
+4. Пройдитесь по всем объектам [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) пока не найдёте таблицу.
 
-Если вы предполагаете, что рассматриваемый слайд содержит одну таблицу, вы можете просто проверить все его фигуры. Когда фигура определяется как таблица, её можно привести к типу [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table). Но если на слайде несколько таблиц, лучше искать нужную таблицу по её методу [setAlternativeText(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/).
+   Если вы предполагаете, что слайд, с которым работаете, содержит единственную таблицу, вы можете просто проверить все его формы. Когда форма определяется как таблица, её можно привести к объекту [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table). Но если слайд содержит несколько таблиц, лучше искать нужную таблицу по её [setAlternativeText(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/).
 
-5. Используйте объект [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) для работы с таблицей. В примере ниже мы добавили новую строку в таблицу.
+5. Используйте объект [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table), чтобы работать с таблицей. В примере ниже мы добавили новую строку в таблицу.
 6. Сохраните изменённую презентацию.
 
+Этот код PHP показы
+
+вает, как получить доступ к существующей таблице и работать с ней:
 ```php
-  # Создает экземпляр класса Presentation, представляющего файл PPTX
+  # Создает объект класса Presentation, представляющий файл PPTX
   $pres = new Presentation("UpdateExistingTable.pptx");
   try {
     # Получает первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Инициализирует TableEx нулем
+    # Инициализирует TableEx как null
     $tbl = null;
-    # Перебирает фигуры и сохраняет ссылку на найденную таблицу
+    # Перебирает формы и задает ссылку на найденную таблицу
     foreach($sld->getShapes() as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
@@ -175,10 +178,11 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
 2. Получите ссылку на слайд по его индексу. 
 3. Добавьте объект [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) на слайд.
 4. Получите объект [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) из таблицы.
-5. Получите объект [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
-6. Выравняйте текст вертикально.
+5. Получите доступ к [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
+6. Выравняйте текст по вертикали.
 7. Сохраните изменённую презентацию.
 
+Этот код PHP показывает, как выровнять текст в таблице:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation();
@@ -193,11 +197,11 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
     $tbl->get_Item(1, 0)->getTextFrame()->setText("10");
     $tbl->get_Item(2, 0)->getTextFrame()->setText("20");
     $tbl->get_Item(3, 0)->getTextFrame()->setText("30");
-    # Получает объект TextFrame
+    # Получает текстовый фрейм
     $txtFrame = $tbl->get_Item(0, 0)->getTextFrame();
-    # Создает объект Paragraph для TextFrame
+    # Создает объект Paragraph для текстового фрейма
     $paragraph = $txtFrame->getParagraphs()->get_Item(0);
-    # Создает объект Portion для абзаца
+    # Создает объект Portion для параграфа
     $portion = $paragraph->getPortions()->get_Item(0);
     $portion->setText("Text here");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -226,11 +230,12 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
 6. Установите [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
 7. Сохраните изменённую презентацию. 
 
+Этот код PHP показывает, как применить выбранные параметры форматирования к тексту в таблице:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation("simpletable.pptx");
   try {
-    # Предположим, что первая фигура на первом слайде – это таблица
+    # Предположим, что первая форма на первом слайде является таблицей
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     # Устанавливает высоту шрифта ячеек таблицы
     $portionFormat = new PortionFormat();
@@ -256,7 +261,7 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
 
 ## **Получение свойств стиля таблицы**
 
-Aspose.Slides позволяет извлекать свойства стиля таблицы, чтобы использовать эти данные для другой таблицы или в другом месте. Этот код PHP показывает, как получить свойства стиля из предустановленного стиля таблицы:
+Aspose.Slides позволяет получать свойства стиля таблицы, чтобы вы могли использовать эти данные для другой таблицы или в другом месте. Этот код PHP показывает, как получить свойства стиля из предустановленного стиля таблицы:
 ```php
   $pres = new Presentation();
   try {
@@ -276,12 +281,13 @@ Aspose.Slides позволяет извлекать свойства стиля 
 
 Соотношение сторон геометрической фигуры — это отношение её размеров в разных измерениях. Aspose.Slides предоставляет метод [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) , позволяющий блокировать настройку соотношения сторон для таблиц и других фигур.
 
+Этот код PHP показывает, как заблокировать соотношение сторон для таблицы:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
+    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// инвертировать
 
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
@@ -297,12 +303,12 @@ Aspose.Slides позволяет извлекать свойства стиля 
 
 **Можно ли включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
 
-Да. Таблица предоставляет метод [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/), а у абзацев есть [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Использование обоих обеспечивает правильный порядок RTL и рендеринг внутри ячеек.
+Да. Таблица предоставляет метод [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/), а у абзацев есть [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Использование обоих гарантирует правильный порядок RTL и корректное отображение внутри ячеек.
 
-**Как предотвратить перемещение или изменение размеров таблицы пользователями в конечном файле?**
+**Как можно запретить пользователям перемещать или изменять размер таблицы в конечном файле?**
 
-Используйте [shape locks](/slides/ru/php-java/applying-protection-to-presentation/) для отключения перемещения, изменения размеров, выбора и т.д. Эти блокировки также применимы к таблицам.
+Используйте блокировки формы, чтобы отключить перемещение, изменение размеров, выделение и т.д. Эти блокировки применимы и к таблицам.
 
 **Поддерживается ли вставка изображения в ячейку в качестве фона?**
 
-Да. Вы можете установить [picture fill](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) для ячейки; изображение будет покрывать область ячейки в соответствии с выбранным режимом (растягивание или плитка).
+Да. Вы можете установить [picture fill](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) для ячейки; изображение будет покрывать площадь ячейки в соответствии с выбранным режимом (растягивание или мозаика).
