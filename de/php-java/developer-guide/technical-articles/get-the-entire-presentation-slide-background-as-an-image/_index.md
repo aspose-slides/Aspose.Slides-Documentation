@@ -1,14 +1,14 @@
 ---
-title: Den gesamten Folienhintergrund aus einer Präsentation als Bild extrahieren
-linktitle: Gesamter Folienhintergrund
+title: "Den gesamten Folienhintergrund aus einer Präsentation als Bild extrahieren"
+linktitle: "Gesamter Folienhintergrund"
 type: docs
 weight: 95
 url: /de/php-java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - Folienhintergrund
-- Endgültiger Hintergrund
+- Endhintergrund
 - Hintergrund extrahieren
-- Kompletter Hintergrund
+- Gesamter Hintergrund
 - Hintergrund zu Bild
 - PPT-Hintergrund
 - PPTX-Hintergrund
@@ -18,22 +18,22 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Extrahieren Sie vollständige Folienhintergründe als Bilder aus PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für PHP via Java und optimieren Sie damit visuelle Arbeitsabläufe."
+description: "Vollständige Folienhintergründe als Bilder aus PowerPoint- und OpenDocument-Präsentationen mithilfe von Aspose.Slides für PHP via Java extrahieren und so visuelle Workflows vereinfachen."
 ---
 
-## **Den gesamten Folienhintergrund abrufen**
+## **Gesamten Folienhintergrund abrufen**
 
-In PowerPoint‑Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Zusätzlich zu dem als [Folienhintergrund](/slides/de/php-java/presentation-background/) festgelegten Bild kann der endgültige Hintergrund vom Präsentationsthema, Farbschema und den Formen, die auf der Master‑Folie und Layout‑Folie platziert sind, beeinflusst werden.
+In PowerPoint‑Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Zusätzlich zum als [Folienhintergrund](/slides/de/php-java/presentation-background/) festgelegten Bild kann der endgültige Hintergrund vom Präsentationsthema, Farbschema und den Formen beeinflusst werden, die auf der Master‑Folien‑ und Layout‑Folien platziert sind.
 
-Aspose.Slides für PHP via Java bietet keine einfache Methode, um den gesamten Folienhintergrund einer Präsentation als Bild zu extrahieren, aber Sie können die folgenden Schritte ausführen:
-1. Laden Sie die Präsentation mit der [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) Klasse.  
-2. Ermitteln Sie die Foliengröße aus der Präsentation.  
-3. Wählen Sie eine Folie aus.  
-4. Erstellen Sie eine temporäre Präsentation.  
-5. Setzen Sie die gleiche Foliengröße in der temporären Präsentation.  
-6. Klonen Sie die ausgewählte Folie in die temporäre Präsentation.  
-7. Löschen Sie die Formen von der geklonten Folie.  
-8. Konvertieren Sie die geklonte Folie in ein Bild.
+Aspose.Slides für PHP via Java bietet keine einfache Methode, um den gesamten Folienhintergrund einer Präsentation als Bild zu extrahieren, aber Sie können die folgenden Schritte ausführen, um dies zu tun:
+1. Laden Sie die Präsentation mithilfe der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+1. Ermitteln Sie die Foliengröße aus der Präsentation.
+1. Wählen Sie eine Folie aus.
+1. Erstellen Sie eine temporäre Präsentation.
+1. Setzen Sie dieselbe Foliengröße in der temporären Präsentation.
+1. Klonen Sie die ausgewählte Folie in die temporäre Präsentation.
+1. Löschen Sie die Formen von der geklonten Folie.
+1. Konvertieren Sie die geklonte Folie in ein Bild.
 
 Das folgende Codebeispiel extrahiert den gesamten Folienhintergrund einer Präsentation als Bild.
 ```php
@@ -64,18 +64,18 @@ $presentation->dispose();
 
 ## **FAQ**
 
-**Werden komplexe Verläufe, Texturen oder Bildfüllungen von einer Master‑Folie im resultierenden Hintergrundbild erhalten?**
+**Werden komplexe Verläufe, Texturen oder Bildfüllungen von einer Master‑Folien im resultierenden Hintergrundbild beibehalten?**
 
-Ja. Aspose.Slides rendert Gradient-, Bild- und Texturfüllungen, die auf der Folie, dem Layout oder dem Master definiert sind. Wenn Sie das Aussehen von geerbten Mastern isolieren müssen, [setzen Sie einen eigenen Hintergrund](/slides/de/php-java/presentation-background/) auf der aktuellen Folie, bevor Sie exportieren.
+Ja. Aspose.Slides rendert Gradient‑, Bild‑ und Texturfüllungen, die auf der Folie, dem Layout oder dem Master definiert sind. Wenn Sie das Aussehen von geerbten Mastern isolieren möchten, [setzen Sie einen eigenen Hintergrund](/slides/de/php-java/presentation-background/) auf der aktuellen Folie, bevor Sie exportieren.
 
-**Kann ich dem resultierenden Hintergrundbild vor dem Speichern ein Wasserzeichen hinzufügen?**
+**Kann ich ein Wasserzeichen dem resultierenden Hintergrundbild hinzufügen, bevor ich es speichere?**
 
-Ja. Sie können ein [Wasserzeichen](/slides/de/php-java/watermark/) als Form oder Bild auf einer Arbeits-[Kopie der Folie](/slides/de/php-java/clone-slides/) (hinter anderem Inhalt platziert) hinzufügen und dann exportieren. Dadurch entsteht ein Hintergrundbild, in das das Wasserzeichen eingebettet ist.
+Ja. Sie können eine [Wasserzeichen](/slides/de/php-java/watermark/)‑Form oder ein Bild auf einer Arbeits‑[Kopie der Folie](/slides/de/php-java/clone-slides/) (hinter anderem Inhalt platziert) hinzufügen und dann exportieren. So können Sie ein Hintergrundbild mit eingebettetem Wasserzeichen erzeugen.
 
-**Kann ich den Hintergrund für ein bestimmtes Layout oder einen Master erhalten, ohne ihn an eine vorhandene Folie zu binden?**
+**Kann ich den Hintergrund für ein bestimmtes Layout oder Master erhalten, ohne ihn an eine vorhandene Folie zu binden?**
 
-Ja. Greifen Sie auf den gewünschten Master oder das Layout zu, wenden Sie es auf eine [temporäre Folie](/slides/de/php-java/clone-slides/) mit der erforderlichen Größe an und exportieren Sie diese Folie, um den aus diesem Layout oder Master abgeleiteten Hintergrund zu erhalten.
+Ja. Greifen Sie auf das gewünschte Master‑ oder Layout zu, wenden Sie es auf eine [temporäre Folie](/slides/de/php-java/clone-slides/) mit der erforderlichen Größe an und exportieren Sie diese Folie, um den aus diesem Layout oder Master abgeleiteten Hintergrund zu erhalten.
 
-**Gibt es Lizenzbeschränkungen, die den Bildexport beeinflussen?**
+**Gibt es Lizenzbeschränkungen, die den Bild‑Export beeinflussen?**
 
-Rendering‑Funktionen sind mit einer [gültigen Lizenz](/slides/de/php-java/licensing/) vollständig verfügbar. Im Evaluierungsmodus kann die Ausgabe Einschränkungen wie ein Wasserzeichen enthalten. Aktivieren Sie die Lizenz einmal pro Prozess, bevor Sie Batch‑Exporte ausführen.
+Render‑Funktionen sind mit einer [gültigen Lizenz](/slides/de/php-java/licensing/) vollständig verfügbar. Im Evaluierungsmodus kann die Ausgabe Einschränkungen wie ein Wasserzeichen enthalten. Aktivieren Sie die Lizenz einmal pro Prozess, bevor Sie Batch‑Exporte ausführen.

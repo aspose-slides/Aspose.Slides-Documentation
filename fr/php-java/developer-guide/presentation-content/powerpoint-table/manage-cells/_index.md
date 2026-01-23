@@ -6,9 +6,9 @@ weight: 30
 url: /fr/php-java/manage-cells/
 keywords:
 - cellule de tableau
-- fusionner des cellules
+- fusion de cellules
 - supprimer la bordure
-- diviser la cellule
+- scinder la cellule
 - image dans la cellule
 - couleur d'arrière-plan
 - PowerPoint
@@ -19,10 +19,10 @@ description: "Gérez facilement les cellules de tableau dans PowerPoint avec Asp
 ---
 
 ## **Identifier une cellule de tableau fusionnée**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Récupérez le tableau de la première diapositive.
-3. Parcourez les lignes et les colonnes du tableau pour trouver les cellules fusionnées.
-4. Affichez un message lorsque des cellules fusionnées sont trouvées.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2. Obtenir le tableau de la première diapositive.
+3. Parcourir les lignes et colonnes du tableau pour trouver les cellules fusionnées.
+4. Afficher un message lorsqu’une cellule fusionnée est trouvée.
 
 Ce code PHP montre comment identifier les cellules de tableau fusionnées dans une présentation :
 ```php
@@ -47,13 +47,13 @@ Ce code PHP montre comment identifier les cellules de tableau fusionnées dans u
 
 
 ## **Supprimer les bordures des cellules de tableau**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenez la référence d’une diapositive via son indice.
-3. Définissez un tableau de colonnes avec largeur.
-4. Définissez un tableau de lignes avec hauteur.
-5. Ajoutez un tableau à la diapositive via la méthode [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Parcourez chaque cellule pour effacer les bordures supérieure, inférieure, droite et gauche.
-7. Enregistrez la présentation modifiée au format PPTX.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2. Obtenir la référence d’une diapositive via son indice.
+3. Définir un tableau de colonnes avec la largeur.
+4. Définir un tableau de lignes avec la hauteur.
+5. Ajouter un tableau à la diapositive via la méthode [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable).
+6. Parcourir chaque cellule pour effacer les bordures supérieure, inférieure, droite et gauche.
+7. Enregistrer la présentation modifiée en tant que fichier PPTX.
 
 Ce code PHP montre comment supprimer les bordures des cellules de tableau :
 ```php
@@ -87,7 +87,7 @@ Ce code PHP montre comment supprimer les bordures des cellules de tableau :
 
 
 ## **Numérotation dans les cellules fusionnées**
-Si nous fusionnons 2 paires de cellules (1, 1) x (2, 1) et (1, 2) x (2, 2), le tableau résultant sera numéroté. Ce code PHP démontre le processus :
+Si nous fusionnons deux paires de cellules (1, 1) x (2, 1) et (1, 2) x (2, 2), le tableau résultant sera numéroté. Ce code PHP illustre le processus :
 ```php
   # Instancie la classe Presentation qui représente un fichier PPTX
   $pres = new Presentation();
@@ -129,7 +129,7 @@ Si nous fusionnons 2 paires de cellules (1, 1) x (2, 1) et (1, 2) x (2, 2), le t
 ```
 
 
-Nous fusionnons alors davantage les cellules en fusionnant (1, 1) et (1, 2). Le résultat est un tableau contenant une grande cellule fusionnée au centre :
+Nous fusionnons ensuite les cellules en fusionnant (1, 1) et (1, 2). Le résultat est un tableau contenant une grande cellule fusionnée au centre :
 ```php
   # Instancie la classe Presentation qui représente un fichier PPTX
   $pres = new Presentation();
@@ -174,10 +174,10 @@ Nous fusionnons alors davantage les cellules en fusionnant (1, 1) et (1, 2). Le 
 ```
 
 
-## **Numérotation dans une cellule scindée**
-Dans les exemples précédents, lorsque les cellules du tableau étaient fusionnées, la numérotation ou le système de numéros dans les autres cellules ne changeait pas.
+## **Numérotation dans une cellule divisée**
+Dans les exemples précédents, lorsque des cellules de tableau étaient fusionnées, la numérotation ou le système de numérotation des autres cellules ne changeait pas.
 
-Cette fois, nous prenons un tableau normal (un tableau sans cellules fusionnées) et nous essayons de diviser la cellule (1,1) pour obtenir un tableau spécial. Vous souhaiterez peut‑être faire attention à la numérotation de ce tableau, qui peut sembler étrange. Cependant, c’est ainsi que Microsoft PowerPoint numérote les cellules de tableau et Aspose.Slides fait de même.
+Cette fois‑ci, nous prenons un tableau normal (un tableau sans cellules fusionnées) puis nous essayons de diviser la cellule (1, 1) pour obtenir un tableau spécial. Vous souhaiterez peut‑être prêter attention à la numérotation de ce tableau, qui peut sembler étrange. Cependant, c’est ainsi que Microsoft PowerPoint numérote les cellules de tableau et Aspose.Slides fait de même.
 
 Ce code PHP montre le processus décrit :
 ```php
@@ -212,7 +212,7 @@ Ce code PHP montre le processus décrit :
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
     # Fusionne les cellules (1, 2) x (2, 2)
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Scinde la cellule (1, 1)
+    # Divise la cellule (1, 1)
     $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
     # Enregistre le fichier PPTX sur le disque
     $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
@@ -224,17 +224,17 @@ Ce code PHP montre le processus décrit :
 ```
 
 
-## **Modifier la couleur d'arrière-plan d'une cellule de tableau**
-Ce code PHP montre comment changer la couleur d'arrière-plan d'une cellule de tableau :
+## **Modifier la couleur d’arrière‑plan d’une cellule de tableau**
+Ce code PHP montre comment changer la couleur d’arrière‑plan d’une cellule de tableau :
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
     $dblCols = array(150, 150, 150, 150 );
     $dblRows = array(50, 50, 50, 50, 50 );
-    # crée une nouvelle table
+    # crée un nouveau tableau
     $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # définit la couleur d'arrière-plan d'une cellule
+    # définir la couleur d'arrière-plan d'une cellule
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -247,19 +247,19 @@ Ce code PHP montre comment changer la couleur d'arrière-plan d'une cellule de t
 ```
 
 
-## **Ajouter une image à l'intérieur d'une cellule de tableau**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenez la référence d’une diapositive via son indice.
-3. Définissez un tableau de colonnes avec largeur.
-4. Définissez un tableau de lignes avec hauteur.
-5. Ajoutez un tableau à la diapositive via la méthode [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Créez un objet `Images` pour contenir le fichier image.
-7. Ajoutez l'image `IImage` à l'objet `IPPImage`.
-8. Définissez le `FillFormat` de la cellule du tableau sur `Picture`.
-9. Ajoutez l'image à la première cellule du tableau.
-10. Enregistrez la présentation modifiée au format PPTX
+## **Ajouter une image dans une cellule de tableau**
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2. Obtenir la référence d’une diapositive via son indice.
+3. Définir un tableau de colonnes avec la largeur.
+4. Définir un tableau de lignes avec la hauteur.
+5. Ajouter un tableau à la diapositive via la méthode [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addTable).
+6. Créer un objet `Images` pour contenir le fichier image.
+7. Ajouter l’image `IImage` à l’objet `IPPImage`.
+8. Définir le `FillFormat` de la cellule du tableau sur `Picture`.
+9. Ajouter l’image à la première cellule du tableau.
+10. Enregistrer la présentation modifiée en tant que fichier PPTX.
 
-Ce code PHP montre comment placer une image à l'intérieur d'une cellule de tableau lors de la création d'un tableau :
+Ce code PHP montre comment placer une image dans une cellule de tableau lors de la création d’un tableau :
 ```php
   # Instancie la classe Presentation qui représente un fichier PPTX
   $pres = new Presentation();
@@ -299,14 +299,18 @@ Ce code PHP montre comment placer une image à l'intérieur d'une cellule de tab
 
 ## **FAQ**
 
-**Puis‑je définir des épaisseurs et des styles de ligne différents pour chaque côté d'une seule cellule ?**
-Oui. Les bordures [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) possèdent des propriétés séparées, de sorte que l'épaisseur et le style de chaque côté peuvent différer. Cela découle logiquement du contrôle des bordures par côté pour une cellule présenté dans l'article.
+**Puis‑je définir des épaisseurs et des styles de ligne différents pour chaque côté d’une même cellule ?**
 
-**Que se passe‑t‑il avec l'image si je modifie la taille de la colonne/ligne après avoir défini une image comme arrière‑plan de la cellule ?**
-Le comportement dépend du [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/). En étirant, l'image s'ajuste à la nouvelle cellule ; en mosaïquant, les carreaux sont recalculés. L'article mentionne les modes d'affichage de l'image dans une cellule.
+Oui. Les bordures [supérieure](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[inférieure](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[gauche](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[droite](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) possèdent des propriétés distinctes, de sorte que l’épaisseur et le style de chaque côté peuvent différer. Cela découle logiquement du contrôle des bordures par côté pour une cellule présenté dans l’article.
 
-**Puis‑je affecter un hyperlien à tout le contenu d'une cellule ?**
-[Hyperlinks](/slides/fr/php-java/manage-hyperlinks/) sont définis au niveau du texte (portion) à l'intérieur du cadre de texte de la cellule ou au niveau du tableau/forme entier. En pratique, vous affectez le lien à une portion ou à tout le texte de la cellule.
+**Que se passe‑t‑il pour l’image si je modifie la taille de la colonne ou de la ligne après avoir défini une image comme arrière‑plan de la cellule ?**
 
-**Puis‑je définir différentes polices au sein d'une même cellule ?**
-Oui. Le cadre de texte d’une cellule prend en charge les [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (runs) avec un formatage indépendant — la famille de police, le style, la taille et la couleur.
+Le comportement dépend du [mode de remplissage](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (étirement/tuile). En mode étirement, l’image s’ajuste à la nouvelle cellule ; en mode tuile, les tuiles sont recalculées. L’article évoque les modes d’affichage d’image dans une cellule.
+
+**Puis‑je attribuer un hyperlien à tout le contenu d’une cellule ?**
+
+[Hyperlinks](/slides/fr/php-java/manage-hyperlinks/) sont définis au niveau du texte (portion) à l’intérieur du cadre texte de la cellule ou au niveau de l’ensemble du tableau/forme. En pratique, vous attribuez le lien à une portion ou à tout le texte de la cellule.
+
+**Puis‑je définir des polices différentes au sein d’une même cellule ?**
+
+Oui. Le cadre texte d’une cellule prend en charge les [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (segments) avec un formatage indépendant—famille de police, style, taille et couleur.

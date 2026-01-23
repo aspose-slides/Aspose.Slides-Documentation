@@ -1,5 +1,5 @@
 ---
-title: Administrar comentarios de presentaciones en PHP
+title: Gestionar comentarios de presentación en PHP
 linktitle: Comentarios de presentación
 type: docs
 weight: 100
@@ -11,7 +11,7 @@ keywords:
 - comentarios de presentación
 - comentarios de diapositiva
 - añadir comentario
-- acceder al comentario
+- acceder comentario
 - editar comentario
 - responder comentario
 - eliminar comentario
@@ -21,22 +21,24 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Domina los comentarios de presentaciones con Aspose.Slides para PHP a través de Java: agrega, lee, edita y elimina comentarios en archivos de PowerPoint de forma rápida y sencilla."
+description: "Domine los comentarios de presentaciones con Aspose.Slides para PHP a través de Java: añada, lea, edite y elimine comentarios en archivos PowerPoint de forma rápida y sencilla."
 ---
 
-En PowerPoint, un comentario aparece como una nota o anotación en una diapositiva. Cuando se hace clic en un comentario, se revelan sus contenidos o mensajes. 
+En PowerPoint, un comentario aparece como una nota o anotación en una diapositiva. Al hacer clic en un comentario, se revelan sus contenidos o mensajes. 
 
 ## **¿Por qué añadir comentarios a las presentaciones?**
 
-Puede que desee usar comentarios para proporcionar retroalimentación o comunicarse con sus colegas al revisar presentaciones.
+Puede que desee usar los comentarios para ofrecer retroalimentación o comunicarse con sus colegas al revisar presentaciones.
 
-* La clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) contiene las colecciones de autores (de la clase [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/)). Los autores añaden comentarios a las diapositivas.
-* La clase [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) contiene la colección de comentarios para autores individuales.
-* La clase [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) contiene información sobre los autores y sus comentarios: quién añadió el comentario, la hora en que se añadió, la posición del comentario, etc.
-* La clase [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) contiene información sobre autores individuales: el nombre del autor, sus iniciales, los comentarios asociados al nombre del autor, etc.
+Para permitirle usar comentarios en presentaciones de PowerPoint, Aspose.Slides para PHP a través de Java proporciona
+
+* La clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) que contiene las colecciones de autores (de la clase [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/)). Los autores añaden comentarios a las diapositivas.
+* La clase [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) que contiene la colección de comentarios de autores individuales.
+* La clase [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) que contiene información sobre los autores y sus comentarios: quién añadió el comentario, la hora en que se añadió, la posición del comentario, etc.
+* La clase [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) que contiene información sobre autores individuales: el nombre del autor, sus iniciales, los comentarios asociados al nombre del autor, etc.
 
 ## **Añadir comentarios a diapositivas**
-Este código PHP le muestra cómo añadir un comentario a una diapositiva en una presentación PowerPoint:
+Este código PHP le muestra cómo añadir un comentario a una diapositiva en una presentación de PowerPoint:
 ```php
   # Instancia la clase Presentation
   $pres = new Presentation();
@@ -46,7 +48,7 @@ Este código PHP le muestra cómo añadir un comentario a una diapositiva en una
     $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
     # Añade un autor
     $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
-    # Establece la posición para los comentarios
+    # Establece la posición de los comentarios
     $point = new Point2DFloat(0.2, 0.2);
     # Añade un comentario de diapositiva para un autor en la diapositiva 1
     $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
@@ -56,7 +58,7 @@ Este código PHP le muestra cómo añadir un comentario a una diapositiva en una
     $slide = $pres->getSlides()->get_Item(0);
     # Cuando se pasa null como argumento, se traen los comentarios de todos los autores a la diapositiva seleccionada
     $Comments = $slide->getSlideComments($author);
-    # Accede al comentario en el índice 0 de la diapositiva 1
+    # Accesses the comment at index 0 for slide 1
     $str = $Comments[0]->getText();
     $pres->save("Comments_out.pptx", SaveFormat::Pptx);
     if (java_values($Array->getLength($Comments)) > 0) {
@@ -73,7 +75,7 @@ Este código PHP le muestra cómo añadir un comentario a una diapositiva en una
 
 
 ## **Acceder a los comentarios de diapositivas**
-Este código PHP le muestra cómo acceder a un comentario existente en una diapositiva de una presentación PowerPoint:
+Este código PHP le muestra cómo acceder a un comentario existente en una diapositiva de una presentación de PowerPoint:
 ```php
   # Instancia la clase Presentation
   $pres = new Presentation("Comments1.pptx");
@@ -94,7 +96,7 @@ Este código PHP le muestra cómo acceder a un comentario existente en una diapo
 
 
 ## **Responder a comentarios**
-Un comentario padre es el comentario superior u original en una jerarquía de comentarios o respuestas. Utilizando los métodos [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) o [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) (de la clase [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/)), puede establecer u obtener un comentario padre.
+Un comentario padre es el comentario superior u original en una jerarquía de comentarios o respuestas. Usando los métodos [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) o [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) (de la clase [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/)), puede establecer o obtener un comentario padre.
 
 Este código PHP le muestra cómo añadir comentarios y obtener sus respuestas:
 ```php
@@ -104,11 +106,11 @@ Este código PHP le muestra cómo añadir comentarios y obtener sus respuestas:
     # Añade un comentario
     $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
     $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    # Añade una respuesta a comment1
+    # Añade una respuesta al comentario1
     $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
     $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply1->setParentComment($comment1);
-    # Añade otra respuesta a comment1
+    # Añade otra respuesta al comentario1
     $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply2->setParentComment($comment1);
     # Añade una respuesta a una respuesta existente
@@ -131,7 +133,7 @@ Este código PHP le muestra cómo añadir comentarios y obtener sus respuestas:
       echo();
     }
     $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    # Elimina comment1 y todas sus respuestas
+    # Elimina el comentario1 y todas sus respuestas
     $comment1->remove();
     $pres->save("remove_comment.pptx", SaveFormat::Pptx);
   } finally {
@@ -142,20 +144,20 @@ Este código PHP le muestra cómo añadir comentarios y obtener sus respuestas:
 ```
 
 
-{{% alert color="warning" title="Atención" %}} 
+{{% alert color="warning" title="Attention" %}} 
 
 * Cuando se usa el método [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) (de la clase [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/)) para eliminar un comentario, también se eliminan las respuestas al comentario.
-* Si la configuración [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) produce una referencia circular, se lanzará [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/).
+* Si la configuración [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) produce una referencia circular, se lanzará una [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/).
 
 {{% /alert %}}
 
 ## **Añadir comentarios modernos**
 
-En 2021, Microsoft introdujo *comentarios modernos* en PowerPoint. La función de comentarios modernos mejora significativamente la colaboración en PowerPoint. A través de los comentarios modernos, los usuarios de PowerPoint pueden resolver comentarios, anclar comentarios a objetos y textos, y participar en interacciones mucho más fácilmente que antes. 
+En 2021, Microsoft introdujo los *comentarios modernos* en PowerPoint. La función de comentarios modernos mejora significativamente la colaboración en PowerPoint. A través de los comentarios modernos, los usuarios de PowerPoint pueden resolver comentarios, anclar comentarios a objetos y textos, y participar en interacciones de forma mucho más fácil que antes. 
 
-En [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/), implementamos soporte para comentarios modernos añadiendo la clase [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/). Se añadieron los métodos [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) e [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) a la clase [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/).
+Aspose Slides admite comentarios modernos mediante la clase [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/). Se añadieron los métodos [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) e [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) a la clase [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/).
 
-Este código PHP le muestra cómo añadir un comentario moderno a una diapositiva en una presentación PowerPoint:
+Este código PHP le muestra cómo añadir un comentario moderno a una diapositiva en una presentación de PowerPoint:
 ```php
   $pres = new Presentation();
   try {
@@ -173,7 +175,6 @@ Este código PHP le muestra cómo añadir un comentario moderno a una diapositiv
 ## **Eliminar comentarios**
 
 ### **Eliminar todos los comentarios y autores**
-
 Este código PHP le muestra cómo eliminar todos los comentarios y autores en una presentación:
 ```php
   $presentation = new Presentation("example.pptx");
@@ -194,7 +195,6 @@ Este código PHP le muestra cómo eliminar todos los comentarios y autores en un
 
 
 ### **Eliminar comentarios específicos**
-
 Este código PHP le muestra cómo eliminar comentarios específicos en una diapositiva:
 ```php
   $presentation = new Presentation();
@@ -225,7 +225,7 @@ Este código PHP le muestra cómo eliminar comentarios específicos en una diapo
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Aspose.Slides admite un estado como 'resuelto' para los comentarios modernos?**
 
@@ -233,7 +233,7 @@ Sí. Los [comentarios modernos](https://reference.aspose.com/slides/php-java/asp
 
 **¿Se admiten discusiones en hilo (cadenas de respuestas) y existe un límite de anidamiento?**
 
-Sí. Cada comentario puede hacer referencia a su [comentario padre](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/), lo que permite cadenas de respuestas arbitrarias. La API no declara un límite específico de profundidad de anidamiento.
+Sí. Cada comentario puede referenciar su [comentario padre](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/), lo que permite cadenas de respuestas arbitrarias. La API no declara un límite específico de profundidad de anidamiento.
 
 **¿En qué sistema de coordenadas se define la posición del marcador de comentario en una diapositiva?**
 

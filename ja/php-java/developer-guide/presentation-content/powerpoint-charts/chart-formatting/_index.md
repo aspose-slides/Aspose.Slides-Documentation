@@ -1,59 +1,59 @@
 ---
-title: PHP でプレゼンテーションチャートをフォーマット
+title: PHPでプレゼンテーションチャートをフォーマットする
 linktitle: チャートの書式設定
 type: docs
 weight: 60
 url: /ja/php-java/chart-formatting/
 keywords:
-- チャートのフォーマット
-- チャートの書式設定
+- チャートをフォーマット
+- チャート書式設定
 - チャートエンティティ
 - チャートプロパティ
 - チャート設定
 - チャートオプション
 - フォントプロパティ
-- 角丸境界
+- 角丸境界線
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java のチャート書式設定を学び、プロフェッショナルで目を引くスタイリングで PowerPoint プレゼンテーションを向上させましょう。"
+description: "Aspose.Slides for PHP via Java のチャート書式設定を学び、プロフェッショナルで目を引くスタイルで PowerPoint プレゼンテーションを向上させましょう。"
 ---
 
-## **チャートエンティティの書式設定**
-Aspose.Slides for PHP via Java は、開発者が最初からスライドにカスタムチャートを追加できるようにします。本記事では、チャートのカテゴリ軸や値軸など、さまざまなチャートエンティティの書式設定方法について説明します。
+## **Format Chart Entities**
+Aspose.Slides for PHP via Java では、開発者はスライドにカスタム チャートをゼロから追加できます。本記事では、チャートのカテゴリ軸と値軸を含むさまざまなチャート エンティティの書式設定方法を説明します。
 
-Aspose.Slides for PHP via Java は、さまざまなチャートエンティティを管理し、カスタム値を使用して書式設定するためのシンプルな API を提供します。
+Aspose.Slides for PHP via Java は、さまざまなチャート エンティティを管理し、カスタム値で書式設定するためのシンプルな API を提供します。
 
-1. [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+1. [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
 1. インデックスでスライドの参照を取得します。
-1. 任意のタイプ（この例では ChartType::LineWithMarkers を使用）でデフォルトデータを持つチャートを追加します。
-1. チャートの値軸にアクセスし、以下のプロパティを設定します：
-   1. 値軸の主目盛線の **Line format** を設定
-   1. 値軸の副目盛線の **Line format** を設定
+1. 任意のタイプ（この例では ChartType::LineWithMarkers）でデフォルト データを持つチャートを追加します。
+1. チャートの値軸にアクセスし、次のプロパティを設定します。
+   1. 値軸メジャー グリッド線の **Line format** を設定
+   1. 値軸マイナー グリッド線の **Line format** を設定
    1. 値軸の **Number Format** を設定
    1. 値軸の **Min, Max, Major and Minor units** を設定
    1. 値軸データの **Text Properties** を設定
    1. 値軸の **Title** を設定
    1. 値軸の **Line Format** を設定
-1. チャートのカテゴリ軸にアクセスし、以下のプロパティを設定します：
-   1. カテゴリ軸の主目盛線の **Line format** を設定
-   1. カテゴリ軸の副目盛線の **Line format** を設定
+1. チャートのカテゴリ軸にアクセスし、次のプロパティを設定します。
+   1. カテゴリ軸メジャー グリッド線の **Line format** を設定
+   1. カテゴリ軸マイナー グリッド線の **Line format** を設定
    1. カテゴリ軸データの **Text Properties** を設定
    1. カテゴリ軸の **Title** を設定
    1. カテゴリ軸の **Label Positioning** を設定
    1. カテゴリ軸ラベルの **Rotation Angle** を設定
 1. チャートの凡例にアクセスし、**Text Properties** を設定します。
-1. チャートが重ならないように凡例を表示設定します。
-1. チャートの **Secondary Value Axis** にアクセスし、以下のプロパティを設定します：
+1. チャートの凡例がチャートと重ならないように表示します。
+1. チャートの **Secondary Value Axis** にアクセスし、次のプロパティを設定します。
    1. セカンダリ **Value Axis** を有効化
    1. セカンダリ値軸の **Line Format** を設定
    1. セカンダリ値軸の **Number Format** を設定
    1. セカンダリ値軸の **Min, Max, Major and Minor units** を設定
-1. これで最初のチャート系列をセカンダリ値軸にプロットします。
-1. チャートの背面壁の塗りつぶし色を設定します。
+1. セカンダリ値軸に最初のチャート系列をプロットします。
+1. チャートの裏壁の塗りつぶし色を設定します。
 1. チャートのプロット領域の塗りつぶし色を設定します。
-1. 変更したプレゼンテーションを PPTX ファイルに書き出します。
+1. 変更したプレゼンテーションを PPTX ファイルに書き込みます
 ```php
   # Presentation クラスのインスタンスを作成する
   $pres = new Presentation();
@@ -72,12 +72,12 @@ Aspose.Slides for PHP via Java は、さまざまなチャートエンティテ�
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # 値軸の主目盛線の書式を設定する
+    # 値軸の主要グリッド線の形式を設定する
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # 値軸の副目盛線の書式を設定する
+    # 値軸の補助グリッド線の形式を設定する
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
@@ -112,11 +112,11 @@ Aspose.Slides for PHP via Java は、さまざまなチャートエンティテ�
     $valtitle->getPortionFormat()->setFontHeight(20);
     $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
     $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # カテゴリ軸の主目盛線の書式を設定する
+    # カテゴリ軸の主要グリッド線の形式を設定する
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # カテゴリ軸の副目盛線の書式を設定する
+    # カテゴリ軸の補助グリッド線の形式を設定する
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
@@ -138,9 +138,9 @@ Aspose.Slides for PHP via Java は、さまざまなチャートエンティテ�
     $catTitle->getPortionFormat()->setFontHeight(20);
     $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # カテゴリ軸のラベル位置を設定する
+    # カテゴリ軸ラベルの位置を設定する
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # カテゴリ軸のラベル回転角度を設定する
+    # カテゴリ軸ラベルの回転角度を設定する
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
     # 凡例のテキストプロパティを設定する
     $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
@@ -149,15 +149,15 @@ Aspose.Slides for PHP via Java は、さまざまなチャートエンティテ�
     $txtleg->setFontItalic(NullableBool::True);
     $txtleg->getFillFormat()->setFillType(FillType::Solid);
     $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # チャートが重ならないように凡例を表示設定する
+    # チャートと重ならないように凡例を表示する
     $chart->getLegend()->setOverlay(true);
     # chart.ChartData.Series[0].PlotOnSecondAxis=true;
     $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # セカンダリ値軸を設定する
+    # 二次値軸を設定する
     $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # セカンダリ値軸の数値形式を設定する
+    # 二次値軸の数値形式を設定する
     $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
     $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
@@ -189,15 +189,15 @@ Aspose.Slides for PHP via Java は、さまざまなチャートエンティテ�
 ```
 
 
-## **チャートのフォントプロパティを設定**
-Aspose.Slides for PHP via Java は、チャートのフォント関連プロパティを設定する機能を提供します。以下の手順に従ってチャートのフォントプロパティを設定してください。
+## **Set Font Properties for a Chart**
+Aspose.Slides for PHP via Java は、チャートのフォント関連プロパティの設定をサポートします。以下の手順でチャートのフォントプロパティを設定してください。
 
-- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのオブジェクトをインスタンス化します。
+- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのオブジェクトをインスタンス化します。
 - スライドにチャートを追加します。
 - フォントの高さを設定します。
 - 変更したプレゼンテーションを保存します。
 
-以下にサンプル例が示されています。
+以下にサンプル例を示します。
 ```php
   # Presentation クラスのインスタンスを作成する
   $pres = new Presentation();
@@ -214,17 +214,17 @@ Aspose.Slides for PHP via Java は、チャートのフォント関連プロパ�
 ```
 
 
-## **数値形式を設定**
-Aspose.Slides for PHP via Java は、チャートデータ形式を管理するためのシンプルな API を提供します。
+## **Set the Numeric Format**
+Aspose.Slides for PHP via Java は、チャート データの書式設定を管理するシンプルな API を提供します。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスのインスタンスを作成します。
 1. インデックスでスライドの参照を取得します。
-1. 任意のタイプ（この例では **ChartType::ClusteredColumn** を使用）でデフォルトデータを持つチャートを追加します。
-1. 可能なプリセット値から事前定義の数値形式を設定します。
-1. 各チャート系列のチャートデータセルを走査し、チャートデータの数値形式を設定します。
+1. 任意のタイプ（この例では **ChartType::ClusteredColumn**）でデフォルト データを持つチャートを追加します。
+1. 可能なプリセット値から事前設定の数値書式を設定します。
+1. 各チャート系列のチャート データ セルを走査し、チャート データの数値書式を設定します。
 1. プレゼンテーションを保存します。
-1. カスタム数値形式を設定します。
-1. 各チャート系列のチャートデータセルを走査し、異なるチャートデータ数値形式を設定します。
+1. カスタム数値書式を設定します。
+1. 各チャート系列内のチャート データ セルを走査し、異なるチャート データ数値書式を設定します。
 1. プレゼンテーションを保存します。
 ```php
   # Presentation クラスのインスタンスを作成する
@@ -232,13 +232,13 @@ Aspose.Slides for PHP via Java は、チャートデータ形式を管理する�
   try {
     # 最初のプレゼンテーション スライドにアクセスする
     $slide = $pres->getSlides()->get_Item(0);
-    # デフォルトのクラスター化列チャートを追加する
+    # デフォルトのクラスター化カラム チャートを追加する
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # チャート シリーズ コレクションにアクセスする
+    # チャート系列コレクションにアクセスする
     $series = $chart->getChartData()->getSeries();
-    # すべてのチャート シリーズを走査する
+    # すべてのチャート系列を走査する
     foreach($series as $ser) {
-      # シリーズ内のすべてのデータ セルを走査する
+      # 系列内のすべてのデータセルを走査する
       foreach($ser->getDataPoints() as $cell) {
         # 数値形式を設定する
         $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
@@ -255,9 +255,9 @@ Aspose.Slides for PHP via Java は、チャートデータ形式を管理する�
 ```
 
 
-可能なプリセット数値形式の値とそのインデックスは以下のとおりです。
+使用できる事前設定の数値書式とそのインデックスは以下のとおりです。
 
-|**0**|標準|
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -290,21 +290,21 @@ Aspose.Slides for PHP via Java は、チャートデータ形式を管理する�
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **チャート領域の角丸境界を設定**
+## **Set Chart Area Rounded Borders**
 Aspose.Slides for PHP via Java は、チャート領域の設定をサポートします。メソッド [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/hasroundedcorners/) と [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) が [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) クラスに追加されました。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのオブジェクトをインスタンス化します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスのオブジェクトをインスタンス化します。
 1. スライドにチャートを追加します。
 1. チャートの塗りつぶしタイプと塗りつぶし色を設定します。
 1. 角丸プロパティを True に設定します。
 1. 変更したプレゼンテーションを保存します。
 
-以下にサンプル例が示されています。
+以下にサンプル例を示します。 
 ```php
   # Presentation クラスのインスタンスを作成する
   $pres = new Presentation();
@@ -325,11 +325,14 @@ Aspose.Slides for PHP via Java は、チャート領域の設定をサポート�
 
 ## **FAQ**
 
-**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**  
-はい。塗りつぶしの透明度と輪郭は別々に設定できます。これにより、密集したビジュアライゼーションでもグリッドとデータの可読性を向上させることができます。
+**列やエリアの塗りつぶしを半透明にし、枠線は不透明のままにできますか？**
 
-**How can I deal with data labels when they overlap?**  
-フォントサイズを縮小する、不要なラベル要素（例：カテゴリ）を無効化する、ラベルのオフセット/位置を調整する、必要に応じて選択したポイントのみラベルを表示する、または「値＋凡例」形式に切り替えるなどの方法があります。
+はい。塗りつぶしの透明度と輪郭は別々に設定できます。これは、グリッドやデータが密集した可視化で可読性を向上させるのに役立ちます。
 
-**Can I apply gradient or pattern fills to series?**  
-はい。単色塗りつぶしだけでなく、グラデーションやパターン塗りつぶしも通常利用可能です。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下しないよう組み合わせを避けてください。
+**ラベルが重なる場合、どう対処すればよいですか？**
+
+フォントサイズを小さくする、不要なラベル要素（例: カテゴリ）を無効にする、ラベルのオフセット/位置を設定する、必要に応じて選択ポイントのみラベルを表示する、または「値＋凡例」形式に切り替えるなどの方法があります。
+
+**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
+
+はい。ソリッド塗りつぶしと同様に、グラデーションやパターン塗りつぶしも利用可能です。実務ではグラデーションの使用は控えめにし、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。

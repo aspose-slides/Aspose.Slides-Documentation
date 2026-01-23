@@ -1,5 +1,5 @@
 ---
-title: Präsentationen nach XAML in PHP exportieren
+title: Präsentationen nach XAML exportieren in PHP
 linktitle: Präsentation nach XAML
 type: docs
 weight: 30
@@ -20,29 +20,28 @@ keywords:
 - PPT als XAML speichern
 - PPTX als XAML speichern
 - ODP als XAML speichern
-- PPT nach XAML exportieren
-- PPTX nach XAML exportieren
-- ODP nach XAML exportieren
+- PPT zu XAML exportieren
+- PPTX zu XAML exportieren
+- ODP zu XAML exportieren
 - PHP
 - Aspose.Slides
-description: "Konvertieren Sie PowerPoint- und OpenDocument-Folien zu XAML mit Aspose.Slides für PHP über Java - schnelle, Office-freie Lösung, die das Layout unverändert beibehält."
+description: "Konvertieren Sie PowerPoint- und OpenDocument-Folien zu XAML mit Aspose.Slides für PHP über Java — schnelle, Office-freie Lösung, die Ihr Layout unverändert lässt."
 ---
 
-## **Präsentationen nach XAML exportieren**
 
-{{% alert color="primary" %}} 
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-6-release-notes/), haben wir die Unterstützung für den XAML-Export implementiert. Sie können jetzt Ihre Präsentationen nach XAML exportieren.
-{{% /alert %}} 
+## **Exportieren von Präsentationen nach XAML**
+
+Aspose.Slides unterstützt den XAML‑Export. Sie können Ihre Präsentationen in XAML konvertieren.
 
 ## **Über XAML**
 
-XAML ist eine beschreibende Programmiersprache, mit der Sie Benutzeroberflächen für Apps erstellen oder schreiben können, insbesondere für solche, die WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) und Xamarin Forms verwenden.  
+XAML ist eine beschreibende Programmiersprache, mit der Sie Benutzeroberflächen für Apps erstellen oder schreiben können, insbesondere für solche, die WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) und Xamarin‑Forms verwenden.  
 
-XAML, das eine XML-basierte Sprache ist, ist Microsofts Variante zur Beschreibung einer GUI. Sie werden höchstwahrscheinlich die meiste Zeit einen Designer verwenden, um an XAML-Dateien zu arbeiten, aber Sie können Ihre GUI weiterhin manuell schreiben und bearbeiten. 
+XAML, das auf XML basiert, ist Microsofts Variante zur Beschreibung einer GUI. Sie arbeiten wahrscheinlich die meiste Zeit mit einem Designer an XAML‑Dateien, können aber dennoch Ihre GUI schreiben und bearbeiten.
 
-## **Präsentationen nach XAML mit Standardoptionen exportieren**
+## **Exportieren von Präsentationen nach XAML mit Standardeinstellungen**
 
-Dieser PHP-Code zeigt, wie man eine Präsentation mit den Standardeinstellungen nach XAML exportiert:
+Dieser PHP‑Code zeigt, wie Sie eine Präsentation mit den Standardeinstellungen nach XAML exportieren:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -55,11 +54,11 @@ Dieser PHP-Code zeigt, wie man eine Präsentation mit den Standardeinstellungen 
 ```
 
 
-## **Präsentationen nach XAML mit benutzerdefinierten Optionen exportieren**
+## **Exportieren von Präsentationen nach XAML mit benutzerdefinierten Einstellungen**
 
-Sie können Optionen aus der Klasse [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) auswählen, die den Exportvorgang steuern und festlegen, wie Aspose.Slides Ihre Präsentation nach XAML exportiert.
+Sie können Optionen aus der [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/)‑Klasse auswählen, die den Exportvorgang steuern und festlegen, wie Aspose.Slides Ihre Präsentation nach XAML exportiert.
 
-Zum Beispiel, wenn Sie möchten, dass Aspose.Slides versteckte Folien aus Ihrer Präsentation beim Export nach XAML hinzufügt, können Sie die Methode [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) mit dem Wert `true` verwenden. Siehe diesen Beispiel-PHP-Code:
+Wenn Sie beispielsweise möchten, dass Aspose.Slides ausgeblendete Folien aus Ihrer Präsentation hinzufügen, wenn sie nach XAML exportiert wird, können Sie die Methode [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) mit dem Wert `true` verwenden. Siehe diesen Beispiel‑PHP‑Code:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -76,14 +75,14 @@ Zum Beispiel, wenn Sie möchten, dass Aspose.Slides versteckte Folien aus Ihrer 
 
 ## **FAQ**
 
-**Wie kann ich vorhersehbare Schriftarten sicherstellen, wenn die ursprüngliche Schriftart auf dem Rechner nicht verfügbar ist?**
+**Wie kann ich sicherstellen, dass vorhersehbare Schriftarten verwendet werden, wenn die Originalschriftart auf dem Rechner nicht verfügbar ist?**
 
-Setzen Sie [eine Standardschriftart](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) in [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) — sie wird als Ersatzschriftart verwendet, wenn die ursprüngliche fehlt. Dies hilft, unerwartete Ersetzungen zu vermeiden.
+Legen Sie in [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) eine [Standard‑Regulärschriftart](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) fest – diese wird als Ersatzschriftart verwendet, wenn die Originalschrift fehlt. So vermeiden Sie unerwartete Ersetzungen.
 
-**Ist das exportierte XAML nur für WPF gedacht, oder kann es auch in anderen XAML-Stacks verwendet werden?**
+**Ist das exportierte XAML ausschließlich für WPF gedacht oder kann es auch in anderen XAML‑Stacks verwendet werden?**
 
-XAML ist eine allgemeine UI-Markup-Sprache, die in WPF, UWP und Xamarin.Forms verwendet wird. Der Export zielt auf die Kompatibilität mit Microsoft XAML-Stacks ab; das genaue Verhalten und die Unterstützung bestimmter Konstrukte hängen von der Zielplattform ab. Testen Sie das Markup in Ihrer Umgebung.
+XAML ist eine allgemeine UI‑Markup‑Sprache, die in WPF, UWP und Xamarin.Forms eingesetzt wird. Der Export zielt auf die Kompatibilität mit Microsoft‑XAML‑Stacks ab; das genaue Verhalten und die Unterstützung spezifischer Konstrukte hängen von der Zielplattform ab. Testen Sie das Markup in Ihrer Umgebung.
 
-**Werden versteckte Folien unterstützt und wie kann ich verhindern, dass sie standardmäßig exportiert werden?**
+**Werden ausgeblendete Folien unterstützt und wie kann ich verhindern, dass sie standardmäßig exportiert werden?**
 
-Standardmäßig werden versteckte Folien nicht einbezogen. Sie können dieses Verhalten über [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) in [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) steuern — deaktivieren Sie es, wenn Sie sie nicht exportieren müssen.
+Standardmäßig werden ausgeblendete Folien nicht einbezogen. Sie können dieses Verhalten über [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) in [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) steuern – lassen Sie die Option deaktiviert, wenn Sie sie nicht exportieren möchten.

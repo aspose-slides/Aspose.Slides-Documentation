@@ -1,5 +1,5 @@
 ---
-title: Convertir PPT y PPTX a PDF en PHP [Características avanzadas incluidas]
+title: Convertir PPT y PPTX a PDF en PHP [Funciones avanzadas incluidas]
 linktitle: PowerPoint a PDF
 type: docs
 weight: 40
@@ -23,52 +23,52 @@ keywords:
 - PDF/UA
 - PHP
 - Aspose.Slides
-description: "Convertir PowerPoint PPT/PPTX a PDFs de alta calidad y buscables en PHP usando Aspose.Slides, con ejemplos de código rápidos y opciones de conversión avanzadas."
+description: "Convertir presentaciones PowerPoint PPT/PPTX a PDFs de alta calidad y buscables en PHP usando Aspose.Slides, con ejemplos de código rápidos y opciones de conversión avanzadas."
 ---
 
-## **Visión general**
+## **Descripción general**
 
-Convertir presentaciones de PowerPoint (PPT, PPTX, ODP, etc.) a formato PDF en PHP ofrece varias ventajas, incluida la compatibilidad con diferentes dispositivos y la preservación del diseño y formato de su presentación. Esta guía demuestra cómo convertir presentaciones a documentos PDF, usar diversas opciones para controlar la calidad de imagen, incluir diapositivas ocultas, proteger con contraseña los archivos PDF, detectar sustituciones de fuentes, seleccionar diapositivas específicas para la conversión y aplicar normas de cumplimiento a los documentos de salida.
+Convertir presentaciones de PowerPoint (PPT, PPTX, ODP, etc.) a formato PDF en PHP ofrece varias ventajas, incluida la compatibilidad entre diferentes dispositivos y la preservación del diseño y formato de tu presentación. Esta guía muestra cómo convertir presentaciones a documentos PDF, usar diversas opciones para controlar la calidad de la imagen, incluir diapositivas ocultas, proteger con contraseña los archivos PDF, detectar sustituciones de fuentes, seleccionar diapositivas específicas para la conversión y aplicar normas de cumplimiento a los documentos de salida.
 
 ## **Conversiones de PowerPoint a PDF**
 
-Con Aspose.Slides, puede convertir presentaciones en los siguientes formatos a PDF:
+Con Aspose.Slides, puedes convertir presentaciones en los siguientes formatos a PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Para convertir una presentación a PDF, pase el nombre del archivo como argumento a la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y luego guarde la presentación como PDF usando un método `save`. La clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) expone el método `save` que se usa típicamente para convertir una presentación a PDF.
+Para convertir una presentación a PDF, pasa el nombre del archivo como argumento a la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y luego guarda la presentación como PDF usando un método `save`. La clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) expone el método `save` que se utiliza típicamente para convertir una presentación a PDF.
 
-{{%  alert title="NOTA"  color="warning"   %}} 
+{{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for PHP via Java inserta la información de su API y el número de versión en los documentos de salida. Por ejemplo, al convertir una presentación a PDF, Aspose.Slides completa el campo Application con "*Aspose.Slides*" y el campo PDF Producer con un valor en forma "*Aspose.Slides v XX.XX*". **Nota** que no puede instruir a Aspose.Slides para cambiar o eliminar esta información de los documentos de salida.
+Aspose.Slides for PHP via Java inserta la información de su API y el número de versión en los documentos de salida. Por ejemplo, al convertir una presentación a PDF, Aspose.Slides rellena el campo Application con "*Aspose.Slides*" y el campo PDF Producer con un valor del tipo "*Aspose.Slides v XX.XX*". **Note** que no puedes indicar a Aspose.Slides que cambie o elimine esta información de los documentos de salida.
 
 {{% /alert %}}
 
-Aspose.Slides le permite convertir:
+Aspose.Slides permite convertir:
 
 * Presentaciones completas a PDF
 * Diapositivas específicas de una presentación a PDF
 
-Aspose.Slides exporta presentaciones a PDF, asegurando que los PDFs resultantes coincidan estrechamente con las presentaciones originales. Los elementos y atributos se renderizan con precisión en la conversión, incluidos:
+Aspose.Slides exporta presentaciones a PDF, asegurando que los PDF resultantes coincidan estrechamente con las presentaciones originales. Los elementos y atributos se renderizan con exactitud durante la conversión, incluyendo:
 
 * Imágenes
 * Cuadros de texto y formas
 * Formato de texto
-* Formato de párrafos
+* Formato de párrafo
 * Hipervínculos
-* Encabezados y pies de página
+* Cabeceras y pies de página
 * Viñetas
 * Tablas
 
 ## **Convertir PowerPoint a PDF**
 
-El proceso estándar de conversión de PowerPoint a PDF usa opciones predeterminadas. En este caso, Aspose.Slides intenta convertir la presentación proporcionada a PDF usando configuraciones óptimas en los niveles de mayor calidad.
+El proceso estándar de conversión de PowerPoint a PDF usa opciones predeterminadas. En este caso, Aspose.Slides intenta convertir la presentación proporcionada a PDF usando ajustes óptimos en los niveles máximos de calidad.
 
 Este código muestra cómo convertir una presentación (PPT, PPTX, ODP, etc.) a PDF:
 ```php
-# Instanciar la clase Presentation que representa un archivo PowerPoint u OpenDocument.
+# Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 $presentation = new Presentation("PowerPoint.pptx");
 try {
     # Guardar la presentación como PDF.
@@ -81,19 +81,19 @@ try {
 
 {{%  alert  color="primary"  %}} 
 
-Aspose ofrece un [**convertidor gratuito en línea de PowerPoint a PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) que demuestra el proceso de conversión de presentación a PDF. Puede ejecutar una prueba con este convertidor para una implementación en vivo del procedimiento descrito aquí.
+Aspose ofrece un [**convertidor online gratuito de PowerPoint a PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) que muestra el proceso de conversión de presentación a PDF. Puedes probar este convertidor para una implementación en directo del procedimiento descrito aquí.
 
 {{% /alert %}}
 
-## **Convertir PowerPoint a PDF con opciones**
+## **Convertir PowerPoint a PDF con Opciones**
 
-Aspose.Slides proporciona opciones personalizadas —propiedades bajo la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/PdfOptions)— que le permiten personalizar el PDF resultante, bloquear el PDF con una contraseña o especificar cómo debe proceder el proceso de conversión.
+Aspose.Slides proporciona opciones personalizadas —propiedades bajo la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/PdfOptions)— que permiten personalizar el PDF resultante, bloquear el PDF con una contraseña o especificar cómo debe proceder el proceso de conversión.
 
-### **Convertir PowerPoint a PDF con opciones personalizadas**
+### **Convertir PowerPoint a PDF con Opciones Personalizadas**
 
-Usando opciones de conversión personalizadas, puede definir su configuración de calidad preferida para imágenes raster, especificar cómo se deben manejar los metarchivos, establecer un nivel de compresión para texto, configurar DPI para imágenes y más.
+Usando opciones de conversión personalizadas, puedes definir tu configuración de calidad preferida para imágenes rasterizadas, especificar cómo deben manejarse los metafiles, establecer un nivel de compresión para el texto, configurar DPI para las imágenes y más.
 
-El ejemplo de código a continuación demuestra cómo convertir una presentación de PowerPoint a PDF con varias opciones personalizadas.
+El ejemplo de código a continuación muestra cómo convertir una presentación de PowerPoint a PDF con varias opciones personalizadas.
 ```php
 # Instanciar la clase PdfOptions.
 $pdfOptions = new PdfOptions();
@@ -104,7 +104,7 @@ $pdfOptions->setJpegQuality(90);
 # Establecer DPI para imágenes.
 $pdfOptions->setSufficientResolution(300);
 
-# Establecer el comportamiento para metafiles.
+# Establecer el comportamiento de los metafiles.
 $pdfOptions->setSaveMetafilesAsPng(true);
 
 # Establecer el nivel de compresión de texto para el contenido textual.
@@ -124,11 +124,11 @@ try {
 ```
 
 
-### **Convertir PowerPoint a PDF con diapositivas ocultas**
+### **Convertir PowerPoint a PDF con Diapositivas Ocultas**
 
-Si una presentación contiene diapositivas ocultas, puede usar el método [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) de la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/PdfOptions) para incluir las diapositivas ocultas como páginas en el PDF resultante.
+Si una presentación contiene diapositivas ocultas, puedes usar el método [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/#setShowHiddenSlides) de la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/PdfOptions) para incluir las diapositivas ocultas como páginas en el PDF resultante.
 
-Este código muestra cómo convertir una presentación de PowerPoint a PDF con diapositivas ocultas incluidas:
+Este código muestra cómo convertir una presentación de PowerPoint a PDF con las diapositivas ocultas incluidas:
 ```php
 # Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 $presentation = new Presentation("PowerPoint.pptx");
@@ -147,7 +147,7 @@ try {
 ```
 
 
-### **Convertir PowerPoint a PDF protegido con contraseña**
+### **Convertir PowerPoint a PDF Protegido con Contraseña**
 
 Este código demuestra cómo convertir una presentación de PowerPoint en un PDF protegido con contraseña usando los parámetros de protección de la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/):
 ```php
@@ -169,7 +169,7 @@ try {
 ```
 
 
-### **Detectar sustituciones de fuentes**
+### **Detectar Sustituciones de Fuentes**
 
 Aspose.Slides proporciona el método [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setWarningCallback) bajo la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) que permite detectar sustituciones de fuentes durante el proceso de conversión de presentación a PDF.
 
@@ -187,7 +187,7 @@ class FontSubstitutionHandler {
     }
 }
 
-// Establecer el callback de advertencia en las opciones PDF.
+// Establecer la devolución de llamada de advertencia en las opciones PDF.
 $pdfOptions = new PdfOptions();
 $warningCallback = java_closure(new FontSubstitutionHandler(), null, java("com.aspose.slides.IWarningCallback"));
 $pdfOptions->setWarningCallback($warningCallback);
@@ -205,20 +205,18 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-Para obtener más información sobre la recepción de callbacks para sustituciones de fuentes durante el proceso de renderizado, consulte [Obtención de callbacks de advertencia para sustituciones de fuentes](/slides/es/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
-
-Para más información sobre la sustitución de fuentes, consulte el artículo [Sustitución de fuentes](/slides/es/php-java/font-substitution/).
+Para más información sobre la sustitución de fuentes, consulta el artículo [Font Substitution](/slides/es/php-java/font-substitution/).
 
 {{% /alert %}} 
 
-## **Convertir diapositivas seleccionadas en PowerPoint a PDF**
+## **Convertir Diapositivas Seleccionadas de PowerPoint a PDF**
 
-Este código demuestra cómo convertir solo diapositivas específicas de una presentación de PowerPoint a PDF:
+Este código muestra cómo convertir solo diapositivas específicas de una presentación de PowerPoint a PDF:
 ```php
 # Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 $presentation = new Presentation("PowerPoint.pptx");
 try {
-    # Establecer array de números de diapositivas.
+    # Establecer el array de números de diapositivas.
     $slides = array(1, 3);
 
     # Guardar la presentación como PDF.
@@ -229,9 +227,9 @@ try {
 ```
 
 
-## **Convertir PowerPoint a PDF con tamaño de diapositiva personalizado**
+## **Convertir PowerPoint a PDF con Tamaño de Diapositiva Personalizado**
 
-Este código demuestra cómo convertir una presentación de PowerPoint a PDF con un tamaño de diapositiva especificado:
+Este código muestra cómo convertir una presentación de PowerPoint a PDF con un tamaño de diapositiva especificado:
 ```php
 $slideWidth = 612.0;
 $slideHeight = 792.0;
@@ -259,9 +257,9 @@ try {
 ```
 
 
-## **Convertir PowerPoint a PDF en vista de diapositiva de notas**
+## **Convertir PowerPoint a PDF en Vista de Diapositiva de Notas**
 
-Este código demuestra cómo convertir una presentación de PowerPoint a un PDF que incluya notas:
+Este código muestra cómo convertir una presentación de PowerPoint a un PDF que incluye notas:
 ```php
 # Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 $presentation = new Presentation("SelectedSlides.pptx");
@@ -280,11 +278,11 @@ try {
 ```
 
 
-## **Estándares de accesibilidad y cumplimiento para PDF**
+## **Estándares de Accesibilidad y Cumplimiento para PDF**
 
-Aspose.Slides le permite usar un procedimiento de conversión que cumple con las [Pautas de accesibilidad al contenido web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Puede exportar un documento de PowerPoint a PDF usando cualquiera de estos estándares de cumplimiento: **PDF/A1a**, **PDF/A1b** y **PDF/UA**.
+Aspose.Slides permite usar un procedimiento de conversión que cumple con las [Directrices de Accesibilidad al Contenido Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Puedes exportar un documento de PowerPoint a PDF utilizando cualquiera de estos estándares de cumplimiento: **PDF/A1a**, **PDF/A1b** y **PDF/UA**.
 
-Este código demuestra un proceso de conversión de PowerPoint a PDF que produce múltiples PDFs basados en diferentes estándares de cumplimiento:
+Este código demuestra un proceso de conversión de PowerPoint a PDF que genera varios PDF basados en diferentes estándares de cumplimiento:
 ```php
 $presentation = new Presentation("pres.pptx");
 try {
@@ -304,36 +302,36 @@ try {
 ```
 
 
-{{% alert title="Nota" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides admite operaciones de conversión a PDF, lo que le permite convertir archivos PDF a formatos de archivo populares. Puede realizar conversiones de [PDF a HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/), [PDF a imagen](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/), [PDF a JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/) y [PDF a PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/). Otras operaciones de conversión de PDF a formatos especializados —[PDF a SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/), [PDF a TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/), y [PDF a XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)— también son compatibles.
+Aspose.Slides admite operaciones de conversión a PDF, lo que permite convertir archivos PDF a formatos de archivo populares. Puedes realizar conversiones de [PDF a HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/), [PDF a imagen](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/), [PDF a JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/), y [PDF a PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/). Otras conversiones de PDF a formatos especializados—[PDF a SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/), [PDF a TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/), y [PDF a XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)—también están soportadas.
 
 {{% /alert %}}
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Puedo convertir varios archivos de PowerPoint a PDF en lote?**
 
-Sí, Aspose.Slides admite la conversión por lotes de varios archivos PPT o PPTX a PDF. Puede iterar a través de sus archivos y aplicar el proceso de conversión programáticamente.
+Sí, Aspose.Slides soporta la conversión por lotes de múltiples archivos PPT o PPTX a PDF. Puedes iterar sobre tus archivos y aplicar el proceso de conversión programáticamente.
 
 **¿Es posible proteger con contraseña el PDF convertido?**
 
-Absolutamente. Use la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) para establecer una contraseña y definir permisos de acceso durante el proceso de conversión.
+Absolutamente. Usa la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) para establecer una contraseña y definir permisos de acceso durante el proceso de conversión.
 
 **¿Cómo incluyo diapositivas ocultas en el PDF?**
 
-Use el método `setShowHiddenSlides` en la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) para incluir diapositivas ocultas en el PDF resultante.
+Utiliza el método `setShowHiddenSlides` en la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) para incluir las diapositivas ocultas en el PDF resultante.
 
 **¿Puede Aspose.Slides mantener alta calidad de imagen en el PDF?**
 
-Sí, puede controlar la calidad de imagen usando métodos como `setJpegQuality` y `setSufficientResolution` en la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) para garantizar imágenes de alta calidad en su PDF.
+Sí, puedes controlar la calidad de la imagen usando métodos como `setJpegQuality` y `setSufficientResolution` en la clase [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) para asegurar imágenes de alta calidad en tu PDF.
 
-**¿Aspose.Slides admite estándares de cumplimiento PDF/A?**
+**¿Aspose.Slides soporta los estándares de cumplimiento PDF/A?**
 
-Sí, Aspose.Slides le permite exportar PDFs que cumplen con varios estándares, incluidos PDF/A1a, PDF/A1b y PDF/UA, asegurando que sus documentos cumplan con requisitos de accesibilidad y archivo.
+Sí, Aspose.Slides permite exportar PDFs que cumplen con varios estándares, incluidos PDF/A1a, PDF/A1b y PDF/UA, garantizando que tus documentos cumplan con los requisitos de accesibilidad y archivo.
 
 ## **Recursos adicionales**
 
 - [Documentación de Aspose.Slides for PHP via Java](/slides/es/php-java/)
 - [Referencia de API de Aspose.Slides for PHP via Java](https://reference.aspose.com/slides/php-java/)
-- [Convertidores gratuitos en línea de Aspose](https://products.aspose.app/slides/conversion)
+- [Convertidores Online Gratuitos de Aspose](https://products.aspose.app/slides/conversion)

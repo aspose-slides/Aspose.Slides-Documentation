@@ -1,37 +1,31 @@
 ---
 title: Präsentationen nach HTML5 in PHP konvertieren
-linktitle: Präsentation zu HTML5
+linktitle: Präsentation nach HTML5
 type: docs
 weight: 40
 url: /de/php-java/export-to-html5/
 keywords:
-- PowerPoint zu HTML5
-- OpenDocument zu HTML5
-- Präsentation zu HTML5
-- Folie zu HTML5
-- PPT zu HTML5
-- PPTX zu HTML5
-- ODP zu HTML5
+- PowerPoint nach HTML5
+- OpenDocument nach HTML5
+- Präsentation nach HTML5
+- Folie nach HTML5
+- PPT nach HTML5
+- PPTX nach HTML5
+- ODP nach HTML5
 - PPT als HTML5 speichern
 - PPTX als HTML5 speichern
 - ODP als HTML5 speichern
-- PPT zu HTML5 exportieren
-- PPTX zu HTML5 exportieren
-- ODP zu HTML5 exportieren
+- PPT nach HTML5 exportieren
+- PPTX nach HTML5 exportieren
+- ODP nach HTML5 exportieren
 - PHP
 - Aspose.Slides
-description: "Exportieren Sie PowerPoint‑ und OpenDocument‑Präsentationen zu responsivem HTML5 mit Aspose.Slides für PHP via Java. Formatierung, Animationen und Interaktivität beibehalten."
+description: "Exportieren Sie PowerPoint- und OpenDocument-Präsentationen in responsives HTML5 mit Aspose.Slides für PHP über Java. Bewahren Sie Formatierung, Animationen und Interaktivität."
 ---
 
-{{% alert title="Info" color="info" %}}
+Aspose.Slides unterstützt den HTML5-Export. Der hier beschriebene Export nach HTML5 ermöglicht es Ihnen, PowerPoint ohne Web-Erweiterungen oder Abhängigkeiten in HTML zu konvertieren. Auf diese Weise können Sie mit eigenen Vorlagen sehr flexible Optionen anwenden, die den Exportvorgang sowie das resultierende HTML, CSS, JavaScript und die Animationsattribute definieren. 
 
-In [Aspose.Slides 21.9](/slides/de/php-java/aspose-slides-for-java-21-9-release-notes/) haben wir die Unterstützung für den HTML5‑Export implementiert.
-
-{{% /alert %}} 
-
-Der Export nach HTML5 ermöglicht es, PowerPoint ohne Web‑Erweiterungen oder Abhängigkeiten in HTML zu konvertieren. Dabei können Sie mit eigenen Vorlagen sehr flexible Optionen anwenden, die den Exportprozess sowie das resultierende HTML, CSS, JavaScript und die Animationsattribute definieren. 
-
-## **Export PowerPoint to HTML5**
+## **PowerPoint nach HTML5 exportieren**
 
 Dieser PHP‑Code zeigt, wie Sie eine Präsentation ohne Web‑Erweiterungen und Abhängigkeiten nach HTML5 exportieren:
 ```php
@@ -52,7 +46,7 @@ In diesem Fall erhalten Sie sauberes HTML.
 
 {{% /alert %}}
 
-Sie können auf diese Weise Einstellungen für Form‑Animationen und Folienübergänge festlegen:
+Auf diese Weise können Sie Einstellungen für Form‑Animationen und Folienübergänge festlegen:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -68,9 +62,9 @@ Sie können auf diese Weise Einstellungen für Form‑Animationen und Folienübe
 ```
 
 
-## **Export PowerPoint to HTML**
+## **PowerPoint nach HTML exportieren**
 
-Dieses Java‑Beispiel demonstriert den Standard‑PowerPoint‑zu‑HTML‑Prozess:
+Dieses Java‑Beispiel demonstriert den Standard‑PowerPoint‑nach‑HTML‑Prozess:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -83,7 +77,7 @@ Dieses Java‑Beispiel demonstriert den Standard‑PowerPoint‑zu‑HTML‑Proz
 ```
 
 
-In diesem Fall wird der Präsentationsinhalt über SVG in folgender Form gerendert:
+In diesem Fall wird der Präsentationsinhalt über SVG in einer Form wie dieser gerendert:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -92,20 +86,22 @@ In diesem Fall wird der Präsentationsinhalt über SVG in folgender Form gerende
      </svg>
 </div>
 </body>
+```php
+
 ```
 
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Hinweis" color="warning" %}} 
 
-Wenn Sie diese Methode zum Exportieren von PowerPoint nach HTML verwenden, können Sie aufgrund des SVG‑Renderings keine Styles anwenden oder einzelne Elemente animieren. 
+Wenn Sie diese Methode zum Exportieren von PowerPoint nach HTML verwenden, können Sie aufgrund der SVG‑Darstellung keine Stile anwenden oder bestimmte Elemente animieren. 
 
 {{% /alert %}}
 
-## **Export PowerPoint to HTML5 Slide View**
+## **PowerPoint nach HTML5‑Folienansicht exportieren**
 
-**Aspose.Slides** ermöglicht die Konvertierung einer PowerPoint‑Präsentation in ein HTML5‑Dokument, bei dem die Folien in einem Folien‑Ansichtsmodus dargestellt werden. Öffnen Sie die resultierende HTML5‑Datei in einem Browser, wird die Präsentation im Folien‑Ansichtsmodus auf der Webseite angezeigt. 
+**Aspose.Slides** ermöglicht es Ihnen, eine PowerPoint‑Präsentation in ein HTML5‑Dokument zu konvertieren, in dem die Folien in einem Folienansichtsmodus dargestellt werden. In diesem Fall sehen Sie beim Öffnen der resultierenden HTML5‑Datei in einem Browser die Präsentation im Folienansichtsmodus auf einer Webseite. 
 
-Dieser PHP‑Code demonstriert den Exportprozess von PowerPoint zu HTML5 Slide View:
+Dieser PHP‑Code demonstriert den Exportvorgang von PowerPoint zur HTML5‑Folienansicht:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -121,15 +117,15 @@ Dieser PHP‑Code demonstriert den Exportprozess von PowerPoint zu HTML5 Slide V
 ```
 
 
-## **Convert Presentations to HTML5 Documents with Comments**
+## **Präsentationen in HTML5‑Dokumente mit Kommentaren konvertieren**
 
-Kommentare in PowerPoint sind ein Werkzeug, das es Benutzern ermöglicht, Notizen oder Feedback zu Folien zu hinterlassen. Sie sind besonders nützlich in kollaborativen Projekten, bei denen mehrere Personen ihre Vorschläge oder Anmerkungen zu bestimmten Folienelementen hinzufügen können, ohne den Hauptinhalt zu verändern. Jeder Kommentar zeigt den Namen des Autors, sodass leicht nachverfolgt werden kann, wer die Anmerkung hinterlassen hat.
+Kommentare in PowerPoint sind ein Werkzeug, das es Benutzern ermöglicht, Anmerkungen oder Feedback zu Folien zu hinterlassen. Sie sind besonders nützlich in kollaborativen Projekten, bei denen mehrere Personen ihre Vorschläge oder Anmerkungen zu bestimmten Folienelementen hinzufügen können, ohne den Hauptinhalt zu ändern. Jeder Kommentar zeigt den Namen des Autors, sodass leicht nachverfolgt werden kann, wer die Anmerkung hinterlassen hat.
 
-Nehmen wir an, wir haben die folgende PowerPoint‑Präsentation in der Datei „sample.pptx“ gespeichert.
+Angenommen, wir haben die folgende PowerPoint‑Präsentation in der Datei "sample.pptx" gespeichert.
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+![Zwei Kommentare auf der Präsentationsfolie](two_comments_pptx.png)
 
-Wenn Sie eine PowerPoint‑Präsentation in ein HTML5‑Dokument konvertieren, können Sie leicht festlegen, ob Kommentare aus der Präsentation im Ausgabedokument enthalten sein sollen. Dazu müssen Sie die Anzeigeparameter für Kommentare in der Methode `getNotesCommentsLayouting` der Klasse `Html5Options` angeben.
+Wenn Sie eine PowerPoint‑Präsentation in ein HTML5‑Dokument konvertieren, können Sie leicht festlegen, ob Kommentare aus der Präsentation im Ausgabedokument enthalten sein sollen. Dazu müssen Sie die Anzeigeparameter für Kommentare in der `getNotesCommentsLayouting`‑Methode der `Html5Options`‑Klasse angeben.
 
 Das folgende Codebeispiel konvertiert eine Präsentation in ein HTML5‑Dokument, wobei Kommentare rechts neben den Folien angezeigt werden.
 ```php
@@ -142,20 +138,20 @@ $presentation->dispose();
 ```
 
 
-Das Dokument „output.html“ wird im Bild unten gezeigt.
+Das "output.html"-Dokument ist im Bild unten zu sehen.
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+![Die Kommentare im ausgegebenen HTML5-Dokument](two_comments_html5.png)
 
 ## **FAQ**
 
-**Kann ich steuern, ob Objektanimationen und Folienübergänge in HTML5 wiedergegeben werden?**
+**Kann ich steuern, ob Objektanimationen und Folienübergänge in HTML5 abgespielt werden?**
 
-Ja, HTML5 bietet separate Optionen zum Aktivieren oder Deaktivieren von [shape animations](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) und [slide transitions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/).
+Ja, HTML5 bietet separate Optionen zum Aktivieren oder Deaktivieren von [Form‑Animationen](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) und [Folienübergängen](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/).
 
-**Wird die Ausgabe von Kommentaren unterstützt und wo können sie relativ zur Folie platziert werden?**
+**Werden Kommentare unterstützt und wo können sie relativ zur Folie platziert werden?**
 
-Ja, Kommentare können in HTML5 hinzugefügt und (z. B. rechts von der Folie) über [layout settings](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setSlidesLayoutOptions) für Notizen und Kommentare positioniert werden.
+Ja, Kommentare können in HTML5 hinzugefügt und (zum Beispiel rechts von der Folie) über [Layout‑Einstellungen](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setSlidesLayoutOptions) für Notizen und Kommentare positioniert werden.
 
-**Kann ich Links, die JavaScript ausführen, aus Sicherheits‑ oder CSP‑Gründen überspringen?**
+**Kann ich Links, die JavaScript aufrufen, aus Sicherheits- oder CSP-Gründen überspringen?**
 
-Ja, es gibt eine [setting](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), die es ermöglicht, Hyperlinks mit JavaScript‑Aufrufen beim Speichern zu überspringen.
+Ja, es gibt eine [Einstellung](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), die es ermöglicht, Hyperlinks mit JavaScript‑Aufrufen beim Speichern zu überspringen. Dies hilft, strenge Sicherheitsrichtlinien einzuhalten.

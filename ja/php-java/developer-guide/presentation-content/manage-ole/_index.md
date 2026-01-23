@@ -1,26 +1,26 @@
 ---
-title: PHPでプレゼンテーションのOLEを管理する
-linktitle: OLEを管理
+title: PHP を使用したプレゼンテーションでの OLE 管理
+linktitle: OLE の管理
 type: docs
 weight: 40
 url: /ja/php-java/manage-ole/
 keywords:
-- OLEオブジェクト
-- オブジェクトリンクと埋め込み
-- OLEを追加
-- OLEを埋め込む
-- オブジェクトを追加
-- オブジェクトを埋め込む
-- ファイルを追加
-- ファイルを埋め込む
+- OLE オブジェクト
+- オブジェクト リンキング & 埋め込み
+- OLE の追加
+- OLE の埋め込み
+- オブジェクトの追加
+- オブジェクトの埋め込み
+- ファイルの追加
+- ファイルの埋め込み
 - リンクされたオブジェクト
 - リンクされたファイル
-- OLEを変更
-- OLEアイコン
-- OLEタイトル
-- OLE抽出
-- オブジェクトを抽出
-- ファイルを抽出
+- OLE の変更
+- OLE アイコン
+- OLE タイトル
+- OLE の抽出
+- オブジェクトの抽出
+- ファイルの抽出
 - PowerPoint
 - プレゼンテーション
 - PHP
@@ -30,29 +30,29 @@ description: "Aspose.Slides for PHP via Java を使用して、PowerPoint およ
 
 {{% alert color="primary" %}} 
 
-OLE (Object Linking & Embedding) は、1 つのアプリケーションで作成されたデータやオブジェクトを、リンクまたは埋め込みにより別のアプリケーションに配置できる Microsoft の技術です。 
+OLE（Object Linking & Embedding）は、Microsoft の技術で、あるアプリケーションで作成されたデータやオブジェクトをリンクまたは埋め込みにより別のアプリケーションに配置できるようにします。 
 
 {{% /alert %}} 
 
-MS Excel で作成したチャートを考えてみてください。そのチャートを PowerPoint のスライドに配置します。この Excel のチャートは OLE オブジェクトと見なされます。 
+たとえば、Microsoft Excel で作成したグラフを PowerPoint のスライドに配置したとします。この Excel のグラフは OLE オブジェクトとして扱われます。 
 
-- OLE オブジェクトはアイコンとして表示されることがあります。この場合、アイコンをダブルクリックすると、チャートは関連付けられたアプリケーション（Excel）で開かれるか、オブジェクトの開封または編集のためにアプリケーションを選択するよう求められます。 
-- OLE オブジェクトは実際の内容（たとえばチャートの内容）を表示することもあります。この場合、PowerPoint 内でチャートがアクティブになり、チャートインターフェイスが読み込まれ、PowerPoint 上でチャートのデータを編集できます。 
+- OLE オブジェクトはアイコンとして表示されることがあります。この場合、アイコンをダブルクリックすると、関連付けられたアプリケーション（Excel）でグラフが開くか、オブジェクトを開く／編集するアプリケーションの選択を求められます。 
+- OLE オブジェクトは実際のコンテンツ（たとえばグラフの内容）を表示することもあります。この場合、PowerPoint 上でグラフがアクティブになり、インターフェイスが読み込まれ、PowerPoint 内でグラフのデータを編集できます。 
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) を使用すると、スライドに OLE オブジェクトを OLE オブジェクトフレームとして挿入できます（[OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)）。 
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) を使用すると、スライドに OLE オブジェクトを OLE オブジェクト フレーム（[OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)）として挿入できます。 
 
-## **スライドに OLE オブジェクトフレームを追加**
+## **スライドに OLE オブジェクト フレームを追加する**
 
-Microsoft Excel で既にチャートを作成し、それを OLE オブジェクトフレームとしてスライドに埋め込みたいとします。その場合は以下の手順で Aspose.Slides for PHP via Java を使用できます。 
+既に Microsoft Excel で作成したチャートを Aspose.Slides for PHP via Java を使って OLE オブジェクト フレームとしてスライドに埋め込む手順は次のとおりです。 
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。 
-1. インデックスを使用してスライドの参照を取得します。 
-1. Excel ファイルをバイト配列として読み取ります。 
-1. バイト配列や OLE オブジェクトに関するその他の情報を含めて、スライドに [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) を追加します。 
-1. 変更されたプレゼンテーションを PPTX ファイルとして書き出します。 
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+1. インデックスを使用してスライドの参照を取得します。  
+1. Excel ファイルをバイト配列として読み取ります。  
+1. バイト配列と OLE オブジェクトに関するその他の情報を含む [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) をスライドに追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして書き出します。  
 
-以下の例では、Excel ファイルからチャートを取得し、Aspose.Slides for PHP via Java を使用して OLE オブジェクトフレームとしてスライドに追加しています。  
-**注**： [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) コンストラクタは第2引数に埋め込み可能なオブジェクトの拡張子を受け取ります。この拡張子により、PowerPoint はファイルタイプを正しく解釈し、この OLE オブジェクトを開く適切なアプリケーションを選択できます。  
+以下の例では、Excel ファイルからチャートを取得し、Aspose.Slides for PHP via Java を使用して OLE オブジェクト フレームとしてスライドに追加しています。  
+**Note** [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) コンストラクタは、埋め込み可能オブジェクトの拡張子を第 2 パラメータとして受け取ります。この拡張子により、PowerPoint がファイルタイプを正しく解釈し、適切なアプリケーションで OLE オブジェクトを開くことができます。  
 ```php
 $presentation = new Presentation();
 $slideSize = $presentation->getSlideSize()->getSize();
@@ -70,16 +70,16 @@ $presentation->dispose();
 ```
 
 
-### **リンクされた OLE オブジェクトフレームの追加**
+### **リンクされた OLE オブジェクト フレームを追加する**
 
-Aspose.Slides for PHP via Java を使用すると、データを埋め込む代わりにファイルへのリンクだけで [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) を追加できます。  
+Aspose.Slides for PHP via Java を使用すると、データを埋め込まずにファイルへのリンクだけで [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) を追加できます。  
 
-以下の PHP コードは、リンクされた Excel ファイルを使用してスライドに [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) を追加する方法を示しています：  
+以下の PHP コードは、リンクされた Excel ファイルを持つ [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) をスライドに追加する方法を示しています：  
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
 
-// Add an OLE object frame with a linked Excel file.
+// リンクされた Excel ファイルで OLE オブジェクト フレームを追加します。
 $slide->getShapes()->addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
@@ -87,16 +87,16 @@ $presentation->dispose();
 ```
 
 
-## **OLE オブジェクトフレームへのアクセス**
+## **OLE オブジェクト フレームにアクセスする**
 
-スライドに OLE オブジェクトがすでに埋め込まれている場合、以下の手順で簡単に検索またはアクセスできます。 
+スライドに既に埋め込まれている OLE オブジェクトがある場合、次の手順で簡単に見つけたりアクセスしたりできます。  
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成して、埋め込み OLE オブジェクトを含むプレゼンテーションをロードします。 
-2. インデックスを使用してスライドの参照を取得します。 
-3. [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) シェイプにアクセスします。例では、1 枚目のスライドに 1 つのシェイプしかない以前に作成した PPTX を使用しました。 
-4. OLE オブジェクトフレームにアクセスできたら、任意の操作を実行できます。 
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成して、埋め込まれた OLE オブジェクトを含むプレゼンテーションを読み込む。  
+2. インデックスを使用してスライドの参照を取得する。  
+3. [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) シェイプにアクセスする。例では、最初のスライドに 1 つだけシェイプがある PPTX を使用しています。  
+4. OLE オブジェクト フレームにアクセスしたら、任意の操作を行うことができます。  
 
-以下の例では、OLE オブジェクトフレーム（スライドに埋め込まれた Excel チャートオブジェクト）とそのファイルデータにアクセスしています。  
+以下の例では、OLE オブジェクト フレーム（スライドに埋め込まれた Excel のチャート オブジェクト）とそのファイルデータにアクセスしています。  
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -116,11 +116,11 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 ```
 
 
-### **リンクされた OLE オブジェクトフレームのプロパティへのアクセス**
+### **リンクされた OLE オブジェクト フレームのプロパティにアクセスする**
 
-Aspose.Slides では、リンクされた OLE オブジェクトフレームのプロパティにアクセスできます。  
+Aspose.Slides を使用すると、リンクされた OLE オブジェクト フレームのプロパティにアクセスできます。  
 
-以下の PHP コードは、OLE オブジェクトがリンクされているかを確認し、リンクされたファイルへのパスを取得する方法を示しています：  
+以下の PHP コードは、OLE オブジェクトがリンクされているかどうかを確認し、リンクされたファイルへのパスを取得する方法を示しています：  
 ```php
 $presentation = new Presentation("sample.ppt");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -134,8 +134,8 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
         // リンクされたファイルへのフルパスを出力します。
         echo "OLE object frame is linked to: " . $oleFrame->getLinkPathLong() . PHP_EOL;
 
-        // 存在する場合はリンクされたファイルの相対パスを出力します。
-        // 相対パスを含められるのは PPT プレゼンテーションだけです。
+        // 存在する場合、リンクされたファイルへの相対パスを出力します。
+        // 相対パスを含められるのは PPT プレゼンテーションのみです。
         $relativePath = java_values($oleFrame->getLinkPathRelative());
         if (!is_null($relativePath) && $relativePath !== "") {
             echo "OLE object frame relative path: " . $oleFrame->getLinkPathRelative() . PHP_EOL;
@@ -147,24 +147,26 @@ $presentation->dispose();
 ```
 
 
-## **OLE オブジェクト データの変更**
+## **OLE オブジェクト データを変更する**
 
 {{% alert color="primary" %}} 
 
-このセクションでは、以下のコード例で [Aspose.Cells for PHP via Java](/cells/php-java/) を使用しています。  
+このセクションでは、以下のコード例で [Aspose.Cells for PHP via Java](/cells/php-java/) を使用しています。 
 
-{{% /alert %}} 
+{{% /alert %}}  
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成して、埋め込み OLE オブジェクトを含むプレゼンテーションをロードします。 
-2. インデックスを使用してスライドの参照を取得します。 
-3. [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) シェイプにアクセスします。例では、1 枚目のスライドに 1 つのシェイプしかない以前に作成した PPTX を使用しました。 
-4. OLE オブジェクトフレームにアクセスできたら、任意の操作を実行できます。 
-5. `Workbook` オブジェクトを作成し、OLE データにアクセスします。 
-6. 目的の `Worksheet` にアクセスし、データを修正します。 
-7. 更新した `Workbook` をストリームに保存します。 
-8. ストリームから OLE オブジェクトのデータを変更します。 
+スライドに既に埋め込まれている OLE オブジェクトがある場合、次の手順でオブジェクトにアクセスし、データを変更できます。  
 
-以下の例では、OLE オブジェクトフレーム（スライドに埋め込まれた Excel チャートオブジェクト）にアクセスし、ファイルデータを変更してチャートデータを更新しています。  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成して、埋め込まれた OLE オブジェクトを含むプレゼンテーションを読み込む。  
+2. インデックスを使用してスライドの参照を取得する。  
+3. [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) シェイプにアクセスする。例では、最初のスライドに 1 つだけシェイプがある PPTX を使用しています。  
+4. OLE オブジェクト フレームにアクセスしたら、任意の操作を行うことができます。  
+5. `Workbook` オブジェクトを作成し、OLE データにアクセスする。  
+6. 目的の `Worksheet` にアクセスし、データを修正する。  
+7. 更新した `Workbook` をストリームに保存する。  
+8. ストリームから OLE オブジェクト データを変更する。  
+
+以下の例では、OLE オブジェクト フレーム（スライドに埋め込まれた Excel のチャート オブジェクト）にアクセスし、ファイルデータを変更してチャート データを更新しています。  
 ```php
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
@@ -175,7 +177,7 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
 
     $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
 
-    // OLE オブジェクトのデータを Workbook オブジェクトとして読み取ります。
+    // OLE オブジェクト データを Workbook オブジェクトとして読み取ります。
     $workbook = new Workbook($oleStream);
 
     $newOleStream = new Java("java.io.ByteArrayOutputStream");
@@ -189,7 +191,7 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
     $fileOptions = new OoxmlSaveOptions(SaveFormat::XLSX);
     $workbook->save($newOleStream, $fileOptions);
 
-    // OLE フレームオブジェクトのデータを変更します。
+    // OLE フレーム オブジェクトのデータを変更します。
     $newData = new OleEmbeddedDataInfo($newOleStream->toByteArray(), $oleFrame->getEmbeddedData()->getEmbeddedFileExtension());
     $oleFrame->setEmbeddedData($newData);
 
@@ -204,7 +206,7 @@ $presentation->dispose();
 
 ## **スライドに他のファイルタイプを埋め込む**
 
-Excel チャートに加えて、Aspose.Slides for PHP via Java では、スライドに他の種類のファイルを埋め込むことができます。たとえば、HTML、PDF、ZIP ファイルをオブジェクトとして挿入できます。ユーザーが挿入されたオブジェクトをダブルクリックすると、関連プログラムで自動的に開くか、開くプログラムの選択を求められます。  
+Excel のチャートに加えて、Aspose.Slides for PHP via Java を使用すると、HTML、PDF、ZIP などの他の種類のファイルをスライドにオブジェクトとして埋め込むことができます。ユーザーが埋め込まれたオブジェクトをダブルクリックすると、関連プログラムで自動的に開くか、開くプログラムの選択を求められます。  
 
 以下の PHP コードは、HTML と ZIP をスライドに埋め込む方法を示しています：  
 ```php
@@ -226,9 +228,9 @@ $presentation->dispose();
 ```
 
 
-## **埋め込みオブジェクトのファイルタイプの設定**
+## **埋め込みオブジェクトのファイルタイプを設定する**
 
-プレゼンテーション作業中に、古い OLE オブジェクトを新しいものに置き換えたり、サポートされていない OLE オブジェクトをサポートされているものに置き換えたりする必要がある場合があります。Aspose.Slides for PHP via Java を使用すると、埋め込みオブジェクトのファイルタイプを設定でき、OLE フレームのデータや拡張子を更新できます。  
+プレゼンテーションで作業していると、古い OLE オブジェクトを新しいものに置き換えたり、サポートされていない OLE オブジェクトをサポートされているものに置き換えたりする必要が生じることがあります。Aspose.Slides for PHP via Java を使用すると、埋め込みオブジェクトのファイルタイプを設定でき、OLE フレームのデータや拡張子を更新できます。  
 
 以下の PHP コードは、埋め込み OLE オブジェクトのファイルタイプを `zip` に設定する方法を示しています：  
 ```php
@@ -241,7 +243,7 @@ $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 
 echo "Current embedded file extension is: " . $fileExtension . PHP_EOL;
 
-// Change the file type to ZIP.
+// ファイルタイプを ZIP に変更します。
 $oleFrame->setEmbeddedData(new OleEmbeddedDataInfo($fileData, "zip"));
 
 $presentation->save("output.pptx", SaveFormat::Pptx);
@@ -249,9 +251,9 @@ $presentation->dispose();
 ```
 
 
-## **埋め込みオブジェクトのアイコン画像とタイトルの設定**
+## **埋め込みオブジェクトのアイコン画像とタイトルを設定する**
 
-OLE オブジェクトを埋め込むと、アイコン画像で構成されたプレビューが自動的に追加されます。このプレビューは、ユーザーが OLE オブジェクトにアクセスまたは開く前に表示されるものです。特定の画像やテキストをプレビューに使用したい場合、Aspose.Slides for PHP via Java を使用してアイコン画像とタイトルを設定できます。  
+OLE オブジェクトを埋め込むと、アイコン画像で構成されたプレビューが自動的に追加されます。このプレビューはユーザーが OLE オブジェクトにアクセスまたは開く前に表示されるものです。特定の画像とテキストをプレビューに使用したい場合は、Aspose.Slides for PHP via Java を使用してアイコン画像とタイトルを設定できます。  
 
 以下の PHP コードは、埋め込みオブジェクトのアイコン画像とタイトルを設定する方法を示しています：  
 ```php
@@ -259,11 +261,11 @@ $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item(0);
 $oleFrame = $slide->getShapes()->get_Item(0);
 
-// プレゼンテーションのリソースに画像を追加します。
+// プレゼンテーションリソースに画像を追加します。
 $imageData = file_get_contents("image.png");
 $oleImage = $presentation->getImages()->addImage($imageData);
 
-// OLE プレビューのタイトルと画像を設定します。
+// OLE プレビュー用にタイトルと画像を設定します。
 $oleFrame->setSubstitutePictureTitle("My title");
 $oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
 $oleFrame->setObjectIcon(true);
@@ -273,21 +275,21 @@ $presentation->dispose();
 ```
 
 
-## **OLE オブジェクトフレームがサイズ変更や位置変更されるのを防止**
+## **OLE オブジェクト フレームのサイズ変更と位置変更を防止する**
 
-リンクされた OLE オブジェクトをプレゼンテーションのスライドに追加した後、PowerPoint でプレゼンテーションを開くと、リンクの更新を求めるメッセージが表示されることがあります。「Update Links」ボタンをクリックすると、PowerPoint がリンクされた OLE オブジェクトのデータを更新しプレビューを再描画するため、OLE オブジェクトフレームのサイズや位置が変更されることがあります。PowerPoint がオブジェクトのデータ更新を促さないようにするには、[OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) クラスの `setUpdateAutomatic` メソッドを `false` に設定します：  
+リンクされた OLE オブジェクトをプレゼンテーションのスライドに追加した後、PowerPoint でプレゼンテーションを開くと、リンクの更新を求めるメッセージが表示されることがあります。「Update Links」ボタンをクリックすると、PowerPoint がリンクされた OLE オブジェクトからデータを更新し、プレビューを再描画するため、OLE オブジェクト フレームのサイズや位置が変更されることがあります。PowerPoint がオブジェクトのデータ更新を求めないようにするには、[OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) クラスの `setUpdateAutomatic` メソッドを `false` に設定します：  
 ```php
 $oleFrame->setUpdateAutomatic(false);
 ```
 
 
-## **埋め込まれたファイルの抽出**
+## **埋め込みファイルを抽出する**
 
-Aspose.Slides for PHP via Java を使用すると、スライドに埋め込まれたファイルを OLE オブジェクトとして以下の手順で抽出できます。  
+Aspose.Slides for PHP via Java を使用すると、スライドに OLE オブジェクトとして埋め込まれたファイルを次の手順で抽出できます。  
 
-1. 抽出したい OLE オブジェクトを含む [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。 
-2. プレゼンテーション内のすべてのシェイプをループし、[OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) シェイプにアクセスします。 
-3. OLE オブジェクトフレームから埋め込みファイルのデータにアクセスし、ディスクに書き出します。 
+1. 抽出対象の OLE オブジェクトを含む [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成する。  
+2. プレゼンテーション内のすべてのシェイプをループし、[OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) シェイプにアクセスする。  
+3. OLE オブジェクト フレームから埋め込みファイルのデータにアクセスし、ディスクに書き出す。  
 
 以下の PHP コードは、スライドに埋め込まれたファイルを OLE オブジェクトとして抽出する方法を示しています：  
 ```php
@@ -315,18 +317,14 @@ $presentation->dispose();
 
 ## **FAQ**
 
-**スライドを PDF/画像にエクスポートする際、OLE コンテンツはレンダリングされますか？**
+**OLE コンテンツはスライドを PDF／画像にエクスポートするときにレンダリングされますか？**  
 
-スライド上に表示されているもの、すなわちアイコン/代替画像（プレビュー）がレンダリングされます。実際の「ライブ」OLE コンテンツはレンダリング時に実行されません。必要に応じて、期待通りの外観になるように独自のプレビュー画像を設定してください。  
+スライド上に表示されるもの（アイコン／代替画像（プレビュー））がレンダリングされます。実際の「ライブ」OLE コンテンツはレンダリング時に実行されません。必要に応じて、エクスポートされた PDF で期待通りの外観になるようプレビュー画像を設定してください。  
 
-**PowerPoint でユーザーが OLE オブジェクトを移動/編集できないようにロックするにはどうすればよいですか？**
+**PowerPoint でユーザーが OLE オブジェクトを移動／編集できないようにロックするにはどうすればよいですか？**  
 
-シェイプをロックします。Aspose.Slides は [shape-level locks](/slides/ja/php-java/applying-protection-to-presentation/) を提供しています。これは暗号化ではありませんが、誤操作や移動を実質的に防止します。  
+シェイプをロックします。Aspose.Slides はシェイプレベルのロック機能を提供します。これは暗号化ではありませんが、誤操作や移動を実質的に防止します。  
 
-**リンクされた Excel オブジェクトがプレゼンテーションを開くと「ジャンプ」したりサイズが変わったりするのはなぜですか？**
+**リンクされた OLE オブジェクトの相対パスは PPTX 形式で保持されますか？**  
 
-PowerPoint はリンクされた OLE のプレビューを再描画することがあります。安定した外観を保つには、[Working Solution for Worksheet Resizing](/slides/ja/php-java/working-solution-for-worksheet-resizing/) の手順に従ってください。フレームを範囲に合わせるか、範囲を固定フレームにスケールし、適切な代替画像を設定します。  
-
-**リンクされた OLE オブジェクトの相対パスは PPTX 形式で保持されますか？**
-
-PPTX では「相対パス」情報は保持されず、フルパスのみが保存されます。相対パスは旧来の PPT 形式でのみ利用可能です。移植性を考える場合、信頼できる絶対パスやアクセス可能な URI、あるいは埋め込みを利用することを推奨します。
+PPTX では「相対パス」情報は利用できず、フルパスのみが保存されます。相対パスは旧式の PPT 形式で使用されます。可搬性を考える場合は、信頼できる絶対パス／アクセス可能な URI もしくは埋め込みを推奨します。

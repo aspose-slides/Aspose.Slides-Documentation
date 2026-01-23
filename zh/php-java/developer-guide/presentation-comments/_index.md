@@ -15,36 +15,36 @@ keywords:
 - 编辑评论
 - 回复评论
 - 删除评论
-- 移除评论
+- 删除评论
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoint 文件中添加、读取、编辑和删除演示文稿评论。"
+description: "使用 Aspose.Slides for PHP via Java 高效轻松地在 PowerPoint 文件中添加、读取、编辑和删除演示文稿评论。"
 ---
 
-在 PowerPoint 中，评论显示为幻灯片上的注释或标注。点击评论后，会显示其内容或信息。
+在 PowerPoint 中，评论显示为幻灯片上的注释或批注。单击评论后，会显示其内容或信息。
 
-## **为什么在演示文稿中添加评论？**
+## **为什么要向演示文稿添加评论？**
 
-在审阅演示文稿时，您可能希望使用评论来提供反馈或与同事沟通。
+在审阅演示文稿时，您可能需要使用评论来提供反馈或与同事交流。
 
-为了让您在 PowerPoint 演示文稿中使用评论，Aspose.Slides for PHP via Java 提供了
+为了让您在 PowerPoint 演示文稿中使用评论，Aspose.Slides for PHP via Java 提供
 
-* 包含作者集合的 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类（来自 [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/) 类）。作者向幻灯片添加评论。
-* 包含各个作者评论集合的 [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) 类。
-* 包含作者及其评论信息的 [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) 类：谁添加了评论、添加评论的时间、评论的位置等。
-* 包含单个作者信息的 [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) 类：作者姓名、缩写、与该作者姓名关联的评论等。
+* The [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class, which contains the collections of authors (from the [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/) class). The authors add comments to slides.
+* The [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) class, which contains the collection of comments for individual authors.
+* The [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc.
+* The [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc.
 
 ## **添加幻灯片评论**
-以下 PHP 代码演示如何在 PowerPoint 演示文稿的幻灯片中添加评论：
+下面的 PHP 代码演示如何向 PowerPoint 演示文稿的幻灯片添加评论：
 ```php
   # 实例化 Presentation 类
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
   try {
-    # 添加一个空幻灯片
+    # 添加空幻灯片
     $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
     # 添加作者
     $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
@@ -56,13 +56,13 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
     $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
     # 访问 ISlide 1
     $slide = $pres->getSlides()->get_Item(0);
-    # 当参数为 null 时，将所有作者的评论带到选定的幻灯片
+    # 当参数为 null 时，将把所有作者的评论带到选定的幻灯片
     $Comments = $slide->getSlideComments($author);
-    # 访问幻灯片 1 上索引为 0 的评论
+    # 访问幻灯片 1 上索引 0 的评论
     $str = $Comments[0]->getText();
     $pres->save("Comments_out.pptx", SaveFormat::Pptx);
     if (java_values($Array->getLength($Comments)) > 0) {
-      # 在索引 0 处选择作者的评论集合
+      # 选择作者在索引 0 的评论集合
       $commentCollection = $Comments[0]->getAuthor()->getComments();
       $Comment = $commentCollection->get_Item(0)->getText();
     }
@@ -75,7 +75,7 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
 
 
 ## **访问幻灯片评论**
-以下 PHP 代码演示如何访问 PowerPoint 演示文稿中幻灯片的现有评论：
+下面的 PHP 代码演示如何访问 PowerPoint 演示文稿中幻灯片的现有评论：
 ```php
   # 实例化 Presentation 类
   $pres = new Presentation("Comments1.pptx");
@@ -96,9 +96,9 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
 
 
 ## **回复评论**
-父评论是评论或回复层级中的顶部或原始评论。使用来自 [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) 类的 [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) 或 [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 方法，您可以设置或获取父评论。
+父评论是评论层级或回复链中的顶层（原始）评论。使用 [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) 或 [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 方法（来自 [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) 类），您可以设置或获取父评论。
 
-以下 PHP 代码演示如何添加评论并获取对其的回复：
+下面的 PHP 代码演示如何添加评论并获取其回复：
 ```php
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
@@ -110,7 +110,7 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
     $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
     $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply1->setParentComment($comment1);
-    # 为 comment1 添加另一条回复
+    # 为 comment1 添加另一个回复
     $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply2->setParentComment($comment1);
     # 为已有回复添加回复
@@ -120,7 +120,7 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
     $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3->setParentComment($comment3);
-    # 在控制台显示评论层级结构
+    # 在控制台显示评论层次结构
     $slide = $pres->getSlides()->get_Item(0);
     $comments = $slide->getSlideComments(null);
     for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
@@ -145,17 +145,19 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
 
 
 {{% alert color="warning" title="Attention" %}} 
-* 当使用来自 [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) 类的 [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) 方法删除评论时，评论的回复也会被删除。
+
+* 当使用 [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) 方法（来自 [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) 类）删除评论时，评论的回复也会被删除。
 * 如果 [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 设置导致循环引用，将抛出 [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/)。
+
 {{% /alert %}}
 
 ## **添加现代评论**
 
-2021 年，Microsoft 在 PowerPoint 中引入了*现代评论*。现代评论功能显著提升了 PowerPoint 的协作能力。通过现代评论，PowerPoint 用户可以解决评论、将评论锚定到对象和文本，并且能够更轻松地进行交互。
+2021 年，Microsoft 在 PowerPoint 中引入了*现代评论*。现代评论功能显著提升了 PowerPoint 的协作能力。通过现代评论，PowerPoint 用户可以更轻松地解决评论、将评论锚定到对象和文本，以及进行交互。
 
-在 [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/) 中，我们通过添加 [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) 类实现了对现代评论的支持。向 [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) 类中添加了 [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) 和 [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) 方法。
+Aspose Slides 通过 [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) 类支持现代评论。已在 [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) 类中添加了 [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) 和 [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) 方法。
 
-以下 PHP 代码演示如何在 PowerPoint 演示文稿的幻灯片中添加现代评论：
+下面的 PHP 代码演示如何向 PowerPoint 演示文稿的幻灯片添加现代评论：
 ```php
   $pres = new Presentation();
   try {
@@ -173,7 +175,8 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
 ## **删除评论**
 
 ### **删除所有评论和作者**
-以下 PHP 代码演示如何在演示文稿中删除所有评论和作者：
+
+下面的 PHP 代码演示如何删除演示文稿中的所有评论和作者：
 ```php
   $presentation = new Presentation("example.pptx");
   try {
@@ -193,7 +196,8 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
 
 
 ### **删除特定评论**
-以下 PHP 代码演示如何删除幻灯片上的特定评论：
+
+下面的 PHP 代码演示如何删除幻灯片上的特定评论：
 ```php
   $presentation = new Presentation();
   try {
@@ -225,11 +229,14 @@ description: "使用 Aspose.Slides for PHP via Java 轻松快速地在 PowerPoin
 
 ## **常见问题**
 
-**Aspose.Slides 是否支持现代评论的‘已解决’状态？**  
-是的。[Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) 提供了 [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) 方法；您可以写入 [comment’s state](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/)（例如，将其标记为已解决），该状态会保存在文件中并被 PowerPoint 识别。
+**Aspose.Slides 是否支持现代评论的“已解决”状态？**
 
-**是否支持线程式讨论（回复链），以及是否有限制嵌套深度？**  
-是的。每条评论都可以引用其 [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/)，从而实现任意的回复链。API 并未声明具体的嵌套深度限制。
+是的。[Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) 提供了 [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) 方法；您可以设置 [comment’s state](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/)（例如标记为已解决），此状态会保存在文件中并被 PowerPoint 识别。
 
-**评论标记在幻灯片上的位置是基于哪种坐标系定义的？**  
-位置以浮点坐标存储在幻灯片的坐标系中。这使您可以精确地将评论标记放置在所需位置。
+**是否支持线程式讨论（回复链），以及是否有限制嵌套层级？**
+
+是的。每条评论都可以引用其 [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/)，实现任意深度的回复链。API 未声明具体的嵌套深度限制。
+
+**评论标记在幻灯片上的位置使用哪种坐标系定义？**
+
+该位置以浮点坐标点存储在幻灯片的坐标系中。这使您能够将评论标记精确放置在所需位置。

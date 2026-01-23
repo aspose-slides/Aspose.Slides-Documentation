@@ -1,52 +1,52 @@
 ---
-title: PHP で PowerPoint プレゼンテーションをビデオに変換する
-linktitle: PowerPoint からビデオへ
+title: PHPでPowerPointプレゼンテーションを動画に変換する
+linktitle: PowerPointから動画へ
 type: docs
 weight: 130
 url: /ja/php-java/convert-powerpoint-to-video/
 keywords:
-- PowerPoint を変換
+- PowerPointを変換
 - プレゼンテーションを変換
-- PPT を変換
-- PPTX を変換
-- PowerPoint からビデオへ
-- プレゼンテーションをビデオに変換
-- PPT からビデオへ
-- PPTX をビデオに変換
-- PowerPoint を MP4 に変換
-- プレゼンテーションを MP4 に変換
-- PPT を MP4 に変換
-- PPTX を MP4 に変換
-- PPT を MP4 として保存
-- PPTX を MP4 として保存
-- PPT を MP4 にエクスポート
-- PPTX を MP4 にエクスポート
-- ビデオ変換
+- PPTを変換
+- PPTXを変換
+- PowerPointから動画へ
+- プレゼンテーションから動画へ
+- PPTを動画へ
+- PPTXを動画へ
+- PowerPointからMP4へ
+- プレゼンテーションからMP4へ
+- PPTをMP4へ
+- PPTXをMP4へ
+- PPTをMP4として保存
+- PPTXをMP4として保存
+- PPTをMP4にエクスポート
+- PPTXをMP4にエクスポート
+- 動画変換
 - PowerPoint
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP を使用して PowerPoint プレゼンテーションをビデオに変換する方法を学びます。サンプルコードと自動化テクニックを紹介し、ワークフローを効率化します。"
+description: "Aspose.Slides for PHP を使用して PowerPoint プレゼンテーションを動画に変換する方法を学びます。サンプルコードと自動化技術を活用してワークフローを効率化しましょう。"
 ---
 
-PowerPoint プレゼンテーションをビデオに変換することで、次のメリットが得られます
+PowerPoint プレゼンテーションを動画に変換することで、次のメリットが得られます
 
-* **アクセシビリティの向上:** すべてのデバイス（プラットフォームに関係なく）は、プレゼンテーションを開くアプリケーションに比べてデフォルトでビデオプレーヤーが装備されているため、ユーザーはビデオの開封や再生が容易になります。
-* **リーチの拡大:** ビデオを通じて、多くの視聴者にリーチし、プレゼンテーションでは退屈に感じられる情報を提供できます。ほとんどの調査や統計では、人々は他のコンテンツ形態よりもビデオを見る・消費する傾向があり、一般的にビデオコンテンツを好むことが示されています。
+* **アクセシビリティの向上:** プレゼンテーション閲覧アプリに比べ、すべてのデバイス（プラットフォームに関係なく）はデフォルトで動画プレーヤーが搭載されているため、ユーザーは動画の開封や再生が容易です。
+* **リーチの拡大:** 動画を通じて多くの視聴者に情報を届けることができ、プレゼンテーションでは退屈に感じられる情報でも効果的に伝えられます。調査や統計では、動画が他のコンテンツ形態よりも視聴・消費されやすく、一般的に好まれることが示されています。
 
 {{% alert color="primary" %}} 
-このプロセスの実装例として、ライブで効果的な[**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word)をご確認いただくことをおすすめします。
+こちらのプロセスの実装例として、ライブかつ効果的な [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) をご確認いただくことをおすすめします。
 {{% /alert %}} 
 
-## **Aspose.Slides の PowerPoint からビデオへの変換**
+## **Aspose.Slides における PowerPoint から Video への変換**
 
-[Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-22-11-release-notes/)で、プレゼンテーションからビデオへの変換サポートを実装しました。
+Aspose.Slides はプレゼンテーションから動画への変換をサポートしています。
 
-* **Aspose.Slides** を使用して、特定の FPS（フレーム/秒）に対応するフレームセット（プレゼンテーションのスライドから）を生成します
-* **ffmpeg** のようなサードパーティユーティリティ（[for java](https://github.com/bramp/ffmpeg-cli-wrapper)）を使用して、フレームからビデオを作成します
+* **Aspose.Slides** を使用して、特定の FPS（フレーム/秒）に対応するフレームセット（プレゼンテーションスライドから）を生成します
+* **ffmpeg** のようなサードパーティユーティリティ（[for java](https://github.com/bramp/ffmpeg-cli-wrapper)）を使用して、フレームを元に動画を作成します。
 
-### **PowerPoint をビデオに変換**
+### **PowerPoint を Video に変換**
 
-1. POM ファイルに以下を追加します:
+1. Add this to your POM file:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -58,15 +58,15 @@ PowerPoint プレゼンテーションをビデオに変換することで、次
 ```
 
 
-2. ffmpeg を[here](https://ffmpeg.org/download.html)からダウンロードします。
+2. Download ffmpeg [here](https://ffmpeg.org/download.html).
 
-4. PowerPoint からビデオへの PHP コードを実行します。
+4. PowerPoint から video への PHP コードを実行します。
 
-この PHP コードは、図と 2 つのアニメーション効果を含むプレゼンテーションをビデオに変換する方法を示しています。
+この PHP コードは、図と 2 つのアニメーション効果を含むプレゼンテーションを動画に変換する方法を示しています:
 ```php
   $presentation = new Presentation();
   try {
-    # 笑顔のシェイプを追加し、アニメーションを付けます
+    # 笑顔シェイプを追加し、アニメーションさせます
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::TopLeft, EffectTriggerType::AfterPrevious);
@@ -104,7 +104,7 @@ PowerPoint プレゼンテーションをビデオに変換することで、次
         $animationsGenerator->dispose();
       }
     }
-    # ffmpeg バイナリフォルダを設定します。このページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    # ffmpeg バイナリーフォルダーを設定します。このページを参照してください: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -116,17 +116,17 @@ PowerPoint プレゼンテーションをビデオに変換することで、次
 ```
 
 
-## **ビデオ エフェクト**
+## **動画エフェクト**
 
-スライド上のオブジェクトにアニメーションを適用したり、スライド間の遷移を使用したりできます。
+スライド上のオブジェクトにアニメーションを適用し、スライド間でトランジションを使用できます。
 
 {{% alert color="primary" %}} 
-これらの記事をご覧いただくことをおすすめします: [PowerPoint Animation](https://docs.aspose.com/slides/php-java/powerpoint-animation/)、[Shape Animation](https://docs.aspose.com/slides/php-java/shape-animation/)、および[Shape Effect](https://docs.aspose.com/slides/php-java/shape-effect/)。
+以下の記事もご参照ください: [PowerPoint Animation](https://docs.aspose.com/slides/php-java/powerpoint-animation/)、[Shape Animation](https://docs.aspose.com/slides/php-java/shape-animation/)、および [Shape Effect](https://docs.aspose.com/slides/php-java/shape-effect/)。
 {{% /alert %}} 
 
-アニメーションと遷移は、スライドショーをより魅力的で面白くし、ビデオでも同様の効果があります。前回のプレゼンテーションのコードにもう一枚のスライドと遷移を追加してみましょう:
+アニメーションとトランジションはスライドショーをより魅力的で面白くし、動画でも同様の効果があります。前回のプレゼンテーションのコードに別のスライドとトランジションを追加してみましょう:
 ```php
-  # 笑顔のシェイプを追加してアニメーションします
+  # 笑顔のシェイプを追加し、アニメーションさせます
   # ...
   # 新しいスライドを追加し、アニメーション遷移を設定します
   $newSlide = $presentation->getSlides()->addEmptySlide($presentation->getSlides()->get_Item(0)->getLayoutSlide());
@@ -137,7 +137,7 @@ PowerPoint プレゼンテーションをビデオに変換することで、次
 ```
 
 
-Aspose.Slides はテキストのアニメーションもサポートしています。オブジェクト上の段落をアニメーションさせ、1 秒の遅延で順次表示されるようにします:
+Aspose.Slides はテキストのアニメーションもサポートしています。オブジェクト上の段落をアニメーションさせ、1 秒の遅延で順に表示させます:
 ```php
   $presentation = new Presentation();
   try {
@@ -194,7 +194,7 @@ Aspose.Slides はテキストのアニメーションもサポートしていま
         $animationsGenerator->dispose();
       }
     }
-    # ffmpeg バイナリフォルダを設定します。このページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    # ffmpeg バイナリーフォルダーを設定します。このページを参照してください: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -206,15 +206,15 @@ Aspose.Slides はテキストのアニメーションもサポートしていま
 ```
 
 
-## **ビデオ変換クラス**
+## **動画変換クラス**
 
-PowerPoint からビデオへの変換タスクを実行できるように、Aspose.Slides は[PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/)と[PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/)クラスを提供します。
+PowerPoint から video への変換タスクを実行できるよう、Aspose.Slides は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) と [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) クラスを提供します。
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) は、コンストラクタでビデオのフレームサイズ（後で作成される）を設定できるようにします。プレゼンテーションのインスタンスを渡すと、`Presentation.SlideSize` が使用され、[PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) が使用するアニメーションが生成されます。
+[PresentationAnimationsGenerator] はコンストラクタで動画のフレームサイズ（後で作成される）を設定できます。プレゼンテーションのインスタンスを渡すと、`Presentation::getSlideSize` が使用され、[PresentationPlayer] が使用するアニメーションが生成されます。
 
-アニメーションが生成されると、各アニメーションごとに `NewAnimation` イベントが生成され、[IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/) パラメータが渡されます。後者は、個別のアニメーションのプレーヤーを表すクラスです。
+アニメーションが生成されると、各次のアニメーションごとに `NewAnimation` イベントが発生し、プレゼンテーション アニメーション プレーヤー パラメータが付与されます。後者は個別アニメーション用のプレーヤーを表すクラスです。
 
-[IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/) を使用するには、アニメーションの全長を示す[Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#getDuration--)プロパティと[SetTimePosition](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#setTimePosition-double-)メソッドを使用します。各アニメーション位置は*0 から duration*の範囲で設定され、`GetFrame` メソッドはその時点のアニメーション状態に対応する BufferedImage を返します:
+プレゼンテーション アニメーション プレーヤーを操作するには、`getDuration`（アニメーションの全期間）と `setTimePosition` メソッドを使用します。各アニメーション位置は *0 から duration* の範囲で設定され、`getFrame` メソッドはその時点のアニメーション状態に対応する BufferedImage を返します：
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\PresentationPlayer;
@@ -231,7 +231,7 @@ class PresentationAnimationPlayer {
         echo(sprintf("Animation total duration: %f", $animationPlayer->getDuration()));
         $animationPlayer->setTimePosition(0);// 初期アニメーション状態
         try {
-            # 初期アニメーション状態ビットマップ
+            # 初期アニメーション状態のビットマップ
             $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
         }
@@ -245,7 +245,7 @@ class PresentationAnimationPlayer {
 }
 $presentation = new Presentation();
 try {
-    # 笑顔のシェイプを追加し、アニメーションを付けます
+    # 笑顔シェイプを追加し、アニメーションさせます
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -269,7 +269,7 @@ try {
 ```
 
 
-プレゼンテーション内のすべてのアニメーションを同時に再生するには、[PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) クラスを使用します。このクラスは、[PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) のインスタンスとエフェクト用の FPS をコンストラクタに渡し、すべてのアニメーションに対して `FrameTick` イベントを呼び出して再生させます:
+プレゼンテーション内のすべてのアニメーションを同時に再生するには、[PresentationPlayer] クラスを使用します。このクラスはコンストラクタで [PresentationAnimationsGenerator] インスタンスとエフェクトの FPS を受け取り、すべてのアニメーションに対して `FrameTick` イベントを呼び出して再生させます：
 ```php
 
 class FrameTick {
@@ -308,13 +308,13 @@ class FrameTick {
 ```
 
 
-生成されたフレームは、ビデオを作成するためにコンパイルできます。詳細は[Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video)セクションをご参照ください。
+生成されたフレームは動画にコンパイルでき、詳しくは [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video) セクションをご覧ください。
 
 ## **サポートされているアニメーションとエフェクト**
 
-**Entrance**:
+**開始**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -330,9 +330,9 @@ class FrameTick {
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Emphasis**:
+**強調**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -348,9 +348,9 @@ class FrameTick {
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Exit**:
+**終了**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -365,9 +365,9 @@ class FrameTick {
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Motion Paths**:
+**モーション パス**:
 
-| アニメーションタイプ | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -380,12 +380,12 @@ class FrameTick {
 
 **パスワードで保護されたプレゼンテーションを変換できますか？**
 
-はい、Aspose.Slides では[password-protected presentations](/slides/ja/php-java/password-protected-presentation/)を扱うことができます。このようなファイルを処理する際は、正しいパスワードを提供してライブラリがプレゼンテーションの内容にアクセスできるようにする必要があります。
+はい、Aspose.Slides は [password-protected presentations](/slides/ja/php-java/password-protected-presentation/) の操作をサポートしています。そのようなファイルを処理する際は、正しいパスワードを提供してライブラリがプレゼンテーションの内容にアクセスできるようにする必要があります。
 
-**Aspose.Slides はクラウドソリューションでの使用をサポートしていますか？**
+**Aspose.Slides はクラウド ソリューションでの使用をサポートしていますか？**
 
-はい、Aspose.Slides はクラウドアプリケーションやサービスに統合できます。このライブラリはサーバー環境で動作するよう設計されており、ファイルのバッチ処理において高いパフォーマンスとスケーラビリティを保証します。
+はい、Aspose.Slides はクラウド アプリケーションやサービスに統合可能です。このライブラリはサーバー環境で動作するよう設計されており、ファイルのバッチ処理において高性能とスケーラビリティを提供します。
 
 **変換時にプレゼンテーションのサイズ制限はありますか？**
 
-Aspose.Slides は事実上あらゆるサイズのプレゼンテーションを扱うことができます。ただし、非常に大きなファイルを処理する場合は追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨される場合があります。
+Aspose.Slides は実質的に任意のサイズのプレゼンテーションを扱うことができます。ただし、非常に大きなファイルを扱う場合は追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨される場合があります。

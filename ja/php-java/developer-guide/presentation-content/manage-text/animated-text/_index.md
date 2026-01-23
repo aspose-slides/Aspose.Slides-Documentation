@@ -1,5 +1,5 @@
 ---
-title: PHPでPowerPointテキストにアニメーションを付ける
+title: PHPでPowerPointテキストをアニメーション化
 linktitle: アニメーションテキスト
 type: docs
 weight: 60
@@ -15,19 +15,19 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument プレゼンテーションに動的なアニメーションテキストを作成し、わかりやすく最適化されたコード例を提供します。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument プレゼンテーションで動的なアニメーションテキストを作成し、分かりやすく最適化されたコード例を提供します。"
 ---
 
 ## **段落にアニメーション効果を追加する**
 
-私たちは [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) メソッドを [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) と [**ISequence**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence) クラスに追加しました。このメソッドを使用すると、単一の段落にアニメーション効果を追加できます。このサンプルコードは、単一の段落にアニメーション効果を追加する方法を示しています:
+We added the [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) class. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 ```php
   $presentation = new Presentation("Presentation.pptx");
   try {
     # エフェクトを追加する段落を選択
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    # 選択した段落に Fly アニメーション効果を追加
+    # 選択した段落にFlyアニメーション効果を追加
     $effect = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($paragraph, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
     $presentation->save("AnimationEffectinParagraph.pptx", SaveFormat::Pptx);
   } finally {
@@ -40,9 +40,9 @@ description: "Aspose.Slides for PHP via Java を使用して、PowerPoint およ
 
 ## **段落のアニメーション効果を取得する**
 
-段落に追加されたアニメーション効果を取得したい場合があります。たとえば、あるシナリオでは、別の段落やシェイプにその効果を適用するために、段落内のアニメーション効果を取得したいと考えることがあります。
+You may decide to find out the animation effects added to a paragraph—for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
 
-Aspose.Slides for PHP via Java を使用すると、テキストフレーム（シェイプ）内に含まれる段落に適用されたすべてのアニメーション効果を取得できます。このサンプルコードは、段落のアニメーション効果を取得する方法を示しています:
+Aspose.Slides for PHP via Java allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 ```php
   $pres = new Presentation("Presentation.pptx");
   $Array = new java_class("java.lang.reflect.Array");
@@ -63,14 +63,14 @@ Aspose.Slides for PHP via Java を使用すると、テキストフレーム（�
 
 ## **FAQ**
 
-**テキストアニメーションはスライドの切り替えとどのように異なり、組み合わせることはできますか？**
+**How do text animations differ from slide transitions, and can they be combined?**
 
-テキストアニメーションはスライド上でオブジェクトの動作を時間軸で制御し、[transitions](/slides/ja/php-java/slide-transition/) はスライドの切り替え方法を制御します。これらは独立しており、同時に使用できます。再生順序はアニメーションのタイムラインとトランジション設定によって決まります。
+Text animations control object behavior over time on a slide, while [transitions](/slides/ja/php-java/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
 
-**PDFや画像にエクスポートするときにテキストアニメーションは保持されますか？**
+**Are text animations preserved when exporting to PDF or images?**
 
-いいえ。PDFやラスタ画像は静的であるため、スライドの単一の状態しか表示されず、動きはありません。動きを保持したい場合は、[video](/slides/ja/php-java/convert-powerpoint-to-video/) または [HTML](/slides/ja/php-java/export-to-html5/) エクスポートを使用してください。
+No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/ja/php-java/convert-powerpoint-to-video/) or [HTML](/slides/ja/php-java/export-to-html5/) export.
 
-**テキストアニメーションはレイアウトやスライドマスターでも機能しますか？**
+**Do text animations work in layouts and the slide master?**
 
-レイアウトやマスターオブジェクトに適用された効果はスライドに継承されますが、そのタイミングやスライドレベルのアニメーションとの相互作用は、スライド上の最終的なシーケンスに依存します。
+Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

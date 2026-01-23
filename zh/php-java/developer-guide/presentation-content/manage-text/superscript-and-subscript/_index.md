@@ -14,30 +14,30 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "通过 Java 在 Aspose.Slides for PHP 中精通上标和下标，并通过专业的文本格式提升您的演示文稿，实现最大影响。"
+description: "通过 Java 在 Aspose.Slides for PHP 中精通上标和下标，并使用专业的文本格式提升演示文稿的最大影响力。"
 ---
 
-## **管理上标和下标文本**
-您可以在任何段落部分中添加上标和下标文本。要在 Aspose.Slides 文本框中添加上标或下标文本，必须使用 [**setEscapement**](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setEscapement-float-) 方法的 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/PortionFormat) 类。
+## **管理 上标和下标文本**
+您可以在任意段落的文本块中添加上标和下标。要在 Aspose.Slides 文本框中添加上标或下标，必须使用 [**setEscapement**](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) 方法，该方法属于 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/PortionFormat) 类。
 
-此属性返回或设置上标或下标文本（取值范围为 -100%（下标）到 100%（上标））。例如：
+此属性返回或设置上标或下标文本（取值范围为 -100%（下标）至 100%（上标））。例如：
 
-- 创建 Presentation 类的实例。
-- 通过使用索引获取幻灯片的引用。
-- 向幻灯片添加 Rectangle 类型的 IAutoShape。
-- 访问与 IAutoShape 关联的 ITextFrame。
+- 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+- 通过索引获取幻灯片的引用。
+- 向幻灯片添加一个类型为 [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) 的 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
+- 访问与 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 关联的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)。
 - 清除现有段落
-- 创建一个用于保存上标文本的新段落对象，并将其添加到 ITextFrame 的 IParagraphs 集合中。
+- 创建一个用于保存上标文本的新段落对象，并将其添加到 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) 的 [IParagraphs collection](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs)。
 - 创建一个新的 Portion 对象
-- 将该 Portion 的 Escapement 属性设置为 0 到 100 之间的值以添加上标。（0 表示无上标）
-- 为 Portion 设置一些文本，然后将其添加到段落的 Portion 集合中。
+- 将该 Portion 的 Escapement 属性设置为 0 到 100 之间，以添加上标。（0 表示无上标）
+- 为 [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) 设置一些文本，然后将其添加到段落的 Portion 集合中。
 - 创建一个用于保存下标文本的新段落对象，并将其添加到 ITextFrame 的 IParagraphs 集合中。
 - 创建一个新的 Portion 对象
-- 将该 Portion 的 Escapement 属性设置为 0 到 -100 之间的值以添加下标。（0 表示无下标）
-- 为 Portion 设置一些文本，然后将其添加到段落的 Portion 集合中。
+- 将该 Portion 的 Escapement 属性设置为 0 到 -100 之间，以添加下标。（0 表示无下标）
+- 为 [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) 设置一些文本，然后将其添加到段落的 Portion 集合中。
 - 将演示文稿保存为 PPTX 文件。
 
-下面给出了上述步骤的实现。
+下面给出上述步骤的实现。
 ```php
   # 实例化一个表示 PPTX 的 Presentation 类
   $pres = new Presentation();
@@ -48,7 +48,7 @@ description: "通过 Java 在 Aspose.Slides for PHP 中精通上标和下标，�
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
-    # 创建用于上标文本的段落
+    # 为上标文本创建段落
     $superPar = new Paragraph();
     # 创建普通文本的 Portion
     $portion1 = new Portion();
@@ -59,7 +59,7 @@ description: "通过 Java 在 Aspose.Slides for PHP 中精通上标和下标，�
     $superPortion->getPortionFormat()->setEscapement(30);
     $superPortion->setText("TM");
     $superPar->getPortions()->add($superPortion);
-    # 创建用于下标文本的段落
+    # 为下标文本创建段落
     $paragraph2 = new Paragraph();
     # 创建普通文本的 Portion
     $portion2 = new Portion();
@@ -86,12 +86,12 @@ description: "通过 Java 在 Aspose.Slides for PHP 中精通上标和下标，�
 
 **导出为 PDF 或其他格式时，上标和下标会被保留吗？**
 
-是的，Aspose.Slides 在将演示文稿导出为 PDF、PPT/PPTX、图像以及其他受支持的格式时，会正确保留上标和下标的格式。所有输出文件中的专门格式均保持完整。
+是的，Aspose.Slides 在将演示文稿导出为 PDF、PPT/PPTX、图像以及其他受支持的格式时，会正确保留上标和下标的格式。专用的格式在所有输出文件中都保持完整。
 
-**上标和下标可以与其他格式样式（如粗体或斜体）组合使用吗？**
+**上标和下标可以与其他格式样式（如粗体或斜体）结合使用吗？**
 
-是的，Aspose.Slides 允许在同一 Portion 文本中混合多种文本样式。您可以启用粗体、斜体、下划线，并通过设置 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) 中的相应属性同时应用上标或下标。
+是的，Aspose.Slides 允许在同一个文本块中混合使用多种文本样式。您可以启用粗体、斜体、下划线，并通过在 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) 中配置相应属性，同时应用上标或下标。
 
 **上标和下标格式适用于表格、图表或 SmartArt 中的文本吗？**
 
-是的，Aspose.Slides 支持在大多数对象（包括表格和图表元素）内进行格式设置。使用 SmartArt 时，需要访问相应的元素（例如 [SmartArtNode](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/)）及其文本容器，然后以类似方式配置 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) 属性。
+是的，Aspose.Slides 支持在大多数对象中进行格式设置，包括表格和图表元素。使用 SmartArt 时，需要访问相应的元素（例如 [SmartArtNode](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/)）及其文本容器，然后以类似方式配置 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) 的属性。

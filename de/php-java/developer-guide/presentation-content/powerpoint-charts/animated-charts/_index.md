@@ -7,42 +7,44 @@ url: /de/php-java/animated-charts/
 keywords:
 - Diagramm
 - animiertes Diagramm
-- Diagramm-Animation
-- Diagrammreihe
+- Diagrammanimation
+- Diagrammserie
 - Diagrammkategorie
-- Reihen-Element
-- Kategorie-Element
+- Serienelement
+- Kategorienelement
 - Effekt hinzufügen
-- Effekttyp
+- Effektart
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erstellen Sie beeindruckende animierte Diagramme mit Aspose.Slides für PHP über Java. Verbessern Sie Präsentationen mit dynamischen Visualisierungen in PPT- und PPTX-Dateien - starten Sie jetzt."
+description: "Erstellen Sie beeindruckende animierte Diagramme mit Aspose.Slides für PHP via Java. Steigern Sie Präsentationen mit dynamischen Visuals in PPT- und PPTX-Dateien - starten Sie jetzt."
 ---
 
 {{% alert color="primary" %}} 
-Aspose.Slides für PHP über Java unterstützt die Animation von Diagrammelementen. **Series**, **Categories**, **Series Elements**, **Categories Elements** können mit der Methode [**ISequence**.**addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) und den beiden Enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) sowie [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType) animiert werden.
+
+Aspose.Slides for PHP via Java unterstützt die Animation von Diagrammelementen. **Series**, **Categories**, **Series Elements**, **Categories Elements** können mit der Methode [**Sequence::addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/#addEffect) und den beiden Aufzählungen [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) sowie [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType) animiert werden.
+
 {{% /alert %}} 
 
-## **Diagrammreihen-Animation**
-Wenn Sie eine Diagrammreihe animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+## **Diagrammserienanimation**
+Wenn Sie eine Diagrammserie animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie die Referenz des Diagramm‑Objekts.
-1. Animieren Sie die Reihe.
+1. Holen Sie die Referenz des Diagrammobjekts.
+1. Animieren Sie die Serie.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
-Im nachstehenden Beispiel haben wir Diagrammreihen animiert.
+Im nachstehenden Beispiel haben wir Diagrammserien animiert.
 ```php
-  # Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+  # Instanziieren der Presentation-Klasse, die eine Präsentationsdatei repräsentiert
   $pres = new Presentation("ExistingChart.pptx");
   try {
     # Referenz des Diagrammobjekts erhalten
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # Die Reihe animieren
+    # Die Serie animieren
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
@@ -58,17 +60,17 @@ Im nachstehenden Beispiel haben wir Diagrammreihen animiert.
 ```
 
 
-## **Diagramm‑Kategorien‑Animation**
-Wenn Sie Diagrammkategorien animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+## **Diagrammkategorieanimation**
+Wenn Sie eine Diagrammkategorie animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie die Referenz des Diagramm‑Objekts.
+1. Holen Sie die Referenz des Diagrammobjekts.
 1. Animieren Sie die Kategorie.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
 Im nachstehenden Beispiel haben wir Diagrammkategorien animiert.
 ```php
-  # Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+  # Instanziieren der Presentation-Klasse, die eine Präsentationsdatei repräsentiert
   $pres = new Presentation("ExistingChart.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -88,24 +90,24 @@ Im nachstehenden Beispiel haben wir Diagrammkategorien animiert.
 ```
 
 
-## **Animation eines Reihe‑Elements**
-Wenn Sie Reihen‑Elemente animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+## **Animation in einem Serienlement**
+Wenn Sie Serienlemente animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie die Referenz des Diagramm‑Objekts.
-1. Animieren Sie Reihen‑Elemente.
+1. Holen Sie die Referenz des Diagrammobjekts.
+1. Animieren Sie Serienlemente.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
-Im nachstehenden Beispiel haben wir Elemente einer Reihe animiert.
+Im nachstehenden Beispiel haben wir Serienlemente animiert.
 ```php
-  # Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+  # Instanziieren der Presentation-Klasse, die eine Präsentationsdatei darstellt
   $pres = new Presentation("ExistingChart.pptx");
   try {
     # Referenz des Diagrammobjekts erhalten
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # Elemente der Serie animieren
+    # Serienelemente animieren
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 0, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 0, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
@@ -129,17 +131,17 @@ Im nachstehenden Beispiel haben wir Elemente einer Reihe animiert.
 ```
 
 
-## **Animation eines Kategorie‑Elements**
-Wenn Sie Kategorie‑Elemente animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+## **Animation in einem Kategorieelement**
+Wenn Sie Kategorieelemente animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie die Referenz des Diagramm‑Objekts.
-1. Animieren Sie Kategorie‑Elemente.
+1. Holen Sie die Referenz des Diagrammobjekts.
+1. Animieren Sie Kategorieelemente.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
-Im nachstehenden Beispiel haben wir Kategorie‑Elemente animiert.
+Im nachstehenden Beispiel haben wir Kategorieelemente animiert.
 ```php
-  # Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+  # Instanziieren der Presentation-Klasse, die eine Präsentationsdatei darstellt
   $pres = new Presentation("ExistingChart.pptx");
   try {
     # Referenz des Diagrammobjekts erhalten
@@ -172,22 +174,22 @@ Im nachstehenden Beispiel haben wir Kategorie‑Elemente animiert.
 
 ## **FAQ**
 
-**Werden verschiedene Effektarten (z. B. Einstieg, Betonung, Ausgang) für Diagramme wie für reguläre Formen unterstützt?**
+**Werden verschiedene Effektarten (z. B. Eintritt, Betonung, Austritt) für Diagramme wie für reguläre Formen unterstützt?**
 
-Ja. Ein Diagramm wird als Form behandelt und unterstützt daher die üblichen Animationseffekttypen, einschließlich Einstieg, Betonung und Ausgang, mit voller Kontrolle über die Zeitleiste der Folie und die Animationssequenzen.
+Ja. Ein Diagramm wird als Form behandelt und unterstützt daher die Standard‑Animationseffektarten, einschließlich Eintritt, Betonung und Austritt, mit voller Kontrolle über die Zeitleiste der Folie und die Animationssequenzen.
 
-**Kann ich Diagramm‑Animationen mit Folienübergängen kombinieren?**
+**Kann ich Diagrammanimationen mit Folienübergängen kombinieren?**
 
-Ja. [Übergänge](/slides/de/php-java/slide-transition/) gelten für die Folie, während Animationseffekte für Objekte auf der Folie gelten. Sie können beides in derselben Präsentation verwenden und sie unabhängig voneinander steuern.
+Ja. [Transitions](/slides/de/php-java/slide-transition/) gelten für die Folie, während Animationseffekte für Objekte auf der Folie gelten. Sie können be beides in derselben Präsentation verwenden und unabhängig steuern.
 
-**Werden Diagramm‑Animationen beim Speichern als PPTX beibehalten?**
+**Werden Diagramm‑Animationen beim Speichern als PPTX erhalten?**
 
-Ja. Beim [speichern als PPTX](/slides/de/php-java/save-presentation/) bleiben alle Animationseffekte und deren Reihenfolge erhalten, da sie Teil des nativen Animationsmodells der Präsentation sind.
+Ja. Beim [save to PPTX](/slides/de/php-java/save-presentation/) bleiben alle Animationseffekte und ihre Reihenfolge erhalten, da sie Teil des nativen Animationsmodells der Präsentation sind.
 
 **Kann ich vorhandene Diagramm‑Animationen aus einer Präsentation auslesen und ändern?**
 
-Ja. Die API bietet Zugriff auf die Zeitleiste der Folie, Sequenzen und Effekte, sodass Sie vorhandene Diagramm‑Animationen inspizieren und anpassen können, ohne alles neu erstellen zu müssen.
+Ja. Die API bietet Zugriff auf die Folien‑Zeitachse, Sequenzen und Effekte, sodass Sie vorhandene Diagramm‑Animationen inspizieren und anpassen können, ohne alles von Grund auf neu zu erstellen.
 
-**Kann ich ein Video erzeugen, das Diagramm‑Animationen enthält, mit Aspose.Slides?**
+**Kann ich ein Video erzeugen, das Diagramm‑Animationen mit Aspose.Slides enthält?**
 
-Ja. Sie können eine Präsentation [Exportieren einer Präsentation als Video](/slides/de/php-java/convert-powerpoint-to-video/) und dabei die Animationen, Zeitsteuerungen und weitere Exporteinstellungen beibehalten, sodass das resultierende Video die animierte Wiedergabe widerspiegelt.
+Ja. Sie können eine Präsentation [export a presentation to video](/slides/de/php-java/convert-powerpoint-to-video/) und dabei Animationen beibehalten, Timings und weitere Export‑Einstellungen konfigurieren, sodass das resultierende Video die animierte Wiedergabe widerspiegelt.

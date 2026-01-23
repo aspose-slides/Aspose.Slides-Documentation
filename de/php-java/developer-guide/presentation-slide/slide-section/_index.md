@@ -9,29 +9,28 @@ keywords:
 - Abschnitt hinzufügen
 - Abschnitt bearbeiten
 - Abschnitt ändern
-- Abschnittname
+- Abschnittsname
 - PowerPoint
 - OpenDocument
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Vereinfachen Sie Slide-Abschnitte in PowerPoint und OpenDocument mit Aspose.Slides für PHP via Java – teilen, umbenennen und neu anordnen, um PPTX- und ODP-Workflows zu optimieren."
+description: "Optimieren Sie Folienabschnitte in PowerPoint und OpenDocument mit Aspose.Slides für PHP über Java – teilen, umbenennen und neu anordnen, um PPTX- und ODP-Arbeitsabläufe zu verbessern."
 ---
 
-Mit Aspose.Slides für PHP via Java können Sie eine PowerPoint‑Präsentation in Abschnitte gliedern. Sie können Abschnitte erstellen, die bestimmte Folien enthalten.
+Mit Aspose.Slides für PHP über Java können Sie eine PowerPoint-Präsentation in Abschnitte organisieren. Sie können Abschnitte erstellen, die bestimmte Folien enthalten.
 
-Sie möchten möglicherweise Abschnitte erstellen und sie verwenden, um Folien in einer Präsentation in logische Teile zu gliedern oder zu trennen, in folgenden Situationen:
-
-- Wenn Sie an einer großen Präsentation mit anderen Personen oder einem Team arbeiten – und bestimmte Folien einem Kollegen oder einigen Teammitgliedern zuweisen müssen. 
-- Wenn Sie eine Präsentation mit vielen Folien bearbeiten – und Schwierigkeiten haben, deren Inhalt auf einmal zu verwalten oder zu bearbeiten.
+Sie möchten möglicherweise Abschnitte erstellen und diese verwenden, um Folien einer Präsentation in logische Teile zu organisieren oder zu unterteilen, in folgenden Situationen:
+- Wenn Sie an einer großen Präsentation mit anderen Personen oder einem Team arbeiten – und bestimmte Folien einem Kollegen oder mehreren Teammitgliedern zuweisen müssen. 
+- Wenn Sie mit einer Präsentation arbeiten, die viele Folien enthält – und Sie Schwierigkeiten haben, deren Inhalt auf einmal zu verwalten oder zu bearbeiten.
 
 Idealerweise sollten Sie einen Abschnitt erstellen, der ähnliche Folien enthält – die Folien haben etwas Gemeinsames oder können anhand einer Regel in einer Gruppe zusammengefasst werden – und dem Abschnitt einen Namen geben, der die darin enthaltenen Folien beschreibt. 
 
 ## **Abschnitte in Präsentationen erstellen**
 
-Um einen Abschnitt hinzuzufügen, der Folien in einer Präsentation enthält, stellt Aspose.Slides für PHP via Java die Methode [addSection()](https://reference.aspose.com/slides/php-java/aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) bereit, mit der Sie den Namen des zu erstellenden Abschnitts und die Folie angeben können, bei der der Abschnitt beginnt.
+Um einen Abschnitt hinzuzufügen, der Folien in einer Präsentation enthält, stellt Aspose.Slides für PHP über Java die Methode [addSection()](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) bereit, mit der Sie den Namen des zu erstellenden Abschnitts und die Folie, ab der der Abschnitt beginnt, angeben können.
 
-Dieses Beispiel zeigt, wie Sie einen Abschnitt in einer Präsentation erstellen:
+Dieser Beispielcode zeigt, wie Sie einen Abschnitt in einer Präsentation erstellen:
 ```php
   $pres = new Presentation();
   try {
@@ -59,9 +58,9 @@ Dieses Beispiel zeigt, wie Sie einen Abschnitt in einer Präsentation erstellen:
 
 ## **Namen von Abschnitten ändern**
 
-Nachdem Sie einen Abschnitt in einer PowerPoint‑Präsentation erstellt haben, können Sie beschließen, dessen Namen zu ändern. 
+Nachdem Sie einen Abschnitt in einer PowerPoint-Präsentation erstellt haben, können Sie dessen Namen ändern. 
 
-Dieses Beispiel zeigt, wie Sie den Namen eines Abschnitts in einer Präsentation mit Aspose.Slides ändern:
+Dieser Beispielcode zeigt, wie Sie den Namen eines Abschnitts in einer Präsentation mit Aspose.Slides ändern:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -77,14 +76,14 @@ Dieses Beispiel zeigt, wie Sie den Namen eines Abschnitts in einer Präsentation
 
 ## **FAQ**
 
-**Werden Abschnitte beim Speichern im PPT‑Format (PowerPoint 97–2003) erhalten?**
+**Werden Abschnitte beim Speichern im PPT-Format (PowerPoint 97–2003) beibehalten?**
 
-Nein. Das PPT‑Format unterstützt keine Abschnitts‑Metadaten, sodass die Abschnitts‑Gruppierung beim Speichern als .ppt verloren geht.
+Nein. Das PPT-Format unterstützt keine Abschnitts‑Metadaten, sodass die Abschnitts‑Gruppierung beim Speichern als .ppt verloren geht.
 
-**Kann ein ganzer Abschnitt „ausgeblendet“ werden?**
+**Kann ein kompletter Abschnitt ausgeblendet werden?**
 
-Nein. Nur einzelne Folien können ausgeblendet werden. Ein Abschnitt als Einheit besitzt keinen „ausgeblendet“-Zustand.
+Nein. Es können nur einzelne Folien ausgeblendet werden. Ein Abschnitt als Entität hat keinen „ausgeblendet“-Zustand.
 
-**Kann ich schnell einen Abschnitt anhand einer Folie finden und umgekehrt die erste Folie eines Abschnitts?**
+**Kann ich schnell einen Abschnitt anhand einer Folie finden und umgekehrt die erste Folie eines Abschnitts ermitteln?**
 
-Ja. Ein Abschnitt ist eindeutig durch seine Startfolie definiert; anhand einer Folie können Sie bestimmen, zu welchem Abschnitt sie gehört, und für einen Abschnitt können Sie seine erste Folie abrufen.
+Ja. Ein Abschnitt wird eindeutig durch seine Startfolie definiert; anhand einer Folie können Sie bestimmen, zu welchem Abschnitt sie gehört, und für einen Abschnitt können Sie seine erste Folie abrufen.

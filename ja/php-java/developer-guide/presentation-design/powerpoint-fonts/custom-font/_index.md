@@ -1,5 +1,5 @@
 ---
-title: PHPでPowerPointフォントをカスタマイズ
+title: PHPでPowerPointのフォントをカスタマイズ
 linktitle: カスタムフォント
 type: docs
 weight: 20
@@ -8,70 +8,82 @@ keywords:
 - フォント
 - カスタムフォント
 - 外部フォント
-- フォントを読み込む
-- フォントを管理する
+- フォントの読み込み
+- フォントの管理
 - フォントフォルダー
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、PowerPoint スライドのフォントをカスタマイズし、プレゼンテーションをあらゆるデバイスで鮮明かつ一貫性のあるものに保ちます。"
+description: "Aspose.Slides for PHP (Javaを介して) を使用してPowerPointスライドのフォントをカスタマイズし、どのデバイスでもプレゼンテーションを鮮明かつ一貫性のある状態に保ちます。"
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose Slides は、これらのフォントを [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) メソッドを使用して読み込むことができます。
+Aspose Slides では、次の [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) メソッドを使用してフォントをロードできます。
 
-* TrueType（.ttf）および TrueType Collection（.ttc）フォント。詳細は [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照してください。
-
-* OpenType（.otf）フォント。詳細は [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照してください。
+* TrueType (.ttf) および TrueType Collection (.ttc) フォント。詳細は [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照。
+* OpenType (.otf) フォント。詳細は [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照。
 
 {{% /alert %}}
 
-## **カスタムフォントのロード**
+## **カスタム フォントのロード**
 
-Aspose.Slides は、フォントをインストールせずにプレゼンテーションでレンダリングされるフォントを読み込むことができます。フォントはカスタムディレクトリから読み込まれます。
+Aspose.Slides では、システムにインストールせずにプレゼンテーションで使用されるフォントをロードできます。これにより PDF、画像、その他のサポート形式へのエクスポート時に、環境間で一貫した外観が保たれます。フォントはカスタム ディレクトリからロードされます。
 
-1. [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) クラスのインスタンスを作成し、[loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) メソッドを呼び出します。
-2. レンダリングされるプレゼンテーションを読み込みます。
-3. [Clear the cache](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader#clearCache--) を [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader) クラスで実行します。
+1. フォント ファイルが格納されたフォルダーを 1 つ以上指定します。
+2. 静的な [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) メソッドを呼び出し、これらのフォルダーからフォントをロードします。
+3. プレゼンテーションをロードし、レンダリング/エクスポートします。
+4. [FontsLoader::clearCache](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/clearcache/) を呼び出してフォント キャッシュをクリアします。
 
-この PHP コードはフォント読み込みプロセスを示しています：
+以下のコード例はフォント ロード プロセスを示しています:
 ```php
-  # フォントを探すフォルダー
-  $folders = array($externalFontsDir );
-  # カスタムフォントディレクトリのフォントを読み込む
-  FontsLoader->loadExternalFonts($folders);
-  # 作業を行い、プレゼンテーション/スライドのレンダリングを実行
-  $pres = new Presentation("DefaultFonts.pptx");
-  try {
-    $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-    # フォントキャッシュをクリア
-    FontsLoader->clearCache();
-  }
+// カスタムフォントファイルを含むフォルダーを定義します。
+$fontFolders = array($externalFontFolder1, $externalFontFolder2);
+
+// 指定されたフォルダーからカスタムフォントをロードします。
+FontsLoader::loadExternalFonts($fontFolders);
+
+$presentation = null;
+try {
+    $presentation = new Presentation("sample.pptx");
+    
+    // ロードされたフォントを使用してプレゼンテーションをレンダリング/エクスポートします（例: PDF、画像、その他の形式）。
+    $presentation->save("output.pdf", SaveFormat::Pdf);
+} finally {
+    if ($presentation != null) $presentation->dispose();
+
+    // 作業が完了したらフォントキャッシュをクリアします。
+    FontsLoader::clearCache();
+}
 ```
 
 
-## **カスタムフォントフォルダーの取得**
-Aspose.Slides は、フォントフォルダーを検索できるように [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) メソッドを提供します。このメソッドは `LoadExternalFonts` メソッドで追加されたフォルダーとシステムフォントフォルダーを返します。
+{{% alert color="info" title="Note" %}}
 
-この PHP コードは [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) の使用方法を示しています：
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) は検索パスにフォルダーを追加しますが、フォント の初期化順序は変更しません。初期化順序は以下の通りです。
+
+1. デフォルトの OS フォント パス。
+1. [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) 経由でロードされたパス。
+
+{{%/alert %}}
+
+## **カスタム フォント フォルダーの取得**
+Aspose.Slides は、[getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) メソッドを提供し、フォント フォルダーを検索できます。このメソッドは `LoadExternalFonts` メソッドで追加されたフォルダーとシステム フォント フォルダーを返します。
+
+この PHP コードは [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) の使用方法を示しています:
 ```php
   # この行はフォントファイルが検索されるフォルダーを出力します。
-  # それらは LoadExternalFonts メソッドで追加されたフォルダーとシステムフォントフォルダーです。
+  # これらは LoadExternalFonts メソッドで追加されたフォルダーとシステムフォントフォルダーです。
   $fontFolders = FontsLoader->getFontFolders();
 ```
 
 
-## **プレゼンテーションで使用するカスタムフォントの指定**
-Aspose.Slides は、プレゼンテーションで使用される外部フォントを指定できるように [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) プロパティを提供します。
+## **プレゼンテーションで使用するカスタム フォントの指定**
+Aspose.Slides は、[setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) メソッドを提供し、プレゼンテーションで使用する外部フォントを指定できます。
 
-この PHP コードは [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) プロパティの使用方法を示しています：
+この PHP コードは [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) の使用方法を示しています:
 ```php
   $Array = new JavaClass("java.lang.reflect.Array");
   $Byte = new JavaClass("java.lang.Byte");
@@ -96,8 +108,8 @@ Aspose.Slides は、プレゼンテーションで使用される外部フォン
   $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
   $pres = new Presentation("MyPresentation.pptx", $loadOptions);
   try {
-    # プレゼンテーションを操作する
-    # カスタムフォント1、カスタムフォント2、そして assets\fonts と global\fonts フォルダーおよびそのサブフォルダーのフォントがプレゼンテーションで使用可能です
+    # プレゼンテーションで作業する
+    # カスタムフォント CustomFont1、CustomFont2 と assets\fonts および global\fonts フォルダーとそのサブフォルダーのフォントがプレゼンテーションで利用可能です
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -106,10 +118,11 @@ Aspose.Slides は、プレゼンテーションで使用される外部フォン
 ```
 
 
-## **外部フォントの管理**
-Aspose.Slides は、バイナリデータから外部フォントを読み込むために [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) メソッドを提供します。
+## **フォントの外部管理**
 
-この PHP コードはバイト配列フォントの読み込みプロセスを示しています：
+Aspose.Slides は、バイナリ データから外部フォントをロードできる [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) メソッドを提供します。
+
+この PHP コードはバイト配列によるフォント ロード プロセスをデモしています:
 ```php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
@@ -143,7 +156,7 @@ try {
   try {
     $pres = new Presentation("");
     try {
-      # プレゼンテーションのライフタイム中に外部フォントがロードされます
+      # プレゼンテーションの実行中にロードされた外部フォント
     } finally {
     }
   } finally {
@@ -152,24 +165,24 @@ try {
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**カスタムフォントはすべての形式（PDF、PNG、SVG、HTML）へのエクスポートに影響しますか？**
+**カスタム フォントはすべての形式 (PDF、PNG、SVG、HTML) のエクスポートに影響しますか？**
 
-はい。接続されたフォントはレンダラーによってすべてのエクスポート形式で使用されます。
+はい。接続されたフォントはすべてのエクスポート形式でレンダラーによって使用されます。
 
-**カスタムフォントは結果の PPTX に自動的に埋め込まれますか？**
+**カスタム フォントは自動的に結果の PPTX に埋め込まれますか？**
 
-いいえ。フォントをレンダリング用に登録することは、PPTX に埋め込むことと同等ではありません。プレゼンテーションファイル内にフォントを保持する必要がある場合は、明示的な [埋め込み機能](/slides/ja/php-java/embedded-font/) を使用する必要があります。
+いいえ。レンダリング用にフォントを登録することは、PPTX に埋め込むこととは異なります。プレゼンテーション ファイルにフォントを含める必要がある場合は、明示的な [埋め込み機能](/slides/ja/php-java/embedded-font/) を使用してください。
 
-**カスタムフォントに特定のグリフが欠けているときのフォールバック動作を制御できますか？**
+**カスタム フォントに特定のグリフがない場合のフォールバック 動作を制御できますか？**
 
-はい。[フォント置換](/slides/ja/php-java/font-substitution/)、[置換ルール](/slides/ja/php-java/font-replacement/)、および [フォールバックセット](/slides/ja/php-java/fallback-font/) を構成して、要求されたグリフが存在しない場合に使用されるフォントを正確に定義できます。
+はい。[フォント置換](/slides/ja/php-java/font-substitution/)、[置換ルール](/slides/ja/php-java/font-replacement/)、および [フォールバック セット](/slides/ja/php-java/fallback-font/) を設定して、要求されたグリフが欠落しているときに使用するフォントを正確に定義できます。
 
-**Linux/Docker コンテナ内でシステム全体にインストールせずにフォントを使用できますか？**
+**Linux/Docker コンテナーでシステム全体にインストールせずにフォントを使用できますか？**
 
-はい。独自のフォントフォルダーを指すか、バイト配列からフォントを読み込むことで、コンテナイメージ内のシステムフォントディレクトリへの依存を排除できます。
+はい。独自のフォント フォルダーを指定するか、バイト配列からフォントをロードしてください。これにより、コンテナー イメージ内のシステム フォント ディレクトリへの依存が排除されます。
 
-**ライセンスに関して—カスタムフォントを制約なしに埋め込むことはできますか？**
+**ライセンス面では、制限なしにカスタム フォントを埋め込めますか？**
 
-フォントのライセンス遵守は利用者の責任です。ライセンス条件は様々で、埋め込みや商用利用を禁止しているものもあります。出力物を配布する前に必ずフォントの EULA を確認してください。
+フォントのライセンス遵守は利用者の責任です。ライセンス条項はさまざまで、埋め込みや商用利用を禁止するものもあります。出力物を配布する前に必ずフォントの EULA を確認してください。

@@ -1,6 +1,6 @@
 ---
 title: PHPでプレゼンテーションのローカリゼーションを自動化
-linktitle: プレゼンテーションのローカリゼーション
+linktitle: プレゼンテーションローカリゼーション
 type: docs
 weight: 100
 url: /ja/php-java/presentation-localization/
@@ -13,18 +13,18 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP（Java経由）を使用して、PowerPoint と OpenDocument のスライドローカリゼーションを自動化し、実用的なコードサンプルとヒントでグローバル展開を迅速化します。"
+description: "Java経由でPHP向けAspose.Slidesを使用し、PowerPoint および OpenDocument スライドのローカリゼーションを自動化します。実用的なコードサンプルとヒントにより、グローバル展開を迅速に行えます。"
 ---
 
-## **プレゼンテーションとシェイプテキストの言語を変更する**
-- [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+## **プレゼンテーションと図形テキストの言語を変更する**
+- [プレゼンテーション](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。
-- スライドに [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) タイプの [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) を追加します。
+- スライドに [矩形](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) タイプの [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) を追加します。
 - TextFrame にテキストを追加します。
-- テキストに [Setting Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) を設定します。
-- プレゼンテーションを PPTX ファイルとして保存します。
+- テキストに **言語 ID を設定** します。[言語 ID を設定](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)。
+- プレゼンテーションを PPTX ファイルとして書き出します。
 
-上記の手順の実装例は以下のサンプルで示しています。
+上記の手順の実装例は以下のとおりです。
 ```php
   $pres = new Presentation("test.pptx");
   try {
@@ -40,16 +40,16 @@ description: "Aspose.Slides for PHP（Java経由）を使用して、PowerPoint 
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**言語 ID は自動的にテキスト翻訳をトリガーしますか？**
+**言語 ID は自動テキスト翻訳をトリガーしますか？**
 
-いいえ。 [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) はスペルチェックと文法校正のための言語を保持しますが、テキスト内容を翻訳したり変更したりはしません。PowerPoint が校正用に理解するメタデータです。
+いいえ。[言語 ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) はスペルチェックと文法校正のために言語を格納しますが、テキスト内容を翻訳したり変更したりはしません。PowerPoint が校正用メタデータとして理解します。
 
-**言語 ID は描画時のハイフネーションや改行に影響しますか？**
+**言語 ID はハイフネーションおよび改行に影響しますか？**
 
-Aspose.Slides では、[language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) は校正用です。ハイフネーションの品質と改行は主に [proper fonts](/slides/ja/php-java/powerpoint-fonts/) の有無と、書字システム向けのレイアウト/改行設定に依存します。正しく描画するには、必要なフォントを利用可能にし、[font substitution rules](/slides/ja/php-java/font-substitution/) を設定するか、プレゼンテーションに [embed fonts](/slides/ja/php-java/embedded-font/) を埋め込んでください。
+Aspose.Slides では、[言語 ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) は校正用です。ハイフネーションの品質と改行は主に [適切なフォント](/slides/ja/php-java/powerpoint-fonts/) の利用可能性と、書字システム向けのレイアウト/改行設定に依存します。正しいレンダリングを確保するには、必要なフォントを利用可能にし、[フォント置換ルール](/slides/ja/php-java/font-substitution/) を構成するか、プレゼンテーションに [フォントを埋め込む](/slides/ja/php-java/embedded-font/) 必要があります。
 
-**単一の段落内で異なる言語を設定できますか？**
+**1つの段落内で異なる言語を設定できますか？**
 
-はい。[Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) はテキストの個々の部分に適用されるため、単一の段落内で複数の言語を混在させ、個別の校正設定を使用できます。
+はい。[言語 ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) はテキスト部分レベルで適用されるため、単一の段落内で複数の言語を異なる校正設定とともに混在させることができます。

@@ -8,34 +8,36 @@ keywords:
 - خط
 - إنشاء خط
 - إضافة خط
-- خط بسيط
-- تكوين الخط
-- تخصيص الخط
-- نمط الشرط
+- خط عادي
+- تهيئة خط
+- تخصيص خط
+- نمط واطئ
 - رأس السهم
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية تعديل تنسيق الخط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for PHP عبر Java. اكتشف الخصائص والطرق والأمثلة."
+description: "تعرّف على كيفية معالجة تنسيق الخطوط في عروض PowerPoint التقديمية باستخدام Aspose.Slides لِـ PHP عبر Java. اكتشف الخصائص والطرق والأمثلة."
 ---
 
 {{% alert color="primary" %}} 
 
-يدعم Aspose.Slides for PHP عبر Java إضافة أنواع مختلفة من الأشكال إلى الشرائح. في هذا الموضوع، سنبدأ العمل مع الأشكال عن طريق إضافة خطوط إلى الشرائح. باستخدام Aspose.Slides for PHP عبر Java، يمكن للمطورين ليس فقط إنشاء خطوط بسيطة، بل يمكن أيضًا رسم خطوط مزخرفة على الشرائح.
+تدعم Aspose.Slides لـ PHP عبر Java إضافة أنواع مختلفة من الأشكال إلى الشرائح. في هذا الموضوع، سنبدأ العمل مع الأشكال بإضافة خطوط إلى الشرائح. باستخدام Aspose.Slides لـ PHP عبر Java، يمكن للمطورين ليس فقط إنشاء خطوط بسيطة، بل يمكن أيضًا رسم خطوط متنوعة على الشرائح.
 
 {{% /alert %}} 
 
-## **إنشاء خط بسيط**
+## **إنشاء خط عادي**
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-- الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
-- إضافة AutoShape من نوع خط باستخدام الطريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) التي يوفرها كائن [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) .
-- حفظ العرض المُعدَّل كملف PPTX.
+لإضافة خط عادي بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-في المثال الموضح أدناه، أضفنا خطًا إلى الشريحة الأولى من العرض.
+- إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+- الحصول على مرجع الشريحة باستخدام فهرسها.
+- إضافة AutoShape من نوع Line باستخدام الطريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) التي يوفرها كائن [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
+- كتابة العرض التقديمي المعدل كملف PPTX.
+
+في المثال المعطى أدناه، قمنا بإضافة خط إلى الشريحة الأولى من العرض التقديمي.
 ```php
-  # إنشاء كائن من الفئة PresentationEx التي تمثل ملف PPTX
+  # إنشاء كائن PresentationEx الذي يمثل ملف PPTX
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
@@ -54,24 +56,26 @@ description: "تعلم كيفية تعديل تنسيق الخط في عروض P
 
 ## **إنشاء خط على شكل سهم**
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-- الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
-- إضافة AutoShape من نوع خط باستخدام الطريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) التي يوفرها كائن [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) .
-- تحديد [Line Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineStyle) إلى أحد الأنماط المتاحة في Aspose.Slides for PHP عبر Java.
-- تحديد عرض الخط.
-- تحديد [Dash Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineDashStyle) للخط إلى أحد الأنماط المتاحة في Aspose.Slides for PHP عبر Java.
-- تحديد [Arrow Head Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) و[Length](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) لنقطة البداية للخط.
-- تحديد [Arrow Head Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) و[Length](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) لنقطة النهاية للخط.
-- حفظ العرض المُعدَّل كملف PPTX.
+تسمح Aspose.Slides لـ PHP عبر Java أيضًا للمطورين بتكوين بعض خصائص الخط لجعله أكثر جاذبية. دعونا نجرب تكوين بعض خصائص الخط لجعله يبدو كسهم. يرجى اتباع الخطوات أدناه للقيام بذلك:
+
+- إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+- الحصول على مرجع الشريحة باستخدام فهرسها.
+- إضافة AutoShape من نوع Line باستخدام الطريقة [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addAutoShape) التي يوفرها كائن [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
+- تعيين [Line Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineStyle) إلى أحد الأنماط التي تقدمها Aspose.Slides لـ PHP عبر Java.
+- تعيين عرض الخط.
+- تعيين [Dash Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineDashStyle) للخط إلى أحد الأنماط التي تقدمها Aspose.Slides لـ PHP عبر Java.
+- تعيين [Arrow Head Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) و[Length](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) لنقطة بداية الخط.
+- تعيين [Arrow Head Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) و[Length](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) لنقطة نهاية الخط.
+- كتابة العرض التقديمي المعدل كملف PPTX.
 ```php
-  # إنشاء كائن من الفئة PresentationEx التي تمثل ملف PPTX
+  # إنشاء كائن PresentationEx الذي يمثل ملف PPTX
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
     # إضافة AutoShape من النوع خط
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
-    # تطبيق بعض التنسيق على الخط
+    # تطبيق بعض التنسيقات على الخط
     $shp->getLineFormat()->setStyle(LineStyle->ThickBetweenThin);
     $shp->getLineFormat()->setWidth(10);
     $shp->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
@@ -91,16 +95,16 @@ description: "تعلم كيفية تعديل تنسيق الخط في عروض P
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني تحويل خط عادي إلى موصل بحيث "ينطبق" على الأشكال؟**
+**هل يمكنني تحويل خط عادي إلى موصل بحيث "يلتقط" الأشكال؟**
 
-لا. الخط العادي (‏[AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) من النوع [Line](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/)) لا يتحول تلقائيًا إلى موصل. لجعله يلتصق بالأشكال، استخدم النوع المخصص [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/) و[APIs المقابلة](/slides/ar/php-java/connector/) للاتصالات.
+لا. الخط العادي (وهو [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) من النوع [Line](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/)) لا يتحول تلقائيًا إلى موصل. لجعله يلتقط الأشكال، استخدم النوع المخصص [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/) والـ [corresponding APIs](/slides/ar/php-java/connector/) للاتصالات.
 
 **ماذا أفعل إذا كانت خصائص الخط موروثة من السمة ومن الصعب تحديد القيم النهائية؟**
 
-[اقرأ الخصائص الفعالة](/slides/ar/php-java/shape-effective-properties/) عبر `LineFormatEffectiveData`/`LineFillFormatEffectiveData` — هذه الخصائص تأخذ بالفعل في الاعتبار الوراثة وأنماط السمة.
+[قراءة الخصائص الفعالة](/slides/ar/php-java/shape-effective-properties/) عبر `LineFormatEffectiveData`/`LineFillFormatEffectiveData` — هذه بالفعل تأخذ في الاعتبار الوراثة وأنماط السمة.
 
-**هل يمكنني قفل خط لمنع التعديل (النقل، تغيير الحجم)؟**
+**هل يمكنني قفل خط لمنعه من التحرير (النقل، تغيير الحجم)؟**
 
-نعم. تقدم الأشكال [كائنات القفل](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/getautoshapelock/) التي تتيح لك [منع عمليات التعديل](/slides/ar/php-java/applying-protection-to-presentation/).
+نعم. توفر الأشكال [lock objects](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/getautoshapelock/) التي تسمح لك بمنع عمليات التحرير.

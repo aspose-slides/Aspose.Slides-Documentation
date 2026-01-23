@@ -16,11 +16,11 @@ keywords:
 - العرض التقديمي
 - PHP
 - Aspose.Slides
-description: "تعرف على كيفية استرجاع حدود الفقرة وجزء النص في Aspose.Slides لـ PHP عبر Java لتحسين تموضع النص في عروض PowerPoint التقديمية."
+description: "تعلم كيفية استرجاع حدود الفقرة وجزء النص في Aspose.Slides للـ PHP عبر Java لتحسين موضع النص في عروض PowerPoint."
 ---
 
-## **احصل على إحداثيات الفقرة والجزء في إطار النص**
-باستخدام Aspose.Slides لـ PHP عبر Java، يمكن للمطورين الآن الحصول على إحداثيات المستطيل للفقرة داخل مجموعة الفقرات في إطار النص. كما يتيح لك الحصول على [إحداثيات الجزء](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) داخل مجموعة الأجزاء لفقرة. في هذا الموضوع، سنوضح بمساعدة مثال كيفية الحصول على إحداثيات المستطيل للفقرة مع موقع الجزء داخل الفقرة.
+## **الحصول على إحداثيات الفقرة والجزء داخل إطار النص**
+باستخدام Aspose.Slides لـ PHP عبر Java، يمكن للمطورين الآن الحصول على الإحداثيات المستطيلة للفقرة داخل مجموعة الفقرات لإطار النص. كما يتيح لك الحصول على [إحداثيات الجزء](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getCoordinates) داخل مجموعة الأجزاء لفقرة. في هذا الموضوع، سنوضح بمساعدة مثال كيفية الحصول على الإحداثيات المستطيلة للفقرة بالإضافة إلى موضع الجزء داخل الفقرة.
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textFrame = $shape->getTextFrame();
@@ -32,8 +32,9 @@ description: "تعرف على كيفية استرجاع حدود الفقرة و
 ```
 
 
-## **احصل على إحداثيات المستطيل لفقرة**
-باستخدام طريقة [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) يمكن للمطورين الحصول على مستطيل حدود الفقرة.
+
+## **الحصول على الإحداثيات المستطيلة للفقرة**
+باستخدام طريقة [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) يمكن للمطورين الحصول على مستطيل حدود الفقرة.
 ```php
   $pres = new Presentation("HelloWorld.pptx");
   try {
@@ -49,9 +50,11 @@ description: "تعرف على كيفية استرجاع حدود الفقرة و
 ```
 
 
-## **احصل على حجم الفقرة والجزء داخل إطار نص خلية جدول**
-للحصول على حجم الـ[Portion] أو الـ[Paragraph] والإحداثيات في إطار نص خلية جدول، يمكنك استخدام طريقتي [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) و[IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--).
-يظهر هذا الرمز النموذجي العملية الموصوفة:
+## **الحصول على حجم الفقرة والجزء داخل إطار نص خلية جدول**
+
+للحصول على حجم [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) أو [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) وإحداثياتهما داخل إطار نص خلية جدول، يمكنك استخدام الطريقتين [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) و[Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect).
+
+يقوم هذا الكود النموذجي بعرض العملية الموصوفة:
 ```php
   $pres = new Presentation("source.pptx");
   try {
@@ -84,16 +87,20 @@ description: "تعرف على كيفية استرجاع حدود الفقرة و
 ```
 
 
-## **الأسئلة المتداولة**
+## **FAQ**
 
-**بأي وحدات تُقاس الإحداثيات التي يتم إرجاعها للفقرة وأجزاء النص؟**  
+**بأي وحدات يتم إرجاع الإحداثيات للفقرة وأجزاء النص؟**
+
 بالنقاط، حيث إن 1 بوصة = 72 نقطة. ينطبق هذا على جميع الإحداثيات والأبعاد في الشريحة.
 
-**هل يؤثر تغليف الكلمات على حدود الفقرة؟**  
-نعم. إذا كان [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) مفعلاً في الـ[TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)، فإن النص يُقسم ليناسب عرض المنطقة، مما يغيّر الحدود الفعلية للفقرة.
+**هل يؤثر [التفاف](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) على حدود الفقرة؟**
 
-**هل يمكن تحويل إحداثيات الفقرة إلى بكسلات في الصورة المصدرة بشكل موثوق؟**  
-نعم. يمكن تحويل النقاط إلى بكسلات باستخدام: pixels = points × (DPI / 72). تعتمد النتيجة على قيمة DPI المختارة للتصوير/التصدير.
+نعم. إذا تم تمكين [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) في الـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)، يتم كسر النص ليتناسب مع عرض المنطقة، مما يغيّر الحدود الفعلية للفقرة.
 
-**كيف يمكنني الحصول على معلمات تنسيق الفقرة "الفعّالة" مع مراعاة وراثة النمط؟**  
-استخدم [effective paragraph formatting data structure](/slides/ar/php-java/shape-effective-properties/); تُعيد القيم النهائية المجمّعة للمسافات البادئة، الفواصل، التغليف، الاتجاه من اليمين إلى اليسار، والمزيد.
+**هل يمكن تحويل إحداثيات الفقرة إلى بكسلات في الصورة المصدرة بثقة؟**
+
+نعم. يمكن تحويل النقاط إلى بكسلات باستخدام الصيغة: pixels = points × (DPI / 72). تعتمد النتيجة على قيمة DPI المختارة للتصيير/التصدير.
+
+**كيف أحصل على معلمات تنسيق الفقرة "الفعّالة" مع مراعاة وراثة النمط؟**
+
+استخدم [effective paragraph formatting data structure](/slides/ar/php-java/shape-effective-properties/); تُعيد القيم النهائية الموحدة للإزاحات، والمسافات، والالتفاف، والاتجاه من اليمين إلى اليسار، وغيرها.

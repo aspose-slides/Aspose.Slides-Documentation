@@ -1,5 +1,5 @@
 ---
-title: Удалить слайды из презентаций на PHP
+title: Удаление слайдов из презентаций в PHP
 linktitle: Удалить слайд
 type: docs
 weight: 30
@@ -13,21 +13,21 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Легко удаляйте слайды из презентаций PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Получайте понятные примеры кода и ускоряйте ваш рабочий процесс."
+description: "Без усилий удаляйте слайды из презентаций PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Получайте понятные примеры кода и оптимизируйте свой рабочий процесс."
 ---
 
-Если слайд (или его содержимое) становится избыточным, вы можете удалить его. Aspose.Slides предоставляет класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), который инкапсулирует [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/), являющийся хранилищем всех слайдов в презентации. Используя указатели (ссылка или индекс) для известного объекта [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/), вы можете указать слайд, который хотите удалить.
+Если слайд (или его содержимое) становится избыточным, вы можете удалить его. Aspose.Slides предоставляет класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), который инкапсулирует [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/), являющийся хранилищем всех слайдов в презентации. Используя указатели (ссылку или индекс) на известный объект [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/), вы можете указать слайд, который нужно удалить.
 
 ## **Удалить слайд по ссылке**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Получите ссылку на слайд, который хотите удалить, используя его ID или индекс.
+1. Получите ссылку на слайд, который нужно удалить, по его ID или индексу.
 1. Удалите указанный слайд из презентации.
 1. Сохраните изменённую презентацию. 
 
 Этот PHP‑код показывает, как удалить слайд по ссылке:
 ```php
-  # Создайте объект Presentation, представляющий файл презентации
+  # Создать объект Presentation, представляющий файл презентации
   $pres = new Presentation("demo.pptx");
   try {
     # Получает слайд по его индексу в коллекции слайдов
@@ -53,7 +53,7 @@ description: "Легко удаляйте слайды из презентаци
   # Создает объект Presentation, представляющий файл презентации
   $pres = new Presentation("demo.pptx");
   try {
-    # Удаляет слайд по его индексу
+    # Удаляет слайд по индексу слайда
     $pres->getSlides()->removeAt(0);
     # Сохраняет изменённую презентацию
     $pres->save("modified.pptx", SaveFormat::Pptx);
@@ -63,9 +63,9 @@ description: "Легко удаляйте слайды из презентаци
 ```
 
 
-## **Удалить неиспользуемые макетные слайды**
+## **Удалить неиспользуемые слайды макетов**
 
-Aspose.Slides предоставляет метод [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (из класса [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)), позволяющий удалить нежелательные и неиспользуемые макетные слайды. Этот PHP‑код показывает, как удалить макетный слайд из презентации PowerPoint:
+Aspose.Slides предоставляет метод [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (из класса [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)), позволяющий удалить нежелательные и неиспользуемые слайды макетов. Этот PHP‑код показывает, как удалить слайд макета из презентации PowerPoint:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -79,9 +79,9 @@ Aspose.Slides предоставляет метод [removeUnusedLayoutSlides](h
 ```
 
 
-## **Удалить неиспользуемые мастер‑слайды**
+## **Удалить неиспользуемые слайды мастеров**
 
-Aspose.Slides предоставляет метод [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (из класса [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)), позволяющий удалить нежелательные и неиспользуемые мастер‑слайды. Этот PHP‑код показывает, как удалить мастер‑слайд из презентации PowerPoint:
+Aspose.Slides предоставляет метод [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (из класса [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)), позволяющий удалить нежелательные и неиспользуемые слайды мастеров. Этот PHP‑код показывает, как удалить слайд мастера из презентации PowerPoint:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -99,20 +99,20 @@ Aspose.Slides предоставляет метод [removeUnusedMasterSlides](h
 
 **Что происходит с индексами слайдов после их удаления?**
 
-После удаления коллекция [slidecollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) переиндексирует слайды: каждый последующий слайд смещается влево на одну позицию, поэтому предыдущие номера индексов становятся недействительными. Если вам нужен стабильный указатель, используйте постоянный ID слайда вместо его индекса.
+После удаления [collection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) переиндексируется: каждый последующий слайд сдвигается влево на одну позицию, поэтому предыдущие номера индексов становятся устаревшими. Если вам нужна стабильная ссылка, используйте постоянный ID слайда вместо его индекса.
 
 **Отличается ли ID слайда от его индекса и меняется ли он при удалении соседних слайдов?**
 
-Да. Индекс — это позиция слайда, и он меняется при добавлении или удалении слайдов. ID слайда — постоянный идентификатор и не меняется, когда удаляются другие слайды.
+Да. Индекс — это позиция слайда, и он меняется при добавлении или удалении слайдов. ID слайда — это постоянный идентификатор и не меняется, когда удаляются другие слайды.
 
 **Как удаление слайда влияет на секции слайдов?**
 
-Если слайд принадлежал секции, в этой секции просто останется на один слайд меньше. Структура секций сохраняется; если секция становится пустой, вы можете [remove or reorganize sections](/slides/ru/php-java/slide-section/) по необходимости.
+Если слайд принадлежал секции, в этой секции просто останется на один слайд меньше. Структура секции сохраняется; если секция становится пустой, вы можете [удалять или переорганизовывать разделы](/slides/ru/php-java/slide-section/) по необходимости.
 
-**Что происходит с приметками и комментариями, прикреплёнными к слайду, при его удалении?**
+**Что происходит с заметками и комментариями, привязанными к слайду, при его удалении?**
 
-[Notes](/slides/ru/php-java/presentation-notes/) и [comments](/slides/ru/php-java/presentation-comments/) привязаны к конкретному слайду и удаляются вместе с ним. Содержание остальных слайдов не затрагивается.
+[Notes](/slides/ru/php-java/presentation-notes/) и [comments](/slides/ru/php-java/presentation-comments/) привязаны к конкретному слайду и удаляются вместе с ним. Содержимое остальных слайдов не затрагивается.
 
 **В чём разница между удалением слайдов и очисткой неиспользуемых макетов/мастеров?**
 
-Удаление устраняет конкретные обычные слайды из набора. Очистка неиспользуемых макетов/мастеров удаляет шаблоны или мастер‑слайды, на которые больше ничего не ссылается, сокращая размер файла без изменения содержимого оставшихся слайдов. Эти действия дополняют друг друга: обычно сначала удаляют слайды, затем очищают неиспользуемые макеты и мастеры.
+Удаление удаляет конкретные обычные слайды из презентации. Очистка неиспользуемых макетов/мастеров удаляет слайды макетов или мастеров, на которые ничего не ссылается, уменьшая размер файла без изменения содержимого оставшихся слайдов. Эти действия дополняют друг друга: обычно сначала удаляют слайды, затем выполняют очистку.

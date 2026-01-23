@@ -5,30 +5,30 @@ type: docs
 url: /de/php-java/error-bar/
 keywords:
 - Fehlerbalken
-- benutzerdefinierter Wert
+- Benutzerdefinierter Wert
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für PHP via Java Fehlerbalken in Diagrammen hinzufügen und anpassen — optimieren Sie Datenvisualisierungen in PowerPoint-Präsentationen."
+description: "Erfahren Sie, wie Sie mit Aspose.Slides für PHP via Java Fehlerbalken in Diagrammen hinzufügen und anpassen — optimieren Sie die Datenvisualisierung in PowerPoint-Präsentationen."
 ---
 
 ## **Fehlerbalken hinzufügen**
-Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung von Fehlerbalkenwerten. Der Beispielcode gilt, wenn ein benutzerdefinierter Wertetyp verwendet wird. Um einen Wert anzugeben, verwenden Sie die **ErrorBarCustomValues**-Eigenschaft eines bestimmten Datenpunkts in der [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection)-Sammlung der Serie:
+Aspose.Slides für PHP via Java bietet eine einfache API zur Verwaltung von Fehlerbalkenwerten. Der Beispielcode gilt, wenn ein benutzerdefinierter Werttyp verwendet wird. Um einen Wert festzulegen, verwenden Sie die **ErrorBarCustomValues**‑Eigenschaft eines bestimmten Datenpunkts in der [**Datenpunkte**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/)‑Sammlung der Serie:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.  
-1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.  
-1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das X‑Fehlerbalkenformat.  
-1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das Y‑Fehlerbalkenformat.  
-1. Festlegen von Balkenwerten und -format.  
-1. Schreiben Sie die geänderte Präsentation in eine PPTX-Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
+1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das X‑Format des Fehlerbalkens.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das Y‑Format des Fehlerbalkens.
+1. Festlegen der Balkenwerte und des Formats.
+1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 ```php
   # Instanz der Presentation-Klasse erstellen
   $pres = new Presentation();
   try {
-    # Erstellen eines Blasendiagramms
+    # Erstelle ein Blasendiagramm
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # Fehlerbalken hinzufügen und das Format festlegen
+    # Fehlerbalken hinzufügen und dessen Format festlegen
     $errBarX = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsXFormat();
     $errBarY = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsYFormat();
     $errBarX->isVisible();
@@ -51,15 +51,15 @@ Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung von Fehle
 
 
 ## **Benutzerdefinierte Fehlerbalkenwerte hinzufügen**
-Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung benutzerdefinierter Fehlerbalkenwerte. Der Beispielcode gilt, wenn die [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--)‑Eigenschaft auf **Custom** gesetzt ist. Um einen Wert anzugeben, verwenden Sie die **ErrorBarCustomValues**‑Eigenschaft eines bestimmten Datenpunkts in der [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection)-Sammlung der Serie:
+Aspose.Slides für PHP via Java bietet eine einfache API zur Verwaltung benutzerdefinierter Fehlerbalkenwerte. Der Beispielcode gilt, wenn die Methode [**ErrorBarsFormat::getValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/#getValueType) den Wert **Custom** zurückgibt. Um einen Wert festzulegen, verwenden Sie die **ErrorBarCustomValues**‑Eigenschaft eines bestimmten Datenpunkts in der [**Datenpunkte**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/)‑Sammlung der Serie:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.  
-1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.  
-1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das X‑Fehlerbalkenformat.  
-1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das Y‑Fehlerbalkenformat.  
-1. Greifen Sie auf die einzelnen Datenpunkte der Diagrammserie zu und setzen Sie die Fehlerbalkenwerte für den jeweiligen Datenpunkt.  
-1. Festlegen von Balkenwerten und -format.  
-1. Schreiben Sie die geänderte Präsentation in eine PPTX-Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
+1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das X‑Format des Fehlerbalkens.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das Y‑Format des Fehlerbalkens.
+1. Greifen Sie auf die einzelnen Datenpunkte der Diagrammserie zu und setzen Sie die Fehlerbalkenwerte für den jeweiligen Datenpunkt der Serie.
+1. Festlegen der Balkenwerte und des Formats.
+1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 ```php
   # Instanz der Presentation-Klasse erstellen
   $pres = new Presentation();
@@ -74,7 +74,7 @@ Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung benutzerd
     $errBarY->isVisible();
     $errBarX->setValueType(ErrorBarValueType::Custom);
     $errBarY->setValueType(ErrorBarValueType::Custom);
-    # Zugriff auf Datenpunkt der Diagrammserie und Festlegen der Fehlerbalkenwerte für
+    # Zugriff auf Datenpunkt der Diagrammserie und Festlegen von Fehlerbalkenwerten für
     # einzelnen Punkt
     $points = $series->getDataPoints();
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXPlusValues(DataSourceType::DoubleLiterals);
@@ -100,14 +100,14 @@ Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung benutzerd
 
 ## **FAQ**
 
-**Was passiert mit Fehlerbalken beim Exportieren einer Präsentation in PDF oder Bilder?**
+**Was passiert mit Fehlerbalken, wenn eine Präsentation in PDF oder Bilder exportiert wird?**
 
 Sie werden als Teil des Diagramms gerendert und bei der Konvertierung zusammen mit der restlichen Diagrammformatierung erhalten, vorausgesetzt, es wird eine kompatible Version oder ein Renderer verwendet.
 
-**Können Fehlerbalken mit Markern und Datenbeschriftungen kombiniert werden?**
+**Können Fehlerbalken mit Markierungen und Datenbeschriftungen kombiniert werden?**
 
-Ja. Fehlerbalken sind ein separates Element und kompatibel mit Markern und Datenbeschriftungen; überschneiden sich die Elemente, müssen Sie möglicherweise die Formatierung anpassen.
+Ja. Fehlerbalken sind ein separates Element und sind mit Markierungen und Datenbeschriftungen kompatibel; überschneiden sich die Elemente, müssen Sie ggf. die Formatierung anpassen.
 
-**Wo finde ich die Liste der Eigenschaften und Klassen für die Arbeit mit Fehlerbalken in der API?**
+**Wo finde ich die Liste der Eigenschaften und Klassen zum Arbeiten mit Fehlerbalken in der API?**
 
 In der API‑Referenz: die Klasse [ErrorBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/) und die zugehörigen Klassen [ErrorBarType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbartype/) und [ErrorBarValueType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarvaluetype/).

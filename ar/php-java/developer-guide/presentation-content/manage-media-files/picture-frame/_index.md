@@ -1,13 +1,13 @@
 ---
-title: إدارة إطارات الصورة في العروض باستخدام PHP
-linktitle: إطار صورة
+title: إدارة إطارات الصور في العروض باستخدام PHP
+linktitle: إطار الصورة
 type: docs
 weight: 10
 url: /ar/php-java/picture-frame/
 keywords:
-- إطار صورة
-- إضافة إطار صورة
-- إنشاء إطار صورة
+- إطار الصورة
+- إضافة إطار الصورة
+- إنشاء إطار الصورة
 - إضافة صورة
 - إنشاء صورة
 - استخراج صورة
@@ -16,10 +16,10 @@ keywords:
 - قص صورة
 - منطقة مقصوصة
 - خاصية StretchOff
-- تنسيق إطار صورة
-- خصائص إطار صورة
+- تنسيق إطار الصورة
+- خصائص إطار الصورة
 - مقياس نسبي
-- تأثير صورة
+- تأثير الصورة
 - نسبة الأبعاد
 - شفافية الصورة
 - PowerPoint
@@ -27,39 +27,37 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إضافة إطارات صورة إلى عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لـ PHP عبر Java. بسط سير العمل وعزز تصاميم الشرائح."
+description: "أضف إطارات الصور إلى عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java. سهل سير عملك وعزز تصميم الشرائح."
 ---
 
-الإطار الصوري هو شكل يحتوي على صورة — إنه مثل صورة داخل إطار.
+إطار الصورة هو شكل يحتوي على صورة—فهو مثل الصورة داخل إطار. 
 
-يمكنك إضافة صورة إلى شريحة عبر إطار صوري. بهذه الطريقة، يمكنك تنسيق الصورة من خلال تنسيق الإطار الصوري.
+يمكنك إضافة صورة إلى شريحة عبر إطار صورة. بهذه الطريقة، يمكنك تنسيق الصورة عن طريق تنسيق إطار الصورة.
 
 {{% alert  title="Tip" color="primary" %}} 
-
-توفر Aspose محولات مجانية —[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — تمكّن المستخدمين من إنشاء عروض تقديمية بسرعة من الصور. 
-
+توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تمكن الأشخاص من إنشاء عروض تقديمية بسرعة من الصور. 
 {{% /alert %}} 
 
-## **Create a Picture Frame**
+## **إنشاء إطار صورة**
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) بإضافة صورة إلى [Imagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
-4. تحديد عرض الصورة وارتفاعها.
-5. إنشاء [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) بناءً على عرض الصورة وارتفاعها عبر طريقة `addPictureFrame` التي يوفرها كائن الشكل المرتبط بالشريحة المرجعية.
-6. إضافة إطار صوري (يحتوي على الصورة) إلى الشريحة.
-7. كتابة العرض المعدل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة عبر فهرسها. 
+3. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) المرتبط بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
+4. تحديد عرض وارتفاع الصورة.
+5. إنشاء [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) بناءً على عرض وارتفاع الصورة عبر طريقة `addPictureFrame` التي يوفرها كائن الشكل المرتبط بالشريحة المرجعية.
+6. إضافة إطار صورة (يحتوي على الصورة) إلى الشريحة.
+7. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية إنشاء إطار صوري:
+يعرض لك هذا الكود PHP كيفية إنشاء إطار صورة:
 ```php
-  # ينشئ كائن فئة Presentation التي تمثل ملف PPTX
+  # ينشئ كائن من الفئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
     # يحصل على الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # ينشئ كائن فئة Image
+    # ينشئ كائن من الفئة Image
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # يضيف إطار صورة بارتفاع وعرض الصورة المقابل
+    # يضيف إطار صورة بارتفاع وعرض متساويين للصورة
     $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     # يحفظ ملف PPTX إلى القرص
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
@@ -73,34 +71,32 @@ description: "إضافة إطارات صورة إلى عروض PowerPoint و Ope
 
 
 {{% alert color="warning" %}} 
-
-تسمح الإطارات الصورية بإنشاء شرائح عرض بسرعة بناءً على الصور. عند دمج إطار صوري مع خيارات الحفظ Aspose.Slides، يمكنك التحكم في عمليات الإدخال/الإخراج لتحويل الصور من تنسيق إلى آخر. قد ترغب في زيارة هذه الصفحات: تحويل [image to JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/)؛ تحويل [JPG to image](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/)؛ تحويل [JPG to PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/)، تحويل [PNG to JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/)؛ تحويل [PNG to SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/)، تحويل [SVG to PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
-
+تتيح لك إطارات الصورة إنشاء شرائح عرض تقديمي بسرعة بناءً على الصور. عند دمج إطار الصورة مع خيارات الحفظ في Aspose.Slides، يمكنك التحكم بعمليات الإدخال/الإخراج لتحويل الصور من تنسيق إلى آخر. قد ترغب في زيارة هذه الصفحات: تحويل [image إلى JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); تحويل [JPG إلى image](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/). 
 {{% /alert %}}
 
-## **Create a Picture Frame with Relative Scale**
+## **إنشاء إطار صورة مع مقياس نسبي**
 
-بتغيير مقياس الصورة النسبي، يمكنك إنشاء إطار صوري أكثر تعقيدًا.
+عن طريق تعديل مقياس الصورة النسبي، يمكنك إنشاء إطار صورة أكثر تعقيدًا. 
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. إضافة صورة إلى مجموعة صور العرض.
-4. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) بإضافة صورة إلى [Imagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
-5. تحديد العرض والارتفاع النسبيين للصورة في إطار الصوري.
-6. كتابة العرض المعدل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة عبر فهرسها. 
+3. إضافة صورة إلى مجموعة صور العرض التقديمي.
+4. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) المرتبط بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
+5. تحديد العرض والارتفاع النسبيين للصورة في إطار الصورة.
+6. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية إنشاء إطار صوري مع مقياس نسبي:
+يعرض لك هذا الكود PHP كيفية إنشاء إطار صورة مع مقياس نسبي:
 ```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
+  # إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
-    # يحصل على الشريحة الأولى
+    # الحصول على الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # ينشئ فئة Image
+    # إنشاء كائن من فئة Image
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # يضيف إطار صورة بارتفاع وعرض مساويين للصورة
+    # إضافة إطار صورة بارتفاع وعرض مساويين للصورة
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # ضبط مقياس العرض والارتفاع النسبي
+    # ضبط النسبة النسبية للعرض والارتفاع
     $pf->setRelativeScaleHeight(0.8);
     $pf->setRelativeScaleWidth(1.35);
     # حفظ ملف PPTX إلى القرص
@@ -114,9 +110,9 @@ description: "إضافة إطارات صورة إلى عروض PowerPoint و Ope
 ```
 
 
-## **Extract Raster Images from Picture Frames**
+## **استخراج صور نقطية من إطارات الصورة**
 
-يمكنك استخراج الصور النقطية من كائنات [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) وحفظها بصيغة PNG أو JPG أو صيغ أخرى. يوضح المثال البرمجي أدناه كيفية استخراج صورة من المستند "sample.pptx" وحفظها بصيغة PNG.
+يمكنك استخراج الصور النقطية من كائنات [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) وحفظها بصيغ PNG أو JPG أو صيغ أخرى. يوضح المثال البرمجي أدناه كيفية استخراج صورة من المستند "sample.pptx" وحفظها بصيغة PNG.
 ```php
   $presentation = new Presentation("sample.pptx");
   try {
@@ -140,11 +136,11 @@ description: "إضافة إطارات صورة إلى عروض PowerPoint و Ope
 ```
 
 
-## **Extract SVG Images from Picture Frames**
+## **استخراج صور SVG من إطارات الصورة**
 
-عند احتواء عرض تقديمي على رسومات SVG داخل أشكال [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/)، يتيح Aspose.Slides for PHP via Java استرداد الصور المتجهة الأصلية بدقة كاملة. من خلال استعراض مجموعة أشكال الشريحة، يمكنك التعرف على كل [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/)، والتحقق مما إذا كان كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) الأساسي يحتوي على محتوى SVG، ثم حفظ تلك الصورة إلى قرص أو تدفق بصيغة SVG الأصلية.
+عندما يحتوي العرض التقديمي على رسومات SVG موضوعة داخل أشكال [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/)، يتيح لك Aspose.Slides for PHP via Java استرجاع الصور المتجهة الأصلية بجودة كاملة. من خلال استعراض مجموعة أشكال الشريحة، يمكنك تحديد كل [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/)، والتحقق مما إذا كان كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) يحمل محتوى SVG، ثم حفظ تلك الصورة إلى القرص أو إلى تدفق بصيغتها الأصلية SVG.
 
-المثال البرمجي التالي يوضح كيفية استخراج صورة SVG من إطار صوري:
+المثال البرمجي التالي يوضح كيفية استخراج صورة SVG من إطار صورة:
 ```php
 $presentation = new Presentation("sample.pptx");
 
@@ -165,7 +161,7 @@ try {
 ```
 
 
-## **Get Transparency of an Image**
+## **الحصول على شفافية صورة**
 
 يسمح Aspose.Slides بالحصول على تأثير الشفافية المطبق على صورة. يوضح هذا الكود PHP العملية:
 ```php
@@ -182,32 +178,32 @@ try {
 ```
 
 
-## **Picture Frame Formatting**
+## **تنسيق إطار الصورة**
 
-يوفر Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار صوري. باستخدام هذه الخيارات، يمكنك تعديل إطار صوري ليتناسب مع متطلبات محددة.
+توفر Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار صورة. باستخدام هذه الخيارات، يمكنك تعديل إطار الصورة ليتوافق مع المتطلبات المحددة.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) بإضافة صورة إلى [Imagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
-4. تحديد عرض الصورة وارتفاعها.
-5. إنشاء `PictureFrame` بناءً على عرض الصورة وارتفاعها عبر طريقة [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) التي يوفرها كائن [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) المرتبط بالشريحة المرجعية.
-6. إضافة إطار الصوري (الذي يحتوي على الصورة) إلى الشريحة.
-7. تعيين لون حد إطار الصوري.
-8. تعيين عرض حد إطار الصوري.
-9. تدوير إطار الصوري بإعطائه قيمة إما موجبة أو سالبة.
-   * القيمة الموجبة تدور الصورة باتجاه عقارب الساعة. 
-   * القيمة السالبة تدور الصورة عكس اتجاه عقارب الساعة.
-10. إضافة إطار الصوري (الذي يحتوي على الصورة) إلى الشريحة.
-11. كتابة العرض المعدل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة عبر فهرسها. 
+3. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) المرتبط بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
+4. تحديد عرض وارتفاع الصورة.
+5. إنشاء `PictureFrame` بناءً على عرض وارتفاع الصورة عبر طريقة [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) التي يوفرها كائن [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) المرتبط بالشريحة المرجعية.
+6. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
+7. تعيين لون حدود إطار الصورة.
+8. تعيين عرض حدود إطار الصورة.
+9. تدوير إطار الصورة بإعطائه قيمة إيجابية أو سلبية.
+   * القيمة الإيجابية تدور الصورة باتجاه عقارب الساعة. 
+   * القيمة السلبية تدور الصورة عكس اتجاه عقارب الساعة.
+10. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
+11. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح عملية تنسيق إطار صوري:
+يوضح هذا الكود PHP عملية تنسيق إطار الصورة:
 ```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
+  # ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
     # يحصل على الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # ينشئ فئة Image
+    # ينشئ كائن من فئة Image
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
     # يضيف إطار صورة بارتفاع وعرض مساويين للصورة
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
@@ -216,7 +212,7 @@ try {
     $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $pf->getLineFormat()->setWidth(20);
     $pf->setRotation(45);
-    # يحفظ ملف PPTX إلى القرص
+    # يكتب ملف PPTX إلى القرص
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -228,14 +224,12 @@ try {
 
 
 {{% alert title="Tip" color="primary" %}}
-
-طوّرت Aspose مؤخرًا أداة [Collage Maker مجانية](https://products.aspose.app/slides/collage). إذا احتجت إلى [دمج صور JPG/JPEG](https://products.aspose.app/slides/collage/jpg) أو PNG، أو [إنشاء شبكات من الصور](https://products.aspose.app/slides/collage/photo-grid)، يمكنك استخدام هذه الخدمة. 
-
+طوَّرت Aspose مؤخرًا أداة **Collage Maker** مجانية ([Collage Maker](https://products.aspose.app/slides/collage)). إذا احتجت إلى دمج صور JPG/JPEG أو PNG، أو إنشاء شبكات من الصور، يمكنك استخدام هذه الخدمة. 
 {{% /alert %}}
 
-## **Add an Image as a Link**
+## **إضافة صورة كرابط**
 
-لتقليل حجم العروض التقديمية الكبيرة، يمكنك إضافة الصور (أو الفيديوهات) عبر روابط بدلاً من تضمين الملفات مباشرةً في العروض. يوضح هذا الكود PHP كيفية إضافة صورة وفيديو إلى عنصر نائب:
+لتقليل حجم العروض التقديمية الكبيرة، يمكنك إضافة صور (أو مقاطع فيديو) عبر روابط بدلاً من تضمين الملفات مباشرةً في العرض. يوضح هذا الكود PHP كيفية إضافة صورة وفيديو إلى عنصر نائب:
 ```php
   $presentation = new Presentation("input.pptx");
   try {
@@ -272,9 +266,9 @@ try {
 ```
 
 
-## **Crop Images**
+## **قص الصور**
 
-يظهر هذا الكود PHP كيفية قص صورة موجودة على شريحة:
+يوضح هذا الكود PHP كيفية قص صورة موجودة على شريحة:
 ```php
   $pres = new Presentation();
   # ينشئ كائن صورة جديد
@@ -288,7 +282,7 @@ try {
         $image->dispose();
       }
     }
-    # يضيف إطار صورة إلى شريحة
+    # يضيف PictureFrame إلى شريحة
     $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
     # يقص الصورة (قيم النسبة المئوية)
     $picFrame->getPictureFormat()->setCropLeft(23.6);
@@ -306,18 +300,18 @@ try {
 ```
 
 
-## **Delete Cropped Areas of a Picture**
+## **حذف المناطق المقصوصة من إطار الصورة**
 
-إذا أردت حذف المناطق المقصوصة من صورة موجودة داخل إطار، يمكنك استخدام طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas). تُرجع هذه الطريقة الصورة المقصوصة أو الصورة الأصلية إذا لم يكن القص ضروريًا.
+إذا كنت ترغب في حذف المناطق المقصوصة من صورة موجودة داخل إطار، يمكنك استخدام طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas). تُعيد هذه الطريقة الصورة المقصوصة أو الصورة الأصلية إذا كان التقليم غير ضروري.
 
-هذا الكود PHP يوضح العملية:
+يوضح هذا الكود PHP العملية:
 ```php
   $presentation = new Presentation("PictureFrameCrop.pptx");
   try {
     $slide = $presentation->getSlides()->get_Item(0);
     # يحصل على إطار الصورة من الشريحة الأولى
     $picFrame = $slide->getShapes()->get_Item(0);
-    # يزيل مناطق القص من صورة إطار الصورة ويعيد الصورة المقصوصة
+    # يحذف المناطق المقصوصة من صورة إطار الصورة ويعيد الصورة المقصوصة
     $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
     # يحفظ النتيجة
     $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
@@ -330,18 +324,16 @@ try {
 
 
 {{% alert title="NOTE" color="warning" %}} 
-
-طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) تضيف الصورة المقصوصة إلى مجموعة صور العرض. إذا كانت الصورة مستخدمة فقط في [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) المُعالجة، يمكن لهذا الإعداد تقليل حجم العرض. وإلا، سيزداد عدد الصور في العرض الناتج.
+تضيف طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) الصورة المقصوصة إلى مجموعة صور العرض التقديمي. إذا كانت الصورة مستخدمة فقط في [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) المعالجة، يمكن لهذا الإعداد تقليل حجم العرض. وإلا، سيزداد عدد الصور في العرض الناتج.
 
 تحول هذه الطريقة ملفات WMF/EMF إلى صورة PNG نقطية أثناء عملية القص. 
-
 {{% /alert %}}
 
-## **Lock Aspect Ratio**
+## **قفل نسبة الأبعاد**
 
-إذا رغبت في أن يحتفظ شكل يحتوي على صورة بنسبة أبعاده حتى بعد تغيير أبعاد الصورة، يمكنك استخدام طريقة [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) لتفعيل إعداد *Lock Aspect Ratio*.
+إذا رغبت في أن يحتفظ الشكل الذي يحتوي على صورة بنسبة أبعاده حتى بعد تعديل أبعاد الصورة، يمكنك استخدام طريقة [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) لضبط إعداد *قفل نسبة الأبعاد*.
 
-هذا الكود PHP يوضح كيفية قفل نسبة أبعاد الشكل:
+يوضح هذا الكود PHP كيفية قفل نسبة أبعاد الشكل:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -357,7 +349,7 @@ try {
       }
     }
     $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # تعيين الشكل للحفاظ على نسبة الأبعاد عند التحجيم
+    # تعيين الشكل للحفاظ على نسبة الأبعاد عند تغيير الحجم
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
   } catch (JavaException $e) {
   } finally {
@@ -369,35 +361,33 @@ try {
 
 
 {{% alert title="NOTE" color="warning" %}} 
-
-إعداد *Lock Aspect Ratio* يحافظ فقط على نسبة أبعاد الشكل وليس الصورة التي يحتويها.
-
+هذا الإعداد *قفل نسبة الأبعاد* يحافظ فقط على نسبة أبعاد الشكل ولا يؤثر على الصورة التي يحتويها. 
 {{% /alert %}}
 
-## **Use the StretchOff Property**
+## **استخدام خاصية StretchOff**
 
-باستخدام الطرق [setStretchOffsetLeft](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/)، [setStretchOffsetTop](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsettop/)، [setStretchOffsetRight](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) و[setStretchOffsetBottom](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) من فئة [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/)، يمكنك تحديد مستطيل ملء.
+باستخدام طرق [setStretchOffsetLeft](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/)، [setStretchOffsetTop](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsettop/)، [setStretchOffsetRight](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) و[setStretchOffsetBottom](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) من فئة [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/)، يمكنك تحديد مستطيل ملء.
 
-عند تحديد تمديد لصورة، يتم تحجيم مستطيل المصدر ليتناسب مع مستطيل الملء المحدد. كل حافة من حواف مستطيل الملء تُحدَّد بنسبة مئوية من الحافة المقابلة لإطار الشكل. النسبة المئوية الموجبة تشير إلى تقليص، بينما النسبة السالبة تشير إلى توسيع.
+عند تحديد تمديد لصورة، يتم تحجيم مستطيل المصدر ليتناسب مع مستطيل الملء المحدد. يحدد كل جانب من جوانب مستطيل الملء نسبة مئوية من الإزاحة عن الجانب المقابل من صندوق حد الشكل. النسبة المئوية الإيجابية تعني تقليص، والسلبية تعني توسيع.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة عبر فهرسها.
 3. إضافة مستطيل `AutoShape`. 
 4. إنشاء صورة.
 5. تعيين نوع ملء الشكل.
 6. تعيين وضع ملء صورة الشكل.
-7. إضافة صورة للملء.
-8. تحديد إزاحات الصورة من الحافة المقابلة لإطار الشكل.
-9. كتابة العرض المعدل كملف PPTX.
+7. إضافة صورة لتعبئة الشكل.
+8. تحديد إزاحات الصورة من الجانب المقابل لصندوق حد الشكل.
+9. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح عملية استخدام خاصية StretchOff:
+يوضح هذا الكود PHP عملية استخدام خاصية StretchOff:
 ```php
-  # ينشئ كائن الفئة Presentation الذي يمثل ملف PPTX
+  # ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
     # يحصل على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # ينشئ كائن الفئة ImageEx
+    # ينشئ كائن من فئة ImageEx
     $picture;
     $image = Images->fromFile("aspose-logo.jpg");
     try {
@@ -413,9 +403,9 @@ try {
     $aShape->getFillFormat()->setFillType(FillType::Picture);
     # يحدد وضع تعبئة الصورة للشكل
     $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # يضبط الصورة لتملأ الشكل
+    # يحدد الصورة لتعبئة الشكل
     $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # يحدد إزاحات الصورة من الحافة المقابلة لإطار الصندوق المحيط بالشكل
+    # يحدد إزاحات الصورة من الحافة المقابلة لصندوق حدود الشكل
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
@@ -433,18 +423,18 @@ try {
 
 ## **FAQ**
 
-**How can I find out which image formats are supported for PictureFrame?**
+**كيف يمكنني معرفة صيغ الصور المدعومة لإطار الصورة؟**
 
-يدعم Aspose.Slides كلًا من الصور النقطية (PNG, JPEG, BMP, GIF, إلخ) والصور المتجهة (مثل SVG) عبر كائن الصورة المعين إلى [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/). عادةً ما تتقاطع قائمة الصيغ المدعومة مع إمكانات محرك تحويل الشرائح والصور.
+يدعم Aspose.Slides كلًا من الصور النقطية (PNG، JPEG، BMP، GIF، إلخ) والصور المتجهة (مثل SVG) عبر كائن الصورة المخصص لـ [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/). عادةً ما تتداخل قائمة الصيغ المدعومة مع قدرات محرك تحويل الشرائح والصور.
 
-**How will adding dozens of large images affect PPTX size and performance?**
+**كيف سيؤثر إضافة عشرات الصور الكبيرة على حجم وأداء ملف PPTX؟**
 
-يزيد إدراج صور كبيرة من حجم الملف واستهلاك الذاكرة؛ ربط الصور يساعد على تقليل حجم العرض لكن يتطلب بقاء الملفات الخارجية متاحة. يوفر Aspose.Slides القدرة على إضافة صور عبر روابط لتقليل حجم الملف.
+تزيد تضمين الصور الكبيرة من حجم الملف واستهلاك الذاكرة؛ بينما يساعد ربط الصور على تقليل حجم العرض التقديمي لكنه يتطلب بقاء الملفات الخارجية متاحة. يوفر Aspose.Slides إمكانية إضافة الصور عبر الروابط لتقليل حجم الملف.
 
-**How can I lock an image object from accidental moving/resizing?**
+**كيف يمكنني قفل كائن صورة لمنع تحريكه/تغييره غير مقصود؟**
 
-استخدم [قفل الأشكال](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/getpictureframelock/) لـ [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) (مثلاً، تعطيل النقل أو تغيير الحجم). يوضح آلية القفل للأشكال في مقال [الحماية](/slides/ar/php-java/applying-protection-to-presentation/) وتدعم أنواعًا متعددة من الأشكال، بما في ذلك [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).
+استخدم [قفل الأشكال](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/getpictureframelock/) لـ [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) (مثل منع التحريك أو تغيير الحجم). يدعم آلية القفل أنواعًا متعددة من الأشكال بما فيها [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).
 
-**Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**
+**هل تُحافظ على دقة متجه SVG عند تصدير العرض التقديمي إلى PDF/صور؟**
 
-يسمح Aspose.Slides باستخراج SVG من [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) كمتجه أصلي. عند [التصدير إلى PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/) أو [الصيغ النقطية](/slides/ar/php-java/convert-powerpoint-to-png/)، قد يتم تحويله إلى نقطي اعتمادًا على إعدادات التصدير؛ لكن يبقى حفظ SVG الأصلي كمتجه مؤكدًا بسلوك الاستخراج.
+يسمح Aspose.Slides باستخراج SVG من [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) كمتجه أصلي. عند [التصدير إلى PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/) أو [الصيغ النقطية](/slides/ar/php-java/convert-powerpoint-to-png/)، قد يتم تحويله إلى نقطية حسب إعدادات التصدير؛ ومع ذلك يظل SVG الأصلي محفوظًا كمتجه كما يظهر سلوك الاستخراج.

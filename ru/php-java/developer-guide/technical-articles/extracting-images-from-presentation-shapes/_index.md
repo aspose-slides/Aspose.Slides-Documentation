@@ -14,39 +14,39 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Извлекайте изображения из фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java — быстрое, удобное для кода решение."
+description: "Извлечение изображений из фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java — быстрое, удобное решение."
 ---
 
 ## **Извлечение изображений из фигур**
 
 {{% alert color="primary" %}} 
 
-Изображения часто добавляются к фигурам и также часто используются в качестве фонов слайдов. Объекты изображений добавляются через [IImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/iimagecollection/), который представляет собой коллекцию объектов [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ippimage/).
+Изображения часто добавляются к фигурам и также часто используются в качестве фона слайдов. Объекты изображений добавляются через [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/), который является коллекцией объектов [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
 
-В этой статье объясняется, как извлечь изображения, добавленные в презентацию. 
+В этой статье объясняется, как извлечь изображения, добавленные в презентации. 
 
 {{% /alert %}} 
 
-Чтобы извлечь изображение из презентации, необходимо сначала найти изображение, проходя каждый слайд и затем каждую фигуру. После того как изображение найдено или идентифицировано, его можно извлечь и сохранить как новый файл. 
+Чтобы извлечь изображение из презентации, сначала нужно найти его, пройдя по каждому слайду, а затем по каждой фигуре. После того как изображение найдено или определено, его можно извлечь и сохранить как новый файл. 
 ```php
 
 ```
 
 
-## **FAQ**
+## **Вопросы и ответы**
 
-**Можно ли извлечь оригинальное изображение без обрезки, эффектов или преобразований фигуры?**
+**Могу ли я извлечь оригинальное изображение без обрезки, эффектов или преобразований фигуры?**
 
-Da. Kogda vy poluchaete izobrajenie figury, vy poluchaete ob'ekt izobrajenija iz [image collection](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/) prezentacii, chto oznachaet original'nye piksely bez obrrezki ili stilisticheskikh effektov. Rabochij protsess prohodit cherez kollekciiu izobrajenij prezentacii i ob'ekty [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/), kotorye khranyat neobrabotannye dannye.
+Да. Когда вы получаете изображение фигуры, вы получаете объект изображения из [коллекции изображений](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/) презентации, то есть оригинальные пиксели без обрезки или стилистических эффектов. Рабочий процесс проходит через коллекцию изображений презентации и объекты [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/), которые хранят необработанные данные.
 
-**Suschestvuet li risk duplikatov identichnyh faylov pri massovom sohraneni eh izobrajenij?**
+**Есть ли риск дублирования одинаковых файлов при одновременном сохранении большого количества изображений?**
 
-Da, esli sohranyat' vse bez razlichij. [image collection](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/) prezentacii mozet soderzhat' odinakovyh binarnyh dannyh, na kotoryh ssylautsya raznye figury ili slajdy. Chtoby izbezhat' duplikatov, sravnivaite heshi, razmery ili soderzhimoe izvlechennykh dannyh pered zapisyu.
+Да, если сохранять всё без разбора. [Коллекция изображений](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getimages/) презентации может содержать одинаковые бинарные данные, на которые ссылаются разные фигуры или слайды. Чтобы избежать дубликатов, сравнивайте хеши, размеры или содержимое извлечённых данных перед записью.
 
-**Kak opredelit', kakyie figury sviazany s konkretnym izobrazheniem iz kollektsii prezentacii?**
+**Как определить, какие фигуры связаны с конкретным изображением из коллекции презентации?**
 
-Aspose.Slides ne khranit obratnye ssylki ot [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) k figuram. Sozdayte soglasovanie v rukakh vo vremya obhoda: kazhdyj raz, kogda vy nahodite ssylku na [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/), zapisivaite, kakie figury ee ispol'zuyut.
+Aspose.Slides не хранит обратные ссылки от [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) к фигурам. Создайте отображение вручную во время обхода: каждый раз, когда находите ссылку на [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/), фиксируйте, какие фигуры её используют.
 
-**Mozhno li izvlech' izobrazheniya, vlozhennye v OLE-obyekty, naprimer vkladyvannye dokumenty?**
+**Могу ли я извлечь изображения, встроенные в OLE‑объекты, например вложенные документы?**
 
-Ne neposredstvenno, poskol'ku OLE-obyekt yavlyaetsya konteynerom. Neobhodimo izvlech' sam OLE-paket, a zatem proanalizirovat' ego soderzhanie s pomoshch'yu otdel'nyh instrumentov. Izobrazheniya v prezentacii rabotajut cherez [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/); OLE - eto drugoj tip obyekta.
+Не напрямую, потому что OLE‑объект является контейнером. Нужно извлечь сам OLE‑пакет, а затем проанализировать его содержимое с помощью отдельных инструментов. Фигуры изображений презентации работают через [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/); OLE представляет собой другой тип объекта.

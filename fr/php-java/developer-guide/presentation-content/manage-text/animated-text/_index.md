@@ -20,7 +20,7 @@ description: "Créez du texte animé dynamique dans les présentations PowerPoin
 
 ## **Ajouter des effets d'animation aux paragraphes**
 
-Nous avons ajouté la méthode [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) aux classes [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) et [**ISequence**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence). Cette méthode vous permet d'ajouter des effets d'animation à un seul paragraphe. Ce code d'exemple vous montre comment ajouter un effet d'animation à un seul paragraphe :
+Nous avons ajouté la méthode [**addEffect()**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) à la classe [**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence). Cette méthode vous permet d'ajouter des effets d'animation à un paragraphe unique. Ce code d'exemple vous montre comment ajouter un effet d'animation à un paragraphe unique :
 ```php
   $presentation = new Presentation("Presentation.pptx");
   try {
@@ -40,9 +40,9 @@ Nous avons ajouté la méthode [**addEffect()**](https://reference.aspose.com/sl
 
 ## **Obtenir les effets d'animation des paragraphes**
 
-Vous pouvez décider de connaître les effets d'animation ajoutés à un paragraphe — par exemple, dans un scénario où vous voulez récupérer les effets d'animation d'un paragraphe afin de les appliquer à un autre paragraphe ou à une forme.
+Vous pouvez décider de connaître les effets d'animation ajoutés à un paragraphe — par exemple, dans un scénario, vous souhaitez récupérer les effets d'animation d'un paragraphe parce que vous prévoyez d'appliquer ces effets à un autre paragraphe ou à une forme.
 
-Aspose.Slides for PHP via Java vous permet d’obtenir tous les effets d'animation appliqués aux paragraphes contenus dans un cadre texte (forme). Ce code d'exemple vous montre comment obtenir les effets d'animation dans un paragraphe :
+Aspose.Slides for PHP via Java vous permet d'obtenir tous les effets d'animation appliqués aux paragraphes contenus dans un cadre de texte (forme). Ce code d'exemple vous montre comment récupérer les effets d'animation d'un paragraphe :
 ```php
   $pres = new Presentation("Presentation.pptx");
   $Array = new java_class("java.lang.reflect.Array");
@@ -63,14 +63,14 @@ Aspose.Slides for PHP via Java vous permet d’obtenir tous les effets d'animati
 
 ## **FAQ**
 
-**En quoi les animations de texte diffèrent-elles des transitions de diapositive, et peuvent-elles être combinées ?**
+**Comment les animations de texte diffèrent-elles des transitions de diapositive, et peuvent-elles être combinées ?**
 
-Les animations de texte contrôlent le comportement d’un objet dans le temps sur une diapositive, tandis que les [transitions](/slides/fr/php-java/slide-transition/) contrôlent la façon dont les diapositives changent. Elles sont indépendantes et peuvent être utilisées ensemble ; l’ordre de lecture est régi par la chronologie des animations et les paramètres de transition.
+Les animations de texte contrôlent le comportement d’un objet au fil du temps sur une diapositive, tandis que les [transitions](/slides/fr/php-java/slide-transition/) contrôlent la façon dont les diapositives changent. Elles sont indépendantes et peuvent être utilisées ensemble ; l’ordre de lecture est régi par la chronologie des animations et les paramètres de transition.
 
-**Les animations de texte sont-elles conservées lors de l'exportation en PDF ou en images ?**
+**Les animations de texte sont-elles conservées lors de l’exportation vers PDF ou images ?**
 
-Non. Les PDF et les images matricielles sont statiques, vous verrez donc un état unique de la diapositive sans mouvement. Pour conserver le mouvement, utilisez l’exportation [vidéo](/slides/fr/php-java/convert-powerpoint-to-video/) ou [HTML](/slides/fr/php-java/export-to-html5/).
+Non. Les PDF et les images raster sont statiques, vous verrez donc un seul état de la diapositive sans mouvement. Pour conserver le mouvement, utilisez l’exportation en [vidéo](/slides/fr/php-java/convert-powerpoint-to-video/) ou en [HTML](/slides/fr/php-java/export-to-html5/).
 
-**Les animations de texte fonctionnent-elles dans les mises en page et le masque des diapositives ?**
+**Les animations de texte fonctionnent-elles dans les dispositions et le masque des diapositives ?**
 
-Les effets appliqués aux objets de mise en page/masque sont hérités par les diapositives, mais leur minutage et leur interaction avec les animations au niveau de la diapositive dépendent de la séquence finale sur la diapositive.
+Les effets appliqués aux objets de disposition/masque sont hérités par les diapositives, mais leur chronologie et leur interaction avec les animations au niveau de la diapositive dépendent de la séquence finale sur la diapositive.

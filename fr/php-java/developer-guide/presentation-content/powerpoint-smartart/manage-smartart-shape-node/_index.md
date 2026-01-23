@@ -14,7 +14,7 @@ keywords:
 - position personnalisée
 - nœud assistant
 - format de remplissage
-- rendu du nœud
+- rendre le nœud
 - PowerPoint
 - présentation
 - PHP
@@ -23,20 +23,20 @@ description: "Gérez les nœuds de forme SmartArt dans les fichiers PPT et PPTX 
 ---
 
 ## **Ajouter un nœud SmartArt**
-Aspose.Slides for PHP via Java a fourni l'API la plus simple pour gérer les formes SmartArt de la manière la plus facile. Le code d'exemple suivant vous aidera à ajouter un nœud et un nœud enfant dans une forme SmartArt.
+Aspose.Slides pour PHP via Java a fourni l'API la plus simple pour gérer les formes SmartArt de la manière la plus facile. Le code d'exemple suivant vous aidera à ajouter un nœud et un nœud enfant à l'intérieur d'une forme SmartArt.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) et charger la présentation contenant une forme SmartArt.
-1. Obtenir la référence de la première diapositive en utilisant son index.
-1. Parcourir chaque forme à l'intérieur de la première diapositive.
-1. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si c’est un SmartArt.
-1. [Ajouter un nouveau nœud](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) dans la forme SmartArt [**NodeCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#getAllNodes--) et définir le texte dans TextFrame.
-1. Maintenant, [ajouter](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) un [**nœud enfant**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) dans le nœud SmartArt récemment ajouté et définir le texte dans TextFrame.
-1. Enregistrer la présentation.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) et charger la présentation contenant la forme SmartArt.
+2. Obtenir la référence de la première diapositive en utilisant son indice.
+3. Parcourir chaque forme de la première diapositive.
+4. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si c'est du SmartArt.
+5. [Ajouter un nouveau nœud](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode) dans la collection **NodeCollection** de la forme SmartArt et définir le texte dans le TextFrame.
+6. Maintenant, [Ajouter](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode) un **nœud enfant** dans le nœud SmartArt récemment ajouté et définir le texte dans le TextFrame.
+7. Enregistrer la présentation.
 ```php
   # Charger la présentation souhaitée
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    # Parcourir chaque forme dans la première diapositive
+    # Parcourir chaque forme de la première diapositive
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
       # Vérifier si la forme est de type SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -46,7 +46,7 @@ Aspose.Slides for PHP via Java a fourni l'API la plus simple pour gérer les for
         $TemNode = $smart->getAllNodes()->addNode();
         # Ajouter du texte
         $TemNode->getTextFrame()->setText("Test");
-        # Ajouter un nouveau nœud enfant dans le nœud parent. Il sera ajouté à la fin de la collection
+        # Ajouter un nouveau nœud enfant au nœud parent. Il sera ajouté à la fin de la collection
         $newNode = $TemNode->getChildNodes()->addNode();
         # Ajouter du texte
         $newNode->getTextFrame()->setText("New Node Added");
@@ -66,18 +66,18 @@ Aspose.Slides for PHP via Java a fourni l'API la plus simple pour gérer les for
 Dans le code d'exemple suivant, nous expliquons comment ajouter les nœuds enfants appartenant aux nœuds respectifs d'une forme SmartArt à une position particulière.
 
 1. Créer une instance de la classe Presentation.
-1. Obtenir la référence de la première diapositive en utilisant son index.
-1. Ajouter une forme [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) de type [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) dans la diapositive accédée.
-1. Accéder au premier nœud de la forme SmartArt ajoutée.
-1. Maintenant, ajouter le [**nœud enfant**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) pour le [**nœud**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) sélectionné à la position 2 et définir son texte.
-1. Enregistrer la présentation
+2. Obtenir la référence de la première diapositive en utilisant son indice.
+3. Ajouter une forme [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) de type [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) dans la diapositive accessible.
+4. Accéder au premier nœud de la forme SmartArt ajoutée.
+5. Maintenant, ajouter le **nœud enfant** pour le **nœud** sélectionné à la position 2 et définir son texte.
+6. Enregistrer la présentation.
 ```php
   # Créer une instance de présentation
   $pres = new Presentation();
   try {
     # Accéder à la diapositive de la présentation
     $slide = $pres->getSlides()->get_Item(0);
-    # Ajouter un IShape Smart Art
+    # Ajouter un Smart Art IShape
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
     # Accéder au nœud SmartArt à l'index 0
     $node = $smart->getAllNodes()->get_Item(0);
@@ -96,21 +96,21 @@ Dans le code d'exemple suivant, nous expliquons comment ajouter les nœuds enfan
 
 
 ## **Accéder à un nœud SmartArt**
-Le code d'exemple suivant vous aidera à accéder aux nœuds à l'intérieur d'une forme SmartArt. Veuillez noter que vous ne pouvez pas modifier le LayoutType du SmartArt car il est en lecture seule et n'est défini que lors de l'ajout de la forme SmartArt.
+Le code d'exemple suivant vous aidera à accéder aux nœuds à l'intérieur d'une forme SmartArt. Veuillez noter que vous ne pouvez pas modifier le LayoutType du SmartArt car il est en lecture seule et est défini uniquement lors de l'ajout de la forme SmartArt.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
-1. Obtenir la référence de la première diapositive en utilisant son index.
-1. Parcourir chaque forme à l'intérieur de la première diapositive.
-1. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si c’est un SmartArt.
-1. Parcourir tous les [**nœuds**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) à l'intérieur de la forme SmartArt.
-1. Accéder et afficher des informations telles que la position du nœud SmartArt, son niveau et le texte.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant la forme SmartArt.
+2. Obtenir la référence de la première diapositive en utilisant son indice.
+3. Parcourir chaque forme de la première diapositive.
+4. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si c'est du SmartArt.
+5. Parcourir tous les **nœuds** à l'intérieur de la forme SmartArt.
+6. Accéder et afficher des informations telles que la position du nœud SmartArt, le niveau et le texte.
 ```php
   # Instancier la classe Presentation
   $pres = new Presentation("SmartArtShape.pptx");
   try {
     # Obtenir la première diapositive
     $slide = $pres->getSlides()->get_Item(0);
-    # Parcourir chaque forme dans la première diapositive
+    # Parcourir chaque forme de la première diapositive
     foreach($slide->getShapes() as $shape) {
       # Vérifier si la forme est de type SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -136,20 +136,20 @@ Le code d'exemple suivant vous aidera à accéder aux nœuds à l'intérieur d'u
 ## **Accéder à un nœud enfant SmartArt**
 Le code d'exemple suivant vous aidera à accéder aux nœuds enfants appartenant aux nœuds respectifs d'une forme SmartArt.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
-1. Obtenir la référence de la première diapositive en utilisant son index.
-1. Parcourir chaque forme à l'intérieur de la première diapositive.
-1. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si c’est un SmartArt.
-1. Parcourir tous les [**nœuds**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) à l'intérieur de la forme SmartArt.
-1. Pour chaque [**nœud**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) sélectionné, parcourir tous les [**nœuds enfants**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#getChildNodes--) à l'intérieur du nœud particulier.
-1. Accéder et afficher des informations telles que la position du [**nœud enfant**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) , son niveau et le texte.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant la forme SmartArt.
+2. Obtenir la référence de la première diapositive en utilisant son indice.
+3. Parcourir chaque forme de la première diapositive.
+4. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si c'est du SmartArt.
+5. Parcourir tous les **nœuds** à l'intérieur de la forme SmartArt.
+6. Pour chaque **nœud** de forme SmartArt sélectionné, parcourir tous les **nœuds enfants** à l'intérieur du nœud particulier.
+7. Accéder et afficher des informations telles que la position du **nœud enfant**, le niveau et le texte.
 ```php
   # Instancier la classe Presentation
   $pres = new Presentation("AccessChildNodes.pptx");
   try {
     # Obtenir la première diapositive
     $slide = $pres->getSlides()->get_Item(0);
-    # Parcourir chaque forme dans la première diapositive
+    # Parcourir chaque forme de la première diapositive
     foreach($slide->getShapes() as $shape) {
       # Vérifier si la forme est de type SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -161,7 +161,7 @@ Le code d'exemple suivant vous aidera à accéder aux nœuds enfants appartenant
           $node0 = $smart->getAllNodes()->get_Item($i);
           # Parcourir les nœuds enfants du nœud SmartArt à l'index i
           for($j = 0; $j < java_values($node0->getChildNodes()->size()) ; $j++) {
-            # Accéder au nœud enfant du nœud SmartArt
+            # Accéder au nœud enfant dans le nœud SmartArt
             $node = $node0->getChildNodes()->get_Item($j);
             # Afficher les paramètres du nœud enfant SmartArt
             System->out->print("j = " . $j . ", Text = " . $node->getTextFrame()->getText() . ",  Level = " . $node->getLevel() . ", Position = " . $node->getPosition());
@@ -181,12 +181,12 @@ Le code d'exemple suivant vous aidera à accéder aux nœuds enfants appartenant
 Dans cet exemple, nous apprendrons à accéder aux nœuds enfants à une position particulière appartenant aux nœuds respectifs d'une forme SmartArt.
 
 1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Obtenir la référence de la première diapositive en utilisant son index.
-1. Ajouter une forme SmartArt de type [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList).
-1. Accéder à la forme SmartArt ajoutée.
-1. Accéder au nœud à l'index 0 de la forme SmartArt accédée.
-1. Maintenant, accéder au [**nœud enfant**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) à la position 1 du nœud SmartArt accédé en utilisant la méthode **get_Item()**.
-1. Accéder et afficher des informations telles que la position du [**nœud enfant**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) , son niveau et le texte.
+2. Obtenir la référence de la première diapositive en utilisant son indice.
+3. Ajouter une forme SmartArt de type [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList).
+4. Accéder à la forme SmartArt ajoutée.
+5. Accéder au nœud d'index 0 de la forme SmartArt.
+6. Maintenant, accéder au **nœud enfant** à la position 1 du nœud SmartArt en utilisant la méthode **get_Item()**.
+7. Accéder et afficher des informations telles que la position du **nœud enfant**, le niveau et le texte.
 ```php
   # Instancier la présentation
   $pres = new Presentation();
@@ -213,19 +213,19 @@ Dans cet exemple, nous apprendrons à accéder aux nœuds enfants à une positio
 ## **Supprimer un nœud SmartArt**
 Dans cet exemple, nous apprendrons à supprimer les nœuds à l'intérieur d'une forme SmartArt.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
-1. Obtenir la référence de la première diapositive en utilisant son index.
-1. Parcourir chaque forme à l'intérieur de la première diapositive.
-1. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si c’est un SmartArt.
-1. Vérifier si le [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) possède plus de 0 nœud.
-1. Sélectionner le nœud SmartArt à supprimer.
-1. Maintenant, supprimer le nœud sélectionné en utilisant la méthode [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
-1. Enregistrer la présentation.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant la forme SmartArt.
+2. Obtenir la référence de la première diapositive en utilisant son indice.
+3. Parcourir chaque forme de la première diapositive.
+4. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si c'est du SmartArt.
+5. Vérifier si le SmartArt possède plus de 0 nœud.
+6. Sélectionner le nœud SmartArt à supprimer.
+7. Maintenant, supprimer le nœud sélectionné à l'aide de la méthode [**removeNode**](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#removeNode).
+8. Enregistrer la présentation.
 ```php
   # Charger la présentation souhaitée
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # Parcourir chaque forme dans la première diapositive
+    # Parcourir chaque forme de la première diapositive
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       # Vérifier si la forme est de type SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -249,22 +249,22 @@ Dans cet exemple, nous apprendrons à supprimer les nœuds à l'intérieur d'une
 ```
 
 
-## **Supprimer un nœud SmartArt à une position spécifique**
+## **Supprimer un nœud SmartArt d'une position spécifique**
 Dans cet exemple, nous apprendrons à supprimer les nœuds à l'intérieur d'une forme SmartArt à une position particulière.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
-1. Obtenir la référence de la première diapositive en utilisant son index.
-1. Parcourir chaque forme à l'intérieur de la première diapositive.
-1. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si c’est un SmartArt.
-1. Sélectionner le nœud de la forme SmartArt à l'index 0.
-1. Maintenant, vérifier si le nœud SmartArt sélectionné possède plus de 2 nœuds enfants.
-1. Maintenant, supprimer le nœud à la **position 1** en utilisant la méthode [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-int-).
-1. Enregistrer la présentation.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant la forme SmartArt.
+2. Obtenir la référence de la première diapositive en utilisant son indice.
+3. Parcourir chaque forme de la première diapositive.
+4. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si c'est du SmartArt.
+5. Sélectionner le nœud de forme SmartArt à l'indice 0.
+6. Vérifier si le nœud SmartArt sélectionné possède plus de 2 nœuds enfants.
+7. Supprimer le nœud à la **position 1** à l'aide de la méthode [**removeNode**](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#removeNode).
+8. Enregistrer la présentation.
 ```php
   # Charger la présentation souhaitée
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # Parcourir chaque forme dans la première diapositive
+    # Parcourir chaque forme de la première diapositive
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       # Vérifier si la forme est de type SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -291,18 +291,18 @@ Dans cet exemple, nous apprendrons à supprimer les nœuds à l'intérieur d'une
 
 
 ## **Définir une position personnalisée pour un nœud enfant dans un objet SmartArt**
-Aspose.Slides for PHP via Java supporte désormais la définition des propriétés [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setX-float-) et [Y](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setY-float-). Le fragment de code ci‑dessous montre comment définir la position, la taille et la rotation personnalisées de SmartArtShape ; notez que l’ajout de nouveaux nœuds entraîne un recalcul des positions et des tailles de tous les nœuds. Avec les réglages de position personnalisée, l’utilisateur peut placer les nœuds selon ses besoins.
+Aspose.Slides pour PHP via Java prend en charge la définition des propriétés [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setX) et [Y](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setY). Le fragment de code ci‑dessous montre comment définir la position, la taille et la rotation personnalisées d’une SmartArtShape ; notez également que l’ajout de nouveaux nœuds provoque un recalcul des positions et des tailles de tous les nœuds. Avec les paramètres de position personnalisés, l’utilisateur peut placer les nœuds selon les exigences.
 ```php
   # Instancier la classe Presentation
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
     $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(20, 20, 600, 500, SmartArtLayoutType::OrganizationChart);
-    # Déplacer la forme SmartArt vers une nouvelle position
+    # Déplacer la forme SmartArt à une nouvelle position
     $node = $smart->getAllNodes()->get_Item(1);
     $shape = $node->getShapes()->get_Item(1);
     $shape->setX($shape->getX() . $shape->getWidth() * 2);
     $shape->setY($shape->getY() - $shape->getHeight() * 2);
-    # Modifier les largeurs de la forme SmartArt
+    # Modifier la largeur de la forme SmartArt
     $node = $smart->getAllNodes()->get_Item(2);
     $shape = $node->getShapes()->get_Item(1);
     $shape->setWidth($shape->getWidth() . $shape->getWidth() * 2);
@@ -321,10 +321,10 @@ Aspose.Slides for PHP via Java supporte désormais la définition des propriét�
 ```
 
 
-## **Vérifier un nœud assistant**
+## **Vérifier un nœud Assistant**
 {{% alert color="primary" %}} 
 
-Dans cet article, nous examinerons plus en détail les fonctionnalités des formes SmartArt ajoutées aux diapositives de présentation de façon programmatique à l’aide d’Aspose.Slides for PHP via Java.
+Dans cet article, nous approfondirons les fonctionnalités des formes SmartArt ajoutées aux diapositives de présentation de façon programmatique à l’aide d’Aspose.Slides pour PHP via Java.
 
 {{% /alert %}} 
 
@@ -334,20 +334,20 @@ Nous utiliserons la forme SmartArt source suivante pour nos investigations dans 
 | :- |
 |**Figure : Forme SmartArt source dans la diapositive**|
 
-Dans le code d'exemple suivant, nous examinerons comment identifier les **nœuds assistants** dans la collection de nœuds SmartArt et les modifier.
+Dans le code d'exemple suivant, nous étudierons comment identifier les **nœuds Assistant** dans la collection de nœuds SmartArt et les modifier.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
-1. Obtenir la référence de la deuxième diapositive en utilisant son index.
-1. Parcourir chaque forme à l'intérieur de la première diapositive.
-1. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) si c’est un SmartArt.
-1. Parcourir tous les nœuds à l'intérieur de la forme SmartArt et vérifier s'ils sont des [**nœuds assistants**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#isAssistant--).
-1. Modifier le statut du nœud assistant en nœud normal.
-1. Enregistrer la présentation.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et charger la présentation contenant la forme SmartArt.
+2. Obtenir la référence de la deuxième diapositive en utilisant son indice.
+3. Parcourir chaque forme de la première diapositive.
+4. Vérifier si la forme est du type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) et convertir la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) si c'est du SmartArt.
+5. Parcourir tous les nœuds de la forme SmartArt et vérifier s’ils sont des [**nœuds Assistant**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#isAssistant--).
+6. Modifier le statut du nœud Assistant en nœud normal.
+7. Enregistrer la présentation.
 ```php
   # Créer une instance de présentation
   $pres = new Presentation("AddNodes.pptx");
   try {
-    # Parcourir chaque forme dans la première diapositive
+    # Parcourir chaque forme de la première diapositive
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       # Vérifier si la forme est de type SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
@@ -358,7 +358,7 @@ Dans le code d'exemple suivant, nous examinerons comment identifier les **nœuds
           $node = $smart->getAllNodes()->get_Item($i);
           # Vérifier si le nœud est un nœud Assistant
           if ($node->isAssistant()) {
-            # Définir le nœud Assistant à false et le convertir en nœud normal
+            # Définir le nœud Assistant sur false et le transformer en nœud normal
             $node->isAssistant();
           }
         }
@@ -376,18 +376,18 @@ Dans le code d'exemple suivant, nous examinerons comment identifier les **nœuds
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Figure : Nœuds assistants modifiés dans la forme SmartArt de la diapositive**|
+|**Figure : Nœuds Assistant modifiés dans la forme SmartArt de la diapositive**|
 
-## **Définir le format de remplissage d'un nœud**
-Aspose.Slides for PHP via Java permet d’ajouter des formes SmartArt personnalisées et de définir leur format de remplissage. Cet article explique comment créer et accéder aux formes SmartArt et définir leur format de remplissage à l’aide d’Aspose.Slides for PHP via Java.
+## **Définir le format de remplissage d’un nœud**
+Aspose.Slides pour PHP via Java permet d’ajouter des formes SmartArt personnalisées et de définir leur format de remplissage. Cet article explique comment créer et accéder aux formes SmartArt et définir leur format de remplissage à l’aide d’Aspose.Slides pour PHP via Java.
 
 Veuillez suivre les étapes ci‑dessous :
 
 1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Obtenir la référence d’une diapositive en utilisant son index.
-1. Ajouter une forme [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) en définissant son [**LayoutType**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Définir le [**FillFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getFillFormat--) pour les nœuds de la forme SmartArt.
-1. Enregistrer la présentation modifiée au format PPTX.
+2. Obtenir la référence d’une diapositive en utilisant son indice.
+3. Ajouter une forme [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/) en définissant son [**LayoutType**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
+4. Définir le [**Fill Format**](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFillFormat) pour les nœuds de la forme SmartArt.
+5. Enregistrer la présentation modifiée au format PPTX.
 ```php
   # Instancier la présentation
   $pres = new Presentation();
@@ -414,24 +414,24 @@ Veuillez suivre les étapes ci‑dessous :
 
 
 ## **Générer une vignette d’un nœud enfant SmartArt**
-Les développeurs peuvent générer une vignette d’un nœud enfant d’un SmartArt en suivant les étapes ci‑dessous :
+Les développeurs peuvent générer une vignette du nœud enfant d’un SmartArt en suivant les étapes ci‑dessous :
 
 1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. [Ajouter SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Obtenir la référence d’un nœud en utilisant son index.
-1. Obtenir l’image de la vignette.
-1. Enregistrer l’image de la vignette dans le format d’image souhaité.
+2. [Ajouter SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnodecollection/#addNode).
+3. Obtenir la référence d’un nœud en utilisant son indice.
+4. Extraire l’image miniature.
+5. Enregistrer l’image miniature dans le format d’image souhaité.
 ```php
   # Instancier la classe Presentation qui représente le fichier PPTX
   $pres = new Presentation();
   try {
     # Ajouter SmartArt
     $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicCycle);
-    # Obtenir la référence d'un nœud en utilisant son index
+    # Obtenir la référence d'un nœud en utilisant son indice
     $node = $smart->getNodes()->get_Item(1);
-    # Obtenir la vignette
+    # Obtenir la miniature
     $slideImage = $node->getShapes()->get_Item(0)->getImage();
-    # Enregistrer la vignette
+    # Enregistrer la miniature
     try {
       $slideImage->save("SmartArt_ChildNote_Thumbnail.png", ImageFormat::Png);
     } finally {
@@ -451,16 +451,16 @@ Les développeurs peuvent générer une vignette d’un nœud enfant d’un Smar
 
 **L’animation SmartArt est‑elle prise en charge ?**
 
-Oui. SmartArt est traité comme une forme ordinaire, vous pouvez donc [appliquer des animations standard](/slides/fr/php-java/shape-animation/) (entrée, sortie, mise en évidence, trajectoires de mouvement) et ajuster le minutage. Vous pouvez également animer les formes à l’intérieur des nœuds SmartArt si nécessaire.
+Oui. SmartArt est traité comme une forme ordinaire, vous pouvez donc [appliquer des animations standard](/slides/fr/php-java/shape-animation/) (entrée, sortie, mise en relief, trajectoires) et ajuster le timing. Vous pouvez également animer les formes à l’intérieur des nœuds SmartArt si besoin.
 
-**Comment localiser de façon fiable un SmartArt spécifique sur une diapositive si son ID interne est inconnu ?**
+**Comment localiser de manière fiable un SmartArt spécifique sur une diapositive si son ID interne est inconnu ?**
 
-Attribuez et recherchez par le [texte alternatif](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/). Définir un AltText distinctif sur le SmartArt permet de le retrouver programmatiquement sans dépendre des identifiants internes.
+Attribuez et recherchez par [texte alternatif](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/). Définir un AltText distinctif sur le SmartArt permet de le trouver programmatiquement sans dépendre des identifiants internes.
 
-**L’apparence du SmartArt sera‑t‑elle conservée lors de la conversion de la présentation en PDF ?**
+**L’apparence du SmartArt sera‑t‑elle préservée lors de la conversion de la présentation en PDF ?**
 
-Oui. Aspose.Slides rend le SmartArt avec une haute fidélité visuelle lors de l’[export PDF](/slides/fr/php-java/convert-powerpoint-to-pdf/), en conservant la mise en page, les couleurs et les effets.
+Oui. Aspose.Slides rend le SmartArt avec une haute fidélité visuelle lors de l’[export PDF](/slides/fr/php-java/convert-powerpoint-to-pdf/), préservant la disposition, les couleurs et les effets.
 
-**Puis‑je extraire une image du SmartArt complet (pour des aperçus ou des rapports) ?**
+**Puis‑je extraire une image de l’ensemble du SmartArt (pour des aperçus ou des rapports) ?**
 
-Oui. Vous pouvez rendre une forme SmartArt en [formats raster](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) ou en [SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) pour une sortie vectorielle évolutive, adaptée aux vignettes, aux rapports ou à une utilisation web.
+Oui. Vous pouvez rendre une forme SmartArt en [formats raster](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) ou en [SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) pour une sortie vectorielle évolutive, ce qui la rend adaptée aux vignettes, rapports ou utilisations Web.

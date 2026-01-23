@@ -1,6 +1,6 @@
 ---
-title: PHP で PowerPoint プレゼンテーション チャートを作成または更新
-linktitle: チャートの作成または更新
+title: PHPでPowerPointプレゼンテーションチャートを作成または更新
+linktitle: チャートを作成または更新
 type: docs
 weight: 10
 url: /ja/php-java/create-chart/
@@ -10,135 +10,133 @@ keywords:
 - チャートを編集
 - チャートを変更
 - チャートを更新
-- 散布チャート
-- 円チャート
-- 折れ線チャート
+- 散布図チャート
+- 円グラフ
+- 折れ線グラフ
 - ツリーマップチャート
-- 株式チャート
-- 箱ひげ図
-- ファンネルチャート
+- 株価チャート
+- 箱ひげ図チャート
+- ファネルチャート
 - サンバーストチャート
 - ヒストグラムチャート
 - レーダーチャート
-- マルチカテゴリチャート
+- 複数カテゴリチャート
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides を使用して PowerPoint プレゼンテーション内のチャートを作成・カスタマイズします。実用的なコード例を用いて、チャートの追加、書式設定、編集を行います。"
+description: "Aspose.Slides for PHP（Java 経由）を使用して、PowerPoint プレゼンテーション内のチャートを作成およびカスタマイズします。実用的なコード例でチャートの追加、書式設定、編集が可能です。"
 ---
 
 ## **概要**
 
-この記事では、**Java で PowerPoint プレゼンテーション チャートを作成する方法**について説明します。また、**チャートを更新**することもできます。以下のトピックをカバーしています。
+この記事では、Java で **PowerPoint プレゼンテーション チャートを作成**する方法を説明します。また、**チャートを更新**することもできます。以下のトピックを取り上げます。
 
-_チャート_: **標準**
-- [Java PowerPointチャートの作成](#java-create-powerpoint-chart)
-- [Java プレゼンテーションチャートの作成](#java-create-presentation-chart)
-- [Java PowerPointプレゼンテーションチャートの作成](#java-create-powerpoint-presentation-chart)
+_チャート_: **通常**
+- [Java PowerPoint チャートの作成](#java-create-powerpoint-chart)
+- [Java プレゼンテーション チャートの作成](#java-create-presentation-chart)
+- [Java PowerPoint プレゼンテーション チャートの作成](#java-create-powerpoint-presentation-chart)
 
 _チャート_: **散布**
 - [Java 散布チャートの作成](#java-create-scattered-chart)
-- [Java PowerPoint散布チャートの作成](#java-create-powerpoint-scattered-chart)
-- [Java PowerPointプレゼンテーション散布チャートの作成](#java-create-powerpoint-presentation-scattered-chart)
+- [Java PowerPoint 散布チャートの作成](#java-create-powerpoint-scattered-chart)
+- [Java PowerPoint プレゼンテーション散布チャートの作成](#java-create-powerpoint-presentation-scattered-chart)
 
-_チャート_: **円**
-- [Java 円チャートの作成](#java-create-pie-chart)
-- [Java PowerPoint円チャートの作成](#java-create-powerpoint-pie-chart)
-- [Java PowerPointプレゼンテーション円チャートの作成](#java-create-powerpoint-presentation-pie-chart)
+_チャート_: **円グラフ**
+- [Java 円グラフの作成](#java-create-pie-chart)
+- [Java PowerPoint 円グラフの作成](#java-create-powerpoint-pie-chart)
+- [Java PowerPoint プレゼンテーション円グラフの作成](#java-create-powerpoint-presentation-pie-chart)
 
 _チャート_: **ツリーマップ**
 - [Java ツリーマップチャートの作成](#java-create-tree-map-chart)
-- [Java PowerPointツリーマップチャートの作成](#java-create-powerpoint-tree-map-chart)
-- [Java PowerPointプレゼンテーションツリーマップチャートの作成](#java-create-powerpoint-presentation-tree-map-chart)
+- [Java PowerPoint ツリーマップチャートの作成](#java-create-powerpoint-tree-map-chart)
+- [Java PowerPoint プレゼンテーションツリーマップチャートの作成](#java-create-powerpoint-presentation-tree-map-chart)
 
-_チャート_: **株式**
-- [Java 株式チャートの作成](#java-create-stock-chart)
-- [Java PowerPoint株式チャートの作成](#java-create-powerpoint-stock-chart)
-- [Java PowerPointプレゼンテーション株式チャートの作成](#java-create-powerpoint-presentation-stock-chart)
+_チャート_: **株価**
+- [Java 株価チャートの作成](#java-create-stock-chart)
+- [Java PowerPoint 株価チャートの作成](#java-create-powerpoint-stock-chart)
+- [Java PowerPoint プレゼンテーション株価チャートの作成](#java-create-powerpoint-presentation-stock-chart)
 
-_チャート_: **箱ひげ図**
-- [Java 箱ひげ図の作成](#java-create-box-and-whisker-chart)
-- [Java PowerPoint箱ひげ図の作成](#java-create-powerpoint-box-and-whisker-chart)
-- [Java PowerPointプレゼンテーション箱ひげ図の作成](#java-create-powerpoint-presentation-box-and-whisker-chart)
+_チャート_: **箱ひげ**
+- [Java 箱ひげチャートの作成](#java-create-box-and-whisker-chart)
+- [Java PowerPoint 箱ひげチャートの作成](#java-create-powerpoint-box-and-whisker-chart)
+- [Java PowerPoint プレゼンテーション箱ひげチャートの作成](#java-create-powerpoint-presentation-box-and-whisker-chart)
 
-_チャート_: **ファンネル**
-- [Java ファンネルチャートの作成](#java-create-funnel-chart)
-- [Java PowerPointファンネルチャートの作成](#java-create-powerpoint-funnel-chart)
-- [Java PowerPointプレゼンテーションファンネルチャートの作成](#java-create-powerpoint-presentation-funnel-chart)
+_チャート_: **ファネル**
+- [Java ファネルチャートの作成](#java-create-funnel-chart)
+- [Java PowerPoint ファネルチャートの作成](#java-create-powerpoint-funnel-chart)
+- [Java PowerPoint プレゼンテーションファネルチャートの作成](#java-create-powerpoint-presentation-funnel-chart)
 
 _チャート_: **サンバースト**
 - [Java サンバーストチャートの作成](#java-create-sunburst-chart)
-- [Java PowerPointサンバーストチャートの作成](#java-create-powerpoint-sunburst-chart)
-- [Java PowerPointプレゼンテーションサンバーストチャートの作成](#java-create-powerpoint-presentation-sunburst-chart)
+- [Java PowerPoint サンバーストチャートの作成](#java-create-powerpoint-sunburst-chart)
+- [Java PowerPoint プレゼンテーションサンバーストチャートの作成](#java-create-powerpoint-presentation-sunburst-chart)
 
 _チャート_: **ヒストグラム**
 - [Java ヒストグラムチャートの作成](#java-create-histogram-chart)
-- [Java PowerPointヒストグラムチャートの作成](#java-create-powerpoint-histogram-chart)
-- [Java PowerPointプレゼンテーションヒストグラムチャートの作成](#java-create-powerpoint-presentation-histogram-chart)
+- [Java PowerPoint ヒストグラムチャートの作成](#java-create-powerpoint-histogram-chart)
+- [Java PowerPoint プレゼンテーションヒストグラムチャートの作成](#java-create-powerpoint-presentation-histogram-chart)
 
 _チャート_: **レーダー**
 - [Java レーダーチャートの作成](#java-create-radar-chart)
-- [Java PowerPointレーダーチャートの作成](#java-create-powerpoint-radar-chart)
-- [Java PowerPointプレゼンテーションレーダーチャートの作成](#java-create-powerpoint-presentation-radar-chart)
+- [Java PowerPoint レーダーチャートの作成](#java-create-powerpoint-radar-chart)
+- [Java PowerPoint プレゼンテーションレーダーチャートの作成](#java-create-powerpoint-presentation-radar-chart)
 
-_チャート_: **マルチカテゴリ**
-- [Java マルチカテゴリチャートの作成](#java-create-multi-category-chart)
-- [Java PowerPointマルチカテゴリチャートの作成](#java-create-powerpoint-multi-category-chart)
-- [Java PowerPointプレゼンテーションマルチカテゴリチャートの作成](#java-create-powerpoint-presentation-multi-category-chart)
+_チャート_: **複数カテゴリ**
+- [Java 複数カテゴリチャートの作成](#java-create-multi-category-chart)
+- [Java PowerPoint 複数カテゴリチャートの作成](#java-create-powerpoint-multi-category-chart)
+- [Java PowerPoint プレゼンテーション複数カテゴリチャートの作成](#java-create-powerpoint-presentation-multi-category-chart)
 
 _チャート_: **マップ**
 - [Java マップチャートの作成](#java-create-map-chart)
-- [Java PowerPointマップチャートの作成](#java-create-powerpoint-map-chart)
-- [Java PowerPointプレゼンテーションマップチャートの作成](#java-create-powerpoint-presentation-map-chart)
+- [Java PowerPoint マップチャートの作成](#java-create-powerpoint-map-chart)
+- [Java PowerPoint プレゼンテーションマップチャートの作成](#java-create-powerpoint-presentation-map-chart)
 
 _アクション_: **チャートの更新**
-- [Java PowerPointチャートの更新](#java-update-powerpoint-chart)
+- [Java PowerPoint チャートの更新](#java-update-powerpoint-chart)
 - [Java プレゼンテーションチャートの更新](#java-update-presentation-chart)
-- [Java PowerPointプレゼンテーションチャートの更新](#java-update-powerpoint-presentation-chart)
+- [Java PowerPoint プレゼンテーションチャートの更新](#java-update-powerpoint-presentation-chart)
 
 
 ## **チャートの作成**
-チャートは、データをすばやく視覚化し、洞察を得るのに役立ちます。テーブルやスプレッドシートからはすぐに分からない情報を示すことができます。
+チャートは、データを素早く可視化し、洞察を得るのに役立ちます。テーブルやスプレッドシートからはすぐには分からないことも明らかにします。 
 
 **なぜチャートを作成するのか？**
 
-チャートを使用すると
+* プレゼンテーションの 1 枚のスライド上で大量のデータを集約、圧縮、または要約する  
+* データのパターンやトレンドを明らかにする  
+* 時間経過や特定の測定単位に対するデータの方向性と勢いを推測する  
+* 外れ値、異常、偏差、エラー、意味のないデータなどを検出する  
+* 複雑なデータを伝達または提示する  
 
-* 大量のデータを 1 つのスライドに集約・要約できる
-* データのパターンやトレンドを明らかにできる
-* 時間や特定の測定単位に対するデータの方向性や勢いを推測できる
-* 異常値やエラー、妥当でないデータを検出できる
-* 複雑なデータを効果的に伝達できる
-
-PowerPoint では、挿入機能を使用してさまざまなテンプレートからチャートを作成できます。Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
+PowerPoint では、挿入機能を使用してチャートを作成でき、さまざまな種類のチャートを設計するためのテンプレートが提供されています。Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
 
 {{% alert color="primary" %}} 
-チャート作成のために、Aspose.Slides は [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType) クラスを提供します。このクラスのフィールドは各種チャートタイプに対応しています。 
+チャート作成を可能にするために、Aspose.Slides は [ChartType] クラスを提供しています。このクラスのフィールドはさまざまなチャートタイプに対応しています。
 {{% /alert %}} 
 
-### **標準チャートの作成**
+### **通常チャートの作成**
 
 _Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>手順:</em> PowerPointチャートの作成 </strong></a>
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>手順:</em> PowerPoint チャートの作成 </strong></a>
 - <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>手順:</em> プレゼンテーションチャートの作成 </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>手順:</em> PowerPointプレゼンテーションチャートの作成 </strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションチャートの作成 </strong></a>
 
 **コード手順:**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. データを指定し、希望するチャートタイプを設定してチャートを追加します。
-4. チャートにタイトルを追加します。
-5. チャート データのワークシートにアクセスします。
-6. 既定の系列とカテゴリをすべてクリアします。
-7. 新しい系列とカテゴリを追加します。
-8. 系列用に新しいチャート データを追加します。
-9. 系列の塗りつぶし色を設定します。
-10. 系列のラベルを設定します。
-11. 修正したプレゼンテーションを PPTX ファイルとして書き出します。
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. データを指定してチャートを追加し、希望のチャートタイプを指定します。  
+4. チャートにタイトルを追加します。  
+5. チャートデータのワークシートにアクセスします。  
+6. デフォルトの系列とカテゴリをすべてクリアします。  
+7. 新しい系列とカテゴリを追加します。  
+8. 系列用の新しいチャートデータを追加します。  
+9. 系列の塗りつぶし色を追加します。  
+10. 系列のラベルを追加します。  
+11. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この PHP コードは標準チャートの作成方法を示します:
+この PHP コードは、通常のチャートの作成方法を示します:
 ```php
   # PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
   $pres = new Presentation();
@@ -188,7 +186,7 @@ _Steps: Create Chart_
     # 系列の塗りつぶし色を設定します
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # 新しい系列の各カテゴリにカスタム ラベルを作成します
+    # 新しい系列の各カテゴリにカスタムラベルを作成します
     # 最初のラベルにカテゴリ名を表示するよう設定します
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
@@ -199,7 +197,7 @@ _Steps: Create Chart_
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # チャート付きのプレゼンテーションを保存します
+    # チャート付きプレゼンテーションを保存します
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -210,39 +208,40 @@ _Steps: Create Chart_
 
 
 ### **散布チャートの作成**
-散布チャート（散布図、x‑y グラフ）は、2 つの変数間のパターンや相関関係を確認する際に使用されます。
 
-次の場合に散布チャートの使用を検討してください
+散布チャート（散布図または x‑y グラフとも呼ばれます）は、2 つの変数間のパターンや相関関係を確認するために使用されます。  
 
-* 対になった数値データがあるとき
-* 2 つの変数が密接に関係しているとき
-* 2 変数が関連しているか判定したいとき
-* 従属変数に対して複数の独立変数の値があるとき
+散布チャートを使用したい場合は次のときです。
+
+* 数値データがペアになっている  
+* 2 つの変数がよくペアになる  
+* 2 変数が関連しているかを判断したい  
+* 従属変数に対して複数の値を持つ独立変数がある  
 
 <a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>手順:</em> 散布チャートの作成 </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>手順:</em> PowerPoint散布チャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>手順:</em> PowerPointプレゼンテーション散布チャートの作成 </strong></a>
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>手順:</em> PowerPoint 散布チャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>手順:</em> PowerPoint プレゼンテーション散布チャートの作成 </strong></a>
 
-1. 上記の [標準チャートの作成](#creating-normal-charts) 手順に従います。
-2. 3 番目の手順で、チャートを追加するときに次のいずれかのチャートタイプを指定します
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _散布チャートを表します。_
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _曲線で結ばれた散布チャート（マーカー付き）を表します。_
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _曲線で結ばれた散布チャート（マーカーなし）を表します。_
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _直線で結ばれた散布チャート（マーカー付き）を表します。_
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _直線で結ばれた散布チャート（マーカーなし）を表します。_
+1. 上記の[通常チャートの作成](#creating-normal-charts)で示した手順に従ってください。  
+2. 3 番目の手順では、データを指定してチャートを追加し、以下のいずれかのチャートタイプを指定してください  
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - マーカー付き散布チャートを表します。  
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - スムーズラインとマーカー付き散布チャートを表します。  
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - スムーズラインのみの散布チャートを表します。  
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - 直線とマーカー付き散布チャートを表します。  
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - 直線のみの散布チャートを表します。  
 
-この PHP コードは、マーカーの異なる系列を持つ散布チャートの作成方法を示します:
+この PHP コードは、異なるマーカー系列を持つ散布チャートの作成方法を示します:
 ```php
-  # PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
+  # PPTX ファイルを表すプレゼンテーション クラスのインスタンスを生成します
   $pres = new Presentation();
   try {
     # 最初のスライドにアクセスします
     $slide = $pres->getSlides()->get_Item(0);
     # デフォルトのチャートを作成します
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # デフォルトのチャート データ ワークシート インデックスを取得します
+    # デフォルトのチャートデータ ワークシート インデックスを取得します
     $defaultWorksheetIndex = 0;
-    # チャート データ ワークシートを取得します
+    # チャートデータ ワークシートを取得します
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # デモ系列を削除します
     $chart->getChartData()->getSeries()->clear();
@@ -282,35 +281,35 @@ _Steps: Create Chart_
 ```
 
 
-### **円チャートの作成**
+### **円グラフの作成**
 
-円チャートは、データの部分と全体の関係を示すのに最適です。特に、カテゴリと数値が対応している場合に有用です。ただし、項目やラベルが多数ある場合は棒グラフの方が適しています。
+円グラフは、データの全体に対する割合を示すのに最適です。特に、カテゴリラベルと数値がある場合に有用です。ただし、部分やラベルが多すぎる場合は、棒グラフの使用を検討してください。  
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>手順:</em> 円チャートの作成 </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>手順:</em> PowerPoint円チャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>手順:</em> PowerPointプレゼンテーション円チャートの作成 </strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>手順:</em> 円グラフの作成 </strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>手順:</em> PowerPoint 円グラフの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>手順:</em> PowerPoint プレゼンテーション円グラフの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie）でチャートを追加します。
-4. チャート データの [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 円チャートのセクタにカスタム色を設定しながら新しいポイントを追加します。
-9. 系列のラベルを設定します。
-10. 系列ラベルのリーダーラインを設定します。
-11. 円チャート スライドの回転角度を設定します。
-12. 修正したプレゼンテーションを PPTX ファイルとして書き出します。
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie）を指定します。  
+4. [ChartDataWorkbook] にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 系列用の新しいチャートデータを追加します。  
+8. チャートのポイントを追加し、円グラフの各セクタにカスタムカラーを設定します。  
+9. 系列のラベルを設定します。  
+10. 系列ラベルのリーダーラインを設定します。  
+11. 円グラフの回転角度を設定します。  
+12. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この PHP コードは円チャートの作成方法を示します:
+この PHP コードは、円グラフの作成方法を示します:
 ```php
   # PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
   $pres = new Presentation();
   try {
     # 最初のスライドにアクセスします
     $slides = $pres->getSlides()->get_Item(0);
-    # デフォルト データでチャートを追加します
+    # デフォルトデータでチャートを追加します
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     # チャートのタイトルを設定します
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
@@ -319,9 +318,9 @@ _Steps: Create Chart_
     $chart->setTitle(true);
     # 最初の系列に値を表示するよう設定します
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # チャート データ シートのインデックスを設定します
+    # チャートデータ シートのインデックスを設定します
     $defaultWorksheetIndex = 0;
-    # チャート データ ワークシートを取得します
+    # チャートデータ ワークシートを取得します
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # デフォルトで生成された系列とカテゴリを削除します
     $chart->getChartData()->getSeries()->clear();
@@ -336,8 +335,8 @@ _Steps: Create Chart_
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # 新しいバージョンでは動作しません
-    # 新しいポイントを追加し、セクタの色を設定します
+    # 新しいバージョンでは機能しません
+    # Adding new points and setting sector color
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
@@ -367,7 +366,7 @@ _Steps: Create Chart_
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # 新しい系列の各カテゴリにカスタム ラベルを作成します
+    # 新しい系列の各カテゴリにカスタムラベルを作成します
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -378,11 +377,11 @@ _Steps: Create Chart_
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # チャートのリーダー ラインを表示します
+    # チャートのリーダーラインを表示します
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # 円グラフのセクタの回転角度を設定します
+    # 円グラフセクタの回転角度を設定します
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # チャート付きのプレゼンテーションを保存します
+    # チャート付きプレゼンテーションを保存します
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -392,20 +391,20 @@ _Steps: Create Chart_
 ```
 
 
-### **折れ線チャートの作成**
+### **折れ線グラフの作成**
 
-折れ線チャート（折れ線グラフ）は、時間経過による値の変化を示すのに最適です。多くのデータを同時に比較したり、トレンドや異常をハイライトしたりできます。
+折れ線グラフ（ライングラフ）は、時間の経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、多数のデータを同時に比較したり、時間経過による変化やトレンドを追跡したり、データ系列の異常を強調したりできます。  
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. インデックスでスライドの参照を取得します。
-1. デフォルト データと希望のタイプ（この場合は `ChartType::Line`）でチャートを追加します。
-1. チャート データの IChartDataWorkbook にアクセスします。
-1. 既定の系列とカテゴリをクリアします。
-1. 新しい系列とカテゴリを追加します。
-1. 系列用に新しいチャート データを追加します。
-1. 修正したプレゼンテーションを PPTX ファイルとして書き出します。
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（この場合は `ChartType::Line`）を指定します。  
+4. IChartDataWorkbook にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 系列用の新しいチャートデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-この PHP コードは折れ線チャートの作成方法を示します:
+この PHP コードは、折れ線グラフの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -419,7 +418,7 @@ _Steps: Create Chart_
 ```
 
 
-デフォルトでは、折れ線チャートのポイントは直線で結ばれます。破線で結びたい場合は、以下のように破線タイプを指定します:
+デフォルトでは、折れ線グラフのポイントは直線で結ばれます。ポイントを破線で結びたい場合は、以下のように希望の破線タイプを指定できます:
 ```php
   $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
   foreach($lineChart->getChartData()->getSeries() as $series) {
@@ -430,22 +429,22 @@ _Steps: Create Chart_
 
 ### **ツリーマップチャートの作成**
 
-ツリーマップチャートは、カテゴリ別の相対的な規模を示し、かつ大きな貢献者を強調したいときに適しています。
+ツリーマップチャートは、販売データなどでカテゴリごとの相対的なサイズを示し、同時に各カテゴリの大きな貢献項目に注意を引きつけたい場合に最適です。  
 
 <a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>手順:</em> ツリーマップチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>手順:</em> PowerPointツリーマップチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>手順:</em> PowerPointプレゼンテーションツリーマップチャートの作成 </strong></a>
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>手順:</em> PowerPoint ツリーマップチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションツリーマップチャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap）でチャートを追加します。
-4. チャート データの [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 修正したプレゼンテーションを PPTX ファイルとして書き出します
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap）を指定します。  
+4. [ChartDataWorkbook] にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 系列用の新しいチャートデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-この PHP コードはツリーマップチャートの作成方法を示します:
+この PHP コードは、ツリーマップチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -490,23 +489,23 @@ _Steps: Create Chart_
 ```
 
 
-### **株式チャートの作成**
+### **株価チャートの作成**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>手順:</em> 株式チャートの作成 </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>手順:</em> PowerPoint株式チャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>手順:</em> PowerPointプレゼンテーション株式チャートの作成 </strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>手順:</em> 株価チャートの作成 </strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>手順:</em> PowerPoint 株価チャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>手順:</em> PowerPoint プレゼンテーション株価チャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose）でチャートを追加します。
-4. チャート データの [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. HiLowLines の書式を指定します。
-9. 修正したプレゼンテーションを PPTX ファイルとして書き出します
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose）を指定します。  
+4. [ChartDataWorkbook] にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 系列用の新しいチャートデータを追加します。  
+8. HiLowLines の書式を指定します。  
+9. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-株式チャート作成サンプル PHP コード:
+この PHP コードは、株価チャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -551,22 +550,22 @@ _Steps: Create Chart_
 ```
 
 
-### **箱ひげ図の作成**
+### **箱ひげチャートの作成**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>手順:</em> 箱ひげ図の作成 </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>手順:</em> PowerPoint箱ひげ図の作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>手順:</em> PowerPointプレゼンテーション箱ひげ図の作成 </strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>手順:</em> 箱ひげチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>手順:</em> PowerPoint 箱ひげチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>手順:</em> PowerPoint プレゼンテーション箱ひげチャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker）でチャートを追加します。
-4. チャート データの [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 修正したプレゼンテーションを PPTX ファイルとして書き出します
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker）を指定します。  
+4. [ChartDataWorkbook] にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 系列用の新しいチャートデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-この PHP コードは箱ひげ図の作成方法を示します:
+この PHP コードは、箱ひげチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -602,18 +601,18 @@ _Steps: Create Chart_
 ```
 
 
-### **ファンネルチャートの作成**
+### **ファネルチャートの作成**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>手順:</em> ファンネルチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>手順:</em> PowerPointファンネルチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>手順:</em> PowerPointプレゼンテーションファンネルチャートの作成 </strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>手順:</em> ファネルチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>手順:</em> PowerPoint ファネルチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションファネルチャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel）でチャートを追加します。
-4. 修正したプレゼンテーションを PPTX ファイルとして書き出します
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel）を指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-ファンネルチャート作成 PHP コード:
+この PHP コードは、ファネルチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -647,15 +646,15 @@ _Steps: Create Chart_
 ### **サンバーストチャートの作成**
 
 <a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>手順:</em> サンバーストチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>手順:</em> PowerPointサンバーストチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>手順:</em> PowerPointプレゼンテーションサンバーストチャートの作成 </strong></a>
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>手順:</em> PowerPoint サンバーストチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションサンバーストチャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst）でチャートを追加します。
-4. 修正したプレゼンテーションを PPTX ファイルとして書き出します
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst）を指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-サンバーストチャート作成 PHP コード:
+この PHP コードは、サンバーストチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -702,18 +701,18 @@ _Steps: Create Chart_
 ### **ヒストグラムチャートの作成**
 
 <a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>手順:</em> ヒストグラムチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>手順:</em> PowerPointヒストグラムチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>手順:</em> PowerPointプレゼンテーションヒストグラムチャートの作成 </strong></a>
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>手順:</em> PowerPoint ヒストグラムチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションヒストグラムチャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram）でチャートを追加します。
-4. チャート データの [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 修正したプレゼンテーションを PPTX ファイルとして書き出します
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram）を指定します。  
+4. [ChartDataWorkbook] にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-ヒストグラムチャート作成 PHP コード:
+この PHP コードは、ヒストグラムチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Histogram, 50, 50, 500, 400);
@@ -735,15 +734,15 @@ _Steps: Create Chart_
 ### **レーダーチャートの作成**
 
 <a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>手順:</em> レーダーチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>手順:</em> PowerPointレーダーチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>手順:</em> PowerPointプレゼンテーションレーダーチャートの作成 </strong></a>
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>手順:</em> PowerPoint レーダーチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションレーダーチャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. データを指定し、希望するチャートタイプ（この場合は `ChartType::Radar`）でチャートを追加します。
-4. 修正したプレゼンテーションを PPTX ファイルとして書き出します
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. データを指定してチャートを追加し、希望のチャートタイプ（この場合は `ChartType::Radar`）を指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します  
 
-レーダーチャート作成 PHP コード:
+この PHP コードは、レーダーチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -757,22 +756,22 @@ _Steps: Create Chart_
 ```
 
 
-### **マルチカテゴリチャートの作成**
+### **複数カテゴリチャートの作成**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>手順:</em> マルチカテゴリチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>手順:</em> PowerPointマルチカテゴリチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>手順:</em> PowerPointプレゼンテーションマルチカテゴリチャートの作成 </strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>手順:</em> 複数カテゴリチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>手順:</em> PowerPoint 複数カテゴリチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>手順:</em> PowerPoint プレゼンテーション複数カテゴリチャートの作成 </strong></a>
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn）でチャートを追加します。
-4. チャート データの [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 修正したプレゼンテーションを PPTX ファイルとして書き出します。
+1. [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. デフォルトデータと共にチャートを追加し、目的のタイプ（[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn）を指定します。  
+4. [ChartDataWorkbook] にアクセスします。  
+5. デフォルトの系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 系列用の新しいチャートデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-マルチカテゴリチャート作成 PHP コード:
+この PHP コードは、複数カテゴリチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -816,13 +815,13 @@ _Steps: Create Chart_
 
 ### **マップチャートの作成**
 
-マップチャートは、データを含む領域を視覚化します。地理的領域ごとのデータや値の比較に最適です。
+マップチャートは、データを含む領域を視覚化したものです。地理的領域間でデータや値を比較するのに最適です。  
 
 <a name="java-create-map-chart" id="java-create-map-chart"><strong><em>手順:</em> マップチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>手順:</em> PowerPointマップチャートの作成 </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>手順:</em> PowerPointプレゼンテーションマップチャートの作成 </strong></a>
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>手順:</em> PowerPoint マップチャートの作成 </strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションマップチャートの作成 </strong></a>
 
-この PHP コードはマップチャートの作成方法を示します:
+この PHP コードは、マップチャートの作成方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -836,13 +835,13 @@ _Steps: Create Chart_
 ```
 
 
-### **コンビネーションチャートの作成**
+### **組み合わせチャートの作成**
 
-コンビネーションチャート（コンボチャート）は、単一のグラフに 2 つ以上のチャートタイプを組み合わせたものです。複数データセット間の違いをハイライト、比較、検証でき、関係性を把握しやすくなります。
+組み合わせチャート（コンボチャート）は、1 つのグラフに 2 つ以上のチャートタイプを組み合わせたものです。このチャートを使用すると、複数のデータセット間の違いを強調、比較、検証でき、データ間の関係を把握しやすくなります。
 
-![The combination chart](combination_chart.png)
+![組み合わせチャート](combination_chart.png)
 
-以下の PHP コードは、上記のコンビネーションチャートを PowerPoint プレゼンテーションに作成する方法を示します:
+以下の PHP コードは、上記の組み合わせチャートを PowerPoint プレゼンテーションに作成する方法を示します:
 ```php
 function createComboChart() {
     $presentation = new Presentation();
@@ -952,7 +951,7 @@ function setPrimaryAxesFormat($chart) {
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // 垂直軸の主目盛線の色を設定します。
+    // 垂直主目盛線を設定します。
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
@@ -991,54 +990,54 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **チャートの更新**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>手順:</em> PowerPointチャートの更新 </strong></a> |
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>手順:</em> PowerPoint チャートの更新 </strong></a> |
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>手順:</em> プレゼンテーションチャートの更新 </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>手順:</em> PowerPointプレゼンテーションチャートの更新 </strong></a>
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>手順:</em> PowerPoint プレゼンテーションチャートの更新 </strong></a>
 
-1. 更新対象のチャートが含まれるプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. すべてのシェイプを走査し、目的のチャートを見つけます。
-4. チャート データのワークシートにアクセスします。
-5. 系列の値を変更してデータを修正します。
-6. 新しい系列を追加し、データを入力します。
-7. 修正したプレゼンテーションを PPTX ファイルとして書き出します。
+1. 更新対象のチャートが含まれるプレゼンテーションを表す [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. すべてのシェイプを走査して目的のチャートを見つけます。  
+4. チャートデータのワークシートにアクセスします。  
+5. 系列の値を変更してチャートデータ系列を修正します。  
+6. 新しい系列を追加し、データを入力します。  
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-チャート更新 PHP コード:
+この PHP コードは、チャートを更新する方法を示します:
 ```php
   $pres = new Presentation();
   try {
     # 最初のスライドマーカーにアクセス
     $sld = $pres->getSlides()->get_Item(0);
-    # デフォルト データでチャートを取得
+    # デフォルトデータでチャートを取得
     $chart = $sld->getShapes()->get_Item(0);
-    # チャート データ シートのインデックスを設定
+    # チャートデータシートのインデックスを設定
     $defaultWorksheetIndex = 0;
-    # チャート データ ワークシートを取得
+    # チャートデータワークシートを取得
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # チャートのカテゴリ名を変更
+    # チャートカテゴリ名を変更
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # 最初のチャート系列を取得
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # 系列データを更新
+    # 系列データを更新中
     $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// 系列名を変更
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # 2 番目のチャート系列を取得
+    # 2番目のチャート系列を取得
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # 系列データを更新
+    # 系列データを更新中
     $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// 系列名を変更
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # 新しい系列を追加
+    # 新しい系列を追加中
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # 3 番目のチャート系列を取得
+    # 3番目のチャート系列を取得
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # 系列データを設定
+    # 系列データを設定中
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
@@ -1055,15 +1054,15 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **チャートのデータ範囲の設定**
 
-チャートのデータ範囲を設定する手順:
+チャートのデータ範囲を設定するには、次の手順を実行します。
 
-1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. すべてのシェイプを走査し、目的のチャートを見つけます。
-4. チャート データにアクセスし、範囲を設定します。
-5. 修正したプレゼンテーションを PPTX ファイルとして保存します。
+1. 対象チャートを含むプレゼンテーションを表す [Presentation] クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. すべてのシェイプを走査して目的のチャートを見つけます。  
+4. チャートデータにアクセスし、範囲を設定します。  
+5. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-データ範囲設定 PHP コード:
+この PHP コードは、チャートのデータ範囲を設定する方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -1079,11 +1078,11 @@ function setAxisTitle($axis, $axisTitle) {
 ```
 
 
-## **チャートでデフォルト マーカーを使用する**
+## **チャートでデフォルトマーカーを使用する**
 
-チャートでデフォルト マーカーを使用すると、各系列に自動的に異なるデフォルト マーカー記号が設定されます。
+チャートでデフォルトマーカーを使用すると、各系列に自動的に異なるデフォルトマーカー記号が設定されます。
 
-デフォルト マーカー自動設定 PHP コード:
+この PHP コードは、チャート系列のマーカーを自動的に設定する方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -1105,7 +1104,7 @@ function setAxisTitle($axis, $axisTitle) {
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
     # 2 番目のチャート系列を取得
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # 現在系列データを設定しています
+    # 系列データを設定中
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1125,16 +1124,16 @@ function setAxisTitle($axis, $axisTitle) {
 
 **Aspose.Slides がサポートするチャートタイプは何ですか？**
 
-Aspose.Slides は、棒、折れ線、円、エリア、散布、ヒストグラム、レーダーなど、幅広い [chart types](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) をサポートしています。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
+Aspose.Slides は、[chart types](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) を多数サポートしており、棒グラフ、折れ線グラフ、円グラフ、面グラフ、散布図、ヒストグラム、レーダーなどがあります。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
 
-**スライドに新しいチャートを追加するには？**
+**スライドに新しいチャートを追加するにはどうすればよいですか？**
 
-まず、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得し、チャートタイプと初期データを指定してチャート追加メソッドを呼び出します。これにより、チャートがプレゼンテーションに直接組み込まれます。
+まず、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得してから、チャート追加メソッドを呼び出し、チャートタイプと初期データを指定します。この手順でチャートがプレゼンテーションに直接組み込まれます。
 
-**チャートに表示されるデータを更新するには？**
+**チャートに表示されているデータを更新するには？**
 
-チャートのデータ ワークブック（[ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)）にアクセスし、既定の系列とカテゴリをクリアしてからカスタム データを追加することで、最新のデータに更新できます。
+[ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) にアクセスし、既定の系列とカテゴリをクリアしてからカスタムデータを追加します。これにより、チャートを最新のデータに更新できます。
 
 **チャートの外観をカスタマイズできますか？**
 
-はい、Aspose.Slides は豊富なカスタマイズ機能を提供します。色、フォント、ラベル、凡例、およびその他の [formatting elements](/slides/ja/php-java/chart-entities/) を変更して、デザイン要件に合わせてチャートの外観を調整できます。
+はい、Aspose.Slides は豊富なカスタマイズ機能を提供します。色、フォント、ラベル、凡例、その他の [formatting elements](/slides/ja/php-java/chart-entities/) を変更して、チャートの外観をデザイン要件に合わせて調整できます。

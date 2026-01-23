@@ -6,23 +6,23 @@ weight: 100
 url: /es/php-java/presentation-localization/
 keywords:
 - cambiar idioma
-- corrector ortográfico
+- revisión ortográfica
 - ID de idioma
 - PowerPoint
 - OpenDocument
 - presentación
 - PHP
 - Aspose.Slides
-description: "Automatiza la localización de diapositivas PowerPoint y OpenDocument con Aspose.Slides para PHP mediante Java, utilizando ejemplos de código prácticos y consejos para un despliegue global más rápido."
+description: "Automatizar la localización de diapositivas PowerPoint y OpenDocument con Aspose.Slides para PHP mediante Java, usando ejemplos de código prácticos y consejos para un despliegue global más rápido."
 ---
 
 ## **Cambiar el idioma de una presentación y del texto de una forma**
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Obtenga la referencia de una diapositiva usando su índice.
-- Agregue un [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) de tipo [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) a la diapositiva.
-- Agregue texto al TextFrame.
-- [Establecer Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) al texto.
-- Guarde la presentación como un archivo PPTX.
+- Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+- Obtener la referencia de una diapositiva mediante su índice.
+- Añadir un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) del tipo [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) a la diapositiva.
+- Añadir texto al TextFrame.
+- [Set Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) al texto.
+- Guardar la presentación como archivo PPTX.
 
 La implementación de los pasos anteriores se muestra a continuación en un ejemplo.
 ```php
@@ -42,13 +42,13 @@ La implementación de los pasos anteriores se muestra a continuación en un ejem
 
 ## **Preguntas frecuentes**
 
-**¿El ID de idioma activa la traducción automática del texto?**
+**¿El Language ID activa la traducción automática del texto?**
 
-No. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) en Aspose.Slides almacena el idioma para la corrección ortográfica y la comprobación gramatical, pero no traduce ni cambia el contenido del texto. Es metadatos que PowerPoint entiende para la revisión.
+No. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) en Aspose.Slides almacena el idioma para la corrección ortográfica y la prueba gramatical, pero no traduce ni cambia el contenido del texto. Es metadatos que PowerPoint entiende para la revisión.
 
-**¿El ID de idioma afecta la separación silábica y los saltos de línea durante la renderización?**
+**¿El Language ID afecta la separación silábica y los saltos de línea durante la representación?**
 
-En Aspose.Slides, [language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) es para la revisión. La calidad de la separación silábica y el ajuste de líneas dependen principalmente de la disponibilidad de [fuentes adecuadas](/slides/es/php-java/powerpoint-fonts/) y de la configuración de diseño/saltos de línea para el sistema de escritura. Para garantizar una renderización correcta, haga que las fuentes necesarias estén disponibles, configure [reglas de sustitución de fuentes](/slides/es/php-java/font-substitution/) y/o [incorporar fuentes](/slides/es/php-java/embedded-font/) en la presentación.
+En Aspose.Slides, el [language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) es solo para la revisión. La calidad de la separación silábica y el ajuste de líneas dependen principalmente de la disponibilidad de [fuentes adecuadas](/slides/es/php-java/powerpoint-fonts/) y de la configuración de diseño/saltos de línea para el sistema de escritura. Para garantizar una representación correcta, proporcione las fuentes necesarias, configure las [reglas de sustitución de fuentes](/slides/es/php-java/font-substitution/) y/o [incorpore fuentes](/slides/es/php-java/embedded-font/) en la presentación.
 
 **¿Puedo establecer diferentes idiomas dentro de un solo párrafo?**
 

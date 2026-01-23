@@ -1,6 +1,6 @@
 ---
-title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية في PHP
-linktitle: معادلات PowerPoint الرياضية
+title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية باستخدام PHP
+linktitle: معادلات رياضية في PowerPoint
 type: docs
 weight: 80
 url: /ar/php-java/powerpoint-math-equations/
@@ -17,41 +17,41 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إدراج وتحرير المعادلات الرياضية في PowerPoint بصيغ PPT و PPTX باستخدام Aspose.Slides للـ PHP عبر Java، مع دعم OMML، أدوات تنسيق، وعينات شفرة واضحة."
+description: "إدراج وتحرير المعادلات الرياضية في عروض PowerPoint PPT و PPTX باستخدام Aspose.Slides للـ PHP عبر Java، مع دعم OMML، التحكم في التنسيقات، وعينات شفرة واضحة."
 ---
 
 ## **نظرة عامة**
-في PowerPoint، يمكن كتابة معادلة أو صيغة رياضية وعرضها في العرض التقديمي. للقيام بذلك، يتم تمثيل رموز رياضية مختلفة في PowerPoint ويمكن إضافتها إلى النص أو المعادلة. لاستخدام ذلك، يتم الاعتماد على مُنشئ المعادلات الرياضية في PowerPoint، الذي يساعد في إنشاء صيغ معقدة مثل:
+في PowerPoint، يمكن كتابة معادلة أو صيغة رياضية وعرضها في العرض التقديمي. للقيام بذلك، يتم تمثيل رموز رياضية مختلفة في PowerPoint ويمكن إضافتها إلى النص أو المعادلة. لهذا، يتم استخدام منشئ المعادلات الرياضية في PowerPoint، والذي يساعد على إنشاء صيغ معقدة مثل:
 
 - كسر رياضي
 - جذر رياضي
 - دالة رياضية
 - حدود ودوال اللوغاريتم
-- عمليات N-ary
+- عمليات n‑ary
 - مصفوفة
-- عوامل كبيرة
-- دوال الجيب والجيب التمام
+- عاملات كبيرة
+- دوال الجيب وجيب التمام
 
-لإضافة معادلة رياضية في PowerPoint، يتم استخدام قائمة *Insert->Equation*:
+لإضافة معادلة رياضية في PowerPoint، يتم استخدام قائمة *Insert -> Equation*:
 
 ![todo:image_alt_text](powerpoint-math-equations_1.png)
 
-سيؤدي ذلك إلى إنشاء نص رياضي بصيغة XML يمكن عرضه في PowerPoint كما يلي:
+سيؤدي ذلك إلى إنشاء نص رياضي بصيغة XML يمكن عرضه في PowerPoint كما يلي: 
 
 ![todo:image_alt_text](powerpoint-math-equations_2.png)
 
-يدعم PowerPoint عددًا كبيرًا من الرموز الرياضية لإنشاء المعادلات. ومع ذلك، فإن إنشاء معادلات رياضية معقدة في PowerPoint غالبًا لا ينتج عنه مظهر جيد ومهني. المستخدمون الذين يحتاجون إلى إنشاء عروض تقديمية رياضية بشكل متكرر يلجؤون إلى حلول الطرف الثالث للحصول على صيغ رياضية ذات مظهر جيد.
+يدعم PowerPoint الكثير من الرموز الرياضية لإنشاء المعادلات. ومع ذلك، غالبًا ما لا ينتج عن إنشاء معادلات رياضية معقدة في PowerPoint نتيجة جيدة ومظهر احترافي. يلجأ المستخدمون الذين يحتاجون إلى إنشاء عروض تقديمية رياضية بشكل متكرر إلى حلول الطرف الثالث لإنتاج صيغ رياضية ذات مظهر جيد.
 
-باستخدام [**Aspose.Slide API**](https://products.aspose.com/slides/php-java/)، يمكنك العمل مع المعادلات الرياضية في عروض PowerPoint برمجيًا بلغة C#. إنشاء تعابير رياضية جديدة أو تعديل التعابير الموجودة. كما يتم دعم تصدير البُنى الرياضية إلى صور جزئيًا.
+باستخدام [**Aspose.Slide API**](https://products.aspose.com/slides/php-java/)، يمكنك العمل مع المعادلات الرياضية في عروض PowerPoint برمجيًا بلغة C#. أنشئ تعبيرات رياضية جديدة أو حرّر تلك التي تم إنشاؤها مسبقًا. كما يتم دعم تصدير الهياكل الرياضية إلى صور جزئيًا.
 
 ## **كيفية إنشاء معادلة رياضية**
-تُستخدم العناصر الرياضية لبناء أي تركيبات رياضية مهما كان مستوى تعشيقها. تُشكِّل مجموعة خطية من العناصر الرياضية كتلة رياضية تمثلها الفئة [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock). فئة [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock) هي في الأساس تعبير رياضي منفصل أو صيغة أو معادلة. فئة [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) هي جزء رياضي يُستخدم لحمل النص الرياضي (لا تُخلط مع [**Portion**](https://reference.aspose.com/slides/php-java/aspose.slides/Portion)). فئة [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph) تُتيح التعامل مع مجموعة من كتل الرياضيات. الفئات المذكورة أعلاه هي المفتاح للعمل مع معادلات PowerPoint الرياضية عبر Aspose.Slides API.
+تُستخدم العناصر الرياضية لبناء أي تركيبات رياضية بأي مستوى من التعشيق. تشكل مجموعة خطية من العناصر الرياضية كتلة رياضية يتم تمثيلها بواسطة الفئة [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock). الفئة [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock) تمثل أساسًا تعبيرًا رياضيًا منفصلًا أو صيغة أو معادلة. [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) هي جزء رياضي يُستخدم لحفظ النص الرياضي (لا تخلطه مع [**Portion**](https://reference.aspose.com/slides/php-java/aspose.slides/Portion)). [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph) تسمح بالتعامل مع مجموعة من كتل الرياضيات. الفئات المذكورة أعلاه هي المفتاح للعمل مع معادلات الرياضيات في PowerPoint عبر Aspose.Slides API.
 
-دعنا نرى كيف يمكننا إنشاء المعادلة الرياضية التالية باستخدام Aspose.Slides API:
+دعنا نرى كيف يمكننا إنشاء المعادلة الرياضية التالية عبر Aspose.Slides API:
 
 ![todo:image_alt_text](powerpoint-math-equations_3.png)
 
-لإضافة تعبير رياضي إلى الشريحة، أولاً أضف شكلًا سيحتوي على النص الرياضي:
+لإضافة تعبير رياضي إلى الشريحة، أولاً أضف شكلاً سيحتوي على النص الرياضي:
 ```php
   $pres = new Presentation();
   try {
@@ -64,19 +64,28 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 ```
 
 
-بعد الإنشاء، سيحتوي الشكل تلقائيًا على فقرة واحدة مع جزء رياضي بصورة افتراضية. فئة [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) هي الجزء الذي يحتوي على النص الرياضي. للوصول إلى المحتوى الرياضي داخل [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion)، راجع المتغيّر [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph):
+بعد الإنشاء، سيحتوي الشكل بالفعل على فقرة واحدة مع جزء رياضي بشكل افتراضي. الفئة [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) هي جزء يحتوي على نص رياضي داخله. للوصول إلى المحتوى الرياضي داخل [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion)، ارجع إلى متغيّر [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph):
 ```php
   $mathParagraph = $mathShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
 ``` 
+
+The [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph) class allows to read, add, edit and delete math blocks ([**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)), that consist of a combination of mathematical elements. For example, create a fraction and place it in the presentation:
 
 ```php
   $fraction = new MathematicalText("x")->divide("y");
   $mathParagraph->add(new MathBlock($fraction));
 ``` 
 
+Each mathematical element is represented by some class that implements the `MathElement` class. This class provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
+
 ```php
   $mathBlock = new MathematicalText("c")->setSuperscript("2")->join("=")->join(new MathematicalText("a")->setSuperscript("2"))->join("+")->join(new MathematicalText("b")->setSuperscript("2"));
 ``` 
+
+Operations of the class `MathElement` are implemented in any type of element, including the [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock).
+
+The full source code sample:
 
 ```php
   $pres = new Presentation();
@@ -97,53 +106,53 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 
 
 ## **أنواع العناصر الرياضية**
-تُشكل التعابير الرياضية من سلسلة من العناصر الرياضية. تُمثَّل سلسلة العناصر الرياضية بكتلة رياضية، وتكوّن وسائط العناصر شجرة تعشيق.
+تتشكل التعبيرات الرياضية من تسلسلات من العناصر الرياضية. يُمثل تسلسل العناصر الرياضية كتلة رياضية، وتشكل حجج العناصر شجرة تعشيقية.
 
-هناك العديد من أنواع العناصر الرياضية التي يمكن استخدامها لبناء كتلة رياضية. كل من هذه العناصر يمكن تضمينه (تجميعه) داخل عنصر آخر. أي أن العناصر في الأساس حاويات لعناصر أخرى، مُشكِّلةً بنية شجرية. أبسط نوع من العناصر هو ذلك الذي لا يحتوي على عناصر نصية رياضية أخرى.
+هناك العديد من أنواع العناصر الرياضية التي يمكن استخدامها لإنشاء كتلة رياضية. يمكن تضمين كل عنصر داخل عنصر آخر. أي أن العناصر هي في الواقع حاويات لأخرى، مكوِّنةً بنية شجرية. أبسط نوع من العناصر لا يحتوي على عناصر أخرى من النص الرياضي.
 
-كل نوع من عناصر الرياضيات يُطبق فئة `MathElement`، مما يسمح باستخدام مجموعة مشتركة من عمليات الرياضيات على أنواع مختلفة من العناصر.
+كل نوع من عناصر الرياضيات يطبق الفئة `MathElement`، مما يتيح استخدام مجموعة مشتركة من عمليات الرياضيات على أنواع مختلفة من العناصر.
 
 ### **فئة MathematicalText**
-تمثل فئة [**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) نصًا رياضيًا — العنصر الأساسي لجميع التركيبات الرياضية. يمكن أن يمثل النص الرياضي المعاملات والمشغلات والمتغيّرات وأي نص خطّي آخر.
+الفئة [**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) تمثل نصًا رياضيًا – العنصر الأساسي لجميع التركيبات الرياضية. قد يمثل النص الرياضي معاملات ومشغلات، متغيرات، وأي نص خطي آخر.
 
 مثال: 𝑎=𝑏+𝑐
 
 ### **فئة MathFraction**
-فئة [**MathFraction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFraction) تُحدد كائن الكسر، المكوّن من البسط والمقام مفصولين بشريط الكسر. يمكن أن يكون شريط الكسر أفقيًا أو مائلًا، حسب خصائص الكسر. يُستخدم كائن الكسر أيضًا لتمثيل دالة الرفّ، التي تضع عنصرًا فوق آخر دون شريط كسر.
+الفئة [**MathFraction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFraction) تحدد كائن الكسر، المكوّن من بسط ومقام مفصولين بشريط الكسر. يمكن أن يكون شريط الكسر أفقيًا أو مائلًا حسب خصائص الكسر. يُستخدم كائن الكسر أيضًا لتمثيل دالة المكدس، التي تضع عنصرًا فوق آخر بدون شريط كسر.
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_4.png)
 
 ### **فئة MathRadical**
-فئة [**MathRadical**](https://reference.aspose.com/slides/php-java/aspose.slides/MathRadical) تُحدد الدالة الجذرية (الجذر الرياضي)، المكوّنة من قاعدة وجذر اختياري.
+الفئة [**MathRadical**](https://reference.aspose.com/slides/php-java/aspose.slides/MathRadical) تحدد دالة الجذر (الجذر الرياضي)، المكوّنة من قاعدة وجذر اختياري.
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_5.png)
 
 ### **فئة MathFunction**
-فئة [**MathFunction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) تُحدد دالة ذات معامل. تحتوي على الخصائص: [getName](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction#getName--) — اسم الدالة و[getBase](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction#getBase--) — معامل الدالة.
+الفئة [**MathFunction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) تحدد دالة ذات معامل. تحتوي على خصائص: [getName](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction#getName--) – اسم الدالة و[getBase](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction#getBase--) – معامل الدالة.
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_6.png)
 
 ### **فئة MathNaryOperator**
-فئة [**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator) تُحدد كائنًا رياضيًا N-ary مثل الجمع والتكامل. يتكوّن من مشغل، قاعدة (أو معامل)، وحدود علوية وسفلية اختيارية. أمثلة على المشغلات N-ary هي الجمع، الاتحاد، التقاطع، والتكامل.
+الفئة [**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator) تحدد كائنًا رياضيًا n‑ary، مثل الجمع والتكامل. يتكوّن من مشغّل، قاعدة (أو معامل)، وحدود علوية وسفلية اختيارية. أمثلة المشغلات n‑ary: الجمع، الاتحاد، التقاطع، التكامل.
 
-هذه الفئة لا تشمل المشغلات البسيطة مثل الجمع أو الطرح؛ يتم تمثيلها بعنصر نصّي واحد — [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText).
+هذه الفئة لا تشمل المشغلات البسيطة مثل الجمع والطرح؛ فهي ممثلة بعنصر نصي واحد – [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText).
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_7.png)
 
 ### **فئة MathLimit**
-فئة [**MathLimit**](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) تُنشئ حدًا علويًا أو سفليًا. تُحدد كائن الحد بنص على الخط الأساسي ونص مصغّر إما فوقه أو تحته. لا يتضمن هذا العنصر كلمة “lim”، لكنه يتيح وضع النص في أعلى أو أسفل التعبير. لذا يُنشأ التعبير التالي:
+الفئة [**MathLimit**](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) تُنشئ حدًا علويًا أو سفليًا. تحدد كائن الحد، المكوّن من نص على الخط الأساسي ونص أصغر حجماً فوقه أو أسفه مباشرة. لا يتضمن هذا العنصر كلمة “lim”، لكنه يسمح بوضع نص في أعلى أو أسفل التعبير. لذلك، التعبير  
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-باستخدام مزيج من [**MathFunction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) و[**MathLimit**](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) كما في المثال التالي:
+يُنشأ باستخدام مزيج من عناصر [**MathFunction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) و[**MathLimit**](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) كالتالي:
 
 ```php
   $funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
@@ -156,50 +165,46 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathRightSubSuperscriptElement)
 - [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathLeftSubSuperscriptElement)
 
-تُحدِّد الفئات السابقة موضع الفهرس السفلي أو العلوي. يمكنك تعيين كل من الفهرس السفلي والعلوي في آن واحد على الجانب الأيسر أو الأيمن للمعامل، لكن يُدعم الفهرس الواحد (سوّاء سفلي أو علوي) على الجانب الأيمن فقط. يمكن أيضًا استخدام [MathSubscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathSubscriptElement) لضبط درجة الجذر الرياضي للعدد.
+تحدد الفئات التالية مؤشرًا سفليًا أو علويًا. يمكنك تعيين كل من النص السفلي والعلوي في وقت واحد على اليمين أو اليسار، لكن يُدعم مؤشر واحد فقط على الجانب الأيمن. يمكن أيضًا استخدام [MathSubscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathSubscriptElement) لتحديد درجة رياضية لعدد.
 
-مثال:
+مثال:  
 
 ![todo:image_alt_text](powerpoint-math-equations_9.png)
 
 ### **فئة MathMatrix**
-فئة [**MathMatrix**](https://reference.aspose.com/slides/php-java/aspose.slides/MathMatrix) تُحدد كائن المصفوفة، المكوّن من عناصر فرعية مرتبة في صفوف وأعمدة. من المهم ملاحظة أن المصفوفات لا تحتوي على محددات مدمجة. لوضع المصفوفة بين أقواس، يجب استخدام كائن المحدد — [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/). يمكن استخدام الوسائط الفارغة لإنشاء فراغات داخل المصفوفات.
+الفئة [**MathMatrix**](https://reference.aspose.com/slides/php-java/aspose.slides/MathMatrix) تحدد كائن المصفوفة، المكوّن من عناصر فرعية مرتبة في صفوف وأعمدة. يجب مراعاة أن المصفوفات لا تملك محددات مدمجة. لوضع المصفوفة داخل أقواس، استخدم كائن المحدد – [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/). يمكن استخدام حجج فارغة لإنشاء فجوات في المصفوفات.
 
-مثال:
+مثال:  
 
 ![todo:image_alt_text](powerpoint-math-equations_10.png)
 
 ### **فئة MathArray**
-فئة [**MathArray**](https://reference.aspose.com/slides/php-java/aspose.slides/MathArray) تُحدد مصفوفة رأسية من المعادلات أو أي كائنات رياضية.
+الفئة [**MathArray**](https://reference.aspose.com/slides/php-java/aspose.slides/MathArray) تحدد مصفوفة عمودية من المعادلات أو أي كائنات رياضية.
 
-مثال:
+مثال:  
 
 ![todo:image_alt_text](powerpoint-math-equations_11.png)
 
 ### **تنسيق العناصر الرياضية**
-- فئة [**MathBorderBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBorderBox): تُرسم حدًا مستطيلاً أو شكلًا آخر حول `MathElement`.
-
+- الفئة [**MathBorderBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBorderBox): ترسم إطارًا مستطيلًا أو نوعًا آخر من الحدود حول `MathElement`.  
   مثال: ![todo:image_alt_text](powerpoint-math-equations_12.png)
 
-- فئة [**MathBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBox): تُحدِّد تغليفًا منطقيًا للعنصر الرياضي. على سبيل المثال، يمكن أن يُستخدم الصندوق كمعوض للمشغل مع أو بدون نقطة محاذاة، أو لتحديد نقطة كسر سطر، أو لتجميعه بحيث لا يُسمح بكسر السطر داخله. مثال، يجب تغليف المشغل “==” لمنع كسر السطر.
-- فئة [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathDelimiter): تُحدِّد كائن المحدد، المكوّن من حروف افتتاحية وإغلاقية (مثل الأقواس، الأقواس المعقوفة، القوسين المربعات، أو الشرطيات العمودية)، وعنصر أو أكثر داخلها مفصولين بحرف محدد. أمثلة: (𝑥2); [𝑥2|𝑦2].
+- الفئة [**MathBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBox): تحدد تغليفًا منطقيًا (تعبئة) للعنصر الرياضي. على سبيل المثال، يمكن أن يعمل كائن معبَّأ كمحاكٍ للمشغل مع أو بدون نقطة محاذاة، أو كفاصل سطري، أو يُجمّع لتجنب فواصل الأسطر داخل التعبير.
 
+- الفئة [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathDelimiter): تحدد كائن المحدد، المكوّن من حروف افتتاحية وإغلاقية (مثل الأقواس، الأقواس المعقوفة، الأقواس المربعة، أو الخطوط العمودية)، وعناصر رياضية واحدة أو أكثر داخله، مفصولة بحرف محدد. أمثلة: (𝑥²); [𝑥²|𝑦²].  
   مثال: ![todo:image_alt_text](powerpoint-math-equations_13.png)
 
-- فئة [**MathAccent**](https://reference.aspose.com/slides/php-java/aspose.slides/MathAccent): تُحدِّد دالة اللكنة، المكوّنة من قاعدة وعلامة صرفية مُدمجة.
-
+- الفئة [**MathAccent**](https://reference.aspose.com/slides/php-java/aspose.slides/MathAccent): تحدد دالة التشكيل، المكوّنة من قاعدة وعلامة تشكيلية مدمجة.  
   مثال: 𝑎́.
 
-- فئة [**MathBar**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBar): تُحدِّد دالة الشريط، المكوّنة من معامل أساسي وشريط فوق أو تحت.
-
+- الفئة [**MathBar**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBar): تحدد دالة الشريط، المكوّنة من معلمة قاعدة وشريط علوي أو سفلي.  
   مثال: ![todo:image_alt_text](powerpoint-math-equations_14.png)
 
-- فئة [**MathGroupingCharacter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathGroupingCharacter): تُحدِّد رمز تجميع فوق أو تحت التعبير، عادةً لتسليط الضوء على العلاقات بين العناصر.
-
+- الفئة [**MathGroupingCharacter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathGroupingCharacter): تحدد رمز تجميع فوق أو تحت التعبير، عادةً لتسليط الضوء على العلاقات بين العناصر.  
   مثال: ![todo:image_alt_text](powerpoint-math-equations_15.png)
 
 ## **العمليات الرياضية**
-كل عنصر أو تعبير رياضي (عبر [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)) يرث فئة `MathElement`. يسمح ذلك باستخدام عمليات على البنية الحالية وتكوين تعابير رياضية أكثر تعقيدًا. جميع العمليات تتقبل مجموعتين من المعاملات: إما `MathElement` أو سلسلة نصية. تُنشَأ مثيلات فئة [**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) ضمنيًا من السلاسل النصية عند استخدامها كمعاملات. تُدرج عمليات الرياضيات المتاحة في Aspose.Slides أدناه.
+كل عنصر رياضي وتعبير رياضي (عبر [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)) يرث الفئة `MathElement`. يتيح لك ذلك استخدام عمليات على البنية الحالية وتشكيل تعبيرات رياضية أكثر تعقيدًا. جميع العمليات لديها مجموعتين من المعاملات: إما `MathElement` أو سلسلة نصية كوسائط. تُنشأ كائنات الفئة [**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) ضمنيًا من السلاسل المحددة عندما تُستخدم سلاسل نصية كوسائط. تُدرج عمليات الرياضيات المتاحة في Aspose.Slides أدناه.
 
 ### **طريقة Join**
 - `join(String)`
@@ -230,7 +235,7 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - `enclose()`
 - `enclose(Char, Char)`
 
-تحيط العنصر بحروف محددة مثل الأقواس أو أي حرف آخر كإطار.
+تحيط العنصر بأحرف محددة مثل القوسين أو حرف آخر كإطار.
 
 ```php
 
@@ -247,7 +252,7 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - `function(String)`
 - `function(MathElement)`
 
-تُنشئ دالة لمعامل باستخدام الكائن الحالي كاسم للدالة.
+تأخذ دالةً لمعامل باستخدام الكائن الحالي كاسم الدالة.
 
 ```php
 
@@ -266,11 +271,10 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - `asArgumentOfFunction(MathFunctionsOfTwoArguments, MathElement)`
 - `asArgumentOfFunction(MathFunctionsOfTwoArguments, String)`
 
-تُعيّن الدالة المحددة باستخدام المثيل الحالي كمعامل. يمكنك:
-
-- تحديد سلسلة كاسم للدالة، مثل “cos”.
-- اختيار إحدى القيم المُعرّفة مسبقًا في تعداد [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument) أو [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfTwoArguments)، مثل [**MathFunctionsOfOneArgument**](MathFunctionsOfOneArgument).[**ArcSin**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument#ArcSin).
-- اختيار مثيل `MathElement`.
+تأخذ الدالة المحددة باستخدام المثيل الحالي كمعامل. يمكنك:
+- تحديد سلسلة كاسم الدالة، مثل “cos”.
+- اختيار واحدة من القيم المسبقة التعريف في تعداد [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument) أو [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfTwoArguments)، مثل [**MathFunctionsOfOneArgument::ArcSin**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument#ArcSin).
+- اختيار مثيل من `MathElement`.
 
 مثال:
 
@@ -292,7 +296,7 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - `setSubSuperscriptOnTheLeft(String, String)`
 - `setSubSuperscriptOnTheLeft(MathElement, MathElement)`
 
-تُعيّن الفهرس السفلي والعلوي. يمكنك تعيين الفهرس السفلي والعلوي معًا على اليمين أو اليسار، لكن الفهرس المفرد يُدعم فقط على اليمين. يمكن أيضًا استخدام الـ **Superscript** لتعيين درجة عدد رياضية.
+تضبط المؤشر السفلي والعلوي. يمكنك ضبط كلاهما في نفس الوقت على اليسار أو اليمين، لكن يُدعم مؤشر واحد فقط على الجانب الأيمن. يمكن أيضًا استخدام **Superscript** لتحديد درجة رياضية لعدد.
 
 مثال:
 
@@ -304,7 +308,7 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - `radical(String)`
 - `radical(MathElement)`
 
-تُحدِّد الجذر الرياضي للدرجة المعطاة من المعامل المحدد.
+تحدد الجذر الرياضي للدرجة المعطاة من المعامل المحدد.
 
 مثال:
 
@@ -318,13 +322,13 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - `setLowerLimit(String)`
 - `setLowerLimit(MathElement)`
 
-تُعيّن الحد العلوي أو السفلي. هنا، يُشير الحد العلوي والسفلي إلى موضع المعامل بالنسبة للقاعدة.
+تأخذ الحد العلوي أو السفلي. هنا، يشير الحد العلوي والسفلي ببساطة إلى موقع المعامل بالنسبة للقاعدة.
 
-لننظر إلى التعبير التالي:
+لننظر إلى تعبير:
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-يمكن إنشاء مثل هذه التعابير عبر الجمع بين فئتي [MathFunction](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) و[MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) والعمليات على `MathElement` كما يلي:
+يمكن إنشاء مثل هذه التعبيرات من خلال دمج فئات [MathFunction](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) و[MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) والعمليات على `MathElement` كما يلي:
 
 ```php
   $mathExpression = new MathematicalText("lim")->setLowerLimit("x→∞")->function("x");
@@ -339,7 +343,7 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 - `integral(MathIntegralTypes, MathElement, MathElement, MathLimitLocations)`
 - `integral(MathIntegralTypes, String, String, MathLimitLocations)`
 
-تُنشئ كلًّا من طريقتي **nary** و **integral** وتُعيد كائن المشغل N-ary المُمَثَّل بالفئة [**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator). في طريقة nary، يُحدِّد تعداد [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperatorTypes) نوع المشغل: جمع، اتحاد، إلخ، ولا تشمل التكاملات. في طريقة Integral، توجد عملية متخصصة للتكامل باستخدام تعداد أنواع التكامل [**MathIntegralTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathIntegralTypes).
+كلا الطريقتين **nary** و**integral** تُنشئ وتُعيد المشغل n‑ary المُمَثَّل بنوع [**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator). في طريقة nary، يحدد تعداد [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperatorTypes) نوع المشغل: جمع، اتحاد، إلخ، دون تضمين التكاملات. في طريقة Integral، يوجد عملية مخصصة للتكامل مع تعداد أنواع التكامل [**MathIntegralTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathIntegralTypes).
 
 مثال:
 
@@ -349,7 +353,7 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 ``` 
 
 ### **طريقة ToMathArray**
-`MathElement.toMathArray` تضع العناصر في مصفوفة رأسية. إذا تم استدعاء هذه العملية على مثيل [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)، فستُوضع جميع العناصر الفرعية في المصفوفة المُعيدَة.
+`MathElement.toMathArray` تضع العناصر في مصفوفة عمودية. إذا تم استدعاء هذه العملية على مثيل من [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)، ستُوضَع جميع العناصر الفرعية في المصفوفة المرتجعة.
 
 مثال:
 
@@ -358,11 +362,11 @@ description: "إدراج وتحرير المعادلات الرياضية في P
 ``` 
 
 ### **عمليات التنسيق: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
-- طريقة **`accent`** تُضيف علامة إكسنت على العنصر.
-- طريقتا **`overbar`** و **`underbar`** تُضيفان شريطًا أعلى أو أسفل العنصر.
-- طريقة **`group`** تُضع العنصر في مجموعة باستخدام رمز تجميع مثل القوس المائل السفلي أو غيره.
-- طريقة **`toBorderBox`** تُضع العنصر في حدّ مربع.
-- طريقة **`toBox`** تُضع العنصر في صندوق غير مرئي (تجميع منطقي).
+- طريقة **`accent`** تضبط علامة تشكيل (حرف فوق العنصر).
+- طريقتا **`overbar`** و**`underbar`** تضع شريطًا أعلى أو أسفل العنصر.
+- طريقة **`group`** تضع العنصر في مجموعة باستخدام رمز تجميع مثل القوس المعقوف السفلي أو غيره.
+- طريقة **`toBorderBox`** تضع العنصر في صندوق حد.
+- طريقة **`toBox`** تضع العنصر في صندوق منطقي غير مرئي (تجميع منطقي).
 
 أمثلة:
 
@@ -374,16 +378,16 @@ description: "إدراج وتحرير المعادلات الرياضية في P
   $boxedOperator = new MathematicalText(":=")->toBox();
 ``` 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **كيف يمكنني إضافة معادلة رياضية إلى شريحة PowerPoint؟**
 
-لإضافة معادلة رياضية، عليك إنشاء كائن شكل رياضي، والذي يحتوي تلقائيًا على جزء رياضي. بعد ذلك، استرجع [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) من [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) وأضف كائنات [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) إليه.
+لإضافة معادلة رياضية، تحتاج إلى إنشاء كائن شكل رياضي، والذي يحتوي تلقائيًا على جزء رياضي. ثم تستخرج [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) من [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) وتضيف كائنات [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) إليه.
 
-**هل يمكن إنشاء تعابير رياضية مُعقَّدة متشابكة؟**
+**هل من الممكن إنشاء تعبيرات رياضية متداخلة ومعقدة؟**
 
-نعم، يسمح Aspose.Slides بإنشاء تعابير رياضية معقدة عبر تعشيق MathBlocks. كل عنصر رياضي يتيح لك تطبيق عمليات (Join, Divide, Enclose, ...) لدمج العناصر في هياكل أكثر تعقيدًا.
+نعم، يتيح Aspose.Slides إنشاء تعبيرات رياضية معقدة عبر تعشيق MathBlocks. كل عنصر رياضي يسمح لك بتطبيق عمليات (Join, Divide, Enclose, إلخ) لدمج العناصر في هياكل أكثر تعقيدًا.
 
 **كيف يمكنني تحديث أو تعديل معادلة رياضية موجودة؟**
 
-لتحديث المعادلة، عليك الوصول إلى MathBlocks الحالية عبر [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/). ثم باستخدام طرق مثل Join, Divide, Enclose وغيرها، يمكنك تعديل عناصر المعادلة الفردية. بعد التعديل، احفظ العرض التقديمي لتطبيق التغييرات.
+لتحديث معادلة، تحتاج إلى الوصول إلى MathBlocks الحالية عبر [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/). ثم باستخدام طرق مثل Join, Divide, Enclose وغيرها، يمكنك تعديل عناصر المعادلة الفردية. بعد التحرير، احفظ العرض التقديمي لتطبيق التغييرات.

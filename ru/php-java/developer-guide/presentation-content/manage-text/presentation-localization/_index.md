@@ -6,25 +6,25 @@ weight: 100
 url: /ru/php-java/presentation-localization/
 keywords:
 - смена языка
-- проверка правописания
+- проверка орфографии
 - идентификатор языка
 - PowerPoint
 - OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Автоматизируйте локализацию слайдов PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java, используя практические примеры кода и рекомендации для более быстрого глобального развертывания."
+description: "Автоматизируйте локализацию слайдов PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java, используя практические примеры кода и советы для более быстрого глобального развертывания."
 ---
 
-## **Изменение языка для презентации и текста формы**
+## **Изменить язык для презентации и текста формы**
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Получите ссылку на слайд, используя его индекс.
-- Добавьте [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) типа [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) на слайд.
-- Добавьте текст в TextFrame.
-- [Установка Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) к тексту.
-- Сохраните презентацию в файл PPTX.
+- Получите ссылку на слайд, используя его Index.
+- Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) типа [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) на слайд.
+- Добавьте некоторый текст в TextFrame.
+- [Set Language Id](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) для текста.
+- Сохраните презентацию как файл PPTX.
 
-Реализация вышеуказанных шагов показана ниже в примере.
+Реализация указанных шагов демонстрируется ниже в примере.
 ```php
   $pres = new Presentation("test.pptx");
   try {
@@ -40,16 +40,16 @@ description: "Автоматизируйте локализацию слайдо
 ```
 
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Вызывает ли Language ID автоматический перевод текста?**
 
-Нет. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) в Aspose.Slides хранит язык для проверки правописания и грамматики, но не переводит и не изменяет содержимое текста. Это метаданные, которые PowerPoint понимает для проверки.
+Нет. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержимое текста. Это метаданные, которые PowerPoint понимает для проверки.
 
-**Влияет ли Language ID на переносы слов и разрывы строк при рендеринге?**
+**Влияет ли Language ID на переносы и разбиение строк при рендеринге?**
 
-В Aspose.Slides [language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) используется только для проверки. Качество переноса слов и перенос строк в основном зависят от наличия [соответствующих шрифтов](/slides/ru/php-java/powerpoint-fonts/) и настроек разметки/переноса для системы письма. Чтобы обеспечить правильный рендеринг, сделайте необходимые шрифты доступными, настройте [правила замены шрифтов](/slides/ru/php-java/font-substitution/) и/или [встраивание шрифтов](/slides/ru/php-java/embedded-font/) в презентацию.
+В Aspose.Slides [language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) предназначен для проверки. Качество переноса слов и разбиения строк в основном зависит от наличия [правильные шрифты](/slides/ru/php-java/powerpoint-fonts/) и настроек разметки/разрыва строк для системы письма. Чтобы обеспечить корректный рендеринг, предоставьте необходимые шрифты, настройте [правила замены шрифтов](/slides/ru/php-java/font-substitution/) и/или [встраивание шрифтов](/slides/ru/php-java/embedded-font/) в презентацию.
 
 **Можно ли задать разные языки в одном абзаце?**
 
-Да. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) применяется на уровне части текста, поэтому в одном абзаце можно смешивать несколько языков с разными настройками проверки.
+Да. [Language ID](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) применяется на уровне части текста, поэтому в одном абзаце можно смешивать несколько языков с различными настройками проверки.
