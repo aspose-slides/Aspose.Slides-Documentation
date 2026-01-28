@@ -32,6 +32,8 @@ function addAnimation() {
         // Fade effect.
         slide.getTimeline().getMainSequence().addEffect(
             shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+        presentation.save("animation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -44,13 +46,9 @@ Retrieve the first animation effect from the slide timeline.
 
 ```js
 function accessAnimation() {
-    let presentation = new aspose.slides.Presentation();
+    let presentation = new aspose.slides.Presentation("animation.pptx");
     try {
         let slide = presentation.getSlides().get_Item(0);
-
-        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100);
-        slide.getTimeline().getMainSequence().addEffect(
-            shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
 
         // Access the first animation effect.
         let effect = slide.getTimeline().getMainSequence().get_Item(0);
@@ -66,16 +64,16 @@ Remove an animation effect from the sequence.
 
 ```js
 function removeAnimation() {
-    let presentation = new aspose.slides.Presentation();
+    let presentation = new aspose.slides.Presentation("animation.pptx");
     try {
         let slide = presentation.getSlides().get_Item(0);
 
-        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100);
-        let effect = slide.getTimeline().getMainSequence().addEffect(
-            shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+        if (slide.getTimeline().getMainSequence().length > 0) {
+            // Remove the first effect.
+            slide.getTimeline().getMainSequence().removeAt(0);
+        }
 
-        // Remove the effect.
-        slide.getTimeline().getMainSequence().remove(effect);
+        presentation.save("animation_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -100,6 +98,8 @@ function sequenceAnimations() {
             shape1, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
         sequence.addEffect(
             shape2, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
+
+        presentation.save("animation_sequence.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
