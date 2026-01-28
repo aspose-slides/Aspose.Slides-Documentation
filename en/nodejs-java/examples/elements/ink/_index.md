@@ -2,39 +2,39 @@
 title: Ink
 type: docs
 weight: 180
-url: /java/examples/elements/ink/
+url: /nodejs-java/examples/elements/ink/
 keywords:
 - code example
 - ink
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Work with Ink in Aspose.Slides for Java: draw, import, and edit strokes, adjust color and width, and export to PPT, PPTX, and ODP using Java examples."
+description: "Work with Ink in Aspose.Slides for Node.js: draw, import, and edit strokes, adjust color and width, and export to PPT, PPTX, and ODP using examples."
 ---
 
-This article provides examples of accessing existing ink shapes and removing them using **Aspose.Slides for Java**.
+This article provides examples of accessing existing ink shapes and removing them using **Aspose.Slides for Node.js via Java**.
 
 > ❗ **Note:** Ink shapes represent user input from specialized devices. Aspose.Slides cannot create new ink strokes programmatically, but you can read and modify existing ink.
 
 ## **Access Ink**
 
-Read the tags from the first ink shape on a slide.
+Retrieve the first ink shape on a slide.
 
-```java
-static void accessInk() {
-    Presentation presentation = new Presentation("ink.pptx");
+```js
+function accessInk() {
+    let presentation = new aspose.slides.Presentation("ink.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IShape shape = slide.getShapes().get_Item(0);
-        if (shape instanceof IInk) {
-            IInk inkShape = (IInk) shape;
-            ITagCollection tags = inkShape.getCustomData().getTags();
-            if (tags.size() > 0) {
-                String tagName = tags.getNameByIndex(0);
-                // Use tagName as needed.
+        let inkShape = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IInk")) {
+                inkShape = shape;
+                break;
             }
         }
     } finally {
@@ -45,24 +45,18 @@ static void accessInk() {
 
 ## **Remove Ink**
 
-Delete an ink shape from the slide if one exists.
+Delete an ink shape from the slide.
 
-```java
-static void removeInk() {
-    Presentation presentation = new Presentation("ink.pptx");
+```js
+function removeInk() {
+    let presentation = new aspose.slides.Presentation("ink.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IInk ink = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IInk) {
-                ink = (IInk) shape;
-                break;
-            }
-        }
-        if (ink != null) {
-            slide.getShapes().remove(ink);
-        }
+        // Assuming the ink shape is the first shape on the slide.
+        slide.getShapes().removeAt(0);
+
+        presentation.save("ink_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

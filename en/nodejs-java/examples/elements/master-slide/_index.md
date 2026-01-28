@@ -2,48 +2,57 @@
 title: Master Slide
 type: docs
 weight: 30
-url: /java/examples/elements/masterslide/
+url: /nodejs-java/examples/elements/masterslide/
 keywords:
 - code example
 - master slide
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Explore Aspose.Slides for Java master slide examples: create, edit, and style masters, placeholders, and themes in PPT, PPTX, and ODP with clear Java code."
+description: "Explore Aspose.Slides for Node.js master slide examples: create, edit, and style masters, placeholders, and themes in PPT, PPTX, and ODP with clear code."
 ---
 
 Master slides form the top level of the slide inheritance hierarchy in PowerPoint. A **master slide** defines common design elements such as backgrounds, logos, and text formatting. **Layout slides** inherit from master slides, and **normal slides** inherit from layout slides.
 
-This article demonstrates how to create, modify, and manage master slides using Aspose.Slides for Java.
+This article demonstrates how to create, modify, and manage master slides using Aspose.Slides for Node.js via Java.
 
 ## **Add a Master Slide**
 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
-```java
-static void addMasterSlide() {
-    Presentation presentation = new Presentation();
+```js
+function addMasterSlide() {
+    let presentation = new aspose.slides.Presentation();
     try {
         // Clone the default master slide.
-        IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
-        IMasterSlide newMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+        let defaultMasterSlide = presentation.getMasters().get_Item(0);
+        let newMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+
+        let textBoxFillType = java.newByte(aspose.slides.FillType.NoFill);
 
         // Add a banner with company name to the top of the master slide.
-        IAutoShape textBox = newMasterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 720, 25);
+        let textBox = newMasterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 720, 25);
         textBox.getTextFrame().setText("Company Name");
-        IParagraph paragraph = textBox.getTextFrame().getParagraphs().get_Item(0);
-        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-        textBox.getFillFormat().setFillType(FillType.NoFill);
+        textBox.getFillFormat().setFillType(textBoxFillType);
+
+        let paragraphFillType = java.newByte(aspose.slides.FillType.Solid);
+        let paragraphFillColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+
+        let paragraph = textBox.getTextFrame().getParagraphs().get_Item(0);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(paragraphFillType);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(paragraphFillColor);
 
         // Assign the new master slide to a layout slide.
-        ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+        let layoutSlide = presentation.getLayoutSlides().get_Item(0);
         layoutSlide.setMasterSlide(newMasterSlide);
 
         // Assign the layout slide to the first slide in the presentation.
         presentation.getSlides().get_Item(0).setLayoutSlide(layoutSlide);
+
+        presentation.save("master_slide.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -61,14 +70,15 @@ static void addMasterSlide() {
 
 You can access master slides using the presentation master collection. Here’s how to retrieve and work with them:
 
-```java
-static void accessMasterSlide() {
-    Presentation presentation = new Presentation();
+```js
+function accessMasterSlide() {
+    let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {
-        IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+        let firstMasterSlide = presentation.getMasters().get_Item(0);
 
         // Change the background type.
-        firstMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
+        let backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+        firstMasterSlide.getBackground().setType(backgroundType);
     } finally {
         presentation.dispose();
     }
@@ -79,16 +89,18 @@ static void accessMasterSlide() {
 
 Master slides can be removed either by index or by reference.
 
-```java
-static void removeMasterSlide() {
-    Presentation presentation = new Presentation("sample.pptx");
+```js
+function removeMasterSlide() {
+    let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {
         // Remove a master slide by index.
         presentation.getMasters().removeAt(0);
 
         // Remove a master slide by reference.
-        IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+        let firstMasterSlide = presentation.getMasters().get_Item(0);
         presentation.getMasters().remove(firstMasterSlide);
+
+        presentation.save("master_slide_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -99,12 +111,14 @@ static void removeMasterSlide() {
 
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
-```java
-static void removeUnusedMasterSlide() {
-    Presentation presentation = new Presentation();
+```js
+function removeUnusedMasterSlides() {
+    let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {
         // Remove all unused master slides (even those marked as Preserve).
         presentation.getMasters().removeUnused(true);
+
+        presentation.save("unused_master_slides_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

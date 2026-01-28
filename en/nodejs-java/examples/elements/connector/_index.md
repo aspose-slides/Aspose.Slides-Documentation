@@ -2,31 +2,34 @@
 title: Connector
 type: docs
 weight: 190
-url: /java/examples/elements/connector/
+url: /nodejs-java/examples/elements/connector/
 keywords:
 - code example
 - Connector
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Learn how to add, route, and style connectors between shapes using Aspose.Slides for Java, with Java examples for PPT, PPTX, and ODP presentations."
+description: "Learn how to add, route, and style connectors between shapes using Aspose.Slides for Node.js, with JavaScript examples for PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates how to connect shapes with connectors and change their targets using **Aspose.Slides for Java**.
+This article demonstrates how to connect shapes with connectors and change their targets using **Aspose.Slides for Node.js via Java**.
 
 ## **Add a Connector**
 
 Insert a connector shape between two points on the slide.
 
-```java
-static void addConnector() {
-    Presentation presentation = new Presentation();
+```js
+function addConnector() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+        let connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 100, 100);
+
+        presentation.save("connector.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -37,19 +40,18 @@ static void addConnector() {
 
 Retrieve the first connector shape added to a slide.
 
-```java
-static void accessConnector() {
-    Presentation presentation = new Presentation();
+```js
+function accessConnector() {
+    let presentation = new aspose.slides.Presentation("connector.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Access the first connector on the slide.
-        IConnector connector = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IConnector) {
-                connector = (IConnector) shape;
+        let connector = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IConnector")) {
+                connector = shape;
                 break;
             }
         }
@@ -63,15 +65,16 @@ static void accessConnector() {
 
 Delete a connector from the slide.
 
-```java
-static void removeConnector() {
-    Presentation presentation = new Presentation();
+```js
+function removeConnector() {
+    let presentation = new aspose.slides.Presentation("connector.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+        // Assume the first shape is a connector and remove it.
+        slide.getShapes().removeAt(0);
 
-        slide.getShapes().remove(connector);
+        presentation.save("connector_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -82,15 +85,16 @@ static void removeConnector() {
 
 Attach a connector to two shapes by assigning start and end targets.
 
-```java
-static void reconnectShapes() {
-    Presentation presentation = new Presentation();
+```js
+function reconnectShapes() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
-        IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 50, 50);
-        IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+        let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 50, 50);
+        let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 50, 50);
+
+        let connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 100, 100);
 
         connector.setStartShapeConnectedTo(shape1);
         connector.setEndShapeConnectedTo(shape2);

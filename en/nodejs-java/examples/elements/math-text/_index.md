@@ -2,50 +2,53 @@
 title: Math Text
 type: docs
 weight: 160
-url: /java/examples/elements/mathtext/
+url: /nodejs-java/examples/elements/mathtext/
 keywords:
 - code example
 - mathematical text
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Explore Aspose.Slides for Java MathematicalText examples: create and format equations, fractions, matrices, and symbols with Java in PPT, PPTX, and ODP presentations."
+description: "Explore Aspose.Slides for Node.js MathematicalText examples: create and format equations, fractions, matrices, and symbols in PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates working with mathematical text shapes and formatting equations using **Aspose.Slides for Java**.
+This article demonstrates working with mathematical text shapes and formatting equations using **Aspose.Slides for Node.js via Java**.
 
 ## **Add Math Text**
 
 Create a math shape containing a fraction and the Pythagorean formula.
 
-```java
-static void addMathText() {
-    Presentation presentation = new Presentation();
+```js
+function addMathText() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Add a Math shape to the slide.
-        IAutoShape mathShape = slide.getShapes().addMathShape(0, 0, 720, 150);
+        let mathShape = slide.getShapes().addMathShape(0, 0, 720, 150);
 
         // Access the math paragraph.
-        IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        IPortion textPortion = paragraph.getPortions().get_Item(0);
-        IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
+        let paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
+        let textPortion = paragraph.getPortions().get_Item(0);
+        let mathParagraph = textPortion.getMathParagraph();
 
         // Add a simple fraction: x / y.
-        IMathElement fraction = new MathematicalText("x").divide("y");
-        mathParagraph.add(new MathBlock(fraction));
+        let fraction = new aspose.slides.MathematicalText("x").divide("y");
+        mathParagraph.add(new aspose.slides.MathBlock(fraction));
 
         // Add equation: c² = a² + b².
-        IMathBlock mathBlock = new MathematicalText("c")
+        let mathBlock = new aspose.slides.MathematicalText("c")
                 .setSuperscript("2")
                 .join("=")
-                .join(new MathematicalText("a").setSuperscript("2"))
+                .join(new aspose.slides.MathematicalText("a").setSuperscript("2"))
                 .join("+")
-                .join(new MathematicalText("b").setSuperscript("2"));
+                .join(new aspose.slides.MathematicalText("b").setSuperscript("2"));
         mathParagraph.add(mathBlock);
+
+        presentation.save("math_text.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -56,23 +59,26 @@ static void addMathText() {
 
 Locate a shape that contains a math paragraph on the slide.
 
-```java
-static void accessMathText() {
-    Presentation presentation = new Presentation("sample.pptx");
+```js
+function accessMathText() {
+    let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Find the first shape that contains a math paragraph.
-        IAutoShape mathShape = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IAutoShape) {
-                IAutoShape autoShape = (IAutoShape) shape;
-                ITextFrame textFrame = autoShape.getTextFrame();
+        let mathShape = null;
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            let shape = slide.getShapes().get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let autoShape = shape;
+                let textFrame = autoShape.getTextFrame();
                 if (textFrame != null) {
-                    boolean hasMath = false;
-                    for (IParagraph paragraph : textFrame.getParagraphs()) {
-                        for (IPortion portion : paragraph.getPortions()) {
-                            if (portion instanceof MathPortion) {
+                    let hasMath = false;
+                    for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                        let paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                        for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                            let portion = paragraph.getPortions().get_Item(portionIndex);
+                            if (java.instanceOf(portion, "com.aspose.slides.MathPortion")) {
                                 hasMath = true;
                                 break;
                             }
@@ -88,14 +94,11 @@ static void accessMathText() {
         }
 
         if (mathShape != null) {
-            IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-            IPortion textPortion = paragraph.getPortions().get_Item(0);
-            IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
+            let paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
+            let textPortion = paragraph.getPortions().get_Item(0);
+            let mathParagraph = textPortion.getMathParagraph();
 
-            // Example: create a fraction (not added here).
-            IMathElement fraction = new MathematicalText("x").divide("y");
-
-            // Use mathParagraph or fraction as needed...
+            // ...
         }
     } finally {
         presentation.dispose();
@@ -107,22 +110,19 @@ static void accessMathText() {
 
 Delete a math shape from the slide.
 
-```java
-static void removeMathText() {
-    Presentation presentation = new Presentation();
+```js
+function removeMathText() {
+    let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IAutoShape mathShape = slide.getShapes().addMathShape(50, 50, 100, 50);
-
-        IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        IPortion textPortion = paragraph.getPortions().get_Item(0);
-        IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
-        IMathElement fraction = new MathematicalText("x").divide("y");
-        mathParagraph.add(new MathBlock(fraction));
+        // Assume the first shape is the math shape.
+        let mathShape = slide.getShapes().get_Item(0);
 
         // Remove the math shape.
         slide.getShapes().remove(mathShape);
+
+        presentation.save("math_text_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -133,20 +133,21 @@ static void removeMathText() {
 
 Set font properties for a math portion.
 
-```java
-static void formatMathText() {
-    Presentation presentation = new Presentation();
+```js
+function formatMathText() {
+    let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IAutoShape mathShape = slide.getShapes().addMathShape(50, 50, 100, 50);
-        IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        IPortion textPortion = paragraph.getPortions().get_Item(0);
-        IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
-        IMathElement fraction = new MathematicalText("x").divide("y");
-        mathParagraph.add(new MathBlock(fraction));
+        // Assume the first shape is the math shape.
+        let mathShape = slide.getShapes().get_Item(0);
+
+        let paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
+        let textPortion = paragraph.getPortions().get_Item(0);
 
         textPortion.getPortionFormat().setFontHeight(20);
+
+        presentation.save("math_text_formatted.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
