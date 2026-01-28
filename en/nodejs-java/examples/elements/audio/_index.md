@@ -19,24 +19,20 @@ This article demonstrates how to embed audio frames and control playback with **
 
 ## **Add an Audio Frame**
 
-Insert an empty audio frame that can later hold embedded sound data.
+The code example below adds an audio frame on a presentation slide.
 
-
-
-
-
-
-
-
-```java
-static void addAudio() {
-    Presentation presentation = new Presentation();
+```js
+function addAudio() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        // Create an empty audio frame (audio will be embedded later).
-        IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
+        let audioData = java.newInstanceSync(
+            "java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
+
+        let audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioData);
+
+        presentation.save("audio.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -47,20 +43,18 @@ static void addAudio() {
 
 This code retrieves the first audio frame on a slide.
 
-```java
-static void accessAudio() {
-    Presentation presentation = new Presentation();
+```js
+function accessAudio() {
+    let presentation = new aspose.slides.Presentation("audio.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
+        let slide = presentation.getSlides().get_Item(0);
 
         // Access the first audio frame on the slide.
-        IAudioFrame firstAudio = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IAudioFrame) {
-                firstAudio = (IAudioFrame) shape;
+        let firstAudio = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAudioFrame")) {
+                firstAudio = shape;
                 break;
             }
         }
@@ -74,17 +68,19 @@ static void accessAudio() {
 
 Delete a previously added audio frame.
 
-```java
-static void removeAudio() {
-    Presentation presentation = new Presentation();
+```js
+function removeAudio() {
+    let presentation = new aspose.slides.Presentation("audio.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
+        // Assume the first shape is the audio frame.
+        let audioFrame = slide.getShapes().get_Item(0);
 
         // Remove the audio frame.
         slide.getShapes().remove(audioFrame);
+
+        presentation.save("audio_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -95,17 +91,19 @@ static void removeAudio() {
 
 Configure the audio frame to play automatically when the slide appears.
 
-```java
-static void setAudioPlayback() {
-    Presentation presentation = new Presentation();
+```js
+function setAudioPlayback() {
+    let presentation = new aspose.slides.Presentation("audio.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-        
-        IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
+        let slide = presentation.getSlides().get_Item(0);
+
+        // Assume the first shape is an audio frame.
+        let audioFrame = slide.getShapes().get_Item(0);
 
         // Play automatically when the slide appears.
-        audioFrame.setPlayMode(AudioPlayModePreset.Auto);
+        audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
+
+        presentation.save("audio_playback.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

@@ -2,32 +2,35 @@
 title: Chart
 type: docs
 weight: 60
-url: /java/examples/elements/chart/
+url: /nodejs-java/examples/elements/chart/
 keywords:
 - code example
 - chart
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Master charts with Aspose.Slides for Java: create, format, bind data, and export charts in PPT, PPTX, and ODP with Java examples."
+description: "Master charts with Aspose.Slides for Node.js via Java: create, format, bind data, and export charts in PPT, PPTX, and ODP with JavaScript examples."
 ---
 
-Examples for adding, accessing, removing, and updating different chart types with **Aspose.Slides for Java**. The snippets below demonstrate basic chart operations.
+Examples for adding, accessing, removing, and updating different chart types with **Aspose.Slides for Node.js via Java**. The snippets below demonstrate basic chart operations.
 
 ## **Add a Chart**
 
 This method adds a simple area chart to the first slide.
 
-```java
-static void addChart() {
-    Presentation presentation = new Presentation();
+```js
+function addChart() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Add a simple area chart to the first slide.
-        IChart chart = slide.getShapes().addChart(ChartType.Area, 50, 50, 400, 300);
+        let chart = slide.getShapes().addChart(aspose.slides.ChartType.Area, 50, 50, 400, 300);
+
+        presentation.save("chart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -38,19 +41,18 @@ static void addChart() {
 
 After creating a chart, you can retrieve it through the shape collection.
 
-```java
-static void accessChart() {
-    Presentation presentation = new Presentation();
+```js
+function accessChart() {
+    let presentation = new aspose.slides.Presentation("chart.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 400, 300);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Access the first chart on the slide.
-        IChart firstChart = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IChart) {
-                firstChart = (IChart) shape;
+        let firstChart = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                firstChart = shape;
                 break;
             }
         }
@@ -62,18 +64,18 @@ static void accessChart() {
 
 ## **Remove a Chart**
 
-The following code removes a chart from a slide.
+The following code removes the chart from the slide.
 
-```java
-static void removeChart() {
-    Presentation presentation = new Presentation();
+```js
+function removeChart() {
+    let presentation = new aspose.slides.Presentation("chart.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 300);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Remove the chart.
-        slide.getShapes().remove(chart);
+        slide.getShapes().removeAt(0);
+
+        presentation.save("chart_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -84,16 +86,17 @@ static void removeChart() {
 
 You can change chart properties such as the title.
 
-```java
-static void updateChartData() {
-    Presentation presentation = new Presentation();
+```js
+function updateChartData() {
+    let presentation = new aspose.slides.Presentation("chart.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        IChart chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 400, 300);
+        let slide = presentation.getSlides().get_Item(0);
+        let chart = slide.getShapes().get_Item(0);
 
         // Change the chart title.
         chart.getChartTitle().addTextFrameForOverriding("Sales Report");
+
+        presentation.save("chart_title.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

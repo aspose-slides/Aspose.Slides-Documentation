@@ -18,7 +18,7 @@ This article demonstrates how to add, access, remove, and configure ActiveX cont
 
 ## **Add an ActiveX Control**
 
-Insert a new ActiveX control and optionally set its properties.
+Add a new ActiveX control to a slide.
 
 ```js
 function addActiveX() {
@@ -29,10 +29,7 @@ function addActiveX() {
         // Add a new ActiveX control.
         let control = slide.getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-        // Optionally set some properties.
-        control.getProperties().add("Value", "Default text");
-
-        presentation.save("add_activex.pptm", aspose.slides.SaveFormat.Pptm);
+        presentation.save("activex.pptm", aspose.slides.SaveFormat.Pptm);
     } finally {
         presentation.dispose();
     }
@@ -45,7 +42,7 @@ Read information from the first ActiveX control on the slide.
 
 ```js
 function accessActiveX() {
-    let presentation = new aspose.slides.Presentation("add_activex.pptm");
+    let presentation = new aspose.slides.Presentation("activex.pptm");
     try {
         let slide = presentation.getSlides().get_Item(0);
 
@@ -68,7 +65,7 @@ Delete an existing ActiveX control from the slide.
 
 ```js
 function removeActiveX() {
-    let presentation = new aspose.slides.Presentation("add_activex.pptm");
+    let presentation = new aspose.slides.Presentation("activex.pptm");
     try {
         let slide = presentation.getSlides().get_Item(0);
 
@@ -77,7 +74,7 @@ function removeActiveX() {
             slide.getControls().removeAt(0);
         }
 
-        presentation.save("removed_activex.pptm", aspose.slides.SaveFormat.Pptm);
+        presentation.save("activex_removed.pptm", aspose.slides.SaveFormat.Pptm);
     } finally {
         presentation.dispose();
     }
@@ -86,7 +83,7 @@ function removeActiveX() {
 
 ## **Set ActiveX Properties**
 
-Add a control and configure several ActiveX properties.
+Configure several ActiveX properties.
 
 ```js
 function setActiveXProperties() {
@@ -94,12 +91,14 @@ function setActiveXProperties() {
     try {
         let slide = presentation.getSlides().get_Item(0);
 
-        // Add a Windows Media Player control and configure properties.
-        let control = slide.getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 50, 50, 150, 50);
-        control.getProperties().set_Item("Caption", "Click Me");
-        control.getProperties().set_Item("Enabled", "true");
+        if (slide.getControls().size() > 0) {
+            let control = slide.getControls().get_Item(0);
 
-        presentation.save("set_activex_props.pptm", aspose.slides.SaveFormat.Pptm);
+            control.getProperties().set_Item("Caption", "Click Me");
+            control.getProperties().set_Item("Enabled", "true");
+        }
+
+        presentation.save("activex_properties.pptm", aspose.slides.SaveFormat.Pptm);
     } finally {
         presentation.dispose();
     }
