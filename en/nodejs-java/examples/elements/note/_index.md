@@ -2,32 +2,35 @@
 title: Note
 type: docs
 weight: 240
-url: /java/examples/elements/elements/note/
+url: /nodejs-java/examples/elements/elements/note/
 keywords:
 - code example
 - note
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Work with slide notes in Aspose.Slides for Java: add, read, edit, and export speaker notes in PPT, PPTX, and ODP using clear Java examples."
+description: "Work with slide notes in Aspose.Slides for Node.js: add, read, edit, and export speaker notes in PPT, PPTX, and ODP using clear JavaScript examples."
 ---
 
-This article demonstrates how to add, read, remove, and update notes slides using **Aspose.Slides for Java**.
+This article demonstrates how to add, read, remove, and update notes slides using **Aspose.Slides for Node.js via Java**.
 
 ## **Add a Notes Slide**
 
 Create a notes slide and assign text to it.
 
-```java
-static void addNote() {
-    Presentation presentation = new Presentation();
+```js
+function addNote() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
-        slide.getNotesSlideManager().getNotesSlide().getNotesTextFrame().setText("My note");
+        let notesSlide = slide.getNotesSlideManager().addNotesSlide();
+        notesSlide.getNotesTextFrame().setText("My note");
+
+        presentation.save("note.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -38,15 +41,15 @@ static void addNote() {
 
 Read text from an existing notes slide.
 
-```java
-static void accessNote() {
-    Presentation presentation = new Presentation();
+```js
+function accessNote() {
+    let presentation = new aspose.slides.Presentation("note.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+        let notesSlide = slide.getNotesSlideManager().getNotesSlide();
 
-        String notes = notesSlide.getNotesTextFrame().getText();
+        let notes = notesSlide.getNotesTextFrame().getText();
     } finally {
         presentation.dispose();
     }
@@ -57,15 +60,15 @@ static void accessNote() {
 
 Remove the notes slide associated with a slide.
 
-```java
-static void removeNote() {
-    Presentation presentation = new Presentation();
+```js
+function removeNote() {
+    let presentation = new aspose.slides.Presentation("note.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+        let slide = presentation.getSlides().get_Item(0);
 
         slide.getNotesSlideManager().removeNotesSlide();
+
+        presentation.save("note_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -76,16 +79,16 @@ static void removeNote() {
 
 Change the text of a notes slide.
 
-```java
-static void updateNoteText() {
-    Presentation presentation = new Presentation();
+```js
+function updateNoteText() {
+    let presentation = new aspose.slides.Presentation("note.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+        let notesSlide = slide.getNotesSlideManager().getNotesSlide();
+        notesSlide.getNotesTextFrame().setText("Updated");
 
-        slide.getNotesSlideManager().getNotesSlide().getNotesTextFrame().setText("Old");
-        slide.getNotesSlideManager().getNotesSlide().getNotesTextFrame().setText("Updated");
+        presentation.save("note_updated.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

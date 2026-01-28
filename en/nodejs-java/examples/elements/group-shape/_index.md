@@ -2,33 +2,36 @@
 title: Group Shape
 type: docs
 weight: 170
-url: /java/examples/elements/groupshape/
+url: /nodejs-java/examples/elements/groupshape/
 keywords:
 - code example
 - group shape
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Manage grouped shapes in Aspose.Slides for Java: create, nest, align, reorder, and style group shapes with Java examples in PPT, PPTX, and ODP presentations."
+description: "Manage grouped shapes in Aspose.Slides for Node.js: create, nest, align, reorder, and style group shapes with examples in PPT, PPTX, and ODP presentations."
 ---
 
-Examples for creating groups of shapes, accessing them, ungrouping, and removal using **Aspose.Slides for Java**.
+Examples for creating groups of shapes, accessing them, ungrouping, and removal using **Aspose.Slides for Node.js via Java**.
 
 ## **Add a Group Shape**
 
 Create a group containing two basic shapes.
 
-```java
-static void addGroupShape() {
-    Presentation presentation = new Presentation();
+```js
+function addGroupShape() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IGroupShape group = slide.getShapes().addGroupShape();
-        group.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
-        group.getShapes().addAutoShape(ShapeType.Ellipse, 60, 0, 50, 50);
+        let group = slide.getShapes().addGroupShape();
+        group.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 50, 50);
+        group.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 60, 0, 50, 50);
+
+        presentation.save("group_shape.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -39,19 +42,17 @@ static void addGroupShape() {
 
 Retrieve the first group shape from a slide.
 
-```java
-static void accessGroupShape() {
-    Presentation presentation = new Presentation();
+```js
+function accessGroupShape() {
+    let presentation = new aspose.slides.Presentation("group_shape.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IGroupShape group = slide.getShapes().addGroupShape();
-        group.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
-
-        IGroupShape firstGroup = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IGroupShape) {
-                firstGroup = (IGroupShape) shape;
+        let firstGroup = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IGroupShape")) {
+                firstGroup = shape;
                 break;
             }
         }
@@ -65,15 +66,16 @@ static void accessGroupShape() {
 
 Delete a group shape from the slide.
 
-```java
-static void removeGroupShape() {
-    Presentation presentation = new Presentation();
+```js
+function removeGroupShape() {
+    let presentation = new aspose.slides.Presentation("group_shape.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IGroupShape group = slide.getShapes().addGroupShape();
+        // Assuming the first shape is a group shape.
+        slide.getShapes().removeAt(0);
 
-        slide.getShapes().remove(group);
+        presentation.save("group_shape_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -84,18 +86,24 @@ static void removeGroupShape() {
 
 Move shapes out of a group container.
 
-```java
-static void ungroupShapes() {
-    Presentation presentation = new Presentation();
+```js
+function ungroupShapes() {
+    let presentation = new aspose.slides.Presentation("group_shape.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        IGroupShape group = slide.getShapes().addGroupShape();
-        IAutoShape rect = group.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
+        // Assuming the first shape is a group shape.
+        let group = slide.getShapes().get_Item(0);
 
-        // Move shape out of the group.
-        slide.getShapes().addClone(rect);
-        group.getShapes().remove(rect);
+        for (let i = 0; i < group.getShapes().size(); i++) {
+            let shape = group.getShapes().get_Item(i);
+            // Clone each shape from the group to the slide.
+            slide.getShapes().addClone(shape);
+        }
+
+        slide.getShapes().remove(group);
+
+        presentation.save("group_shape_ungrouped.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

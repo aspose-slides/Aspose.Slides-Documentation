@@ -2,33 +2,37 @@
 title: OLE Object
 type: docs
 weight: 210
-url: /java/examples/elements/oleobject/
+url: /nodejs-java/examples/elements/oleobject/
 keywords:
 - code example
 - OLE object
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Handle OLE objects in Aspose.Slides for Java: insert, link, update, and extract embedded content with Java in PPT, PPTX, and ODP presentations."
+description: "Handle OLE objects in Aspose.Slides for Node.js: insert, link, update, and extract embedded content with JavaScript in PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates embedding a file as an OLE object and updating its data using **Aspose.Slides for Java**.
+This article demonstrates embedding a file as an OLE object and updating its data using **Aspose.Slides for Node.js via Java**.
 
 ## **Add an OLE Object**
 
-Embed a PDF file into the presentation.
+Embed a PDF file into a presentation.
 
-```java
-static void addOleObject() throws IOException {
-    Presentation presentation = new Presentation();
+```js
+function addOleObject() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
-        IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
-        IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
+        let pdfStream = fs.readFileSync("doc.pdf");
+        let pdfData = java.newArray("byte", Array.from(pdfStream));
+        let dataInfo = new aspose.slides.OleEmbeddedDataInfo(pdfData, "pdf");
+        let oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
+
+        presentation.save("ole_object.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -39,20 +43,17 @@ static void addOleObject() throws IOException {
 
 Retrieve the first OLE object frame on a slide.
 
-```java
-static void accessOleObject() throws IOException {
-    Presentation presentation = new Presentation();
+```js
+function accessOleObject() {
+    let presentation = new aspose.slides.Presentation("ole_object.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
-        IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
-        IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
-
-        IOleObjectFrame firstOleFrame = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IOleObjectFrame) {
-                firstOleFrame = (IOleObjectFrame) shape;
+        let firstOleFrame = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IOleObjectFrame")) {
+                firstOleFrame = shape;
                 break;
             }
         }
@@ -66,17 +67,18 @@ static void accessOleObject() throws IOException {
 
 Delete an embedded OLE object from the slide.
 
-```java
-static void removeOleObject() throws IOException {
-    Presentation presentation = new Presentation();
+```js
+function removeOleObject() {
+    let presentation = new aspose.slides.Presentation("ole_object.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
-        IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
-        IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
+        // Assuming the first shape is the OLE object frame.
+        let oleFrame = slide.getShapes().get_Item(0);
         
         slide.getShapes().remove(oleFrame);
+
+        presentation.save("ole_object_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -87,19 +89,21 @@ static void removeOleObject() throws IOException {
 
 Replace the data embedded in an existing OLE object.
 
-```java
-static void updateOleObjectData() throws IOException {
-    Presentation presentation = new Presentation();
+```js
+function updateOleObject() {
+    let presentation = new aspose.slides.Presentation("ole_object.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-        
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
-        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
-        IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
+        let slide = presentation.getSlides().get_Item(0);
 
-        byte[] newData = Files.readAllBytes(Paths.get("Picture.png"));
-        OleEmbeddedDataInfo newDataInfo = new OleEmbeddedDataInfo(newData, "png");
-        oleFrame.setEmbeddedData(newDataInfo);
+        // Assuming the first shape is the OLE object frame.
+        let oleFrame = slide.getShapes().get_Item(0);
+
+        let dataStream = fs.readFileSync("picture.png");
+        let newData = java.newArray("byte", Array.from(dataStream));
+        let dataInfo = new aspose.slides.OleEmbeddedDataInfo(newData, "png");
+        oleFrame.setEmbeddedData(dataInfo);
+
+        presentation.save("ole_object_updated.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

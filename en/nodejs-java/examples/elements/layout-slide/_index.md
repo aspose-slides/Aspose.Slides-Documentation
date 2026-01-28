@@ -2,40 +2,36 @@
 title: Layout Slide
 type: docs
 weight: 20
-url: /java/examples/elements/layoutslide/
+url: /nodejs-java/examples/elements/layoutslide/
 keywords:
 - code example
 - layout slide
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Master layout slides in Aspose.Slides for Java: choose, apply, and customize slide layouts, placeholders, and masters with Java examples for PPT, PPTX, and ODP presentations."
+description: "Master layout slides in Aspose.Slides for Node.js: choose, apply, and customize slide layouts, placeholders, and masters with examples for PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates how to work with **Layout Slides** in Aspose.Slides for Java. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
+This article demonstrates how to work with **Layout Slides** in Aspose.Slides for Node.js via Java. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
 
 ## **Add a Layout Slide**
 
-You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
+You can create a custom layout slide to define reusable formatting.
 
-```java
-static void addLayoutSlide() {
-    Presentation presentation = new Presentation();
+```js
+function addLayoutSlide() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+        let masterSlide = presentation.getMasters().get_Item(0);
 
         // Create a layout slide with a blank layout type and a custom name.
-        ILayoutSlide layoutSlide = presentation.getLayoutSlides().add(masterSlide, SlideLayoutType.Blank, "Main layout");
+        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+        let layoutSlide = presentation.getLayoutSlides().add(masterSlide, layoutType, "Main layout");
 
-        // Add a text box to the layout slide.
-        IAutoShape layoutTextBox = layoutSlide.getShapes().addAutoShape(ShapeType.Rectangle, 75, 75, 150, 150);
-        layoutTextBox.getTextFrame().setText("Layout Slide Text");
-
-        // Add two slides using this layout; both will inherit the text from the layout.
-        presentation.getSlides().addEmptySlide(layoutSlide);
-        presentation.getSlides().addEmptySlide(layoutSlide);
+        presentation.save("layout_slide.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -53,15 +49,16 @@ static void addLayoutSlide() {
 
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
-```java
-static void accessLayoutSlide() {
-    Presentation presentation = new Presentation();
+```js
+function accessLayoutSlide() {
+    let presentation = new aspose.slides.Presentation("layout_slide.pptx");
     try {
         // Access a layout slide by index.
-        ILayoutSlide firstLayoutSlide = presentation.getLayoutSlides().get_Item(0);
+        let firstLayoutSlide = presentation.getLayoutSlides().get_Item(0);
 
         // Access a layout slide by type.
-        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+        let layoutSlide = presentation.getLayoutSlides().getByType(layoutType);
     } finally {
         presentation.dispose();
     }
@@ -72,13 +69,16 @@ static void accessLayoutSlide() {
 
 You can remove a specific layout slide if it's no longer needed.
 
-```java
-static void removeLayoutSlide() {
-    Presentation presentation = new Presentation();
+```js
+function removeLayoutSlide() {
+    let presentation = new aspose.slides.Presentation("layout_slide.pptx");
     try {
         // Get a layout slide by type and remove it.
-        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Custom);
-        presentation.getLayoutSlides().remove(blankLayoutSlide);
+        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Custom);
+        let layoutSlide = presentation.getLayoutSlides().getByType(layoutType);
+        presentation.getLayoutSlides().remove(layoutSlide);
+
+        presentation.save("layout_slide_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -89,12 +89,14 @@ static void removeLayoutSlide() {
 
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
-```java
-static void removeUnusedLayoutSlides() {
-    Presentation presentation = new Presentation();
+```js
+function removeUnusedLayoutSlides() {
+    let presentation = new aspose.slides.Presentation();
     try {
         // Automatically removes all layout slides not referenced by any slide.
         presentation.getLayoutSlides().removeUnused();
+
+        presentation.save("unused_layout_slides_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -105,15 +107,18 @@ static void removeUnusedLayoutSlides() {
 
 You can duplicate a layout slide using the `addClone` method.
 
-```java
-static void cloneLayoutSlides() {
-    Presentation presentation = new Presentation();
+```js
+function cloneLayoutSlide() {
+    let presentation = new aspose.slides.Presentation("layout_slide.pptx");
     try {
         // Get an existing layout slide by type.
-        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Title);
+        let layoutSlide = presentation.getLayoutSlides().getByType(layoutType);
 
         // Clone the layout slide to the end of the layout slide collection.
-        ILayoutSlide clonedLayoutSlide = presentation.getLayoutSlides().addClone(blankLayoutSlide);
+        let clonedLayoutSlide = presentation.getLayoutSlides().addClone(layoutSlide);
+
+        presentation.save("layout_slide_cloned.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
