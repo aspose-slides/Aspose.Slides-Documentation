@@ -2,33 +2,36 @@
 title: Table
 type: docs
 weight: 120
-url: /java/examples/elements/table/
+url: /nodejs-java/examples/elements/table/
 keywords:
 - code example
 - table
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Work with tables in Aspose.Slides for Java: create, format, merge cells, apply styles, import data, and export with Java examples for PPT, PPTX, and ODP."
+description: "Work with tables in Aspose.Slides for Node.js: create, format, merge cells, apply styles, import data, and export with examples for PPT, PPTX, and ODP."
 ---
 
-Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for Java**.
+Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for Node.js via Java**.
 
 ## **Add a Table**
 
 Create a simple table with two rows and two columns.
 
-```java
-static void addTable() {
-    Presentation presentation = new Presentation();
+```js
+function addTable() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
+        let widths = java.newArray("double", [80, 80]);
+        let heights = java.newArray("double", [30, 30]);
+        let table = slide.getShapes().addTable(50, 50, widths, heights);
+
+        presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -37,23 +40,20 @@ static void addTable() {
 
 ## **Access a Table**
 
-Retrieve the first table shape on the slide.
+Retrieve the first table shape from the slide.
 
-```java
-static void accessTable() {
-    Presentation presentation = new Presentation();
+```js
+function accessTable() {
+    let presentation = new aspose.slides.Presentation("table.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
-
-        // Access first table on slide.
-        ITable firstTable = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof ITable) {
-                firstTable = (ITable) shape;
+        // Access the first table on the slide.
+        let firstTable = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
+                firstTable = shape;
                 break;
             }
         }
@@ -67,17 +67,18 @@ static void accessTable() {
 
 Delete a table from a slide.
 
-```java
-static void removeTable() {
-    Presentation presentation = new Presentation();
+```js
+function removeTable() {
+    let presentation = new aspose.slides.Presentation("table.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
+        // Assume the first shape is a table.
+        let table = slide.getShapes().get_Item(0);
 
         slide.getShapes().remove(table);
+
+        presentation.save("table_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -88,18 +89,19 @@ static void removeTable() {
 
 Merge adjacent cells of a table into a single cell.
 
-```java
-static void mergeTableCells() {
-    Presentation presentation = new Presentation();
+```js
+function mergeTableCells() {
+    let presentation = new aspose.slides.Presentation("table.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
+        // Assume the first shape is a table.
+        let table = slide.getShapes().get_Item(0);
 
         // Merge cells.
         table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 1), false);
+
+        presentation.save("cells_merged.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

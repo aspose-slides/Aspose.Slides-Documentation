@@ -2,32 +2,35 @@
 title: Section
 type: docs
 weight: 90
-url: /java/examples/elements/section/
+url: /nodejs-java/examples/elements/section/
 keywords:
 - code example
 - section
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Manage slide sections in Aspose.Slides for Java: create, rename, reorder, and group slides with Java examples for PPT, PPTX, and ODP."
+description: "Manage slide sections in Aspose.Slides for Node.js via Java: create, rename, reorder, and group slides with JavaScript examples for PPT, PPTX, and ODP."
 ---
 
-Examples for managing presentation sections—add, access, remove, and rename them programmatically using **Aspose.Slides for Java**.
+Examples for managing presentation sections—add, access, remove, and rename them programmatically using **Aspose.Slides for Node.js via Java**.
 
 ## **Add a Section**
 
 Create a section that starts at a specific slide.
 
-```java
-static void addSection() {
-    Presentation presentation = new Presentation();
+```js
+function addSection() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Specify the slide that marks the beginning of the section.
         presentation.getSections().addSection("New Section", slide);
+
+        presentation.save("section.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -38,17 +41,15 @@ static void addSection() {
 
 Read section information from a presentation.
 
-```java
-static void accessSection() {
-    Presentation presentation = new Presentation();
+```js
+function accessSection() {
+    let presentation = new aspose.slides.Presentation("section.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        presentation.getSections().addSection("My Section", slide);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Access a section by index.
-        ISection section = presentation.getSections().get_Item(0);
-        String sectionName = section.getName();
+        let section = presentation.getSections().get_Item(0);
+        let sectionName = section.getName();
     } finally {
         presentation.dispose();
     }
@@ -59,16 +60,17 @@ static void accessSection() {
 
 Delete a previously added section.
 
-```java
-static void removeSection() {
-    Presentation presentation = new Presentation();
+```js
+function removeSection() {
+    let presentation = new aspose.slides.Presentation("section.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        ISection section = presentation.getSections().addSection("Temporary Section", slide);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Remove the first section.
+        let section = presentation.getSections().get_Item(0);
         presentation.getSections().removeSection(section);
+
+        presentation.save("section_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -79,16 +81,16 @@ static void removeSection() {
 
 Change the name of an existing section.
 
-```java
-static void renameSection() {
-    Presentation presentation = new Presentation();
+```js
+function renameSection() {
+    let presentation = new aspose.slides.Presentation("section.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        presentation.getSections().addSection("Old Name", slide);
-
-        ISection section = presentation.getSections().get_Item(0);
+        let section = presentation.getSections().get_Item(0);
         section.setName("New Name");
+
+        presentation.save("section_renamed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

@@ -2,7 +2,7 @@
 title: VBA Macro
 type: docs
 weight: 150
-url: /java/examples/elements/vbamacro/
+url: /nodejs-java/examples/elements/vbamacro/
 keywords:
 - code example
 - VBA
@@ -10,25 +10,28 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Automate presentations with Aspose.Slides for Java: create, run, import, and secure VBA macros in PPT, PPTX, and ODP using clear Java examples."
+description: "Automate presentations with Aspose.Slides for Node.js via Java: create, import, and secure VBA macros in PPT, PPTX, and ODP using clear JavaScript examples."
 ---
 
-This article demonstrates how to add, access, and remove VBA macros using **Aspose.Slides for Java**.
+This article demonstrates how to add, access, and remove VBA macros using **Aspose.Slides for Node.js via Java**.
 
 ## **Add a VBA Macro**
 
 Create a presentation with a VBA project and a simple macro module.
 
-```java
-static void addVbaMacro() {
-    Presentation presentation = new Presentation();
+```js
+function addVbaMacro() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        presentation.setVbaProject(new VbaProject());
+        presentation.setVbaProject(new aspose.slides.VbaProject());
 
-        IVbaModule module = presentation.getVbaProject().getModules().addEmptyModule("Module");
+        let module = presentation.getVbaProject().getModules().addEmptyModule("Module");
         module.setSourceCode("Sub Test()\n MsgBox \"Hi\" \nEnd Sub");
+
+        presentation.save("vba_macro.pptm", aspose.slides.SaveFormat.Pptm);
     } finally {
         presentation.dispose();
     }
@@ -39,16 +42,12 @@ static void addVbaMacro() {
 
 Retrieve the first module from the VBA project.
 
-```java
-static void accessVbaMacro() {
-    Presentation presentation = new Presentation();
+```js
+function accessVbaMacro() {
+    let presentation = new aspose.slides.Presentation("vba_macro.pptm");
     try {
-        presentation.setVbaProject(new VbaProject());
-
-        IVbaModule module = presentation.getVbaProject().getModules().addEmptyModule("Module");
-        module.setSourceCode("Sub Test()\n MsgBox \"Hi\" \nEnd Sub");
-
-        IVbaModule firstModule = presentation.getVbaProject().getModules().get_Item(0);
+        // Assuming the presentation has at least one VBA module.
+        let firstModule = presentation.getVbaProject().getModules().get_Item(0);
     } finally {
         presentation.dispose();
     }
@@ -59,16 +58,16 @@ static void accessVbaMacro() {
 
 Delete a module from the VBA project.
 
-```java
-static void removeVbaMacro() {
-    Presentation presentation = new Presentation();
+```js
+function removeVbaMacro() {
+    let presentation = new aspose.slides.Presentation("vba_macro.pptm");
     try {
-        presentation.setVbaProject(new VbaProject());
+        // Assuming the presentation has at least one VBA module.
+        let firstModule = presentation.getVbaProject().getModules().get_Item(0);
 
-        IVbaModule module = presentation.getVbaProject().getModules().addEmptyModule("Module");
-        module.setSourceCode("Sub Test()\n MsgBox \"Hi\" \nEnd Sub");
+        presentation.getVbaProject().getModules().remove(firstModule);
 
-        presentation.getVbaProject().getModules().remove(module);
+        presentation.save("vba_macro_removed.pptm", aspose.slides.SaveFormat.Pptm);
     } finally {
         presentation.dispose();
     }

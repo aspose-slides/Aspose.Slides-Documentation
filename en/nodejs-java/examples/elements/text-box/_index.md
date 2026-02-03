@@ -2,16 +2,17 @@
 title: Text Box
 type: docs
 weight: 40
-url: /java/examples/elements/textbox/
+url: /nodejs-java/examples/elements/textbox/
 keywords:
 - code example
 - textbox
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Work with text boxes in Aspose.Slides for Java: add, format, align, wrap, autofit, and style text using Java for PPT, PPTX, and ODP presentations."
+description: "Work with text boxes in Aspose.Slides for Node.js: add, format, align, wrap, autofit, and style text using JavaScript for PPT, PPTX, and ODP presentations."
 ---
 
 In Aspose.Slides, a **text box** is represented by an `AutoShape`. Nearly any shape can contain text, but a typical text box has no fill or border and displays only text.
@@ -22,27 +23,32 @@ This guide explains how to add, access, and remove text boxes programmatically.
 
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
-```java
-public static void addTextBox() {
-    Presentation presentation = new Presentation();
+```js
+function addTextBox() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Create a rectangle shape (defaults to filled with border and no text).
-        IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100);
+        let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 75, 150, 100);
 
         // Remove fill and border to make it look like a typical text box.
-        textBox.getFillFormat().setFillType(FillType.NoFill);
-        textBox.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        let boxFillType = java.newByte(aspose.slides.FillType.NoFill);
+        textBox.getFillFormat().setFillType(boxFillType);
+        textBox.getLineFormat().getFillFormat().setFillType(boxFillType);
 
         // Set text formatting.
-        IParagraph paragraph = textBox.getTextFrame().getParagraphs().get_Item(0);
-        IPortionFormat textFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
-        textFormat.getFillFormat().setFillType(FillType.Solid);
-        textFormat.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+        let paragraph = textBox.getTextFrame().getParagraphs().get_Item(0);
+        let textFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        let textFillType = java.newByte(aspose.slides.FillType.Solid);
+        let textFillColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+        textFormat.getFillFormat().setFillType(textFillType);
+        textFormat.getFillFormat().getSolidFillColor().setColor(textFillColor);
 
         // Assign the actual text content.
         textBox.getTextFrame().setText("Some text...");
+
+        presentation.save("text_box.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -51,23 +57,22 @@ public static void addTextBox() {
 
 > 💡 **Note:** Any `AutoShape` that contains a non-empty `TextFrame` can function as a text box.
 
-## **Access Text Boxes by Content**
+## **Access a Text Box**
 
-To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
+Retrieve the first text box from the slide.
 
-```java
-public static void accessTextBox() {
-    Presentation presentation = new Presentation();
+```js
+function accessTextBox() {
+    let presentation = new aspose.slides.Presentation("text_box.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        for (IShape shape : slide.getShapes()) {
+        let firstTextBox = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
             // Only AutoShapes can contain editable text.
-            if (shape instanceof IAutoShape) {
-                IAutoShape autoShape = (IAutoShape) shape;
-                if (autoShape.getTextFrame().getText().contains("Slide")) {
-                    // Do something with the matching text box.
-                }
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                firstTextBox = shape;
             }
         }
     } finally {
@@ -80,25 +85,28 @@ public static void accessTextBox() {
 
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 
-```java
-public static void removeTextBox() {
-    Presentation presentation = new Presentation();
+```js
+function removeTextBoxes() {
+    let presentation = new aspose.slides.Presentation("text_box.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        List<IShape> shapesToRemove = new ArrayList<IShape>();
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IAutoShape) {
-                IAutoShape autoShape = (IAutoShape) shape;
-                if (autoShape.getTextFrame().getText().contains("Slide")) {
-                    shapesToRemove.add(shape);
+        let shapesToRemove = [];
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let autoShape = shape;
+                if (autoShape.getTextFrame().getText().includes("Slide")) {
+                    shapesToRemove.push(shape);
                 }
             }
         }
 
-        for (IShape shape : shapesToRemove) {
-            slide.getShapes().remove(shape);
+        for (let i = 0; i < shapesToRemove.length; i++) {
+            slide.getShapes().remove(shapesToRemove[i]);
         }
+
+        presentation.save("text_boxes_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

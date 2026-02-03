@@ -2,33 +2,36 @@
 title: Slide
 type: docs
 weight: 10
-url: /java/examples/elements/slide/
+url: /nodejs-java/examples/elements/slide/
 keywords:
 - code example
 - slide
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Control slides in Aspose.Slides for Java: create, clone, reorder, resize, set backgrounds, and apply transitions with Java for PPT, PPTX, and ODP presentations."
+description: "Control slides in Aspose.Slides for Node.js: create, clone, reorder, resize, set backgrounds, and apply transitions for PPT, PPTX, and ODP presentations."
 ---
 
-This article provides a series of examples that demonstrate how to work with slides using **Aspose.Slides for Java**. You’ll learn how to add, access, clone, reorder, and remove slides using the `Presentation` class.
+This article provides a series of examples that demonstrate how to work with slides using **Aspose.Slides for Node.js via Java**. You’ll learn how to add, access, clone, reorder, and remove slides using the `Presentation` class.
 
-Each example below includes a brief explanation followed by a code snippet in Java.
+Each example below includes a brief explanation followed by a code snippet in JavaScript.
 
 ## **Add a Slide**
 
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
-```java
-static void addSlide() {
-    Presentation presentation = new Presentation();
+```js
+function addSlide() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+        let layoutSlide = presentation.getLayoutSlides().getByType(layoutType);
+        presentation.getSlides().addEmptySlide(layoutSlide);
 
-        presentation.getSlides().addEmptySlide(blankLayout);
+        presentation.save("slide.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -41,23 +44,14 @@ static void addSlide() {
 
 ## **Access Slides by Index**
 
-You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
+You can access slides using their index. This is useful for iterating through or modifying specific slides.
 
-```java
-static void accessSlide() {
-    Presentation presentation = new Presentation();
+```js
+function accessSlide() {
+    let presentation = new aspose.slides.Presentation("slide.pptx");
     try {
-        // Add another empty slide.
-        ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
-        presentation.getSlides().addEmptySlide(blankLayout);
-
-        // Access slides by index.
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
-        ISlide secondSlide = presentation.getSlides().get_Item(1);
-
-        // Get slide index from a reference, then access it by index.
-        int secondSlideIndex = presentation.getSlides().indexOf(secondSlide);
-        ISlide secondSlideByIndex = presentation.getSlides().get_Item(secondSlideIndex);
+        // Access a slide by index.
+        let firstSlide = presentation.getSlides().get_Item(0);
     } finally {
         presentation.dispose();
     }
@@ -68,15 +62,14 @@ static void accessSlide() {
 
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
-```java
-static void cloneSlide() {
-    Presentation presentation = new Presentation();
+```js
+function cloneSlide() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
+        let firstSlide = presentation.getSlides().get_Item(0);
+        let clonedSlide = presentation.getSlides().addClone(firstSlide);
 
-        ISlide clonedSlide = presentation.getSlides().addClone(firstSlide);
-
-        int clonedSlideIndex = presentation.getSlides().indexOf(clonedSlide);
+        presentation.save("slide_cloned.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -85,17 +78,17 @@ static void cloneSlide() {
 
 ## **Reorder Slides**
 
-You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
+You can change the order of slides by moving one to a new index. In this case, we move a slide to the first position.
 
-```java
-static void reorderSlide() {
-    Presentation presentation = new Presentation();
+```js
+function reorderSlide() {
+    let presentation = new aspose.slides.Presentation("slide.pptx");
     try {
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
+        // Reorder slides by moving the second slide to the first position.
+        let secondSlide = presentation.getSlides().get_Item(1);
+        presentation.getSlides().reorder(0, secondSlide);
 
-        ISlide clonedSlide = presentation.getSlides().addClone(firstSlide);
-
-        presentation.getSlides().reorder(0, clonedSlide);
+        presentation.save("slide_reordered.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -106,15 +99,14 @@ static void reorderSlide() {
 
 To remove a slide, simply reference it and call `remove`. This example adds a second slide and then removes the original, leaving only the new one.
 
-```java
-static void removeSlide() {
-    Presentation presentation = new Presentation();
+```js
+function removeSlide() {
+    let presentation = new aspose.slides.Presentation("slide.pptx");
     try {
-        ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
-        ISlide secondSlide = presentation.getSlides().addEmptySlide(blankLayout);
-
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
+        let firstSlide = presentation.getSlides().get_Item(0);
         presentation.getSlides().remove(firstSlide);
+
+        presentation.save("slide_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

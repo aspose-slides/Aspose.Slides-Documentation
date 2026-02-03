@@ -2,32 +2,35 @@
 title: Slide Transition
 type: docs
 weight: 110
-url: /java/examples/elements/slidetransition/
+url: /nodejs-java/examples/elements/slidetransition/
 keywords:
 - code example
 - slide transition
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Master slide transitions in Aspose.Slides for Java: add, customize, and sequence effects and durations with Java examples for PPT, PPTX, and ODP presentations."
+description: "Master slide transitions in Aspose.Slides for Node.js: add, customize, and sequence effects and durations with examples for PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates applying slide transition effects and timings with **Aspose.Slides for Java**.
+This article demonstrates applying slide transition effects and timings with **Aspose.Slides for Node.js via Java**.
 
 ## **Add a Slide Transition**
 
 Apply a fade transition effect to the first slide.
 
-```java
-static void addSlideTransition() {
-    Presentation presentation = new Presentation();
+```js
+function addSlideTransition() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Apply a fade transition.
-        slide.getSlideShowTransition().setType(TransitionType.Fade);
+        slide.getSlideShowTransition().setType(aspose.slides.TransitionType.Fade);
+
+        presentation.save("slide_transition.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -38,16 +41,14 @@ static void addSlideTransition() {
 
 Read the transition type currently assigned to a slide.
 
-```java
-static void accessSlideTransition() {
-    Presentation presentation = new Presentation();
+```js
+function accessSlideTransition() {
+    let presentation = new aspose.slides.Presentation("slide_transition.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        slide.getSlideShowTransition().setType(TransitionType.Push);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Access the transition type.
-        int type = slide.getSlideShowTransition().getType();
+        let type = slide.getSlideShowTransition().getType();
     } finally {
         presentation.dispose();
     }
@@ -58,16 +59,16 @@ static void accessSlideTransition() {
 
 Clear any transition effect by setting the type to `None`.
 
-```java
-static void removeSlideTransition() {
-    Presentation presentation = new Presentation();
+```js
+function removeSlideTransition() {
+    let presentation = new aspose.slides.Presentation("slide_transition.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
-
-        slide.getSlideShowTransition().setType(TransitionType.Fade);
+        let slide = presentation.getSlides().get_Item(0);
 
         // Remove transition by setting none.
-        slide.getSlideShowTransition().setType(TransitionType.None);
+        slide.getSlideShowTransition().setType(aspose.slides.TransitionType.None);
+
+        presentation.save("slide_transition_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -78,14 +79,16 @@ static void removeSlideTransition() {
 
 Specify how long the slide is displayed before advancing automatically.
 
-```java
-static void setTransitionDuration() {
-    Presentation presentation = new Presentation();
+```js
+function setTransitionDuration() {
+    let presentation = new aspose.slides.Presentation();
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
         slide.getSlideShowTransition().setAdvanceOnClick(true);
         slide.getSlideShowTransition().setAdvanceAfterTime(2000); // in milliseconds.
+
+        presentation.save("slide_transition_duration.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }

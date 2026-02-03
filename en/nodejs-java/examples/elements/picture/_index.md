@@ -2,52 +2,42 @@
 title: Picture
 type: docs
 weight: 50
-url: /java/examples/elements/picture/
+url: /nodejs-java/examples/elements/picture/
 keywords:
 - code example
 - picture
 - PowerPoint
 - OpenDocument
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Work with pictures in Aspose.Slides for Java: insert, crop, compress, recolor, and export images with Java examples for PPT, PPTX, and ODP presentations."
+description: "Work with pictures in Aspose.Slides for Node.js: insert, crop, compress, recolor, and export images with examples for PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates how to insert and access pictures from in-memory images using **Aspose.Slides for Java**. The examples below create an image in memory, place it on a slide, and then retrieve it.
+This article demonstrates how to insert and access pictures using **Aspose.Slides for Node.js via Java**. The examples below read an image from a file, place it on a slide, and then retrieve it.
 
 ## **Add a Picture**
 
-This code generates a small bitmap, converts it to a stream, and inserts it as a picture frame on the first slide.
+This code reads an image from a file and inserts it as a picture frame on the first slide.
 
-```java
-public static void addPicture() throws IOException {
-    Presentation presentation = new Presentation();
+```js
+function addPicture() {
+    const FileInputStream = java.import("java.io.FileInputStream");
+
+    let presentation = new aspose.slides.Presentation();
+
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        // Create a simple in-memory image.
-        BufferedImage bitmap = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D graphics = bitmap.createGraphics();
-        try {
-            graphics.setPaint(new Color(144, 238, 144));
-            graphics.fillRect(0, 0, 100, 100);
-        } finally {
-            graphics.dispose();
-        }
-
-        // Convert the bitmap to a byte array.
-        ByteArrayOutputStream bitmapStream = new ByteArrayOutputStream();
-        ImageIO.write(bitmap, "png", bitmapStream);
-        byte[] pngBytes = bitmapStream.toByteArray();
-
-        // Add the image to the presentation.
-        IPPImage image = presentation.getImages().addImage(new ByteArrayInputStream(pngBytes));
+        let imageStream = new FileInputStream("image.jpg");
+        let image = presentation.getImages().addImage(imageStream);
 
         // Insert a picture frame showing the image on the first slide.
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, bitmap.getWidth(), bitmap.getHeight(), image);
+        slide.getShapes().addPictureFrame(
+            aspose.slides.ShapeType.Rectangle, 50, 50, image.getWidth(), image.getHeight(), image);
 
-        presentation.save("picture.pptx", SaveFormat.Pptx);
+        presentation.save("picture.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -58,24 +48,17 @@ public static void addPicture() throws IOException {
 
 This example ensures a slide contains a picture frame and then accesses the first one it finds.
 
-```java
-public static void accessPicture() throws IOException {
-    Presentation presentation = new Presentation();
+```js
+function accessPicture() {
+    let presentation = new aspose.slides.Presentation("picture.pptx");
     try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+        let slide = presentation.getSlides().get_Item(0);
 
-        BufferedImage bitmap = new BufferedImage(40, 40, BufferedImage.TYPE_INT_ARGB);
-        ByteArrayOutputStream bitmapStream = new ByteArrayOutputStream();
-        ImageIO.write(bitmap, "png", bitmapStream);
-        byte[] pngBytes = bitmapStream.toByteArray();
-
-        IPPImage image = presentation.getImages().addImage(new ByteArrayInputStream(pngBytes));
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, image);
-
-        IPictureFrame pictureFrame = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IPictureFrame) {
-                pictureFrame = (IPictureFrame) shape;
+        let pictureFrame = null;
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+                pictureFrame = shape;
                 break;
             }
         }
