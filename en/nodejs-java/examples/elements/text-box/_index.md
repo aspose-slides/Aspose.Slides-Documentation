@@ -2,7 +2,7 @@
 title: Text Box
 type: docs
 weight: 40
-url: /nodejs-java/examples/elements/textbox/
+url: /nodejs-java/examples/elements/text-box/
 keywords:
 - code example
 - textbox

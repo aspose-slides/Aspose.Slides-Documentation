@@ -2,7 +2,7 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /net/examples/elements/smartart/
+url: /net/examples/elements/smart-art/
 keywords:
 - SmartArt
 - add SmartArt

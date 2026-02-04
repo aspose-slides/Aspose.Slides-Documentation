@@ -2,7 +2,7 @@
 title: VBA Macro
 type: docs
 weight: 150
-url: /androidjava/examples/elements/vbamacro/
+url: /androidjava/examples/elements/vba-macro/
 keywords:
 - code example
 - VBA

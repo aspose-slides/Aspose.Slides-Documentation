@@ -2,7 +2,7 @@
 title: Note
 type: docs
 weight: 240
-url: /cpp/examples/elements/elements/note/
+url: /cpp/examples/elements/note/
 keywords:
 - code example
 - note

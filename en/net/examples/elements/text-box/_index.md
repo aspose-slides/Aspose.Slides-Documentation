@@ -2,7 +2,7 @@
 title: Text Box
 type: docs
 weight: 40
-url: /net/examples/elements/textbox/
+url: /net/examples/elements/text-box/
 keywords:
 - text box
 - add text box

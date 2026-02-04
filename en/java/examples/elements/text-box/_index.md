@@ -2,7 +2,7 @@
 title: Text Box
 type: docs
 weight: 40
-url: /java/examples/elements/textbox/
+url: /java/examples/elements/text-box/
 keywords:
 - code example
 - textbox

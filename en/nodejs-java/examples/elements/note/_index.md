@@ -2,7 +2,7 @@
 title: Note
 type: docs
 weight: 240
-url: /nodejs-java/examples/elements/elements/note/
+url: /nodejs-java/examples/elements/note/
 keywords:
 - code example
 - note

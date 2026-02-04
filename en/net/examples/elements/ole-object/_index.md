@@ -2,7 +2,7 @@
 title: OLE Object
 type: docs
 weight: 210
-url: /net/examples/elements/oleobject/
+url: /net/examples/elements/ole-object/
 keywords:
 - OLE object
 - add OLE object

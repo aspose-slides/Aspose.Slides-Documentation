@@ -2,7 +2,7 @@
 title: Master Slide
 type: docs
 weight: 30
-url: /nodejs-java/examples/elements/masterslide/
+url: /nodejs-java/examples/elements/master-slide/
 keywords:
 - code example
 - master slide

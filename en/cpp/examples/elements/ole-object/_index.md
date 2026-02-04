@@ -2,7 +2,7 @@
 title: OLE Object
 type: docs
 weight: 210
-url: /cpp/examples/elements/oleobject/
+url: /cpp/examples/elements/ole-object/
 keywords:
 - code example
 - OLE object

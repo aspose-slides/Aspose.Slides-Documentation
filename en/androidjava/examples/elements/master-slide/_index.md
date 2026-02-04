@@ -2,7 +2,7 @@
 title: Master Slide
 type: docs
 weight: 30
-url: /androidjava/examples/elements/masterslide/
+url: /androidjava/examples/elements/master-slide/
 keywords:
 - code example
 - master slide

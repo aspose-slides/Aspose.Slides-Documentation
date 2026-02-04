@@ -2,7 +2,7 @@
 title: Note
 type: docs
 weight: 240
-url: /java/examples/elements/elements/note/
+url: /java/examples/elements/note/
 keywords:
 - code example
 - note

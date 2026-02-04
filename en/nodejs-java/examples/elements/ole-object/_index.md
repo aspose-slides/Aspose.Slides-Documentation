@@ -2,7 +2,7 @@
 title: OLE Object
 type: docs
 weight: 210
-url: /nodejs-java/examples/elements/oleobject/
+url: /nodejs-java/examples/elements/ole-object/
 keywords:
 - code example
 - OLE object

@@ -2,7 +2,7 @@
 title: Header Footer
 type: docs
 weight: 220
-url: /androidjava/examples/elements/elements/headerfooter/
+url: /androidjava/examples/elements/header-footer/
 keywords:
 - code example
 - header

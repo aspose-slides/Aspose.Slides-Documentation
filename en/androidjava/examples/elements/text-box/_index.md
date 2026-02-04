@@ -2,7 +2,7 @@
 title: Text Box
 type: docs
 weight: 40
-url: /androidjava/examples/elements/textbox/
+url: /androidjava/examples/elements/text-box/
 keywords:
 - code example
 - textbox

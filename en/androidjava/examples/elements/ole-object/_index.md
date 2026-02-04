@@ -2,7 +2,7 @@
 title: OLE Object
 type: docs
 weight: 210
-url: /androidjava/examples/elements/oleobject/
+url: /androidjava/examples/elements/ole-object/
 keywords:
 - code example
 - OLE object

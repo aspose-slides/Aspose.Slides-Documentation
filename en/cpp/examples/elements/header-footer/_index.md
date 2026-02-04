@@ -2,7 +2,7 @@
 title: Header Footer
 type: docs
 weight: 220
-url: /cpp/examples/elements/elements/headerfooter/
+url: /cpp/examples/elements/header-footer/
 keywords:
 - code example
 - header

@@ -2,7 +2,7 @@
 title: Header Footer
 type: docs
 weight: 220
-url: /nodejs-java/examples/elements/elements/headerfooter/
+url: /nodejs-java/examples/elements/header-footer/
 keywords:
 - code example
 - header

@@ -2,7 +2,7 @@
 title: Slide Transition
 type: docs
 weight: 110
-url: /net/examples/elements/slidetransition/
+url: /net/examples/elements/slide-transition/
 keywords:
 - slide transition
 - add slide transition

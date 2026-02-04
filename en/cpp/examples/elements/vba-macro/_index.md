@@ -2,7 +2,7 @@
 title: VBA Macro
 type: docs
 weight: 150
-url: /cpp/examples/elements/vbamacro/
+url: /cpp/examples/elements/vba-macro/
 keywords:
 - code example
 - VBA

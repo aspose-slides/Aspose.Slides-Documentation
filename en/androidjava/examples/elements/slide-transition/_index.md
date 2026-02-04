@@ -2,7 +2,7 @@
 title: Slide Transition
 type: docs
 weight: 110
-url: /androidjava/examples/elements/slidetransition/
+url: /androidjava/examples/elements/slide-transition/
 keywords:
 - code example
 - slide transition

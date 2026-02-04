@@ -2,7 +2,7 @@
 title: Math Text
 type: docs
 weight: 160
-url: /nodejs-java/examples/elements/mathtext/
+url: /nodejs-java/examples/elements/math-text/
 keywords:
 - code example
 - mathematical text

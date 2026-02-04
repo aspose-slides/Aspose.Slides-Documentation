@@ -2,7 +2,7 @@
 title: Master Slide
 type: docs
 weight: 30
-url: /cpp/examples/elements/masterslide/
+url: /cpp/examples/elements/master-slide/
 keywords:
 - code example
 - master slide

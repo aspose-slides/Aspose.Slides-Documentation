@@ -2,7 +2,7 @@
 title: Group Shape
 type: docs
 weight: 170
-url: /androidjava/examples/elements/groupshape/
+url: /androidjava/examples/elements/group-shape/
 keywords:
 - code example
 - group shape

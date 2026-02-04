@@ -2,7 +2,7 @@
 title: Group Shape
 type: docs
 weight: 170
-url: /net/examples/elements/groupshape/
+url: /net/examples/elements/group-shape/
 keywords:
 - group
 - add group shape

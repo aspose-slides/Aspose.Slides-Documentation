@@ -2,7 +2,7 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /cpp/examples/elements/smartart/
+url: /cpp/examples/elements/smart-art/
 keywords:
 - code example
 - SmartArt

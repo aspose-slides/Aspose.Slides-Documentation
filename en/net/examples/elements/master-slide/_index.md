@@ -2,7 +2,7 @@
 title: Master Slide
 type: docs
 weight: 30
-url: /net/examples/elements/masterslide/
+url: /net/examples/elements/master-slide/
 keywords:
 - master slide
 - add master slide

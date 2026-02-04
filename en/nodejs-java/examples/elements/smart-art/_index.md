@@ -2,7 +2,7 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /nodejs-java/examples/elements/smartart/
+url: /nodejs-java/examples/elements/smart-art/
 keywords:
 - code example
 - SmartArt

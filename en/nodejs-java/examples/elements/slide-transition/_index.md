@@ -2,7 +2,7 @@
 title: Slide Transition
 type: docs
 weight: 110
-url: /nodejs-java/examples/elements/slidetransition/
+url: /nodejs-java/examples/elements/slide-transition/
 keywords:
 - code example
 - slide transition

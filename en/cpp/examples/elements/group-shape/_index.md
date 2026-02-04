@@ -2,7 +2,7 @@
 title: Group Shape
 type: docs
 weight: 170
-url: /cpp/examples/elements/groupshape/
+url: /cpp/examples/elements/group-shape/
 keywords:
 - code example
 - group shape

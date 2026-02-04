@@ -2,7 +2,7 @@
 title: Math Text
 type: docs
 weight: 160
-url: /net/examples/elements/mathtext/
+url: /net/examples/elements/math-text/
 keywords:
 - math text
 - add math text

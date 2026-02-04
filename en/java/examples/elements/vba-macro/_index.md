@@ -2,7 +2,7 @@
 title: VBA Macro
 type: docs
 weight: 150
-url: /java/examples/elements/vbamacro/
+url: /java/examples/elements/vba-macro/
 keywords:
 - code example
 - VBA

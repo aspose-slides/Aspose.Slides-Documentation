@@ -2,7 +2,7 @@
 title: Layout Slide
 type: docs
 weight: 20
-url: /cpp/examples/elements/layoutslide/
+url: /cpp/examples/elements/layout-slide/
 keywords:
 - code example
 - layout slide

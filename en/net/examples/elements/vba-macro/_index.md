@@ -2,7 +2,7 @@
 title: VBA Macro
 type: docs
 weight: 150
-url: /net/examples/elements/vbamacro/
+url: /net/examples/elements/vba-macro/
 keywords:
 - VBA macro
 - add VBA macro

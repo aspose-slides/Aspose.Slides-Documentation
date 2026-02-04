@@ -2,7 +2,7 @@
 title: Header Footer
 type: docs
 weight: 220
-url: /java/examples/elements/elements/headerfooter/
+url: /java/examples/elements/header-footer/
 keywords:
 - code example
 - header

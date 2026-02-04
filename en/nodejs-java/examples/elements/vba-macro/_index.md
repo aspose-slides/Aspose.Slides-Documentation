@@ -2,7 +2,7 @@
 title: VBA Macro
 type: docs
 weight: 150
-url: /nodejs-java/examples/elements/vbamacro/
+url: /nodejs-java/examples/elements/vba-macro/
 keywords:
 - code example
 - VBA

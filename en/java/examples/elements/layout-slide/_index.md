@@ -2,7 +2,7 @@
 title: Layout Slide
 type: docs
 weight: 20
-url: /java/examples/elements/layoutslide/
+url: /java/examples/elements/layout-slide/
 keywords:
 - code example
 - layout slide

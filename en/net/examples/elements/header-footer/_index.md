@@ -2,7 +2,7 @@
 title: Header Footer
 type: docs
 weight: 220
-url: /net/examples/elements/elements/headerfooter/
+url: /net/examples/elements/header-footer/
 keywords:
 - header footer
 - add header footer

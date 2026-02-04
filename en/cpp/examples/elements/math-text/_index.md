@@ -2,7 +2,7 @@
 title: Math Text
 type: docs
 weight: 160
-url: /cpp/examples/elements/mathtext/
+url: /cpp/examples/elements/math-text/
 keywords:
 - code example
 - mathematical text

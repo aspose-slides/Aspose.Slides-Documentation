@@ -2,7 +2,7 @@
 title: Group Shape
 type: docs
 weight: 170
-url: /nodejs-java/examples/elements/groupshape/
+url: /nodejs-java/examples/elements/group-shape/
 keywords:
 - code example
 - group shape

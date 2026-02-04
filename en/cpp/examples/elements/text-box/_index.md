@@ -2,7 +2,7 @@
 title: Text Box
 type: docs
 weight: 40
-url: /cpp/examples/elements/textbox/
+url: /cpp/examples/elements/text-box/
 keywords:
 - code example
 - textbox

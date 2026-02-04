@@ -2,7 +2,7 @@
 title: Note
 type: docs
 weight: 240
-url: /net/examples/elements/elements/note/
+url: /net/examples/elements/note/
 keywords:
 - note
 - add notes slide

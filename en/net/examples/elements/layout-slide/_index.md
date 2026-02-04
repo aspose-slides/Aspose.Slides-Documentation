@@ -2,7 +2,7 @@
 title: Layout Slide
 type: docs
 weight: 20
-url: /net/examples/elements/layoutslide/
+url: /net/examples/elements/layout-slide/
 keywords:
 - layout slide
 - add layout slide
