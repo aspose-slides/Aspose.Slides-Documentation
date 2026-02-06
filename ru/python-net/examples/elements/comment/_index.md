@@ -1,0 +1,100 @@
+---
+title: Комментарий
+type: docs
+weight: 230
+url: /ru/python-net/examples/elements/comment/
+keywords:
+- комментарий
+- современный комментарий
+- добавить комментарий
+- доступ к комментарию
+- удалить комментарий
+- ответить на комментарий
+- примеры кода
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Управляйте комментариями слайдов в Python с помощью Aspose.Slides: добавляйте, читайте, отвечайте, редактируйте, удаляйте и работайте с вложенными комментариями для PowerPoint и OpenDocument."
+---
+Продемонстрировано добавление, чтение, удаление и ответы на современные комментарии с использованием **Aspose.Slides for Python via .NET**.
+
+## **Добавить современный комментарий**
+
+Создайте комментарий, написанный пользователем, и сохраните презентацию.
+
+```py
+def add_modern_comment():
+    with slides.Presentation() as presentation:
+        slide = presentation.slides[0]
+
+        # Добавить автора комментария.
+        author = presentation.comment_authors.add_author("User", "U1")
+
+        # Добавить современный комментарий.
+        author.comments.add_modern_comment(
+            "This is a modern comment", slide, None, drawing.PointF(100, 100), datetime.date.today())
+
+        presentation.save("modern_comment.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Получить доступ к современному комментарию**
+
+Прочитайте современный комментарий из существующей презентации.
+
+```py
+def access_modern_comment():
+    with slides.Presentation("modern_comment.pptx") as presentation:
+        author = presentation.comment_authors[0]
+
+        # Получить доступ к первому современному комментарию.
+        comment = author.comments[0]
+
+        print(f"Author: {author.name}, Comment: {comment.text}")
+```
+
+## **Удалить современный комментарий**
+
+Удалите комментарий и сохраните обновлённый файл.
+
+```py
+def remove_modern_comment():
+    with slides.Presentation("modern_comment.pptx") as presentation:
+        author = presentation.comment_authors[0]
+        comment = author.comments[0]
+
+        # Удалить комментарий.
+        comment.remove()
+
+        presentation.save("modern_comment_removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Ответить на современный комментарий**
+
+Добавьте ответы к родительскому современному комментарию.
+
+```py
+def reply_to_modern_comment():
+    with slides.Presentation() as presentation:
+        slide = presentation.slides[0]
+
+        author = presentation.comment_authors.add_author("User", "U1")
+
+        # Добавить родительский комментарий.
+        parent = author.comments.add_modern_comment(
+            "Parent comment", slide, None, drawing.PointF(100, 100), datetime.date.today())
+
+        # Добавить первый ответ.
+        reply1 = author.comments.add_modern_comment(
+            "Reply 1", slide, None, drawing.PointF(110, 100), datetime.date.today())
+
+        # Добавить второй ответ.
+        reply2 = author.comments.add_modern_comment(
+            "Reply 2", slide, None, drawing.PointF(120, 100), datetime.date.today())
+
+        reply1.parent_comment = parent
+        reply2.parent_comment = parent
+
+        presentation.save("modern_comment_replies.pptx", slides.export.SaveFormat.PPTX)
+```
