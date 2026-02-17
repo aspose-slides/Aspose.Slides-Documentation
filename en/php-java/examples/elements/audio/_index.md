@@ -54,7 +54,8 @@ function accessAudio() {
 
         // Access the first audio frame on the slide.
         $firstAudioFrame = null;
-        for ($index = 0; $index < $slide->getShapes()->size(); $index++) {
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($index = 0; $index < $shapeCount; $index++) {
             $shape = $slide->getShapes()->get_Item($index);
             if (java_instanceof($shape, new JavaClass("com.aspose.slides.AudioFrame"))) {
                 $firstAudioFrame = $shape;

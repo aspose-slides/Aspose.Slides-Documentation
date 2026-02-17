@@ -52,7 +52,8 @@ function accessChart() {
 
         // Access the first chart on the slide.
         $firstChart = null;
-        for ($index = 0; $index < $slide->getShapes()->size(); $index++) {
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($index = 0; $index < $shapeCount; $index++) {
             $shape = $slide->getShapes()->get_Item($index);
             if (java_instanceof($shape, new JavaClass("com.aspose.slides.Chart"))) {
                 $firstChart = $shape;
