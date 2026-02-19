@@ -23,35 +23,34 @@ This code generates a small bitmap, converts it to a stream, and inserts it as a
 
 ```java
 public static void addPicture() throws IOException {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+	Presentation presentation = new Presentation();
+	try {
+		ISlide slide = presentation.getSlides().get_Item(0);
 
-        // Create a simple in-memory image.
-        BufferedImage bitmap = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D graphics = bitmap.createGraphics();
-        try {
-            graphics.setPaint(new Color(144, 238, 144));
-            graphics.fillRect(0, 0, 100, 100);
-        } finally {
-            graphics.dispose();
-        }
+		// Create a simple in-memory image.
+		Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
+		Canvas graphics = new Canvas(bitmap);
+		
+		Paint paint = new Paint();
+		paint.setColor(Color.valueOf(144, 238, 144).toArgb());
+		paint.setStyle(Paint.Style.FILL);
+		graphics.drawRect(0, 0, 100, 100, paint);
 
-        // Convert the bitmap to a byte array.
-        ByteArrayOutputStream bitmapStream = new ByteArrayOutputStream();
-        ImageIO.write(bitmap, "png", bitmapStream);
-        byte[] pngBytes = bitmapStream.toByteArray();
+		// Convert the bitmap to a byte array.
+		ByteArrayOutputStream bitmapStream = new ByteArrayOutputStream();
+		bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG,100, bitmapStream);
+		byte[] pngBytes = bitmapStream.toByteArray();
 
-        // Add the image to the presentation.
-        IPPImage image = presentation.getImages().addImage(new ByteArrayInputStream(pngBytes));
+		// Add the image to the presentation.
+		IPPImage image = presentation.getImages().addImage(new ByteArrayInputStream(pngBytes));
 
-        // Insert a picture frame showing the image on the first slide.
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, bitmap.getWidth(), bitmap.getHeight(), image);
+		// Insert a picture frame showing the image on the first slide.
+		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, bitmap.getWidth(), bitmap.getHeight(), image);
 
-        presentation.save("picture.pptx", SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+		presentation.save("picture.pptx", SaveFormat.Pptx);
+	} finally {
+		presentation.dispose();
+	}
 }
 ```
 
@@ -61,27 +60,27 @@ This example ensures a slide contains a picture frame and then accesses the firs
 
 ```java
 public static void accessPicture() throws IOException {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+	Presentation presentation = new Presentation();
+	try {
+		ISlide slide = presentation.getSlides().get_Item(0);
 
-        BufferedImage bitmap = new BufferedImage(40, 40, BufferedImage.TYPE_INT_ARGB);
-        ByteArrayOutputStream bitmapStream = new ByteArrayOutputStream();
-        ImageIO.write(bitmap, "png", bitmapStream);
-        byte[] pngBytes = bitmapStream.toByteArray();
+		Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
+		ByteArrayOutputStream bitmapStream = new ByteArrayOutputStream();
+		bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG,100, bitmapStream);
+		byte[] pngBytes = bitmapStream.toByteArray();
 
-        IPPImage image = presentation.getImages().addImage(new ByteArrayInputStream(pngBytes));
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, image);
+		IPPImage image = presentation.getImages().addImage(new ByteArrayInputStream(pngBytes));
+		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, image);
 
-        IPictureFrame pictureFrame = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IPictureFrame) {
-                pictureFrame = (IPictureFrame) shape;
-                break;
-            }
-        }
-    } finally {
-        presentation.dispose();
-    }
+		IPictureFrame pictureFrame = null;
+		for (IShape shape : slide.getShapes()) {
+			if (shape instanceof IPictureFrame) {
+				pictureFrame = (IPictureFrame) shape;
+				break;
+			}
+		}
+	} finally {
+		presentation.dispose();
+	}
 }
 ```

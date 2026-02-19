@@ -27,7 +27,7 @@ static void addOleObject() throws IOException {
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
+        byte[] pdfData = readAllBytes("doc.pdf");
         IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
     } finally {
@@ -46,7 +46,7 @@ static void accessOleObject() throws IOException {
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
+        byte[] pdfData = readAllBytes("doc.pdf");
         IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
 
@@ -73,7 +73,7 @@ static void removeOleObject() throws IOException {
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
+        byte[] pdfData = readAllBytes("doc.pdf");
         IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
         
@@ -94,7 +94,7 @@ static void updateOleObjectData() throws IOException {
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
         
-        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
+        byte[] pdfData = readAllBytes("doc.pdf");
         OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
 
@@ -104,5 +104,18 @@ static void updateOleObjectData() throws IOException {
     } finally {
         presentation.dispose();
     }
+}
+```
+
+
+### **Method readAllBytes**
+
+```java
+public static byte[] readAllBytes(String file) throws IOException {
+    FileInputStream fis = new FileInputStream(new File(file));
+    byte[] data = new byte[(int) file.length()];
+    fis.read(data);
+    fis.close();
+    return data;
 }
 ```
