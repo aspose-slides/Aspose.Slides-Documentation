@@ -4,19 +4,20 @@ type: docs
 weight: 180
 url: /net/examples/elements/ink/
 keywords:
-- ink example
+- ink
 - access ink
 - remove ink
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Handle digital ink on slides in C# with Aspose.Slides: add pen strokes, edit paths, set color and width, and export results for PowerPoint and OpenDocument."
+description: "Work with Ink in Aspose.Slides for .NET: draw, import, and edit strokes, adjust color and width, and export to PPT, PPTX, and ODP using C# examples."
 ---
 
-Provides examples of accessing existing ink shapes and removing them using **Aspose.Slides for .NET**.
+This article provides examples of accessing existing ink shapes and removing them using **Aspose.Slides for .NET**.
 
 > ❗ **Note:** Ink shapes represent user input from specialized devices. Aspose.Slides cannot create new ink strokes programmatically, but you can read and modify existing ink.
 
@@ -25,10 +26,10 @@ Provides examples of accessing existing ink shapes and removing them using **Asp
 Read the tags from the first ink shape on a slide.
 
 ```csharp
-static void Access_Ink()
+static void AccessInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes[0] is Ink inkShape)
     {
@@ -36,7 +37,7 @@ static void Access_Ink()
         if (tags.Count > 0)
         {
             var tagName = tags.GetNameByIndex(0);
-            // Use tagName as needed
+            // Use tagName as needed.
         }
     }
 }
@@ -47,10 +48,10 @@ static void Access_Ink()
 Delete an ink shape from the slide if one exists.
 
 ```csharp
-static void Remove_Ink()
+static void RemoveInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes.FirstOrDefault(s => s is Ink) is Ink ink)
     {

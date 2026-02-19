@@ -1,35 +1,36 @@
 ---
-title: VbaMacro
+title: VBA Macro
 type: docs
 weight: 150
 url: /net/examples/elements/vba-macro/
 keywords:
-- vba macro example
-- add vba macro
-- access vba macro
-- remove vba macro
+- VBA macro
+- add VBA macro
+- access VBA macro
+- remove VBA macro
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Work with VBA macros in C# using Aspose.Slides: add or edit projects and modules, sign or remove macros, and save presentations in PPT, PPTX and ODP."
+description: "Automate presentations with Aspose.Slides for .NET: create, run, import, and secure VBA macros in PPT, PPTX, and ODP using clear C# examples."
 ---
 
-Illustrates how to add, access, and remove VBA macros using **Aspose.Slides for .NET**.
+This article demonstrates how to add, access, and remove VBA macros using **Aspose.Slides for .NET**.
 
 ## **Add a VBA Macro**
 
 Create a presentation with a VBA project and a simple macro module.
 
 ```csharp
-static void Add_Vba_Macro()
+static void AddVbaMacro()
 {
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 }
 ```
@@ -39,15 +40,15 @@ static void Add_Vba_Macro()
 Retrieve the first module from the VBA project.
 
 ```csharp
-static void Access_Vba_Macro()
+static void AccessVbaMacro()
 {
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 
-    var firstModule = pres.VbaProject.Modules[0];
+    var firstModule = presentation.VbaProject.Modules[0];
 }
 ```
 
@@ -56,14 +57,14 @@ static void Access_Vba_Macro()
 Delete a module from the VBA project.
 
 ```csharp
-static void Remove_Vba_Macro()
+static void RemoveVbaMacro()
 {
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 
-    pres.VbaProject.Modules.Remove(module);
+    presentation.VbaProject.Modules.Remove(module);
 }
 ```

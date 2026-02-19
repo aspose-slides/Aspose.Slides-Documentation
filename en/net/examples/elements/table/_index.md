@@ -4,18 +4,19 @@ type: docs
 weight: 120
 url: /net/examples/elements/table/
 keywords:
-- table example
+- table
 - add table
 - access table
 - remove table
 - merge cells
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Create and format tables in C# with Aspose.Slides: insert data, merge cells, style borders, align content, and import/export for PPT, PPTX and ODP."
+description: "Work with tables in Aspose.Slides for .NET: create, format, merge cells, apply styles, import data, and export with C# examples for PPT, PPTX, and ODP."
 ---
 
 Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for .NET**.
@@ -25,10 +26,10 @@ Examples for adding tables, accessing them, removing them, and merging cells usi
 Create a simple table with two rows and two columns.
 
 ```csharp
-static void Add_Table()
+static void AddTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
@@ -41,15 +42,16 @@ static void Add_Table()
 Retrieve the first table shape on the slide.
 
 ```csharp
-static void Access_Table()
+static void AccessTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // Access first table on slide
+    // Access first table on slide.
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
@@ -59,10 +61,11 @@ static void Access_Table()
 Delete a table from a slide.
 
 ```csharp
-static void Remove_Table()
+static void RemoveTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
@@ -76,10 +79,11 @@ static void Remove_Table()
 Merge adjacent cells of a table into a single cell.
 
 ```csharp
-static void Merge_Table_Cells()
+static void MergeTableCells()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);

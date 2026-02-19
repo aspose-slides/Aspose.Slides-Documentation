@@ -1,36 +1,37 @@
 ---
-title: SlideTransition
+title: Slide Transition
 type: docs
 weight: 110
 url: /net/examples/elements/slide-transition/
 keywords:
-- slide transition example
+- slide transition
 - add slide transition
 - access slide transition
 - remove slide transition
 - transition duration
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Control slide transitions in C# with Aspose.Slides: choose types, speed, sound, and timing to polish presentations in PPT, PPTX and ODP."
+description: "Master slide transitions in Aspose.Slides for .NET: add, customize, and sequence effects and durations with C# examples for PPT, PPTX, and ODP presentations."
 ---
 
-Demonstrates applying slide transition effects and timings with **Aspose.Slides for .NET**.
+This article demonstrates applying slide transition effects and timings with **Aspose.Slides for .NET**.
 
 ## **Add a Slide Transition**
 
 Apply a fade transition effect to the first slide.
 
 ```csharp
-static void Add_Slide_Transition()
+static void AddSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Apply a fade transition
+    // Apply a fade transition.
     slide.SlideShowTransition.Type = TransitionType.Fade;
 }
 ```
@@ -40,13 +41,14 @@ static void Add_Slide_Transition()
 Read the transition type currently assigned to a slide.
 
 ```csharp
-static void Access_Slide_Transition()
+static void AccessSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Push;
 
-    // Access the transition type
+    // Access the transition type.
     var type = slide.SlideShowTransition.Type;
 }
 ```
@@ -56,13 +58,14 @@ static void Access_Slide_Transition()
 Clear any transition effect by setting the type to `None`.
 
 ```csharp
-static void Remove_Slide_Transition()
+static void RemoveSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // Remove transition by setting none
+    // Remove transition by setting none.
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
@@ -72,10 +75,10 @@ static void Remove_Slide_Transition()
 Specify how long the slide is displayed before advancing automatically.
 
 ```csharp
-static void Set_Transition_Duration()
+static void SetTransitionDuration()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.SlideShowTransition.AdvanceOnClick = true;
     slide.SlideShowTransition.AdvanceAfterTime = 2000; // in milliseconds

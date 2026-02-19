@@ -4,13 +4,14 @@ type: docs
 weight: 40
 url: /net/examples/
 keywords:
-- example
+- examples
 - elements
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Browse C# Aspose.Slides examples for managing slides, shapes, media, charts, text, and more, and learn practical patterns for PowerPoint and OpenDocument."
+description: "Explore Aspose.Slides for .NET code examples with C# snippets for creating, editing, and converting presentations in PPT, PPTX, and ODP formats."
 ---

@@ -4,34 +4,35 @@ type: docs
 weight: 70
 url: /net/examples/elements/audio/
 keywords:
-- audio example
+- audio
 - audio frame
 - add audio
 - access audio
 - remove audio
 - audio playback
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Work with audio in C# using Aspose.Slides: add, replace, extract, and trim sounds, set volume and playback for slides and shapes in PowerPoint and OpenDocument."
+description: "Discover Aspose.Slides for .NET audio examples: insert, play, trim, and extract sound in PPT, PPTX, and ODP presentations with clear C# code."
 ---
 
-Illustrates how to embed audio frames and control playback with **Aspose.Slides for .NET**. The following examples show basic audio operations.
+This article demonstrates how to embed audio frames and control playback with **Aspose.Slides for .NET**. The following examples show basic audio operations.
 
 ## **Add an Audio Frame**
 
 Insert an empty audio frame that can later hold embedded sound data.
 
 ```csharp
-static void Add_Audio()
+static void AddAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Create an empty audio frame (audio will be embedded later)
+    // Create an empty audio frame (audio will be embedded later).
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 }
 ```
@@ -41,13 +42,14 @@ static void Add_Audio()
 This code retrieves the first audio frame on a slide.
 
 ```csharp
-static void Access_Audio()
+static void AccessAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // Access the first audio frame on the slide
+    // Access the first audio frame on the slide.
     var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
 }
 ```
@@ -57,13 +59,14 @@ static void Access_Audio()
 Delete a previously added audio frame.
 
 ```csharp
-static void Remove_Audio()
+static void RemoveAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // Remove the audio frame
+    // Remove the audio frame.
     slide.Shapes.Remove(audioFrame);
 }
 ```
@@ -73,13 +76,14 @@ static void Remove_Audio()
 Configure the audio frame to play automatically when the slide appears.
 
 ```csharp
-static void Set_Audio_Playback()
+static void SetAudioPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // Play automatically when the slide appears
+    // Play automatically when the slide appears.
     audioFrame.PlayMode = AudioPlayModePreset.Auto;
 }
 ```

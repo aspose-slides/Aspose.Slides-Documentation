@@ -2,35 +2,36 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /net/examples/elements/smartart/
+url: /net/examples/elements/smart-art/
 keywords:
-- SmartArt example
+- SmartArt
 - add SmartArt
 - access SmartArt
 - remove SmartArt
 - SmartArt layout
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Build and edit SmartArt in C# with Aspose.Slides: add nodes, change layouts and styles, convert to shapes with precision, and export for PPT, PPTX and ODP."
+description: "Work with SmartArt in Aspose.Slides for .NET: create, edit, convert, and style diagrams with C# for PowerPoint and OpenDocument presentations."
 ---
 
-Shows how to add SmartArt graphics, access them, remove them, and change layouts using **Aspose.Slides for .NET**.
+This article demonstrates how to add SmartArt graphics, access them, remove them, and change layouts using **Aspose.Slides for .NET**.
 
 ## **Add SmartArt**
 
 Insert a SmartArt graphic using one of the built-in layouts.
 
 ```csharp
-static void Add_SmartArt()
+static void AddSmartArt()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 }
 ```
 
@@ -39,11 +40,12 @@ static void Add_SmartArt()
 Retrieve the first SmartArt object on a slide.
 
 ```csharp
-static void Access_SmartArt()
+static void AccessSmartArt()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
     var firstSmartArt = slide.Shapes.OfType<ISmartArt>().First();
 }
@@ -54,13 +56,14 @@ static void Access_SmartArt()
 Delete a SmartArt shape from the slide.
 
 ```csharp
-static void Remove_SmartArt()
+static void RemoveSmartArt()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    slide.Shapes.Remove(smart);
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+
+    slide.Shapes.Remove(smartArt);
 }
 ```
 
@@ -69,12 +72,13 @@ static void Remove_SmartArt()
 Update the layout type of an existing SmartArt graphic.
 
 ```csharp
-static void Change_SmartArt_Layout()
+static void ChangeSmartArtLayout()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    smart.Layout = SmartArtLayoutType.VerticalPictureList;
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
+
+    smartArt.Layout = SmartArtLayoutType.VerticalPictureList;
 }
 ```

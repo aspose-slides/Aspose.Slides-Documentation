@@ -1,21 +1,22 @@
 ---
-title: GroupShape
+title: Group Shape
 type: docs
 weight: 170
 url: /net/examples/elements/group-shape/
 keywords:
-- group example
+- group
 - add group shape
 - access group shape
 - remove group shape
 - ungroup shapes
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Work with group shapes in C# using Aspose.Slides: create and ungroup, reorder child shapes, set transforms and bounds across PowerPoint and OpenDocument."
+description: "Manage grouped shapes in Aspose.Slides for .NET: create, nest, align, reorder, and style group shapes with C# examples in PPT, PPTX, and ODP presentations."
 ---
 
 Examples for creating groups of shapes, accessing them, ungrouping, and removal using **Aspose.Slides for .NET**.
@@ -25,10 +26,10 @@ Examples for creating groups of shapes, accessing them, ungrouping, and removal 
 Create a group containing two basic shapes.
 
 ```csharp
-static void Add_Group_Shape()
+static void AddGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
@@ -41,10 +42,11 @@ static void Add_Group_Shape()
 Retrieve the first group shape from a slide.
 
 ```csharp
-static void Access_Group_Shape()
+static void AccessGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
@@ -57,10 +59,11 @@ static void Access_Group_Shape()
 Delete a group shape from the slide.
 
 ```csharp
-static void Remove_Group_Shape()
+static void RemoveGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
 
     slide.Shapes.Remove(group);
@@ -72,14 +75,15 @@ static void Remove_Group_Shape()
 Move shapes out of a group container.
 
 ```csharp
-static void Ungroup_Shapes()
+static void UngroupShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     var rect = group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
-    // Move shape out of the group
+    // Move shape out of the group.
     slide.Shapes.AddClone(rect);
     group.Shapes.Remove(rect);
 }
