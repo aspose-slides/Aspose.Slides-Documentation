@@ -63,7 +63,6 @@ function addMathText() {
 Locate a shape that contains a math paragraph on the slide.
 
 ```php
-
 function accessMathText() {
     $presentation = new Presentation("math_text.pptx");
     try {
