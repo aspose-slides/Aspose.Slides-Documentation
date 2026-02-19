@@ -1,33 +1,34 @@
 ---
-title: GroupeForme
+title: Groupe de formes
 type: docs
 weight: 170
 url: /fr/net/examples/elements/group-shape/
 keywords:
-- exemple de groupe
-- ajouter une forme groupe
-- accéder à la forme groupe
-- supprimer la forme groupe
-- dissocier les formes
+- groupe
+- ajouter forme de groupe
+- accéder forme de groupe
+- supprimer forme de groupe
+- désassembler formes
+- exemple de code
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Travaillez avec les formes groupées en C# à l'aide d'Aspose.Slides : créez et dissociez, réordonnez les formes enfants, définissez les transformations et les limites dans PowerPoint et OpenDocument."
+description: "Gérez les formes groupées dans Aspose.Slides pour .NET : créez, imbriquez, alignez, réordonnez et stylisez les groupes de formes avec des exemples C# dans les présentations PPT, PPTX et ODP."
 ---
+Exemples de création de groupes de formes, d'accès, de désassemblage et de suppression à l'aide de **Aspose.Slides for .NET**.
 
-Exemples de création de groupes de formes, d'accès, de dissociation et de suppression à l'aide d'**Aspose.Slides for .NET**.
+## **Ajouter un groupe de formes**
 
-## **Ajouter une forme groupe**
+Créez un groupe contenant deux formes de base.
 
-Créer un groupe contenant deux formes de base.
 ```csharp
-static void Add_Group_Shape()
+static void AddGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
@@ -35,15 +36,16 @@ static void Add_Group_Shape()
 }
 ```
 
+## **Accéder à un groupe de formes**
 
-## **Accéder à une forme groupe**
+Récupérez la première forme groupée d'une diapositive.
 
-Récupérer la première forme groupe d'une diapositive.
 ```csharp
-static void Access_Group_Shape()
+static void AccessGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
@@ -51,34 +53,36 @@ static void Access_Group_Shape()
 }
 ```
 
+## **Supprimer un groupe de formes**
 
-## **Supprimer une forme groupe**
+Supprimez un groupe de formes de la diapositive.
 
-Supprimer une forme groupe de la diapositive.
 ```csharp
-static void Remove_Group_Shape()
+static void RemoveGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
 
     slide.Shapes.Remove(group);
 }
 ```
 
+## **Dégrouper les formes**
 
-## **Dissocier les formes**
+Déplacez les formes hors d'un conteneur de groupe.
 
-Déplacer les formes hors d'un conteneur groupe.
 ```csharp
-static void Ungroup_Shapes()
+static void UngroupShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     var rect = group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
-    // Déplacer la forme hors du groupe
+    // Déplacer la forme hors du groupe.
     slide.Shapes.AddClone(rect);
     group.Shapes.Remove(rect);
 }

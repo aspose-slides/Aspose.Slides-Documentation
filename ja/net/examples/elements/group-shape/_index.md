@@ -1,33 +1,34 @@
 ---
-title: グループシェイプ
+title: グループ シェイプ
 type: docs
 weight: 170
 url: /ja/net/examples/elements/group-shape/
 keywords:
-- グループ例
-- グループシェイプの追加
-- グループシェイプへのアクセス
-- グループシェイプの削除
+- グループ
+- グループ シェイプを追加
+- グループ シェイプにアクセス
+- グループ シェイプを削除
 - シェイプのグループ解除
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides を使用して C# でグループシェイプを操作します。作成やグループ解除、子シェイプの並び替え、変形と境界の設定を PowerPoint と OpenDocument の両方で行えます。"
+description: "Aspose.Slides for .NETでグループ化されたシェイプを管理します：C#の例を使用してPPT、PPTX、ODPプレゼンテーションでグループシェイプを作成、入れ子化、配置、順序変更、スタイル設定します。"
 ---
+**Aspose.Slides for .NET** を使用した、図形のグループ作成、アクセス、グループ解除、削除の例。
 
-**Aspose.Slides for .NET** を使用して、シェイプのグループ作成、アクセス、グループ解除、削除の例を示します。
+## **グループ シェイプを追加**
 
-## **グループ シェイプの追加**
+2つの基本図形を含むグループを作成します。
 
-2つの基本シェイプを含むグループを作成します。
 ```csharp
-static void Add_Group_Shape()
+static void AddGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
@@ -35,15 +36,16 @@ static void Add_Group_Shape()
 }
 ```
 
-
 ## **グループ シェイプへのアクセス**
 
 スライドから最初のグループ シェイプを取得します。
+
 ```csharp
-static void Access_Group_Shape()
+static void AccessGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
@@ -51,34 +53,36 @@ static void Access_Group_Shape()
 }
 ```
 
-
 ## **グループ シェイプの削除**
 
 スライドからグループ シェイプを削除します。
+
 ```csharp
-static void Remove_Group_Shape()
+static void RemoveGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
 
     slide.Shapes.Remove(group);
 }
 ```
 
-
 ## **シェイプのグループ解除**
 
 シェイプをグループ コンテナから取り出します。
+
 ```csharp
-static void Ungroup_Shapes()
+static void UngroupShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     var rect = group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
-    // シェイプをグループから外す
+    // グループからシェイプを移動します。
     slide.Shapes.AddClone(rect);
     group.Shapes.Remove(rect);
 }

@@ -4,30 +4,31 @@ type: docs
 weight: 120
 url: /de/net/examples/elements/table/
 keywords:
-- Tabellenbeispiel
+- Tabelle
 - Tabelle hinzufügen
-- Zugriff auf Tabelle
+- Tabelle zugreifen
 - Tabelle entfernen
 - Zellen zusammenführen
+- Codebeispiel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Erstellen und formatieren Sie Tabellen in C# mit Aspose.Slides: Daten einfügen, Zellen zusammenführen, Rahmen gestalten, Inhalt ausrichten und für PPT, PPTX und ODP importieren/exportieren."
+description: "Arbeiten mit Tabellen in Aspose.Slides für .NET: Erstellen, formatieren, Zellen zusammenführen, Stile anwenden, Daten importieren und exportieren mit C#‑Beispielen für PPT, PPTX und ODP."
 ---
-
 Beispiele zum Hinzufügen von Tabellen, zum Zugriff darauf, zum Entfernen und zum Zusammenführen von Zellen mit **Aspose.Slides for .NET**.
 
 ## **Tabelle hinzufügen**
 
 Erstellen Sie eine einfache Tabelle mit zwei Zeilen und zwei Spalten.
+
 ```csharp
-static void Add_Table()
+static void AddTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
@@ -35,33 +36,35 @@ static void Add_Table()
 }
 ```
 
+## **Zugriff auf eine Tabelle**
 
-## **Auf eine Tabelle zugreifen**
+Rufen Sie das erste Tabell-Shape auf der Folie ab.
 
-Rufen Sie die erste Tabellengestalt auf der Folie ab.
 ```csharp
-static void Access_Table()
+static void AccessTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // Zugriff auf die erste Tabelle auf der Folie
+    // Zugriff auf die erste Tabelle auf der Folie.
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
 
-
 ## **Tabelle entfernen**
 
 Löschen Sie eine Tabelle von einer Folie.
+
 ```csharp
-static void Remove_Table()
+static void RemoveTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
@@ -70,15 +73,16 @@ static void Remove_Table()
 }
 ```
 
-
 ## **Tabellenzellen zusammenführen**
 
-Führen Sie benachbarte Zellen einer Tabelle zu einer einzelnen Zelle zusammen.
+Führen Sie benachbarte Zellen einer Tabelle zu einer einzigen Zelle zusammen.
+
 ```csharp
-static void Merge_Table_Cells()
+static void MergeTableCells()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);

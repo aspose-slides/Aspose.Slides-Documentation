@@ -1,68 +1,69 @@
 ---
-title: Vbaマクロ
+title: VBA マクロ
 type: docs
 weight: 150
 url: /ja/net/examples/elements/vba-macro/
 keywords:
-- VBAマクロの例
-- VBAマクロの追加
-- VBAマクロへのアクセス
-- VBAマクロの削除
+- VBA マクロ
+- VBA マクロの追加
+- VBA マクロへのアクセス
+- VBA マクロの削除
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C#でAspose.Slidesを使用してVBAマクロを操作: プロジェクトやモジュールの追加または編集、マクロの署名または削除、PPT、PPTX、ODP形式でプレゼンテーションを保存します。"
+description: "Aspose.Slides for .NET を使用してプレゼンテーションを自動化します。PPT、PPTX、ODP で VBA マクロを作成、実行、インポート、保護する方法を、明確な C# サンプルで示します。"
 ---
-
-**Aspose.Slides for .NET** を使用して VBA マクロを追加、アクセス、削除する方法を示します。
+この記事では、**Aspose.Slides for .NET** を使用して VBA マクロを追加、アクセス、削除する方法を示します。
 
 ## **VBA マクロの追加**
 
 VBA プロジェクトとシンプルなマクロモジュールを含むプレゼンテーションを作成します。
-```csharp
-static void Add_Vba_Macro()
-{
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+```csharp
+static void AddVbaMacro()
+{
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
+
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 }
 ```
-
 
 ## **VBA マクロへのアクセス**
 
 VBA プロジェクトから最初のモジュールを取得します。
-```csharp
-static void Access_Vba_Macro()
-{
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+```csharp
+static void AccessVbaMacro()
+{
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
+
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 
-    var firstModule = pres.VbaProject.Modules[0];
+    var firstModule = presentation.VbaProject.Modules[0];
 }
 ```
-
 
 ## **VBA マクロの削除**
 
 VBA プロジェクトからモジュールを削除します。
-```csharp
-static void Remove_Vba_Macro()
-{
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+```csharp
+static void RemoveVbaMacro()
+{
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
+
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 
-    pres.VbaProject.Modules.Remove(module);
+    presentation.VbaProject.Modules.Remove(module);
 }
 ```

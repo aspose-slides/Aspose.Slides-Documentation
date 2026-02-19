@@ -4,81 +4,90 @@ type: docs
 weight: 210
 url: /de/net/examples/elements/ole-object/
 keywords:
-- Beispiel für OLE-Objekt
+- OLE-Objekt
 - OLE-Objekt hinzufügen
-- Zugriff auf OLE-Objekt
+- OLE-Objekt abrufen
 - OLE-Objekt entfernen
 - OLE-Objekt aktualisieren
+- Codebeispiel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Arbeiten Sie mit OLE-Objekten in C# mithilfe von Aspose.Slides: Einbetten oder Aktualisieren von Dateien, Festlegen von Symbolen oder Links, Extrahieren von Inhalten, Steuern des Verhaltens für PPT, PPTX und ODP."
+description: "Verwalten Sie OLE-Objekte in Aspose.Slides für .NET: Einfügen, Verknüpfen, Aktualisieren und Extrahieren eingebetteter Inhalte mit C# in PPT-, PPTX- und ODP-Präsentationen."
 ---
-
-Demonstriert das Einbetten einer Datei als OLE-Objekt und das Aktualisieren ihrer Daten mit **Aspose.Slides for .NET**.
+Dieser Artikel demonstriert das Einbetten einer Datei als OLE-Objekt und das Aktualisieren ihrer Daten mit **Aspose.Slides for .NET**.
 
 ## **OLE-Objekt hinzufügen**
 
 Betten Sie eine PDF-Datei in die Präsentation ein.
-```csharp
-static void Add_Ole_Object()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+```csharp
+static void AddOleObject()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 }
 ```
 
+## **Zugriff auf ein OLE-Objekt**
 
-## **OLE-Objekt zugreifen**
+Rufen Sie den ersten OLE-Objektrahmen auf einer Folie ab.
 
-Rufen Sie den ersten OLE-Objektrahmen in einer Folie ab.
 ```csharp
-static void Access_Ole_Object()
+static void AccessOleObject()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var firstOle = slide.Shapes.OfType<IOleObjectFrame>().First();
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+
+    var firstOleFrame = slide.Shapes.OfType<IOleObjectFrame>().First();
 }
 ```
 
-
-## **OLE-Objekt entfernen**
+## **Ein OLE-Objekt entfernen**
 
 Löschen Sie ein eingebettetes OLE-Objekt von der Folie.
-```csharp
-static void Remove_Ole_Object()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
 
-    slide.Shapes.Remove(ole);
+```csharp
+static void RemoveOleObject()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+
+    slide.Shapes.Remove(oleFrame);
 }
 ```
-
 
 ## **OLE-Objektdaten aktualisieren**
 
 Ersetzen Sie die in einem vorhandenen OLE-Objekt eingebetteten Daten.
-```csharp
-static void Update_Ole_Object_Data()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
 
-    var newData = new OleEmbeddedDataInfo(File.ReadAllBytes("Picture.png"), "png");
-    ole.SetEmbeddedData(newData);
+```csharp
+static void UpdateOleObjectData()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+
+    var newData = File.ReadAllBytes("Picture.png");
+    var newDataInfo = new OleEmbeddedDataInfo(newData, "png");
+    oleFrame.SetEmbeddedData(newDataInfo);
 }
 ```

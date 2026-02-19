@@ -4,67 +4,67 @@ type: docs
 weight: 20
 url: /es/net/examples/elements/layout-slide/
 keywords:
-- ejemplo de diapositiva de diseño
+- diapositiva de diseño
 - agregar diapositiva de diseño
 - acceder a diapositiva de diseño
 - eliminar diapositiva de diseño
-- diapositiva de diseño sin usar
+- diapositiva de diseño no utilizada
 - clonar diapositiva de diseño
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Utiliza C# para gestionar diapositivas de diseño con Aspose.Slides: crear, aplicar, clonar, renombrar y personalizar marcadores de posición y temas en presentaciones para PPT, PPTX y ODP."
+description: "Diapositivas maestras en Aspose.Slides para .NET: elija, aplique y personalice diseños de diapositivas, marcadores de posición y maestras con ejemplos en C# para presentaciones PPT, PPTX y ODP."
 ---
-
-Este artículo muestra cómo trabajar con **Diapositivas de diseño** en Aspose.Slides para .NET. Una diapositiva de diseño define el diseño y el formato que heredan las diapositivas normales. Puede agregar, acceder, clonar y eliminar diapositivas de diseño, así como limpiar las que no se usan para reducir el tamaño de la presentación.
+Este artículo muestra cómo trabajar con **Layout Slides** en Aspose.Slides para .NET. Una diapositiva de diseño define el diseño y formato heredados por las diapositivas normales. Puede agregar, acceder, clonar y eliminar diapositivas de diseño, así como limpiar las no utilizadas para reducir el tamaño de la presentación.
 
 ## **Agregar una diapositiva de diseño**
 
-Puede crear una diapositiva de diseño personalizada para definir un formato reutilizable. Por ejemplo, podría agregar un cuadro de texto que aparezca en todas las diapositivas que usan este diseño.
+Puede crear una diapositiva de diseño personalizada para definir un formato reutilizable. Por ejemplo, podría añadir un cuadro de texto que aparezca en todas las diapositivas que usan este diseño.
 
 ```csharp
-static void Add_Layout_Slide()
+static void AddLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Create a layout slide with a blank layout type and a custom name
-    var layoutSlide = pres.LayoutSlides.Add(pres.Masters[0], SlideLayoutType.Blank, "Main layout");
+    var masterSlide = presentation.Masters[0];
 
-    // Add a text box to the layout slide
+    // Crear una diapositiva de diseño con un tipo de diseño en blanco y un nombre personalizado.
+    var layoutSlide = presentation.LayoutSlides.Add(masterSlide, SlideLayoutType.Blank, "Main layout");
+
+    // Añadir un cuadro de texto a la diapositiva de diseño.
     var layoutTextBox = layoutSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 75, y: 75, width: 150, height: 150);
     layoutTextBox.TextFrame.Text = "Layout Slide Text";
 
-    // Add two slides using this layout; both will inherit the text from the layout
-    pres.Slides.AddEmptySlide(layoutSlide);
-    pres.Slides.AddEmptySlide(layoutSlide);
+    // Añadir dos diapositivas usando este diseño; ambas heredarán el texto del diseño.
+    presentation.Slides.AddEmptySlide(layoutSlide);
+    presentation.Slides.AddEmptySlide(layoutSlide);
 }
-````
+```
 
-> 💡 **Consejo 1:** Las diapositivas de diseño actúan como plantillas para diapositivas individuales. Puede definir elementos comunes una vez y reutilizarlos en muchas diapositivas.
-
-> 💡 **Consejo 2:** Cuando agrega formas o texto a una diapositiva de diseño, todas las diapositivas basadas en ese diseño mostrarán ese contenido compartido automáticamente.  
+> 💡 **Nota 1:** Las diapositivas de diseño actúan como plantillas para diapositivas individuales. Puede definir elementos comunes una vez y reutilizarlos en muchas diapositivas.
+> 💡 **Nota 2:** Cuando añade formas o texto a una diapositiva de diseño, todas las diapositivas basadas en ese diseño mostrarán automáticamente este contenido compartido.
 > La captura de pantalla a continuación muestra dos diapositivas, cada una heredando un cuadro de texto de la misma diapositiva de diseño.
 
 ![Diapositivas heredando contenido de diseño](layout-slide-result.png)
-
 
 ## **Acceder a una diapositiva de diseño**
 
 Las diapositivas de diseño pueden accederse por índice o por tipo de diseño (p. ej., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```csharp
-static void Access_Layout_Slide()
+static void AccessLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Access by index
-    var firstLayoutSlide = pres.LayoutSlides[0];
+    // Acceder a una diapositiva de diseño por índice.
+    var firstLayoutSlide = presentation.LayoutSlides[0];
     
-    // Access by layout type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Acceder a una diapositiva de diseño por tipo.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 }
 ```
 
@@ -73,45 +73,45 @@ static void Access_Layout_Slide()
 Puede eliminar una diapositiva de diseño específica si ya no es necesaria.
 
 ```csharp
-static void Remove_Layout_Slide()
+static void RemoveLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get a layout slide by type and remove it
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
-    pres.LayoutSlides.Remove(blankLayoutSlide);
+    // Obtener una diapositiva de diseño por tipo y eliminarla.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Custom);
+    presentation.LayoutSlides.Remove(blankLayoutSlide);
 }
 ```
 
-## **Eliminar diapositivas de diseño no usadas**
+## **Eliminar diapositivas de diseño no utilizadas**
 
-Para reducir el tamaño de la presentación, puede querer eliminar las diapositivas de diseño que no son usadas por ninguna diapositiva normal.
+Para reducir el tamaño de la presentación, puede que desee eliminar las diapositivas de diseño que no son usadas por ninguna diapositiva normal.
 
 ```csharp
-static void RemoveUnused_Layout_Slides()
+static void RemoveUnusedLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Automatically removes all layout slides not referenced by any slide
-    pres.LayoutSlides.RemoveUnused();
+    // Elimina automáticamente todas las diapositivas de diseño que no están referenciadas por ninguna diapositiva.
+    presentation.LayoutSlides.RemoveUnused();
 }
 ```
 
 ## **Clonar una diapositiva de diseño**
 
-Puede duplicar una diapositiva de diseño mediante el método `AddClone`.
+Puede duplicar una diapositiva de diseño usando el método `AddClone`.
 
 ```csharp
-static void Clone_Layout_Slides()
+static void CloneLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get an existing layout slide by type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Obtener una diapositiva de diseño existente por tipo.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
     
-    // Clone the layout slide to the end of the layout slide collection
-    var clonedLayoutSlide = pres.LayoutSlides.AddClone(blankLayoutSlide);
+    // Clonar la diapositiva de diseño al final de la colección de diapositivas de diseño.
+    var clonedLayoutSlide = presentation.LayoutSlides.AddClone(blankLayoutSlide);
 }
 ```
 
-> ✅ **Resumen:** Las diapositivas de diseño son herramientas potentes para gestionar un formato coherente en todas las diapositivas. Aspose.Slides permite un control total sobre la creación, gestión y optimización de las diapositivas de diseño.
+> ✅ **Resumen:** Las diapositivas de diseño son herramientas potentes para gestionar un formato coherente en todas las diapositivas. Aspose.Slides permite un control total sobre la creación, gestión y optimización de diapositivas de diseño.

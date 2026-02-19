@@ -1,112 +1,118 @@
 ---
-title: レイアウト スライド
+title: レイアウトスライド
 type: docs
 weight: 20
 url: /ja/net/examples/elements/layout-slide/
 keywords:
-- レイアウト スライドの例
-- レイアウト スライドの追加
-- レイアウト スライドへのアクセス
-- レイアウト スライドの削除
-- 未使用のレイアウト スライド
-- レイアウト スライドのクローン
+- レイアウトスライド
+- レイアウトスライドの追加
+- レイアウトスライドへのアクセス
+- レイアウトスライドの削除
+- 未使用レイアウトスライド
+- レイアウトスライドのクローン作成
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# を使用して Aspose.Slides でレイアウト スライドを管理します：プレゼンテーション（PPT、PPTX、ODP）の作成、適用、クローン、名前の変更、プレースホルダーやテーマのカスタマイズを行います。"
+description: "Aspose.Slides for .NET のマスターレイアウトスライド: スライドレイアウト、プレースホルダー、マスターを選択、適用、カスタマイズし、PPT、PPTX、ODP プレゼンテーションの C# サンプルを提供します。"
 ---
+この記事では、Aspose.Slides for .NET の **Layout Slides** の使用方法を示します。レイアウトスライドは、通常のスライドが継承するデザインと書式を定義します。レイアウトスライドを追加、アクセス、クローン、削除でき、未使用のスライドをクリーンアップしてプレゼンテーションのサイズを削減できます。
 
-この記事では、Aspose.Slides for .NET で **Layout Slides** を操作する方法を示します。レイアウト スライドは、通常のスライドが継承するデザインと書式設定を定義します。レイアウト スライドの追加、取得、クローン、削除、未使用スライドのクリーンアップが可能で、プレゼンテーションのサイズを削減できます。
+## **レイアウトスライドの追加**
 
-## **Add a Layout Slide**
-レイアウト スライドをカスタム作成して、再利用可能な書式設定を定義できます。たとえば、このレイアウトを使用するすべてのスライドに表示されるテキスト ボックスを追加することが考えられます。
+カスタムレイアウトスライドを作成して、再利用可能な書式を定義できます。たとえば、このレイアウトを使用するすべてのスライドに表示されるテキスト ボックスを追加することができます。
 
 ```csharp
-static void Add_Layout_Slide()
+static void AddLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Create a layout slide with a blank layout type and a custom name
-    var layoutSlide = pres.LayoutSlides.Add(pres.Masters[0], SlideLayoutType.Blank, "Main layout");
+    var masterSlide = presentation.Masters[0];
 
-    // Add a text box to the layout slide
+    // 空白のレイアウトタイプとカスタム名でレイアウトスライドを作成します。
+    var layoutSlide = presentation.LayoutSlides.Add(masterSlide, SlideLayoutType.Blank, "Main layout");
+
+    // レイアウトスライドにテキストボックスを追加します。
     var layoutTextBox = layoutSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 75, y: 75, width: 150, height: 150);
     layoutTextBox.TextFrame.Text = "Layout Slide Text";
 
-    // Add two slides using this layout; both will inherit the text from the layout
-    pres.Slides.AddEmptySlide(layoutSlide);
-    pres.Slides.AddEmptySlide(layoutSlide);
-}
-````
-
-> 💡 **Tip 1:** レイアウト スライドは個別スライドのテンプレートとして機能します。共通要素を一度定義すれば、複数のスライドで再利用できます。
-
-> 💡 **Tip 2:** レイアウト スライドにシェイプやテキストを追加すると、そのレイアウトを基にしたすべてのスライドで自動的に共有コンテンツが表示されます。  
-> 以下のスクリーンショットは、同じレイアウト スライドからテキスト ボックスを継承した 2 つのスライドを示しています。
-
-![Slides Inheriting Layout Content](layout-slide-result.png)
-
-
-## **Access a Layout Slide**
-レイアウト スライドはインデックスまたはレイアウト タイプ（例: `Blank`、`Title`、`SectionHeader` など）で取得できます。
-
-```csharp
-static void Access_Layout_Slide()
-{
-    using var pres = new Presentation();
-    
-    // Access by index
-    var firstLayoutSlide = pres.LayoutSlides[0];
-    
-    // Access by layout type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // このレイアウトを使用して2枚のスライドを追加します。両方ともレイアウトからテキストを継承します。
+    presentation.Slides.AddEmptySlide(layoutSlide);
+    presentation.Slides.AddEmptySlide(layoutSlide);
 }
 ```
 
-## **Remove a Layout Slide**
-不要になった特定のレイアウト スライドを削除できます。
+> 💡 **Note 1:** レイアウトスライドは個々のスライドのテンプレートとして機能します。共通要素を一度定義すれば、複数のスライドで再利用できます。
+
+> 💡 **Note 2:** レイアウトスライドにシェイプやテキストを追加すると、そのレイアウトに基づくすべてのスライドが自動的にこの共有コンテンツを表示します。
+> スクリーンショットは、同じレイアウトスライドからテキストボックスを継承した2つのスライドを示しています。
+
+![レイアウトコンテンツを継承するスライド](layout-slide-result.png)
+
+## **レイアウトスライドへのアクセス**
+
+レイアウトスライドはインデックスまたはレイアウトタイプ（例: `Blank`、`Title`、`SectionHeader` など）でアクセスできます。
 
 ```csharp
-static void Remove_Layout_Slide()
+static void AccessLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get a layout slide by type and remove it
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
-    pres.LayoutSlides.Remove(blankLayoutSlide);
+    // インデックスでレイアウトスライドにアクセスします。
+    var firstLayoutSlide = presentation.LayoutSlides[0];
+    
+    // タイプでレイアウトスライドにアクセスします。
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 }
 ```
 
-## **Remove Unused Layout Slides**
-プレゼンテーションのサイズを縮小するために、通常のスライドで使用されていないレイアウト スライドを削除したい場合があります。
+## **レイアウトスライドの削除**
+
+不要になった特定のレイアウトスライドを削除できます。
 
 ```csharp
-static void RemoveUnused_Layout_Slides()
+static void RemoveLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Automatically removes all layout slides not referenced by any slide
-    pres.LayoutSlides.RemoveUnused();
+    // タイプでレイアウトスライドを取得し、削除します。
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Custom);
+    presentation.LayoutSlides.Remove(blankLayoutSlide);
 }
 ```
 
-## **Clone a Layout Slide**
-`AddClone` メソッドを使用してレイアウト スライドを複製できます。
+## **未使用レイアウトスライドの削除**
+
+プレゼンテーションのサイズを削減するために、通常のスライドで使用されていないレイアウトスライドを削除したい場合があります。
 
 ```csharp
-static void Clone_Layout_Slides()
+static void RemoveUnusedLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get an existing layout slide by type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
-    
-    // Clone the layout slide to the end of the layout slide collection
-    var clonedLayoutSlide = pres.LayoutSlides.AddClone(blankLayoutSlide);
+    // 参照されていないすべてのレイアウトスライドを自動的に削除します。
+    presentation.LayoutSlides.RemoveUnused();
 }
 ```
 
-> ✅ **Summary:** レイアウト スライドは、スライド全体で一貫した書式設定を管理するための強力なツールです。Aspose.Slides は、レイアウト スライドの作成、管理、最適化をフルコントロールできる機能を提供します。
+## **レイアウトスライドのクローン作成**
+
+`AddClone` メソッドを使用してレイアウトスライドを複製できます。
+
+```csharp
+static void CloneLayoutSlides()
+{
+    using var presentation = new Presentation();
+    
+    // タイプで既存のレイアウトスライドを取得します。
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    
+    // レイアウトスライドをコレクションの末尾にクローンします。
+    var clonedLayoutSlide = presentation.LayoutSlides.AddClone(blankLayoutSlide);
+}
+```
+
+> ✅ **Summary:** レイアウトスライドは、スライド全体で一貫した書式を管理するための強力なツールです。Aspose.Slides は、レイアウトスライドの作成、管理、最適化を完全にコントロールできるようにします。

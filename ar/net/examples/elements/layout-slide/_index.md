@@ -4,66 +4,68 @@ type: docs
 weight: 20
 url: /ar/net/examples/elements/layout-slide/
 keywords:
-- مثال شريحة تخطيط
+- شريحة تخطيط
 - إضافة شريحة تخطيط
 - الوصول إلى شريحة تخطيط
 - إزالة شريحة تخطيط
-- شريحة تخطيط غير المستخدمة
+- شريحة تخطيط غير مستخدمة
 - استنساخ شريحة تخطيط
+- مثال شفرة
 - باوربوينت
-- مستند مفتوح
+- OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "استخدم C# لإدارة شرائح التخطيط مع Aspose.Slides: إنشاء، تطبيق، استنساخ، إعادة تسمية، وتخصيص العناصر النائبة والقوالب في العروض التقديمية لـ PPT و PPTX و ODP."
+description: "شرائح تخطيط رئيسية في Aspose.Slides لـ .NET: اختر، وطبق، وخصص تخطيطات الشرائح، والعناصر النائبة، والماستر باستخدام أمثلة C# لعروض PPT و PPTX و ODP."
 ---
-
-توضح هذه المقالة كيفية العمل مع **Layout Slides** في Aspose.Slides for .NET. تُعرّف شريحة التخطيط التصميم والتنسيق التي تُورثها الشرائح العادية. يمكنك إضافة، وصول، نسخ، وإزالة شرائح التخطيط، بالإضافة إلى تنظيف الشرائح غير المستخدمة لتقليل حجم العرض التقديمي.
+توضح هذه المقالة كيفية العمل مع **Layout Slides** في Aspose.Slides لـ .NET. يُعرّف شريحة التخطيط التصميم والتنسيق الموروثين من الشرائح العادية. يمكنك إضافة، الوصول إلى، استنساخ، وإزالة شرائح التخطيط، وكذلك تنظيف الشرائح غير المستخدمة لتقليل حجم العرض.
 
 ## **إضافة شريحة تخطيط**
 
-يمكنك إنشاء شريحة تخطيط مخصصة لتعريف تنسيق قابل لإعادة الاستخدام. على سبيل المثال، قد تضيف مربع نص يظهر في جميع الشرائح التي تستخدم هذا التخطيط.
+يمكنك إنشاء شريحة تخطيط مخصصة لتحديد تنسيق قابل لإعادة الاستخدام. على سبيل المثال، قد تضيف مربع نص يظهر على جميع الشرائح التي تستخدم هذا التخطيط.
 
 ```csharp
-static void Add_Layout_Slide()
+static void AddLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Create a layout slide with a blank layout type and a custom name
-    var layoutSlide = pres.LayoutSlides.Add(pres.Masters[0], SlideLayoutType.Blank, "Main layout");
+    var masterSlide = presentation.Masters[0];
 
-    // Add a text box to the layout slide
+    // إنشاء شريحة تخطيط بنوع تخطيط فارغ واسم مخصص.
+    var layoutSlide = presentation.LayoutSlides.Add(masterSlide, SlideLayoutType.Blank, "Main layout");
+
+    // إضافة مربع نص إلى شريحة التخطيط.
     var layoutTextBox = layoutSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 75, y: 75, width: 150, height: 150);
     layoutTextBox.TextFrame.Text = "Layout Slide Text";
 
-    // Add two slides using this layout; both will inherit the text from the layout
-    pres.Slides.AddEmptySlide(layoutSlide);
-    pres.Slides.AddEmptySlide(layoutSlide);
+    // إضافة شريحتين باستخدام هذا التخطيط؛ كلاهما سيورث النص من التخطيط.
+    presentation.Slides.AddEmptySlide(layoutSlide);
+    presentation.Slides.AddEmptySlide(layoutSlide);
 }
-````
+```
 
-> 💡 **نصيحة 1:** تُعد شرائح التخطيط قوالب للشرائح الفردية. يمكنك تعريف العناصر المشتركة مرة واحدة وإعادة استخدامها عبر العديد من الشرائح.
+> 💡 **ملاحظة 1:** تُعد شرائح التخطيط قوالب للشرائح الفردية. يمكنك تعريف العناصر المشتركة مرة واحدة وإعادة استخدامها عبر العديد من الشرائح.
+> 
+> 💡 **ملاحظة 2:** عندما تضيف أشكالًا أو نصًا إلى شريحة التخطيط، ستعرض جميع الشرائح المستندة إلى ذلك التخطيط هذا المحتوى المشترك تلقائيًا.
+> توضح اللقطة أدناه شريحتين، كل منهما يرث مربع نص من نفس شريحة التخطيط.
 
-> 💡 **نصيحة 2:** عندما تضيف أشكالًا أو نصًا إلى شريحة التخطيط، ستعرض جميع الشرائح المستندة إلى ذلك التخطيط المحتوى المشترك تلقائيًا.  
-> الصورة أدناه تُظهر شريحتين، كل منهما يرث مربع نص من نفس شريحة التخطيط.
-
-![الشرائح التي ترث محتوى التخطيط](layout-slide-result.png)
+![شرائح وراثة محتوى التخطيط](layout-slide-result.png)
 
 ## **الوصول إلى شريحة تخطيط**
 
-يمكن الوصول إلى شرائح التخطيط عبر الفهرس أو نوع التخطيط (مثل `Blank`، `Title`، `SectionHeader`، إلخ).
+يمكن الوصول إلى شرائح التخطيط إما بواسطة الفهرس أو بنوع التخطيط (مثل `Blank`، `Title`، `SectionHeader`، إلخ).
 
 ```csharp
-static void Access_Layout_Slide()
+static void AccessLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Access by index
-    var firstLayoutSlide = pres.LayoutSlides[0];
+    // الوصول إلى شريحة تخطيط بحسب الفهرس.
+    var firstLayoutSlide = presentation.LayoutSlides[0];
     
-    // Access by layout type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // الوصول إلى شريحة تخطيط بحسب النوع.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 }
 ```
 
@@ -72,45 +74,45 @@ static void Access_Layout_Slide()
 يمكنك إزالة شريحة تخطيط محددة إذا لم تعد بحاجة إليها.
 
 ```csharp
-static void Remove_Layout_Slide()
+static void RemoveLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get a layout slide by type and remove it
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
-    pres.LayoutSlides.Remove(blankLayoutSlide);
+    // احصل على شريحة تخطيط بحسب النوع ثم قم بإزالتها.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Custom);
+    presentation.LayoutSlides.Remove(blankLayoutSlide);
 }
 ```
 
 ## **إزالة شرائح التخطيط غير المستخدمة**
 
-لتقليل حجم العرض التقديمي، قد ترغب في إزالة شرائح التخطيط التي لا تستخدمها أي شرائح عادية.
+لتقليل حجم العرض، قد ترغب في إزالة شرائح التخطيط التي لا تستخدمها أي شرائح عادية.
 
 ```csharp
-static void RemoveUnused_Layout_Slides()
+static void RemoveUnusedLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Automatically removes all layout slides not referenced by any slide
-    pres.LayoutSlides.RemoveUnused();
+    // يقوم تلقائيًا بإزالة جميع شرائح التخطيط التي لا يُشار إليها من أي شريحة.
+    presentation.LayoutSlides.RemoveUnused();
 }
 ```
 
-## **نسخ شريحة تخطيط**
+## **استنساخ شريحة تخطيط**
 
-يمكنك تكرار شريحة التخطيط باستخدام طريقة `AddClone`.
+يمكنك تكرار شريحة تخطيط باستخدام طريقة `AddClone`.
 
 ```csharp
-static void Clone_Layout_Slides()
+static void CloneLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get an existing layout slide by type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // الحصول على شريحة تخطيط موجودة بحسب النوع.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
     
-    // Clone the layout slide to the end of the layout slide collection
-    var clonedLayoutSlide = pres.LayoutSlides.AddClone(blankLayoutSlide);
+    // استنساخ شريحة التخطيط إلى نهاية مجموعة شرائح التخطيط.
+    var clonedLayoutSlide = presentation.LayoutSlides.AddClone(blankLayoutSlide);
 }
 ```
 
-> ✅ **الملخص:** تعد شرائح التخطيط أدوات قوية لإدارة تنسيق موحد عبر الشرائح. يتيح Aspose.Slides التحكم الكامل في إنشاء وإدارة وتحسين شرائح التخطيط.
+> ✅ **الملخص:** شرائح التخطيط أدوات قوية لإدارة تنسيق متسق عبر الشرائح. يتيح Aspose.Slides التحكم الكامل في إنشاء، إدارة، وتحسين شرائح التخطيط.

@@ -4,107 +4,105 @@ type: docs
 weight: 30
 url: /es/net/examples/elements/master-slide/
 keywords:
-- ejemplo de diapositiva maestra
-- agregar diapositiva maestra
+- diapositiva maestra
+- añadir diapositiva maestra
 - acceder a diapositiva maestra
 - eliminar diapositiva maestra
 - diapositiva maestra no utilizada
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Administre diapositivas maestras en C# con Aspose.Slides: cree, edite, clone y formatee temas, fondos y marcadores de posición para unificar diapositivas en PowerPoint y OpenDocument."
+description: "Explora ejemplos de diapositivas maestras de Aspose.Slides para .NET: crea, edita y diseña maestros, marcadores de posición y temas en PPT, PPTX y ODP con código C# claro."
 ---
-
 Las diapositivas maestras forman el nivel superior de la jerarquía de herencia de diapositivas en PowerPoint. Una **diapositiva maestra** define elementos de diseño comunes, como fondos, logotipos y formato de texto. Las **diapositivas de diseño** heredan de las diapositivas maestras, y las **diapositivas normales** heredan de las diapositivas de diseño.
 
 Este artículo muestra cómo crear, modificar y administrar diapositivas maestras usando Aspose.Slides para .NET.
 
-## **Agregar una diapositiva maestra**
+## **Añadir una diapositiva maestra**
 
-Este ejemplo muestra cómo crear una nueva diapositiva maestra clonando la predeterminada. Luego agrega una pancarta con el nombre de la empresa a todas las diapositivas mediante la herencia de diseño.
+Este ejemplo muestra cómo crear una nueva diapositiva maestra clonando la predeterminada. Luego añade una pancarta con el nombre de la empresa a todas las diapositivas mediante la herencia de diseño.
 
 ```csharp
-static void Add_Master_Slide()
+static void AddMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Clone the default master slide
-    var defaultMasterSlide = pres.Masters[0];
-    var newMaster = pres.Masters.AddClone(defaultMasterSlide);
+    // Clona la diapositiva maestra predeterminada.
+    var defaultMasterSlide = presentation.Masters[0];
+    var newMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
 
-    // Add a banner with company name to the top of the master slide
-    var textBox = newMaster.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
+    // Añade una pancarta con el nombre de la empresa en la parte superior de la diapositiva maestra.
+    var textBox = newMasterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
     textBox.TextFrame.Text = "Company Name";
     textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
     textBox.FillFormat.FillType = FillType.NoFill;
 
-    // Assign the new master slide to a layout slide
-    var layoutSlide = pres.LayoutSlides[0];
-    layoutSlide.MasterSlide = newMaster;
+    // Asigna la nueva diapositiva maestra a una diapositiva de diseño.
+    var layoutSlide = presentation.LayoutSlides[0];
+    layoutSlide.MasterSlide = newMasterSlide;
 
-    // Assign the layout slide to the first slide in the presentation
-    pres.Slides[0].LayoutSlide = layoutSlide;
+    // Asigna la diapositiva de diseño a la primera diapositiva de la presentación.
+    presentation.Slides[0].LayoutSlide = layoutSlide;
 }
-````
+```
 
-> 💡 **Consejo 1:** Las diapositivas maestras proporcionan una forma de aplicar una marca o elementos de diseño compartidos de manera constante en todas las diapositivas. Cualquier cambio realizado en la maestra se reflejará automáticamente en las diapositivas de diseño y normales dependientes.
+> 💡 **Nota 1:** Las diapositivas maestras proporcionan una manera de aplicar una identidad visual coherente o elementos de diseño compartidos en todas las diapositivas. Cualquier cambio realizado en la maestra se reflejará automáticamente en las diapositivas de diseño y normales dependientes.
 
-> 💡 **Consejo 2:** Cualquier forma o formato añadido a una diapositiva maestra se hereda en las diapositivas de diseño y, a su vez, en todas las diapositivas normales que usan esos diseños.  
-> La imagen a continuación ilustra cómo un cuadro de texto añadido en una diapositiva maestra se representa automáticamente en la diapositiva final.
+> 💡 **Nota 2:** Cualquier forma o formato añadido a una diapositiva maestra se hereda en las diapositivas de diseño y, a su vez, en todas las diapositivas normales que usan esos diseños.  
+> La imagen a continuación ilustra cómo un cuadro de texto añadido en una diapositiva maestra se muestra automáticamente en la diapositiva final.
 
-![Master Inheritance Example](master-slide-banner.png)
+![Ejemplo de herencia de maestro](master-slide-banner.png)
 
 ## **Acceder a una diapositiva maestra**
 
-Puedes acceder a las diapositivas maestras usando la colección `Presentation.Masters`. Así es como se recuperan y se trabaja con ellas:
+Puedes acceder a las diapositivas maestras mediante la colección `Presentation.Masters`. Aquí se muestra cómo recuperarlas y trabajar con ellas:
 
 ```csharp
-static void Access_Master_Slide()
+static void AccessMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Access the first master slide
-    var firstMasterSlide = pres.Masters[0];
+    // Accede a la primera diapositiva maestra.
+    var firstMasterSlide = presentation.Masters[0];
 
-    // Change the background type
+    // Cambia el tipo de fondo.
     firstMasterSlide.Background.Type = BackgroundType.OwnBackground;
 }
 ```
 
 ## **Eliminar una diapositiva maestra**
 
-Las diapositivas maestras pueden eliminarse por índice o por referencia.
+Las diapositivas maestras pueden eliminarse ya sea por índice o por referencia.
 
 ```csharp
-static void Remove_Master_Slide()
+static void RemoveMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation("sample.pptx");
 
-    // Remove by index
-    pres.Masters.RemoveAt(0);
+    // Elimina una diapositiva maestra por índice.
+    presentation.Masters.RemoveAt(0);
 
-    // Or remove by reference
-    var firstMasterSlide = pres.Masters[0];
-    pres.Masters.Remove(firstMasterSlide);
+    // Elimina una diapositiva maestra por referencia.
+    var firstMasterSlide = presentation.Masters[0];
+    presentation.Masters.Remove(firstMasterSlide);
 }
 ```
 
 ## **Eliminar diapositivas maestras no utilizadas**
 
-Algunas presentaciones contienen diapositivas maestras que no se usan. Eliminar estas diapositivas puede ayudar a reducir el tamaño del archivo.
+Algunas presentaciones contienen diapositivas maestras que no se utilizan. Eliminar estas diapositivas puede ayudar a reducir el tamaño del archivo.
 
 ```csharp
-static void RemoveUnused_Master_Slide()
+static void RemoveUnusedMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Remove all unused master slides (even those marked as Preserve)
-    pres.Masters.RemoveUnused(ignorePreserveField: true);
+    // Elimina todas las diapositivas maestras no utilizadas (incluso las marcadas como Preserve).
+    presentation.Masters.RemoveUnused(ignorePreserveField: true);
 }
 ```
-
-> ⚙️ **Consejo:** Usa `RemoveUnused(true)` para limpiar las diapositivas maestras no utilizadas y minimizar el tamaño de la presentación.

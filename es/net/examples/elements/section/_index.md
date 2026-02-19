@@ -4,78 +4,86 @@ type: docs
 weight: 90
 url: /es/net/examples/elements/section/
 keywords:
-- ejemplo de sección
+- sección
 - sección de diapositiva
-- agregar sección
-- acceder a sección
+- añadir sección
+- acceder sección
 - eliminar sección
 - renombrar sección
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Gestiona las secciones de diapositivas en C# con Aspose.Slides: crea, renombra, reordena fácilmente, mueve diapositivas entre secciones y controla la visibilidad para PPT, PPTX y ODP."
+description: "Gestiona secciones de diapositivas en Aspose.Slides para .NET: crea, renombra, reordena y agrupa diapositivas con ejemplos en C# para PPT, PPTX y ODP."
 ---
-
-Ejemplos de cómo gestionar secciones de una presentación: agregar, acceder, eliminar y renombrar programáticamente usando **Aspose.Slides for .NET**.
+Ejemplos de gestión de secciones de presentación—añadir, acceder, eliminar y renombrar programáticamente usando **Aspose.Slides for .NET**.
 
 ## **Agregar una sección**
 
-Cree una sección que comience en una diapositiva específica.
-```csharp
-static void Add_Section()
-{
-    using var pres = new Presentation();
+Crea una sección que comienza en una diapositiva específica.
 
-    // Especifica la diapositiva que marca el comienzo de la sección
-    pres.Sections.AddSection("New Section", pres.Slides[0]);
+```csharp
+static void AddSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // Especifica la diapositiva que marca el comienzo de la sección.
+    presentation.Sections.AddSection("New Section", slide);
 }
 ```
 
-
 ## **Acceder a una sección**
 
-Lea la información de la sección de una presentación.
-```csharp
-static void Access_Section()
-{
-    using var pres = new Presentation();
-    pres.Sections.AddSection("My Section", pres.Slides[0]);
+Lee la información de la sección de una presentación.
 
-    // Acceder a la sección por índice
-    var section = pres.Sections[0];
+```csharp
+static void AccessSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    presentation.Sections.AddSection("My Section", slide);
+
+    // Accede a una sección por índice.
+    var section = presentation.Sections[0];
     var sectionName = section.Name;
 }
 ```
 
-
 ## **Eliminar una sección**
 
-Elimine una sección añadida previamente.
-```csharp
-static void Remove_Section()
-{
-    using var pres = new Presentation();
-    var section = pres.Sections.AddSection("Temporary Section", pres.Slides[0]);
+Elimina una sección añadida previamente.
 
-    // Eliminar la primera sección
-    pres.Sections.RemoveSection(section);
+```csharp
+static void RemoveSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var section = presentation.Sections.AddSection("Temporary Section", slide);
+
+    // Elimina la primera sección.
+    presentation.Sections.RemoveSection(section);
 }
 ```
 
-
 ## **Renombrar una sección**
 
-Cambie el nombre de una sección existente.
-```csharp
-static void Rename_Section()
-{
-    using var pres = new Presentation();
-    pres.Sections.AddSection("Old Name", pres.Slides[0]);
+Cambia el nombre de una sección existente.
 
-    var section = pres.Sections[0];
+```csharp
+static void RenameSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    presentation.Sections.AddSection("Old Name", slide);
+
+    var section = presentation.Sections[0];
     section.Name = "New Name";
 }
 ```

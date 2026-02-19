@@ -1,122 +1,127 @@
 ---
-title: الشريحة
+title: شريحة
 type: docs
 weight: 10
 url: /ar/net/examples/elements/slide/
 keywords:
-- مثال شريحة
+- شريحة
 - إضافة شريحة
 - الوصول إلى الشريحة
 - فهرس الشريحة
 - استنساخ شريحة
 - إعادة ترتيب الشرائح
 - إزالة شريحة
+- مثال على الشيفرة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة الشرائح في C# باستخدام Aspose.Slides: إنشاء، استنساخ، إعادة ترتيب، إخفاء، تعيين الخلفيات والحجم، تطبيق الانتقالات، وتصدير لبرنامج PowerPoint وOpenDocument."
+description: "تحكم في الشرائح في Aspose.Slides for .NET: أنشئ، استنسخ، أعد ترتيب، غيّر الحجم، اضبط الخلفيات، وطبق الانتقالات باستخدام C# لعروض PPT و PPTX و ODP."
 ---
-
-يوفر هذا المقال سلسلة من الأمثلة التي توضح كيفية العمل مع الشرائح باستخدام **Aspose.Slides for .NET**. ستتعلم كيفية إضافة، الوصول إلى، استنساخ، إعادة ترتيب، وإزالة الشرائح باستخدام فئة `Presentation`.
+يوفر هذا المقال سلسلة من الأمثلة التي توضح كيفية التعامل مع الشرائح باستخدام **Aspose.Slides for .NET**. ستتعلم كيفية إضافة، والوصول، واستنساخ، وإعادة ترتيب، وإزالة الشرائح باستخدام الفئة `Presentation`.
 
 يتضمن كل مثال أدناه شرحًا موجزًا يليه مقتطف شفرة بلغة C#.
 
 ## **إضافة شريحة**
 
 لإضافة شريحة جديدة، يجب أولاً اختيار تخطيط. في هذا المثال، نستخدم تخطيط `Blank` ونضيف شريحة فارغة إلى العرض التقديمي.
+
 ```csharp
-static void Add_Slide()
+static void AddSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // كل شريحة مبنية على تخطيط، والذي بدوره مبني على شريحة رئيسية.
-    // استخدم التخطيط Blank لإنشاء شريحة جديدة.
-    var blankLayout = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // كل شريحة تستند إلى تخطيط، والذي بدوره يستند إلى شريحة رئيسية.
+    // استخدم تخطيط Blank لإنشاء شريحة جديدة.
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-    // Add a new empty slide using the selected layout
-    pres.Slides.AddEmptySlide(layout: blankLayout);
+    // أضف شريحة فارغة جديدة باستخدام التخطيط المحدد.
+    presentation.Slides.AddEmptySlide(layout: blankLayout);
 }
-````
+```
 
-> 💡 **Tip:** Each slide layout is derived from a master slide, which defines the overall design and placeholder structure. The image below illustrates how master slides and their associated layouts are organized in PowerPoint.
+> 💡 **ملاحظة:** كل تخطيط شريحة مستمد من شريحة رئيسية، التي تُحدد التصميم العام وهيكل العناصر النائبة. تُظهر الصورة أدناه كيف يتم تنظيم الشرائح الرئيسية وتخطيطاتها المرتبطة في PowerPoint.
 
-![Master and Layout Relationship](master-layout-slide.png)
+![العلاقة بين الشريحة الرئيسية والتخطيط](master-layout-slide.png)
 
-## **Access Slides by Index**
+## **الوصول إلى الشرائح حسب الفهرس**
 
-You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
+يمكنك الوصول إلى الشرائح باستخدام فهرسها، أو العثور على فهرس شريحة بناءً على مرجع. هذا مفيد للتنقل عبر الشرائح أو تعديل شرائح معينة.
 
 ```csharp
-static void Access_Slide()
+static void AccessSlide()
 {
     // بشكل افتراضي، يتم إنشاء عرض تقديمي بشريحة فارغة واحدة.
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // أضف شريحة فارغة أخرى
-    pres.Slides.AddEmptySlide(layout: pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
+    // أضف شريحة فارغة أخرى.
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-    // الوصول إلى الشرائح حسب الفهرس
-    var firstSlide = pres.Slides[0];
-    var secondSlide = pres.Slides[1];
+    // الوصول إلى الشرائح حسب الفهرس.
+    var firstSlide = presentation.Slides[0];
+    var secondSlide = presentation.Slides[1];
 
-    // احصل على فهرس الشريحة من مرجع، ثم وصول إليها حسب الفهرس
-    var secondSlideIndex = pres.Slides.IndexOf(secondSlide);
-    var secondSlideByIndex = pres.Slides[secondSlideIndex];
+    // احصل على فهرس الشريحة من مرجع، ثم وصل إليها حسب الفهرس.
+    var secondSlideIndex = presentation.Slides.IndexOf(secondSlide);
+    var secondSlideByIndex = presentation.Slides[secondSlideIndex];
 }
 ```
 
-## **Clone a Slide**
+## **استنساخ شريحة**
 
-This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
+يوضح هذا المثال كيفية استنساخ شريحة موجودة. يتم إضافة الشريحة المستنسخة تلقائيًا إلى نهاية مجموعة الشرائح.
 
 ```csharp
-static void Clone_Slide()
+static void CloneSlide()
 {
     // بشكل افتراضي، يحتوي العرض التقديمي على شريحة فارغة واحدة.
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var firstSlide = presentation.Slides[0];
 
-    // استنساخ الشريحة الأولى؛ ستُضاف في نهاية العرض التقديمي
-    var clonedSlide = pres.Slides.AddClone(sourceSlide: pres.Slides[0]);
+    // استنسخ الشريحة الأولى؛ ستُضاف في نهاية العرض التقديمي.
+    var clonedSlide = presentation.Slides.AddClone(sourceSlide: firstSlide);
 
-    // فهرس الشريحة المستنسخة هو 1 (الشريحة الثانية في العرض التقديمي)
-    var clonedSlideIndex = pres.Slides.IndexOf(clonedSlide);
+    // فهرس الشريحة المستنسخة هو 1 (الشريحة الثانية في العرض التقديمي).
+    var clonedSlideIndex = presentation.Slides.IndexOf(clonedSlide);
 }
 ```
 
-## **Reorder Slides**
+## **إعادة ترتيب الشرائح**
 
-You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
+يمكنك تغيير ترتيب الشرائح بنقل إحدى الشرائح إلى فهرس جديد. في هذه الحالة، نقوم بنقل الشريحة المستنسخة إلى الموضع الأول.
 
 ```csharp
-static void ReOrder_Slide()
+static void ReorderSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var firstSlide = presentation.Slides[0];
 
-    // أضف نسخة مستنسخة من الشريحة الأولى (التي تم إنشاؤها بشكل افتراضي)
-    var clonedSlide = pres.Slides.AddClone(pres.Slides[0]);
+    // أضف نسخة مستنسخة من الشريحة الأولى (تم إنشاؤها بشكل افتراضي).
+    var clonedSlide = presentation.Slides.AddClone(firstSlide);
 
-    // Move the cloned slide to the first position (others shift down)
-    pres.Slides.Reorder(index: 0, clonedSlide);
+    // انقل الشريحة المستنسخة إلى الموضع الأول (تنزلق البقية للأسفل).
+    presentation.Slides.Reorder(index: 0, clonedSlide);
 }
 ```
 
-## **Remove a Slide**
+## **إزالة شريحة**
 
-To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
+لإزالة شريحة، ما عليك سوى الإشارة إليها واستدعاء `Remove`. يضيف هذا المثال شريحة ثانية ثم يزيل الأصلية، مما يترك الشريحة الجديدة فقط.
 
 ```csharp
-static void Remove_Slide()
+static void RemoveSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // أضف شريحة فارغة جديدة إضافةً إلى الشريحة الأولى الافتراضية
-    var secondSlide = pres.Slides.AddEmptySlide(layout: pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
+    // أضف شريحة فارغة جديدة بالإضافة إلى الشريحة الأولى الافتراضية.
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    var secondSlide = presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-    // إزالة الشريحة الأولى؛ سيبقى فقط الشريحة التي تم إضافتها حديثًا
-    var firstSlide = pres.Slides[0];
-    pres.Slides.Remove(firstSlide);
+    // احذف الشريحة الأولى؛ ستبقى الشريحة التي أضيفت حديثًا فقط.
+    var firstSlide = presentation.Slides[0];
+    presentation.Slides.Remove(firstSlide);
 }
 ```

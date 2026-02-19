@@ -4,44 +4,47 @@ type: docs
 weight: 40
 url: /zh/net/examples/elements/text-box/
 keywords:
-- 文本框示例
+- 文本框
 - 添加文本框
 - 访问文本框
 - 删除文本框
+- 代码示例
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C# 中创建和格式化文本框：设置字体、对齐、换行、自动适应以及链接，以完善 PowerPoint 和 OpenDocument 的幻灯片。"
+description: "在 Aspose.Slides for .NET 中使用文本框：使用 C# 为 PPT、PPTX 和 ODP 演示文稿添加、格式化、对齐、换行、自动适应和样式化文本。"
 ---
-
-在 Aspose.Slides 中，**文本框**由 `AutoShape` 表示。几乎任何形状都可以包含文本，但典型的文本框没有填充或边框，仅显示文本。
+在 Aspose.Slides 中，**文本框** 由 `AutoShape` 表示。几乎任何形状都可以包含文本，但典型的文本框没有填充或边框，只显示文本。
 
 本指南说明如何以编程方式添加、访问和删除文本框。
 
 ## **添加文本框**
 
-文本框就是一个没有填充和边框且带有一些格式化文本的 `AutoShape`。以下是创建方法：
+文本框仅仅是一个没有填充或边框且带有一些格式化文本的 `AutoShape`。以下是创建方法：
 
 ```csharp
-public static void Add_TextBox()
+public static void AddTextBox()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Create a rectangle shape (defaults to filled with border and no text)
-    var textBox = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, x: 50, y: 75, width: 150, height: 100);
+    // 创建一个矩形形状（默认填充并带边框且无文本）。
+    var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 50, y: 75, width: 150, height: 100);
 
-    // Remove fill and border to make it look like a typical text box
+    // 移除填充和边框，使其看起来像典型的文本框。
     textBox.FillFormat.FillType = FillType.NoFill;
     textBox.LineFormat.FillFormat.FillType = FillType.NoFill;
 
-    // Set text formatting
-    textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    // 设置文本格式。
+    var paragraph = textBox.TextFrame.Paragraphs[0];
+    var textFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
+    textFormat.FillFormat.FillType = FillType.Solid;
+    textFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-    // Assign the actual text content
+    // 分配实际的文本内容。
     textBox.TextFrame.Text = "Some text...";
 }
 ```
@@ -50,21 +53,22 @@ public static void Add_TextBox()
 
 ## **按内容访问文本框**
 
-要查找所有包含特定关键字（例如 “Slide”）的文本框，可遍历形状并检查其文本：
+要查找包含特定关键字（例如 “Slide”）的所有文本框，可遍历形状并检查它们的文本：
 
 ```csharp
-public static void Access_TextBox()
+public static void AccessTextBox()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    foreach (var shape in pres.Slides[0].Shapes)
+    foreach (var shape in slide.Shapes)
     {
-        // Only AutoShapes can contain editable text
+        // 只有 AutoShape 可以包含可编辑的文本。
         if (shape is AutoShape autoShape)
         {
             if (autoShape.TextFrame.Text.Contains("Slide"))
             {
-                // Do something with the matching text box
+                // 对匹配的文本框执行操作。
             }
         }
     }
@@ -73,19 +77,20 @@ public static void Access_TextBox()
 
 ## **按内容删除文本框**
 
-此示例查找并删除第一张幻灯片上所有包含特定关键字的文本框：
+此示例查找并删除第一张幻灯片上包含特定关键字的所有文本框：
 
 ```csharp
-public static void Remove_TextBox()
+public static void RemoveTextBox()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var shapesToRemove = pres.Slides[0].Shapes
+    var shapesToRemove = slide.Shapes
         .Where(s => s is AutoShape autoShape && autoShape.TextFrame.Text.Contains("Slide"))
         .ToList();
 
-    shapesToRemove.ForEach(shape => pres.Slides[0].Shapes.Remove(shape));
+    shapesToRemove.ForEach(shape => slide.Shapes.Remove(shape));
 }
 ```
 
-> 💡 **提示:** 在遍历时修改形状集合前，请始终先创建该集合的副本，以避免集合修改错误。
+> 💡 **提示:** 在遍历期间修改形状集合前，始终先创建该集合的副本，以避免集合修改错误。

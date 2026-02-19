@@ -4,29 +4,31 @@ type: docs
 weight: 120
 url: /ru/net/examples/elements/table/
 keywords:
-- пример таблицы
+- таблица
 - добавить таблицу
 - доступ к таблице
 - удалить таблицу
 - объединить ячейки
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Создавайте и форматируйте таблицы в C# с помощью Aspose.Slides: вставляйте данные, объединяйте ячейки, оформляйте границы, выравнивайте содержимое и импортируйте/экспортируйте файлы PPT, PPTX и ODP."
+description: "Работа с таблицами в Aspose.Slides for .NET: создание, форматирование, объединение ячеек, применение стилей, импорт данных и экспорт с примерами на C# для PPT, PPTX и ODP."
 ---
+Примеры добавления таблиц, доступа к ним, удаления и объединения ячеек с использованием **Aspose.Slides for .NET**.
 
-Примеры добавления таблиц, доступа к ним, удаления их и объединения ячеек с использованием **Aspose.Slides for .NET**.
+## **Add a Table**
 
-## **Добавление таблицы**
-Создайте простую таблицу из двух строк и двух столбцов.
+Создайте простую таблицу с двумя строками и двумя столбцами.
+
 ```csharp
-static void Add_Table()
+static void AddTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
@@ -34,31 +36,35 @@ static void Add_Table()
 }
 ```
 
+## **Access a Table**
 
-## **Доступ к таблице**
 Получите первую форму таблицы на слайде.
+
 ```csharp
-static void Access_Table()
+static void AccessTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // Доступ к первой таблице на слайде
+    // Получить первую таблицу на слайде.
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
 
+## **Remove a Table**
 
-## **Удаление таблицы**
 Удалите таблицу со слайда.
+
 ```csharp
-static void Remove_Table()
+static void RemoveTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
@@ -67,14 +73,16 @@ static void Remove_Table()
 }
 ```
 
+## **Merge Table Cells**
 
-## **Объединение ячеек таблицы**
 Объедините соседние ячейки таблицы в одну ячейку.
+
 ```csharp
-static void Merge_Table_Cells()
+static void MergeTableCells()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);

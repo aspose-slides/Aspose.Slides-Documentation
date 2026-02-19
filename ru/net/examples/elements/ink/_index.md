@@ -4,30 +4,31 @@ type: docs
 weight: 180
 url: /ru/net/examples/elements/ink/
 keywords:
-- пример чернил
+- чернила
 - доступ к чернилам
-- удаление чернил
+- удалить чернила
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Работайте с цифровыми чернилами на слайдах в C# с Aspose.Slides: добавляйте штрихи пера, редактируйте пути, задавайте цвет и толщину, а также экспортируйте результаты для PowerPoint и OpenDocument."
+description: "Работайте с чернилами в Aspose.Slides for .NET: рисуйте, импортируйте и редактируйте мазки, регулируйте цвет и ширину, а также экспортируйте в PPT, PPTX и ODP, используя примеры на C#."
 ---
+В этой статье представлены примеры доступа к существующим фигурам чернил и их удаления с использованием **Aspose.Slides for .NET**.
 
-Предоставляет примеры доступа к существующим формам чернил и их удаления с использованием **Aspose.Slides for .NET**.
-
-> ❗ **Примечание:** Формы чернил представляют ввод пользователя с специализированных устройств. Aspose.Slides не может программно создавать новые чернильные штрихи, но вы можете читать и изменять существующие чернила.
+> ❗ **Note:** Фигуры чернил представляют ввод пользователя со специализированных устройств. Aspose.Slides не может программно создавать новые мазки чернил, но вы можете читать и изменять существующие чернила.
 
 ## **Доступ к чернилам**
 
-Прочитайте теги первой формы чернил на слайде.
+Прочитайте теги первой фигуры чернил на слайде.
+
 ```csharp
-static void Access_Ink()
+static void AccessInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes[0] is Ink inkShape)
     {
@@ -35,21 +36,21 @@ static void Access_Ink()
         if (tags.Count > 0)
         {
             var tagName = tags.GetNameByIndex(0);
-            // Используйте tagName по мере необходимости
+            // Используйте tagName по мере необходимости.
         }
     }
 }
 ```
 
+## **Удалить чернила**
 
-## **Удаление чернил**
+Удалите фигуру чернил со слайда, если она существует.
 
-Удалите форму чернил со слайда, если она существует.
 ```csharp
-static void Remove_Ink()
+static void RemoveInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes.FirstOrDefault(s => s is Ink) is Ink ink)
     {

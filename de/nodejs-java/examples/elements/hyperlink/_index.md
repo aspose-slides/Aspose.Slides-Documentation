@@ -1,0 +1,119 @@
+---
+title: Hyperlink
+type: docs
+weight: 130
+url: /de/nodejs-java/examples/elements/hyperlink/
+keywords:
+- Codebeispiel
+- Hyperlink
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Fügen Sie Hyperlinks in Aspose.Slides für Node.js hinzu und verwalten Sie sie: Text, Formen und Bilder verlinken, Ziele und Aktionen für PPT, PPTX und ODP mit Beispielen festlegen."
+---
+Dieser Artikel demonstriert das Hinzufügen, Zugreifen, Entfernen und Aktualisieren von Hyperlinks in Formen mithilfe von **Aspose.Slides for Node.js via Java**.
+
+## **Hyperlink hinzufügen**
+
+Erstellen Sie eine Rechteckform mit einem Hyperlink, der auf eine externe Website verweist.
+
+```js
+function addHyperlink() {
+    let presentation = new aspose.slides.Presentation();
+    try {
+        let slide = presentation.getSlides().get_Item(0);
+
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
+        shape.getTextFrame().setText("Aspose");
+
+        let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+        let textPortion = paragraph.getPortions().get_Item(0);
+
+        let hyperlink = new aspose.slides.Hyperlink("https://www.aspose.com");
+        textPortion.getPortionFormat().setHyperlinkClick(hyperlink);
+
+        presentation.save("hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+## **Hyperlink abrufen**
+
+Lesen Sie den Hyperlink aus einem Textabschnitt einer Form.
+
+```js
+function accessHyperlink() {
+    let presentation = new aspose.slides.Presentation("hyperlink.pptx");
+    try {
+        let slide = presentation.getSlides().get_Item(0);
+
+        // Angenommen, die erste Form enthält den Text mit Hyperlink.
+        let shape = slide.getShapes().get_Item(0);
+
+        let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+        let textPortion = paragraph.getPortions().get_Item(0);
+
+        let hyperlink = textPortion.getPortionFormat().getHyperlinkClick();
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+## **Hyperlink entfernen**
+
+Entfernen Sie den Hyperlink aus dem Text einer Form.
+
+```js
+function removeHyperlink() {
+    let presentation = new aspose.slides.Presentation("hyperlink.pptx");
+    try {
+        let slide = presentation.getSlides().get_Item(0);
+
+        // Angenommen, die erste Form enthält den Text mit Hyperlink.
+        let shape = slide.getShapes().get_Item(0);
+
+        let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+        let textPortion = paragraph.getPortions().get_Item(0);
+
+        textPortion.getPortionFormat().setHyperlinkClick(null);
+
+        presentation.save("hyperlink_removed.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+## **Hyperlink aktualisieren**
+
+Ändern Sie das Ziel eines bestehenden Hyperlinks. Verwenden Sie `HyperlinkManager`, um Text, der bereits einen Hyperlink enthält, zu ändern, was dem sicheren Aktualisieren von Hyperlinks in PowerPoint entspricht.
+
+```js
+function updateHyperlink() {
+    let presentation = new aspose.slides.Presentation("hyperlink.pptx");
+    try {
+        let slide = presentation.getSlides().get_Item(0);
+
+        // Angenommen, die erste Form enthält den Text mit Hyperlink.
+        let shape = slide.getShapes().get_Item(0);
+
+        let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+        let textPortion = paragraph.getPortions().get_Item(0);
+
+        // Das Ändern eines Hyperlinks im vorhandenen Text sollte über
+        // HyperlinkManager erfolgen und nicht durch direkte Zuweisung der Eigenschaft.
+        // Dies ahmt nach, wie PowerPoint Hyperlinks sicher aktualisiert.
+        textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://new.example.com");
+
+        presentation.save("hyperlink_updated.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+}
+```

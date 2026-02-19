@@ -1,80 +1,83 @@
 ---
-title: FolienÜbergang
+title: Folienübergang
 type: docs
 weight: 110
 url: /de/net/examples/elements/slide-transition/
 keywords:
-- Beispiel für Folienübergang
+- Folienübergang
 - Folienübergang hinzufügen
 - Folienübergang abrufen
 - Folienübergang entfernen
 - Übergangsdauer
+- Codebeispiel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Steuern Sie Folienübergänge in C# mit Aspose.Slides: Wählen Sie Typen, Geschwindigkeit, Sound und Timing, um Präsentationen in PPT, PPTX und ODP zu verfeinern."
+description: "Meistern Sie Folienübergänge in Aspose.Slides für .NET: Hinzufügen, Anpassen und Sequenzieren von Effekten und Dauern mit C#-Beispielen für PPT-, PPTX- und ODP-Präsentationen."
 ---
+Dieser Artikel demonstriert die Anwendung von Folienübergangseffekten und Zeitsteuerungen mit **Aspose.Slides for .NET**.
 
-Demonstriert das Anwenden von Folienübergangseffekten und -zeiten mit **Aspose.Slides for .NET**.
+## **Folieübergang hinzufügen**
 
-## **Folie-Übergang hinzufügen**
+Wenden Sie einen Überblendeffekt auf die erste Folie an.
 
-Wenden Sie einen Fade‑Übergangseffekt auf die erste Folie an.
 ```csharp
-static void Add_Slide_Transition()
+static void AddSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Fade-Übergang anwenden
+    // Fade-Übergang anwenden.
     slide.SlideShowTransition.Type = TransitionType.Fade;
 }
 ```
 
-
-## **Zugriff auf Folien‑Übergang**
+## **Zugriff auf einen Folienübergang**
 
 Lesen Sie den aktuell einer Folie zugewiesenen Übergangstyp.
+
 ```csharp
-static void Access_Slide_Transition()
+static void AccessSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Push;
 
-    // Zugriff auf den Übergangstyp
+    // Zugriff auf den Übergangstyp.
     var type = slide.SlideShowTransition.Type;
 }
 ```
 
-
-## **Folien‑Übergang entfernen**
+## **Folienübergang entfernen**
 
 Entfernen Sie alle Übergangseffekte, indem Sie den Typ auf `None` setzen.
+
 ```csharp
-static void Remove_Slide_Transition()
+static void RemoveSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // Übergang entfernen, indem None gesetzt wird
+    // Übergang entfernen, indem er auf None gesetzt wird.
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
 
-
 ## **Übergangsdauer festlegen**
 
 Geben Sie an, wie lange die Folie angezeigt wird, bevor sie automatisch weitergeht.
+
 ```csharp
-static void Set_Transition_Duration()
+static void SetTransitionDuration()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.SlideShowTransition.AdvanceOnClick = true;
     slide.SlideShowTransition.AdvanceAfterTime = 2000; // in Millisekunden

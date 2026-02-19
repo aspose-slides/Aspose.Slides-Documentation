@@ -4,119 +4,124 @@ type: docs
 weight: 10
 url: /es/net/examples/elements/slide/
 keywords:
-- ejemplo de diapositiva
+- diapositiva
 - agregar diapositiva
-- acceder a la diapositiva
+- acceder a diapositiva
 - índice de diapositiva
 - clonar diapositiva
 - reordenar diapositivas
 - eliminar diapositiva
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Administre diapositivas en C# con Aspose.Slides: cree, clone, reordene, oculte, establezca fondos y tamaño, aplique transiciones y exporte para PowerPoint y OpenDocument."
+description: "Controla diapositivas en Aspose.Slides para .NET: crea, clona, reordena, cambia el tamaño, establece fondos y aplica transiciones con C# para presentaciones PPT, PPTX y ODP."
 ---
-
-Este artículo ofrece una serie de ejemplos que demuestran cómo trabajar con diapositivas usando **Aspose.Slides for .NET**. Aprenderá a agregar, acceder, clonar, reordenar y eliminar diapositivas usando la clase `Presentation`.
+Este artículo ofrece una serie de ejemplos que demuestran cómo trabajar con diapositivas usando **Aspose.Slides for .NET**. Aprenderás cómo agregar, acceder, clonar, reordenar y eliminar diapositivas mediante la clase `Presentation`.
 
 Cada ejemplo a continuación incluye una breve explicación seguida de un fragmento de código en C#.
 
 ## **Agregar una diapositiva**
 
-Para agregar una nueva diapositiva, primero debe seleccionar un diseño. En este ejemplo, usamos el diseño `Blank` y agregamos una diapositiva vacía a la presentación.
+Para agregar una nueva diapositiva, primero debes seleccionar un diseño. En este ejemplo, usamos el diseño `Blank` y añadimos una diapositiva vacía a la presentación.
+
 ```csharp
-static void Add_Slide()
+static void AddSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
     // Cada diapositiva se basa en un diseño, que a su vez se basa en una diapositiva maestra.
-    // Use el diseño Blank para crear una nueva diapositiva.
-    var blankLayout = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Usa el diseño Blank para crear una nueva diapositiva.
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-    // Agregue una nueva diapositiva vacía usando el diseño seleccionado
-    pres.Slides.AddEmptySlide(layout: blankLayout);
+    // Añade una nueva diapositiva vacía usando el diseño seleccionado.
+    presentation.Slides.AddEmptySlide(layout: blankLayout);
 }
 ```
 
-> 💡 **Tip:** Each slide layout is derived from a master slide, which defines the overall design and placeholder structure. The image below illustrates how master slides and their associated layouts are organized in PowerPoint.
+> 💡 **Nota:** Cada diseño de diapositiva se deriva de una diapositiva maestra, que define el diseño general y la estructura de los marcadores de posición. La imagen a continuación ilustra cómo se organizan las diapositivas maestras y sus diseños asociados en PowerPoint.
 
-![Master and Layout Relationship](master-layout-slide.png)
+![Relación entre maestro y diseño](master-layout-slide.png)
 
-## **Access Slides by Index**
+## **Acceder a diapositivas por índice**
 
-You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
+Puedes acceder a las diapositivas usando su índice, o encontrar el índice de una diapositiva a partir de una referencia. Esto es útil para iterar o modificar diapositivas específicas.
 
 ```csharp
-static void Access_Slide()
+static void AccessSlide()
 {
-    // Por defecto, una presentación se crea con una diapositiva vacía
-    using var pres = new Presentation();
+    // Por defecto, una presentación se crea con una diapositiva vacía.
+    using var presentation = new Presentation();
 
-    // Agregue otra diapositiva vacía
-    pres.Slides.AddEmptySlide(layout: pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
+    // Añade otra diapositiva vacía.
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-    // Acceda a las diapositivas por índice
-    var firstSlide = pres.Slides[0];
-    var secondSlide = pres.Slides[1];
+    // Accede a las diapositivas por índice.
+    var firstSlide = presentation.Slides[0];
+    var secondSlide = presentation.Slides[1];
 
-    // Obtenga el índice de la diapositiva a partir de una referencia, luego accédala por índice
-    var secondSlideIndex = pres.Slides.IndexOf(secondSlide);
-    var secondSlideByIndex = pres.Slides[secondSlideIndex];
+    // Obtén el índice de la diapositiva a partir de una referencia y luego accede a ella por índice.
+    var secondSlideIndex = presentation.Slides.IndexOf(secondSlide);
+    var secondSlideByIndex = presentation.Slides[secondSlideIndex];
 }
 ```
 
-## **Clone a Slide**
+## **Clonar una diapositiva**
 
-This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
+Este ejemplo muestra cómo clonar una diapositiva existente. La diapositiva clonada se añade automáticamente al final de la colección de diapositivas.
 
 ```csharp
-static void Clone_Slide()
+static void CloneSlide()
 {
-    // Por defecto, la presentación contiene una diapositiva vacía
-    using var pres = new Presentation();
+    // Por defecto, la presentación contiene una diapositiva vacía.
+    using var presentation = new Presentation();
+    var firstSlide = presentation.Slides[0];
 
-    // Clone la primera diapositiva; se añadirá al final de la presentación
-    var clonedSlide = pres.Slides.AddClone(sourceSlide: pres.Slides[0]);
+    // Clona la primera diapositiva; se añadirá al final de la presentación.
+    var clonedSlide = presentation.Slides.AddClone(sourceSlide: firstSlide);
 
-    // El índice de la diapositiva clonada es 1 (segunda diapositiva en la presentación)
-    var clonedSlideIndex = pres.Slides.IndexOf(clonedSlide);
+    // El índice de la diapositiva clonada es 1 (segunda diapositiva en la presentación).
+    var clonedSlideIndex = presentation.Slides.IndexOf(clonedSlide);
 }
 ```
 
-## **Reorder Slides**
+## **Reordenar diapositivas**
 
-You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
+Puedes cambiar el orden de las diapositivas moviendo una a un nuevo índice. En este caso, movemos una diapositiva clonada a la primera posición.
 
 ```csharp
-static void ReOrder_Slide()
+static void ReorderSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var firstSlide = presentation.Slides[0];
 
-    // Agregue una copia de la primera diapositiva (creada por defecto)
-    var clonedSlide = pres.Slides.AddClone(pres.Slides[0]);
+    // Añade una copia de la primera diapositiva (creada por defecto).
+    var clonedSlide = presentation.Slides.AddClone(firstSlide);
 
-    // Mueva la diapositiva clonada a la primera posición (las demás se desplazan hacia abajo)
-    pres.Slides.Reorder(index: 0, clonedSlide);
+    // Mueve la diapositiva clonada a la primera posición (las demás se desplazan hacia abajo).
+    presentation.Slides.Reorder(index: 0, clonedSlide);
 }
 ```
 
-## **Remove a Slide**
+## **Eliminar una diapositiva**
 
-To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
+Para eliminar una diapositiva, simplemente haz referencia a ella y llama a `Remove`. Este ejemplo añade una segunda diapositiva y luego elimina la original, quedando solo la nueva.
 
 ```csharp
-static void Remove_Slide()
+static void RemoveSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Agregue una nueva diapositiva vacía además de la primera diapositiva predeterminada
-    var secondSlide = pres.Slides.AddEmptySlide(layout: pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
+    // Añade una nueva diapositiva vacía además de la primera diapositiva predeterminada.
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    var secondSlide = presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-    // Elimine la primera diapositiva; solo quedará la diapositiva recién añadida
-    var firstSlide = pres.Slides[0];
-    pres.Slides.Remove(firstSlide);
+    // Elimina la primera diapositiva; solo quedará la diapositiva recién añadida.
+    var firstSlide = presentation.Slides[0];
+    presentation.Slides.Remove(firstSlide);
 }
 ```

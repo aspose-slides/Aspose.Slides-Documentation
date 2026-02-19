@@ -6,11 +6,12 @@ url: /ja/net/examples/
 keywords:
 - 例
 - 要素
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "スライド、シェイプ、メディア、チャート、テキストなどの管理に関する C# Aspose.Slides の例を閲覧し、PowerPoint と OpenDocument の実用的なパターンを学びましょう。"
+description: "Aspose.Slides for .NET のコード例を探索し、C# スニペットを使用して PPT、PPTX、ODP 形式のプレゼンテーションを作成、編集、変換する方法を学びます。"
 ---

@@ -4,77 +4,80 @@ type: docs
 weight: 110
 url: /es/net/examples/elements/slide-transition/
 keywords:
-- ejemplo de transición de diapositiva
+- transición de diapositiva
 - agregar transición de diapositiva
 - acceder a la transición de diapositiva
 - eliminar transición de diapositiva
 - duración de la transición
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Controla las transiciones de diapositivas en C# con Aspose.Slides: elige tipos, velocidad, sonido y temporización para perfeccionar presentaciones en PPT, PPTX y ODP."
+description: "Domina las transiciones de diapositivas en Aspose.Slides para .NET: agrega, personaliza y secuencia efectos y duraciones con ejemplos en C# para presentaciones PPT, PPTX y ODP."
 ---
-
-Demuestra cómo aplicar efectos de transición de diapositiva y tiempos con **Aspose.Slides for .NET**.
+Este artículo muestra cómo aplicar efectos y tiempos de transición de diapositivas con **Aspose.Slides for .NET**.
 
 ## **Agregar una transición de diapositiva**
 
-Aplica un efecto de transición de desvanecimiento a la primera diapositiva.
-```csharp
-static void Add_Slide_Transition()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+Aplicar un efecto de transición de desvanecimiento a la primera diapositiva.
 
-    // Aplicar una transición de desvanecimiento
+```csharp
+static void AddSlideTransition()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // Aplicar una transición de desvanecimiento.
     slide.SlideShowTransition.Type = TransitionType.Fade;
 }
 ```
 
-
 ## **Acceder a una transición de diapositiva**
 
-Lee el tipo de transición asignado actualmente a una diapositiva.
+Leer el tipo de transición asignado actualmente a una diapositiva.
+
 ```csharp
-static void Access_Slide_Transition()
+static void AccessSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Push;
 
-    // Acceder al tipo de transición
+    // Acceder al tipo de transición.
     var type = slide.SlideShowTransition.Type;
 }
 ```
 
-
 ## **Eliminar una transición de diapositiva**
 
-Elimina cualquier efecto de transición estableciendo el tipo a `None`.
+Eliminar cualquier efecto de transición estableciendo el tipo a `None`.
+
 ```csharp
-static void Remove_Slide_Transition()
+static void RemoveSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // Eliminar la transición estableciendo None
+    // Eliminar la transición estableciendo None.
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
 
-
 ## **Establecer la duración de la transición**
 
-Especifica cuánto tiempo se muestra la diapositiva antes de avanzar automáticamente.
+Especificar cuánto tiempo se muestra la diapositiva antes de avanzar automáticamente.
+
 ```csharp
-static void Set_Transition_Duration()
+static void SetTransitionDuration()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.SlideShowTransition.AdvanceOnClick = true;
     slide.SlideShowTransition.AdvanceAfterTime = 2000; // en milisegundos

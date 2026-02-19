@@ -2,45 +2,47 @@
 title: Заголовок и нижний колонтитул
 type: docs
 weight: 220
-url: /ru/net/examples/elements/elements/header-footer/
+url: /ru/net/examples/elements/header-footer/
 keywords:
-- пример заголовка и нижнего колонтитула
+- заголовок и нижний колонтитул
 - добавить заголовок и нижний колонтитул
 - обновить заголовок и нижний колонтитул
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Управляйте заголовками и нижними колонтитулами в C# с помощью Aspose.Slides: добавляйте или редактируйте дату/время, номера слайдов и текст нижнего колонтитула, показывайте или скрывайте заполнители в файлах PPT, PPTX и ODP."
+description: "Управляйте заголовками и нижними колонтитулами слайдов с помощью Aspose.Slides for .NET: добавляйте даты, номера слайдов и пользовательский текст в PPT, PPTX и ODP с примерами на C#."
 ---
+В этой статье демонстрируется, как добавить нижние колонтитулы и обновить заполнители даты и времени с использованием **Aspose.Slides for .NET**.
 
-Показывает, как добавить нижние колонтитулы и обновить заполнители даты и времени, используя **Aspose.Slides for .NET**.
-
-## **Добавить нижний колонтитул**
-
+## **Add a Footer**
+## **Add a Footer**
 Добавьте текст в область нижнего колонтитула слайда и сделайте его видимым.
+
 ```csharp
-static void Add_Header_Footer()
+static void AddHeaderFooter()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.HeaderFooterManager.SetFooterText("My footer");
     slide.HeaderFooterManager.SetFooterVisibility(isVisible: true);
 }
 ```
 
-
-## **Обновить дату и время**
-
+## **Update Date and Time**
+## **Update Date and Time**
 Измените заполнитель даты и времени на слайде.
+
 ```csharp
-static void Update_Date_Time()
+static void UpdateDateTime()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.HeaderFooterManager.SetDateTimeText("01/01/2024");
     slide.HeaderFooterManager.SetDateTimeVisibility(isVisible: true);
 }

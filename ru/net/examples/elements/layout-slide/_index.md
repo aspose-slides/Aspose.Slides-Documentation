@@ -1,117 +1,118 @@
 ---
-title: Макет слайда
+title: Слайд макета
 type: docs
 weight: 20
 url: /ru/net/examples/elements/layout-slide/
 keywords:
-- пример макетного слайда
-- добавить макетный слайд
-- доступ к макетному слайду
-- удалить макетный слайд
-- неиспользуемый макетный слайд
-- клонировать макетный слайд
+- макет слайда
+- добавить макет слайда
+- доступ к макету слайда
+- удалить макет слайда
+- неиспользуемый макет слайда
+- клонировать макет слайда
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Используйте C# для управления макетными слайдами с помощью Aspose.Slides: создавайте, применяйте, клонируйте, переименовывайте и настраивайте заполнители и темы в презентациях для PPT, PPTX и ODP."
+description: "Мастер‑макеты слайдов в Aspose.Slides для .NET: выбирайте, применяйте и настраивайте макеты слайдов, заполнители и мастера с примерами на C# для презентаций PPT, PPTX и ODP."
 ---
+В этой статье демонстрируется, как работать с **Layout Slides** в Aspose.Slides for .NET. Слайд макета определяет дизайн и форматирование, наследуемые обычными слайдами. Вы можете добавлять, получать доступ, клонировать и удалять слайды макета, а также очищать неиспользуемые, чтобы уменьшить размер презентации.
 
-Эта статья демонстрирует, как работать с **Layout Slides** в Aspose.Slides для .NET. Макет слайда определяет дизайн и форматирование, наследуемое обычными слайдами. Вы можете добавлять, получать доступ, клонировать и удалять макеты слайдов, а также очищать неиспользуемые, чтобы уменьшить размер презентации.
+## **Добавить слайд макета**
 
-## **Добавить макет слайда**
-
-Вы можете создать пользовательский макет слайда, чтобы определить повторно используемое форматирование. Например, можно добавить текстовое поле, которое будет отображаться на всех слайдах, использующих этот макет.
+Вы можете создать пользовательский слайд макета, чтобы определить повторно используемое форматирование. Например, вы можете добавить текстовое поле, которое будет отображаться на всех слайдах, использующих этот макет.
 
 ```csharp
-static void Add_Layout_Slide()
+static void AddLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Create a layout slide with a blank layout type and a custom name
-    var layoutSlide = pres.LayoutSlides.Add(pres.Masters[0], SlideLayoutType.Blank, "Main layout");
+    var masterSlide = presentation.Masters[0];
 
-    // Add a text box to the layout slide
+    // Создайте слайд макета с типом пустого макета и пользовательским именем.
+    var layoutSlide = presentation.LayoutSlides.Add(masterSlide, SlideLayoutType.Blank, "Main layout");
+
+    // Добавьте текстовое поле на слайд макета.
     var layoutTextBox = layoutSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 75, y: 75, width: 150, height: 150);
     layoutTextBox.TextFrame.Text = "Layout Slide Text";
 
-    // Add two slides using this layout; both will inherit the text from the layout
-    pres.Slides.AddEmptySlide(layoutSlide);
-    pres.Slides.AddEmptySlide(layoutSlide);
+    // Добавьте два слайда, используя этот макет; оба унаследуют текст из макета.
+    presentation.Slides.AddEmptySlide(layoutSlide);
+    presentation.Slides.AddEmptySlide(layoutSlide);
 }
-````
+```
 
-> 💡 **Совет 1:** Макеты слайдов выступают в роли шаблонов для отдельных слайдов. Вы можете определить общие элементы один раз и повторно использовать их на множестве слайдов.
+> 💡 **Примечание 1:** Слайды макета выступают в качестве шаблонов для отдельных слайдов. Вы можете определить общие элементы один раз и повторно использовать их на многих слайдах.
 
-> 💡 **Совет 2:** Когда вы добавляете фигуры или текст в макет слайда, все слайды, основанные на этом макете, автоматически отображают этот общий контент.  
-> Ниже показан скриншот двух слайдов, каждый из которых наследует текстовое поле из одного и того же макета слайда.
+> 💡 **Примечание 2:** Когда вы добавляете фигуры или текст в слайд макета, все слайды, основанные на этом макете, автоматически отображают этот общий контент.  
+> На скриншоте ниже показаны два слайда, каждый из которых наследует текстовое поле из одного и того же слайда макета.
 
 ![Слайды, наследующие содержимое макета](layout-slide-result.png)
 
+## **Получить доступ к слайду макета**
 
-## **Получить доступ к макету слайда**
-
-Макеты слайдов можно получить по индексу или по типу макета (например, `Blank`, `Title`, `SectionHeader` и т.д.).
+Слайды макета можно получить по индексу или по типу макета (например, `Blank`, `Title`, `SectionHeader` и т.д.).
 
 ```csharp
-static void Access_Layout_Slide()
+static void AccessLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Access by index
-    var firstLayoutSlide = pres.LayoutSlides[0];
+    // Доступ к слайду макета по индексу.
+    var firstLayoutSlide = presentation.LayoutSlides[0];
     
-    // Access by layout type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Доступ к слайду макета по типу.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 }
 ```
 
-## **Удалить макет слайда**
+## **Удалить слайд макета**
 
-Вы можете удалить конкретный макет слайда, если он больше не нужен.
+Вы можете удалить конкретный слайд макета, если он больше не нужен.
 
 ```csharp
-static void Remove_Layout_Slide()
+static void RemoveLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get a layout slide by type and remove it
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
-    pres.LayoutSlides.Remove(blankLayoutSlide);
+    // Получить слайд макета по типу и удалить его.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Custom);
+    presentation.LayoutSlides.Remove(blankLayoutSlide);
 }
 ```
 
-## **Удалить неиспользуемые макеты слайдов**
+## **Удалить неиспользуемые слайды макета**
 
-Чтобы уменьшить размер презентации, можно удалить макеты слайдов, которые не используются ни одним обычным слайдом.
+Чтобы уменьшить размер презентации, вы можете удалить слайды макета, которые не используются ни одним обычным слайдом.
 
 ```csharp
-static void RemoveUnused_Layout_Slides()
+static void RemoveUnusedLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Automatically removes all layout slides not referenced by any slide
-    pres.LayoutSlides.RemoveUnused();
+    // Автоматически удаляет все слайды макета, которые не используются ни одним слайдом.
+    presentation.LayoutSlides.RemoveUnused();
 }
 ```
 
-## **Клонировать макет слайда**
+## **Клонировать слайд макета**
 
-Вы можете дублировать макет слайда с помощью метода `AddClone`.
+Вы можете дублировать слайд макета с помощью метода `AddClone`.
 
 ```csharp
-static void Clone_Layout_Slides()
+static void CloneLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get an existing layout slide by type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Получить существующий слайд макета по типу.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
     
-    // Clone the layout slide to the end of the layout slide collection
-    var clonedLayoutSlide = pres.LayoutSlides.AddClone(blankLayoutSlide);
+    // Клонировать слайд макета в конец коллекции слайдов макета.
+    var clonedLayoutSlide = presentation.LayoutSlides.AddClone(blankLayoutSlide);
 }
 ```
 
-> ✅ **Итоги:** Макеты слайдов – мощный инструмент для управления единообразным форматированием на всех слайдах. Aspose.Slides предоставляет полный контроль над созданием, управлением и оптимизацией макетов слайдов.
+> ✅ **Итог:** Слайды макета являются мощным инструментом для управления единообразным форматированием на всех слайдах. Aspose.Slides предоставляет полный контроль над созданием, управлением и оптимизацией слайдов макета.

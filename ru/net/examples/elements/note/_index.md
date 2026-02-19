@@ -2,77 +2,77 @@
 title: Заметка
 type: docs
 weight: 240
-url: /ru/net/examples/elements/elements/note/
+url: /ru/net/examples/elements/note/
 keywords:
-- пример заметки
-- добавить слайд с заметками
-- доступ к слайду с заметками
-- удалить слайд с заметками
+- заметка
+- добавить слайд заметок
+- доступ к слайду заметок
+- удалить слайд заметок
 - обновить текст заметок
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Добавляйте, читайте, редактируйте и экспортируйте заметки докладчика на C# с помощью Aspose.Slides: форматируйте текст, управляйте заметками для каждого слайда и контролируйте их видимость в PowerPoint и OpenDocument."
+description: "Работа с заметками слайдов в Aspose.Slides for .NET: добавление, чтение, редактирование и экспорт заметок диктора в форматах PPT, PPTX и ODP с помощью понятных примеров на C#."
 ---
+В этой статье демонстрируется, как добавлять, считывать, удалять и обновлять слайды заметок с помощью **Aspose.Slides for .NET**.
 
-Показывает, как добавлять, читать, удалять и обновлять слайды с заметками с помощью **Aspose.Slides for .NET**.
+## **Add a Notes Slide**
+Создайте слайд заметок и задайте ему текст.
 
-## **Добавить слайд с заметками**
-
-Создайте слайд с заметками и задайте ему текст.
 ```csharp
-static void Add_Note()
+static void AddNote()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
     slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "My note";
 }
 ```
 
+## **Access a Notes Slide**
+Считайте текст из существующего слайда заметок.
 
-## **Доступ к слайду с заметками**
-
-Прочитайте текст из существующего слайда с заметками.
 ```csharp
-static void Access_Note()
+static void AccessNote()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
     var notes = notesSlide.NotesTextFrame.Text;
 }
 ```
 
+## **Remove a Notes Slide**
+Удалите слайд заметок, связанный со слайдом.
 
-## **Удалить слайд с заметками**
-
-Удалите слайд с заметками, связанный со слайдом.
 ```csharp
-static void Remove_Note()
+static void RemoveNote()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
     slide.NotesSlideManager.RemoveNotesSlide();
 }
 ```
 
+## **Update Notes Text**
+Измените текст слайда заметок.
 
-## **Обновить текст заметок**
-
-Измените текст слайда с заметками.
 ```csharp
-static void Update_Note_Text()
+static void UpdateNoteText()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
     slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "Old";

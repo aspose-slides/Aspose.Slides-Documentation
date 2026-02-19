@@ -2,74 +2,82 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /ar/net/examples/elements/smartart/
+url: /ar/net/examples/elements/smart-art/
 keywords:
-- "مثال SmartArt"
-- "إضافة SmartArt"
-- "الوصول إلى SmartArt"
-- "حذف SmartArt"
-- "تخطيط SmartArt"
-- "PowerPoint"
-- "OpenDocument"
-- "عرض تقديمي"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "إنشاء وتعديل SmartArt في C# باستخدام Aspose.Slides: إضافة العقد، تغيير التخطيطات والأنماط، التحويل إلى أشكال بدقة، وتصدير للـ PPT و PPTX و ODP."
+- SmartArt
+- إضافة SmartArt
+- الوصول إلى SmartArt
+- إزالة SmartArt
+- تخطيط SmartArt
+- مثال على الشيفرة
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "العمل مع SmartArt في Aspose.Slides لـ .NET: إنشاء وتحرير وتحويل وتنسيق المخططات باستخدام C# لعروض PowerPoint وOpenDocument التقديمية."
 ---
-
-يعرض كيفية إضافة رسومات SmartArt، والوصول إليها، وإزالتها، وتغيير التخطيطات باستخدام **Aspose.Slides for .NET**.
+يوضح هذا المقال كيفية إضافة رسومات SmartArt، والوصول إليها، وإزالتها، وتغيير التخطيطات باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة SmartArt**
-Insert a SmartArt graphic using one of the built-in layouts.
-```csharp
-static void Add_SmartArt()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+أدرج رسم SmartArt باستخدام أحد التخطيطات المدمجة.
+
+```csharp
+static void AddSmartArt()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 }
 ```
 
-
 ## **الوصول إلى SmartArt**
-Retrieve the first SmartArt object on a slide.
+
+استرجع أول كائن SmartArt في الشريحة.
+
 ```csharp
-static void Access_SmartArt()
+static void AccessSmartArt()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
     var firstSmartArt = slide.Shapes.OfType<ISmartArt>().First();
 }
 ```
 
-
 ## **إزالة SmartArt**
-Delete a SmartArt shape from the slide.
-```csharp
-static void Remove_SmartArt()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
-    slide.Shapes.Remove(smart);
+احذف شكل SmartArt من الشريحة.
+
+```csharp
+static void RemoveSmartArt()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+
+    slide.Shapes.Remove(smartArt);
 }
 ```
 
-
 ## **تغيير تخطيط SmartArt**
-Update the layout type of an existing SmartArt graphic.
-```csharp
-static void Change_SmartArt_Layout()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    smart.Layout = SmartArtLayoutType.VerticalPictureList;
+حدّث نوع التخطيط لرسم SmartArt الموجود.
+
+```csharp
+static void ChangeSmartArtLayout()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
+
+    smartArt.Layout = SmartArtLayoutType.VerticalPictureList;
 }
 ```

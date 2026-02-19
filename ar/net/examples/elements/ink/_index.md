@@ -1,33 +1,34 @@
 ---
-title: الحبر
+title: حبر
 type: docs
 weight: 180
 url: /ar/net/examples/elements/ink/
 keywords:
-- مثال الحبر
+- حبر
 - الوصول إلى الحبر
 - إزالة الحبر
+- مثال على الكود
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعامل مع الحبر الرقمي على الشرائح في C# باستخدام Aspose.Slides: أضف ضربات القلم، حرّر المسارات، اضبط اللون والعرض، وقم بتصدير النتائج إلى PowerPoint و OpenDocument."
+description: "العمل مع الحبر في Aspose.Slides for .NET: رسم، استيراد، وتعديل الخطوط، ضبط اللون والعرض، وتصدير إلى PPT، PPTX، و ODP باستخدام أمثلة C#."
 ---
+توفر هذه المقالة أمثلة على الوصول إلى أشكال الحبر الموجودة وإزالتها باستخدام **Aspose.Slides for .NET**.
 
-يوفر أمثلة على الوصول إلى أشكال الحبر الموجودة وإزالتها باستخدام **Aspose.Slides for .NET**.
-
-> ❗ **ملاحظة:** تمثل أشكال الحبر مدخلات المستخدم من الأجهزة المتخصصة. لا يمكن لـ Aspose.Slides إنشاء ضربات حبر جديدة برمجياً،ولكن يمكنك قراءة الحبر الموجود وتعديله.
+> ❗ **ملاحظة:** تمثل أشكال الحبر إدخال المستخدم من الأجهزة المتخصصة. لا يمكن لـ Aspose.Slides إنشاء ضربات حبر جديدة برمجياً، ولكن يمكنك قراءة الحبر الموجود وتعديله.
 
 ## **الوصول إلى الحبر**
 
-قراءة العلامات من أول شكل حبر في الشريحة.
+اقرأ الوسوم من أول شكل حبر في الشريحة.
+
 ```csharp
-static void Access_Ink()
+static void AccessInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes[0] is Ink inkShape)
     {
@@ -35,21 +36,21 @@ static void Access_Ink()
         if (tags.Count > 0)
         {
             var tagName = tags.GetNameByIndex(0);
-            // استخدم tagName حسب الحاجة
+            // استخدم tagName حسب الحاجة.
         }
     }
 }
 ```
 
-
 ## **إزالة الحبر**
 
-حذف شكل الحبر من الشريحة إذا كان موجودًا.
+احذف شكل حبر من الشريحة إذا كان موجوداً.
+
 ```csharp
-static void Remove_Ink()
+static void RemoveInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes.FirstOrDefault(s => s is Ink) is Ink ink)
     {

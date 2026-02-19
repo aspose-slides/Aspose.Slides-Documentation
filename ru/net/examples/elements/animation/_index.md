@@ -4,85 +4,86 @@ type: docs
 weight: 100
 url: /ru/net/examples/elements/animation/
 keywords:
-- пример анимации
+- анимация
 - добавить анимацию
 - доступ к анимации
 - удалить анимацию
-- последовательность анимации
+- последовательность анимаций
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Освойте анимацию слайдов в C# с Aspose.Slides: добавляйте, редактируйте и удаляйте эффекты, настройки времени и триггеры, создавая динамические презентации в PPT, PPTX и ODP."
+description: "Изучите примеры анимации Aspose.Slides для .NET: добавление, последовательность и настройку эффектов и переходов с помощью C# для презентаций PPT, PPTX и ODP."
 ---
+В этой статье демонстрируется, как создавать простые анимации и управлять их последовательностью с помощью **Aspose.Slides for .NET**.
 
-Показывает, как создавать простые анимации и управлять их последовательностью с использованием **Aspose.Slides for .NET**.
+## **Add an Animation**
+Создайте прямоугольную форму и примените эффект затухания, вызываемый при щелчке.
 
-## **Добавить анимацию**
-
-Создайте прямоугольную форму и примените эффект появления (fade-in), активируемый по щелчку.
 ```csharp
-static void Add_Animation()
+static void AddAnimation()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
 
-    // Эффект появления
-    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    // Эффект затухания.
+    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 }
 ```
 
+## **Access an Animation**
+Получите первый анимационный эффект из временной шкалы слайда.
 
-## **Доступ к анимации**
-
-Получите первый эффект анимации из временной шкалы слайда.
 ```csharp
-static void Access_Animation()
+static void AccessAnimation()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Получить первый эффект анимации
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
+    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+    // Получить первый эффект анимации.
     var effect = slide.Timeline.MainSequence[0];
 }
 ```
 
+## **Remove an Animation**
+Удалите анимационный эффект из последовательности.
 
-## **Удалить анимацию**
-
-Удалите эффект анимации из последовательности.
 ```csharp
-static void Remove_Animation()
+static void RemoveAnimation()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-    var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Удалить эффект
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
+    var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+    // Удалить эффект.
     slide.Timeline.MainSequence.Remove(effect);
 }
 ```
 
+## **Sequence Animations**
+Добавьте несколько эффектов и продемонстрируйте порядок их выполнения.
 
-## **Последовательность анимаций**
-
-Добавьте несколько эффектов и покажите порядок их воспроизведения.
 ```csharp
-static void Sequence_Animations()
+static void SequenceAnimations()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
     var shape2 = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 200, 50, 100, 100);
 
-    var seq = slide.Timeline.MainSequence;
-    seq.AddEffect(shape1, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
-    seq.AddEffect(shape2, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    var sequence = slide.Timeline.MainSequence;
+    sequence.AddEffect(shape1, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    sequence.AddEffect(shape2, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
 }
 ```

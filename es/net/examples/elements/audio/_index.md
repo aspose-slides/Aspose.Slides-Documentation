@@ -4,81 +4,85 @@ type: docs
 weight: 70
 url: /es/net/examples/elements/audio/
 keywords:
-- ejemplo de audio
+- audio
 - marco de audio
-- agregar audio
+- añadir audio
 - acceder al audio
 - eliminar audio
 - reproducción de audio
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Trabaje con audio en C# usando Aspose.Slides: agregue, reemplace, extraiga y recorte sonidos, configure el volumen y la reproducción para diapositivas y formas en PowerPoint y OpenDocument."
+description: "Descubra ejemplos de audio de Aspose.Slides for .NET: inserte, reproduzca, recorte y extraiga sonido en presentaciones PPT, PPTX y ODP con código C# claro."
 ---
+Este artículo demuestra cómo incrustar marcos de audio y controlar la reproducción con **Aspose.Slides for .NET**. Los siguientes ejemplos muestran operaciones básicas de audio.
 
-Ilustra cómo incrustar marcos de audio y controlar la reproducción con **Aspose.Slides for .NET**. Los siguientes ejemplos muestran operaciones básicas de audio.
-
-## **Agregar un Marco de Audio**
+## **Agregar un marco de audio**
 
 Inserte un marco de audio vacío que luego pueda contener datos de sonido incrustados.
-```csharp
-static void Add_Audio()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    // Crear un marco de audio vacío (el audio se incrustará más tarde)
+```csharp
+static void AddAudio()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // Crear un marco de audio vacío (el audio se incrustará más tarde).
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 }
 ```
 
-
-## **Acceder a un Marco de Audio**
+## **Acceder a un marco de audio**
 
 Este código recupera el primer marco de audio en una diapositiva.
+
 ```csharp
-static void Access_Audio()
+static void AccessAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // Acceder al primer marco de audio en la diapositiva
+    // Acceder al primer marco de audio en la diapositiva.
     var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
 }
 ```
 
+## **Eliminar un marco de audio**
 
-## **Eliminar un Marco de Audio**
+Elimine un marco de audio añadido previamente.
 
-Elimine un marco de audio agregado previamente.
 ```csharp
-static void Remove_Audio()
+static void RemoveAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // Eliminar el marco de audio
+    // Eliminar el marco de audio.
     slide.Shapes.Remove(audioFrame);
 }
 ```
 
-
-## **Establecer la Reproducción de Audio**
+## **Establecer reproducción de audio**
 
 Configure el marco de audio para que se reproduzca automáticamente cuando aparezca la diapositiva.
+
 ```csharp
-static void Set_Audio_Playback()
+static void SetAudioPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // Reproducir automáticamente cuando la diapositiva aparece
+    // Reproducir automáticamente cuando la diapositiva aparezca.
     audioFrame.PlayMode = AudioPlayModePreset.Auto;
 }
 ```

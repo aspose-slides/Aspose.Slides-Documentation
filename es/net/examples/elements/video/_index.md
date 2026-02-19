@@ -1,80 +1,88 @@
 ---
-title: Video
+title: Vídeo
 type: docs
 weight: 80
 url: /es/net/examples/elements/video/
 keywords:
-- ejemplo de video
-- fotograma de video
-- agregar video
-- acceder al video
-- eliminar video
-- reproducción de video
+- vídeo
+- fotograma de vídeo
+- añadir vídeo
+- acceder a vídeo
+- eliminar vídeo
+- reproducción de vídeo
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Trabaje con video en C# usando Aspose.Slides: inserte, reemplace, recorte, establezca fotogramas de portada y opciones de reproducción, y exporte presentaciones a PPT, PPTX y ODP."
+description: "Añade y controla vídeos con Aspose.Slides for .NET: inserta, reproduce, recorta, establece fotogramas de portada y exporta con ejemplos en C# para presentaciones PPT, PPTX y ODP."
 ---
+Este artículo muestra cómo incrustar fotogramas de vídeo y configurar opciones de reproducción utilizando **Aspose.Slides for .NET**.
 
-Muestra cómo incrustar fotogramas de video y establecer opciones de reproducción usando **Aspose.Slides for .NET**.
+## **Agregar un fotograma de vídeo**
 
-## **Agregar un fotograma de video**
-Inserte un fotograma de video vacío en una diapositiva.
+Inserte un fotograma de vídeo vacío en una diapositiva.
+
 ```csharp
-static void Add_Video()
+static void AddVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Agregar un marco de video incrustado vacío
+    // Añade un vídeo.
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 }
 ```
 
+## **Acceder a un fotograma de vídeo**
 
-## **Acceder a un fotograma de video**
-Recupere el primer fotograma de video añadido a una diapositiva.
+Obtenga el primer fotograma de vídeo añadido a una diapositiva.
+
 ```csharp
-static void Access_Video()
+static void AccessVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Acceder al primer fotograma de video en la diapositiva
+    // Accede al primer fotograma de vídeo de la diapositiva.
     var firstVideo = slide.Shapes.OfType<IVideoFrame>().First();
 }
 ```
 
+## **Eliminar un fotograma de vídeo**
 
-## **Eliminar un fotograma de video**
-Elimine un fotograma de video de la diapositiva.
+Elimine un fotograma de vídeo de la diapositiva.
+
 ```csharp
-static void Remove_Video()
+static void RemoveVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Eliminar el marco de video
+    // Elimina el fotograma de vídeo.
     slide.Shapes.Remove(videoFrame);
 }
 ```
 
+## **Configurar la reproducción de vídeo**
 
-## **Establecer reproducción de video**
-Configure el video para que se reproduzca automáticamente cuando se muestre la diapositiva.
+Configure el vídeo para que se reproduzca automáticamente cuando se muestre la diapositiva.
+
 ```csharp
-static void Set_Video_Playback()
+static void SetVideoPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Configurar el video para que se reproduzca automáticamente
+    // Configura el vídeo para que se reproduzca automáticamente.
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

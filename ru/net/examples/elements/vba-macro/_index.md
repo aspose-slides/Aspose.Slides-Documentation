@@ -1,68 +1,69 @@
 ---
-title: VbaMacro
+title: VBA‑макрос
 type: docs
 weight: 150
 url: /ru/net/examples/elements/vba-macro/
 keywords:
-- пример макроса vba
-- добавить макрос vba
-- получить доступ к макросу vba
-- удалить макрос vba
+- VBA‑макрос
+- добавить VBA‑макрос
+- получить доступ к VBA‑макросу
+- удалить VBA‑макрос
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Работайте с макросами VBA в C# с помощью Aspose.Slides: добавляйте или редактируйте проекты и модули, подписывайте или удаляйте макросы, а также сохраняйте презентации в форматах PPT, PPTX и ODP."
+description: "Автоматизируйте создание презентаций с помощью Aspose.Slides for .NET: создавайте, запускайте, импортируйте и защищайте VBA‑макросы в форматах PPT, PPTX и ODP, используя понятные примеры на C#."
 ---
+В этой статье показано, как добавлять, получать доступ и удалять VBA‑макросы с помощью **Aspose.Slides for .NET**.
 
-Иллюстрирует, как добавлять, получать доступ и удалять макросы VBA с помощью **Aspose.Slides for .NET**.
-
-## **Добавить макрос VBA**
+## **Добавить VBA‑макрос**
 
 Создайте презентацию с проектом VBA и простым модулем макроса.
-```csharp
-static void Add_Vba_Macro()
-{
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+```csharp
+static void AddVbaMacro()
+{
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
+
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 }
 ```
 
-
-## **Получить доступ к макросу VBA**
+## **Получить доступ к VBA‑макросу**
 
 Получите первый модуль из проекта VBA.
-```csharp
-static void Access_Vba_Macro()
-{
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+```csharp
+static void AccessVbaMacro()
+{
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
+
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 
-    var firstModule = pres.VbaProject.Modules[0];
+    var firstModule = presentation.VbaProject.Modules[0];
 }
 ```
 
-
-## **Удалить макрос VBA**
+## **Удалить VBA‑макрос**
 
 Удалите модуль из проекта VBA.
-```csharp
-static void Remove_Vba_Macro()
-{
-    using var pres = new Presentation();
-    pres.VbaProject = new VbaProject();
 
-    var module = pres.VbaProject.Modules.AddEmptyModule("Module");
+```csharp
+static void RemoveVbaMacro()
+{
+    using var presentation = new Presentation();
+    presentation.VbaProject = new VbaProject();
+
+    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
     module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
 
-    pres.VbaProject.Modules.Remove(module);
+    presentation.VbaProject.Modules.Remove(module);
 }
 ```

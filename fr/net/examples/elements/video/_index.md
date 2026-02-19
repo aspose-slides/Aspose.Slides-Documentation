@@ -4,81 +4,85 @@ type: docs
 weight: 80
 url: /fr/net/examples/elements/video/
 keywords:
-- exemple de vidéo
+- vidéo
 - cadre vidéo
-- ajouter une vidéo
-- accéder à la vidéo
-- supprimer la vidéo
+- ajouter vidéo
+- accès vidéo
+- supprimer vidéo
 - lecture vidéo
+- exemple de code
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Travaillez avec la vidéo en C# utilisant Aspose.Slides : insérez, remplacez, coupez, définissez les images d’affiche et les options de lecture, et exportez les présentations aux formats PPT, PPTX et ODP."
+description: "Ajouter et contrôler des vidéos avec Aspose.Slides for .NET : insérer, lire, couper, définir des images d'affichage, et exporter avec des exemples C# pour les présentations PPT, PPTX et ODP."
 ---
-
-Présente comment incorporer des cadres vidéo et définir les options de lecture en utilisant **Aspose.Slides for .NET**.
+Cet article montre comment intégrer des cadres vidéo et définir les options de lecture en utilisant **Aspose.Slides for .NET**.
 
 ## **Ajouter un cadre vidéo**
 
 Insérez un cadre vidéo vide sur une diapositive.
-```csharp
-static void Add_Video()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    // Ajouter un cadre vidéo intégré vide
+```csharp
+static void AddVideo()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // Ajouter une vidéo.
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 }
 ```
-
 
 ## **Accéder à un cadre vidéo**
 
 Récupérez le premier cadre vidéo ajouté à une diapositive.
+
 ```csharp
-static void Access_Video()
+static void AccessVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Accéder au premier cadre vidéo sur la diapositive
+    // Accéder au premier cadre vidéo sur la diapositive.
     var firstVideo = slide.Shapes.OfType<IVideoFrame>().First();
 }
 ```
 
-
 ## **Supprimer un cadre vidéo**
 
 Supprimez un cadre vidéo de la diapositive.
+
 ```csharp
-static void Remove_Video()
+static void RemoveVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Supprimer le cadre vidéo
+    // Supprimer le cadre vidéo.
     slide.Shapes.Remove(videoFrame);
 }
 ```
 
-
 ## **Définir la lecture vidéo**
 
-Configurez la vidéo pour qu'elle se lise automatiquement lorsque la diapositive est affichée.
+Configurez la vidéo pour qu'elle se lance automatiquement lorsque la diapositive est affichée.
+
 ```csharp
-static void Set_Video_Playback()
+static void SetVideoPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Configurer la vidéo pour qu'elle se lise automatiquement
+    // Configurer la vidéo pour qu'elle se lance automatiquement.
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

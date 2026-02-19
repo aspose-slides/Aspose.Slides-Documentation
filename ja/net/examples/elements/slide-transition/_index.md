@@ -1,80 +1,83 @@
 ---
-title: スライドトランジション
+title: スライド トランジション
 type: docs
 weight: 110
 url: /ja/net/examples/elements/slide-transition/
 keywords:
-- スライドトランジションの例
-- スライドトランジションの追加
-- スライドトランジションへのアクセス
-- スライドトランジションの削除
+- スライド トランジション
+- スライド トランジションの追加
+- スライド トランジションへのアクセス
+- スライド トランジションの削除
 - トランジション期間
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides を使用した C# でスライド トランジションを制御します：種類、速度、サウンド、タイミングを選択して、PPT、PPTX、ODP のプレゼンテーションを洗練させます。"
+description: "Aspose.Slides for .NET のスライド トランジションをマスターし、PPT、PPTX、ODP プレゼンテーション向けに C# の例を使って効果や期間の追加、カスタマイズ、シーケンスを行います。"
 ---
+この記事では、**Aspose.Slides for .NET** を使用したスライドのトランジション効果とタイミングの適用方法を示します。
 
-**Aspose.Slides for .NET** を使用してスライドのトランジション効果とタイミングを適用する方法を示します。
+## **スライド トランジションの追加**
 
-## **スライドトランジションの追加**
+最初のスライドにフェードトランジション効果を適用します。
 
-最初のスライドにフェード トランジション効果を適用します。
 ```csharp
-static void Add_Slide_Transition()
+static void AddSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // フェード トランジションを適用する
+    // フェード トランジションを適用します。
     slide.SlideShowTransition.Type = TransitionType.Fade;
 }
 ```
 
+## **スライド トランジションへのアクセス**
 
-## **スライドトランジションへのアクセス**
+スライドに現在割り当てられているトランジションのタイプを読み取ります。
 
-スライドに現在割り当てられているトランジションの種類を取得します。
 ```csharp
-static void Access_Slide_Transition()
+static void AccessSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Push;
 
-    // トランジションの種類にアクセス
+    // トランジション タイプにアクセスします。
     var type = slide.SlideShowTransition.Type;
 }
 ```
 
+## **スライド トランジションの削除**
 
-## **スライドトランジションの削除**
+タイプを `None` に設定して、すべてのトランジション効果をクリアします。
 
-`None` に設定して、すべてのトランジション効果をクリアします。
 ```csharp
-static void Remove_Slide_Transition()
+static void RemoveSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // none に設定してトランジションを削除
+    // トランジションを None に設定して削除します。
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
 
-
 ## **トランジション期間の設定**
 
-自動的に次へ進む前に、スライドが表示される時間を指定します。
+自動的に次のスライドへ進むまで、スライドが表示される時間を指定します。
+
 ```csharp
-static void Set_Transition_Duration()
+static void SetTransitionDuration()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.SlideShowTransition.AdvanceOnClick = true;
     slide.SlideShowTransition.AdvanceAfterTime = 2000; // ミリ秒単位

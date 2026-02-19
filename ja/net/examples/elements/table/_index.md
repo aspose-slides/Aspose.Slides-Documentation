@@ -4,30 +4,31 @@ type: docs
 weight: 120
 url: /ja/net/examples/elements/table/
 keywords:
-- テーブル例
-- テーブル追加
-- テーブルアクセス
-- テーブル削除
-- セル結合
+- テーブル
+- テーブルを追加
+- テーブルにアクセス
+- テーブルを削除
+- セルを結合
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してテーブルを作成および書式設定します。データの挿入、セルの結合、罫線のスタイル設定、コンテンツの配置、PPT、PPTX、ODP へのインポート/エクスポートが可能です。"
+description: "Aspose.Slides for .NET でテーブルを操作します：作成、書式設定、セルの結合、スタイルの適用、データのインポート、そして PPT、PPTX、ODP 用の C# サンプルでエクスポートします。"
 ---
-
-**Aspose.Slides for .NET** を使用したテーブルの追加、アクセス、削除、セル結合の例。
+**Aspose.Slides for .NET** を使用したテーブルの追加、アクセス、削除、セル結合の例です。
 
 ## **テーブルの追加**
 
 2 行 2 列のシンプルなテーブルを作成します。
+
 ```csharp
-static void Add_Table()
+static void AddTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
@@ -35,33 +36,35 @@ static void Add_Table()
 }
 ```
 
+## **テーブルにアクセス**
 
-## **テーブルへのアクセス**
+スライド上の最初のテーブル シェイプを取得します。
 
-スライド上の最初のテーブルシェイプを取得します。
 ```csharp
-static void Access_Table()
+static void AccessTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // スライド上の最初のテーブルにアクセス
+    // スライド上の最初のテーブルにアクセスします。
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
 
-
 ## **テーブルの削除**
 
 スライドからテーブルを削除します。
+
 ```csharp
-static void Remove_Table()
+static void RemoveTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
@@ -70,15 +73,16 @@ static void Remove_Table()
 }
 ```
 
-
 ## **テーブルセルの結合**
 
 テーブルの隣接するセルを 1 つのセルに結合します。
+
 ```csharp
-static void Merge_Table_Cells()
+static void MergeTableCells()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);

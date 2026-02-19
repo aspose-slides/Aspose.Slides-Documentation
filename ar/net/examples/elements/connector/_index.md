@@ -4,79 +4,79 @@ type: docs
 weight: 190
 url: /ar/net/examples/elements/connector/
 keywords:
-- مثال موصل
+- موصل
 - إضافة موصل
-- وصول إلى موصل
+- الوصول إلى الموصل
 - إزالة موصل
 - إعادة ربط الأشكال
+- مثال على الكود
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "ارسم وتحكم في الموصلات باستخدام C# مع Aspose.Slides: أضف، وحدد مسار، وأعد توجيه، واضبط نقاط الاتصال، والأسهم والأنماط لربط الأشكال في PPT و PPTX و ODP."
+description: "تعلم كيفية إضافة وربط وتنسيق الموصلات بين الأشكال باستخدام Aspose.Slides لـ .NET، مع أمثلة C# لعروض PPT و PPTX و ODP."
 ---
-
-يعرض طريقة ربط الأشكال بالموصلات وتغيير أهدافها باستخدام **Aspose.Slides for .NET**.
+توضح هذه المقالة كيفية ربط الأشكال بالموصلات وتغيير أهدافها باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة موصل**
+أدرج شكل موصل بين نقطتين على الشريحة.
 
-إدراج شكل موصل بين نقطتين على الشريحة.
 ```csharp
-static void Add_Connector()
+static void AddConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 }
 ```
 
-
 ## **الوصول إلى موصل**
+استرجع أول شكل موصل تمت إضافته إلى شريحة.
 
-استرجاع أول شكل موصل تم إضافته إلى الشريحة.
 ```csharp
-static void Access_Connector()
+static void AccessConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
     var connector = slide.Shapes.OfType<IConnector>().First();
 }
 ```
 
-
 ## **إزالة موصل**
+احذف موصلًا من الشريحة.
 
-حذف موصل من الشريحة.
 ```csharp
-static void Remove_Connector()
+static void RemoveConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    slide.Shapes.Remove(conn);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+
+    slide.Shapes.Remove(connector);
 }
 ```
 
-
 ## **إعادة ربط الأشكال**
+ربط موصل باثنين من الأشكال عن طريق تعيين الأهداف البداية والنهاية.
 
-إرفاق موصل إلى شكلين عن طريق تعيين أهداف البدء والنهاية.
 ```csharp
-static void Reconnect_Shapes()
+static void ReconnectShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
     var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 50, 50);
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-    conn.StartShapeConnectedTo = shape1;
-    conn.EndShapeConnectedTo = shape2;
+    connector.StartShapeConnectedTo = shape1;
+    connector.EndShapeConnectedTo = shape2;
 }
 ```

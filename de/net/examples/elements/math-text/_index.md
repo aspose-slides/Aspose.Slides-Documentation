@@ -1,45 +1,46 @@
 ---
-title: MathText
+title: Mathetext
 type: docs
 weight: 160
 url: /de/net/examples/elements/math-text/
 keywords:
-- Beispiel für mathematischen Text
-- Mathe-Text hinzufügen
-- Mathe-Text abrufen
-- Mathe-Text entfernen
-- Mathe-Text formatieren
+- Mathetext
+- Mathetext hinzufügen
+- Zugriff auf Mathetext
+- Mathetext entfernen
+- Mathetext formatieren
+- Codebeispiel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Arbeiten Sie in C# mit Aspose.Slides an mathematischem Text: Erstellen und bearbeiten Sie Gleichungen, Brüche, Wurzeln, Hoch‑ und Tiefschrift, Formatierung und rendern Sie die Ergebnisse für PPT und PPTX."
+description: "Entdecken Sie Beispiele für MathematicalText mit Aspose.Slides für .NET: Erstellen und formatieren Sie Gleichungen, Brüche, Matrizen und Symbole mit C# in PPT-, PPTX- und ODP-Präsentationen."
 ---
+Dieser Artikel demonstriert die Arbeit mit mathematischen Textformen und das Formatieren von Gleichungen mit **Aspose.Slides for .NET**.
 
-Zeigt, wie man mit mathematischen Textformen arbeitet und Gleichungen mit **Aspose.Slides for .NET** formatiert.
-
-## **Mathe-Text hinzufügen**
+## **Mathetext hinzufügen**
 
 Erstellen Sie eine mathematische Form, die einen Bruch und die pythagoreische Formel enthält.
-```csharp
-static void Add_Math_Text()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    // Eine Math-Form zur Folie hinzufügen
+```csharp
+static void AddMathText()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // Fügt der Folie eine mathematische Form hinzu.
     var mathShape = slide.Shapes.AddMathShape(0, 0, 720, 150);
 
-    // Auf den mathematischen Absatz zugreifen
+    // Greift auf den Mathematik-Absatz zu.
     var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-    // Einen einfachen Bruch hinzufügen: x / y
+    // Fügt einen einfachen Bruch hinzu: x / y
     var fraction = new MathematicalText("x").Divide("y");
     mathParagraph.Add(new MathBlock(fraction));
 
-    // Gleichung hinzufügen: c² = a² + b²
+    // Fügt Gleichung hinzu: c² = a² + b²
     var mathBlock = new MathematicalText("c")
         .SetSuperscript("2")
         .Join("=")
@@ -51,17 +52,17 @@ static void Add_Math_Text()
 }
 ```
 
+## **Zugriff auf Mathetext**
 
-## **Zugriff auf mathematischen Text**
+Lokalisieren Sie eine Form, die einen mathematischen Absatz auf der Folie enthält.
 
-Suchen Sie eine Form, die einen mathematischen Absatz auf der Folie enthält.
 ```csharp
-static void Access_Math_Text()
+static void AccessMathText()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("sample.pptx");
+    var slide = presentation.Slides[0];
 
-    // Finden Sie die erste Form, die einen mathematischen Absatz enthält
+    // Findet die erste Form, die einen Mathematikabschnitt enthält.
     var mathShape = slide.Shapes
         .OfType<IAutoShape>()
         .FirstOrDefault(s =>
@@ -73,23 +74,23 @@ static void Access_Math_Text()
     {
         var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-        // Beispiel: Erstelle einen Bruch (hier nicht hinzugefügt)
+        // Beispiel: Erstelle einen Bruch (hier nicht hinzugefügt).
         var fraction = new MathematicalText("x").Divide("y");
 
-        // Verwenden Sie mathParagraph oder fraction nach Bedarf...
+        // Verwende mathParagraph oder fraction nach Bedarf...
     }
 }
 ```
 
-
-## **Mathe-Text entfernen**
+## **Mathetext entfernen**
 
 Löschen Sie eine mathematische Form von der Folie.
+
 ```csharp
-static void Remove_Math_Text()
+static void RemoveMathText()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var mathShape = slide.Shapes.AddMathShape(50, 50, 100, 50);
     var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
@@ -100,15 +101,16 @@ static void Remove_Math_Text()
 }
 ```
 
-
-## **Mathe-Text formatieren**
+## **Mathetext formatieren**
 
 Legen Sie die Schriftarteigenschaften für einen mathematischen Teil fest.
+
 ```csharp
-static void Format_Math_Text()
+static void FormatMathText()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var mathShape = slide.Shapes.AddMathShape(50, 50, 100, 50);
     var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
     var fraction = new MathematicalText("x").Divide("y");

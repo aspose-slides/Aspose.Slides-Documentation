@@ -4,77 +4,85 @@ type: docs
 weight: 80
 url: /ja/net/examples/elements/video/
 keywords:
-- ビデオ例
-- ビデオフレーム
+- ビデオ
+- ビデオ フレーム
 - ビデオの追加
-- ビデオの取得
+- ビデオへのアクセス
 - ビデオの削除
 - ビデオ再生
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides を使用して C# でビデオを操作します：挿入、置換、トリミング、ポスターフレームと再生オプションの設定、そして PPT、PPTX、ODP 用にプレゼンテーションをエクスポートします。"
+description: "Aspose.Slides for .NET を使用してビデオを追加および制御します。挿入、再生、トリミング、ポスター フレームの設定、そして PPT、PPTX、ODP プレゼンテーション用の C# サンプルでエクスポートできます。"
 ---
+この記事では、**Aspose.Slides for .NET** を使用してビデオ フレームを埋め込み、再生オプションを設定する方法を示します。
 
-**Aspose.Slides for .NET** を使用して、ビデオフレームを埋め込み、再生オプションを設定する方法を示します。
+## **ビデオ フレームの追加**
 
-## **Add a Video Frame**
-スライドに空のビデオフレームを挿入します。
+スライドに空のビデオ フレームを挿入します。
+
 ```csharp
-static void Add_Video()
+static void AddVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // 空の埋め込みビデオフレームを追加
+    // ビデオを追加します。
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 }
 ```
 
+## **ビデオ フレームへのアクセス**
 
-## **Access a Video Frame**
-スライドに追加された最初のビデオフレームを取得します。
+スライドに追加された最初のビデオ フレームを取得します。
+
 ```csharp
-static void Access_Video()
+static void AccessVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // スライド上の最初のビデオフレームにアクセス
+    // スライド上の最初のビデオ フレームにアクセスします。
     var firstVideo = slide.Shapes.OfType<IVideoFrame>().First();
 }
 ```
 
+## **ビデオ フレームの削除**
 
-## **Remove a Video Frame**
-スライドからビデオフレームを削除します。
+スライドからビデオ フレームを削除します。
+
 ```csharp
-static void Remove_Video()
+static void RemoveVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // ビデオフレームを削除
+    // ビデオ フレームを削除します。
     slide.Shapes.Remove(videoFrame);
 }
 ```
 
+## **ビデオの再生設定**
 
-## **Set Video Playback**
 スライドが表示されたときにビデオが自動的に再生されるように設定します。
+
 ```csharp
-static void Set_Video_Playback()
+static void SetVideoPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // ビデオを自動的に再生するように設定
+    // ビデオが自動的に再生されるように設定します。
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

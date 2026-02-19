@@ -4,79 +4,83 @@ type: docs
 weight: 190
 url: /ru/net/examples/elements/connector/
 keywords:
-- пример соединителя
+- соединитель
 - добавить соединитель
 - доступ к соединителю
 - удалить соединитель
 - переподключить фигуры
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Рисуйте и управляйте соединителями в C# с Aspose.Slides: добавляйте, прокладывайте, перенастраивайте, задавайте точки соединения, стрелки и стили для связывания фигур в PPT, PPTX и ODP."
+description: "Узнайте, как добавлять, прокладывать и оформлять соединители между фигурами с помощью Aspose.Slides for .NET, с примерами на C# для презентаций PPT, PPTX и ODP."
 ---
-
-Показывает, как соединять фигуры с помощью соединителей и изменять их цели, используя **Aspose.Slides for .NET**.
+В этой статье демонстрируется, как соединять фигуры с помощью соединителей и изменять их цели, используя **Aspose.Slides for .NET**.
 
 ## **Добавить соединитель**
 
-Вставьте форму соединителя между двумя точками на слайде.
-```csharp
-static void Add_Connector()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+Вставьте форму‑соединитель между двумя точками на слайде.
 
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+```csharp
+static void AddConnector()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 }
 ```
 
+## **Доступ к соединителю**
 
-## **Получить соединитель**
+Получите первую добавленную к слайду форму‑соединитель.
 
-Получите первую форму соединителя, добавленную на слайд.
 ```csharp
-static void Access_Connector()
+static void AccessConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
     var connector = slide.Shapes.OfType<IConnector>().First();
 }
 ```
 
-
 ## **Удалить соединитель**
 
 Удалите соединитель со слайда.
-```csharp
-static void Remove_Connector()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-    slide.Shapes.Remove(conn);
+```csharp
+static void RemoveConnector()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+
+    slide.Shapes.Remove(connector);
 }
 ```
 
-
 ## **Переподключить фигуры**
 
-Подключите соединитель к двум фигурам, назначив начальную и конечную цели.
+Присоедините соединитель к двум фигурам, задав начальную и конечную цели.
+
 ```csharp
-static void Reconnect_Shapes()
+static void ReconnectShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
     var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 50, 50);
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-    conn.StartShapeConnectedTo = shape1;
-    conn.EndShapeConnectedTo = shape2;
+    connector.StartShapeConnectedTo = shape1;
+    connector.EndShapeConnectedTo = shape2;
 }
 ```

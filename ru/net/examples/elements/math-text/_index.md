@@ -4,35 +4,36 @@ type: docs
 weight: 160
 url: /ru/net/examples/elements/math-text/
 keywords:
-- пример математического текста
+- математический текст
 - добавить математический текст
 - доступ к математическому тексту
 - удалить математический текст
 - форматировать математический текст
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Работа с математическим текстом в C# с использованием Aspose.Slides: создание и редактирование уравнений, дробей, радикалов, индексов, форматирование и визуализация результатов для PPT и PPTX."
+description: "Изучите примеры MathematicalText в Aspose.Slides for .NET: создавайте и форматируйте уравнения, дроби, матрицы и символы с помощью C# в презентациях PPT, PPTX и ODP."
 ---
-
-Иллюстрирует работу с математическими текстовыми фигурами и форматирование уравнений с использованием **Aspose.Slides for .NET**.
+В этой статье демонстрируется работа с математическими текстовыми формами и форматирование уравнений с помощью **Aspose.Slides for .NET**.
 
 ## **Добавить математический текст**
 
-Создайте математическую фигуру, содержащую дробь и формулу Пифагора.
-```csharp
-static void Add_Math_Text()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+Создайте математическую форму, содержащую дробь и теорему Пифагора.
 
-    // Добавить математическую фигуру на слайд
+```csharp
+static void AddMathText()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // Добавить математическую форму на слайд.
     var mathShape = slide.Shapes.AddMathShape(0, 0, 720, 150);
 
-    // Получить доступ к математическому абзацу
+    // Доступ к математическому абзацу.
     var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
     // Добавить простую дробь: x / y
@@ -51,17 +52,17 @@ static void Add_Math_Text()
 }
 ```
 
-
 ## **Доступ к математическому тексту**
 
-Найдите фигуру, содержащую математический абзац на слайде.
-```csharp
-static void Access_Math_Text()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+Найдите форму, содержащую математический абзац на слайде.
 
-    // Найти первую фигуру, содержащую математический абзац
+```csharp
+static void AccessMathText()
+{
+    using var presentation = new Presentation("sample.pptx");
+    var slide = presentation.Slides[0];
+
+    // Найти первую форму, содержащую математический абзац.
     var mathShape = slide.Shapes
         .OfType<IAutoShape>()
         .FirstOrDefault(s =>
@@ -73,23 +74,23 @@ static void Access_Math_Text()
     {
         var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-        // Пример: создать дробь (не добавлена здесь)
+        // Пример: создать дробь (не добавлено здесь).
         var fraction = new MathematicalText("x").Divide("y");
 
-        // Использовать mathParagraph или fraction по необходимости...
+        // Использовать mathParagraph или fraction по мере необходимости...
     }
 }
 ```
 
-
 ## **Удалить математический текст**
 
-Удалите математическую фигуру со слайда.
+Удалите математическую форму со слайда.
+
 ```csharp
-static void Remove_Math_Text()
+static void RemoveMathText()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var mathShape = slide.Shapes.AddMathShape(50, 50, 100, 50);
     var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
@@ -100,15 +101,16 @@ static void Remove_Math_Text()
 }
 ```
 
-
 ## **Форматировать математический текст**
 
 Установите свойства шрифта для математической части.
+
 ```csharp
-static void Format_Math_Text()
+static void FormatMathText()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var mathShape = slide.Shapes.AddMathShape(50, 50, 100, 50);
     var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
     var fraction = new MathematicalText("x").Divide("y");

@@ -4,81 +4,81 @@ type: docs
 weight: 70
 url: /zh/net/examples/elements/audio/
 keywords:
-- 音频示例
-- 音频框架
+- 音频
+- 音频帧
 - 添加音频
 - 访问音频
 - 删除音频
 - 音频播放
+- 代码示例
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C# 中处理音频：添加、替换、提取和裁剪声音，设置 PowerPoint 和 OpenDocument 中幻灯片和形状的音量和播放方式。"
+description: "了解 Aspose.Slides for .NET 的音频示例：在 PPT、PPTX 和 ODP 演示文稿中插入、播放、裁剪和提取音频，附带清晰的 C# 代码。"
 ---
+本文演示如何嵌入音频帧并使用 **Aspose.Slides for .NET** 控制播放。以下示例展示基本的音频操作。
 
-演示如何在 **Aspose.Slides for .NET** 中嵌入音频框架并控制播放。以下示例展示了基本的音频操作。
+## **Add an Audio Frame**
+插入一个空的音频帧，以便稍后容纳嵌入的声音数据。
 
-## **添加音频框架**
-
-插入一个空的音频框架，以便稍后容纳嵌入的声音数据。
 ```csharp
-static void Add_Audio()
+static void AddAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // 创建一个空的音频框架（音频将在稍后嵌入）
+    // 创建一个空的音频帧（音频将在稍后嵌入）。
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 }
 ```
 
+## **Access an Audio Frame**
+此代码检索幻灯片上的第一个音频帧。
 
-## **访问音频框架**
-
-此代码检索幻灯片上的第一个音频框架。
 ```csharp
-static void Access_Audio()
+static void AccessAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // 访问幻灯片上的第一个音频框架
+    // 访问幻灯片上的第一个音频帧。
     var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
 }
 ```
 
+## **Remove an Audio Frame**
+删除先前添加的音频帧。
 
-## **删除音频框架**
-
-删除之前添加的音频框架。
 ```csharp
-static void Remove_Audio()
+static void RemoveAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // 删除音频框架
+    // 删除音频帧。
     slide.Shapes.Remove(audioFrame);
 }
 ```
 
+## **Set Audio Playback**
+配置音频帧，使其在幻灯片出现时自动播放。
 
-## **设置音频播放**
-
-配置音频框架，使其在幻灯片出现时自动播放。
 ```csharp
-static void Set_Audio_Playback()
+static void SetAudioPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // 幻灯片出现时自动播放
+    // 幻灯片出现时自动播放。
     audioFrame.PlayMode = AudioPlayModePreset.Auto;
 }
 ```

@@ -1,84 +1,88 @@
 ---
-title: صوت
+title: الصوت
 type: docs
 weight: 70
 url: /ar/net/examples/elements/audio/
 keywords:
-- مثال صوت
+- صوت
 - إطار صوت
 - إضافة صوت
-- وصول صوت
+- الوصول إلى الصوت
 - إزالة صوت
-- تشغيل صوت
+- تشغيل الصوت
+- مثال على الشيفرة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "العمل مع الصوت في C# باستخدام Aspose.Slides: إضافة، استبدال، استخراج، وتقليم الأصوات، ضبط مستوى الصوت والتشغيل للشرائح والأشكال في PowerPoint وOpenDocument."
+description: "اكتشف أمثلة الصوت في Aspose.Slides for .NET: إدراج، تشغيل، قص، واستخراج الصوت في عروض PPT و PPTX و ODP مع شفرة C# واضحة."
 ---
-
-يوضح كيفية تضمين إطارات الصوت والتحكم في تشغيلها باستخدام **Aspose.Slides for .NET**. توضح الأمثلة التالية عمليات الصوت الأساسية.
+تُظهر هذه المقالة كيفية تضمين إطارات الصوت والتحكم في تشغيلها باستخدام **Aspose.Slides for .NET**. تُظهر الأمثلة التالية عمليات الصوت الأساسية.
 
 ## **إضافة إطار صوت**
 
-أدرج إطار صوت فارغ يمكنه لاحقًا احتواء بيانات صوت مدمجة.
-```csharp
-static void Add_Audio()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+أدرج إطار صوت فارغ يمكن لاحقًا أن يحمل بيانات صوتية مدمجة.
 
-    // إنشاء إطار صوت فارغ (سيتم تضمين الصوت لاحقًا)
+```csharp
+static void AddAudio()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // إنشاء إطار صوت فارغ (سيتم تضمين الصوت لاحقًا).
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 }
 ```
-
 
 ## **الوصول إلى إطار صوت**
 
 يقوم هذا الكود باسترجاع أول إطار صوت على الشريحة.
+
 ```csharp
-static void Access_Audio()
+static void AccessAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // الوصول إلى أول إطار صوت على الشريحة
+    // الوصول إلى أول إطار صوت على الشريحة.
     var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
 }
 ```
 
-
 ## **إزالة إطار صوت**
 
 احذف إطار الصوت الذي تم إضافته مسبقًا.
+
 ```csharp
-static void Remove_Audio()
+static void RemoveAudio()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // إزالة إطار الصوت
+    // إزالة إطار الصوت.
     slide.Shapes.Remove(audioFrame);
 }
 ```
 
-
 ## **ضبط تشغيل الصوت**
 
-قم بتكوين إطار الصوت ليتم تشغيله تلقائيًا عند ظهور الشريحة.
+قم بتهيئة إطار الصوت ليُشغَل تلقائيًا عند ظهور الشريحة.
+
 ```csharp
-static void Set_Audio_Playback()
+static void SetAudioPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // تشغيل تلقائي عند ظهور الشريحة
+    // تشغيل تلقائي عند ظهور الشريحة.
     audioFrame.PlayMode = AudioPlayModePreset.Auto;
 }
 ```

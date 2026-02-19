@@ -4,77 +4,76 @@ type: docs
 weight: 110
 url: /ru/net/examples/elements/slide-transition/
 keywords:
-- пример перехода слайда
+- переход слайда
 - добавить переход слайда
-- доступ к переходу слайда
+- получить переход слайда
 - удалить переход слайда
 - длительность перехода
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Управляйте переходами слайдов в C# с помощью Aspose.Slides: выбирайте типы, скорость, звук и тайминг, чтобы улучшить презентации в форматах PPT, PPTX и ODP."
+description: "Освойте переходы слайдов в Aspose.Slides for .NET: добавляйте, настраивайте и упорядочивайте эффекты и их длительность с примерами на C# для презентаций PPT, PPTX и ODP."
 ---
-
-Продемонстрировано применение эффектов перехода слайдов и их временных настроек с помощью **Aspose.Slides for .NET**.
+В этой статье демонстрируется применение эффектов переходов слайдов и их таймингов с помощью **Aspose.Slides for .NET**.
 
 ## **Добавить переход слайда**
-
 Примените эффект плавного перехода к первому слайду.
-```csharp
-static void Add_Slide_Transition()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    // Применить плавный переход
+```csharp
+static void AddSlideTransition()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // Применить плавный переход.
     slide.SlideShowTransition.Type = TransitionType.Fade;
 }
 ```
 
-
 ## **Получить переход слайда**
+Прочитайте тип перехода, текущий для слайда.
 
-Прочитайте тип перехода, в данный момент назначенный слайду.
 ```csharp
-static void Access_Slide_Transition()
+static void AccessSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Push;
 
-    // Доступ к типу перехода
+    // Получить тип перехода.
     var type = slide.SlideShowTransition.Type;
 }
 ```
 
-
 ## **Удалить переход слайда**
+Снимите любой эффект перехода, установив тип в `None`.
 
-Очистите любой эффект перехода, установив тип в `None`.
 ```csharp
-static void Remove_Slide_Transition()
+static void RemoveSlideTransition()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // Удалить переход, установив None
+    // Удалить переход, установив None.
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
 
-
 ## **Установить длительность перехода**
+Укажите, как долго слайд отображается перед автоматическим переходом.
 
-Укажите, как долго слайд будет отображаться перед автоматическим переходом.
 ```csharp
-static void Set_Transition_Duration()
+static void SetTransitionDuration()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.SlideShowTransition.AdvanceOnClick = true;
     slide.SlideShowTransition.AdvanceAfterTime = 2000; // в миллисекундах

@@ -1,46 +1,48 @@
 ---
-title: رأس وتذييل
+title: ترويسة وتذييل
 type: docs
 weight: 220
-url: /ar/net/examples/elements/elements/header-footer/
+url: /ar/net/examples/elements/header-footer/
 keywords:
-- مثال رأس وتذييل
-- إضافة رأس وتذييل
-- تحديث رأس وتذييل
+- ترويسة وتذييل
+- إضافة ترويسة وتذييل
+- تحديث ترويسة وتذييل
+- مثال على الكود
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "التحكم في الرؤوس والتذييلات في C# باستخدام Aspose.Slides: إضافة أو تعديل التاريخ/الوقت، أرقام الشرائح، ونص التذييل، إظهار أو إخفاء العناصر النائبة عبر PPT وPPTX وODP."
+description: "تحكم في رؤوس وتذييلات الشرائح باستخدام Aspose.Slides for .NET: أضف التواريخ، أرقام الشرائح، ونصًا مخصصًا في صيغ PPT و PPTX و ODP مع أمثلة C#."
 ---
-
-يوضح كيفية إضافة تذييلات وتحديث عناصر النائب للوقت والتاريخ باستخدام **Aspose.Slides for .NET**.
+توّضح هذه المقالة كيفية إضافة تذييلات وتحديث العنصر النائب للتاريخ والوقت باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة تذييل**
 
-أضف النص إلى منطقة التذييل في الشريحة واجعلها مرئية.
+أضف نصًا إلى منطقة التذييل في الشريحة واجعلها مرئية.
+
 ```csharp
-static void Add_Header_Footer()
+static void AddHeaderFooter()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.HeaderFooterManager.SetFooterText("My footer");
     slide.HeaderFooterManager.SetFooterVisibility(isVisible: true);
 }
 ```
 
-
 ## **تحديث التاريخ والوقت**
 
-تعديل عنصر النائب للتاريخ والوقت في الشريحة.
+عدّل العنصر النائب للتاريخ والوقت في الشريحة.
+
 ```csharp
-static void Update_Date_Time()
+static void UpdateDateTime()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.HeaderFooterManager.SetDateTimeText("01/01/2024");
     slide.HeaderFooterManager.SetDateTimeVisibility(isVisible: true);
 }
