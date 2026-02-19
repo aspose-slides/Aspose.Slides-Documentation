@@ -4,77 +4,85 @@ type: docs
 weight: 80
 url: /ru/net/examples/elements/video/
 keywords:
-- пример видео
+- видео
 - видеокадр
 - добавить видео
 - доступ к видео
 - удалить видео
 - воспроизведение видео
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Работайте с видео в C# с помощью Aspose.Slides: вставка, замена, обрезка, установка постеров и параметров воспроизведения, экспорт презентаций в форматы PPT, PPTX и ODP."
+description: "Добавляйте и управляйте видео с помощью Aspose.Slides for .NET: вставляйте, воспроизводите, обрезайте, задавайте постер‑кадры и экспортируйте с примерами на C# для презентаций PPT, PPTX и ODP."
 ---
+Эта статья демонстрирует, как вставлять видеокадры и задавать параметры воспроизведения с помощью **Aspose.Slides for .NET**.
 
-Показано, как встраивать видеокадры и задавать параметры воспроизведения с использованием **Aspose.Slides for .NET**.
+## **Добавить видеокадр**
 
-## **Add a Video Frame**
-Insert an empty video frame onto a slide.
+Вставьте пустой видеокадр на слайд.
+
 ```csharp
-static void Add_Video()
+static void AddVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Добавить пустой встроенный видеокадр
+    // Добавить видео.
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 }
 ```
 
+## **Получить видеокадр**
 
-## **Access a Video Frame**
-Retrieve the first video frame added to a slide.
+Получите первый видеокадр, добавленный на слайд.
+
 ```csharp
-static void Access_Video()
+static void AccessVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Получить первый видеокадр на слайде
+    // Получить первый видеокадр на слайде.
     var firstVideo = slide.Shapes.OfType<IVideoFrame>().First();
 }
 ```
 
+## **Удалить видеокадр**
 
-## **Remove a Video Frame**
-Delete a video frame from the slide.
+Удалите видеокадр со слайда.
+
 ```csharp
-static void Remove_Video()
+static void RemoveVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Удалить видеокадр
+    // Удалить видеокадр.
     slide.Shapes.Remove(videoFrame);
 }
 ```
 
+## **Настроить воспроизведение видео**
 
-## **Set Video Playback**
-Configure the video to play automatically when the slide is displayed.
+Настройте воспроизведение видео автоматически при отображении слайда.
+
 ```csharp
-static void Set_Video_Playback()
+static void SetVideoPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Настроить автоматическое воспроизведение видео
+    // Настроить автоматическое воспроизведение видео.
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

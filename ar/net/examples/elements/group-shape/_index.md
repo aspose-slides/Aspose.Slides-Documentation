@@ -4,30 +4,31 @@ type: docs
 weight: 170
 url: /ar/net/examples/elements/group-shape/
 keywords:
-- مثال مجموعة
-- إضافة مجموعة أشكال
-- الوصول إلى مجموعة أشكال
-- إزالة مجموعة أشكال
+- مجموعة
+- إضافة مجموعة شكل
+- الوصول إلى مجموعة شكل
+- إزالة مجموعة شكل
 - إلغاء تجميع الأشكال
+- مثال على الكود
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "العمل مع مجموعات الأشكال في C# باستخدام Aspose.Slides: إنشاء وإلغاء تجميع، إعادة ترتيب الأشكال الفرعية، ضبط التحويلات والحدود في PowerPoint وOpenDocument."
+description: "إدارة الأشكال المجمعة في Aspose.Slides for .NET: إنشاء، تضمين، محاذاة، إعادة ترتيب، وتنسيق مجموعات الأشكال باستخدام أمثلة C# في عروض PPT و PPTX و ODP."
 ---
-
-أمثلة على إنشاء مجموعات من الأشكال، والوصول إليها، وإلغاء تجميعها، وإزالتها باستخدام **Aspose.Slides for .NET**.
+أمثلة على إنشاء مجموعات من الأشكال، والوصول إليها، وإلغاء التجميع، وإزالتها باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة مجموعة أشكال**
 
 إنشاء مجموعة تحتوي على شكلين أساسيين.
+
 ```csharp
-static void Add_Group_Shape()
+static void AddGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
@@ -35,15 +36,16 @@ static void Add_Group_Shape()
 }
 ```
 
-
 ## **الوصول إلى مجموعة أشكال**
 
 استرجاع أول مجموعة أشكال من الشريحة.
+
 ```csharp
-static void Access_Group_Shape()
+static void AccessGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
@@ -51,34 +53,36 @@ static void Access_Group_Shape()
 }
 ```
 
-
 ## **إزالة مجموعة أشكال**
 
 حذف مجموعة أشكال من الشريحة.
+
 ```csharp
-static void Remove_Group_Shape()
+static void RemoveGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
 
     slide.Shapes.Remove(group);
 }
 ```
 
-
 ## **إلغاء تجميع الأشكال**
 
-نقل الأشكال إلى خارج حاوية المجموعة.
+نقل الأشكال خارج حاوية المجموعة.
+
 ```csharp
-static void Ungroup_Shapes()
+static void UngroupShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     var rect = group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
-    // نقل الشكل خارج المجموعة
+    // نقل الشكل خارج المجموعة.
     slide.Shapes.AddClone(rect);
     group.Shapes.Remove(rect);
 }

@@ -4,30 +4,31 @@ type: docs
 weight: 120
 url: /es/net/examples/elements/table/
 keywords:
-- ejemplo de tabla
-- agregar tabla
+- tabla
+- añadir tabla
 - acceder tabla
 - eliminar tabla
 - combinar celdas
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Crear y dar formato a tablas en C# con Aspose.Slides: insertar datos, combinar celdas, dar estilo a los bordes, alinear contenido e importar/exportar para PPT, PPTX y ODP."
+description: "Trabaje con tablas en Aspose.Slides for .NET: cree, formatee, combine celdas, aplique estilos, importe datos y exporte con ejemplos en C# para PPT, PPTX y ODP."
 ---
+Ejemplos de cómo añadir tablas, acceder a ellas, eliminarlas y combinar celdas usando **Aspose.Slides for .NET**.
 
-Ejemplos para agregar tablas, acceder a ellas, eliminarlas y combinar celdas usando **Aspose.Slides for .NET**.
+## **Añadir una tabla**
 
-## **Agregar una tabla**
+Crea una tabla sencilla con dos filas y dos columnas.
 
-Cree una tabla simple con dos filas y dos columnas.
 ```csharp
-static void Add_Table()
+static void AddTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
@@ -35,33 +36,35 @@ static void Add_Table()
 }
 ```
 
-
 ## **Acceder a una tabla**
 
-Recupere la primera forma de tabla en la diapositiva.
+Obtén la primera forma de tabla en la diapositiva.
+
 ```csharp
-static void Access_Table()
+static void AccessTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // Acceder a la primera tabla en la diapositiva
+    // Acceder a la primera tabla de la diapositiva.
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
 
-
 ## **Eliminar una tabla**
 
-Elimine una tabla de una diapositiva.
+Elimina una tabla de una diapositiva.
+
 ```csharp
-static void Remove_Table()
+static void RemoveTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
@@ -70,15 +73,16 @@ static void Remove_Table()
 }
 ```
 
-
 ## **Combinar celdas de tabla**
 
-Combine celdas adyacentes de una tabla en una sola celda.
+Combina celdas adyacentes de una tabla en una sola celda.
+
 ```csharp
-static void Merge_Table_Cells()
+static void MergeTableCells()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);

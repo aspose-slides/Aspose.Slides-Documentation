@@ -1,33 +1,34 @@
 ---
-title: Групповая форма
+title: Групповая фигура
 type: docs
 weight: 170
 url: /ru/net/examples/elements/group-shape/
 keywords:
-- пример группы
-- добавить групповую форму
-- доступ к групповой форме
-- удалить групповую форму
-- разгруппировать формы
+- группа
+- добавить групповую фигуру
+- доступ к групповой фигуре
+- удалить групповую фигуру
+- разгруппировать фигуры
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Работа с групповыми формами в C# с использованием Aspose.Slides: создание и разгруппировка, переупорядочивание дочерних форм, установка преобразований и границ в PowerPoint и OpenDocument."
+description: "Управляйте группированными фигурами в Aspose.Slides for .NET: создавайте, вкладывайте, выравнивайте, переупорядочивайте и оформляйте групповые фигуры с примерами на C# в презентациях PPT, PPTX и ODP."
 ---
-
 Примеры создания групп фигур, доступа к ним, разгруппировки и удаления с использованием **Aspose.Slides for .NET**.
 
-## **Добавить групповую форму**
+## **Добавить группу фигур**
 
-Создайте группу, содержащую две базовые формы.
+Создайте группу, содержащую две базовые фигуры.
+
 ```csharp
-static void Add_Group_Shape()
+static void AddGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
@@ -35,15 +36,16 @@ static void Add_Group_Shape()
 }
 ```
 
+## **Доступ к группе фигур**
 
-## **Доступ к групповой форме**
+Получите первую группу фигур со слайда.
 
-Извлеките первую групповую форму со слайда.
 ```csharp
-static void Access_Group_Shape()
+static void AccessGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
@@ -51,34 +53,36 @@ static void Access_Group_Shape()
 }
 ```
 
+## **Удалить группу фигур**
 
-## **Удалить групповую форму**
+Удалите группу фигур со слайда.
 
-Удалите групповую форму со слайда.
 ```csharp
-static void Remove_Group_Shape()
+static void RemoveGroupShape()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
 
     slide.Shapes.Remove(group);
 }
 ```
 
+## **Разгруппировать фигуры**
 
-## **Разгруппировать формы**
+Переместите фигуры из группового контейнера.
 
-Переместите формы из группового контейнера.
 ```csharp
-static void Ungroup_Shapes()
+static void UngroupShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var group = slide.Shapes.AddGroupShape();
     var rect = group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
-    // Переместить форму из группы
+    // Переместить фигуру из группы.
     slide.Shapes.AddClone(rect);
     group.Shapes.Remove(rect);
 }

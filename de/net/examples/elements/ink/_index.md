@@ -4,29 +4,30 @@ type: docs
 weight: 180
 url: /de/net/examples/elements/ink/
 keywords:
-- Tintenbeispiel
+- Tinte
 - Zugriff auf Tinte
 - Tinte entfernen
+- Codebeispiel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie digitale Tinte auf Folien in C# mit Aspose.Slides: Fügen Sie Stiftstriche hinzu, bearbeiten Sie Pfade, setzen Sie Farbe und Breite und exportieren Sie die Ergebnisse für PowerPoint und OpenDocument."
+description: "Arbeiten Sie mit Tinte in Aspose.Slides für .NET: Zeichnen, Importieren und Bearbeiten von Strichen, Anpassen von Farbe und Breite sowie Exportieren nach PPT, PPTX und ODP mit C#‑Beispielen."
 ---
+Dieser Artikel enthält Beispiele zum Zugriff auf vorhandene Tintenformen und deren Entfernung mit **Aspose.Slides for .NET**.
 
-Bietet Beispiele für den Zugriff auf vorhandene Ink-Formen und deren Entfernung mit **Aspose.Slides for .NET**.
-
-> ❗ **Hinweis:** Ink-Formen stellen Benutzereingaben von spezialisierten Geräten dar. Aspose.Slides kann keine neuen Ink-Striche programmgesteuert erzeugen, aber Sie können vorhandene Ink lesen und ändern.
+> ❗ **Hinweis:** Tintenformen repräsentieren Benutzereingaben von spezialisierten Geräten. Aspose.Slides kann keine neuen Tintenstriche programmgesteuert erstellen, aber Sie können vorhandene Tinte lesen und ändern.
 
 ## **Access Ink**
-Liest die Tags der ersten Ink-Form auf einer Folie.
+Lesen Sie die Tags der ersten Tintenform auf einer Folie.
+
 ```csharp
-static void Access_Ink()
+static void AccessInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes[0] is Ink inkShape)
     {
@@ -34,20 +35,20 @@ static void Access_Ink()
         if (tags.Count > 0)
         {
             var tagName = tags.GetNameByIndex(0);
-            // Verwenden Sie tagName nach Bedarf
+            // Verwenden Sie tagName nach Bedarf.
         }
     }
 }
 ```
 
-
 ## **Remove Ink**
-Löscht eine Ink-Form von der Folie, falls eine vorhanden ist.
+Löschen Sie eine Tintenform von der Folie, falls vorhanden.
+
 ```csharp
-static void Remove_Ink()
+static void RemoveInk()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("ink.pptx");
+    var slide = presentation.Slides[0];
 
     if (slide.Shapes.FirstOrDefault(s => s is Ink) is Ink ink)
     {

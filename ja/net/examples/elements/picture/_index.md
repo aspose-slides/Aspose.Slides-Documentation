@@ -4,74 +4,76 @@ type: docs
 weight: 50
 url: /ja/net/examples/elements/picture/
 keywords:
-- 画像例
+- 画像
 - 画像フレーム
-- 画像の追加
-- 画像へのアクセス
+- 画像を追加
+- 画像にアクセス
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用して画像を操作します：挿入、置換、切り抜き、圧縮、透過性とエフェクトの調整、シェイプへの塗りつぶし、そして PPT、PPTX、ODP へのエクスポート。"
+description: "Aspose.Slides for .NET で画像を操作します。画像の挿入、トリミング、圧縮、色調変更、エクスポートを行い、PPT、PPTX、ODP プレゼンテーション用の C# サンプルを提供します。"
 ---
+この記事では、**Aspose.Slides for .NET** を使用してインメモリ画像から画像を挿入およびアクセスする方法を示します。以下の例では、メモリ内に画像を作成し、スライドに配置し、そして取得します。
 
-インメモリ画像から画像を挿入および取得する方法を **Aspose.Slides for .NET** を使用して示します。以下の例では、メモリ内に画像を作成し、スライドに配置してから取得します。
-
-## **Add a Picture**
+## **画像を追加**
 
 このコードは小さなビットマップを生成し、ストリームに変換して、最初のスライドに画像フレームとして挿入します。
+
 ```csharp
-public static void Add_Picture()
+public static void AddPicture()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // シンプルなインメモリ画像を作成
-    using var bmp = new Bitmap(width: 100, height: 100);
-    using (var g = Graphics.FromImage(bmp))
-    {
-        g.Clear(Color.LightGreen);
-    }
+    // シンプルなインメモリ画像を作成します。
+    using var bitmap = new Bitmap(width: 100, height: 100);
+    
+    using var graphics = Graphics.FromImage(bitmap);
+    graphics.Clear(Color.LightGreen);
 
-    // Bitmap を MemoryStream に変換
+    // ビットマップを MemoryStream に変換します。
     using var imageStream = new MemoryStream();
-    bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+    bitmap.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;
 
-    // 画像をプレゼンテーションに追加
-    var ppImage = pres.Images.AddImage(imageStream);
+    // 画像をプレゼンテーションに追加します。
+    var image = presentation.Images.AddImage(imageStream);
 
-    // 最初のスライドに画像を表示するピクチャーフレームを挿入
-    pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-        x: 50, y: 50, width: bmp.Width, height: bmp.Height, ppImage);
+    // 最初のスライドに画像を表示する画像フレームを挿入します。
+    slide.Shapes.AddPictureFrame(ShapeType.Rectangle,
+        x: 50, y: 50, width: bitmap.Width, height: bitmap.Height, image);
 
-    pres.Save(@"c:\_tmp\xxx.pptx", SaveFormat.Pptx);
+    presentation.Save("picture.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **画像にアクセス**
 
-## **Access a Picture**
+この例では、スライドに画像フレームが含まれていることを確認し、見つかった最初のフレームにアクセスします。
 
-この例ではスライドに画像フレームが含まれていることを確認し、最初に見つかったフレームにアクセスします。
 ```csharp
-public static void Access_Picture()
+public static void AccessPicture()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // 作業対象となるピクチャーフレームが少なくとも1つあることを確認する
-    using var bmp = new Bitmap(40, 40);
+    // 作業できる画像フレームが少なくとも1つあることを確認します。
+    using var bitmap = new Bitmap(40, 40);
 
-    // Bitmap を MemoryStream に変換する
+    // ビットマップを MemoryStream に変換します。
     using var imageStream = new MemoryStream();
-    bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+    bitmap.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;
 
-    // 画像をプレゼンテーションに追加する
-    var ppImage = pres.Images.AddImage(imageStream);
-    pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, ppImage);
+    // 画像をプレゼンテーションに追加します。
+    var image = presentation.Images.AddImage(imageStream);
+    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, image);
 
-    // スライド上の最初のピクチャーフレームにアクセスする
-    var pictureFrame = pres.Slides[0].Shapes.OfType<PictureFrame>().First();
+    // スライド上の最初の画像フレームにアクセスします。
+    var pictureFrame = slide.Shapes.OfType<PictureFrame>().First();
 }
 ```

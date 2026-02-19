@@ -4,72 +4,76 @@ type: docs
 weight: 50
 url: /ar/net/examples/elements/picture/
 keywords:
-- مثال صورة
-- إطار الصورة
+- صورة
+- إطار صورة
 - إضافة صورة
 - الوصول إلى صورة
+- مثال برمجي
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "العمل مع الصور في C# باستخدام Aspose.Slides: الإدراج، الاستبدال، القص، الضغط، تعديل الشفافية والتأثيرات، ملء الأشكال، وتصدير إلى PPT و PPTX و ODP."
+description: "العمل مع الصور في Aspose.Slides for .NET: إدراج، قص، ضغط، إعادة تلوين، وتصدير الصور مع أمثلة C# لعروض PPT و PPTX و ODP."
 ---
-
-يوضح كيفية إدراج الصور والوصول إليها من الصور الموجودة في الذاكرة باستخدام **Aspose.Slides for .NET**. الأمثلة أدناه تنشئ صورة في الذاكرة، وتضعها على شريحة، ثم تسترجعها.
+توضح هذه المقالة كيفية إدراج الصور والوصول إليها من صور مخزنة في الذاكرة باستخدام **Aspose.Slides for .NET**. الأمثلة أدناه تنشئ صورة في الذاكرة، تضعها على شريحة، ثم تسترجعها.
 
 ## **إضافة صورة**
-يقوم هذا الكود بإنشاء صورة نقطية صغيرة، وتحويلها إلى تدفق، وإدراجها كإطار صورة على الشريحة الأولى.
+
+يقوم هذا الكود بإنشاء صورة نقطية صغيرة، يحولها إلى تدفق، ويُدرجها كإطار صورة في الشريحة الأولى.
+
 ```csharp
-public static void Add_Picture()
+public static void AddPicture()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // إنشاء صورة بسيطة في الذاكرة
-    using var bmp = new Bitmap(width: 100, height: 100);
-    using (var g = Graphics.FromImage(bmp))
-    {
-        g.Clear(Color.LightGreen);
-    }
+    // إنشاء صورة بسيطة في الذاكرة.
+    using var bitmap = new Bitmap(width: 100, height: 100);
+    
+    using var graphics = Graphics.FromImage(bitmap);
+    graphics.Clear(Color.LightGreen);
 
-    // تحويل Bitmap إلى MemoryStream
+    // تحويل الـ bitmap إلى MemoryStream.
     using var imageStream = new MemoryStream();
-    bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+    bitmap.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;
 
-    // إضافة الصورة إلى العرض التقديمي
-    var ppImage = pres.Images.AddImage(imageStream);
+    // إضافة الصورة إلى العرض التقديمي.
+    var image = presentation.Images.AddImage(imageStream);
 
-    // إدراج إطار صورة يعرض الصورة على الشريحة الأولى
-    pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-        x: 50, y: 50, width: bmp.Width, height: bmp.Height, ppImage);
+    // إدراج إطار صورة يعرض الصورة على الشريحة الأولى.
+    slide.Shapes.AddPictureFrame(ShapeType.Rectangle,
+        x: 50, y: 50, width: bitmap.Width, height: bitmap.Height, image);
 
-    pres.Save(@"c:\_tmp\xxx.pptx", SaveFormat.Pptx);
+    presentation.Save("picture.pptx", SaveFormat.Pptx);
 }
 ```
 
-
 ## **الوصول إلى صورة**
-يضمن هذا المثال أن الشريحة تحتوي على إطار صورة ثم يصل إلى أول إطار يجدها.
+
+يتأكد هذا المثال من أن الشريحة تحتوي على إطار صورة ثم يصل إلى أول إطار يجده.
+
 ```csharp
-public static void Access_Picture()
+public static void AccessPicture()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // تأكد من وجود إطار صورة واحد على الأقل للعمل معه
-    using var bmp = new Bitmap(40, 40);
+    // تأكد من وجود إطار صورة واحد على الأقل للعمل معه.
+    using var bitmap = new Bitmap(40, 40);
 
-    // تحويل Bitmap إلى MemoryStream
+    // تحويل الـ bitmap إلى MemoryStream.
     using var imageStream = new MemoryStream();
-    bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+    bitmap.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;
 
-    // إضافة الصورة إلى العرض التقديمي
-    var ppImage = pres.Images.AddImage(imageStream);
-    pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, ppImage);
+    // إضافة الصورة إلى العرض التقديمي.
+    var image = presentation.Images.AddImage(imageStream);
+    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, image);
 
-    // الوصول إلى أول إطار صورة على الشريحة
-    var pictureFrame = pres.Slides[0].Shapes.OfType<PictureFrame>().First();
+    // الوصول إلى أول إطار صورة على الشريحة.
+    var pictureFrame = slide.Shapes.OfType<PictureFrame>().First();
 }
 ```

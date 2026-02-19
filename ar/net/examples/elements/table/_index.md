@@ -4,30 +4,31 @@ type: docs
 weight: 120
 url: /ar/net/examples/elements/table/
 keywords:
-- مثال جدول
+- جدول
 - إضافة جدول
 - الوصول إلى جدول
 - إزالة جدول
 - دمج خلايا
+- مثال على الكود
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إنشاء وتنسيق الجداول في C# باستخدام Aspose.Slides: إدراج البيانات، دمج الخلايا، تنسيق الحدود، محاذاة المحتوى، والاستيراد/التصدير لـ PPT و PPTX و ODP."
+description: "التعامل مع الجداول في Aspose.Slides for .NET: إنشاء، تنسيق، دمج الخلايا، تطبيق الأنماط، استيراد البيانات، وتصدير مع أمثلة C# للـ PPT و PPTX و ODP."
 ---
-
 أمثلة لإضافة الجداول، والوصول إليها، وإزالتها، ودمج الخلايا باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة جدول**
 
-إنشاء جدول بسيط مكوّن من صفين وعمودين.
+إنشاء جدول بسيط يتكون من صفين وعمودين.
+
 ```csharp
-static void Add_Table()
+static void AddTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
@@ -35,33 +36,35 @@ static void Add_Table()
 }
 ```
 
-
 ## **الوصول إلى جدول**
 
-استرجاع الشكل الأول للجدول في الشريحة.
+استرجاع الشكل الجدولي الأول على الشريحة.
+
 ```csharp
-static void Access_Table()
+static void AccessTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // الوصول إلى الجدول الأول في الشريحة
+    // الوصول إلى أول جدول على الشريحة.
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
 
-
 ## **إزالة جدول**
 
-حذف جدول من شريحة.
+حذف جدول من الشريحة.
+
 ```csharp
-static void Remove_Table()
+static void RemoveTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
@@ -70,15 +73,16 @@ static void Remove_Table()
 }
 ```
 
-
 ## **دمج خلايا الجدول**
 
-دمج الخلايا المتجاورة في الجدول لتصبح خلية واحدة.
+دمج الخلايا المتجاورة في جدول إلى خلية واحدة.
+
 ```csharp
-static void Merge_Table_Cells()
+static void MergeTableCells()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);

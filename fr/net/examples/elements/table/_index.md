@@ -4,64 +4,67 @@ type: docs
 weight: 120
 url: /fr/net/examples/elements/table/
 keywords:
-- exemple de tableau
+- tableau
 - ajouter un tableau
 - accéder au tableau
 - supprimer le tableau
-- fusionner des cellules
+- fusionner les cellules
+- exemple de code
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Créer et formater des tableaux en C# avec Aspose.Slides : insérer des données, fusionner des cellules, styliser les bordures, aligner le contenu, et importer/exporter pour PPT, PPTX et ODP."
+description: "Travaillez avec les tableaux dans Aspose.Slides for .NET : créez, formatez, fusionnez des cellules, appliquez des styles, importez des données et exportez avec des exemples C# pour PPT, PPTX et ODP."
 ---
-
-Exemples d'ajout de tableaux, d'accès à ceux-ci, de suppression et de fusion de cellules à l'aide de **Aspose.Slides for .NET**.
+Exemples d'ajout de tableaux, d'accès à ceux-ci, de suppression et de fusion de cellules à l'aide d'**Aspose.Slides for .NET**.
 
 ## **Ajouter un tableau**
 
 Créez un tableau simple avec deux lignes et deux colonnes.
+
 ```csharp
-static void Add_Table()
+static void AddTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 }
 ```
-
 
 ## **Accéder à un tableau**
 
 Récupérez la première forme de tableau sur la diapositive.
+
 ```csharp
-static void Access_Table()
+static void AccessTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // Accéder à la première table sur la diapositive
+    // Accéder au premier tableau sur la diapositive.
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
 
-
 ## **Supprimer un tableau**
 
 Supprimez un tableau d'une diapositive.
+
 ```csharp
-static void Remove_Table()
+static void RemoveTable()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
@@ -70,15 +73,16 @@ static void Remove_Table()
 }
 ```
 
-
-## **Fusionner les cellules du tableau**
+## **Fusionner les cellules d'un tableau**
 
 Fusionnez les cellules adjacentes d'un tableau en une seule cellule.
+
 ```csharp
-static void Merge_Table_Cells()
+static void MergeTableCells()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     double[] widths = { 80, 80 };
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);

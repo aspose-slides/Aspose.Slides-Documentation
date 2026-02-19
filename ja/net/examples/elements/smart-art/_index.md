@@ -2,74 +2,82 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /ja/net/examples/elements/smartart/
+url: /ja/net/examples/elements/smart-art/
 keywords:
-- SmartArt の例
-- SmartArt を追加
-- SmartArt にアクセス
-- SmartArt を削除
-- SmartArt のレイアウト
+- SmartArt
+- SmartArt の追加
+- SmartArt へのアクセス
+- SmartArt の削除
+- SmartArt レイアウト
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用して SmartArt を作成および編集します：ノードの追加、レイアウトやスタイルの変更、正確にシェイプへ変換、PPT、PPTX、ODP へのエクスポートが可能です。"
+description: "Aspose.Slides for .NET で SmartArt を操作します。PowerPoint および OpenDocument プレゼンテーション用に C# でダイアグラムの作成、編集、変換、スタイル設定を行います。"
 ---
-
-Aspose.Slides for .NET を使用して、SmartArt グラフィックの追加、アクセス、削除、レイアウトの変更方法を示します。
+この記事では、**Aspose.Slides for .NET** を使用して SmartArt グラフィックの追加、アクセス、削除、レイアウトの変更方法を示します。
 
 ## **SmartArt の追加**
-組み込みのレイアウトのいずれかを使用して SmartArt グラフィックを挿入します。
-```csharp
-static void Add_SmartArt()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+組み込みレイアウトのいずれかを使用して SmartArt グラフィックを挿入します。
+
+```csharp
+static void AddSmartArt()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 }
 ```
 
-
 ## **SmartArt へのアクセス**
+
 スライド上の最初の SmartArt オブジェクトを取得します。
+
 ```csharp
-static void Access_SmartArt()
+static void AccessSmartArt()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
     var firstSmartArt = slide.Shapes.OfType<ISmartArt>().First();
 }
 ```
 
-
 ## **SmartArt の削除**
-スライドから SmartArt シェイプを削除します。
-```csharp
-static void Remove_SmartArt()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
-    slide.Shapes.Remove(smart);
+スライドから SmartArt シェイプを削除します。
+
+```csharp
+static void RemoveSmartArt()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+
+    slide.Shapes.Remove(smartArt);
 }
 ```
 
-
 ## **SmartArt レイアウトの変更**
-既存の SmartArt グラフィックのレイアウトタイプを更新します。
-```csharp
-static void Change_SmartArt_Layout()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var smart = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    smart.Layout = SmartArtLayoutType.VerticalPictureList;
+既存の SmartArt グラフィックのレイアウトタイプを更新します。
+
+```csharp
+static void ChangeSmartArtLayout()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
+
+    smartArt.Layout = SmartArtLayoutType.VerticalPictureList;
 }
 ```

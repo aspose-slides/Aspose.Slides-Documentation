@@ -4,79 +4,83 @@ type: docs
 weight: 190
 url: /es/net/examples/elements/connector/
 keywords:
-- ejemplo de conector
-- agregar conector
+- conector
+- añadir conector
 - acceder al conector
 - eliminar conector
-- reconectar formas
+- volver a conectar formas
+- ejemplo de código
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Dibuja y controla conectores en C# con Aspose.Slides: agrega, enruta, reencamina, establece puntos de conexión, flechas y estilos para enlazar formas en PPT, PPTX y ODP."
+description: "Aprenda cómo añadir, encaminar y dar estilo a los conectores entre formas usando Aspose.Slides for .NET, con ejemplos en C# para presentaciones PPT, PPTX y ODP."
 ---
-
-Muestra cómo conectar formas con conectores y cambiar sus destinos usando **Aspose.Slides for .NET**.
+Este artículo muestra cómo conectar formas con conectores y cambiar sus destinos usando **Aspose.Slides for .NET**.
 
 ## **Agregar un Conector**
 
 Inserte una forma de conector entre dos puntos en la diapositiva.
-```csharp
-static void Add_Connector()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+```csharp
+static void AddConnector()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 }
 ```
-
 
 ## **Acceder a un Conector**
 
 Recupere la primera forma de conector añadida a una diapositiva.
+
 ```csharp
-static void Access_Connector()
+static void AccessConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
     var connector = slide.Shapes.OfType<IConnector>().First();
 }
 ```
 
-
 ## **Eliminar un Conector**
 
 Elimine un conector de la diapositiva.
-```csharp
-static void Remove_Connector()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-    slide.Shapes.Remove(conn);
+```csharp
+static void RemoveConnector()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+
+    slide.Shapes.Remove(connector);
 }
 ```
 
-
-## **Reconectar Formas**
+## **Volver a Conectar Formas**
 
 Adjunte un conector a dos formas asignando los destinos de inicio y fin.
+
 ```csharp
-static void Reconnect_Shapes()
+static void ReconnectShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
     var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 50, 50);
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-    conn.StartShapeConnectedTo = shape1;
-    conn.EndShapeConnectedTo = shape2;
+    connector.StartShapeConnectedTo = shape1;
+    connector.EndShapeConnectedTo = shape2;
 }
 ```

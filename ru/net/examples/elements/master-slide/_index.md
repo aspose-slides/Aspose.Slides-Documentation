@@ -1,111 +1,109 @@
 ---
-title: Мастер слайд
+title: Главный слайд
 type: docs
 weight: 30
 url: /ru/net/examples/elements/master-slide/
 keywords:
-- пример мастер‑слайда
-- добавить мастер‑слайд
-- доступ к мастер‑слайду
-- удалить мастер‑слайд
-- неиспользуемый мастер‑слайд
+- главный слайд
+- добавить главный слайд
+- доступ к главному слайду
+- удалить главный слайд
+- неиспользуемый главный слайд
+- пример кода
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Управление мастер‑слайдами в C# с помощью Aspose.Slides: создание, редактирование, клонирование и форматирование тем, фонов, заполняющих элементов для унификации слайдов в PowerPoint и OpenDocument."
+description: "Изучите примеры главных слайдов Aspose.Slides для .NET: создавайте, редактируйте и оформляйте главные слайды, заполнители и темы в PPT, PPTX и ODP с понятным кодом C#."
 ---
-
-Главные слайды образуют верхний уровень иерархии наследования слайдов в PowerPoint. A **master slide** определяет общие элементы дизайна, такие как фон, логотипы и форматирование текста. **Layout slides** наследуются от главных слайдов, а **normal slides** наследуются от слайдов макета.
+Главные слайды формируют верхний уровень иерархии наследования слайдов в PowerPoint. **Главный слайд** определяет общие элементы дизайна, такие как фоны, логотипы и форматирование текста. **Слайды‑макета** наследуются от главных слайдов, а **обычные слайды** наследуются от слайдов‑макета.
 
 Эта статья демонстрирует, как создавать, изменять и управлять главными слайдами с помощью Aspose.Slides for .NET.
 
 ## **Добавить главный слайд**
 
-В этом примере показывается, как создать новый главный слайд, клонировав стандартный. Затем он добавляет баннер с названием компании ко всем слайдам через наследование макета.
+В этом примере показано, как создать новый главный слайд, клонировав стандартный. Затем он добавляет баннер с названием компании ко всем слайдам через наследование макета.
 
 ```csharp
-static void Add_Master_Slide()
+static void AddMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Clone the default master slide
-    var defaultMasterSlide = pres.Masters[0];
-    var newMaster = pres.Masters.AddClone(defaultMasterSlide);
+    // Клонировать стандартный главный слайд.
+    var defaultMasterSlide = presentation.Masters[0];
+    var newMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
 
-    // Add a banner with company name to the top of the master slide
-    var textBox = newMaster.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
+    // Добавить баннер с названием компании в верхнюю часть главного слайда.
+    var textBox = newMasterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
     textBox.TextFrame.Text = "Company Name";
     textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
     textBox.FillFormat.FillType = FillType.NoFill;
 
-    // Assign the new master slide to a layout slide
-    var layoutSlide = pres.LayoutSlides[0];
-    layoutSlide.MasterSlide = newMaster;
+    // Назначить новый главный слайд слайду‑макету.
+    var layoutSlide = presentation.LayoutSlides[0];
+    layoutSlide.MasterSlide = newMasterSlide;
 
-    // Assign the layout slide to the first slide in the presentation
-    pres.Slides[0].LayoutSlide = layoutSlide;
+    // Назначить слайд‑макет первым слайдом в презентации.
+    presentation.Slides[0].LayoutSlide = layoutSlide;
 }
-````
+```
 
-> 💡 **Подсказка 1:** Главные слайды позволяют применять единый брендинг или общие элементы дизайна ко всем слайдам. Любые изменения, внесённые в главный слайд, автоматически отображаются в зависящих от него макетах и обычных слайдах.
-
-> 💡 **Подсказка 2:** Любые фигуры или форматирование, добавленные в главный слайд, наследуются слайдами макета и, в свою очередь, всеми обычными слайдами, использующими эти макеты.
-
-> Ниже изображение иллюстрирует, как текстовое поле, добавленное в главный слайд, автоматически отображается на финальном слайде.
+> 💡 **Примечание 1:** Главные слайды позволяют применять единый брендинг или общие элементы дизайна ко всем слайдам. Любые изменения, внесённые в главный слайд, автоматически отражаются на зависимых слайдах‑макете и обычных слайдах.  
+> 
+> 💡 **Примечание 2:** Любые фигуры или форматирование, добавленные в главный слайд, наследуются слайдами‑макетами и, в свою очередь, всеми обычными слайдами, использующими эти макеты.  
+> 
+> Ниже изображение иллюстрирует, как текстовое поле, добавленное в главный слайд, автоматически отображается на конечном слайде.
 
 ![Пример наследования главного слайда](master-slide-banner.png)
 
 ## **Доступ к главному слайду**
 
-Вы можете получить доступ к главным слайдам, используя коллекцию `Presentation.Masters`. Вот как извлекать их и работать с ними:
+Вы можете получить доступ к главным слайдам, используя коллекцию `Presentation.Masters`. Ниже показано, как извлекать их и работать с ними:
 
 ```csharp
-static void Access_Master_Slide()
+static void AccessMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Access the first master slide
-    var firstMasterSlide = pres.Masters[0];
+    // Получить первый главный слайд.
+    var firstMasterSlide = presentation.Masters[0];
 
-    // Change the background type
+    // Изменить тип фона.
     firstMasterSlide.Background.Type = BackgroundType.OwnBackground;
 }
 ```
 
 ## **Удалить главный слайд**
 
-Главные слайды можно удалять либо по индексу, либо по ссылке.
+Главные слайды можно удалить по индексу или по ссылке.
 
 ```csharp
-static void Remove_Master_Slide()
+static void RemoveMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation("sample.pptx");
 
-    // Remove by index
-    pres.Masters.RemoveAt(0);
+    // Удалить главный слайд по индексу.
+    presentation.Masters.RemoveAt(0);
 
-    // Or remove by reference
-    var firstMasterSlide = pres.Masters[0];
-    pres.Masters.Remove(firstMasterSlide);
+    // Удалить главный слайд по ссылке.
+    var firstMasterSlide = presentation.Masters[0];
+    presentation.Masters.Remove(firstMasterSlide);
 }
 ```
 
 ## **Удалить неиспользуемые главные слайды**
 
-Некоторые презентации содержат главные слайды, которые не используются. Их удаление может помочь уменьшить размер файла.
+Некоторые презентации содержат главные слайды, которые не используются. Удаление этих слайдов может помочь уменьшить размер файла.
 
 ```csharp
-static void RemoveUnused_Master_Slide()
+static void RemoveUnusedMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Remove all unused master slides (even those marked as Preserve)
-    pres.Masters.RemoveUnused(ignorePreserveField: true);
+    // Удалить все неиспользуемые главные слайды (в том числе помеченные как Preserve).
+    presentation.Masters.RemoveUnused(ignorePreserveField: true);
 }
 ```
-
-> ⚙️ **Подсказка:** Используйте `RemoveUnused(true)`, чтобы очистить неиспользуемые главные слайды и уменьшить размер презентации.

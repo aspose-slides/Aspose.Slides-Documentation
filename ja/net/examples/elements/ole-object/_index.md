@@ -1,84 +1,89 @@
 ---
-title: OLEオブジェクト
+title: OLE オブジェクト
 type: docs
 weight: 210
 url: /ja/net/examples/elements/ole-object/
 keywords:
-- OLE オブジェクト例
+- OLE オブジェクト
 - OLE オブジェクトの追加
 - OLE オブジェクトへのアクセス
 - OLE オブジェクトの削除
 - OLE オブジェクトの更新
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# で Aspose.Slides を使用して OLE オブジェクトを操作します。埋め込みファイルの挿入や更新、アイコンやリンクの設定、コンテンツの抽出、PPT、PPTX、ODP の動作制御が可能です。"
+description: "Aspose.Slides for .NET で OLE オブジェクトを操作します。C# を使用して PPT、PPTX、ODP プレゼンテーション内の埋め込みコンテンツを挿入、リンク、更新、抽出できます。"
 ---
+この記事では、ファイルをOLEオブジェクトとして埋め込み、そのデータを**Aspose.Slides for .NET**を使用して更新する方法を示します。
 
-OLE オブジェクトとしてファイルを埋め込み、そのデータを更新する方法を **Aspose.Slides for .NET** を使用して示します。
+## **OLEオブジェクトの追加**
+プレゼンテーションにPDFファイルを埋め込みます。
 
-## **OLE オブジェクトの追加**
-
-PDF ファイルをプレゼンテーションに埋め込みます。
 ```csharp
-static void Add_Ole_Object()
+static void AddOleObject()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 }
 ```
 
+## **OLEオブジェクトへのアクセス**
+スライド上の最初のOLEオブジェクトフレームを取得します。
 
-## **OLE オブジェクトへのアクセス**
-
-スライド上の最初の OLE オブジェクトフレームを取得します。
 ```csharp
-static void Access_Ole_Object()
+static void AccessOleObject()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var firstOle = slide.Shapes.OfType<IOleObjectFrame>().First();
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+
+    var firstOleFrame = slide.Shapes.OfType<IOleObjectFrame>().First();
 }
 ```
 
+## **OLEオブジェクトの削除**
+スライドから埋め込まれたOLEオブジェクトを削除します。
 
-## **OLE オブジェクトの削除**
-
-スライドから埋め込まれた OLE オブジェクトを削除します。
 ```csharp
-static void Remove_Ole_Object()
+static void RemoveOleObject()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    slide.Shapes.Remove(ole);
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+
+    slide.Shapes.Remove(oleFrame);
 }
 ```
 
+## **OLEオブジェクトデータの更新**
+既存のOLEオブジェクトに埋め込まれたデータを置き換えます。
 
-## **OLE オブジェクト データの更新**
-
-既存の OLE オブジェクトに埋め込まれたデータを置き換えます。
 ```csharp
-static void Update_Ole_Object_Data()
+static void UpdateOleObjectData()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var ole = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var newData = new OleEmbeddedDataInfo(File.ReadAllBytes("Picture.png"), "png");
-    ole.SetEmbeddedData(newData);
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+
+    var newData = File.ReadAllBytes("Picture.png");
+    var newDataInfo = new OleEmbeddedDataInfo(newData, "png");
+    oleFrame.SetEmbeddedData(newDataInfo);
 }
 ```

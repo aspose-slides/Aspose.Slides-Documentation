@@ -4,111 +4,124 @@ type: docs
 weight: 10
 url: /de/net/examples/elements/slide/
 keywords:
-- Folienbeispiel
+- Folie
 - Folie hinzufügen
 - Folie zugreifen
 - Folienindex
-- Folie duplizieren
+- Folie klonen
 - Folien neu anordnen
 - Folie entfernen
+- Codebeispiel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie Folien in C# mit Aspose.Slides: Erstellen, duplizieren, neu anordnen, ausblenden, Hintergründe und Größe festlegen, Übergänge anwenden und für PowerPoint sowie OpenDocument exportieren."
+description: "Steuern Sie Folien in Aspose.Slides für .NET: Erstellen, klonen, neu anordnen, Größe ändern, Hintergründe festlegen und Übergänge mit C# für PPT-, PPTX- und ODP-Präsentationen anwenden."
 ---
-
-Dieser Artikel liefert eine Reihe von Beispielen, die zeigen, wie man mit Folien unter Verwendung von **Aspose.Slides for .NET** arbeitet. Sie erfahren, wie Sie Folien mithilfe der Klasse `Presentation` hinzufügen, darauf zugreifen, duplizieren, neu anordnen und entfernen.
+Dieser Artikel enthält eine Reihe von Beispielen, die zeigen, wie man mit Folien unter Verwendung von **Aspose.Slides for .NET** arbeitet. Sie lernen, wie man Folien mit der `Presentation`-Klasse hinzufügt, darauf zugreift, sie klont, neu anordnet und entfernt.
 
 Jedes nachfolgende Beispiel enthält eine kurze Erklärung, gefolgt von einem Code‑Snippet in C#.
 
 ## **Folie hinzufügen**
 
-Um eine neue Folie hinzuzufügen, müssen Sie zunächst ein Layout auswählen. In diesem Beispiel verwenden wir das Layout `Blank` und fügen eine leere Folie zur Präsentation hinzu.
+Um eine neue Folie hinzuzufügen, müssen Sie zunächst ein Layout auswählen. In diesem Beispiel verwenden wir das Layout `Blank` und fügen der Präsentation eine leere Folie hinzu.
+
 ```csharp
-static void Add_Slide()
+static void AddSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
     // Jede Folie basiert auf einem Layout, das wiederum auf einer Masterfolie basiert.
-    // Verwenden Sie das Layout Blank, um eine neue Folie zu erstellen.
-    var blankLayout = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Verwenden Sie das Blank-Layout, um eine neue Folie zu erstellen.
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
     // Fügen Sie eine neue leere Folie mit dem ausgewählten Layout hinzu.
-    pres.Slides.AddEmptySlide(layout: blankLayout);
+    presentation.Slides.AddEmptySlide(layout: blankLayout);
 }
 ```
 
-> 💡 **Tip:** Each slide layout is derived from a master slide, which defines the overall design and placeholder structure. The image below illustrates how master slides and their associated layouts are organized in PowerPoint.
+> 💡 **Hinweis:** Jedes Folienlayout leitet sich von einer Masterfolie ab, die das Gesamtdesign und die Platzhalterstruktur definiert. Das Bild unten zeigt, wie Masterfolien und ihre zugehörigen Layouts in PowerPoint organisiert sind.
 
 ![Master and Layout Relationship](master-layout-slide.png)
 
-## **Access Slides by Index**
+## **Zugriff auf Folien nach Index**
+
+Sie können Folien über ihren Index zugreifen oder den Index einer Folie anhand einer Referenz ermitteln. Das ist nützlich, um durch Folien zu iterieren oder bestimmte Folien zu ändern.
 
 ```csharp
-static void Access_Slide()
+static void AccessSlide()
 {
     // Standardmäßig wird eine Präsentation mit einer leeren Folie erstellt.
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
     // Fügen Sie eine weitere leere Folie hinzu.
-    pres.Slides.AddEmptySlide(layout: pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-    // Zugriff auf Folien über den Index
-    var firstSlide = pres.Slides[0];
-    var secondSlide = pres.Slides[1];
+    // Zugriff auf Folien nach Index.
+    var firstSlide = presentation.Slides[0];
+    var secondSlide = presentation.Slides[1];
 
-    // Ermitteln Sie den Folienindex aus einer Referenz und greifen dann über den Index darauf zu.
-    var secondSlideIndex = pres.Slides.IndexOf(secondSlide);
-    var secondSlideByIndex = pres.Slides[secondSlideIndex];
+    // Ermitteln Sie den Folienindex aus einer Referenz und greifen dann per Index darauf zu.
+    var secondSlideIndex = presentation.Slides.IndexOf(secondSlide);
+    var secondSlideByIndex = presentation.Slides[secondSlideIndex];
 }
 ```
 
-## **Clone a Slide**
+## **Folie klonen**
+
+Dieses Beispiel zeigt, wie man eine vorhandene Folie klont. Die geklonte Folie wird automatisch am Ende der Folienkollektion hinzugefügt.
 
 ```csharp
-static void Clone_Slide()
+static void CloneSlide()
 {
     // Standardmäßig enthält die Präsentation eine leere Folie.
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var firstSlide = presentation.Slides[0];
 
     // Klonen Sie die erste Folie; sie wird am Ende der Präsentation hinzugefügt.
-    var clonedSlide = pres.Slides.AddClone(sourceSlide: pres.Slides[0]);
+    var clonedSlide = presentation.Slides.AddClone(sourceSlide: firstSlide);
 
     // Der Index der geklonten Folie ist 1 (zweite Folie in der Präsentation).
-    var clonedSlideIndex = pres.Slides.IndexOf(clonedSlide);
+    var clonedSlideIndex = presentation.Slides.IndexOf(clonedSlide);
 }
 ```
 
-## **Reorder Slides**
+## **Folien neu anordnen**
+
+Sie können die Reihenfolge der Folien ändern, indem Sie eine Folie an einen neuen Index verschieben. In diesem Fall verschieben wir eine geklonte Folie an die erste Position.
 
 ```csharp
-static void ReOrder_Slide()
+static void ReorderSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
+    var firstSlide = presentation.Slides[0];
 
     // Fügen Sie einen Klon der ersten Folie hinzu (standardmäßig erstellt).
-    var clonedSlide = pres.Slides.AddClone(pres.Slides[0]);
+    var clonedSlide = presentation.Slides.AddClone(firstSlide);
 
-    // Verschieben Sie die geklonte Folie in die erste Position (andere rücken nach unten).
-    pres.Slides.Reorder(index: 0, clonedSlide);
+    // Verschieben Sie die geklonte Folie in die erste Position (andere verschieben sich nach unten).
+    presentation.Slides.Reorder(index: 0, clonedSlide);
 }
 ```
 
-## **Remove a Slide**
+## **Folie entfernen**
+
+Um eine Folie zu entfernen, referenzieren Sie sie einfach und rufen `Remove` auf. Dieses Beispiel fügt eine zweite Folie hinzu und entfernt dann die ursprüngliche, sodass nur die neue übrig bleibt.
 
 ```csharp
-static void Remove_Slide()
+static void RemoveSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
     // Fügen Sie eine neue leere Folie zusätzlich zur standardmäßigen ersten Folie hinzu.
-    var secondSlide = pres.Slides.AddEmptySlide(layout: pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
+    var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    var secondSlide = presentation.Slides.AddEmptySlide(layout: blankLayout);
 
     // Entfernen Sie die erste Folie; nur die neu hinzugefügte Folie bleibt erhalten.
-    var firstSlide = pres.Slides[0];
-    pres.Slides.Remove(firstSlide);
+    var firstSlide = presentation.Slides[0];
+    presentation.Slides.Remove(firstSlide);
 }
 ```

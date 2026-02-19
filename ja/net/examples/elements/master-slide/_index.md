@@ -4,107 +4,105 @@ type: docs
 weight: 30
 url: /ja/net/examples/elements/master-slide/
 keywords:
-- マスタースライドの例
+- マスタースライド
 - マスタースライドの追加
 - マスタースライドへのアクセス
 - マスタースライドの削除
-- 未使用のマスタースライド
+- 未使用マスタースライド
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してマスタースライドを管理します：作成、編集、クローン、テーマ、背景、プレースホルダーの書式設定により、PowerPoint と OpenDocument のスライドを統一します。"
+description: "Aspose.Slides for .NET のマスタースライド例を探求し、PPT、PPTX、ODP でマスター、プレースホルダー、テーマを作成、編集、スタイル設定する方法を明確な C# コードで示します。"
 ---
+マスタースライドは、PowerPoint のスライド継承階層の最上位を構成します。**マスタースライド** は、背景、ロゴ、テキスト書式設定などの共通デザイン要素を定義します。**レイアウトスライド** はマスタースライドから継承し、**標準スライド** はレイアウトスライドから継承します。
 
-マスタースライドは PowerPoint のスライド継承階層の最上位に位置します。**マスタースライド** は背景、ロゴ、テキストの書式設定などの共通デザイン要素を定義します。**レイアウトスライド** はマスタースライドから継承し、**通常スライド** はレイアウトスライドから継承します。
+この記事では、Aspose.Slides for .NET を使用してマスタースライドを作成、変更、および管理する方法を示します。
 
-この記事では、Aspose.Slides for .NET を使用してマスタースライドを作成、変更、管理する方法を示します。
+## **マスタースライドの追加**
 
-## **マスタースライドを追加する**
-
-この例では、デフォルトのマスタースライドをクローンして新しいマスタースライドを作成します。その後、レイアウト継承を通じてすべてのスライドに会社名バナーを追加します。
+この例では、デフォルトのマスタースライドをクローンして新しいマスタースライドを作成する方法を示します。その後、レイアウト継承を通じて全スライドに会社名バナーを追加します。
 
 ```csharp
-static void Add_Master_Slide()
+static void AddMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Clone the default master slide
-    var defaultMasterSlide = pres.Masters[0];
-    var newMaster = pres.Masters.AddClone(defaultMasterSlide);
+    // デフォルトのマスタースライドをクローンします。
+    var defaultMasterSlide = presentation.Masters[0];
+    var newMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
 
-    // Add a banner with company name to the top of the master slide
-    var textBox = newMaster.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
+    // マスタースライドの上部に会社名バナーを追加します。
+    var textBox = newMasterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
     textBox.TextFrame.Text = "Company Name";
     textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
     textBox.FillFormat.FillType = FillType.NoFill;
 
-    // Assign the new master slide to a layout slide
-    var layoutSlide = pres.LayoutSlides[0];
-    layoutSlide.MasterSlide = newMaster;
+    // 新しいマスタースライドをレイアウトスライドに割り当てます。
+    var layoutSlide = presentation.LayoutSlides[0];
+    layoutSlide.MasterSlide = newMasterSlide;
 
-    // Assign the layout slide to the first slide in the presentation
-    pres.Slides[0].LayoutSlide = layoutSlide;
+    // レイアウトスライドをプレゼンテーションの最初のスライドに割り当てます。
+    presentation.Slides[0].LayoutSlide = layoutSlide;
 }
-````
+```
 
-> 💡 **ヒント 1:** マスタースライドは、すべてのスライドに一貫したブランディングや共有デザイン要素を適用する方法を提供します。マスタースライドに加えた変更は、依存するレイアウトスライドや通常スライドに自動的に反映されます。
+> 💡 **注 1:** マスタースライドは、すべてのスライドに一貫したブランディングや共有デザイン要素を適用する手段を提供します。マスターに加えた変更は、依存するレイアウトスライドおよび標準スライドに自動的に反映されます。
 
-> 💡 **ヒント 2:** マスタースライドに追加した図形や書式設定は、レイアウトスライドを通じてそれらのレイアウトを使用するすべての通常スライドに継承されます。  
-> 下の画像は、マスタースライドに追加したテキストボックスが最終スライドに自動的に描画される様子を示しています。
+> 💡 **注 2:** マスタースライドに追加された図形や書式設定は、レイアウトスライドに継承され、さらにそのレイアウトを使用するすべての標準スライドにも継承されます。  
+> 下の画像は、マスタースライドに追加されたテキストボックスが最終スライドに自動的に描画される様子を示しています。
 
-![Master Inheritance Example](master-slide-banner.png)
+![マスタ継承例](master-slide-banner.png)
 
-## **マスタースライドにアクセスする**
+## **マスタースライドへのアクセス**
 
-`Presentation.Masters` コレクションを使用してマスタースライドにアクセスできます。以下はマスタースライドを取得して操作する方法です。
+`Presentation.Masters` コレクションを使用してマスタースライドにアクセスできます。以下は、それらを取得して操作する方法です。
 
 ```csharp
-static void Access_Master_Slide()
+static void AccessMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Access the first master slide
-    var firstMasterSlide = pres.Masters[0];
+    // 最初のマスタースライドにアクセスします。
+    var firstMasterSlide = presentation.Masters[0];
 
-    // Change the background type
+    // 背景のタイプを変更します。
     firstMasterSlide.Background.Type = BackgroundType.OwnBackground;
 }
 ```
 
-## **マスタースライドを削除する**
+## **マスタースライドの削除**
 
-マスタースライドはインデックスまたは参照で削除できます。
+マスタースライドは、インデックスまたは参照で削除できます。
 
 ```csharp
-static void Remove_Master_Slide()
+static void RemoveMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation("sample.pptx");
 
-    // Remove by index
-    pres.Masters.RemoveAt(0);
+    // インデックスでマスタースライドを削除します。
+    presentation.Masters.RemoveAt(0);
 
-    // Or remove by reference
-    var firstMasterSlide = pres.Masters[0];
-    pres.Masters.Remove(firstMasterSlide);
+    // 参照でマスタースライドを削除します。
+    var firstMasterSlide = presentation.Masters[0];
+    presentation.Masters.Remove(firstMasterSlide);
 }
 ```
 
-## **未使用のマスタースライドを削除する**
+## **未使用マスタースライドの削除**
 
-プレゼンテーションによっては使用されていないマスタースライドが含まれることがあります。これらのスライドを削除するとファイルサイズの削減に役立ちます。
+一部のプレゼンテーションには使用されていないマスタースライドが含まれています。これらのスライドを削除すると、ファイルサイズの削減に役立ちます。
 
 ```csharp
-static void RemoveUnused_Master_Slide()
+static void RemoveUnusedMasterSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
 
-    // Remove all unused master slides (even those marked as Preserve)
-    pres.Masters.RemoveUnused(ignorePreserveField: true);
+    // 未使用のマスタースライドをすべて削除します (Preserve とマークされたものも含む)。
+    presentation.Masters.RemoveUnused(ignorePreserveField: true);
 }
 ```
-
-> ⚙️ **ヒント:** `RemoveUnused(true)` を使用して未使用のマスタースライドをクリーンアップし、プレゼンテーションのサイズを最小化します。

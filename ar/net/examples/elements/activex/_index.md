@@ -4,8 +4,7 @@ type: docs
 weight: 200
 url: /ar/net/examples/elements/activex/
 keywords:
-- مثال ActiveX
-- تحكم ActiveX
+- ActiveX
 - إضافة ActiveX
 - الوصول إلى ActiveX
 - إزالة ActiveX
@@ -15,39 +14,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرف على كيفية العثور على عناصر تحكم ActiveX وتعديلها وإزالتها في C# باستخدام Aspose.Slides، بما في ذلك تحديث الخصائص لعروض PowerPoint التقديمية."
+description: "اطلع على أمثلة ActiveX في Aspose.Slides for .NET: إدراج، تكوين، والتحكم في عناصر ActiveX في عروض PPT و PPTX مع شفرة C# واضحة."
 ---
-
-يوضح كيفية إضافة والوصول وإزالة وتكوين عناصر التحكم ActiveX في عرض تقديمي باستخدام **Aspose.Slides for .NET**.
+توضح هذه المقالة كيفية إضافة، الوصول، إزالة وتكوين عناصر تحكم ActiveX في عرض تقديمي باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة عنصر تحكم ActiveX**
-إدراج عنصر تحكم ActiveX جديد وتعيين خصائصه اختياريًا.
-```csharp
-static void Add_ActiveX()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    // إضافة عنصر تحكم ActiveX جديد (TextBox)
+أدرج عنصر تحكم ActiveX جديدًا واختر تعديل خصائصه اختياريًا.
+
+```csharp
+static void AddActiveX()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // إضافة عنصر تحكم ActiveX جديد.
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-    // اختياريًا تعيين بعض الخصائص
+    // تعيين بعض الخصائص اختيارياً.
     control.Properties["Value"] = "Default text";
 
-    pres.Save("add_activex.pptm", SaveFormat.Pptm);
+    presentation.Save("add_activex.pptm", SaveFormat.Pptm);
 }
 ```
 
-
 ## **الوصول إلى عنصر تحكم ActiveX**
-قراءة المعلومات من أول عنصر تحكم ActiveX على الشريحة.
-```csharp
-static void Access_ActiveX()
-{
-    using var pres = new Presentation("add_activex.pptm");
-    var slide = pres.Slides[0];
 
-    // الوصول إلى أول عنصر تحكم ActiveX
+اقرأ المعلومات من أول عنصر تحكم ActiveX على الشريحة.
+
+```csharp
+static void AccessActiveX()
+{
+    using var presentation = new Presentation("add_activex.pptm");
+    var slide = presentation.Slides[0];
+
+    // الوصول إلى أول عنصر تحكم ActiveX.
     var control = slide.Controls.FirstOrDefault();
     if (control != null)
     {
@@ -57,39 +58,41 @@ static void Access_ActiveX()
 }
 ```
 
-
 ## **إزالة عنصر تحكم ActiveX**
-حذف عنصر تحكم ActiveX موجود من الشريحة.
+
+احذف عنصر تحكم ActiveX موجودًا من الشريحة.
+
 ```csharp
-static void Remove_ActiveX()
+static void RemoveActiveX()
 {
-    using var pres = new Presentation("add_activex.pptm");
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("add_activex.pptm");
+    var slide = presentation.Slides[0];
 
     if (slide.Controls.Count > 0)
     {
-        // إزالة أول عنصر تحكم ActiveX
+        // إزالة أول عنصر تحكم ActiveX.
         slide.Controls.RemoveAt(0);
     }
 
-    pres.Save("removed_activex.pptm", SaveFormat.Pptm);
+    presentation.Save("removed_activex.pptm", SaveFormat.Pptm);
 }
 ```
 
-
 ## **تعيين خصائص ActiveX**
-إضافة عنصر تحكم وتكوين عدة خصائص لـ ActiveX.
-```csharp
-static void Set_ActiveX_Properties()
-{
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
 
-    // إضافة زر أمر وتكوين الخصائص
+أضف عنصر تحكم وقم بتكوين عدة خصائص لـ ActiveX.
+
+```csharp
+static void SetActiveXProperties()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // إضافة زر أمر وتكوين الخصائص.
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 150, 50);
     control.Properties["Caption"] = "Click Me";
     control.Properties["Enabled"] = "true";
 
-    pres.Save("set_activex_props.pptm", SaveFormat.Pptm);
+    presentation.Save("set_activex_props.pptm", SaveFormat.Pptm);
 }
 ```

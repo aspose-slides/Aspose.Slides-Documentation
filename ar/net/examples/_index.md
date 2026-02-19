@@ -4,13 +4,14 @@ type: docs
 weight: 40
 url: /ar/net/examples/
 keywords:
-- مثال
+- أمثلة
 - عناصر
-- باوربوينت
-- مستند مفتوح
+- مثال شفرة
+- PowerPoint
+- OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تصفّح أمثلة C# Aspose.Slides لإدارة الشرائح والأشكال والوسائط والرسوم البيانية والنصوص غير ذلك، وتعلّم أنماط عملية لـ PowerPoint و OpenDocument."
+description: "استكشف أمثلة الشيفرة الخاصة بـ Aspose.Slides لـ .NET مع مقتطفات C# لإنشاء وتعديل وتحويل العروض التقديمية بصيغ PPT و PPTX و ODP."
 ---

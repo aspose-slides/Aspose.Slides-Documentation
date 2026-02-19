@@ -1,88 +1,89 @@
 ---
-title: تحريك
+title: الرسوم المتحركة
 type: docs
 weight: 100
 url: /ar/net/examples/elements/animation/
 keywords:
-- مثال على التحريك
-- إضافة تحريك
-- الوصول إلى التحريك
-- إزالة التحريك
-- تسلسل التحريك
+- الرسوم المتحركة
+- إضافة رسوم متحركة
+- الوصول إلى رسوم متحركة
+- إزالة رسوم متحركة
+- تسلسل الرسوم المتحركة
+- مثال على كود
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تحكم في رسوم الشرائح المتحركة في C# باستخدام Aspose.Slides: أضف، حرّر، وأزل التأثيرات، التوقيتات، والمحفّزات لإنشاء عروض تقديمية ديناميكية في PPT و PPTX و ODP."
+description: "استكشف أمثلة الرسوم المتحركة في Aspose.Slides for .NET: إضافة، تسلسل، وتخصيص التأثيرات والانتقالات باستخدام C# لعرض تقديمي PPT، PPTX، وODP."
 ---
-
-يوضح كيفية إنشاء رسوم متحركة بسيطة وإدارة تسلسلها باستخدام **Aspose.Slides for .NET**.
+توضح هذه المقالة كيفية إنشاء رسوم متحركة بسيطة وإدارة تسلسلها باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة حركة**
+أنشئ شكلاً مستطيلاً وطبق تأثير تلاشي يتم تشغيله عند النقر.
 
-إنشاء شكل مستطيل وتطبيق تأثير تلاشي عند النقر.
 ```csharp
-static void Add_Animation()
+static void AddAnimation()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
 
-    // تأثير الظهور التدريجي
-    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    // تأثير التلاشي.
+    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 }
 ```
 
-
 ## **الوصول إلى حركة**
+استرجع أول تأثير حركة من جدول زمني الشريحة.
 
-استرداد أول تأثير حركة من جدول زمني الشريحة.
 ```csharp
-static void Access_Animation()
+static void AccessAnimation()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // الوصول إلى أول تأثير حركة
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
+    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+    // الوصول إلى أول تأثير حركة.
     var effect = slide.Timeline.MainSequence[0];
 }
 ```
 
-
 ## **إزالة حركة**
+قم بإزالة تأثير الحركة من التسلسل.
 
-إزالة تأثير حركة من التسلسل.
 ```csharp
-static void Remove_Animation()
+static void RemoveAnimation()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-    var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // إزالة التأثير
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
+    var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+    // إزالة التأثير.
     slide.Timeline.MainSequence.Remove(effect);
 }
 ```
 
-
 ## **تسلسل الحركات**
+أضف تأثيرات متعددة وبيّن الترتيب الذي تحدث به الرسوم المتحركة.
 
-إضافة تأثيرات متعددة وإظهار الترتيب الذي تحدث فيه الحركات.
 ```csharp
-static void Sequence_Animations()
+static void SequenceAnimations()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
     var shape2 = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 200, 50, 100, 100);
 
-    var seq = slide.Timeline.MainSequence;
-    seq.AddEffect(shape1, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
-    seq.AddEffect(shape2, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    var sequence = slide.Timeline.MainSequence;
+    sequence.AddEffect(shape1, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    sequence.AddEffect(shape2, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
 }
 ```

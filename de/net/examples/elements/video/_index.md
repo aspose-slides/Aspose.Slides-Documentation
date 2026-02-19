@@ -4,81 +4,85 @@ type: docs
 weight: 80
 url: /de/net/examples/elements/video/
 keywords:
-- Video-Beispiel
+- Video
 - Video-Frame
 - Video hinzufügen
 - Video abrufen
 - Video entfernen
 - Video-Wiedergabe
+- Codebeispiel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Arbeiten mit Video in C# mit Aspose.Slides: Einfügen, Ersetzen, Trimmen, Festlegen von Poster-Frames und Wiedergabeoptionen sowie Exportieren von Präsentationen für PPT, PPTX und ODP."
+description: "Videos mit Aspose.Slides für .NET hinzufügen und steuern: Einfügen, Abspielen, Zuschneiden, Poster-Frames festlegen und Exportieren mit C#‑Beispielen für PPT-, PPTX‑ und ODP‑Präsentationen."
 ---
+Dieser Artikel zeigt, wie man Video-Frames einbettet und Wiedergabeoptionen mit **Aspose.Slides for .NET** festlegt.
 
-Zeigt, wie man Video‑Frames einbettet und Wiedergabeoptionen mit **Aspose.Slides for .NET** festlegt.
+## **Video-Frame hinzufügen**
 
-## **Video‑Frame hinzufügen**
+Ein leeres Video-Frame auf einer Folie einfügen.
 
-Fügen Sie einen leeren Video‑Frame zu einer Folie hinzu.
 ```csharp
-static void Add_Video()
+static void AddVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Füge einen leeren eingebetteten Video-Frame hinzu
+    // Ein Video hinzufügen.
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 }
 ```
 
+## **Auf einen Video-Frame zugreifen**
 
-## **Video‑Frame abrufen**
+Den ersten zu einer Folie hinzugefügten Video-Frame abrufen.
 
-Rufen Sie den ersten zu einer Folie hinzugefügten Video‑Frame ab.
 ```csharp
-static void Access_Video()
+static void AccessVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Zugriff auf den ersten Video-Frame auf der Folie
+    // Zugriff auf den ersten Video-Frame auf der Folie.
     var firstVideo = slide.Shapes.OfType<IVideoFrame>().First();
 }
 ```
 
+## **Video-Frame entfernen**
 
-## **Video‑Frame entfernen**
+Einen Video-Frame von der Folie löschen.
 
-Löschen Sie einen Video‑Frame von der Folie.
 ```csharp
-static void Remove_Video()
+static void RemoveVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Entferne den Video-Frame
+    // Video-Frame entfernen.
     slide.Shapes.Remove(videoFrame);
 }
 ```
 
-
-## **Video‑Wiedergabe festlegen**
+## **Video‑Wiedergabe einstellen**
 
 Konfigurieren Sie das Video so, dass es automatisch abgespielt wird, wenn die Folie angezeigt wird.
+
 ```csharp
-static void Set_Video_Playback()
+static void SetVideoPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Video so konfigurieren, dass es automatisch abgespielt wird
+    // Video so konfigurieren, dass es automatisch abgespielt wird.
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

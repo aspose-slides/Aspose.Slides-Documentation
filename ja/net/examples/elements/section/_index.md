@@ -4,78 +4,86 @@ type: docs
 weight: 90
 url: /ja/net/examples/elements/section/
 keywords:
-- セクション例
+- セクション
 - スライド セクション
 - セクションの追加
 - セクションへのアクセス
 - セクションの削除
 - セクションの名前変更
-- パワーポイント
-- オープンドキュメント
+- コード例
+- PowerPoint
+- OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してスライド セクションを管理します。セクションの作成、名前変更、簡単な並び替え、セクション間のスライド移動、PPT、PPTX、ODP の表示制御が可能です。"
+description: "Aspose.Slides for .NET でスライド セクションを管理します。C# の例を使用して、PPT、PPTX、ODP 用にスライドを作成、名前変更、並べ替え、グループ化します。"
 ---
-
-**Aspose.Slides for .NET** を使用して、プレゼンテーションのセクションをプログラムで管理する例です。セクションの追加、アクセス、削除、名前変更が可能です。
+**Aspose.Slides for .NET** を使用して、プレゼンテーション セクションをプログラムで管理する例—追加、アクセス、削除、名前の変更。
 
 ## **セクションの追加**
 
 特定のスライドから開始するセクションを作成します。
-```csharp
-static void Add_Section()
-{
-    using var pres = new Presentation();
 
-    // セクションの開始を示すスライドを指定します
-    pres.Sections.AddSection("New Section", pres.Slides[0]);
+```csharp
+static void AddSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    // セクションの開始を示すスライドを指定します。
+    presentation.Sections.AddSection("New Section", slide);
 }
 ```
-
 
 ## **セクションへのアクセス**
 
 プレゼンテーションからセクション情報を読み取ります。
-```csharp
-static void Access_Section()
-{
-    using var pres = new Presentation();
-    pres.Sections.AddSection("My Section", pres.Slides[0]);
 
-    // インデックスでセクションにアクセス
-    var section = pres.Sections[0];
+```csharp
+static void AccessSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    presentation.Sections.AddSection("My Section", slide);
+
+    // インデックスでセクションにアクセスします。
+    var section = presentation.Sections[0];
     var sectionName = section.Name;
 }
 ```
 
-
 ## **セクションの削除**
 
 以前に追加したセクションを削除します。
-```csharp
-static void Remove_Section()
-{
-    using var pres = new Presentation();
-    var section = pres.Sections.AddSection("Temporary Section", pres.Slides[0]);
 
-    // 最初のセクションを削除
-    pres.Sections.RemoveSection(section);
+```csharp
+static void RemoveSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var section = presentation.Sections.AddSection("Temporary Section", slide);
+
+    // 最初のセクションを削除します。
+    presentation.Sections.RemoveSection(section);
 }
 ```
-
 
 ## **セクションの名前変更**
 
 既存のセクションの名前を変更します。
-```csharp
-static void Rename_Section()
-{
-    using var pres = new Presentation();
-    pres.Sections.AddSection("Old Name", pres.Slides[0]);
 
-    var section = pres.Sections[0];
+```csharp
+static void RenameSection()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    presentation.Sections.AddSection("Old Name", slide);
+
+    var section = presentation.Sections[0];
     section.Name = "New Name";
 }
 ```

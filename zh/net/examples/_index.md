@@ -6,11 +6,12 @@ url: /zh/net/examples/
 keywords:
 - 示例
 - 元素
+- 代码示例
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "浏览 C# Aspose.Slides 示例，管理幻灯片、形状、媒体、图表、文本等，并学习 PowerPoint 和 OpenDocument 实用模式。"
+description: "探索 Aspose.Slides for .NET 示例代码，使用 C# 代码片段创建、编辑和转换 PPT、PPTX 和 ODP 格式的演示文稿。"
 ---

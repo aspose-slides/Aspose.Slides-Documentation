@@ -4,83 +4,99 @@ type: docs
 weight: 130
 url: /ja/net/examples/elements/hyperlink/
 keywords:
-- ハイパーリンク例
-- ハイパーリンクの追加
-- ハイパーリンクへのアクセス
-- ハイパーリンクの削除
-- ハイパーリンクの更新
+- ハイパーリンク
+- ハイパーリンクを追加
+- ハイパーリンクにアクセス
+- ハイパーリンクを削除
+- ハイパーリンクを更新
+- コード例
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してハイパーリンクを追加、編集、削除します。テキスト、シェイプ、スライド、URL、メールアドレスにリンクし、PPT、PPTX、ODP の対象とアクションを設定できます。"
+description: "Aspose.Slides for .NET でハイパーリンクを追加および管理します。テキスト、シェイプ、画像にリンクし、PPT、PPTX、ODP 用にターゲットとアクションを設定し、C# の例を示します。"
 ---
-
-**Aspose.Slides for .NET** を使用して、シェイプ上のハイパーリンクの追加、アクセス、削除、更新を示します。
+この記事では、**Aspose.Slides for .NET** を使用して、シェイプ上のハイパーリンクの追加、取得、削除、および更新を示します。
 
 ## **ハイパーリンクの追加**
-外部ウェブサイトを指すハイパーリンクを持つ四角形シェイプを作成します。
+
+外部ウェブサイトへリンクするハイパーリンクを持つ四角形シェイプを作成します。
+
 ```csharp
-static void Add_Hyperlink()
+static void AddHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 }
 ```
 
-
 ## **ハイパーリンクへのアクセス**
+
 シェイプのテキスト部分からハイパーリンク情報を読み取ります。
+
 ```csharp
-static void Access_Hyperlink()
+static void AccessHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 
     var hyperlink = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick;
 }
 ```
 
-
 ## **ハイパーリンクの削除**
+
 シェイプのテキストからハイパーリンクをクリアします。
+
 ```csharp
-static void Remove_Hyperlink()
+static void RemoveHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = null;
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+
+    textPortion.PortionFormat.HyperlinkClick = null;
 }
 ```
 
-
 ## **ハイパーリンクの更新**
-既存のハイパーリンクのターゲットを変更します。`HyperlinkManager` を使用して、既にハイパーリンクが含まれているテキストを変更し、PowerPoint がハイパーリンクを安全に更新する方法を模倣します。
+
+既存のハイパーリンクの対象を書き換えます。`HyperlinkManager` を使用して、すでにハイパーリンクが含まれているテキストを変更し、PowerPoint がハイパーリンクを安全に更新する方法を模倣します。
+
 ```csharp
-static void Update_Hyperlink()
+static void UpdateHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-    portion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
+
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
     // 既存のテキスト内のハイパーリンクを変更する場合は、
-    // HyperlinkManager を使用し、プロパティを直接設定しないでください。
+    // プロパティを直接設定するのではなく、HyperlinkManager を使用すべきです。
     // これは、PowerPoint がハイパーリンクを安全に更新する方法を模倣しています。
-    portion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
+    textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 }
 ```
