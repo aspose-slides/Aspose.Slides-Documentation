@@ -143,6 +143,27 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"example.pptx", Export::SaveFormat::Pptx);
 ```
 
+### **Map `SchemeColor` to `IColorScheme` Colors**
+
+When you work with [SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/schemecolor/), you may notice that it contains the following theme color values:
+
+`Background1`, `Background2`, `Text1`, and `Text2`.
+
+However, `Presentation::get_MasterTheme()::get_ColorScheme()` returns [IColorScheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/icolorscheme/), which exposes the corresponding colors as:
+
+`Dark1`, `Dark2`, `Light1`, and `Light2`.
+
+This difference is only in naming. These values refer to the same theme color slots and the mapping is fixed:
+
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+There is no dynamic conversion between `Text`/`Background` and `Dark`/`Light`. They are simply alternate names for the same theme colors.
+
+This naming difference comes from Microsoft Office terminology. Older Office versions used `Dark 1`, `Light 1`, `Dark 2`, and `Light 2`, while newer UI versions display the same slots as `Text 1`, `Background 1`, `Text 2`, and `Background 2`.
+
 ## **Change Theme Font**
 
 To allow you select fonts for themes and other purposes, Aspose.Slides uses these special identifiers (similar to those used in PowerPoint):
