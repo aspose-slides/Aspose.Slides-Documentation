@@ -137,6 +137,27 @@ with slides.Presentation() as presentation:
     presentation.save("example.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Map `SchemeColor` to `ColorScheme` Colors**
+
+When you work with [SchemeColor](https://reference.aspose.com/slides/python-net/aspose.slides/schemecolor/), you may notice that it contains the following theme color values:
+
+`BACKGROUND1`, `BACKGROUND2`, `TEXT1`, and `TEXT2`.
+
+However, `Presentation.master_theme.color_scheme` returns [ColorScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/colorscheme/), which exposes the corresponding colors as:
+
+`dark1`, `dark2`, `light1`, and `light2`.
+
+This difference is only in naming. These values refer to the same theme color slots and the mapping is fixed:
+
+* `TEXT1` = `dark1`
+* `BACKGROUND1` = `light1`
+* `TEXT2` = `dark2`
+* `BACKGROUND2` = `light2`
+
+There is no dynamic conversion between `TEXT`/`BACKGROUND` and `dark`/`light`. They are simply alternate names for the same theme colors.
+
+This naming difference comes from Microsoft Office terminology. Older Office versions used `Dark 1`, `Light 1`, `Dark 2`, and `Light 2`, while newer UI versions display the same slots as `Text 1`, `Background 1`, `Text 2`, and `Background 2`.
+
 ## **Change the Theme Font**
 
 To allow you to select fonts for themes and other purposes, Aspose.Slides uses these special identifiers (similar to those in PowerPoint):
