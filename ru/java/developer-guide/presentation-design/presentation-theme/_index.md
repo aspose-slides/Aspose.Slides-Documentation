@@ -18,23 +18,23 @@ keywords:
 - Эффект темы
 - PowerPoint
 - OpenDocument
-- Презентация
+- презентация
 - Java
 - Aspose.Slides
-description: "Управляйте темами презентаций в Aspose.Slides для Java, чтобы создавать, настраивать и конвертировать файлы PowerPoint с единым брендингом."
+description: "Создавайте, настраивайте и конвертируйте файлы PowerPoint с единым фирменным стилем, используя мастер-тему презентаций в Aspose.Slides для Java."
 ---
+Тема презентации определяет свойства элементов дизайна. Выбирая тему презентации, вы фактически выбираете конкретный набор визуальных элементов и их свойства.
 
-Тема презентации определяет свойства элементов дизайна. При выборе темы презентации вы фактически выбираете конкретный набор визуальных элементов и их свойства.
-
-В PowerPoint тема состоит из цветов, [шрифты](/slides/ru/java/powerpoint-fonts/), [стили фона](/slides/ru/java/presentation-background/) и эффектов.
+В PowerPoint тема состоит из цветов, [шрифты](/slides/ru/java/powerpoint-fonts/), [стили фона](/slides/ru/java/presentation-background/), и эффектов.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Change Theme Color**
+## **Изменить цвет темы**
 
-Тема PowerPoint использует определённый набор цветов для различных элементов слайда. Если вам не нравятся эти цвета, вы можете изменить их, задав новые цвета для темы. Чтобы выбрать новый цвет темы, Aspose.Slides предоставляет значения из перечисления [SchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/SchemeColor).
+Тема PowerPoint использует определённый набор цветов для различных элементов слайда. Если вам не нравятся цвета, вы меняете их, применяя новые цвета к теме. Чтобы позволить вам выбрать новый цвет темы, Aspose.Slides предоставляет значения в перечислении [SchemeColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/SchemeColor).
 
-Этот Java‑код показывает, как изменить акцентный цвет темы:
+Этот Java‑код показывает, как изменить цвет акцента для темы:
+
 ```java
 Presentation pres = new Presentation();
 try {
@@ -48,8 +48,8 @@ try {
 }
 ```
 
+Таким образом вы можете определить фактическое значение полученного цвета:
 
-Вы можете определить эффективное значение получившегося цвета следующим способом:
 ```java
 IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
 
@@ -59,8 +59,8 @@ System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
         effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
 ```
 
+Чтобы дополнительно продемонстрировать операцию изменения цвета, мы создаём другой элемент и назначаем ему цвет акцента (из первоначальной операции). Затем меняем цвет в теме:
 
-Чтобы дополнительно продемонстрировать операцию изменения цвета, мы создаём другой элемент и присваиваем ему акцентный цвет (из первоначальной операции). Затем меняем цвет в теме:
 ```java
 IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
@@ -71,20 +71,19 @@ otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent
 pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
 ```
 
+Новый цвет автоматически применяется к обоим элементам.
 
-Новый цвет применяется автоматически к обоим элементам.
+### **Установить цвет темы из дополнительной палитры**
 
-### **Set Theme Color from an Additional Palette**
-
-При применении преобразований яркости к основному цвету темы(1) формируются цвета из дополнительной палитры(2). Затем их можно установить и получить.
+При применении трансформаций яркости к основному цвету темы(1) формируются цвета из дополнительной палитры(2). Затем вы можете задавать и получать эти цвета темы.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Основные цвета темы
-
+**1** - Основные цвета темы  
 **2** - Цвета из дополнительной палитры.
 
-Этот Java‑код демонстрирует операцию, при которой цвета дополнительной палитры получаются из основного цвета темы и затем используются в фигурах:
+Этот Java‑код демонстрирует операцию, при которой цвета дополнительной палитры получаются из основного цвета темы и затем используются в формах:
+
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -140,17 +139,34 @@ try {
 }
 ```
 
+### **Отображение `SchemeColor` на цвета `IColorScheme`**
 
-## **Change Theme Font**
+Работая с [SchemeColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/schemecolor/), вы можете заметить, что он содержит следующие значения цветов темы: `Background1`, `Background2`, `Text1` и `Text2`.
 
-Чтобы выбрать шрифты для тем и других целей, Aspose.Slides использует специальные идентификаторы (аналогичные тем, что использует PowerPoint):
+Однако `Presentation.getMasterTheme().getColorScheme()` возвращает [IColorScheme](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icolorscheme/), который предоставляет соответствующие цвета как: `Dark1`, `Dark2`, `Light1` и `Light2`.
+
+Это различие только в названии. Эти значения относятся к тем же слотам цветов темы, и сопоставление фиксировано:
+
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+Динамического преобразования между `Text`/`Background` и `Dark`/`Light` нет. Это просто альтернативные названия одних и тех же цветов темы.
+
+Это различие в названиях происходит из терминологии Microsoft Office. В более старых версиях Office использовались `Dark 1`, `Light 1`, `Dark 2` и `Light 2`, тогда как в новых версиях UI те же слоты отображаются как `Text 1`, `Background 1`, `Text 2` и `Background 2`.
+
+## **Изменить шрифт темы**
+
+Чтобы позволить вам выбирать шрифты для тем и других целей, Aspose.Slides использует следующие специальные идентификаторы (аналогичные тем, что используются в PowerPoint):
 
 * **+mn-lt** – Основной шрифт латиницы (Minor Latin Font)
 * **+mj-lt** – Шрифт заголовка латиницы (Major Latin Font)
-* **+mn-ea** – Основной шрифт восточно‑азиатских языков (Minor East Asian Font)
-* **+mj-ea** – Шрифт заголовка восточно‑азиатских языков (Major East Asian Font)
+* **+mn-ea** – Основной шрифт восточноазиатский (Minor East Asian Font)
+* **+mj-ea** – Шрифт заголовка восточноазиатский (Major East Asian Font)
 
-Этот Java‑код показывает, как присвоить латинский шрифт элементу темы:
+Этот Java‑код показывает, как назначить латинский шрифт элементу темы:
+
 ```java
 IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
@@ -165,26 +181,26 @@ shape.getTextFrame().getParagraphs().add(paragraph);
 portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
 ```
 
-
 Этот Java‑код показывает, как изменить шрифт темы презентации:
+
 ```java
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
 ```
 
-
-Шрифт во всех текстовых полях будет обновлён.
+Шрифт во всех текстовых полях будет обновлен.
 
 {{% alert color="primary" title="TIP" %}} 
-Возможно, вам будет интересно посмотреть [PowerPoint шрифты](/slides/ru/java/powerpoint-fonts/). 
+Возможно, вы захотите посмотреть [шрифты PowerPoint](/slides/ru/java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Change Theme Background Style**
+## **Изменить стиль фона темы**
 
-По умолчанию приложение PowerPoint предоставляет 12 предустановленных фоновых стилей, но только 3 из этих 12 обычно сохраняются в типичной презентации. 
+По умолчанию приложение PowerPoint предоставляет 12 предопределённых фонов, но в типичной презентации сохраняются только 3 из этих 12 фонов.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Например, после сохранения презентации в приложении PowerPoint вы можете выполнить следующий Java‑код, чтобы узнать количество предустановленных фонов в презентации:
+Например, после сохранения презентации в приложении PowerPoint вы можете выполнить следующий Java‑код, чтобы узнать количество предопределённых фонов в презентации:
+
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -196,32 +212,32 @@ try {
 }
 ```
 
-
 {{% alert color="warning" %}} 
-С помощью свойства [BackgroundFillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) из класса [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) можно добавить или получить доступ к стилю фона в теме PowerPoint. 
+Используя свойство [BackgroundFillStyles](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) класса [FormatScheme](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FormatScheme), вы можете добавить или получить доступ к стилю фона в теме PowerPoint. 
 {{% /alert %}} 
 
 Этот Java‑код показывает, как задать фон для презентации:
+
 ```java
 pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 ```
 
-
-**Справочник индексов**: 0 используется для «без заполнения». Индексация начинается с 1.
+**Справочник индексов**: 0 используется для отсутствия заливки. Индекс начинается с 1.
 
 {{% alert color="primary" title="TIP" %}} 
-Возможно, вам будет интересно посмотреть [PowerPoint фон](/slides/ru/java/presentation-background/). 
+Возможно, вы захотите посмотреть [фон PowerPoint](/slides/ru/java/presentation-background/).
 {{% /alert %}}
 
-## **Change Theme Effect**
+## **Изменить эффект темы**
 
-Тема PowerPoint обычно содержит 3 значения для каждого массива стилей. Эти массивы объединяются в 3 эффекта: «технический», «умеренный» и «интенсивный». Например, так выглядит результат применения эффектов к конкретной фигуре:
+Тема PowerPoint обычно содержит 3 значения для каждого массива стилей. Эти массивы объединяются в 3 эффекта: тонкий, умеренный и интенсивный. Например, это результат применения эффектов к конкретной фигуре:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Используя 3 свойства ([FillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getEffectStyles--)) из класса [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) можно изменять элементы темы (даже гибче, чем параметры в PowerPoint).
+Используя 3 свойства ([FillStyles](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FormatScheme#getEffectStyles--)) класса [FormatScheme](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FormatScheme) вы можете изменить элементы темы (даже гибче, чем параметры в PowerPoint).
 
 Этот Java‑код показывает, как изменить эффект темы, изменяя части элементов:
+
 ```java
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
@@ -239,21 +255,17 @@ try {
 }
 ```
 
-
-Полученные изменения в цвете заполнения, типе заливки, теневом эффекте и т.д.:
+Полученные изменения в цвете заливки, типе заливки, эффекте тени и т.д.:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Можно ли применить тему только к одному слайду, не меняя мастер?**
+**Могу ли я применить тему к отдельному слайду без изменения мастера?**  
+Да. Aspose.Slides поддерживает переопределения темы на уровне слайда, поэтому вы можете применить локальную тему только к этому слайду, сохранив при этом неизменной тему мастера (через [SlideThemeManager](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slidethememanager/)).
 
-Да. Aspose.Slides поддерживает переопределения темы на уровне слайда, поэтому вы можете применить локальную тему лишь к этому слайду, оставив мастер‑тему неизменной (через [SlideThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/slidethememanager/)).
+**Какой самый безопасный способ перенести тему из одной презентации в другую?**  
+[Клонировать слайды](/slides/ru/java/clone-slides/) вместе с их мастером в целевую презентацию. Это сохраняет оригинальный мастер, макеты и связанную тему, так что внешний вид остаётся согласованным.
 
-**Как безопаснее всего перенести тему из одной презентации в другую?**
-
-[Клонировать слайды](/slides/ru/java/clone-slides/) вместе с их мастером в целевую презентацию. Это сохраняет оригинальный мастер, макеты и связанную тему, поэтому внешний вид остаётся согласованным.
-
-**Как увидеть «эффективные» значения после всех наследований и переопределений?**
-
-Используйте «эффективные» представления API [/slides/java/shape-effective-properties/] для темы/цвета/шрифта/эффекта. Они возвращают окончательные, разрешённые свойства после применения мастера и всех локальных переопределений.
+**Как я могу увидеть «фактические» значения после всей наследования и переопределений?**  
+Используйте «эффективные» представления API [/slides/ru/java/shape-effective-properties/](/slides/ru/java/shape-effective-properties/) для темы/цвета/шрифта/эффекта. Они возвращают вычисленные конечные свойства после применения мастера и всех локальных переопределений.

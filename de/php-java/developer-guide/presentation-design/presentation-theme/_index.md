@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentationsthemen in PHP
+title: Präsentationsthemen in PHP verwalten
 linktitle: Präsentationsthema
 type: docs
 weight: 10
@@ -13,7 +13,7 @@ keywords:
 - Thema verwalten
 - Themenfarbe
 - zusätzliche Palette
-- Themen-Schriftart
+- Themenschriftart
 - Themenstil
 - Themen-Effekt
 - PowerPoint
@@ -21,20 +21,19 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Verwalten Sie Master-Präsentationsthemen in Aspose.Slides für PHP via Java, um PowerPoint-Dateien mit einheitlichem Branding zu erstellen, anzupassen und zu konvertieren."
+description: "Verwalten Sie Präsentationsthemen in Aspose.Slides für PHP über Java, um PowerPoint-Dateien mit konsequenter Markenidentität zu erstellen, anzupassen und zu konvertieren."
 ---
-
 Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz visueller Elemente und deren Eigenschaften.
 
-In PowerPoint besteht ein Thema aus Farben, [Schriften](/slides/de/php-java/powerpoint-fonts/), [Hintergrundstilen](/slides/de/php-java/presentation-background/) und Effekten.
+In PowerPoint besteht ein Thema aus Farben, [Schriftarten](/slides/de/php-java/powerpoint-fonts/), [Hintergrundstilen](/slides/de/php-java/presentation-background/) und Effekten.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Theme-Farbe ändern**
+## **Themafarbe ändern**
 
-Ein PowerPoint-Thema verwendet einen bestimmten Satz von Farben für verschiedene Elemente auf einer Folie. Wenn Ihnen die Farben nicht gefallen, können Sie sie ändern, indem Sie neue Farben für das Thema anwenden. Um Ihnen die Auswahl einer neuen Theme-Farbe zu ermöglichen, stellt Aspose.Slides Werte aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor) bereit.
+Ein PowerPoint-Thema verwendet einen bestimmten Satz von Farben für verschiedene Elemente einer Folie. Wenn Ihnen die Farben nicht gefallen, ändern Sie sie, indem Sie neue Farben für das Thema anwenden. Um Ihnen die Auswahl einer neuen Themafarbe zu ermöglichen, stellt Aspose.Slides Werte aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/SchemeColor) bereit.
 
-Dieser PHP-Code zeigt, wie Sie die Akzentfarbe für ein Thema ändern:
+Dieser PHP-Code zeigt Ihnen, wie Sie die Akzentfarbe für ein Thema ändern:
 ```php
   $pres = new Presentation();
   try {
@@ -48,7 +47,6 @@ Dieser PHP-Code zeigt, wie Sie die Akzentfarbe für ein Thema ändern:
   }
 ```
 
-
 So können Sie den effektiven Wert der resultierenden Farbe bestimmen:
 ```php
   $fillEffective = $shape->getFillFormat()->getEffective();
@@ -57,8 +55,7 @@ So können Sie den effektiven Wert der resultierenden Farbe bestimmen:
 
 ```
 
-
-Um den Farbwechsel weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ersten Operation) zu. Anschließend ändern wir die Farbe im Thema:
+Um die Farbänderungsoperation weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ersten Operation) zu. Danach ändern wir die Farbe im Thema:
 ```php
   $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
   $otherShape->getFillFormat()->setFillType(FillType::Solid);
@@ -66,19 +63,19 @@ Um den Farbwechsel weiter zu demonstrieren, erstellen wir ein weiteres Element u
   $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
 ```
 
-
 Die neue Farbe wird automatisch auf beide Elemente angewendet.
 
-### **Theme-Farbe aus einer zusätzlichen Palette festlegen**
+### **Themafarbe aus einer zusätzlichen Palette festlegen**
 
-Wenn Sie Luminanz‑Transformationen auf die Haupt‑Theme‑Farbe (1) anwenden, entstehen Farben aus der zusätzlichen Palette (2). Diese Theme‑Farben können Sie dann setzen und abrufen.
+Wenn Sie Luminanz-Transformationen auf die Hauptthemafarbe (1) anwenden, entstehen Farben aus der zusätzlichen Palette (2). Sie können diese Themafarben dann festlegen und abrufen.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** – Haupt‑Theme‑Farben  
-**2** – Farben aus der zusätzlichen Palette.
+**1** - Hauptthemafarben
 
-Dieser PHP-Code demonstriert einen Vorgang, bei dem Farben der zusätzlichen Palette aus der Haupt‑Theme‑Farbe gewonnen und anschließend in Formen verwendet werden:
+**2** - Farben aus der zusätzlichen Palette.
+
+Dieser PHP-Code demonstriert einen Vorgang, bei dem Farben aus der zusätzlichen Palette aus der Hauptthemafarbe gewonnen und anschließend in Formen verwendet werden:
 ```php
   $presentation = new Presentation();
   try {
@@ -123,17 +120,35 @@ Dieser PHP-Code demonstriert einen Vorgang, bei dem Farben der zusätzlichen Pal
   }
 ```
 
+### **`SchemeColor` zu `ColorScheme`-Farben zuordnen**
 
-## **Theme‑Schriftart ändern**
+Wenn Sie mit [SchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/schemecolor/) arbeiten, werden Sie feststellen, dass es die folgenden Themenfarbwerte enthält:
+`Background1`, `Background2`, `Text1` und `Text2`.
 
-Um Ihnen die Auswahl von Schriften für Themen und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Kennungen (ähnlich denen, die in PowerPoint verwendet werden):
+Allerdings liefert `Presentation::getMasterTheme()::getColorScheme()` [ColorScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/colorscheme/), das die entsprechenden Farben wie folgt bereitstellt:
+`Dark1`, `Dark2`, `Light1` und `Light2`.
 
-* **+mn-lt** – Fließtextschrift Latein (Minor Latin Font)  
-* **+mj-lt** – Überschriftenschrift Latein (Major Latin Font)  
-* **+mn-ea** – Fließtextschrift Ostasiatisch (Minor East Asian Font)  
-* **+mj-ea** – Fließtextschrift Ostasiatisch (Major East Asian Font)
+Dieser Unterschied besteht nur in der Benennung. Diese Werte beziehen sich auf dieselben Themenfarbplätze und die Zuordnung ist festgelegt:
 
-Dieser PHP-Code zeigt, wie Sie die lateinische Schrift einer Theme‑Komponente zuweisen:
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+Es gibt keine dynamische Umwandlung zwischen `Text`/`Background` und `Dark`/`Light`. Sie sind lediglich alternative Namen für dieselben Themenfarben.
+
+Dieser Namensunterschied stammt aus der Terminologie von Microsoft Office. Ältere Office-Versionen verwendeten `Dark 1`, `Light 1`, `Dark 2` und `Light 2`, während neuere UI-Versionen dieselben Plätze als `Text 1`, `Background 1`, `Text 2` und `Background 2` anzeigen.
+
+## **Thema-Schriftart ändern**
+
+Um Ihnen die Auswahl von Schriftarten für Themen und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich denen, die in PowerPoint verwendet werden):
+
+* **+mn-lt** - Körper-Schriftart Latein (Minor Latin Font)
+* **+mj-lt** - Überschrift-Schriftart Latein (Major Latin Font)
+* **+mn-ea** - Körper-Schriftart Ostasiatisch (Minor East Asian Font)
+* **+mj-ea** - Körper-Schriftart Ostasiatisch (Major East Asian Font)
+
+Dieser PHP-Code zeigt Ihnen, wie Sie die lateinische Schriftart einem Thema-Element zuweisen:
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
   $paragraph = new Paragraph();
@@ -141,28 +156,28 @@ Dieser PHP-Code zeigt, wie Sie die lateinische Schrift einer Theme‑Komponente 
   $paragraph->getPortions()->add($portion);
   $shape->getTextFrame()->getParagraphs()->add($paragraph);
   $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
+
 ```
 
-
-Dieser PHP-Code zeigt, wie Sie die Theme‑Schriftart der Präsentation ändern:
+Dieser PHP-Code zeigt Ihnen, wie Sie die Schriftart des Präsentationsthemas ändern:
 ```php
   $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+
 ```
 
-
-Die Schrift in allen Textfeldern wird aktualisiert.
+Die Schriftart in allen Textfeldern wird aktualisiert.
 
 {{% alert color="primary" title="TIP" %}} 
-Vielleicht möchten Sie sich die [PowerPoint-Schriften](/slides/de/php-java/powerpoint-fonts/) ansehen. 
+Vielleicht möchten Sie sich [PowerPoint-Schriftarten](/slides/de/php-java/powerpoint-fonts/) ansehen.
 {{% /alert %}}
 
-## **Theme‑Hintergrundstil ändern**
+## **Thema-Hintergrundstil ändern**
 
-Standardmäßig stellt die PowerPoint‑App 12 vordefinierte Hintergründe bereit, von denen in einer typischen Präsentation nur 3 gespeichert werden. 
+Standardmäßig stellt die PowerPoint-App 12 vordefinierte Hintergründe bereit, aber in einer typischen Präsentation werden nur 3 dieser 12 Hintergründe gespeichert.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Zum Beispiel können Sie nach dem Speichern einer Präsentation in der PowerPoint‑App diesen PHP-Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation zu ermitteln:
+Beispielsweise können Sie nach dem Speichern einer Präsentation in der PowerPoint-App diesen PHP-Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation zu ermitteln:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -175,32 +190,29 @@ Zum Beispiel können Sie nach dem Speichern einer Präsentation in der PowerPoin
   }
 ```
 
-
 {{% alert color="warning" %}} 
-Mit der Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) der Klasse [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) können Sie den Hintergrundstil in einem PowerPoint‑Theme hinzufügen oder darauf zugreifen. 
+Mit der Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) der Klasse [FormatScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/FormatScheme) können Sie den Hintergrundstil in einem PowerPoint-Thema hinzufügen oder darauf zugreifen.
 {{% /alert %}} 
 
-Dieser PHP-Code zeigt, wie Sie den Hintergrund für eine Präsentation festlegen:
+Dieser PHP-Code zeigt Ihnen, wie Sie den Hintergrund für eine Präsentation festlegen:
 ```php
   $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
 ```
 
-
-**Index‑Hinweis**: 0 wird für keine Füllung verwendet. Der Index beginnt bei 1.
+**Index-Anleitung**: 0 wird für keine Füllung verwendet. Der Index beginnt bei 1.
 
 {{% alert color="primary" title="TIP" %}} 
-Vielleicht möchten Sie sich den [PowerPoint-Hintergrund](/slides/de/php-java/presentation-background/) ansehen. 
+Vielleicht möchten Sie sich [PowerPoint-Hintergrund](/slides/de/php-java/presentation-background/) ansehen.
 {{% /alert %}}
 
-## **Theme‑Effekt ändern**
+## **Thema-Effekt ändern**
 
-Ein PowerPoint‑Theme enthält normalerweise 3 Werte für jedes Stil‑Array. Diese Arrays werden zu den 3 Effekten subtil, moderat und intensiv kombiniert. Beispielhaft ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
-
+Ein PowerPoint-Thema enthält typischerweise 3 Werte für jedes Stil-Array. Diese Arrays werden zu den 3 Effekten subtil, moderat und intensiv kombiniert. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
 ![todo:image_alt_text](presentation-design_10.png)
 
-Mit den 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) der Klasse [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) können Sie die Elemente eines Themes ändern (noch flexibler als die Optionen in PowerPoint).
+Durch die Verwendung von 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/FormatScheme#getEffectStyles--)) der Klasse [FormatScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/FormatScheme) können Sie die Elemente in einem Thema ändern (noch flexibler als die Optionen in PowerPoint).
 
-Dieser PHP-Code zeigt, wie Sie einen Theme‑Effekt ändern, indem Sie Teile von Elementen anpassen:
+Dieser PHP-Code zeigt Ihnen, wie Sie einen Thema-Effekt ändern, indem Sie Teile von Elementen verändern:
 ```php
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");
   try {
@@ -216,17 +228,19 @@ Dieser PHP-Code zeigt, wie Sie einen Theme‑Effekt ändern, indem Sie Teile von
   }
 ```
 
-
 Die daraus resultierenden Änderungen bei Füllfarbe, Fülltyp, Schatteneffekt usw.:
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Kann ich ein Theme auf eine einzelne Folie anwenden, ohne das Master‑Theme zu ändern?**  
-Ja. Aspose.Slides unterstützt Theme‑Überschreibungen auf Folienebene, sodass Sie ein lokales Theme nur auf diese Folie anwenden können, während das Master‑Theme unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/)).
+**Kann ich ein Thema auf eine einzelne Folie anwenden, ohne den Master zu ändern?**
 
-**Was ist der sicherste Weg, ein Theme von einer Präsentation in eine andere zu übernehmen?**  
-[Folien klonen](/slides/de/php-java/clone-slides/) zusammen mit ihrem Master in die Zielpräsentation. Dadurch bleiben der ursprüngliche Master, die Layouts und das zugehörige Theme erhalten, sodass das Aussehen konsistent bleibt.
+Ja. Aspose.Slides unterstützt Themenüberschreibungen auf Folienebene, sodass Sie ein lokales Thema nur auf diese Folie anwenden können, während das Master-Thema unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidethememanager/)).
 
-**Wie kann ich die "effektiven" Werte nach allen Vererbungen und Überschreibungen sehen?**  
-Verwenden Sie die "effektiven" Ansichten der API ([\"effective\" views](/slides/de/php-java/shape-effective-properties/)) für Theme/Farbe/Schrift/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master und etwaige lokale Überschreibungen angewendet wurden.
+**Was ist die sicherste Methode, ein Thema von einer Präsentation in eine andere zu übertragen?**
+
+[Clone slides](/slides/de/php-java/clone-slides/) zusammen mit ihrem Master in die Zielpräsentation. Dadurch bleiben der ursprüngliche Master, Layouts und das zugehörige Thema erhalten, sodass das Aussehen konsistent bleibt.
+
+**Wie kann ich die "effektiven" Werte nach allen Vererbungen und Überschreibungen sehen?**
+
+Verwenden Sie die ["effective" views](/slides/de/php-java/shape-effective-properties/) der API für Thema/Farbe/Schriftart/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master sowie etwaige lokale Überschreibungen angewendet wurden.

@@ -5,36 +5,34 @@ type: docs
 weight: 10
 url: /ru/php-java/presentation-theme/
 keywords:
-  - Тема PowerPoint
-  - Тема презентации
-  - Тема слайда
-  - Установить тему
-  - Изменить тему
-  - Управлять темой
-  - Цвет темы
-  - Дополнительная палитра
-  - Шрифт темы
-  - Стиль темы
-  - Эффект темы
-  - PowerPoint
-  - OpenDocument
-  - презентация
-  - PHP
-  - Aspose.Slides
-description: "Освойте темы презентаций в Aspose.Slides для PHP через Java, чтобы создавать, настраивать и конвертировать файлы PowerPoint с единым брендингом."
+- Тема PowerPoint
+- Тема презентации
+- Тема слайда
+- Установить тему
+- Изменить тему
+- Управлять темой
+- Цвет темы
+- Дополнительная палитра
+- Шрифт темы
+- Стиль темы
+- Эффект темы
+- PowerPoint
+- OpenDocument
+- Презентация
+- PHP
+- Aspose.Slides
+description: "Создавайте, настраивайте и конвертируйте файлы PowerPoint с единым брендингом, управляя темами презентаций в Aspose.Slides для PHP через Java."
 ---
+Тема презентации определяет свойства элементов дизайна. При выборе темы презентации вы фактически выбираете конкретный набор визуальных элементов и их свойства.
 
-Тема презентации определяет свойства элементов дизайна. Когда вы выбираете тему презентации, вы фактически выбираете конкретный набор визуальных элементов и их свойства.
-
-В PowerPoint тема состоит из цветов, [fonts](/slides/ru/php-java/powerpoint-fonts/), [background styles](/slides/ru/php-java/presentation-background/) и эффектов.
+В PowerPoint тема включает цвета, [шрифты](/slides/ru/php-java/powerpoint-fonts/), [стили фона](/slides/ru/php-java/presentation-background/), и эффекты.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Change Theme Color**
+## **Изменить цвет темы**
 
-Тема PowerPoint использует определённый набор цветов для различных элементов слайда. Если вам не нравятся эти цвета, вы можете изменить их, задав новые цвета для темы. Чтобы позволить вам выбрать новый цвет темы, Aspose.Slides предоставляет значения из перечисления [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor).
+Тема PowerPoint использует определённый набор цветов для различных элементов на слайде. Если вам не нравятся цвета, вы меняете их, применяя новые цвета к теме. Чтобы позволить выбрать новый цвет темы, Aspose.Slides предоставляет значения в перечислении [SchemeColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SchemeColor).
 
-Этот PHP‑код показывает, как изменить цвет акцента для темы:
 ```php
   $pres = new Presentation();
   try {
@@ -48,8 +46,8 @@ description: "Освойте темы презентаций в Aspose.Slides д
   }
 ```
 
+Вы можете определить эффективное значение полученного цвета таким способом:
 
-Вы можете определить эффективное значение получившегося цвета следующим образом:
 ```php
   $fillEffective = $shape->getFillFormat()->getEffective();
   $effectiveColor = $fillEffective->getSolidFillColor();
@@ -57,8 +55,8 @@ description: "Освойте темы презентаций в Aspose.Slides д
 
 ```
 
+Чтобы дополнительно продемонстрировать операцию изменения цвета, мы создаём другой элемент и назначаем ему акцентный цвет (из первоначальной операции). Затем меняем цвет в теме:
 
-Чтобы дополнительно продемонстрировать операцию изменения цвета, мы создаём другой элемент и фиксируем цвет акцента (из первоначальной операции) в нём. Затем меняем цвет в теме:
 ```php
   $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
   $otherShape->getFillFormat()->setFillType(FillType::Solid);
@@ -66,52 +64,52 @@ description: "Освойте темы презентаций в Aspose.Slides д
   $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
 ```
 
-
 Новый цвет применяется автоматически к обоим элементам.
 
-### **Set Theme Color from an Additional Palette**
+### **Установить цвет темы из дополнительной палитры**
 
-При применении преобразований яркости к основному цвету темы(1) формируются цвета из дополнительной палитры(2). Затем вы можете задавать и получать эти цвета темы.
+Когда вы применяете преобразования яркости к основному цвету темы(1), формируются цвета из дополнительной палитры(2). Затем вы можете установить и получить эти цвета темы.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** – Основные цвета темы  
+**1** - Основные цвета темы
 
-**2** – Цвета из дополнительной палитры.
+**2** - Цвета из дополнительной палитры.
 
 Этот PHP‑код демонстрирует операцию, при которой цвета дополнительной палитры получаются из основного цвета темы и затем используются в фигурах:
+
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # Акцент 4
+    # Accent 4
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    # Акцент 4, светлее 80%
+    # Accent 4, светлее на 80%
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
     $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
-    # Акцент 4, светлее 60%
+    # Accent 4, светлее на 60%
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
-    # Акцент 4, светлее 40%
+    # Accent 4, светлее на 40%
     $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
     $shape4->getFillFormat()->setFillType(FillType::Solid);
     $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
-    # Акцент 4, темнее 25%
+    # Accent 4, темнее на 25%
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
     $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
-    # Акцент 4, темнее 50%
+    # Accent 4, темнее на 50%
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
     $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
@@ -124,17 +122,34 @@ description: "Освойте темы презентаций в Aspose.Slides д
   }
 ```
 
+### **Отобразить `SchemeColor` в цвета `ColorScheme`**
 
-## **Change Theme Font**
+Когда вы работаете с [SchemeColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/schemecolor/), вы можете заметить, что он содержит следующие значения цветов темы: `Background1`, `Background2`, `Text1` и `Text2`.
 
-Чтобы позволить вам выбирать шрифты для тем и других целей, Aspose.Slides использует специальные идентификаторы (аналогичные тем, что применяются в PowerPoint):
+Однако `Presentation::getMasterTheme()::getColorScheme()` возвращает [ColorScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/colorscheme/), который предоставляет соответствующие цвета как: `Dark1`, `Dark2`, `Light1` и `Light2`.
 
-* **+mn‑lt** – Body Font Latin (Minor Latin Font)  
-* **+mj‑lt** – Heading Font Latin (Major Latin Font)  
-* **+mn‑ea** – Body Font East Asian (Minor East Asian Font)  
-* **+mj‑ea** – Body Font East Asian (Major East Asian Font)
+Это различие только в названиях. Эти значения относятся к тем же слотам цвета темы, и сопоставление фиксировано:
+
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+Нет динамического преобразования между `Text`/`Background` и `Dark`/`Light`. Это просто альтернативные названия одних и тех же цветов темы.
+
+Это различие в названиях происходит из терминологии Microsoft Office. В более старых версиях Office использовались `Dark 1`, `Light 1`, `Dark 2` и `Light 2`, тогда как в новых пользовательских интерфейсах те же слоты отображаются как `Text 1`, `Background 1`, `Text 2` и `Background 2`.
+
+## **Изменить шрифт темы**
+
+Чтобы позволить выбирать шрифты для тем и других целей, Aspose.Slides использует следующие специальные идентификаторы (аналогичные тем, что используются в PowerPoint):
+
+* **+mn-lt** - Body Font Latin (Minor Latin Font)
+* **+mj-lt** -Heading Font Latin (Major Latin Font)
+* **+mn-ea** - Body Font East Asian (Minor East Asian Font)
+* **+mj-ea** - Body Font East Asian (Major East Asian Font)
 
 Этот PHP‑код показывает, как назначить латинский шрифт элементу темы:
+
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
   $paragraph = new Paragraph();
@@ -142,28 +157,30 @@ description: "Освойте темы презентаций в Aspose.Slides д
   $paragraph->getPortions()->add($portion);
   $shape->getTextFrame()->getParagraphs()->add($paragraph);
   $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
-```
 
+```
 
 Этот PHP‑код показывает, как изменить шрифт темы презентации:
+
 ```php
   $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+
 ```
 
-
-Шрифт во всех текстовых полях будет обновлён.
+Шрифт во всех текстовых полях будет обновлен.
 
 {{% alert color="primary" title="TIP" %}} 
-Возможно, вам будет интересно посмотреть [PowerPoint fonts](/slides/ru/php-java/powerpoint-fonts/).
+Возможно, вам будет интересно посмотреть [шрифты PowerPoint](/slides/ru/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Change Theme Background Style**
+## **Изменить стиль фона темы**
 
-По умолчанию приложение PowerPoint предоставляет 12 предустановленных фонов, но только 3 из этих 12 сохраняются в типичной презентации.
+По умолчанию приложение PowerPoint предоставляет 12 предопределённых фонов, но только 3 из этих 12 обычно сохраняются в типичной презентации.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Например, после сохранения презентации в приложении PowerPoint вы можете выполнить этот PHP‑код, чтобы узнать количество предустановленных фонов в презентации:
+Например, после сохранения презентации в приложении PowerPoint вы можете выполнить этот PHP‑код, чтобы узнать количество предопределённых фонов в презентации:
+
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -176,32 +193,30 @@ description: "Освойте темы презентаций в Aspose.Slides д
   }
 ```
 
-
 {{% alert color="warning" %}} 
-С помощью свойства [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) из класса [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) можно добавить или получить доступ к стилю фона в теме PowerPoint.
+Используя свойство [BackgroundFillStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) из класса [FormatScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/FormatScheme), вы можете добавить или получить доступ к стилю фона в теме PowerPoint.
 {{% /alert %}} 
 
-Этот PHP‑код показывает, как задать фон для презентации:
+Этот PHP‑код показывает, как установить фон для презентации:
+
 ```php
   $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
 ```
 
-
-**Руководство по индексам**: 0 — отсутствие заливки. Индексы начинаются с 1.
+**Руководство по индексам**: 0 используется для отсутствия заливки. Индекс начинается с 1.
 
 {{% alert color="primary" title="TIP" %}} 
-Возможно, вам будет интересно посмотреть [PowerPoint Background](/slides/ru/php-java/presentation-background/).
+Возможно, вам будет интересно посмотреть [фон PowerPoint](/slides/ru/php-java/presentation-background/).
 {{% /alert %}}
 
-## **Change Theme Effect**
+## **Изменить эффект темы**
 
-Тема PowerPoint обычно содержит 3 значения для каждого массива стилей. Эти массивы объединяются в три эффекта: subtle, moderate и intense. Например, так выглядит результат применения эффектов к определённой фигуре:
+Тема PowerPoint обычно содержит 3 значения для каждого массива стилей. Эти массивы объединяются в 3 эффекта: тонкий, умеренный и интенсивный. Например, так выглядит результат, когда эффекты применяются к конкретной фигуре:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Используя 3 свойства ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) из класса [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) вы можете изменять элементы темы (даже гибче, чем параметры в PowerPoint).
+Используя 3 свойства ([FillStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/FormatScheme#getEffectStyles--)) из класса [FormatScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/FormatScheme) вы можете менять элементы в теме (даже гибче, чем параметры в PowerPoint).
 
-Этот PHP‑код показывает, как изменить эффект темы, изменяя части элементов:
 ```php
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");
   try {
@@ -217,21 +232,20 @@ description: "Освойте темы презентаций в Aspose.Slides д
   }
 ```
 
-
-Получившиеся изменения в цвете заливки, типе заливки, эффекте тени и т.д.:
+Полученные изменения в цвете заливки, типе заливки, теневом эффекте и т.д.:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Можно ли применить тему только к отдельному слайду, не меняя мастер?**
+**Могу ли я применить тему к отдельному слайду, не меняя мастер?**
 
-Да. Aspose.Slides поддерживает переопределения темы на уровне слайда, поэтому вы можете применить локальную тему только к этому слайду, оставив мастер‑тему нетронутой (через [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/)).
+Да. Aspose.Slides поддерживает переопределения темы на уровне слайда, поэтому вы можете применить локальную тему только к этому слайду, оставив мастер‑тему нетронутой (через [SlideThemeManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slidethememanager/)).
 
-**Какой способ является самым надёжным для переноса темы из одной презентации в другую?**
+**Какой способ наиболее безопасен для переноса темы из одной презентации в другую?**
 
-[Clone slides](/slides/ru/php-java/clone-slides/) вместе с их мастером в целевую презентацию. Это сохраняет оригинальный мастер, макеты и связанную тему, так что внешний вид остаётся согласованным.
+[Клонировать слайды](/slides/ru/php-java/clone-slides/) вместе с их мастером в целевую презентацию. Это сохраняет оригинальный мастер, макеты и связанную тему, так что внешний вид остаётся一致ным.
 
 **Как увидеть «эффективные» значения после всех наследований и переопределений?**
 
-Используйте «эффективные» представления API [/shape-effective-properties/](/slides/ru/php-java/shape-effective-properties/) для темы/цвета/шрифта/эффекта. Они возвращают окончательные разрешённые свойства после применения мастера и всех локальных переопределений.
+Используйте «эффективные» представления API [/slides/ru/php-java/shape-effective-properties/] для темы/цвета/шрифта/эффекта. Они возвращают окончательные, разрешённые свойства после применения мастера и всех локальных переопределений.
