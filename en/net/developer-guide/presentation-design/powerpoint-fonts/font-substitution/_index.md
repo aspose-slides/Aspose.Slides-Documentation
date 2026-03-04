@@ -83,6 +83,16 @@ You may want to see [**Font Replacement**](/slides/net/font-replacement/).
 
 {{% /alert %}}
 
+## **Limitations for Math Equation Fonts**
+
+Font substitution rules participate in the standard font selection process used during rendering and conversion. They are suitable for regular text scenarios where Aspose.Slides can replace an inaccessible font with another available font according to the configured rule.
+
+However, Office math equations have an important limitation. If an equation was created with **Cambria Math**, Aspose.Slides may still require the original **Cambria Math** font to calculate and render the equation layout correctly. Because of this, substituting **Cambria Math** with another math font, such as **STIX Two Math**, is not supported for equation rendering and may still result in an exception indicating that **Cambria Math** is required.
+
+To convert such presentations successfully, make sure that **Cambria Math** is available to Aspose.Slides at runtime. You can install the font in the operating system or provide it as an [external font](/slides/net/custom-font/) so it can participate in the normal font selection process during rendering and conversion.
+
+This limitation is specific to equation rendering. The standard font substitution rules described above still apply to regular presentation text when the original font is inaccessible.
+
 ## **FAQ**
 
 **What is the difference between font replacement and font substitution?**
