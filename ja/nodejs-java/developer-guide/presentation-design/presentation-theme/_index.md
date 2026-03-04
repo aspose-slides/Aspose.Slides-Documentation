@@ -1,23 +1,41 @@
 ---
-title: プレゼンテーション テーマ
+title: "JavaScript でプレゼンテーションテーマを管理する"
+linktitle: "プレゼンテーションテーマ"
 type: docs
 weight: 10
 url: /ja/nodejs-java/presentation-theme/
-keywords: "テーマ、PowerPoint テーマ、PowerPoint プレゼンテーション、Java、Node.js via Java 用 Aspose.Slides"
-description: "JavaScript の PowerPoint プレゼンテーション テーマ"
+keywords:
+- "PowerPoint テーマ"
+- "プレゼンテーションテーマ"
+- "スライドテーマ"
+- "テーマの設定"
+- "テーマの変更"
+- "テーマの管理"
+- "テーマカラー"
+- "追加パレット"
+- "テーマフォント"
+- "テーマスタイル"
+- "テーマ効果"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Aspose.Slides for Node.js を使用して、JavaScript でプレゼンテーションテーマをマスターし、一貫したブランディングで PowerPoint ファイルの作成、カスタマイズ、変換を行います。"
 ---
-
-プレゼンテーション テーマはデザイン要素のプロパティを定義します。プレゼンテーション テーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選ぶことになります。
+プレゼンテーションテーマはデザイン要素のプロパティを定義します。テーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選んだことになります。
 
 PowerPoint では、テーマは色、[フォント](/slides/ja/nodejs-java/powerpoint-fonts/)、[背景スタイル](/slides/ja/nodejs-java/presentation-background/)、および効果で構成されます。
 
 ![theme-constituents](theme-constituents.png)
 
-## **テーマの色を変更**
+## **Change Theme Color**
 
-PowerPoint のテーマはスライド上のさまざまな要素に対して特定の色セットを使用します。色が好みでない場合は、テーマに新しい色を適用して色を変更します。新しいテーマの色を選択できるように、Aspose.Slides は [SchemeColor] 列挙体の値を提供しています。
+PowerPoint のテーマはスライド上のさまざまな要素に対して特定の色セットを使用します。色が気に入らない場合は、テーマに新しい色を適用して色を変更できます。新しいテーマカラーを選択できるように、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/SchemeColor) 列挙体で値を提供します。
 
-この JavaScript コードは、テーマのアクセントカラーを変更する方法を示しています:
+この JavaScript コードは、テーマのアクセントカラーを変更する方法を示しています。
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -31,16 +49,16 @@ try {
 }
 ```
 
+次のようにして、結果として得られる色の実際の値を求めることができます。
 
-この方法で、結果として得られる色の実効値を確認できます:
 ```javascript
 var fillEffective = shape.getFillFormat().getEffective();
 var effectiveColor = fillEffective.getSolidFillColor();
 console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
 ```
 
+色変更操作をさらに示すために、別の要素を作成し、最初の操作で取得したアクセントカラーをその要素に割り当てます。その後、テーマ内の色を変更します。
 
-色の変更操作をさらに示すために、別の要素を作成し、アクセントカラー（最初の操作から）を割り当てます。その後、テーマ内の色を変更します:
 ```javascript
 var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
 otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -48,20 +66,20 @@ otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.Sche
 pres.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-
 新しい色は両方の要素に自動的に適用されます。
 
-### **追加パレットからテーマの色を設定**
+### **Set Theme Color from Additional Palette**
 
-メインテーマカラー(1)に輝度変換を適用すると、追加パレット(2)から色が生成されます。その後、それらのテーマカラーを設定および取得できます。
+メインテーマカラー(1)に対して輝度変換を適用すると、追加パレット(2)から色が生成されます。そのテーマカラーを取得および設定できます。
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - メインテーマカラー
+**1** - メインテーマカラー  
 
-**2** - 追加パレットからのカラー
+**2** - 追加パレットからのカラー。
 
-この JavaScript コードは、メインテーマカラーから取得した追加パレットのカラーをシェイプで使用する操作を示しています:
+この JavaScript コードは、メインテーマカラーから取得した追加パレットの色をシェイプで使用する操作を示しています。
+
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -106,17 +124,38 @@ try {
 }
 ```
 
+### **Map `SchemeColor` to `ColorScheme` Colors**
 
-## **テーマのフォントを変更**
+[SchemeColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/schemecolor/) を使用すると、次のテーマカラー値が含まれていることに気付くかもしれません。
 
-テーマやその他の目的でフォントを選択できるように、Aspose.Slides は以下の特殊な識別子（PowerPoint で使用されるものと同様）を使用します:
+`Background1`、`Background2`、`Text1`、`Text2`。
 
-* **+mn-lt** - 本文フォント ラテン文字 (Minor Latin Font)
-* **+mj-lt** - 見出しフォント ラテン文字 (Major Latin Font)
-* **+mn-ea** - 本文フォント 東アジア文字 (Minor East Asian Font)
-* **+mj-ea** - 本文フォント 東アジア文字 (Major East Asian Font)
+ただし、`Presentation.getMasterTheme().getColorScheme()` は [ColorScheme](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/colorscheme/) を返し、対応する色を次のように公開します。
 
-この JavaScript コードは、ラテンフォントをテーマ要素に割り当てる方法を示しています:
+`Dark1`、`Dark2`、`Light1`、`Light2`。
+
+この違いは名前だけです。これらの値は同じテーマカラーのスロットを指し、マッピングは固定されています。
+
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+`Text`/`Background` と `Dark`/`Light` の間に動的な変換はありません。単に同じテーマカラーの別名です。
+
+この命名の違いは Microsoft Office の用語に由来します。古い Office バージョンでは `Dark 1`、`Light 1`、`Dark 2`、`Light 2` が使用され、新しい UI バージョンでは同じスロットが `Text 1`、`Background 1`、`Text 2`、`Background 2` と表示されます。
+
+## **Change Theme Font**
+
+テーマやその他の目的でフォントを選択できるように、Aspose.Slides は PowerPoint で使用されるものと同様の特別な識別子を使用します。
+
+* **+mn-lt** - 本文フォント Latin（Minor Latin Font）
+* **+mj-lt** - 見出しフォント Latin（Major Latin Font）
+* **+mn-ea** - 本文フォント East Asian（Minor East Asian Font）
+* **+mj-ea** - 本文フォント East Asian（Major East Asian Font）
+
+この JavaScript コードは、ラテンフォントをテーマ要素に割り当てる方法を示しています。
+
 ```javascript
 var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
 var paragraph = new aspose.slides.Paragraph();
@@ -126,26 +165,26 @@ shape.getTextFrame().getParagraphs().add(paragraph);
 portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
 ```
 
+この JavaScript コードは、プレゼンテーションテーマのフォントを変更する方法を示しています。
 
-この JavaScript コードは、プレゼンテーション テーマのフォントを変更する方法を示しています:
 ```javascript
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
 ```
 
-
-すべてのテキストボックスのフォントが更新されます。
+すべてのテキスト ボックスのフォントが更新されます。
 
 {{% alert color="primary" title="TIP" %}} 
-[PowerPoint フォント](/slides/ja/nodejs-java/powerpoint-fonts/) をご覧になると良いでしょう。
+[PowerPoint フォント](/slides/ja/nodejs-java/powerpoint-fonts/) を参照すると役立ちます。 
 {{% /alert %}}
 
-## **テーマの背景スタイルを変更**
+## **Change Theme Background Style**
 
-デフォルトでは、PowerPoint アプリは 12 個の定義済み背景を提供しますが、そのうち 3 個だけが一般的なプレゼンテーションに保存されます。
+デフォルトでは、PowerPoint アプリは 12 個の事前定義背景を提供しますが、典型的なプレゼンテーションに保存されるのはそのうちの 3 個だけです。
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-例えば、PowerPoint アプリでプレゼンテーションを保存した後、以下の JavaScript コードを実行してプレゼンテーションに含まれる定義済み背景の数を取得できます:
+たとえば、PowerPoint アプリでプレゼンテーションを保存した後、次の JavaScript コードを実行してプレゼンテーション内の事前定義背景の数を調べることができます。
+
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -158,32 +197,32 @@ try {
 }
 ```
 
-
 {{% alert color="warning" %}} 
-[BackgroundFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) プロパティを [FormatScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme) クラスから使用すると、PowerPoint のテーマで背景スタイルを追加または取得できます。
+[BackgroundFillStyles](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) プロパティを使用すると、[FormatScheme](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/FormatScheme) クラスから PowerPoint テーマの背景スタイルを追加または取得できます。 
 {{% /alert %}} 
 
-この JavaScript コードは、プレゼンテーションの背景を設定する方法を示しています:
+この JavaScript コードは、プレゼンテーションの背景を設定する方法を示しています。
+
 ```javascript
 pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 ```
 
-
-**インデックス ガイド**: 0 は塗りなしを表します。インデックスは 1 から始まります。
+**インデックスガイド**: 0 は塗りなしを意味します。インデックスは 1 から始まります。
 
 {{% alert color="primary" title="TIP" %}} 
-[PowerPoint 背景](/slides/ja/nodejs-java/presentation-background/) をご覧になると良いでしょう。
+[PowerPoint 背景](/slides/ja/nodejs-java/presentation-background/) を参照すると便利です。 
 {{% /alert %}}
 
-## **テーマの効果を変更**
+## **Change Theme Effect**
 
-PowerPoint のテーマは通常、各スタイル配列に対して 3 つの値を含みます。これらの配列は 3 つの効果（微妙、適度、強烈）に統合されます。例えば、特定のシェイプに効果を適用した結果は以下の通りです:
+PowerPoint テーマは通常、各スタイル配列に対して 3 つの値を含みます。これらの配列は 3 つの効果（subtle、moderate、intense）に結合されます。たとえば、特定のシェイプに効果を適用した結果は次のとおりです。
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-[FillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getEffectStyles--) の 3 つのプロパティを [FormatScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme) クラスから使用すると、PowerPoint のオプションよりも柔軟にテーマ内の要素を変更できます。
+[FormatScheme](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/FormatScheme) クラスの 3 つのプロパティ（[FillStyles](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/FormatScheme#getEffectStyles--)）を使用すると、PowerPoint のオプションよりも柔軟にテーマ内の要素を変更できます。
 
-この JavaScript コードは、要素の一部を変更してテーマの効果を変える方法を示しています:
+この JavaScript コードは、要素の一部を変更することでテーマ効果を変更する方法を示しています。
+
 ```javascript
 var pres = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
 try {
@@ -199,20 +238,20 @@ try {
 }
 ```
 
+結果として得られる塗りの色、塗りタイプ、影効果などの変更:
 
-結果として、塗りの色、塗りタイプ、影効果などが変更されます:
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**スライドのマスターを変更せずに、単一のスライドにテーマを適用できますか？**
+**スライド単位でテーマを適用し、マスターを変更せずに済ませることはできますか？**
 
-はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、マスターテーマをそのままにして対象のスライドにローカルテーマを適用できます（[SlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidethememanager/) を使用）。
+はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、[SlideThemeManager](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slidethememanager/) を使用して、マスターテーマをそのままにローカルテーマを特定のスライドに適用できます。
 
-**あるプレゼンテーションから別のプレゼンテーションへテーマを安全に持ち込む最善の方法は何ですか？**
+**あるプレゼンテーションから別のプレゼンテーションへテーマを安全に移行する最良の方法は何ですか？**
 
-[Clone slides](/slides/ja/nodejs-java/clone-slides/) とそれらのマスターを対象のプレゼンテーションにコピーすると、元のマスター、レイアウト、および関連するテーマが保持され、外観が一貫したままです。
+[スライドのクローン](/slides/ja/nodejs-java/clone-slides/) をマスターと共に対象プレゼンテーションにコピーします。これにより元のマスター、レイアウト、および関連するテーマが保持され、外観が一貫します。
 
-**継承とオーバーライドのすべてが適用された後の「実効」値を確認するにはどうすればよいですか？**
+**すべての継承とオーバーライドを適用した後の「実効」値を確認するにはどうすればよいですか？**
 
-API の ["effective" ビュー](/slides/ja/nodejs-java/shape-effective-properties/)（テーマ／カラー／フォント／効果用）を使用します。これらは、マスターとローカルオーバーライドが適用された後の解決された最終プロパティを返します。
+テーマ/カラー/フォント/効果に対して API の「実効」ビュー[/slides/ja/nodejs-java/shape-effective-properties/] を使用します。これらはマスターとローカルオーバーライドを適用した後の最終的に解決されたプロパティを返します。

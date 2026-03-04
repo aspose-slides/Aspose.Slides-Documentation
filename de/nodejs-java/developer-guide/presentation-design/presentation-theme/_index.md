@@ -1,23 +1,41 @@
 ---
-title: Präsentationsthema
+title: Verwalten von Präsentationsdesigns in JavaScript
+linktitle: Präsentationsdesign
 type: docs
 weight: 10
 url: /de/nodejs-java/presentation-theme/
-keywords: "Thema, PowerPoint-Thema, PowerPoint-Präsentation, Java, Aspose.Slides für Node.js über Java"
-description: "PowerPoint-Präsentationsthema in JavaScript"
+keywords:
+- PowerPoint-Design
+- Präsentationsdesign
+- Folien-Design
+- Design festlegen
+- Design ändern
+- Design verwalten
+- Designfarbe
+- zusätzliche Palette
+- Designschriftart
+- Designstil
+- Designeffekt
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Verwalten Sie Präsentationsdesigns in JavaScript mit Aspose.Slides für Node.js, um PowerPoint-Dateien mit einheitlicher Markenführung zu erstellen, anzupassen und zu konvertieren."
 ---
+Ein Präsentationsdesign definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsdesign auswählen, wählen Sie im Wesentlichen einen bestimmten Satz visueller Elemente und deren Eigenschaften.
 
-Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz visueller Elemente und deren Eigenschaften.
+In PowerPoint besteht ein Design aus Farben, [Schriften](/slides/de/nodejs-java/powerpoint-fonts/), [Hintergrundstilen](/slides/de/nodejs-java/presentation-background/) und Effekten.
 
-In PowerPoint besteht ein Thema aus Farben, [Schriften](/slides/de/nodejs-java/powerpoint-fonts/), [Hintergrundstilen](/slides/de/nodejs-java/presentation-background/) und Effekten.
+![Themenbestandteile](theme-constituents.png)
 
-![theme-constituents](theme-constituents.png)
+## **Designfarbe ändern**
 
-## **Themafarbe ändern**
+Ein PowerPoint-Design verwendet einen bestimmten Satz von Farben für verschiedene Elemente auf einer Folie. Wenn Ihnen die Farben nicht gefallen, ändern Sie sie, indem Sie neue Farben für das Design anwenden. Um ein neues Designfarb auswählen zu ermöglichen, stellt Aspose.Slides Werte aus der [SchemeColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/SchemeColor) Aufzählung bereit.
 
-Ein PowerPoint-Thema verwendet einen bestimmten Satz von Farben für verschiedene Elemente einer Folie. Wenn Ihnen die Farben nicht gefallen, ändern Sie sie, indem Sie neue Farben für das Thema anwenden. Damit Sie eine neue Themafarbe auswählen können, stellt Aspose.Slides Werte aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SchemeColor) bereit.
+Dieser JavaScript-Code zeigt, wie Sie die Akzentfarbe für ein Design ändern:
 
-Dieser JavaScript‑Code zeigt, wie Sie die Akzentfarbe für ein Thema ändern:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -31,16 +49,16 @@ try {
 }
 ```
 
-
 So können Sie den effektiven Wert der resultierenden Farbe bestimmen:
+
 ```javascript
 var fillEffective = shape.getFillFormat().getEffective();
 var effectiveColor = fillEffective.getSolidFillColor();
 console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
 ```
 
+Um die Farbänderungsoperation weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ursprünglichen Operation) zu. Anschließend ändern wir die Farbe im Design:
 
-Um den Farbwechsel weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ersten Operation) zu. Dann ändern wir die Farbe im Thema:
 ```javascript
 var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
 otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -48,19 +66,19 @@ otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.Sche
 pres.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-
 Die neue Farbe wird automatisch auf beide Elemente angewendet.
 
-### **Themafarbe aus zusätzlicher Palette festlegen**
+### **Designfarbe aus zusätzlicher Palette setzen**
 
-Wenn Sie Luminanztransformationen auf die Hauptthemafarbe(1) anwenden, entstehen Farben aus der zusätzlichen Palette(2). Sie können diese Themenfarben dann setzen und abrufen.
+Wenn Sie Luminanztransformationen auf die Hauptdesignfarbe (1) anwenden, entstehen Farben aus der zusätzlichen Palette (2). Sie können diese Designfarben dann setzen und abrufen.
 
-![additional-palette-colors](additional-palette-colors.png)
+![Farben der zusätzlichen Palette](additional-palette-colors.png)
 
-**1** – Hauptthemafarben  
+**1** – Hauptdesignfarben  
 **2** – Farben aus der zusätzlichen Palette.
 
-Dieser JavaScript‑Code demonstriert einen Vorgang, bei dem zusätzliche Palettenfarben aus der Hauptthemafarbe gewonnen und dann in Formen verwendet werden:
+Dieser JavaScript-Code demonstriert eine Operation, bei der Farben der zusätzlichen Palette aus der Hauptdesignfarbe gewonnen und anschließend in Formen verwendet werden:
+
 ```javascript
 var presentation = new aspose.slides.Presentation();
 try {
@@ -105,17 +123,38 @@ try {
 }
 ```
 
+### **`SchemeColor` auf `ColorScheme`-Farben abbilden**
 
-## **Thema-Schriftart ändern**
+Wenn Sie mit [SchemeColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/schemecolor/) arbeiten, werden Sie feststellen, dass es die folgenden Designfarbwerte enthält:
 
-Um Ihnen die Auswahl von Schriften für Themen und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich denen in PowerPoint):
+`Background1`, `Background2`, `Text1` und `Text2`.
 
-* **+mn-lt** – Körper‑Schriftart Latein (Minor Latin Font)
-* **+mj-lt** – Überschriften‑Schriftart Latein (Major Latin Font)
+Allerdings liefert `Presentation.getMasterTheme().getColorScheme()` [ColorScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/colorscheme/) , das die entsprechenden Farben wie folgt bereitstellt:
+
+`Dark1`, `Dark2`, `Light1` und `Light2`.
+
+Dieser Unterschied besteht nur in der Benennung. Diese Werte beziehen sich auf dieselben Designfarbplätze und die Zuordnung ist festgelegt:
+
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+Es gibt keine dynamische Umwandlung zwischen `Text`/`Background` und `Dark`/`Light`. Es handelt sich lediglich um alternative Bezeichnungen für dieselben Designfarben.
+
+Dieser Benennungsunterschied stammt aus der Terminologie von Microsoft Office. Ältere Office-Versionen verwendeten `Dark 1`, `Light 1`, `Dark 2` und `Light 2`, während neuere UI-Versionen dieselben Plätze als `Text 1`, `Background 1`, `Text 2` und `Background 2` anzeigen.
+
+## **Designschriftart ändern**
+
+Um die Auswahl von Schriften für Designs und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich denen in PowerPoint):
+
+* **+mn-lt** – Körper‑Schriftart Latin (Minor Latin Font)
+* **+mj-lt** – Überschriftschrift Latin (Major Latin Font)
 * **+mn-ea** – Körper‑Schriftart Ostasiatisch (Minor East Asian Font)
 * **+mj-ea** – Körper‑Schriftart Ostasiatisch (Major East Asian Font)
 
-Dieser JavaScript‑Code zeigt, wie Sie die lateinische Schrift einer Themenelement zuweisen:
+Dieser JavaScript-Code zeigt, wie Sie die Latin‑Schrift einer Designelement zuweisen:
+
 ```javascript
 var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
 var paragraph = new aspose.slides.Paragraph();
@@ -125,26 +164,26 @@ shape.getTextFrame().getParagraphs().add(paragraph);
 portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
 ```
 
+Dieser JavaScript-Code zeigt, wie Sie die Präsentationsdesignschriftart ändern:
 
-Dieser JavaScript‑Code zeigt, wie Sie die Präsentationsthema‑Schriftart ändern:
 ```javascript
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
 ```
 
-
 Die Schrift in allen Textfeldern wird aktualisiert.
 
 {{% alert color="primary" title="TIP" %}} 
-Sie können sich die [PowerPoint-Schriften](/slides/de/nodejs-java/powerpoint-fonts/) ansehen.
+Sie möchten vielleicht [PowerPoint‑Schriften](/slides/de/nodejs-java/powerpoint-fonts/) sehen. 
 {{% /alert %}}
 
-## **Thema-Hintergrundstil ändern**
+## **Design‑Hintergrundstil ändern**
 
-Standardmäßig stellt die PowerPoint‑App 12 vordefinierte Hintergründe bereit, von denen jedoch nur 3 in einer typischen Präsentation gespeichert werden.
+Standardmäßig stellt die PowerPoint-App 12 vordefinierte Hintergründe bereit, aber in einer typischen Präsentation werden nur 3 dieser 12 Hintergründe gespeichert. 
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Beispielsweise können Sie nach dem Speichern einer Präsentation in der PowerPoint‑App diesen JavaScript‑Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation zu ermitteln:
+Beispielsweise können Sie nach dem Speichern einer Präsentation in der PowerPoint-App diesen JavaScript-Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation zu ermitteln:
+
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -157,32 +196,32 @@ try {
 }
 ```
 
-
 {{% alert color="warning" %}} 
-Mit der Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) aus der Klasse [FormatScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme) können Sie den Hintergrundstil in einem PowerPoint‑Thema hinzufügen oder darauf zugreifen.
+Mit der Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) aus der Klasse [FormatScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme) können Sie den Hintergrundstil in einem PowerPoint-Design hinzufügen oder darauf zugreifen. 
 {{% /alert %}} 
 
-Dieser JavaScript‑Code zeigt, wie Sie den Hintergrund für eine Präsentation festlegen:
+Dieser JavaScript-Code zeigt, wie Sie den Hintergrund für eine Präsentation festlegen:
+
 ```javascript
 pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 ```
 
-
-**Index‑Hinweis**: 0 bedeutet keine Füllung. Der Index beginnt bei 1.
+**Index‑Leitfaden**: 0 wird für keine Füllung verwendet. Der Index beginnt bei 1.
 
 {{% alert color="primary" title="TIP" %}} 
-Sie können sich [PowerPoint-Hintergrund](/slides/de/nodejs-java/presentation-background/) ansehen.
+Sie möchten vielleicht [PowerPoint‑Hintergrund](/slides/de/nodejs-java/presentation-background/) sehen. 
 {{% /alert %}}
 
-## **Thema‑Effekt ändern**
+## **Design‑Effekt ändern**
 
-Ein PowerPoint‑Thema enthält normalerweise 3 Werte für jedes Stil‑Array. Diese Arrays werden zu 3 Effekten kombiniert: subtil, moderat und intensiv. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
+Ein PowerPoint-Design enthält normalerweise 3 Werte für jedes Stil‑Array. Diese Arrays werden zu den 3 Effekten „subtle“, „moderate“ und „intense“ kombiniert. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Durch die Verwendung von 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme#getEffectStyles--)) aus der Klasse [FormatScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FormatScheme) können Sie die Elemente in einem Thema ändern (noch flexibler als die Optionen in PowerPoint).
+Durch die Verwendung von 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getEffectStyles--)) aus der Klasse [FormatScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme) können Sie die Elemente in einem Design ändern (noch flexibler als die Optionen in PowerPoint).
 
-Dieser JavaScript‑Code zeigt, wie Sie einen Themeneffekt ändern, indem Sie Teile von Elementen anpassen:
+Dieser JavaScript-Code zeigt, wie Sie einen Design‑Effekt ändern, indem Sie Teile von Elementen verändern:
+
 ```javascript
 var pres = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
 try {
@@ -198,20 +237,20 @@ try {
 }
 ```
 
-
 Die resultierenden Änderungen bei Füllfarbe, Fülltyp, Schatteneffekt usw.:
+
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Kann ich ein Thema auf eine einzelne Folie anwenden, ohne die Masterfolie zu ändern?**
+**Kann ich ein Design auf eine einzelne Folie anwenden, ohne den Master zu ändern?**
 
-Ja. Aspose.Slides unterstützt thema‑spezifische Überschreibungen auf Folienebene, sodass Sie ein lokales Thema nur auf diese Folie anwenden können, während das Master‑Thema unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidethememanager/)).
+Ja. Aspose.Slides unterstützt Design‑Überschreibungen auf Folienebene, sodass Sie ein lokales Design nur auf dieser Folie anwenden können, während das Master‑Design unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidethememanager/)).
 
-**Was ist der sicherste Weg, ein Thema von einer Präsentation zur anderen zu übertragen?**
+**Was ist der sicherste Weg, ein Design von einer Präsentation zur anderen zu übertragen?**
 
-[Folien klonen](/slides/de/nodejs-java/clone-slides/) zusammen mit ihrem Master in die Zielpräsentation. Dadurch bleiben das ursprüngliche Master‑Layout, die Layouts und das zugehörige Thema erhalten, sodass das Aussehen konsistent bleibt.
+[Folien klonen](/slides/de/nodejs-java/clone-slides/) zusammen mit ihrem Master in die Zielpräsentation. Dadurch bleiben der ursprüngliche Master, Layouts und das zugehörige Design erhalten, sodass das Erscheinungsbild konsistent bleibt.
 
-**Wie kann ich die "effektiven" Werte nach allen Vererbungen und Überschreibungen sehen?**
+**Wie kann ich die „effektiven“ Werte nach allen Vererbungen und Überschreibungen sehen?**
 
-Verwenden Sie die "effektiven" Ansichten der API [/slides/nodejs-java/shape-effective-properties/] für Thema/Farbe/Schriftart/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem das Master‑Thema sowie etwaige lokale Überschreibungen angewendet wurden.
+Verwenden Sie die ["effektiven" Ansichten](/slides/de/nodejs-java/shape-effective-properties/) für Design/Farbe/Schrift/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master sowie etwaige lokale Überschreibungen angewendet wurden.

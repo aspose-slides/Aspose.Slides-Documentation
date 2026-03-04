@@ -1,5 +1,5 @@
 ---
-title: PHPでプレゼンテーションテーマを管理する
+title: PHPでプレゼンテーションテーマを管理
 linktitle: プレゼンテーションテーマ
 type: docs
 weight: 10
@@ -21,20 +21,20 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides のプレゼンテーションテーマをマスターし、一貫したブランディングで PowerPoint ファイルを作成、カスタマイズ、変換します。"
+description: "Aspose.Slides for PHP via Java を使用してマスタープレゼンテーションテーマを管理し、PowerPoint ファイルを一貫したブランディングで作成、カスタマイズ、変換します。"
 ---
+プレゼンテーションテーマはデザイン要素のプロパティを定義します。テーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選んだことになります。
 
-プレゼンテーションテーマはデザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選んでいることになります。
-
-PowerPoint のテーマは、色、[fonts](/slides/ja/php-java/powerpoint-fonts/)、[background styles](/slides/ja/php-java/presentation-background/)、およびエフェクトで構成されています。
+PowerPoint では、テーマは色、[fonts](/slides/ja/php-java/powerpoint-fonts/)、[background styles](/slides/ja/php-java/presentation-background/)、および効果で構成されます。
 
 ![theme-constituents](theme-constituents.png)
 
-## **テーマ色の変更**
+## **テーマカラーの変更**
 
-PowerPoint のテーマはスライド上のさまざまな要素に対して特定の色セットを使用します。色が気に入らない場合は、テーマに新しい色を適用して色を変更します。新しいテーマ色を選択できるように、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor) 列挙体の値を提供します。
+PowerPoint のテーマはスライド上のさまざまな要素に対して特定の色セットを使用します。色が気に入らない場合は、テーマに新しい色を適用して色を変更できます。新しいテーマカラーを選択できるように、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/SchemeColor) 列挙体の値を提供しています。
 
-この PHP コードは、テーマのアクセントカラーを変更する方法を示しています：
+この PHP コードはテーマのアクセントカラーを変更する方法を示しています:
+
 ```php
   $pres = new Presentation();
   try {
@@ -48,8 +48,8 @@ PowerPoint のテーマはスライド上のさまざまな要素に対して特
   }
 ```
 
+この方法で結果の色の実際の値を取得できます:
 
-次の方法で、結果となる色の有効な値を取得できます：
 ```php
   $fillEffective = $shape->getFillFormat()->getEffective();
   $effectiveColor = $fillEffective->getSolidFillColor();
@@ -57,61 +57,62 @@ PowerPoint のテーマはスライド上のさまざまな要素に対して特
 
 ```
 
+さらにカラー変更操作をデモンストレーションするために、別の要素を作成し、最初の操作で取得したアクセントカラーを割り当てます。その後、テーマの色を変更します:
 
-色変更操作をさらに示すために、別の要素を作成し、最初の操作で取得したアクセントカラーを割り当てます。その後、テーマ内の色を変更します：
 ```php
   $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
   $otherShape->getFillFormat()->setFillType(FillType::Solid);
   $otherShape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
   $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
-```
 
+```
 
 新しい色は両方の要素に自動的に適用されます。
 
-### **追加パレットからテーマ色を設定する**
+### **追加パレットからテーマカラーを設定**
 
-メインテーマカラー(1) に輝度変換を適用すると、追加パレット(2) から色が生成されます。その後、これらのテーマ色を設定および取得できます。
+メインテーマカラー (1) に輝度変換を適用すると、追加パレット (2) の色が生成されます。その後、これらのテーマカラーを取得および設定できます。
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - メインテーマカラー
+**1** - メインテーマカラー  
 
 **2** - 追加パレットのカラー
 
-この PHP コードは、メインテーマカラーから取得した追加パレットの色をシェイプで使用する操作を示しています：
+この PHP コードは、メインテーマカラーから取得した追加パレットの色をシェイプで使用する操作を示しています:
+
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # アクセント 4
+    # アクセント4
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    # アクセント 4、明るさ 80%
+    # アクセント4、明るさ80%
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
     $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
-    # アクセント 4、明るさ 60%
+    # アクセント4、明るさ60%
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
-    # アクセント 4、明るさ 40%
+    # アクセント4、明るさ40%
     $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
     $shape4->getFillFormat()->setFillType(FillType::Solid);
     $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
-    # アクセント 4、暗さ 25%
+    # アクセント4、暗さ25%
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
     $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
-    # アクセント 4、暗さ 50%
+    # アクセント4、暗さ50%
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
     $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
@@ -124,17 +125,38 @@ PowerPoint のテーマはスライド上のさまざまな要素に対して特
   }
 ```
 
+### **`SchemeColor` を `ColorScheme` のカラーにマッピング**
+
+[SchemeColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/schemecolor/) を使用すると、次のテーマカラー値が含まれていることに気付くかもしれません:
+
+`Background1`、`Background2`、`Text1`、`Text2`。
+
+ただし、`Presentation::getMasterTheme()::getColorScheme()` は [ColorScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/colorscheme/) を返し、対応するカラーを次のように公開します:
+
+`Dark1`、`Dark2`、`Light1`、`Light2`。
+
+この違いは名前だけです。これらの値は同じテーマカラー スロットを指し、マッピングは固定されています:
+
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+`Text`/`Background` と `Dark`/`Light` の間に動的な変換はありません。単に同じテーマカラーの別名です。
+
+この名称の違いは Microsoft Office の用語に由来します。古い Office バージョンでは `Dark 1`、`Light 1`、`Dark 2`、`Light 2` が使用され、新しい UI バージョンでは同じスロットが `Text 1`、`Background 1`、`Text 2`、`Background 2` と表示されます。
 
 ## **テーマフォントの変更**
 
-テーマやその他の目的でフォントを選択できるように、Aspose.Slides は PowerPoint で使用されるものと同様の特別な識別子を使用します：
+テーマやその他の目的でフォントを選択できるように、Aspose.Slides は PowerPoint で使用されるものと同様の特別な識別子を使用します:
 
-* **+mn-lt** - 本文フォント ラテン語（Minor Latin Font）
-* **+mj-lt** - 見出しフォント ラテン語（Major Latin Font）
-* **+mn-ea** - 本文フォント 東アジア語（Minor East Asian Font）
-* **+mj-ea** - 本文フォント 東アジア語（Major East Asian Font）
+* **+mn-lt** - 本文フォント ラテン (Minor Latin Font)
+* **+mj-lt** - 見出しフォント ラテン (Major Latin Font)
+* **+mn-ea** - 本文フォント 東アジア (Minor East Asian Font)
+* **+mj-ea** - 本文フォント 東アジア (Major East Asian Font)
 
-この PHP コードは、テーマ要素にラテン語フォントを割り当てる方法を示しています：
+この PHP コードはラテンフォントをテーマ要素に割り当てる方法を示しています:
+
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
   $paragraph = new Paragraph();
@@ -142,28 +164,30 @@ PowerPoint のテーマはスライド上のさまざまな要素に対して特
   $paragraph->getPortions()->add($portion);
   $shape->getTextFrame()->getParagraphs()->add($paragraph);
   $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
+
 ```
 
+この PHP コードはプレゼンテーションテーマのフォントを変更する方法を示しています:
 
-この PHP コードは、プレゼンテーションテーマのフォントを変更する方法を示しています：
 ```php
   $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+
 ```
 
+すべてのテキスト ボックスのフォントが更新されます。
 
-すべてのテキストボックスのフォントが更新されます。
-
-{{% alert color="primary" title="TIP" %}} 
-PowerPoint のフォントについては、[PowerPoint fonts](/slides/ja/php-java/powerpoint-fonts/) をご覧ください。
+{{% alert color="primary" title="TIP" %}}  
+[PowerPoint fonts](/slides/ja/php-java/powerpoint-fonts/) を確認したい場合があります。  
 {{% /alert %}}
 
 ## **テーマ背景スタイルの変更**
 
-デフォルトでは、PowerPoint アプリは 12 の事前定義された背景を提供しますが、そのうち 3 つだけが典型的なプレゼンテーションに保存されます。
+デフォルトでは、PowerPoint アプリは 12 種類の事前定義済み背景を提供しますが、通常のプレゼンテーションに保存されるのはそのうちの 3 つだけです。
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-たとえば、PowerPoint アプリでプレゼンテーションを保存した後、次の PHP コードを実行してプレゼンテーション内の事前定義背景の数を取得できます：
+たとえば、PowerPoint アプリでプレゼンテーションを保存した後、次の PHP コードを実行してプレゼンテーション内の事前定義済み背景の数を取得できます:
+
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -176,32 +200,33 @@ PowerPoint のフォントについては、[PowerPoint fonts](/slides/ja/php-ja
   }
 ```
 
-
-{{% alert color="warning" %}} 
-[BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) プロパティを [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) クラスから使用すると、PowerPoint テーマ内の背景スタイルを追加または取得できます。
-{{% /alert %}} 
-
-この PHP コードは、プレゼンテーションの背景を設定する方法を示しています：
-```php
-  $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
-```
-
-
-**インデックスガイド**: 0 は塗りなしに使用されます。インデックスは 1 から始まります。
-
-{{% alert color="primary" title="TIP" %}} 
-PowerPoint の背景については、[PowerPoint Background](/slides/ja/php-java/presentation-background/) をご覧ください。
+{{% alert color="warning" %}}  
+[BackgroundFillStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) プロパティを [FormatScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/FormatScheme) クラスから使用すると、PowerPoint テーマ内の背景スタイルを追加または取得できます。  
 {{% /alert %}}
 
-## **テーマエフェクトの変更**
+この PHP コードはプレゼンテーションの背景を設定する方法を示しています:
 
-PowerPoint のテーマは通常、各スタイル配列に対して 3 つの値を持ちます。これらの配列は 3 つのエフェクト（subtle、moderate、intense）に結合されます。たとえば、特定のシェイプにエフェクトを適用した結果は次のとおりです：
+```php
+  $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
+
+```
+
+**インデックスガイド**: 0 は塗りなしを表します。インデックスは 1 から始まります。
+
+{{% alert color="primary" title="TIP" %}}  
+[PowerPoint Background](/slides/ja/php-java/presentation-background/) を確認したい場合があります。  
+{{% /alert %}}
+
+## **テーマ効果の変更**
+
+PowerPoint のテーマは通常、各スタイル配列に対して 3 つの値を含みます。これらの配列は 3 つの効果 (subtle、moderate、intense) に結合されます。たとえば、特定のシェイプに効果を適用した結果は次のとおりです:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-[FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) クラスの 3 つのプロパティ（[FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)）を使用すると、PowerPoint のオプションよりも柔軟にテーマ内の要素を変更できます。
+[FormatScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/FormatScheme) クラスの 3 つのプロパティ (**FillStyles**、**LineStyles**、**EffectStyles**) を使用すると、PowerPoint のオプションよりも柔軟にテーマ内の要素を変更できます。
 
-この PHP コードは、要素の一部を変更してテーマエフェクトを変更する方法を示しています：
+この PHP コードは要素の一部を変更してテーマ効果を変更する方法を示しています:
+
 ```php
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");
   try {
@@ -217,21 +242,17 @@ PowerPoint のテーマは通常、各スタイル配列に対して 3 つの値
   }
 ```
 
-
-塗りの色、塗りのタイプ、影のエフェクトなどの結果としての変更：
+塗りの色、塗りタイプ、影効果などの結果の変化:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**マスターを変更せずに単一のスライドにテーマを適用できますか？**
+**Can I apply a theme to a single slide without changing the master?**  
+はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、マスターテーマをそのままにして特定のスライドにローカルテーマを適用できます（[SlideThemeManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidethememanager/) を使用）。
 
-はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、[SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/) を使用して、マスターテーマをそのままにローカルテーマをそのスライドだけに適用できます。
+**What’s the safest way to carry a theme from one presentation to another?**  
+[Clone slides](/slides/ja/php-java/clone-slides/) とそれらのマスターを対象のプレゼンテーションにコピーします。これにより元のマスター、レイアウト、および関連するテーマが保持され、外観が一貫したままになります。
 
-**あるプレゼンテーションから別のプレゼンテーションにテーマを安全に移行する最適な方法は何ですか？**
-
-[Clone slides](/slides/ja/php-java/clone-slides/) をマスターと共にターゲットのプレゼンテーションにコピーします。これにより元のマスター、レイアウト、および関連するテーマが保持され、外観が一貫したままです。
-
-**すべての継承とオーバーライドの後に「有効」な値を確認するにはどうすればよいですか？**
-
-テーマ/カラー/フォント/エフェクトの ["effective" views](/slides/ja/php-java/shape-effective-properties/) を使用します。これらはマスターに加えてローカルオーバーライドが適用された後の最終的に解決されたプロパティを返します。
+**How can I see the "effective" values after all inheritance and overrides?**  
+テーマ/カラー/フォント/効果の ["effective" views](/slides/ja/php-java/shape-effective-properties/) を使用してください。これらはマスターとローカルオーバーライドが適用された後の最終的に解決されたプロパティを返します。

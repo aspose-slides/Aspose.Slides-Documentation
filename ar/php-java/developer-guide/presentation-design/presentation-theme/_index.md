@@ -6,7 +6,7 @@ weight: 10
 url: /ar/php-java/presentation-theme/
 keywords:
 - قالب PowerPoint
-- قالب العرض التقديمي
+- قالب العرض
 - قالب الشريحة
 - تعيين القالب
 - تغيير القالب
@@ -23,18 +23,16 @@ keywords:
 - Aspose.Slides
 description: "إدارة قوالب العروض التقديمية في Aspose.Slides للـ PHP عبر Java لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على العلامة التجارية المتسقة."
 ---
+يعرف قالب العرض خصائص عناصر التصميم. عندما تختار قالب عرض، فأنت في الأساس تختار مجموعة محددة من العناصر البصرية وخصائصها.
 
-قالب العرض يحدد خصائص عناصر التصميم. عندما تختار قالب عرض، فأنت في الأساس تختار مجموعة محددة من العناصر البصرية وخصائصها.
-
-في PowerPoint، يتكون القالب من ألوان، [الخطوط](/slides/ar/php-java/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/php-java/presentation-background/)، وتأثيرات.
+في PowerPoint، يتألف القالب من ألوان، [fonts](/slides/ar/php-java/powerpoint-fonts/)، [background styles](/slides/ar/php-java/presentation-background/)، وتأثيرات.
 
 ![theme-constituents](theme-constituents.png)
 
 ## **تغيير لون القالب**
 
-يستخدم قالب PowerPoint مجموعة محددة من الألوان لعناصر مختلفة في الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها بتطبيق ألوان جديدة على القالب. للسماح لك باختيار لون قالب جديد، توفر Aspose.Slides قيمًا ضمن تعداد [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor).
+يستخدم قالب PowerPoint مجموعة محددة من الألوان لعناصر مختلفة على الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها بتطبيق ألوان جديدة على القالب. لتتيح لك اختيار لون قالب جديد، توفر Aspose.Slides قيمًا ضمن تعداد [SchemeColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SchemeColor).
 
-يعرض لك هذا الشيفرة PHP كيفية تغيير اللون المميز للقالب:
 ```php
   $pres = new Presentation();
   try {
@@ -48,8 +46,8 @@ description: "إدارة قوالب العروض التقديمية في Aspose.
   }
 ```
 
+يمكنك تحديد القيمة الفعّالة للون الناتج بهذه الطريقة:
 
-يمكنك تحديد القيمة الفعلية للون الناتج بهذه الطريقة:
 ```php
   $fillEffective = $shape->getFillFormat()->getEffective();
   $effectiveColor = $fillEffective->getSolidFillColor();
@@ -57,8 +55,8 @@ description: "إدارة قوالب العروض التقديمية في Aspose.
 
 ```
 
+لتوضيح عملية تغيير اللون بشكل أكبر، نقوم بإنشاء عنصر آخر ونعين له لون التمييز (من العملية الأولية). ثم نغيّر اللون في القالب:
 
-لتوضيح عملية تغيير اللون أكثر، نقوم بإنشاء عنصر آخر ونعيّن له اللون المميز (من العملية الأولية). ثم نغير اللون في القالب:
 ```php
   $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
   $otherShape->getFillFormat()->setFillType(FillType::Solid);
@@ -66,51 +64,50 @@ description: "إدارة قوالب العروض التقديمية في Aspose.
   $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
 ```
 
-
-يتم تطبيق اللون الجديد تلقائيًا على كلا العنصرين.
+يتم تطبيق اللون الجديد تلقائيًا على العنصرين.
 
 ### **تعيين لون القالب من لوحة ألوان إضافية**
 
-عند تطبيق تحويلات الإضاءة على اللون الرئيسي للقالب(1)، تتشكل ألوان من لوحة الألوان الإضافية(2). يمكنك بعد ذلك تعيين تلك الألوان القالبية والحصول عليها.
+عند تطبيق تحويلات اللمعان على اللون الرئيسي للقالب(1)، تتشكل ألوان من لوحة الألوان الإضافية(2). يمكنك بعد ذلك تعيين تلك الألوان واسترجاعها.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - الألوان الرئيسية للقالب  
+**1** - ألوان القالب الرئيسية
+
 **2** - ألوان من لوحة الألوان الإضافية.
 
-يعرض لك هذا الشيفرة PHP عملية يتم فيها الحصول على ألوان لوحة الألوان الإضافية من اللون الرئيسي للقالب ثم استخدامها في الأشكال:
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # التمييز 4
+    # Accent 4
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    # التمييز 4، أفتح بنسبة 80%
+    # Accent 4, أفتح 80%
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
     $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
-    # التمييز 4، أفتح بنسبة 60%
+    # Accent 4, أفتح 60%
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
-    # التمييز 4، أفتح بنسبة 40%
+    # Accent 4, أفتح 40%
     $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
     $shape4->getFillFormat()->setFillType(FillType::Solid);
     $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
-    # التمييز 4، أغمق بنسبة 25%
+    # Accent 4, أغمق 25%
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
     $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
-    # التمييز 4، أغمق بنسبة 50%
+    # Accent 4, أغمق 50%
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
     $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
@@ -123,17 +120,38 @@ description: "إدارة قوالب العروض التقديمية في Aspose.
   }
 ```
 
+### **ربط `SchemeColor` بألوان `ColorScheme`**
+
+عند العمل مع [SchemeColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/schemecolor/)، قد تلاحظ أنه يحتوي على قيم ألوان القالب التالية:
+
+`Background1`, `Background2`, `Text1`, and `Text2`.
+
+مع ذلك، تُرجع `Presentation::getMasterTheme()::getColorScheme()` كائنًا من نوع [ColorScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/colorscheme/)، الذي يُظهر الألوان المقابلة كالتالي:
+
+`Dark1`, `Dark2`, `Light1`, and `Light2`.
+
+هذا الاختلاف في التسمية فقط. هذه القيم تشير إلى نفس فتحات ألوان القالب والربط ثابت:
+
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
+* `Background2` = `Light2`
+
+لا يوجد تحويل ديناميكي بين `Text`/`Background` و `Dark`/`Light`. إنها مجرد أسماء بديلة لنفس ألوان القالب.
+
+يأتي هذا الاختلاف في التسمية من مصطلحات Microsoft Office. استخدمت إصدارات Office القديمة `Dark 1` و `Light 1` و `Dark 2` و `Light 2`، بينما تعرض إصدارات الواجهة الحديثة نفس الفتحات كـ `Text 1` و `Background 1` و `Text 2` و `Background 2`.
 
 ## **تغيير خط القالب**
 
-للسماح لك باختيار الخطوط للقوالب وأغراض أخرى، تستخدم Aspose.Slides هذه المعرفات الخاصة (مشابهة لتلك المستخدمة في PowerPoint):
+لتتيح لك اختيار خطوط للقوالب وأغراض أخرى، تستخدم Aspose.Slides هذه المعرفات الخاصة (مشابهة لتلك المستخدمة في PowerPoint):
 
-* **+mn-lt** - الخط الأساسي للغة اللاتينية (خط لاتيني صغير)
-* **+mj-lt** - خط العنوان للغة اللاتينية (خط لاتيني كبير)
-* **+mn-ea** - الخط الأساسي للغات شرق آسيا (خط شرق آسيوي صغير)
-* **+mj-ea** - الخط الأساسي للغات شرق آسيا (خط شرق آسيوي كبير)
+* **+mn-lt** - خط النص الأساسي للغة اللاتينية (خط لاتيني فرعي)
+* **+mj-lt** - خط عنوان للغة اللاتينية (خط لاتيني رئيسي)
+* **+mn-ea** - خط النص الأساسي للغة آسيا الشرقية (خط شرق آسيوي فرعي)
+* **+mj-ea** - خط النص الأساسي للغة آسيا الشرقية (خط شرق آسيوي رئيسي)
 
-يعرض لك هذا الشيفرة PHP كيفية تعيين الخط اللاتيني لعنصر القالب:
+يعرض لك هذا الشيفرة PHP كيفية تعيين الخط اللاتيني إلى عنصر القالب:
+
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
   $paragraph = new Paragraph();
@@ -141,28 +159,30 @@ description: "إدارة قوالب العروض التقديمية في Aspose.
   $paragraph->getPortions()->add($portion);
   $shape->getTextFrame()->getParagraphs()->add($paragraph);
   $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
-```
 
+```
 
 يعرض لك هذا الشيفرة PHP كيفية تغيير خط قالب العرض:
+
 ```php
   $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+
 ```
 
-
-سيتم تحديث الخط في جميع مربعات النص.
+سيتم تحديث الخط في جميع صناديق النص.
 
 {{% alert color="primary" title="TIP" %}} 
-قد ترغب في الاطلاع على [خطوط PowerPoint](/slides/ar/php-java/powerpoint-fonts/).
+قد ترغب في الاطلاع على [PowerPoint fonts](/slides/ar/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **تغيير نمط خلفية القالب**
 
-بشكل افتراضي، يوفر تطبيق PowerPoint 12 خلفية مُعرّفة مسبقًا لكن فقط 3 من تلك الخلفيات تُحفظ في عرض تقديمي نموذجي.
+بشكل افتراضي، يقدم تطبيق PowerPoint 12 خلفية معرفة مسبقًا ولكن يتم حفظ 3 فقط من تلك الخلفيات الـ12 في عرض تقديمي نموذجي.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-على سبيل المثال، بعد حفظ عرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل هذا الشيفرة PHP لمعرفة عدد الخلفيات المُعرّفة مسبقًا في العرض:
+على سبيل المثال، بعد حفظ عرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل هذا الشيفرة PHP لمعرفة عدد الخلفيات المعرفة مسبقًا في العرض:
+
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -175,32 +195,30 @@ description: "إدارة قوالب العروض التقديمية في Aspose.
   }
 ```
 
-
 {{% alert color="warning" %}} 
-باستخدام خاصية [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) من فئة [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme)، يمكنك إضافة أو الوصول إلى نمط الخلفية في قالب PowerPoint.
+باستخدام الخاصية [BackgroundFillStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) من الفئة [FormatScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/FormatScheme)، يمكنك إضافة أو الوصول إلى نمط الخلفية في قالب PowerPoint.
 {{% /alert %}} 
 
-يعرض لك هذا الشيفرة PHP كيفية تعيين الخلفية لعرض تقديمي:
+يعرض لك هذا الشيفرة PHP كيفية تعيين الخلفية لعروض تقديمية:
+
 ```php
   $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
 ```
 
-
-**دليل الفهرس**: يُستخدم 0 لعدم التعبئة. يبدأ الفهرس من 1.
+**دليل الفهرس**: 0 يُستخدم بدون تعبئة. يبدأ الفهرس من 1.
 
 {{% alert color="primary" title="TIP" %}} 
-قد ترغب في الاطلاع على [خلفية PowerPoint](/slides/ar/php-java/presentation-background/).
+قد ترغب في الاطلاع على [PowerPoint Background](/slides/ar/php-java/presentation-background/).
 {{% /alert %}}
 
 ## **تغيير تأثير القالب**
 
-عادةً ما يحتوي قالب PowerPoint على 3 قيم لكل مصفوفة نمط. تُدمج تلك المصفوفات لتشكل هذه التأثيرات الثلاثة: خفيف، متوسط، وشديد. على سبيل المثال، هذه هي النتيجة عند تطبيق التأثيرات على شكل معين:
+عادةً ما يحتوي قالب PowerPoint على 3 قيم لكل مصفوفة نمط. تُدمج تلك المصفوفات في 3 تأثيرات: خفيف، متوسط، وشديد. على سبيل المثال، هذه هي النتيجة عند تطبيق التأثيرات على شكل معين:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) من فئة [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) يمكنك تعديل العناصر في القالب (بمرونة أكبر من الخيارات المتوفرة في PowerPoint).
+باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/FormatScheme#getEffectStyles--)) من الفئة [FormatScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/FormatScheme) يمكنك تغيير العناصر في القالب (بمرونة أكبر من الخيارات في PowerPoint).
 
-يعرض لك هذا الشيفرة PHPكيفية تغيير تأثير القالب عن طريق تعديل أجزاء من العناصر:
 ```php
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");
   try {
@@ -216,17 +234,20 @@ description: "إدارة قوالب العروض التقديمية في Aspose.
   }
 ```
 
-
 التغييرات الناتجة في لون التعبئة، نوع التعبئة، تأثير الظل، إلخ:
+
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني تطبيق قالب على شريحة واحدة دون تغيير الرئيسي؟**  
-نعم. تدعم Aspose.Slides تجاوزات القالب على مستوى الشريحة، بحيث يمكنك تطبيق قالب محلي على تلك الشريحة فقط مع الحفاظ على قالب الرئيس الأصلي (من خلال [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/)).
+**هل يمكنني تطبيق قالب على شريحة واحدة دون تغيير القالب الرئيسي؟**
 
-**ما هي الطريقة الأكثر أمانًا لنقل قالب من عرض تقديمي إلى آخر؟**  
-[نسخ الشرائح](/slides/ar/php-java/clone-slides/) مع رئيسها إلى العرض الهدف. هذا يحافظ على الرئيس الأصلي، التخطيطات، والقالب المرتبط بحيث يبقى المظهر متسقًا.
+نعم. تدعم Aspose.Slides تجاوزات القالب على مستوى الشريحة، بحيث يمكنك تطبيق قالب محلي على تلك الشريحة فقط مع الحفاظ على قالب الماستر دون تغيير (عن طريق [SlideThemeManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidethememanager/)).
 
-**كيف يمكنني رؤية القيم "الفعّالة" بعد جميع الوراثة والتجاوزات؟**  
-استخدم "العروض الفعّالة" في الـ API [/slides/php-java/shape-effective-properties/] للموضوع/اللون/الخط/التأثير. تُعيد هذه القيم الخصائص المُحَلة النهائية بعد تطبيق الرئيس وأي تجاوزات محلية.
+**ما هي الطريقة الأكثر أمانًا لنقل قالب من عرض تقديمي إلى آخر؟**
+
+[Clone slides](/slides/ar/php-java/clone-slides/) مع الماستر الخاص بهم إلى العرض المستهدف. هذا يحافظ على الماستر الأصلي، التخطيطات، والقالب المرتبط بحيث يظل المظهر متسقًا.
+
+**كيف يمكنني رؤية القيم "الفعّالة" بعد جميع الوراثة والتجاوزات؟**
+
+استخدم "العروض الفعّالة" في API عبر ["effective" views](/slides/ar/php-java/shape-effective-properties/) للقالب/اللون/الخط/التأثير. تُعيد هذه القيم الخصائص النهائية بعد تطبيق الماستر وأي تجاوزات محلية.
