@@ -36,7 +36,7 @@ jobs:
           echo "Languages:     $LANGUAGES"
           echo "========================================"
 
-          curl -X POST "https://api.aspose.ai/slides-internal/translate-documentation" \
+          curl -X POST "https://api.aspose.ai/slides-internal/documentation-translator/translate-documentation" \
             -H "Content-Type: application/json" \
             -d "{
               \"baseSha\": \"$BASE_SHA\",
