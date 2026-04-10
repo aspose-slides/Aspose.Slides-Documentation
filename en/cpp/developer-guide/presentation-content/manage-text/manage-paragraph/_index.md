@@ -453,96 +453,126 @@ textFrame->get_Paragraphs()->Add(paragraph5);
 presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
 ```
 
+## **Set First-Line Indent for a Paragraph**
 
-## **Set Paragraph Indent**
+Use the [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) method to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-1. Access the relevant slide's reference through its index.
-1. Add a rectangle [autoshape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) with three paragraphs to the rectangle autoshape.
-1. Hide the rectangle lines.
-1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) through their BulletOffset property.
-1. Write the modified presentation as a PPT file.
+Use [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) when you need to move the whole paragraph. Use [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) when you need to move only the first line.
 
-This C++ code shows you how to set a paragraph indent: 
+The example below creates several paragraphs and applies different `Indent` values to demonstrate how the first-line indent affects paragraph layout.
 
-```c++
-// The path to the documents directory.
-const String outPath = u"../out/AddingSuperscriptAndSubscriptTextInTextFrame_out.pptx";
-//const String templatePath = u"../templates/DefaultFonts.pptx";
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create several paragraphs and set different [Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) values for them.
+6. Add the paragraphs to the text frame.
+7. Save the modified presentation.
 
+This code shows you how to set a paragraph indent:
 
-// Load the desired the presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Access first slide
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
+rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
 
-// Add an AutoShape of Rectangle type
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
+auto textFrame = rectangleShape->AddTextFrame(u"");
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
+textFrame->get_Paragraphs()->RemoveAt(0);
 
-// Add TextFrame to the Rectangle
-SharedPtr<ITextFrame> tf = ashp->AddTextFrame(String::Empty);
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+firstParagraph->set_Text(u"No first-line indent. Wrapped lines start at the same position as the first line.");
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
+firstParagraph->get_ParagraphFormat()->set_Indent(0.f);
 
-tf->get_Paragraphs()->Clear();
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+secondParagraph->set_Text(u"First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
+secondParagraph->get_ParagraphFormat()->set_Indent(20.f);
 
-// Adding the first Paragraph
-SharedPtr<Paragraph> superPar = MakeObject<Paragraph>();
-SharedPtr<Portion> portion1 = MakeObject<Portion>(u"SlideTitle");
-superPar->get_Portions()->Add(portion1);
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+thirdParagraph->set_Text(u"First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
+thirdParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
+thirdParagraph->get_ParagraphFormat()->set_Indent(40.f);
 
-SharedPtr<Portion> superPortion = MakeObject<Portion>();
-superPortion->get_PortionFormat()->set_Escapement(30);
-superPortion->set_Text(u"TM");
-superPar->get_Portions()->Add(superPortion);
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+textFrame->get_Paragraphs()->Add(thirdParagraph);
 
-
-// Adding the first Paragraph
-SharedPtr<Paragraph> subPar = MakeObject<Paragraph>();
-SharedPtr<Portion> portion2 = MakeObject<Portion>(u"a");
-subPar->get_Portions()->Add(portion2);
-
-SharedPtr<Portion> subPortion = MakeObject<Portion>();
-subPortion->get_PortionFormat()->set_Escapement(-25);
-subPortion->set_Text(u"i");
-subPar->get_Portions()->Add(subPortion);
-
-//Adding to text frame
-ashp->get_TextFrame()->get_Paragraphs()->Add(superPar);
-ashp->get_TextFrame()->get_Paragraphs()->Add(subPar);
-
-
-// Save PPTX to Disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"paragraph_indent.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The first-line indent of the paragraphs](first_line_indent.png)
 
 ## **Set Hanging Indent for a Paragraph**
 
-This C++ code shows you how to set the hanging indent for a paragraph:
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) method. Set the indent to a negative value to move the first line to the left relative to the paragraph body.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+In practice, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) defines the left position of the paragraph body, and [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
 
-auto autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 250.0f, 550.0f, 150.0f);
+This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
 
-System::SharedPtr<Paragraph> para1 = System::MakeObject<Paragraph>();
-para1->set_Text(u"Example");
-System::SharedPtr<Paragraph> para2 = System::MakeObject<Paragraph>();
-para2->set_Text(u"Set Hanging Indent for Paragraph");
-System::SharedPtr<Paragraph> para3 = System::MakeObject<Paragraph>();
-para3->set_Text(u"This C# code shows you how to set the hanging indent for a paragraph: ");
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create paragraphs and set a positive [MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) value for each paragraph.
+6. Set a negative [Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) value to create the hanging indent effect.
+7. Add the paragraphs to the text frame.
+8. Save the modified presentation.
 
-para2->get_ParagraphFormat()->set_MarginLeft(10.f);
-para3->get_ParagraphFormat()->set_MarginLeft(20.f);
+This code shows you how to set a hanging indent for a paragraph:
 
-auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
-paragraphs->Add(para1);
-paragraphs->Add(para2);
-paragraphs->Add(para3);
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
+rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+
+auto textFrame = rectangleShape->AddTextFrame(u"");
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
+textFrame->get_Paragraphs()->RemoveAt(0);
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+firstParagraph->set_Text(u"A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(40.f);
+firstParagraph->get_ParagraphFormat()->set_Indent(-20.f);
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+secondParagraph->set_Text(u"This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(60.f);
+secondParagraph->get_ParagraphFormat()->set_Indent(-30.f);
+
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ## **Manage End Paragraph Run Properties**
 
