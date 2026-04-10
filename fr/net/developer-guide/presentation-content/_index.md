@@ -1,5 +1,6 @@
 ---
 title: Gérer le contenu des présentations dans .NET
+linktitle: Contenu des présentations
 type: docs
 weight: 30
 url: /fr/net/presentation-content/
@@ -23,5 +24,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Créez, modifiez et extrayez le contenu des présentations avec Aspose.Slides pour .NET—obtenez des exemples de code pour le texte, les images, les formes, les graphiques ; PPT, PPTX et ODP."
+description: "Créez, modifiez et extrayez le contenu des présentations avec Aspose.Slides pour .NET — obtenez des exemples de code pour le texte, les images, les formes, les graphiques ; PPT, PPTX et ODP."
 ---

@@ -1,21 +1,21 @@
 ---
-title: Administrar párrafos de texto de PowerPoint en Android
-linktitle: Administrar párrafo
+title: Gestionar párrafos de texto de PowerPoint en Android
+linktitle: Gestionar párrafo
 type: docs
 weight: 40
 url: /es/androidjava/manage-paragraph/
 keywords:
-- agregar texto
-- agregar párrafo
-- administrar texto
-- administrar párrafo
-- administrar viñeta
+- añadir texto
+- añadir párrafo
+- gestionar texto
+- gestionar párrafo
+- gestionar viñeta
 - sangría de párrafo
-- sangría colgante
+- sangría francesa
 - viñeta de párrafo
 - lista numerada
 - lista con viñetas
-- propiedades de párrafo
+- propiedades del párrafo
 - importar HTML
 - texto a HTML
 - párrafo a HTML
@@ -30,30 +30,28 @@ keywords:
 - Aspose.Slides
 description: "Domina el formato de párrafos con Aspose.Slides para Android—optimiza la alineación, el espaciado y el estilo en presentaciones PPT, PPTX y ODP en Java."
 ---
+Aspose.Slides proporciona todas las interfaces y clases que necesitas para trabajar con textos, párrafos y fragmentos de PowerPoint en Java.
 
-Aspose.Slides proporciona todas las interfaces y clases que necesita para trabajar con textos, párrafos y fragmentos de PowerPoint en Java.
+* Aspose.Slides proporciona la interfaz [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) para permitirte añadir objetos que representan un párrafo. Un objeto `ITextFame` puede tener uno o varios párrafos (cada párrafo se crea mediante un retorno de carro).
+* Aspose.Slides proporciona la interfaz [IParagraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraph/) para permitirte añadir objetos que representan fragmentos. Un objeto `IParagraph` puede tener uno o varios fragmentos (colección de objetos iPortions).
+* Aspose.Slides proporciona la interfaz [IPortion](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iportion/) para permitirte añadir objetos que representan textos y sus propiedades de formato.
 
-* Aspose.Slides proporciona la interfaz [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) para permitirle agregar objetos que representan un párrafo. Un objeto `ITextFame` puede tener uno o varios párrafos (cada párrafo se crea mediante un retorno de carro).
-* Aspose.Slides proporciona la interfaz [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) para permitirle agregar objetos que representan fragmentos. Un objeto `IParagraph` puede tener uno o varios fragmentos (colección de objetos iPortions).
-* Aspose.Slides proporciona la interfaz [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) para permitirle agregar objetos que representan textos y sus propiedades de formato.
-
-Un objeto `IParagraph` es capaz de manejar textos con diferentes propiedades de formato a través de sus objetos subyacentes `IPortion`.
+Un objeto `IParagraph` es capaz de manejar textos con diferentes propiedades de formato mediante sus objetos subyacentes `IPortion`.
 
 ## **Agregar varios párrafos que contengan varios fragmentos de texto**
 
-Estos pasos le muestran cómo agregar un marco de texto que contenga 3 párrafos y cada párrafo contenga 3 fragmentos:
+Estos pasos te muestran cómo añadir un marco de texto que contiene 3 párrafos y cada párrafo contiene 3 fragmentos:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregar un rectángulo [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
-4. Obtener el ITextFrame asociado con el [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
-5. Crear dos objetos [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) y añadirlos a la colección `IParagraphs` del [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
-6. Crear tres objetos [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) para cada nuevo `IParagraph` (dos objetos Portion para el párrafo predeterminado) y añadir cada objeto `IPortion` a la colección IPortion de cada `IParagraph`.
-7. Establecer algún texto para cada fragmento.
-8. Aplicar sus características de formato preferidas a cada fragmento usando las propiedades de formato expuestas por el objeto `IPortion`.
-9. Guardar la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añade un rectángulo [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
+4. Obtén el ITextFrame asociado al [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/).
+5. Crea dos objetos [IParagraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraph/) y añádelos a la colección `IParagraphs` del [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/).
+6. Crea tres objetos [IPortion](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iportion/) para cada nuevo `IParagraph` (dos objetos Portion para el párrafo predeterminado) y añade cada objeto `IPortion` a la colección IPortion de cada `IParagraph`.
+7. Establece algún texto para cada fragmento.
+8. Aplica tus características de formato preferidas a cada fragmento usando las propiedades de formato expuestas por el objeto `IPortion`.
+9. Guarda la presentación modificada.
 
-Este código Java es una implementación de los pasos para agregar párrafos que contengan fragmentos:
 ```java
 // Instanciar una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
@@ -61,13 +59,13 @@ try {
     // Accediendo a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agregar un AutoShape de tipo Rectángulo
+    // Añadir un AutoShape de tipo Rectángulo
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
     // Acceder al TextFrame del AutoShape
     ITextFrame tf = ashp.getTextFrame();
 
-    // Crear párrafos y fragmentos con diferentes formatos de texto
+    // Crear párrafos y porciones con diferentes formatos de texto
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -112,34 +110,32 @@ try {
         }
     }
 
-    // Guardar el PPTX en disco
+    //Escribir PPTX en disco
     pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **Administrar viñetas de párrafo**
 
-Las listas con viñetas le ayudan a organizar y presentar la información de forma rápida y eficiente. Los párrafos con viñetas siempre son más fáciles de leer y comprender.
+Las listas con viñetas te ayudan a organizar y presentar información de forma rápida y eficaz. Los párrafos con viñetas son siempre más fáciles de leer y comprender.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregar una [forma automática](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a la diapositiva seleccionada.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) de la forma automática.
-5. Eliminar el párrafo predeterminado en el `TextFrame`.
-6. Crear la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
-7. Establecer el `Type` de la viñeta para el párrafo a `Symbol` y establecer el carácter de la viñeta.
-8. Establecer el `Text` del párrafo.
-9. Establecer la `Indent` del párrafo para la viñeta.
-10. Establecer un color para la viñeta.
-11. Establecer una altura para la viñeta.
-12. Añadir el nuevo párrafo a la colección de párrafos del `TextFrame`.
-13. Añadir el segundo párrafo y repetir el proceso descrito en los pasos 7 a 13.
-14. Guardar la presentación.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añade un [autoshape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) a la diapositiva seleccionada.
+4. Accede al [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) del autoshape.
+5. Elimina el párrafo predeterminado en el `TextFrame`.
+6. Crea la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraph/).
+7. Establece el `Type` de viñeta del párrafo a `Symbol` y define el carácter de viñeta.
+8. Establece el `Text` del párrafo.
+9. Establece el `Indent` del párrafo para la viñeta.
+10. Define un color para la viñeta.
+11. Define una altura para la viñeta.
+12. Añade el nuevo párrafo a la colección de párrafos del `TextFrame`.
+13. Añade el segundo párrafo y repite el proceso descrito en los pasos 7 a 13.
+14. Guarda la presentación.
 
-Este código Java le muestra cómo agregar una viñeta de párrafo:
 ```java
 // Instancia una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
@@ -147,7 +143,7 @@ try {
     // Accede a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Agrega y accede al Autoshape
+    // Añade y accede a Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
     // Accede al marco de texto del autoshape
@@ -159,7 +155,7 @@ try {
     // Crea un párrafo
     Paragraph para = new Paragraph();
 
-    // Establece el estilo de viñeta del párrafo y el símbolo
+    // Establece el estilo y símbolo de viñeta del párrafo
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char)8226);
 
@@ -210,28 +206,26 @@ try {
 }
 ```
 
+## **Administrar viñetas de imagen**
 
-## **Administrar viñetas con imágenes**
+Las listas con viñetas te ayudan a organizar y presentar información de forma rápida y eficaz. Los párrafos con imagen son fáciles de leer y comprender.
 
-Las listas con viñetas le ayudan a organizar y presentar la información de forma rápida y eficiente. Los párrafos con imágenes son fáciles de leer y comprender.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añade un [autoshape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
+4. Accede al [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) del autoshape.
+5. Elimina el párrafo predeterminado en el `TextFrame`.
+6. Crea la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraph/).
+7. Carga la imagen en [IPPImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ippimage/).
+8. Establece el tipo de viñeta a [Picture](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ippimage/) y asigna la imagen.
+9. Establece el `Text` del Paragraph.
+10. Establece el `Indent` del Paragraph para la viñeta.
+11. Define un color para la viñeta.
+12. Define una altura para la viñeta.
+13. Añade el nuevo párrafo a la colección de párrafos del `TextFrame`.
+14. Añade el segundo párrafo y repite el proceso basado en los pasos anteriores.
+15. Guarda la presentación modificada.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregar una [forma automática](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) de la forma automática.
-5. Eliminar el párrafo predeterminado en el `TextFrame`.
-6. Crear la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
-7. Cargar la imagen en [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
-8. Establecer el tipo de viñeta a [Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) y asignar la imagen.
-9. Establecer el `Text` del párrafo.
-10. Establecer la `Indent` del párrafo para la viñeta.
-11. Establecer un color para la viñeta.
-12. Establecer una altura para la viñeta.
-13. Añadir el nuevo párrafo a la colección de párrafos del `TextFrame`.
-14. Añadir el segundo párrafo y repetir el proceso basado en los pasos anteriores.
-15. Guardar la presentación modificada.
-
-Este código Java le muestra cómo agregar y administrar viñetas con imágenes:
 ```java
 // Instancia una clase Presentation que representa un archivo PPTX
 Presentation presentation = new Presentation();
@@ -247,7 +241,7 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-    // Agrega y accede al Autoshape
+    // Añade y accede a Autoshape
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
     // Accede al marco de texto del autoshape
@@ -270,10 +264,10 @@ try {
     // Añade el párrafo al marco de texto
     textFrame.getParagraphs().add(paragraph);
 
-    // Escribe la presentación como archivo PPTX
+    // Guarda la presentación como archivo PPTX
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-    // Escribe la presentación como archivo PPT
+    // Guarda la presentación como archivo PPT
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 } catch (IOException e) {
 } finally {
@@ -281,24 +275,22 @@ try {
 }
 ```
 
-
 ## **Administrar viñetas multinivel**
 
-Las listas con viñetas le ayudan a organizar y presentar la información de forma rápida y eficiente. Las viñetas multinivel son fáciles de leer y comprender.
+Las listas con viñetas te ayudan a organizar y presentar información de forma rápida y eficaz. Las viñetas multinivel son fáciles de leer y comprender.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregar una [forma automática](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) en la nueva diapositiva.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) de la forma automática.
-5. Eliminar el párrafo predeterminado en el `TextFrame`.
-6. Crear la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) y establecer la profundidad a 0.
-7. Crear la segunda instancia de párrafo mediante la clase `Paragraph` y establecer la profundidad a 1.
-8. Crear la tercera instancia de párrafo mediante la clase `Paragraph` y establecer la profundidad a 2.
-9. Crear la cuarta instancia de párrafo mediante la clase `Paragraph` y establecer la profundidad a 3.
-10. Añadir los nuevos párrafos a la colección de párrafos del `TextFrame`.
-11. Guardar la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añade un [autoshape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) en la nueva diapositiva.
+4. Accede al [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) del autoshape.
+5. Elimina el párrafo predeterminado en el `TextFrame`.
+6. Crea la primera instancia de párrafo a través de la clase [Paragraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraph/) y establece la profundidad en 0.
+7. Crea la segunda instancia de párrafo a través de la clase `Paragraph` y establece la profundidad en 1.
+8. Crea la tercera instancia de párrafo a través de la clase `Paragraph` y establece la profundidad en 2.
+9. Crea la cuarta instancia de párrafo a través de la clase `Paragraph` y establece la profundidad en 3.
+10. Añade los nuevos párrafos a la colección de párrafos del `TextFrame`.
+11. Guarda la presentación modificada.
 
-Este código Java le muestra cómo agregar y administrar viñetas multinivel:
 ```java
 // Instancia una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
@@ -306,7 +298,7 @@ try {
     // Accede a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agrega y accede al Autoshape
+    // Añade y accede al Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
     // Accede al marco de texto del autoshape creado
@@ -315,7 +307,7 @@ try {
     // Elimina el párrafo predeterminado
     text.getParagraphs().clear();
 
-    // Agrega el primer párrafo
+    // Añade el primer párrafo
     IParagraph para1 = new Paragraph();
     para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
@@ -325,7 +317,7 @@ try {
     // Establece el nivel de viñeta
     para1.getParagraphFormat().setDepth((short)0);
 
-    // Agrega el segundo párrafo
+    // Añade el segundo párrafo
     IParagraph para2 = new Paragraph();
     para2.setText("Second Level");
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
@@ -335,7 +327,7 @@ try {
     // Establece el nivel de viñeta
     para2.getParagraphFormat().setDepth((short)1);
 
-    // Agrega el tercer párrafo
+    // Añade el tercer párrafo
     IParagraph para3 = new Paragraph();
     para3.setText("Third Level");
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
@@ -345,7 +337,7 @@ try {
     // Establece el nivel de viñeta
     para3.getParagraphFormat().setDepth((short)2);
 
-    // Agrega el cuarto párrafo
+    // Añade el cuarto párrafo
     IParagraph para4 = new Paragraph();
     para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
@@ -355,36 +347,34 @@ try {
     // Establece el nivel de viñeta
     para4.getParagraphFormat().setDepth((short)3);
 
-    // Agrega los párrafos a la colección
+    // Añade los párrafos a la colección
     text.getParagraphs().add(para1);
     text.getParagraphs().add(para2);
     text.getParagraphs().add(para3);
     text.getParagraphs().add(para4);
 
-    // Escribe la presentación como archivo PPTX
+    // Guarda la presentación como archivo PPTX
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **Administrar un párrafo con una lista numerada personalizada**
 
-La interfaz [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) proporciona la propiedad [NumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) y otras que le permiten administrar párrafos con numeración o formato personalizado.
+La interfaz [IBulletFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibulletformat/) proporciona la propiedad [NumberedBulletStartWith](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) y otras que permiten gestionar párrafos con numeración o formato personalizados.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Acceder a la diapositiva que contiene el párrafo.
-3. Agregar una [forma automática](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
-4. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) de la forma automática.
-5. Eliminar el párrafo predeterminado en el `TextFrame`.
-6. Crear la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) y establecer [NumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) en 2.
-7. Crear la segunda instancia de párrafo mediante la clase `Paragraph` y establecer `NumberedBulletStartWith` en 3.
-8. Crear la tercera instancia de párrafo mediante la clase `Paragraph` y establecer `NumberedBulletStartWith` en 7.
-9. Añadir los nuevos párrafos a la colección de párrafos del `TextFrame`.
-10. Guardar la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la diapositiva que contiene el párrafo.
+3. Añade un [autoshape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
+4. Accede al [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) del autoshape.
+5. Elimina el párrafo predeterminado en el `TextFrame`.
+6. Crea la primera instancia de párrafo a través de la clase [Paragraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraph/) y establece [NumberedBulletStartWith](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) a 2.
+7. Crea la segunda instancia de párrafo a través de la clase `Paragraph` y establece `NumberedBulletStartWith` a 3.
+8. Crea la tercera instancia de párrafo a través de la clase `Paragraph` y establece `NumberedBulletStartWith` a 7.
+9. Añade los nuevos párrafos a la colección de párrafos del `TextFrame`.
+10. Guarda la presentación modificada.
 
-Este código Java le muestra cómo agregar y administrar párrafos con numeración o formato personalizado:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -425,113 +415,141 @@ try {
 }
 ```
 
+## **Establecer sangría de primera línea para un párrafo**
 
-## **Establecer sangría de párrafo**
+Utiliza el método [IParagraphFormat.setIndent](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para controlar la sangría de la primera línea de un párrafo. Este método desplaza solo la primera línea respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que el resto de líneas permanece alineado al cuerpo del párrafo.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
-1. Agregar un rectángulo [forma automática](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
-1. Añadir un [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) con tres párrafos al rectángulo forma automática.
-1. Ocultar las líneas del rectángulo.
-1. Establecer la sangría para cada [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) a través de su propiedad `BulletOffset`.
-1. Guardar la presentación modificada como archivo PPT.
+Usa [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) cuando necesites mover todo el párrafo. Usa [IParagraphFormat.setIndent](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) cuando solo necesites mover la primera línea.
 
-Este código Java le muestra cómo establecer una sangría de párrafo:
+El ejemplo a continuación crea varios párrafos y aplica diferentes valores de sangría para demostrar cómo afecta la sangría de primera línea al diseño del párrafo.
+
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la diapositiva objetivo.
+3. Añade un [AutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Añade un [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframe/) vacío a la forma y elimina el párrafo predeterminado.
+5. Crea varios párrafos y establece diferentes valores de [Indent](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para ellos.
+6. Añade los párrafos al marco de texto.
+7. Guarda la presentación modificada.
+
 ```java
-// Instanciar clase Presentation
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Obtener la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Añadir una forma rectangular
-    IAutoShape rect = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
-    
-    // Añadir TextFrame al rectángulo
-    ITextFrame tf = rect.addTextFrame("This is first line \rThis is second line \rThis is third line");
-    
-    // Establecer el texto para que se ajuste a la forma
-    tf.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    
-    // Ocultar las líneas del rectángulo
-    rect.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    
-    // Obtener el primer párrafo en el TextFrame y establecer su sangría
-    IParagraph para1 = tf.getParagraphs().get_Item(0);
-    // Configurar estilo de viñeta del párrafo y símbolo
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().setAlignment(TextAlignment.Left);
-    
-    para1.getParagraphFormat().setDepth((short)2);
-    para1.getParagraphFormat().setIndent(30);
-    
-    // Obtener el segundo párrafo en el TextFrame y establecer su sangría
-    IParagraph para2 = tf.getParagraphs().get_Item(1);
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar((char)8226);
-    para2.getParagraphFormat().setAlignment(TextAlignment.Left);
-    para2.getParagraphFormat().setDepth((short)2);
-    para2.getParagraphFormat().setIndent(40);
-    
-    // Obtener el tercer párrafo en el TextFrame y establecer su sangría
-    IParagraph para3 = tf.getParagraphs().get_Item(2);
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().setAlignment(TextAlignment.Left);
-    para3.getParagraphFormat().setDepth((short)2);
-    para3.getParagraphFormat().setIndent(50);
-    
-    // Guardar la presentación en disco
-    pres.save("InOutDent_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
+    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
+    textFrame.getParagraphs().removeAt(0);
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
+    firstParagraph.getParagraphFormat().setMarginLeft(20f);
+    firstParagraph.getParagraphFormat().setIndent(0f);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
+    secondParagraph.getParagraphFormat().setMarginLeft(20f);
+    secondParagraph.getParagraphFormat().setIndent(20f);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
+    thirdParagraph.getParagraphFormat().setMarginLeft(20f);
+    thirdParagraph.getParagraphFormat().setIndent(40f);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
 }
 ```
 
+El resultado:
 
-## **Establecer sangría colgante para un párrafo**
+![La sangría de primera línea de los párrafos](first_line_indent.png)
 
-Este código Java le muestra cómo establecer la sangría colgante para un párrafo:
+## **Establecer sangría francesa para un párrafo**
+
+Una sangría francesa es un diseño de párrafo en el que la primera línea comienza a la izquierda del resto de líneas. En Aspose.Slides, creas este efecto con el método [IParagraphFormat.setIndent](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Establece la sangría a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
+
+En la práctica, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) define la posición izquierda del cuerpo del párrafo, y [IParagraphFormat.setIndent](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) define la posición de la primera línea respecto a ese margen. Para crear una sangría francesa, establece un valor positivo en `MarginLeft` y un valor negativo en `Indent`.
+
+Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas envueltas deben alinearse bajo el cuerpo del párrafo en lugar de bajo el primer carácter de la primera línea.
+
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la diapositiva objetivo.
+3. Añade un [AutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Añade un [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframe/) vacío a la forma y elimina el párrafo predeterminado.
+5. Crea párrafos y establece un valor positivo de [MarginLeft](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) para cada párrafo.
+6. Establece un valor negativo de [Indent](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) para crear el efecto de sangría francesa.
+7. Añade los párrafos al marco de texto.
+8. Guarda la presentación modificada.
+
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 250, 550, 150);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    Paragraph para1 = new Paragraph();
-    para1.setText("Example");
+    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
+    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    Paragraph para2 = new Paragraph();
-    para2.setText("Set Hanging Indent for Paragraph");
+    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
+    textFrame.getParagraphs().removeAt(0);
 
-    Paragraph para3 = new Paragraph();
-    para3.setText("This code shows you how to set the hanging indent for a paragraph: ");
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
+    firstParagraph.getParagraphFormat().setMarginLeft(40f);
+    firstParagraph.getParagraphFormat().setIndent(-20f);
 
-    para2.getParagraphFormat().setMarginLeft(10f);
-    para3.getParagraphFormat().setMarginLeft(20f);
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
+    secondParagraph.getParagraphFormat().setMarginLeft(60f);
+    secondParagraph.getParagraphFormat().setIndent(-30f);
 
-    autoShape.getTextFrame().getParagraphs().add(para1);
-    autoShape.getTextFrame().getParagraphs().add(para2);
-    autoShape.getTextFrame().getParagraphs().add(para3);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
 }
 ```
 
+El resultado:
 
-## **Administrar propiedades de ejecución al final del párrafo**
+![La sangría francesa de los párrafos](hanging_indent.png)
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Obtener la referencia de la diapositiva que contiene el párrafo mediante su posición.
-1. Agregar un rectángulo [forma automática](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
-1. Añadir un [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) con dos párrafos al rectángulo.
-1. Establecer el `FontHeight` y el tipo de fuente para los párrafos.
-1. Establecer las propiedades End para los párrafos.
-1. Guardar la presentación modificada como archivo PPTX.
+## **Administrar propiedades de ejecución de fin de párrafo**
 
-Este código Java le muestra cómo establecer las propiedades End para los párrafos en PowerPoint:
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+1. Obtén la referencia de la diapositiva que contiene el párrafo mediante su posición.
+1. Añade un [autoshape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) rectangular a la diapositiva.
+1. Añade un [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) con dos párrafos al rectángulo.
+1. Establece `FontHeight` y el tipo de fuente para los párrafos.
+1. Establece las propiedades End para los párrafos.
+1. Escribe la presentación modificada como un archivo PPTX.
+
 ```java
 Presentation pres = new Presentation();
 try {
@@ -557,67 +575,63 @@ try {
 }
 ```
 
-
 ## **Importar texto HTML en párrafos**
 
-Aspose.Slides ofrece soporte mejorado para importar texto HTML en párrafos.
+Aspose.Slides proporciona un soporte mejorado para la importación de texto HTML en párrafos.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregar una [forma automática](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
-4. Añadir y acceder al `autoshape` [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
-5. Eliminar el párrafo predeterminado en el `ITextFrame`.
-6. Leer el archivo HTML fuente en un TextReader.
-7. Crear la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
-8. Añadir el contenido del archivo HTML leído con el TextReader a la [ParagraphCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/) del TextFrame.
-9. Guardar la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).
+2. Accede a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añade un [autoshape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) a la diapositiva.
+4. Añade y accede al [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) del autoshape.
+5. Elimina el párrafo predeterminado en el `ITextFrame`.
+6. Lee el archivo HTML fuente en un TextReader.
+7. Crea la primera instancia de párrafo a través de la clase [Paragraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraph/).
+8. Añade el contenido del archivo HTML leído con el TextReader a la [ParagraphCollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraphcollection/) del TextFrame.
+9. Guarda la presentación modificada.
 
-Este código Java es una implementación de los pasos para importar textos HTML en párrafos:
 ```java
-// Crear instancia vacía de presentación
+// Crear una instancia de presentación vacía
 Presentation pres = new Presentation();
 try {
-    // Acceder a la diapositiva predeterminada inicial de la presentación
+    // Acceder a la primera diapositiva predeterminada de la presentación
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agregar el AutoShape para alojar el contenido HTML
+    // Añadir el AutoShape para acomodar el contenido HTML
     IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
             (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
 
     ashape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Agregar marco de texto a la forma
+    // Añadir el marco de texto a la forma
     ashape.addTextFrame("");
 
-    // Borrar todos los párrafos del marco de texto agregado
+    // Limpiar todos los párrafos en el marco de texto añadido
     ashape.getTextFrame().getParagraphs().clear();
 
-    // Cargar el archivo HTML usando lector de flujo
+    // Cargar el archivo HTML usando un lector de flujo
     TextReader tr = new StreamReader("file.html");
 
-    // Agregar texto del lector de flujo HTML al marco de texto
+    // Añadir texto del lector de flujo HTML al marco de texto
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
-    // Guardar presentación
+    // Guardar la presentación
     pres.save("output_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **Exportar texto de párrafo a HTML**
 
-Aspose.Slides ofrece soporte mejorado para exportar textos (contenidos en párrafos) a HTML.
+Aspose.Slides proporciona un soporte mejorado para la exportación de textos (contenidos en párrafos) a HTML.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) y cargar la presentación deseada.
-2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
-3. Acceder a la forma que contiene el texto que se exportará a HTML.
-4. Acceder a la [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) de la forma.
-5. Crear una instancia de `StreamWriter` y añadir el nuevo archivo HTML.
-6. Proporcionar un índice inicial a StreamWriter y exportar los párrafos que prefiera.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) y carga la presentación deseada.
+2. Accede a la referencia de la diapositiva correspondiente mediante su índice.
+3. Accede a la forma que contiene el texto que se exportará a HTML.
+4. Accede al [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframe/) de la forma.
+5. Crea una instancia de `StreamWriter` y añade el nuevo archivo HTML.
+6. Proporciona un índice de inicio a StreamWriter y exporta los párrafos que desees.
 
-Este código Java le muestra cómo exportar textos de párrafo de PowerPoint a HTML:
 ```java
 // Cargar el archivo de presentación
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
@@ -635,8 +649,8 @@ try {
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    // Extraer el primer párrafo como HTML
-    // Escribir datos de los párrafos a HTML proporcionando el índice inicial del párrafo y el número total de párrafos a copiar
+    //Extrayendo el primer párrafo como HTML
+    // Escribiendo datos de los párrafos a HTML proporcionando el índice de inicio del párrafo, el total de párrafos a copiar
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -645,10 +659,9 @@ try {
 }
 ```
 
+## **Guardar un párrafo como imagen**
 
-## **Guardar un párrafo como una imagen**
-
-En esta sección, exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la interfaz [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/), como una imagen. Ambos ejemplos incluyen la obtención de la imagen de una forma que contiene el párrafo usando los métodos `getImage` de la interfaz [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), el cálculo de los límites del párrafo dentro de la forma y su exportación como una imagen bitmap. Estos enfoques le permiten extraer partes específicas del texto de presentaciones de PowerPoint y guardarlas como imágenes independientes, lo que puede ser útil para diversos escenarios.
+En esta sección, exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la interfaz [IParagraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraph/), como una imagen. Ambos ejemplos incluyen la obtención de la imagen de una forma que contiene el párrafo usando los métodos `getImage` de la interfaz [IShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/), el cálculo de los límites del párrafo dentro de la forma y su exportación como una imagen bitmap. Estos enfoques permiten extraer partes específicas del texto de presentaciones PowerPoint y guardarlas como imágenes separadas, lo que puede ser útil para su uso posterior en diversos escenarios.
 
 Supongamos que tenemos un archivo de presentación llamado sample.pptx con una diapositiva, donde la primera forma es un cuadro de texto que contiene tres párrafos.
 
@@ -656,7 +669,8 @@ Supongamos que tenemos un archivo de presentación llamado sample.pptx con una d
 
 **Ejemplo 1**
 
-En este ejemplo, obtenemos el segundo párrafo como una imagen. Para ello, extraemos la imagen de la forma de la primera diapositiva de la presentación y luego calculamos los límites del segundo párrafo en el marco de texto de la forma. El párrafo se vuelve a dibujar sobre una nueva imagen bitmap, que se guarda en formato PNG. Este método es especialmente útil cuando necesita guardar un párrafo específico como una imagen separada manteniendo las dimensiones y el formato exactos del texto.
+En este ejemplo, obtenemos el segundo párrafo como imagen. Para ello, extraemos la imagen de la forma de la primera diapositiva de la presentación y luego calculamos los límites del segundo párrafo en el marco de texto de la forma. El párrafo se vuelve a dibujar en una nueva imagen bitmap, que se guarda en formato PNG. Este método es especialmente útil cuando necesitas guardar un párrafo específico como una imagen independiente conservando sus dimensiones y formato exactos.
+
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
@@ -692,14 +706,14 @@ try {
 }
 ```
 
-
 El resultado:
 
 ![La imagen del párrafo](paragraph_to_image_output.png)
 
 **Ejemplo 2**
 
-En este ejemplo, ampliamos el enfoque anterior añadiendo factores de escala a la imagen del párrafo. La forma se extrae de la presentación y se guarda como una imagen con un factor de escala de `2`. Esto permite obtener una salida de mayor resolución al exportar el párrafo. Los límites del párrafo se calculan considerando la escala. La escala puede ser particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para materiales impresos de alta calidad.
+En este ejemplo, ampliamos el enfoque anterior añadiendo factores de escala a la imagen del párrafo. La forma se extrae de la presentación y se guarda como imagen con un factor de escala de `2`. Esto permite una salida de mayor resolución al exportar el párrafo. A continuación, se calculan los límites del párrafo teniendo en cuenta la escala. La escala puede ser particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para su uso en materiales impresos de alta calidad.
+
 ```java
 float imageScaleX = 2f;
 float imageScaleY = imageScaleX;
@@ -708,17 +722,17 @@ Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Guardar la forma en memoria como un bitmap con escala.
+    // Guardar la forma en memoria como un bitmap con escalado.
     IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // Create a shape bitmap from memory.
+    // Crear un bitmap de la forma desde la memoria.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // Calculate the boundaries of the second paragraph.
+    // Calcular los límites del segundo párrafo.
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     RectF paragraphRectangle = secondParagraph.getRect();
     paragraphRectangle.set(
@@ -728,13 +742,13 @@ try {
             paragraphRectangle.bottom * imageScaleY
     );
 
-    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+    // Calcular las coordenadas y el tamaño de la imagen de salida (tamaño mínimo - 1x1 píxel).
     int imageX = (int) Math.floor(paragraphRectangle.left);
     int imageY = (int) Math.floor(paragraphRectangle.top);
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // Crop the shape bitmap to get the paragraph bitmap only.
+    // Recortar el bitmap de la forma para obtener solo el bitmap del párrafo.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -744,21 +758,20 @@ try {
 }
 ```
 
-
 ## **Preguntas frecuentes**
 
-**¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
+**¿Puedo desactivar por completo el ajuste de línea dentro de un marco de texto?**
 
-Sí. Use la configuración de ajuste del marco de texto ([setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) para desactivar el ajuste y que las líneas no se rompan en los bordes del marco.
+Sí. Utiliza la configuración de ajuste del marco de texto ([setWrapText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) para desactivar el ajuste y que las líneas no se rompan en los bordes del marco.
 
 **¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
 
-Puede recuperar el rectángulo delimitador del párrafo (e incluso de un solo fragmento) para conocer su posición y tamaño precisos en la diapositiva.
+Puedes recuperar el rectángulo delimitador del párrafo (e incluso de un único fragmento) para conocer su posición y tamaño precisos en la diapositiva.
 
 **¿Dónde se controla la alineación del párrafo (izquierda/derecha/centrado/justificado)?**
 
-[Alignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/); se aplica a todo el párrafo independientemente del formato de los fragmentos individuales.
+[Alignment](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraphformat/); se aplica a todo el párrafo independientemente del formato individual de los fragmentos.
 
-**¿Puedo establecer un idioma de corrección ortográfica solo para una parte del párrafo (por ejemplo, una palabra)?**
+**¿Puedo establecer un idioma de revisión ortográfica solo para una parte del párrafo (por ejemplo, una palabra)?**
 
-Sí. El idioma se establece a nivel de fragmento ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), por lo que pueden coexistir varios idiomas dentro de un mismo párrafo.
+Sí. El idioma se establece a nivel de fragmento ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), por lo que pueden coexistir varios idiomas dentro de un mismo párrafo.

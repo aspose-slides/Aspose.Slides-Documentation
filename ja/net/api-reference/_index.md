@@ -11,13 +11,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint を使用せずに .NET でプレゼンテーションを作成、編集、変換できます。Aspose.Slides は PPT、PPTX、ODP をサポートし、迅速な SVG/PDF エクスポートが可能です。"
+description: ".NET でプレゼンテーションを作成、編集、変換します—PowerPoint は不要です。Aspose.Slides は PPT、PPTX、ODP をサポートし、高速な SVG/PDF エクスポートが可能です。"
 ---
+{{% alert color="primary" %}} 
 
-{{% alert color="primary" %}}
+Aspose.Slides for .NET は、Microsoft PowerPoint® などを使用せずに、.NET アプリケーションがプレゼンテーション ドキュメントを読み書きできるクラス ライブラリです。Aspose.Slides for .NET を使用すると、テキスト、図形、テーブル、アニメーションを管理し、スライドに音声や動画を追加し、スライドをプレビューし、SVG や PDF 形式にエクスポートすることができます。
 
-Aspose.Slides for .NET は、Microsoft PowerPoint® などを使用せずに .NET アプリケーションがプレゼンテーション ドキュメントを読み書きできるクラス ライブラリです。Aspose.Slides for .NET を使用すると、テキスト、図形、テーブルとアニメーションを管理し、スライドに音声や動画を追加し、スライドをプレビューし、スライドを SVG、PDF 形式などにエクスポートできます。
-
-最新の API リファレンスは、[Aspose.Slides for .NET API Reference.](https://reference.aspose.com/slides/net) で確認できます。
+最新の API リファレンスは、[Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/ja/net)で見つけることができます。
 
 {{% /alert %}}

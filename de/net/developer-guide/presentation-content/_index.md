@@ -1,5 +1,6 @@
 ---
 title: Verwalten von Präsentationsinhalten in .NET
+linktitle: Präsentationsinhalt
 type: docs
 weight: 30
 url: /de/net/presentation-content/
@@ -23,5 +24,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erstellen, bearbeiten und extrahieren Sie Präsentationsinhalte mit Aspose.Slides für .NET—erhalten Sie Beispielcode für Text, Bilder, Formen, Diagramme; PPT, PPTX und ODP."
+description: "Erstellen, bearbeiten und extrahieren Sie Präsentationsinhalte mit Aspose.Slides für .NET – erhalten Sie Codebeispiele für Text, Bilder, Formen, Diagramme; PPT, PPTX und ODP."
 ---

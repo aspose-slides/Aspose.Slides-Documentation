@@ -1,10 +1,11 @@
 ---
 title: Управление содержимым презентаций в .NET
+linktitle: Содержание презентаций
 type: docs
 weight: 30
 url: /ru/net/presentation-content/
 keywords:
-- контент
+- содержание
 - BLOB
 - гиперссылка
 - медиа
