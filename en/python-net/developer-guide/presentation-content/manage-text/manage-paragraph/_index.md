@@ -415,98 +415,127 @@ with slides.Presentation() as presentation:
     presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Paragraph Indent**
+## **Set First-Line Indent for a Paragraph**
 
-Paragraph indentation helps establish a clear reading hierarchy on a slide and fine-tune text alignment. The example below shows how to set both overall and first-line indents in Aspose.Slides for Python through the [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/) properties.
+Use the [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) property to control the first-line indent of a paragraph. This property moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
+
+Use [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) when you need to move the whole paragraph. Use [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) when you need to move only the first line.
+
+The example below creates several paragraphs and applies different `indent` values to demonstrate how the first-line indent affects paragraph layout.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Access the target slide by its index.
-1. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) with three paragraphs to the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
-1. Hide the rectangle’s outline.
-1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) using its `paragraph_format` property.
-1. Save the modified presentation as a PPT file.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create several paragraphs and set different [indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) values for them.
+6. Add the paragraphs to the text frame.
+7. Save the modified presentation.
 
-The following Python code shows how to set paragraph indents:
+This code shows you how to set a paragraph indent:
 
-```python
+```py
 import aspose.slides as slides
+import aspose.pydrawing as draw
 
-# Instantiate the Presentation class.
 with slides.Presentation() as presentation:
-
-    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Add a rectangle shape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 150)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
+    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
+    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
 
-    # Add a TextFrame to the rectangle.
-    text_frame = shape.add_text_frame("This is first line \rThis is second line \rThis is third line")
-
-    # Set the text to fit the shape.
+    text_frame = rectangle.add_text_frame("")
     text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
+    text_frame.paragraphs.remove_at(0)
 
-    # Set a solid outline for the rectangle.
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph = slides.Paragraph()
+    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    first_paragraph.text = "No first-line indent. Wrapped lines start at the same position as the first line."
+    first_paragraph.paragraph_format.margin_left = 20.0
+    first_paragraph.paragraph_format.indent = 0.0
 
-    # Get the first paragraph in the TextFrame and set its bullet and indent.
-    paragraph1 = text_frame.paragraphs[0]
-    # Set the paragraph bullet style and symbol.
-    paragraph1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph1.paragraph_format.bullet.char = chr(8226)
-    paragraph1.paragraph_format.alignment = slides.TextAlignment.LEFT
+    second_paragraph = slides.Paragraph()
+    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    second_paragraph.text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body."
+    second_paragraph.paragraph_format.margin_left = 20.0
+    second_paragraph.paragraph_format.indent = 20.0
 
-    paragraph1.paragraph_format.depth = 2
-    paragraph1.paragraph_format.indent = 30
+    third_paragraph = slides.Paragraph()
+    third_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    third_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    third_paragraph.text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see."
+    third_paragraph.paragraph_format.margin_left = 20.0
+    third_paragraph.paragraph_format.indent = 40.0
 
-    # Get the second paragraph in the TextFrame and set its bullet and indent.
-    paragraph2 = text_frame.paragraphs[1]
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph2.paragraph_format.bullet.char = chr(8226)
-    paragraph2.paragraph_format.alignment = slides.TextAlignment.LEFT
-    paragraph2.paragraph_format.depth = 2
-    paragraph2.paragraph_format.indent = 40
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
+    text_frame.paragraphs.add(third_paragraph)
 
-    # Get the third paragraph in the TextFrame and set its bullet and indent.
-    paragraph3 = text_frame.paragraphs[2]
-    paragraph3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph3.paragraph_format.bullet.char = chr(8226)
-    paragraph3.paragraph_format.alignment = slides.TextAlignment.LEFT
-    paragraph3.paragraph_format.depth = 2
-    paragraph3.paragraph_format.indent = 50
-
-    # Write the presentation to disk.
-    presentation.save("indent_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("paragraph_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Hanging Indent for Paragraphs**
+The result:
 
-This Python code shows how to set a hanging indent for a paragraph:
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-```python
-import aspose.slides as slides
+## **Set Hanging Indent for a Paragraph**
 
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) property. Set `indent` to a negative value to move the first line to the left relative to the paragraph body.
+
+In practice, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) defines the left position of the paragraph body, and [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `margin_left` value and a negative `indent` value.
+
+This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create paragraphs and set a positive [margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) value for each paragraph.
+6. Set a negative [indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) value to create the hanging indent effect.
+7. Add the paragraphs to the text frame.
+8. Save the modified presentation.
+
+This code shows you how to set a hanging indent for a paragraph:
+
+```py
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 250, 550, 150)
+    slide = presentation.slides[0]
 
-    paragraph1 = slides.Paragraph()
-    paragraph1.text = "Example"
-    paragraph2 = slides.Paragraph()
-    paragraph2.text = "Set Hanging Indent for Paragraphs"
-    paragraph3 = slides.Paragraph()
-    paragraph3.text = "This Python code shows how to set a hanging indent for a paragraph: "
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
+    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
+    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
 
-    paragraph2.paragraph_format.margin_left = 10
-    paragraph3.paragraph_format.margin_left = 20
+    text_frame = rectangle.add_text_frame("")
+    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
+    text_frame.paragraphs.remove_at(0)
 
-    paragraphs = auto_shape.text_frame.paragraphs
-    paragraphs.add(paragraph1)
-    paragraphs.add(paragraph2)
-    paragraphs.add(paragraph3)
+    first_paragraph = slides.Paragraph()
+    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    first_paragraph.text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body."
+    first_paragraph.paragraph_format.margin_left = 40.0
+    first_paragraph.paragraph_format.indent = -20.0
 
-    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    second_paragraph = slides.Paragraph()
+    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    second_paragraph.text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare."
+    second_paragraph.paragraph_format.margin_left = 60.0
+    second_paragraph.paragraph_format.indent = -30.0
+
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
+
+    presentation.save("hanging_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+The result:
+
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ## **Manage End-of-Paragraph Portion Format**
 
