@@ -10,8 +10,8 @@ keywords:
 - gestionar texto
 - gestionar párrafo
 - gestionar viñeta
-- sangría de párrafo
-- sangría colgante
+- sangrado de párrafo
+- sangrado colgante
 - viñeta de párrafo
 - lista numerada
 - lista con viñetas
@@ -27,43 +27,43 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Domina el formato de párrafos con Aspose.Slides para PHP mediante Java — optimiza la alineación, el espaciado y el estilo en presentaciones PPT, PPTX y ODP."
+description: "Domina el formato de párrafos con Aspose.Slides para PHP mediante Java — optimiza alineación, espaciado y estilo en presentaciones PPT, PPTX y ODP."
 ---
+Aspose.Slides proporciona todas las clases que necesita para trabajar con textos, párrafos y fragmentos de PowerPoint.
 
-Aspose.Slides proporciona todas las clases que necesita para trabajar con textos, párrafos y porciones de PowerPoint.
+* Aspose.Slides proporciona la clase [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) para permitirle añadir objetos que representan un párrafo. Un objeto `TextFame` puede tener uno o varios párrafos (cada párrafo se crea mediante un retorno de carro).
+* Aspose.Slides proporciona la clase [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/) para permitirle añadir objetos que representan fragmentos. Un objeto `Paragraph` puede tener uno o varios fragmentos (colección de objetos fragmento).
+* Aspose.Slides proporciona la clase [Portion](https://reference.aspose.com/slides/es/php-java/aspose.slides/portion/) para permitirle añadir objetos que representan textos y sus propiedades de formato.
 
-* Aspose.Slides proporciona la clase [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) para permitirle añadir objetos que representan un párrafo. Un objeto `TextFame` puede tener uno o varios párrafos (cada párrafo se crea mediante un retorno de carro).
-* Aspose.Slides proporciona la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) para permitirle añadir objetos que representan porciones. Un objeto `Paragraph` puede tener una o varias porciones (colección de objetos de porción).
-* Aspose.Slides proporciona la clase [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) para permitirle añadir objetos que representan textos y sus propiedades de formato.
+Un objeto `Paragraph` es capaz de manejar textos con distintas propiedades de formato mediante sus objetos subyacentes `Portion`.
 
-Un objeto `Paragraph` es capaz de manejar textos con diferentes propiedades de formato a través de sus objetos subyacentes `Portion`.
+## **Añadir múltiples párrafos que contienen múltiples fragmentos**
 
-## **Agregar varios párrafos que contengan varias porciones**
+Estos pasos le muestran cómo añadir un marco de texto que contiene 3 párrafos y cada párrafo contiene 3 fragmentos:
 
-Estos pasos le muestran cómo agregar un marco de texto que contenga 3 párrafos y cada párrafo que contenga 3 porciones:
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Acceda a la referencia de la diapositiva pertinente mediante su índice.
-3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) rectangular a la diapositiva.
-4. Obtenga el ITextFrame asociado con el [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-5. Cree dos objetos [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) y agréguelo a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-6. Cree tres objetos [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) para cada nuevo `Paragraph` (dos objetos Portion para el Paragraph predeterminado) y añada cada objeto `Portion` a la colección de porciones de cada `Paragraph`.
-7. Establezca algún texto para cada porción.
-8. Aplique sus características de formato preferidas a cada porción usando las propiedades de formato expuestas por el objeto `Portion`.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Obtenga el ITextFrame asociado al [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/).
+5. Cree dos objetos [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/) y añádalos a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/).
+6. Cree tres objetos [Portion](https://reference.aspose.com/slides/es/php-java/aspose.slides/portion/) para cada nuevo `Paragraph` (dos objetos Portion para el párrafo predeterminado) y añada cada objeto `Portion` a la colección de fragmentos de cada `Paragraph`.
+7. Asigne texto a cada fragmento.
+8. Aplique las características de formato que prefiera a cada fragmento mediante las propiedades de formato expuestas por el objeto `Portion`.
 9. Guarde la presentación modificada.
 
-Este código PHP es una implementación de los pasos para agregar párrafos que contienen porciones:
+Este código PHP es una implementación de los pasos para añadir párrafos que contienen fragmentos:
+
 ```php
 # Instanciar una clase Presentation que representa un archivo PPTX
 $pres = new Presentation();
 try {
     # Acceder a la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Añadir una AutoShape de tipo Rectángulo
+    # Añadir un AutoShape de tipo Rectángulo
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # Acceder al TextFrame de la AutoShape
+    # Acceder al TextFrame del AutoShape
     $tf = $ashp->getTextFrame();
-    # Crear párrafos y porciones con diferentes formatos de texto
+    # Crear párrafos y fragmentos con diferentes formatos de texto
     $para0 = $tf->getParagraphs()->get_Item(0);
     $port01 = new Portion();
     $port02 = new Portion();
@@ -111,36 +111,36 @@ try {
 }
 ```
 
+## **Gestionar viñetas de párrafo**
 
-## **Administrar viñetas de párrafo**
+Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Los párrafos con viñetas siempre son más fáciles de leer y comprender.
 
-Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficaz. Los párrafos con viñetas siempre son más fáciles de leer y comprender.
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Acceda a la referencia de la diapositiva pertinente mediante su índice.
-3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) a la diapositiva seleccionada.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) del autoshape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
-7. Establezca el `Type` de viñeta del párrafo a `Symbol` y defina el carácter de viñeta.
-8. Establezca el `Text` del párrafo.
-9. Establezca el `Indent` del párrafo para la viñeta.
-10. Asigne un color a la viñeta.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) a la diapositiva seleccionada.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) del autoshape.
+5. Elimine el párrafo predeterminado del `TextFrame`.
+6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/).
+7. Establezca el `Type` de viñeta del párrafo a `Symbol` y defina el carácter de la viñeta.
+8. Asigne el `Text` al párrafo.
+9. Defina la `Indent` del párrafo para la viñeta.
+10. Establezca un color para la viñeta.
 11. Defina una altura para la viñeta.
 12. Añada el nuevo párrafo a la colección de párrafos del `TextFrame`.
 13. Añada el segundo párrafo y repita el proceso descrito en los pasos 7 a 13.
 14. Guarde la presentación.
 
-Este código PHP muestra cómo agregar una viñeta de párrafo:
+Este código PHP le muestra cómo añadir una viñeta de párrafo:
+
 ```php
 # Instancia una clase Presentation que representa un archivo PPTX
 $pres = new Presentation();
 try {
     # Accede a la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Añade y accede a Autoshape
+    # Añade y accede al AutoShape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accede al TextFrame de la autoshape
+    # Accede al marco de texto del autoshape
     $txtFrm = $aShp->getTextFrame();
     # Elimina el párrafo predeterminado
     $txtFrm->getParagraphs()->removeAt(0);
@@ -156,13 +156,13 @@ try {
     # Define el color de la viñeta
     $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// establecer IsBulletHardColor a true para usar el propio color de viñeta
+    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// establecer IsBulletHardColor a true para usar el color propio de la viñeta
 
     # Define la altura de la viñeta
     $para->getParagraphFormat()->getBullet()->setHeight(100);
     # Añade el párrafo al marco de texto
     $txtFrm->getParagraphs()->add($para);
-    # Crea un segundo párrafo
+    # Crea el segundo párrafo
     $para2 = new Paragraph();
     # Define el tipo y estilo de viñeta del párrafo
     $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
@@ -173,7 +173,7 @@ try {
     $para2->getParagraphFormat()->setIndent(25);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// establecer IsBulletHardColor a true para usar el propio color de viñeta
+    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// establecer IsBulletHardColor a true para usar el color propio de la viñeta
 
     # Define la altura de la viñeta
     $para2->getParagraphFormat()->getBullet()->setHeight(100);
@@ -188,28 +188,28 @@ try {
 }
 ```
 
+## **Gestionar viñetas de imagen**
 
-## **Administrar viñetas de imagen**
+Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Los párrafos con imágenes son fáciles de leer y comprender.
 
-Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficaz. Los párrafos con imágenes son fáciles de leer y comprender.
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Acceda a la referencia de la diapositiva pertinente mediante su índice.
-3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) a la diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) del autoshape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
-7. Cargue la imagen en [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
-8. Establezca el tipo de viñeta a [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/#Picture) y asigne la imagen.
-9. Establezca el `Text` del párrafo.
-10. Establezca el `Indent` del párrafo para la viñeta.
-11. Asigne un color a la viñeta.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) a la diapositiva.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) del autoshape.
+5. Elimine el párrafo predeterminado del `TextFrame`.
+6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/).
+7. Cargue la imagen en [PPImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/ppimage/).
+8. Establezca el tipo de viñeta a [Picture](https://reference.aspose.com/slides/es/php-java/aspose.slides/bullettype/#Picture) y asigne la imagen.
+9. Defina el `Text` del párrafo.
+10. Establezca la `Indent` del párrafo para la viñeta.
+11. Defina un color para la viñeta.
 12. Defina una altura para la viñeta.
 13. Añada el nuevo párrafo a la colección de párrafos del `TextFrame`.
 14. Añada el segundo párrafo y repita el proceso basado en los pasos anteriores.
 15. Guarde la presentación modificada.
 
-Este código PHP muestra cómo agregar y gestionar viñetas de imagen:
+Este código PHP le muestra cómo añadir y gestionar viñetas de imagen:
+
 ```php
 # Instancia una clase Presentation que representa un archivo PPTX
 $presentation = new Presentation();
@@ -226,21 +226,21 @@ try {
             $image->dispose();
         }
     }
-    # Añade y accede a Autoshape
+    # Añade y accede al AutoShape
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accede al textframe de la autoshape
+    # Accede al marco de texto del autoshape
     $textFrame = $autoShape->getTextFrame();
     # Elimina el párrafo predeterminado
     $textFrame->getParagraphs()->removeAt(0);
     # Crea un nuevo párrafo
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
-    # Define el estilo de viñeta del párrafo y la imagen
+    # Define el estilo y la imagen de la viñeta del párrafo
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
     $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
     # Define la altura de la viñeta
     $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
-    # Añade el párrafo al textframe
+    # Añade el párrafo al marco de texto
     $textFrame->getParagraphs()->add($paragraph);
     # Guarda la presentación como archivo PPTX
     $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
@@ -254,35 +254,35 @@ try {
 }
 ```
 
+## **Gestionar viñetas multinivel**
 
-## **Administrar viñetas multinivel**
+Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Las viñetas multinivel son fáciles de leer y comprender.
 
-Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficaz. Las viñetas multinivel son fáciles de leer y comprender.
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Acceda a la referencia de la diapositiva pertinente mediante su índice.
-3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) en la nueva diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) del autoshape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) y establezca la profundidad en 0.
-7. Cree la segunda instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad en 1.
-8. Cree la tercera instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad en 2.
-9. Cree la cuarta instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad en 3.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) en la nueva diapositiva.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) del autoshape.
+5. Elimine el párrafo predeterminado del `TextFrame`.
+6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/) y establezca la profundidad a 0.
+7. Cree la segunda instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad a 1.
+8. Cree la tercera instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad a 2.
+9. Cree la cuarta instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad a 3.
 10. Añada los nuevos párrafos a la colección de párrafos del `TextFrame`.
 11. Guarde la presentación modificada.
 
-Este código PHP muestra cómo agregar y gestionar viñetas multinivel:
+Este código PHP le muestra cómo añadir y gestionar viñetas multinivel:
+
 ```php
 # Instancia una clase Presentation que representa un archivo PPTX
 $pres = new Presentation();
 try {
     # Accede a la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Añade y accede a Autoshape
+    # Añade y accede al AutoShape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accede al marco de texto del autoshape creado
+    # Accede al marco de texto del AutoShape creado
     $text = $aShp->addTextFrame("");
-    # Borra el párrafo predeterminado
+    # Elimina el párrafo predeterminado
     $text->getParagraphs()->clear();
     # Añade el primer párrafo
     $para1 = new Paragraph();
@@ -334,23 +334,23 @@ try {
 }
 ```
 
+## **Gestionar un párrafo con una lista numerada personalizada**
 
-## **Administrar un párrafo con una lista numerada personalizada**
+La clase [BulletFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/bulletformat/) proporciona el método [setNumberedBulletStartWith](https://reference.aspose.com/slides/es/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) y otros que le permiten gestionar párrafos con numeración o formato personalizados.
 
-La clase [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) proporciona el método [setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) y otros que le permiten gestionar párrafos con numeración o formato personalizados.
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
 2. Acceda a la diapositiva que contiene el párrafo.
-3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) a la diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) del autoshape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) y establezca [NumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) a 2.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) a la diapositiva.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) del autoshape.
+5. Elimine el párrafo predeterminado del `TextFrame`.
+6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/) y establezca [NumberedBulletStartWith](https://reference.aspose.com/slides/es/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) a 2.
 7. Cree la segunda instancia de párrafo mediante la clase `Paragraph` y establezca `NumberedBulletStartWith` a 3.
 8. Cree la tercera instancia de párrafo mediante la clase `Paragraph` y establezca `NumberedBulletStartWith` a 7.
 9. Añada los nuevos párrafos a la colección de párrafos del `TextFrame`.
 10. Guarde la presentación modificada.
 
-Este código PHP muestra cómo agregar y gestionar párrafos con numeración o formato personalizados:
+Este código PHP le muestra cómo añadir y gestionar párrafos con numeración o formato personalizados:
+
 ```php
 $presentation = new Presentation();
 try {
@@ -386,102 +386,145 @@ try {
 }
 ```
 
+## **Establecer sangrado de primera línea para un párrafo**
 
-## **Establecer sangría de párrafo**
+Utilice el método [ParagraphFormat::setIndent](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setindent/) para controlar el sangrado de la primera línea de un párrafo. Este método desplaza solo la primera línea respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que el resto de líneas permanece alineado con el cuerpo del párrafo.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Acceda a la referencia de la diapositiva pertinente mediante su índice.
-1. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) rectangular a la diapositiva.
-1. Añada un [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) con tres párrafos al AutoShape rectangular.
-1. Oculte las líneas del rectángulo.
-1. Establezca la sangría para cada [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) mediante su propiedad BulletOffset.
-1. Escriba la presentación modificada como archivo PPT.
+Utilice [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setmarginleft/) cuando necesite mover todo el párrafo. Utilice [ParagraphFormat::setIndent](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setindent/) cuando necesite mover solo la primera línea.
 
-Este código PHP muestra cómo establecer una sangría de párrafo:
+El ejemplo a continuación crea varios párrafos y aplica diferentes valores de sangrado para demostrar cómo el sangrado de primera línea afecta la disposición del párrafo.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Acceda a la diapositiva objetivo.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Añada un [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) vacío al shape y elimine el párrafo predeterminado.
+5. Cree varios párrafos y establezca diferentes valores de [Indent](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setindent/) para ellos.
+6. Añada los párrafos al marco de texto.
+7. Guarde la presentación modificada.
+
+Este código le muestra cómo establecer el sangrado de un párrafo:
+
 ```php
-# Instanciar la clase Presentation
-$pres = new Presentation();
+$presentation = new Presentation();
 try {
-    # Obtener la primera diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Añadir una forma rectangular
-    $rect = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 150);
-    # Añadir TextFrame al rectángulo
-    $tf = $rect->addTextFrame("This is first line \rThis is second line \rThis is third line");
-    # Ajustar el texto para que encaje en la forma
-    $tf->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    # Ocultar las líneas del rectángulo
-    $rect->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    # Obtener el primer párrafo en el TextFrame y establecer su sangría
-    $para1 = $tf->getParagraphs()->get_Item(0);
-    # Establecer el estilo y símbolo de viñeta del párrafo
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->setAlignment(TextAlignment->Left);
-    $para1->getParagraphFormat()->setDepth(2);
-    $para1->getParagraphFormat()->setIndent(30);
-    # Obtener el segundo párrafo en el TextFrame y establecer su sangría
-    $para2 = $tf->getParagraphs()->get_Item(1);
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para2->getParagraphFormat()->getBullet()->setChar(8226);
-    $para2->getParagraphFormat()->setAlignment(TextAlignment->Left);
-    $para2->getParagraphFormat()->setDepth(2);
-    $para2->getParagraphFormat()->setIndent(40);
-    # Obtener el tercer párrafo en el TextFrame y establecer su sangría
-    $para3 = $tf->getParagraphs()->get_Item(2);
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->setAlignment(TextAlignment->Left);
-    $para3->getParagraphFormat()->setDepth(2);
-    $para3->getParagraphFormat()->setIndent(50);
-    # Guardar la presentación en disco
-    $pres->save("InOutDent_out.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
+    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
+    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+
+    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
+    $textFrame->getParagraphs()->removeAt(0);
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
+    $firstParagraph->getParagraphFormat()->setMarginLeft(20.0);
+    $firstParagraph->getParagraphFormat()->setIndent(0.0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
+    $secondParagraph->getParagraphFormat()->setMarginLeft(20.0);
+    $secondParagraph->getParagraphFormat()->setIndent(20.0);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
+    $thirdParagraph->getParagraphFormat()->setMarginLeft(20.0);
+    $thirdParagraph->getParagraphFormat()->setIndent(40.0);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $presentation->save("paragraph_indent.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
+El resultado:
 
-## **Establecer sangría colgante para un párrafo**
+![El sangrado de primera línea de los párrafos](first_line_indent.png)
 
-Este código PHP muestra cómo establecer la sangría colgante para un párrafo:
+## **Establecer sangrado colgante para un párrafo**
+
+Un sangrado colgante es una disposición de párrafo en la que la primera línea comienza a la izquierda del resto de líneas. En Aspose.Slides, crea este efecto con el método [ParagraphFormat::setIndent](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setindent/). Establezca el sangrado a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
+
+En la práctica, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setmarginleft/) define la posición izquierda del cuerpo del párrafo, y [ParagraphFormat::setIndent](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setindent/) define la posición de la primera línea respecto a ese margen. Para crear un sangrado colgante, establezca un valor positivo en `MarginLeft` y un valor negativo en `Indent`.
+
+Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas envueltas deben alinearse bajo el cuerpo del párrafo en lugar de bajo el primer carácter de la primera línea.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Acceda a la diapositiva objetivo.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) rectangular a la diapositiva.
+4. Añada un [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) vacío al shape y elimine el párrafo predeterminado.
+5. Cree párrafos y establezca un valor positivo de [MarginLeft](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setmarginleft/) para cada párrafo.
+6. Establezca un valor negativo de [Indent](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setindent/) para crear el efecto de sangrado colgante.
+7. Añada los párrafos al marco de texto.
+8. Guarde la presentación modificada.
+
+Este código le muestra cómo establecer un sangrado colgante para un párrafo:
+
 ```php
-$pres = new Presentation();
+$presentation = new Presentation();
 try {
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 250, 550, 150);
-    $para1 = new Paragraph();
-    $para1->setText("Example");
-    $para2 = new Paragraph();
-    $para2->setText("Set Hanging Indent for Paragraph");
-    $para3 = new Paragraph();
-    $para3->setText("This code shows you how to set the hanging indent for a paragraph: ");
-    $para2->getParagraphFormat()->setMarginLeft(10.0);
-    $para3->getParagraphFormat()->setMarginLeft(20.0);
-    $autoShape->getTextFrame()->getParagraphs()->add($para1);
-    $autoShape->getTextFrame()->getParagraphs()->add($para2);
-    $autoShape->getTextFrame()->getParagraphs()->add($para3);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
+    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
+    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+
+    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
+    $textFrame->getParagraphs()->removeAt(0);
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
+    $firstParagraph->getParagraphFormat()->setMarginLeft(40.0);
+    $firstParagraph->getParagraphFormat()->setIndent(-20.0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
+    $secondParagraph->getParagraphFormat()->setMarginLeft(60.0);
+    $secondParagraph->getParagraphFormat()->setIndent(-30.0);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $presentation->save("hanging_indent.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
+El resultado:
 
-## **Administrar propiedades de ejecución al final del párrafo**
+![El sangrado colgante de los párrafos](hanging_indent.png)
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+## **Gestionar propiedades de ejecución al final del párrafo**
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
 1. Obtenga la referencia de la diapositiva que contiene el párrafo mediante su posición.
-1. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) rectangular a la diapositiva.
-1. Añada un [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) con dos párrafos al rectángulo.
-1. Establezca la altura de fuente y el tipo de fuente para los párrafos.
+1. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) rectangular a la diapositiva.
+1. Añada un [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) con dos párrafos al rectángulo.
+1. Establezca la altura de la fuente y el tipo de fuente para los párrafos.
 1. Establezca las propiedades End para los párrafos.
-1. Escriba la presentación modificada como archivo PPTX.
+1. Guarde la presentación modificada como archivo PPTX.
 
-Este código PHP muestra cómo establecer las propiedades End para los párrafos en PowerPoint:
+Este código PHP le muestra cómo establecer las propiedades End para los párrafos en PowerPoint:
+
 ```php
 $pres = new Presentation();
 try {
@@ -504,38 +547,38 @@ try {
 }
 ```
 
-
 ## **Importar texto HTML en párrafos**
 
-Aspose.Slides proporciona soporte avanzado para importar texto HTML en párrafos.
+Aspose.Slides proporciona soporte mejorado para importar texto HTML en párrafos.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Acceda a la referencia de la diapositiva pertinente mediante su índice.
-3. Agregue un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) a la diapositiva.
-4. Añada y acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) del AutoShape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) a la diapositiva.
+4. Añada y acceda al [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) de `AutoShape`.
+5. Elimine el párrafo predeterminado del `TextFrame`.
 6. Lea el archivo HTML fuente en un TextReader.
-7. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
-8. Añada el contenido del archivo HTML del TextReader leído a la [ParagraphCollection](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/) del TextFrame.
+7. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/).
+8. Añada el contenido del archivo HTML leído con TextReader a la [ParagraphCollection](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphcollection/) del TextFrame.
 9. Guarde la presentación modificada.
 
 Este código PHP es una implementación de los pasos para importar textos HTML en párrafos:
+
 ```php
 # Crear instancia vacía de presentación
 $pres = new Presentation();
 try {
-    # Acceder a la primera diapositiva predeterminada de la presentación
+    # Acceder a la diapositiva predeterminada (primera) de la presentación
     $slide = $pres->getSlides()->get_Item(0);
-    # Añadir la AutoShape para acomodar el contenido HTML
+    # Añadir el AutoShape para alojar el contenido HTML
     $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
     $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # Añadir el marco de texto a la forma
+    # Añadir marco de texto a la forma
     $ashape->addTextFrame("");
-    # Eliminar todos los párrafos del marco de texto añadido
+    # Vaciar todos los párrafos del marco de texto añadido
     $ashape->getTextFrame()->getParagraphs()->clear();
-    # Cargar el archivo HTML usando StreamReader
+    # Cargar el archivo HTML usando un lector de flujo
     $tr = new StreamReader("file.html");
-    # Añadir texto del StreamReader HTML al marco de texto
+    # Añadir texto del lector de flujo HTML al marco de texto
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
     # Guardar la presentación
     $pres->save("output_out.pptx", SaveFormat::Pptx);
@@ -546,34 +589,34 @@ try {
 }
 ```
 
-
 ## **Exportar texto de párrafo a HTML**
 
-Aspose.Slides proporciona soporte avanzado para exportar textos (contenidos en párrafos) a HTML.
+Aspose.Slides proporciona soporte mejorado para exportar textos (contenidos en párrafos) a HTML.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargue la presentación deseada.
-2. Acceda a la referencia de la diapositiva pertinente mediante su índice.
-3. Acceda a la forma que contiene el texto que se exportará a HTML.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de la forma.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) y cargue la presentación deseada.
+2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
+3. Acceda a la forma que contiene el texto que será exportado a HTML.
+4. Acceda a la [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) de la forma.
 5. Cree una instancia de `StreamWriter` y añada el nuevo archivo HTML.
-6. Proporcione un índice inicial a StreamWriter y exporte los párrafos que desee.
+6. Proporcione un índice inicial a StreamWriter y exporte los párrafos que prefiera.
 
-Este código PHP muestra cómo exportar textos de párrafos de PowerPoint a HTML:
+Este código PHP le muestra cómo exportar los textos de párrafos de PowerPoint a HTML:
+
 ```php
 # Cargar el archivo de presentación
 $pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    # Acceder a la primera diapositiva predeterminada de la presentación
+    # Acceder a la diapositiva predeterminada (primera) de la presentación
     $slide = $pres->getSlides()->get_Item(0);
     # Índice deseado
     $index = 0;
-    # Accediendo a la forma añadida
+    # Acceder a la forma añadida
     $ashape = $slide->getShapes()->get_Item($index);
-    # Creando archivo HTML de salida
+    # Crear archivo HTML de salida
     $os = new Java("java.io.FileOutputStream", "output.html");
     $writer = new OutputStreamWriter($os, "UTF-8");
-    # Extrayendo el primer párrafo como HTML
-    # Escribiendo los datos de los párrafos a HTML proporcionando el índice inicial del párrafo y el número total de párrafos a copiar
+    # Extraer el primer párrafo como HTML
+    # Escribir los datos de los párrafos a HTML proporcionando el índice de inicio del párrafo, el número total de párrafos a copiar
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
     $writer->close();
 } catch (JavaException $e) {
@@ -584,18 +627,18 @@ try {
 }
 ```
 
-
 ## **Guardar un párrafo como imagen**
 
-En esta sección exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/), como una imagen. Ambos ejemplos incluyen la obtención de la imagen de una forma que contiene el párrafo mediante los métodos `getImage` de la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), el cálculo de los límites del párrafo dentro de la forma y la exportación como una imagen bitmap. Estos enfoques le permiten extraer partes específicas del texto de presentaciones PowerPoint y guardarlas como imágenes independientes, lo que puede ser útil en diversos escenarios.
+En esta sección, exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la clase [Paragraph](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraph/), como una imagen. Ambos ejemplos incluyen obtener la imagen de una forma que contiene el párrafo mediante los métodos `getImage` de la clase [Shape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/), calcular los límites del párrafo dentro de la forma y exportarlo como una imagen bitmap. Estos enfoques le permiten extraer partes específicas del texto de presentaciones PowerPoint y guardarlas como imágenes separadas, lo que puede ser útil para su uso posterior en diversos escenarios.
 
 Supongamos que tenemos un archivo de presentación llamado sample.pptx con una diapositiva, donde la primera forma es un cuadro de texto que contiene tres párrafos.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![El cuadro de texto con tres párrafos](paragraph_to_image_input.png)
 
 **Ejemplo 1**
 
-En este ejemplo obtenemos el segundo párrafo como imagen. Para ello, extraemos la imagen de la forma de la primera diapositiva de la presentación y luego calculamos los límites del segundo párrafo en el marco de texto de la forma. El párrafo se vuelve a dibujar sobre una nueva imagen bitmap, que se guarda en formato PNG. Este método es especialmente útil cuando necesita guardar un párrafo concreto como una imagen separada manteniendo las dimensiones y el formato exactos del texto.
+En este ejemplo, obtenemos el segundo párrafo como imagen. Para hacerlo, extraemos la imagen de la forma de la primera diapositiva de la presentación y luego calculamos los límites del segundo párrafo en el marco de texto de la forma. El párrafo se vuelve a dibujar sobre una nueva imagen bitmap, que se guarda en formato PNG. Este método es especialmente útil cuando necesita guardar un párrafo específico como una imagen separada conservando las dimensiones y el formato exactos del texto.
+
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
 
@@ -603,13 +646,13 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Guardar la forma en memoria como bitmap.
+    // Guardar la forma en memoria como un bitmap.
     $shapeImage = $firstShape->getImage();
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // Crear un bitmap de forma desde memoria.
+    // Crear un bitmap de forma desde la memoria.
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
@@ -617,7 +660,7 @@ try {
     $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
     $paragraphRectangle = $secondParagraph->getRect();
 
-    // Calcular las coordenadas y el tamaño para la imagen de salida (tamaño mínimo - 1x1 píxel).
+    // Calcular las coordenadas y el tamaño de la imagen de salida (tamaño mínimo - 1x1 píxel).
     $imageX = floor(java_values($paragraphRectangle->getX()));
     $imageY = floor(java_values($paragraphRectangle->getY()));
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
@@ -634,14 +677,14 @@ try {
 }
 ```
 
-
 El resultado:
 
-![The paragraph image](paragraph_to_image_output.png)
+![La imagen del párrafo](paragraph_to_image_output.png)
 
 **Ejemplo 2**
 
-En este ejemplo ampliamos el enfoque anterior añadiendo factores de escala a la imagen del párrafo. La forma se extrae de la presentación y se guarda como una imagen con un factor de escala de `2`. Esto permite una salida de mayor resolución al exportar el párrafo. Los límites del párrafo se calculan considerando la escala. La escala resulta particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para materiales impresos de alta calidad.
+En este ejemplo, ampliamos el enfoque anterior añadiendo factores de escala al imagen del párrafo. La forma se extrae de la presentación y se guarda como una imagen con un factor de escala de `2`. Esto permite obtener una salida de mayor resolución al exportar el párrafo. Los límites del párrafo se calculan teniendo en cuenta la escala. La escala puede ser particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para su uso en materiales impresos de alta calidad.
+
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
 
@@ -652,13 +695,13 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Guardar la forma en memoria como bitmap con escalado.
+    // Guardar la forma en memoria como un bitmap con escalado.
     $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // Crear un bitmap de forma desde memoria.
+    // Crear un bitmap de forma desde la memoria.
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
@@ -689,21 +732,20 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
 **¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
 
-Sí. Utilice la configuración de ajuste del marco de texto ([setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/)) para desactivar el ajuste y que las líneas no se partan en los bordes del marco.
+Sí. Utilice la configuración de ajuste del marco de texto ([setWrapText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframeformat/setwraptext/)) para desactivar el ajuste de modo que las líneas no se rompan en los bordes del marco.
 
-**¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo concreto?**
+**¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
 
-Puede obtener el rectángulo delimitador del párrafo (e incluso de una sola porción) para conocer su posición y tamaño precisos en la diapositiva.
+Puede obtener el rectángulo delimitador del párrafo (e incluso de un solo fragmento) para conocer su posición y tamaño precisos en la diapositiva.
 
 **¿Dónde se controla la alineación del párrafo (izquierda/derecha/centrado/justificado)?**
 
-[Alignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/); se aplica a todo el párrafo sin importar el formato individual de las porciones.
+[Alignment](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/setalignment/) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/); se aplica a todo el párrafo sin importar el formato de los fragmentos individuales.
 
-**¿Puedo establecer un idioma de corrección ortográfica solo para una parte del párrafo (por ejemplo, una palabra)?**
+**¿Puedo establecer un idioma de corrección ortográfica solo para parte de un párrafo (p. ej., una palabra)?**
 
-Sí. El idioma se establece a nivel de porción ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)), por lo que pueden coexistir varios idiomas dentro de un mismo párrafo.
+Sí. El idioma se establece a nivel de fragmento ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/es/php-java/aspose.slides/baseportionformat/#setLanguageId)), por lo que pueden coexistir varios idiomas dentro de un mismo párrafo.
