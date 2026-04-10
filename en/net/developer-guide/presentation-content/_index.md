@@ -1,5 +1,6 @@
 ---
 title: Manage Presentation Content in .NET
+linktitle: Presentation Content
 type: docs
 weight: 30
 url: /net/presentation-content/

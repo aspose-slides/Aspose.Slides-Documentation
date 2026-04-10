@@ -1,5 +1,6 @@
 ---
 title: Manage Presentation Content on Android
+linktitle: Presentation Content
 type: docs
 weight: 30
 url: /androidjava/presentation-content/

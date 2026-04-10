@@ -411,100 +411,128 @@ using (var presentation = new Presentation())
 }
 ```
 
+## **Set First-Line Indent for a Paragraph**
 
-## **Set Paragraph Indent**
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Access the relevant slide's reference through its index.
-1. Add a rectangle [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) with three paragraphs to the rectangle autoshape.
-1. Hide the rectangle lines.
-1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) through their BulletOffset property.
-1. Write the modified presentation as a PPT file.
+Use the [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) property to control the first-line indent of a paragraph. This property moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
-This C# code shows you how to set a paragraph indent:
+Use [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) when you need to move the whole paragraph. Use [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) when you need to move only the first line.
 
-```c#
-// Instantiate Presentation Class
-Presentation pres = new Presentation();
+The example below creates several paragraphs and applies different `Indent` values to demonstrate how the first-line indent affects paragraph layout.
 
-// Gets the first slide
-ISlide sld = pres.Slides[0];
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create several paragraphs and set different [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) values for them.
+6. Add the paragraphs to the text frame.
+7. Save the modified presentation.
 
-// Adds a Rectangle Shape
-IAutoShape rect = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
+This code shows you how to set a paragraph indent:
 
-// Adds TextFrame to the Rectangle
-ITextFrame tf = rect.AddTextFrame("This is first line \rThis is second line \rThis is third line");
+```cs
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
 
-// Sets the text to fit the shape
-tf.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+    IAutoShape rectangleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    rectangleShape.FillFormat.FillType = FillType.NoFill;
+    rectangleShape.LineFormat.FillFormat.FillType = FillType.Solid;
+    rectangleShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
 
-// Hides the lines of the Rectangle
-rect.LineFormat.FillFormat.FillType = FillType.Solid;
+    ITextFrame textFrame = rectangleShape.AddTextFrame(string.Empty);
+    textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+    textFrame.Paragraphs.RemoveAt(0);
 
-// Gets the first Paragraph in the TextFrame and set its Indent
-IParagraph para1 = tf.Paragraphs[0];
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    firstParagraph.Text = "No first-line indent. Wrapped lines start at the same position as the first line.";
+    firstParagraph.ParagraphFormat.MarginLeft = 20f;
+    firstParagraph.ParagraphFormat.Indent = 0f;
 
-// Sets paragraph bullet style and symbol
-para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-para1.ParagraphFormat.Alignment = TextAlignment.Left;
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    secondParagraph.Text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.";
+    secondParagraph.ParagraphFormat.MarginLeft = 20f;
+    secondParagraph.ParagraphFormat.Indent = 20f;
 
-para1.ParagraphFormat.Depth = 2;
-para1.ParagraphFormat.Indent = 30;
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    thirdParagraph.Text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.";
+    thirdParagraph.ParagraphFormat.MarginLeft = 20f;
+    thirdParagraph.ParagraphFormat.Indent = 40f;
 
-// Gets second Paragraph in the TextFrame and set its Indent
-IParagraph para2 = tf.Paragraphs[1];
-para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-para2.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-para2.ParagraphFormat.Alignment = TextAlignment.Left;
-para2.ParagraphFormat.Depth = 2;
-para2.ParagraphFormat.Indent = 40;
+    textFrame.Paragraphs.Add(firstParagraph);
+    textFrame.Paragraphs.Add(secondParagraph);
+    textFrame.Paragraphs.Add(thirdParagraph);
 
-// Gets third Paragraph in the TextFrame and sets its Indent
-IParagraph para3 = tf.Paragraphs[2];
-para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-para3.ParagraphFormat.Alignment = TextAlignment.Left;
-para3.ParagraphFormat.Depth = 2;
-para3.ParagraphFormat.Indent = 50;
-
-// Writes the Presentation to disk
-pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
+    presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
+}
 ```
+
+The result:
+
+![The first-line indent of the paragraphs](first_line_indent.png)
 
 ## **Set Hanging Indent for a Paragraph**
 
-This C# code shows you how to set the hanging indent for a paragraph:  
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) property. Set `Indent` to a negative value to move the first line to the left relative to the paragraph body.
 
-```c#
-using (Presentation pres = new Presentation())
+In practice, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) defines the left position of the paragraph body, and [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
+
+This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create paragraphs and set a positive [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) value for each paragraph.
+6. Set a negative [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) value to create the hanging indent effect.
+7. Add the paragraphs to the text frame.
+8. Save the modified presentation.
+
+This code shows you how to set a hanging indent for a paragraph:
+
+```cs
+using (Presentation presentation = new Presentation())
 {
-    var autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 550, 150);
+    ISlide slide = presentation.Slides[0];
 
-    Paragraph para1 = new Paragraph
-    {
-        Text = "Example"
-    };
-    Paragraph para2 = new Paragraph
-    {
-        Text = "Set Hanging Indent for Paragraph"
-    };
-    Paragraph para3 = new Paragraph
-    {
-        Text = "This C# code shows you how to set the hanging indent for a paragraph: "
-    };
+    IAutoShape rectangleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    rectangleShape.FillFormat.FillType = FillType.NoFill;
+    rectangleShape.LineFormat.FillFormat.FillType = FillType.Solid;
+    rectangleShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
 
-    para2.ParagraphFormat.MarginLeft = 10f;
-    para3.ParagraphFormat.MarginLeft = 20f;
-    
-    autoShape.TextFrame.Paragraphs.Add(para1);
-    autoShape.TextFrame.Paragraphs.Add(para2);
-    autoShape.TextFrame.Paragraphs.Add(para3);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+    ITextFrame textFrame = rectangleShape.AddTextFrame(string.Empty);
+    textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+    textFrame.Paragraphs.RemoveAt(0);
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    firstParagraph.Text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.";
+    firstParagraph.ParagraphFormat.MarginLeft = 40f;
+    firstParagraph.ParagraphFormat.Indent = -20f;
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    secondParagraph.Text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.";
+    secondParagraph.ParagraphFormat.MarginLeft = 60f;
+    secondParagraph.ParagraphFormat.Indent = -30f;
+
+    textFrame.Paragraphs.Add(firstParagraph);
+    textFrame.Paragraphs.Add(secondParagraph);
+
+    presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 }
 ```
+
+The result:
+
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ## **Manage End Paragraph Run Properties**
 

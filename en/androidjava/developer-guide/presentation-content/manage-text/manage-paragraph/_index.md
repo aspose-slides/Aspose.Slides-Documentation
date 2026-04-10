@@ -430,101 +430,134 @@ try {
 }
 ```
 
+## **Set First-Line Indent for a Paragraph**
 
-## **Set Paragraph Indent**
+Use the [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) method to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
-1. Access the relevant slide's reference through its index.
-1. Add a rectangle [autoshape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) with three paragraphs to the rectangle autoshape.
-1. Hide the rectangle lines.
-1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) through their BulletOffset property.
-1. Write the modified presentation as a PPT file.
+Use [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) when you need to move the whole paragraph. Use [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) when you need to move only the first line.
 
-This Java code shows you how to set a paragraph indent:
+The example below creates several paragraphs and applies different indent values to demonstrate how the first-line indent affects paragraph layout.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create several paragraphs and set different [Indent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) values for them.
+6. Add the paragraphs to the text frame.
+7. Save the modified presentation.
+
+This code shows you how to set a paragraph indent:
 
 ```java
-// Instantiate Presentation Class
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Get first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Add a Rectangle Shape
-    IAutoShape rect = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
-    
-    // Add TextFrame to the Rectangle
-    ITextFrame tf = rect.addTextFrame("This is first line \rThis is second line \rThis is third line");
-    
-    // Set the text to fit the shape
-    tf.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    
-    // Hide the lines of the Rectangle
-    rect.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    
-    // Get first Paragraph in the TextFrame and set its Indent
-    IParagraph para1 = tf.getParagraphs().get_Item(0);
-    // Setting paragraph bullet style and symbol
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().setAlignment(TextAlignment.Left);
-    
-    para1.getParagraphFormat().setDepth((short)2);
-    para1.getParagraphFormat().setIndent(30);
-    
-    // Get second Paragraph in the TextFrame and set its Indent
-    IParagraph para2 = tf.getParagraphs().get_Item(1);
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar((char)8226);
-    para2.getParagraphFormat().setAlignment(TextAlignment.Left);
-    para2.getParagraphFormat().setDepth((short)2);
-    para2.getParagraphFormat().setIndent(40);
-    
-    // Get third Paragraph in the TextFrame and set its Indent
-    IParagraph para3 = tf.getParagraphs().get_Item(2);
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().setAlignment(TextAlignment.Left);
-    para3.getParagraphFormat().setDepth((short)2);
-    para3.getParagraphFormat().setIndent(50);
-    
-    //Write the Presentation to disk
-    pres.save("InOutDent_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
+    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
+    textFrame.getParagraphs().removeAt(0);
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
+    firstParagraph.getParagraphFormat().setMarginLeft(20f);
+    firstParagraph.getParagraphFormat().setIndent(0f);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
+    secondParagraph.getParagraphFormat().setMarginLeft(20f);
+    secondParagraph.getParagraphFormat().setIndent(20f);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
+    thirdParagraph.getParagraphFormat().setMarginLeft(20f);
+    thirdParagraph.getParagraphFormat().setIndent(40f);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
 }
 ```
+
+The result:
+
+![The first-line indent of the paragraphs](first_line_indent.png)
 
 ## **Set Hanging Indent for a Paragraph**
 
-This Java code shows you how to set the hanging indent for a paragraph:
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) method. Set the indent to a negative value to move the first line to the left relative to the paragraph body.
+
+In practice, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) defines the left position of the paragraph body, and [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
+
+This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create paragraphs and set a positive [MarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) value for each paragraph.
+6. Set a negative [Indent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) value to create the hanging indent effect.
+7. Add the paragraphs to the text frame.
+8. Save the modified presentation.
+
+This code shows you how to set a hanging indent for a paragraph:
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 250, 550, 150);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    Paragraph para1 = new Paragraph();
-    para1.setText("Example");
+    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
+    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    Paragraph para2 = new Paragraph();
-    para2.setText("Set Hanging Indent for Paragraph");
+    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
+    textFrame.getParagraphs().removeAt(0);
 
-    Paragraph para3 = new Paragraph();
-    para3.setText("This code shows you how to set the hanging indent for a paragraph: ");
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
+    firstParagraph.getParagraphFormat().setMarginLeft(40f);
+    firstParagraph.getParagraphFormat().setIndent(-20f);
 
-    para2.getParagraphFormat().setMarginLeft(10f);
-    para3.getParagraphFormat().setMarginLeft(20f);
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
+    secondParagraph.getParagraphFormat().setMarginLeft(60f);
+    secondParagraph.getParagraphFormat().setIndent(-30f);
 
-    autoShape.getTextFrame().getParagraphs().add(para1);
-    autoShape.getTextFrame().getParagraphs().add(para2);
-    autoShape.getTextFrame().getParagraphs().add(para3);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
 }
 ```
+
+The result:
+
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ## **Manage End Paragraph Run Properties**
 

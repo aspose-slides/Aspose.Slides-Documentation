@@ -391,90 +391,132 @@ try {
 }
 ```
 
+## **Set First-Line Indent for a Paragraph**
 
-## **Set Paragraph Indent**
+Use the [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) method to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Access the relevant slide's reference through its index.
-1. Add a rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) with three paragraphs to the rectangle autoshape.
-1. Hide the rectangle lines.
-1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) through their BulletOffset property.
-1. Write the modified presentation as a PPT file.
+Use [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginleft/) when you need to move the whole paragraph. Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) when you need to move only the first line.
 
-This PHP code shows you how to set a paragraph indent:
+The example below creates several paragraphs and applies different indent values to demonstrate how the first-line indent affects paragraph layout.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create several paragraphs and set different [Indent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) values for them.
+6. Add the paragraphs to the text frame.
+7. Save the modified presentation.
+
+This code shows you how to set a paragraph indent:
 
 ```php
-# Instantiate Presentation Class
-$pres = new Presentation();
+$presentation = new Presentation();
 try {
-    # Get first slide
-    $sld = $pres->getSlides()->get_Item(0);
-    # Add a Rectangle Shape
-    $rect = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 150);
-    # Add TextFrame to the Rectangle
-    $tf = $rect->addTextFrame("This is first line \rThis is second line \rThis is third line");
-    # Set the text to fit the shape
-    $tf->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    # Hide the lines of the Rectangle
-    $rect->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    # Get first Paragraph in the TextFrame and set its Indent
-    $para1 = $tf->getParagraphs()->get_Item(0);
-    # Setting paragraph bullet style and symbol
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->setAlignment(TextAlignment->Left);
-    $para1->getParagraphFormat()->setDepth(2);
-    $para1->getParagraphFormat()->setIndent(30);
-    # Get second Paragraph in the TextFrame and set its Indent
-    $para2 = $tf->getParagraphs()->get_Item(1);
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para2->getParagraphFormat()->getBullet()->setChar(8226);
-    $para2->getParagraphFormat()->setAlignment(TextAlignment->Left);
-    $para2->getParagraphFormat()->setDepth(2);
-    $para2->getParagraphFormat()->setIndent(40);
-    # Get third Paragraph in the TextFrame and set its Indent
-    $para3 = $tf->getParagraphs()->get_Item(2);
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->setAlignment(TextAlignment->Left);
-    $para3->getParagraphFormat()->setDepth(2);
-    $para3->getParagraphFormat()->setIndent(50);
-    # Write the Presentation to disk
-    $pres->save("InOutDent_out.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
+    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
+    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+
+    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
+    $textFrame->getParagraphs()->removeAt(0);
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
+    $firstParagraph->getParagraphFormat()->setMarginLeft(20.0);
+    $firstParagraph->getParagraphFormat()->setIndent(0.0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
+    $secondParagraph->getParagraphFormat()->setMarginLeft(20.0);
+    $secondParagraph->getParagraphFormat()->setIndent(20.0);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
+    $thirdParagraph->getParagraphFormat()->setMarginLeft(20.0);
+    $thirdParagraph->getParagraphFormat()->setIndent(40.0);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $presentation->save("paragraph_indent.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
+
+The result:
+
+![The first-line indent of the paragraphs](first_line_indent.png)
 
 ## **Set Hanging Indent for a Paragraph**
 
-This PHP code shows you how to set the hanging indent for a paragraph:
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) method. Set the indent to a negative value to move the first line to the left relative to the paragraph body.
+
+In practice, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginleft/) defines the left position of the paragraph body, and [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
+
+This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Access the target slide.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Add an empty [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) to the shape and remove the default paragraph.
+5. Create paragraphs and set a positive [MarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginleft/) value for each paragraph.
+6. Set a negative [Indent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) value to create the hanging indent effect.
+7. Add the paragraphs to the text frame.
+8. Save the modified presentation.
+
+This code shows you how to set a hanging indent for a paragraph:
 
 ```php
-$pres = new Presentation();
+$presentation = new Presentation();
 try {
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 250, 550, 150);
-    $para1 = new Paragraph();
-    $para1->setText("Example");
-    $para2 = new Paragraph();
-    $para2->setText("Set Hanging Indent for Paragraph");
-    $para3 = new Paragraph();
-    $para3->setText("This code shows you how to set the hanging indent for a paragraph: ");
-    $para2->getParagraphFormat()->setMarginLeft(10.0);
-    $para3->getParagraphFormat()->setMarginLeft(20.0);
-    $autoShape->getTextFrame()->getParagraphs()->add($para1);
-    $autoShape->getTextFrame()->getParagraphs()->add($para2);
-    $autoShape->getTextFrame()->getParagraphs()->add($para3);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
+    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
+    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+
+    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
+    $textFrame->getParagraphs()->removeAt(0);
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
+    $firstParagraph->getParagraphFormat()->setMarginLeft(40.0);
+    $firstParagraph->getParagraphFormat()->setIndent(-20.0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
+    $secondParagraph->getParagraphFormat()->setMarginLeft(60.0);
+    $secondParagraph->getParagraphFormat()->setIndent(-30.0);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $presentation->save("hanging_indent.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
+
+The result:
+
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ## **Manage End Paragraph Run Properties**
 
