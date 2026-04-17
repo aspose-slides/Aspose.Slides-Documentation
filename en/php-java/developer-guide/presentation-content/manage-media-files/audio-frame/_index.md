@@ -196,6 +196,77 @@ finally {
 }
 ```
 
+## **Manage Audio Captions**
+
+Aspose.Slides allows you to add closed captions to an audio frame through the [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#getCaptionTracks) method. This method returns an [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/), which lets you add WebVTT caption tracks, iterate through existing tracks, and remove them when necessary.
+
+**Add Audio Captions**
+
+Use the [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#getCaptionTracks) method to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
+
+```php
+$presentation = new Presentation();
+try {
+    $audioData = file_get_contents("audio.mp3");
+    $audio = $presentation->getAudios()->addAudio($audioData);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(10, 10, 50, 50, $audio);
+
+    // Add a new caption track from a WebVTT file.
+    $audioFrame->getCaptionTracks()->add("New track", "track.vtt");
+
+    $presentation->save("audio_with_captions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Extract Audio Captions**
+
+You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
+
+```php
+$presentation = new Presentation("audio_with_captions.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AudioFrame"))) {
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
+                $captionTrack = $shape->getCaptionTracks()->get_Item($trackIndex);
+                // Save each caption track as a .vtt file.
+                $filePath = $captionTrack->getCaptionId() . ".vtt";
+                file_put_contents($filePath, $captionTrack->getBinaryData());
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Remove Audio Captions**
+
+To remove captions from an audio frame, use the methods provided by [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/), such as [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove), or [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt). The following example removes all caption tracks from an audio frame.
+
+```php
+$presentation = new Presentation($folderPath . "audio_with_captions.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $audioFrame = $slide->getShapes()->get_Item(0);
+
+    // Remove all caption tracks from the audio frame.
+    $audioFrame->getCaptionTracks()->clear();
+
+    $presentation->save($folderPath . "audio_without_captions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **Extract Audio**
 
 Aspose.Slides for PHP via Java allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
