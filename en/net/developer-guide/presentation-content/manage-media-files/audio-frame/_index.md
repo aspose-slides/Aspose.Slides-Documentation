@@ -185,6 +185,69 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 }
 ```
 
+## **Manage Audio Captions**
+
+Aspose.Slides allows you to add closed captions to an audio frame through the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/) property. This property returns an [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/), which lets you add WebVTT caption tracks, iterate through existing tracks, and remove them when necessary.
+
+**Add Audio Captions**
+
+Use the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/) property to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
+
+```cs
+using (Presentation presentation = new Presentation())
+{
+    byte[] audioData = File.ReadAllBytes("audio.mp3");
+    IAudio audio = presentation.Audios.AddAudio(audioData);
+
+    ISlide slide = presentation.Slides[0];
+    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audio);
+
+    // Add a new caption track from a WebVTT file.
+    audioFrame.CaptionTracks.Add("New track", "track.vtt");
+
+    presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
+}
+```
+
+**Extract Audio Captions**
+
+You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
+
+```cs
+using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+    foreach (IShape shape in slide.Shapes)
+    {
+        if (shape is IAudioFrame audioFrame)
+        {
+            foreach (ICaptions captionTrack in audioFrame.CaptionTracks)
+            {
+                // Save the caption track as a .vtt file.
+                File.WriteAllBytes($"{captionTrack.CaptionId}.vtt", captionTrack.BinaryData);
+            }
+        }
+    }
+}
+```
+
+**Remove Audio Captions**
+
+To remove captions from an audio frame, use the methods provided by [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/), such as [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/), or [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/). The following example removes all caption tracks from an audio frame.
+
+```cs
+using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+    IAudioFrame audioFrame = slide.Shapes[0] as IAudioFrame;
+
+    // Remove all caption tracks from the audio frame.
+    audioFrame.CaptionTracks.Clear();
+
+    presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
+}
+```
+
 ## **Extract Audio**
 Aspose.Slides for .NET allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
