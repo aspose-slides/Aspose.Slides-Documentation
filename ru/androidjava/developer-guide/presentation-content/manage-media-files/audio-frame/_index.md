@@ -10,33 +10,33 @@ keywords:
 - миниатюра
 - добавить аудио
 - свойства аудио
-- опции аудио
+- параметры аудио
 - извлечь аудио
 - Android
 - Java
 - Aspose.Slides
 description: "Создавайте и управляйте аудио‑кадрами в Aspose.Slides для Android — примеры на Java для встраивания, обрезки, зацикливания и настройки воспроизведения в презентациях PPT, PPTX и ODP."
 ---
-
 ## **Создание аудио‑кадров**
-Aspose.Slides for Android via Java позволяет добавлять аудиофайлы на слайды. Аудиофайлы встраиваются в слайды в виде аудио‑кадров.
+Aspose.Slides for Android via Java позволяет добавлять аудиофайлы на слайды. Аудиофайлы встраиваются в слайды как аудио‑кадры.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
-3. Загрузите поток аудиофайла, который вы хотите встроить в слайд.
-4. Добавьте встроенный аудио‑кадр (содержащий аудиофайл) на слайд.
-5. Установите [PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset) и `Volume`, предоставляемые объектом [IAudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame).
+3. Загрузите поток аудиофайла, который необходимо встроить в слайд.
+4. Добавьте встроенный аудио‑кадр (содержит аудиофайл) на слайд.
+5. Задайте [PlayMode](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioPlayModePreset) и `Volume`, доступные через объект [IAudioFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IAudioFrame).
 6. Сохраните изменённую презентацию.
 
-Этот пример кода на Java показывает, как добавить встроенный аудио‑кадр на слайд:
+Этот код на Java демонстрирует, как добавить встроенный аудио‑кадр на слайд:
+
 ```java
-// Создает экземпляр класса Presentation, представляющего файл презентации
+// Создаёт объект класса Presentation, представляющий файл презентации
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Загружает wav звуковой файл в поток
+    // Загружает WAV‑файл звука в поток
     FileInputStream fstr = new FileInputStream(new File("audio.wav"));
 
     // Добавляет аудио‑кадр
@@ -55,12 +55,12 @@ try {
 }
 ```
 
-
 ## **Изменение миниатюры аудио‑кадра**
 
-Когда вы добавляете аудиофайл в презентацию, он отображается как кадр со стандартным изображением по умолчанию (см. изображение в разделе ниже). Вы можете изменить изображение предварительного просмотра аудио‑кадра (установить желаемое изображение).
+При добавлении аудиофайла в презентацию он отображается как кадр со стандартным изображением по умолчанию (см. изображение ниже). Вы можете изменить изображение‑превью аудио‑кадра (установить собственное изображение).
 
-Этот пример кода на Java показывает, как изменить миниатюру или изображение предварительного просмотра аудио‑кадра:
+Этот код на Java показывает, как изменить миниатюру (превью) аудио‑кадра:
+
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -83,7 +83,7 @@ try {
     // Устанавливает изображение для аудио‑кадра.
     audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
 
-    //Сохраняет изменённую презентацию на диск
+    // Сохраняет изменённую презентацию на диск
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -91,50 +91,53 @@ try {
 }
 ```
 
-
 ## **Изменение параметров воспроизведения аудио**
 
-Aspose.Slides for Android via Java позволяет изменять параметры, контролирующие воспроизведение или свойства аудио. Например, можно регулировать громкость аудио, установить воспроизведение в цикле или даже скрыть значок аудио.
+Aspose.Slides for Android via Java позволяет менять параметры, контролирующие воспроизведение аудио или его свойства. Например, можно отрегулировать громкость, установить воспроизведение в цикле или скрыть значок аудио.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+Область **Audio Options** в Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) properties:
-- **Start** выпадающий список соответствует свойству [AudioFrame.PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) property
-- **Volume** соответствует свойству [AudioFrame.Volume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getVolume--) property
-- **Play Across Slides** соответствует свойству [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) property
-- **Loop until Stopped** соответствует свойству [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) property
-- **Hide During Show** соответствует свойству [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) property
-- **Rewind after Playing** соответствует свойству [AudioFrame.RewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) property
+Параметры **Audio Options** в PowerPoint, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioFrame):
 
-PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/) properties:
-- **Fade In** соответствует свойству [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) property 
-- **Fade Out** соответствует свойству [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) property 
-- **Trim Audio Start Time** соответствует свойству [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) property 
-- **Trim Audio End Time** равно продолжительности аудио за вычетом значения свойства [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) property
+- Выпадающий список **Start** соответствует свойству [AudioFrame.PlayMode](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) 
+- **Volume** соответствует свойству [AudioFrame.Volume](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioFrame#getVolume--) 
+- **Play Across Slides** соответствует свойству [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) 
+- **Loop until Stopped** соответствует свойству [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) 
+- **Hide During Show** соответствует свойству [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) 
+- **Rewind after Playing** соответствует свойству [AudioFrame.RewindAudio](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) 
 
-The PowerPoint **Volume controll** on the audio control panel corresponds to the [AudioFrame.VolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) property. It lets you change the audio volume as a percentage.
+Параметры **Editing** в PowerPoint, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/audioframe/):
 
-Вот как изменить параметры воспроизведения аудио:
-1. [Создать](#create-audio-frame) или получить Audio Frame.
-2. Установите новые значения для свойств Audio Frame, которые хотите изменить.
+- **Fade In** соответствует свойству [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) 
+- **Fade Out** соответствует свойству [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) 
+- **Trim Audio Start Time** соответствует свойству [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) 
+- **Trim Audio End Time** — значение равно длительности аудио минус значение свойства [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) 
+
+Элемент управления громкостью **Volume controll** на панели управления аудио в PowerPoint соответствует свойству [AudioFrame.VolumeValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) и позволяет изменять громкость в процентах.
+
+Как изменить параметры воспроизведения аудио:
+
+1. [Create](#create-audio-frame) или получите аудио‑кадр.
+2. Установите новые значения нужных свойств аудио‑кадра.
 3. Сохраните изменённый файл PowerPoint.
 
-Этот пример кода на Java демонстрирует операцию, в которой изменяются параметры аудио:
+Этот код на Java демонстрирует изменение параметров аудио:
+
 ```java 
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    // Получает форму AudioFrame
+    // Получает объект формы AudioFrame
     AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Устанавливает режим воспроизведения на воспроизведение по клику
+    // Устанавливает режим воспроизведения на воспроизведение по щелчку
     audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
 
     // Устанавливает громкость на низкую
     audioFrame.setVolume(AudioVolumeMode.Low);
 
-    // Устанавливает воспроизведение аудио на всех слайдах
+    // Устанавливает воспроизведение аудио через все слайды
     audioFrame.setPlayAcrossSlides(true);
 
     // Отключает зацикливание аудио
@@ -153,8 +156,8 @@ try {
 }
 ```
 
+Пример на Java, показывающий, как добавить новый аудио‑кадр со встроенным аудио, обрезать его и задать длительности затухания:
 
-Этот пример кода на Java показывает, как добавить новый аудио‑кадр со встроенным аудио, обрезать его и установить длительности затухания:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -165,9 +168,14 @@ try {
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
     // Устанавливает начальное смещение обрезки в 1,5 секунды
+    audioFrame.setTrimFromStart(1500f);
     // Устанавливает конечное смещение обрезки в 2 секунды
-    // Устанавливает длительность появления (fade-in) 200 мс
-    // Устанавливает длительность исчезновения (fade-out) 500 мс
+    audioFrame.setTrimFromEnd(2000f);
+
+    // Устанавливает длительность затухания при включении 200 мс
+    audioFrame.setFadeInDuration(200f);
+    // Устанавливает длительность затухания при выключении 500 мс
+    audioFrame.setFadeOutDuration(500f);
 
     pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -175,14 +183,14 @@ try {
 }
 ```
 
+Следующий фрагмент кода показывает, как получить аудио‑кадр со встроенным аудио и установить его громкость — 85 %:
 
-Следующий пример кода показывает, как получить аудио‑кадр со встроенным аудио и установить его громкость на 85%:
 ```java
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Получает форму audio frame
+    // Получает форму аудио‑кадра
     IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
 
     // Устанавливает громкость аудио на 85%
@@ -195,25 +203,95 @@ finally {
 }
 ```
 
+## **Работа с субтитрами аудио**
+
+Aspose.Slides позволяет добавлять закрытые субтитры к аудио‑кадру через метод [getCaptionTracks](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--). Этот метод возвращает [ICaptionsCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icaptionscollection/), позволяющую добавлять дорожки WebVTT, перебрать существующие дорожки и удалять их при необходимости.
+
+**Добавление субтитров к аудио**
+
+Используйте метод [getCaptionTracks](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) для присоединения одной или нескольких дорожек субтитров к аудио‑кадру. В примере ниже аудиофайл добавляется на слайд, после чего новая дорожка субтитров загружается из файла `.vtt`.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
+    IAudio audio = presentation.getAudios().addAudio(audioData);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
+
+    // Добавить новую дорожку субтитров из файла WebVTT.
+    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+
+    presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Извлечение субтитров из аудио**
+
+Можно перебрать дорожки субтитров, связанные с аудио‑кадром, и сохранить их как файлы `.vtt`. Каждая дорожка предоставляет доступ к своим бинарным данным и уникальному идентификатору, которые могут использоваться при экспорте субтитров.
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            IAudioFrame audioFrame = (IAudioFrame) shape;
+            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
+                // Сохранить дорожку субтитров в файл .vtt.
+                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
+                fos.write(captionTrack.getBinaryData());
+                fos.close();
+            }
+        }
+    }
+} catch (IOException e){
+} finally {
+    presentation.dispose();
+}
+```
+
+**Удаление субтитров из аудио**
+
+Для удаления субтитров из аудио‑кадра используйте методы из [ICaptionsCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icaptionscollection/), такие как [clear](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icaptionscollection/#clear--), [remove](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-), или [removeAt](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-). В примере ниже удаляются все дорожки субтитров из аудио‑кадра.
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
+
+    // Удалить все дорожки субтитров из аудио‑кадра.
+    audioFrame.getCaptionTracks().clear();
+
+    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Извлечение аудио**
 
 Aspose.Slides for Android via Java позволяет извлекать звук, используемый в переходах слайд‑шоу. Например, можно извлечь звук, использованный в конкретном слайде.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) и загрузите презентацию, содержащую аудио.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/Presentation) и загрузите презентацию, содержащую аудио.
 2. Получите ссылку на нужный слайд по его индексу.
-3. Получите доступ к [slideshow transitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) для слайда.
-4. Извлеките звук в виде байтовых данных.
+3. Обратитесь к [slideshow transitions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) данного слайда.
+4. Извлеките звук в виде массивов байтов.
 
-Этот пример кода на Java показывает, как извлечь аудио, использованное в слайде:
+Этот код на Java показывает, как извлечь аудио, использованное в слайде:
+
 ```java
-// Создаёт объект класса Presentation, представляющего файл презентации
+// Создаёт объект класса Presentation, представляющий файл презентации
 Presentation pres = new Presentation("AudioSlide.pptx");
 try {
-    // Получает нужный слайд
+    // Обращается к нужному слайду
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Получает эффекты перехода слайд-шоу для слайда
+    // Получает эффекты перехода слайд‑шоу для слайда
     ISlideShowTransition transition = slide.getSlideShowTransition();
     
     //Извлекает звук в массив байтов
@@ -224,17 +302,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Могу ли я использовать один и тот же аудио‑ресурс на нескольких слайдах без увеличения размера файла?**
+**Можно ли использовать один и тот же аудиофайл на нескольких слайдах без увеличения размера файла?**
 
-Да. Добавьте аудио один раз в общую [audio collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) презентации и создайте дополнительные аудио‑кадры, которые ссылаются на этот существующий ресурс. Это исключает дублирование медиа‑данных и позволяет контролировать размер презентации.
+Да. Добавьте аудио один раз в общую [audio collection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#getAudios--) презентации и создайте дополнительные аудио‑кадры, которые ссылаются на уже существующий ресурс. Это избегает дублирования медиа‑данных и сохраняет размер презентации под контролем.
 
-**Могу ли я заменить звук в существующем аудио‑кадре без воссоздания формы?**
+**Можно ли заменить звук в существующем аудио‑кадре без пересоздания формы?**
 
-Да. Для связанного звука обновите [link path](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) так, чтобы он указывал на новый файл. Для встроенного звука замените объект [embedded audio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) другим из [audio collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) презентации. Форматирование кадра и большинство настроек воспроизведения останутся без изменений.
+Да. Для связанного звука измените [link path](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) на новый файл. Для встроенного звука замените объект [embedded audio](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) другим из [audio collection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#getAudios--) презентации. Форматирование кадра и большинство настроек воспроизведения сохранятся.
 
-**Изменяет ли обрезка исходные аудио‑данные, хранящиеся в презентации?**
+**Изменяет ли обрезка (trimming) сами аудиоданные, хранящиеся в презентации?**
 
-Нет. Обрезка изменяет только границы воспроизведения. Исходные байты аудио остаются нетронутыми и доступны через встроенное аудио или [audio collection] презентации.
+Нет. Обрезка изменяет только границы воспроизведения. Исходные аудиобайты остаются нетронутыми и доступны через встроенное аудио или общую аудио‑коллекцию презентации.

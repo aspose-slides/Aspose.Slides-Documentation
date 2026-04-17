@@ -14,29 +14,29 @@ keywords:
 - 提取音频
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Java 中创建和控制音频帧——提供嵌入、裁剪、循环以及在 PPT、PPTX 和 ODP 演示文稿中配置播放的代码示例。"
+description: "在 Aspose.Slides for Java 中创建和控制音频帧——提供嵌入、剪切、循环以及在 PPT、PPTX 和 ODP 演示文稿中配置播放的代码示例。"
 ---
-
 ## **创建音频帧**
 
-Aspose.Slides for Java 允许您向幻灯片添加音频文件。音频文件以音频帧的形式嵌入幻灯片中。
+Aspose.Slides for Java 允许您向幻灯片添加音频文件。这些音频文件以音频帧的形式嵌入到幻灯片中。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 加载要嵌入幻灯片的音频文件流。  
-4. 将包含音频文件的嵌入音频帧添加到幻灯片。  
-5. 设置由 [IAudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAudioFrame) 对象公开的 [PlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/AudioPlayModePreset) 和 `Volume`。  
+1. 创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/Presentation) 类的实例。
+2. 通过索引获取幻灯片的引用。
+3. 加载要嵌入到幻灯片中的音频文件流。
+4. 将嵌入的音频帧（包含音频文件）添加到幻灯片中。
+5. 设置由 [IAudioFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IAudioFrame) 对象公开的 [PlayMode](https://reference.aspose.com/slides/zh/java/com.aspose.slides/AudioPlayModePreset) 和 `Volume`。
 6. 保存修改后的演示文稿。
 
-下面的 Java 代码展示了如何向幻灯片添加嵌入式音频帧：
+下面的 Java 代码示例演示如何向幻灯片添加嵌入的音频帧：
+
 ```java
-// 实例化一个表示演示文稿文件的 Presentation 类
+// 实例化一个代表演示文稿文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
     // 获取第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 将 wav 声音文件加载到流中
+    // 加载 wav 音频文件为流
     FileInputStream fstr = new FileInputStream(new File("audio.wav"));
 
     // 添加音频帧
@@ -55,23 +55,23 @@ try {
 }
 ```
 
-
 ## **更改音频帧缩略图**
 
-将音频文件添加到演示文稿时，音频会以带有标准默认图片的帧形式出现（见下方图片）。您可以更改音频帧的预览图像（设置您喜欢的图片）。
+当您向演示文稿添加音频文件时，音频会以带有默认标准图像的帧形式显示（请参见下节中的图像）。您可以更改音频帧的预览图像（设置您喜欢的图像）。
 
-下面的 Java 代码展示了如何更改音频帧的缩略图或预览图像：
+下面的 Java 代码示例演示如何更改音频帧的缩略图或预览图像：
+
 ```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 添加音频帧到幻灯片，指定位置和大小。
+    // 在幻灯片上添加音频帧，使用指定的位置和大小。
     FileInputStream audioStream = new FileInputStream("sample2.mp3");
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
     audioStream.close();
 
-    // 将图像添加到演示文稿资源中。
+    // 向演示文稿资源添加图像。
     IPPImage picture;
     IImage image = Images.fromFile("eagle.jpeg");
     try {
@@ -82,7 +82,8 @@ try {
 
     // 为音频帧设置图像。
     audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
-    //保存修改后的演示文稿到磁盘
+
+    //将修改后的演示文稿保存到磁盘
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -90,62 +91,62 @@ try {
 }
 ```
 
-
 ## **更改音频播放选项**
 
-Aspose.Slides for Java 允许您更改控制音频播放的选项或属性。例如，您可以调节音频音量、设置音频循环播放，甚至隐藏音频图标。
+Aspose.Slides for Java 允许您更改控制音频播放或属性的选项。例如，您可以调节音频音量、设置音频循环播放，甚至隐藏音频图标。
 
 Microsoft PowerPoint 中的 **Audio Options** 面板：
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio Options** 对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame) 属性：
+PowerPoint **Audio Options** 对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/AudioFrame) 属性：
 
-- **Start** 下拉列表对应 [AudioFrame.setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayMode-int-) 方法  
-- **Volume** 对应 [AudioFrame.setVolume](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolume-int-) 方法  
-- **Play Across Slides** 对应 [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayAcrossSlides-boolean-) 方法  
-- **Loop until Stopped** 对应 [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayLoopMode-boolean-) 方法  
-- **Hide During Show** 对应 [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setHideAtShowing-boolean-) 方法  
-- **Rewind after Playing** 对应 [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setRewindAudio-boolean-) 方法  
+- **Start** 下拉列表对应 [AudioFrame.setPlayMode](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setPlayMode-int-) 方法
+- **Volume** 对应 [AudioFrame.setVolume](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setVolume-int-) 方法
+- **Play Across Slides** 对应 [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setPlayAcrossSlides-boolean-) 方法
+- **Loop until Stopped** 对应 [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setPlayLoopMode-boolean-) 方法
+- **Hide During Show** 对应 [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setHideAtShowing-boolean-) 方法
+- **Rewind after Playing** 对应 [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setRewindAudio-boolean-) 方法
 
-PowerPoint **Editing** 选项对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame) 属性：
+PowerPoint **Editing** 选项对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/AudioFrame) 属性：
 
-- **Fade In** 对应 [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeInDuration-float-) 方法  
-- **Fade Out** 对应 [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeOutDuration-float-) 方法  
-- **Trim Audio Start Time** 对应 [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromStart-float-) 方法  
-- **Trim Audio End Time** 的数值等于音频时长减去 [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromEnd-float-) 方法的值  
+- **Fade In** 对应 [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setFadeInDuration-float-) 方法
+- **Fade Out** 对应 [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setFadeOutDuration-float-) 方法
+- **Trim Audio Start Time** 对应 [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setTrimFromStart-float-) 方法
+- **Trim Audio End Time** 的值等于音频时长减去 [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setTrimFromEnd-float-) 方法的值
 
-PowerPoint 音频控制面板上的 **Volume 控件** 对应 [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolumeValue-float-) 方法，可按百分比更改音频音量。
+PowerPoint **Volume control** 在音频控制面板上对应 [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/zh/java/com.aspose.slides/audioframe/#setVolumeValue-float-) 方法。它允许您以百分比方式更改音频音量。
 
-更改音频播放选项的步骤：
+下面演示如何更改音频播放选项：
 
-1. [Сreate](#create-audio-frame) 或获取音频帧。  
-2. 为需要调整的音频帧属性设置新值。  
+1. [创建](#create-audio-frame) 或获取音频帧。
+2. 为要调整的音频帧属性设置新值。
 3. 保存修改后的 PowerPoint 文件。
 
-下面的 Java 代码演示了调整音频选项的操作：
+下面的 Java 代码演示如何调整音频的选项：
+
 ```java 
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     // 获取 AudioFrame 形状
     AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 将播放模式设置为点击时播放
+    // 将播放模式设置为点击播放
     audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
 
     // 将音量设置为低
     audioFrame.setVolume(AudioVolumeMode.Low);
 
-    // 设置音频跨幻灯片播放
+    // 将音频设置为跨幻灯片播放
     audioFrame.setPlayAcrossSlides(true);
 
     // 禁用音频循环
     audioFrame.setPlayLoopMode(false);
 
-    // 幻灯片放映期间隐藏 AudioFrame
+    // 在幻灯片放映期间隐藏 AudioFrame
     audioFrame.setHideAtShowing(true);
 
-    // 播放后将音频倒回起始位置
+    // 播放后将音频倒回到开始
     audioFrame.setRewindAudio(true);
 
     // 将 PowerPoint 文件保存到磁盘
@@ -155,8 +156,8 @@ try {
 }
 ```
 
+下面的 Java 示例展示如何添加带嵌入音频的新音频帧、剪切它并设置淡入淡出时长：
 
-下面的 Java 示例展示了如何添加一个带嵌入音频的新音频帧、剪裁它并设置淡入淡出时长：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -166,14 +167,14 @@ try {
     IAudio audio = pres.getAudios().addAudio(audioData);
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
-    // 将裁剪起始偏移设置为 1.5 秒
+    // 将剪切起始偏移设置为 1.5 秒
     audioFrame.setTrimFromStart(1500f);
-    // 将裁剪结束偏移设置为 2 秒
+    // 将剪切结束偏移设置为 2 秒
     audioFrame.setTrimFromEnd(2000f);
 
-    // 将淡入持续时间设置为 200 毫秒
+    // 将淡入时长设置为 200 毫秒
     audioFrame.setFadeInDuration(200f);
-    // 将淡出持续时间设置为 500 毫秒
+    // 将淡出时长设置为 500 毫秒
     audioFrame.setFadeOutDuration(500f);
 
     pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
@@ -182,8 +183,8 @@ try {
 }
 ```
 
+以下代码示例演示如何获取嵌入音频的音频帧并将其音量设置为 85%：
 
-下面的代码示例展示了如何检索带嵌入音频的音频帧并将其音量设置为 85%：
 ```java
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
@@ -202,28 +203,96 @@ finally {
 }
 ```
 
+## **管理音频字幕**
+
+Aspose.Slides 允许您通过 [getCaptionTracks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iaudioframe/#getCaptionTracks--) 方法向音频帧添加隐藏字幕。该方法返回一个 [ICaptionsCollection](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icaptionscollection/)，您可以在其中添加 WebVTT 字幕轨道、遍历现有轨道，并在需要时将其移除。
+
+**添加音频字幕**
+
+使用 [getCaptionTracks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iaudioframe/#getCaptionTracks--) 方法将一个或多个字幕轨道附加到音频帧。以下示例中，先向幻灯片添加音频文件，然后从 `.vtt` 文件加载新字幕轨道。
+
+```java
+Presentation presentation = new Presentation();
+try {
+    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
+    IAudio audio = presentation.getAudios().addAudio(audioData);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
+
+    // 从 WebVTT 文件添加新的字幕轨道。
+    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+
+    presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**提取音频字幕**
+
+您可以遍历与音频帧关联的字幕轨道并将其保存为 `.vtt` 文件。每个字幕轨道都会公开其二进制数据和唯一标识符，可在导出字幕时使用。
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame ) {
+            IAudioFrame audioFrame = (IAudioFrame) shape;
+            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
+                // 将字幕轨道保存为 .vtt 文件。
+                Path filePath = Paths.get(captionTrack.getCaptionId() + ".vtt");
+                Files.write(filePath, captionTrack.getBinaryData());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**移除音频字幕**
+
+要从音频帧中移除字幕，请使用 [ICaptionsCollection](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icaptionscollection/) 提供的方法，如 [clear](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icaptionscollection/#clear--)、[remove](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) 或 [removeAt](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icaptionscollection/#removeAt-int-)。以下示例移除音频帧中的所有字幕轨道。
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
+
+    // 删除音频帧中的所有字幕轨道。
+    audioFrame.getCaptionTracks().clear();
+
+    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **提取音频**
 
-Aspose.Slides for Java 允许您提取幻灯片放映转换中使用的声音。例如，您可以提取特定幻灯片使用的声音。
+Aspose.Slides for Java 允许您提取幻灯片放映过渡中使用的声音。例如，您可以提取特定幻灯片使用的声音。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例并加载包含音频的演示文稿。  
-2. 通过索引获取相关幻灯片的引用。  
-3. 访问该幻灯片的 [slideshow transitions](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getSlideShowTransition--)。  
-4. 提取声音的字节数据。
+1. 创建 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/Presentation) 类的实例并加载包含音频的演示文稿。
+2. 通过索引获取相关幻灯片的引用。
+3. 访问该幻灯片的 [slideshow transitions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IBaseSlide#getSlideShowTransition--)。
+4. 以字节数据形式提取声音。
 
-下面的 Java 代码展示了如何提取幻灯片中使用的音频：
+下面的 Java 代码示例演示如何提取幻灯片中使用的音频：
+
 ```java
-// 实例化一个表示演示文稿文件的 Presentation 类
+// 实例化一个代表演示文稿文件的 Presentation 类
 Presentation pres = new Presentation("AudioSlide.pptx");
 try {
     // 访问所需的幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // 获取幻灯片的幻灯片放映过渡效果
+    // 获取该幻灯片的幻灯片放映过渡效果
     ISlideShowTransition transition = slide.getSlideShowTransition();
     
-    //提取声音为字节数组
+    //提取字节数组中的声音
     byte[] audio = transition.getSound().getBinaryData();
     System.out.println("Length: " + audio.length);
 } finally {
@@ -231,17 +300,16 @@ try {
 }
 ```
 
-
 ## **常见问题**
 
-**我可以在多个幻灯片之间复用同一个音频资源而不会增大文件大小吗？**
+**我可以在多个幻灯片中重复使用同一音频资源而不会增大文件大小吗？**
 
-可以。将音频一次性添加到演示文稿的共享 [audio collection](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) 中，然后创建引用该已有资源的其他音频帧。这样可避免复制媒体数据，保持演示文稿体积可控。
+可以。将音频一次添加到演示文稿的共享 [audio collection](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#getAudios--) 中，然后创建引用该现有资源的其他音频帧。这样可避免重复媒体数据，保持演示文稿尺寸可控。
 
-**我能在不重新创建形状的情况下替换现有音频帧中的声音吗？**
+**我能在不重新创建形状的情况下更换已有音频帧的声音吗？**
 
-可以。对于链接的声音，更新 [link path](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) 以指向新文件。对于嵌入的声音，将 [embedded audio](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) 对象替换为演示文稿的 [audio collection](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) 中的另一个对象。帧的格式和大多数播放设置保持不变。
+可以。对于链接音频，更新 [link path](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) 指向新文件。对于嵌入音频，可将 [embedded audio](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) 对象替换为演示文稿的 [audio collection](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#getAudios--) 中的另一个音频。帧的格式和大多数播放设置保持不变。
 
-**裁剪会改变演示文稿中存储的底层音频数据吗？**
+**剪切会改变演示文稿中存储的底层音频数据吗？**
 
-不会。裁剪仅调整播放边界。原始音频字节保持不变，仍可通过嵌入的音频或演示文稿的音频集合访问。
+不会。剪切仅调整播放边界，原始音频字节保持不变，仍可通过嵌入音频或演示文稿的音频集合访问。
