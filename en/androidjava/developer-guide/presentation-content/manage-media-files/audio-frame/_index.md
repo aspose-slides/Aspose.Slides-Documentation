@@ -204,6 +204,76 @@ finally {
 }
 ```
 
+## **Manage Audio Captions**
+
+Aspose.Slides allows you to add closed captions to an audio frame through the [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) method. This method returns an [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/), which lets you add WebVTT caption tracks, iterate through existing tracks, and remove them when necessary.
+
+**Add Audio Captions**
+
+Use the [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) method to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
+    IAudio audio = presentation.getAudios().addAudio(audioData);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
+
+    // Add a new caption track from a WebVTT file.
+    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+
+    presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Extract Audio Captions**
+
+You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            IAudioFrame audioFrame = (IAudioFrame) shape;
+            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
+                // Save the caption track as a .vtt file.
+                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
+                fos.write(captionTrack.getBinaryData());
+                fos.close();
+            }
+        }
+    }
+} catch (IOException e){
+} finally {
+    presentation.dispose();
+}
+```
+
+**Remove Audio Captions**
+
+To remove captions from an audio frame, use the methods provided by [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/), such as [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#clear--), [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-), or [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-). The following example removes all caption tracks from an audio frame.
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
+
+    // Remove all caption tracks from the audio frame.
+    audioFrame.getCaptionTracks().clear();
+
+    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Extract Audio**
 
 Aspose.Slides for Android via Java allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
