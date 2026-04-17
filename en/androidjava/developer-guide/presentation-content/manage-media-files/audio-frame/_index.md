@@ -239,14 +239,17 @@ Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAudioFrame audioFrame) {
+        if (shape instanceof IAudioFrame) {
+            IAudioFrame audioFrame = (IAudioFrame) shape;
             for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
                 // Save the caption track as a .vtt file.
-                Path filePath = Paths.get(captionTrack.getCaptionId() + ".vtt");
-                Files.write(filePath, captionTrack.getBinaryData());
+                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
+                fos.write(captionTrack.getBinaryData());
+                fos.close();
             }
         }
     }
+} catch (IOException e){
 } finally {
     presentation.dispose();
 }
