@@ -155,7 +155,7 @@ try {
 }
 ```
 
-The [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from an `InputStream`.
+The [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from a stream.
 
 **Extract Captions from a Video Frame**
 
