@@ -132,7 +132,7 @@ To add captions to a video frame:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
 1. Add a video to the presentation.
 1. Add an [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) object to a slide.
-1. Use the [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) returned by `getCaptionTracks` to add a WebVTT caption track.
+1. Use the [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) returned by [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) to add a WebVTT caption track.
 1. Save the modified presentation.
 
 The following code shows you how to add captions to a video frame:
@@ -163,7 +163,7 @@ To extract captions from a video frame:
 
 1. Load the presentation that contains the video.
 1. Find the target [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) object.
-1. Iterate through the caption tracks returned by `getCaptionTracks`.
+1. Iterate through the caption tracks returned by [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
 1. Save each caption track to a `.vtt` file.
 
 The following code shows you how to extract captions from a video frame:
@@ -196,7 +196,7 @@ To remove captions from a video frame:
 
 1. Load the presentation that contains the video.
 1. Get the target [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) object.
-1. Remove caption tracks from the collection returned by `getCaptionTracks`.
+1. Remove caption tracks from the collection returned by [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
 1. Save the modified presentation.
 
 The following code shows you how to remove all captions from a video frame:

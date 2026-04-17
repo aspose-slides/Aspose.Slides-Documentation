@@ -96,8 +96,100 @@ vf->set_PlayMode(VideoPlayModePreset::Auto);
 
 //Saves the presentation to disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
+
+## **Manage Video Captions**
+
+Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) method.
+
+**Add Captions to a Video Frame**
+
+To add captions to a video frame:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Add a video to the presentation.
+1. Add an [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) object to a slide.
+1. Use the [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) returned by [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) to add a WebVTT caption track.
+1. Save the modified presentation.
+
+The following code shows you how to add captions to a video frame:
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto videoData = File::ReadAllBytes(u"video.mp4");
+auto video = presentation->get_Videos()->AddVideo(videoData);
+
+auto slide = presentation->get_Slide(0);
+auto videoFrame = slide->get_Shapes()->AddVideoFrame(0, 0, 100, 100, video);
+
+// Adds a new captions track from a WebVTT file.
+videoFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
+
+presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from a stream.
+
+**Extract Captions from a Video Frame**
+
+To extract captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Find the target [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) object.
+1. Iterate through the caption tracks returned by [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+1. Save each caption track to a `.vtt` file.
+
+The following code shows you how to extract captions from a video frame:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        for (auto&& captionTrack : videoFrame->get_CaptionTracks())
+        {
+            // Saves the captions track to a WebVTT file.
+            auto filePath = captionTrack->get_CaptionId().ToString() + u".vtt";
+            File::WriteAllBytes(filePath, captionTrack->get_BinaryData());
+        }
+    }
+}
+
+presentation->Dispose();
+```
+
+Each [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) object exposes the caption identifier, label, binary data, and caption data as a UTF-8 string.
+
+**Remove Captions from a Video Frame**
+
+To remove captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Get the target [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) object.
+1. Remove caption tracks from the collection returned by [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+1. Save the modified presentation.
+
+The following code shows you how to remove all captions from a video frame:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
+
+// Removes all captions from the video frame.
+videoFrame->get_CaptionTracks()->Clear();
+
+presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+If you need to remove only one caption track, use the [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) or [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) methods instead of [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/).
 
 ## **Extract Video from a Slide**
 
