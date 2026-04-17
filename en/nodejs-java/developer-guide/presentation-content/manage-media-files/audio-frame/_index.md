@@ -233,11 +233,14 @@ You can iterate through the caption tracks associated with an audio frame and sa
 let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
-    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+    let shapeCount = slide.getShapes().size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
         let shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            for (let trackIndex = 0; trackIndex < shape.getCaptionTracks().getCount(); trackIndex++) {
-                let captionTrack = shape.getCaptionTracks().get_Item(trackIndex);
+            let audioFrame = shape;
+            let trackCount = audioFrame.getCaptionTracks().getCount();
+            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
+                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
                 // Save the caption track as a .vtt file.
                 let filePath = captionTrack.getCaptionId() + ".vtt";
                 let captionData = Buffer.from(captionTrack.getBinaryData());
@@ -258,7 +261,7 @@ To remove captions from an audio frame, use the methods provided by [CaptionsCol
 let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0);
+    let audioFrame = slide.getShapes().get_Item(0); // type: aspose.slides.AudioFrame
 
     // Remove all caption tracks from the audio frame.
     audioFrame.getCaptionTracks().clear();

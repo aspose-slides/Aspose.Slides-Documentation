@@ -234,9 +234,10 @@ try {
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.AudioFrame"))) {
-            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            $audioFrame = $shape;
+            $trackCount = java_values($audioFrame->getCaptionTracks()->getCount());
             for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
-                $captionTrack = $shape->getCaptionTracks()->get_Item($trackIndex);
+                $captionTrack = $audioFrame->getCaptionTracks()->get_Item($trackIndex);
                 // Save each caption track as a .vtt file.
                 $filePath = $captionTrack->getCaptionId() . ".vtt";
                 file_put_contents($filePath, $captionTrack->getBinaryData());
@@ -256,7 +257,7 @@ To remove captions from an audio frame, use the methods provided by [CaptionsCol
 $presentation = new Presentation($folderPath . "audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $audioFrame = $slide->getShapes()->get_Item(0);
+    $audioFrame = $slide->getShapes()->get_Item(0); // type: AudioFrame
 
     // Remove all caption tracks from the audio frame.
     $audioFrame->getCaptionTracks()->clear();
