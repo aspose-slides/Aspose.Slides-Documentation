@@ -11,39 +11,37 @@ keywords:
 - إضافة صوت
 - خصائص الصوت
 - خيارات الصوت
-- استخراج صوت
+- استخراج الصوت
 - Android
 - Java
 - Aspose.Slides
-description: "إنشاء والتحكم في إطارات الصوت في Aspose.Slides لنظام Android—أمثلة Java لتضمين الصوت، قصه، تشغيله على حلقة، وتكوين تشغيله عبر عروض PPT و PPTX و ODP."
+description: "إنشاء والتحكم في إطارات الصوت في Aspose.Slides for Android — أمثلة Java لتضمين الصوت، تقصيره، تشغيله بشكل متكرر، وتكوين التشغيل عبر عروض PPT و PPTX و ODP."
 ---
+## **إنشاء إطارات الصوت**
+Aspose.Slides for Android via Java يتيح لك إضافة ملفات صوتية إلى الشرائح. تُدمج ملفات الصوت في الشرائح كإطارات صوتية.
 
-## **إنشاء إطارات صوتية**
-Aspose.Slides for Android via Java يسمح لك بإضافة ملفات صوتية إلى الشرائح. تُضمّن ملفات الصوت في الشرائح كإطارات صوتية.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) .
+2. الحصول على مرجع الشريحة عبر فهرستها.
+3. تحميل تدفق ملف الصوت الذي تريد دمجه في الشريحة.
+4. إضافة إطار الصوت المدمج (الذي يحتوي على ملف الصوت) إلى الشريحة.
+5. تعيين [PlayMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioPlayModePreset) و`Volume` المعروضة بواسطة كائن [IAudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IAudioFrame) .
+6. حفظ العرض التقديمي المعدل.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها.
-3. تحميل تدفق ملف الصوت الذي تريد تضمينه في الشريحة.
-4. إضافة إطار الصوت المضمّن (الذي يحتوي على ملف الصوت) إلى الشريحة.
-5. ضبط [PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset) و`Volume` المعروضين بواسطة كائن [IAudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame).
-6. حفظ العرض التقديمي المعدّل.
-
-هذا الكود Java يوضح كيفية إضافة إطار صوت مضمّن إلى شريحة:
 ```java
-// ينشئ فئة Presentation التي تمثل ملف عرض تقديمي
+// ينشئ كائنًا من فئة Presentation تمثل ملف عرض تقديمي
 Presentation pres = new Presentation();
 try {
     // يحصل على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // يحمل ملف الصوت wav إلى تدفق
+    // يقوم بتحميل ملف الصوت wav إلى تدفق
     FileInputStream fstr = new FileInputStream(new File("audio.wav"));
 
     // يضيف إطار الصوت
     IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
     fstr.close();
     
-    // يحدد وضع التشغيل ومستوى الصوت للإطار الصوتي
+    // يضبط وضع التشغيل ومستوى الصوت للملف الصوتي
     audioFrame.setPlayMode(AudioPlayModePreset.Auto);
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
@@ -55,18 +53,18 @@ try {
 }
 ```
 
-
 ## **تغيير الصورة المصغرة لإطار الصوت**
 
-عند إضافة ملف صوت إلى عرض تقديمي، يظهر الصوت كإطار بصورة افتراضية قياسية (انظر الصورة في القسم أدناه). يمكنك تغيير الصورة المصغرة لإطار الصوت (تعيين الصورة التي تفضلها).
+عند إضافة ملف صوتي إلى عرض تقديمي، يظهر الصوت كإطار بصورة افتراضية قياسية (انظر الصورة في القسم أدناه). يمكنك تغيير صورة المعاينة لإطار الصوت (تعيين الصورة المفضلة لديك).
 
-هذا الكود Java يوضح كيفية تغيير الصورة المصغرة أو صورة المعاينة لإطار الصوت:
+هذا الكود بلغة Java يوضح كيفية تغيير الصورة المصغرة أو صورة المعاينة لإطار الصوت:
+
 ```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // يضيف إطار صوتي إلى الشريحة بموقع وحجم محددين.
+    // يضيف إطار صوت إلى الشريحة بموقع وحجم محددين.
     FileInputStream audioStream = new FileInputStream("sample2.mp3");
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
     audioStream.close();
@@ -80,8 +78,10 @@ try {
         if (image != null) image.dispose();
     }
 
-    // يضبط الصورة لإطار الصوت. // <-----
-    // يحفظ العرض المعدل إلى القرص
+    // يعيّن الصورة لإطار الصوت.
+    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
+
+    //يحفظ العرض التقديمي المعدل على القرص
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -89,73 +89,71 @@ try {
 }
 ```
 
-
 ## **تغيير خيارات تشغيل الصوت**
 
-Aspose.Slides for Android via Java يسمح لك بتغيير الخيارات التي تتحكم في تشغيل الصوت أو خصائصه. على سبيل المثال، يمكنك تعديل مستوى صوت الصوت، ضبط تشغيل الصوت على حلقة، أو حتى إخفاء أيقونة الصوت.
+Aspose.Slides for Android via Java يتيح لك تعديل الخيارات التي تتحكم في تشغيل الصوت أو خصائصه. على سبيل المثال، يمكنك ضبط مستوى صوت الصوت، تشغيل الصوت بشكل متكرر، أو إخفاء أيقونة الصوت.
 
 لوحة **Audio Options** في Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-**Audio Options** في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) هي:
+PowerPoint **Audio Options** التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioFrame) :
 
-- القائمة المنسدلة **Start** تتطابق مع خاصية [AudioFrame.PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) 
-- **Volume** تتطابق مع خاصية [AudioFrame.Volume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getVolume--) 
-- **Play Across Slides** تتطابق مع خاصية [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) 
-- **Loop until Stopped** تتطابق مع خاصية [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) 
-- **Hide During Show** تتطابق مع خاصية [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) 
-- **Rewind after Playing** تتطابق مع خاصية [AudioFrame.RewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) 
+- **Start** القائمة المنسدلة تتطابق مع خاصية [AudioFrame.PlayMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) 
+- **Volume** تتطابق مع خاصية [AudioFrame.Volume](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioFrame#getVolume--) 
+- **Play Across Slides** تتطابق مع خاصية [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) 
+- **Loop until Stopped** تتطابق مع خاصية [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) 
+- **Hide During Show** تتطابق مع خاصية [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) 
+- **Rewind after Playing** تتطابق مع خاصية [AudioFrame.RewindAudio](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) 
 
-خيارات **Editing** في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/) هي:
+PowerPoint **Editing** options التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/audioframe/) :
 
-- **Fade In** تتطابق مع خاصية [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) 
-- **Fade Out** تتطابق مع خاصية [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) 
-- **Trim Audio Start Time** تتطابق مع خاصية [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) 
-- قيمة **Trim Audio End Time** تساوي مدة الصوت مطروحاً منها قيمة خاصية [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) 
+- **Fade In** تتطابق مع خاصية [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) 
+- **Fade Out** تتطابق مع خاصية [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) 
+- **Trim Audio Start Time** تتطابق مع خاصية [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) 
+- **Trim Audio End Time** القيمة تساوي مدة الصوت ناقص قيمة خاصية [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) 
 
-متحكم **Volume** في لوحة التحكم الصوتية في PowerPoint يتطابق مع خاصية [AudioFrame.VolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getVolumeValue--)، ويتيح لك تعديل مستوى الصوت كنسبة مئوية.
+متحكم **Volume** في لوحة التحكم بالصوت في PowerPoint يتطابق مع خاصية [AudioFrame.VolumeValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) . يتيح لك تغيير مستوى الصوت كنسبة مئوية.
 
-إليك كيفية تغيير خيارات تشغيل الصوت:
+إليك كيفية تعديل خيارات تشغيل الصوت:
 
-1. [Create](#create-audio-frame) أو الحصول على إطار الصوت.
-2. ضبط القيم الجديدة لخصائص إطار الصوت التي تريد تعديلها.
-3. حفظ ملف PowerPoint المعدّل.
+1. [إنشاء](#create-audio-frame) أو الحصول على إطار الصوت.
+2. تعيين قيم جديدة للخصائص التي ترغب في تعديلها في إطار الصوت.
+3. حفظ ملف PowerPoint المعدل.
 
-هذا الكود Java يوضح عملية تعديل خيارات الصوت:
 ```java 
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     // يحصل على شكل AudioFrame
     AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // يحدد وضع التشغيل لتشغيله عند النقر
+    // يضبط وضع التشغيل للتشغيل عند النقر
     audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
 
-    // يحدد مستوى الصوت إلى منخفض
+    // يضبط مستوى الصوت إلى منخفض
     audioFrame.setVolume(AudioVolumeMode.Low);
 
-    // يحدد تشغيل الصوت عبر الشرائح
+    // يضبط الصوت للتشغيل عبر الشرائح
     audioFrame.setPlayAcrossSlides(true);
 
     // يعطل التكرار للصوت
     audioFrame.setPlayLoopMode(false);
 
-    // يخفى إطار الصوت أثناء عرض الشرائح
+    // يخفي AudioFrame خلال عرض الشرائح
     audioFrame.setHideAtShowing(true);
 
-    // يعيد الصوت إلى البداية بعد التشغيل
+    // يرجع الصوت إلى البداية بعد التشغيل
     audioFrame.setRewindAudio(true);
 
-    // يحفظ ملف PowerPoint إلى القرص
+    // يحفظ ملف PowerPoint على القرص
     pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+هذا المثال بلغة Java يوضح كيفية إضافة إطار صوت جديد مع صوت مدمج، تقصير المدة، وتعيين فترات التلاشي:
 
-هذا المثال Java يوضح كيفية إضافة إطار صوت جديد مع صوت مضمّن، قصه، وتعيين مدة التلاشي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -165,11 +163,15 @@ try {
     IAudio audio = pres.getAudios().addAudio(audioData, LoadingStreamBehavior.KeepLocked);
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
-    // يحدد إزاحة بداية القص إلى 1.5 ثانية
-    // يحدد إزاحة نهاية القص إلى 2 ثانية
+    // يضبط إزاحة بداية القص إلى 1.5 ثانية
+    audioFrame.setTrimFromStart(1500f);
+    // يضبط إزاحة نهاية القص إلى 2 ثانية
+    audioFrame.setTrimFromEnd(2000f);
 
-    // يحدد مدة الفيد إن إلى 200 مللي ثانية
-    // يحدد مدة الفيد آوت إلى 500 مللي ثانية
+    // يضبط مدة التلاشي التدريجي إلى 200 مللي ثانية
+    audioFrame.setFadeInDuration(200f);
+    // يضبط مدة التلاشي التدريجي للخروج إلى 500 مللي ثانية
+    audioFrame.setFadeOutDuration(500f);
 
     pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -177,17 +179,17 @@ try {
 }
 ```
 
+العينة البرمجية التالية توضح كيفية استرجاع إطار صوت مدمج وتعيين مستوى صوته إلى 85٪:
 
-العينة البرمجية التالية توضح كيفية استرجاع إطار صوت مضمّن وتعيين مستوى صوته إلى 85%:
 ```java
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // يحصل على شكل إطار صوتي
+    // يحصل على شكل إطار صوت
     IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
 
-    // يضبط مستوى الصوت إلى 85%
+    // يضبط مستوى الصوت إلى 85٪
     audioFrame.setVolumeValue(85f);
 
     pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
@@ -197,25 +199,95 @@ finally {
 }
 ```
 
+## **إدارة ترجمات الصوت**
+
+Aspose.Slides يتيح لك إضافة ترجمات مغلقة إلى إطار صوت عبر طريقة [getCaptionTracks](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) . تُرجع هذه الطريقة كائنًا من نوع [ICaptionsCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icaptionscollection/)، والذي يسمح لك بإضافة مسارات ترجمات WebVTT، التمرير عبر المسارات الموجودة، وإزالتها عند الحاجة.
+
+**إضافة ترجمات صوتية**
+
+استخدم طريقة [getCaptionTracks](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) لإرفاق مسار أو أكثر إلى إطار الصوت. في المثال التالي، يُضاف ملف صوت إلى شريحة، ثم يتم تحميل مسار ترجمة جديد من ملف `.vtt`.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
+    IAudio audio = presentation.getAudios().addAudio(audioData);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
+
+    // أضف مسار توضيحات جديد من ملف WebVTT.
+    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+
+    presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**استخراج ترجمات الصوت**
+
+يمكنك التمرير عبر مسارات الترجمات المرتبطة بإطار الصوت وحفظها كملفات `.vtt`. كل مسار ترجمة يكشف عن بياناته الثنائية ومعرفه الفريد، وهو ما يمكن استخدامه عند تصدير الترجمات.
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            IAudioFrame audioFrame = (IAudioFrame) shape;
+            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
+                // احفظ مسار التوضيح كملف .vtt.
+                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
+                fos.write(captionTrack.getBinaryData());
+                fos.close();
+            }
+        }
+    }
+} catch (IOException e){
+} finally {
+    presentation.dispose();
+}
+```
+
+**إزالة ترجمات الصوت**
+
+لإزالة الترجمات من إطار الصوت، استخدم الأساليب المتوفرة في [ICaptionsCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icaptionscollection/)، مثل [clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icaptionscollection/#clear--)، [remove](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) أو [removeAt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-). المثال التالي يزيل جميع مسارات الترجمات من إطار الصوت.
+
+```java
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
+
+    // إزالة جميع مسارات التوضيح من إطار الصوت.
+    audioFrame.getCaptionTracks().clear();
+
+    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **استخراج الصوت**
 
-Aspose.Slides for Android via Java يسمح لك باستخراج الصوت المستخدم في انتقالات عرض الشرائح. على سبيل المثال، يمكنك استخراج الصوت المستخدم في شريحة معينة.
+Aspose.Slides for Android via Java يتيح لك استخراج الصوت المستخدم في انتقالات العرض التقديمي. على سبيل المثال، يمكنك استخراج الصوت المستخدم في شريحة معينة.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) وتحميل العرض التقديمي الذي يحتوي على الصوت.
-2. الحصول على مرجع الشريحة ذات الصلة عبر فهرسها.
-3. الوصول إلى [slideshow transitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) للشريحة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) وتحميل العرض التقديمي الذي يحتوي على الصوت.
+2. الحصول على مرجع الشريحة ذات الصلة عبر فهرستها.
+3. الوصول إلى [انتقالات العرض التقديمي](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) للشريحة.
 4. استخراج الصوت كبيانات بايت.
 
-هذا الكود Java يوضح كيفية استخراج الصوت المستخدم في شريحة:
+هذا الكود بلغة Java يوضح كيفية استخراج الصوت المستخدم في شريحة:
+
 ```java
-// ينشئ كائن من فئة Presentation التي تمثل ملف عرض تقديمي
+// ينشئ كائنًا من فئة Presentation تمثل ملف عرض تقديمي
 Presentation pres = new Presentation("AudioSlide.pptx");
 try {
     // يصل إلى الشريحة المطلوبة
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // يحصل على تأثيرات انتقال العرض التقديمي للشريحة
+    // يحصل على تأثيرات انتقال عرض الشرائح للشريحة
     ISlideShowTransition transition = slide.getSlideShowTransition();
     
     //يستخرج الصوت في مصفوفة بايت
@@ -226,17 +298,16 @@ try {
 }
 ```
 
-
 ## **الأسئلة الشائعة**
 
-**هل يمكنني إعادة استخدام نفس ملف الصوت عبر شرائح متعددة دون زيادة حجم الملف؟**
+**هل يمكنني إعادة استخدام نفس ملف الصوت عبر عدة شرائح دون زيادة حجم الملف؟**
 
-نعم. أضف الصوت مرة واحدة إلى مجموعة الصوت المشتركة في العرض التقديمي ثم أنشئ أطر صوت إضافية تشير إلى هذا الأصل الموجود. هذا يجنّب تكرار بيانات الوسائط ويحافظ على حجم العرض تحت السيطرة.
+نعم. أضف الصوت مرة واحدة إلى [مجموعة الصوت المشتركة](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getAudios--) في العرض التقديمي وأنشئ إطارات صوتية إضافية تشير إلى هذا الأصل الموجود. هذا يمنع تكرار بيانات الوسائط ويحافظ على حجم العرض تحت التحكم.
 
 **هل يمكنني استبدال الصوت في إطار صوت موجود دون إعادة إنشاء الشكل؟**
 
-نعم. بالنسبة للصوت المرتبط، حدّث [link path](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) ليشير إلى الملف الجديد. بالنسبة للصوت المضمن، استبدل كائن [embedded audio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) بآخر من مجموعة الصوت في العرض التقديمي. يظل تنسيق الإطار ومعظم إعدادات التشغيل كما هو.
+نعم. بالنسبة للصوت المرتبط، حدّث مسار [link path](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) ليشير إلى الملف الجديد. بالنسبة للصوت المدمج، استبدل كائن [embedded audio](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) بآخر من [مجموعة الصوت](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getAudios--) في العرض. تبقى تنسيقات الإطار ومعظم إعدادات التشغيل كما هي.
 
-**هل يغيّر القص البيانات الصوتية الأساسية المخزنة في العرض التقديمي؟**
+**هل يؤدي التقليم إلى تغيير بيانات الصوت الأساسية المخزنة في العرض؟**
 
-لا. يضبط القص حدود التشغيل فقط. تبقى بايتات الصوت الأصلية دون تعديل ويمكن الوصول إليها من خلال الصوت المضمن أو مجموعة الصوت في العرض التقديمي.
+لا. يقوم التقليم بتعديل حدود التشغيل فقط. تظل بايتات الصوت الأصلية دون تعديل وتكون متاحة عبر الصوت المدمج أو مجموعة الصوت في العرض.
