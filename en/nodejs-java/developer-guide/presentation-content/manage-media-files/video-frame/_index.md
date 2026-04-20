@@ -133,8 +133,111 @@ async function getImageStream(url) {
         });
     });
 }
-
 ```
+
+## **Manage Video Captions**
+
+Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) method.
+
+**Add Captions to a Video Frame**
+
+To add captions to a video frame:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
+1. Add a video to the presentation.
+1. Add a [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) object to a slide.
+1. Use the [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) collection to add a WebVTT caption track.
+1. Save the modified presentation.
+
+The following code shows you how to add captions to a video frame:
+
+```js
+let presentation = new aspose.slides.Presentation();
+try {
+    let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
+    let video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+
+    let slide = presentation.getSlides().get_Item(0);
+    let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+
+    // Adds a new captions track from a WebVTT file.
+    videoFrame.getCaptionTracks().add("English", "track.vtt");
+
+    presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) class also provides the [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) method that lets you add captions from a stream.
+
+**Extract Captions from a Video Frame**
+
+To extract captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Find the target [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) object.
+1. Iterate through the [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) collection.
+1. Save each caption track to a `.vtt` file.
+
+The following code shows you how to extract captions from a video frame:
+
+```js
+let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let shapeCount = slide.getShapes().size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+        let shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            let videoFrame = shape;
+            let trackCount = videoFrame.getCaptionTracks().getCount();
+            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
+                let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
+                // Saves the captions track to a WebVTT file.
+                let filePath = captionTrack.getCaptionId() + ".vtt";
+                let captionData = Buffer.from(captionTrack.getBinaryData());
+                fs.writeFileSync(filePath, captionData);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Each [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
+
+**Remove Captions from a Video Frame**
+
+To remove captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Get the target [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) object.
+1. Remove caption tracks from the [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) collection.
+1. Save the modified presentation.
+
+The following code shows you how to remove all captions from a video frame:
+
+```js
+let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let videoFrame = slide.getShapes().get_Item(0);
+
+    // Removes all captions from the video frame.
+    if (java.instanceOf(videoFrame, "com.aspose.slides.VideoFrame")) {
+        videoFrame.getCaptionTracks().clear();
+    }
+
+    presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) or [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) methods instead of [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
+
 
 ## **Extract Video From Slide**
 
