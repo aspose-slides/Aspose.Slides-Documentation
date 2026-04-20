@@ -98,6 +98,95 @@ with slides.Presentation() as pres:
     pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Manage Video Captions**
+
+Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) property.
+
+**Add Captions to a Video Frame**
+
+To add captions to a video frame:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Add a video to the presentation.
+1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object to a slide.
+1. Use the [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) returned by [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) to add a WebVTT caption track.
+1. Save the modified presentation.
+
+The following code shows you how to add captions to a video frame:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    with open("video.mp4", "rb") as video_stream:
+        video_data = video_stream.read()
+
+    video = presentation.videos.add_video(video_data)
+
+    slide = presentation.slides[0]
+    video_frame = slide.shapes.add_video_frame(0, 0, 100, 100, video)
+
+    # Adds a new captions track from a WebVTT file.
+    video_frame.caption_tracks.add("English", "track.vtt")
+
+    presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) class also provides an overload that lets you add captions from a stream.
+
+**Extract Captions from a Video Frame**
+
+To extract captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Find the target [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object.
+1. Iterate through the [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) collection.
+1. Save each caption track to a `.vtt` file.
+
+The following code shows you how to extract captions from a video frame:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("video_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            for caption_track in shape.caption_tracks:
+                # Saves the captions track to a WebVTT file.
+                file_path = f"{caption_track.caption_id}.vtt"
+                with open(file_path, "wb") as track_stream:
+                    track_stream.write(bytes(caption_track.binary_data))
+```
+
+Each [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
+
+**Remove Captions from a Video Frame**
+
+To remove captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Get the target [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object.
+1. Remove caption tracks from the [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/).
+1. Save the modified presentation.
+
+The following code shows you how to remove all captions from a video frame:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("video_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+    video_frame = slide.shapes[0]  # type: slides.VideoFrame
+
+    # Removes all captions from the video frame.
+    video_frame.caption_tracks.clear()
+
+    presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) or [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) methods instead of [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
+
 ## **Extract Video From Slide**
 
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
