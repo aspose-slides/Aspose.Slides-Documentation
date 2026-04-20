@@ -223,12 +223,10 @@ The following code shows you how to remove all captions from a video frame:
 let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().get_Item(0);
+    let videoFrame = slide.getShapes().get_Item(0); // type: com.aspose.slides.VideoFrame
 
     // Removes all captions from the video frame.
-    if (java.instanceOf(videoFrame, "com.aspose.slides.VideoFrame")) {
-        videoFrame.getCaptionTracks().clear();
-    }
+    videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
