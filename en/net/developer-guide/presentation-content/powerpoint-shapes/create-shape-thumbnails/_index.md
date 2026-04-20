@@ -17,6 +17,8 @@ keywords:
 description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for .NET – easily create and export presentation thumbnails."
 ---
 
+## **Introduction**
+
 Aspose.Slides for .NET is used to create presentation files where each page is a slides. These slides can be viewed by opening the presentation files using Microsoft PowerPoint. But sometimes, developers may need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for .NET helps you generate thumbnail images of the slide shapes. How to use this feature is described in this article.
 This article explains how to generate slide thumbnails in different ways:
 

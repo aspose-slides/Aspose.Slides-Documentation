@@ -14,6 +14,12 @@ keywords:
 description: "Learn how to add and customize error bars in charts with Aspose.Slides for .NET—optimize data visuals in PowerPoint presentations."
 ---
 
+## **Overview**
+
+This article explains how to work with error bars in presentation charts by using Aspose.Slides. It shows how to add error bars to a chart series, configure X and Y error bar settings, and apply different value types such as fixed, percentage, and custom values.
+
+It also demonstrates how to assign custom error bar values for individual data points in a series by using the corresponding data point collection. In addition, the article includes brief notes about how error bars behave during export, their compatibility with markers and data labels, and where to find the related API reference classes and enums.
+
 ## **Add Error Bars**
 Aspose.Slides for .NET provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
 

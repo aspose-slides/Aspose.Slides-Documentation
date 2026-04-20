@@ -20,7 +20,7 @@ keywords:
 description: "Learn how to manage AutoFit settings in Aspose.Slides for .NET to optimize text display in your PowerPoint and OpenDocument presentations and improve content readability."
 ---
 
-## **Overview**
+## **Introduction**
 
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fit text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it.
 

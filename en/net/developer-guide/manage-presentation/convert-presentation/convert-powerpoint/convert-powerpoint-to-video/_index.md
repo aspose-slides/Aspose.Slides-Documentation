@@ -29,7 +29,7 @@ keywords:
 description: "Learn how to convert PowerPoint presentations to video in .NET. Discover sample C# code and automation techniques to streamline your workflow."
 ---
 
-## **Overview**
+## **Introduction**
 
 By converting your PowerPoint or OpenDocument presentation to video, you gain:
 
