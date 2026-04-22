@@ -28,7 +28,7 @@ keywords:
 description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for Java. Add, format, and edit charts with practical code examples in Java."
 ---
 
-## Overview
+## **Overview**
 
 This article describes how to **create PowerPoint Presentation Charts in the Java**. You can also **update the charts in Java**. It covers these topics.
 
