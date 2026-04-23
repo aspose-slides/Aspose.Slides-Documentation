@@ -192,6 +192,43 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 }
 ```
 
+## **Set Number Format for Chart Data Points**
+
+When creating a 100 % line chart, ensure the data values are displayed as percentages. Set a custom number format (`"0\%"`) for each data point cell after adding the points.
+
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 600, 400);
+chart.HasDataTable = true;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "Category 1"));
+chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "Category 2"));
+chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "Category 3"));
+chart.ChartData.Categories.Add(workbook.GetCell(0, 4, 0, "Category 4"));
+
+var series1Column = 1;
+var series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, series1Column, "Series 1"), ChartType.Line);
+series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 1, series1Column, 30.15));
+series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 2, series1Column, 95));
+series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 3, series1Column, 10.22));
+series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 4, series1Column, 40));
+
+foreach (var cell in series.DataPoints)
+{
+    cell.Value.AsCell.CustomNumberFormat = "0\\%";
+}
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
+```
+
 ## **FAQ**
 
 **How do I set the value at which one axis crosses the other (axis crossing)?**
