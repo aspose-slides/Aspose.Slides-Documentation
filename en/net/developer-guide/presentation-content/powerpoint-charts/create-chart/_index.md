@@ -400,6 +400,21 @@ The result:
 
 ![The Line chart](line_chart.png)
 
+### Display Data as Percentages
+
+When a line chart should represent values as percentages (e.g., a 100 % reference line), you need to set a custom number format for the data points. Use the `CustomNumberFormat` property on the underlying cell of each data point:
+
+```c#
+// After populating the chart data points
+foreach (var cell in series.DataPoints)
+{
+    // Apply a percentage format (e.g., 0 %)
+    cell.Value.AsCell.CustomNumberFormat = "0\\%";
+}
+```
+
+Setting the format to `"0\%"` ensures the values are displayed as percentages, which fixes the 100 % line rendering issue for line charts.
+
 ### **Create Tree Map Charts**
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
