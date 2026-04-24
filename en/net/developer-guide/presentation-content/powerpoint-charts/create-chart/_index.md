@@ -400,6 +400,22 @@ The result:
 
 ![The Line chart](line_chart.png)
 
+**Setting Number Format for Percentage Values**
+
+To display a line chart as a 100 % line, set the custom number format of the data points to `"0%"` (escaped as `"0\\%"` in code).
+
+```c#
+foreach (IChartSeries series in lineChart.ChartData.Series)
+{
+    foreach (IChartDataPoint point in series.DataPoints)
+    {
+        point.Value.AsCell.CustomNumberFormat = "0\\%";
+    }
+}
+```
+
+Add this after creating the chart to ensure the values are shown as percentages and the line behaves as a 100 % line.
+
 ### **Create Tree Map Charts**
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
