@@ -140,6 +140,14 @@ using (Presentation presentation = new Presentation("input.pptx"))
 }
 ```
 
+**Note:** If a font used in the source presentation (e.g., *Aptos*) is not installed on the machine performing the conversion, Aspose.Slides substitutes it with a fallback font such as Arial. To preserve the original font and size, ensure the font is installed on the operating system **or** load it at runtime before saving:
+
+```c#
+FontsLoader.LoadExternalFonts(new[] { @"C:\Path\To\Fonts" });
+```
+
+Call the `FontsLoader.LoadExternalFonts` method before invoking `presentation.Save(...)` so that the converter can embed or link the exact font in the exported HTML.
+
 ## **Convert a Presentation to HTML with High-Quality Images**
 
 By default, when you convert a PowerPoint presentation to HTML, Aspose.Slides outputs a small HTML file with images at 72 DPI and removes cropped areas. To obtain HTML files with higher quality images, you must set the `PicturesCompression` property (from the `HtmlOptions` class) to 96 (i.e., `PicturesCompression.Dpi96`) or a higher value, as detailed in [this reference](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression).
