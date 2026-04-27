@@ -107,6 +107,98 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
+## **Manage Video Captions**
+
+Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) property.
+
+**Add Captions to a Video Frame**
+
+To add captions to a video frame:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Add a video to the presentation.
+1. Add an [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object to a slide.
+1. Use the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) collection to add a WebVTT caption track.
+1. Save the modified presentation.
+
+The following code shows you how to add captions to a video frame:
+
+```cs
+using (Presentation presentation = new Presentation())
+{
+    byte[] videoData = File.ReadAllBytes("video.mp4");
+    IVideo video = presentation.Videos.AddVideo(videoData);
+
+    ISlide slide = presentation.Slides[0];
+    IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
+
+    // Adds a new captions track from a WebVTT file.
+    videoFrame.CaptionTracks.Add("English", "track.vtt");
+
+    presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
+}
+```
+
+The [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from a stream.
+
+**Extract Captions from a Video Frame**
+
+To extract captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Find the target [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object.
+1. Iterate through the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) collection.
+1. Save each caption track to a `.vtt` file.
+
+The following code shows you how to extract captions from a video frame:
+
+```cs
+using (Presentation presentation = new Presentation("video_with_captions.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+    foreach (IShape shape in slide.Shapes)
+    {
+        if (shape is IVideoFrame videoFrame)
+        {
+            foreach (ICaptions captionTrack in videoFrame.CaptionTracks)
+            {
+                // Saves the captions track to a WebVTT file.
+                string filePath = $"{captionTrack.CaptionId}.vtt";
+                File.WriteAllBytes(filePath, captionTrack.BinaryData);
+            }
+        }
+    }
+}
+```
+
+Each [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
+
+**Remove Captions from a Video Frame**
+
+To remove captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Get the target [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) object.
+1. Remove caption tracks from the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) collection.
+1. Save the modified presentation.
+
+The following code shows you how to remove all captions from a video frame:
+
+```cs
+using (Presentation presentation = new Presentation("video_with_captions.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+    IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
+
+    // Removes all captions from the video frame.
+    videoFrame.CaptionTracks.Clear();
+
+    presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
+}
+```
+
+If you need to remove only one caption track, use the [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) or [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) methods instead of [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+
 ## **Extract Video from a Slide**
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
 

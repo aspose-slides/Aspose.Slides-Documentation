@@ -104,6 +104,106 @@ This PHP code shows you how to add a video from the web to a slide in a PowerPoi
 
 ```
 
+## **Manage Video Captions**
+
+Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) method.
+
+**Add Captions to a Video Frame**
+
+To add captions to a video frame:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+1. Add a video to the presentation.
+1. Add a [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) object to a slide.
+1. Use the [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) collection returned by [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) to add a WebVTT caption track.
+1. Save the modified presentation.
+
+The following code shows you how to add captions to a video frame:
+
+```php
+$presentation = new Presentation();
+try {
+    $videoData = file_get_contents("video.mp4");
+    $video = $presentation->getVideos()->addVideo($videoData);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->addVideoFrame(0, 0, 100, 100, $video);
+
+    // Adds a new captions track from a WebVTT file.
+    $videoFrame->getCaptionTracks()->add("English", "track.vtt");
+
+    $presentation->save("video_with_captions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) class also provides an overload that lets you add captions from a stream.
+
+**Extract Captions from a Video Frame**
+
+To extract captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Find the target [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) object.
+1. Iterate through the [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) collection.
+1. Save each caption track to a `.vtt` file.
+
+The following code shows you how to extract captions from a video frame:
+
+```php
+$presentation = new Presentation("video_with_captions.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $trackCount = java_values($videoFrame->getCaptionTracks()->getCount());
+            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
+                $captionTrack = $videoFrame->getCaptionTracks()->get_Item($trackIndex);
+                // Saves the captions track to a WebVTT file.
+                $filePath = $captionTrack->getCaptionId() . ".vtt";
+                file_put_contents($filePath, $captionTrack->getBinaryData());
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Each [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
+
+**Remove Captions from a Video Frame**
+
+To remove captions from a video frame:
+
+1. Load the presentation that contains the video.
+1. Get the target [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) object.
+1. Remove caption tracks from the [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) collection.
+1. Save the modified presentation.
+
+The following code shows you how to remove all captions from a video frame:
+
+```php
+$presentation = new Presentation("video_with_captions.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->get_Item(0); // type: VideoFrame
+
+    // Removes all captions from the video frame.
+    $videoFrame->getCaptionTracks()->clear();
+
+    $presentation->save("video_without_captions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) or [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) methods instead of [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+
 ## **Extract Video from Slides**
 
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
