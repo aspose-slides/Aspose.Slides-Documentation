@@ -5,11 +5,11 @@ type: docs
 weight: 10
 url: /fr/java/video-frame/
 keywords:
-- ajouter vidéo
-- créer vidéo
-- intégrer vidéo
-- extraire vidéo
-- récupérer vidéo
+- ajouter une vidéo
+- créer une vidéo
+- intégrer une vidéo
+- extraire une vidéo
+- récupérer une vidéo
 - cadre vidéo
 - source web
 - PowerPoint
@@ -19,27 +19,27 @@ keywords:
 - Aspose.Slides
 description: "Apprenez à ajouter et extraire programmatiquement des cadres vidéo dans les diapositives PowerPoint et OpenDocument en utilisant Aspose.Slides pour Java. Guide pratique rapide."
 ---
+Une vidéo bien placée dans une présentation peut rendre votre message plus convaincant et augmenter le niveau d'engagement de votre audience. 
 
-Une vidéo bien placée dans une présentation peut rendre votre message plus percutant et augmenter le niveau d'engagement de votre public. 
+PowerPoint vous permet d’ajouter des vidéos à une diapositive d’une présentation de deux manières :
 
-PowerPoint vous permet d'ajouter des vidéos à une diapositive d'une présentation de deux manières :
+* Ajouter ou incorporer une vidéo locale (stockée sur votre machine)
+* Ajouter une vidéo en ligne (provenant d’une source web telle que YouTube).
 
-* Ajouter ou intégrer une vidéo locale (stockée sur votre ordinateur)
-* Ajouter une vidéo en ligne (depuis une source web telle que YouTube).
-
-Pour vous permettre d'ajouter des vidéos (objets vidéo) à une présentation, Aspose.Slides fournit l'interface [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , l'interface [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) et d'autres types pertinents. 
+Pour vous permettre d’ajouter des vidéos (objets vidéo) à une présentation, Aspose.Slides fournit l’interface [IVideo](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideo/), l’interface [IVideoFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideoframe/) et d’autres types pertinents. 
 
 ## **Créer des cadres vidéo intégrés**
 
-Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer un cadre vidéo pour intégrer la vidéo dans votre présentation. 
+Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer un cadre vidéo pour incorporer la vidéo dans votre présentation. 
 
-1. Créer une instance de la classe [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Obtenir la référence d'une diapositive via son indice. 
-1. Ajouter un objet [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) et fournir le chemin du fichier vidéo pour l'intégrer à la présentation. 
-1. Ajouter un objet [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) pour créer un cadre pour la vidéo.  
+1. Créer une instance de la classe [Presentation ](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Presentation)class.
+1. Obtenir la référence d’une diapositive via son indice. 
+1. Ajouter un objet [IVideo](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideo/) et fournir le chemin du fichier vidéo pour incorporer la vidéo à la présentation. 
+1. Ajouter un objet [IVideoFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideoframe/) pour créer un cadre pour la vidéo.  
 1. Enregistrer la présentation modifiée. 
 
-Ce code Java montre comment ajouter une vidéo stockée localement à une présentation:
+Ce code Java vous montre comment ajouter une vidéo stockée localement à une présentation :
+
 ```java
 // Instancie la classe Presentation
 Presentation pres = new Presentation("pres.pptx");
@@ -60,8 +60,8 @@ try {
 }
 ```
 
+Alternativement, vous pouvez ajouter une vidéo en transmettant directement son chemin de fichier à la méthode [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
 
-Alternativement, vous pouvez ajouter une vidéo en passant directement son chemin de fichier à la méthode [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -73,18 +73,18 @@ try {
 ```
 
 
+## **Créer des cadres vidéo avec des vidéos provenant de sources web**
 
-## **Créer des cadres vidéo à partir de sources web**
+Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) prend en charge les vidéos YouTube dans les présentations. Si la vidéo que vous souhaitez utiliser est disponible en ligne (par exemple sur YouTube), vous pouvez l’ajouter à votre présentation via son lien web. 
 
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) supporte les vidéos YouTube dans les présentations. Si la vidéo que vous souhaitez utiliser est disponible en ligne (par ex. sur YouTube), vous pouvez l'ajouter à votre présentation via son lien web. 
-
-1. Créer une instance de la classe [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
-1. Obtenir la référence d'une diapositive via son indice. 
-1. Ajouter un objet [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) et fournir le lien vers la vidéo.
+1. Créer une instance de la classe [Presentation ](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Presentation)class
+1. Obtenir la référence d’une diapositive via son indice. 
+1. Ajouter un objet [IVideo](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideo/) et fournir le lien vers la vidéo.
 1. Définir une vignette pour le cadre vidéo. 
 1. Enregistrer la présentation. 
 
-Ce code Java montre comment ajouter une vidéo depuis le web à une diapositive d'une présentation PowerPoint:
+Ce code Java vous montre comment ajouter une vidéo depuis le web à une diapositive d’une présentation PowerPoint :
+
 ```java
 // Instancie un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation();
@@ -119,17 +119,111 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
+## **Gérer les légendes vidéo**
 
-## **Extraire la vidéo des diapositives**
+Aspose.Slides vous permet de gérer les sous‑titres fermés pour les cadres vidéo dans les présentations PowerPoint. Les légendes sont stockées au format WebVTT et sont exposées via la méthode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-Outre l'ajout de vidéos aux diapositives, Aspose.Slides vous permet d'extraire les vidéos intégrées aux présentations.
+**Ajouter des légendes à un cadre vidéo**
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) pour charger la présentation contenant la vidéo. 
-2. Parcourir tous les objets [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/). 
-3. Parcourir tous les objets [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) pour trouver un [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/). 
+Pour ajouter des légendes à un cadre vidéo :
+
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) .
+1. Ajouter une vidéo à la présentation.
+1. Ajouter un objet [IVideoFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideoframe/) à une diapositive.
+1. Utiliser la [ICaptionsCollection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptionscollection/) renvoyée par [getCaptionTracks](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) pour ajouter une piste de légende WebVTT.
+1. Enregistrer la présentation modifiée.
+
+Le code suivant vous montre comment ajouter des légendes à un cadre vidéo :
+
+```java
+Presentation presentation = new Presentation();
+try {
+    byte[] videoData = Files.readAllBytes(Paths.get("video.mp4"));
+    IVideo video = presentation.getVideos().addVideo(videoData);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+
+    // Ajoute une nouvelle piste de sous-titres depuis un fichier WebVTT.
+    presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+L’interface [ICaptionsCollection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptionscollection/) propose également une surcharge qui vous permet d’ajouter des légendes à partir d’un flux.
+
+**Extraire des légendes d’un cadre vidéo**
+
+Pour extraire des légendes d’un cadre vidéo :
+
+1. Charger la présentation qui contient la vidéo.
+1. Trouver l’objet [IVideoFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideoframe/) cible.
+1. Parcourir les pistes de légendes dans la [ICaptionsCollection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptionscollection/).
+1. Enregistrer chaque piste de légende dans un fichier `.vtt`.
+
+Le code suivant vous montre comment extraire des légendes d’un cadre vidéo :
+
+```java
+Presentation presentation = new Presentation("video_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame)shape;
+            for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
+                // Enregistre la piste de sous-titres dans un fichier WebVTT.
+                String filePath = captionTrack.getCaptionId().toString() + ".vtt";
+                Files.write(Paths.get(filePath), captionTrack.getBinaryData());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Chaque objet [ICaptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptions/) expose l’identifiant de la légende, le libellé, les données binaires et le texte de la légende sous forme de chaîne UTF‑8.
+
+**Supprimer des légendes d’un cadre vidéo**
+
+Pour supprimer des légendes d’un cadre vidéo :
+
+1. Charger la présentation qui contient la vidéo.
+1. Obtenir l’objet [IVideoFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ivideoframe/) cible.
+1. Supprimer les pistes de légendes de la [ICaptionsCollection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptionscollection/) .
+1. Enregistrer la présentation modifiée.
+
+Le code suivant vous montre comment supprimer toutes les légendes d’un cadre vidéo :
+
+```java
+Presentation presentation = new Presentation("video_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IVideoFrame videoFrame = (IVideoFrame)slide.getShapes().get_Item(0);
+
+    // Supprime toutes les légendes du cadre vidéo.
+    videoFrame.getCaptionTracks().clear();
+
+    presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Si vous devez supprimer uniquement une piste de légende, utilisez les méthodes [remove](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) ou [removeAt](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptionscollection/#removeAt-int-) au lieu de [clear](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icaptionscollection/#clear--) .
+
+## **Extraire des vidéos des diapositives**
+
+En plus d’ajouter des vidéos aux diapositives, Aspose.Slides vous permet d’extraire les vidéos incorporées dans les présentations.
+
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Presentation) pour charger la présentation contenant la vidéo. 
+2. Parcourir tous les objets [ISlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/). 
+3. Parcourir tous les objets [IShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/) afin de trouver un [VideoFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/videoframe/). 
 4. Enregistrer la vidéo sur le disque.
 
-Ce code Java montre comment extraire la vidéo d'une diapositive de présentation:
+Ce code Java vous montre comment extraire la vidéo d’une diapositive de présentation :
+
 ```java
 // Instancie un objet Presentation qui représente un fichier de présentation 
 Presentation pres = new Presentation("VideoSample.pptx");
@@ -145,7 +239,7 @@ try {
                 int ss = type.lastIndexOf('-');
                 byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
 
-                //Obtient l'extension de fichier
+                //Obtient l'extension du fichier
                 int charIndex = type.indexOf("/");
                 type = type.substring(charIndex + 1);
 
@@ -162,21 +256,20 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
 **Quels paramètres de lecture vidéo peuvent être modifiés pour un VideoFrame ?**
 
-Vous pouvez contrôler le [mode de lecture](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatique ou au clic) et la [lecture en boucle](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Ces options sont disponibles via les propriétés de l'objet [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
+Vous pouvez contrôler le [mode de lecture](https://reference.aspose.com/slides/fr/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatique ou au clic) et la [lecture en boucle](https://reference.aspose.com/slides/fr/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Ces options sont disponibles via les propriétés de l’objet [VideoFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/videoframe/) .
 
-**L'ajout d'une vidéo affecte-t-il la taille du fichier PPTX ?**
+**L’ajout d’une vidéo affecte-t‑il la taille du fichier PPTX ?**
 
-Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui augmente la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous ajoutez une vidéo en ligne, un lien et une vignette sont intégrés, ce qui entraîne une augmentation de taille moindre.
+Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui augmente la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous ajoutez une vidéo en ligne, un lien et une vignette sont incorporés, ce qui entraîne une augmentation de taille moindre.
 
-**Puis-je remplacer la vidéo dans un VideoFrame existant sans changer sa position et sa taille ?**
+**Puis‑je remplacer la vidéo d’un VideoFrame existant sans modifier sa position et sa taille ?**
 
-Oui. Vous pouvez remplacer le [contenu vidéo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) à l'intérieur du cadre tout en conservant la géométrie de la forme ; c'est un scénario courant pour mettre à jour les médias dans une mise en page existante.
+Oui. Vous pouvez échanger le [contenu vidéo](https://reference.aspose.com/slides/fr/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) à l’intérieur du cadre tout en conservant la géométrie de la forme ; c’est un scénario courant pour mettre à jour des médias dans une mise en page existante.
 
-**Le type de contenu (MIME) d'une vidéo intégrée peut-il être déterminé ?**
+**Le type de contenu (MIME) d’une vidéo incorporée peut‑il être déterminé ?**
 
-Oui. Une vidéo intégrée possède un [type de contenu](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) que vous pouvez lire et utiliser, par exemple lors de son enregistrement sur le disque.
+Oui. Une vidéo incorporée possède un [type de contenu](https://reference.aspose.com/slides/fr/java/com.aspose.slides/video/#getContentType--) que vous pouvez lire et utiliser, par exemple lors de son enregistrement sur le disque.

@@ -1,5 +1,5 @@
 ---
-title: Управление видеокадрами в презентациях с помощью C++
+title: Управление видеокадрами в презентациях с использованием C++
 linktitle: Видеокадр
 type: docs
 weight: 10
@@ -11,35 +11,35 @@ keywords:
 - извлечь видео
 - получить видео
 - видеокадр
-- веб‑источник
+- веб источник
 - PowerPoint
 - OpenDocument
 - презентация
 - C++
 - Aspose.Slides
-description: "Научитесь программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Быстрое руководство‑по‑использованию."
+description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с использованием Aspose.Slides для C++. Быстрое руководство."
 ---
-
-Правильно размещённое видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлечённости аудитории. 
+Хорошо размещённое видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлечённости аудитории. 
 
 PowerPoint позволяет добавлять видео на слайд в презентации двумя способами:
 
 * Добавить или встроить локальное видео (хранящееся на вашем компьютере)
 * Добавить онлайн‑видео (из веб‑источника, например YouTube).
 
-Чтобы вы могли добавлять видео (виде‑объекты) в презентацию, Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) и [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/), а также другие соответствующие типы. 
+Для добавления видео (видео‑объектов) в презентацию Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideo/) и [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/), а также другие релевантные типы. 
 
-## **Создать встроенный видеокадр**
+## **Создание встроенного видеокадра**
 
-Если файл видео, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию. 
+Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию. 
 
-1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)class.  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте объект [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) и передайте путь к файлу видео, чтобы встроить его в презентацию.  
-1. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) для создания кадра видео.  
-1. Сохраните изменённую презентацию.  
+1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу. 
+3. Добавьте объект [IVideo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideo/) и передайте путь к видеофайлу, чтобы встроить видео в презентацию. 
+4. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) , чтобы создать кадр для видео.  
+5. Сохраните изменённую презентацию. 
 
-Этот код C++ показывает, как добавить локально хранящееся видео в презентацию:
+Этот код C++ показывает, как добавить локальное видео в презентацию:
+
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -54,8 +54,8 @@ pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, vi
 pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
 ```
 
+В качестве альтернативы можно добавить видео, передав путь к файлу непосредственно методу [AddVideoFrame()](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapecollection/addvideoframe/) :
 
-В качестве альтернативы вы можете добавить видео, передав путь к файлу напрямую в метод [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/):
 ``` c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -63,19 +63,18 @@ System::SharedPtr<ISlide> sld = pres->get_Slide(0);
 System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.0f, 300.0f, 150.0f, u"video1.avi");
 ```
 
+## **Создание видеокадра с видео из веб‑источника**
 
+Microsoft [PowerPoint 2013 и новее](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает видео YouTube в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке. 
 
-## **Создать видеокадр с видео из веб‑источника**
+1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу. 
+3. Добавьте объект [IVideo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideo/) и передайте ссылку на видео. 
+4. Установите миниатюру для видеокадра. 
+5. Сохраните презентацию. 
 
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает YouTube‑видео в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке. 
+Этот код C++ показывает, как добавить видео из веба на слайд в презентации PowerPoint:
 
-1. Создайте экземпляр [Presentation ](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)class  
-1. Получите ссылку на слайд по его индексу.  
-1. Добавьте объект [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) и передайте ссылку на видео.  
-1. Установите миниатюру для видеокадра.  
-1. Сохраните презентацию.  
-
-Этот код C++ показывает, как добавить видео из веба на слайд в презентацию PowerPoint:
 ```c++
 // Путь к директории документов.
 const String outPath = u"../out/AddVideoFrameFromWebSource_out.pptx";
@@ -84,7 +83,7 @@ const String filePath = u"../templates/video1.avi";
 // Создаёт объект Presentation, представляющий файл презентации
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Получает первый слайд
+// Доступ к первому слайду
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 // Добавляет видеокадр 
@@ -93,21 +92,108 @@ System::SharedPtr<IVideoFrame> vf = slide->get_Shapes()->AddVideoFrame(10, 10, 4
 // Устанавливает режим воспроизведения и громкость видео
 vf->set_PlayMode(VideoPlayModePreset::Auto);
 
-//Sохраняет презентацию на диск
+//Сохраняет презентацию на диск
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Управление субтитрами видео**
 
-## **Извлечь видео со слайда**
+Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/) .
 
-Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+**Добавление субтитров к видеокадру**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) для загрузки презентации, содержащей видео.  
-2. Пройдите по всем объектам [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/).  
-3. Пройдите по всем объектам [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) чтобы найти [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).  
-4. Сохраните видео на диск.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) .
+2. Добавьте видео в презентацию. 
+3. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) на слайд. 
+4. Используйте возвращаемый [ICaptionsCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/) через [get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/) , чтобы добавить дорожку субтитров WebVTT. 
+5. Сохраните изменённую презентацию. 
+
+Следующий код показывает, как добавить субтитры к видеокадру:
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto videoData = File::ReadAllBytes(u"video.mp4");
+auto video = presentation->get_Videos()->AddVideo(videoData);
+
+auto slide = presentation->get_Slide(0);
+auto videoFrame = slide->get_Shapes()->AddVideoFrame(0, 0, 100, 100, video);
+
+// Adds a new captions track from a WebVTT file.
+videoFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
+
+presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Интерфейс [ICaptionsCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/) также предоставляет перегрузку, позволяющую добавить субтитры из потока.
+
+**Извлечение субтитров из видеокадра**
+
+1. Загрузите презентацию, содержащую видео. 
+2. Найдите целевой объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) . 
+3. Пройдитесь по дорожкам субтитров, возвращаемым методом [get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/) . 
+4. Сохраните каждую дорожку субтитров в файл с расширением `.vtt` . 
+
+Следующий код показывает, как извлечь субтитры из видеокадра:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        for (auto&& captionTrack : videoFrame->get_CaptionTracks())
+        {
+            // Сохраняет дорожку субтитров в файл WebVTT.
+            auto filePath = captionTrack->get_CaptionId().ToString() + u".vtt";
+            File::WriteAllBytes(filePath, captionTrack->get_BinaryData());
+        }
+    }
+}
+
+presentation->Dispose();
+```
+
+Каждый объект [ICaptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptions/) предоставляет идентификатор субтитров, метку, двоичные данные и данные субтитров в виде строки UTF-8.
+
+**Удаление субтитров из видеокадра**
+
+1. Загрузите презентацию, содержащую видео. 
+2. Получите целевой объект [IVideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/) . 
+3. Удалите дорожки субтитров из коллекции, возвращаемой методом [get_CaptionTracks](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ivideoframe/get_captiontracks/) . 
+4. Сохраните изменённую презентацию. 
+
+Следующий код показывает, как удалить все субтитры из видеокадра:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
+
+// Удаляет все субтитры из видеокадра.
+videoFrame->get_CaptionTracks()->Clear();
+
+presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Если необходимо удалить только одну дорожку субтитров, используйте методы [Remove](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/removeat/) вместо [Clear](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icaptionscollection/clear/) .
+
+## **Извлечение видео со слайда**
+
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенное в презентацию видео.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) , чтобы загрузить презентацию, содержащую видео. 
+2. Пройдитесь по всем объектам [ISlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/) . 
+3. Пройдитесь по всем объектам [IShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/) , чтобы найти [VideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/) . 
+4. Сохраните видео на диск. 
 
 Этот код C++ показывает, как извлечь видео со слайда презентации:
+
 ```c++
 // Путь к директории документов.
 const System::String templatePath = u"../templates/Video.pptx";
@@ -134,21 +220,20 @@ for (auto&& slide : presentation->get_Slides())
 }
 ```
 
-
 ## **FAQ**
 
 **Какие параметры воспроизведения видео можно изменить для VideoFrame?**
 
-Вы можете управлять [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (авто или по щелчку) и [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
+Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/set_playmode/) (авто или по щелчку) и [циклическим воспроизведением](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/set_playloopmode/) . Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/) .
 
 **Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При добавлении онлайн‑видео встраивается ссылка и миниатюра, поэтому увеличение размера меньше.
+Да. При встраивании локального видео двоичные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При добавлении онлайн‑видео встраиваются ссылка и миниатюра, поэтому рост размера меньше.
 
-**Могу ли я заменить видео в существующем VideoFrame, не меняя его положение и размер?**
+**Можно ли заменить видео в существующем VideoFrame, не изменяя его позицию и размер?**
 
-Да. Вы можете заменить [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) внутри кадра, сохранив геометрию фигуры; это распространённый сценарий обновления медиа в существующем макете.
+Да. Вы можете заменить [содержимое видео](https://reference.aspose.com/slides/ru/cpp/aspose.slides/videoframe/set_embeddedvideo/) в кадре, сохранив геометрию формы; это распространённый сценарий обновления медиа в существующей раскладке.
 
 **Можно ли определить тип контента (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/), который вы можете прочитать и использовать, например при сохранении на диск.
+Да. Встроенное видео имеет [тип контента](https://reference.aspose.com/slides/ru/cpp/aspose.slides/video/get_contenttype/) , который можно прочитать и использовать, например при сохранении на диск.
