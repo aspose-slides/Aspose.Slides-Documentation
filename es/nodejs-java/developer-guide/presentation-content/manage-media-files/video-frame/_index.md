@@ -1,40 +1,54 @@
 ---
-title: Marco de video
+title: Gestionar marcos de vídeo en presentaciones usando JavaScript
+linktitle: Marco de vídeo
 type: docs
 weight: 10
 url: /es/nodejs-java/video-frame/
-keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, Java, Aspose.Slides para Node.js via Java"
-description: "Agregar marco de video a una presentación de PowerPoint en JavaScript"
+keywords:
+- añadir vídeo
+- crear vídeo
+- incrustar vídeo
+- extraer vídeo
+- recuperar vídeo
+- marco de vídeo
+- fuente web
+- PowerPoint
+- OpenDocument
+- presentación
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aprenda a añadir y extraer programáticamente marcos de vídeo en diapositivas PowerPoint y OpenDocument usando Aspose.Slides para Node.js mediante Java. Guía práctica rápida."
 ---
+Un vídeo bien colocado en una presentación puede hacer que su mensaje sea más atractivo y aumentar el nivel de compromiso con su audiencia. 
 
-Un video bien colocado en una presentación puede hacer que tu mensaje sea más impactante y aumentar los niveles de compromiso con tu audiencia. 
+PowerPoint le permite añadir vídeos a una diapositiva de una presentación de dos maneras:
 
-PowerPoint te permite agregar videos a una diapositiva en una presentación de dos maneras:
+* Añadir o incrustar un vídeo local (almacenado en su máquina)
+* Añadir un vídeo en línea (de una fuente web como YouTube).
 
-* Agregar o incrustar un video local (almacenado en tu equipo)
-* Agregar un video en línea (desde una fuente web como YouTube).
+Para permitirle añadir vídeos (objetos de vídeo) a una presentación, Aspose.Slides proporciona la clase [Video](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/video/) , la clase [VideoFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/) y otros tipos relevantes.
 
-Para permitirte agregar videos (objetos de video) a una presentación, Aspose.Slides proporciona la clase [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/), la clase [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) y otros tipos relevantes.
+## **Crear Marco de Vídeo Incrustado**
 
-## **Crear Marco de Video Incrustado**
+Si el archivo de vídeo que desea añadir a su diapositiva está almacenado localmente, puede crear un marco de vídeo para incrustar el vídeo en su presentación. 
 
-Si el archivo de video que deseas agregar a tu diapositiva está almacenado localmente, puedes crear un marco de video para incrustar el video en tu presentación. 
+1. Crear una instancia de la clase [Presentation ](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/Presentation) .
+1. Obtener la referencia de una diapositiva mediante su índice. 
+1. Añadir un objeto [Video](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/video/) y pasar la ruta del archivo de vídeo para incrustar el vídeo en la presentación. 
+1. Añadir un objeto [VideoFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/) para crear un marco para el vídeo. 
+1. Guardar la presentación modificada. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Obtén una referencia a la diapositiva mediante su índice. 
-1. Agrega un objeto [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) y pasa la ruta del archivo de video para incrustar el video en la presentación.
-1. Agrega un objeto [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) para crear un marco para el video.
-1. Guarda la presentación modificada. 
+Este código JavaScript le muestra cómo añadir un vídeo almacenado localmente a una presentación:
 
-Este código JavaScript te muestra cómo agregar un video almacenado localmente a una presentación:
 ```javascript
 // Instancia la clase Presentation
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
-    // Carga el video
+    // Carga el vídeo
     var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
     var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-    // Obtiene la primera diapositiva y agrega un videoframe
+    // Obtiene la primera diapositiva y añade un marco de vídeo
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
     // Guarda la presentación en disco
     pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
@@ -46,8 +60,8 @@ try {
 }
 ```
 
+Alternativamente, puede añadir un vídeo pasando directamente su ruta de archivo al método [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) :
 
-Alternativamente, puedes agregar un video pasando su ruta de archivo directamente al método [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) :
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -61,17 +75,18 @@ try {
 ```
 
 
-## **Crear Marco de Video con Video de Fuente Web**
+## **Crear Marco de Vídeo con Vídeo de Fuente Web**
 
-Microsoft [PowerPoint 2013 y versiones posteriores](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) admite videos de YouTube en las presentaciones. Si el video que deseas usar está disponible en línea (p. ej., en YouTube), puedes agregarlo a tu presentación a través de su enlace web. 
+Microsoft [PowerPoint 2013 y versiones posteriores](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) soportan vídeos de YouTube en presentaciones. Si el vídeo que desea usar está disponible en línea (p. ej. en YouTube), puede añadirlo a su presentación mediante su enlace web. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)
-1. Obtén una referencia a la diapositiva mediante su índice. 
-1. Agrega un objeto [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) y pasa el enlace al video.
-1. Establece una miniatura para el marco de video. 
-1. Guarda la presentación. 
+1. Crear una instancia de la clase [Presentation ](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/Presentation) .
+1. Obtener la referencia de una diapositiva mediante su índice. 
+1. Añadir un objeto [Video](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/video/) y pasar el enlace al vídeo. 
+1. Establecer una miniatura para el marco de vídeo. 
+1. Guardar la presentación. 
 
-Este código JavaScript te muestra cómo agregar un video desde la web a una diapositiva en una presentación de PowerPoint:
+Este código JavaScript le muestra cómo añadir un vídeo de la web a una diapositiva en una presentación de PowerPoint:
+
 ```javascript
 // Instancia un objeto Presentation que representa un archivo de presentación
 var pres = new aspose.slides.Presentation();
@@ -119,17 +134,119 @@ async function getImageStream(url) {
 }
 ```
 
+## **Gestionar Subtítulos de Vídeo**
 
-## **Extraer Video de la Diapositiva**
+Aspose.Slides permite gestionar los subtítulos cerrados para los marcos de vídeo en presentaciones de PowerPoint. Los subtítulos se almacenan en formato WebVTT y se exponen mediante el método [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
 
-Además de agregar videos a las diapositivas, Aspose.Slides te permite extraer videos incrustados en presentaciones.
+**Añadir subtítulos a un marco de vídeo**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) para cargar la presentación que contiene el video.
-2. Recorre todos los objetos [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/).
-3. Recorre todos los objetos [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) para encontrar un [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
-4. Guarda el video en el disco.
+Para añadir subtítulos a un marco de vídeo:
 
-Este código JavaScript te muestra cómo extraer el video de una diapositiva de la presentación:
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/) .
+1. Añadir un vídeo a la presentación. 
+1. Añadir un objeto [VideoFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/) a una diapositiva. 
+1. Utilizar la colección [CaptionsCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/) para añadir una pista de subtítulos WebVTT. 
+1. Guardar la presentación modificada. 
+
+El siguiente código le muestra cómo añadir subtítulos a un marco de vídeo:
+
+```js
+let presentation = new aspose.slides.Presentation();
+try {
+    let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
+    let video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+
+    let slide = presentation.getSlides().get_Item(0);
+    let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+
+    // Añade una nueva pista de subtítulos desde un archivo WebVTT.
+    videoFrame.getCaptionTracks().add("English", "track.vtt");
+
+    presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La clase [CaptionsCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/) también proporciona el método [addFromStream](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/#addFromStream) que permite añadir subtítulos desde un flujo.
+
+**Extraer subtítulos de un marco de vídeo**
+
+Para extraer subtítulos de un marco de vídeo:
+
+1. Cargar la presentación que contiene el vídeo. 
+1. Encontrar el objeto [VideoFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/) objetivo. 
+1. Iterar a través de la colección [CaptionsCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/) . 
+1. Guardar cada pista de subtítulos en un archivo `.vtt`. 
+
+El siguiente código le muestra cómo extraer subtítulos de un marco de vídeo:
+
+```js
+let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let shapeCount = slide.getShapes().size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+        let shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            let videoFrame = shape;
+            let trackCount = videoFrame.getCaptionTracks().getCount();
+            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
+                let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
+                // Guarda la pista de subtítulos en un archivo WebVTT.
+                let filePath = captionTrack.getCaptionId() + ".vtt";
+                let captionData = Buffer.from(captionTrack.getBinaryData());
+                fs.writeFileSync(filePath, captionData);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Cada objeto [Captions](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captions/) expone el identificador del subtítulo, la etiqueta, los datos binarios y el texto del subtítulo como una cadena UTF‑8.
+
+**Eliminar subtítulos de un marco de vídeo**
+
+Para eliminar subtítulos de un marco de vídeo:
+
+1. Cargar la presentación que contiene el vídeo. 
+1. Obtener el objeto [VideoFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/) objetivo. 
+1. Eliminar las pistas de subtítulos de la colección [CaptionsCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/) . 
+1. Guardar la presentación modificada. 
+
+El siguiente código le muestra cómo eliminar todos los subtítulos de un marco de vídeo:
+
+```js
+let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let videoFrame = slide.getShapes().get_Item(0); // tipo: com.aspose.slides.VideoFrame
+
+    // Elimina todos los subtítulos del marco de vídeo.
+    videoFrame.getCaptionTracks().clear();
+
+    presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Si necesita eliminar solo una pista de subtítulos, utilice los métodos [remove](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/#remove) o [removeAt](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/#removeAt) en lugar de [clear](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/captionscollection/#clear).
+
+
+## **Extraer vídeo de la diapositiva**
+
+Además de añadir vídeos a diapositivas, Aspose.Slides le permite extraer los vídeos incrustados en presentaciones.
+
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/Presentation) para cargar la presentación que contiene el vídeo. 
+2. Iterar a través de todos los objetos [Slide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/slide/) . 
+3. Iterar a través de todos los objetos [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/) para encontrar un [VideoFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/) . 
+4. Guardar el vídeo en disco. 
+
+Este código JavaScript le muestra cómo extraer el vídeo de una diapositiva de una presentación:
+
 ```javascript
 // Instancia un objeto Presentation que representa un archivo de presentación
 var pres = new aspose.slides.Presentation("VideoSample.pptx");
@@ -160,21 +277,20 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**¿Qué parámetros de reproducción de video se pueden cambiar para un VideoFrame?**
+**¿Qué parámetros de reproducción de vídeo se pueden cambiar en un VideoFrame?**
 
-Puedes controlar el [modo de reproducción](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (automático o al hacer clic) y el [bucle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Estas opciones están disponibles a través de las propiedades del objeto [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
+Puede controlar el [modo de reproducción](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/setplaymode/) (automático o al hacer clic) y el [bucle](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Estas opciones están disponibles a través de las propiedades del objeto [VideoFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/) .
 
-**¿Agregar un video afecta el tamaño del archivo PPTX?**
+**¿Afecta la adición de un vídeo al tamaño del archivo PPTX?**
 
-Sí. Cuando incrustas un video local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación crece en proporción al tamaño del archivo. Cuando agregas un video en línea, se incrustan un enlace y una miniatura, por lo que el aumento de tamaño es menor.
+Sí. Cuando incrusta un vídeo local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación crece en proporción al tamaño del archivo. Cuando añade un vídeo en línea, se incrustan un enlace y una miniatura, de modo que el incremento de tamaño es menor.
 
-**¿Puedo reemplazar el video en un VideoFrame existente sin cambiar su posición y tamaño?**
+**¿Puedo sustituir el vídeo en un VideoFrame existente sin cambiar su posición y tamaño?**
 
-Sí. Puedes intercambiar el [contenido de video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) dentro del marco manteniendo la geometría de la forma; este es un escenario común para actualizar medios en un diseño existente.
+Sí. Puede intercambiar el [contenido del vídeo](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) dentro del marco manteniendo la geometría de la forma; es un escenario habitual para actualizar medios en un diseño existente.
 
-**¿Se puede determinar el tipo de contenido (MIME) de un video incrustado?**
+**¿Se puede determinar el tipo de contenido (MIME) de un vídeo incrustado?**
 
-Sí. Un video incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) que puedes leer y usar, por ejemplo al guardarlo en el disco.
+Sí. Un vídeo incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/video/getcontenttype/) que puede leer y utilizar, por ejemplo, al guardarlo en disco.
