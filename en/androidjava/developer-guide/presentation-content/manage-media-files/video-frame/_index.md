@@ -140,7 +140,7 @@ The following code shows you how to add captions to a video frame:
 ```java
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = Files.readAllBytes(Paths.get("video.mp4"));
+    byte[] videoData = // "video.mp4";
     IVideo video = presentation.getVideos().addVideo(videoData);
 
     ISlide slide = presentation.getSlides().get_Item(0);
