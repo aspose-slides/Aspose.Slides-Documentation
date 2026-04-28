@@ -1,30 +1,29 @@
 ---
-title: "Системные требования"
+title: Системные требования
 type: docs
 weight: 60
 url: /ru/net/system-requirements/
 keywords:
-- "системные требования"
-- "операционная система"
-- "установка"
-- "зависимости"
-- "Windows"
-- "Linux"
-- "macOS"
-- "PowerPoint"
-- "OpenDocument"
-- "презентация"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Узнайте о системных требованиях Aspose.Slides для .NET. Обеспечьте беспроблемную поддержку PowerPoint и OpenDocument на Windows, Linux и macOS."
+- системные требования
+- операционная система
+- установка
+- зависимости
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте о системных требованиях Aspose.Slides for .NET. Обеспечьте беспрепятственную поддержку PowerPoint и OpenDocument на Windows, Linux и macOS."
 ---
-
 ## **Обзор**
-Aspose.Slides for .NET не требует установки Microsoft PowerPoint, поскольку Aspose.Slides является независимым движком для создания, конвертации, компоновки страниц и рендеринга документов Microsoft PowerPoint.
+Aspose.Slides for .NET не требует установки Microsoft PowerPoint, поскольку Aspose.Slides является независимым движком создания, конвертации, оформления страниц и визуализации документов Microsoft PowerPoint.
 
 ## **Поддерживаемые операционные системы**
-Aspose.Slides for .NET поддерживает любые 32‑разрядные или 64‑разрядные операционные системы, на которых установлен .NET или Mono, включая (но не ограничиваясь):
+Aspose.Slides for .NET поддерживает любую 32‑разрядную или 64‑разрядную операционную систему, на которой установлен .NET или Mono, включая (но не ограничиваясь) следующее:
 
 ### **Windows**
 - Microsoft Windows 2000 Server ( x64, x86)
@@ -39,17 +38,19 @@ Aspose.Slides for .NET поддерживает любые 32‑разрядны
 - Microsoft Azure
 
 ### **Linux**
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine, and others)
+- Linux (Ubuntu, OpenSUSE, CentOS, Alpine и др.)
 
 {{%  alert  title="Notes"  color="primary"  %}} 
-Поскольку CentOS 7 поставляется с GLIBC 2.14, а Aspose.Slides for .NET 6 и .NET 7 (включая кросс‑платформенную сборку) требуют Linux x86_64 с GLIBC 2.23 или новее, вы можете использовать Aspose.Slides for .NET Standard на такой системе.
+
+Поскольку CentOS 7 поставляется с GLIBC 2.14, а Aspose.Slides for .NET 6 и .NET 7 (включая кроссплатформенную сборку) требуют Linux x86_64 с GLIBC 2.23 или новее, в такой системе можно использовать Aspose.Slides for .NET Standard. 
+
 {{% /alert %}} 
 
 ### **Mac**
 - Mac OS X
 
 ## **Поддерживаемые фреймворки**
-Aspose.Slides for .NET поддерживает фреймворки .NET и Mono:
+Aspose.Slides for .NET поддерживает .NET и Mono:
 
 ### **.NET Frameworks**
 - .NET Framework 2.0
@@ -73,13 +74,13 @@ Aspose.Slides for .NET поддерживает фреймворки .NET и Mon
 - .NET 8
 - .NET 9
 - .NET Core
-- COM Interop support (COM, C++, VBScript)
+- Поддержка COM Interop (COM, C++, VBScript)
 
 ### **Mono Framework**
 - Поддержка MONO на платформах MAC и Linux
 
 ## **Среды разработки**
-Aspose.Slides for .NET можно использовать для разработки приложений в любой среде разработки, ориентированной на платформу .NET, однако следующие среды официально поддерживаются:
+Aspose.Slides for .NET может использоваться в любой среде разработки, нацеленной на платформу .NET, но официально поддерживаются следующие среды:
 
 - Microsoft Visual Studio 2005
 - Microsoft Visual Studio 2008
@@ -96,18 +97,17 @@ Aspose.Slides for .NET можно использовать для разрабо
 
 ### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
 Это основная версия продукта. Она использует стандартный графический движок .NET.
-- На платформах, отличных от Windows, возможно потребуется установить библиотеку `libgdiplus` и её зависимости.
-- До версии Aspose.Slides 25.3 для платформ, отличных от Windows, необходимо было использовать DLL .NET Standard 2.0 из ZIP‑пакета Aspose.Slides.
-- Начиная с версии Aspose.Slides 25.3, пакет NuGet можно использовать напрямую даже на платформах, отличных от Windows.
-- При работе на платформах, отличных от Windows, ваше приложение должно включать следующую строку при запуске:
+- На платформах, отличных от Windows, может потребоваться установка библиотеки `libgdiplus` и её зависимостей.
+- До версии Aspose.Slides 25.3 для нелинуксовых платформ необходимо было использовать DLL .NET Standard 2.0 из ZIP‑пакета Aspose.Slides.
+- Начиная с версии Aspose.Slides 25.3, пакет NuGet можно использовать напрямую даже на нелинуксовых системах.
+- При запуске на нелинуксовых системах приложение должно включать следующую строку при старте:
 ```cs
 AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 ```
-
-- **Начиная с версии 25.3, вы можете использовать этот пакет на платформах, поддерживающих .NET, таких как Linux aarch64 (ARM64).**
+- **Начиная с версии 25.3, этот пакет можно использовать на платформах, поддерживающих .NET, таких как Linux aarch64 (ARM64).**
 
 ### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
-Это версия Aspose.Slides, использующая собственный кросс‑платформенный графический движок, разработанный командой Aspose.Slides.  
+Это версия Aspose.Slides, использующая кастомный кроссплатформенный графический движок, разработанный командой Aspose.Slides.  
 На платформах, отличных от Windows, может потребоваться библиотека `fontconfig`.
 
 **Поддерживаемые платформы**
@@ -115,18 +115,22 @@ AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 - *Linux*: x86_64  
 - *macOS*: x86_64, ARM64
 
-**Запланировано в будущей поддержке**  
-- *Linux*: aarch64 (ARM64) — *Ожидается к концу 2025 года*  
+**Запланировано для будущей поддержки**  
+- *Linux*: aarch64 (ARM64) — *ETA: конец 2025*  
 
 **Не планируется**  
-- *Windows 11 ARM* (ARM64) — *На данный момент не рассматривается*
+- *Windows 11 ARM* (ARM64) — *В настоящий момент не рассматривается*
 
 ## **FAQ**
 
-**Нужен ли установленный Microsoft PowerPoint для конвертации и рендеринга?**
+**Нужен ли установленный Microsoft PowerPoint для конвертации и визуализации?**
 
-Нет, PowerPoint не требуется; Aspose.Slides — это автономный движок для [создания](/slides/ru/net/create-presentation/), изменения, [конвертации](/slides/ru/net/convert-presentation/) и [рендеринга](/slides/ru/net/convert-powerpoint-to-png/) презентаций.
+Нет, PowerPoint не требуется; Aspose.Slides — автономный движок для [создания](/slides/ru/net/create-presentation/), изменения, [конвертации](/slides/ru/net/convert-presentation/) и [визуализации](/slides/ru/net/convert-powerpoint-to-png/) презентаций.
 
-**Какие шрифты нужны для корректного рендеринга?**
+**Какие шрифты необходимы для корректной визуализации?**
 
-На практике должны быть доступны шрифты, использованные в презентации, или подходящие [заменители](/slides/ru/net/font-substitution/). Чтобы обеспечить одинаковый рендеринг на Linux/macOS, рекомендуется установить общие пакеты шрифтов.
+На практике должны быть доступны шрифты, использованные в презентации, либо подходящие [замены](/slides/ru/net/font-substitution/). Чтобы обеспечить одинаковый рендеринг в Linux/macOS, рекомендуется установить общие шрифтовые пакеты.
+
+**Почему пользовательский шрифт отображается как запасной или отсутствующий текст в Linux?**
+
+Если в файле шрифта присутствуют некорректные или повреждённые записи таблицы имен, стек сопоставления шрифтов Linux (FreeType/fontconfig) может выбрать недействительную запись, из‑за чего шрифт считается неразрешённым. Использование версии шрифта с исправленными записями таблицы имён или установка согласующей замены решает проблему.

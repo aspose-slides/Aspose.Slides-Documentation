@@ -1,10 +1,10 @@
 ---
-title: Exigences système
+title: Exigences du système
 type: docs
 weight: 60
 url: /fr/net/system-requirements/
 keywords:
-- exigences système
+- exigences du système
 - système d'exploitation
 - installation
 - dépendances
@@ -17,14 +17,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Découvrez les exigences système d'Aspose.Slides pour .NET. Assurez une prise en charge fluide de PowerPoint et OpenDocument sous Windows, Linux et macOS."
+description: "Découvrez les exigences système d'Aspose.Slides for .NET. Assurez une prise en charge fluide de PowerPoint et OpenDocument sous Windows, Linux et macOS."
 ---
-
-## **Aperçu**
-Aspose.Slides for .NET ne nécessite pas l'installation de Microsoft PowerPoint car Aspose.Slides est un moteur autonome de création, de conversion, de mise en page et de rendu de documents Microsoft PowerPoint.
+## **Vue d'ensemble**
+Aspose.Slides for .NET ne nécessite pas l'installation de Microsoft PowerPoint car Aspose.Slides est un moteur indépendant de création, conversion, mise en page et rendu de documents Microsoft PowerPoint.
 
 ## **Systèmes d'exploitation pris en charge**
-Aspose.Slides for .NET prend en charge tout système d'exploitation 32 bits ou 64 bits où le framework .NET ou Mono est installé, notamment (mais pas uniquement) :
+Aspose.Slides for .NET prend en charge tout système d'exploitation 32 bits ou 64 bits où le framework .NET ou Mono est installé, y compris (mais sans s'y limiter) :
 
 ### **Windows**
 - Microsoft Windows 2000 Server (x64, x86)
@@ -42,7 +41,9 @@ Aspose.Slides for .NET prend en charge tout système d'exploitation 32 bits ou 6
 - Linux (Ubuntu, OpenSUSE, CentOS, Alpine et autres)
 
 {{%  alert  title="Notes"  color="primary"  %}} 
+
 Comme CentOS 7 est fourni avec GLIBC 2.14 alors qu'Aspose.Slides for .NET 6 et .NET 7 (y compris la version multiplateforme) nécessitent Linux x86_64 avec GLIBC 2.23 ou plus récent, vous pouvez utiliser Aspose.Slides for .NET Standard sur un tel système.
+
 {{% /alert %}} 
 
 ### **Mac**
@@ -51,7 +52,7 @@ Comme CentOS 7 est fourni avec GLIBC 2.14 alors qu'Aspose.Slides for .NET 6 et .
 ## **Frameworks pris en charge**
 Aspose.Slides for .NET prend en charge les frameworks .NET et Mono :
 
-### **Frameworks .NET**
+### **.NET Frameworks**
 - .NET Framework 2.0
 - .NET Framework 3.5
 - .NET Framework 4.0
@@ -73,9 +74,9 @@ Aspose.Slides for .NET prend en charge les frameworks .NET et Mono :
 - .NET 8
 - .NET 9
 - .NET Core
-- COM Interop support (COM, C++, VBScript)
+- Prise en charge COM Interop (COM, C++, VBScript)
 
-### **Framework Mono**
+### **Mono Framework**
 - Prise en charge de MONO sur les plateformes MAC et Linux
 
 ## **Environnements de développement**
@@ -95,38 +96,41 @@ Aspose.Slides for .NET peut être utilisé pour développer des applications dan
 Actuellement, il existe deux versions principales d'Aspose.Slides — Aspose.Slides.NET et Aspose.Slides.NET6.CrossPlatform.
 
 ### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-Ceci est la version principale du produit. Elle utilise le moteur graphique standard .NET.
+Il s'agit de la version principale du produit. Elle utilise le moteur graphique .NET standard.
 - Sur les plates‑formes non Windows, il peut être nécessaire d'installer la bibliothèque `libgdiplus` et ses dépendances.
-- Avant la version Aspose.Slides 25.3, pour les plates‑formes non Windows, il était nécessaire d'utiliser le DLL .NET Standard 2.0 du package ZIP Aspose.Slides.
-- À partir de la version Aspose.Slides 25.3, le package NuGet peut être utilisé directement même sur des systèmes non Windows.
-- Lors de l'exécution sur des systèmes non Windows, votre application doit inclure la ligne suivante au démarrage:
+- Avant la version Aspose.Slides 25.3, sur les plates‑formes non Windows, il fallait utiliser le DLL .NET Standard 2.0 fourni dans le paquet ZIP Aspose.Slides.
+- À partir de la version Aspose.Slides 25.3, le paquet NuGet peut être utilisé directement même sur les systèmes non Windows.
+- Lors de l'exécution sur des systèmes non Windows, votre application doit inclure la ligne suivante au démarrage :
 ```cs
 AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 ```
-
-- **À partir de la version 25.3, vous pouvez utiliser ce package sur les plates‑formes qui supportent .NET, comme Linux aarch64 (ARM64).**
+- **À partir de la version 25.3, vous pouvez utiliser ce paquet sur les plates‑formes qui prennent en charge .NET, telles que Linux aarch64 (ARM64).**
 
 ### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
 Il s'agit de la version d'Aspose.Slides utilisant un moteur graphique multiplateforme personnalisé développé par l'équipe Aspose.Slides.  
 Sur les plates‑formes non Windows, la bibliothèque `fontconfig` peut être requise.
 
-**Plate‑formes supportées**
+**Plates‑formes prises en charge**
 - *Windows* : x86, x86_64  
 - *Linux* : x86_64  
 - *macOS* : x86_64, ARM64
 
-**Prévu pour prise en charge future**
-- *Linux* : aarch64 (ARM64) — *ETA : fin 2025*  
+**Prévu pour un support futur**  
+- *Linux* : aarch64 (ARM64) — *prévision : fin 2025*  
 
-**Pas prévu**
-- *Windows 11 ARM* (ARM64) — *Pas envisagé actuellement*
+**Non prévu**
+- *Windows 11 ARM* (ARM64) — *pas envisagé pour le moment*
 
 ## **FAQ**
 
 **Dois‑je installer Microsoft PowerPoint pour les conversions et le rendu ?**
 
-Non, PowerPoint n'est pas requis ; Aspose.Slides est un moteur autonome pour [créer](/slides/fr/net/create-presentation/), modifier, [convertir](/slides/fr/net/convert-presentation/) et [rendre](/slides/fr/net/convert-powerpoint-to-png/) les présentations.
+Non, PowerPoint n’est pas requis ; Aspose.Slides est un moteur autonome pour [créer](/slides/fr/net/create-presentation/), modifier, [convertir](/slides/fr/net/convert-presentation/) et [rendre](/slides/fr/net/convert-powerpoint-to-png/) des présentations.
 
 **Quelles polices sont nécessaires pour un rendu correct ?**
 
-En pratique, les polices utilisées dans la présentation ou leurs [substituts](/slides/fr/net/font-substitution/) appropriés doivent être disponibles. Pour garantir un rendu cohérent sous Linux/macOS, il est conseillé d'installer des paquets de polices courantes.
+En pratique, les polices utilisées dans la présentation ou les [substituts](/slides/fr/net/font-substitution/) appropriés doivent être présents. Pour garantir un rendu cohérent sous Linux/macOS, il est conseillé d’installer les paquets de polices courants.
+
+**Pourquoi une police personnalisée apparaît‑elle comme police de secours ou texte manquant sous Linux ?**
+
+Si le fichier de police contient des entrées de table de noms incohérentes ou corrompues, la pile de correspondance de polices Linux (FreeType/fontconfig) peut sélectionner un enregistrement invalide, ce qui rend la police introuvable. Utiliser une version de la police avec des tables de noms corrigées ou installer un remplacement cohérent résout le problème.
