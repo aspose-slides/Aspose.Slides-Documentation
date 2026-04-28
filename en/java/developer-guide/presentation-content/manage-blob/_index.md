@@ -201,6 +201,22 @@ When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a 
 
 {{% /alert %}}
 
+**Increase JVM Heap for Large Presentations**  
+
+When processing very large files, the JVM heap must be large enough to hold the presentation object model. In a Spring Boot 3 application you can increase the heap size, for example:
+
+```bash
+java -Xms2g -Xmx8g -jar your-app.jar
+```
+
+Or set it via an environment variable:
+
+```bash
+export JAVA_TOOL_OPTIONS="-Xms2g -Xmx8g"
+```
+
+If you start the application with Maven/Gradle, add the options to `JAVA_OPTS` or `SPRING_BOOT_JAVA_OPTS`. Ensure the heap size is sufficient for the size of the source presentation, the template, and the output file.
+
 ## **FAQ**
 
 **What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**
