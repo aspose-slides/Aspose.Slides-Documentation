@@ -115,6 +115,31 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Detect Unsupported Embedded Workbook Formats**
+
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `EmbeddedWorkbookType` property on `IChartData` together with the `WorkbookType` enumeration to detect unsupported formats and skip those charts.
+
+```csharp
+using (var presentation = new Presentation("pres.pptx"))
+{
+    foreach (var shape in presentation.Slides[0].Shapes)
+    {
+        if (shape is not IChart chart) continue;
+
+        var chartData = chart.ChartData;
+
+        if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
+            chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
+        {
+            // Embedded workbook is in .xlsb format, which is not supported.
+            continue;
+        }
+
+        // Read or modify the chart workbook data here.
+    }
+}
+```
+
 ## **External Workbook**
 
 {{% alert color="primary" %}} 
