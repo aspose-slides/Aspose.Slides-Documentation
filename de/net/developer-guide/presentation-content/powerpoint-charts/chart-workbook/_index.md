@@ -1,30 +1,30 @@
 ---
-title: Diagramm-Arbeitsmappen in Präsentationen in .NET verwalten
-linktitle: Diagramm-Arbeitsmappe
+title: Diagramm‑Arbeitsmappen in Präsentationen in .NET verwalten
+linktitle: Diagramm‑Arbeitsmappe
 type: docs
 weight: 70
 url: /de/net/chart-workbook/
 keywords:
-- Diagramm-Arbeitsmappe
-- Diagrammdaten
-- Arbeitsmappenzelle
-- Datenbeschriftung
-- Arbeitsblatt
-- Datenquelle
-- externe Arbeitsmappe
-- externe Daten
+- diagramm‑arbeitsmappe
+- diagrammdaten
+- arbeitsmappen‑zelle
+- datenbeschriftung
+- arbeitsblatt
+- datenquelle
+- externe arbeitsmappe
+- externe daten
 - PowerPoint
-- Präsentation
+- präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für .NET: Verwalten Sie Diagramm-Arbeitsmappen in PowerPoint- und OpenDocument-Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
+description: "Entdecken Sie Aspose.Slides für .NET: Verwalten Sie Diagramm‑Arbeitsmappen in PowerPoint- und OpenDocument-Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
 ---
-
 ## **Diagrammdaten aus einer Arbeitsmappe lesen und schreiben**
-Aspose.Slides stellt die Methoden [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) und [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) bereit, mit denen Sie Diagramm‑Datenarbeitsmappen lesen und schreiben können (die Diagrammdaten, die mit Aspose.Cells bearbeitet wurden). **Hinweis**: Die Diagrammdaten müssen auf die gleiche Weise organisiert sein oder eine Struktur haben, die der Quelle ähnlich ist.
+Aspose.Slides stellt die Methoden [ReadWorkbookStream](https://reference.aspose.com/slides/de/net/aspose.slides.charts/ichartdata/readworkbookstream/) und [WriteWorkbookStream](https://reference.aspose.com/slides/de/net/aspose.slides.charts/ichartdata/writeworkbookstream/) bereit, mit denen Sie Diagrammdaten‑Arbeitsmappen lesen und schreiben können (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden). **Hinweis**: Die Diagrammdaten müssen auf dieselbe Weise organisiert sein oder eine dem Quellformat ähnliche Struktur aufweisen.
 
-Dieser C#‑Code demonstriert eine Beispieloperation:
+Dieser C#‑Code demonstriert einen Beispielvorgang:
+
 ```c#
 using (Presentation pres = new Presentation("chart.pptx"))
 {
@@ -41,23 +41,22 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-
-## **Eine Arbeitsmappenzelle als Diagrammdatenbeschriftung festlegen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse.  
-2. Rufen Sie die Referenz einer Folie über ihren Index ab.  
-3. Fügen Sie ein Bubble‑Diagramm mit einigen Daten hinzu.  
+## **Eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Klasse.  
+2. Holen Sie sich die Referenz einer Folie über deren Index.  
+3. Fügen Sie ein Blasendiagramm mit einigen Daten hinzu.  
 4. Greifen Sie auf die Diagrammserie zu.  
-5. Setzen Sie die Arbeitsmappenzelle als Datenbeschriftung.  
+5. Legen Sie die Arbeitsmappen‑Zelle als Datenbeschriftung fest.  
 6. Speichern Sie die Präsentation.
 
-Dieser C#‑Code zeigt, wie Sie eine Arbeitsmappenzelle als Diagrammdatenbeschriftung festlegen:
+Dieser C#‑Code zeigt, wie Sie eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen:
+
 ```c#
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// Instanziiert eine Präsentationsklasse, die eine Präsentationsdatei darstellt
-
+// Instanziiert eine Präsentationsklasse, die eine Präsentationsdatei darstellt 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -79,9 +78,9 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
-
 ## **Arbeitsblätter verwalten**
-Dieser C#‑Code demonstriert einen Vorgang, bei dem die Eigenschaft [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) verwendet wird, um auf eine Arbeitsblattsammlung zuzugreifen:
+Dieser C#‑Code demonstriert einen Vorgang, bei dem die Eigenschaft [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/de/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) verwendet wird, um auf eine Arbeitsblatt‑Sammlung zuzugreifen:
+
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -92,9 +91,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
 ## **Den Datentyp der Datenquelle angeben**
-Dieser C#‑Code zeigt, wie Sie einen Typ für eine Datenquelle angeben:
+Dieser C#‑Code zeigt Ihnen, wie Sie einen Typ für eine Datenquelle angeben:
+
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -111,16 +110,40 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Nicht unterstützte eingebettete Arbeitsmappenformate erkennen**
+Aspose.Slides unterstützt das Excel‑Binärarbeitsmappenformat (.xlsb), das in einigen Diagrammen eingebettet werden kann, nicht. Sie können die Eigenschaft `EmbeddedWorkbookType` von `IChartData` zusammen mit der Aufzählung `WorkbookType` verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen.
+
+```csharp
+using (var presentation = new Presentation("pres.pptx"))
+{
+    foreach (var shape in presentation.Slides[0].Shapes)
+    {
+        if (shape is not IChart chart) continue;
+
+        var chartData = chart.ChartData;
+
+        if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
+            chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
+        {
+            // Die eingebettete Arbeitsmappe ist im .xlsb-Format, das nicht unterstützt wird.
+            continue;
+        }
+
+        // Lese hier die Diagramm-Arbeitsmappendaten oder ändere sie.
+    }
+}
+```
 
 ## **Externe Arbeitsmappe**
 {{% alert color="primary" %}} 
-In [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/) haben wir die Unterstützung für externe Arbeitsmappen als Datenquelle für Diagramme implementiert.
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/de/net/aspose-slides-for-net-19-4-release-notes/) haben wir die Unterstützung für externe Arbeitsmappen als Datenquelle für Diagramme implementiert.
 {{% /alert %}} 
 
-### **Eine externe Arbeitsmappe erstellen**
+### **Externe Arbeitsmappe erstellen**
 Mit den Methoden **`ReadWorkbookStream`** und **`SetExternalWorkbook`** können Sie entweder eine externe Arbeitsmappe von Grund auf neu erstellen oder eine interne Arbeitsmappe extern machen.
 
 Dieser C#‑Code demonstriert den Erstellungsprozess einer externen Arbeitsmappe:
+
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -139,13 +162,13 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+### **Externe Arbeitsmappe festlegen**
+Mit der Methode **`SetExternalWorkbook`** können Sie einer Diagramm‑Chart eine externe Arbeitsmappe als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zur externen Arbeitsmappe zu aktualisieren (falls diese verschoben wurde).
 
-### **Eine externe Arbeitsmappe festlegen**
-Mit der Methode **`SetExternalWorkbook`** können Sie einer Diagramm ein externes Arbeitsbuch als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zum externen Arbeitsbuch zu aktualisieren (falls letzteres verschoben wurde).
+Obwohl Sie die Daten in Arbeitsmappen, die an entfernten Orten oder Ressourcen gespeichert sind, nicht bearbeiten können, können Sie solche Arbeitsmappen dennoch als externe Datenquelle verwenden. Wird ein relativer Pfad für eine externe Arbeitsmappe angegeben, wird er automatisch in einen vollständigen Pfad umgewandelt.
 
-Obwohl Sie die Daten in Arbeitsmappen, die an entfernten Speicherorten oder Ressourcen gespeichert sind, nicht bearbeiten können, können Sie solche Arbeitsmappen dennoch als externe Datenquelle verwenden. Wird ein relativer Pfad für eine externe Arbeitsmappe angegeben, wird er automatisch in einen vollständigen Pfad konvertiert.
+Dieser C#‑Code zeigt Ihnen, wie Sie eine externe Arbeitsmappe festlegen:
 
-Dieser C#‑Code zeigt, wie Sie eine externe Arbeitsmappe festlegen:
 ```c#
 // Der Pfad zum Dokumentenverzeichnis.
 using (Presentation pres = new Presentation())
@@ -154,7 +177,7 @@ using (Presentation pres = new Presentation())
     IChartData chartData = chart.ChartData;
                     
     chartData.SetExternalWorkbook(Path.GetFullPath("externalWorkbook.xlsx"));
-                  
+              
 
     chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
     chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B2"));
@@ -168,11 +191,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+Der Parameter `ChartData` (bei der Methode `SetExternalWorkbook`) wird verwendet, um anzugeben, ob eine Excel‑Arbeitsmappe geladen werden soll oder nicht.
 
-Der Parameter `ChartData` (unter der Methode `SetExternalWorkbook`) wird verwendet, um anzugeben, ob eine Excel‑Arbeitsmappe geladen werden soll oder nicht. 
+* Wenn der Wert von `ChartData` auf `false` gesetzt ist, wird nur der Pfad der Arbeitsmappe aktualisiert – die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Diese Einstellung kann sinnvoll sein, wenn die Zielarbeitsmappe nicht existiert oder nicht verfügbar ist.  
+* Wenn der Wert von `ChartData` auf `true` gesetzt ist, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
 
-* Wenn `ChartData` auf `false` gesetzt ist, wird nur der Pfad zur Arbeitsmappe aktualisiert – die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Diese Einstellung kann nützlich sein, wenn die Zielarbeitsmappe nicht existiert oder nicht verfügbar ist. 
-* Wenn `ChartData` auf `true` gesetzt ist, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -185,15 +208,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-### **Den Pfad der externen Datenquellen‑Arbeitsmappe eines Diagramms abrufen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse.  
-2. Rufen Sie die Referenz einer Folie über ihren Index ab.  
+### **Den Pfad zur externen Datenquellen‑Arbeitsmappe eines Diagramms abrufen**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Klasse.  
+2. Holen Sie sich die Referenz einer Folie über deren Index.  
 3. Erstellen Sie ein Objekt für die Diagrammform.  
-4. Erstellen Sie ein Objekt für den Quelltyp (`ChartDataSourceType`), das die Datenquelle des Diagramms darstellt.  
-5. Geben Sie die passende Bedingung an, basierend darauf, dass der Quelltyp dem Typ der externen Arbeitsmappen‑Datenquelle entspricht.
+4. Erstellen Sie ein Objekt für den Quelltyp (`ChartDataSourceType`), der die Datenquelle des Diagramms darstellt.  
+5. Geben Sie die entsprechende Bedingung an, basierend darauf, dass der Quelltyp dem Typ der externen Arbeitsmappen‑Datenquelle entspricht.
 
 Dieser C#‑Code demonstriert den Vorgang:
+
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -210,9 +233,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-
 ### **Diagrammdaten bearbeiten**
-Sie können die Daten in externen Arbeitsmappen auf dieselbe Weise bearbeiten, wie Sie Änderungen an internen Arbeitsmappen vornehmen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
+Sie können die Daten in externen Arbeitsmappen auf dieselbe Weise bearbeiten, wie Sie Änderungen am Inhalt interner Arbeitsmappen vornehmen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
+
+Dieser C#‑Code ist eine Implementierung des beschriebenen Prozesses:
 
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
@@ -226,12 +250,11 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
-
 ## **FAQ**
 
 **Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder eingebetteten Arbeitsmappe verknüpft ist?**
 
-Ja. Ein Diagramm verfügt über einen [Datenquellentyp](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) und einen [Pfad zu einer externen Arbeitsmappe](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
+Ja. Ein Diagramm verfügt über einen [Datenquelltyp](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chartdata/datasourcetype/) und einen [Pfad zu einer externen Arbeitsmappe](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chartdata/externalworkbookpath/); ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
 
 **Werden relative Pfade zu externen Arbeitsmappen unterstützt und wie werden sie gespeichert?**
 
@@ -239,16 +262,16 @@ Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absolute
 
 **Kann ich Arbeitsmappen verwenden, die sich auf Netzwerkressourcen/Freigaben befinden?**
 
-Ja, solche Arbeitsmappen können als externe Datenquelle verwendet werden. Das direkte Bearbeiten von entfernten Arbeitsmappen über Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle dienen.
+Ja, solche Arbeitsmappen können als externe Datenquelle verwendet werden. Das direkte Bearbeiten von entfernten Arbeitsmappen über Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle genutzt werden.
 
-**Überschreibt Aspose.Slides die externe XLSX beim Speichern der Präsentation?**
+**Überschreibt Aspose.Slides die externe XLSX‑Datei beim Speichern der Präsentation?**
 
-Nein. Die Präsentation speichert einen [Link zur externen Datei](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) und verwendet ihn zum Lesen von Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht verändert.
+Nein. Die Präsentation speichert einen [Link zur externen Datei](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chartdata/externalworkbookpath/) und verwendet ihn zum Auslesen der Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht verändert.
 
-**Was soll ich tun, wenn die externe Datei durch ein Passwort geschützt ist?**
+**Was soll ich tun, wenn die externe Datei passwortgeschützt ist?**
 
-Aspose.Slides akzeptiert kein Passwort beim Verknüpfen. Ein gängiger Ansatz ist, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie vorzubereiten (z. B. mit [Aspose.Cells](/cells/net/)) und auf diese Kopie zu verlinken.
+Aspose.Slides akzeptiert beim Verknüpfen kein Passwort. Ein gängiger Ansatz ist, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie vorzubereiten (z. B. mit [Aspose.Cells](/cells/net/)) und auf diese Kopie zu verlinken.
 
 **Können mehrere Diagramme dieselbe externe Arbeitsmappe referenzieren?**
 
-Ja. Jedes Diagramm speichert seinen eigenen Link. Wenn alle auf dieselbe Datei verweisen, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm berücksichtigt.
+Ja. Jedes Diagramm speichert seinen eigenen Link. Zeigen sie alle auf dieselbe Datei, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm reflektiert.
