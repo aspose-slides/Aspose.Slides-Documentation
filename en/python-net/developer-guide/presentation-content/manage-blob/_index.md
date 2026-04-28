@@ -162,6 +162,22 @@ When you use `temp_files_root_path`, Aspose.Slides does not automatically create
 
 {{% /alert %}}
 
+### **Dispose Presentation Objects to Release Memory**
+
+When processing large presentations, ensure that the `Presentation` instance is properly disposed so that the memory it occupied is released. The recommended way is to use the context manager (`with slides.Presentation(...) as presentation:`) as shown in the examples above; it automatically closes the presentation and frees unmanaged resources when the block exits.
+
+If you create a presentation without a `with` block, explicitly call `presentation.dispose()` after you have finished using it, and remove any remaining references so that Python’s garbage collector can reclaim the memory.
+
+```py
+import aspose.slides as slides
+
+presentation = slides.Presentation("large.pptx")
+# ...process the presentation...
+presentation.save("large.pdf", slides.export.SaveFormat.PDF)
+# Explicitly release resources.
+presentation.dispose()
+```
+
 ## **FAQ**
 
 **What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**
