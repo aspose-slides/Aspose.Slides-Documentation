@@ -162,6 +162,21 @@ When you use `temp_files_root_path`, Aspose.Slides does not automatically create
 
 {{% /alert %}}
 
+### **Release Memory After Processing**
+
+When a `Presentation` object is no longer needed, ensure it is disposed promptly to release the RAM it occupied. The safest way is to use a context manager, which automatically calls `Dispose` on exit. Also clear any references to slides, images, streams, or large byte arrays that were used during processing.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation(input_path) as presentation:
+    # translate/process slides
+    presentation.save(output_path, slides.export.SaveFormat.PPTX)
+# At this point the presentation and all associated resources are released.
+```
+
+If the application processes many large presentations, consider running each batch in an isolated worker process or background job and recycle the worker after the batch completes. This further guarantees that any residual memory is reclaimed by the operating system.
+
 ## **FAQ**
 
 **What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**
