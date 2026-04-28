@@ -47,6 +47,10 @@ Because CentOS 7 ships with GLIBC 2.14 while Aspose.Slides for .NET 6 and .NET 7
 
 {{% /alert %}} 
 
+**Font rendering considerations on Linux**
+
+When a font version contains inconsistent name-table records, the Linux font loader may select an invalid record and fail to resolve the font. This results in missing text or substitution with a fallback square/sharp-corner font (e.g., the ChillRoundM v1.750 issue). Ensure that the font’s name-table entries are consistent across platforms or use an updated version of the font where the records have been corrected.
+
 ### **Mac**
 - Mac OS X
 
@@ -131,3 +135,7 @@ No, PowerPoint is not required; Aspose.Slides is a standalone engine for [creati
 **Which fonts are needed for correct rendering?**
 
 In practice, the fonts used in the presentation or proper [substitutes](/slides/net/font-substitution/) must be available. To ensure consistent rendering on Linux/macOS, it is advisable to install common font packages.
+
+**Why does a custom font render as a fallback or missing text on Linux?**
+
+If the font file has inconsistent or corrupted name-table entries, the Linux font-matching stack (FreeType/fontconfig) may select an invalid record, causing the font to be unresolved. Using a font version with corrected name-table records or installing a consistent replacement resolves the issue.
