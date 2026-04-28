@@ -1,30 +1,29 @@
 ---
-title: .NET のプレゼンテーションでチャート ワークブックを管理
-linktitle: チャート ワークブック
+title: ".NET のプレゼンテーションでチャート ワークブックを管理する"
+linktitle: "チャート ワークブック"
 type: docs
 weight: 70
 url: /ja/net/chart-workbook/
 keywords:
-- チャート ワークブック
-- チャート データ
-- ワークブック セル
-- データ ラベル
-- ワークシート
-- データ ソース
-- 外部ワークブック
-- 外部データ
-- PowerPoint
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET を発見: PowerPoint および OpenDocument 形式でチャート ワークブックを簡単に管理し、プレゼンテーション データを効率化します。"
+- "チャート ワークブック"
+- "チャート データ"
+- "ワークブック セル"
+- "データ ラベル"
+- "ワークシート"
+- "データ ソース"
+- "外部ワークブック"
+- "外部データ"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を発見し、PowerPoint と OpenDocument 形式のチャート ワークブックを簡単に管理してプレゼンテーション データを効率化しましょう。"
 ---
+## **ワークブックからチャート データを読み書きする**
+Aspose.Slides は、[ReadWorkbookStream](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdata/readworkbookstream/) および [WriteWorkbookStream](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdata/writeworkbookstream/) メソッドを提供し、チャート データ ワークブック（Aspose.Cells で編集されたチャート データを含む）を読み書きできます。**注**: チャート データは同じ方法で整理されているか、ソースと同様の構造である必要があります。
 
-## **ワークブックからチャートデータの読み取りと書き込み**
-Aspose.Slides は、[ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) と [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) メソッドを提供し、チャートデータワークブック（Aspose.Cells で編集されたチャートデータを含む）の読み取りと書き込みが可能です。**注**：チャートデータは同じ方式で構成されているか、元と同様の構造である必要があります。
-
-この C# コードはサンプル操作を示します：
+この C# コードはサンプル操作を示しています:
 ```c#
 using (Presentation pres = new Presentation("chart.pptx"))
 {
@@ -41,22 +40,21 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-
-## **WorkBook のセルをチャート データ ラベルとして設定**
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+## **ワークブック セルをチャート データ ラベルに設定する**
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドの参照を取得します。
-3. バブル チャートをデータと共に追加します。
-4. チャートシリーズにアクセスします。
-5. ワークブックのセルをデータ ラベルとして設定します。
+3. バブルチャートを追加し、データを設定します。
+4. チャート シリーズにアクセスします。
+5. ワークブック セルをデータ ラベルとして設定します。
 6. プレゼンテーションを保存します。
 
-この C# コードは、ワークブックのセルをチャート データ ラベルとして設定する方法を示します：
+この C# コードは、ワークブック セルをチャート データ ラベルとして設定する方法を示します:
 ```c#
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// プレゼンテーション ファイルを表すプレゼンテーション クラスのインスタンスを作成します
+// プレゼンテーション ファイルを表すプレゼンテーション クラスのインスタンスを作成します 
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -79,9 +77,8 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
-
 ## **ワークシートの管理**
-この C# コードは、[IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) プロパティを使用してワークシート コレクションにアクセスする操作を示します：
+この C# コードは、[IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) プロパティを使用してワークシート コレクションにアクセスする操作を示します:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -92,9 +89,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-## **データ ソース タイプの指定**
-この C# コードは、データ ソースのタイプを指定する方法を示します：
+## **データ ソースの種類を指定する**
+この C# コードは、データ ソースの型を指定する方法を示します:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -111,16 +107,38 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **サポートされていない埋め込みワークブック形式の検出**
+Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック (.xlsb) 形式をサポートしていません。`IChartData` の `EmbeddedWorkbookType` プロパティと `WorkbookType` 列挙体を組み合わせて、サポートされていない形式を検出し、該当するチャートをスキップできます。
+```csharp
+using (var presentation = new Presentation("pres.pptx"))
+{
+    foreach (var shape in presentation.Slides[0].Shapes)
+    {
+        if (shape is not IChart chart) continue;
 
-## **外部ワークブック**
+        var chartData = chart.ChartData;
+
+        if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
+            chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
+        {
+            // 埋め込みワークブックは .xlsb 形式であり、サポートされていません。
+            continue;
+        }
+
+        // ここでチャート ワークブック データを読み取るか、変更してください。
+    }
+}
+```
+
+## **External Workbook**
 {{% alert color="primary" %}} 
-Aspose.Slides 19.4 では、チャートのデータ ソースとして外部ワークブックをサポートする機能を実装しました。
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/ja/net/aspose-slides-for-net-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 
 ### **外部ワークブックの作成**
-**`ReadWorkbookStream`** と **`SetExternalWorkbook`** メソッドを使用すると、外部ワークブックをスクラッチから作成するか、内部ワークブックを外部に変換することができます。
+**`ReadWorkbookStream`** と **`SetExternalWorkbook`** メソッドを使用すると、外部ワークブックをゼロから作成するか、内部ワークブックを外部ワークブックに変換できます。
 
-この C# コードは、外部ワークブックの作成プロセスを示します：
+この C# コードは、外部ワークブックの作成プロセスを示します:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -139,15 +157,14 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
 ### **外部ワークブックの設定**
-**`SetExternalWorkbook`** メソッドを使用すると、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、パスを更新するためにも使用できます（外部ワークブックが移動された場合など）。
+**`SetExternalWorkbook`** メソッドを使用すると、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが変更された場合（移動された場合）にパスを更新するためにも使用できます。
 
-リモート場所やリソースに保存されているワークブックのデータは編集できませんが、外部データ ソースとして使用することは可能です。外部ワークブックの相対パスが指定された場合、自動的にフルパスに変換されます。
+リモート ロケーションやリソースに保存されたワークブックのデータを編集することはできませんが、外部データ ソースとして使用することは可能です。外部ワークブックの相対パスが指定された場合、自動的にフル パスに変換されます。
 
-この C# コードは、外部ワークブックを設定する方法を示します：
+この C# コードは、外部ワークブックを設定する方法を示します:
 ```c#
- // ドキュメントディレクトリへのパス.
+// ドキュメント ディレクトリへのパス。
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -168,11 +185,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+`SetExternalWorkbook` メソッドの `ChartData` パラメーターは、Excel ワークブックをロードするかどうかを指定するために使用されます。
 
-`ChartData` パラメータ（`SetExternalWorkbook` メソッドの下）は、Excel ワークブックをロードするかどうかを指定するために使用されます。
+* `ChartData` の値が `false` に設定されている場合、ワークブック パスのみが更新され、チャート データは対象ワークブックからロードまたは更新されません。対象ワークブックが存在しない、または利用できない状況でこの設定を使用することがあります。
+* `ChartData` の値が `true` に設定されている場合、チャート データは対象ワークブックから更新されます。
 
-* `ChartData` の値が `false` に設定されている場合、ワークブックのパスだけが更新され、チャート データはターゲット ワークブックからロードまたは更新されません。ターゲット ワークブックが存在しない、または利用できない場合にこの設定を使用します。
-* `ChartData` の値が `true` に設定されている場合、チャート データがターゲット ワークブックから更新されます。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -185,15 +202,14 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-### **チャートの外部データ ソース ワークブック パスの取得**
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+### **チャートの外部データ ソース ワークブック パスを取得する**
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドの参照を取得します。
 3. チャート シェイプのオブジェクトを作成します。
-4. チャートのデータ ソースを表すソース（`ChartDataSourceType`）タイプのオブジェクトを作成します。
-5. ソース タイプが外部ワークブック データ ソース タイプと同じであることに基づき、適切な条件を指定します。
+4. チャートのデータ ソースを表すソース (`ChartDataSourceType`) 型のオブジェクトを作成します。
+5. ソース タイプが外部ワークブック データ ソース タイプと同じであることに基づく条件を指定します。
 
-この C# コードは操作を示します：
+この C# コードは、操作を示します:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -210,11 +226,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-
 ### **チャート データの編集**
-外部ワークブックのデータは、内部ワークブックの内容を変更するのと同様に編集できます。外部ワークブックをロードできない場合は例外がスローされます。
+外部ワークブックのデータは、内部ワークブックの内容を変更するのと同じ方法で編集できます。外部ワークブックのロードに失敗した場合、例外がスローされます。
 
-この C# コードは、上記プロセスの実装例です：
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
@@ -227,29 +241,27 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
-
 ## **FAQ**
+**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックかを判断できますか？**
 
-**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判断できますか？**
+はい。チャートには[data source type](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/chartdata/datasourcetype/) と[path to an external workbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/chartdata/externalworkbookpath/) があり、ソースが外部ワークブックの場合はフル パスを読み取って外部ファイルが使用されていることを確認できます。
 
-はい。チャートは[data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) と[external workbook のパス](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) を持っています。ソースが外部ワークブックの場合、完全なパスを読み取ることで外部ファイルが使用されていることを確認できます。
+**外部ワークブックへの相対パスはサポートされていますか？また、どのように保存されますか？**
 
-**外部ワークブックへの相対パスはサポートされていますか？ それらはどのように保存されますか？**
+はい。相対パスを指定すると自動的に絶対パスに変換されます。これはプロジェクトの移植性に便利ですが、プレゼンテーションは PPTX ファイル内に絶対パスを保存します。
 
-はい。相対パスを指定すると、自動的に絶対パスに変換されます。これはプロジェクトの移植性に便利ですが、プレゼンテーションは PPTX ファイル内に絶対パスを保存することに注意してください。
+**ネットワーク リソース/共有上のワークブックを使用できますか？**
 
-**ネットワークリソース/共有上にあるワークブックを使用できますか？**
-
-はい、そのようなワークブックを外部データ ソースとして使用できます。ただし、Aspose.Slides からリモートワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
+はい、そのようなワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
 
 **プレゼンテーションを保存するとき、Aspose.Slides は外部 XLSX を上書きしますか？**
 
-いいえ。プレゼンテーションは[外部ファイルへのリンク](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) を保存し、データの読み取りに使用します。保存時に外部ファイル自体は変更されません。
+いいえ。プレゼンテーションは[link to the external file](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/chartdata/externalworkbookpath/)へのリンクを保存し、データの読み取りに使用します。保存時に外部ファイル自体は変更されません。
 
-**外部ファイルがパスワードで保護されている場合はどうすべきですか？**
+**外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
 
-Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対処法は、事前に保護を解除するか、[Aspose.Cells](/cells/net/) などで復号化されたコピーを作成してそのコピーにリンクすることです。
+Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策は、事前に保護を解除するか、復号化されたコピー（例: [Aspose.Cells](/cells/net/) を使用）を用意してそのコピーにリンクすることです。
 
 **複数のチャートが同じ外部ワークブックを参照できますか？**
 
-はい。各チャートは独自のリンクを保持します。すべてが同じファイルを指している場合、そのファイルを更新すると次回データがロードされるときに各チャートに反映されます。
+はい。各チャートは独自のリンクを保持します。すべて同じファイルを指す場合、そのファイルを更新すると次回データがロードされる際に各チャートに反映されます。
