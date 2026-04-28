@@ -47,10 +47,6 @@ Because CentOS 7 ships with GLIBC 2.14 while Aspose.Slides for .NET 6 and .NET 7
 
 {{% /alert %}} 
 
-**Font rendering considerations on Linux**
-
-When a font version contains inconsistent name-table records, the Linux font loader may select an invalid record and fail to resolve the font. This results in missing text or substitution with a fallback square/sharp-corner font (e.g., the ChillRoundM v1.750 issue). Ensure that the font’s name-table entries are consistent across platforms or use an updated version of the font where the records have been corrected.
-
 ### **Mac**
 - Mac OS X
 
