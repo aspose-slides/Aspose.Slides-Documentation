@@ -25,7 +25,9 @@ keywords:
 description: "Effortlessly import PDF and HTML documents into PowerPoint and OpenDocument presentations in .NET with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
-Using [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) class to allow you to import presentations from PDF documents.
+## **Introduction**
+
+Using Aspose.Slides, you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) class, which allows you to import presentations from PDF and HTML documents.
 
 ## **Import PowerPoint from PDF**
 

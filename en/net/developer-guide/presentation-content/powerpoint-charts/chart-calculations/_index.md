@@ -21,6 +21,12 @@ keywords:
 description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for .NET for PPT and PPTX, with practical C# code examples."
 ---
 
+## **Overview**
+
+Aspose.Slides provides APIs for working with chart calculations and layout data in presentations. This article shows how to retrieve the actual values of chart elements, including the real position and size of elements that implement `IActualLayout` and the actual values of chart axes. It also explains that these values are populated after chart layout validation.
+
+In addition, the article demonstrates how to get the actual position of parent chart elements and how to hide chart components such as the title, axes, legend, and grid lines. Together, these examples help you inspect chart layout information and control the visibility of chart elements in PowerPoint presentations programmatically.
+
 ## **Calculate Actual Values of Chart Elements**
 Aspose.Slides for .NET provides a simple API for getting these properties. This will help you to Calculates actual values of chart elements. The actual values include position of elements that implement IActualLayout interface (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) and actual axes values (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 

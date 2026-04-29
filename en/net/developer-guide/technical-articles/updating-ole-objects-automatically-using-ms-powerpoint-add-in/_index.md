@@ -17,9 +17,11 @@ keywords:
 description: "Discover how to auto-update OLE charts and objects in PowerPoint with an add-in and Aspose.Slides for .NET, featuring practical code and optimization tips."
 ---
 
-## **Update OLE Objects Automatically**
+## **Introduction**
 
 One of the most frequent questions asked by Aspose.Slides for .NET customers is how to create or modify editable charts (or other OLE objects) so that they update automatically when the presentation is opened. Unfortunately, PowerPoint doesn’t support automatic macros in the same way Excel and Word do. The only macros available are `Auto_Open` and `Auto_Close`, and these only run automatically from an add-in. This short technical tip shows how to achieve that.
+
+## **Update OLE Objects Automatically**
 
 First, several freeware add-ins are available that add the Auto_Open macro feature to PowerPoint, for example [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) and [Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
 

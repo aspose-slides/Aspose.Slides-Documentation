@@ -28,6 +28,11 @@ keywords:
 description: "Apply Excel-style formulas in Aspose.Slides for .NET chart worksheets and automate reports across PPT and PPTX files."
 ---
 
+## **Overview**
+
+A chart worksheet is the data source behind a chart in a presentation. It stores category and series names together with the numeric values displayed by the chart. In Aspose.Slides, this worksheet is available through the chart data workbook, which allows you to work with chart data programmatically.
+
+This article explains how to use worksheet formulas in chart data so that cell values can be calculated and updated automatically instead of being entered manually. It shows how to assign formulas, use both A1-style and R1C1-style references, recalculate workbook formulas, and work with the supported constants, operators, cell references, and predefined functions available for chart worksheets in presentations.
 
 ## **About Chart Spreadsheet Formulas in Presentations**
 **Chart spreadsheet** (or chart worksheet) in presentation is the data source of the chart. Chart spreadsheet contains data, which are represented on the chart in a graphic way. When you create a chart in PowerPoint, the worksheet associated with this chart is automatically created too. Chart worksheet is created for all types of charts: line chart, bar chart, sunburst chart, pie chart, etc. To see chart spreadsheet in PowerPoint you should double-click on the chart:

@@ -18,6 +18,14 @@ keywords:
 description: "Render presentations with fallback fonts in Aspose.Slides for .NET – keep text consistent across PPT, PPTX and ODP with step-by-step C# code samples."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to render presentations using fallback font rules. This article shows how to create a fallback font rules collection, modify its rules by removing or adding fallback fonts, and assign the collection to the `FontsManager.FontFallBackRulesCollection` property.
+
+Once the fallback font rules collection is assigned to the presentation's `FontsManager`, the rules are applied during operations such as saving, rendering, and converting the presentation. The example demonstrates how to use the configured rules when rendering a slide thumbnail and saving it as a PNG image.
+
+## **Render a Slide Using Fallback Font Rules**
+
 The following example includes these steps:
 
 1. We [create fallback font rules collection](/slides/net/create-fallback-fonts-collection/).

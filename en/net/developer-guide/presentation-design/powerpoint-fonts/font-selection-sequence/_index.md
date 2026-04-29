@@ -20,6 +20,14 @@ keywords:
 description: "Discover how Aspose.Slides for .NET selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
 ---
 
+## **Overview**
+
+When a presentation is loaded, rendered, or converted to another format, Aspose.Slides checks whether the fonts used in the presentation are available in the operating system. If a required font is missing, Aspose.Slides selects a replacement font that is as close as possible to the one PowerPoint would use.
+
+Aspose.Slides first searches for the selected font in the operating system. If the font is found, it is used. If it is not found, a suitable replacement is applied. When font substitution rules are defined through `FontSubstRule`, those rules are also taken into account.
+
+You can also add fonts at application runtime, use embedded fonts from a presentation, or load external fonts for output documents such as PDF files.
+
 ## **Font Selection**
 
 Certain rules apply to fonts in a presentation when the presentation is loaded, rendered, or converted to another format. For example, when you try to convert a presentation (its slides) to images, the presentation's fonts are checked to verify that the chosen fonts are available in the operating system. If the fonts are confirmed to be missing, they are replaced — see [**Font Replacement**](https://docs.aspose.com/slides/net/font-replacement/) and [**Font Substitution**](https://docs.aspose.com/slides/net/font-substitution/).

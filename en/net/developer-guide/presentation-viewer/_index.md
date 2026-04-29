@@ -20,7 +20,7 @@ keywords:
 description: "Create a custom presentation viewer in .NET using Aspose.Slides. Easily display PowerPoint and OpenDocument files without Microsoft PowerPoint."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for .NET is used to create presentation files with slides. These slides can be viewed by opening the presentations in Microsoft PowerPoint, for example. However, developers may sometimes need to view slides as images in their preferred image viewer or use them in a custom presentation viewer. In such cases, Aspose.Slides allows you to export individual slides as images. This article explains how to do that.
 

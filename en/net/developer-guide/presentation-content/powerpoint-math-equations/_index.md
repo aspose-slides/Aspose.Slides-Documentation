@@ -21,7 +21,7 @@ keywords:
 description: "Insert and edit math equations in PowerPoint PPT and PPTX with Aspose.Slides for .NET, supporting OMML, formatting controls, and clear C# code samples."
 ---
 
-## **Overview**
+## **Introduction**
 
 In PowerPoint, you can write a math equation or formula and display it in your presentation. Various mathematical symbols are available and can be added to text or equations. The math equations constructor is used to create complex formulas like:
 

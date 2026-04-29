@@ -21,6 +21,8 @@ keywords:
 description: "Aspose.Slides for .NET makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
+## **Introduction**
+
 Texts on slides typically exist in text boxes or shapes. Therefore, to add text to a slide, you have to add a textbox first and then put some text inside the textbox. 
 
 To allow you add a shape that can hold text, Aspose.Slides for .NET provides the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) interface. 

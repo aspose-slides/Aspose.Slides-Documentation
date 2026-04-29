@@ -30,6 +30,8 @@ keywords:
 description: "Master paragraph formatting with Aspose.Slides for .NET—optimize alignment, spacing & style in PPT, PPTX, and ODP presentations in C#."
 ---
 
+## **Introduction**
+
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in C#.
 
 * Aspose.Slides provides the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).

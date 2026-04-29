@@ -30,14 +30,13 @@ keywords:
 descriptions: "Learn how to quickly resize slides in PPT, PPTX and ODP files with .NET and Aspose.Slides, optimize presentations for any screen without losing quality."
 ---
 
-## **Customize Slide Sizes and Aspect Ratios in a Presentation**
+## **Introduction**
 
 Aspose.Slides for .NET provides comprehensive tools to adjust the slide size and aspect ratio in PowerPoint presentations, critical for both printing and on-screen display. 
 
-### **Popular Slide Sizes and Ratios**
+Popular Slide Sizes and Ratios:
 
 - **Standard (4:3 Aspect Ratio)**: Ideal for older screens and devices.
-  
 - **Widescreen (16:9 Aspect Ratio)**: Recommended for modern projectors and displays.
 
 Ensure consistency throughout your presentation as a single slide size and aspect ratio apply to all slides. For optimal results, set your slide dimensions at the beginning of your presentation creation process to avoid complications.

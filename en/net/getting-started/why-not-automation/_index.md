@@ -20,6 +20,12 @@ keywords:
 description: "Discover why Office automation is risky for servers and services, and see how Aspose.Slides offers safer, faster presentation processing for PowerPoint and OpenDocument."
 ---
 
+## **Overview**
+
+Aspose.Slides does not require Microsoft Office to be installed in order to run. The product is presented as an alternative to Microsoft Office Automation, especially for software solutions where server-side document processing is required.
+
+This article explains why Aspose components are considered a better choice than Microsoft Office Automation. It focuses on several key areas: security, stability, scalability and speed, price, and features.
+
 ## **Important Questions**
 - Why are Aspose components a much better option than Microsoft Office Automation?
 

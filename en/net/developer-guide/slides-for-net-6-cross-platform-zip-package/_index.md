@@ -24,6 +24,12 @@ keywords:
 description: "Use Aspose.Slides for .NET 6 to build cross-platform C# apps on Windows, Linux, and macOS that create, edit, and convert PowerPoint PPT, PPTX and ODP files."
 ---
 
+## **Overview**
+
+This article explains how to use Aspose.Slides for .NET 6 Cross-Platform from a ZIP package. It describes how to download the package, unpack the files from the `net6.0/crossplatform` folder, add a reference to `Aspose.Slides.dll`, and configure the project file so that the required dependent libraries are copied to the application output directory.
+
+The article also describes the contents of the cross-platform package, including the main Aspose.Slides .NET assembly and platform-specific graphics subsystem libraries for Windows, Linux, and macOS.
+
 {{% alert title="Note" color="primary" %}}
 
 Aspose.Slides for .NET 6 Cross-Platform is also available from [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform).

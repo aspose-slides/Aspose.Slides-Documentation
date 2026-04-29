@@ -19,6 +19,8 @@ keywords:
 description: "Manage PowerPoint ink objects—create, edit & style digital ink with Aspose.Slides for .NET. Get code samples for traces, brush color & size."
 ---
 
+## **Introduction**
+
 PowerPoint provides the ink function to allow you to draw non-standard figures, which can be used to highlight other objects, show connections and processes, and draw attention to specific items on a slide. 
 
 Aspose.Slides provides the [Aspose.Slides.Ink](https://reference.aspose.com/slides/net/aspose.slides.ink/) interface, which contains the types you need to create and manage ink objects. 

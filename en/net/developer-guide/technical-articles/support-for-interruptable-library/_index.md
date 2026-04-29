@@ -18,6 +18,12 @@ keywords:
 description: "Make long-running tasks cancelable with Aspose.Slides for .NET. Interrupt rendering and conversions for PowerPoint and OpenDocument safely, with examples."
 ---
 
+## **Overview**
+
+Aspose.Slides for .NET provides an interruptible processing mechanism for long-running presentation tasks, such as deserialization, serialization, and rendering. This mechanism is based on the `InterruptionToken` and `InterruptionTokenSource` classes.
+
+An `InterruptionToken` can be assigned to `LoadOptions` and passed to the `Presentation` constructor. When `InterruptionTokenSource.Interrupt()` is called, the associated long-running task is interrupted. The article also shows how to use this mechanism together with the standard .NET `CancellationToken` by monitoring cancellation requests and calling `Interrupt()` when cancellation is requested.
+
 ## **Interruptable Library**
 
 In [Aspose.Slides 18.4](https://releases.aspose.com/slides/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/), we introduced the [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) classes. They allow you to interrupt long-running tasks such as deserialization, serialization, and rendering.

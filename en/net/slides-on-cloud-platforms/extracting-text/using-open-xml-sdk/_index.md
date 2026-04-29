@@ -18,6 +18,12 @@ keywords:
 description: "Learn how to extract text from PPT, PPTX and ODP in .NET using Open XML SDK, with XML-based access, performance tips, and conversion workarounds for cloud apps."
 ---
 
+## **Overview**
+
+This article explains how to extract text from presentation files using the Open XML SDK in .NET. It focuses on direct XML access for PPTX files, where text can be retrieved from structured slide elements without rendering slides or requiring Microsoft PowerPoint. The article also describes performance benefits such as faster processing and lower memory usage.
+
+For PPT and ODP files, the article explains that text cannot be extracted directly with the Open XML SDK. Instead, these formats must first be converted to PPTX, after which the text can be extracted from the resulting file.
+
 ## **Open XML SDK**
 
 The **Open XML SDK** provides a highly structured and efficient method for extracting text from presentation files—especially **PPTX**, which adheres to the Open XML standard. By offering direct access to the underlying XML, this SDK enables faster and more flexible handling of slide content compared to traditional methods.

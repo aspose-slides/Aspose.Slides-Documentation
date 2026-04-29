@@ -17,6 +17,12 @@ keywords:
 description: "Learn how to export presentation charts with Aspose.Slides for .NET, supporting PPT and PPTX formats, and streamline reporting into any workflow."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to export a chart from a presentation as an image. This article shows how to get an image from a chart and save it, which is useful when you need to reuse chart visuals outside a PowerPoint presentation.
+
+In addition to the basic image export workflow, the article also addresses common export-related questions, including saving chart content to SVG, controlling output size through rendering options, loading fonts to preserve label and legend appearance, and keeping the original presentation formatting such as themes, styles, fills, and effects during rendering.
+
 ## **Get a Chart Image**
 Aspose.Slides for .NET provides support for extracting image of specific chart. Below sample example is given. 
 

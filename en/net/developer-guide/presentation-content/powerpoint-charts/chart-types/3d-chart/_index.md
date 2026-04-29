@@ -15,6 +15,10 @@ keywords:
 description: "Learn how to create and customize 3-D charts in Aspose.Slides for .NET, with support for PPT and PPTX files—boost your presentations today."
 ---
 
+## **Overview**
+
+This article explains how to customize a 3D chart in Aspose.Slides by configuring `Rotation3D` settings such as `RotationX`, `RotationY`, `DepthPercents`, and `RightAngleAxes`. It walks through creating a presentation, adding a 3D chart with default data, applying the required 3D view settings, and saving the modified presentation as a PPTX file.
+
 ## **Set RotationX, RotationY and DepthPercents Properties of a 3D Chart**
 Aspose.Slides for .NET provides a simple API for setting these properties. This following article will help you how set different properties like X,Y Rotation , **DepthPercents** etc. The sample code applies setting the above said properties.
 

@@ -22,6 +22,10 @@ keywords:
 description: "Get free, fast Aspose.Slides for .NET product support: forums, docs, updates, code help to fix issues across PowerPoint and OpenDocument workflows."
 ---
 
+## **Overview**
+
+This article explains how to get support for Aspose.Slides and how to report issues effectively. It describes the main support channel, provides recommendations for submitting a problem, and points to useful technical resources such as the product page, blog, downloads, support forum, documentation, and API Reference. The article also answers common questions about paid support, issue escalation, and support for older library versions.
+
 ## **Technical support**
 {{% alert color="primary" %}}
 

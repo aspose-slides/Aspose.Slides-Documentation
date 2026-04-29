@@ -19,15 +19,13 @@ keywords:
 description: "Learn how Aspose.Slides for .NET metered licensing lets you process PowerPoint and OpenDocument files flexibly, paying only for what you use."
 ---
 
-## **Apply Metered Keys**
-
-{{% alert color="primary" %}} 
+## **Introduction**
 
 Metered licensing is a new licensing mechanism that can be used alongside existing licensing methods. If you want to be billed based on your usage of Aspose.Slides API features, you choose metered licensing.
 
-When you purchase a metered license, you get keys (and not a license file). This metered key can be applied using the [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) class Aspose provided for metering operations. For more details, see [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
+## **Apply Metered Keys**
 
-{{% /alert %}} 
+When you purchase a metered license, you get keys (and not a license file). This metered key can be applied using the [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) class Aspose provided for metering operations. For more details, see [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 1. Create an instance of the [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) class.
 1. Pass your public and private keys to the [SetMeteredKey](https://reference.aspose.com/slides/net/aspose.slides/metered/setmeteredkey/) method.

@@ -30,7 +30,7 @@ keywords:
 description: "Explore the capabilities of Aspose.Slides for .NET in handling PowerPoint animations. This general overview highlights key features and offers insights to enhance your presentations."
 ---
 
-## **Overview**
+## **Introduction**
 
 Since presentations are meant to present something, their visual appearance and interactive behavior are always taken into account during creation.
 

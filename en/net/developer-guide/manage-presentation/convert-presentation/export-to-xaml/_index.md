@@ -29,6 +29,10 @@ keywords:
 description: "Convert PowerPoint and OpenDocument slides to XAML in .NET using Aspose.Slides—quick, Office-free solution that keeps your layout intact."
 ---
 
+## **Overview**
+
+This article explains how to export PowerPoint presentations to XAML using Aspose.Slides. It includes a brief introduction to XAML, shows how to save a presentation to XAML with default settings, and demonstrates how to customize the export through [XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/), including exporting hidden slides. The article also answers a few common questions related to fallback fonts, XAML stack compatibility, and hidden slide export behavior.
+
 ## **Export Presentations to XAML**
 
 {{% alert title="Info" color="info" %}} 

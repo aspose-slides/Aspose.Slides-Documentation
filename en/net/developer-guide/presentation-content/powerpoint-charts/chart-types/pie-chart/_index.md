@@ -19,6 +19,12 @@ keywords:
 description: "Learn how to create and customize pie charts in .NET with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
+## **Overview**
+
+This article explains how to work with pie charts in Aspose.Slides. It shows how to configure secondary plot options for Pie of Pie and Bar of Pie charts, and how to enable automatic slice coloring for a standard pie chart.
+
+The examples focus on practical chart customization steps such as adding a chart to a slide, adjusting series and label settings, replacing default chart data with custom categories and values, and saving the updated presentation.
+
 ## **Second Plot Options for Pie of Pie and Bar of Pie Charts**
 Aspose.Slides for .NET now supports, second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will see with example how to Specify these options using Aspose.Slides. In order to specify the properties. Please follow the steps below:
 

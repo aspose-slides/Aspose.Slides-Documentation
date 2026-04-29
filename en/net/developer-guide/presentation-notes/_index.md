@@ -20,10 +20,13 @@ keywords:
 description: "Customize presentation notes with Aspose.Slides for .NET. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
+## **Overview**
+
 Aspose.Slides supports removing notes slides from a presentation. In this topic, we will introduce this new feature of removing Notes also adding notes style slides from any presentation. Aspose.Slides for .NET provides the feature of removing notes of any slide as well as add style to existing notes. Developers can remove notes in the following ways:
 
 - Remove Notes of a Specific Slide of a presentation.
 - Remove Notes of All Slides of a Presentation.
+
 ## **Remove Notes from a Slide**
 Notes of some specific slide could be removed as shown in the example below:
 

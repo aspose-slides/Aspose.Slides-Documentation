@@ -16,6 +16,10 @@ keywords:
 description: "Create and style callouts in Aspose.Slides for .NET with concise C# code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
+## **Overview**
+
+This article explains how to work with callouts for chart data labels in Aspose.Slides. It shows how to use the `ShowLabelAsDataCallout` property to display labels as callouts, how to configure callout-related label settings for a doughnut chart, and notes that callouts and their appearance are preserved when presentations are exported to PDF, HTML5, SVG, and raster image formats.
+
 ## **Using Callouts**
 New property **ShowLabelAsDataCallout** has been added to **DataLabelFormat** class and **IDataLabelFormat** interface, which determines either specified chart's data label will be displayed as data callout or as data label. In the example given below, we have set the Callouts.
 
