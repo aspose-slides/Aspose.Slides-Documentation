@@ -21,6 +21,12 @@ keywords:
 description: "Enable optimal font substitution in Aspose.Slides for .NET when converting PowerPoint & OpenDocument presentations to other file formats."
 ---
 
+## **Overview**
+
+Font substitution allows Aspose.Slides to use another font when the original presentation font is not available during rendering or conversion. You can check which fonts were substituted by using the `GetSubstitutions` method from the `IFontsManager` interface.
+
+Aspose.Slides also allows you to define font substitution rules. For example, you can specify that an inaccessible font should be replaced with another available font and then apply those rules through the presentation’s font manager.
+
 ## **Get Font Substitutions**
 
 To allow you find out the presentation fonts that are substituted during a presentation rendering process, Aspose.Slides provides the [GetSubstitution](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) method from the [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) interface.

@@ -24,10 +24,13 @@ keywords:
 description: "Aspose.Slides for .NET lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
-## **Product Description**
-Aspose.Slides for .NET is a Microsoft PowerPoint® management API that enables .NET applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. 
+## **Overview**
 
-### **Why You Should Use Aspose.Slides for .NET**
+Aspose.Slides is a Microsoft PowerPoint® management API that allows applications to read, write, create, and modify PowerPoint presentations without using Microsoft PowerPoint®. The library supports working with presentations, slides, shapes, tables, text, animations, audio, video, and other presentation elements.
+
+With Aspose.Slides, developers can open presentations from different sources, save them in various PowerPoint formats, export presentations to formats such as PDF, TIFF, XPS, SWF, HTML, and SVG, and save slides as images. The API also provides features for managing document properties, applying protection, previewing slides, editing slide content, working with slide notes, and handling advanced presentation elements such as embedded OLE objects.
+
+## **Why You Should Use Aspose.Slides for .NET**
 
 - Aspose.Slides for .NET is the first and only component that provides the functionalities required to manage PowerPoint® documents. 
 - Aspose.Slides for .NET offers a lot of key features such as managing texts, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and other formats, and many more capabilities. 

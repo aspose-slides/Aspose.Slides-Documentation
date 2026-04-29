@@ -35,7 +35,7 @@ keywords:
 description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Secure your presentations."
 ---
 
-## **Overview**
+## **Introduction**
 
 When you password-protect a presentation, it means that you are setting a password which enforces certain restrictions on the presentation. To remove these restrictions, the password must be entered. A password-protected presentation is considered a locked presentation.
 

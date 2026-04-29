@@ -30,7 +30,7 @@ keywords:
 description: "Manage text and image watermarks in PowerPoint and OpenDocument presentations in .NET to indicate a draft, confidential information, copyright, and more."
 ---
 
-## **Overview**
+## **Introduction**
 
 **A watermark** in a presentation is a text or image stamp used on a slide or throughout all presentation slides. Usually, a watermark is used to indicate that the presentation is a draft (e.g., a "Draft" watermark), that it contains confidential information (e.g., a "Confidential" watermark), to specify which company it belongs to (e.g., a "Company Name" watermark), to identify the presentation author, etc. A watermark helps to prevent copyright violations by indicating that the presentation should not be copied. Watermarks are used in both PowerPoint and OpenDocument presentation formats. In Aspose.Slides, you can add a watermark to PowerPoint PPT, PPTX, and OpenDocument ODP file formats.
 

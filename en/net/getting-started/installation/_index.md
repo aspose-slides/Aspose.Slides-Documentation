@@ -20,6 +20,10 @@ keywords:
 description: "Learn how to quickly install Aspose.Slides for .NET. Step-by-step guide, system requirements, and code samples — start working with PowerPoint presentations today!"
 ---
 
+## **Overview**
+
+This article explains how to install Aspose.Slides for .NET on Windows and macOS. It focuses on NuGet-based installation and shows how to add the library to a Visual Studio project either through the NuGet Package Manager or the Package Manager Console on Windows. It also describes how to update the package and install prerelease builds when needed.
+
 ## **Windows**
 NuGet provides the easiest path to downloading and installing Aspose APIs for .NET on PCs. 
 

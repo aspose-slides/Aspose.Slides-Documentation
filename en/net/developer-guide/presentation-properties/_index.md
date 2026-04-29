@@ -26,7 +26,7 @@ keywords:
 description: "Master presentation properties in Aspose.Slides for .NET and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for .NET supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides for .NET API.
 

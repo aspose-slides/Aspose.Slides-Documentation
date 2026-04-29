@@ -25,7 +25,8 @@ keywords:
 description: "Manage Slide Masters in Aspose.Slides for .NET: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise C# examples."
 ---
 
-## **What is a Slide Master in PowerPoint**
+## **Introduction**
+
 A **Slide Master** in PowerPoint is a feature that controls the layout, fonts, and styles across multiple slides. It helps maintain consistency and branding in presentations. If you want to create a presentation (or series of presentations) with the same style and template for your company, you can use a slide master. 
 
 A Slide Master is useful because it allows you to set and change the look of all presentation slides at once. Aspose.Slides supports the Slide Master mechanism from PowerPoint. 
