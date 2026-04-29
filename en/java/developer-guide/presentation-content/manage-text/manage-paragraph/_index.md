@@ -685,6 +685,35 @@ try {
 }
 ```
 
+## **Remove or Replace Email and Phone Numbers Before PDF Export**
+
+To exclude or replace email addresses and phone numbers in the generated PDF, iterate through all slides, shapes, paragraphs and portions, modify the portion text using string replacement, then save the presentation as PDF.
+
+```java
+Presentation pres = new Presentation("input.pptx");
+for (ISlide slide : pres.getSlides()) {
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            ITextFrame tf = ((IAutoShape) shape).getTextFrame();
+            for (IParagraph para : tf.getParagraphs()) {
+                for (IPortion portion : para.getPortions()) {
+                    String txt = portion.getText();
+                    // remove email addresses
+                    txt = txt.replaceAll("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}", "");
+                    // replace phone numbers with placeholder
+                    txt = txt.replaceAll("\\b\\d{3}[-.]?\\d{3}[-.]?\\d{4}\\b", "ABC");
+                    portion.setText(txt);
+                }
+            }
+        }
+    }
+}
+// Save as PDF after modifications
+pres.save("output.pdf", SaveFormat.Pdf);
+```
+
+Adjust the regular expressions to match the specific email or phone patterns you need to remove or replace.
+
 ## **Save a Paragraph as an Image**
 
 In this section, we will explore two examples that demonstrate how to save a text paragraph, represented by the [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) interface, as an image. Both examples include obtaining the image of a shape containing the paragraph using the `getImage` methods from the [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) interface, calculating the bounds of the paragraph within the shape, and exporting it as a bitmap image. These approaches allow you to extract specific parts of the text from PowerPoint presentations and save them as separate images, which can be useful for further use in various scenarios.
