@@ -30,17 +30,17 @@ keywords:
 description: "Convert PowerPoint slides—PPT, PPTX—to clean Markdown with Aspose.Slides for Java, automate documentation and keep formatting."
 ---
 
-{{% alert color="info" %}} 
+## **Introduction**
 
-Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 23.7](https://docs.aspose.com/slides/java/aspose-slides-for-java-23-7-release-notes/).
+Aspose.Slides allows you to convert PowerPoint presentations to Markdown, which can be useful for documentation workflows, static site generation, content migration, and version-controlled text publishing. The API supports direct export from PPT and PPTX presentations to MD files and provides additional options to control how slide content is represented in the resulting Markdown document.
 
-{{% /alert %}} 
+You can export presentations as plain Markdown, choose from multiple Markdown flavors such as CommonMark and GitHub Flavored Markdown, and configure how images are handled during export. For presentations that contain visual content, Aspose.Slides also lets you save images to a separate folder and reference them from the generated Markdown file.
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" %}}
 
-PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set  `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.
+PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to use `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also use the `setBasePath` where the images referenced in the markdown document will be saved.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 ## **Convert PowerPoint to Markdown**
 

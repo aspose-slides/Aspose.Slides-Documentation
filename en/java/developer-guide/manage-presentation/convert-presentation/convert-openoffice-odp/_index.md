@@ -26,6 +26,8 @@ keywords:
 description: "Aspose.Slides for Java lets you convert ODP to PDF, HTML, and image formats with ease. Boost your Java apps with fast and accurate presentation conversion."
 ---
 
+## **Introduction**
+
 [**Aspose.Slides API**](https://products.aspose.com/slides/java/) allows you to convert OpenDocument (ODP) presentations to many formats (HTML, PDF, TIFF, SWF, XPS, etc.). The API used to convert ODP files to other document formats is the same as the one used for PowerPoint (PPT and PPTX) conversion operations.
 
 For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
@@ -42,6 +44,27 @@ try {
     }
 }
 ```
+
+## **OpenDocument Presentation in Different Applications**
+
+When an OpenDocument presentation (ODP) file is opened in PowerPoint, it may not retain the original formatting from the application in which it was created. This happens because the OpenDocument presentation app and the PowerPoint app offer different features and rendering behaviors.
+
+Here are some of the differences:
+
+- In PowerPoint, tables are typically rendered last and may overlay other shapes, regardless of their order on the ODP slide.
+- Picture fill for ODP tables is not supported in PowerPoint.
+- Text vertical rotation (270°, stacked) and distributed alignment are not supported in LibreOffice/OpenOffice Impress.
+- Picture fill, gradient fill, and pattern fill for text are not supported in LibreOffice/OpenOffice Impress.
+
+MS PowerPoint and LibreOffice/OpenOffice Impress also handle lists differently. An ODP file created in PowerPoint may not display correctly in LibreOffice/OpenOffice Impress, and vice versa.
+
+The image below shows how a list appears when created in LibreOffice Impress:
+
+![ODP list example](odp-list-example.png)
+
+Aspose.Slides saves ODP lists in a way that ensures they are displayed correctly in LibreOffice/OpenOffice Impress.
+
+[Learn more about the OpenDocument format and PowerPoint](https://support.microsoft.com/en-us/office/use-powerpoint-to-save-or-open-a-presentation-in-the-opendocument-presentation-odp-format-94805e84-1b09-4c98-a8b5-0da2a52242a0).
 
 ## **FAQ**
 
