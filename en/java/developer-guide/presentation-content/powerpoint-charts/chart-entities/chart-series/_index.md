@@ -345,6 +345,27 @@ try {
 }
 ```
 
+## **Clear Chart Data Workbook for Empty Waterfall Charts**
+
+When all series and categories are removed from a Waterfall chart, saving the presentation throws an exception because the underlying chart data is missing. To keep the chart usable, clear the chart data workbook instead of removing series and categories.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Waterfall, 80, 80, 800, 420);
+
+    // Clear the chart data workbook (index 0) instead of clearing series/categories
+    chart.getChartData().getChartDataWorkbook().clear(0);
+    chart.setLegend(false);
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **FAQ**
 
 **Is there a limit to how many series a single chart can contain?**
