@@ -23,6 +23,12 @@ keywords:
 description: "Manage BLOB data in Aspose.Slides for Java to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
+## **Overview**
+
+Aspose.Slides provides BLOB-based handling for large binary data in presentations to help reduce memory consumption when working with large images, audio, video, and presentation files.
+
+This article shows how to use BLOB-based processing to add large media to a presentation, export large media from a presentation, and load large presentations more efficiently. It also explains how temporary files can be used during processing and how to change the folder used to store them.
+
 ## **About BLOB**
 
 **BLOB** (**Binary Large Object**) is usually a large item (photo, presentation, document, or media) saved in binary formats. 

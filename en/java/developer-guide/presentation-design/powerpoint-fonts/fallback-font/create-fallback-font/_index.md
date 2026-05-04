@@ -20,6 +20,14 @@ keywords:
 description: "Master Aspose.Slides for Java to set fallback fonts in PPT, PPTX and ODP files, safeguarding consistent text display on any device or OS."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to specify fallback fonts for presentation rendering and export operations. Fallback fonts are used when the primary font does not contain glyphs for particular characters.
+
+Fallback behavior is configured through fallback rules. Each rule associates a Unicode range with one or more fonts that may contain the required glyphs. You can define rules for different character ranges, add or remove fallback fonts from existing rules, and organize multiple rules in a fallback font rules collection.
+
+Fallback rules are runtime rendering settings. They do not modify the presentation file itself and are not stored inside the PPTX file.
+
 ## **Fallback Rules**
 
 Aspose.Slides supports [IFontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRule) interface and [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:

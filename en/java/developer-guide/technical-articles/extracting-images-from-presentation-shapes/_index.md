@@ -17,15 +17,13 @@ keywords:
 description: "Extract images from shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for Java — quick, code-friendly solution."
 ---
 
-## **Extract Images from Shapes**
-
-{{% alert color="primary" %}} 
+## **Overview**
 
 Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [IImageCollection](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/), which is a collection of [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) objects. 
 
 This article explains how you can extract the images added to presentations. 
 
-{{% /alert %}} 
+## **Extract Images from Shapes**
 
 To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. 
 

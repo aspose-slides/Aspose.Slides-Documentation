@@ -34,45 +34,27 @@ keywords:
 description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for Java. Secure your presentations."
 ---
 
-## **About Password Protection**
-### **How Does Password Protection for a Presentation Work?**
-When you password protect a presentation, it means you are setting a password that enforces certain restrictions on the presentation. To remove the restrictions, the password has to be entered. A password-protected presentation is considered a locked presentation.
+## **Introduction**
+
+When you password-protect a presentation, it means that you are setting a password which enforces certain restrictions on the presentation. To remove these restrictions, the password must be entered. A password-protected presentation is considered a locked presentation.
 
 Typically, you can set a password to enforce these restrictions on a presentation:
 
 - **Modification**
 
-  If you want only certain users to modify your presentation, you can set a modification restriction. The restriction here prevents people from modifying, changing, or copying things in your presentation (unless they provide the password). 
+If you want only certain users to modify your presentation, you can set a modification restriction. This restriction prevents people from modifying, changing, or copying elements in your presentation unless they provide the password. 
 
-  However, in this case, even without the password, a user will be able to access your document and open it. In this read-only mode, the user can view the contents or things—hyperlinks, animations, effects, and others—inside your presentation, but they cannot copy items or save the presentation. 
+However, even without the password, a user will still be able to access and open your document. In this read-only mode, the user can view the content—including hyperlinks, animations, effects, and other elements—inside your presentation, but they cannot copy items or save the presentation.
 
 - **Opening**
 
-  If you want only certain users to open your presentation, you can set an opening restriction. The restriction here prevents people from even viewing the contents of your presentation (unless they provide the password).
+If you want only certain users to open your presentation, you can set an opening restriction. This restriction prevents people from even viewing the contents of your presentation unless they provide the password.
 
-  Technically, the opening restriction also prevents users from modifying your presentations: When people cannot open a presentation, they cannot make modify or make changes to it. 
-  
-  **Note** that when you password protect a presentation to prevent opening, the presentation file becomes encrypted.
+Technically, the opening restriction also prevents users from modifying your presentations—if people cannot open a presentation, they cannot modify or make changes to it.
 
-## **How to Password Protect a Presentation Online**
+**Note:** When you password protect a presentation to prevent opening, the presentation file becomes encrypted.
 
-1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Click **Drop or upload your files**.
-
-3. Select the file you want to password protect on your computer. 
-
-4. Input your preferred password for edit protection; Input your preferred password for view protection. 
-
-5. If you want users to see your presentation as the final copy, tick the **Mark as final** checkbox.
-
-6. Click **PROTECT NOW.** 
-
-7. Click **DOWNLOAD NOW.**
-
-## **Password Protection for Presentations in Aspose.Slides**
+## **Password Protection in Aspose.Slides**
 **Supported formats**
 
 Aspose.Slides supports password protection, encryption, and similar operations for presentations in these formats: 
@@ -99,7 +81,7 @@ Aspose.Slides allows you to perform other tasks involving password protection an
 - Checking whether a presentation is encrypted
 - Checking whether a presentation is password protected.
 
-## **Encrypt a Presentation**
+## **Protect a Presentation with a Password**
 
 You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
 

@@ -20,6 +20,12 @@ keywords:
 description: "Enable optimal font substitution in Aspose.Slides for Java when converting PowerPoint & OpenDocument presentations to other file formats."
 ---
 
+## **Overview**
+
+Font substitution allows Aspose.Slides to use another font when the original presentation font is not available during rendering or conversion. You can check which fonts were substituted by using the `GetSubstitutions` method from the `IFontsManager` interface.
+
+Aspose.Slides also allows you to define font substitution rules. For example, you can specify that an inaccessible font should be replaced with another available font and then apply those rules through the presentation’s font manager.
+
 ## **Set Font Substitution Rules**
 
 Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:

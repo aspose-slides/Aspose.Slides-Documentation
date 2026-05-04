@@ -20,6 +20,7 @@ keywords:
 description: "Aspose.Slides for Java makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
+## **Introduction**
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Java provides the [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) interface that allows you to add a shape containing some text.
 

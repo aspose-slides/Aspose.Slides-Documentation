@@ -26,6 +26,12 @@ keywords:
 description: "Learn to create, edit and optimize shapes in Aspose.Slides for Java and deliver high-performance PowerPoint presentations."
 ---
 
+## **Overview**
+
+This article explains how to work with shapes in presentations using Aspose.Slides. It shows how to find a shape on a slide, clone it, remove it, hide it, change its order, get its Interop shape ID, and set alternative text for identification and further processing.
+
+It also covers how to access layout formats for shapes, render a shape as SVG, align shapes on a slide, and use flip properties for horizontal and vertical mirroring. In addition, the article includes a short FAQ about shape combination, stacking order, and shape locking.
+
 ## **Find a Shape on a Slide**
 This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
 

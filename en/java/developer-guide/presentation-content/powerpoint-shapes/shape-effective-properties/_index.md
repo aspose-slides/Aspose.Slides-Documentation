@@ -20,6 +20,8 @@ keywords:
 description: "Discover how Aspose.Slides for Java calculates and applies effective shape properties for precise PowerPoint rendering."
 ---
 
+## **Overview**
+
 In this topic, we will discuss **effective** and **local** properties. When we set values directly at these levels
 
 1. In portion properties on the portion's slide;

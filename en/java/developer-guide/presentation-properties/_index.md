@@ -25,14 +25,15 @@ keywords:
 description: "Master presentation properties in Aspose.Slides for Java and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
+## **Introduction**
+
+Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
+
+To handle document properties, Aspose.Slides provides the [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) interface, accessible through the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getDocumentProperties--) method. Developers can leverage the `Presentation` object's [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) interface to seamlessly read, modify, and manage presentation properties, as shown in the examples below.
+
 {{% alert color="primary" %}} 
 
-Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
-
-- System Defined (Built-in) Properties
-- User-Defined (Custom) Properties
-
-**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Java, developers can access and modify the values of built-in properties as well as custom properties.
+Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for Java x.x.x".
 
 {{% /alert %}} 
 
