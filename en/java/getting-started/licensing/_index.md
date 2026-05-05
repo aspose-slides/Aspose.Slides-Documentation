@@ -19,6 +19,12 @@ keywords:
 description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for Java. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
+## **Overview**
+
+Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark when presentations are opened or saved and limits text extraction to one slide.
+
+This article explains how licensing works in Aspose.Slides and how to apply a license before using the library. A license can be loaded from a file, stream, or embedded resource by using the `License` class. The article also shows how to validate whether a license has been applied correctly.
+
 ## **Evaluate Aspose.Slides**
 
 {{% alert color="primary" %}} 

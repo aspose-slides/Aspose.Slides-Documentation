@@ -17,6 +17,12 @@ keywords:
 description: "Make long-running tasks cancelable with Aspose.Slides for Java. Interrupt rendering and conversions for PowerPoint and OpenDocument safely, with examples."
 ---
 
+## **Overview**
+
+Aspose.Slides provides an interruptible processing mechanism for long-running presentation tasks, such as deserialization, serialization, and rendering. This mechanism is based on the `InterruptionToken` and `InterruptionTokenSource` classes.
+
+An `InterruptionToken` can be assigned to `LoadOptions` and passed to the `Presentation` constructor. When `InterruptionTokenSource.interrupt()` is called, the associated long-running task is interrupted.
+
 ## **Interruptable Library**
 
 In [Aspose.Slides 18.4](https://releases.aspose.com/slides/java/release-notes/2018/aspose-slides-for-java-18-4-release-notes/), we introduced the [InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/) classes. They allow you to interrupt long-running tasks such as deserialization, serialization, and rendering.

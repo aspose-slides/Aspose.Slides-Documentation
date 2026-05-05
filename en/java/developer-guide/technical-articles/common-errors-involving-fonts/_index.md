@@ -2,10 +2,16 @@
 title: Common Exceptions and Errors Involving Fonts on Linux
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /java/common-errors-involving-fonts/
 keywords: "Font exception, Font error, Linux, Java, Aspose.Slides for Java"
 description: "Font exceptions and errors on Linux"
 ---
+
+## **Overview**
+
+When Aspose.Slides is used on Linux, font-related issues may occur if the Java process cannot access the required font folders or temporary directory, if no fonts are installed on the system, or if required system libraries such as fontconfig or libfreetype are missing.
+
+This article describes common errors and exceptions related to fonts on Linux and provides solutions for resolving them. It explains how to check access to font and TEMP directories, install the required fonts and libraries, and use `FontsLoader` to load fonts without installing them system-wide.
 
 ## **Missing Text or Images (EMF or WMF) When Code Is Executed on Linux**
 

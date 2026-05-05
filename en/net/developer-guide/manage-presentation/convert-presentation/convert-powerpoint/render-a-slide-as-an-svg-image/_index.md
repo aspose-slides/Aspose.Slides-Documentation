@@ -28,36 +28,9 @@ description: "Learn how to render PowerPoint slides as SVG images using Aspose.S
 
 ## **Overview**
 
-This article explains how to **convert PowerPoint Presentation to SVG format using C#**. It covers the following topics.
+This article explains how to render presentation slides as SVG images using Aspose.Slides. It describes the SVG format and its advantages, including scalability, accessibility, and suitability for web development.
 
-_Format_: **PowerPoint**
-- [C# PowerPoint to SVG](#csharp-powerpoint-to-svg)
-- [C# Convert PowerPoint to SVG](#csharp-powerpoint-to-svg)
-- [C# How to convert PowerPoint file to SVG](#csharp-powerpoint-to-svg)
-
-_Format_: **PPT**
-- [C# PPT to SVG](#csharp-ppt-to-svg)
-- [C# Convert PPT to SVG](#csharp-ppt-to-svg)
-- [C# How to convert PPT file to SVG](#csharp-ppt-to-svg)
-
-_Format_: **PPTX**
-- [C# PPTX to SVG](#csharp-pptx-to-svg)
-- [C# Convert PPTX to SVG](#csharp-pptx-to-svg)
-- [C# How to convert PPTX file to SVG](#csharp-pptx-to-svg)
-
-_Format_: **ODP**
-- [C# ODP to SVG](#csharp-odp-to-svg)
-- [C# Convert ODP to SVG](#csharp-odp-to-svg)
-- [C# How to convert ODP file to SVG](#csharp-odp-to-svg)
-
-_Format_: **Slide**
-- [C# Convert PowerPoint Slide to SVG](#render-a-slide-as-an-svg-image)
-- [C# Convert PPT Slide to SVG](#render-a-slide-as-an-svg-image)
-- [C# Convert PPTX Slide to SVG](#render-a-slide-as-an-svg-image)
-- [C# Convert ODP Slide to SVG](#render-a-slide-as-an-svg-image)
-
-Other topics covered by this article.
-- [See Also](#see-also)
+You will learn how to load a presentation file, iterate through its slides, and save each slide as a separate SVG file. The article covers PowerPoint and OpenDocument presentation formats, including PPT, PPTX, ODP, and PPS, and shows how to perform the conversion programmatically with the `Presentation` class and the `WriteAsSvg` method.
 
 ## **SVG Format**
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 

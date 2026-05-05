@@ -19,25 +19,9 @@ keywords:
 description: "Discover why Office automation is risky for servers and services, and see how Aspose.Slides offers safer, faster presentation processing for PowerPoint and OpenDocument."
 ---
 
-{{% alert color="primary" %}} 
+## **Introduction**
 
-There are two questions that we hear most often here at Aspose: 
-
-
-First one is **Do your products require that Microsoft Office be installed in order for them to run?** 
-
-
-The short simple answer is **NO** . Aspose and Aspose components are totally independent and are not affiliated with, nor authorized, sponsored or otherwise approved by Microsoft Corporation. 
-
-
-Second question that typically follows next is **Why should we use Aspose products rather than utilizing Microsoft Office Automation?** 
-
-
-This question cannot be answered as easily. The shortest answer we could give is that there are many reasons with the top one being that **Microsoft itself strongly recommends against Office Automation from software solutions** 
-
-{{% /alert %}} 
-## **Overview**
-As stated above, there are several reasons why Aspose components are a better alternative to automation. Some of the key reasons are: 
+There are several reasons Aspose components are a better alternative to automation. Some of the key reasons are:
 
 - Security
 - Stability
@@ -45,10 +29,27 @@ As stated above, there are several reasons why Aspose components are a better al
 - Price
 - Features
 
-Below is a better elaboration on each of the key points. Also be sure to visit the **Additional Information** section which provides link to independent user evaluations. 
-## **Security**
-The following is a direct quote from a Microsoft Article: 
+Below is a more detailed explanation of each key point.
 
+## **Important Questions**
+
+There are two questions we often hear at Aspose:
+
+- Do your products require Microsoft Office to be installed in order to run?
+
+The short, simple answer is **NO**.
+
+Aspose components are completely independent and are not affiliated with, authorized by, sponsored by, or otherwise approved by Microsoft Corporation.
+
+- Why should we use Aspose products instead of Microsoft Office Automation?
+
+First, there are many [benefits you enjoy when you use Aspose.Slides](/slides/java/product-overview/).
+
+Second, Microsoft itself strongly **advises against** using Office Automation from software solutions.
+
+## **Security**
+
+The following is a direct quote from a Microsoft Article: 
 
 *"Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."* 
 

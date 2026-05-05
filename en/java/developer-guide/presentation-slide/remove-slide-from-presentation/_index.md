@@ -16,6 +16,8 @@ keywords:
 description: "Effortlessly remove slides from PowerPoint and OpenDocument presentations with Aspose.Slides for Java. Get clear code examples and boost your workflow."
 ---
 
+## **Introduction**
+
 If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) object, you can specify the slide you want to remove. 
 
 ## **Remove a Slide by Reference**

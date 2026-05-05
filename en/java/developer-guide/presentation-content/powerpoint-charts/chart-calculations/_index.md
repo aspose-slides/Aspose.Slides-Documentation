@@ -20,6 +20,12 @@ keywords:
 description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for Java for PPT and PPTX, with practical Java code examples."
 ---
 
+## **Overview**
+
+Aspose.Slides provides APIs for working with chart calculations and layout data in presentations. This article shows how to retrieve the actual values of chart elements, including the real position and size of elements that implement `IActualLayout` and the actual values of chart axes. It also explains that these values are populated after chart layout validation.
+
+In addition, the article demonstrates how to get the actual position of parent chart elements and how to hide chart components such as the title, axes, legend, and grid lines. Together, these examples help you inspect chart layout information and control the visibility of chart elements in PowerPoint presentations programmatically.
+
 ## **Calculate Actual Values of Chart Elements**
 Aspose.Slides for Java provides a simple API for getting these properties. Properties of [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) interface provide information about actual position of axis chart element ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). It is necessary to call method [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) previously to fill properties with actual values.
 

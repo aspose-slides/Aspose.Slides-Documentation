@@ -17,6 +17,10 @@ keywords:
 description: "Master superscript and subscript in Aspose.Slides for Java and elevate your presentations with professional text formatting for maximum impact."
 ---
 
+## **Overview**
+
+Aspose.Slides provides features for integrating superscript and subscript text into your PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations. Whether you need to highlight chemical formulas, mathematical equations, or annotate content with footnotes, these specialized formatting options help maintain clarity and precision. In this article, you'll learn how to seamlessly apply superscript and subscript styles and ensure professional results in every slide.
+
 ## **Manage Super Script and Sub Script Text**
 You can add superscript and subscript text inside any paragraph portion. For adding Superscript or Subscript text in Aspose.Slides text frame one must use the [**setEscapement**](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#setEscapement-float-) method of [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/PortionFormat) class.
 

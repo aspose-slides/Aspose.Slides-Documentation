@@ -25,8 +25,6 @@ This article explains how to generate slide thumbnails in different ways:
 - Generating a shape thumbnail inside a slide.
 - Generating a shape thumbnail for a slide shape with user defined dimensions.
 - Generating a shape thumbnail in the bounds of a shape's appearance.
-- Generating a thumbnail of SmartArt child node.
-
 
 ## **Generate a Shape Thumbnail from a Slide**
 To generate a shape thumbnail from any slide using Aspose.Slides for .NET:

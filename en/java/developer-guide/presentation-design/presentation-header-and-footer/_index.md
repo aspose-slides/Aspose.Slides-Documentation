@@ -21,13 +21,11 @@ keywords:
 description: "Use Aspose.Slides for Java to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-[Aspose.Slides](/slides/java/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
+Aspose.Slides allows you to manage header and footer settings in PowerPoint presentations. Headers and footers are handled at the presentation master level, and the API provides methods for setting footer text, changing footer visibility, and updating header text on master notes slides.
 
-{{% /alert %}} 
-
-[Aspose.Slides for Java](/slides/java/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
+You can also manage headers and footers for handout and notes slides. This includes changing the visibility and text of header, footer, slide number, and date-time placeholders for the notes master, all child notes slides, or an individual notes slide.
 
 ## **Manage Headers and Footers in a Presentation**
 Notes of some specific slide could be removed as shown in example below:

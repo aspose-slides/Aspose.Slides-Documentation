@@ -16,15 +16,11 @@ keywords:
 description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for Java – easily create and export presentation thumbnails."
 ---
 
-
-## **Overview**
-{{% alert color="primary" %}} 
+## **Introduction**
 
 Aspose.Slides for Java can be used to create presentation files in which each page corresponds to a slide. The slides can be viewed by opening the presentation files using Microsoft PowerPoint. However, developers sometimes need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for Java helps them generate thumbnail images of the slide shapes.
 
-{{% /alert %}} 
-
-In this topic, we will show how to generate slide thumbnails in different situations:
+This article explains how to generate slide thumbnails in different ways:
 
 - Generating a shape thumbnail inside a slide.
 - Generating a shape thumbnail for a slide shape with user-defined dimensions.

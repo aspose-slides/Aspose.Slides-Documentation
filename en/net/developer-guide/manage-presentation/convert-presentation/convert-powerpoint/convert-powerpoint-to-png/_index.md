@@ -27,30 +27,9 @@ description: "Convert PowerPoint presentations to high-quality PNG images quickl
 
 ## **Overview**
 
-This article explains how to convert PowerPoint Presentation to PNG format using C#. It covers the following topics.
+This article explains how to convert PowerPoint presentations to PNG images using Aspose.Slides. It shows how to load presentation files in formats such as PPT, PPTX, and ODP, render slides as images, and save the results in PNG format.
 
-- [Convert PowerPoint to PNG in C#](#convert-powerpoint-to-png)
-- [Convert PPT to PNG in C#](#convert-powerpoint-to-png)
-- [Convert PPTX to PNG in C#](#convert-powerpoint-to-png)
-- [Convert ODP to PNG in C#](#convert-powerpoint-to-png)
-- [Convert PowerPoint Slide to Image in C#](#convert-powerpoint-to-png)
-
-## **PowerPoint to PNG in .NET**
-
-For C# sample code to convert PowerPoint to PNG, please see the section below i.e. [Convert PowerPoint to PNG](#convert-powerpoint-to-png). The code can load number of formats like PPT, PPTX and ODP in Presentation object and then save its slide thumbnail to PNG format. The other PowerPoint to Image conversions which are sort of similar like JPG, BMP, TIFF and SVG are discussed in these articles.
-
-- [C# PowerPoint to JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint to BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint to TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint to SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
-
-## **About PowerPoint to PNG Conversion**
-
-The PNG (Portable Network Graphics) format is not as popular as JPEG (Joint Photographic Experts Group), but it still very popular. 
-
-**Use case:** When you have a complex image and size is not an issue, PNG is a better image format than JPEG. 
-
-{{% alert title="Tip" color="primary" %}} You may want to check out Aspose free **PowerPoint to PNG Converters**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) and [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). They are a live implementation of the process described on this page. {{% /alert %}}
+The article also demonstrates how to customize the generated PNG images by setting scale values or specifying the desired width and height.
 
 ## **Convert PowerPoint to PNG**
 

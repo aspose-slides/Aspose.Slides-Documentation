@@ -24,7 +24,13 @@ keywords:
 description: "Master presentation comments with Aspose.Slides for Java: add, read, edit, and delete comments in PowerPoint files fast and easily."
 ---
 
-In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
+## **Overview**
+
+This article explains how to manage presentation comments in Aspose.Slides. It shows the main comment-related types and demonstrates how to add comments to slides, access existing comments, work with replies, use modern comments, and remove comments from a presentation.
+
+The examples focus on common review and collaboration scenarios in PowerPoint, such as assigning comments to authors, reading comment content and metadata, building reply chains, and clearing all comments or deleting selected ones.
+
+In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed.
 
 ## **Why Add Comments to Presentations?**
 

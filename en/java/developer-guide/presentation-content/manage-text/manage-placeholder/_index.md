@@ -18,6 +18,10 @@ keywords:
 description: "Effortlessly manage placeholders in Aspose.Slides for Java: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to manage presentation placeholders programmatically. This article explains how to find placeholders on slides and change their text, set custom prompt text for placeholder layouts, and adjust the transparency of a picture used as a placeholder background. It also includes a short FAQ that clarifies the difference between base placeholders and local shapes, explains how placeholder changes can be applied through layouts or masters, and points to header and footer placeholder management.
+
 ## **Change Text in a Placeholder**
 Using [Aspose.Slides for Java](/slides/java/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
 

@@ -21,7 +21,7 @@ description: "Learn how Aspose.Slides for .NET metered licensing lets you proces
 
 ## **Introduction**
 
-Metered licensing is a new licensing mechanism that can be used alongside existing licensing methods. If you want to be billed based on your usage of Aspose.Slides API features, you choose metered licensing.
+Metered licensing is a licensing mechanism that can be used alongside existing licensing methods. If you want to be billed based on your usage of Aspose.Slides API features, you choose metered licensing.
 
 ## **Apply Metered Keys**
 

@@ -24,7 +24,9 @@ keywords:
 description: "Effortlessly import PDF and HTML documents into PowerPoint and OpenDocument presentations in Java with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
-Using [**Aspose.Slides for Java**](https://products.aspose.com/slides/java/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
+## **Introduction**
+
+Using Aspose.Slides, you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/) class, which allows you to import presentations from PDF and HTML documents.
 
 ## **Import PowerPoint from PDF**
 

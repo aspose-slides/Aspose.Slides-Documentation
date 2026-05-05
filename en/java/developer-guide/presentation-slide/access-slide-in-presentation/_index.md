@@ -20,7 +20,11 @@ keywords:
 description: "Learn how to access and manage slides in PowerPoint and OpenDocument presentations with Aspose.Slides for Java. Boost productivity with code examples."
 ---
 
-Aspose.Slides allows you to access slides in two ways: by index and by ID.
+## **Overview**
+
+This article explains how to access and manage slides in a presentation using Aspose.Slides. It shows how to retrieve slides by their zero-based index from the slides collection and how to access a slide by its unique ID using the `getSlideById` method.
+
+You will also learn how to change a slide’s position by using the `setSlideNumber` method and how to define the starting slide number for a presentation with the `setFirstSlideNumber` method. The examples demonstrate loading a presentation, getting slide references, updating slide order or numbering, and saving the modified presentation.
 
 ## **Access a Slide by Index**
 

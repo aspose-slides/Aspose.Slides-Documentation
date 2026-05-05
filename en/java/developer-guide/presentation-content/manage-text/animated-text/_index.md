@@ -18,6 +18,10 @@ keywords:
 description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for Java, with easy-to-follow, optimized Java code examples."
 ---
 
+## **Overview**
+
+This article explains how to work with animated text in Aspose.Slides by applying animation effects to individual paragraphs and retrieving the effects already assigned to paragraphs in a text frame. It focuses on the API methods used to add paragraph-level animation and inspect existing paragraph animation effects in a presentation.
+
 ## **Add Animation Effects to Paragraphs**
 
 We added the [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) and [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:

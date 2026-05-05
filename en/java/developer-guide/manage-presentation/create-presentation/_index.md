@@ -23,7 +23,7 @@ description: "Create presentations in Java with Aspose.Slides—produce PPT, PPT
 
 ## **Overview**
 
-Aspose.Slides for Java lets you build a brand‑new presentation file entirely in code. This article shows the core workflow—creating a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) object, grabbing the first slide, injecting a simple shape, and persisting the result—so you can see how little setup is required to generate a presentation without Microsoft Office. Because the same API writes PPT, PPTX, and ODP files, you can target both traditional PowerPoint and OpenDocument formats from a single code base. With its managed JAR and zero external dependencies, Aspose.Slides is suited to desktop, web, or server environments, giving your Java application an efficient starting point for adding richer content such as text, images, or charts once the initial slide deck is in place.
+This article shows how to create a presentation in Aspose.Slides, add simple content to a slide, and save the result as a file. It also demonstrates how to create and save a new presentation, open an existing presentation in a supported format, and save it to another format. In addition, the article includes a short FAQ covering common questions related to formats, templates, slide sizing, units, memory usage, threading, licensing, digital signatures, and VBA support.
 
 ## **Create a Presentation**
 

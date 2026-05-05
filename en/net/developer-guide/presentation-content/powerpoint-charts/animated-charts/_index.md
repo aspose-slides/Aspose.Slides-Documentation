@@ -24,7 +24,8 @@ description: "Create stunning animated charts in .NET with Aspose.Slides. Boost 
 
 ## **Introduction**
 
-Aspose.Slides for .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect)method and two enums [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype)and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
+Aspose.Slides for .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [ISequence.AddEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect) method and two enums [EffectChartMajorGroupingType](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype) and [EffectChartMinorGroupingType](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
+
 ## **Chart Series Animation**
 If you want to animate a chart series, write the code according to the steps listed below:
 

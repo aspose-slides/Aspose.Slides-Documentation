@@ -18,11 +18,15 @@ keywords:
 description: "Convert presentations to handouts in Java. Set slides per page, keep notes, export to PDF or images with Aspose.Slides, with sample Java code. Try it free."
 ---
 
+## **Introduction**
+
+Aspose.Slides allows you to convert presentations to output formats that support Handout mode. In this mode, multiple slides are arranged on a single page, which is useful for printing presentation materials for conferences, seminars, and similar events.
+
+Handout mode is configured through the `setSlidesLayoutOptions` method, which is available in [IPdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ihtmloptions/), and [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/itiffoptions/). To define the handout layout, use the [HandoutLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/handoutlayoutingoptions/) object.
+
 ## **Handout Mode Export**
 
-Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `setSlidesLayoutOptions` method in the [IPdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ihtmloptions/), and [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/itiffoptions/) interfaces.
-
-To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/handoutlayoutingoptions/) object, which determines how many slides are placed on a single page and other display parameters.
+To export a presentation in Handout mode, set the `setSlidesLayoutOptions` method for the target export options and assign a [HandoutLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/handoutlayoutingoptions/) instance that defines the number of slides per page and related display parameters.
 
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 

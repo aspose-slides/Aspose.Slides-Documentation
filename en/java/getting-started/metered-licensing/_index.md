@@ -18,6 +18,10 @@ keywords:
 description: "Learn how Aspose.Slides for Java metered licensing lets you process PowerPoint and OpenDocument files flexibly, paying only for what you use."
 ---
 
+## **Introduction**
+
+Metered licensing is a licensing mechanism that can be used alongside existing licensing methods. If you want to be billed based on your usage of Aspose.Slides API features, you choose metered licensing.
+
 ## **Apply Metered Keys**
 
 {{% alert color="primary" %}} 

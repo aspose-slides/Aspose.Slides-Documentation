@@ -24,10 +24,7 @@ description: "Convert ODP to PPTX with Aspose.Slides for .NET. Clean C# code exa
 
 ## **Overview**
 
-This article explains the following topics.
-
-- [C# Convert ODP to PPTX](#csharp-odp-to-pptx)
-- [C# Convert ODP to PowerPoint](#csharp-odp-to-powerpoint)
+This article explains how to convert an ODP presentation to PPTX format using Aspose.Slides.
 
 ## **ODP to PPTX Conversion**
 
