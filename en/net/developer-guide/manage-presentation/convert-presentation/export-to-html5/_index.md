@@ -58,6 +58,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+## **Performance Considerations**
+
+Conversion speed can vary between Aspose.Slides library versions. Some users have reported that version 25.5.0 may be slower for PPTX-to-HTML5 conversions compared with earlier versions such as 24.9.0. If you notice a significant slowdown after upgrading, consider testing with a previous version to confirm the impact.
+
 ## **Export PowerPoint to HTML**
 
 This C# demonstrates the standard PowerPoint to HTML process:
