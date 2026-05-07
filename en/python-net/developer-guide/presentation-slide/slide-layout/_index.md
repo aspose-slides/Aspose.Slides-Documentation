@@ -30,7 +30,7 @@ keywords:
 description: "Learn how to manage and customize slide layouts in Aspose.Slides for Python via .NET. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in Python."
 ---
 
-## **Overview**
+## **Introduction**
 
 A slide layout defines the arrangement of placeholder boxes and formatting for the content on a slide. It controls which placeholders are available and where they appear. Slide layouts help you design presentations quickly and consistently—whether you're creating something simple or more complex. Some of the most common slide layouts in PowerPoint include:
 

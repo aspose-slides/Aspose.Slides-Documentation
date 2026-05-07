@@ -21,7 +21,7 @@ keywords:
 description: "Automate PowerPoint and OpenDocument slide masters with Aspose.Slides for Python via .NET to maximize development efficiency. A complete guide for beginners and advanced users."
 ---
 
-## **Overview**
+## **Introduction**
 
 A **Slide Master** is a slide template that defines the layout, styles, theme, fonts, background, and other properties for slides in a presentation. If you want to create a presentation (or a series of presentations) with the same style and template for your company, you can use a Slide Master.
 

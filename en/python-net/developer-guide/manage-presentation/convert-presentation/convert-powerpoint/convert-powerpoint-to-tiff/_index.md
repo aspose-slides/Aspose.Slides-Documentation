@@ -21,7 +21,7 @@ keywords:
 description: "Learn how to easily convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations to high-quality TIFF images using Aspose.Slides for Python via .NET. Step-by-step guide with code examples included."
 ---
 
-## **Overview**
+## **Introduction**
 
 TIFF (**Tagged Image File Format**) is a widely-used, lossless raster image format known for its exceptional quality and detailed preservation of graphics. Designers, photographers, and desktop publishers often choose TIFF to maintain layers, color accuracy, and original settings in their images.
 

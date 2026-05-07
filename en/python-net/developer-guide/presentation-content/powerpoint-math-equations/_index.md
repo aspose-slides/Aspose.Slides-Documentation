@@ -24,7 +24,7 @@ keywords:
 description: "Learn how to work with mathematical equations in PowerPoint using Aspose.Slides for Python via .NET. Get detailed instructions, code examples, and tips to automate the creation and editing of presentations."
 ---
 
-## **Overview**
+## **Introduction**
 
 In PowerPoint, you can write a math equation or formula and display it in your presentation. Various mathematical symbols are available and can be added to text or equations. The math equations constructor is used to create complex formulas like:
 

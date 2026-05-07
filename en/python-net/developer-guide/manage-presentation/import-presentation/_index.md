@@ -21,7 +21,7 @@ keywords:
 description: "Effortlessly import PDF and HTML documents into PowerPoint and OpenDocument presentations in Python with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
-## **Overview**
+## **Introduction**
 
 With [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/), you can import content into a presentation from other file formats. The [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) class provides methods to import slides from PDF, HTML, and other sources.
 

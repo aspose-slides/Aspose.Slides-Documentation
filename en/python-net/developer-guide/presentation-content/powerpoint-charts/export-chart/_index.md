@@ -17,6 +17,10 @@ keywords:
 description: "Learn how to export presentation charts with Aspose.Slides for Python via .NET, supporting PPT, PPTX and ODP formats, and streamline reporting into any workflow."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to export a chart from a presentation as an image. This article shows how to get an image from a chart and save it, which is useful when you need to reuse chart visuals outside a PowerPoint presentation.
+
 ## **Get Chart Image**
 Aspose.Slides for Python via .NET provides support for extracting image of specific chart. Below sample example is given. 
 

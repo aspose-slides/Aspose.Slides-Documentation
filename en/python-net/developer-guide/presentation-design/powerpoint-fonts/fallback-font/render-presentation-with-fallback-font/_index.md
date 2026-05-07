@@ -16,12 +16,20 @@ keywords:
 description: "Render presentations with fallback fonts in Aspose.Slides for Python via .NET – keep text consistent across PPT, PPTX and ODP with step-by-step code samples."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to render presentations using fallback font rules. This article shows how to create a fallback font rules collection, modify its rules by removing or adding fallback fonts, and assign the collection to the `FontsManager.font_fall_back_rules_collection` property.
+
+Once the fallback font rules collection is assigned to the presentation's `fonts_manager`, the rules are applied during operations such as saving, rendering, and converting the presentation. The example demonstrates how to use the configured rules when rendering a slide thumbnail and saving it as a PNG image.
+
+## **Render a Slide Using Fallback Font Rules**
+
 The following example includes these steps:
 
 1. We [create fallback font rules collection](/slides/python-net/create-fallback-fonts-collection/).
-1. [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) a fallback font rule and [AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) to another rule.
-1. Set rules collection to [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) property.
-1. With [Presentation.Save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
+1. [Remove](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/remove/) a fallback font rule and [add_fall_back_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/add_fall_back_fonts/) to another rule.
+1. Set rules collection to [FontsManager.font_fall_back_rules_collection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_fall_back_rules_collection/) property.
+1. With [Presentation.save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```py
 import aspose.slides as slides

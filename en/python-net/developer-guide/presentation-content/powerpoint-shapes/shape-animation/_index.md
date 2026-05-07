@@ -25,6 +25,8 @@ keywords:
 description: "Discover how to create and customize shape animations in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Stand out!"
 ---
 
+## **Introduction**
+
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/python-net/animated-charts/). They give life to presentations or its constituents. 
 
 ## **Why Use Animations in Presentations?**

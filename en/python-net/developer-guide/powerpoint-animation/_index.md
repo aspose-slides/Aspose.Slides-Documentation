@@ -29,7 +29,7 @@ keywords:
 description: "Explore the capabilities of Aspose.Slides for Python via .NET in handling PowerPoint animations. This general overview highlights key features and offers insights to enhance your presentations."
 ---
 
-## **Overview**
+## **Introduction**
 
 Presentations are designed to convey information, so their visual appearance and interactive behavior are key considerations during creation.
 

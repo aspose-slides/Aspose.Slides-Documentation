@@ -24,7 +24,7 @@ keywords:
 description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET—enhance interactivity and workflow in minutes."
 ---
 
-## **Overview**
+## **Introduction**
 
 A hyperlink is a reference to an external resource, an object or data item, or a specific location within a file. Common hyperlink types in PowerPoint presentations include:
 

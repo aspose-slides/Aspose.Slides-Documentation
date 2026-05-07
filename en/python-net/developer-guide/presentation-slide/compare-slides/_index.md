@@ -15,6 +15,10 @@ keywords:
 description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for Python via .NET. Identify slide differences in code quickly."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to compare slides, layout slides, and master slides using the `equals` method provided by the `BaseSlide` class. This method returns `True` when the compared slides are identical in their structure and static content.
+
 ## **Compare Two Slides**
 The `equals` method has been added to the [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content.
 
@@ -27,7 +31,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as p1:
     with slides.Presentation(path + "HelloWorld.pptx") as p2:
         for i in range(len(p1.masters)):
             for j in range(len(p2.masters)):
-                if p1.masters[i] == p2.masters[j]:
+                if p1.masters[i].equals(p2.masters[j]):
                     print("Presentation1 MasterSlide#{0} is equal to Presentation2 MasterSlide#{1}".format(i,j))
 ```
 

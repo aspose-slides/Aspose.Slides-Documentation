@@ -23,7 +23,7 @@ keywords:
 description: "Master presentation themes in Aspose.Slides for Python via .NET to create, customize and convert PowerPoint files with consistent branding."
 ---
 
-## **Overview**
+## **Introduction**
 
 A presentation theme defines the properties of its design elements. When you select a theme, you’re choosing a coordinated set of visual elements and their properties.
 

@@ -17,7 +17,7 @@ keywords:
 description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for Python — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
-## **Overview**
+## **Introduction**
 
 With Aspose.Slides for Python, you can organize a PowerPoint presentation into sections that group specific slides.
 

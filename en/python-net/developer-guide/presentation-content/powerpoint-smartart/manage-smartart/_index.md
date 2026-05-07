@@ -20,7 +20,7 @@ description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for
 
 ## **Overview**
 
-This guide shows how to create and manipulate SmartArt in Aspose.Slides for Python. You’ll learn how to extract text from SmartArt (including [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) content inside node shapes), add SmartArt to slides and switch its layout, detect and handle hidden nodes, configure organization-chart layouts, and build picture organization charts—all with concise, copy-pasteable Python examples that open a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), work with slides and SmartArt nodes, and save results to PPTX. 
+This article explains how to work with SmartArt in Aspose.Slides. It shows how to extract text from SmartArt shapes, change a SmartArt layout, check whether a SmartArt node is hidden, get or set an organization chart layout, and create a picture organization chart. It also covers several related questions, including SmartArt reversal for RTL languages, cloning SmartArt while preserving formatting, rendering SmartArt as part of a slide image, and identifying a specific SmartArt object on a slide.
 
 ## **Get Text from SmartArt**
 

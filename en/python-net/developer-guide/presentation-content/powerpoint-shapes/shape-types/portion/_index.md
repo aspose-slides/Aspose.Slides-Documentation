@@ -17,6 +17,10 @@ keywords:
 description: "Learn how to manage text portions in PowerPoint and OpenDocument presentations using Aspose.Slides for Python via .NET, boosting performance and customization."
 ---
 
+## **Introduction**
+
+A text portion represents a specific fragment of text inside a paragraph and allows you to work with that fragment independently from surrounding content. In Aspose.Slides, portions can be used when you need to retrieve the position of a text fragment, apply formatting to only part of a paragraph, or control text behavior at a more detailed level.
+
 ## **Get Coordinates of Text Portions**
 
 The [get_coordinates](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_coordinates/) method has been added to the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) class which allows retrieving the coordinates of text portions:

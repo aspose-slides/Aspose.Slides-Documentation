@@ -18,7 +18,7 @@ keywords:
 description: "Learn how to create a custom presentation viewer in Python using Aspose.Slides. Easily display PowerPoint (PPTX, PPT) and OpenDocument (ODP) files without Microsoft PowerPoint or other office software."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for Python is used to create presentation files with slides. These slides can be viewed by opening the presentations in Microsoft PowerPoint, for example. However, developers may sometimes need to view slides as images in their preferred image viewer or use them in a custom presentation viewer. In such cases, Aspose.Slides allows you to export individual slides as images. This article explains how to do that.
 

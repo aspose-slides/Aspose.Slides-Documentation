@@ -30,7 +30,7 @@ keywords:
 description: "Add picture frames to PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Streamline your workflow and enhance slide designs."
 ---
 
-## **Overview**
+## **Introduction**
 
 Picture frames in Aspose.Slides for Python let you place and manage raster and vector images as native slide shapes. You can insert pictures from files or streams, position and resize them with precise coordinates, apply rotation, set transparency, and control z-order alongside other shapes. The API also supports cropping, maintaining aspect ratios, setting borders and effects, and replacing the underlying image without rebuilding the layout. Because picture frames behave like regular shapes, you can add animations, hyperlinks, and alt text, making it straightforward to build visually rich, accessible presentations.
 

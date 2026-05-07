@@ -35,7 +35,7 @@ keywords:
 description: "Learn how to convert PowerPoint and OpenDocument presentations to video using Python. Discover sample code and automation techniques to streamline your workflow."
 ---
 
-## **Overview**
+## **Introduction**
 
 By converting your PowerPoint or OpenDocument presentation to video, you gain:
 

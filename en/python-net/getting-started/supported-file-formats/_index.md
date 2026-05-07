@@ -43,6 +43,12 @@ keywords:
 description: "Discover all file formats Aspose.Slides for Python via .NET can open, save, and convert — including PPT, PPTX and ODP — with clear import/export support notes."
 ---
 
+## **Overview**
+
+Aspose.Slides supports presentation files from Microsoft PowerPoint 97 through Office 365, including Microsoft PowerPoint for Mac. This article lists the PowerPoint versions supported by the library and provides a table of file formats that can be loaded, saved, or both.
+
+The article also answers common questions about PDF compliance, font embedding, password-protected files, custom fonts, font fallback, and XPS export options.
+
 ## **Supported Microsoft PowerPoint Versions**
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000

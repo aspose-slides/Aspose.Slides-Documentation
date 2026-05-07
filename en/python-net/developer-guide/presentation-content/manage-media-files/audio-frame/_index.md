@@ -29,6 +29,10 @@ keywords:
 description: "Easily add, extract & manage audio frames in PPT, PPTX and ODP with Aspose.Slides for Python via .NET. Explore code examples & boost your presentations today."
 ---
 
+## **Overview**
+
+This article explains how to work with audio frames in Aspose.Slides. It shows how to add embedded audio to slides, customize the audio frame thumbnail, configure playback options such as volume, looping, hiding, trimming, and fade durations, and extract audio used in slide show transitions.
+
 ## **Create Audio Frames**
 
 Aspose.Slides for Python via .NET allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 

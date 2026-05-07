@@ -25,7 +25,7 @@ keywords:
 description: "Create and customize shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET: geometry paths, curved corners, composite shapes."
 ---
 
-## **Overview**
+## **Introduction**
 
 Consider a square. In PowerPoint, using **Edit Points**, you can:
 

@@ -16,6 +16,12 @@ keywords:
 description: "Create and customize powerful bubble charts in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET to enhance your data visualization easily."
 ---
 
+## **Overview**
+
+This article shows how to work with bubble charts in Aspose.Slides. It covers two specific customization options: scaling bubble sizes through the `bubble_size_scale` property and controlling how bubble size values are represented through the `bubble_size_representation` property.
+
+The examples demonstrate how to create a bubble chart, adjust its size scaling, and switch the bubble size representation to use width. The article also includes a short FAQ section that clarifies support for the “Bubble with 3-D” chart type, notes that practical chart limits depend on performance and the target PowerPoint version, and explains that export preserves the chart’s appearance through the Aspose.Slides rendering engine.
+
 ## **Bubble Chart Size Scaling**
 Aspose.Slides for Python via .NET provides support for Bubble chart size scaling. In Aspose.Slides for Python via .NET **ChartSeries.bubble_size_scale** and **ChartSeriesGroup.bubble_size_scale** properties have been added. Below sample example is given. 
 

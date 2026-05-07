@@ -27,6 +27,10 @@ keywords:
 description: "Easily convert PowerPoint presentations (PPT, PPTX) and OpenDocument files (ODP) to animated GIFs with Aspose.Slides for Python. Fast, high-quality results."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to convert PowerPoint presentations to animated GIF files with just a few lines of code. This is useful when you need to share slide content in a lightweight, widely supported animated format that can be embedded in web pages, messengers, or documentation. This article explains how to export a presentation to GIF using default settings and how to customize the output by configuring options such as frame size, slide delay, and transition frame rate through [GifOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/gifoptions/).
+
 ## **Convert Presentations to Animated GIF Using Default Settings**
 
 This sample code in Python shows you how to convert a presentation to animated GIF using standard settings:

@@ -30,6 +30,12 @@ keywords:
 description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Python via .NET. Customize fonts, colors, alignment, and more with powerful Python code examples."
 ---
 
+## **Overview**
+
+This article introduces how to manage and format text in PowerPoint and OpenDocument presentations using Aspose.Slides. You’ll learn how to apply text formatting features such as font selection, size, color, highlighting, background color, spacing, and alignment. In addition, it covers working with text frames, paragraphs, formatting, and advanced layout options like custom rotation and autofit behaviors.
+
+Whether you're generating presentations programmatically or customizing existing content, these examples will help you create clear, professional-looking text layouts that enhance your slides and improve readability.
+
 ## **Highlight Text**
 
 The `highlight_text` method in the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) class allows you to highlight a part of the text with a background color using a text sample, similar to the Text Highlight Color tool in PowerPoint 2019.

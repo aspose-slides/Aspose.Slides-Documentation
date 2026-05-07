@@ -20,7 +20,13 @@ keywords:
 description: "Discover Aspose.Slides for Python via .NET: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
-## **Set Chart Data from a Workbook**
+## **Overview**
+
+This article explains how to work with chart workbooks in Aspose.Slides. It shows how to read and write chart data through workbook streams, use workbook cells as chart data labels, access worksheet collections, and specify the data source type for chart values.
+
+It also covers working with external workbooks as chart data sources. The examples demonstrate how to create and assign an external workbook, retrieve the path of an external workbook linked to a chart, and edit chart data when the workbook is available.
+
+## **Read and Write Chart Data from a Workbook**
 
 Aspose.Slides provides methods to read and write chart data workbooks (which contain chart data edited with Aspose.Cells). **Note:** The chart data must be organized in the same way or have a structure similar to the source.
 
