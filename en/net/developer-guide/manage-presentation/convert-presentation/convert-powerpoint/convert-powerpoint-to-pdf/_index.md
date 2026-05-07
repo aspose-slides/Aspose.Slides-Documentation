@@ -297,6 +297,8 @@ Aspose.Slides supports PDF conversion operations, allowing you to convert PDF fi
 
 > **Note:** When exporting to PDF/UA, Aspose.Slides treats complex graphics such as SmartArt, charts, and formulas as a single figure. Individual path elements are not preserved as separate content and may be marked as artifacts; alternative text is provided only for the whole figure.
 
+In versions prior to **26.5**, PDF/UA export may position formula path elements incorrectly and report an inaccurate BBox. This behavior was fixed starting with Aspose.Slides for .NET **26.5**. Update to version 26.5 or later to obtain correct formula placement and bounding-box information.
+
 ## **FAQ**
 
 **Can I convert multiple PowerPoint files to PDF in bulk?**
