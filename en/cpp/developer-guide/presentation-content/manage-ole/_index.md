@@ -28,6 +28,8 @@ keywords:
 description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for C++. Embed, update, and export OLE content seamlessly."
 ---
 
+## **Introduction**
+
 {{% alert title="Info" color="info" %}}
 
 OLE (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 

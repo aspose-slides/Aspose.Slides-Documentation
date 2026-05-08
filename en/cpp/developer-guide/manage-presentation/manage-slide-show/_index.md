@@ -27,6 +27,8 @@ keywords:
 description: "Learn how to manage slide shows in Aspose.Slides for C++. Control slide transitions, timings and more across PPT, PPTX and ODP formats with ease."
 ---
 
+## **Introduction**
+
 In Microsoft PowerPoint, the **Slide Show** settings are a key tool for preparing and delivering professional presentations. One of the most important features in this section is **Set Up Show**, which allows you to tailor your presentation to specific conditions and audiences, ensuring flexibility and convenience. With this feature, you can select the show type (e.g., presented by a speaker, browsed by an individual, or browsed at a kiosk), enable or disable looping, choose specific slides to display, and use timings. This step in preparation is crucial for making your presentation more effective and professional.
 
 `get_SlideShowSettings` is a method of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class that returns an object of type [SlideShowSettings](https://reference.aspose.com/slides/cpp/aspose.slides/slideshowsettings/), which allows you to manage the slide show settings in a PowerPoint presentation. In this article, we will explore how to use this method to configure and control various aspects of slide show settings. 

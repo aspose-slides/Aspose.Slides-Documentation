@@ -24,13 +24,11 @@ keywords:
 description: "Explore slides, structure and metadata in PowerPoint and OpenDocument presentations using C++ for faster insights and smarter content audits."
 ---
 
-Aspose.Slides for C++ allows you to examine a presentation to find out its properties and understand its behavior. 
+## **Overview**
 
-{{% alert title="Info" color="info" %}}
+This article shows how to inspect presentation information in Aspose.Slides. It explains how to determine a presentation’s current format without loading the full file, read its document properties, and update those properties when needed.
 
-The [PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) and [DocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.document_properties/) classes contain the properties and methods used in operations here.
-
-{{% /alert %}} 
+The examples are based on the [PresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationinfo/) and [DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/documentproperties/) APIs and demonstrate typical operations for working with presentation metadata.
 
 ## **Check a Presentation Format**
 

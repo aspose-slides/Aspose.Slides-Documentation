@@ -21,6 +21,10 @@ keywords:
 description: "Get answers to FAQ on Aspose.Slides for C++, covering PowerPoint and OpenDocument support, installation guidance, licensing, troubleshooting."
 ---
 
+## **Overview**
+
+This FAQ provides answers to common questions about Aspose.Slides. It covers supported file formats, handling exceptions when working with large presentations, changing slide sizes, previewing slides, retrieving text from presentations, formatting table borders, placing pictures, and resolving font-related issues when converting presentations to PDF or images.
+
 ## **Supported File Formats**
 
 **Q: What file formats does Aspose.Slides for C++ support?**

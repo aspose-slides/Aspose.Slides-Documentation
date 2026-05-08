@@ -22,14 +22,9 @@ keywords:
 description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for C++, streamlining your workflow."
 ---
 
-{{% alert  title="Tip" color="primary" %}} 
+## **Overview**
 
-You may want to check out **Aspose free online** [Merger app](https://products.aspose.app/slides/merger). It allows people to merge PowerPoint presentations in the same format (PPT to PPT, PPTX to PPTX, etc.) and merge presentations in different formats (PPT to PPTX, PPTX to ODP, etc.).
-
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
-
-{{% /alert %}} 
-
+Aspose.Slides allows you to merge presentations by cloning slides from one presentation into another. This article explains how to merge entire presentations or selected slides, use a slide master or a specific layout during the merge, handle presentations with different slide sizes, and add merged slides to a presentation section. It also covers practical notes related to merged content, including speaker notes, comments, password-protected source files, and thread usage.
 
 ## **Presentation Merging**
 

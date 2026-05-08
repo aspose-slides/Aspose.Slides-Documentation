@@ -27,7 +27,7 @@ keywords:
 description: "Convert PowerPoint (PPT, PPTX) slides to high-quality JPG images in C++ with Aspose.Slides using fast, reliable code examples."
 ---
 
-## **Overview**
+## **Introduction**
 
 Converting PowerPoint and OpenDocument presentations to JPG images helps with sharing slides, optimizing performance, and embedding content into websites or applications. Aspose.Slides for C++ allows you to transform PPTX, PPT, and ODP files into high-quality JPEG images. This guide explains different methods for conversion.
 

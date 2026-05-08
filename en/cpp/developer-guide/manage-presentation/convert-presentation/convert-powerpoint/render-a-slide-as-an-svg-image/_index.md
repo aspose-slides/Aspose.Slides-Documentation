@@ -25,6 +25,12 @@ keywords:
 description: "Learn how to render PowerPoint slides as SVG images using Aspose.Slides for C++. High-quality visuals with simple code examples."
 ---
 
+## **Overview**
+
+This article explains how to render presentation slides as SVG images using Aspose.Slides. It describes the SVG format and its advantages, including scalability, accessibility, and suitability for web development.
+
+You will learn how to load a presentation file, iterate through its slides, and save each slide as a separate SVG file. The article covers PowerPoint and OpenDocument presentation formats, including PPT, PPTX, ODP, and PPS, and shows how to perform the conversion programmatically with the `Presentation` class and the `WriteAsSvg` method.
+
 ## **SVG Format**
 
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 

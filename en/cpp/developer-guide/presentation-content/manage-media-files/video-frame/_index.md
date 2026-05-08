@@ -20,6 +20,8 @@ keywords:
 description: "Learn to programmatically add and extract video frames in PowerPoint and OpenDocument slides using Aspose.Slides for C++. Fast how-to guide."
 ---
 
+## **Introduction**
+
 A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 
 
 PowerPoint allows you to add videos to a slide in a presentation in two ways:

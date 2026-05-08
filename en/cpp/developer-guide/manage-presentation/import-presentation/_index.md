@@ -24,6 +24,8 @@ keywords:
 description: "Effortlessly import PDF and HTML documents into PowerPoint and OpenDocument presentations in C++ with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
+## **Introduction**
+
 Using [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection) class to allow you to import presentations from PDF, HTML documents, etc.
 
 ## **Import PowerPoint from PDF**
