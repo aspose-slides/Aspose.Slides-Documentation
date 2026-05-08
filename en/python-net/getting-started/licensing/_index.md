@@ -16,6 +16,10 @@ keywords:
 description: "Learn how to apply, manage, and troubleshoot licenses in Aspose.Slides for Python via .NET. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
+## **Overview**
+
+Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark when presentations are opened or saved and limits text extraction to one slide.
+
 ## **Evaluate Aspose.Slides**
 
 You can download an evaluation version of **Aspose.Slides for Python via .NET** from its [download page](https://pypi.org/project/Aspose.Slides/). The evaluation version provides the same features as the licensed product. The evaluation package is identical to the purchased package and becomes licensed after you add a few lines of code to apply the license.

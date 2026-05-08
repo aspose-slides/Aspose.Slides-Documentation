@@ -28,6 +28,18 @@ keywords:
 description: "Convert PowerPoint and OpenDocument slides—PPT, PPTX, ODP—to clean Markdown with Aspose.Slides for Python via .NET, automate documentation and keep formatting."
 ---
 
+## **Introduction**
+
+Aspose.Slides allows you to convert PowerPoint presentations to Markdown, which can be useful for documentation workflows, static site generation, content migration, and version-controlled text publishing. The API supports direct export from PPT and PPTX presentations to MD files and provides additional options to control how slide content is represented in the resulting Markdown document.
+
+You can export presentations as plain Markdown, choose from multiple Markdown flavors such as CommonMark and GitHub Flavored Markdown, and configure how images are handled during export. For presentations that contain visual content, Aspose.Slides also lets you save images to a separate folder and reference them from the generated Markdown file.
+
+{{% alert color="warning" %}}
+
+PowerPoint-to-Markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set `export_type = MarkdownExportType.VISUAL` and specify `base_path`, where the images referenced in the Markdown document will be saved.
+
+{{% /alert %}}
+
 ## **Convert Presentations to Markdown**
 
 The example below shows the simplest way to convert a PowerPoint presentation to Markdown using Aspose.Slides for Python via .NET with default settings.

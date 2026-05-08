@@ -29,7 +29,7 @@ keywords:
 description: "Master paragraph formatting with Aspose.Slides for Python via .NET—optimize alignment, spacing & style in PowerPoint and OpenDocument presentations in Python to engage viewers."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides provides the classes you need to work with PowerPoint text in Python.
 

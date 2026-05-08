@@ -24,7 +24,13 @@ keywords:
 description: "Learn how to render PowerPoint and OpenDocument slides as SVG images using Aspose.Slides for Python via .NET. High-quality visuals with simple code examples."
 ---
 
-## **Convert Slides to SVG**
+## **Overview**
+
+This article explains how to render presentation slides as SVG images using Aspose.Slides. It describes the SVG format and its advantages, including scalability, accessibility, and suitability for web development.
+
+You will learn how to load a presentation file, iterate through its slides, and save each slide as a separate SVG file. The article covers PowerPoint and OpenDocument presentation formats, including PPT, PPTX, ODP, and PPS, and shows how to perform the conversion programmatically with the `Presentation` class and the `write_as_svg` method.
+
+## **SVG Format**
 
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 
 
@@ -35,6 +41,8 @@ You may want to use SVG files when you need to
 - **print your presentation in a *very large format*.** SVG images can scale up to any resolution or level. You get to resize SVG images as many times as necessary without sacrificing quality.
 - **use charts and graphs from your slides in *different mediums or platforms**.* Most readers can interpret SVG files. 
 - **use the *smallest possible sizes of images***. SVG files are generally smaller than their high-resolution equivalents in other formats, especially those formats based on bitmap (JPEG or PNG).
+
+## **Render a Slide as an SVG Image**
 
 Aspose.Slides for Python via .NET allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
 

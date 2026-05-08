@@ -16,6 +16,10 @@ keywords:
 description: "Convert ODP to PPTX with Aspose.Slides for Python via .NET. Clean code examples, batch tips, and high-quality results—no PowerPoint needed."
 ---
 
+## **Overview**
+
+This article explains how to convert an ODP presentation to PPTX format using Aspose.Slides.
+
 ## **Export ODP to PPTX**
 
 Aspose.Slides for Python via .NET offers Presentation class that represents a presentation file. [**Presentation**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class can now also access ODP through Presentation constructor when the object is instantiated. The following example shows how to convert a ODP Presentation into PPTX Presentation.

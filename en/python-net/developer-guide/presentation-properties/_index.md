@@ -25,9 +25,11 @@ keywords:
 description: "Master presentation properties in Aspose.Slides for Python via .NET and streamline search, branding and workflow in your PowerPoint files."
 ---
 
-## **About Presentation Properties**
+## **Introduction**
 
-As we have described earlier that Aspose.Slides for Python via .NET supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Python via .NET API. Aspose.Slides for Python via .NET provides a class [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) that represents the document properties associated with a presentation file through [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) property. Developers can use [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) property exposed by **Presentation** object to access the document properties of the presentation files as described below:
+Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
+
+To handle document properties, Aspose.Slides provides the [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) class, accessible through the [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) property. Developers can leverage the `Presentation` object's [document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) property to seamlessly read, modify, and manage presentation properties, as shown in the examples below.
 
 {{% alert color="primary" %}} 
 

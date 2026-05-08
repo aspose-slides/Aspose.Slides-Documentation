@@ -17,6 +17,12 @@ keywords:
 description: "Learn how to add, read, update, and remove tags & custom data in Aspose.Slides for Python via .NET, with examples for PowerPoint and OpenDocument presentations."
 ---
 
+## **Overview**
+
+This article explains how Aspose.Slides works with tags and custom data in PowerPoint presentations. It briefly outlines how data is stored in PPTX files, notes that presentation-specific data can exist as tags and custom XML parts, and describes tags as key-value string pairs.
+
+It also shows how to read tag values and how to add tags to a presentation, an individual slide, or a shape. In addition, the article covers common tag-management tasks such as clearing all tags, removing a tag by name, and retrieving the list of tag names.
+
 ## **Data Storage in Presentation Files**
 
 PPTX files—items with the .pptx extension—are stored in the PresentationML format, which is part of the Office Open XML specification. The Office Open XML format defines the structure for data contained in presentations. 

@@ -22,6 +22,12 @@ keywords:
 description: "Automate PowerPoint SmartArt creation, editing, and styling in Python via .NET using Aspose.Slides, featuring concise code examples and performance-focused guidance."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to create and manage SmartArt graphics in PowerPoint presentations programmatically. This article explains how to add a SmartArt shape to a slide, access existing SmartArt shapes, find SmartArt by a specific layout type, and update its visual appearance by changing the SmartArt style or color style.
+
+The examples show how to work with SmartArt shapes through the presentation slide’s shape collection, check whether a shape is SmartArt and then modify or inspect its properties.
+
 ## **Create SmartArt Shapes**
 
 Aspose.Slides for Python via .NET allows you to add custom SmartArt shapes to slides from scratch. The API makes this easy. To add a SmartArt shape to a slide:

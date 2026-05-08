@@ -22,6 +22,10 @@ keywords:
 description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for Python via .NET, streamlining your workflow."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to merge presentations by cloning slides from one presentation into another. This article explains how to merge entire presentations or selected slides, use a slide master or a specific layout during the merge, handle presentations with different slide sizes, and add merged slides to a presentation section. It also covers practical notes related to merged content, including speaker notes, comments, password-protected source files, and thread usage.
+
 ## **Optimize Your Presentation Merging**
 
 With [Aspose.Slides for Python](https://products.aspose.com/slides/python-net/), you can seamlessly combine PowerPoint presentations while preserving styles, layouts, and all elements. Unlike other tools, Aspose.Slides merges presentations without compromising quality or losing data. Merge entire decks, specific slides, or even different file formats (e.g., PPT to PPTX).

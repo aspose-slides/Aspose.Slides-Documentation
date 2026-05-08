@@ -15,7 +15,7 @@ keywords:
 description: "Learn to get warning callbacks for font substitution in Aspose.Slides for Python via .NET and display PowerPoint and OpenDocument presentations accurately."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for Python allows you to receive warning callbacks for font substitution when a required font isn’t available on the machine during rendering. These callbacks help diagnose issues with missing or inaccessible fonts.
 

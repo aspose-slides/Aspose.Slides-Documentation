@@ -15,7 +15,7 @@ keywords:
 description: "Effortlessly remove slides from PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Get clear code examples and boost your workflow."
 ---
 
-## **Overview**
+## **Introduction**
 
 If a slide (or its contents) is no longer needed, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class, which encapsulates [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), the repository for all slides in a presentation. Using a reference or index to a known [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) object, you can remove the target slide.
 

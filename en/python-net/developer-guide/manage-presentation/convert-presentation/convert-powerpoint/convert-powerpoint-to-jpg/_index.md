@@ -34,7 +34,7 @@ keywords:
 description: "Learn how to transform your slides from PowerPoint and OpenDocument presentations into high-quality JPEG images with just a few lines of code in Python. Optimize presentations for web use, sharing, and archiving. Read the full guide now!"
 ---
 
-## **Overview**
+## **Introduction**
 
 Converting PowerPoint and OpenDocument presentations to JPG images helps with sharing slides, optimizing performance, and embedding content into websites or applications. Aspose.Slides for Python allows you to transform PPTX, PPT, and ODP files into high-quality JPEG images. This guide explains different methods for conversion.
 

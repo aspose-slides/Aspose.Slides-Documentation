@@ -18,9 +18,11 @@ keywords:
 description: "Convert presentations to handouts in Python. Set slides per page, keep notes, export to PDF or images with Aspose.Slides, with sample code. Try it free."
 ---
 
-## **Handout Mode Export**
+## **Introduction**
 
 Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `slides_layout_options` property in the [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/), and [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) classes.
+
+## **Handout Mode Export**
 
 To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/handoutlayoutingoptions/) object, which determines how many slides are placed on a single page and other display parameters.
 

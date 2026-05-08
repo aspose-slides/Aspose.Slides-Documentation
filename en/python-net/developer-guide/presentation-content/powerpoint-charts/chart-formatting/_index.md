@@ -23,7 +23,9 @@ description: "Learn chart formatting in Aspose.Slides for Python via .NET and el
 
 ## **Overview**
 
-This guide shows how to format PowerPoint charts using Aspose.Slides for Python. It walks through customizing core chart entities—such as category and value axes, gridlines, labels, titles, legends, and secondary axes—and demonstrates how to control fonts, numeric formats, fills, outlines, plot area and back wall colors, and rounded chart corners with concise, runnable code samples. By following the step-by-step examples, you’ll create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), add and configure a chart, and save the result to PPTX while applying precise visual and typographic settings.
+This article explains how to format charts in PowerPoint presentations by using Aspose.Slides. It shows how to customize key chart elements such as axes, grid lines, titles, legends, the plot area, and wall fills to improve the appearance and readability of chart data.
+
+It also demonstrates how to set font properties for chart text, apply preset and custom numeric formats to chart data, and enable rounded corners for the chart area. Together, these examples show how to control both the visual style and data presentation of charts in a presentation.
 
 ## **Format Chart Elements**
 

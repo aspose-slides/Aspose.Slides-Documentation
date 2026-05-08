@@ -20,6 +20,12 @@ keywords:
 description: "Set default fonts in Aspose.Slides for Python to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to specify default fonts that are used when a presentation is rendered. This is useful when generating slide thumbnails or exporting a presentation to formats such as PDF and XPS. Default fonts are configured through `LoadOptions` before the presentation is loaded.
+
+The `default_regular_font` property defines the default font for regular text, while `default_asian_font` defines the default font for Asian text. After these options are set, the presentation can be loaded and rendered using the specified fonts.
+
 ## **Using Default Fonts for Rendering Presentation**
 Aspose.Slides lets you set the default font fore rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular
 Font and DefaultAsian Font for use as default fonts. Please follow the steps below to loading fonts from external directories by using Aspose.Slides for Python via .NET API:

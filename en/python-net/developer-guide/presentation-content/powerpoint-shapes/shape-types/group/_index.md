@@ -18,7 +18,7 @@ description: "Learn to group and ungroup shapes in PowerPoint and OpenDocument d
 
 ## **Overview**
 
-Grouping shapes allows you to treat multiple drawing objects as a single unit so you can move, resize, format, and transform them together. With Aspose.Slides for Python, you can create a [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), add and arrange child shapes inside it, and persist the result to PPTX. This article demonstrates how to add a group shape on a slide and how to access accessibility metadata such as Alt Text from shapes within the group, enabling cleaner structure and richer, more maintainable presentations.
+This article explains how to work with group shapes in Aspose.Slides. It shows how to add a group shape to a slide, place shapes inside it, and save the updated presentation. It also demonstrates how to access shapes stored inside a group and read their `alternative_text` values. In addition, the article briefly covers related group-shape capabilities such as nested groups, z-order, and locking options.
 
 ## **Add Group Shapes**
 

@@ -18,6 +18,14 @@ keywords:
 description: "Set up a fallback fonts collection in Aspose.Slides for Python via .NET to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to configure a collection of fallback font rules for a presentation. Each fallback rule is represented by the `FontFallBackRule` class and can be added to a `FontFallBackRulesCollection`.
+
+After creating the collection, you can assign it to the `font_fall_back_rules_collection` property of the presentation’s `fonts_manager`. The `fonts_manager` controls fonts across the presentation, and each `Presentation` instance has its own `FontsManager`.
+
+Once the `FontsManager` is initialized with the fallback font collection, the specified fallback fonts are applied during presentation rendering.
+
 ## **Apply Fallback Rules**
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/). It is possible to add or remove rules from the collection.

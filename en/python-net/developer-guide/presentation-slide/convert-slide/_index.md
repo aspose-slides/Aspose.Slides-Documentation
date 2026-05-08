@@ -18,7 +18,7 @@ keywords:
 description: "Learn how to convert PowerPoint and OpenDocument slides into various formats using Aspose.Slides for Python via .NET. Easily export PPTX and ODP slides to BMP, PNG, JPEG, TIFF, and more with high-quality results."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for Python via .NET enables you to easily convert PowerPoint and OpenDocument presentation slides into various image formats, including BMP, PNG, JPG (JPEG), GIF, and others.
 

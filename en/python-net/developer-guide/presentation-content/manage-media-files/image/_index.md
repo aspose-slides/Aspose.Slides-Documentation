@@ -25,7 +25,7 @@ keywords:
 description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET, optimizing performance and automating your workflow."
 ---
 
-## **Overview**
+## **Introduction**
 
 Images make presentations more engaging and interesting. In Microsoft PowerPoint, you can insert pictures from a file, the internet, or other sources onto slides. Similarly, Aspose.Slides lets you add images to slides in several ways.
 

@@ -20,7 +20,7 @@ keywords:
 description: "Create & edit tables in PowerPoint and OpenDocument slides with Aspose.Slides for Python via .NET. Discover simple code examples to streamline your table workflows."
 ---
 
-## **Overview**
+## **Introduction**
 
 A table in PowerPoint is an efficient way to present information. Information arranged in a grid of cells (rows and columns) is straightforward and easy to understand.
 

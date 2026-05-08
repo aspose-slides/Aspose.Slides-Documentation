@@ -15,6 +15,10 @@ keywords:
 description: "Learn how to create and customize 3-D charts in Aspose.Slides for Python via .NET, with support for PPT, PPTX and ODP files—boost your presentations today."
 ---
 
+## **Overview**
+
+This article explains how to customize a 3D chart in Aspose.Slides by configuring `rotation_3d` settings such as `rotation_x`, `rotation_y`, `depth_percents`, and `right_angle_axes`. It walks through creating a presentation, adding a 3D chart with default data, applying the required 3D view settings, and saving the modified presentation as a PPTX file.
+
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**
 Aspose.Slides for Python via .NET provides a simple API for setting these properties. This following article will help you how set different properties like X,Y Rotation , **DepthPercents** etc. The sample code applies setting the above said properties.
 

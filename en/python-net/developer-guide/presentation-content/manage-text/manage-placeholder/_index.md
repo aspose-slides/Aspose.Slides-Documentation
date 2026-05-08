@@ -19,7 +19,7 @@ description: "Effortlessly manage placeholders in Aspose.Slides for Python via .
 
 ## **Overview**
 
-Placeholders define reserved regions on masters, layouts, and slides—such as title, body, picture, chart, date/time, slide number, and footer—that control where content goes and how it inherits formatting. With Aspose.Slides for Python you can discover placeholders on a slide, its layout, or the master by checking that `shape.placeholder` is not `None`, inspect the `placeholder.type`, and then read or modify the associated content and formatting. The API lets you add new placeholders to a master or layout so they propagate to descendant slides, reposition and resize existing ones, convert a placeholder to a normal shape when you need full control, or remove it to simplify a design. The examples below show how to enumerate placeholders, update text and style, and keep layouts consistent by applying changes at the appropriate level.
+Aspose.Slides allows you to manage presentation placeholders programmatically. This article explains how to find placeholders on slides and change their text, set custom prompt text for placeholder layouts, and adjust the transparency of a picture used as a placeholder background. It also includes a short FAQ that clarifies the difference between base placeholders and local shapes, explains how placeholder changes can be applied through layouts or masters, and points to header and footer placeholder management.
 
 ## **Change Text in Placeholders**
 

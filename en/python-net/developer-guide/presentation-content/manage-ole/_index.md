@@ -28,7 +28,7 @@ keywords:
 description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for Python via .NET. Embed, update, and export OLE content seamlessly."
 ---
 
-## **Overview**
+## **Introduction**
 
 {{% alert title="Info" color="info" %}}
 

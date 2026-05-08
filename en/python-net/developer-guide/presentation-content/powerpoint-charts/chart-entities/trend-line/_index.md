@@ -21,6 +21,12 @@ keywords:
 description: "Quickly add and customize trend lines in PowerPoint and OpenDocument charts with Aspose.Slides for Python via .NET — a practical guide and code examples to improve forecasting accuracy and engage your audience."
 ---
 
+## **Overview**
+
+This article explains how to add trend lines to presentation charts by using Aspose.Slides. It shows how to create a chart, add trend lines to chart series, and work with several trend line types, including exponential, linear, logarithmic, moving average, polynomial, and power.
+
+It also describes how to add a custom line to a chart by inserting a line shape, and includes a short FAQ about forward and backward trendline projection values and whether trend lines are preserved during export to PDF or SVG and when rendering charts as images.
+
 ## **Add Trend Line**
 Aspose.Slides for Python via .NET provides a simple API for managing different chart Trend Lines:
 
