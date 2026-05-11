@@ -25,7 +25,7 @@ keywords:
 description: "Learn how to format PowerPoint shapes in C++ using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
 ---
 
-## **Overview**
+## **Introduction**
 
 In PowerPoint, you can add shapes to slides. Since shapes are made up of lines, you can format them by modifying or applying effects to their outlines. Additionally, you can format shapes by specifying settings that control how their interiors are filled.
 

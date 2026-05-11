@@ -17,7 +17,12 @@ keywords:
 description: "Master superscript and subscript in Aspose.Slides for C++ and elevate your presentations with professional text formatting for maximum impact."
 ---
 
+## **Overview**
+
+Aspose.Slides provides features for integrating superscript and subscript text into your PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations. Whether you need to highlight chemical formulas, mathematical equations, or annotate content with footnotes, these specialized formatting options help maintain clarity and precision. In this article, you'll learn how to seamlessly apply superscript and subscript styles and ensure professional results in every slide.
+
 ## **Manage Superscript and Subscript Text**
+
 You can add super script and sub script text inside any paragraph portion. For adding Superscript or Subscript text in Aspose.Slides text frame one must use **Escapement** properties of PortionFormat class.
 
 This property returns or sets the superscript or subscript text (value from -100% (subscript) to 100% (superscript). For example :

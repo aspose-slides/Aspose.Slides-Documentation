@@ -18,6 +18,7 @@ keywords:
 description: "Learn how Aspose.Slides for C++ leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
+## **Introduction**
 
 ActiveX control are used in presentations. Aspose.Slides for C++ lets you manage ActiveX controls, but managing them is bit trickier and different from normal presentation shapes. From Aspose.Slides for C++ 18.1, the component supports managing ActiveX controls. At the moment, you can access already added ActiveX control in your presentation and modify or delete it by using its various properties. Remember, ActiveX controls are not shapes and are not part of the presentation's IShapeCollection but the separate IControlCollection. This article shows how to work with them.
 

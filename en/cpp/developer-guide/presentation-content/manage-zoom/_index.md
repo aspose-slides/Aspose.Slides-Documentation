@@ -18,7 +18,8 @@ keywords:
 description: "Create and customize Zoom with Aspose.Slides for C++ — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
 ---
 
-## **Overview**
+## **Introduction**
+
 Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
 
 ![overview_image](Overview.png)

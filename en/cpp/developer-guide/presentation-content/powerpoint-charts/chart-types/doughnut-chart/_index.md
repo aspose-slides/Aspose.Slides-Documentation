@@ -15,6 +15,10 @@ keywords:
 description: "Discover how to create and customize doughnut charts in Aspose.Slides for С++, supporting PowerPoint formats for dynamic presentations."
 ---
 
+## **Overview**
+
+This article shows how to work with a doughnut chart in Aspose.Slides by adding the chart to a slide, setting the size of its center hole, and saving the presentation. It focuses on the `set_DoughnutHoleSize` method and demonstrates the basic steps required to customize this chart type in code.
+
 ## **Specify the Center Gap in a Doughnut Chart**
 In order to specify the size of the hole in a doughnut chart. Please follow the steps below:
 

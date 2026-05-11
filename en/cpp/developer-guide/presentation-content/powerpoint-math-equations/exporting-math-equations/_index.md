@@ -15,7 +15,7 @@ keywords:
 description: "Unlock seamless export of math equations from PowerPoint to MathML using Aspose.Slides for С++ — preserve formatting and boost compatibility."
 ---
 
-## **Export Math Equations from Presentations**
+## **Introduction**
 
 Aspose.Slides for C++ allows you to export math equations from presentations. For example, you may need to extract the mathematical equations on slides (from a specific presentation) and use them in another program or platform. 
 
@@ -24,6 +24,8 @@ Aspose.Slides for C++ allows you to export math equations from presentations. Fo
 You can export equations to MathML, a popular format or standard for mathematical equations and similar content seen on the web and in many applications. 
 
 {{% /alert %}}
+
+## **Save Math Equations as MathML**
 
 While humans easily write the code for some equation formats like LaTeX, they struggle to write the code for MathML because the latter is meant to be generated automatically by apps. Programs read and parse MathML easily because its code is in XML, so MathML is commonly used as an output and printing format in many fields. 
 

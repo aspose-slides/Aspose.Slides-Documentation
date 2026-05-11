@@ -24,6 +24,10 @@ keywords:
 description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for C++: geometry paths, curved corners, composite shapes."
 ---
 
+## **Overview**
+
+This article explains how to customize presentation shapes in Aspose.Slides by editing shape geometry through edit points and geometry paths. It shows how to work with `GeometryPath` and `IGeometryPath` to modify existing shapes, perform basic path editing operations, add or remove points, and apply updated geometry back to a shape.
+
 ## **Change a Shape Using Edit Points**
 Consider a square. In PowerPoint, using **edit points**, you can 
 

@@ -17,6 +17,9 @@ keywords:
 description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for C++ — easily design and modify shapes programmatically."
 ---
 
+## **Overview**
+
+This article shows how to add rectangle shapes to PowerPoint slides by using Aspose.Slides. It covers creating a simple rectangle, creating a formatted rectangle, and saving the updated presentation as a PPTX file.
 
 ## **Create a Simple Rectangle**
 Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is Rectangle. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides for C++ . To add a simple rectangle to a selected slide of the presentation, please follow the steps below:

@@ -18,6 +18,9 @@ keywords:
 description: "Learn how to create, format, and manipulate ellipse shapes in Aspose.Slides for C++ across PPT and PPTX presentations — C++ code examples included."
 ---
 
+## **Overview**
+
+This article shows how to add ellipse shapes to PowerPoint slides by using Aspose.Slides. It covers creating a simple ellipse, creating a formatted ellipse, and saving the updated presentation as a PPTX file. It also touches on related questions such as working with ellipse position and size, controlling stacking order, and applying animation effects.
 
 ## **Create an Ellipse**
 In this topic, we will introduce developers about adding ellipse shapes to their slides using Aspose.Slides for C++ . Aspose.Slides for C++ provides an easier set of APIs to draw different kinds of shapes with just a few lines of code. To add a simple ellipse to a selected slide of the presentation, please follow the steps below:
