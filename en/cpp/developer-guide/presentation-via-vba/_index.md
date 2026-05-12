@@ -22,6 +22,8 @@ keywords:
 description: "Discover how to generate and manipulate PowerPoint and OpenDocument presentations via VBA with Aspose.Slides for C++ to streamline your workflow."
 ---
 
+## **Introduction**
+
 The [Aspose.Slides.Vba](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
 
 {{% alert title="Note" color="warning" %}} 

@@ -21,6 +21,10 @@ keywords:
 description: "Get free, fast Aspose.Slides for C++ product support: forums, docs, updates, code help to fix issues across PowerPoint and OpenDocument workflows."
 ---
 
+## **Overview**
+
+This article explains how to get support for Aspose.Slides and how to report issues effectively. It describes the main support channel, provides recommendations for submitting a problem, and points to useful technical resources such as the product page, blog, downloads, support forum, documentation, and API Reference. The article also answers common questions about paid support, issue escalation, and support for older library versions.
+
 ## **Technical support**
 Aspose provides unlimited free technical support for all its products. The support is available to all users, including evaluation.
 If you need help with Aspose.Slides for C++, consider the following:

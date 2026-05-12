@@ -19,12 +19,12 @@ keywords:
 description: "Customize presentation notes with Aspose.Slides for C++. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
+## **Overview**
 
-## **Add and Remove Slide Notes**
-Aspose.Slides now supports removing notes slides from presentation. In this topic, we will introduce this new feature of removing Notes also adding notes style slides from any presentation. Aspose.Slides for C++ provides the feature of removing notes of any slide as well as add style to existing notes. Developers can remove notes in following ways:
+Aspose.Slides supports removing notes slides from a presentation. In this topic, we will introduce this feature, including how to remove notes and how to apply a style to notes slides in a presentation. Aspose.Slides allows you to remove notes from any slide and also apply styling to existing notes. Developers can remove notes in the following ways:
 
-- Removing Notes of a Specific Slide of a presentation.
-- Removing Notes of All Slides of a Presentation.
+- Remove notes from a specific slide in a presentation.
+- Remove notes from all slides in a presentation.
 
 ## **Remove Notes from a Specific Slide**
 Notes of some specific slide could be removed as shown in example below:

@@ -24,7 +24,7 @@ keywords:
 description: "Manage Slide Masters in Aspose.Slides for C++: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise C++ examples."
 ---
 
-## **What Is a Slide Master in PowerPoint**
+## **Introduction**
 
 A **Slide Master** is a slide template that defines the layout, styles, theme, fonts, background, and other properties for slides in a presentation. If you want to create a presentation (or series of presentations) with the same style and template for your company, you can use a slide master. 
 

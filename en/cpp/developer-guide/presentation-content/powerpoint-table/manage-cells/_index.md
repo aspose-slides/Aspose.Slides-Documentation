@@ -18,6 +18,10 @@ keywords:
 description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for C++. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to access and modify table cells in PowerPoint presentations. This article explains how to identify merged table cells, remove cell borders, work with cell numbering after merging or splitting cells, change a cell’s background color, and add an image inside a table cell. The examples show how to create or open a presentation, get a table from a slide, update cell formatting through cell properties, and save the modified presentation as a PPTX file.
+
 ## **Identify a Merged Cell**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get the table from the first slide. 

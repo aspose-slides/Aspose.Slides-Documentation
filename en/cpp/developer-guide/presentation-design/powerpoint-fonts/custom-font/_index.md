@@ -19,6 +19,14 @@ keywords:
 description: "Customize fonts in PowerPoint slides with Aspose.Slides for С++ to keep your presentations sharp and consistent across any device."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to use custom fonts in presentations without installing them on the operating system. You can load fonts from custom folders, provide fonts for a specific presentation through document-level font sources, or load external fonts directly from binary data.
+
+Loaded fonts are used when a presentation is rendered or exported, for example to PDF, images, and other supported formats. This helps keep the presentation output consistent across different environments. The article also explains how to inspect the font folders used by Aspose.Slides and how to clear the font cache after working with external fonts.
+
+Registering custom fonts for rendering is separate from embedding fonts into a PPTX file. If a font must be stored inside the presentation itself, use the font embedding features explicitly.
+
 {{% alert color="primary" %}} 
 
 Aspose Slides allows you to load these fonts using [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/):

@@ -16,7 +16,7 @@ keywords:
 description: "Learn how to extract text from slides or entire presentations in Aspose.Slides for C++ and process content from PPT, PPTX and ODP programmatically."
 ---
 
-{{% alert color="primary" %}} 
+## **Introduction**
 
 It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. Text can be extracted in following ways:
 
@@ -24,7 +24,6 @@ It's not uncommon that developers need to extract the text from a presentation. 
 [Extracting text using GetAllTextBoxes method](/slides/cpp/extracting-text-from-the-presentation/)
 [Categorized and fast extraction of text](/slides/cpp/extracting-text-from-the-presentation/)
 
-{{% /alert %}} 
 ## **Extracting Text from a Slide**
 Aspose.Slides for C++ provides the Aspose.Slides.Util namespace which includes the PresentationScanner class. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation, use the [GetAllTextBoxes](https://reference.aspose.com/slides/cpp/aspose.slides.util/slideutil/getalltextboxes/) overloaded static method exposed by the PresentationScanner class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of TextFrame objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
