@@ -30,6 +30,12 @@ keywords:
 description: "Format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for C++. Customize fonts, colors, alignment, and more."
 ---
 
+## **Overview**
+
+This article introduces how to manage and format text in PowerPoint and OpenDocument presentations using Aspose.Slides. You’ll learn how to apply text formatting features such as font selection, size, color, highlighting, background color, spacing, and alignment. In addition, it covers working with text frames, paragraphs, formatting, and advanced layout options like custom rotation and autofit behaviors.
+
+Whether you're generating presentations programmatically or customizing existing content, these examples will help you create clear, professional-looking text layouts that enhance your slides and improve readability.
+
 ## **Highlight Text**
 New HighlightText method has been added to ITextFrame and TextFrame classes. It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
 

@@ -17,6 +17,10 @@ keywords:
 description: "Learn how to customize chart data markers in Aspose.Slides for С++, boosting presentation impact across PPT and PPTX formats with clear С++ code examples."
 ---
 
+## **Overview**
+
+This article explains how to work with chart data markers in Aspose.Slides. It shows how to create a chart, access a series and its data points, apply picture fills to markers at the data-point level, adjust marker size, and save the updated presentation. It also notes that standard marker shapes are available through the `MarkerStyleType` enumeration and that marker appearance is preserved when exporting charts to raster formats or SVG.
+
 ## **Set Chart Markers**
 Aspose.Slides for C++ provides a simple API to set the chart series marker automatically. In the following feature, every chart series will get different default marker symbol automatically.
 

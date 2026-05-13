@@ -19,6 +19,10 @@ keywords:
 description: "Discover Aspose.Slides for C++ system requirements. Ensure seamless PowerPoint and OpenDocument support on Windows, Linux, and macOS."
 ---
 
+## **Introduction**
+
+Aspose.Slides does not require Microsoft PowerPoint to be installed because Aspose.Slides is an independent Microsoft PowerPoint document creation, conversion, page layout, and rendering engine.
+
 ## **Supported Operating Systems**
 Aspose.Slides for C++ is a native C++ library. Aspose.Slides for C++ supports the following 64-bit and 32-bit operating system and platforms:
 

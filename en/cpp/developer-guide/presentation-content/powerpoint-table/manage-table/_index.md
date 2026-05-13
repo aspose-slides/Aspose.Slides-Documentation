@@ -19,6 +19,8 @@ keywords:
 description: "Create & edit tables in PowerPoint slides with Aspose.Slides for C++. Discover simple code examples to streamline your table workflows."
 ---
 
+## **Introduction**
+
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
 
 Aspose.Slides provides the [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) interface, [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) class, [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) interface, and other types to allow you to create, update, and manage tables in all kinds of presentations. 

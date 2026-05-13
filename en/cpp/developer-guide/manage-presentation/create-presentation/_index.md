@@ -21,6 +21,10 @@ keywords:
 description: "Create presentations in C++ with Aspose.Slides—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
+## **Overview**
+
+This article shows how to create a presentation in Aspose.Slides, add simple content to a slide, and save the result as a file.
+
 ## **Create a PowerPoint Presentation**
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 

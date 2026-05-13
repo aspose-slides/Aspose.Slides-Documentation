@@ -24,6 +24,8 @@ keywords:
 description: "Master presentation themes in Aspose.Slides for C++ to create, customize and convert PowerPoint files with consistent branding."
 ---
 
+## **Introduction**
+
 A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
 
 In PowerPoint, a theme comprises colors, [fonts](/slides/cpp/powerpoint-fonts/), [background styles](/slides/cpp/presentation-background/), and effects.

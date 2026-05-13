@@ -16,15 +16,14 @@ keywords:
 description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for C++ – easily create and export presentation thumbnails."
 ---
 
+## **Introduction**
 
-## **Create a Shape Thumbnail**
-Aspose.Slides for C++ is used to create presentation files where each page is a slides. These slides can be viewed by opening the presentation files using Microsoft PowerPoint. But sometimes, developers may need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for C++ helps you generate thumbnail images of the slide shapes. How to use this feature is described in this article.
+Aspose.Slides is used to create presentation files where each page is a slides. These slides can be viewed by opening the presentation files using Microsoft PowerPoint. But sometimes, developers may need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides helps you generate thumbnail images of the slide shapes. How to use this feature is described in this article.
 This article explains how to generate slide thumbnails in different ways:
 
 - Generating a shape thumbnail inside a slide.
 - Generating a shape thumbnail for a slide shape with user defined dimensions.
 - Generating a shape thumbnail in the bounds of a shape's appearance.
-- Generating a thumbnail of SmartArt child node.
 
 ## **Generate a Shape Thumbnail from a Slide**
 To generate a shape thumbnail from any slide using Aspose.Slides for C++:

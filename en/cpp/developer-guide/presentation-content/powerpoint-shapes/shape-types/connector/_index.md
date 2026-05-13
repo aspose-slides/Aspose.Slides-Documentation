@@ -18,6 +18,8 @@ keywords:
 description: "Empower C++ apps to draw, connect and auto-route lines in PowerPoint slides—gain full control over straight, elbow and curved connectors."
 ---
 
+## **Introduction**
+
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 
 
 Connectors are typically connected to *connection dots* (green dots), which exist on all shapes by default. Connection dots appear when a cursor comes close to them.

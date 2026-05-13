@@ -21,6 +21,9 @@ keywords:
 description: "Create stunning animated charts in C++ with Aspose.Slides. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
+## **Introduction**
+
+Aspose.Slides supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [ISequence::AddEffect](https://reference.aspose.com/slides/cpp/aspose.slides.animation/isequence/addeffect/) method and two enums [EffectChartMajorGroupingType](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effectchartmajorgroupingtype/) and [EffectChartMinorGroupingType](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effectchartminorgroupingtype/).
 
 ## **Chart Series Animation**
 If you want to animate a chart series, write the code according to the steps listed below:

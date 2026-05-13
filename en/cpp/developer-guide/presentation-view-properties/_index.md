@@ -23,15 +23,13 @@ keywords:
 description: "Discover Aspose.Slides for C++ view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
 ---
 
-{{% alert color="primary" %}} 
+## **Introduction**
 
 The normal view consists of three content regions: the slide itself, a side content region, and a bottom content region. Properties pertaining to the positioning of the different content regions. This information allows the application to save its view state to the file, so that when reopened the view is in the same state as when the presentation was last saved.
 
 Method [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) has been added to provide access to normal view properties of presentation. 
 
 [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/) interfaces and its descendants, [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) enum have been added.
-
-{{% /alert %}} 
 
 ## **About INormalViewProperties**
 

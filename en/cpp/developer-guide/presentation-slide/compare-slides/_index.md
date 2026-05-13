@@ -15,6 +15,10 @@ keywords:
 description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for C++. Identify slide differences in code quickly."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to compare slides, layout slides, and master slides using the `Equals` method provided by the `IBaseSlide` interface and the `BaseSlide` class. This method returns `true` when the compared slides are identical in their structure and static content.
+
 ## **Compare Two Slides**
 Equals method has been added to IBaseSlide interface and BaseSlide class. It returns true for the slides / layout slides / master slides which identical by its structure and static content.
 

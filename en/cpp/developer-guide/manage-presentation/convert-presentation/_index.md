@@ -28,6 +28,12 @@ keywords:
 description: "Convert PowerPoint and OpenDocument presentations to PPTX, PDF, XPS, TIFF and more with Aspose.Slides for C++. Simple, high-quality conversion."
 ---
 
+## **Overview**
+
+This article explains how to convert presentations in Aspose.Slides and outlines the supported conversion scenarios covered on the page. It includes PPT to PPTX conversion, presentation export to PDF, XPS, and TIFF, and also summarizes several common questions related to export options and conversion behavior.
+
+For each conversion scenario, the article provides a short format overview and links to dedicated topics with implementation details and code examples.
+
 ## **PPT to PPTX Conversion**
 ### **About PPT to PPTX Conversion**
 Aspose.Slides now supports converting PPT to PPTX.

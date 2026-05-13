@@ -18,6 +18,10 @@ keywords:
 description: "Learn how to manage chart series in С++ for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
+## **Overview**
+
+This article describes the role of [ChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/) in Aspose.Slides, focusing on how data is structured and visualized within presentations. These objects provide the foundational elements that define individual sets of data points, categories, and appearance parameters in a chart. By working with [ChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/), developers can seamlessly integrate underlying data sources and maintain full control over how information is displayed, resulting in dynamic, data-driven presentations that clearly convey insights and analysis.
+
 A series is a row or column of numbers plotted in a chart.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)

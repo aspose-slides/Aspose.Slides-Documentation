@@ -20,6 +20,7 @@ keywords:
 description: "Discover how Aspose.Slides for C++ calculates and applies effective shape properties for precise PowerPoint rendering."
 ---
 
+## **Overview**
 
 In this topic, we will discuss **effective** and **local** properties. When we set values directly at these levels
 

@@ -19,6 +19,10 @@ keywords:
 description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for C++ to optimize text positioning in PowerPoint presentations."
 ---
 
+## **Overview**
+
+This article explains how to get the bounds, size, and coordinates of paragraphs and text portions in Aspose.Slides. It shows how to retrieve a paragraph’s rectangle in a `TextFrame` by using `GetRect()`, how to get paragraph and portion coordinates inside a table cell text frame, and highlights important details such as measurement units, the effect of text wrapping on bounds, pixel conversion, and effective paragraph formatting values.
+
 ## **Get Paragraph and Portion Coordinates in a TextFrame**
 Using Aspose.Slides for C++, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get the coordinates of portion inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with the position of portion inside a paragraph.
 

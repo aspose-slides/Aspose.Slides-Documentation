@@ -18,6 +18,10 @@ keywords:
 description: "See how Aspose.Slides for С++ uses fallback fonts to keep text readable in PowerPoint and OpenDocument presentations when original fonts aren’t available."
 ---
 
+## **Introduction**
+
+Fallback fonts are used when the font specified for text is available in the system but does not contain a required glyph. In this case, Aspose.Slides can use one of the specified fallback fonts to replace the missing glyph.
+
 ## **Fallback Font**
 Fallback font is used when the font specified for text is available in the system, but this font does not contain a necessary glyph. In this case, it is possible to use one of the specified fallback fonts for the glyph replacement.
 

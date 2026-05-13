@@ -20,13 +20,11 @@ keywords:
 description: "Set default fonts in Aspose.Slides for С++ to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
-## **Set a Default Font**
-Using Aspose.Slides for C++ you can set the default font in PowerPoint presentations. A new method [set_DefaultRegularFont()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options/#a9df129ea6e65c8196e08173799a10492) has been added to [**SaveOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.save_options/) class. It allows to set the default font used instead of all missing fonts during saving presentations to different formats without reloading the presentations .
+## **Overview**
 
-The code snippet below demonstrates saving presentation to [HTML](https://docs.fileformat.com/web/html/) and [PDF](https://docs.fileformat.com/pdf/) with different default regular font.
+Aspose.Slides allows you to specify default fonts that are used when a presentation is rendered. This is useful when generating slide thumbnails or exporting a presentation to formats such as PDF and XPS. Default fonts are configured through `LoadOptions` before the presentation is loaded.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetDefaultFont-SetDefaultFont.cpp" >}}
-
+The `set_DefaultRegularFont` method defines the default font for regular text, while `set_DefaultAsianFont` defines the default font for Asian text. After these options are set, the presentation can be loaded and rendered using the specified fonts.
 
 ## **Use Default Fonts for Rendering a Presentation**
 Aspose.Slides lets you set the default font fore rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular

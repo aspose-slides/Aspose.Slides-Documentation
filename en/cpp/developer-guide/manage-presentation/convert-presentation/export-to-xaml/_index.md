@@ -28,13 +28,9 @@ keywords:
 description: "Convert PowerPoint and OpenDocument slides to XAML in C++ using Aspose.Slides—quick, Office-free solution that keeps your layout intact."
 ---
 
-## **Export Presentations to XAML**
+## **Overview**
 
-{{% alert color="primary" %}} 
-
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML. 
-
-{{% /alert %}} 
+This article explains how to export PowerPoint presentations to XAML using Aspose.Slides. It includes a brief introduction to XAML, shows how to save a presentation to XAML with default settings, and demonstrates how to customize the export through [XamlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export.xaml/xamloptions/), including exporting hidden slides. The article also answers a few common questions related to fallback fonts, XAML stack compatibility, and hidden slide export behavior.
 
 ## **About XAML**
 

@@ -14,6 +14,10 @@ keywords:
 description: "Customize chart data tables in С++ for PPT and PPTX with Aspose.Slides to boost efficiency and appeal in presentations."
 ---
 
+## **Overview**
+
+This article explains how to work with chart data tables in Aspose.Slides. It shows how to display a data table for a chart and customize its text formatting by setting font properties such as bold style and font height. The example demonstrates loading a presentation, adding a chart, enabling the chart data table, applying font settings, and saving the updated presentation.
+
 ## **Set Font Properties for a Chart Data Table**
 Aspose.Slides for C++ allows to change font properties for a chart data table. 
 

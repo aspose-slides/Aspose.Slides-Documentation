@@ -18,6 +18,10 @@ keywords:
 description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for C++ using clear code samples that speed up slide design and automation."
 ---
 
+## **Overview**
+
+This article explains how to work with SmartArt in Aspose.Slides. It shows how to extract text from SmartArt shapes, change a SmartArt layout, check whether a SmartArt node is hidden, get or set an organization chart layout, and create a picture organization chart. It also covers several related questions, including SmartArt reversal for RTL languages, cloning SmartArt while preserving formatting, rendering SmartArt as part of a slide image, and identifying a specific SmartArt object on a slide.
+
 ## **Get Text from a SmartArt Object**
 Now TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively. This property allows you to get all text from SmartArt if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 

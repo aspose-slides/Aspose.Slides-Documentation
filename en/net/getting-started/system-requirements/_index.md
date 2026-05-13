@@ -20,7 +20,8 @@ keywords:
 description: "Discover Aspose.Slides for .NET system requirements. Ensure seamless PowerPoint and OpenDocument support on Windows, Linux, and macOS."
 ---
 
-## **Overview**
+## **Introduction**
+
 Aspose.Slides for .NET does not require Microsoft PowerPoint to be installed because Aspose.Slides is an independent Microsoft PowerPoint document creation, conversion, page layout, and rendering engine.
 
 ## **Supported Operating Systems**

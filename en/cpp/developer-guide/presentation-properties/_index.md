@@ -25,7 +25,7 @@ keywords:
 description: "Master presentation properties in Aspose.Slides for C++ and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
-## **Access Presentation Properties**
+## **Introduction**
 
 As we have described earlier that Aspose.Slides for C++ supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for C++ API. Aspose.Slides for C++ provides a class [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) that represents the document properties associated with a presentation file through [Presentation::get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) method. Developers can use [get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) method exposed by **Presentation** object to access the document properties of the presentation files as described below:
 
@@ -34,6 +34,8 @@ As we have described earlier that Aspose.Slides for C++ supports two kinds of do
 Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for C++ x.x.x will be displayed against these fields.
 
 {{% /alert %}} 
+
+## **Manage Presentation Properties**
 
 Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
 

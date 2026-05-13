@@ -28,7 +28,7 @@ keywords:
 description: "Learn how to convert PowerPoint presentations to video in C++. Discover sample code and automation techniques to streamline your workflow."
 ---
 
-## **Overview**
+## **Introduction**
 
 By converting your PowerPoint presentation to video, you get 
 

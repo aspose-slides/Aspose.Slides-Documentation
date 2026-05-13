@@ -20,6 +20,12 @@ keywords:
 description: "Learn to manipulate line formatting in PowerPoint presentations with Aspose.Slides for C++. Discover properties, methods, and examples."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to add line shapes to PowerPoint slides programmatically. This article shows how to create a simple line and how to customize a line so it appears as an arrow.
+
+You will learn how to add a line shape to a slide, adjust its visual appearance, and save the updated presentation. The examples focus on practical line formatting settings such as style, width, dash pattern, arrowhead options, and fill color.
+
 ## **Create a Plain Line**
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 

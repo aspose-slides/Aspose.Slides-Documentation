@@ -30,6 +30,8 @@ keywords:
 description: "Learn how to add and control advanced animation effects in Aspose.Slides for C++ to build dynamic PowerPoint and OpenDocument presentations."
 ---
 
+## **Introduction**
+
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.
 
 **PowerPoint animation** plays an important role in order to make presentation eye-catching and attractive for the viewers. Aspose.Slides for C++ offers a wide range of options to add animation to PowerPoint presentation:

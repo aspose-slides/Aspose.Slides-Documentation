@@ -30,11 +30,11 @@ keywords:
 description: "Convert PowerPoint slides—PPT, PPTX—to clean Markdown with Aspose.Slides for C++, automate documentation and keep formatting."
 ---
 
-{{% alert color="info" %}} 
+## **Introduction**
 
-Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 23.7](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-23-7-release-notes/).
+Aspose.Slides allows you to convert PowerPoint presentations to Markdown, which can be useful for documentation workflows, static site generation, content migration, and version-controlled text publishing. The API supports direct export from PPT and PPTX presentations to MD files and provides additional options to control how slide content is represented in the resulting Markdown document.
 
-{{% /alert %}} 
+You can export presentations as plain Markdown, choose from multiple Markdown flavors such as CommonMark and GitHub Flavored Markdown, and configure how images are handled during export. For presentations that contain visual content, Aspose.Slides also lets you save images to a separate folder and reference them from the generated Markdown file.
 
 {{% alert color="warning" %}} 
 

@@ -34,6 +34,8 @@ keywords:
 description: "Convert PowerPoint PPT and PPTX slides to editable Word documents in C++ using Aspose.Slides with precise layout, images and formatting preserved."
 ---
 
+## **Introduction**
+
 If you plan to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). 
 
 * When compared to Microsoft PowerPoint, the Microsoft Word app is more equipped with tools or functionalities for content. 
