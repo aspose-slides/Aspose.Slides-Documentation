@@ -31,6 +31,8 @@ keywords:
 description: "Master paragraph formatting with Aspose.Slides for Node.js via Java—optimize alignment, spacing & style in PPT, PPTX, and ODP presentations in JavaScript."
 ---
 
+## **Introduction**
+
 Aspose.Slides provides all the classs and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
 
 * Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) class to allow you to add objects that represent a paragraph. A `TextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).

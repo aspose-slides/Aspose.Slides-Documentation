@@ -25,13 +25,11 @@ keywords:
 description: "Explore slides, structure and metadata in PowerPoint and OpenDocument presentations using JavaScript for faster insights and smarter content audits."
 ---
 
-Aspose.Slides for Node.js via Java allows you to examine a presentation to find out its properties and understand its behavior.
+## **Overview**
 
-{{% alert title="Info" color="info" %}} 
+This article shows how to inspect presentation information in Aspose.Slides. It explains how to determine a presentation’s current format without loading the full file, read its document properties, and update those properties when needed.
 
-The [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) and [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) classes contain the properties and methods used in operations here.
-
-{{% /alert %}} 
+The examples are based on the [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/) and [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) APIs and demonstrate typical operations for working with presentation metadata.
 
 ## **Check a Presentation Format**
 

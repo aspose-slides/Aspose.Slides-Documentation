@@ -26,6 +26,8 @@ keywords:
 description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for Node.js—enhance interactivity and workflow in minutes."
 ---
 
+## **Introduction**
+
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
 
 * Links to websites inside texts, shapes, or media

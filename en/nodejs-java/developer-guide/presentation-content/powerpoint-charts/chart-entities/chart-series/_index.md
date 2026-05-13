@@ -19,13 +19,17 @@ keywords:
 description: "Learn how to manage chart series in JavaScript for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
+## **Overview**
+
+This article describes the role of [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) in Aspose.Slides, focusing on how data is structured and visualized within presentations. These objects provide the foundational elements that define individual sets of data points, categories, and appearance parameters in a chart. By working with [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/), developers can seamlessly integrate underlying data sources and maintain full control over how information is displayed, resulting in dynamic, data-driven presentations that clearly convey insights and analysis.
+
 A series is a row or column of numbers plotted in a chart.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Set Chart Series Overlap**
 
-With the [ChartSeries.getOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) method, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only.
+With the [ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getOverlap) method, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only.
 
 Use the `ParentSeriesGroup.getOverlap` read/write property to set your preferred value for `Overlap`. 
 

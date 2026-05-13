@@ -19,6 +19,10 @@ keywords:
 description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js, with easy-to-follow, optimized code examples."
 ---
 
+## **Overview**
+
+This article explains how to work with animated text in Aspose.Slides by applying animation effects to individual paragraphs and retrieving the effects already assigned to paragraphs in a text frame. It focuses on the API methods used to add paragraph-level animation and inspect existing paragraph animation effects in a presentation.
+
 ## **Adding Animation Effects to Paragraphs**
 
 We added the [**addEffect()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence#addEffect-aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence) and [**Sequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:

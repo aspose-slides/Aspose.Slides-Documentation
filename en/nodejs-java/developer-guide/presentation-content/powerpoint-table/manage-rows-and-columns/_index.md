@@ -26,7 +26,9 @@ keywords:
 description: "Manage table rows and columns in PowerPoint with JavaScript and Aspose.Slides for Node.js via Java and speed up presentation editing and data updates."
 ---
 
-To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) class, [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, and many other types.
+## **Introduction**
+
+To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) class and other types.
 
 ## **Set First Row as Header**
 

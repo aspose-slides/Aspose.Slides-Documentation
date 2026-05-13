@@ -32,6 +32,10 @@ keywords:
 description: "Convert PowerPoint (PPT/PPTX) to SWF Flash with Aspose.Slides for Node.js. Step‑by‑step code samples, fast quality output, no PowerPoint automation."
 ---
 
+## **Overview**
+
+This article explains how to convert PowerPoint presentations to SWF by using Aspose.Slides. It shows how to save a presentation as an SWF file with the [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) method and how to configure the export with [SwfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/), including viewer settings and notes or comments layout.
+
 ## **Convert PPT(X) to SWF**
 The [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class can be used to convert the whole presentation into **SWF** document. The following example shows how to convert a presentation into **SWF** document by using options provided by [**SWFOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SwfOptions) class.You can also include comments in generated SWF using [**SWFOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SwfOptions) class and [**NotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NotesCommentsLayoutingOptions) class.
 

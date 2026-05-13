@@ -16,12 +16,13 @@ keywords:
 description: "Discover how to create and customize doughnut charts with JavaScript and Aspose.Slides for Node.js, supporting PowerPoint formats for dynamic presentations."
 ---
 
+## **Overview**
+
+This article shows how to work with a doughnut chart in Aspose.Slides by adding the chart to a slide, setting the size of its center hole, and saving the presentation. It focuses on the `setDoughnutHoleSize` method and demonstrates the basic steps required to customize this chart type in code.
+
+It also includes a short FAQ covering related doughnut-chart scenarios, such as using multiple series to create multiple rings, working with exploded doughnut charts, and exporting a chart as a raster image or SVG.
+
 ## **Change Center Gap in Doughnut Chart**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Node.js via Java now supports specifying the size of the hole in a doughnut chart. In this topic, we will see with example how to specify the size of the hole in a doughnut chart.
-
-{{% /alert %}} 
 
 In order to specify the size of the hole in a doughnut chart, please follow the steps below:
 

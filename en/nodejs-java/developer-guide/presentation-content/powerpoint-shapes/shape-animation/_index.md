@@ -26,6 +26,8 @@ keywords:
 description: "Discover how to create and customize shape animations in PowerPoint presentations with JavaScript and Aspose.Slides for Node.js via Java. Stand out!"
 ---
 
+## **Introduction**
+
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/nodejs-java/animated-charts/). They give life to presentations or its constituents.
 
 ## **Why Use Animations in Presentations?**

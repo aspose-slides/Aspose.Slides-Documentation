@@ -22,12 +22,9 @@ keywords:
 description: "Create stunning animated charts in JavaScript with Aspose.Slides for Node.js. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
+## **Introduction**
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Node.js via Java supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**Sequence**.**addEffect**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence#addEffect-aspose.slides.IChart-int-int-int-int-int-) method and two enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectChartMajorGroupingType) and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectChartMinorGroupingType).
-
-{{% /alert %}} 
+Aspose.Slides for Node.js via Java supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [Sequence.addEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sequence/#addEffect) method and two enums [EffectChartMajorGroupingType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectchartmajorgroupingtype/) and [EffectChartMinorGroupingType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectchartminorgroupingtype/).
 
 ## **Chart Series Animation**
 If you want to animate a chart series, write the code according to the steps listed below:
