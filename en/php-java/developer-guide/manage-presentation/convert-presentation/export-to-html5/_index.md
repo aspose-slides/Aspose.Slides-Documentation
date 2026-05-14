@@ -23,7 +23,9 @@ keywords:
 description: "Export PowerPoint & OpenDocument presentations to responsive HTML5 with Aspose.Slides for PHP via Java. Preserve formatting, animations, and interactivity."
 ---
 
-Aspose.Slides supports HTML5 export. The export to HTML5 process here allows you to convert PowerPoint to HTML without web extensions or dependencies. This way, using your own templates, you can apply very flexible options that define the export process and the resulting HTML, CSS, JavaScript, and animation attributes. 
+## **Overview**
+
+This article explains how to convert PowerPoint presentations to HTML5 using Aspose.Slides. It covers basic HTML5 export without web extensions or additional dependencies, as well as options for controlling shape animations and slide transitions. The article also shows the standard PowerPoint-to-HTML export process, explains how to generate HTML5 output in slide view mode, and demonstrates how to include comments in the exported document by configuring their layout.
 
 ## **Export PowerPoint to HTML5**
 

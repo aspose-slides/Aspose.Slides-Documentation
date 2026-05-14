@@ -17,6 +17,10 @@ keywords:
 description: "Create and control audio frames in Aspose.Slides for PHP—code examples to embed, trim, loop, and configure playback across PPT, PPTX, and ODP presentations."
 ---
 
+## **Overview**
+
+This article explains how to work with audio frames in Aspose.Slides. It shows how to add embedded audio to slides, customize the audio frame thumbnail, configure playback options such as volume, looping, hiding, trimming, and fade durations, and extract audio used in slide show transitions.
+
 ## **Create Audio Frames**
 
 Aspose.Slides for PHP via Java allows you to add audio files to slides. The audio files are embedded in slides as audio frames.

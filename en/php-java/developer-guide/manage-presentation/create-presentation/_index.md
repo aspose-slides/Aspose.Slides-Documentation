@@ -21,6 +21,10 @@ keywords:
 description: "Create presentations with Aspose.Slides for PHP via Java — produce PPT, PPTX, and ODP files and save them programmatically for reliable results."
 ---
 
+## **Overview**
+
+This article shows how to create a presentation in Aspose.Slides, add simple content to a slide, and save the result as a file. It also demonstrates how to create and save a new presentation, open an existing presentation in a supported format, and save it to another format. In addition, the article includes a short FAQ covering common questions related to formats, templates, slide sizing, units, memory usage, threading, licensing, digital signatures, and VBA support.
+
 ## **Create a Presentation**
 
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:

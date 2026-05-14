@@ -30,6 +30,11 @@ keywords:
 description: "Format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for PHP via Java. Customize fonts, colors, alignment, and more."
 ---
 
+## **Overview**
+
+This article introduces how to manage and format text in PowerPoint and OpenDocument presentations using Aspose.Slides. You’ll learn how to apply text formatting features such as font selection, size, color, highlighting, background color, spacing, and alignment. In addition, it covers working with text frames, paragraphs, formatting, and advanced layout options like custom rotation and autofit behaviors.
+
+Whether you're generating presentations programmatically or customizing existing content, these examples will help you create clear, professional-looking text layouts that enhance your slides and improve readability.
 
 ## **Highlight Text**
 Method [highlightText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/highlighttext/) has been added to [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) class.

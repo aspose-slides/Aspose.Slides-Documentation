@@ -21,6 +21,10 @@ keywords:
 description: "Convert ODP to PPTX with Aspose.Slides for PHP via Java. Clean code examples, batch tips, and high-quality results—no PowerPoint needed."
 ---
 
+## **Overview**
+
+This article explains how to convert an ODP presentation to PPTX format using Aspose.Slides.
+
 ## **Convert ODP to PPTX/PPT Presentation**
 Aspose.Slides for PHP via Java offers [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class that represents a presentation file. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class can now also access ODP through [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#Presentation-java.lang.String-) constructor when the object is instantiated. The following example shows how to convert a ODP Presentation into PPTX Presentation.
 

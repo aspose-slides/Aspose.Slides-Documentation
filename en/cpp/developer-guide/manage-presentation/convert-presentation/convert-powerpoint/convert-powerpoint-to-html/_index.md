@@ -42,36 +42,12 @@ Aspose.Slides provides many options—primarily through the [HtmlOptions](https:
 * Preserve original fonts or use embedded fonts.
 * Export HTML using the new CSS style.
 
-{{% alert color="primary" %}} 
-
-Using its own API, Aspose developed free [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) converters: [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-You may want to check out other [free converters from Aspose](https://products.aspose.app/slides/conversion).
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-Besides the conversion processes described here, Aspose.Slides also supports these conversion operations involving the HTML format: 
-
-* [HTML to image](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
-* [HTML to TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
 ## **Convert PowerPoint to HTML**
+
 Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-   * Load **.ppt** in _Presentation_ class to **Convert PPT to HTML in C++**
-   * Load **.pptx** in _Presentation_ class to **Convert PPTX to HTML in C++**
-   * Load **.odp** in _Presentation_ class to **Convert ODP to HTML in C++**
-3. Use the [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) method to save the object as an HTML file.
+1. Use the [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) method to save the object as an HTML file.
 
 This code shows you how to convert a PowerPoint to HTML in C++:
 

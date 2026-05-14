@@ -30,11 +30,17 @@ keywords:
 description: "Convert PowerPoint slides — PPT, PPTX — to clean Markdown with Aspose.Slides for PHP via Java, automate documentation and keep formatting."
 ---
 
-## **Overview**
+## **Introduction**
 
-Aspose.Slides for PHP via Java enables conversion of presentation content to Markdown, letting you repurpose PowerPoint (PPT, PPTX) and OpenDocument (ODP) files for wikis, Git repositories, and static‑site generators. The API preserves slide hierarchy while producing lightweight, human‑readable Markdown, so you can automate documentation pipelines and keep source presentations and Markdown files in perfect sync.
+Aspose.Slides allows you to convert PowerPoint presentations to Markdown, which can be useful for documentation workflows, static site generation, content migration, and version-controlled text publishing. The API supports direct export from PPT and PPTX presentations to MD files and provides additional options to control how slide content is represented in the resulting Markdown document.
 
-Support for PowerPoint‑to‑Markdown conversion was implemented in [Aspose.Slides 23.7](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-php-via-java-23-7-release-notes/).
+You can export presentations as plain Markdown, choose from multiple Markdown flavors such as CommonMark and GitHub Flavored Markdown, and configure how images are handled during export. For presentations that contain visual content, Aspose.Slides also lets you save images to a separate folder and reference them from the generated Markdown file.
+
+{{% alert color="warning" %}}
+
+PowerPoint-to-Markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set `ExportType = MarkdownExportType::Visual` and specify `BasePath`, where the images referenced in the Markdown document will be saved.
+
+{{% /alert %}}
 
 ## **Convert a Presentation to Markdown**
 

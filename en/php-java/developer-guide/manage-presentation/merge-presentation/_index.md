@@ -22,6 +22,9 @@ keywords:
 description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for PHP via Java, streamlining your workflow."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to merge presentations by cloning slides from one presentation into another. This article explains how to merge entire presentations or selected slides, use a slide master or a specific layout during the merge, handle presentations with different slide sizes, and add merged slides to a presentation section. It also covers practical notes related to merged content, including speaker notes, comments, password-protected source files, and thread usage.
 
 ## **Presentation Merging**
 

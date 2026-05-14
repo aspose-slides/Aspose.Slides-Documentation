@@ -31,6 +31,10 @@ keywords:
 description: "Convert PowerPoint (PPT/PPTX) to SWF Flash in PHP with Aspose.Slides. Step‑by‑step code samples, fast quality output, no PowerPoint automation."
 ---
 
+## **Overview**
+
+This article explains how to convert PowerPoint presentations to SWF by using Aspose.Slides. It shows how to save a presentation as an SWF file with the [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) method and how to configure the export with [SwfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/), including viewer settings and notes or comments layout.
+
 ## **Convert Presentations to Flash**
 
 The [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) method exposed by the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class can be used to convert the whole presentation into an **SWF** document. The following example shows how to convert a presentation into an **SWF** document by using the options provided by the [SWFOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/) class. You can also include comments in the generated SWF by using the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) class.
