@@ -25,6 +25,8 @@ keywords:
 description: "Master presentation themes in JavaScript with Aspose.Slides for Node.js to create, customize and convert PowerPoint files with consistent branding."
 ---
 
+## **Introduction**
+
 A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
 
 In PowerPoint, a theme comprises colors, [fonts](/slides/nodejs-java/powerpoint-fonts/), [background styles](/slides/nodejs-java/presentation-background/), and effects.

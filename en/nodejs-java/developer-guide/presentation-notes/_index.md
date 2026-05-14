@@ -20,18 +20,12 @@ keywords:
 description: "Customize presentation notes in JavaScript with Aspose.Slides for Node.js. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
+## **Overview**
 
-{{% alert color="primary" %}} 
+Aspose.Slides supports removing notes slides from a presentation. In this topic, we will introduce this feature, including how to remove notes and how to apply a style to notes slides in a presentation. Aspose.Slides allows you to remove notes from any slide and also apply styling to existing notes. Developers can remove notes in the following ways:
 
-Aspose.Slides supports removing notes slides from a presentation. In this topic, we will introduce this new feature of removing Notes also adding notes style slides from any presentation. 
-
-{{% /alert %}} 
-
-Aspose.Slides for Node.js via Java provides the feature of removing notes of any slide as well as add style to existing notes. Developers can remove notes in the following ways:
-
-* Remove Notes of a Specific Slide of a presentation.
-* Remove Notes of All Slides of a Presentation
-
+- Remove notes from a specific slide in a presentation.
+- Remove notes from all slides in a presentation.
 
 ## **Remove Notes from Slide**
 Notes of some specific slide could be removed as shown in example below:

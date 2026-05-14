@@ -19,6 +19,8 @@ keywords:
 description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for Node.js — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
+## **Introduction**
+
 With Aspose.Slides for Node.js via Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides.
 
 You may want to create sections and use them to organize or divide slides in a presentation into logical parts in these situations:
