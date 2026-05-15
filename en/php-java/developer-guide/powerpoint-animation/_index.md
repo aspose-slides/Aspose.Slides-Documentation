@@ -45,7 +45,7 @@ In Aspose.Slides for PHP via Java, various animations effects can be applied on 
 
 
 ## **Animation Effects**
-Aspose.Slides supports **150+ animation effects**, including basic animation effects like Bounce, PathFootball, Zoom effect and specific animation effects as OLEObjectShow, OLEObjectOpen. You can find a full listing of animation effects in [**EffectType** ](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype)enumeration.
+Aspose.Slides supports **150+ animation effects**, including basic animation effects like Bounce, PathFootball, Zoom effect and specific animation effects as OLEObjectShow, OLEObjectOpen. You can find a full listing of animation effects in [**EffectType**](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype/) enumeration.
 
 Additionally, these animation effects can be used in combination with them:
 

@@ -21,7 +21,7 @@ keywords:
 description: "Convert slides from PPT, PPTX and ODP to images using Aspose.Slides for PHP via Java — fast, high-quality rendering with clear code examples."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for PHP via Java enables you to easily convert PowerPoint and OpenDocument presentation slides into various image formats, including BMP, PNG, JPG (JPEG), GIF, and others.
 

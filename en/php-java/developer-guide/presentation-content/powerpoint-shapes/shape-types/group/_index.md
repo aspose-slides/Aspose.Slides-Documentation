@@ -16,6 +16,10 @@ keywords:
 description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for PHP via Java — fast, step-by-step guide with free code."
 ---
 
+## **Overview**
+
+This article explains how to work with group shapes in Aspose.Slides. It shows how to add a group shape to a slide, place shapes inside it, and save the updated presentation. It also demonstrates how to access shapes stored inside a group and read their `AlternativeText` values. In addition, the article briefly covers related group-shape capabilities such as nested groups, z-order, and locking options.
+
 ## **Add a Group Shape**
 Aspose.Slides support working with group shapes on slides. This feature helps developers support richer presentations. Aspose.Slides for PHP via Java supports adding or accessing group shapes. It is possible to add shapes to an added group shape to populate it or access any property of group shape. To add a group shape to a slide using Aspose.Slides for PHP via Java:
 

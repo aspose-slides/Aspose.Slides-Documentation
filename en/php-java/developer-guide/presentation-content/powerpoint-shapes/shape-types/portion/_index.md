@@ -16,6 +16,10 @@ keywords:
 description: "Learn how to manage text portions in PowerPoint presentations using Aspose.Slides for PHP via Java, boosting performance and customization."
 ---
 
+## **Introduction**
+
+A text portion represents a specific fragment of text inside a paragraph and allows you to work with that fragment independently from surrounding content. In Aspose.Slides, portions can be used when you need to retrieve the position of a text fragment, apply formatting to only part of a paragraph, or control text behavior at a more detailed level.
+
 ## **Get Coordinates of a Text Portion**
 [**getCoordinates()**](https://reference.aspose.com/slides/php-java/aspose.slides/portion/getcoordinates/) method has been added to [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) class which allows retrieving the coordinates of the beginning of the portion.
 

@@ -17,21 +17,20 @@ keywords:
 description: "Learn how to digitally sign PowerPoint & OpenDocument files with Aspose.Slides for PHP via Java. Secure your slides in seconds with clear code examples."
 ---
 
+## **Introduction**
 
 **Digital certificate** is used to create a password protected powerpoint presentation, marked as created by a particular organization or person. Digital certificate can be obtained by contacting an authorized organization - a certificate authority. After installing digital certificate into the system, it can be used to add a digital signature to the presentation via File -> Info -> Protect Presentation:
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
 
-
-
 Presentation may contain more than one digital signatures. After the digital signature is added to the presentation, a special message will appear in the PowerPoint:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
 
-
-
 To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature) class, [**DigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignatureCollection) class and [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getDigitalSignatures) method. Currently, digital signatures are supported for PPTX format only.
+
 ## **Add a Digital Signature from a PFX Certificate**
+
 The code sample below demonstrates how to add digital signature from a PFX certificate:
 
 1. Open PFX file and pass PFX password to [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature) object.

@@ -29,7 +29,7 @@ description: "Master presentation properties in Aspose.Slides for Java and strea
 
 Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
 
-To handle document properties, Aspose.Slides provides the [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) interface, accessible through the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getDocumentProperties--) method. Developers can leverage the `Presentation` object's [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) interface to seamlessly read, modify, and manage presentation properties, as shown in the examples below.
+Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getDocumentProperties--) method. The following examples show how to read, modify, and manage these properties.
 
 {{% alert color="primary" %}} 
 

@@ -19,6 +19,8 @@ keywords:
 description: "Create & edit tables in PowerPoint slides with Aspose.Slides for PHP via Java. Discover simple code examples to streamline your table workflows."
 ---
 
+## **Introduction**
+
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
 
 Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) class, [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) class, and other types to allow you to create, update, and manage tables in all kinds of presentations.

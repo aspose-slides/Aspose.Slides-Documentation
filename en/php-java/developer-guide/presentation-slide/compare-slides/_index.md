@@ -15,7 +15,12 @@ keywords:
 description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for PHP via Java. Identify slide differences in code quickly."
 ---
 
+## **Introduction**
+
+Aspose.Slides allows you to compare slides, layout slides, and master slides using the `equals` method provided by the `BaseSlide` class. This method returns `true` when the compared slides are identical in their structure and static content.
+
 ## **Compare Two Slides**
+
 Equals method has been added to [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content. 
 
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.

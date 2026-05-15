@@ -30,7 +30,7 @@ description: "Master presentation properties in Aspose.Slides for .NET and strea
 
 Aspose.Slides for .NET supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides for .NET API.
 
-To handle document properties, Aspose.Slides provides the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface, accessible through the [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/documentproperties/) property. Developers can leverage the `Presentation` object's [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface to seamlessly read, modify, and manage presentation properties, as shown in the examples below.
+Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by the [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/documentproperties/) property. The following examples show how to read, modify, and manage these properties.
 
 {{% alert color="primary" %}} 
 
