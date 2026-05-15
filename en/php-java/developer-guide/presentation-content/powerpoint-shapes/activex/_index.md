@@ -18,12 +18,9 @@ keywords:
 description: "Learn how Aspose.Slides for PHP via Java leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
-
-{{% alert color="primary" %}} 
+## **Introduction**
 
 ActiveX controls are used in presentations. Aspose.Slides for PHP via Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/). They are part of the separate [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/) instead. In this topic, we will show you how to work with them.
-
-{{% /alert %}} 
 
 ## **Add a Media Player ActiveX Control to a Slide**
 To add an ActiveX Media Player control, do this:

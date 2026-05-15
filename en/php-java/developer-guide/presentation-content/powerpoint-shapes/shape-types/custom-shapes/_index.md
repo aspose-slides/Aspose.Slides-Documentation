@@ -24,6 +24,12 @@ keywords:
 description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for PHP via Java: geometry paths, curved corners, composite shapes."
 ---
 
+## **Overview**
+
+This article explains how to customize presentation shapes in Aspose.Slides by editing shape geometry through edit points and geometry paths. It shows how to work with `GeometryPath` to modify existing shapes, perform basic path editing operations, add or remove points, and apply updated geometry back to a shape.
+
+It also demonstrates how to create custom and composite shapes, build shapes with curved corners, determine whether a shape geometry is closed, and convert between `GeometryPath` and `java.awt.Shape` for additional geometry customization scenarios.
+
 ## **Change a Shape Using Edit Points**
 Consider a square. In PowerPoint, using **edit points**, you can 
 

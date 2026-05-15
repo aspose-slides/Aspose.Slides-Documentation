@@ -20,7 +20,7 @@ keywords:
 description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocument files using Aspose.Slides for PHP via Java, with code tips to boost your presentations."
 ---
 
-## **Overview**
+## **Introduction**
 
 Solid colors, gradients, and images are commonly used for slide backgrounds. You can set the background for a **normal slide** (a single slide) or a **master slide** (applies to multiple slides at once).
 

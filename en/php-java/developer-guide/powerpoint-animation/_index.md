@@ -30,6 +30,8 @@ keywords:
 description: "Explore the capabilities of Aspose.Slides for PHP via Java in handling PowerPoint animations. Key features and insights to enhance your presentations."
 ---
 
+## **Introduction**
+
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.
 
 **PowerPoint animation** plays an important role in order to make presentation eye-catching and attractive for the viewers. Aspose.Slides for PHP via Java offers a wide range of options to add animation to PowerPoint presentation:
@@ -43,7 +45,7 @@ In Aspose.Slides for PHP via Java, various animations effects can be applied on 
 
 
 ## **Animation Effects**
-Aspose.Slides supports **150+ animation effects**, including basic animation effects like Bounce, PathFootball, Zoom effect and specific animation effects as OLEObjectShow, OLEObjectOpen. You can find a full listing of animation effects in [**EffectType** ](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype)enumeration.
+Aspose.Slides supports **150+ animation effects**, including basic animation effects like Bounce, PathFootball, Zoom effect and specific animation effects as OLEObjectShow, OLEObjectOpen. You can find a full listing of animation effects in [**EffectType**](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype/) enumeration.
 
 Additionally, these animation effects can be used in combination with them:
 

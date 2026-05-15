@@ -27,7 +27,9 @@ description: "Master presentation properties in Aspose.Slides for C++ and stream
 
 ## **Introduction**
 
-As we have described earlier that Aspose.Slides for C++ supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for C++ API. Aspose.Slides for C++ provides a class [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) that represents the document properties associated with a presentation file through [Presentation::get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) method. Developers can use [get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) method exposed by **Presentation** object to access the document properties of the presentation files as described below:
+Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
+
+Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) interface. An instance of this interface is returned by the [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_documentproperties/) method. The following examples show how to read, modify, and manage these properties.
 
 {{% alert color="primary" %}} 
 

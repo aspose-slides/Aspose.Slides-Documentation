@@ -29,8 +29,6 @@ This article shows how to extract the entire slide background as an image using 
 
 ## **Get the Entire Slide Background**
 
-In PowerPoint presentations, the slide background can consist of many elements. In addition to the image set as the [slide background](/slides/cpp/presentation-background/), the final background can be influenced by the presentation theme, color scheme, and the shapes placed on the master slide and layout slide.
-
 Aspose.Slides for C++ does not provide a simple method to extract the entire presentation slide background as an image, but you can follow the steps below to do this:
 1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 1. Get the slide size from the presentation.

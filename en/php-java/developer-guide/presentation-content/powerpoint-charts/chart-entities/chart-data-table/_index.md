@@ -14,6 +14,12 @@ keywords:
 description: "Customize chart data tables for PPT and PPTX with Aspose.Slides for PHP via Java to boost efficiency and appeal in presentations."
 ---
 
+## **Overview**
+
+This article explains how to work with chart data tables in Aspose.Slides. It shows how to display a data table for a chart and customize its text formatting by setting font properties such as bold style and font height. The example demonstrates loading a presentation, adding a chart, enabling the chart data table, applying font settings, and saving the updated presentation.
+
+It also includes brief answers to common questions about showing legend keys in a chart data table, preserving the data table during export, working with charts loaded from existing presentations or templates, and identifying charts where the data table is enabled.
+
 ## **Set Font Properties for a Chart Data Table**
 Aspose.Slides for PHP via Java provides support for changing color of categories in a series color. 
 

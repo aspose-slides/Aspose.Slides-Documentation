@@ -25,6 +25,8 @@ keywords:
 description: "Discover how to create and customize shape animations in PowerPoint presentations with Aspose.Slides for PHP via Java. Stand out!"
 ---
 
+## **Introduction**
+
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/php-java/animated-charts/). They give life to presentations or its constituents.
 
 ## **Why Use Animations in Presentations?**

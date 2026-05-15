@@ -20,6 +20,7 @@ keywords:
 description: "Aspose.Slides for PHP makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
+## **Introduction**
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for PHP via Java provides the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) class that allows you to add a shape containing some text.
 

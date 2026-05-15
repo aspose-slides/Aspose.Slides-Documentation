@@ -26,7 +26,11 @@ keywords:
 description: "Aspose.Slides for PHP lets you convert ODP to PDF, HTML, and image formats with ease. Boost your PHP apps with fast and accurate presentation conversion."
 ---
 
+## **Introduction**
+
 [**Aspose.Slides API**](https://products.aspose.com/slides/php-java/) allows you to convert OpenDocument (ODP) presentations to many formats (HTML, PDF, TIFF, SWF, XPS, etc.). The API used to convert ODP files to other document formats is the same as the one used for PowerPoint (PPT and PPTX) conversion operations.
+
+## **Convert ODP to PDF**
 
 For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
 

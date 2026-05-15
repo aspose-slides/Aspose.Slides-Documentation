@@ -20,6 +20,12 @@ keywords:
 description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for PHP via Java for PPT and PPTX, with practical code examples."
 ---
 
+## **Overview**
+
+Aspose.Slides provides APIs for working with chart calculations and layout data in presentations. This article shows how to retrieve the actual values of chart elements, including the real position and size of elements and the actual values of chart axes. It also explains that these values are populated after chart layout validation.
+
+In addition, the article demonstrates how to get the actual position of parent chart elements and how to hide chart components such as the title, axes, legend, and grid lines. Together, these examples help you inspect chart layout information and control the visibility of chart elements in PowerPoint presentations programmatically.
+
 ## **Calculate Actual Values of Chart Elements**
 Aspose.Slides for PHP via Java provides a simple API for getting these properties. Methods of the [Axis](https://reference.aspose.com/slides/php-java/aspose.slides/axis/) class provide information about actual position of axis chart element ([getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/), [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/), [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/), [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/), [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/), [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/)). It is necessary to call method [Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) previously to fill properties with actual values.
 

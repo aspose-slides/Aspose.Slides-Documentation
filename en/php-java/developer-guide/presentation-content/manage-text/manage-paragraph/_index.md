@@ -30,6 +30,8 @@ keywords:
 description: "Master paragraph formatting with Aspose.Slides for PHP via Java — optimize alignment, spacing & style in PPT, PPTX, and ODP presentations."
 ---
 
+## **Introduction**
+
 Aspose.Slides provides all the classes you need to work with PowerPoint texts, paragraphs, and portions.
 
 * Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) class to allow you to add objects that represent a paragraph. A `TextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).

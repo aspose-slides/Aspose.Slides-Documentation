@@ -20,12 +20,18 @@ keywords:
 description: "Learn chart formatting in Aspose.Slides for PHP via Java and elevate your PowerPoint presentation with professional, eye-catching styling."
 ---
 
+## **Overview**
+
+This article explains how to format charts in PowerPoint presentations by using Aspose.Slides. It shows how to customize key chart elements such as axes, grid lines, titles, legends, the plot area, and wall fills to improve the appearance and readability of chart data.
+
+It also demonstrates how to set font properties for chart text, apply preset and custom numeric formats to chart data, and enable rounded corners for the chart area. Together, these examples show how to control both the visual style and data presentation of charts in a presentation.
+
 ## **Format Chart Entities**
 Aspose.Slides for PHP via Java lets developers add custom charts to their slides from scratch. This article explains how to format different chart entities including chart category and value axis.
 
 Aspose.Slides for PHP via Java provides a simple API for managing different chart entities and formatting them using custom values:
 
-1. Create an instance of the [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [**Presentation**](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (in this example we will use ChartType::LineWithMarkers).
 1. Access the chart Value Axis and set the following properties:
@@ -192,7 +198,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
 ## **Set Font Properties for a Chart**
 Aspose.Slides for PHP via Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart.
 
-- Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.
+- Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class object.
 - Add chart on the slide.
 - Set font height.
 - Save modified presentation.

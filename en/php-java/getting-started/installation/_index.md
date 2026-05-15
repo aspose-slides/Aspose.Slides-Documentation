@@ -19,6 +19,10 @@ keywords:
 description: "Quickly install Aspose.Slides for PHP via Java. Step-by-step guide, system requirements, and code samples — start working with PowerPoint presentations today!"
 ---
 
+## **Overview**
+
+This article explains how to install and configure Aspose.Slides for PHP via Java. It covers the required environment setup, downloading the library through Packagist, configuring Apache Tomcat with PHP/Java Bridge, and running an example to verify the installation.
+
 ## **Configure Environment**
 
 1. Install PHP 7, add the PHP path to the system `PATH` variable and set `allow_url_include` to `On` in the `php.ini` file.

@@ -19,6 +19,8 @@ keywords:
 description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for PHP via Java. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
+## **Introduction**
+
 Sometimes, for the best evaluation outcomes, a hands-on approach might be needed. For this reason, Aspose.Slides provides different purchase plans and also offers a Free Trial and a 30-day Temporary License for evaluation.
 
 {{% alert color="primary" %}}

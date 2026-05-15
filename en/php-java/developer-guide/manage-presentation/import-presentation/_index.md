@@ -24,6 +24,8 @@ keywords:
 description: "Import PDF and HTML documents into PowerPoint and OpenDocument presentations in PHP with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
+## **Introduction**
+
 Using [**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
 
 ## **Import PowerPoint from PDF**

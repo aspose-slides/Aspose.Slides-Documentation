@@ -14,6 +14,12 @@ keywords:
 description: "Customize chart legends with Aspose.Slides for PHP via Java to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
+## **Overview**
+
+Aspose.Slides provides options for customizing chart legends in PowerPoint presentations. This article shows how to position and size a legend, set the font size for the whole legend, and apply formatting to an individual legend entry.
+
+It also covers several related behaviors in the FAQ, including using non-overlay mode so the plot area makes room for the legend, allowing long legend labels to wrap or use line breaks, and letting legend formatting inherit from the presentation theme when explicit text and fill settings are not applied.
+
 ## **Legend Positioning**
 In order to set the legend properties. Please follow the steps below:
 

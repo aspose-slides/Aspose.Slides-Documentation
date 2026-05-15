@@ -24,6 +24,9 @@ keywords:
 description: "Discover how to use Aspose.Slides for PHP via Java to customize chart axes in PowerPoint presentations for reports and visualizations."
 ---
 
+## **Overview**
+
+This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and display a unit label on the value axis.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for PHP via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
