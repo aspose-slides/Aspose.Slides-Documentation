@@ -28,7 +28,9 @@ description: "Master presentation properties in Aspose.Slides for Node.js via Ja
 
 ## **Introduction**
 
-To handle document properties, Aspose.Slides provides the [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) class, accessible through the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDocumentProperties) method. Developers can leverage the `Presentation` object's [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) class to seamlessly read, modify, and manage presentation properties, as shown in the examples below.
+Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
+
+Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) class. An instance of this class is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDocumentProperties) method. The following examples show how to read, modify, and manage these properties.
 
 ## **Manage Presentation Properties**
 
