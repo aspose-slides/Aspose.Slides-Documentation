@@ -29,6 +29,8 @@ keywords:
 description: "Learn how to convert PowerPoint presentations to video in JavaScript. Discover sample code and automation techniques to streamline your workflow."
 ---
 
+## **Introduction**
+
 By converting your PowerPoint presentation to video, you get 
 
 * **Increase in accessibility:** All devices (regardless of platform) are equipped with video players by default compared to presentation-opening applications, so users find it easier to open or play videos.

@@ -17,6 +17,10 @@ keywords:
 description: "Automate PowerPoint and OpenDocument slide localization in JavaScript with Aspose.Slides, using practical code samples and tips for faster global rollout."
 ---
 
+## **Overview**
+
+This article explains how to set the `LanguageId` for text in a presentation by using Aspose.Slides. It shows how to open a presentation, add a shape with text, assign a language identifier to a text portion, and save the result as a PPTX file.
+
 ## **Change Language for Presentation and Shape's Text**
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.

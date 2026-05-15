@@ -17,12 +17,15 @@ keywords:
 description: "Easily add slides to your PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js via Java — seamless, efficient slide insertion in seconds."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to add slides to PowerPoint presentations programmatically. A presentation contains master/layout slides and normal slides, and normal slides are arranged by a zero-based index. Each slide has a unique ID, and presentation files without slides are not supported.
+
+This article explains how to create a `Presentation` object, access its slide collection, add an empty slide, work with the newly added slide, and save the updated presentation. It also covers related points such as inserting slides at a specific position, using layouts, and understanding the blank slide that exists in a newly created presentation.
+
 ## **Add Slide to Presentation**
-{{% alert color="primary" %}} 
 
 Before talking about adding slides to the presentation files, let us discuss some facts about the slides. Each PowerPoint presentation file contains **Master / Layout** slide and other **Normal** slides. It means that a presentation file contains at least one or more slides. It is important to know that presentation files without slides are not supported by Aspose.Slides for Node.js via Java. Each slide has a unique Id and all the Normal Slides are arranged in an order specified by the zero-based index.
-
-{{% /alert %}} 
 
 Aspose.Slides for Node.js via Java allows developers to add empty slides to their presentation. To add an empty slide in the presentation, please follow the steps below:
 

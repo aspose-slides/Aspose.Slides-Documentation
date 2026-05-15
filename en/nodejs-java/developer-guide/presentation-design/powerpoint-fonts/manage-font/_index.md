@@ -18,12 +18,11 @@ keywords:
 description: "Control fonts with Aspose.Slides for Node.js via Java: embed, substitute, and load custom fonts to keep PPT, PPTX and ODP presentations clear and consistent."
 ---
 
-## **Manage Font Related Properties**
-{{% alert color="primary" %}} 
+## **Introduction**
 
 Presentations usually contain both text and images. The text can be formatted in a various way, either to highlight specific sections and words or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for Node.js via Java to configure the font properties of paragraphs of text on slides.
 
-{{% /alert %}} 
+## **Manage Font Related Properties**
 
 To manage font properties of a paragraph using Aspose.Slides for Node.js via Java:
 

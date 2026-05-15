@@ -17,18 +17,13 @@ keywords:
 description: "Generate high-quality shape thumbnails from PowerPoint slides with JavaScript and Aspose.Slides for Node.js – easily create and export presentation thumbnails."
 ---
 
+## **Introduction**
 
-## **Overview**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Node.js via Java can be used to create presentation files in which each page corresponds to a slide. The slides can be viewed by opening the presentation files using Microsoft PowerPoint. However, developers sometimes need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for Node.js via Java helps them generate thumbnail images of the slide shapes.
-
-{{% /alert %}} 
-
-In this topic, we will show how to generate slide thumbnails in different situations:
+Aspose.Slides is used to create presentation files where each page is a slides. These slides can be viewed by opening the presentation files using Microsoft PowerPoint. But sometimes, developers may need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides helps you generate thumbnail images of the slide shapes. How to use this feature is described in this article.
+This article explains how to generate slide thumbnails in different ways:
 
 - Generating a shape thumbnail inside a slide.
-- Generating a shape thumbnail for a slide shape with user-defined dimensions.
+- Generating a shape thumbnail for a slide shape with user defined dimensions.
 - Generating a shape thumbnail in the bounds of a shape's appearance.
 
 ## **Generating Shape Thumbnails from Slides**

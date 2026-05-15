@@ -31,73 +31,7 @@ description: "Create and customize charts in PowerPoint presentations with Aspos
 
 ## **Overview**
 
-This article describes how to **create PowerPoint Presentation Charts in the Java**. You can also **update the charts in JavaScript**. It covers these topics.
-
-_Chart_: **Normal**
-- [Java Create PowerPoint Chart](#java-create-powerpoint-chart)
-- [Java Create Presentation Chart](#java-create-presentation-chart)
-- [Java Create PowerPoint Presentation Chart](#java-create-powerpoint-presentation-chart)
-
-_Chart_: **Scattered**
-- [Java Create Scattered Chart](#java-create-scattered-chart)
-- [Java Create PowerPoint Scattered Chart](#java-create-powerpoint-scattered-chart)
-- [Java Create PowerPoint Presentation Scattered Chart](#java-create-powerpoint-presentation-scattered-chart)
-
-_Chart_: **Pie**
-- [Java Create Pie Chart](#java-create-pie-chart)
-- [Java Create PowerPoint Pie Chart](#java-create-powerpoint-pie-chart)
-- [Java Create PowerPoint Presentation Pie Chart](#java-create-powerpoint-presentation-pie-chart)
-
-_Chart_: **Tree Map**
-- [Java Create Tree Map Chart](#java-create-tree-map-chart)
-- [Java Create PowerPoint Tree Map Chart](#java-create-powerpoint-tree-map-chart)
-- [Java Create PowerPoint Presentation Tree Map Chart](#java-create-powerpoint-presentation-tree-map-chart)
-
-_Chart_: **Stock**
-- [Java Create Stock Chart](#java-create-stock-chart)
-- [Java Create PowerPoint Stock Chart](#java-create-powerpoint-stock-chart)
-- [Java Create PowerPoint Presentation Stock Chart](#java-create-powerpoint-presentation-stock-chart)
-
-_Chart_: **Box and Whisker**
-- [Java Create Box and Whisker Chart](#java-create-box-and-whisker-chart)
-- [Java Create PowerPoint Box and Whisker Chart](#java-create-powerpoint-box-and-whisker-chart)
-- [Java Create PowerPoint Presentation Box and Whisker Chart](#java-create-powerpoint-presentation-box-and-whisker-chart)
-
-_Chart_: **Funnel**
-- [Java Create Funnel Chart](#java-create-funnel-chart)
-- [Java Create PowerPoint Funnel Chart](#java-create-powerpoint-funnel-chart)
-- [Java Create PowerPoint Presentation Funnel Chart](#java-create-powerpoint-presentation-funnel-chart)
-
-_Chart_: **Sunburst**
-- [Java Create Sunburst Chart](#java-create-sunburst-chart)
-- [Java Create PowerPoint Sunburst Chart](#java-create-powerpoint-sunburst-chart)
-- [Java Create PowerPoint Presentation Sunburst Chart](#java-create-powerpoint-presentation-sunburst-chart)
-
-_Chart_: **Histogram**
-- [Java Create Histogram Chart](#java-create-histogram-chart)
-- [Java Create PowerPoint Histogram Chart](#java-create-powerpoint-histogram-chart)
-- [Java Create PowerPoint Presentation Histogram Chart](#java-create-powerpoint-presentation-histogram-chart)
-
-_Chart_: **Radar**
-- [Java Create Radar Chart](#java-create-radar-chart)
-- [Java Create PowerPoint Radar Chart](#java-create-powerpoint-radar-chart)
-- [Java Create PowerPoint Presentation Radar Chart](#java-create-powerpoint-presentation-radar-chart)
-
-_Chart_: **Multi Category**
-- [Java Create Multi Category Chart](#java-create-multi-category-chart)
-- [Java Create PowerPoint Multi Category Chart](#java-create-powerpoint-multi-category-chart)
-- [Java Create PowerPoint Presentation Multi Category Chart](#java-create-powerpoint-presentation-multi-category-chart)
-
-_Chart_: **Map**
-- [Java Create Map Chart](#java-create-map-chart)
-- [Java Create PowerPoint Map Chart](#java-create-powerpoint-map-chart)
-- [Java Create PowerPoint Presentation Map Chart](#java-create-powerpoint-presentation-map-chart)
-
-_Action_: **Update Chart**
-- [Java Update PowerPoint Chart](#java-update-powerpoint-chart)
-- [Java Update Presentation Chart](#java-update-presentation-chart)
-- [Java Update PowerPoint Presentation Chart](#java-update-powerpoint-presentation-chart)
-
+This article provides a comprehensive guide on how to create and customize charts using Aspose.Slides. You will learn how to programmatically add a chart to a slide, populate it with data, and apply various formatting options to match your specific design requirements. Throughout the article, detailed code examples illustrate each step, from initializing the presentation and chart object to configuring series, axes, and legends. By following this guide, you'll gain a solid understanding of how to integrate dynamic chart generation into your applications, streamlining the process of creating data-driven presentations.
 
 ## **Create Chart**
 Charts help people to quickly visualize data and gain insights, which may not be immediately obvious from a table or spreadsheet. 

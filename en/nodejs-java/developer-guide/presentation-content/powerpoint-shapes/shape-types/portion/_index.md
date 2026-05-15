@@ -17,6 +17,12 @@ keywords:
 description: "Learn how to manage text portions in PowerPoint presentations using JavaScript and Aspose.Slides for Node.js via Java, boosting performance and customization."
 ---
 
+## **Overview**
+
+A text portion represents a specific fragment of text inside a paragraph and allows you to work with that fragment independently from surrounding content. In Aspose.Slides, portions can be used when you need to retrieve the position of a text fragment, apply formatting to only part of a paragraph, or control text behavior at a more detailed level.
+
+This article shows how to get the coordinates of the beginning of a portion by using the `getCoordinates()` method. It also highlights common portion-related scenarios, such as applying a hyperlink to a single text fragment, understanding how formatting is resolved through portion, paragraph, text frame, and theme inheritance, and handling cases where a specified font is unavailable. In addition, it notes that text fill, color, and transparency can be set differently for individual portions within the same paragraph.
+
 ## **Get Position Coordinates of Portion**
 [**getCoordinates()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion#getCoordinates--) method has been added to [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) class which allows retrieving the coordinates of the beginning of the portion.
 

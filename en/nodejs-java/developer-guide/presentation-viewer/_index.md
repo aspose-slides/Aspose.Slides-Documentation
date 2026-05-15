@@ -20,6 +20,8 @@ keywords:
 description: "Create a custom presentation viewer in JavaScript with Aspose.Slides for Node.js. Easily display PowerPoint and OpenDocument files without Microsoft PowerPoint."
 ---
 
+## **Introduction**
+
 Aspose.Slides for Node.js via Java is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides allows you to export an individual slide as an image. This article describes how to do it.
 
 ## **Generate an SVG Image from a Slide**

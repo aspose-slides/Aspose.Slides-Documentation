@@ -19,6 +19,14 @@ keywords:
 description: "Set up a fallback fonts collection in JavaScript with Aspose.Slides for Node.js to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to configure a collection of fallback font rules for a presentation. Each fallback rule is represented by the `FontFallBackRule` class and can be added to a `FontFallBackRulesCollection`.
+
+After creating the collection, you can assign it using the `setFontFallBackRulesCollection` method of the presentation’s `FontsManager`. The `FontsManager` controls fonts across the presentation, and each `Presentation` instance has its own `FontsManager`.
+
+Once the `FontsManager` is initialized with the fallback font collection, the specified fallback fonts are applied during presentation rendering.
+
 ## **Apply Fallback Rules**
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection), that implements [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) class. It is possible to add or remove rules from the collection.

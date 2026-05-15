@@ -18,6 +18,10 @@ keywords:
 description: "Learn how to customize chart data markers in Aspose.Slides for Node.js, boosting presentation impact across PPT and PPTX formats with clear code examples."
 ---
 
+## **Overview**
+
+This article explains how to work with chart data markers in Aspose.Slides. It shows how to create a chart, access a series and its data points, apply picture fills to markers at the data-point level, adjust marker size, and save the updated presentation. It also notes that standard marker shapes are available through the `MarkerStyleType` enumeration and that marker appearance is preserved when exporting charts to raster formats or SVG.
+
 ## **Set Chart Marker Options**
 
 The markers can be set on chart data points inside particular series. In order to set chart marker options. Please follow the steps below:

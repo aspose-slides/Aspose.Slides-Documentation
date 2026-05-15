@@ -25,7 +25,7 @@ keywords:
 description: "Translate PowerPoint slides with AI using Aspose.Slides for Node.js. Localize PPT, PPTX and ODP while preserving layout—fast and developer-friendly. Try it."
 ---
 
-## **Aspose.Slides Presentation Translation API: AI-Powered Multilingual Slide Translation**
+## **Introduction**
 
 Aspose.Slides is a powerful API for programmatically managing PowerPoint presentations. In addition to creating, editing, and converting slides, it offers AI-driven features - such as the Presentation Translation API for multilingual slide content.
 

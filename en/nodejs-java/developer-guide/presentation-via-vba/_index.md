@@ -23,6 +23,10 @@ keywords:
 description: "Generate and manipulate PowerPoint and OpenDocument presentations via VBA in JavaScript with Aspose.Slides for Node.js via Java to streamline your workflow."
 ---
 
+## **Introduction**
+
+Aspose.Slides provides classes for working with macros and VBA code.
+
 {{% alert title="Note" color="warning" %}} 
 
 When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).

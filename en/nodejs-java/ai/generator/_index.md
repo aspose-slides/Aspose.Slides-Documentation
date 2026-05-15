@@ -20,7 +20,7 @@ keywords:
 description: "Generate multilingual slides from text with Aspose.Slides for Node.js. Apply your template and export polished decks to PowerPoint and OpenDocument. Learn more."
 ---
 
-## **Aspose.Slides Presentation AI API: AI-Powered Slide Generator**
+## **Introduction**
 
 Aspose.Slides introduces a new AI-powered feature, the Presentation Generator, which enables developers to automatically create well-structured PowerPoint presentations from simple text inputs such as topic descriptions, summaries, quotations, or bullet points.
 

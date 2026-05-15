@@ -24,15 +24,13 @@ keywords:
 description: "Discover Aspose.Slides for Node.js via Java view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
 ---
 
-{{% alert color="primary" %}} 
+## **Introduction**
 
 The normal view consists of three content regions: the slide itself, a side content region, and a bottom content region. Properties pertaining to the positioning of the different content regions. This information allows the application to save its view state to the file, so that when reopened the view is in the same state as when the presentation was last saved.
 
 Method [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) has been added to provide access to normal view properties of presentation. 
 
 [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NormalViewRestoredProperties) classs and its descendants, [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SplitterBarStateType) enum have been added.
-
-{{% /alert %}} 
 
 ## **About NormalViewProperties**
 

@@ -19,6 +19,9 @@ keywords:
 description: "Compare PPT vs PPTX for PowerPoint with Aspose.Slides for Node.js via Java, exploring format differences, benefits, compatibility, and conversion tips."
 ---
 
+## **Overview**
+
+This article explains the differences between the PPT and PPTX formats. It describes PPT as the legacy binary format used in PowerPoint 97–2003, while PPTX is presented as the modern Office Open XML-based format that offers greater flexibility and is better suited for extending presentation capabilities. The article also outlines key aspects of converting between these formats, including compatibility considerations, and shows how Aspose.Slides can be used to perform such conversions. In general, PPTX is recommended whenever possible.
 
 ## **What is PPT?**
 

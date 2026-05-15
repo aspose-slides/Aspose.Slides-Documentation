@@ -26,7 +26,13 @@ keywords:
 description: "Master presentation properties in Aspose.Slides for Node.js via Java and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
-{{% alert color="primary" %}} 
+## **Introduction**
+
+Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
+
+Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) class. An instance of this class is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDocumentProperties) method. The following examples show how to read, modify, and manage these properties.
+
+## **Manage Presentation Properties**
 
 Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
 
@@ -34,8 +40,6 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 - User-Defined (Custom) Properties
 
 **Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Node.js via Java, developers can access and modify the values of built-in properties as well as custom properties.
-
-{{% /alert %}} 
 
 ## **Document Properties in PowerPoint**
 

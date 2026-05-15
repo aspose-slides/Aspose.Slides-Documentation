@@ -18,13 +18,16 @@ keywords:
 description: "Boost your PowerPoint presentations by adding rectangles with JavaScript and Aspose.Slides for Node.js—easily design and modify shapes programmatically."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is **Rectangle**. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides for Node.js via Java.
+This article shows how to add rectangle shapes to PowerPoint slides by using Aspose.Slides. It covers creating a simple rectangle, creating a formatted rectangle, and saving the updated presentation as a PPTX file.
 
-{{% /alert %}} 
+You will also see how to apply basic rectangle formatting, such as a solid fill color, line color, and line width. In addition, the article’s FAQ points to related rectangle tasks, including rounded corners, picture fills, visual effects, hyperlinks, shape locks, export options, and effective properties. 
 
 ## **Add Rectangle to Slide**
+
+Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is Rectangle. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides. 
+
 To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
