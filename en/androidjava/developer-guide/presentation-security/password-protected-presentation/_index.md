@@ -35,8 +35,8 @@ keywords:
 description: "Effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for Android via Java. Secure your presentations."
 ---
 
-## **About Password Protection**
-### **How Does Password Protection for a Presentation Work?**
+## **Introduction**
+
 When you password protect a presentation, it means you are setting a password that enforces certain restrictions on the presentation. To remove the restrictions, the password has to be entered. A password-protected presentation is considered a locked presentation.
 
 Typically, you can set a password to enforce these restrictions on a presentation:
@@ -54,24 +54,6 @@ Typically, you can set a password to enforce these restrictions on a presentatio
   Technically, the opening restriction also prevents users from modifying your presentations: When people cannot open a presentation, they cannot make modify or make changes to it. 
   
   **Note** that when you password protect a presentation to prevent opening, the presentation file becomes encrypted.
-
-## **How to Password Protect a Presentation Online**
-
-1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Click **Drop or upload your files**.
-
-3. Select the file you want to password protect on your computer. 
-
-4. Input your preferred password for edit protection; Input your preferred password for view protection. 
-
-5. If you want users to see your presentation as the final copy, tick the **Mark as final** checkbox.
-
-6. Click **PROTECT NOW.** 
-
-7. Click **DOWNLOAD NOW.**
 
 ## **Password Protection for Presentations in Aspose.Slides**
 **Supported formats**

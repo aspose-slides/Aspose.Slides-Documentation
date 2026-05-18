@@ -18,6 +18,8 @@ keywords:
 description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for Android via Java for more engaging slides."
 ---
 
+## **Introduction**
+
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.
 
 ## **Set Data Precision in Chart Data Labels**

@@ -22,6 +22,10 @@ keywords:
 description: "Create presentations in Java with Aspose.Slides for Android—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
+## **Overview**
+
+This article shows how to create a presentation in Aspose.Slides, add simple content to a slide, and save the result as a file. It also demonstrates how to create and save a new presentation, open an existing presentation in a supported format, and save it to another format.
+
 ## **Create a PowerPoint Presentation**
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 

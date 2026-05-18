@@ -16,6 +16,12 @@ keywords:
 description: "Create and customize powerful bubble charts in PowerPoint with Aspose.Slides for Android via Java to enhance your data visualization easily."
 ---
 
+## **Overview**
+
+This article shows how to work with bubble charts in Aspose.Slides. It covers two specific customization options: scaling bubble sizes through the `setBubbleSizeScale` method and controlling how bubble size values are represented through the `setBubbleSizeRepresentation` method.
+
+The examples demonstrate how to create a bubble chart, adjust its size scaling, and switch the bubble size representation to use width. The article also includes a short FAQ section that clarifies support for the “Bubble with 3-D” chart type, notes that practical chart limits depend on performance and the target PowerPoint version, and explains that export preserves the chart’s appearance through the Aspose.Slides rendering engine.
+
 ## **Bubble Chart Size Scaling**
 Aspose.Slides for Android via Java provides support for Bubble chart size scaling. In Aspose.Slides for Android via Java [**IChartSeries.getBubbleSizeScale**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartSeries#getBubbleSizeScale--), [**IChartSeriesGroup.getBubbleSizeScale**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartSeriesGroup#getBubbleSizeScale--) and [**IChartSeriesGroup.setBubbleSizeScale**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartSeriesGroup#setBubbleSizeScale-int-) methods have been added. Below sample example is given. 
 

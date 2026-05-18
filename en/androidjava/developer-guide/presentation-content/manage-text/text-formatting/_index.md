@@ -31,6 +31,12 @@ keywords:
 description: "Format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Android via Java. Customize fonts, colors, alignment, and more."
 ---
 
+## **Overview**
+
+This article introduces how to manage and format text in PowerPoint and OpenDocument presentations using Aspose.Slides. You’ll learn how to apply text formatting features such as font selection, size, color, highlighting, background color, spacing, and alignment. In addition, it covers working with text frames, paragraphs, formatting, and advanced layout options like custom rotation and autofit behaviors.
+
+Whether you're generating presentations programmatically or customizing existing content, these examples will help you create clear, professional-looking text layouts that enhance your slides and improve readability.
+
 ## **Highlight Text**
 Method [highlightText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) class.
 

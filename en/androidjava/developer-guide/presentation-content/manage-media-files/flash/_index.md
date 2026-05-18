@@ -16,6 +16,10 @@ keywords:
 description: "Learn how to extract Flash objects from PowerPoint and OpenDocument slides in Java with Aspose.Slides for Android, complete code samples and best practices."
 ---
 
+## **Overview**
+
+This article explains how to extract Flash objects from presentations by using Aspose.Slides. It shows how to find a Flash control by name in a slide’s controls collection and work with the embedded SWF object data.
+
 ## **Extract Flash Objects from Presentations**
 
 Aspose.Slides for Android via Java provides a facility for extracting flash objects from a presentation. You can access the flash control by name and extract it from the presentation and including store SWF object data.

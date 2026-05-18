@@ -19,6 +19,10 @@ keywords:
 description: "Know Aspose.Slides for Android limits: exports set fixed Application/Producer metadata in PPT, PPTX, ODP, and PDF—helping you plan integrations without surprises."
 ---
 
+## **Overview**
+
+When presentations are created or exported with Aspose.Slides, certain technical metadata is written to the output file. This article explains the limitations related to the `Application`, `Creator`, and `Producer` metadata fields in PPTX and PDF files.
+
 ## **Application and Producer**
 
 When you create or export presentations with Aspose.Slides for Android via Java, some technical metadata is written into the file. Two fields often raise questions:

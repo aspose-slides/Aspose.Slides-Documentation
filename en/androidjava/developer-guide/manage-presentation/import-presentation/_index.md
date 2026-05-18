@@ -25,6 +25,8 @@ keywords:
 description: "Import PDF and HTML documents into PowerPoint and OpenDocument presentations in Java with Aspose.Slides for Android for seamless, high-performance slide processing."
 ---
 
+## **Introduction**
+
 Using [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
 
 ## **Import PowerPoint from PDF**
