@@ -1,16 +1,16 @@
 ---
-title: Gérer les BLOB de présentation en Java pour une utilisation efficace de la mémoire
-linktitle: Gérer BLOB
+title: "Gérer les BLOBs de présentation en Java pour une utilisation efficace de la mémoire"
+linktitle: "Gérer BLOB"
 type: docs
 weight: 10
 url: /fr/java/manage-blob/
 keywords:
-- grand objet
-- grand élément
+- gros objet
+- gros élément
 - gros fichier
 - ajouter BLOB
 - exporter BLOB
-- ajouter une image en tant que BLOB
+- ajouter image en tant que BLOB
 - réduire la mémoire
 - consommation de mémoire
 - grande présentation
@@ -20,26 +20,32 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Gérez les données BLOB dans Aspose.Slides pour Java afin de rationaliser les opérations de fichiers PowerPoint et OpenDocument pour une manipulation efficace des présentations."
+description: "Gérer les données BLOB dans Aspose.Slides pour Java afin de rationaliser les opérations sur les fichiers PowerPoint et OpenDocument pour une manipulation efficace des présentations."
 ---
+## **Vue d'ensemble**
 
-## **À propos de BLOB**
+Aspose.Slides fournit une prise en charge basée sur les BLOB pour les données binaires volumineuses dans les présentations afin de réduire la consommation de mémoire lors de la manipulation d’images, d’audio, de vidéo et de fichiers de présentation de grande taille.
 
-**BLOB** (**Binary Large Object**) est généralement un élément volumineux (photo, présentation, document ou média) enregistré sous des formats binaires. 
+Cet article montre comment utiliser le traitement basé sur les BLOB pour ajouter des médias volumineux à une présentation, exporter des médias volumineux d’une présentation et charger des présentations volumineuses de manière plus efficace. Il explique également comment des fichiers temporaires peuvent être utilisés pendant le traitement et comment modifier le dossier utilisé pour les stocker.
 
-Aspose.Slides for Java vous permet d'utiliser les BLOBs pour les objets de manière à réduire la consommation de mémoire lorsque des fichiers volumineux sont impliqués. 
+## **À propos des BLOB**
+
+**BLOB** (**Binary Large Object**) désigne généralement un élément volumineux (photo, présentation, document ou média) enregistré au format binaire.
+
+Aspose.Slides for Java vous permet d’utiliser des BLOB pour les objets de manière à réduire la consommation de mémoire lorsque des fichiers volumineux sont impliqués.
 
 {{% alert title="Info" color="info" %}}
-Pour contourner certaines limitations lors de l'interaction avec des flux, Aspose.Slides peut copier le contenu du flux. Le chargement d'une présentation volumineuse via son flux entraînera la copie du contenu de la présentation et provoquera un chargement lent. Par conséquent, lorsque vous avez l'intention de charger une présentation volumineuse, nous vous recommandons vivement d'utiliser le chemin du fichier de présentation et non son flux.
+Pour contourner certaines limitations lors de l’interaction avec les flux, Aspose.Slides peut copier le contenu du flux. Charger une grande présentation via son flux entraînera la copie du contenu de la présentation et provoquera un chargement lent. Par conséquent, lorsque vous avez l’intention de charger une grande présentation, nous vous recommandons fortement d’utiliser le chemin du fichier de présentation et non son flux.
 {{% /alert %}}
 
-## **Utiliser BLOB pour réduire la consommation de mémoire**
+## **Utiliser les BLOB pour réduire la consommation de mémoire**
 
 ### **Ajouter un fichier volumineux via BLOB à une présentation**
 
-[Aspose.Slides](/slides/fr/java/) for Java vous permet d'ajouter de gros fichiers (dans ce cas, un fichier vidéo volumineux) via un processus impliquant des BLOBs afin de réduire la consommation de mémoire.
+[Aspose.Slides](/slides/fr/java/) for Java vous permet d’ajouter de gros fichiers (dans ce cas, un fichier vidéo volumineux) via un processus impliquant des BLOB afin de réduire la consommation de mémoire.
 
-Ce code Java vous montre comment ajouter un fichier vidéo volumineux via le processus BLOB à une présentation :
+Ce code Java montre comment ajouter un fichier vidéo volumineux via le processus BLOB à une présentation :
+
 ```java
 String pathToVeryLargeVideo = "veryLargeVideo.avi";
 
@@ -48,12 +54,12 @@ Presentation pres = new Presentation();
 try {
     FileInputStream fileStream = new FileInputStream(pathToVeryLargeVideo);
     try {
-        // Ajoutons la vidéo à la présentation - nous avons choisi le comportement KeepLocked car nous
-        // ne prévoyons pas d'accéder au fichier "veryLargeVideo.avi".
+        // Ajoutons la vidéo à la présentation - nous avons choisi le comportement KeepLocked parce que nous
+        //n'avons pas l'intention d'accéder au fichier "veryLargeVideo.avi".
         IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
         pres.getSlides().get_Item(0).getShapes().addVideoFrame(0, 0, 480, 270, video);
 
-        // Enregistre la présentation. Lorsqu'une grande présentation est générée, la consommation de mémoire
+        // Enregistre la présentation. Pendant qu'une grande présentation est générée, la consommation de mémoire
         // reste faible tout au long du cycle de vie de l'objet pres 
         pres.save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
     } finally {
@@ -65,33 +71,34 @@ try {
 }
 ```
 
-
 ### **Exporter un fichier volumineux via BLOB depuis une présentation**
-Aspose.Slides for Java vous permet d'exporter de gros fichiers (dans ce cas, un fichier audio ou vidéo) via un processus impliquant des BLOBs depuis les présentations. Par exemple, il se peut que vous ayez besoin d'extraire un fichier média volumineux d'une présentation mais que vous ne vouliez pas que le fichier soit chargé en mémoire de votre ordinateur. En exportant le fichier via le processus BLOB, vous gardez la consommation de mémoire basse. 
 
-Ce code en Java démontre l'opération décrite :
+Aspose.Slides for Java vous permet d’exporter de gros fichiers (dans ce cas, un fichier audio ou vidéo) via un processus impliquant des BLOB depuis des présentations. Par exemple, il peut être nécessaire d’extraire un fichier média volumineux d’une présentation sans le charger en mémoire. En exportant le fichier via le processus BLOB, la consommation de mémoire reste faible.
+
+Ce code Java illustre l’opération décrite :
+
 ```java
 String hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// Locks the source file and does NOT load it into memory
+// Verrouille le fichier source et ne le charge PAS en mémoire
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 
-// create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
+// Crée l'instance de Presentation, verrouille le fichier "hugePresentationWithAudiosAndVideos.pptx".
 Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions);
 try {
-    // Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
-    // to transfer the data from the presentation's video stream to a stream for a newly created video file.
+    // Enregistrons chaque vidéo dans un fichier. Pour éviter une forte utilisation de la mémoire, nous avons besoin d'un tampon qui sera utilisé
+    // pour transférer les données du flux vidéo de la présentation vers un flux pour le fichier vidéo nouvellement créé.
     byte[] buffer = new byte[8 * 1024];
 
-    // Iterates through the videos
+    // Parcourt les vidéos
     for (int index = 0; index < pres.getVideos().size(); index++) {
         IVideo video = pres.getVideos().get_Item(index);
 
-        // Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
-        // like video.BinaryData - because this property returns a byte array containing a full video, which then
-        // causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
-        //  require us to load the whole video into the memory.
+        // Ouvre le flux vidéo de la présentation. Veuillez noter que nous avons intentionnellement évité d'accéder aux propriétés
+        // comme video.BinaryData - car cette propriété renvoie un tableau d'octets contenant la vidéo complète, ce qui
+        // charge des octets en mémoire. Nous utilisons video.GetStream, qui renvoie un Stream - et ne
+        //  nécessite pas de charger toute la vidéo en mémoire.
         InputStream presVideoStream = video.getStream();
         try {
             OutputStream outputFileStream = new FileOutputStream("video" + index + ".avi");
@@ -106,20 +113,21 @@ try {
         } finally {
             presVideoStream.close();
         }
-        // Memory consumption will remain low regardless of the size of the video or presentation.
+        // La consommation de mémoire restera faible quel que soit la taille de la vidéo ou de la présentation.
     }
-    // If necessary, you can apply the same steps for audio files. 
+    // Si nécessaire, vous pouvez appliquer les mêmes étapes pour les fichiers audio. 
 } catch (IOException e) {
 } finally {
     pres.dispose();
 }
 ```
 
-
 ### **Ajouter une image en tant que BLOB à une présentation**
-Avec les méthodes de l'interface [**IImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) et de la classe [**ImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection), vous pouvez ajouter une grande image en tant que flux pour qu'elle soit traitée comme un BLOB. 
 
-Ce code Java vous montre comment ajouter une grande image via le processus BLOB :
+Avec les méthodes de l’interface [**IImageCollection**](https://reference.aspose.com/slides/fr/java/com.aspose.slides/IImageCollection) et de la classe [**ImageCollection**](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ImageCollection), vous pouvez ajouter une grande image sous forme de flux afin qu’elle soit traitée comme un BLOB.
+
+Ce code Java montre comment ajouter une grande image via le processus BLOB :
+
 ```java
 String pathToLargeImage = "large_image.jpg";
 
@@ -128,13 +136,13 @@ Presentation pres = new Presentation();
 try {
 	FileInputStream fileStream = new FileInputStream(pathToLargeImage);
 	try {
-		// Ajoutons l'image à la présentation - nous choisissons le comportement KeepLocked car nous
-		// ne prévoyons PAS d'accéder au fichier "largeImage.png" file.
+		// Ajoutons l'image à la présentation - nous choisissons le comportement KeepLocked parce que nous
+		// PAS l'intention d'accéder au fichier "largeImage.png" file.
 		IPPImage img = pres.getImages().addImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
-		// Enregistre la présentation. Pendant la génération d'une grande présentation, la consommation de mémoire
-		// reste faible tout au long du cycle de vie de l'objet pres.
+		// Enregistre la présentation. Pendant qu'une grande présentation est générée, la consommation de mémoire
+		// reste faible tout au long du cycle de vie de l'objet pres
 		pres.save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
 	} finally {
 		if (fileStream != null) fileStream.close();
@@ -145,12 +153,12 @@ try {
 }
 ```
 
-
 ## **Mémoire et présentations volumineuses**
 
-En général, le chargement d'une présentation volumineuse nécessite beaucoup de mémoire temporaire. Tout le contenu de la présentation est chargé en mémoire et le fichier (à partir duquel la présentation a été chargée) n'est plus utilisé. 
+En général, pour charger une présentation volumineuse, les ordinateurs ont besoin de beaucoup de mémoire temporaire. Tout le contenu de la présentation est chargé en mémoire et le fichier (à partir duquel la présentation a été chargée) cesse d’être utilisé.
 
-Considérons une grande présentation PowerPoint (large.pptx) qui contient un fichier vidéo de 1,5 Go. La méthode standard de chargement de la présentation est décrite dans ce code Java :
+Considérez une présentation PowerPoint volumineuse (large.pptx) contenant un fichier vidéo de 1,5 Go. La méthode standard de chargement de la présentation est décrite dans ce code Java :
+
 ```java
 Presentation pres = new Presentation("large.pptx");
 try {
@@ -160,12 +168,12 @@ try {
 }
 ```
 
+Mais cette méthode consomme environ 1,6 Go de mémoire temporaire.
 
-Mais cette méthode consomme environ 1,6 Go de mémoire temporaire. 
+### **Charger une présentation volumineuse en tant que BLOB**
 
-### **Charger une grande présentation en tant que BLOB**
+Grâce au processus impliquant un BLOB, vous pouvez charger une présentation volumineuse tout en utilisant peu de mémoire. Ce code Java décrit l’implémentation où le processus BLOB est utilisé pour charger un fichier de présentation volumineux (large.pptx) :
 
-Grâce au processus impliquant un BLOB, vous pouvez charger une grande présentation tout en utilisant peu de mémoire. Ce code Java décrit l'implémentation où le processus BLOB est utilisé pour charger un gros fichier de présentation (large.pptx) :
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
@@ -179,10 +187,10 @@ try {
 }
 ```
 
-
 ### **Modifier le dossier des fichiers temporaires**
 
-Lorsque le processus BLOB est utilisé, votre ordinateur crée des fichiers temporaires dans le dossier par défaut des fichiers temporaires. Si vous souhaitez que les fichiers temporaires soient conservés dans un autre dossier, vous pouvez modifier les paramètres de stockage en utilisant `TempFilesRootPath` :
+Lorsque le processus BLOB est utilisé, votre ordinateur crée des fichiers temporaires dans le dossier par défaut des fichiers temporaires. Si vous souhaitez que les fichiers temporaires soient conservés dans un autre dossier, vous pouvez modifier les paramètres de stockage à l’aide de `TempFilesRootPath` :
+
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
@@ -190,29 +198,42 @@ loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
 loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 ```
 
-
 {{% alert title="Info" color="info" %}}
-Lorsque vous utilisez `TempFilesRootPath`, Aspose.Slides ne crée pas automatiquement de dossier pour stocker les fichiers temporaires. Vous devez créer le dossier manuellement. 
+Lorsque vous utilisez `TempFilesRootPath`, Aspose.Slides ne crée pas automatiquement un dossier pour stocker les fichiers temporaires. Vous devez créer le dossier manuellement.
 {{% /alert %}}
+
+### **Libérer les objets Presentation pour libérer la mémoire**
+
+Lors du traitement de présentations volumineuses, assurez‑vous que l’instance [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) est correctement libérée afin que la mémoire qu’elle occupait soit récupérée. Appelez `dispose()` après avoir fini d’utiliser la présentation pour libérer les ressources non gérées.
+
+```java
+Presentation presentation = new Presentation("large.pptx");
+
+// ...traiter la présentation...
+presentation.save("large.pdf", SaveFormat.Pdf);
+
+// Libérer explicitement les ressources.
+presentation.dispose();
+```
 
 ## **FAQ**
 
-**Quelles données d’une présentation Aspose.Slides sont traitées comme BLOB et contrôlées par les options BLOB ?**
+**Quelles données d’une présentation Aspose.Slides sont traitées comme des BLOB et contrôlées par les options BLOB ?**
 
-Les objets binaires volumineux tels que les images, l’audio et la vidéo sont traités comme BLOB. Le fichier complet de la présentation implique également la gestion des BLOB lors du chargement ou de l’enregistrement. Ces objets sont régis par des politiques BLOB qui vous permettent de gérer l’utilisation de la mémoire et le déversement vers des fichiers temporaires si nécessaire.
+Les objets binaires volumineux tels que les images, l’audio et la vidéo sont traités comme des BLOB. Le fichier de présentation complet implique également la gestion des BLOB lors du chargement ou de l’enregistrement. Ces objets sont régis par des politiques BLOB qui vous permettent de gérer l’utilisation de la mémoire et le débordement vers des fichiers temporaires si nécessaire.
 
 **Où configurer les règles de gestion des BLOB lors du chargement d’une présentation ?**
 
-Utilisez [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) avec [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/). Vous y définissez la limite en mémoire pour les BLOB, autorisez ou refusez les fichiers temporaires, choisissez le chemin racine pour les fichiers temporaires et sélectionnez le comportement de verrouillage de la source.
+Utilisez [LoadOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/loadoptions/) avec [BlobManagementOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/blobmanagementoptions/). Vous y définissez la limite en mémoire pour les BLOB, autorisez ou interdisez les fichiers temporaires, choisissez le chemin racine des fichiers temporaires et sélectionnez le comportement de verrouillage de la source.
 
-**Les paramètres BLOB affectent-ils les performances et comment équilibrer vitesse et mémoire ?**
+**Les paramètres BLOB affectent‑ils les performances, et comment équilibrer vitesse et mémoire ?**
 
-Oui. Conserver les BLOB en mémoire maximise la vitesse mais augmente la consommation de RAM ; réduire la limite de mémoire transfère plus de travail vers les fichiers temporaires, diminuant la RAM au prix d’un I/O supplémentaire. Utilisez la méthode [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory-long-) pour trouver le bon compromis selon votre charge de travail et votre environnement.
+Oui. Conserver les BLOB en mémoire maximise la vitesse mais augmente la consommation de RAM ; réduire la limite mémoire déplace davantage de travail vers les fichiers temporaires, réduisant la RAM au prix d’un I/O supplémentaire. Utilisez la méthode [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/fr/java/com.aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory-long-) pour trouver le bon équilibre selon votre charge de travail et votre environnement.
 
-**Les options BLOB aident‑elles lors de l'ouverture de présentations extrêmement volumineuses (par ex. plusieurs gigaoctets) ?**
+**Les options BLOB aident‑elles lors de l’ouverture de présentations extrêmement volumineuses (par exemple, plusieurs gigaoctets) ?**
 
-Oui. [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/) sont conçues pour ces scénarios : l’activation des fichiers temporaires et l’utilisation du verrouillage de la source peuvent réduire considérablement le pic de RAM et stabiliser le traitement de très grands decks.
+Oui. [BlobManagementOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/blobmanagementoptions/) sont conçues pour ces scénarios : activer les fichiers temporaires et utiliser le verrouillage de la source peut réduire considérablement l’utilisation maximale de RAM et stabiliser le traitement de présentations très grandes.
 
-**Puis‑je utiliser les politiques BLOB lors du chargement depuis des flux au lieu de fichiers disque ?**
+**Puis‑je appliquer les politiques BLOB lors du chargement depuis des flux au lieu de fichiers disque ?**
 
-Oui. Les mêmes règles s’appliquent aux flux : l’instance de présentation peut posséder et verrouiller le flux d’entrée (selon le mode de verrouillage choisi), et les fichiers temporaires sont utilisés lorsqu’ils sont autorisés, maintenant une consommation de mémoire prévisible pendant le traitement.
+Oui. Les mêmes règles s’appliquent aux flux : l’instance de présentation peut posséder et verrouiller le flux d’entrée (selon le mode de verrouillage choisi), et les fichiers temporaires sont utilisés lorsqu’ils sont autorisés, ce qui maintient la consommation de mémoire prévisible pendant le traitement.

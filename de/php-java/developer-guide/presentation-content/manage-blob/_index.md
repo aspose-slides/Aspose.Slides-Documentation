@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentations-BLOBs in PHP für effiziente Speichernutzung
+title: Verwalten von Präsentations‑BLOBs in PHP für effiziente Speichernutzung
 linktitle: BLOB verwalten
 type: docs
 weight: 10
@@ -12,7 +12,7 @@ keywords:
 - BLOB exportieren
 - Bild als BLOB hinzufügen
 - Speicher reduzieren
-- Speichernutzung
+- Speicherauslastung
 - große Präsentation
 - temporäre Datei
 - PowerPoint
@@ -22,24 +22,30 @@ keywords:
 - Aspose.Slides
 description: "Verwalten Sie BLOB-Daten in Aspose.Slides für PHP via Java, um PowerPoint- und OpenDocument-Dateioperationen für eine effiziente Präsentationsverarbeitung zu optimieren."
 ---
+## **Übersicht**
+
+Aspose.Slides bietet eine BLOB‑basierte Verarbeitung großer Binärdaten in Präsentationen, um den Speicherverbrauch beim Arbeiten mit großen Bildern, Audio‑ und Videodateien sowie Präsentationen zu reduzieren.
+
+Dieser Artikel zeigt, wie man BLOB‑basierte Verarbeitung verwendet, um große Medien zu einer Präsentation hinzuzufügen, große Medien aus einer Präsentation zu exportieren und große Präsentationen effizienter zu laden. Außerdem wird erklärt, wie temporäre Dateien während der Verarbeitung verwendet werden können und wie man den Ordner ändert, in dem sie gespeichert werden.
 
 ## **Über BLOB**
 
-**BLOB** (**Binary Large Object**) ist normalerweise ein großes Element (Foto, Präsentation, Dokument oder Medien), das in binären Formaten gespeichert wird. 
+**BLOB** (**Binary Large Object**) ist in der Regel ein großes Element (Foto, Präsentation, Dokument oder Medium), das im Binärformat gespeichert wird.  
 
-Aspose.Slides für PHP via Java ermöglicht es Ihnen, BLOBs für Objekte zu verwenden, wodurch der Speicherverbrauch reduziert wird, wenn große Dateien beteiligt sind.
+Aspose.Slides for PHP via Java ermöglicht die Verwendung von BLOBs für Objekte, wodurch der Speicherverbrauch bei großen Dateien reduziert wird.
 
 {{% alert title="Info" color="info" %}}
-Um bestimmte Einschränkungen beim Umgang mit Streams zu umgehen, kann Aspose.Slides den Inhalt des Streams kopieren. Das Laden einer großen Präsentation über ihren Stream führt zum Kopieren des Präsentationsinhalts und verursacht langsames Laden. Deshalb empfehlen wir, beim Laden einer großen Präsentation den Pfad zur Präsentationsdatei zu verwenden und nicht den Stream.
+Um bestimmte Einschränkungen beim Umgang mit Streams zu umgehen, kann Aspose.Slides den Inhalt des Streams kopieren. Das Laden einer großen Präsentation über ihren Stream führt zum Kopieren des Präsentationsinhalts und verursacht langsames Laden. Daher empfehlen wir, beim Laden einer großen Präsentation den Dateipfad der Präsentation und nicht ihren Stream zu verwenden.
 {{% /alert %}}
 
 ## **BLOB zur Reduzierung des Speicherverbrauchs verwenden**
 
 ### **Eine große Datei über BLOB zu einer Präsentation hinzufügen**
 
-[Aspose.Slides](/slides/de/php-java/) für Java ermöglicht es, große Dateien (in diesem Fall eine große Videodatei) über einen BLOB‑basierten Prozess hinzuzufügen, um den Speicherverbrauch zu reduzieren.
+[Aspose.Slides](/slides/de/php-java/) für Java ermöglicht das Hinzufügen großer Dateien (in diesem Fall einer großen Videodatei) über einen BLOB‑basierten Prozess zur Reduzierung des Speicherverbrauchs.
 
-Dieses Java‑Beispiel zeigt, wie Sie eine große Videodatei über den BLOB‑Prozess zu einer Präsentation hinzufügen:
+Dieses Java‑Beispiel zeigt, wie man eine große Videodatei über den BLOB‑Prozess zu einer Präsentation hinzufügt:
+
 ```php
   $pathToVeryLargeVideo = "veryLargeVideo.avi";
   # Erstellt eine neue Präsentation, zu der das Video hinzugefügt wird
@@ -47,12 +53,12 @@ Dieses Java‑Beispiel zeigt, wie Sie eine große Videodatei über den BLOB‑Pr
   try {
     $fileStream = new Java("java.io.FileInputStream", $pathToVeryLargeVideo);
     try {
-      # Fügen wir das Video zur Präsentation hinzu - wir wählten das KeepLocked-Verhalten, weil wir
-      # nicht beabsichtigen, auf die Datei "veryLargeVideo.avi" zuzugreifen.
+      # Lassen Sie uns das Video zur Präsentation hinzufügen – wir haben das KeepLocked‑Verhalten gewählt, weil wir
+      # nicht beabsichtigen, die Datei "veryLargeVideo.avi" zuzugreifen.
       $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
       $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(0, 0, 480, 270, $video);
       # Speichert die Präsentation. Während eine große Präsentation ausgegeben wird, bleibt der Speicherverbrauch
-      # durch den gesamten Lebenszyklus des Präsentationsobjekts niedrig
+      # niedrig während des Lebenszyklus des pres‑Objekts.
       $pres->save("presentationWithLargeVideo.pptx", SaveFormat::Pptx);
     } finally {
       if (!java_is_null($fileStream)) {
@@ -67,31 +73,31 @@ Dieses Java‑Beispiel zeigt, wie Sie eine große Videodatei über den BLOB‑Pr
   }
 ```
 
+### **Eine große Datei über BLOB aus einer Präsentation exportieren**
+Aspose.Slides for PHP via Java ermöglicht den Export großer Dateien (in diesem Fall einer Audio‑ oder Videodatei) über einen BLOB‑basierten Prozess aus Präsentationen. Beispielsweise kann es nötig sein, eine große Mediendatei aus einer Präsentation zu extrahieren, ohne die Datei in den Arbeitsspeicher zu laden. Durch den Export über den BLOB‑Prozess bleibt der Speicherverbrauch niedrig.
 
-### **Exportieren Sie eine große Datei über BLOB aus einer Präsentation**
-Aspose.Slides für PHP via Java ermöglicht es, große Dateien (in diesem Fall eine Audio‑ oder Videodatei) über einen BLOB‑basierten Prozess aus Präsentationen zu exportieren. Beispielsweise müssen Sie möglicherweise eine große Mediendatei aus einer Präsentation extrahieren, möchten diese jedoch nicht in den Arbeitsspeicher Ihres Computers laden. Durch den Export über den BLOB‑Prozess bleibt der Speicherverbrauch gering.
+Dieser Code demonstriert die beschriebene Vorgangsweise:
 
-Dieser Code demonstriert den beschriebenen Vorgang:
 ```php
   $hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
   $loadOptions = new LoadOptions();
   # Sperrt die Quelldatei und lädt sie NICHT in den Speicher
   $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
-  # Erstelle die Instanz der Präsentation und sperre die "hugePresentationWithAudiosAndVideos.pptx" Datei.
+  # Erstelle die Instanz der Präsentation und sperre die Datei "hugePresentationWithAudiosAndVideos.pptx".
   $pres = new Presentation($hugePresentationWithAudiosAndVideosFile, $loadOptions);
   try {
-    # Speichere jedes Video in eine Datei. Um hohen Speicherverbrauch zu vermeiden, benötigen wir einen Puffer, der verwendet wird
-    # um die Daten vom Video-Stream der Präsentation zu einem Stream für die neu erstellte Videodatei zu übertragen.
+    # Speichern wir jedes Video in eine Datei. Um hohen Speicherverbrauch zu vermeiden, benötigen wir einen Puffer, der verwendet wird
+    # um die Daten aus dem Videostream der Präsentation in einen Stream für die neu erstellte Videodatei zu übertragen.
     $Array = new JavaClass("java.lang.reflect.Array");
     $Byte = new JavaClass("java.lang.Byte");
     $buffer = $Array->newInstance($Byte, 8 * 1024);
     # Durchläuft die Videos
     for($index = 0; $index < java_values($pres->getVideos()->size()) ; $index++) {
       $video = $pres->getVideos()->get_Item($index);
-      # Öffnet den Video-Stream der Präsentation. Bitte beachten Sie, dass wir bewusst das Zugreifen auf Eigenschaften vermieden haben
-      # wie video.BinaryData - weil diese Eigenschaft ein Byte-Array mit dem vollständigen Video zurückgibt, was dann
-      # dazu führt, dass Bytes in den Speicher geladen werden. Wir verwenden video.GetStream, das einen Stream zurückgibt - und NICHT
-      # erfordert, dass das gesamte Video in den Speicher geladen wird.
+      # Öffnet den Videostream der Präsentation. Bitte beachten Sie, dass wir bewusst vermieden haben, Eigenschaften zuzugreifen
+      # wie video.BinaryData – weil diese Eigenschaft ein Byte‑Array mit dem vollständigen Video zurückgibt, was dann
+      # verursacht, dass Bytes in den Speicher geladen werden. Wir verwenden video.GetStream, das einen Stream zurückgibt – und NICHT
+      # erfordert, das gesamte Video in den Speicher zu laden.
       $presVideoStream = $video->getStream();
       try {
         $outputFileStream = new Java("java.io.FileOutputStream", "video" . $index . ".avi");
@@ -115,11 +121,11 @@ Dieser Code demonstriert den beschriebenen Vorgang:
   }
 ```
 
-
 ### **Ein Bild als BLOB zu einer Präsentation hinzufügen**
-Mit Methoden aus der [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/)‑Klasse können Sie ein großes Bild als Stream hinzufügen, sodass es als BLOB behandelt wird.
+Mit Methoden der Klasse [ImageCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/imagecollection/)-Klasse können Sie ein großes Bild als Stream hinzufügen, sodass es als BLOB behandelt wird.
 
 Dieser PHP‑Code zeigt, wie Sie ein großes Bild über den BLOB‑Prozess hinzufügen:
+
 ```php
   $pathToLargeImage = "large_image.jpg";
   # erstellt eine neue Präsentation, zu der das Bild hinzugefügt wird.
@@ -127,12 +133,12 @@ Dieser PHP‑Code zeigt, wie Sie ein großes Bild über den BLOB‑Prozess hinzu
   try {
     $fileStream = new Java("java.io.FileInputStream", $pathToLargeImage);
     try {
-      # Fügen wir das Bild zur Präsentation hinzu - wir wählen das KeepLocked-Verhalten, weil wir
+      # Lassen Sie uns das Bild zur Präsentation hinzufügen – wir wählen das KeepLocked‑Verhalten, weil wir
       # NICHT beabsichtigen, auf die Datei "largeImage.png" zuzugreifen.
       $img = $pres->getImages()->addImage($fileStream, LoadingStreamBehavior->KeepLocked);
       $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, 300, 200, $img);
       # Speichert die Präsentation. Während eine große Präsentation ausgegeben wird, bleibt der Speicherverbrauch
-      # niedrig während des gesamten Lebenszyklus des Präsentationsobjekts.
+      # niedrig während des Lebenszyklus des pres‑Objekts.
       $pres->save("presentationWithLargeImage.pptx", SaveFormat::Pptx);
     } finally {
       if (!java_is_null($fileStream)) {
@@ -147,12 +153,12 @@ Dieser PHP‑Code zeigt, wie Sie ein großes Bild über den BLOB‑Prozess hinzu
   }
 ```
 
-
 ## **Speicher und große Präsentationen**
 
-Typischerweise benötigen Computer zum Laden einer großen Präsentation viel temporären Speicher. Der gesamte Inhalt der Präsentation wird in den Arbeitsspeicher geladen und die Datei, aus der die Präsentation geladen wurde, wird nicht weiter genutzt. 
+Typischerweise benötigen Computer zum Laden einer großen Präsentation viel temporären Speicher. Der gesamte Inhalt der Präsentation wird in den Speicher geladen und die Datei, aus der die Präsentation geladen wurde, wird nicht mehr verwendet.  
 
-Betrachten Sie eine große PowerPoint‑Präsentation (large.pptx), die eine 1,5 GB‑Videodatei enthält. Die Standardmethode zum Laden der Präsentation ist in diesem PHP‑Code beschrieben:
+Betrachten Sie eine große PowerPoint‑Präsentation (large.pptx), die eine 1,5 GB‑Videodatei enthält. Die Standard‐Methode zum Laden der Präsentation ist in diesem PHP‑Code beschrieben:
+
 ```php
   $pres = new Presentation("large.pptx");
   try {
@@ -164,12 +170,12 @@ Betrachten Sie eine große PowerPoint‑Präsentation (large.pptx), die eine 1,5
   }
 ```
 
-
-Dabei verbraucht diese Methode etwa 1,6 GB temporären Speicher. 
+Diese Methode verbraucht jedoch etwa 1,6 GB temporären Speicher.
 
 ### **Eine große Präsentation als BLOB laden**
 
-Durch den BLOB‑basierten Prozess können Sie eine große Präsentation mit geringem Speicherverbrauch laden. Dieser PHP‑Code beschreibt die Implementierung, bei der der BLOB‑Prozess zum Laden einer großen Präsentationsdatei (large.pptx) verwendet wird:
+Durch den BLOB‑basierten Prozess können Sie eine große Präsentation mit wenig Speicher laden. Dieser PHP‑Code beschreibt die Implementierung, bei der der BLOB‑Prozess zum Laden einer großen Präsentationsdatei (large.pptx) verwendet wird:
+
 ```php
   $loadOptions = new LoadOptions();
   $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
@@ -184,10 +190,10 @@ Durch den BLOB‑basierten Prozess können Sie eine große Präsentation mit ger
   }
 ```
 
+### **Den Ordner für temporäre Dateien ändern**
 
-### **Ordner für temporäre Dateien ändern**
+Wenn der BLOB‑Prozess verwendet wird, erstellt Ihr Computer temporäre Dateien im Standard‑Ordner für temporäre Dateien. Möchten Sie die temporären Dateien in einem anderen Ordner speichern, können Sie die Einstellung mit `setTempFilesRootPath` ändern:
 
-Wenn der BLOB‑Prozess verwendet wird, erstellt Ihr Computer temporäre Dateien im Standard‑Ordner für temporäre Dateien. Möchten Sie die temporären Dateien in einem anderen Ordner ablegen, können Sie die Speichereinstellungen mit `setTempFilesRootPath` ändern:
 ```php
   $loadOptions = new LoadOptions();
   $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
@@ -196,29 +202,37 @@ Wenn der BLOB‑Prozess verwendet wird, erstellt Ihr Computer temporäre Dateien
 
 ```
 
-
 {{% alert title="Info" color="info" %}}
-Wenn Sie `setTempFilesRootPath` verwenden, erstellt Aspose.Slides nicht automatisch einen Ordner zum Speichern temporärer Dateien. Sie müssen den Ordner manuell anlegen. 
+Wenn Sie `setTempFilesRootPath` verwenden, erstellt Aspose.Slides nicht automatisch einen Ordner zum Speichern temporärer Dateien. Sie müssen den Ordner manuell anlegen.
 {{% /alert %}}
+
+### **Präsentationsobjekte freigeben, um Speicher zu entlasten**
+
+Bei der Verarbeitung großer Präsentationen sollten Sie sicherstellen, dass die [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)-Instanz ordnungsgemäß freigegeben wird, damit der belegte Speicher wieder freigegeben wird. Rufen Sie nach Abschluss der Arbeit mit der Präsentation `dispose()` auf, um nicht verwaltete Ressourcen freizugeben.
+
+```php
+$presentation = new Presentation("large.pptx");
+
+# ...die Präsentation verarbeiten...
+$presentation->save("large.pdf", SaveFormat::Pdf);
+
+# Ressourcen explizit freigeben.
+$presentation->dispose();
+```
 
 ## **FAQ**
 
-**Welche Daten in einer Aspose.Slides‑Präsentation werden als BLOB behandelt und von BLOB‑Optionen gesteuert?**
+**Welche Daten in einer Aspose.Slides‑Präsentation werden als BLOB behandelt und von BLOB‑Optionen gesteuert?**  
+Große Binärobjekte wie Bilder, Audio‑ und Videodateien werden als BLOB behandelt. Auch die gesamte Präsentationsdatei unterliegt bei Laden oder Speichern der BLOB‑Verarbeitung. Diese Objekte werden von BLOB‑Richtlinien gesteuert, die es ermöglichen, den Speicherverbrauch zu verwalten und bei Bedarf auf temporäre Dateien auszulagern.
 
-Große Binärobjekte wie Bilder, Audio und Video werden als BLOB behandelt. Auch die gesamte Präsentationsdatei wird beim Laden oder Speichern über BLOB verarbeitet. Diese Objekte unterliegen BLOB‑Richtlinien, mit denen Sie die Speichernutzung steuern und bei Bedarf in temporäre Dateien auslagern können.
+**Wo konfiguriere ich BLOB‑Verarbeitungsregeln beim Laden einer Präsentation?**  
+Verwenden Sie [LoadOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/) zusammen mit [BlobManagementOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/blobmanagementoptions/). Dort setzen Sie das Speicherlimit für BLOBs, erlauben oder verbieten temporäre Dateien, wählen den Root‑Pfad für temporäre Dateien und bestimmen das Lock‑Verhalten der Quelle.
 
-**Wo kann ich die BLOB‑Verarbeitungsregeln beim Laden einer Präsentation konfigurieren?**
+**Beeinflussen BLOB‑Einstellungen die Performance und wie balanciere ich Geschwindigkeit versus Speicher?**  
+Ja. Das Halten von BLOBs im Speicher maximiert die Geschwindigkeit, erhöht jedoch den RAM‑Verbrauch; ein niedrigeres Speicherlimit verlagert mehr Arbeit auf temporäre Dateien, reduziert RAM, verursacht jedoch zusätzlichen I/O‑Aufwand. Nutzen Sie die Methode [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/de/php-java/aspose.slides/blobmanagementoptions/setmaxblobsbytesinmemory/), um das richtige Gleichgewicht für Ihre Arbeitslast und Umgebung zu finden.
 
-Verwenden Sie [LoadOptions] mit [BlobManagementOptions]. Dort legen Sie das In‑Memory‑Limit für BLOB fest, erlauben oder verbieten temporäre Dateien, wählen den Stammordner für temporäre Dateien und bestimmen das Verhalten beim Sperren der Quelle.
+**Helfen BLOB‑Optionen beim Öffnen extrem großer Präsentationen (z. B. Gigabytes)?**  
+Ja. [BlobManagementOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/blobmanagementoptions/) sind für solche Szenarien konzipiert: Das Aktivieren temporärer Dateien und die Verwendung von Source‑Locking können den Spitzen‑RAM‑Verbrauch deutlich senken und die Verarbeitung sehr großer Decks stabilisieren.
 
-**Beeinflussen BLOB‑Einstellungen die Leistung und wie finde ich das Gleichgewicht zwischen Geschwindigkeit und Speicher?**
-
-Ja. Das Halten von BLOB im Speicher maximiert die Geschwindigkeit, erhöht jedoch den RAM‑Verbrauch; wird das Speicherlimit reduziert, wird mehr Arbeit auf temporäre Dateien verlagert, wodurch der RAM‑Verbrauch sinkt, jedoch zusätzliche I/O‑Kosten entstehen. Verwenden Sie die Methode [setMaxBlobsBytesInMemory], um das richtige Gleichgewicht für Ihre Arbeitslast und Umgebung zu finden.
-
-**Helfen BLOB‑Optionen beim Öffnen extrem großer Präsentationen (z. B. Gigabyte‑Dateien)?**
-
-Ja. [BlobManagementOptions] sind für solche Szenarien konzipiert: Das Aktivieren temporärer Dateien und die Verwendung von Source‑Locking können den maximalen RAM‑Verbrauch deutlich senken und die Verarbeitung sehr großer Präsentationen stabilisieren.
-
-**Kann ich BLOB‑Richtlinien beim Laden aus Streams anstelle von Dateien verwenden?**
-
-Ja. Die gleichen Regeln gelten für Streams: Die Präsentationsinstanz kann den Eingabestream besitzen und sperren (je nach gewähltem Sperrmodus), und temporäre Dateien werden verwendet, wenn sie erlaubt sind, sodass der Speicherverbrauch während der Verarbeitung vorhersehbar bleibt.
+**Kann ich BLOB‑Richtlinien beim Laden aus Streams anstelle von Disk‑Dateien verwenden?**  
+Ja. Die gleichen Regeln gelten für Streams: Die Präsentationsinstanz kann den Eingabestream besitzen und sperren (je nach gewähltem Lock‑Modus), und temporäre Dateien werden verwendet, wenn dies erlaubt ist, sodass der Speicherverbrauch während der Verarbeitung vorhersehbar bleibt.
