@@ -8,189 +8,140 @@ keywords:
 - SmartArt
 - نص SmartArt
 - نوع التخطيط
-- خاصية الإخفاء
-- مخطط المؤسسة
-- مخطط تنظيم صورة
+- الخاصية المخفية
+- مخطط التنظيم
+- مخطط التنظيم بالصور
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعرّف على كيفية إنشاء وتحرير SmartArt في PowerPoint باستخدام Aspose.Slides for Android من خلال أمثلة شفرة Java واضحة تُسرّع تصميم الشرائح والأتمتة."
+description: "تعلم كيفية إنشاء وتعديل SmartArt في PowerPoint باستخدام Aspose.Slides للـ Android من خلال أمثلة كود Java واضحة تُسرّع تصميم الشرائح والأتمتة."
 ---
+## **نظرة عامة**
 
-## **استخراج النص من كائن SmartArt**
-الآن تم إضافة طريقة TextFrame إلى واجهة [ISmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtShape) وفئة [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) على التوالي. تتيح هذه الخاصية الحصول على جميع النص من [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) إذا كان يحتوي على نص العقد فقط. سيساعدك الكود التجريبي التالي في استخراج النص من عقدة SmartArt.
+SmartArt هو مخطط PowerPoint مكوّن من العقد وأشكال العقد وتخطيط. باستخدام Aspose.Slides for Android via Java، يمكنك إنشاء SmartArt، وقراءة النص من عقده، وتغيير تخطيطه، وفحص العقد المخفية، وتكوين تخطيطات مخطط التنظيم، وإنشاء مخططات تنظيمية بالصور.
+
+## **الحصول على النص من كائن SmartArt**
+
+يمكن أن يحتوي عقدة SmartArt على شكل واحد أو أكثر. لقراءة النص الظاهر، قم بالتكرار عبر [ISmartArt.getAllNodes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartart/#getAllNodes--)، ثم اقرأ [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) الذي يتم إرجاعه بواسطة [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--).
+
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    ISmartArt smartArt = (ISmartArt)slide.getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
 
-    ISmartArtNodeCollection smartArtNodes = smartArt.getAllNodes();
-    for (ISmartArtNode smartArtNode : smartArtNodes)
-    {
-        for (ISmartArtShape nodeShape : smartArtNode.getShapes())
-        {
-            if (nodeShape.getTextFrame() != null)
-                System.out.println(nodeShape.getTextFrame().getText());
+    if (shape instanceof ISmartArt) {
+        ISmartArt smartArt = (ISmartArt) shape;
+
+        for (ISmartArtNode node : smartArt.getAllNodes()) {
+            for (ISmartArtShape nodeShape : node.getShapes()) {
+                if (nodeShape.getTextFrame() != null) {
+                    System.out.println(nodeShape.getTextFrame().getText());
+                }
+            }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **تغيير نوع التخطيط لكائن SmartArt**
-من أجل تغيير نوع التخطيط لـ [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). يرجى اتباع الخطوات التالية:
 
-- إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-- إضافة [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
-- تغيير [LayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setLayout-int-) إلى BasicProcess.
-- حفظ العرض التقديمي كملف PPTX.
+يتحكم تخطيط SmartArt في كيفية ترتيب العقد وربطها. المثال التالي ينشئ كائن SmartArt باستخدام قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtLayoutType) `BasicBlockList`، يغيّرها إلى القيمة `BasicProcess`، ويحفظ العرض التقديمي.
 
-في المثال التالي، قمنا بإضافة موصل بين شكلين.
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // إضافة SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    // تغيير LayoutType إلى BasicProcess
-    smart.setLayout(SmartArtLayoutType.BasicProcess);
+    smartArt.setLayout(SmartArtLayoutType.BasicProcess);
 
-    // حفظ العرض التقديمي
-    pres.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **التحقق مما إذا كانت عقدة SmartArt مخفية**
 
-## **التحقق من خاصية الرؤية لكائن SmartArt**
-يرجى ملاحظة: الطريقة [ISmartArtNode.isHidden()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#isHidden) تُعيد true إذا كانت هذه العقدة مخفية في نموذج البيانات. من أجل التحقق من خاصية الإخفاء لأي عقدة من [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). يرجى اتباع الخطوات التالية:
+[ISmartArtNode.isHidden](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartartnode/#isHidden--) يشير إلى ما إذا كانت العقدة مخفية في نموذج بيانات SmartArt. يمكن أن توجد العقد المخفية في الهيكل حتى عندما لا يعرض التخطيط المحددها كعناصر مخطط مرئية.
 
-- إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- إضافة [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
-- إضافة عقدة إلى SmartArt.
-- التحقق من خاصية [visibility](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#isHidden).
-- حفظ العرض التقديمي كملف PPTX.
+المثال التالي يضيف عقدة إلى كائن SmartArt يستخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtLayoutType) `RadialCycle` ويتحقق من حالة إخفاء العقدة.
 
-في المثال التالي، قمنا بإضافة موصل بين شكلين.
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // إضافة SmartArt BasicProcess 
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // إضافة عقدة إلى SmartArt 
-    ISmartArtNode node = smart.getAllNodes().addNode();
+    ISmartArtNode node = smartArt.getAllNodes().addNode();
+    boolean isHidden = node.isHidden();
 
-    // فحص الخاصية isHidden
-    boolean hidden = node.isHidden(); // إرجاع true
-
-    if (hidden)
-    {
-        // تنفيذ بعض الإجراءات أو الإشعارات
+    if (isHidden) {
+        System.out.println("The node is hidden in the SmartArt data model.");
     }
-    // حفظ العرض التقديمي
-    pres.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على تخطيط مخطط التنظيم أو تعيينه**
 
-## **الحصول على نوع مخطط المنظمة أو تعيينه**
-تسمح الطرق [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) و[setOrganizationChartLayout(int)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) بالحصول أو تعيين نوع مخطط المنظمة المرتبط بالعقدة الحالية. من أجل الحصول على نوع مخطط المنظمة أو تعيينه، يرجى اتباع الخطوات التالية:
+بالنسبة إلى مخططات SmartArt التي تستخدم تخطيط مخطط التنظيم، تحدد الدالتان [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) و[ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) كيفية ترتيب العقد الفرعية تحت العقدة الأم. على سبيل المثال، يمكنك تعيين العقد الفرعية لتتدلى من اليسار أو اليمين أو الجانبين معًا، اعتمادًا على [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/OrganizationChartLayoutType) المحدد.
 
-- إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- إضافة [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) إلى الشريحة.
-- الحصول أو [set the organization chart type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-).
-- حفظ العرض التقديمي كملف PPTX.
+المثال التالي ينشئ مخطط تنظيم ويضبط التخطيط للعقدة الأولى على القيمة [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/OrganizationChartLayoutType) `LeftHanging`.
 
-في المثال التالي، قمنا بإضافة موصل بين شكلين.
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // إضافة SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // الحصول أو تعيين نوع مخطط المنظمة
-    smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
+    ISmartArtNode rootNode = smartArt.getNodes().get_Item(0);
+    rootNode.setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
-    // حفظ العرض التقديمي
-    pres.save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **إنشاء مخطط تنظيم بالصور**
 
-## **إنشاء مخطط تنظيم صورة**
-توفر Aspose.Slides for Android عبر Java واجهة برمجة تطبيقات بسيطة لإنشاء مخططات PictureOrganization بطريقة سهلة. لإنشاء مخطط على شريحة:
+مخطط تنظيم بالصورة هو تخطيط SmartArt مصمم لمخططات الهرمية التي تتضمن نوافير صور. استخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtLayoutType) `PictureOrganizationChart` عند إضافة كائن SmartArt إلى الشريحة.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-3. إضافة مخطط بالبيانات الافتراضية مع النوع المطلوب (ChartType.PictureOrganizationChart).
-4. حفظ العرض التقديمي المعدل كملف PPTX.
-
-الكود التالي يُستخدم لإنشاء المخطط.
 ```java
-Presentation pres = new Presentation("test.pptx");
+Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-    pres.save("OrganizationChart.pptx", SaveFormat.Pptx);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الحصول على حالة SmartArt أو تعيينها**
-من أجل تغيير حالة مخطط SmartArt، يرجى اتباع الخطوات التالية:
+**هل يدعم SmartArt الانعكاس أو العكس للغات من اليمين إلى اليسار؟**
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. إضافة [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) إلى الشريحة.
-3. [Get](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#isReversed--) أو [Set](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setReversed-boolean-) حالة مخطط SmartArt.
-4. حفظ العرض التقديمي كملف PPTX.
-
-الكود التالي يُستخدم لإنشاء المخطط.
-```java
-// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation();
-try {
-    // إضافة SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
-    
-    // الحصول على أو تعيين حالة مخطط SmartArt
-    smart.setReversed(true);
-    boolean flag = smart.isReversed();
-    
-    // حفظ العرض التقديمي
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **اسئلة شائعة**
-
-**هل يدعم SmartArt عكس/انعكاس للغات RTL؟**
-
-نعم. تقوم طريقة [setReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/#setReversed-boolean-) بتغيير اتجاه المخطط (LTR/RTL) إذا كان نوع SmartArt المختار يدعم العكس.
+نعم. الطريقة [ISmartArt.setReversed](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartart/#setReversed-boolean-) تغير اتجاه المخطط من اليسار إلى اليمين إلى اليمين إلى اليسار، أو العكس، عندما يدعم تخطيط SmartArt المختار العكس.
 
 **كيف يمكنني نسخ SmartArt إلى نفس الشريحة أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
 
-يمكنك [clone the SmartArt shape](/slides/ar/androidjava/shape-manipulations/) عبر مجموعة الأشكال ([ShapeCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)) أو [clone the entire slide](/slides/ar/androidjava/clone-slides/) التي تحتوي على هذا الشكل. كلا الطريقتين تحافظان على الحجم والموقع والأسلوب.
+يمكنك [استنساخ شكل SmartArt](/slides/ar/androidjava/shape-manipulations/) باستخدام [ShapeCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) أو [استنساخ الشريحة بالكامل](/slides/ar/androidjava/clone-slides/) التي تحتوي على SmartArt. كلا النهجين يحافظان على الحجم والموضع والتنسيق.
 
-**كيف أقوم بتحويل SmartArt إلى صورة نقطية للمعاينة أو التصدير إلى الويب؟**
+**كيف أقوم بإخراج SmartArt إلى صورة نقطية للمعاينة أو التصدير للويب؟**
 
-[Render the slide](/slides/ar/androidjava/convert-powerpoint-to-png/) (أو العرض التقديمي بأكمله) إلى PNG/JPEG عبر واجهة برمجة التطبيقات التي تحول الشرائح/العروض إلى صور—سيتم رسم SmartArt كجزء من الشريحة.
+[قم بإخراج الشريحة](/slides/ar/androidjava/convert-powerpoint-to-png/) أو العرض التقديمي بالكامل إلى PNG أو JPEG. يتم إخراج SmartArt كجزء من الشريحة.
 
-**كيف يمكنني برمجيًا تحديد SmartArt معين على شريحة إذا كان هناك عدة عناصر؟**
+**كيف يمكنني العثور على كائن SmartArt محدد في شريحة إذا كان هناك عدة كائنات؟**
 
-من الممارسات الشائعة استخدام [alternative text](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getAlternativeText--) (نص بديل) أو [name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getName--) والبحث عن الشكل بواسطة هذه الخاصية ضمن [slide shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--)، ثم فحص النوع للتأكد من أنه [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/). الوثائق توضح تقنيات شائعة للعثور على الأشكال والعمل معها.
+قم بتعيين قيمة مميزة لـ [Shape.getAlternativeText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shape/#getAlternativeText--) أو [Shape.getName](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shape/#getName--) على شكل SmartArt، ابحث عن تلك القيمة في [BaseSlide.getShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslide/#getShapes--)، ثم تأكد أن الشكل المطابق هو [ISmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartart/).

@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 在 PowerPoint 演示稿中管理 SmartArt
+title: 使用 Java 管理 PowerPoint 演示文稿中的 SmartArt
 linktitle: 管理 SmartArt
 type: docs
 weight: 10
@@ -15,181 +15,128 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 通过清晰的代码示例构建和编辑 PowerPoint SmartArt，从而加快幻灯片设计和自动化。"
+description: "学习使用 Aspose.Slides for Java 构建和编辑 PowerPoint SmartArt，通过清晰的代码示例加快幻灯片设计和自动化。"
 ---
+## **概述**
+
+SmartArt 是由节点、节点形状和布局组成的 PowerPoint 图表。使用 Aspose.Slides for Java，您可以创建 SmartArt、读取其节点中的文本、更改布局、检查隐藏节点、配置组织结构图布局，以及创建图片组织结构图。
 
 ## **获取 SmartArt 对象的文本**
-现在已经在 [ISmartArtShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtShape) 接口和 [SmartArtShape](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtShape) 类中添加了 TextFrame 方法。此属性允许您从 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) 中获取所有文本，即使它不仅包含节点文本。以下示例代码将帮助您获取 SmartArt 节点的文本。
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    ISmartArt smartArt = (ISmartArt)slide.getShapes().get_Item(0);
 
-    ISmartArtNodeCollection smartArtNodes = smartArt.getAllNodes();
-    for (ISmartArtNode smartArtNode : smartArtNodes)
-    {
-        for (ISmartArtShape nodeShape : smartArtNode.getShapes())
-        {
-            if (nodeShape.getTextFrame() != null)
-                System.out.println(nodeShape.getTextFrame().getText());
+SmartArt 节点可以包含一个或多个形状。要读取可见文本，请遍历 [ISmartArt.getAllNodes](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ismartart/#getAllNodes--)，然后读取由 [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ismartartshape/#getTextFrame--) 返回的 [ITextFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/)。
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    if (shape instanceof ISmartArt) {
+        ISmartArt smartArt = (ISmartArt) shape;
+
+        for (ISmartArtNode node : smartArt.getAllNodes()) {
+            for (ISmartArtShape nodeShape : node.getShapes()) {
+                if (nodeShape.getTextFrame() != null) {
+                    System.out.println(nodeShape.getTextFrame().getText());
+                }
+            }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **更改 SmartArt 对象的布局类型**
-要更改 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) 的布局类型，请按照以下步骤操作：
 
-- 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-- 使用索引获取幻灯片的引用。
-- 添加 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList。
-- 将 [LayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#setLayout-int-) 更改为 BasicProcess。
-- 将演示文稿保存为 PPTX 文件。
+SmartArt 布局决定节点的排列和连接方式。下面的示例使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/SmartArtLayoutType) `BasicBlockList` 值创建 SmartArt 对象，将其更改为 `BasicProcess` 值，并保存演示文稿。
 
-在下面的示例中，我们在两个形状之间添加了连接线。
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 添加 SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    // 将 LayoutType 更改为 BasicProcess
-    smart.setLayout(SmartArtLayoutType.BasicProcess);
+    smartArt.setLayout(SmartArtLayoutType.BasicProcess);
 
-    // 保存演示文稿
-    pres.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **检查 SmartArt 节点是否隐藏**
 
-## **检查 SmartArt 对象的可见性属性**
-请注意：方法 [ISmartArtNode.isHidden()](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) 如果此节点在数据模型中是隐藏节点，则返回 true。要检查 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) 任意节点的隐藏属性，请按照以下步骤操作：
+[ISmartArtNode.isHidden](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ismartartnode/#isHidden--) 指示节点在 SmartArt 数据模型中是否隐藏。即使所选布局未将它们显示为可见的图表元素，隐藏节点仍可能存在于结构中。
 
-- 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-- 添加 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle。
-- 在 SmartArt 上添加节点。
-- 检查 [visibility](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) 属性。
-- 将演示文稿保存为 PPTX 文件。
+下面的示例向使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/SmartArtLayoutType) `RadialCycle` 值的 SmartArt 对象添加一个节点，并检查该节点的隐藏状态。
 
-在下面的示例中，我们在两个形状之间添加了连接线。
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 添加 SmartArt BasicProcess 
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // 在 SmartArt 上添加节点 
-    ISmartArtNode node = smart.getAllNodes().addNode();
+    ISmartArtNode node = smartArt.getAllNodes().addNode();
+    boolean isHidden = node.isHidden();
 
-    // 检查 isHidden 属性
-    boolean hidden = node.isHidden(); // 返回 true
-
-    if (hidden)
-    {
-        // 执行某些操作或通知
+    if (isHidden) {
+        System.out.println("The node is hidden in the SmartArt data model.");
     }
-    // 保存演示文稿
-    pres.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **获取或设置组织结构图布局**
 
-## **获取或设置组织结构图类型**
-方法 [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) 和 [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) 允许获取或设置与当前节点关联的组织结构图类型。要获取或设置组织结构图类型，请按照以下步骤操作：
+对于使用组织结构图布局的 SmartArt 图表，[ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) 和 [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) 定义子节点在父节点下的排列方式。例如，您可以根据所选的 [OrganizationChartLayoutType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/OrganizationChartLayoutType) 将子节点挂在左侧、右侧或两侧。
 
-- 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-- 添加 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) 到幻灯片。
-- 获取或 [set the organization chart type](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-)。
-- 将演示文稿保存为 PPTX 文件。
+下面的示例创建一个组织结构图，并将第一个节点的布局设置为 [OrganizationChartLayoutType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/OrganizationChartLayoutType) `LeftHanging` 值。
 
-在下面的示例中，我们在两个形状之间添加了连接线。
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 添加 SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // 获取或设置组织结构图类型
-    smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
+    ISmartArtNode rootNode = smartArt.getNodes().get_Item(0);
+    rootNode.setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
-    // 保存演示文稿
-    pres.save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **创建图片组织结构图**
-Aspose.Slides for Java 提供了一个简单的 API，用于轻松创建 PictureOrganization 图表。要在幻灯片上创建图表：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加具有默认数据的图表，并指定所需类型 (ChartType.PictureOrganizationChart)。
-4. 将修改后的演示文稿写入 PPTX 文件。
+图片组织结构图是一种针对包含图像占位符的层次结构图表设计的 SmartArt 布局。在将 SmartArt 对象添加到幻灯片时，请使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/SmartArtLayoutType) `PictureOrganizationChart` 值。
 
-以下代码用于创建图表。
 ```java
-Presentation pres = new Presentation("test.pptx");
+Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-    pres.save("OrganizationChart.pptx", SaveFormat.Pptx);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-
-## **获取或设置 SmartArt 状态**
-为了更改 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) 的布局类型，请按照以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-2. 添加 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) 到幻灯片。
-3. [Get](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#isReversed--) 或 [Set](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#setReversed-boolean-) SmartArt 图表的状态。
-4. 将演示文稿保存为 PPTX 文件。
-
-以下代码用于创建图表。
-```java
-// 实例化表示 PPTX 文件的 Presentation 类
-Presentation pres = new Presentation();
-try {
-    // 添加 SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
-    
-    // 获取或设置 SmartArt 图表的状态
-    smart.setReversed(true);
-    boolean flag = smart.isReversed();
-    
-    // 保存演示文稿
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
 
 ## **常见问题**
 
-**SmartArt 是否支持 RTL 语言的镜像/翻转？**
+**SmartArt 是否支持 RTL 语言的镜像或反转？**  
+是的。当所选 SmartArt 布局支持反转时，[ISmartArt.setReversed](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ismartart/#setReversed-boolean-) 方法可将图表方向从从左到右切换为从右到左，或反之。
 
-是的。若所选 SmartArt 类型支持翻转，[setReversed](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/#setReversed-boolean-) 方法会切换图表方向（LTR/RTL）。
+**如何在保留格式的情况下将 SmartArt 复制到同一幻灯片或另一个演示文稿？**  
+您可以使用 [ShapeCollection.addClone](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) 克隆 SmartArt 形状（参见[克隆 SmartArt 形状](/slides/zh/java/shape-manipulations/)），或克隆包含 SmartArt 的整个幻灯片（参见[克隆整个幻灯片](/slides/zh/java/clone-slides/)）。这两种方法都会保留大小、位置和格式。
 
-**如何在保持格式的情况下将 SmartArt 复制到同一幻灯片或其他演示文稿？**
+**如何将 SmartArt 渲染为光栅图像以进行预览或网页导出？**  
+可以将幻灯片（参见[渲染幻灯片](/slides/zh/java/convert-powerpoint-to-png/)）或整个演示文稿渲染为 PNG 或 JPEG。SmartArt 会作为幻灯片的一部分进行渲染。
 
-您可以通过形状集合 [克隆 SmartArt 形状](/slides/zh/java/shape-manipulations/)（[ShapeCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)) 或 [克隆整个幻灯片](/slides/zh/java/clone-slides/) 来克隆包含此形状的整个幻灯片。两种方法都能保留大小、位置和样式。
-
-**如何将 SmartArt 渲染为光栅图像以供预览或网页导出？**
-
-[渲染幻灯片](/slides/zh/java/convert-powerpoint-to-png/) (或整个演示文稿) 为 PNG/JPEG，使用将幻灯片/演示文稿转换为图像的 API——SmartArt 将作为幻灯片的一部分绘制。
-
-**如果幻灯片上有多个 SmartArt，如何以编程方式选中特定的一个？**
-
-常用做法是使用 [替代文本](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getAlternativeText--) (Alt Text) 或 [名称](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getName--)，在 [幻灯片形状](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) 中按该属性搜索形状，然后检查类型以确认它是 [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/)。文档描述了查找和使用形状的典型技术。
+**如果幻灯片上有多个 SmartArt 对象，如何找到特定的对象？**  
+在 SmartArt 形状上设置唯一的 [Shape.getAlternativeText](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shape/#getAlternativeText--) 或 [Shape.getName](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shape/#getName--) 值，在 [BaseSlide.getShapes](https://reference.aspose.com/slides/zh/java/com.aspose.slides/baseslide/#getShapes--) 中搜索该值，然后确认匹配的形状是 [ISmartArt](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ismartart/)。

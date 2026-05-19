@@ -1,108 +1,145 @@
 ---
-title: Administrar SmartArt en presentaciones de PowerPoint usando C++
-linktitle: Administrar SmartArt
+title: Gestionar SmartArt en presentaciones de PowerPoint usando C++
+linktitle: Gestionar SmartArt
 type: docs
 weight: 10
 url: /es/cpp/manage-smartart/
 keywords:
 - SmartArt
-- Texto de SmartArt
-- Tipo de diseño
-- Propiedad oculta
-- Organigrama
-- Organigrama de imagen
+- texto de SmartArt
+- tipo de diseño
+- propiedad oculta
+- organigrama
+- organigrama con imágenes
 - PowerPoint
-- Presentación
+- presentación
 - C++
 - Aspose.Slides
-description: "Aprenda a crear y editar SmartArt de PowerPoint con Aspose.Slides para C++ utilizando ejemplos de código claros que aceleran el diseño de diapositivas y la automatización."
+description: "Aprenda a crear y editar SmartArt de PowerPoint con Aspose.Slides para C++ utilizando ejemplos de código claros que aceleran el diseño y la automatización de diapositivas."
 ---
+## **Visión general**
+
+SmartArt es un diagrama de PowerPoint formado por nodos, formas de nodo y un diseño. Con Aspose.Slides para C++, puedes crear SmartArt, leer el texto de sus nodos, cambiar su diseño, inspeccionar nodos ocultos, configurar diseños de organigramas y crear organigramas con imágenes.
 
 ## **Obtener texto de un objeto SmartArt**
-Ahora se ha añadido la propiedad TextFrame a la interfaz ISmartArtShape y a la clase SmartArtShape, respectivamente. Esta propiedad le permite obtener todo el texto de SmartArt si no solo tiene texto de nodos. El siguiente código de ejemplo le ayudará a obtener el texto de un nodo SmartArt.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-GetTextFromSmartArtNode-GetTextFromSmartArtNode.cpp" >}}
+Un nodo de SmartArt puede contener una o más formas. Para leer el texto visible, recorre [ISmartArt::get_AllNodes](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartart/get_allnodes/), luego lee el [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) devuelto por [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartartshape/get_textframe/).
 
-## **Cambiar el tipo de diseño de un objeto SmartArt**
-Para cambiar el tipo de diseño de SmartArt, siga los pasos a continuación:
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- Obtenga la referencia de una diapositiva usando su índice.
-- Añada SmartArt BasicBlockList.
-- Cambie LayoutType a BasicProcess.
-- Guarde la presentación como un archivo PPTX.
+if (System::ObjectExt::Is<ISmartArt>(shape))
+{
+    auto smartArt = System::ExplicitCast<ISmartArt>(shape);
 
-En el ejemplo a continuación, hemos añadido un conector entre dos formas.
+    for (int nodeIndex = 0; nodeIndex < smartArt->get_AllNodes()->get_Count(); nodeIndex++)
+    {
+        auto node = smartArt->get_AllNodes()->idx_get(nodeIndex);
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeSmartArtLayout-ChangeSmartArtLayout.cpp" >}}
+        for (int shapeIndex = 0; shapeIndex < node->get_Shapes()->get_Count(); shapeIndex++)
+        {
+            auto nodeShape = node->get_Shape(shapeIndex);
 
-## **Comprobar la propiedad Hidden de un objeto SmartArt**
-Tenga en cuenta que el método com.aspose.slides.ISmartArtNode.isHidden() devuelve true si este nodo es un nodo oculto en el modelo de datos. Para comprobar la propiedad hidden de cualquier nodo de SmartArt, siga los pasos a continuación:
+            if (nodeShape->get_TextFrame() != nullptr)
+            {
+                System::Console::WriteLine(nodeShape->get_TextFrame()->get_Text());
+            }
+        }
+    }
+}
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- Añada SmartArt RadialCycle.
-- Añada un nodo en SmartArt.
-- Compruebe la propiedad isHidden.
-- Guarde la presentación como un archivo PPTX.
-
-En el ejemplo a continuación, hemos añadido un conector entre dos formas.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CheckSmartArtHiddenProperty-CheckSmartArtHiddenProperty.cpp" >}}
-
-## **Obtener o establecer el tipo de organigrama**
-Los métodos com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() y setOrganizationChartLayout(int) permiten obtener o establecer el tipo de organigrama asociado al nodo actual. Para obtener o establecer el tipo de organigrama, siga los pasos a continuación:
-
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- Añada SmartArt en la diapositiva.
-- Obtenga o establezca el tipo de organigrama.
-- Guarde la presentación como un archivo PPTX.
-
-En el ejemplo a continuación, hemos añadido un conector entre dos formas.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-OrganizeChartLayoutType-OrganizeChartLayoutType.cpp" >}}
-
-## **Obtener o establecer el estado de un SmartArt**
-Algunos diagramas SmartArt no admiten la inversión, por ejemplo; Vertical bullet list,Vertical Process,Descending Process,Funnel,Gear,,Balance,Circle Relationship,Hexagon Cluster,Reverse List,Stacked Venn. Para cambiar la orientación de SmartArt, siga los pasos a continuación:
-
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- Añada SmartArt en la diapositiva.
-- Obtenga o establezca el estado del diagrama SmartArt.
-- Guarde la presentación como un archivo PPTX.
-
-En el ejemplo a continuación, hemos añadido un conector entre dos formas.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeSmartArtLayout-ChangeSmartArtLayout.cpp" >}}
-
-## **Crear un organigrama Picture Organization**
-Aspose.Slides for C++ proporciona una API sencilla para crear diagramas PictureOrganization de forma fácil. Para crear un diagrama en una diapositiva:
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenga la referencia de una diapositiva por su índice.
-3. Añada un diagrama con datos predeterminados junto con el tipo deseado (ChartType.PictureOrganizationChart).
-4. Guarde la presentación modificada en un archivo PPTX
-
-El siguiente código se utiliza para crear un diagrama.
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto smartArt = pres->get_Slides()->idx_get(0)->get_Shapes()->AddSmartArt(0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
-pres->Save(u"OrganizationChart.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **Cambiar el tipo de diseño de un objeto SmartArt**
+
+El diseño de SmartArt controla cómo se disponen y conectan los nodos. El siguiente ejemplo crea un objeto SmartArt con el valor `BasicBlockList` de [SmartArtLayoutType](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartartlayouttype/), lo cambia al valor `BasicProcess` y guarda la presentación.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::BasicBlockList);
+
+smartArt->set_Layout(SmartArtLayoutType::BasicProcess);
+
+presentation->Save(u"ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Comprobar si un nodo de SmartArt está oculto**
+
+[ISmartArtNode::get_IsHidden](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartartnode/get_ishidden/) indica si el nodo está oculto en el modelo de datos de SmartArt. Los nodos ocultos pueden existir en la estructura incluso cuando el diseño seleccionado no los muestra como elementos visibles del diagrama.
+
+El siguiente ejemplo añade un nodo a un objeto SmartArt que utiliza el valor `RadialCycle` de [SmartArtLayoutType](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartartlayouttype/) y verifica el estado oculto del nodo.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::RadialCycle);
+
+auto node = smartArt->get_AllNodes()->AddNode();
+bool isHidden = node->get_IsHidden();
+
+if (isHidden)
+{
+    System::Console::WriteLine(u"The node is hidden in the SmartArt data model.");
+}
+
+presentation->Save(u"CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Obtener o establecer el diseño del organigrama**
+
+Para los diagramas SmartArt que usan un diseño de organigrama, [ISmartArtNode::get_OrganizationChartLayout](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartartnode/get_organizationchartlayout/) y [ISmartArtNode::set_OrganizationChartLayout](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartartnode/set_organizationchartlayout/) definen cómo se disponen los nodos hijos bajo un nodo padre. Por ejemplo, puedes establecer que los nodos hijos cuelguen a la izquierda, a la derecha o en ambos lados, según el [OrganizationChartLayoutType](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/organizationchartlayouttype/) seleccionado.
+
+El siguiente ejemplo crea un organigrama y establece el diseño del primer nodo al valor `LeftHanging` de [OrganizationChartLayoutType](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/organizationchartlayouttype/).
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::OrganizationChart);
+
+auto rootNode = smartArt->get_Node(0);
+rootNode->set_OrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
+
+presentation->Save(u"OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Crear un organigrama con imágenes**
+
+Un organigrama con imágenes es un diseño de SmartArt creado para diagramas jerárquicos que incluyen marcadores de posición de imágenes. Usa el valor `PictureOrganizationChart` de [SmartArtLayoutType](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartartlayouttype/) al añadir el objeto SmartArt a una diapositiva.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
+
+presentation->Save(u"PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
 ## **Preguntas frecuentes**
 
-**¿SmartArt admite la inversión/reflejo para idiomas RTL?**
+**¿SmartArt admite el reflejo o reversión para idiomas de escritura de derecha a izquierda?**
 
-Sí. El método [set_IsReversed](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/set_isreversed/) cambia la dirección del diagrama (LTR/RTL) si el tipo de SmartArt seleccionado admite la inversión.
+Sí. El método [SmartArt::set_IsReversed](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/smartart/set_isreversed/) cambia la dirección del diagrama de izquierda a derecha a derecha a izquierda, o viceversa, cuando el diseño de SmartArt seleccionado admite la reversión.
 
-**¿Cómo puedo copiar SmartArt a la misma diapositiva o a otra presentación preservando el formato?**
+**¿Cómo puedo copiar SmartArt a la misma diapositiva o a otra presentación conservando el formato?**
 
-Puede [clonar la forma SmartArt](/slides/es/cpp/shape-manipulations/) mediante la colección de formas ([ShapeCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addclone/)) o [clonar la diapositiva completa](/slides/es/cpp/clone-slides/) que contiene esta forma. Ambos enfoques conservan el tamaño, la posición y el estilo.
+Puedes [clonar la forma SmartArt](/slides/es/cpp/shape-manipulations/) con [ShapeCollection::AddClone](https://reference.aspose.com/slides/es/cpp/aspose.slides/shapecollection/addclone/) o [clonar toda la diapositiva](/slides/es/cpp/clone-slides/) que contiene el SmartArt. Ambos enfoques conservan el tamaño, la posición y el formato.
 
 **¿Cómo renderizo SmartArt a una imagen raster para vista previa o exportación web?**
 
-[Renderice la diapositiva](/slides/es/cpp/convert-powerpoint-to-png/) (o toda la presentación) a PNG/JPEG mediante la API que convierte diapositivas/presentaciones en imágenes — SmartArt se dibujará como parte de la diapositiva.
+Renderiza la diapositiva [/slides/es/cpp/convert-powerpoint-to-png/](/slides/es/cpp/convert-powerpoint-to-png/) o toda la presentación a PNG o JPEG. SmartArt se renderiza como parte de la diapositiva.
 
-**¿Cómo puedo seleccionar programáticamente un SmartArt específico en una diapositiva si hay varios?**
+**¿Cómo puedo encontrar un objeto SmartArt específico en una diapositiva si hay varios?**
 
-Una práctica común es usar [texto alternativo](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_alternativetext/) (Alt Text) o un [nombre](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_name/) y buscar la forma por ese atributo dentro de [shapes de la diapositiva](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/), luego comprobar el tipo para confirmar que es [SmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/). La documentación describe técnicas típicas para encontrar y trabajar con formas.
+Establece un [Shape::set_AlternativeText](https://reference.aspose.com/slides/es/cpp/aspose.slides/shape/set_alternativetext/) o un [Shape::set_Name](https://reference.aspose.com/slides/es/cpp/aspose.slides/shape/set_name/) distintivo en la forma SmartArt, busca ese valor en [BaseSlide::get_Shapes](https://reference.aspose.com/slides/es/cpp/aspose.slides/baseslide/get_shapes/), y luego verifica que la forma coincidente sea un [ISmartArt](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/ismartart/).

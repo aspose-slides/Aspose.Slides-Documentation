@@ -8,188 +8,139 @@ keywords:
 - SmartArt
 - نص SmartArt
 - نوع التخطيط
-- خاصية الإخفاء
-- مخطط المؤسسة
-- مخطط تنظيم الصور
+- خاصية مخفية
+- مخطط المنظمة
+- مخطط منظمة بالصورة
 - PowerPoint
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتحرير SmartArt في PowerPoint باستخدام Aspose.Slides for Java عبر أمثلة شفرة واضحة تُسرّع تصميم الشرائح والأتمتة."
+description: "تعلم كيفية إنشاء وتعديل SmartArt في PowerPoint باستخدام Aspose.Slides for Java عبر أمثلة شفرة واضحة تسرّع تصميم الشرائح والأتمتة."
 ---
+## **نظرة عامة**
+
+SmartArt هو مخطط PowerPoint يتكون من العقد وأشكال العقد وتخطيط. باستخدام Aspose.Slides for Java، يمكنك إنشاء SmartArt، وقراءة النص من عقده، وتغيير تخطيطه، وفحص العقد المخفية، وتكوين تخطيطات مخطط المنظمة، وإنشاء مخططات منظمة بصورة.
 
 ## **الحصول على النص من كائن SmartArt**
-تمت إضافة طريقة TextFrame إلى واجهة [ISmartArtShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtShape) والفئة [SmartArtShape](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtShape) على التوالي. تسمح هذه الخاصية بالحصول على كل النص من [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) إذا كان يحتوي على نص ليس فقط نص العقد. الكود النموذجي التالي سيساعدك على الحصول على النص من عقدة SmartArt.
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    ISmartArt smartArt = (ISmartArt)slide.getShapes().get_Item(0);
 
-    ISmartArtNodeCollection smartArtNodes = smartArt.getAllNodes();
-    for (ISmartArtNode smartArtNode : smartArtNodes)
-    {
-        for (ISmartArtShape nodeShape : smartArtNode.getShapes())
-        {
-            if (nodeShape.getTextFrame() != null)
-                System.out.println(nodeShape.getTextFrame().getText());
+يمكن أن تحتوي عقدة SmartArt على شكل واحد أو أكثر. لقراءة النص الظاهر، قم بالتكرار عبر [ISmartArt.getAllNodes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ismartart/#getAllNodes--)، ثم اقرأ الـ[ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) الذي تُرجعه [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ismartartshape/#getTextFrame--).
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    if (shape instanceof ISmartArt) {
+        ISmartArt smartArt = (ISmartArt) shape;
+
+        for (ISmartArtNode node : smartArt.getAllNodes()) {
+            for (ISmartArtShape nodeShape : node.getShapes()) {
+                if (nodeShape.getTextFrame() != null) {
+                    System.out.println(nodeShape.getTextFrame().getText());
+                }
+            }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **تغيير نوع التخطيط لكائن SmartArt**
-من أجل تغيير نوع التخطيط لـ [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-- إضافة [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
-- تغيير [LayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#setLayout-int-) إلى BasicProcess.
-- حفظ العرض التقديمي كملف PPTX.
+يتحكم تخطيط SmartArt في كيفية ترتيب العقد وربطها. المثال التالي ينشئ كائن SmartArt باستخدام قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SmartArtLayoutType) `BasicBlockList`، ثم يغيرها إلى قيمة `BasicProcess`، ويحفظ العرض التقديمي.
 
-في المثال المعطى أدناه، قمنا بإضافة موصل بين شكلين.
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // إضافة SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    // تغيير LayoutType إلى BasicProcess
-    smart.setLayout(SmartArtLayoutType.BasicProcess);
+    smartArt.setLayout(SmartArtLayoutType.BasicProcess);
 
-    // حفظ العرض التقديمي
-    pres.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **التحقق مما إذا كانت عقدة SmartArt مخفية**
 
-## **التحقق من خاصية الرؤية لكائن SmartArt**
-يرجى ملاحظة: طريقة [ISmartArtNode.isHidden()](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) تُعيد true إذا كانت هذه العقدة مخفية في نموذج البيانات. للتحقق من خاصية الإخفاء لأي عقدة من [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). يرجى اتباع الخطوات أدناه:
+[ISmartArtNode.isHidden](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ismartartnode/#isHidden--) يشير إلى ما إذا كانت العقدة مخفية في نموذج بيانات SmartArt. يمكن أن توجد العقد المخفية في الهيكل حتى عندما لا يعرض التخطيط المحدد لها كعناصر مخطط مرئية.
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- إضافة [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
-- إضافة عقدة إلى SmartArt.
-- التحقق من خاصية [visibility](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--).
-- حفظ العرض التقديمي كملف PPTX.
+المثال التالي يضيف عقدة إلى كائن SmartArt يستخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SmartArtLayoutType) `RadialCycle` ويتحقق من حالة إخفاء العقدة.
 
-في المثال المعطى أدناه، قمنا بإضافة موصل بين شكلين.
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // إضافة SmartArt BasicProcess 
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // إضافة عقدة على SmartArt 
-    ISmartArtNode node = smart.getAllNodes().addNode();
+    ISmartArtNode node = smartArt.getAllNodes().addNode();
+    boolean isHidden = node.isHidden();
 
-    // فحص خاصية isHidden
-    boolean hidden = node.isHidden(); // يرجع true
-
-    if (hidden)
-    {
-        // تنفيذ بعض الإجراءات أو الإشعارات
+    if (isHidden) {
+        System.out.println("The node is hidden in the SmartArt data model.");
     }
-    // حفظ العرض التقديمي
-    pres.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على تخطيط مخطط المنظمة أو تعيينه**
 
-## **الحصول على أو تعيين نوع مخطط المؤسسة**
-تسمح الطرق [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) و[setOrganizationChartLayout(int)](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) بالحصول على أو تعيين نوع مخطط المؤسسة المرتبط بالعقدة الحالية. للحصول على أو تعيين نوع مخطط المؤسسة. يرجى اتباع الخطوات أدناه:
+للمخططات SmartArt التي تستخدم تخطيط مخطط المنظمة، يعرّف كل من [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) و[ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) كيفية ترتيب العقد الفرعية تحت عقدة أصلية. على سبيل المثال، يمكنك تعيين العقد الفرعية للتدَلّ من اليسار أو اليمين أو كلا الجانبين، وفقًا لـ[OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/OrganizationChartLayoutType) المحدد.
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- إضافة [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) إلى الشريحة.
-- الحصول على أو [تعيين نوع مخطط المؤسسة](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-).
-- حفظ العرض التقديمي كملف PPTX.
+المثال التالي ينشئ مخطط منظمة ويعين التخطيط للعقدة الأولى إلى قيمة [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/OrganizationChartLayoutType) `LeftHanging`.
 
-في المثال المعطى أدناه، قمنا بإضافة موصل بين شكلين.
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // إضافة SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // الحصول على أو تعيين نوع مخطط المؤسسة
-    smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
+    ISmartArtNode rootNode = smartArt.getNodes().get_Item(0);
+    rootNode.setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
-    // حفظ العرض التقديمي
-    pres.save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **إنشاء مخطط منظمة بصورة**
 
-## **إنشاء مخطط Picture Organization**
-توفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة لإنشاء مخططات PictureOrganization بطريقة سهلة. لإنشاء مخطط على شريحة:
+مخطط المنظمة بالصورة هو تخطيط SmartArt صُمم لمخططات التسلسل الهرمي التي تتضمن نواقل صور. استخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SmartArtLayoutType) `PictureOrganizationChart` عند إضافة كائن SmartArt إلى شريحة.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (ChartType.PictureOrganizationChart).
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX.
-
-الكود التالي يُستخدم لإنشاء المخطط.
 ```java
-Presentation pres = new Presentation("test.pptx");
+Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-    pres.save("OrganizationChart.pptx", SaveFormat.Pptx);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الحصول على أو تعيين حالة SmartArt**
-من أجل تغيير نوع التخطيط لـ [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). يرجى اتباع الخطوات أدناه:
+**هل يدعم SmartArt عكس أو انعكاس للغات من اليمين إلى اليسار؟**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. إضافة [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) إلى الشريحة.
-1. [الحصول](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#isReversed--) أو [تعيين](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#setReversed-boolean-) حالة مخطط SmartArt.
-1. حفظ العرض التقديمي كملف PPTX.
+نعم. الطريقة [ISmartArt.setReversed](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ismartart/#setReversed-boolean-) تغير اتجاه المخطط من اليسار إلى اليمين إلى اليمين إلى اليسار، أو العكس، عندما يدعم التخطيط المختار عكس الاتجاه.
 
-الكود التالي يُستخدم لإنشاء المخطط.
-```java
-// إنشاء كائن Presentation الذي يمثل ملف PPTX
-Presentation pres = new Presentation();
-try {
-    // إضافة SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
-    
-    // الحصول على أو تعيين حالة مخطط SmartArt
-    smart.setReversed(true);
-    boolean flag = smart.isReversed();
-    
-    // حفظ العرض التقديمي
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+**كيف يمكنني نسخ SmartArt إلى الشريحة نفسها أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
 
+يمكنك [clone the SmartArt shape](/slides/ar/java/shape-manipulations/) باستخدام [ShapeCollection.addClone](https://reference.aspose.com/slides/ar/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) أو [clone the whole slide](/slides/ar/java/clone-slides/) الذي يحتوي على SmartArt. كلا الطريقتين تحافظان على الحجم والموقع والتنسيق.
 
-## **FAQ**
+**كيف أقوم بتحويل SmartArt إلى صورة نقطية للمعاينة أو لتصدير الويب؟**
 
-**هل يدعم SmartArt انعكاس/عكس الاتجاه للغات من اليمين إلى اليسار؟**
+[Render the slide](/slides/ar/java/convert-powerpoint-to-png/) أو العرض التقديمي بالكامل إلى PNG أو JPEG. يتم تصيير SmartArt كجزء من الشريحة.
 
-نعم. طريقة [setReversed](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/#setReversed-boolean-) تعكس اتجاه المخطط (LTR/RTL) إذا كان نوع SmartArt المختار يدعم العكس.
+**كيف يمكنني العثور على كائن SmartArt محدد في شريحة إذا كان هناك عدة كائنات؟**
 
-**كيف يمكنني نسخ SmartArt إلى نفس الشريحة أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
-
-يمكنك [استنساخ شكل SmartArt](/slides/ar/java/shape-manipulations/) عبر مجموعة الأشكال ([ShapeCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)) أو [استنساخ الشريحة بالكامل](/slides/ar/java/clone-slides/) التي تحتوي على هذا الشكل. كلا الطريقتين تحافظان على الحجم والموقع والأنماط.
-
-**كيف أقوم بتحويل SmartArt إلى صورة نقطية للمعاينة أو للتصدير إلى الويب؟**
-
-[حوّل الشريحة](/slides/ar/java/convert-powerpoint-to-png/) (أو العرض الكامل) إلى PNG/JPEG عبر API الذي يحول الشرائح/العروض إلى صور—سيتم رسم SmartArt كجزء من الشريحة.
-
-**كيف يمكنني برمجياً اختيار SmartArt محدد على شريحة إذا كان هناك عدة عناصر؟**
-
-الممارسة الشائعة هي استخدام [النص البديل](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getAlternativeText--) (Alt Text) أو [الاسم](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getName--) والبحث عن الشكل بناءً على تلك السمة داخل [أشكال الشريحة](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--)، ثم التحقق من النوع للتأكد من أنه [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/). توثيق Aspose يوضح تقنيات شائعة للعثور على الأشكال والعمل معها.
+حدد قيمة مميزة باستخدام [Shape.getAlternativeText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/shape/#getAlternativeText--) أو [Shape.getName](https://reference.aspose.com/slides/ar/java/com.aspose.slides/shape/#getName--) على شكل SmartArt، وابحث عن تلك القيمة في [BaseSlide.getShapes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslide/#getShapes--)، ثم تأكد أن الشكل المطابق هو [ISmartArt](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ismartart/).
