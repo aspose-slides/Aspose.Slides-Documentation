@@ -16,11 +16,14 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Entdecken Sie die Systemanforderungen von Aspose.Slides für C++. Stellen Sie nahtlose Unterstützung für PowerPoint und OpenDocument unter Windows, Linux und macOS sicher."
+description: "Entdecken Sie die Systemanforderungen von Aspose.Slides für C++. Stellen Sie nahtlose PowerPoint- und OpenDocument-Unterstützung unter Windows, Linux und macOS sicher."
 ---
+## **Einleitung**
+
+Aspose.Slides erfordert nicht, dass Microsoft PowerPoint installiert ist, weil Aspose.Slides eine eigenständige Engine für die Erstellung, Konvertierung, Seitenlayout und das Rendern von Microsoft PowerPoint‑Dokumenten ist.
 
 ## **Unterstützte Betriebssysteme**
-Aspose.Slides für C++ ist eine native C++-Bibliothek. Aspose.Slides für C++ unterstützt die folgenden 64-Bit- und 32-Bit-Betriebssysteme und Plattformen:
+Aspose.Slides für C++ ist eine native C++‑Bibliothek. Aspose.Slides für C++ unterstützt die folgenden 64‑Bit‑ und 32‑Bit‑Betriebssysteme und Plattformen:
 
 ### **Windows**
 - Microsoft Windows Server 2008 (x64, x86)
@@ -34,35 +37,39 @@ Aspose.Slides für C++ ist eine native C++-Bibliothek. Aspose.Slides für C++ un
 - Microsoft Windows 10 (x64, x86)
 
 ### **Linux**
-- OS Ubuntu 16.04 oder neuer.
-- CentOS 8 oder neuer.
-- Fedora 24 oder neuer.
-- Und andere Linux x86_64 mit glibc 2.23 oder neuer.
+- OS Ubuntu 16.04 oder höher.
+- CentOS 8 oder höher.
+- Fedora 24 oder höher.
+- Und andere Linux x86_64 mit glibc 2.23 oder höher.
 
 ### **macOS**
-- macOS Monterey 12.1 oder neuer.
+- macOS Monterey 12.1 oder höher.
 
 ## **Entwicklungsumgebungen**
-Sie können Aspose.Slides für C++ bei der Entwicklung von Anwendungen für Windows, Linux oder macOS verwenden.
+Sie können Aspose.Slides für C++ verwenden, wenn Sie Anwendungen für Windows, Linux oder macOS entwickeln.
 
 ### **Windows**
-- Microsoft Visual Studio 2017 oder neuer.
-- CMake 3.18 oder neuer.
+- Microsoft Visual Studio 2017 oder höher.
+- CMake 3.18 oder höher.
 
 ### **Linux**
-- Clang 3.9 oder neuer.
-- GCC 6.1 oder neuer.
-- CMake 3.18 oder neuer.
+- Clang 3.9 oder höher.
+- GCC 6.1 oder höher.
+- CMake 3.18 oder höher.
 
 ### **macOS**
-- Xcode 13.4 oder neuer.
+- Xcode 13.4 oder höher.
 
 ## **FAQ**
 
-**Benötige ich Microsoft PowerPoint für die Konvertierung und das Rendern installiert?**
+**Muss ich Microsoft PowerPoint für Konvertierungen und das Rendern installiert haben?**
 
-Nein, PowerPoint ist nicht erforderlich; Aspose.Slides ist eine eigenständige Engine zum [Erstellen](/slides/de/cpp/create-presentation/), Modifizieren, [Konvertieren](/slides/de/cpp/convert-presentation/) und [Rendern](/slides/de/cpp/convert-powerpoint-to-png/) von Präsentationen.
+Nein, PowerPoint ist nicht erforderlich; Aspose.Slides ist eine eigenständige Engine zum [Erstellen](/slides/de/cpp/create-presentation/), Ändern, [Konvertieren](/slides/de/cpp/convert-presentation/) und [Rendern](/slides/de/cpp/convert-powerpoint-to-png/) von Präsentationen.
 
 **Welche Schriftarten werden für korrektes Rendern benötigt?**
 
-In der Praxis müssen die in der Präsentation verwendeten Schriftarten oder geeignete [Ersatzschriften](/slides/de/cpp/font-substitution/) verfügbar sein. Um ein konsistentes Rendern unter Linux/macOS zu gewährleisten, ist es ratsam, gängige Schriftpakete zu installieren.
+In der Praxis müssen die in der Präsentation verwendeten Schriftarten oder geeignete [Ersatzschriften](/slides/de/cpp/font-substitution/) verfügbar sein. Um konsistentes Rendern auf Linux/macOS sicherzustellen, wird empfohlen, gängige Schriftpakete zu installieren.
+
+**Warum wird eine benutzerdefinierte Schriftart unter Linux als Ersatz oder fehlender Text angezeigt?**
+
+Wenn die Schriftdatei inkonsistente oder beschädigte Name‑Tabelleneinträge enthält, kann der Linux‑Font‑Matching‑Stack (FreeType/fontconfig) einen ungültigen Eintrag auswählen, was dazu führt, dass die Schriftart nicht aufgelöst wird. Die Verwendung einer Schriftartversion mit korrigierten Name‑Tabelleneinträgen oder die Installation eines konsistenten Ersatzes löst das Problem.

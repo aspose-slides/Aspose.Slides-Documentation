@@ -16,11 +16,14 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ のシステム要件を確認してください。Windows、Linux、macOS で PowerPoint と OpenDocument のシームレスなサポートを実現します。"
+description: "Aspose.Slides for C++ のシステム要件を確認してください。Windows、Linux、macOS で PowerPoint と OpenDocument のシームレスなサポートを確保します。"
 ---
+## **はじめに**
 
-## **サポートされるオペレーティングシステム**
-Aspose.Slides for C++ はネイティブ C++ ライブラリです。Aspose.Slides for C++ は次の 64 ビットおよび 32 ビットのオペレーティングシステムとプラットフォームをサポートします。
+Aspose.Slides は Microsoft PowerPoint をインストールする必要がありません。Aspose.Slides は独立した Microsoft PowerPoint ドキュメント作成、変換、ページレイアウト、レンダリングエンジンです。
+
+## **サポートされているオペレーティングシステム**
+Aspose.Slides for C++ はネイティブ C++ ライブラリです。Aspose.Slides for C++ は以下の 64 ビットおよび 32 ビットのオペレーティングシステムとプラットフォームをサポートします。
 
 ### **Windows**
 - Microsoft Windows Server 2008 (x64, x86)
@@ -34,35 +37,39 @@ Aspose.Slides for C++ はネイティブ C++ ライブラリです。Aspose.Slid
 - Microsoft Windows 10 (x64, x86)
 
 ### **Linux**
-- OS Ubuntu 16.04 以降。
-- CentOS 8 以降。
-- Fedora 24 以降。
-- その他、glibc 2.23 以降を備えた Linux x86_64。
+- OS Ubuntu 16.04以降。
+- CentOS 8以降。
+- Fedora 24以降。
+- その他のglibc 2.23以降を搭載したLinux x86_64。
 
 ### **macOS**
-- macOS Monterey 12.1 以降。
+- macOS Monterey 12.1以降。
 
 ## **開発環境**
-Windows、Linux、macOS 用のアプリケーションを開発する際に Aspose.Slides for C++ を使用できます。
+Windows、Linux、macOS 向けアプリケーションの開発時に Aspose.Slides for C++ を使用できます。
 
 ### **Windows**
-- Microsoft Visual Studio 2017 以降。
-- CMake 3.18 以降。
+- Microsoft Visual Studio 2017以降。
+- CMake 3.18以降。
 
 ### **Linux**
-- Clang 3.9 以降。
-- GCC 6.1 以降。
-- CMake 3.18 以降。
+- Clang 3.9以降。
+- GCC 6.1以降。
+- CMake 3.18以降。
 
 ### **macOS**
-- Xcode 13.4 以降。
+- Xcode 13.4以降。
 
-## **FAQ**
+## **よくある質問**
 
-**変換やレンダリングに Microsoft PowerPoint をインストールする必要がありますか？**
+**変換やレンダリングのために Microsoft PowerPoint をインストールする必要がありますか？**
 
-いいえ、PowerPoint は必要ありません。Aspose.Slides は [creating](/slides/ja/cpp/create-presentation/) 、[modifying]、[converting](/slides/ja/cpp/convert-presentation/) 、[rendering](/slides/ja/cpp/convert-powerpoint-to-png/) プレゼンテーション用のスタンドアロンエンジンです。
+いいえ、PowerPoint は必要ありません。Aspose.Slides は[作成](/slides/ja/cpp/create-presentation/)、変更、[変換](/slides/ja/cpp/convert-presentation/)、および[レンダリング](/slides/ja/cpp/convert-powerpoint-to-png/)のためのスタンドアロンエンジンです。
 
 **正しいレンダリングのために必要なフォントは何ですか？**
 
-実際には、プレゼンテーションで使用されているフォントまたは適切な [substitutes](/slides/ja/cpp/font-substitution/) が利用可能である必要があります。Linux/macOS で一貫したレンダリングを確保するために、一般的なフォントパッケージをインストールすることを推奨します。
+実際には、プレゼンテーションで使用されているフォントまたは適切な[代替フォント](/slides/ja/cpp/font-substitution/)が利用可能である必要があります。Linux/macOS で一貫したレンダリングを確保するために、一般的なフォントパッケージをインストールすることをお勧めします。
+
+**カスタムフォントが Linux でフォールバックや文字欠損として表示されるのはなぜですか？**
+
+フォントファイルの name テーブルエントリが不整合または破損していると、Linux のフォントマッチングスタック（FreeType/fontconfig）が無効なレコードを選択し、フォントが解決できなくなります。name テーブルレコードが修正されたフォントバージョンを使用するか、一貫した代替フォントをインストールすることで問題は解決します。

@@ -1,13 +1,13 @@
 ---
-title: "Requisitos del sistema"
+title: Requisitos del sistema
 type: docs
 weight: 60
 url: /es/php-java/system-requirements/
 keywords:
-- "requisitos del sistema"
-- "sistema operativo"
-- "instalación"
-- "dependencias"
+- requisitos del sistema
+- sistema operativo
+- instalación
+- dependencias
 - Windows
 - Linux
 - macOS
@@ -16,14 +16,15 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Descubra los requisitos del sistema de Aspose.Slides para PHP a través de Java. Garantice un soporte sin problemas de PowerPoint y OpenDocument en Windows, Linux y macOS."
+description: "Descubra los requisitos del sistema de Aspose.Slides for PHP via Java. Asegure un soporte fluido de PowerPoint y OpenDocument en Windows, Linux y macOS."
 ---
+## **Introducción**
 
-Aspose.Slides para PHP a través de Java no requiere ningún producto de terceros, como Microsoft PowerPoint, instalado. Aspose.Slides en sí es un motor para crear, modificar, convertir y renderizar documentos en varios formatos, incluidos los formatos de presentación de Microsoft PowerPoint.
+Aspose.Slides for PHP via Java no requiere ningún producto de terceros como Microsoft PowerPoint instalado. Aspose.Slides en sí es un motor para crear, modificar, convertir y renderizar documentos en varios formatos, incluidos los formatos de presentación de Microsoft PowerPoint.
 
 ## **Sistemas operativos compatibles**
 
-Aspose.Slides para Java es compatible con cualquier sistema operativo de 32 bits o 64 bits que ejecute el runtime de Java, incluyendo, pero sin limitarse a:
+Aspose.Slides for Java soporta cualquier sistema operativo de 32 o 64 bits que ejecute el tiempo de ejecución de Java, incluyendo, entre otros:
 
 ### **Windows**
 - Microsoft Windows 2003 Server ( x64, x86)
@@ -39,17 +40,21 @@ Aspose.Slides para Java es compatible con cualquier sistema operativo de 32 bits
 - Microsoft Windows 10 ( x64, x86)
 
 ### **Linux**
-- Linux (Ubuntu, OpenSUSE, CentOS y otros)
+- Linux (Ubuntu, OpenSUSE, CentOS and others)
 
 ### **Mac**
 - Mac OS X
 
 ## **Preguntas frecuentes**
 
-**¿Necesito tener instalado Microsoft PowerPoint para conversiones y renderizado?**
+**¿Necesito que Microsoft PowerPoint esté instalado para conversiones y renderizado?**
 
-No, PowerPoint no es necesario; Aspose.Slides es un motor independiente para [crear](/slides/es/php-java/create-presentation/), modificar, [convertir](/slides/es/php-java/convert-presentation/) y [renderizar](/slides/es/php-java/convert-powerpoint-to-png/) presentaciones.
+No, PowerPoint no es necesario; Aspose.Slides es un motor independiente para [creación](/slides/es/php-java/create-presentation/), modificación, [conversión](/slides/es/php-java/convert-presentation/), y [renderizado](/slides/es/php-java/convert-powerpoint-to-png/) de presentaciones.
 
-**¿Qué fuentes son necesarias para un renderizado correcto?**
+**¿Qué fuentes se necesitan para una renderización correcta?**
 
-En la práctica, las fuentes utilizadas en la presentación o los [sustitutos](/slides/es/php-java/font-substitution/) adecuados deben estar disponibles. Para garantizar un renderizado coherente en Linux/macOS, se aconseja instalar paquetes de fuentes comunes.
+En la práctica, las fuentes utilizadas en la presentación o los [sustitutos](/slides/es/php-java/font-substitution/) correctos deben estar disponibles. Para garantizar una renderización coherente en Linux/macOS, se recomienda instalar paquetes de fuentes comunes.
+
+**¿Por qué una fuente personalizada se renderiza como sustituta o texto faltante en Linux?**
+
+Si el archivo de fuente tiene entradas de tabla de nombres inconsistentes o corruptas, la pila de coincidencia de fuentes de Linux (FreeType/fontconfig) puede seleccionar un registro inválido, lo que provoca que la fuente no se resuelva. Utilizar una versión de la fuente con tablas de nombres corregidas o instalar un reemplazo coherente resuelve el problema.

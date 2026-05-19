@@ -1,10 +1,10 @@
 ---
-title: Exigences système
+title: Exigences du système
 type: docs
 weight: 80
 url: /fr/cpp/system-requirements/
 keywords:
-- exigences système
+- exigences du système
 - système d'exploitation
 - installation
 - dépendances
@@ -18,6 +18,9 @@ keywords:
 - Aspose.Slides
 description: "Découvrez les exigences système d'Aspose.Slides pour C++. Assurez une prise en charge transparente de PowerPoint et OpenDocument sous Windows, Linux et macOS."
 ---
+## **Introduction**
+
+Aspose.Slides ne nécessite pas l'installation de Microsoft PowerPoint car Aspose.Slides est un moteur indépendant de création, conversion, mise en page et rendu de documents Microsoft PowerPoint.
 
 ## **Systèmes d'exploitation pris en charge**
 Aspose.Slides pour C++ est une bibliothèque native C++. Aspose.Slides pour C++ prend en charge les systèmes d'exploitation et plateformes 64 bits et 32 bits suivants :
@@ -59,10 +62,14 @@ Vous pouvez utiliser Aspose.Slides pour C++ lors du développement d'application
 
 ## **FAQ**
 
-**Dois‑je installer Microsoft PowerPoint pour les conversions et le rendu ?**
+**Dois-je installer Microsoft PowerPoint pour les conversions et le rendu ?**
 
-Non, PowerPoint n'est pas requis ; Aspose.Slides est un moteur autonome pour [création](/slides/fr/cpp/create-presentation/), la modification, [conversion](/slides/fr/cpp/convert-presentation/) et le [rendu](/slides/fr/cpp/convert-powerpoint-to-png/) des présentations.
+Non, PowerPoint n'est pas requis ; Aspose.Slides est un moteur autonome pour [créer](/slides/fr/cpp/create-presentation/), modifier, [convertir](/slides/fr/cpp/convert-presentation/) et [rendre](/slides/fr/cpp/convert-powerpoint-to-png/) les présentations.
 
 **Quelles polices sont nécessaires pour un rendu correct ?**
 
-En pratique, les polices utilisées dans la présentation ou les [substituts](/slides/fr/cpp/font-substitution/) appropriés doivent être disponibles. Pour assurer un rendu cohérent sous Linux/macOS, il est recommandé d'installer les paquets de polices courants.
+En pratique, les polices utilisées dans la présentation ou les [substituts](/slides/fr/cpp/font-substitution/) appropriés doivent être disponibles. Pour garantir un rendu cohérent sous Linux/macOS, il est recommandé d'installer des paquets de polices courants.
+
+**Pourquoi une police personnalisée s'affiche-t-elle comme une police de secours ou du texte manquant sous Linux ?**
+
+Si le fichier de police comporte des entrées de table de noms incohérentes ou corrompues, la pile de correspondance des polices sous Linux (FreeType/fontconfig) peut sélectionner un enregistrement invalide, entraînant une police non résolue. Utiliser une version de police avec des enregistrements de table de noms corrigés ou installer un remplacement cohérent résout le problème.

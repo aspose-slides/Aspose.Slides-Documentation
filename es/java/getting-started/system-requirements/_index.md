@@ -16,14 +16,13 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Descubra los requisitos del sistema de Aspose.Slides for Java. Garantice un soporte fluido de PowerPoint y OpenDocument en Windows, Linux y macOS."
+description: "Descubra los requisitos del sistema de Aspose.Slides for Java. Asegúrese de que el soporte de PowerPoint y OpenDocument funcione sin problemas en Windows, Linux y macOS."
 ---
-
 ## **Visión general**
-Aspose.Slides for Java no necesita Microsoft PowerPoint instalado, ya que Aspose.Slides es un motor de creación, conversión, diseño de página y renderizado de documentos de Microsoft PowerPoint.
+Aspose.Slides for Java no necesita que Microsoft PowerPoint esté instalado, ya que Aspose.Slides es en sí un motor de creación, conversión, diseño de página y renderizado de documentos de Microsoft PowerPoint.
 
 ## **Sistemas operativos compatibles**
-Aspose.Slides for Java es compatible con cualquier sistema operativo de 32 o 64 bits que ejecute el runtime de Java, incluyendo, pero sin limitarse a:
+Aspose.Slides for Java es compatible con cualquier sistema operativo de 32 o 64 bits que ejecute el runtime de Java, incluyendo, entre otros:
 
 ### **Windows**
 - Microsoft Windows 2003 Server ( x64, x86)
@@ -38,6 +37,7 @@ Aspose.Slides for Java es compatible con cualquier sistema operativo de 32 o 64 
 - Microsoft Windows 8, 8.1 ( x64, x86)
 - Microsoft Windows 10 ( x64, x86)
 
+
 ### **Linux**
 - Linux (Ubuntu, OpenSUSE, CentOS y otros)
 
@@ -45,14 +45,18 @@ Aspose.Slides for Java es compatible con cualquier sistema operativo de 32 o 64 
 - Mac OS X
 
 ## **Versiones de Java compatibles**
-Aspose.Slides for Java es compatible con J2SE 6.0 (Java 1.6) y superiores.
+Aspose.Slides for Java es compatible con J2SE 6.0 (Java 1.6) y versiones superiores.
 
 ## **Preguntas frecuentes**
 
-**¿Necesito Microsoft PowerPoint instalado para conversiones y renderizado?**
+**¿Necesito que Microsoft PowerPoint esté instalado para conversiones y renderizado?**
 
-No, PowerPoint no es necesario; Aspose.Slides es un motor independiente para [crear](/slides/es/java/create-presentation/), modificar, [convertir](/slides/es/java/convert-presentation/) y [renderizar](/slides/es/java/convert-powerpoint-to-png/) presentaciones.
+No, PowerPoint no es necesario; Aspose.Slides es un motor independiente para [crear](/slides/es/java/create-presentation/), modificar, [convertir](/slides/es/java/convert-presentation/), y [renderizar](/slides/es/java/convert-powerpoint-to-png/) presentaciones.
 
-**¿Qué fuentes se necesitan para un renderizado correcto?**
+**¿Qué fuentes son necesarias para un renderizado correcto?**
 
-En la práctica, las fuentes utilizadas en la presentación o los [sustitutos](/slides/es/java/font-substitution/) adecuados deben estar disponibles. Para garantizar un renderizado consistente en Linux/macOS, se recomienda instalar paquetes de fuentes comunes.
+En la práctica, las fuentes utilizadas en la presentación o los [sustitutos](/slides/es/java/font-substitution/) adecuados deben estar disponibles. Para garantizar un renderizado coherente en Linux/macOS, se recomienda instalar paquetes de fuentes comunes.
+
+**¿Por qué una fuente personalizada se renderiza como fuente de sustitución o texto faltante en Linux?**
+
+Si el archivo de fuente tiene entradas de tabla de nombres inconsistentes o corruptas, la pila de coincidencia de fuentes de Linux (FreeType/fontconfig) puede seleccionar un registro inválido, lo que provoca que la fuente no se resuelva. Utilizar una versión de fuente con los registros de tabla de nombres corregidos o instalar un reemplazo consistente soluciona el problema.
