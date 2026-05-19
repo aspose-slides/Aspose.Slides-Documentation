@@ -1,5 +1,5 @@
 ---
-title: PPT und PPTX nach PDF in C++ konvertieren [Erweiterte Funktionen enthalten]
+title: PPT und PPTX in PDF konvertieren in C++ [Erweiterte Funktionen enthalten]
 linktitle: PowerPoint zu PDF
 type: docs
 weight: 40
@@ -10,27 +10,26 @@ keywords:
 - PowerPoint zu PDF
 - Präsentation zu PDF
 - PPT zu PDF
-- PPT in PDF konvertieren
+- PPT zu PDF konvertieren
 - PPTX zu PDF
-- PPTX in PDF konvertieren
+- PPTX zu PDF konvertieren
 - PowerPoint als PDF speichern
 - PPT als PDF speichern
 - PPTX als PDF speichern
-- PPT nach PDF exportieren
-- PPTX nach PDF exportieren
+- PPT exportieren nach PDF
+- PPTX exportieren nach PDF
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - C++
 - Aspose.Slides
-description: "PowerPoint PPT/PPTX in hochwertige, durchsuchbare PDFs in C++ konvertieren mit Aspose.Slides, inklusive schneller Codebeispiele und erweiterten Konvertierungsoptionen."
+description: "Konvertieren Sie PowerPoint PPT/PPTX in hochwertige, durchsuchbare PDFs in C++ mit Aspose.Slides, inklusive schneller Codebeispiele und erweiterter Konvertierungsoptionen."
 ---
-
 ## **Übersicht**
 
-Das Konvertieren von PowerPoint-Präsentationen (PPT, PPTX, ODP usw.) in das PDF-Format in C++ bietet mehrere Vorteile, darunter Kompatibilität über verschiedene Geräte hinweg und die Erhaltung des Layouts und der Formatierung Ihrer Präsentation. Dieses Handbuch zeigt, wie man Präsentationen in PDF-Dokumente konvertiert, verschiedene Optionen zur Steuerung der Bildqualität verwendet, ausgeblendete Folien einschließt, PDF-Dateien mit Passwort schützt, Schriftartsubstitutionen erkennt, bestimmte Folien für die Konvertierung auswählt und Compliance-Standards auf Ausgabedokumente anwendet.
+Das Konvertieren von PowerPoint‑Präsentationen (PPT, PPTX, ODP usw.) in das PDF‑Format in C++ bietet mehrere Vorteile, darunter Kompatibilität über verschiedene Geräte hinweg und das Bewahren des Layouts und der Formatierung Ihrer Präsentation. Dieser Leitfaden zeigt, wie Präsentationen in PDF‑Dokumente umgewandelt werden, wie verschiedene Optionen zur Steuerung der Bildqualität verwendet werden, wie versteckte Folien einbezogen, PDF‑Dateien passwortgeschützt, Schriftartsubstitutionen erkannt, bestimmte Folien zur Konvertierung ausgewählt und Compliance‑Standards auf Ausgabedokumente angewendet werden.
 
-## **PowerPoint-zu-PDF-Konvertierungen**
+## **PowerPoint‑zu‑PDF‑Konvertierungen**
 
 Mit Aspose.Slides können Sie Präsentationen in den folgenden Formaten in PDF konvertieren:
 
@@ -38,18 +37,18 @@ Mit Aspose.Slides können Sie Präsentationen in den folgenden Formaten in PDF k
 * **PPTX**
 * **ODP**
 
-Um eine Präsentation in PDF zu konvertieren, übergeben Sie den Dateinamen als Argument an die [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Klasse und speichern Sie die Präsentation anschließend als PDF mit der Methode `Save`. Die [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Klasse stellt die `Save`‑Methode bereit, die typischerweise zum Konvertieren einer Präsentation in PDF verwendet wird.
+Um eine Präsentation in PDF zu konvertieren, übergeben Sie den Dateinamen als Argument an die [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse und speichern Sie die Präsentation anschließend mit der `Save`‑Methode als PDF. Die [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse stellt die `Save`‑Methode bereit, die typischerweise zum Konvertieren einer Präsentation in PDF verwendet wird.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
-Aspose.Slides für C++ fügt in Ausgabedokumente seine API‑Informationen und Versionsnummer ein. Zum Beispiel füllt Aspose.Slides beim Konvertieren einer Präsentation zu PDF das Feld Application mit „*Aspose.Slides*“ und das Feld PDF Producer mit einem Wert in der Form „*Aspose.Slides v XX.XX*“. **Hinweis**: Sie können Aspose.Slides nicht anweisen, diese Informationen aus Ausgabedokumenten zu ändern oder zu entfernen.
+Aspose.Slides für C++ fügt API‑Informationen und Versionsnummer in Ausgabedokumente ein. Beispielsweise füllt Aspose.Slides beim Konvertieren einer Präsentation in PDF das Feld „Application“ mit "*Aspose.Slides*" und das Feld „PDF Producer“ mit einem Wert im Format "*Aspose.Slides v XX.XX*" aus. **Hinweis**: Sie können Aspose.Slides nicht anweisen, diese Informationen aus Ausgabedokumenten zu ändern oder zu entfernen.
 {{% /alert %}}
 
 Aspose.Slides ermöglicht das Konvertieren von:
 
-* Gesamte Präsentationen zu PDF
-* Bestimmte Folien einer Präsentation zu PDF
+* gesamten Präsentationen in PDF
+* einzelnen Folien einer Präsentation in PDF
 
-Aspose.Slides exportiert Präsentationen nach PDF und stellt sicher, dass die resultierenden PDFs den Originalpräsentationen sehr nahe kommen. Elemente und Attribute werden bei der Konvertierung exakt wiedergegeben, einschließlich:
+Aspose.Slides exportiert Präsentationen nach PDF und sorgt dafür, dass die resultierenden PDFs dem Original sehr nahe kommen. Elemente und Attribute werden bei der Konvertierung exakt wiedergegeben, einschließlich:
 
 * Bilder
 * Textfelder und Formen
@@ -60,13 +59,14 @@ Aspose.Slides exportiert Präsentationen nach PDF und stellt sicher, dass die re
 * Aufzählungszeichen
 * Tabellen
 
-## **PowerPoint zu PDF konvertieren**
+## **PowerPoint in PDF konvertieren**
 
-Der Standard‑PowerPoint‑zu‑PDF‑Konvertierungsprozess verwendet Standardoptionen. In diesem Fall versucht Aspose.Slides, die bereitgestellte Präsentation mit optimalen Einstellungen und maximaler Qualität in PDF zu konvertieren.
+Der Standard‑PowerPoint‑zu‑PDF‑Konvertierungsprozess verwendet die Standardeinstellungen. In diesem Fall versucht Aspose.Slides, die bereitgestellte Präsentation mit optimalen Einstellungen auf höchstem Qualitätsniveau in PDF zu konvertieren.
 
-Dieser C++‑Code zeigt, wie man eine Präsentation (PPT, PPTX, ODP usw.) in PDF konvertiert:
+Der folgende C++‑Code zeigt, wie eine Präsentation (PPT, PPTX, ODP usw.) in PDF umgewandelt wird:
+
 ```c++
-// Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei repräsentiert.
+// Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei darstellt.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.ppt");
 
 // Speichern Sie die Präsentation als PDF.
@@ -75,54 +75,54 @@ presentation->Save(u"PPT-to-PDF.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 ```
 
-
 {{%  alert  color="primary"  %}} 
-Aspose bietet einen kostenlosen Online‑**PowerPoint‑zu‑PDF‑Konverter**(https://products.aspose.app/slides/conversion/ppt-to-pdf) an, der den Präsentation‑zu‑PDF‑Konvertierungsprozess demonstriert. Sie können mit diesem Konverter einen Test durchführen, um die hier beschriebene Vorgehensweise live umzusetzen.
+Aspose bietet einen kostenlosen Online‑[**PowerPoint‑zu‑PDF‑Konverter**](https://products.aspose.app/slides/de/conversion/ppt-to-pdf), der den Präsentation‑zu‑PDF‑Konvertierungsprozess demonstriert. Sie können mit diesem Konverter einen Testlauf für eine Live‑Implementierung des hier beschriebenen Verfahrens durchführen.
 {{% /alert %}}
 
-## **PowerPoint zu PDF mit Optionen konvertieren**
+## **PowerPoint in PDF mit Optionen konvertieren**
 
-Aspose.Slides stellt benutzerdefinierte Optionen—Eigenschaften der Klasse [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/)—zur Verfügung, mit denen Sie das resultierende PDF anpassen, das PDF mit einem Passwort sperren oder festlegen können, wie der Konvertierungsprozess ablaufen soll.
+Aspose.Slides stellt benutzerdefinierte Optionen – Eigenschaften der [PdfOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/)‑Klasse – bereit, mit denen Sie das resultierende PDF anpassen, das PDF mit einem Passwort schützen oder festlegen können, wie der Konvertierungsprozess ablaufen soll.
 
-### **PowerPoint zu PDF mit benutzerdefinierten Optionen konvertieren**
+### **PowerPoint in PDF mit benutzerdefinierten Optionen konvertieren**
 
-Mit benutzerdefinierten Konvertierungsoptionen können Sie die gewünschte Qualitätseinstellung für Rasterbilder festlegen, bestimmen, wie Metadateien behandelt werden sollen, ein Komprimierungslevel für Text setzen, die DPI für Bilder konfigurieren und vieles mehr.
+Mit benutzerdefinierten Konvertierungsoptionen können Sie Ihre bevorzugte Qualitätsstufe für Rasterbilder festlegen, definieren, wie Metadateien behandelt werden, einen Komprimierungsgrad für Text setzen, DPI für Bilder konfigurieren usw.
 
-Das nachstehende Codebeispiel demonstriert, wie man eine PowerPoint‑Präsentation mit mehreren benutzerdefinierten Optionen in PDF konvertiert.
+Das nachstehende Codebeispiel demonstriert, wie eine PowerPoint‑Präsentation mit mehreren benutzerdefinierten Optionen in PDF konvertiert wird:
+
 ```c++
-// Instanziieren Sie die PdfOptions‑Klasse.
+// Instanziieren Sie die PdfOptions-Klasse.
 auto pdfOptions = MakeObject<PdfOptions>();
 
-// Legen Sie die Qualität für JPG‑Bilder fest.
+// Legen Sie die Qualität für JPG-Bilder fest.
 pdfOptions->set_JpegQuality(90);
 
-// Legen Sie die DPI für Bilder fest.
+// DPI für Bilder festlegen.
 pdfOptions->set_SufficientResolution(300);
 
-// Legen Sie das Verhalten für Metadateien fest.
+// Verhalten für Metadateien festlegen.
 pdfOptions->set_SaveMetafilesAsPng(true);
 
-// Legen Sie die Textkomprimierungsstufe für Textinhalte fest.
+// Textkomprimierungsgrad für Textinhalt festlegen.
 pdfOptions->set_TextCompression(PdfTextCompression::Flate);
 
-// Definieren Sie den PDF‑Compliance‑Modus.
+// Definieren Sie den PDF-Compliance-Modus.
 pdfOptions->set_Compliance(PdfCompliance::Pdf15);
 
-// Instanziieren Sie die Presentation‑Klasse, die eine PowerPoint‑ oder OpenDocument‑Datei darstellt.
+// Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei darstellt.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// Speichern Sie die Präsentation als PDF‑Dokument.
+// Speichern Sie die Präsentation als PDF-Dokument.
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
 ```
 
+### **PowerPoint in PDF mit versteckten Folien konvertieren**
 
-### **PowerPoint zu PDF mit ausgeblendeten Folien konvertieren**
+Enthält eine Präsentation versteckte Folien, können Sie die Methode [set_ShowHiddenSlides](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) der [PdfOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/)‑Klasse verwenden, um die versteckten Folien als Seiten in das resultierende PDF aufzunehmen.
 
-Enthält eine Präsentation ausgeblendete Folien, können Sie die Methode [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) der Klasse [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) verwenden, um die ausgeblendeten Folien als Seiten im resultierenden PDF aufzunehmen.
+Der folgende C++‑Code zeigt, wie eine PowerPoint‑Präsentation unter Einbeziehung versteckter Folien in PDF konvertiert wird:
 
-Dieser C++‑Code zeigt, wie man eine PowerPoint‑Präsentation mit einbezogenen ausgeblendeten Folien in PDF konvertiert:
 ```c++
 // Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei darstellt.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
@@ -139,10 +139,10 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
+### **PowerPoint in passwortgeschütztes PDF konvertieren**
 
-### **PowerPoint zu passwortgeschütztem PDF konvertieren**
+Der folgende C++‑Code demonstriert, wie eine PowerPoint‑Präsentation mithilfe der Schutzparameter der [PdfOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/)‑Klasse in ein passwortgeschütztes PDF umgewandelt wird:
 
-Dieser C++‑Code demonstriert, wie man eine PowerPoint‑Präsentation mithilfe der Schutzparameter der Klasse [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) in ein passwortgeschütztes PDF konvertiert:
 ```c++
 // Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei darstellt.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
@@ -150,7 +150,7 @@ auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 // Instanziieren Sie die PdfOptions-Klasse.
 auto pdfOptions = MakeObject<PdfOptions>();
 
-// Legen Sie ein PDF-Passwort und Zugriffsberechtigungen fest.
+// Setzen Sie ein PDF-Passwort und Zugriffsrechte.
 pdfOptions->set_Password(u"password");
 pdfOptions->set_AccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
 
@@ -160,14 +160,14 @@ presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-
 ### **Schriftartsubstitutionen erkennen**
 
-Aspose.Slides stellt die Methode [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) der Klasse [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) bereit, die es Ihnen ermöglicht, während des Präsentation‑zu‑PDF‑Konvertierungsprozesses Schriftartsubstitutionen zu erkennen.
+Aspose.Slides bietet die Methode [set_WarningCallback](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/saveoptions/set_warningcallback/) in der [PdfOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/)‑Klasse, mit der Sie Schriftartsubstitutionen während des Präsentation‑zu‑PDF‑Konvertierungsprozesses erkennen können.
 
-Dieser C++‑Code zeigt, wie man Schriftartsubstitutionen erkennt:
+Der nachstehende C++‑Code zeigt, wie Schriftartsubstitutionen erkannt werden:
+
 ```c++
-// Implementierung des Warnungs-Callbacks.
+// Implementierung des Warn-Callbacks.
 class FontSubstitutionHandler : public IWarningCallback
 {
 public:
@@ -190,11 +190,11 @@ int main()
     // Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei darstellt.
     auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-    // Setzen Sie den Warnungs-Callback in den PDF-Optionen.
+    // Warn-Callback in den PDF-Optionen festlegen.
     auto pdfOptions = MakeObject<PdfOptions>();
     pdfOptions->set_WarningCallback(MakeObject<FontSubstitutionHandler>());
 
-    // Speichern Sie die Präsentation als PDF.
+    // Präsentation als PDF speichern.
     presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
     
     presentation->Dispose();
@@ -203,33 +203,33 @@ int main()
 }
 ```
 
-
 {{%  alert color="primary"  %}} 
-Weitere Informationen zum Empfangen von Callback‑Funktionen für Schriftartsubstitutionen während des Rendering‑Vorgangs finden Sie unter [Getting Warning Callbacks for Fonts Substitution](/slides/de/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+Weitere Informationen zum Empfangen von Callbacks für Schriftartsubstitutionen während des Rendering‑Prozesses finden Sie unter [Getting Warning Callbacks for Fonts Substitution](/slides/de/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-Weitere Informationen zu Schriftartsubstitutionen finden Sie im Artikel [Font Substitution](/slides/de/cpp/font-substitution/).
+Weitere Details zur Schriftartsubstitution finden Sie im Artikel [Font Substitution](/slides/de/cpp/font-substitution/).
 {{% /alert %}} 
 
-## **Ausgewählte Folien von PowerPoint zu PDF konvertieren**
+## **Ausgewählte Folien aus PowerPoint in PDF konvertieren**
 
-Dieser C++‑Code demonstriert, wie man nur bestimmte Folien einer PowerPoint‑Präsentation in PDF konvertiert:
+Der folgende C++‑Code demonstriert, wie nur bestimmte Folien einer PowerPoint‑Präsentation in PDF konvertiert werden:
+
 ```C++
-// Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei repräsentiert.
+// Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei darstellt.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
 // Array von Foliennummern festlegen.
 auto slides = MakeArray<int32_t>({ 1, 3 });
 
-// Speichern Sie die Präsentation als PDF.
+// Präsentation als PDF speichern.
 presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
 
 presentation->Dispose();
 ```
 
+## **PowerPoint in PDF mit benutzerdefinierter Foliengröße konvertieren**
 
-## **PowerPoint zu PDF mit benutzerdefinierter Foliengröße konvertieren**
+Der folgende C++‑Code demonstriert, wie eine PowerPoint‑Präsentation mit einer festgelegten Foliengröße in PDF konvertiert wird:
 
-Dieser C++‑Code demonstriert, wie man eine PowerPoint‑Präsentation mit einer angegebenen Foliengröße in PDF konvertiert:
 ```C++
 auto slideWidth = 612;
 auto slideHeight = 792;
@@ -243,7 +243,7 @@ auto resizedPresentation = MakeObject<Presentation>();
 // Legen Sie die benutzerdefinierte Foliengröße fest.
 resizedPresentation->get_SlideSize()->SetSize(slideWidth, slideHeight, SlideSizeScaleType::EnsureFit);
 
-// Klonen Sie die erste Folie aus der Originalpräsentation.
+// Klone die erste Folie der Originalpräsentation.
 auto slide = presentation->get_Slide(0);
 resizedPresentation->get_Slides()->InsertClone(0, slide);
 
@@ -254,10 +254,10 @@ resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
+## **PowerPoint in PDF im Notizfolien‑Ansicht konvertieren**
 
-## **PowerPoint zu PDF im Notizfolien‑Modus konvertieren**
+Der folgende C++‑Code demonstriert, wie eine PowerPoint‑Präsentation in ein PDF konvertiert wird, das Notizen enthält:
 
-Dieser C++‑Code demonstriert, wie man eine PowerPoint‑Präsentation in ein PDF konvertiert, das Notizen enthält:
 ```C++
 // Instanziieren Sie die Presentation-Klasse, die eine PowerPoint- oder OpenDocument-Datei darstellt.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
@@ -274,12 +274,12 @@ presentation->Save(u"PDF_with_notes.tiff", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
+## **Barrierefreiheit und Compliance‑Standards für PDF**
 
-## **Barrierefreiheits‑ und Compliance‑Standards für PDF**
+Aspose.Slides ermöglicht ein Konvertierungsverfahren, das den [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) entspricht. Sie können ein PowerPoint‑Dokument mit einem der folgenden Compliance‑Standards in PDF exportieren: **PDF/A‑1a**, **PDF/A‑1b** und **PDF/UA**.
 
-Aspose.Slides ermöglicht die Verwendung eines Konvertierungsverfahrens, das den [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) entspricht. Sie können ein PowerPoint‑Dokument in PDF exportieren und dabei einen dieser Compliance‑Standards verwenden: **PDF/A1a**, **PDF/A1b** und **PDF/UA**.
+Der folgende C++‑Code demonstriert einen PowerPoint‑zu‑PDF‑Konvertierungsprozess, der mehrere PDFs anhand verschiedener Compliance‑Standards erzeugt:
 
-Dieser C++‑Code demonstriert einen PowerPoint‑zu‑PDF‑Konvertierungsprozess, der basierend auf verschiedenen Compliance‑Standards mehrere PDFs erzeugt:
 ```C++
 auto presentation = MakeObject<Presentation>(u"pres.pptx");
 
@@ -300,35 +300,36 @@ presentation->Save(u"pres-ua-compliance.pdf", SaveFormat::Pdf, pdfOptionsUa);
 presentation->Dispose();
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-Aspose.Slides unterstützt PDF‑Konvertierungsoperationen, mit denen Sie PDF‑Dateien in gängige Dateiformate konvertieren können. Sie können [PDF to HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/) und [PDF to PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) Konvertierungen durchführen. Weitere PDF‑Konvertierungsoperationen zu speziellen Formaten—[PDF to SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), und [PDF to XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)—werden ebenfalls unterstützt.
+Aspose.Slides unterstützt PDF‑Konvertierungsoperationen, mit denen Sie PDF‑Dateien in gängige Formate umwandeln können. Sie können [PDF zu HTML](https://products.aspose.com/slides/de/cpp/conversion/pdf-to-html/), [PDF zu Bild](https://products.aspose.com/slides/de/cpp/conversion/pdf-to-image/), [PDF zu JPG](https://products.aspose.com/slides/de/cpp/conversion/pdf-to-jpg/) und [PDF zu PNG](https://products.aspose.com/slides/de/cpp/conversion/pdf-to-png/) konvertieren. Weitere PDF‑Konvertierungsoperationen zu spezialisierten Formaten – [PDF zu SVG](https://products.aspose.com/slides/de/cpp/conversion/pdf-to-svg/), [PDF zu TIFF](https://products.aspose.com/slides/de/cpp/conversion/pdf-to-tiff/) und [PDF zu XML](https://products.aspose.com/slides/de/cpp/conversion/pdf-to-xml/) – werden ebenfalls unterstützt.
 {{% /alert %}}
+
+> **Hinweis:** Beim Export nach PDF/UA behandelt Aspose.Slides komplexe Grafiken wie SmartArt, Diagramme und Formeln als eine einzige Figur. Einzelne Pfadelemente werden nicht als separater Inhalt erhalten und können als Artefakte gekennzeichnet werden; alternativer Text wird nur für die gesamte Figur bereitgestellt.
 
 ## **FAQ**
 
-**Kann ich mehrere PowerPoint‑Dateien batchweise in PDF konvertieren?**
+**Kann ich mehrere PowerPoint‑Dateien stapelweise in PDF konvertieren?**
 
-Ja, Aspose.Slides unterstützt die Stapelkonvertierung mehrerer PPT‑ oder PPTX‑Dateien in PDF. Sie können Ihre Dateien iterieren und den Konvertierungsprozess programmgesteuert anwenden.
+Ja, Aspose.Slides unterstützt die Batch‑Konvertierung mehrerer PPT‑ oder PPTX‑Dateien in PDF. Sie können Ihre Dateien iterativ durchlaufen und den Konvertierungsprozess programmgesteuert anwenden.
 
-**Ist es möglich, das konvertierte PDF mit einem Passwort zu schützen?**
+**Ist es möglich, das konvertierte PDF zu schützen?**
 
-Auf jeden Fall. Verwenden Sie die Klasse [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), um ein Passwort festzulegen und Zugriffsrechte während des Konvertierungsprozesses zu definieren.
+Absolut. Verwenden Sie die [PdfOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/)‑Klasse, um ein Passwort festzulegen und Zugriffsrechte während des Konvertierungsprozesses zu definieren.
 
-**Wie füge ich ausgeblendete Folien in das PDF ein?**
+**Wie nehme ich versteckte Folien in das PDF auf?**
 
-Verwenden Sie die Methode `set_ShowHiddenSlides` in der Klasse [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), um ausgeblendete Folien im resultierenden PDF zu berücksichtigen.
+Verwenden Sie die Methode `set_ShowHiddenSlides` in der [PdfOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/)‑Klasse, um versteckte Folien im resultierenden PDF zu integrieren.
 
 **Kann Aspose.Slides eine hohe Bildqualität im PDF beibehalten?**
 
-Ja, Sie können die Bildqualität steuern, indem Sie Methoden wie `set_JpegQuality` und `set_SufficientResolution` in der Klasse [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) verwenden, um hochqualitative Bilder in Ihrem PDF sicherzustellen.
+Ja, Sie können die Bildqualität steuern, indem Sie Methoden wie `set_JpegQuality` und `set_SufficientResolution` in der [PdfOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/)‑Klasse verwenden, um hochwertige Bilder in Ihrem PDF sicherzustellen.
 
 **Unterstützt Aspose.Slides PDF/A‑Compliance‑Standards?**
 
-Ja, Aspose.Slides ermöglicht den Export von PDFs, die verschiedenen Standards entsprechen, einschließlich PDF/A1a, PDF/A1b und PDF/UA, sodass Ihre Dokumente die Anforderungen an Barrierefreiheit und Archivierung erfüllen.
+Ja, Aspose.Slides ermöglicht den Export von PDFs, die verschiedenen Standards entsprechen, darunter PDF/A‑1a, PDF/A‑1b und PDF/UA, sodass Ihre Dokumente Barrierefreiheit und Archivierungsanforderungen erfüllen.
 
 ## **Zusätzliche Ressourcen**
 
-- [Aspose.Slides für C++ Dokumentation](/slides/de/cpp/)
-- [Aspose.Slides für C++ API‑Referenz](https://reference.aspose.com/slides/cpp/)
-- [Aspose Kostenlose Online‑Konverter](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides für C++‑Dokumentation](/slides/de/cpp/)
+- [Aspose.Slides für C++ API‑Referenz](https://reference.aspose.com/slides/de/cpp/)
+- [Aspose kostenlose Online‑Konverter](https://products.aspose.app/slides/de/conversion)
