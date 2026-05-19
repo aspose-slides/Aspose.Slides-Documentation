@@ -281,6 +281,8 @@ Aspose.Slides support for PDF conversion operations extends to allowing you allo
 
 {{% /alert %}}
 
+> **Note:** When exporting to PDF/UA, Aspose.Slides treats complex graphics such as SmartArt, charts, and formulas as a single figure. Individual path elements are not preserved as separate content and may be marked as artifacts; alternative text is provided only for the whole figure.
+
 ## **FAQ**
 
 **Can Aspose.Slides for Python remove the application information from the PDF?**
