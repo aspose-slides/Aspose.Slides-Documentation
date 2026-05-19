@@ -1,28 +1,52 @@
 ---
-title: Blob verwalten
+title: Verwalten von Präsentations-BLOBs in JavaScript für effiziente Speichernutzung
+linktitle: BLOB verwalten
 type: docs
 weight: 10
 url: /de/nodejs-java/manage-blob/
-description: Verwalten Sie Blob in PowerPoint-Präsentationen mit JavaScript. Verwenden Sie Blob, um den Speicherverbrauch in PowerPoint-Präsentationen mit JavaScript zu reduzieren. Große Dateien über Blob zu einer PowerPoint-Präsentation mit JavaScript hinzufügen. Große Dateien über Blob aus einer PowerPoint-Präsentation mit JavaScript exportieren. Eine große PowerPoint-Präsentation als Blob mit JavaScript laden.
+keywords:
+- großes Objekt
+- großes Element
+- große Datei
+- BLOB hinzufügen
+- BLOB exportieren
+- Bild als BLOB hinzufügen
+- Speicher reduzieren
+- Speicherauslastung
+- große Präsentation
+- temporäre Datei
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Verwalten Sie BLOB-Daten in JavaScript mit Aspose.Slides für Node.js, um PowerPoint- und OpenDocument-Dateioperationen zu optimieren und eine effiziente Präsentationsverarbeitung zu ermöglichen."
 ---
+## **Übersicht**
+
+Aspose.Slides bietet eine BLOB‑basierte Verarbeitung großer Binärdaten in Präsentationen, um den Speicherverbrauch bei der Arbeit mit großen Bildern, Audio‑, Video‑ und Präsentationsdateien zu reduzieren.
+
+Dieser Artikel zeigt, wie Sie die BLOB‑Verarbeitung nutzen, um große Medien zu einer Präsentation hinzuzufügen, große Medien aus einer Präsentation zu exportieren und große Präsentationen effizienter zu laden. Außerdem wird erklärt, wie temporäre Dateien während der Verarbeitung verwendet werden können und wie Sie den Ordner ändern, in dem sie gespeichert werden.
 
 ## **Über BLOB**
 
-**BLOB** (**Binary Large Object**) ist normalerweise ein großes Element (Foto, Präsentation, Dokument oder Medium), das in binären Formaten gespeichert wird.  
+**BLOB** (**Binary Large Object**) ist in der Regel ein großes Element (Foto, Präsentation, Dokument oder Medium), das in Binärformaten gespeichert wird.
 
-Aspose.Slides for Node.js via Java ermöglicht es Ihnen, BLOBs für Objekte zu verwenden, wodurch der Speicherverbrauch reduziert wird, wenn große Dateien beteiligt sind.
+Aspose.Slides for Node.js via Java ermöglicht die Verwendung von BLOBs für Objekte, wodurch der Speicherverbrauch bei großen Dateien reduziert wird.
 
 {{% alert title="Info" color="info" %}}
-Um bestimmte Einschränkungen beim Umgang mit Streams zu umgehen, kann Aspose.Slides den Inhalt des Streams kopieren. Das Laden einer großen Präsentation über ihren Stream führt zum Kopieren des Inhalts der Präsentation und verursacht ein langsames Laden. Daher empfehlen wir dringend, beim Laden einer großen Präsentation den Pfad zur Präsentationsdatei und nicht den Stream zu verwenden.
+Um bestimmte Einschränkungen beim Umgang mit Streams zu umgehen, kann Aspose.Slides den Inhalt des Streams kopieren. Das Laden einer großen Präsentation über ihren Stream führt dazu, dass der Inhalt der Präsentation kopiert wird und das Laden langsam wird. Daher empfehlen wir dringend, beim Laden einer großen Präsentation den Pfad zur Präsentationsdatei und nicht den Stream zu verwenden.
 {{% /alert %}}
 
-## **BLOB verwenden, um den Speicherverbrauch zu reduzieren**
+## **Verwenden von BLOB zur Reduzierung des Speicherverbrauchs**
 
 ### **Große Datei über BLOB zu einer Präsentation hinzufügen**
 
-[Aspose.Slides](/slides/de/nodejs-java/) for Node.js via Java ermöglicht es Ihnen, große Dateien (in diesem Fall eine große Videodatei) über einen BLOB‑basierten Prozess hinzuzufügen, um den Speicherverbrauch zu reduzieren.
+[Aspose.Slides](/slides/de/nodejs-java/) for Node.js via Java ermöglicht das Hinzufügen großer Dateien (in diesem Fall einer großen Videodatei) über einen BLOB‑basierten Prozess, um den Speicherverbrauch zu reduzieren.
 
-Dieser JavaScript‑Code zeigt, wie Sie eine große Videodatei über den BLOB‑Prozess zu einer Präsentation hinzufügen:
+Dieses JavaScript zeigt, wie Sie eine große Videodatei über den BLOB‑Prozess zu einer Präsentation hinzufügen:
+
 ```javascript
 var pathToVeryLargeVideo = "veryLargeVideo.avi";
 // Erstellt eine neue Präsentation, zu der das Video hinzugefügt wird
@@ -30,8 +54,8 @@ var pres = new aspose.slides.Presentation();
 try {
     var fileStream = java.newInstanceSync("java.io.FileInputStream", pathToVeryLargeVideo);
     try {
-        // Lassen Sie uns das Video zur Präsentation hinzufügen - wir haben das KeepLocked-Verhalten gewählt, weil wir
-        // nicht beabsichtigen, auf die Datei "veryLargeVideo.avi" zuzugreifen.
+        // Fügen wir das Video zur Präsentation hinzu - wir haben das KeepLocked-Verhalten gewählt, weil wir
+        // nicht beabsichtigen, auf die "veryLargeVideo.avi" Datei zuzugreifen.
         var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
         pres.getSlides().get_Item(0).getShapes().addVideoFrame(0, 0, 480, 270, video);
         // Speichert die Präsentation. Während eine große Präsentation ausgegeben wird, bleibt der Speicherverbrauch
@@ -50,38 +74,29 @@ try {
 }
 ```
 
-
 ### **Große Datei über BLOB aus einer Präsentation exportieren**
 
-Aspose.Slides for Node.js via Java ermöglicht es Ihnen, große Dateien (in diesem Fall eine Audio‑ oder Videodatei) über einen BLOB‑basierten Prozess aus Präsentationen zu exportieren. Zum Beispiel müssen Sie möglicherweise eine große Mediendatei aus einer Präsentation extrahieren, möchten aber nicht, dass die Datei in den Speicher Ihres Computers geladen wird. Durch den Export der Datei über den BLOB‑Prozess bleibt der Speicherverbrauch gering.
+Aspose.Slides for Node.js via Java ermöglicht das Exportieren großer Dateien (z. B. einer Audio‑ oder Videodatei) über einen BLOB‑basierten Prozess aus Präsentationen. Beispielsweise können Sie eine große Mediendatei aus einer Präsentation extrahieren, ohne dass die Datei in den Arbeitsspeicher Ihres Computers geladen wird. Durch den Export über den BLOB‑Prozess bleibt der Speicherverbrauch niedrig.
 
-Dieser JavaScript‑Code demonstriert die beschriebene Vorgangsweise:
+Dieses JavaScript‑Beispiel demonstriert die beschriebene Operation:
+
 ```javascript
 var hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
 var loadOptions = new aspose.slides.LoadOptions();
-// Locks the source file and does NOT load it into memory
 // Sperrt die Quelldatei und lädt sie NICHT in den Speicher
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
-// create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
- // Erstelle die Instanz der Präsentation und sperre die Datei "hugePresentationWithAudiosAndVideos.pptx".
+// Erstellt die Instanz der Präsentation und sperrt die "hugePresentationWithAudiosAndVideos.pptx"-Datei.
 var pres = new aspose.slides.Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions);
 try {
-    // Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
     // Speichern wir jedes Video in einer Datei. Um hohen Speicherverbrauch zu vermeiden, benötigen wir einen Puffer, der verwendet wird
-    // to transfer the data from the presentation's video stream to a stream for a newly created video file.
-    // um die Daten vom Videostream der Präsentation zu einem Stream für eine neu erstellte Videodatei zu übertragen.
+    // um die Daten vom Videostream der Präsentation zu einem Stream einer neu erstellten Videodatei zu übertragen.
     var buffer = new byte[8 * 1024];
-    // Iterates through the videos
     // Durchläuft die Videos
     for (var index = 0; index < pres.getVideos().size(); index++) {
         var video = pres.getVideos().get_Item(index);
-        // Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
-        // Öffnet den Videostream der Präsentation. Bitte beachten Sie, dass wir absichtlich das Zugreifen auf Eigenschaften vermieden haben
-        // like video.BinaryData - because this property returns a byte array containing a full video, which then
-        // wie video.BinaryData - weil diese Eigenschaft ein Byte‑Array mit dem gesamten Video zurückgibt, was dann
-        // causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
-        // dazu führt, dass Bytes in den Speicher geladen werden. Wir verwenden video.GetStream, das einen Stream zurückgibt – und NICHT
-        // require us to load the whole video into the memory.
+        // Öffnet den Videostream der Präsentation. Bitte beachten Sie, dass wir bewusst das Zugreifen auf Eigenschaften vermieden haben
+        // wie video.BinaryData - weil diese Eigenschaft ein Byte-Array mit dem gesamten Video zurückgibt, was dann
+        // dazu führt, dass Bytes in den Speicher geladen werden. Wir verwenden video.GetStream, das einen Stream zurückgibt - und NICHT
         // erfordert, dass wir das gesamte Video in den Speicher laden.
         var presVideoStream = video.getStream();
         try {
@@ -97,23 +112,21 @@ try {
         } finally {
             presVideoStream.close();
         }
-        // Memory consumption will remain low regardless of the size of the video or presentation.
         // Der Speicherverbrauch bleibt niedrig, unabhängig von der Größe des Videos oder der Präsentation.
     }
-    // If necessary, you can apply the same steps for audio files.
-    // Bei Bedarf können Sie die gleichen Schritte für Audiodateien anwenden.
+    // Falls nötig, können Sie dieselben Schritte für Audiodateien anwenden.
 } catch (e) {console.log(e);
 } finally {
     pres.dispose();
 }
 ```
 
+### **Bild als BLOB in die Präsentation einfügen**
 
-### **Bild als BLOB in einer Präsentation hinzufügen**
-
-Mit Methoden der Klasse [**ImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) und der Klasse [**ImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) können Sie ein großes Bild als Stream hinzufügen, sodass es als BLOB behandelt wird.
+Mit Methoden der [**ImageCollection**](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ImageCollection)‑Klasse und [**ImageCollection** ](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ImageCollection)‑Klasse können Sie ein großes Bild als Stream hinzufügen, damit es als BLOB behandelt wird.
 
 Dieser JavaScript‑Code zeigt, wie Sie ein großes Bild über den BLOB‑Prozess hinzufügen:
+
 ```javascript
 var pathToLargeImage = "large_image.jpg";
 // erstellt eine neue Präsentation, zu der das Bild hinzugefügt wird.
@@ -121,8 +134,8 @@ var pres = new aspose.slides.Presentation();
 try {
     var fileStream = java.newInstanceSync("java.io.FileInputStream", pathToLargeImage);
     try {
-        // Lassen Sie uns das Bild zur Präsentation hinzufügen - wir wählen das KeepLocked-Verhalten, weil wir
-        // nicht beabsichtigen, auf die Datei "largeImage.png" zuzugreifen.
+        // Fügen wir das Bild zur Präsentation hinzu - wir wählen das KeepLocked-Verhalten, weil wir
+        // NICHT beabsichtigen, auf die "largeImage.png" Datei zuzugreifen.
         var img = pres.getImages().addImage(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
         pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, 300, 200, img);
         // Speichert die Präsentation. Während eine große Präsentation ausgegeben wird, bleibt der Speicherverbrauch
@@ -141,12 +154,12 @@ try {
 }
 ```
 
-
 ## **Speicher und große Präsentationen**
 
-In der Regel benötigen Computer zum Laden einer großen Präsentation viel temporären Speicher. Der gesamte Inhalt der Präsentation wird in den Speicher geladen und die Datei (aus der die Präsentation geladen wurde) wird nicht mehr verwendet.
+In der Regel benötigen Computer zum Laden einer großen Präsentation viel temporären Speicher. Der gesamte Inhalt der Präsentation wird in den Speicher geladen und die Datei, aus der die Präsentation geladen wurde, wird nicht weiter verwendet.
 
 Betrachten Sie eine große PowerPoint‑Präsentation (large.pptx), die eine 1,5 GB‑Videodatei enthält. Die Standardmethode zum Laden der Präsentation wird in diesem JavaScript‑Code beschrieben:
+
 ```javascript
 var pres = new aspose.slides.Presentation("large.pptx");
 try {
@@ -158,12 +171,12 @@ try {
 }
 ```
 
-
 Diese Methode verbraucht jedoch etwa 1,6 GB temporären Speicher.
 
 ### **Große Präsentation als BLOB laden**
 
 Durch den BLOB‑basierten Prozess können Sie eine große Präsentation mit geringem Speicherverbrauch laden. Dieser JavaScript‑Code beschreibt die Implementierung, bei der der BLOB‑Prozess zum Laden einer großen Präsentationsdatei (large.pptx) verwendet wird:
+
 ```javascript
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
@@ -178,10 +191,10 @@ try {
 }
 ```
 
-
 ### **Ordner für temporäre Dateien ändern**
 
-Wenn der BLOB‑Prozess verwendet wird, erstellt Ihr Computer temporäre Dateien im Standard‑Ordner für temporäre Dateien. Wenn Sie die temporären Dateien in einem anderen Ordner speichern möchten, können Sie die Speicher‑Einstellungen mit `setTempFilesRootPath` ändern:
+Wenn der BLOB‑Prozess verwendet wird, erstellt Ihr Computer temporäre Dateien im Standard‑Ordner für temporäre Dateien. Wenn Sie die temporären Dateien in einem anderen Ordner speichern möchten, können Sie die Einstellungen für den Speicherort mit `setTempFilesRootPath` ändern:
+
 ```javascript
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
@@ -189,29 +202,42 @@ loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
 loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 ```
 
-
 {{% alert title="Info" color="info" %}}
-Wenn Sie `setTempFilesRootPath` verwenden, erstellt Aspose.Slides keinen Ordner zum Speichern temporärer Dateien automatisch. Sie müssen den Ordner manuell erstellen.
+Wenn Sie `setTempFilesRootPath` verwenden, erstellt Aspose.Slides nicht automatisch einen Ordner zum Speichern temporärer Dateien. Sie müssen den Ordner manuell anlegen.
 {{% /alert %}}
+
+### **Präsentationsobjekte freigeben, um Speicher zu löschen**
+
+Bei der Verarbeitung großer Präsentationen sollten Sie sicherstellen, dass die [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Instanz ordnungsgemäß freigegeben wird, damit der belegte Speicher wieder freigegeben wird. Rufen Sie `dispose()` auf, nachdem Sie die Präsentation nicht mehr benötigen, um nicht verwaltete Ressourcen freizugeben.
+
+```js
+let presentation = new aspose.slides.Presentation("large.pptx");
+
+// ...process the presentation...
+presentation.save("large.pdf", aspose.slides.SaveFormat.Pdf);
+
+// Explicitly release resources.
+presentation.dispose();
+```
 
 ## **FAQ**
 
 **Welche Daten in einer Aspose.Slides‑Präsentation werden als BLOB behandelt und von BLOB‑Optionen gesteuert?**
 
-Große Binärobjekte wie Bilder, Audio‑ und Videodateien werden als BLOB behandelt. Auch die gesamte Präsentationsdatei wird beim Laden oder Speichern mittels BLOB‑Verarbeitung behandelt. Diese Objekte werden von BLOB‑Richtlinien gesteuert, die es ermöglichen, die Speichernutzung zu verwalten und bei Bedarf in temporäre Dateien auszulagern.
+Große Binärobjekte wie Bilder, Audio und Video werden als BLOB behandelt. Auch die gesamte Präsentationsdatei wird beim Laden oder Speichern BLOB‑verarbeitet. Diese Objekte unterliegen BLOB‑Richtlinien, mit denen Sie die Speichernutzung verwalten und bei Bedarf auf temporäre Dateien auslagern können.
 
 **Wo konfiguriere ich die BLOB‑Verarbeitungsregeln beim Laden einer Präsentation?**
 
-Verwenden Sie [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) zusammen mit [BlobManagementOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blobmanagementoptions/). Dort legen Sie das In‑Memory‑Limit für BLOBs fest, erlauben oder verbieten temporäre Dateien, wählen den Stamm‑Pfad für temporäre Dateien und bestimmen das Verhalten beim Sperren der Quelle.
+Verwenden Sie [LoadOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/loadoptions/) zusammen mit [BlobManagementOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/blobmanagementoptions/). Dort legen Sie das In‑Memory‑Limit für BLOBs fest, erlauben oder verbieten temporäre Dateien, wählen den Root‑Pfad für temporäre Dateien und definieren das Lock‑Verhalten der Quelle.
 
-**Beeinflussen BLOB‑Einstellungen die Leistung und wie balanciere ich Geschwindigkeit gegenüber Speicher?**
+**Beeinflussen BLOB‑Einstellungen die Leistungsfähigkeit und wie balanciere ich Geschwindigkeit vs. Speicher?**
 
-Ja. Das Halten von BLOBs im Speicher maximiert die Geschwindigkeit, erhöht jedoch den RAM‑Verbrauch; eine niedrigere Speichergrenze verlagert mehr Arbeit auf temporäre Dateien, reduziert den RAM‑Verbrauch, verursacht jedoch zusätzlichen I/O‑Aufwand. Verwenden Sie die Methode [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blobmanagementoptions/setmaxblobsbytesinmemory/), um das richtige Gleichgewicht für Ihre Arbeitslast und Umgebung zu finden.
+Ja. Das Halten von BLOBs im Speicher maximiert die Geschwindigkeit, erhöht jedoch den RAM‑Verbrauch; ein niedrigeres Speicher‑Limit verlagert mehr Arbeit auf temporäre Dateien, reduziert den RAM‑Verbrauch, erhöht jedoch die I/O‑Last. Verwenden Sie die Methode [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/blobmanagementoptions/setmaxblobsbytesinmemory/), um das optimale Gleichgewicht für Ihre Arbeitslast und Umgebung zu finden.
 
-**Helfen BLOB‑Optionen beim Öffnen extrem großer Präsentationen (z. B. mehrere Gigabyte)?**
+**Helfen BLOB‑Optionen beim Öffnen extrem großer Präsentationen (z. B. Gigabyte‑Dateien)?**
 
-Ja. [BlobManagementOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blobmanagementoptions/) sind für solche Szenarien konzipiert: Das Aktivieren temporärer Dateien und die Verwendung von Source‑Locking können den Spitzen‑RAM‑Verbrauch erheblich reduzieren und die Verarbeitung sehr großer Decks stabilisieren.
+Ja. [BlobManagementOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/blobmanagementoptions/) sind für solche Szenarien konzipiert: Das Aktivieren temporärer Dateien und die Nutzung von Source‑Locking können den Spitzen‑RAM‑Verbrauch erheblich reduzieren und die Verarbeitung sehr großer Decks stabilisieren.
 
-**Kann ich BLOB‑Richtlinien beim Laden von Streams statt von Dateien auf der Festplatte verwenden?**
+**Kann ich BLOB‑Richtlinien beim Laden aus Streams anstelle von Disk‑Dateien verwenden?**
 
-Ja. Die gleichen Regeln gelten für Streams: Die Präsentationsinstanz kann den Eingabestream besitzen und sperren (abhängig vom gewählten Sperrmodus), und temporäre Dateien werden verwendet, wenn dies erlaubt ist, wodurch der Speicherverbrauch während der Verarbeitung vorhersehbar bleibt.
+Ja. Die gleichen Regeln gelten für Streams: Die Präsentations‑Instanz kann den Eingabestream besitzen und sperren (abhängig vom gewählten Lock‑Modus), und temporäre Dateien werden verwendet, wenn dies erlaubt ist, wodurch die Speichernutzung während der Verarbeitung vorhersehbar bleibt.

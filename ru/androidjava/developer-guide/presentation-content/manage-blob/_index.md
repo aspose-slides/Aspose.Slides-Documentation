@@ -5,15 +5,15 @@ type: docs
 weight: 10
 url: /ru/androidjava/manage-blob/
 keywords:
-- большой объект
-- большой элемент
-- большой файл
+- крупный объект
+- крупный элемент
+- крупный файл
 - добавить BLOB
 - экспортировать BLOB
 - добавить изображение как BLOB
-- уменьшить память
+- сократить память
 - потребление памяти
-- большая презентация
+- крупная презентация
 - временный файл
 - PowerPoint
 - OpenDocument
@@ -21,26 +21,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Управляйте данными BLOB в Aspose.Slides для Android через Java, чтобы оптимизировать работу с файлами PowerPoint и OpenDocument и обеспечить эффективную обработку презентаций."
+description: "Управляйте данными BLOB в Aspose.Slides для Android через Java, упрощая операции с файлами PowerPoint и OpenDocument для эффективной работы с презентациями."
 ---
-
 ## **О BLOB**
 
-**BLOB** (**Binary Large Object**) обычно представляет собой большой объект (фото, презентацию, документ или мультимедиа), сохраняемый в бинарных форматах. 
+**BLOB** (**Binary Large Object**) обычно представляет собой крупный элемент (фото, презентацию, документ или медиа), сохранённый в двоичном формате. 
 
-Aspose.Slides for Android via Java позволяет использовать BLOBы для объектов таким образом, что снижается потребление памяти при работе с большими файлами.
+Aspose.Slides for Android via Java позволяет использовать BLOB‑ы для объектов таким способом, который уменьшает потребление памяти при работе с большими файлами.
 
 {{% alert title="Info" color="info" %}}
-Чтобы обойти некоторые ограничения при работе с потоками, Aspose.Slides может копировать содержимое потока. Загрузка большой презентации через поток приведёт к копированию содержимого презентации и замедлению загрузки. Поэтому, когда вы планируете загрузить большую презентацию, мы настоятельно рекомендуем использовать путь к файлу презентации, а не её поток.
+Чтобы обойти некоторые ограничения при работе с потоками, Aspose.Slides может копировать содержимое потока. Загрузка большой презентации через её поток приводит к копированию содержимого презентации и замедленной загрузке. Поэтому, когда вы планируете загрузить большую презентацию, настоятельно рекомендуется использовать путь к файлу презентации, а не её поток.
 {{% /alert %}}
 
-## **Использование BLOB для снижения потребления памяти**
+## **Используйте BLOB для снижения потребления памяти**
 
 ### **Добавление большого файла через BLOB в презентацию**
 
-[Aspose.Slides](/slides/ru/androidjava/) для Java позволяет добавлять большие файлы (в данном случае большой видеофайл) с помощью процесса, включающего BLOBы, чтобы снизить потребление памяти.
+[Aspose.Slides](/slides/ru/androidjava/) для Java позволяет добавлять большие файлы (в данном случае большой видеофайл) посредством процесса, использующего BLOB‑ы, чтобы снизить потребление памяти.
 
 Этот пример на Java показывает, как добавить большой видеофайл через процесс BLOB в презентацию:
+
 ```java
 String pathToVeryLargeVideo = "veryLargeVideo.avi";
 
@@ -50,12 +50,12 @@ try {
     FileInputStream fileStream = new FileInputStream(pathToVeryLargeVideo);
     try {
         // Добавим видео в презентацию — мы выбрали поведение KeepLocked, потому что мы
-        //не планируем обращаться к файлу "veryLargeVideo.avi".
+        // не планируем обращаться к файлу "veryLargeVideo.avi".
         IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
         pres.getSlides().get_Item(0).getShapes().addVideoFrame(0, 0, 480, 270, video);
 
         // Сохраняет презентацию. Пока выводится большая презентация, потребление памяти
-        // остается низким на протяжении жизненного цикла объекта pres
+        // остаётся низким на протяжении жизненного цикла объекта pres 
         pres.save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
     } finally {
         if (fileStream != null) fileStream.close();
@@ -66,34 +66,33 @@ try {
 }
 ```
 
-
 ### **Экспорт большого файла через BLOB из презентации**
-
-Aspose.Slides for Android via Java позволяет экспортировать большие файлы (в данном случае аудио или видео) с помощью процесса, включающего BLOBы, из презентаций. Например, вам может потребоваться извлечь большой медиа‑файл из презентации, но не загружать файл в память компьютера. Экспортируя файл через процесс BLOB, вы сохраняете низкое потребление памяти.
+Aspose.Slides for Android via Java позволяет экспортировать большие файлы (например, аудио‑ или видеофайл) из презентаций с помощью процесса, использующего BLOB‑ы. Например, вам может потребоваться извлечь большой медиофайл из презентации, но вы не хотите загружать его в память компьютера. При экспорте файла через процесс BLOB потребление памяти остаётся низким.
 
 Этот код на Java демонстрирует описанную операцию:
+
 ```java
 String hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// Locks the source file and does NOT load it into memory
+// Блокирует исходный файл и НЕ загружает его в память
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 
-// create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
+// создаёт экземпляр Presentation, блокирует файл "hugePresentationWithAudiosAndVideos.pptx" file.
 Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions);
 try {
-    // Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
-    // to transfer the data from the presentation's video stream to a stream for a newly created video file.
+    // Сохраним каждое видео в файл. Чтобы предотвратить высокое потребление памяти, нам нужен буфер, который будет использоваться
+    // для передачи данных из видеопотока презентации в поток только что созданного видеофайла.
     byte[] buffer = new byte[8 * 1024];
 
-    // Iterates through the videos
+    // Перебирает видеоматериалы
     for (int index = 0; index < pres.getVideos().size(); index++) {
         IVideo video = pres.getVideos().get_Item(index);
 
-        // Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
-        // like video.BinaryData - because this property returns a byte array containing a full video, which then
-        // causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
-        //  require us to load the whole video into the memory.
+        // Открывает видеопоток презентации. Обратите внимание, что мы намеренно избегаем доступа к свойствам
+        // таким как video.BinaryData — потому что это свойство возвращает массив байтов, содержащий полное видео, что затем
+        // приводит к загрузке байтов в память. Мы используем video.GetStream, который возвращает Stream и НЕ
+        //  требует загрузки всего видео в память.
         InputStream presVideoStream = video.getStream();
         try {
             OutputStream outputFileStream = new FileOutputStream("video" + index + ".avi");
@@ -108,36 +107,35 @@ try {
         } finally {
             presVideoStream.close();
         }
-        // Memory consumption will remain low regardless of the size of the video or presentation.
+        // Потребление памяти останется низким независимо от размера видео или презентации.
     }
-    // If necessary, you can apply the same steps for audio files. 
+    // При необходимости вы можете применить те же шаги к аудиофайлам. 
 } catch (IOException e) {
 } finally {
     pres.dispose();
 }
 ```
 
-
 ### **Добавление изображения как BLOB в презентацию**
-
-С помощью методов интерфейса [**IImageCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImageCollection) и класса [**ImageCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ImageCollection) вы можете добавить большое изображение как поток, чтобы оно обрабатывалось как BLOB.
+С помощью методов интерфейса [**IImageCollection**](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IImageCollection) и класса [**ImageCollection**](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ImageCollection) вы можете добавить большое изображение как поток, чтобы оно обрабатывалось как BLOB.
 
 Этот код на Java показывает, как добавить большое изображение через процесс BLOB:
+
 ```java
 String pathToLargeImage = "large_image.jpg";
 
-// создает новую презентацию, в которую будет добавлено изображение.
+// создает новую презентацию, к которой будет добавлено изображение.
 Presentation pres = new Presentation();
 try {
 	FileInputStream fileStream = new FileInputStream(pathToLargeImage);
 	try {
-		// Добавим изображение в презентацию — мы выбираем поведение KeepLocked, потому что мы
+		// Добавим изображение в презентацию — мы выбираем поведение KeepLocked, потому что
 		// НЕ планируем обращаться к файлу "largeImage.png".
 		IPPImage img = pres.getImages().addImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
 		// Сохраняет презентацию. Пока выводится большая презентация, потребление памяти
-		// остается низким в течение жизненного цикла объекта pres.
+		// остается низким на протяжении жизненного цикла объекта pres
 		pres.save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
 	} finally {
 		if (fileStream != null) fileStream.close();
@@ -148,12 +146,12 @@ try {
 }
 ```
 
+## **Память и крупные презентации**
 
-## **Память и большие презентации**
+Обычно для загрузки большой презентации компьютерам требуется значительный объём временной памяти. Всё содержимое презентации загружается в память, а файл, из которого была загружена презентация, перестаёт использоваться. 
 
-Как правило, для загрузки большой презентации компьютерам требуется много временной памяти. Всё содержимое презентации загружается в память, и файл (из которого была загружена презентация) перестаёт использоваться. 
+Рассмотрим большую презентацию PowerPoint (large.pptx), содержащую видеофайл размером 1,5 ГБ. Стандартный способ загрузки презентации описан в этом Java‑коде:
 
-Рассмотрим большую презентацию PowerPoint (large.pptx), содержащую видеофайл размером 1,5 ГБ. Стандартный метод загрузки презентации описан в этом коде на Java:
 ```java
 Presentation pres = new Presentation("large.pptx");
 try {
@@ -163,12 +161,12 @@ try {
 }
 ```
 
-
 Но этот метод потребляет около 1,6 ГБ временной памяти. 
 
 ### **Загрузка большой презентации как BLOB**
 
-С помощью процесса, включающего BLOB, вы можете загрузить большую презентацию, используя минимум памяти. Этот код на Java описывает реализацию, где процесс BLOB используется для загрузки большого файла презентации (large.pptx):
+С помощью процесса, использующего BLOB, вы можете загрузить большую презентацию, используя минимум памяти. Этот Java‑код описывает реализацию, где процесс BLOB применяется для загрузки большого файла презентации (large.pptx):
+
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
@@ -182,10 +180,10 @@ try {
 }
 ```
 
-
 ### **Изменение папки для временных файлов**
 
-Когда используется процесс BLOB, ваш компьютер создает временные файлы в папке по умолчанию для временных файлов. Если вы хотите хранить временные файлы в другой папке, вы можете изменить настройки хранилища, используя `TempFilesRootPath`:
+Когда используется процесс BLOB, ваш компьютер создаёт временные файлы в папке по умолчанию для временных файлов. Если вы хотите сохранять временные файлы в другой папке, можно изменить настройки хранилища, используя `TempFilesRootPath`:
+
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
@@ -193,29 +191,37 @@ loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
 loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 ```
 
-
 {{% alert title="Info" color="info" %}}
-При использовании `TempFilesRootPath` Aspose.Slides не создаёт папку для хранения временных файлов автоматически. Вам необходимо создать эту папку вручную. 
+При использовании `TempFilesRootPath` Aspose.Slides не создаёт папку для временных файлов автоматически. Вам нужно создать её вручную.
 {{% /alert %}}
+
+### **Освобождение памяти путем удаления объектов презентации**
+
+При работе с большими презентациями убедитесь, что экземпляр [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) правильно освобожден, чтобы освободить занявшую её память. Вызовите `dispose()` после завершения работы с презентацией, чтобы освободить неуправляемые ресурсы.
+
+```java
+Presentation presentation = new Presentation("large.pptx");
+
+// ...process the presentation...
+presentation.save("large.pdf", SaveFormat.Pdf);
+
+// Explicitly release resources.
+presentation.dispose();
+```
 
 ## **FAQ**
 
-**Какие данные в презентации Aspose.Slides обрабатываются как BLOB и контролируются параметрами BLOB?**
+**Какие данные в презентации Aspose.Slides рассматриваются как BLOB и управляются параметрами BLOB?**  
+Крупные двоичные объекты, такие как изображения, аудио и видео, рассматриваются как BLOB. При загрузке или сохранении всей презентации также задействуется обработка BLOB. Эти объекты управляются политиками BLOB, позволяющими контролировать использование памяти и переключаться на временные файлы при необходимости.
 
-Крупные бинарные объекты, такие как изображения, аудио и видео, рассматриваются как BLOB. Весь файл презентации также обрабатывается как BLOB при загрузке или сохранении. Эти объекты регулируются политиками BLOB, позволяющими управлять использованием памяти и выгрузкой во временные файлы при необходимости.
+**Где можно настроить правила обработки BLOB при загрузке презентации?**  
+Используйте [LoadOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/loadoptions/) вместе с [BlobManagementOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/blobmanagementoptions/). Здесь задаётся лимит памяти для BLOB, разрешение или запрет временных файлов, корневой путь для временных файлов и поведение блокировки источника.
 
-**Где я могу настроить правила обработки BLOB при загрузке презентации?**
+**Влияют ли настройки BLOB на производительность и как сбалансировать скорость и память?**  
+Да. Хранение BLOB в памяти повышает скорость, но увеличивает потребление RAM; снижение лимита памяти переносит часть работы во временные файлы, уменьшая RAM, но увеличивая ввод‑вывод. Используйте метод [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory-long-), чтобы найти оптимальный баланс для вашей нагрузки и окружения.
 
-Используйте [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) вместе с [BlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blobmanagementoptions/). Здесь вы задаёте ограничение памяти для BLOB, разрешаете или запрещаете временные файлы, выбираете корневой путь для временных файлов и определяете поведение блокировки источника.
+**Помогают ли параметры BLOB при открытии чрезвычайно больших презентаций (например, гигабайтных)?**  
+Да. [BlobManagementOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/blobmanagementoptions/) предназначены для таких сценариев: включение временных файлов и использование блокировки источника могут значительно снизить пиковое потребление RAM и стабилизировать обработку очень больших наборов слайдов.
 
-**Влияют ли настройки BLOB на производительность, и как сбалансировать скорость и память?**
-
-Да. Хранение BLOB в памяти повышает скорость, но увеличивает потребление RAM; снижение ограничения памяти переводит больше работы во временные файлы, уменьшая использование RAM ценой дополнительного ввода‑вывода. Используйте метод [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory-long-), чтобы достичь оптимального баланса для вашей нагрузки и окружения.
-
-**Помогают ли параметры BLOB при открытии чрезвычайно больших презентаций (например, гигабайтных)?**
-
-Да. [BlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blobmanagementoptions/) разработаны для таких сценариев: включение временных файлов и использование блокировки источника могут значительно снизить пиковое использование RAM и стабилизировать обработку очень больших наборов слайдов.
-
-**Можно ли использовать политики BLOB при загрузке из потоков вместо файлов на диске?**
-
-Да. Те же правила применимы к потокам: экземпляр презентации может владеть и блокировать входной поток (в зависимости от выбранного режима блокировки), а при разрешении используются временные файлы, что делает использование памяти предсказуемым во время обработки.
+**Можно ли использовать политики BLOB при загрузке из потоков вместо файлов на диске?**  
+Да. Те же правила применимы к потокам: экземпляр презентации может владеть и блокировать входной поток (в зависимости от выбранного режима блокировки), а временные файлы будут использоваться, если это разрешено, обеспечивая предсказуемое потребление памяти во время обработки.
