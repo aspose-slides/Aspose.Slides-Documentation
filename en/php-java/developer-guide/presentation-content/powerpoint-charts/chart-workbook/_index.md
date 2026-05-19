@@ -122,6 +122,39 @@ This PHP code shows you how to specify a type for a data source:
   }
 ```
 
+## **Detect Unsupported Embedded Workbook Formats**
+
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `getEmbeddedWorkbookType` method on [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) enumeration to detect unsupported formats and skip those charts.
+
+```php
+$presentation = new Presentation("sample.pptx");
+try {
+  $slide = $presentation->getSlides()->get_Item(0);
+  $shapes = $slide->getShapes();
+
+  for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+    $shape = $shapes->get_Item($shapeIndex);
+
+    if (!java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+      continue;
+    }
+
+    $chart = $shape;
+    $chartData = $chart->getChartData();
+
+    if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
+        java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
+      # Embedded workbook is in .xlsb format, which is not supported.
+      continue;
+    }
+
+    # Read or modify the chart workbook data here.
+  }
+} finally {
+  $presentation->dispose();
+}
+```
+
 ## **External Workbook**
 
 Aspose.Slides supports external workbooks as a data source for charts.

@@ -119,6 +119,34 @@ try {
 }
 ```
 
+## **Detect Unsupported Embedded Workbook Formats**
+
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `getEmbeddedWorkbookType` method on [IChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData) together with the [WorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/WorkbookType) enumeration to detect unsupported formats and skip those charts.
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) continue;
+
+        IChart chart = (IChart)shape;
+        IChartData chartData = chart.getChartData();
+
+        if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
+                chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
+            // Embedded workbook is in .xlsb format, which is not supported.
+            continue;
+        }
+
+        // Read or modify the chart workbook data here.
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **External Workbook**
 
 Aspose.Slides supports external workbooks as a data source for charts.
