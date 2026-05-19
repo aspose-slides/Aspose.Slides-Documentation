@@ -7,190 +7,140 @@ url: /fr/php-java/manage-smartart/
 keywords:
 - SmartArt
 - texte SmartArt
-- type de disposition
+- type de mise en page
 - propriété masquée
 - organigramme
-- organigramme image
+- organigramme illustré
 - PowerPoint
 - présentation
 - PHP
 - Aspose.Slides
 description: "Apprenez à créer et modifier des SmartArt PowerPoint avec Aspose.Slides pour PHP via Java en utilisant des exemples de code clairs qui accélèrent la conception de diapositives et l'automatisation."
 ---
+## **Aperçu**
+
+SmartArt est un diagramme PowerPoint composé de nœuds, de formes de nœuds et d’une mise en page. Avec Aspose.Slides pour PHP via Java, vous pouvez créer des SmartArt, lire le texte de leurs nœuds, modifier leur mise en page, inspecter les nœuds masqués, configurer les mises en page des organigrammes et créer des organigrammes illustrés.
 
 ## **Obtenir le texte d'un objet SmartArt**
-Maintenant la méthode TextFrame a été ajoutée à la classe [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) respectivement. Cette propriété vous permet d'obtenir tout le texte de [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) même s'il ne contient pas uniquement le texte des nœuds. Le code d'exemple suivant vous aidera à récupérer le texte d'un nœud SmartArt.
+
+Un nœud SmartArt peut contenir une ou plusieurs formes. Pour lire le texte visible, parcourez [SmartArt::getAllNodes](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartart/#getAllNodes), puis lisez le [TextFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textframe/) renvoyé par [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartartshape/#getTextFrame).
+
 ```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $smartArt = $slide->getShapes()->get_Item(0);
-    $smartArtNodes = $smartArt->getAllNodes();
-    foreach($smartArtNodes as $smartArtNode) {
-      foreach($smartArtNode->getShapes() as $nodeShape) {
-        if (!java_is_null($nodeShape->getTextFrame())) {
-          echo($nodeShape->getTextFrame()->getText());
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt"))) {
+        $smartArt = $shape;
+
+        foreach ($smartArt->getAllNodes() as $smartArtNode) {
+            foreach ($smartArtNode->getShapes() as $smartArtShape) {
+                if (!java_is_null($smartArtShape->getTextFrame())) {
+                    echo($smartArtShape->getTextFrame()->getText());
+                }
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Modifier le type de mise en page d'un objet SmartArt**
 
-## **Modifier le type de disposition d'un objet SmartArt**
-Afin de modifier le type de disposition de [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Veuillez suivre les étapes ci-dessous :
+La mise en page SmartArt contrôle la façon dont les nœuds sont disposés et connectés. L'exemple suivant crée un objet SmartArt avec la valeur `BasicBlockList` de [SmartArtLayoutType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartartlayouttype/), la change en `BasicProcess`, puis enregistre la présentation.
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Obtenez la référence d'une diapositive en utilisant son index.
-- Ajoutez un [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/) BasicBlockList.
-- Modifiez le [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setlayout/) en BasicProcess.
-- Enregistrez la présentation au format PPTX.
-
-Dans l’exemple ci‑dessous, nous avons ajouté un connecteur entre deux formes.
 ```php
-  $pres = new Presentation();
-  try {
-    # Ajouter SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
-    # Modifier LayoutType en BasicProcess
-    $smart->setLayout(SmartArtLayoutType::BasicProcess);
-    # Enregistrement de la présentation
-    $pres->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+
+    $smartArt->setLayout(SmartArtLayoutType::BasicProcess);
+
+    $presentation->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Vérifier si un nœud SmartArt est masqué**
 
-## **Vérifier la propriété Hidden d'un objet SmartArt**
-Veuillez noter : la méthode [SmartArtNode::isHidden()](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/ishidden/) renvoie `true` si ce nœud est masqué dans le modèle de données. Afin de vérifier la propriété hidden de n’importe quel nœud de [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Veuillez suivre les étapes ci‑dessous :
+[SmartArtNode::isHidden](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartartnode/ishidden/) indique si le nœud est masqué dans le modèle de données SmartArt. Les nœuds masqués peuvent exister dans la structure même lorsque la mise en page sélectionnée ne les affiche pas comme des éléments visibles du diagramme.
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Ajoutez un [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/) RadialCycle.
-- Ajoutez un nœud sur le SmartArt.
-- Vérifiez la propriété [visibility](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/ishidden/).
-- Enregistrez la présentation au format PPTX.
+L'exemple suivant ajoute un nœud à un objet SmartArt qui utilise la valeur `RadialCycle` de [SmartArtLayoutType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartartlayouttype/), puis vérifie l'état masqué du nœud.
 
-Dans l’exemple ci‑dessous, nous avons ajouté un connecteur entre deux formes.
 ```php
-  $pres = new Presentation();
-  try {
-    # Ajouter SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
-    # Ajouter un nœud sur SmartArt
-    $node = $smart->getAllNodes()->addNode();
-    # Vérifier la propriété isHidden
-    $hidden = $node->isHidden();// Renvoie true
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
 
-    if ($hidden) {
-      # Effectuer des actions ou des notifications
+    $smartArtNode = $smartArt->getAllNodes()->addNode();
+    $isHidden = $smartArtNode->isHidden();
+
+    if ($isHidden) {
+        echo("The node is hidden in the SmartArt data model.");
     }
-    # Enregistrement de la présentation
-    $pres->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Obtenir ou définir la mise en page de l'organigramme**
 
-## **Obtenir ou définir le type de diagramme d’organisation**
-Les méthodes [SmartArtNode::getOrganizationChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) et [SmartArtNode::setOrganizationChartLayout(int)](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) permettent d’obtenir ou de définir le type de diagramme d’organisation associé au nœud actuel. Afin d’obtenir ou de définir le type de diagramme d’organisation, veuillez suivre les étapes ci‑dessous :
+Pour les diagrammes SmartArt qui utilisent une mise en page d'organigramme, [SmartArtNode::getOrganizationChartLayout](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) et [SmartArtNode::setOrganizationChartLayout](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) définissent la façon dont les nœuds enfants sont disposés sous un nœud parent. Par exemple, vous pouvez configurer les nœuds enfants pour qu'ils pendent à gauche, à droite ou des deux côtés, selon le [OrganizationChartLayoutType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/organizationchartlayouttype/) sélectionné.
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Ajoutez un [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/) sur la diapositive.
-- Obtenez ou [définissez le type de diagramme d’organisation](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/setorganizationchartlayout/).
-- Enregistrez la présentation au format PPTX.
+L'exemple suivant crée un organigramme et définit la mise en page du premier nœud sur la valeur `LeftHanging` de [OrganizationChartLayoutType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/organizationchartlayouttype/).
 
-Dans l’exemple ci‑dessous, nous avons ajouté un connecteur entre deux formes.
 ```php
-  $pres = new Presentation();
-  try {
-    # Ajouter SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
-    # Obtenir ou définir le type d'organigramme
-    $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
-    # Enregistrement de la présentation
-    $pres->save("OrganizeChartLayoutType_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
+
+    $rootNode = $smartArt->getNodes()->get_Item(0);
+    $rootNode->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
+
+    $presentation->save("OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Créer un organigramme illustré**
 
-## **Créer un diagramme PictureOrganization**
-Aspose.Slides for PHP via Java fournit une API simple pour créer des diagrammes PictureOrganization facilement. Pour créer un diagramme sur une diapositive :
+Un organigramme illustré est une mise en page SmartArt conçue pour les diagrammes hiérarchiques incluant des espaces réservés d'images. Utilisez la valeur `PictureOrganizationChart` de [SmartArtLayoutType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartartlayouttype/) lors de l'ajout de l'objet SmartArt à une diapositive.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenez la référence d’une diapositive par son index.
-3. Ajoutez un diagramme avec les données par défaut ainsi que le type souhaité (ChartType::PictureOrganizationChart).
-4. Enregistrez la présentation modifiée au format PPTX
-
-Le code suivant est utilisé pour créer un diagramme.
 ```php
-  $pres = new Presentation("test.pptx");
-  try {
-    $smartArt = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
-    $pres->save("OrganizationChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
+
+    $presentation->save("PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-
-
-## **Obtenir ou définir l’état du SmartArt**
-Afin de modifier le type de disposition de [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Veuillez suivre les étapes ci‑dessous :
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Ajoutez un [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/) sur la diapositive.
-3. [Get](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/isreversed/) ou [Set](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setreversed/) l’état du diagramme SmartArt.
-4. Enregistrez la présentation au format PPTX.
-
-Le code suivant est utilisé pour créer un diagramme.
-```php
-  # Instancier la classe Presentation qui représente le fichier PPTX
-  $pres = new Presentation();
-  try {
-    # Ajouter SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicProcess);
-    # Obtenir ou définir l'état du diagramme SmartArt
-    $smart->setReversed(true);
-    $flag = $smart->isReversed();
-    # Enregistrement de la présentation
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
 
 ## **FAQ**
 
-**Le SmartArt prend‑il en charge le miroir/l’inversion pour les langues RTL ?**
+**SmartArt prend‑il en charge le miroir ou l’inversion pour les langues RTL ?**
 
-Oui. La méthode [setReversed](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setreversed/) bascule la direction du diagramme (LTR/RTL) si le type SmartArt sélectionné prend en charge l’inversion.
+Oui. La méthode [SmartArt::setReversed](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartart/setreversed/) inverse la direction du diagramme de gauche à droite à droite à gauche, ou inversement, lorsque la mise en page SmartArt sélectionnée prend en charge l’inversion.
 
-**Comment puis‑je copier le SmartArt sur la même diapositive ou dans une autre présentation tout en conservant le formatage ?**
+**Comment copier un SmartArt sur la même diapositive ou dans une autre présentation tout en conservant le formatage ?**
 
-Vous pouvez [cloner la forme SmartArt](/slides/fr/php-java/shape-manipulations/) via la collection de formes ([ShapeCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addclone/)) ou [cloner la diapositive entière](/slides/fr/php-java/clone-slides/) contenant cette forme. Les deux approches conservent la taille, la position et le style.
+Vous pouvez [cloner la forme SmartArt](/slides/fr/php-java/shape-manipulations/) avec [ShapeCollection::addClone](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shapecollection/addclone/) ou [cloner la diapositive entière](/slides/fr/php-java/clone-slides/) qui contient le SmartArt. Les deux approches conservent la taille, la position et le formatage.
 
-**Comment rendre le SmartArt en image raster pour un aperçu ou une exportation web ?**
+**Comment rendre un SmartArt en image matricielle pour un aperçu ou une exportation web ?**
 
-[Rendez la diapositive](/slides/fr/php-java/convert-powerpoint-to-png/) (ou l’ensemble de la présentation) en PNG/JPEG via l’API qui convertit les diapositives/présentations en images — le SmartArt sera dessiné comme partie de la diapositive.
+[Rendre la diapositive](/slides/fr/php-java/convert-powerpoint-to-png/) ou toute la présentation en PNG ou JPEG. Le SmartArt est rendu comme faisant partie de la diapositive.
 
-**Comment sélectionner programmatiquement un SmartArt spécifique sur une diapositive s’il y en a plusieurs ?**
+**Comment trouver un objet SmartArt spécifique sur une diapositive s’il y en a plusieurs ?**
 
-Une pratique courante consiste à utiliser le [texte alternatif](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) (Alt Text) ou un [nom](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getname/) et à rechercher la forme par cet attribut dans les [formes de la diapositive](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes), puis à vérifier le type pour confirmer qu’il s’agit d’un [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/). La documentation décrit les techniques typiques pour trouver et manipuler les formes.
+Attribuez une valeur distinctive à [Shape::getAlternativeText](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/getalternativetext/) ou [Shape::getName](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/getname/) sur la forme SmartArt, recherchez cette valeur dans [BaseSlide::getShapes](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseslide/#getShapes), puis vérifiez que la forme correspondante est un [SmartArt](https://reference.aspose.com/slides/fr/php-java/aspose.slides/smartart/).

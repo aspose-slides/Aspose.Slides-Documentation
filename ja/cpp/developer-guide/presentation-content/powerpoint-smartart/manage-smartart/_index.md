@@ -1,108 +1,145 @@
 ---
-title: C++ を使用した PowerPoint プレゼンテーションの SmartArt の管理
-linktitle: SmartArt の管理
+title: C++ を使用して PowerPoint プレゼンテーションの SmartArt を管理する
+linktitle: SmartArt を管理する
 type: docs
 weight: 10
 url: /ja/cpp/manage-smartart/
 keywords:
 - SmartArt
 - SmartArt テキスト
-- レイアウトタイプ
-- 非表示プロパティ
+- レイアウト タイプ
+- 非表示 プロパティ
 - 組織図
 - 画像組織図
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して PowerPoint の SmartArt を構築・編集する方法を、スライドのデザインと自動化を高速化する明確なコードサンプルで学びます。"
+description: "明確なコードサンプルを使用して、Aspose.Slides for C++ で PowerPoint の SmartArt を作成・編集し、スライドのデザインと自動化を迅速化する方法を学びます。"
 ---
+## **概要**
+
+SmartArt はノード、ノードシェイプ、レイアウトで構成された PowerPoint ダイアグラムです。Aspose.Slides for C++ を使用すると、SmartArt を作成し、ノードからテキストを読み取り、レイアウトを変更し、非表示ノードを検査し、組織図のレイアウトを構成し、画像組織図を作成できます。
 
 ## **SmartArt オブジェクトからテキストを取得する**
-現在、ISmartArtShape インターフェイスと SmartArtShape クラスにそれぞれ TextFrame プロパティが追加されました。このプロパティを使用すると、ノードのテキストだけでなく SmartArt 全体のテキストを取得できます。以下のサンプルコードは、SmartArt ノードからテキストを取得する方法を示しています。
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-GetTextFromSmartArtNode-GetTextFromSmartArtNode.cpp" >}}
+SmartArt のノードは 1 つ以上のシェイプを含むことができます。表示テキストを取得するには、[ISmartArt::get_AllNodes](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartart/get_allnodes/) を反復し、次に [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartartshape/get_textframe/) が返す [ITextFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframe/) を読み取ります。
 
-## **SmartArt オブジェクトのレイアウトタイプを変更する**
-SmartArt のレイアウトタイプを変更するには、次の手順に従ってください。
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-- [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-- インデックスを使用してスライドの参照を取得します。
-- SmartArt BasicBlockList を追加します。
-- LayoutType を BasicProcess に変更します。
-- プレゼンテーションを書き出して PPTX ファイルにします。
+if (System::ObjectExt::Is<ISmartArt>(shape))
+{
+    auto smartArt = System::ExplicitCast<ISmartArt>(shape);
 
-以下の例では、2 つの図形の間にコネクタを追加しています。
+    for (int nodeIndex = 0; nodeIndex < smartArt->get_AllNodes()->get_Count(); nodeIndex++)
+    {
+        auto node = smartArt->get_AllNodes()->idx_get(nodeIndex);
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeSmartArtLayout-ChangeSmartArtLayout.cpp" >}}
+        for (int shapeIndex = 0; shapeIndex < node->get_Shapes()->get_Count(); shapeIndex++)
+        {
+            auto nodeShape = node->get_Shape(shapeIndex);
 
-## **SmartArt オブジェクトの Hidden プロパティを確認する**
-メソッド `com.aspose.slides.ISmartArtNode.isHidden()` は、データモデル内でこのノードが非表示ノードである場合に true を返すことに注意してください。SmartArt の任意のノードの Hidden プロパティを確認するには、以下の手順に従ってください。
+            if (nodeShape->get_TextFrame() != nullptr)
+            {
+                System::Console::WriteLine(nodeShape->get_TextFrame()->get_Text());
+            }
+        }
+    }
+}
 
-- [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-- SmartArt RadialCycle を追加します。
-- SmartArt にノードを追加します。
-- isHidden プロパティを確認します。
-- プレゼンテーションを書き出して PPTX ファイルにします。
-
-以下の例では、2 つの図形の間にコネクタを追加しています。
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CheckSmartArtHiddenProperty-CheckSmartArtHiddenProperty.cpp" >}}
-
-## **組織図のタイプを取得または設定する**
-メソッド `com.aspose.slides.ISmartArtNode.getOrganizationChartLayout()`、`setOrganizationChartLayout(int)` は、現在のノードに関連付けられた組織図のタイプを取得または設定できます。組織図のタイプを取得または設定するには、以下の手順に従ってください。
-
-- [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-- スライドに SmartArt を追加します。
-- 組織図のタイプを取得または設定します。
-- プレゼンテーションを書き出して PPTX ファイルにします。
-
-以下の例では、2 つの図形の間にコネクタを追加しています。
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-OrganizeChartLayoutType-OrganizeChartLayoutType.cpp" >}}
-
-## **SmartArt の状態を取得または設定する**
-一部の SmartArt 図は反転をサポートしていません（例: Vertical bullet list、Vertical Process、Descending Process、Funnel、Gear、Balance、Circle Relationship、Hexagon Cluster、Reverse List、Stacked Venn）。SmartArt の向きを変更するには、以下の手順に従ってください。
-
-- [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-- スライドに SmartArt を追加します。
-- SmartArt 図の状態を取得または設定します。
-- プレゼンテーションを書き出して PPTX ファイルにします。
-
-以下の例では、2 つの図形の間にコネクタを追加しています。
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeSmartArtLayout-ChangeSmartArtLayout.cpp" >}}
-
-## **ピクチャ組織図を作成する**
-Aspose.Slides for C++ は、ピクチャ組織図（PictureOrganizationChart）を簡単に作成できるシンプルな API を提供します。スライド上にチャートを作成する手順は次のとおりです。
-
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. デフォルトデータと目的のタイプ (ChartType.PictureOrganizationChart) を指定してチャートを追加します。
-4. 変更したプレゼンテーションを書き出して PPTX ファイルにします。
-
-以下のコードはチャート作成に使用します。
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto smartArt = pres->get_Slides()->idx_get(0)->get_Shapes()->AddSmartArt(0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
-pres->Save(u"OrganizationChart.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **SmartArt オブジェクトのレイアウトタイプを変更する**
+
+SmartArt のレイアウトはノードの配置と接続方法を制御します。以下の例は、[SmartArtLayoutType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartartlayouttype/) の `BasicBlockList` 値で SmartArt オブジェクトを作成し、`BasicProcess` 値に変更してプレゼンテーションを保存します。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::BasicBlockList);
+
+smartArt->set_Layout(SmartArtLayoutType::BasicProcess);
+
+presentation->Save(u"ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **SmartArt ノードが非表示かどうかを確認する**
+
+[ISmartArtNode::get_IsHidden](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartartnode/get_ishidden/) は、ノードが SmartArt データモデルで非表示かどうかを示します。選択されたレイアウトで可視的なダイアグラム要素として表示されなくても、非表示ノードは構造内に存在する可能性があります。
+
+以下の例は、[SmartArtLayoutType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartartlayouttype/) の `RadialCycle` 値を使用する SmartArt オブジェクトにノードを追加し、そのノードの非表示状態を確認します。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::RadialCycle);
+
+auto node = smartArt->get_AllNodes()->AddNode();
+bool isHidden = node->get_IsHidden();
+
+if (isHidden)
+{
+    System::Console::WriteLine(u"The node is hidden in the SmartArt data model.");
+}
+
+presentation->Save(u"CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **組織図レイアウトの取得または設定**
+
+組織図レイアウトを使用する SmartArt ダイアグラムでは、[ISmartArtNode::get_OrganizationChartLayout](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartartnode/get_organizationchartlayout/) と [ISmartArtNode::set_OrganizationChartLayout](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartartnode/set_organizationchartlayout/) が、親ノードの下で子ノードがどのように配置されるかを定義します。たとえば、選択された [OrganizationChartLayoutType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/organizationchartlayouttype/) に応じて、子ノードを左側、右側、または両側に掛けるように設定できます。
+
+以下の例は組織図を作成し、最初のノードのレイアウトを [OrganizationChartLayoutType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/organizationchartlayouttype/) の `LeftHanging` 値に設定します。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::OrganizationChart);
+
+auto rootNode = smartArt->get_Node(0);
+rootNode->set_OrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
+
+presentation->Save(u"OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **画像組織図の作成**
+
+画像組織図は、画像プレースホルダーを含む階層ダイアグラム用に設計された SmartArt レイアウトです。スライドに SmartArt オブジェクトを追加する際は、[SmartArtLayoutType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartartlayouttype/) の `PictureOrganizationChart` 値を使用します。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
+
+presentation->Save(u"PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
 ## **FAQ**
 
-**SmartArt は RTL 言語に対してミラーリング/反転をサポートしていますか？**
+**SmartArt は RTL 言語のミラーリングまたは反転をサポートしていますか？**
 
-はい。選択した SmartArt タイプが反転をサポートしている場合、[set_IsReversed](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/set_isreversed/) メソッドが図の方向（LTR/RTL）を切り替えます。
+はい。選択された SmartArt レイアウトが反転をサポートしている場合、[SmartArt::set_IsReversed](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/smartart/set_isreversed/) メソッドはダイアグラムの方向を左から右へ、または右から左へ、あるいは元に戻します。
 
-**同じスライドまたは別のプレゼンテーションに SmartArt をコピーして書式を保持するにはどうすればよいですか？**
+**フォーマットを保持したまま、同じスライドまたは別のプレゼンテーションに SmartArt をコピーするにはどうすればよいですか？**
 
-シェイプコレクションの [ShapeCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addclone/) を使用して SmartArt シェイプを [クローン]( /slides/cpp/shape-manipulations/) するか、またはそのシェイプを含むスライド全体を [クローン]( /slides/cpp/clone-slides/) できます。どちらの方法でもサイズ、位置、スタイリングが保持されます。
+SmartArt シェイプは [ShapeCollection::AddClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapecollection/addclone/) を使用して [clone the SmartArt shape](/slides/ja/cpp/shape-manipulations/) で、または SmartArt を含むスライド全体を [clone the whole slide](/slides/ja/cpp/clone-slides/) でクローンできます。どちらの方法もサイズ、位置、フォーマットを保持します。
 
-**SmartArt をプレビューや Web エクスポート用にラスタ画像にレンダリングするには？**
+**プレビューや Web エクスポートのために SmartArt をラスタ画像にレンダリングするにはどうすればよいですか？**
 
-スライド（またはプレゼンテーション全体）を PNG/JPEG に変換する API（[スライドをレンダリング](/slides/ja/cpp/convert-powerpoint-to-png/)）を使用してください。SmartArt はスライドの一部として描画されます。
+スライドを PNG または JPEG に [スライドをレンダリング](/slides/ja/cpp/convert-powerpoint-to-png/) するか、プレゼンテーション全体を変換します。SmartArt はスライドの一部としてレンダリングされます。
 
-**スライドに複数の SmartArt がある場合、プログラムで特定の SmartArt を選択する方法は？**
+**スライド上に複数の SmartArt がある場合、特定の SmartArt オブジェクトを見つけるにはどうすればよいですか？**
 
-一般的な手法は、[代替テキスト](/slides/ja/cpp/shape-manipulations/)（Alt Text）または [名前](/slides/ja/cpp/shape-manipulations/) を設定し、[スライドシェイプ](/slides/ja/cpp/shape-manipulations/) コレクション内でその属性でシェイプを検索し、タイプが [SmartArt](/slides/ja/cpp/shape-manipulations/) かどうかを確認することです。ドキュメントにはシェイプの検索と操作に関する典型的なテクニックが記載されています。
+SmartArt シェイプに固有の [Shape::set_AlternativeText](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shape/set_alternativetext/) または [Shape::set_Name](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shape/set_name/) の値を設定し、[BaseSlide::get_Shapes](https://reference.aspose.com/slides/ja/cpp/aspose.slides/baseslide/get_shapes/) でその値を検索し、該当するシェイプが [ISmartArt](https://reference.aspose.com/slides/ja/cpp/aspose.slides.smartart/ismartart/) であることを確認します。

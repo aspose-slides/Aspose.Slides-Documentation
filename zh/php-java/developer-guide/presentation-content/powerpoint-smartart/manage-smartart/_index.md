@@ -1,5 +1,5 @@
 ---
-title: 使用 PHP 管理 PowerPoint 演示文稿中的 SmartArt
+title: 使用 PHP 在 PowerPoint 演示文稿中管理 SmartArt
 linktitle: 管理 SmartArt
 type: docs
 weight: 10
@@ -15,182 +15,127 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "学习使用 Aspose.Slides for PHP via Java，通过清晰的代码示例构建和编辑 PowerPoint SmartArt，以加快幻灯片设计和自动化。"
+description: "学习使用 Aspose.Slides for PHP via Java 构建和编辑 PowerPoint SmartArt，通过清晰的代码示例加快幻灯片设计和自动化。"
 ---
+## **概述**
+
+SmartArt 是由节点、节点形状和布局组成的 PowerPoint 图表。使用 Aspose.Slides for PHP via Java，您可以创建 SmartArt、读取其节点中的文本、更改布局、检查隐藏节点、配置组织结构图布局，以及创建图片组织结构图。
 
 ## **从 SmartArt 对象获取文本**
-现在在 [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) 类中新增了 TextFrame 方法。此属性允许您获取 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) 的所有文本，即使它不仅仅是节点文本。以下示例代码将帮助您从 SmartArt 节点获取文本。
+
+SmartArt 节点可以包含一个或多个形状。要读取可见文本，请遍历 [SmartArt::getAllNodes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartart/#getAllNodes)，然后读取由 [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartshape/#getTextFrame) 返回的 [TextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/)。
+
 ```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $smartArt = $slide->getShapes()->get_Item(0);
-    $smartArtNodes = $smartArt->getAllNodes();
-    foreach($smartArtNodes as $smartArtNode) {
-      foreach($smartArtNode->getShapes() as $nodeShape) {
-        if (!java_is_null($nodeShape->getTextFrame())) {
-          echo($nodeShape->getTextFrame()->getText());
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt"))) {
+        $smartArt = $shape;
+
+        foreach ($smartArt->getAllNodes() as $smartArtNode) {
+            foreach ($smartArtNode->getShapes() as $smartArtShape) {
+                if (!java_is_null($smartArtShape->getTextFrame())) {
+                    echo($smartArtShape->getTextFrame()->getText());
+                }
+            }
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
-
-
 ## **更改 SmartArt 对象的布局类型**
-为了更改 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) 的布局类型，请按照以下步骤操作：
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-- 通过索引获取幻灯片的引用。
-- 添加 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/) BasicBlockList。
-- 将 [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setlayout/) 更改为 BasicProcess。
-- 将演示文稿写入为 PPTX 文件。
+SmartArt 布局控制节点的排列和连接方式。下面的示例创建一个使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartlayouttype/) `BasicBlockList` 值的 SmartArt 对象，将其更改为 `BasicProcess` 值，并保存演示文稿。
 
-在下面的示例中，我们在两个形状之间添加了一个连接线。
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加 SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
-    # 更改 LayoutType 为 BasicProcess
-    $smart->setLayout(SmartArtLayoutType::BasicProcess);
-    # 保存演示文稿
-    $pres->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+
+    $smartArt->setLayout(SmartArtLayoutType::BasicProcess);
+
+    $presentation->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+## **检查 SmartArt 节点是否隐藏**
 
+[SmartArtNode::isHidden](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartnode/ishidden/) 指示节点在 SmartArt 数据模型中是否被隐藏。即使所选布局未将隐藏节点显示为可见图表元素，隐藏节点仍可能存在于结构中。
 
-## **检查 SmartArt 对象的隐藏属性**
-请注意：如果该节点在数据模型中是隐藏节点，方法 [SmartArtNode::isHidden()](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/ishidden/) 返回 `true`。为了检查 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) 任意节点的隐藏属性，请按照以下步骤操作：
+下面的示例向使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartlayouttype/) `RadialCycle` 值的 SmartArt 对象添加一个节点，并检查该节点的隐藏状态。
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-- 添加 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/) RadialCycle。
-- 在 SmartArt 上添加节点。
-- 检查 [visibility](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/ishidden/) 属性。
-- 将演示文稿写入为 PPTX 文件。
-
-在下面的示例中，我们在两个形状之间添加了一个连接线。
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加 SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
-    # 在 SmartArt 上添加节点
-    $node = $smart->getAllNodes()->addNode();
-    # 检查 isHidden 属性
-    $hidden = $node->isHidden();// 返回 true
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
 
-    if ($hidden) {
-      # 执行某些操作或通知
+    $smartArtNode = $smartArt->getAllNodes()->addNode();
+    $isHidden = $smartArtNode->isHidden();
+
+    if ($isHidden) {
+        echo("The node is hidden in the SmartArt data model.");
     }
-    # 保存演示文稿
-    $pres->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+## **获取或设置组织结构图布局**
 
+对于使用组织结构图布局的 SmartArt 图表，[SmartArtNode::getOrganizationChartLayout](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) 和 [SmartArtNode::setOrganizationChartLayout](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) 定义子节点在父节点下的排列方式。例如，您可以根据所选的 [OrganizationChartLayoutType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/organizationchartlayouttype/) 将子节点挂在左侧、右侧或两侧。
 
-## **获取或设置组织结构图类型**
-方法 [SmartArtNode::getOrganizationChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/getorganizationchartlayout/) 和 [SmartArtNode::setOrganizationChartLayout(int)](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/setorganizationchartlayout/) 允许获取或设置当前节点关联的组织结构图类型。要获取或设置组织结构图类型，请按照以下步骤操作：
+下面的示例创建一个组织结构图，并将第一个节点的布局设置为 [OrganizationChartLayoutType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` 值。
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-- 在幻灯片上添加 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/)。
-- 获取或[设置组织结构图类型](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/setorganizationchartlayout/)。
-- 将演示文稿写入为 PPTX 文件。
-
-在下面的示例中，我们在两个形状之间添加了一个连接线。
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加 SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
-    # 获取或设置组织结构图类型
-    $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
-    # 保存演示文稿
-    $pres->save("OrganizeChartLayoutType_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
+
+    $rootNode = $smartArt->getNodes()->get_Item(0);
+    $rootNode->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
+
+    $presentation->save("OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-
-
 ## **创建图片组织结构图**
-Aspose.Slides for PHP via Java 提供了一个简易的 API，用于轻松创建 PictureOrganization 图表。要在幻灯片上创建图表：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加一个带有默认数据且类型为 (ChartType::PictureOrganizationChart) 的图表。
-4. 将修改后的演示文稿写入 PPTX 文件。
+图片组织结构图是一种为包含图像占位符的层级图表设计的 SmartArt 布局。在向幻灯片添加 SmartArt 对象时，使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` 值。
 
-以下代码用于创建图表。
 ```php
-  $pres = new Presentation("test.pptx");
-  try {
-    $smartArt = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
-    $pres->save("OrganizationChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $smartArt = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
+
+    $presentation->save("PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-
-
-## **获取或设置 SmartArt 状态**
-为了更改 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) 的布局类型，请按照以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 在幻灯片上添加 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addsmartart/)。
-3. [获取](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/isreversed/) 或 [设置](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setreversed/) SmartArt 图表的状态。
-4. 将演示文稿写入为 PPTX 文件。
-
-以下代码用于创建图表。
-```php
-  # 实例化表示 PPTX 文件的 Presentation 类
-  $pres = new Presentation();
-  try {
-    # 添加 SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicProcess);
-    # 获取或设置 SmartArt 图表的状态
-    $smart->setReversed(true);
-    $flag = $smart->isReversed();
-    # 保存演示文稿
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
 ## **常见问题**
 
-**SmartArt 支持 RTL（从右到左）语言的镜像/反转吗？**
+**SmartArt 是否支持 RTL 语言的镜像或反转？**
 
-是的。如果所选 SmartArt 类型支持反转，[setReversed](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/setreversed/) 方法会切换图表方向（LTR/RTL）。
+是的。当所选 SmartArt 布局支持反转时，[SmartArt::setReversed](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartart/setreversed/) 方法可将图表方向从从左到右切换为从右到左，或反之。
 
-**如何在保持格式的情况下将 SmartArt 复制到同一幻灯片或其他演示文稿？**
+**如何在同一幻灯片或另一份演示文稿中复制 SmartArt 并保留格式？**
 
-您可以通过形状集合 ([ShapeCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addclone/)) [克隆 SmartArt 形状](/slides/zh/php-java/shape-manipulations/)，或[克隆包含该形状的整个幻灯片](/slides/zh/php-java/clone-slides/)。两种方法都能保留大小、位置和样式。
+您可以使用 [ShapeCollection::addClone](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapecollection/addclone/) [克隆 SmartArt 形状](/slides/zh/php-java/shape-manipulations/)，或 [克隆包含 SmartArt 的整张幻灯片](/slides/zh/php-java/clone-slides/)。两种方法都能保留大小、位置和格式。
 
-**如何将 SmartArt 渲染为栅格图像以进行预览或网页导出？**
+**如何将 SmartArt 渲染为栅格图像以供预览或网页导出？**
 
-[渲染幻灯片](/slides/zh/php-java/convert-powerpoint-to-png/)（或整个演示文稿）为 PNG/JPEG，通过将幻灯片/演示文稿转换为图像的 API——SmartArt 将作为幻灯片的一部分绘制。
+[渲染幻灯片](/slides/zh/php-java/convert-powerpoint-to-png/) 或将整个演示文稿导出为 PNG 或 JPEG。SmartArt 将作为幻灯片的一部分进行渲染。
 
-**如果幻灯片上有多个 SmartArt，如何在代码中选择特定的 SmartArt？**
+**如果幻灯片上有多个 SmartArt 对象，如何找到特定的对象？**
 
-常用的做法是使用[替代文本](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/)（Alt Text）或[名称](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getname/)，在 [slide shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) 中按该属性搜索形状，然后检查其类型以确认是 [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)。文档描述了查找和操作形状的典型技术。
+在 SmartArt 形状上设置唯一的 [Shape::getAlternativeText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/getalternativetext/) 或 [Shape::getName](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/getname/) 值，在 [BaseSlide::getShapes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/baseslide/#getShapes) 中搜索该值，然后检查匹配的形状是否为 [SmartArt](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartart/)。

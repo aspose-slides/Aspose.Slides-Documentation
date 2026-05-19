@@ -1,200 +1,153 @@
 ---
-title: Управление SmartArt в презентациях PowerPoint с использованием JavaScript
-linktitle: Управление SmartArt
+title: Управляйте SmartArt в презентациях PowerPoint с помощью JavaScript
+linktitle: Управляйте SmartArt
 type: docs
 weight: 10
 url: /ru/nodejs-java/manage-smartart/
 keywords:
 - SmartArt
 - Текст SmartArt
-- Тип макета
-- Скрытое свойство
-- Организационная диаграмма
-- Диаграмма Picture Organization
+- тип макета
+- свойство скрытия
+- организационная диаграмма
+- организационная диаграмма с изображением
 - PowerPoint
 - презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Учитесь создавать и редактировать SmartArt в PowerPoint с помощью Aspose.Slides для Node.js, используя понятные примеры кода на JavaScript, которые ускоряют дизайн слайдов и автоматизацию."
+description: "Узнайте, как создавать и редактировать SmartArt в PowerPoint с помощью Aspose.Slides for Node.js, используя понятные примеры кода на JavaScript, которые ускоряют разработку слайдов и автоматизацию."
 ---
+## **Обзор**
 
-## **Получить текст из SmartArt**
-Теперь метод TextFrame был добавлен в класс [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) и класс [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) соответственно. Это свойство позволяет получить весь текст из [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt), если он содержит не только текст узлов. Следующий пример кода поможет вам получить текст из узла SmartArt.
+SmartArt — это диаграмма PowerPoint, состоящая из узлов, форм узлов и макета. С помощью Aspose.Slides for Node.js via Java вы можете создавать SmartArt, читать текст из его узлов, изменять его макет, просматривать скрытые узлы, настраивать макеты организационных диаграмм и создавать диаграммы организации с изображениями.
+
+## **Получение текста из объекта SmartArt**
+
+Узел SmartArt может содержать одну или несколько форм. Чтобы прочитать видимый текст, пройдитесь по [SmartArt.getAllNodes](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartart/#getAllNodes--), затем прочитайте [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/), возвращаемый [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartartshape/#getTextFrame--).
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var smartArt = slide.getShapes().get_Item(0);
-    var smartArtNodes = smartArt.getAllNodes();
-    
-    for (let i = 0; i < smartArtNodes.size(); i++) {
-        const smartArtNode = smartArtNodes.get_Item(i);
-        for (let j = 0; j < smartArtNode.getShapes().size(); j++) {
-            const nodeShape = smartArtNode.getShapes().get_Item(j);
-            if (nodeShape.getTextFrame() != null) {
-                console.log(nodeShape.getTextFrame().getText());
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+        let smartArt = shape;
+        let nodes = smartArt.getAllNodes();
+
+        for (let nodeIndex = 0; nodeIndex < nodes.size(); nodeIndex++) {
+            let node = nodes.get_Item(nodeIndex);
+            let nodeShapes = node.getShapes();
+
+            for (let shapeIndex = 0; shapeIndex < nodeShapes.size(); shapeIndex++) {
+                let nodeShape = nodeShapes.get_Item(shapeIndex);
+
+                if (nodeShape.getTextFrame() != null) {
+                    console.log(nodeShape.getTextFrame().getText());
+                }
             }
         }
     }
-    
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Изменение типа макета объекта SmartArt**
 
-## **Изменить тип макета SmartArt**
-Чтобы изменить тип макета [SmartArt], выполните следующие шаги:
+Макет SmartArt определяет, как узлы размещаются и соединяются. В следующем примере создаётся объект SmartArt с типом [SmartArtLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartartlayouttype/) `BasicBlockList`, затем он изменяется на значение `BasicProcess` и сохраняется презентация.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Получите ссылку на слайд, используя его индекс.
-- Добавьте [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
-- Измените [LayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt#setLayout-int-) на BasicProcess.
-- Сохраните презентацию в файл PPTX.
-
-В приведённом ниже примере мы добавили соединитель между двумя фигурами.
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    // Добавить SmartArt BasicProcess
-    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
-    // Сменить LayoutType на BasicProcess
-    smart.setLayout(aspose.slides.SmartArtLayoutType.BasicProcess);
-    // Сохранение презентации
-    pres.save("ChangeSmartArtLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
+    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
+
+    smartArt.setLayout(aspose.slides.SmartArtLayoutType.BasicProcess);
+
+    presentation.save("ChangeSmartArtLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Проверка, скрыт ли узел SmartArt**
 
-## **Проверить свойство Visibility SmartArt**
-Обратите внимание: метод SmartArtNode.isHidden() возвращает true, если данный узел скрыт в модели данных. Чтобы проверить свойство скрытия любого узла [SmartArt], выполните следующие шаги:
+[SmartArtNode.isHidden](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartartnode/ishidden/) указывает, скрыт ли узел в модели данных SmartArt. Скрытые узлы могут существовать в структуре, даже если выбранный макет не отображает их как видимые элементы диаграммы.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Добавьте [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
-- Добавьте узел в SmartArt.
-- Проверьте свойство [видимость](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/ishidden/).
-- Сохраните презентацию в файл PPTX.
+В следующем примере добавляется узел к объекту SmartArt, использующему тип [SmartArtLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartartlayouttype/) `RadialCycle`, и проверяется состояние скрытия узла.
 
-В приведённом ниже примере мы добавили соединитель между двумя фигурами.
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    // Добавить SmartArt BasicProcess
-    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.RadialCycle);
-    // Добавить узел в SmartArt
-    var node = smart.getAllNodes().addNode();
-    // Проверить свойство isHidden
-    var hidden = node.isHidden();// Возвращает true
-    if (hidden) {
-        // Выполнить какие‑то действия или уведомления
+    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.RadialCycle);
+
+    let node = smartArt.getAllNodes().addNode();
+    let isHidden = node.isHidden();
+
+    if (isHidden) {
+        console.log("The node is hidden in the SmartArt data model.");
     }
-    // Сохранение презентации
-    pres.save("CheckSmartArtHiddenProperty_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Получение или установка макета организационной диаграммы**
 
-## **Получить или задать тип организационной диаграммы**
-Методы [SmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getOrganizationChartLayout--) и [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#setOrganizationChartLayout-int-) позволяют получить или задать тип организационной диаграммы, связанный с текущим узлом. Чтобы получить или задать тип организационной диаграммы, выполните следующие шаги:
+Для диаграмм SmartArt, использующих макет организационной диаграммы, методы [SmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartartnode/#getOrganizationChartLayout--) и [SmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartartnode/#setOrganizationChartLayout-int-) определяют, как дочерние узлы располагаются под родительским узлом. Например, вы можете установить, чтобы дочерние узлы висели слева, справа или с обеих сторон, в зависимости от выбранного [OrganizationChartLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/organizationchartlayouttype/).
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Добавьте [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) на слайд.
-- Получите или [задать тип организационной диаграммы](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#setOrganizationChartLayout-int-).
-- Сохраните презентацию в файл PPTX.
+В следующем примере создаётся организационная диаграмма и задаётся макет для первого узла со значением [OrganizationChartLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/organizationchartlayouttype/) `LeftHanging`.
 
-В приведённом ниже примере мы добавили соединитель между двумя фигурами.
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    // Добавить SmartArt BasicProcess
-    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.OrganizationChart);
-    // Получить или задать тип организационной диаграммы
-    smart.getNodes().get_Item(0).setOrganizationChartLayout(aspose.slides.OrganizationChartLayoutType.LeftHanging);
-    // Сохранение презентации
-    pres.save("OrganizeChartLayoutType_out.pptx", aspose.slides.SaveFormat.Pptx);
+    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, aspose.slides.SmartArtLayoutType.OrganizationChart);
+
+    let rootNode = smartArt.getNodes().get_Item(0);
+    rootNode.setOrganizationChartLayout(aspose.slides.OrganizationChartLayoutType.LeftHanging);
+
+    presentation.save("OrganizationChartLayout_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Создание организационной диаграммы с изображением**
 
-## **Создать диаграмму Picture Organization**
-Aspose.Slides для Node.js через Java предоставляет простой API для создания диаграмм PictureOrganization простым способом. Чтобы создать диаграмму на слайде:
+Организационная диаграмма с изображением — это макет SmartArt, предназначенный для иерархических диаграмм с заполнителями изображений. При добавлении объекта SmartArt на слайд используйте значение [SmartArtLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart`.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и требуемым типом (ChartType.PictureOrganizationChart).
-4. Сохраните изменённую презентацию в файл PPTX.
-
-Следующий код используется для создания диаграммы.
 ```javascript
-var pres = new aspose.slides.Presentation("test.pptx");
+let presentation = new aspose.slides.Presentation();
 try {
-    var smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.PictureOrganizationChart);
-    pres.save("OrganizationChart.pptx", aspose.slides.SaveFormat.Pptx);
+    let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        0, 0, 400, 400, aspose.slides.SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
-
-## **Получить или задать состояние SmartArt**
-Чтобы изменить тип макета [SmartArt], выполните следующие шаги:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Добавьте [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addSmartArt-float-float-float-float-int-) на слайд.
-3. [Получить] или [Установить] состояние диаграммы SmartArt.
-4. Сохраните презентацию в файл PPTX.
-
-Следующий код используется для создания диаграммы.
-```javascript
-// Создать экземпляр класса Presentation, представляющего файл PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Добавить SmartArt BasicProcess
-    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicProcess);
-    // Получить или задать состояние диаграммы SmartArt
-    smart.setReversed(true);
-    var flag = smart.isReversed();
-    // Сохранение презентации
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
 
 ## **FAQ**
 
-**Поддерживает ли SmartArt зеркальное отражение/реверс для языков RTL?**
+**Поддерживает ли SmartArt зеркальное отражение или обратное отображение для RTL‑языков?**
 
-Да. Метод [setReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setreversed/) переключает направление диаграммы (LTR/RTL), если выбранный тип SmartArt поддерживает реверс.
+Да. Метод [SmartArt.setReversed](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartart/setreversed/) переключает направление диаграммы с слева направо на справа налево или обратно, если выбранный макет SmartArt поддерживает обратное отображение.
 
-**Как я могу скопировать SmartArt на тот же слайд или в другую презентацию, сохраняя форматирование?**
+**Как скопировать SmartArt на тот же слайд или в другую презентацию, сохранив форматирование?**
 
-Вы можете [клонировать объект SmartArt](/slides/ru/nodejs-java/shape-manipulations/) через коллекцию фигур ([ShapeCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addclone/)) или [клонировать весь слайд](/slides/ru/nodejs-java/clone-slides/) содержащий эту фигуру. Оба подхода сохраняют размер, позицию и стиль.
+Вы можете [клонировать форму SmartArt](/slides/ru/nodejs-java/shape-manipulations/) с помощью [ShapeCollection.addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/addclone/) или [клонировать весь слайд](/slides/ru/nodejs-java/clone-slides/), содержащий SmartArt. Оба подхода сохраняют размер, позицию и форматирование.
 
-**Как отрисовать SmartArt в растровое изображение для предварительного просмотра или веб‑экспорта?**
+**Как отрендерить SmartArt в растр‑изображение для предварительного просмотра или веб‑экспорта?**
 
-[Отрендерите слайд](/slides/ru/nodejs-java/convert-powerpoint-to-png/) (или всю презентацию) в PNG/JPEG с помощью API, который конвертирует слайды/презентации в изображения — SmartArt будет отрисован как часть слайда.
+[Отрендерите слайд](/slides/ru/nodejs-java/convert-powerpoint-to-png/) или всю презентацию в PNG или JPEG. SmartArt рендерится как часть слайда.
 
-**Как программно выбрать конкретный SmartArt на слайде, если их несколько?**
+**Как найти конкретный объект SmartArt на слайде, если их несколько?**
 
-Обычной практикой является использование альтернативного текста (Alt Text) или [setName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setname/) и поиск фигуры по этому атрибуту с помощью [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes). Затем проверьте тип, чтобы убедиться, что это [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/). Документация описывает типичные техники поиска и работы с фигурами.
+Установите отличительное значение с помощью [Shape.setAlternativeText](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/setalternativetext/) или [Shape.setName](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/setname/) для формы SmartArt, выполните поиск этого значения в [BaseSlide.getShapes](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseslide/#getShapes) и затем проверьте, что найденная форма является [SmartArt](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartart/).
