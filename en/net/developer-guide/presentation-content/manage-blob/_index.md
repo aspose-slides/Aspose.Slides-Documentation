@@ -198,6 +198,22 @@ When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a 
 
 {{% /alert %}}
 
+### **Dispose Presentation Objects to Release Memory**
+
+When processing large presentations, ensure that the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance is properly disposed so that the memory it occupied is released. The recommended way is to use a `using` statement or declaration as shown in the examples above; it automatically disposes the presentation and frees unmanaged resources when the block exits.
+
+If you create a presentation without a `using` block, explicitly call `Dispose()` after you have finished using it.
+
+```cs
+Presentation presentation = new Presentation("large.pptx");
+
+// ...process the presentation...
+presentation.Save("large.pdf", SaveFormat.Pdf);
+
+// Explicitly release resources.
+presentation.Dispose();
+```
+
 ## **FAQ**
 
 **What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**

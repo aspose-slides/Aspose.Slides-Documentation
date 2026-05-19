@@ -212,6 +212,20 @@ When you use `setTempFilesRootPath`, Aspose.Slides does not automatically create
 
 {{% /alert %}}
 
+### **Dispose Presentation Objects to Release Memory**
+
+When processing large presentations, ensure that the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) instance is properly disposed so that the memory it occupied is released. Call `dispose()` after you have finished using the presentation to free unmanaged resources.
+
+```php
+$presentation = new Presentation("large.pptx");
+
+# ...process the presentation...
+$presentation->save("large.pdf", SaveFormat::Pdf);
+
+# Explicitly release resources.
+$presentation->dispose();
+```
+
 ## **FAQ**
 
 **What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**
