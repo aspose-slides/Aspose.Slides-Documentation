@@ -1,5 +1,5 @@
 ---
-title: إدارة دفاتر عمل المخططات في العروض باستخدام C++
+title: إدارة دفاتر عمل المخططات في العروض التقديمية باستخدام C++
 linktitle: دفتر عمل المخطط
 type: docs
 weight: 70
@@ -8,8 +8,8 @@ keywords:
 - دفتر عمل المخطط
 - بيانات المخطط
 - خلية دفتر العمل
-- علامة البيانات
-- ورقة العمل
+- ملصق البيانات
+- ورقة عمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
@@ -17,12 +17,18 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لـ C++: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات عرضك التقديمي."
+description: "اكتشف Aspose.Slides لـ C++: إدارة دفاتر عمل المخططات في صيغ PowerPoint و OpenDocument بسهولة لتبسيط بيانات العرض التقديمي."
 ---
+## **نظرة عامة**
+
+توضح هذه المقالة كيفية العمل مع دفاتر عمل المخططات في Aspose.Slides. تعرض كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
+
+كما تغطي العمل مع دفاتر عمل خارجية كمصادر بيانات للمخططات. تُظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر عمل خارجي مرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
 
 ## **قراءة وكتابة بيانات المخطط من دفتر عمل**
 
-توفر Aspose.Slides طرق [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) التي تتيح لك قراءة وكتابة دفاتر عمل بيانات المخططات (التي تحتوي على بيانات مخطط تم تعديلها بواسطة Aspose.Cells). **ملاحظة** يجب أن تكون بيانات المخطط منظمة بنفس الطريقة أو أن يكون لها هيكل مشابه للمصدر.
+توفر Aspose.Slides الطرق [ReadWorkbookStream](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و[WriteWorkbookStream](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) التي تتيح لك قراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تحريرها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو أن تكون ذات بنية مشابهة للمصدر.
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
@@ -37,6 +43,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
+يعرض هذا الكود C++ العملية لتعيين دفتر عمل بيانات المخطط:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -68,23 +75,23 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
+## **تعيين خلية دفتر العمل كملصق بيانات المخطط**
 
-## **تعيين خلية دفتر العمل كعنوان بيانات المخطط**
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة مخطط فقاعة مع بعض البيانات.
+1. الوصول إلى سلسلة المخطط.
+1. تعيين خلية دفتر العمل كملصق بيانات.
+1. حفظ العرض التقديمي.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر مؤشرها.
-3. إضافة مخطط فقاعة مع بعض البيانات.
-4. الوصول إلى سلسلة المخطط.
-5. تعيين خلية دفتر العمل كعنوان بيانات.
-6. حفظ العرض التقديمي.
+يعرض هذا الكود C++ كيفية تعيين خلية دفتر العمل كملصق بيانات المخطط:
 
-يعرض هذا الكود C++ طريقة تعيين خلية دفتر العمل كعنوان بيانات للمخطط:
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// ينشئ كائنًا من فئة Presentation تمثل ملف عرض تقديمي
+// يقوم بإنشاء فئة Presentation التي تمثل ملف عرض تقديمي 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -104,10 +111,10 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **إدارة أوراق العمل**
 
-يوضح هذا الكود C++ عملية استخدام طريقة [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) للوصول إلى مجموعة أوراق العمل:
+يعرض هذا الكود C++ عملية يستخدم فيها الأسلوب [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) للوصول إلى مجموعة أوراق العمل:
+
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -119,10 +126,10 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-
 ## **تحديد نوع مصدر البيانات**
 
-يوضح هذا الكود C++ كيفية تحديد نوع لمصدر البيانات:
+يعرض هذا الكود C++ كيفية تحديد نوع لمصدر البيانات:
+
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -138,16 +145,46 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+## **الكشف عن تنسيقات دفاتر العمل المضمنة غير المدعومة**
+
+لا تدعم Aspose.Slides تنسيق دفتر العمل الثنائي Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام الأسلوب `get_EmbeddedWorkbookType` على [IChartData](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/workbooktype/) للكشف عن التنسيقات غير المدعومة وتخطي تلك المخططات.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!System::ObjectExt::Is<IChart>(shape))
+    {
+        continue;
+    }
+
+    auto chart = System::ExplicitCast<IChart>(shape);
+    auto chartData = chart->get_ChartData();
+
+    if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
+        chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
+    {
+        // دفتر العمل المضمن بتنسيق .xlsb غير مدعوم.
+        continue;
+    }
+
+    // اقرأ أو عدل بيانات دفتر عمل المخطط هنا.
+}
+```
 
 ## **دفتر عمل خارجي**
 
 {{% alert color="primary" %}} 
-في [Aspose.Slides](https://releases.aspose.com/slides/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4، قمنا بتنفيذ دعم دفاتر العمل الخارجية كمصدر بيانات للمخططات.
+في [Aspose.Slides](https://releases.aspose.com/slides/ar/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4، قمنا بتنفيذ دعم دفاتر العمل الخارجية كمصدر بيانات للمخططات.
 {{% /alert %}} 
 
 ### **إنشاء دفتر عمل خارجي**
 
-باستخدام الطريقتين **`ReadWorkbookStream`** و **`SetExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
+باستخدام طريقتي **`ReadWorkbookStream`** و**`SetExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
+
+يعرض هذا الكود C++ عملية إنشاء دفتر عمل خارجي:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -169,12 +206,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-
 ### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة **`IChartData::SetExternalWorkbook`**، يمكنك ربط دفتر عمل خارجي بمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الملف).
+باستخدام الأسلوب **`IChartData::SetExternalWorkbook`**، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذا الأسلوب لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
 
-بينما لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، لا يزال بإمكانك استخدام هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+على الرغم من أنك لا تستطيع تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، يمكنكstill استخدام such workbooks as an external data source. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+
+يعرض هذا الكود C++ كيفية تعيين دفتر عمل خارجي:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -198,11 +236,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
+المُعامل `updateChartData` (تحت أسلوب `SetExternalWorkbook`) يُستخدم لتحديد ما إذا كان سيتم تحميل دفتر Excel أم لا.
 
-معامل `updateChartData` (تحت طريقة `SetExternalWorkbook`) يُستخدم لتحديد ما إذا كان سيتم تحميل دفتر Excel أم لا.
-
-* عندما تكون قيمة `updateChartData` مضبوطة على `false`، يتم تحديث مسار دفتر العمل فقط—لن يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل الهدف. قد ترغب في استخدام هذا الإعداد عندما يكون دفتر العمل الهدف غير موجود أو غير متاح.  
-* عندما تكون قيمة `updateChartData` مضبوطة على `true`، يتم تحديث بيانات المخطط من دفتر العمل الهدف.
+* عندما تكون قيمة `updateChartData` مضبوطة على `false`، يتم تحديث مسار دفتر العمل فقط—لن يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل المستهدف. قد تريد استخدام هذا الإعداد عندما يكون دفتر العمل المستهدف غير موجود أو غير متاح.
+* عندما تكون قيمة `updateChartData` مضبوطة على `true`، يتم تحديث بيانات المخطط من دفتر العمل المستهدف.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -216,16 +253,16 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-
 ### **الحصول على مسار دفتر العمل كمصدر بيانات خارجي للمخطط**
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر مؤشرها.
-3. إنشاء كائن لشكل المخطط.
-4. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
-5. تحديد الشرط المناسب بناءً على كون نوع المصدر هو نفس نوع مصدر دفتر العمل الخارجي.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إنشاء كائن لشكل المخطط.
+1. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
+1. تحديد الشرط المناسب بناءً على كون نوع المصدر هو نفسه نوع مصدر دفتر العمل الخارجي.
 
-يوضح هذا الكود C++ العملية:
+يعرض هذا الكود C++ العملية:
+
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -237,52 +274,52 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// يحفظ العرض التقديمي
+// Saves the presentation
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تُجري بها تغييرات على محتويات دفاتر العمل الداخلية. عند عدم إمكانية تحميل دفتر عمل خارجي، يتم رفع استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تقوم بها بتعديل محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم إلقاء استثناء.
+
+هذا الكود C++ هو تنفيذ العملية الموصوفة:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
-    const String outPath = u"../out/presentation-out.pptx";
-    
+	const String outPath = u"../out/presentation-out.pptx";
+	
 
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-    System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-    System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
-    
+	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
+	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+	System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
+	
 
-    chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
-    pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
-
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تحديد ما إذا كان مخطط معين مرتبط بدفتر عمل خارجي أم مدمج؟**
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مضمّن؟**
 
-نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و[مسار دفتر عمل خارجي](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
-**هل تدعم المسارات النسبية إلى دفاتر العمل الخارجية، وكيف يتم تخزينها؟**
+**هل يتم دعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
 
-نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا ملائم لنقلية المشروع؛ ومع ذلك، يجب أن تكون على علم بأن العرض التقديمي سيخزن المسار المطلق في ملف PPTX.
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مناسب لتقابلية نقل المشروع؛ ومع ذلك، يجب ملاحظة أن العرض التقديمي سيخزن المسار المطلق في ملف PPTX.
 
-**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات شبكية؟**
+**هل يمكنني استخدام دفاتر العمل الموجودة على موارد/مشاركات الشبكة؟**
 
-نعم، يمكن استخدام هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يتم دعم تحرير دفاتر العمل البعيد مباشرة من Aspose.Slides—يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام such workbooks as an external data source. ومع ذلك، لا يُدعم تحرير دفاتر العمل البعيدة مباشرةً من Aspose.Slides—يمكن استخدامها فقط كمصدر.
 
 **هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
 
-لا. يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي نفسه عند حفظ العرض التقديمي.
+لا. يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي نفسه عند حفظ العرض التقديمي.
 
 **ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-Aspose.Slides لا تقبل كلمة مرور عند الربط. عادةً ما يتم إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](/cells/cpp/)) وربطها بهذه النسخة.
+Aspose.Slides لا تقبل كلمة مرور عند الربط. عادةً ما يتم إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](/cells/cpp/)) والربط بتلك النسخة.
 
 **هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. كل مخطط يخزن رابطه الخاص. إذا كانت جميع الروابط تشير إلى نفس الملف، فإن تحديث ذلك الملف سيظهر في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
+نعم. يخزن كل مخطط رابطه الخاص. إذا أشار جميعها إلى نفس الملف، فإن تحديث ذلك الملف سيظهر في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
