@@ -146,6 +146,35 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+## **Detect Unsupported Embedded Workbook Formats**
+
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `get_EmbeddedWorkbookType` method on [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) enumeration to detect unsupported formats and skip those charts.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!System::ObjectExt::Is<IChart>(shape))
+    {
+        continue;
+    }
+
+    auto chart = System::ExplicitCast<IChart>(shape);
+    auto chartData = chart->get_ChartData();
+
+    if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
+        chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
+    {
+        // Embedded workbook is in .xlsb format, which is not supported.
+        continue;
+    }
+
+    // Read or modify the chart workbook data here.
+}
+```
+
 ## **External Workbook**
 
 {{% alert color="primary" %}} 
