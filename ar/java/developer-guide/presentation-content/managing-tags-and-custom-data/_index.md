@@ -1,11 +1,11 @@
 ---
-title: إدارة العلامات والبيانات المخصصة في العروض التقديمية باستخدام Java
+title: إدارة العلامات والبيانات المخصصة في العروض باستخدام Java
 linktitle: العلامات والبيانات المخصصة
 type: docs
 weight: 300
 url: /ar/java/managing-tags-and-custom-data/
 keywords:
-- خصائص الوثيقة
+- خصائص المستند
 - علامة
 - بيانات مخصصة
 - إضافة علامة
@@ -14,22 +14,30 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة وقراءة وتحديث وإزالة العلامات والبيانات المخصصة في Aspose.Slides للغة Java، مع أمثلة على عروض PowerPoint وعروض OpenDocument."
+description: "تعلم كيفية إضافة وقراءة وتحديث وإزالة العلامات والبيانات المخصصة في Aspose.Slides for Java، مع أمثلة لعروض PowerPoint وOpenDocument."
 ---
+## **نظرة عامة**
+
+تشرح هذه المقالة كيفية عمل Aspose.Slides مع العلامات والبيانات المخصصة في عروض PowerPoint. وهي تلخص باختصار كيفية تخزين البيانات في ملفات PPTX، وتوضح أن البيانات الخاصة بالعرض يمكن أن توجد كعلامات وأجزاء XML مخصصة، وتصف العلامات بأنها أزواج من السلاسل المفتاحية والقيمة.
+
+كما تُظهر كيفية قراءة قيم العلامات وكيفية إضافة علامات إلى عرض تقديمي أو شريحة فردية أو شكل. بالإضافة إلى ذلك، تغطي المقالة مهام إدارة العلامات الشائعة مثل مسح جميع العلامات، وإزالة علامة حسب الاسم، واسترجاع قائمة بأسماء العلامات.
 
 ## **تخزين البيانات في ملفات العرض**
 
-تُخزن ملفات PPTX—العناصر ذات الامتداد .pptx—في تنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يعرّف تنسيق Office Open XML بنية البيانات المتضمنة في العروض التقديمية. 
+ملفات PPTX—العناصر ذات الامتداد .pptx—مخزنة بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML بنية البيانات المحتواة في العروض التقديمية.
 
-مع اعتبار *الشريحة* أحد عناصر العروض التقديمية، يحتوي *جزء الشريحة* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بأن يكون له علاقات صريحة مع العديد من الأجزاء—مثل العلامات المعرفة من قبل المستخدم—المحددة في ISO/IEC 29500. 
+مع اعتبار *الشريحة* أحد العناصر في العروض، يحتوي *جزء الشريحة* على محتوى شريحة واحدة. يُسمح لجزء الشريحة أن يكون له علاقات صريحة مع العديد من الأجزاء—مثل العلامات المعرفة من قبل المستخدم—المحددة في ISO/IEC 29500.
 
-يمكن أن توجد البيانات المخصصة (الخاصة بعرض تقديمي) أو المستخدم كعلامات ([ITagCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ITagCollection)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)). 
+يمكن أن تكون البيانات المخصصة (الخاصة بعرض تقديمي) أو التي يضيفها المستخدم موجودة كعلامات ([ITagCollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITagCollection)) وأجزاء XML مخصصة ([ICustomXmlPartCollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICustomXmlPartCollection)).
 
-{{% alert color="primary" %}}العلامات هي في الأساس قيم أزواج مفتاح‑سلسلة.{{% /alert %}} 
+{{% alert color="primary" %}} 
+العلامات هي في الأساس أزواج قيم مفتاح-سلسلة. 
+{{% /alert %}} 
 
-## **الحصول على قيم العلامات**
+## **جلب قيم العلامات**
 
-في الشرائح، تتطابق العلامة مع طرق [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#getKeywords--) و[IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-). يوضح هذا النموذج البرمجي كيفية الحصول على قيمة علامة باستخدام Aspose.Slides للغة Java لــ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation):
+في الشرائح، تت对应 العلامة إلى طريقتي [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IDocumentProperties#getKeywords--) و [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-). يعرض هذا المثال كيفية جلب قيمة علامة باستخدام Aspose.Slides for Java للـ[Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation):
+
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try{
@@ -39,16 +47,17 @@ try{
 }
 ```
 
+## **إضافة علامات إلى العروض**
 
-## **إضافة علامات إلى العروض التقديمية**
+يتيح Aspose.Slides إضافة علامات إلى العروض. عادةً ما تتكون العلامة من عنصرين:
 
-يتيح لك Aspose.Slides إضافة علامات إلى العروض الت تقديمية. تتكوّن العلامة عادةً من عنصرين:
 - اسم الخاصية المخصصة - `MyTag`
 - قيمة الخاصية المخصصة - `My Tag Value`
 
-إذا كنت تحتاج إلى تصنيف بعض العروض بناءً على قاعدة أو خاصية محددة، فقد تستفيد من إضافة علامات إلى تلك العروض. على سبيل المثال، إذا أردت تجميع جميع العروض من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة أمريكا الشمالية ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم.
+إذا كنت بحاجة إلى تصنيف بعض العروض بناءً على قاعدة أو خاصية معينة، فقد تستفيد من إضافة علامات إلى تلك العروض. على سبيل المثال، إذا رغبت في تجميع جميع العروض من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة “North American” ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم.
 
-يظهر هذا النموذج البرمجي كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) باستخدام Aspose.Slides للغة Java:
+يعرض هذا المثال كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation) باستخدام Aspose.Slides for Java:
+
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -59,8 +68,8 @@ try {
 }
 ```
 
+يمكن أيضًا تعيين العلامات للـ[Slide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ISlide):
 
-يمكن أيضًا تعيين العلامات لـ [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide):
 ```java
 Presentation pres = new Presentation();
 try {
@@ -71,8 +80,8 @@ try {
 }
 ```
 
+أو لأي [Shape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) فردي:
 
-أو لأي شكل فردي [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape):
 ```java
 Presentation pres = new Presentation();
 try {
@@ -85,14 +94,22 @@ try {
 }
 ```
 
+### **القيود**
 
-## **الأسئلة المتكررة**
+العلامات التي تُضاف عبر مجموعة بيانات العلامات المخصصة باستخدام `getCustomData().getTags()` تُخزن فقط داخل ملف PowerPoint. هي **ليست** مُنقولة إلى بنية العلامات في PDF عند تصدير العرض إلى PDF. وبالتالي، لا يمكن استرجاع معرف مخصص تم تعيينه كعلامة من ملف PDF المعلَّم.
 
-**هل يمكنني إزالة جميع العلامات من عرض تقديمي أو شريحة أو شكل في عملية واحدة؟**  
-نعم. يدعم [مجموعة العلامات](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#clear--) التي تحذف جميع أزواج المفتاح‑القيمة مرة واحدة.
+**حل بديل**: يمكنك تخزين معرف مخصص في **النص البديل** للكائن (مثلًا، `shape.setAlternativeText("MyId")`). بعد التصدير إلى PDF، قد يظهر النص البديل في بنية العلامات في PDF.
 
-**كيف أحذف علامة واحدة باسمها دون التجول عبر المجموعة بأكملها؟**  
-استخدم العملية [Remove(name)](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#remove-java.lang.String-) على [مجموعة العلامات](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) لحذف العلامة بمفتاحها.
+## **FAQ**
 
-**كيف يمكنني استرجاع القائمة الكاملة لأسماء العلامات للتحليل أو التصفية؟**  
-استخدم [getNamesOfTags](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#getNamesOfTags--) على [مجموعة العلامات](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/); تُرجع مصفوفة بجميع أسماء العلامات.
+**هل يمكنني إزالة جميع العلامات من عرض تقديمي أو شريحة أو شكل في عملية واحدة؟**
+
+نعم. يدعم [tag collection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/ar/java/com.aspose.slides/tagcollection/#clear--) التي تحذف جميع أزواج المفتاح‑القيمة دفعة واحدة.
+
+**كيف أحذف علامة واحدة حسب اسمها دون遍历 (التكرار) عبر المجموعة بالكامل؟**
+
+استخدم عملية [Remove(name)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/tagcollection/#remove-java.lang.String-) على [tag collection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/tagcollection/) لحذف العلامة بمفتاحها.
+
+**كيف يمكنني استرجاع القائمة الكاملة لأسماء العلامات للتحليل أو التصفية؟**
+
+استخدم [getNamesOfTags](https://reference.aspose.com/slides/ar/java/com.aspose.slides/tagcollection/#getNamesOfTags--) على [tag collection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/tagcollection/)، حيث تُعيد مصفوفة تحتوي على جميع أسماء العلامات.

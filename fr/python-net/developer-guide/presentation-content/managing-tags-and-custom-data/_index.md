@@ -1,37 +1,43 @@
 ---
-title: Gestion des balises et des données personnalisées dans les présentations avec Python
-linktitle: Balises et données personnalisées
+title: Gestion des tags et des données personnalisées dans les présentations avec Python
+linktitle: Tags et données personnalisées
 type: docs
 weight: 300
 url: /fr/python-net/managing-tags-and-custom-data/
 keywords:
 - propriétés du document
-- balise
+- tag
 - données personnalisées
-- ajouter une balise
-- valeurs de paires
+- ajouter un tag
+- paires de valeurs
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez comment ajouter, lire, mettre à jour et supprimer les balises et les données personnalisées dans Aspose.Slides pour Python via .NET, avec des exemples pour les présentations PowerPoint et OpenDocument."
+description: "Apprenez comment ajouter, lire, mettre à jour et supprimer les tags et les données personnalisées dans Aspose.Slides pour Python via .NET, avec des exemples pour les présentations PowerPoint et OpenDocument."
 ---
+## **Vue d'ensemble**
+
+Cet article explique comment Aspose.Slides fonctionne avec les tags et les données personnalisées dans les présentations PowerPoint. Il décrit brièvement comment les données sont stockées dans les fichiers PPTX, indique que des données spécifiques à la présentation peuvent exister sous forme de tags et de parties XML personnalisées, et décrit les tags comme des paires clé‑valeur de chaînes.
+
+Il montre également comment lire les valeurs des tags et comment ajouter des tags à une présentation, à une diapositive individuelle ou à une forme. De plus, l'article couvre les tâches courantes de gestion des tags telles que la suppression de tous les tags, la suppression d'un tag par son nom et la récupération de la liste des noms de tags.
 
 ## **Stockage des données dans les fichiers de présentation**
 
-Les fichiers PPTX — les éléments avec l’extension .pptx — sont stockés au format PresentationML, qui fait partie de la spécification Office Open XML. Le format Office Open XML définit la structure des données contenues dans les présentations. 
+Les fichiers PPTX — les éléments avec l’extension .pptx — sont stockés au format PresentationML, qui fait partie de la spécification Office Open XML. Le format Office Open XML définit la structure des données contenues dans les présentations.  
 
-Dans une présentation, une *diapositive* est l’un des éléments, et une *partie de diapositive* contient le contenu d’une seule diapositive. Une partie de diapositive peut avoir des relations explicites avec de nombreuses parties — comme les balises définies par l’utilisateur — définies par la norme ISO/IEC 29500. 
+Une *diapositive* étant l’un des éléments des présentations, une *partie de diapositive* contient le contenu d’une seule diapositive. Une partie de diapositive peut avoir des relations explicites avec de nombreuses parties — telles que les User Defined Tags — définies par ISO/IEC 29500.  
 
-Les données personnalisées (spécifiques à une présentation) ou utilisateur peuvent exister sous forme de balises ([ITagCollection](https://reference.aspose.com/slides/python-net/aspose.slides/itagcollection/)) et de CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icustomxmlpartcollection/)). 
+Les données personnalisées (spécifiques à une présentation) ou de l'utilisateur peuvent exister sous forme de tags ([ITagCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/itagcollection/)) et de CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/icustomxmlpartcollection/)).  
 
 {{% alert color="primary" %}} 
-Les balises sont essentiellement des valeurs de paires clé‑chaîne. 
+Les tags sont essentiellement des paires clé‑valeur de chaînes. 
 {{% /alert %}} 
 
-## **Obtenir les valeurs des balises**
+## **Obtenir les valeurs des tags**
 
-Dans les diapositives, une balise correspond à la propriété IDocumentProperties.Keywords. Ce code d’exemple montre comment obtenir la valeur d’une balise avec Aspose.Slides pour Python via .NET pour [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/):
+Dans les diapositives, un tag correspond à la propriété IDocumentProperties.Keywords. Ce code d’exemple montre comment obtenir la valeur d’un tag avec Aspose.Slides for Python via .NET pour [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) :
+
 ```py
 import aspose.slides as slides
 
@@ -39,16 +45,17 @@ with slides.Presentation("pres.pptx") as pres:
     print(pres.document_properties.keywords)
 ```
 
+## **Ajouter des tags aux présentations**
 
-## **Ajouter des balises aux présentations**
+Aspose.Slides vous permet d’ajouter des tags aux présentations. Un tag se compose généralement de deux éléments : 
 
-Aspose.Slides vous permet d’ajouter des balises aux présentations. Une balise se compose généralement de deux éléments :
 - le nom d’une propriété personnalisée - `MyTag` 
 - la valeur de la propriété personnalisée - `My Tag Value`
 
-Si vous devez classer certaines présentations selon une règle ou une propriété spécifique, vous pouvez tirer parti de l’ajout de balises à ces présentations. Par exemple, si vous souhaitez regrouper toutes les présentations des pays d’Amérique du Nord, vous pouvez créer une balise « North American » et attribuer aux pays concernés (les États‑Unis, le Mexique et le Canada) comme valeurs. 
+Si vous devez classer certaines présentations selon une règle ou une propriété spécifique, vous pouvez tirer parti de l’ajout de tags à ces présentations. Par exemple, si vous souhaitez regrouper toutes les présentations provenant des pays d’Amérique du Nord, vous pouvez créer un tag North American et attribuer ensuite les pays concernés (les États‑Unis, le Mexique et le Canada) comme valeurs.  
 
-Ce code d’exemple montre comment ajouter une balise à une [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) en utilisant Aspose.Slides pour Python via .NET :
+Ce code d’exemple montre comment ajouter un tag à une [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) en utilisant Aspose.Slides for Python via .NET :
+
 ```py
 import aspose.slides as slides
 
@@ -57,8 +64,8 @@ with slides.Presentation("pres.pptx") as pres:
    tags.add("MyTag", "My Tag Value")
 ```
 
+Les tags peuvent également être définis pour [Slide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slide/) :
 
-Les balises peuvent également être définies pour [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/):
 ```py
 import aspose.slides as slides
 
@@ -68,8 +75,8 @@ with slides.Presentation("pres.pptx") as pres:
     tags.add("tag", "value")
 ```
 
+Ou toute [Shape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/) individuelle :
 
-Ou pour n’importe quel [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/):
 ```py
 import aspose.slides as slides
 
@@ -80,17 +87,19 @@ with slides.Presentation("pres.pptx") as pres:
     shape.custom_data.tags.add("tag", "value")
 ```
 
+### **Limitations**
+
+Les tags ajoutés via la collection `custom_data.tags` sont stockés uniquement dans le fichier PowerPoint. Ils ne sont **pas** transférés vers la structure de tags PDF lorsque la présentation est exportée au format PDF. Par conséquent, un identifiant personnalisé assigné en tant que tag ne peut pas être récupéré à partir du PDF balisé.  
+
+**Solution de contournement** : vous pouvez stocker un identifiant personnalisé dans le **Texte alternatif** de l’objet (par ex., `shape.alternative_text = "MyId"`). Après l’exportation au format PDF, le Texte alternatif peut apparaître dans la structure de tags du PDF.  
 
 ## **FAQ**
 
-**Puis-je supprimer toutes les balises d’une présentation, d’une diapositive ou d’une forme en une seule opération ?**
+**Puis-je supprimer tous les tags d’une présentation, d’une diapositive ou d’une forme en une seule opération ?**  
+Oui. La [tag collection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/tagcollection/) prend en charge une opération [clear](https://reference.aspose.com/slides/fr/python-net/aspose.slides/tagcollection/clear/) qui supprime toutes les paires clé‑valeur d’un coup.  
 
-Oui. La [tag collection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/) prend en charge une opération [clear](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/clear/) qui supprime toutes les paires clé‑valeur d’un seul coup.
+**Comment supprimer un seul tag par son nom sans parcourir toute la collection ?**  
+Utilisez l’opération [remove(name)](https://reference.aspose.com/slides/fr/python-net/aspose.slides/tagcollection/remove/) sur la [TagCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/tagcollection/) pour supprimer le tag par sa clé.  
 
-**Comment supprimer une seule balise par son nom sans parcourir toute la collection ?**
-
-Utilisez l’opération [remove(name)](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/remove/) sur [TagCollection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/) pour supprimer la balise par sa clé.
-
-**Comment récupérer la liste complète des noms de balises pour l’analyse ou le filtrage ?**
-
-Utilisez [get_names_of_tags](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/get_names_of_tags/) sur la [tag collection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/); cela renvoie un tableau de tous les noms de balises.
+**Comment récupérer la liste complète des noms de tags pour l’analyse ou le filtrage ?**  
+Utilisez [get_names_of_tags](https://reference.aspose.com/slides/fr/python-net/aspose.slides/tagcollection/get_names_of_tags/) sur la [tag collection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/tagcollection/) ; elle renvoie un tableau contenant tous les noms de tags.

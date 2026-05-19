@@ -9,30 +9,30 @@ keywords:
 - علامة
 - بيانات مخصصة
 - إضافة علامة
-- قيم مزدوجة
+- أزواج القيم
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "إضافة وقراءة وتحديث وإزالة العلامات والبيانات المخصصة في Aspose.Slides لنظام Android، مع أمثلة Java لعروض PowerPoint وعروض OpenDocument."
+description: "إضافة وقراءة وتحديث وإزالة العلامات والبيانات المخصصة في Aspose.Slides for Android، مع أمثلة Java لعروض PowerPoint وOpenDocument."
 ---
-
 ## **تخزين البيانات في ملفات العرض**
 
-ملفات PPTX—العناصر ذات امتداد .pptx—تُخزن بصيغة PresentationML، التي هي جزء من مواصفات Office Open XML. تُحدد صيغة Office Open XML بنية البيانات الموجودة في العروض التقديمية.  
+ملفات PPTX—العناصر ذات الامتداد .pptx—تُخزن بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يعرّف تنسيق Office Open XML البنية للبيانات الموجودة في العروض التقديمية. 
 
-مع اعتبار *الشريحة* كأحد عناصر العروض التقديمية، يحتوي *جزء الشريحة* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بأن يكون له علاقات صريحة مع أجزاء متعددة—مثل العلامات المعرفة من قبل المستخدم—المحددة في ISO/IEC 29500.  
+مع اعتبار *slide* أحد العناصر في العروض، يحتوي *slide part* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بوجود علاقات صريحة مع أجزاء متعددة—مثل User Defined Tags—المعرَّفة وفقًا لمعيار ISO/IEC 29500. 
 
-يمكن أن توجد بيانات مخصصة (محددة لعروض تقديمية) أو مستخدم على شكل علامات ([ITagCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITagCollection)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICustomXmlPartCollection)).
+يمكن للبيانات المخصصة (المحدّدة لعروض تقديمية) أو للمستخدم أن توجد كعلامات ([ITagCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITagCollection)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ICustomXmlPartCollection)).
 
 {{% alert color="primary" %}} 
-العلامات هي في الأساس قيم أزواج سلسلة-مفتاح. 
+العلامات هي أساسًا قيم أزواج مفتاح-سلسلة. 
 {{% /alert %}} 
 
 ## **الحصول على قيم العلامات**
 
-في الشرائح، تتطابق العلامة مع طريقتي [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#getKeywords--) و[IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) . يوضح هذا الشيفرة النموذجية كيفية الحصول على قيمة علامة باستخدام Aspose.Slides لـ Android عبر Java ل‍[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation):
+في الشرائح، تقابل العلامة طريقة [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IDocumentProperties#getKeywords--) وطريقة [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) . يوضح هذا المثال البرمجي كيفية الحصول على قيمة العلامة باستخدام Aspose.Slides for Android عبر Java لـ [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation):
+
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try{
@@ -42,16 +42,17 @@ try{
 }
 ```
 
-
 ## **إضافة علامات إلى العروض التقديمية**
 
-تتيح لك Aspose.Slides إضافة علامات إلى العروض التقديمية. تتكون العلامة عادةً من عنصرين:
-- اسم الخاصية المخصصة - `MyTag`
-- قيمة الخاصية المخصصة - `My Tag Value`
+يسمح Aspose.Slides لك بإضافة علامات إلى العروض التقديمية. تتكوّن العلامة عادةً من عنصرين:
 
-إذا كنت بحاجة إلى تصنيف بعض العروض التقديمية بناءً على قاعدة أو خاصية معينة، فقد تستفيد من إضافة علامات إلى تلك العروض. على سبيل المثال، إذا أردت تجميع جميع العروض التقديمية من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة أمريكا الشمالية ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم.
+- اسم الخاصية المخصّصة - `MyTag` 
+- قيمة الخاصية المخصّصة - `My Tag Value`
 
-توضح هذه الشيفرة النموذجية كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) باستخدام Aspose.Slides لـ Android عبر Java:
+إذا احتجت إلى تصنيف بعض العروض وفق قاعدة أو خاصية معينة، فقد تستفيد من إضافة العلامات إلى تلك العروض. على سبيل المثال، إذا أردت تجميع كل العروض من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة "North American" ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم.
+
+يوضح هذا المثال البرمجي كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) باستخدام Aspose.Slides for Android عبر Java:
+
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -62,8 +63,8 @@ try {
 }
 ```
 
+يمكن أيضًا تعيين العلامات لـ [Slide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISlide):
 
-يمكن أيضًا ضبط العلامات لـ [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide):
 ```java
 Presentation pres = new Presentation();
 try {
@@ -74,8 +75,8 @@ try {
 }
 ```
 
+أو لأي [Shape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IAutoShape) فردي:
 
-أو لأي [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) فردي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -88,17 +89,22 @@ try {
 }
 ```
 
+### **القيود**
 
-## **الأسئلة الشائعة**
+العلامات التي تُضاف عبر مجموعة بيانات العلامات المخصّصة باستخدام `getCustomData().getTags()` تُخزن فقط داخل ملف PowerPoint. ولا يتم نقلها إلى هيكل علامات PDF عند تصدير العرض إلى PDF. وبالتالي، لا يمكن استرداد معرف مخصّص مُعيّن كعلامة من ملف PDF المُعلام.
+
+**الحل البديل**: يمكنك تخزين معرف مخصّص في **نص بديل** للكائن (مثال، `shape.setAlternativeText("MyId")`). بعد التصدير إلى PDF، قد يظهر النص البديل في هيكل علامات PDF.
+
+## **الأسئلة المتكررة**
 
 **هل يمكنني إزالة جميع العلامات من عرض تقديمي أو شريحة أو شكل في عملية واحدة؟**
 
-نعم. يدعم [tag collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/#clear--) التي تحذف جميع أزواج المفتاح‑القيمة مرة واحدة.
+نعم. تدعم [tag collection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tagcollection/#clear--) التي تحذف جميع أزواج المفتاح–القيمة دفعة واحدة.
 
-**كيف أحذف علامة واحدة باسمها دون التكرار عبر المجموعة بأكملها؟**
+**كيف أحذف علامة واحدة باسمها دون التكرار عبر المجموعة بالكامل؟**
 
-استخدم عملية [remove(name)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/#remove-java.lang.String-) على [tag collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/) لحذف العلامة بمفتاحها.
+استخدم عملية [remove(name)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tagcollection/#remove-java.lang.String-) على [tag collection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tagcollection/) لحذف العلامة بمفتاحها.
 
 **كيف يمكنني استرجاع القائمة الكاملة لأسماء العلامات للتحليل أو التصفية؟**
 
-استخدم [getNamesOfTags](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/#getNamesOfTags--) على [tag collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/); تُعيد مصفوفة بجميع أسماء العلامات.
+استخدم [getNamesOfTags](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tagcollection/#getNamesOfTags--) على [tag collection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tagcollection/)؛ تُعيد مصفوفة تحتوي على جميع أسماء العلامات.

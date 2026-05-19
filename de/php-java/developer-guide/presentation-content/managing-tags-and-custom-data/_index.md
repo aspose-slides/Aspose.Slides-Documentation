@@ -16,24 +16,28 @@ keywords:
 - Aspose.Slides
 description: "Erfahren Sie, wie Sie Tags und benutzerdefinierte Daten in Aspose.Slides für PHP via Java hinzufügen, lesen, aktualisieren und entfernen, mit Beispielen für PowerPoint- und OpenDocument-Präsentationen."
 ---
+## **Übersicht**
 
-## **Datenspeicherung in Präsentationsdateien**
+Dieser Artikel erklärt, wie Aspose.Slides mit Tags und benutzerdefinierten Daten in PowerPoint-Präsentationen arbeitet. Er gibt einen kurzen Überblick darüber, wie Daten in PPTX-Dateien gespeichert werden, weist darauf hin, dass präsentationsspezifische Daten als Tags und benutzerdefinierte XML-Teile existieren können, und beschreibt Tags als Schlüssel-Wert-String-Paare.
 
-PPTX-Dateien — Elemente mit der Erweiterung .pptx — werden im PresentationML-Format gespeichert, das Teil der Office Open XML‑Spezifikation ist. Das Office Open XML‑Format definiert die Struktur für in Präsentationen enthaltene Daten. 
+Er zeigt außerdem, wie Tag-Werte gelesen und Tags zu einer Präsentation, einer einzelnen Folie oder einer Form hinzugefügt werden können. Zusätzlich behandelt der Artikel gängige Tag-Verwaltungsaufgaben wie das Löschen aller Tags, das Entfernen eines Tags nach Namen und das Abrufen der Liste von Tag-Namen.
 
-Ein *Folie* ist eines der Elemente in Präsentationen, ein *Folien‑Teil* enthält den Inhalt einer einzelnen Folie. Ein Folien‑Teil darf explizite Beziehungen zu vielen Teilen haben — wie benutzerdefinierten Tags — definiert durch ISO/IEC 29500. 
+## **Speicherung von Daten in Präsentationsdateien**
 
-Benutzerdefinierte Daten (spezifisch für eine Präsentation) oder Benutzer können als Tags ([TagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/)) und CustomXmlParts ([CustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/customxmlpartcollection/)) existieren.
+PPTX-Dateien - Elemente mit der Endung .pptx - werden im PresentationML-Format gespeichert, das Teil der Office Open XML-Spezifikation ist. Das Office Open XML-Format definiert die Struktur für in Präsentationen enthaltene Daten.
+
+Da eine *Folie* eines der Elemente in Präsentationen ist, enthält ein *Folienteil* den Inhalt einer einzelnen Folie. Ein Folienteil darf explizite Beziehungen zu vielen Teilen haben - beispielsweise benutzerdefinierte Tags - die durch ISO/IEC 29500 definiert sind.
+
+Benutzerdefinierte Daten (spezifisch für eine Präsentation) oder Benutzer können als Tags ([TagCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/tagcollection/)) und CustomXmlParts ([CustomXmlPartCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/customxmlpartcollection/)) existieren.
 
 {{% alert color="primary" %}} 
-
-Tags sind im Wesentlichen Schlüssel‑Wert‑Paar‑Zeichenketten. 
-
+Tags sind im Wesentlichen Schlüssel-Wert-String-Paare. 
 {{% /alert %}} 
 
 ## **Werte von Tags abrufen**
 
-In Folien entspricht ein Tag den Methoden [DocumentProperties::getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getKeywords) und [DocumentProperties::setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setKeywords). Dieses Beispielcode zeigt, wie man den Wert eines Tags mit Aspose.Slides für PHP via Java für [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) erhält:
+In Slides entspricht ein Tag den Methoden [DocumentProperties::getKeywords()](https://reference.aspose.com/slides/de/php-java/aspose.slides/documentproperties/#getKeywords) und [DocumentProperties::setKeywords()](https://reference.aspose.com/slides/de/php-java/aspose.slides/documentproperties/#setKeywords). Dieses Beispielcode zeigt, wie man den Wert eines Tags mit Aspose.Slides für PHP via Java für die [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/Presentation) abruft:
+
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -45,17 +49,17 @@ In Folien entspricht ein Tag den Methoden [DocumentProperties::getKeywords()](ht
   }
 ```
 
-
 ## **Tags zu Präsentationen hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen von Tags zu Präsentationen. Ein Tag besteht typischerweise aus zwei Elementen: 
+Aspose.Slides ermöglicht das Hinzufügen von Tags zu Präsentationen. Ein Tag besteht typischerweise aus zwei Elementen:
 
-- der Name einer benutzerdefinierten Eigenschaft – `MyTag` 
-- der Wert einer benutzerdefinierten Eigenschaft – `My Tag Value`
+- der Name einer benutzerdefinierten Eigenschaft - `MyTag`
+- der Wert der benutzerdefinierten Eigenschaft - `My Tag Value`
 
-Wenn Sie einige Präsentationen anhand einer bestimmten Regel oder Eigenschaft klassifizieren müssen, kann das Hinzufügen von Tags zu diesen Präsentationen von Nutzen sein. Zum Beispiel können Sie, wenn Sie alle Präsentationen aus nordamerikanischen Ländern zusammenfassen möchten, einen Nordamerika‑Tag erstellen und dann die entsprechenden Länder (USA, Mexiko und Kanada) als Werte zuweisen. 
+Wenn Sie Präsentationen anhand einer bestimmten Regel oder Eigenschaft klassifizieren müssen, können Sie von der Verwendung von Tags profitieren. Beispielsweise können Sie, wenn Sie alle Präsentationen aus nordamerikanischen Ländern zusammenfassen möchten, einen Nordamerika-Tag erstellen und dann die entsprechenden Länder (USA, Mexiko und Kanada) als Werte zuweisen.
 
-Dieses Beispielcode zeigt, wie man einen Tag zu einer [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) mit Aspose.Slides für PHP via Java hinzufügt:
+Dieses Beispielcode zeigt, wie man einem [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/Presentation) mit Aspose.Slides für PHP via Java einen Tag hinzufügt:
+
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -68,8 +72,8 @@ Dieses Beispielcode zeigt, wie man einen Tag zu einer [Presentation](https://ref
   }
 ```
 
+Tags können auch für [Slide](https://reference.aspose.com/slides/de/php-java/aspose.slides/slide/) festgelegt werden:
 
-Tags können auch für [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) gesetzt werden:
 ```php
   $pres = new Presentation();
   try {
@@ -82,13 +86,13 @@ Tags können auch für [Slide](https://reference.aspose.com/slides/php-java/aspo
   }
 ```
 
+Oder für ein einzelnes [Shape](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/):
 
-Oder für ein einzelnes [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/):
 ```php
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 50);
+    $shape = $pres->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 50);
     $shape->getTextFrame()->setText("My text");
     $shape->getCustomData()->getTags()->set_Item("tag", "value");
   } finally {
@@ -98,17 +102,22 @@ Oder für ein einzelnes [Shape](https://reference.aspose.com/slides/php-java/asp
   }
 ```
 
+### **Einschränkungen**
+
+Tags, die über die benutzerdefinierte Daten-Tag-Sammlung mit `getCustomData()->getTags()` hinzugefügt werden, werden ausschließlich in der PowerPoint-Datei gespeichert. Sie werden **nicht** in die PDF-Tag-Struktur übertragen, wenn die Präsentation in PDF exportiert wird. Folglich kann ein als Tag zugewiesener benutzerdefinierter Bezeichner nicht aus dem getaggten PDF abgerufen werden.
+
+**Workaround**: Sie können einen benutzerdefinierten Bezeichner im **Alt-Text** des Objekts speichern (z.B. `$shape->setAlternativeText("MyId")`). Nach dem Exportieren nach PDF kann der Alt-Text in der PDF-Tag-Struktur erscheinen.
 
 ## **FAQ**
 
 **Kann ich alle Tags aus einer Präsentation, Folie oder Form in einem Vorgang entfernen?**
 
-Ja. Die [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) unterstützt eine [clear](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/clear/)‑Operation, die alle Schlüssel‑Wert‑Paare auf einmal löscht.
+Ja. Die [tag collection](https://reference.aspose.com/slides/de/php-java/aspose.slides/tagcollection/) unterstützt eine [clear](https://reference.aspose.com/slides/de/php-java/aspose.slides/tagcollection/clear/)‑Operation, die alle Schlüssel-Wert-Paare auf einmal löscht.
 
-**Wie lösche ich ein einzelnes Tag anhand seines Namens, ohne die gesamte Sammlung zu durchlaufen?**
+**Wie lösche ich ein einzelnes Tag nach seinem Namen, ohne die gesamte Sammlung zu iterieren?**
 
-Verwenden Sie die [remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/)‑Operation auf der [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/), um das Tag anhand seines Schlüssels zu löschen.
+Verwenden Sie die [remove(name)](https://reference.aspose.com/slides/de/php-java/aspose.slides/tagcollection/remove/)‑Operation auf der [tag collection](https://reference.aspose.com/slides/de/php-java/aspose.slides/tagcollection/), um das Tag nach seinem Schlüssel zu löschen.
 
-**Wie kann ich die vollständige Liste der Tag‑Namen für Analysen oder Filterungen abrufen?**
+**Wie kann ich die vollständige Liste der Tag-Namen für Analysen oder Filterungen abrufen?**
 
-Verwenden Sie [getNamesOfTags](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/getnamesoftags/) auf der [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/); sie gibt ein Array aller Tag‑Namen zurück.
+Verwenden Sie [getNamesOfTags](https://reference.aspose.com/slides/de/php-java/aspose.slides/tagcollection/getnamesoftags/) auf der [tag collection](https://reference.aspose.com/slides/de/php-java/aspose.slides/tagcollection/); sie gibt ein Array aller Tag-Namen zurück.
