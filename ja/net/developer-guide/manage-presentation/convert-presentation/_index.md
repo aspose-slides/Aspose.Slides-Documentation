@@ -1,5 +1,5 @@
 ---
-title: .NET でプレゼンテーションを複数フォーマットに変換
+title: .NET でプレゼンテーションを複数の形式に変換
 linktitle: プレゼンテーションを変換
 type: docs
 weight: 70
@@ -8,90 +8,104 @@ keywords:
 - プレゼンテーションを変換
 - プレゼンテーションをエクスポート
 - PPT から PPTX
+- PPTX から PPT
 - ODP から PPTX
 - PPT から PDF
 - PPTX から PDF
 - ODP から PDF
+- PPT から HTML
+- PPTX から HTML
+- ODP から HTML
+- PPT から PNG
+- PPTX から PNG
+- ODP から PNG
+- PPTX から JPG
+- ODP から JPG
 - PPT から XPS
 - PPTX から XPS
 - ODP から XPS
 - PPT から TIFF
 - PPTX から TIFF
 - ODP から TIFF
-- PPT から HTML
-- PPTX から HTML
-- ODP から HTML
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して PowerPoint および OpenDocument のプレゼンテーションを PPTX、PDF、XPS、TIFF などに変換します。シンプルで高品質な変換です。"
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションを PPTX、PDF、HTML、画像、XPS、TIFF などに変換します。"
 ---
+## **概要**
+
+Aspose.Slides for .NET は PowerPoint と OpenDocument のプレゼンテーションを読み込み、Microsoft PowerPoint、OpenOffice、LibreOffice を使用せずに多数の他の形式へ保存またはレンダリングできます。レガシーな PPT ファイルを最新の PPTX に変換したり、プレゼンテーションを PDF や XPS などの固定レイアウトドキュメントにエクスポートしたり、スライドを HTML として公開したり、プレビューやサムネイル、アーカイブ用の画像ファイルとしてレンダリングしたりできます。
+
+ほとんどのドキュメント変換は同じ一般的なワークフローを使用します。ソースファイルを読み込み、必要な出力形式を選択し、必要に応じて形式固有のオプションを適用します。画像形式の場合、各スライドは個別にレンダリングされ、ラスタまたはベクトル画像として保存されます。以下のリンクされた記事で各ケースの実装詳細を確認できます。
+
+## **変換シナリオを選択**
+
+| シナリオ | 必要なとき | 記事 |
+| --- | --- | --- |
+| PPT/PPTX/ODP to PPTX | レガシー PPT ファイルを最新化し、既存の PPTX ファイルを正規化、または OpenDocument プレゼンテーションを PowerPoint PPTX に変換します。 | [PPT を PPTX に変換](/slides/ja/net/convert-ppt-to-pptx/), [ODP を PPTX に変換](/slides/ja/net/convert-odp-to-pptx/), [プレゼンテーションを保存](/slides/ja/net/save-presentation/) |
+| PPTX to PPT | 現代的な PowerPoint プレゼンテーションを古いバイナリ PPT 形式に保存し、古いワークフローとの互換性を保ちます。 | [PPTX を PPT に変換](/slides/ja/net/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP to PDF | 共有、印刷、アーカイブ用のポータブルで検索可能な固定レイアウトドキュメントを作成します。 | [PowerPoint を PDF に変換](/slides/ja/net/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP to PDF with notes | スライド内容とともにスピーカーノートをエクスポートします。 | [PowerPoint を ノート付き PDF に変換](/slides/ja/net/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP to HTML | プレゼンテーションを HTML ページとして公開し、画像、フォント、ノート、レスポンシブレイアウトオプションを制御します。 | [PowerPoint を HTML に変換](/slides/ja/net/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP to HTML5 | 書式とインタラクティブ性を保持したまま、ブラウザで閲覧できる HTML5 にスライドをエクスポートします。 | [プレゼンテーションを HTML5 にエクスポート](/slides/ja/net/export-to-html5/) |
+| PPT/PPTX/ODP to PNG | プレビュー、サムネイル、または Web 出力用に各スライドを PNG 画像としてレンダリングします。 | [PowerPoint を PNG に変換](/slides/ja/net/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP to JPG | スライドを JPG 画像としてレンダリングし、画像のサイズや品質を制御します。 | [PowerPoint を JPG に変換](/slides/ja/net/convert-powerpoint-to-jpg/) |
+| Slide to SVG | 個別スライドをスケーラブルベクターグラフィックとしてエクスポートします。 | [スライドを SVG にレンダリング](/slides/ja/net/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP to XPS | 固定レイアウト XPS ドキュメントを生成します。 | [PowerPoint を XPS に変換](/slides/ja/net/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP to TIFF | 印刷、スキャン、FAX、またはアーカイブ用にプレゼンテーションをマルチページ TIFF ファイルとして保存します。 | [PowerPoint を TIFF に変換](/slides/ja/net/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP to TIFF with notes | スピーカーノート付きのスライドを TIFF として保存します。 | [PowerPoint を ノート付き TIFF に変換](/slides/ja/net/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX to Word | ドキュメント形式の出力が必要な場合にスライドを Word 文書に変換します。 | [PowerPoint を Word に変換](/slides/ja/net/convert-powerpoint-to-word/) |
+| PPT/PPTX to Markdown | ドキュメント化やテキストベースのワークフロー向けにプレゼンテーション内容を Markdown に抽出します。 | [PowerPoint を Markdown に変換](/slides/ja/net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX to animated GIF | スライドからアニメーション GIF を作成します。 | [PowerPoint を アニメーション GIF に変換](/slides/ja/net/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX to video | プレゼンテーションスライドからビデオをエクスポートするワークフローを構築します。 | [PowerPoint を ビデオに変換](/slides/ja/net/convert-powerpoint-to-video/) |
+| Presentation to XAML | .NET UI シナリオ向けにスライドを XAML にエクスポートします。 | [プレゼンテーションを XAML にエクスポート](/slides/ja/net/export-to-xaml/) |
+
+入力および出力形式の詳細な一覧については、[サポートされているファイル形式](/slides/ja/net/supported-file-formats/) を参照してください。
+
+## **PowerPoint と OpenDocument の変換**
+
+Aspose.Slides for .NET は PPT、PPTX、PPS、PPSX、POT、POTX、ODP など、一般的に使用されるプレゼンテーション形式からの変換をサポートします。同一の変換 API が PowerPoint と OpenDocument の両方のファイルで使用されるため、PPTX ファイルを PDF に保存するワークフローは、入力ファイルを ODP に変更するだけで通常適用できます。
+
+ODP ファイルを変換する際は、PowerPoint と OpenDocument アプリケーションがすべてのレイアウトや書式設定機能を完全に同一にサポートしているわけではないことに留意してください。LibreOffice や OpenOffice Impress で作成された ODP ファイルの場合、出力を確認し、[Convert OpenDocument Presentations](/slides/ja/net/convert-openoffice-odp/) に記載されたオプションを使用して形式固有のガイダンスを得てください。
 
 ## **PPT から PPTX への変換**
-### **PPT から PPTX への変換について**
-Aspose.Slides は現在 PPT から PPTX への変換をサポートしています。
-### **Aspose.Slides を使用した PPT から PPTX への変換**
-Aspose.Slides for .NET は、PPT ドキュメント ファイル形式のプレゼンテーションを PPTX ファイル形式のプレゼンテーションに変換する部分的なサポートを提供します。PPT から PPTX への変換機能は Aspose.Slides for .NET で最近導入されたため、現時点では機能が限定的であり、シンプルな形態のプレゼンテーションにのみ対応しています。PPT プレゼンテーションを PPTX 形式に変換する際に Aspose.Slides for .NET API ライブラリが提供する主な利点は、目的を達成するための API の使いやすさです。詳細はこの[リンク](/slides/ja/net/convert-presentation/)のコード スニペット セクションをご参照ください。以下のセクションでは、PPT 形式のプレゼンテーションを PPTX 形式に変換する際にサポートされている機能とサポートされていない機能を明確に示しています。
-{{% alert color="primary" %}} 
-詳細は [**PPT から PPTX への変換方法**](/slides/ja/net/convert-ppt-to-pptx/)をご覧ください。
-{{% /alert %}}
-## **プレゼンテーションから PDF への変換**
-### **PDF について**
-[Portable Document Format](https://en.wikipedia.org/wiki/PDF) は、Adobe System が異なる組織間で文書を交換するために作成したファイル形式です。この形式の目的は、文書の内容が表示されるプラットフォームに依存せずにビジュアルな外観を維持できるようにすることです。
-### **Aspose.Slides for .NET における PDF**
-[PDF](https://docs.fileformat.com/pdf/) は、Adobe System が異なる組織間で文書を交換するために作成したファイル形式です。この形式の目的は、文書内容のビジュアルな外観が表示されるプラットフォームに依存しないようにすることです。
 
-Aspose.Slides for .NET に読み込むことができる任意のプレゼンテーション ドキュメントは、PDF ドキュメントに変換できます。Aspose.Slides for .NET コンポーネントだけを使用してプレゼンテーション ドキュメントを直接 PDF にエクスポートできます。他のサードパーティ ライブラリや Aspose.PDF コンポーネントは必要ありません。
+PPT は古いバイナリ形式の PowerPoint、PPTX は最新の Office Open XML 形式です。Aspose.Slides for .NET は、マスタ、レイアウト、スライド、チャート、グループ化シェイプ、プレースホルダー、テキストフレーム、テクスチャ、画像フィルなど、複雑なプレゼンテーション構造を保持した高忠実度の PPT から PPTX への変換をサポートします。
 
-{{% alert color="primary" %}} 
-詳細は [**プレゼンテーションを PDF に変換する方法**](/slides/ja/net/convert-powerpoint-ppt-and-pptx-to-pdf/)をご覧ください。
-{{% /alert %}}
+詳細は [Convert PPT to PPTX](/slides/ja/net/convert-ppt-to-pptx/) と [PPT vs PPTX](/slides/ja/net/ppt-vs-pptx/) を参照してください。
 
-## **プレゼンテーションから XPS への変換**
-### **XPS について**
-[XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) は、Microsoft が元々開発したページ記述言語および固定文書形式です。PDF と同様に、XPS は文書の忠実度を保ち、デバイスに依存しない文書外観を提供する固定レイアウト文書形式です。
-### **Aspose.Slides を使用したプレゼンテーションから XPS への変換**
-Aspose.Slides for .NET が読み込むことができる任意のプレゼンテーション ドキュメントは、XPS 形式に変換できます。Aspose.Slides for .NET は高忠実度のページレイアウトおよびレンダリングエンジンを使用して、固定レイアウトの XPS ドキュメント形式で出力します。特筆すべきは、Aspose.Slides for .NET が .NET Framework 3.5 に同梱されている Windows Presentation Foundation (WPF) クラスに依存せずに直接 XPS を生成するため、.NET Framework 3.5 より前のバージョンでも XPS ドキュメントを生成できる点です。Aspose.Slides for .NET を使用したプレゼンテーション ドキュメントの XPS へのエクスポートについては、[このトピック](/slides/ja/net/convert-powerpoint-to-xps/)をご参照ください。
-{{% alert color="primary" %}} 
-詳細は [**プレゼンテーションを XPS に変換する方法**.](/slides/ja/net/convert-powerpoint-to-xps/)
-{{% /alert %}}
-## **プレゼンテーションから TIFF への変換**
-### **TIFF について**
-[Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) は、1 つの文書に複数の画像を格納できることで知られ、元々 Aldus によって作成されました。この形式はスキャン、FAX、その他の画像操作アプリケーションで広くサポートされています。
-### **Aspose.Slides を使用したプレゼンテーションから TIFF への変換**
-Aspose.Slides for .NET が読み込むことができる任意のドキュメントは、TIFF ドキュメントに直接変換することができます。サードパーティ コンポーネントは不要です。さらに、生成される TIFF ドキュメント内の画像サイズを任意に指定することも可能です。Aspose.Slides for .NET を使用したプレゼンテーション ドキュメントの TIFF へのエクスポートについては、[このトピック](/slides/ja/net/convert-powerpoint-to-tiff/)をご参照ください。
-{{% alert color="primary" %}} 
-詳細は [**プレゼンテーションを TIFF に変換する方法**.](/slides/ja/net/convert-powerpoint-to-tiff/)
-{{% /alert %}}
+## **固定レイアウトエクスポート**
+
+PDF、XPS、TIFF は、デバイス間で同一の外観を保ち、プレゼンテーションとして編集されないことが求められる場合に有用です。[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/)、[XpsOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/xpsoptions/)、[TiffOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/tiffoptions/) を使用して、コンプライアンス、非表示スライド、ノート、画像品質、圧縮、ピクセル形式、出力サイズなどを制御できます。
+
+## **HTML と画像のエクスポート**
+
+HTML と HTML5 のエクスポートは、ブラウザでの閲覧、Web 公開、軽量な共有に役立ちます。画像エクスポートは、各スライドを個別のプレビュー、サムネイル、またはラスタ資産にする必要がある場合に有用です。形式固有のレンダリングガイダンスについては、PNG、JPG、SVG の各記事を参照してください。
 
 ## **FAQ**
 
-**PDF/XPS にエクスポートするときに非表示スライドを含めることはできますか？**
+**プレゼンテーションの変換に Microsoft PowerPoint は必要ですか？**
 
-はい。エクスポート時に、[PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) または [XPS](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/) 設定の該当オプションを使用して非表示スライドを含めることができます。
+いいえ。Aspose.Slides for .NET はスタンドアロンのライブラリであり、Microsoft PowerPoint や Office の自動化は不要です。
 
-**PDF/A 形式（アーカイブ保存用）の保存はサポートされていますか？**
+**多数のプレゼンテーションを一括変換できますか？**
 
-はい、エクスポート時に PDF/A 準拠レベル（A-2a/A-2b/A-2u および A-3a/A-3b を含む）を指定できます。[PDF コンプライアンス] (https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) をご参照ください。
+はい。各プレゼンテーションをロードし、必要な形式で保存した後、`Presentation` オブジェクトを破棄します。並列処理を行う場合は、プレゼンテーションインスタンスを分割し、[multithreading](/slides/ja/net/multithreading/) のガイダンスに従ってください。
 
-**変換時のフォントは埋め込まれますか、置き換えられますか？**
+**特定のスライドだけをエクスポートできますか？**
 
-柔軟なオプションがあります。すべてのグリフを埋め込むか使用されたサブセットのみを埋め込むかを選択でき、[フォールバック フォント](/slides/ja/net/fallback-font/) を指定し、フォントに特定のスタイルが欠けている場合の動作を[制御](/slides/ja/net/font-substitution/)できます。
+はい。出力形式に応じて、スライドインデックスを指定したり、個別スライドをレンダリングしたりできるエクスポートメソッドがあります。対象形式の専用記事をご確認ください。
 
-**生成される PDF の品質とサイズをどのように制御できますか？**
+**PDF や XPS にエクスポートする際に非表示スライドを含められますか？**
 
-[JPEG 品質](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/)、[テキスト圧縮](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/textcompression/)、画像用の[十分な解像度](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/)しきい値、そして画像に対して[最適な圧縮率] (https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/bestimagescompressionratio/) を選択するモードが利用可能です。
+はい。[PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) または [XpsOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/xpsoptions/) の `ShowHiddenSlides` プロパティを使用してください。
 
-**スライドの範囲（例: 5–12）だけをエクスポートすることはできますか？**
+**PDF/A 出力を作成できますか？**
 
-はい、エクスポート時にスライドのサブセットを選択できます。
+はい。PDF コンプライアンス設定は [PdfOptions.Compliance](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/compliance/) と [PdfCompliance](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfcompliance/) で利用可能です。
 
-**複数のファイルを同時にマルチコアで処理することはサポートされていますか？**
+**変換時のフォントはどのように扱われますか？**
 
-別々のプロセスで並列に異なるプレゼンテーションを処理することは可能です。重要: 同じ[プレゼンテーション] (https://reference.aspose.com/slides/net/aspose.slides/presentation/) オブジェクトを[複数のスレッド](/slides/ja/net/multithreading/)から読み込んだり保存したりしないでください。
-
-**異なるスレッドからライセンスを適用する際のリスクはありますか？**
-
-はい、[ライセンス設定](/slides/ja/net/licensing/) 呼び出しはスレッドセーフではないため、同期が必要です。
+Aspose.Slides は埋め込みフォント、フォントフォールバック、フォント置換設定を使用できます。[Embedded Font](/slides/ja/net/embedded-font/)、[Fallback Font](/slides/ja/net/fallback-font/)、[Font Substitution](/slides/ja/net/font-substitution/) を参照してください。

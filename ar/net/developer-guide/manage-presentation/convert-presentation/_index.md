@@ -8,87 +8,106 @@ keywords:
 - تحويل العرض التقديمي
 - تصدير العرض التقديمي
 - PPT إلى PPTX
+- PPTX إلى PPT
 - ODP إلى PPTX
 - PPT إلى PDF
 - PPTX إلى PDF
 - ODP إلى PDF
+- PPT إلى HTML
+- PPTX إلى HTML
+- ODP إلى HTML
+- PPT إلى PNG
+- PPTX إلى PNG
+- ODP إلى PNG
+- PPTX إلى JPG
+- ODP إلى JPG
 - PPT إلى XPS
 - PPTX إلى XPS
 - ODP إلى XPS
 - PPT إلى TIFF
 - PPTX إلى TIFF
 - ODP إلى TIFF
-- PPT إلى HTML
-- PPTX إلى HTML
-- ODP إلى HTML
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل عروض PowerPoint و OpenDocument إلى صيغ PPTX، PDF، XPS، TIFF والمزيد باستخدام Aspose.Slides for .NET. تحويل بسيط وعالي الجودة."
+description: "تحويل عروض PowerPoint وOpenDocument إلى PPTX وPDF وHTML والصور وXPS وTIFF وغيرها باستخدام Aspose.Slides for .NET."
 ---
+## **نظرة عامة**
+
+يمكن لـ Aspose.Slides for .NET تحميل عروض PowerPoint وOpenDocument وت保存ها أو تصييرها إلى العديد من الصيغ الأخرى دون الحاجة إلى Microsoft PowerPoint أو OpenOffice أو LibreOffice. يمكنك تحويل ملفات PPT القديمة إلى PPTX الحديثة، وتصدير العروض إلى مستندات تخطيط ثابت مثل PDF وXPS، ونشر الشرائح كملفات HTML، أو تصيير الشرائح كملفات صورة للمعاينات والنسخ المصغرة والأرشفة.
+
+تستخدم معظم عمليات تحويل المستندات سير عمل عام مماثل: تحميل الملف المصدر، اختيار صيغة الإخراج المطلوبة، وتطبيق الخيارات الخاصة بالصّيغة عند الحاجة. بالنسبة إلى صيغ الصور، يتم تصيير كل شريحة على حدة ثم حفظها كصورة نقطية أو متجهة. المقالات المخصصة المرتبطة أدناه توفر تفاصيل التنفيذ لكل حالة.
+
+## **اختر سيناريو التحويل**
+
+استخدم المقالات أدناه للحصول على أمثلة C# كاملة وخيارات مخصصة لكل صيغة.
+
+| السيناريو | استخدمه عندما تحتاج إلى | المقالة |
+| --- | --- | --- |
+| PPT/PPTX/ODP to PPTX | تحديث ملفات PPT القديمة، توحيد ملفات PPTX الموجودة، أو تحويل عروض OpenDocument إلى PPTX الخاص بـ PowerPoint. | [تحويل PPT إلى PPTX](/slides/ar/net/convert-ppt-to-pptx/), [تحويل ODP إلى PPTX](/slides/ar/net/convert-odp-to-pptx/), [حفظ العروض](/slides/ar/net/save-presentation/) |
+| PPTX to PPT | حفظ عرض PowerPoint حديث إلى صيغة PPT الثنائية القديمة لتوافق مع سير عمل أقدم. | [تحويل PPTX إلى PPT](/slides/ar/net/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP to PDF | إنشاء مستندات ثابتة، قابلة للبحث، ومحمولة للمشاركة أو الطباعة أو الأرشفة. | [تحويل PowerPoint إلى PDF](/slides/ar/net/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP to PDF with notes | تصدير ملاحظات المتحدث مع محتوى الشريحة. | [تحويل PowerPoint إلى PDF مع الملاحظات](/slides/ar/net/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP to HTML | نشر العروض كصفحات HTML والتحكم في الصور، الخطوط، الملاحظات، وخيارات التخطيط المتجاوب. | [تحويل PowerPoint إلى HTML](/slides/ar/net/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP to HTML5 | تصدير الشرائح إلى HTML5 للعرض عبر المتصفح مع الحفاظ على التنسيق والتفاعلية. | [تصدير العروض إلى HTML5](/slides/ar/net/export-to-html5/) |
+| PPT/PPTX/ODP to PNG | تصيير كل شريحة إلى صورة PNG للمعاينات أو النسخ المصغرة أو مخرجات الويب. | [تحويل PowerPoint إلى PNG](/slides/ar/net/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP to JPG | تصيير الشرائح إلى صور JPG والتحكم في أبعاد الصورة والجودة. | [تحويل PowerPoint إلى JPG](/slides/ar/net/convert-powerpoint-to-jpg/) |
+| Slide to SVG | تصدير شرائح فردية كرسومات متجهة SVG. | [تصيير الشريحة كـ SVG](/slides/ar/net/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP to XPS | إنشاء مستندات XPS ذات تخطيط ثابت. | [تحويل PowerPoint إلى XPS](/slides/ar/net/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP to TIFF | حفظ العرض كملف TIFF متعدد الصفحات للطباعة أو المسح الضوئي أو الفاكس أو الأرشفة. | [تحويل PowerPoint إلى TIFF](/slides/ar/net/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP to TIFF with notes | حفظ الشرائح مع ملاحظات المتحدث إلى TIFF. | [تحويل PowerPoint إلى TIFF مع الملاحظات](/slides/ar/net/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX to Word | تحويل الشرائح إلى مستند Word عندما تحتاج إلى مخرجات على نمط المستند. | [تحويل PowerPoint إلى Word](/slides/ar/net/convert-powerpoint-to-word/) |
+| PPT/PPTX to Markdown | استخراج محتوى العرض إلى Markdown للتوثيق وسير العمل القائم على النص. | [تحويل PowerPoint إلى Markdown](/slides/ar/net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX to animated GIF | إنشاء GIF متحرك من الشرائح. | [تحويل PowerPoint إلى GIF متحرك](/slides/ar/net/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX to video | بناء سير عمل لتصدير الفيديو من شرائح العرض. | [تحويل PowerPoint إلى فيديو](/slides/ar/net/convert-powerpoint-to-video/) |
+| Presentation to XAML | تصدير الشرائح إلى XAML لسيناريوهات واجهة .NET. | [تصدير العروض إلى XAML](/slides/ar/net/export-to-xaml/) |
+
+للحصول على قائمة أوسع من صيغ الإدخال والإخراج، راجع [الصيغ المدعومة](/slides/ar/net/supported-file-formats/).
+
+## **تحويل PowerPoint وOpenDocument**
+
+يدعم Aspose.Slides for .NET التحويل من صيغ العروض الشائعة مثل PPT وPPTX وPPS وPPSX وPOT وPOTX وODP. يتم استخدام نفس API التحويل لملفات PowerPoint وOpenDocument، لذا يمكن عادةً تطبيق سير عمل يحفظ ملف PPTX إلى PDF على ملف ODP بتغيير ملف الإدخال فقط.
+
+عند تحويل ملفات ODP، تذكر أن تطبيقات PowerPoint وOpenDocument لا تدعم كل تخطيط وميزة تنسيق بنفس الطريقة تمامًا. إذا تم إنشاء ملف ODP في LibreOffice أو OpenOffice Impress، راجع النتيجة واستخدم الخيارات الموضحة في [تحويل عروض OpenDocument](/slides/ar/net/convert-openoffice-odp/) عندما تحتاج إلى إرشادات خاصة بالصّيغة.
 
 ## **تحويل PPT إلى PPTX**
-### **حول تحويل PPT إلى PPTX**
-### **تحويل PPT إلى PPTX باستخدام Aspose.Slides**
-توفر Aspose.Slides for .NET دعمًا جزئيًا لتحويل عروض تقديمية بصيغة ملف PPT إلى عروض بصيغة ملف PPTX. نظرًا لأن الدعم لهذه الميزة تم تقديمه حديثًا في Aspose.Slides for .NET، فهو في الوقت الحالي ذو قدرة محدودة ويعمل فقط على الشكل البسيط من العروض التقديمية. الميزة الرئيسية التي تقدمها مكتبة API الخاصة بـ Aspose.Slides for .NET لتحويل عرض PPT إلى عرض بصيغة PPTX هي سهولة استخدام API لتحقيق الهدف المطلوب. يرجى الانتقال إلى هذا [الرابط](/slides/ar/net/convert-presentation/) إلى قسم مقتطفات الشيفرة للمزيد من التفاصيل. القسم التالي يوضح بوضوح أي من الميزات مدعومة وأيها غير مدعومة أثناء تحويل العروض التقديمية بصيغة PPT إلى صيغ PPTX.
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل PPT إلى PPTX**](/slides/ar/net/convert-ppt-to-pptx/).
-{{% /alert %}}
-## **تحويل العرض التقديمي إلى PDF**
-### **حول PDF**
-ملف [Portable Document Format](https://en.wikipedia.org/wiki/PDF) هو صيغة ملف تم إنشاؤها بواسطة Adobe System لتبادل المستندات بين مؤسسات مختلفة. كان هدف هذه الصيغة هو إمكانية تمثيل محتويات المستندات بطريقة لا تعتمد مظهرها البصري على النظام الأساسي الذي يتم عرضها عليه.
-### **PDF في Aspose.Slides for .NET**
-[PDF](https://docs.fileformat.com/pdf/) هو صيغة ملف تم إنشاؤها بواسطة Adobe System لتبادل المستندات بين مؤسسات مختلفة. كان هدف هذه الصيغة هو إمكانية تمثيل المظهر البصري لمحتويات المستند دون الاعتماد على النظام الأساسي الذي يتم عرضه عليه.
 
-يمكن لأي مستند عرض تقديمي يمكن تحميله في Aspose.Slides for .NET أن يتم تحويله إلى مستند PDF. يمكنك تصدير مستندات العرض مباشرةً إلى PDF باستخدام مكوّن Aspose.Slides for .NET فقط. لا تحتاج إلى أي مكتبات طرف ثالث أو مكوّن Aspose.PDF لهذا الغرض.
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل العرض التقديمي إلى PDF**](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-pdf/).
-{{% /alert %}}
-## **تحويل العرض التقديمي إلى XPS**
-### **حول XPS**
-[XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) هي لغة وصف صفحات وصيغة مستند ثابت تم تطويرها أصلاً بواسطة Microsoft. مثل PDF، يُعَد XPS صيغة مستند ثابت التصميم تهدف إلى الحفاظ على دقة المستند وتوفير مظهر مستقل عن الجهاز.
-### **تحويل العرض التقديمي إلى XPS باستخدام Aspose.Slides**
-يمكن لأي مستند عرض تقديمي يمكن تحميله بواسطة Aspose.Slides for .NET أن يتم تحويله إلى صيغة XPS. يستخدم Aspose.Slides for .NET محرك تخطيط الصفحات وعرضها عالي الدقة لإنتاج مخرجات بصيغة مستند XPS ثابت التصميم. ومن الجدير بالذكر أن Aspose.Slides for .NET يولّد XPS مباشرةً دون الاعتماد على فئات Windows Presentation Foundation (WPF) المضمنة مع .NET Framework 3.5، مما يتيح للمكوّن إنتاج مستندات XPS على أجهزة تعمل بإصدارات .NET Framework أقدم من 3.5. يمكنك معرفة كيفية تصدير مستندات العرض إلى مستندات XPS عبر Aspose.Slides for .NET في [هذا الموضوع](/slides/ar/net/convert-powerpoint-to-xps/).
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل العرض التقديمي إلى XPS**.](/slides/ar/net/convert-powerpoint-to-xps/)
-{{% /alert %}}
-## **تحويل العرض التقديمي إلى TIFF**
-### **حول TIFF**
-[Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) المعروف بتخزين صور متعددة في مستند واحد تم إنشاؤه أصلاً بواسطة Aldus. تُدعم هذه الصيغة على نطاق واسع من قبل تطبيقات المسح الضوئي، الفاكس، وتطبيقات معالجة الصور الأخرى.
-### **تحويل العرض التقديمي إلى TIFF باستخدام Aspose.Slides**
-يمكن لأي مستند يمكن تحميله في Aspose.Slide for .NET أيضًا أن يتم تحويله إلى مستند TIFF مباشرةً بواسطة Aspose.Slides for .NET، مما يلغي الحاجة إلى أي مكوّن طرف ثالث. بالإضافة إلى ذلك، يمكنك اختيارياً تحديد حجم الصور في مستند TIFF الناتج. يمكنك العثور على معلومات حول تصدير مستندات العرض إلى مستندات TIFF عبر Aspose.Slides for .NET في [هذا الموضوع](/slides/ar/net/convert-powerpoint-to-tiff/).
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل العرض التقديمي إلى TIFF**.](/slides/ar/net/convert-powerpoint-to-tiff/)
-{{% /alert %}}
+PPT هي صيغة PowerPoint الثنائية القديمة، بينما PPTX هي صيغة Office Open XML الحديثة. يدعم Aspose.Slides for .NET تحويل PPT إلى PPTX بدقة عالية مع الحفاظ على الهياكل المعقدة للعرض مثل القوالب، التخطيطات، الشرائح، المخططات، الأشكال المجمعة، العناصر النائبة، إطارات النص، القوام، وتعبئة الصور.
+
+للتفاصيل، انظر [تحويل PPT إلى PPTX](/slides/ar/net/convert-ppt-to-pptx/) و[PPT مقابل PPTX](/slides/ar/net/ppt-vs-pptx/).
+
+## **تصدير بتخطيط ثابت**
+
+PDF وXPS وTIFF مفيدة عندما يجب أن يبقى المخرجات متطابقة عبر الأجهزة ولا يجب تعديلها كعرض تقديمي. استخدم [PdfOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/)، [XpsOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/xpsoptions/)، و[TiffOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/tiffoptions/) للتحكم في الامتثال، الشرائح المخفية، الملاحظات، جودة الصورة، الضغط، تنسيق البكسل، وحجم المخرجات.
+
+## **تصدير HTML والصور**
+
+تصدير HTML وHTML5 مفيد للعرض عبر المتصفح، النشر على الويب، والمشاركة الخفيفة. تصدير الصور مفيد عندما يجب أن تصبح كل شريحة معاينة أو نسخة مصغرة أو أصل نقطي منفصل. استخدم مقالات PNG وJPG وSVG للحصول على إرشادات تصيير مخصصة لكل صيغة.
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني تضمين الشرائح المخفية عند التصدير إلى PDF/XPS؟**
+**هل أحتاج إلى Microsoft PowerPoint لتحويل العروض؟**
 
-نعم. يدعم التصدير تضمين الشرائح المخفية عبر الخيار المقابل في إعدادات [PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/)/[XPS](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/) .
+لا. Aspose.Slides for .NET مكتبة مستقلة ولا تتطلب Microsoft PowerPoint أو أتمتة Office.
 
-**هل يتم دعم الحفظ بتنسيق PDF/A (للتخزين الأرشيفي)؟**
+**هل يمكنني تحويل مجموعة كبيرة من العروض دفعة واحدة؟**
 
-نعم، مستويات الامتثال لـ PDF/A [متاحة](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) (بما في ذلك A-2a/A-2b/A-2u و A-3a/A-3b) أثناء التصدير.
+نعم. قم بتحميل كل عرض، احفظه بالصّيغة المطلوبة، وتخلص من كائن `Presentation` بعد المعالجة. للمعالجة المتوازية، استخدم مثيلات عرض منفصلة واتبع إرشادات [التعددية](/slides/ar/net/multithreading/).
 
-**ماذا يحدث للخطوط أثناء التحويل: هل يتم تضمينها أم استبدالها؟**
+**هل يمكنني تصدير شرائح مختارة فقط؟**
 
-هناك خيارات مرنة: يمكنك [تضمين جميع الرموز أو فقط المجموعات الفرعية المستخدمة](/slides/ar/net/embedded-font/)، أو تحديد [خط بديل](/slides/ar/net/fallback-font/)، و[التحكم في السلوك](/slides/ar/net/font-substitution/) عندما لا يحتوي الخط على أنماط معينة.
+نعم. تسمح عدة طرق تصدير بتمرير مؤشرات الشرائح أو تصيير شرائح فردية، حسب صيغة الخرج. راجع المقالة المخصصة للصّيغة المستهدفة.
 
-**كيف يمكنني التحكم في جودة وحجم ملف PDF الناتج؟**
+**هل يمكنني تضمين الشرائح المخفية عند التصدير إلى PDF أو XPS؟**
 
-تتوفر خيارات لـ [جودة JPEG](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/)، [ضغط النص](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/textcompression/)، و[حد دقة كافية](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) للصور، بالإضافة إلى وضع يختار [أفضل ضغط للصور](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/bestimagescompressionratio/).
+نعم. استخدم خاصية `ShowHiddenSlides` في [PdfOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/) أو [XpsOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/xpsoptions/).
 
-**هل يمكنني تصدير نطاق محدد من الشرائح (مثلاً 5–12)؟**
+**هل يمكنني إنشاء مخرجات PDF/A؟**
 
-نعم، يدعم التصدير اختيار مجموعة فرعية من الشرائح.
+نعم. تتوفر إعدادات توافق PDF عبر [PdfOptions.Compliance](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/compliance/) و[PdfCompliance](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfcompliance/).
 
-**هل يُدعم المعالجة متعددة النوى لعدة ملفات في نفس الوقت؟**
+**كيف يتم التعامل مع الخطوط أثناء التحويل؟**
 
-يمكن معالجة عروض تقديمية مختلفة بالتوازي في عمليات منفصلة. مهم: يجب ألا يتم تحميل أو حفظ نفس كائن [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/net/multithreading/).
-
-**هل توجد مخاطر عند تطبيق الترخيص من خيوط مختلفة؟**
-
-نعم، استدعاءات [إعداد الترخيص](/slides/ar/net/licensing/) ليست آمنة للخلية وتتطلب مزامنة.
+يمكن لـ Aspose.Slides استخدام الخطوط المضمّنة، والاعتماد على خط بديل، وإعدادات استبدال الخط. راجع [الخط المضمّن](/slides/ar/net/embedded-font/)، [خط الاحتياطي](/slides/ar/net/fallback-font/)، و[استبدال الخط](/slides/ar/net/font-substitution/).

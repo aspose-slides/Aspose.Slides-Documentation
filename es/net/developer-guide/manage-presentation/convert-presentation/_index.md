@@ -1,5 +1,5 @@
 ---
-title: Convertir presentaciones a múltiples formatos en .NET
+title: Convertir presentaciones a varios formatos en .NET
 linktitle: Convertir presentación
 type: docs
 weight: 70
@@ -8,71 +8,106 @@ keywords:
 - convertir presentación
 - exportar presentación
 - PPT a PPTX
+- PPTX a PPT
 - ODP a PPTX
 - PPT a PDF
 - PPTX a PDF
 - ODP a PDF
+- PPT a HTML
+- PPTX a HTML
+- ODP a HTML
+- PPT a PNG
+- PPTX a PNG
+- ODP a PNG
+- PPTX a JPG
+- ODP a JPG
 - PPT a XPS
 - PPTX a XPS
 - ODP a XPS
 - PPT a TIFF
 - PPTX a TIFF
 - ODP a TIFF
-- PPT a HTML
-- PPTX a HTML
-- ODP a HTML
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: "Convertir presentaciones de PowerPoint y OpenDocument a PPTX, PDF, XPS, TIFF y más con Aspose.Slides para .NET. Conversión sencilla y de alta calidad."
+description: "Convertir presentaciones de PowerPoint y OpenDocument a PPTX, PDF, HTML, imágenes, XPS, TIFF y más con Aspose.Slides para .NET."
 ---
+## **Resumen**
+
+Aspose.Slides for .NET puede cargar presentaciones de PowerPoint y OpenDocument y guardarlas o renderizarlas en muchos otros formatos sin necesidad de Microsoft PowerPoint, OpenOffice o LibreOffice. Puede convertir archivos PPT heredados a PPTX modernos, exportar presentaciones a documentos de diseño fijo como PDF y XPS, publicar diapositivas como HTML, o renderizar diapositivas como archivos de imagen para vistas previas, miniaturas y archivos.
+
+La mayoría de las conversiones de documentos siguen el mismo flujo de trabajo general: cargar el archivo de origen, elegir el formato de salida requerido y aplicar opciones específicas del formato cuando sea necesario. Para los formatos de imagen, cada diapositiva se renderiza por separado y luego se guarda como una imagen raster o vectorial. Los artículos dedicados enlazados a continuación proporcionan los detalles de implementación para cada caso.
+
+## **Elija un escenario de conversión**
+
+Utilice los artículos a continuación para obtener ejemplos completos en C# y opciones específicas de formato.
+
+| Escenario | Úselo cuando necesite | Artículo |
+| --- | --- | --- |
+| PPT/PPTX/ODP a PPTX | Modernizar archivos PPT heredados, normalizar archivos PPTX existentes o convertir presentaciones OpenDocument a PowerPoint PPTX. | [Convertir PPT a PPTX](/slides/es/net/convert-ppt-to-pptx/), [Convertir ODP a PPTX](/slides/es/net/convert-odp-to-pptx/), [Guardar presentaciones](/slides/es/net/save-presentation/) |
+| PPTX a PPT | Guardar una presentación moderna de PowerPoint en el formato binario PPT antiguo para compatibilidad con flujos de trabajo anteriores. | [Convertir PPTX a PPT](/slides/es/net/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP a PDF | Crear documentos portátiles, buscables y de diseño fijo para compartir, imprimir o archivar. | [Convertir PowerPoint a PDF](/slides/es/net/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP a PDF con notas | Exportar las notas del presentador junto con el contenido de las diapositivas. | [Convertir PowerPoint a PDF con notas](/slides/es/net/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP a HTML | Publicar presentaciones como páginas HTML y controlar imágenes, fuentes, notas y opciones de diseño responsivo. | [Convertir PowerPoint a HTML](/slides/es/net/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP a HTML5 | Exportar diapositivas a HTML5 para visualización en el navegador con formato e interactividad preservados. | [Convertir presentaciones a HTML5](/slides/es/net/export-to-html5/) |
+| PPT/PPTX/ODP a PNG | Renderizar cada diapositiva a una imagen PNG para vistas previas, miniaturas o salida web. | [Convertir PowerPoint a PNG](/slides/es/net/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP a JPG | Renderizar diapositivas a imágenes JPG y controlar dimensiones y calidad de la imagen. | [Convertir PowerPoint a JPG](/slides/es/net/convert-powerpoint-to-jpg/) |
+| Diapositiva a SVG | Exportar diapositivas individuales como gráficos vectoriales escalables. | [Renderizar diapositiva como SVG](/slides/es/net/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP a XPS | Generar documentos XPS de diseño fijo. | [Convertir PowerPoint a XPS](/slides/es/net/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP a TIFF | Guardar una presentación como archivo TIFF multipágina para impresión, escaneo, fax o flujos de trabajo de archivo. | [Convertir PowerPoint a TIFF](/slides/es/net/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP a TIFF con notas | Guardar diapositivas con notas del presentador en TIFF. | [Convertir PowerPoint a TIFF con notas](/slides/es/net/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX a Word | Convertir diapositivas a un documento Word cuando necesite una salida estilo documento. | [Convertir PowerPoint a Word](/slides/es/net/convert-powerpoint-to-word/) |
+| PPT/PPTX a Markdown | Extraer el contenido de la presentación a Markdown para documentación y flujos de trabajo basados en texto. | [Convertir PowerPoint a Markdown](/slides/es/net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX a GIF animado | Crear un GIF animado a partir de las diapositivas. | [Convertir PowerPoint a GIF animado](/slides/es/net/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX a video | Crear un flujo de exportación a video a partir de las diapositivas de la presentación. | [Convertir PowerPoint a video](/slides/es/net/convert-powerpoint-to-video/) |
+| Presentación a XAML | Exportar diapositivas a XAML para escenarios de UI en .NET. | [Exportar presentaciones a XAML](/slides/es/net/export-to-xaml/) |
+
+Para una lista más amplia de formatos de entrada y salida, vea [Formatos de archivo compatibles](/slides/es/net/supported-file-formats/).
+
+## **Conversión de PowerPoint y OpenDocument**
+
+Aspose.Slides for .NET admite la conversión desde formatos de presentación de uso común como PPT, PPTX, PPS, PPSX, POT, POTX y ODP. La misma API de conversión se utiliza para archivos PowerPoint y OpenDocument, por lo que un flujo de trabajo que guarda un archivo PPTX en PDF normalmente puede aplicarse a un archivo ODP cambiando solo el archivo de entrada.
+
+Al convertir archivos ODP, recuerde que las aplicaciones PowerPoint y OpenDocument no admiten todas las características de diseño y formato de la misma manera exacta. Si un archivo ODP se creó en LibreOffice o OpenOffice Impress, revise la salida y utilice las opciones descritas en [Convertir presentaciones OpenDocument](/slides/es/net/convert-openoffice-odp/) cuando necesite orientación específica del formato.
 
 ## **Conversión de PPT a PPTX**
-### **Acerca de la conversión de PPT a PPTX**
-Aspose.Slides ahora admite la conversión de PPT a PPTX.
-### **Convertir PPT a PPTX con Aspose.Slides**
-Aspose.Slides for .NET ofrece soporte parcial para convertir presentaciones en formato de archivo PPT a presentaciones en formato de archivo PPTX. Como el soporte para la característica de conversión de presentaciones mencionada se ha introducido recientemente en Aspose.Slides for .NET, en este momento tiene una capacidad limitada y solo funciona para formas simples de presentaciones. La principal ventaja que la biblioteca API de Aspose.Slides for .NET proporciona para convertir presentaciones PPT al formato PPTX es la facilidad de uso de la API para lograr el objetivo deseado. Por favor, diríjase a este [enlace](/slides/es/net/convert-presentation/) a la sección de fragmentos de código para obtener más detalles. La siguiente sección ilustra claramente qué características están soportadas y no soportadas al convertir presentaciones en formato PPT a presentaciones en formato PPTX.
-{{% alert color="primary" %}} 
-Lea más [**Cómo convertir PPT a PPTX**](/slides/es/net/convert-ppt-to-pptx/).
-{{% /alert %}}
-## **Conversión de presentación a PDF**
-### **Acerca de PDF**
-El [Portable Document Format](https://en.wikipedia.org/wiki/PDF) es un formato de archivo creado por Adobe System para el intercambio de documentos entre diferentes organizaciones. El propósito de este formato era hacer posible que el contenido de los documentos pudiera representarse de manera que su apariencia visual no dependiera de la plataforma en la que se visualiza.
-### **PDF en Aspose.Slides for .NET**
-[PDF ](https://docs.fileformat.com/pdf/) es un formato de archivo creado por Adobe System para el intercambio de documentos entre diferentes organizaciones. El propósito de este formato era hacer posible que la apariencia visual del contenido del documento no dependiera de la plataforma en la que se visualiza. Cualquier documento de presentación que pueda cargarse en Aspose.Slides for .NET puede convertirse en un documento PDF. Puede exportar los documentos de presentación a PDF directamente usando sólo el componente Aspose.Slides for .NET. No necesita ninguna otra biblioteca de terceros ni el componente Aspose.PDF para este fin.
-{{% alert color="primary" %}} 
-Lea más [**Cómo convertir presentación a PDF**](/slides/es/net/convert-powerpoint-ppt-and-pptx-to-pdf/).
-{{% /alert %}}
-## **Conversión de presentación a XPS**
-### **Acerca de XPS**
-La [XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) es un lenguaje de descripción de página y un formato de documento fijo desarrollado originalmente por Microsoft. Al igual que PDF, XPS es un formato de documento de diseño fijo diseñado para preservar la fidelidad del documento y proporcionar una apariencia independiente del dispositivo.
-### **Convertir presentación a XPS con Aspose.Slides**
-Cualquier documento de presentación que pueda cargarse con Aspose.Slides for .NET puede convertirse al formato XPS. Aspose.Slides for .NET usa el motor de diseño y renderizado de alta fidelidad para producir salida en el formato de documento XPS de diseño fijo. Vale la pena mencionar que Aspose.Slides for .NET genera XPS directamente sin depender de las clases de Windows Presentation Foundation (WPF) empaquetadas con .NET Framework 3.5, lo que permite a Aspose.Slides for .NET producir documentos XPS en máquinas que ejecutan versiones del .NET Framework anteriores a la 3.5. Puede obtener más información sobre la exportación de documentos de presentación a documentos XPS mediante Aspose.Slides for .NET en [este tema](/slides/es/net/convert-powerpoint-to-xps/).
-{{% alert color="primary" %}} 
-Lea más [**Cómo convertir presentación a XPS**.](/slides/es/net/convert-powerpoint-to-xps/)
-{{% /alert %}}
-## **Conversión de presentación a TIFF**
-### **Acerca de TIFF**
-La [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) , conocida por almacenar múltiples imágenes en un documento, fue creada originalmente por Aldus. Este formato es ampliamente compatible con aplicaciones de escaneo, fax y otras manipulaciones de imágenes.
-### **Convertir presentación a TIFF con Aspose.Slides**
-Cualquier documento que pueda cargarse en Aspose.Slides for .NET también puede convertirse directamente a un documento TIFF mediante Aspose.Slides for .NET, eliminando la necesidad de cualquier componente de terceros. Además, puede definir opcionalmente el tamaño de las imágenes en el documento TIFF resultante. Puede encontrar información sobre la exportación de documentos de presentación a documentos TIFF mediante Aspose.Slides for .NET en [este tema](/slides/es/net/convert-powerpoint-to-tiff/).
-{{% alert color="primary" %}} 
-Lea más [**Cómo convertir presentación a TIFF**.](/slides/es/net/convert-powerpoint-to-tiff/)
-{{% /alert %}}
+
+PPT es el formato binario antiguo de PowerPoint, mientras que PPTX es el formato moderno Office Open XML. Aspose.Slides for .NET admite la conversión de alta fidelidad de PPT a PPTX preservando estructuras de presentación complejas como maestros, diseños, diapositivas, gráficos, formas agrupadas, marcadores de posición, marcos de texto, texturas y rellenos de imagen.
+
+Para más detalles, consulte [Convertir PPT a PPTX](/slides/es/net/convert-ppt-to-pptx/) y [PPT vs PPTX](/slides/es/net/ppt-vs-pptx/).
+
+## **Exportación de diseño fijo**
+
+PDF, XPS y TIFF son útiles cuando la salida debe verse igual en todos los dispositivos y no debe editarse como una presentación. Utilice [PdfOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/pdfoptions/), [XpsOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/xpsoptions/) y [TiffOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/tiffoptions/) para controlar cumplimiento, diapositivas ocultas, notas, calidad de imagen, compresión, formato de píxel y tamaño de salida.
+
+## **Exportación a HTML e imagen**
+
+La exportación a HTML y HTML5 es útil para visualización en navegadores, publicación web y compartir de forma ligera. La exportación de imágenes es útil cuando cada diapositiva debe convertirse en una vista previa, miniatura o recurso raster separado. Utilice los artículos de PNG, JPG y SVG para obtener directrices de renderizado específicas del formato.
+
 ## **Preguntas frecuentes**
-**¿Puedo incluir diapositivas ocultas al exportar a PDF/XPS?**
-Sí. La exportación admite la inclusión de diapositivas ocultas mediante la opción correspondiente en la configuración de [PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/)/[XPS](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/) .
-**¿Se admite guardar en el formato PDF/A (para almacenamiento de archivo)?**
-Sí, los niveles de cumplimiento PDF/A [están disponibles](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) (incluidos A-2a/A-2b/A-2u y A-3a/A-3b) durante la exportación.
-**¿Qué ocurre con las fuentes durante la conversión: se incrustan o se sustituyen?**
-Existen opciones flexibles: puede [incrustar todos los glifos o solo los subconjuntos usados](/slides/es/net/embedded-font/), especificar una [fuente de respaldo](/slides/es/net/fallback-font/), y [controlar el comportamiento](/slides/es/net/font-substitution/) cuando una fuente no dispone de ciertos estilos.
-**¿Cómo puedo controlar la calidad y el tamaño del PDF resultante?**
-Hay opciones disponibles para la [calidad JPEG](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/), la [compresión de texto](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/textcompression/), y un umbral de [resolución suficiente](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) para imágenes, además de un modo que selecciona la [mejor compresión para imágenes](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/bestimagescompressionratio/) .
-**¿Puedo exportar solo un rango de diapositivas (por ejemplo, 5–12)?**
-Sí, la exportación admite la selección de un subconjunto de diapositivas.
-**¿Se admite el procesamiento multinúcleo de varios archivos simultáneamente?**
-Es aceptable procesar diferentes presentaciones en paralelo en procesos separados. Importante: el mismo [presentación](/slides/es/net/presentation/) objeto no debe cargarse o guardarse desde [múltiples hilos](/slides/es/net/multithreading/) .
-**¿Existen riesgos al aplicar la licencia desde diferentes hilos?**
-Sí, las llamadas a [configuración de licencia](/slides/es/net/licensing/) no son seguras para subprocesos y requieren sincronización.
+
+**¿Necesito Microsoft PowerPoint para convertir presentaciones?**
+
+No. Aspose.Slides for .NET es una biblioteca independiente y no requiere Microsoft PowerPoint ni automatización de Office.
+
+**¿Puedo convertir en lote muchas presentaciones?**
+
+Sí. Cargue cada presentación, guárdela en el formato requerido y libere el objeto `Presentation` después del procesamiento. Para procesamiento paralelo, use instancias de presentación separadas y siga la guía de [multithreading](/slides/es/net/multithreading/).
+
+**¿Puedo exportar solo diapositivas seleccionadas?**
+
+Sí. Varios métodos de exportación le permiten pasar índices de diapositivas o renderizar diapositivas individuales, según el formato de salida. Consulte el artículo dedicado al formato objetivo.
+
+**¿Puedo incluir diapositivas ocultas al exportar a PDF o XPS?**
+
+Sí. Use la propiedad `ShowHiddenSlides` en [PdfOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/pdfoptions/) o [XpsOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/xpsoptions/).
+
+**¿Puedo crear salida PDF/A?**
+
+Sí. Las configuraciones de cumplimiento de PDF están disponibles a través de [PdfOptions.Compliance](https://reference.aspose.com/slides/es/net/aspose.slides.export/pdfoptions/compliance/) y [PdfCompliance](https://reference.aspose.com/slides/es/net/aspose.slides.export/pdfcompliance/).
+
+**¿Cómo se gestionan las fuentes durante la conversión?**
+
+Aspose.Slides puede usar fuentes incrustadas, fuentes de reserva y configuraciones de sustitución de fuentes. Vea [Fuente incrustada](/slides/es/net/embedded-font/), [Fuente de reserva](/slides/es/net/fallback-font/) y [Sustitución de fuentes](/slides/es/net/font-substitution/).
