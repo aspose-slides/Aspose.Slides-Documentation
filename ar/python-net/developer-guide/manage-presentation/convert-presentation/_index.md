@@ -1,112 +1,112 @@
 ---
-title: تحويل العروض التقديمية إلى صيغ متعددة في Python
+title: تحويل العروض التقديمية إلى صيغ متعددة في بايثون
 linktitle: تحويل العروض التقديمية
 type: docs
 weight: 70
 url: /ar/python-net/convert-presentation/
 keywords:
-- تحويل العرض التقديمي
-- تصدير العرض التقديمي
+- تحويل عرض تقديمي
+- تصدير عرض تقديمي
 - PPT إلى PPTX
+- PPTX إلى PPT
+- ODP إلى PPTX
 - PPT إلى PDF
 - PPTX إلى PDF
+- ODP إلى PDF
+- PPT إلى HTML
+- PPTX إلى HTML
+- ODP إلى HTML
+- PPT إلى PNG
+- PPTX إلى PNG
+- ODP إلى PNG
+- PPTX إلى JPG
+- ODP إلى JPG
 - PPT إلى XPS
 - PPTX إلى XPS
+- ODP إلى XPS
 - PPT إلى TIFF
 - PPTX إلى TIFF
+- ODP إلى TIFF
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "تحويل عروض PowerPoint ومستندات OpenDocument إلى PPTX و PDF و XPS و TIFF وأكثر باستخدام Aspose.Slides للغة Python عبر .NET. تحويل بسيط وعالي الجودة."
+description: "تحويل عروض PowerPoint و OpenDocument إلى PPTX و PDF و HTML وصور و XPS و TIFF وأكثر باستخدام Aspose.Slides للبايثون عبر .NET."
 ---
+## **نظرة عامة**
 
-## **المقدمة**
+Aspose.Slides for Python via .NET يمكنه تحميل عروض PowerPoint و OpenDocument وحفظها أو تصييرها إلى العديد من الصيغ الأخرى دون الحاجة إلى Microsoft PowerPoint أو OpenOffice أو LibreOffice. يمكنك تحويل ملفات PPT القديمة إلى PPTX الحديثة، وتصدير العروض إلى مستندات ذات تخطيط ثابت مثل PDF و XPS، ونشر الشرائح كـ HTML، أو تصيير الشرائح كملفات صورة للمعاينات، المصغرات، والأرشفة.
 
-توفر هذه الصفحة نظرة عامة على تحويل العروض التقديمية باستخدام Aspose.Slides للغة Python عبر .NET. تلخص السيناريوهات المدعومة وتشير إلى الأدلة المتخصصة التي تظهر الشفرة الدقيقة لتصدير العروض والشرائح إلى صيغ مثل PDF وXPS وTIFF، بالإضافة إلى التحويل بين PPT وPPTX. حيثما كان ذلك مناسبًا، تسلط المقالات المرتبطة الضوء على الخيارات الخاصة بالصيغ—مثل عرض الملاحظات أو ضبط جودة الصورة—والقيود المعروفة مثل الدعم الجزئي في مسارات PPT→PPTX. استخدم هذه الصفحة لاختيار الصيغة المستهدفة ثم اتبع الوصفة المرتبطة.
+معظم عمليات تحويل المستندات تستخدم نفس سير العمل العام: تحميل الملف المصدر، اختيار صيغة الإخراج المطلوبة، وتطبيق الخيارات الخاصة بالصيفة عند الحاجة. بالنسبة لصيغ الصور، يتم تصيير كل شريحة بشكل منفصل ثم حفظها كصورة نقطية أو متجهة. المقالات المخصصة المرتبطة أدناه توفر تفاصيل التنفيذ لكل حالة.
+
+## **اختر سيناريو تحويل**
+
+استخدم المقالات أدناه للحصول على أمثلة بايثون كاملة وخيارات خاصة بالصيفة.
+
+| سيناريو | استخدمه عندما تحتاج إلى | مقالات |
+| --- | --- | --- |
+| PPT/PPTX/ODP إلى PPTX | تحديث ملفات PPT القديمة، توحيد ملفات PPTX الحالية، أو تحويل عروض OpenDocument إلى PowerPoint PPTX. | [تحويل PPT إلى PPTX](/slides/ar/python-net/convert-ppt-to-pptx/), [تحويل ODP إلى PPTX](/slides/ar/python-net/convert-odp-to-pptx/), [حفظ العروض](/slides/ar/python-net/save-presentation/) |
+| PPTX إلى PPT | حفظ عرض PowerPoint الحديث بصيغة PPT الثنائية القديمة للتوافق مع سير العمل القديم. | [تحويل PPTX إلى PPT](/slides/ar/python-net/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP إلى PDF | إنشاء مستندات محمولة، قابلة للبحث، ذات تخطيط ثابت للمشاركة أو الطباعة أو الأرشفة. | [تحويل PowerPoint إلى PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP إلى PDF مع ملاحظات | تصدير ملاحظات المتحدث مع محتوى الشريحة. | [تحويل PowerPoint إلى PDF مع ملاحظات](/slides/ar/python-net/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP إلى HTML | نشر العروض كصفحات HTML والتحكم في الصور والخطوط والملاحظات وخيارات التخطيط المتجاوب. | [تحويل PowerPoint إلى HTML](/slides/ar/python-net/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP إلى HTML5 | تحويل الشرائح إلى HTML5 للعرض في المتصفح مع الحفاظ على التنسيق والتفاعلية. | [تحويل العروض إلى HTML5](/slides/ar/python-net/export-to-html5/) |
+| PPT/PPTX/ODP إلى PNG | تصيير كل شريحة كصورة PNG للمعاينات أو المصغرات أو مخرجات الويب. | [تحويل PowerPoint إلى PNG](/slides/ar/python-net/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP إلى JPG | تصيير الشرائح كصور JPG والتحكم بأبعاد الصورة وجودتها. | [تحويل PowerPoint إلى JPG](/slides/ar/python-net/convert-powerpoint-to-jpg/) |
+| شريحة إلى SVG | تصدير الشرائح الفردية كرسومات متجهة قابلة للتوسيع. | [تصيير شريحة كـ SVG](/slides/ar/python-net/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP إلى XPS | إنشاء مستندات XPS ذات تخطيط ثابت. | [تحويل PowerPoint إلى XPS](/slides/ar/python-net/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP إلى TIFF | حفظ العرض كملف TIFF متعدد الصفحات للطباعة أو المسح أو الفاكس أو سير عمل الأرشفة. | [تحويل PowerPoint إلى TIFF](/slides/ar/python-net/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP إلى TIFF مع ملاحظات | حفظ الشرائح مع ملاحظات المتحدث كملف TIFF. | [تحويل PowerPoint إلى TIFF مع ملاحظات](/slides/ar/python-net/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX/ODP إلى Word | تحويل الشرائح إلى مستند Word عندما تحتاج إلى مخرجات نمط مستند. | [تحويل PowerPoint إلى Word](/slides/ar/python-net/convert-powerpoint-to-word/) |
+| PPT/PPTX/ODP إلى Markdown | استخراج محتوى العرض إلى Markdown للتوثيق وسير العمل النصي. | [تحويل PowerPoint إلى Markdown](/slides/ar/python-net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP إلى GIF متحرك | إنشاء GIF متحرك من الشرائح. | [تحويل PowerPoint إلى GIF متحرك](/slides/ar/python-net/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX/ODP إلى فيديو | إنشاء سير عمل لتصدير الفيديو من شرائح العرض. | [تحويل PowerPoint إلى فيديو](/slides/ar/python-net/convert-powerpoint-to-video/) |
+| العرض إلى XAML | تصدير الشرائح إلى XAML لسيناريوهات واجهة المستخدم في Python أو .NET. | [تصدير العروض إلى XAML](/slides/ar/python-net/export-to-xaml/) |
+
+للحصول على قائمة أوسع من صيغ الإدخال والإخراج، راجع [الصيغ المدعومة](/slides/ar/python-net/supported-file-formats/).
+
+## **تحويل PowerPoint و OpenDocument**
+
+Aspose.Slides for Python via .NET يدعم التحويل من صيغ العروض الشائعة مثل PPT و PPTX و PPS و PPSX و POT و POTX و ODP. يتم استخدام نفس واجهة برمجة التطبيقات للتحويل بين ملفات PowerPoint و OpenDocument، لذا يمكن عادةً تطبيق سير عمل يحفظ ملف PPTX إلى PDF على ملف ODP بتغيير ملف الإدخال فقط.
+
+عند تحويل ملفات ODP، تذكر أن تطبيقات PowerPoint و OpenDocument لا تدعم كل تخطيط وميزة تنسيق بنفس الطريقة تمامًا. إذا تم إنشاء ملف ODP في LibreOffice أو OpenOffice Impress، راجع المخرجات واستخدم الخيارات الموضحة في [تحويل عروض OpenDocument](/slides/ar/python-net/convert-openoffice-odp/) عندما تحتاج إلى إرشادات خاصة بالصيفة.
 
 ## **تحويل PPT إلى PPTX**
 
-### **حول PPT/PPTX**
+PPT هو صيغة PowerPoint الثنائية القديمة، في حين أن PPTX هو صيغة Office Open XML الحديثة. Aspose.Slides for Python via .NET يدعم تحويل PPT إلى PPTX بدقة عالية مع الحفاظ على هياكل العروض المعقدة مثل القوالب، التخطيطات، الشرائح، المخططات، الأشكال المجمعة، العناصر النائبة، إطارات النص، القوام، وتعبئات الصور.
 
-PPT هو صيغة PowerPoint الثنائية القديمة (1997–2003)، بينما PPTX هو صيغة Open XML المعبأة بـ ZIP والتي تم تقديمها في PowerPoint 2007. مقارنةً بـ PPT، ينتج PPTX عادةً ملفات أصغر، يدعم الميزات الحديثة، يعمل جيدًا مع أتمتة المستندات، ويوصى به للتخزين طويل الأمد وتدفقات العمل عبر المنصات.
+للتفاصيل، راجع [تحويل PPT إلى PPTX](/slides/ar/python-net/convert-ppt-to-pptx/) و [PPT مقابل PPTX](/slides/ar/python-net/ppt-vs-pptx/).
 
-### **تحويل PPT إلى PPTX**
+## **تصدير تخطيط ثابت**
 
-يدعم Aspose.Slides تحويل عروض PPT إلى صيغة PPTX.الميزة الرئيسية لاستخدام Aspose.Slides API لهذا الغرض هي بساطة سير العمل المطلوب لتحقيق النتيجة المرجوة. عمليًا، يمكنك إجراء التحويل بحد أدنى من الشفرة مع الحفاظ على دقة عالية للشرائح والتخطيطات والوسائط.
+PDF و XPS و TIFF مفيدة عندما يجب أن يبدو الناتج بنفس الشكل عبر الأجهزة ولا ينبغي تحريره كعرض تقديمي. المقالات المخصصة للـ PDF والـ XPS والـ TIFF تشرح كيفية التحكم في الامتثال، الشرائح المخفية، الملاحظات، جودة الصورة، الضغط، تنسيق البكسل، وحجم الإخراج.
 
-{{% alert color="primary" %}}
-اقرأ المزيد:[تحويل PPT إلى PPTX في Python](/slides/ar/python-net/convert-ppt-to-pptx/).
-{{% /alert %}}
+## **تصدير HTML والصور**
 
-## **تحويل العرض التقديمي إلى PDF**
-
-### **حول PDF**
-
-[تنسيق المستند القابل للنقل](https://en.wikipedia.org/wiki/PDF) (PDF) هو صيغة ملف أنشأتها Adobe Systems لتبادل المستندات بين المؤسسات. هدفه هو ضمان عرض محتويات المستند بنفس المظهر البصري بغض النظر عن المنصة التي يُعرض عليها المستند.
-
-### **تحويل العروض إلى PDF**
-
-يمكن تحويل أي عرض يمكن تحميله في Aspose.Slides إلى مستند PDF. يمكنك تصدير العروض إلى PDF مباشرة باستخدام مكوّن Aspose.Slides؛ لا تحتاج إلى مكتبات طرف ثالث أو مكوّن Aspose.PDF.
-
-{{% alert color="primary" %}}
-اقرأ المزيد:[تحويل PPT & PPTX إلى PDF في Python](/slides/ar/python-net/convert-powerpoint-to-pdf/).
-{{% /alert %}}
-
-## **تحويل العرض التقديمي إلى XPS**
-
-### **حول XPS**
-
-[مواصفة ورق XML](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) (XPS) هي لغة توصيف صفحات وصيغة مستند ثابت تم تطويرها أصلاً من قبل Microsoft. مثل PDF، يعتبر XPS صيغة مستند ذات تخطيط ثابت صُممت للحفاظ على دقة المستند وتوفير مظهر مستقل عن الجهاز.
-
-### **تحويل العروض إلى XPS**
-
-يمكن تحويل أي عرض يمكن تحميله بواسطة Aspose.Slides إلى صيغة XPS. يستخدم Aspose.Slides محرك تخطيط صفحات وعرض عالي الدقة لإنتاج مخرجات بصيغة XPS ذات التخطيط الثابت. ومن الجدير بالذكر أن Aspose.Slides يولّد XPS مباشرة دون الاعتماد على Windows Presentation Foundation (WPF).
-
-{{% alert color="primary" %}}
-اقرأ المزيد:[تحويل عروض PowerPoint إلى XPS في Python](/slides/ar/python-net/convert-powerpoint-to-xps/).
-{{% /alert %}}
-
-## **تحويل العرض التقديمي إلى TIFF**
-
-### **حول TIFF**
-
-[تنسيق ملف الصورة الموسومة](https://en.wikipedia.org/wiki/TIFF) (TIFF) هو صيغة صورة نقطية معروفة بتخزين صور متعددة (صفحات) في ملف واحد. تم تطويرها أصلاً بواسطة Aldus وتدعمها على نطاق واسع تطبيقات المسح والفاكس ومعالجات الصور الأخرى.
-
-### **تحويل العروض إلى TIFF**
-
-يمكن أيضًا تحويل أي مستند يمكن تحميله في Aspose.Slides مباشرة إلى ملف TIFF دون الحاجة إلى أي مكوّنات طرف ثالث. يمكنك أيضًا تحديد حجم الصورة للصفحات في ملف TIFF الناتج اختيارياً.
-
-{{% alert color="primary" %}}
-اقرأ المزيد:[تحويل عروض PowerPoint إلى TIFF في Python](/slides/ar/python-net/convert-powerpoint-to-tiff/).
-{{% /alert %}}
+تصدير HTML و HTML5 مفيد للعرض في المتصفح، النشر على الويب، والمشاركة الخفيفة. تصدير الصور مفيد عندما يجب أن تتحول كل شريحة إلى معاينة أو مصغرة أو أصل نقطي منفصل. استخدم مقالات PNG و JPG و SVG للحصول على إرشادات التصيير الخاصة بالصيفة.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكن تضمين الشرائح المخفية عند التصدير إلى PDF/XPS؟**
+**هل أحتاج إلى Microsoft PowerPoint لتحويل العروض التقديمية؟**
 
-نعم. يدعم التصدير تضمين الشرائح المخفية عبر الخيار المقابل في إعدادات [PDF](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/)/[XPS](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/show_hidden_slides/) .
+لا. Aspose.Slides for Python via .NET هي مكتبة مستقلة ولا تتطلب Microsoft PowerPoint أو أتمتة Office.
 
-**هل يدعم الحفظ بصيغة PDF/A (للتخزين الأرشيفي)؟**
+**هل يمكنني تحويل عدة عروض تقديمية دفعة واحدة؟**
 
-نعم، مستويات توافق PDF/A [متاحة](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfcompliance/) (بما في ذلك A-2a/A-2b/A-2u وA-3a/A-3b) أثناء التصدير.
+نعم. قم بتحميل كل عرض تقديمي، احفظه بالصيفة المطلوبة، وحرر كائن العرض بعد المعالجة. للمعالجة المتوازية، استخدم حالات عرض تقديمي منفصلة واتبع إرشادات [التعددية](/slides/ar/python-net/multithreading/).
 
-**ماذا يحدث للخطوط أثناء التحويل: هل يتم تضمينها أم استبدالها؟**
+**هل يمكنني تصدير الشرائح المحددة فقط؟**
 
-هناك خيارات مرنة: يمكنك [تضمين جميع الحروف أو فقط المجموعة المستخدمة](/slides/ar/python-net/embedded-font/)، تحديد [خط احتياطي](/slides/ar/python-net/fallback-font/)، و[التحكم في السلوك](/slides/ar/python-net/font-substitution/) عندما يفتقر الخط إلى أنماط معينة.
+نعم. تسمح عدة طرق تصدير بتمرير فهارس الشرائح أو تصيير شرائح فردية، اعتمادًا على صيغة الإخراج. راجع المقال المخصص لصيغة الهدف.
 
-**كيف يمكنني التحكم في جودة وحجم ملف PDF الناتج؟**
+**هل يمكنني تضمين الشرائح المخفية عند تصدير إلى PDF أو XPS؟**
 
-تتوفر خيارات لـ[جودة JPEG](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/jpeg_quality/)، [ضغط النص](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/text_compression/)، و[حد دقة كافٍ](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/sufficient_resolution/) للصور، بالإضافة إلى وضع يختار [أفضل ضغط للصور](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/best_images_compression_ratio/) .
+نعم. استخدم إعدادات تصدير الشرائح المخفية الموضحة في مقالات [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/) و [XPS](/slides/ar/python-net/convert-powerpoint-to-xps/).
 
-**هل يمكن تصدير نطاق محدد من الشرائح (على سبيل المثال، 5–12)؟**
+**هل يمكنني إنشاء مخرجات PDF/A؟**
 
-نعم، يدعم التصدير اختيار مجموعة فرعية من الشرائح.
+نعم. تتوفر إعدادات الامتثال للـ PDF لتصدير PDF. راجع [تحويل PowerPoint إلى PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/) للتفاصيل.
 
-**هل يدعم المعالجة متعددة النوى لعدة ملفات في نفس الوقت؟**
+**كيف يتم التعامل مع الخطوط أثناء التحويل؟**
 
-يمكن معالجة عروض مختلفة بالتوازي في عمليات منفصلة. مهم: يجب ألا يتم تحميل أو حفظ نفس كائن [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/python-net/multithreading/) في آن واحد.
-
-**هل هناك مخاطر عند تطبيق الترخيص من خيوط مختلفة؟**
-
-نعم، استدعاءات [إعداد الترخيص](/slides/ar/python-net/licensing/) غير آمنة لعدة خيوط وتتطلب المزامنة.
+يمكن لـ Aspose.Slides استخدام الخطوط المدمجة، الخط الاحتياطي، وإعدادات استبدال الخط. راجع [الخط المضمن](/slides/ar/python-net/embedded-font/)، [الخط الاحتياطي](/slides/ar/python-net/fallback-font/)، و [استبدال الخط](/slides/ar/python-net/font-substitution/).

@@ -1,94 +1,112 @@
 ---
-title: تحويل العروض التقديمية إلى صيغ متعددة في C++
-linktitle: تحويل العرض التقديمي
+title: تحويل العروض إلى صيغ متعددة في C++
+linktitle: تحويل العرض
 type: docs
 weight: 70
 url: /ar/cpp/convert-presentation/
 keywords:
-- تحويل العرض التقديمي
-- تصدير العرض التقديمي
+- تحويل عرض
+- تصدير عرض
 - PPT إلى PPTX
+- PPTX إلى PPT
 - ODP إلى PPTX
 - PPT إلى PDF
 - PPTX إلى PDF
 - ODP إلى PDF
+- PPT إلى HTML
+- PPTX إلى HTML
+- ODP إلى HTML
+- PPT إلى PNG
+- PPTX إلى PNG
+- ODP إلى PNG
+- PPTX إلى JPG
+- ODP إلى JPG
 - PPT إلى XPS
 - PPTX إلى XPS
 - ODP إلى XPS
 - PPT إلى TIFF
 - PPTX إلى TIFF
 - ODP إلى TIFF
-- PPT إلى HTML
-- PPTX إلى HTML
-- ODP إلى HTML
 - PowerPoint
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "تحويل عروض PowerPoint وOpenDocument إلى PPTX، PDF، XPS، TIFF والمزيد باستخدام Aspose.Slides للغة C++. تحويل بسيط وعالي الجودة."
+description: "تحويل عروض PowerPoint وOpenDocument إلى PPTX وPDF وHTML وصور وXPS وTIFF وغيرها باستخدام Aspose.Slides for C++."
 ---
+## **نظرة عامة**
+
+يمكن لـ Aspose.Slides for C++ تحميل عروض PowerPoint وOpenDocument وتصديرها أو تصييرها إلى العديد من الصيغ الأخرى دون الحاجة إلى Microsoft PowerPoint أو OpenOffice أو LibreOffice. يمكنك تحويل ملفات PPT القديمة إلى PPTX الحديثة، وتصدير العروض إلى مستندات ثابتة التخطيط مثل PDF وXPS، ونشر الشرائح كـ HTML، أو تصيير الشرائح كملفات صورة للمعاينات، والصغار، والأرشفة.
+
+معظم عمليات تحويل المستندات تستخدم سير عمل عام مماثل: تحميل الملف المصدر، اختيار الصيغة المطلوبة، وتطبيق الخيارات الخاصة بالصيغ عند الحاجة. بالنسبة لصيغ الصور، يتم تصيير كل شريحة على حدة ثم حفظها كصورة نقطية أو متجهة. المقالات المخصصة المرتبطة أدناه توضح تفاصيل التنفيذ لكل حالة.
+
+## **اختر سيناريو التحويل**
+
+استخدم المقالات أدناه للحصول على أمثلة C++ كاملة وخيارات خاصة بالصيغة.
+
+| السيناريو | استخدمه عندما تحتاج إلى | المقالة |
+| --- | --- | --- |
+| PPT/PPTX/ODP to PPTX | تحديث ملفات PPT القديمة، توحيد ملفات PPTX الحالية، أو تحويل عروض OpenDocument إلى PowerPoint PPTX. | [تحويل PPT إلى PPTX](/slides/ar/cpp/convert-ppt-to-pptx/), [تحويل ODP إلى PPTX](/slides/ar/cpp/convert-odp-to-pptx/), [حفظ العروض](/slides/ar/cpp/save-presentation/) |
+| PPTX to PPT | حفظ عرض PowerPoint الحديث إلى صيغة PPT الثنائية القديمة لتوافق مع سير عمل أقدم. | [تحويل PPTX إلى PPT](/slides/ar/cpp/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP to PDF | إنشاء مستندات محمولة، قابلة للبحث، ثابتة التخطيط للمشاركة أو الطباعة أو الأرشفة. | [تحويل PowerPoint إلى PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP to PDF with notes | تصدير ملاحظات المتحدث مع محتوى الشريحة. | [تحويل PowerPoint إلى PDF مع الملاحظات](/slides/ar/cpp/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP to HTML | نشر العروض كصفحات HTML والتحكم في الصور، الخطوط، الملاحظات، وخيارات التخطيط المتجاوب. | [تحويل PowerPoint إلى HTML](/slides/ar/cpp/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP to HTML5 | تصدير الشرائح إلى HTML5 للعرض عبر المتصفح مع الحفاظ على التنسيق والتفاعلية. | [تحويل العروض إلى HTML5](/slides/ar/cpp/export-to-html5/) |
+| PPT/PPTX/ODP to PNG | تصيير كل شريحة إلى صورة PNG للمعاينات أو الصغار أو مخرجات الويب. | [تحويل PowerPoint إلى PNG](/slides/ar/cpp/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP to JPG | تصيير الشرائح إلى صور JPG والتحكم في أبعاد الصورة وجودتها. | [تحويل PowerPoint إلى JPG](/slides/ar/cpp/convert-powerpoint-to-jpg/) |
+| Slide to SVG | تصدير الشرائح الفردية كرسومات متجهة قابلة للتوسع. | [تصيير الشريحة كـ SVG](/slides/ar/cpp/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP to XPS | إنشاء مستندات XPS ثابتة التخطيط. | [تحويل PowerPoint إلى XPS](/slides/ar/cpp/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP to TIFF | حفظ عرض كملف TIFF متعدد الصفحات للطباعة أو المسح أو الفاكس أو سير عمل الأرشفة. | [تحويل PowerPoint إلى TIFF](/slides/ar/cpp/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP to TIFF with notes | حفظ الشرائح مع ملاحظات المتحدث إلى TIFF. | [تحويل PowerPoint إلى TIFF مع الملاحظات](/slides/ar/cpp/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX to Word | تحويل الشرائح إلى مستند Word عندما تحتاج إلى مخرجات بنمط مستند. | [تحويل PowerPoint إلى Word](/slides/ar/cpp/convert-powerpoint-to-word/) |
+| PPT/PPTX to Markdown | استخراج محتوى العرض إلى Markdown للتوثيق وسير العمل النصي. | [تحويل PowerPoint إلى Markdown](/slides/ar/cpp/convert-powerpoint-to-markdown/) |
+| PPT/PPTX to animated GIF | إنشاء GIF متحرك من الشرائح. | [تحويل PowerPoint إلى GIF متحرك](/slides/ar/cpp/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX to video | إنشاء سير عمل تصدير فيديو من شرائح العرض. | [تحويل PowerPoint إلى فيديو](/slides/ar/cpp/convert-powerpoint-to-video/) |
+| Presentation to XAML | تصدير الشرائح إلى XAML لسيناريوهات واجهة المستخدم C++. | [تصدير العروض إلى XAML](/slides/ar/cpp/export-to-xaml/) |
+
+لقائمة أوسع من صيغ الإدخال والإخراج، انظر [صيغ الملفات المدعومة](/slides/ar/cpp/supported-file-formats/).
+
+## **تحويل PowerPoint وOpenDocument**
+
+يدعم Aspose.Slides for C++ التحويل من صيغ العروض الشائعة مثل PPT وPPTX وPPS وPPSX وPOT وPOTX وODP. يتم استخدام نفس واجهة برمجة التطبيقات للتحويل بين PowerPoint وOpenDocument، لذا يمكن عادةً تطبيق سير عمل حفظ ملف PPTX إلى PDF على ملف ODP بتغيير ملف الإدخال فقط.
+
+عند تحويل ملفات ODP، تذكر أن تطبيقات PowerPoint وOpenDocument لا تدعم كل ميزات التخطيط والتنسيق بنفس الطريقة. إذا تم إنشاء ملف ODP في LibreOffice أو OpenOffice Impress، راجع النتيجة واستخدم الخيارات الموضحة في [Convert OpenDocument Presentations](/slides/ar/cpp/convert-openoffice-odp/) عندما تحتاج إلى إرشادات خاصة بالصيغ.
 
 ## **تحويل PPT إلى PPTX**
-### **حول التحويل من PPT إلى PPTX**
-Aspose.Slides الآن يدعم تحويل PPT إلى PPTX.
-### **تحويل PPT إلى PPTX باستخدام Aspose.Slides**
-توفر Aspose.Slides for C++ دعماً جزئياً لتحويل عروض تقديمية بتنسيق ملف PPT إلى عروض تقديمية بتنسيق ملف PPTX. وبما أن الدعم لهذه الميزة تم تقديمه مؤخرًا في Aspose.Slides for C++، فإن قدراته لا تزال محدودة وتعمل فقط مع الشكل البسيط من العروض. الميزة الرئيسية التي تقدمها مكتبة API لـ Aspose.Slides for C++ لتحويل عرض PPT إلى عرض بصيغة PPTX هي سهولة استخدام الـ API لتحقيق الهدف المطلوب. يرجى الانتقال إلى هذا [link](/slides/ar/cpp/convert-presentation/) إلى قسم مقتطفات التعليمات البرمجية لمزيد من التفاصيل. يوضح القسم التالي بوضوح ما هي الميزات المدعومة وغير المدعومة أثناء تحويل عروض PPT إلى عروض PPTX.
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل PPT إلى PPTX**](/slides/ar/cpp/convert-ppt-to-pptx/).
-{{% /alert %}}
-## **تحويل العروض إلى PDF**
-### **حول PDF**
-تنسيق الملف القابل للنقل (Portable Document Format) هو تنسيق ملف تم إنشاؤه بواسطة نظام Adobe لتبادل المستندات بين مؤسسات مختلفة. الهدف من هذا التنسيق هو إتاحة تمثيل محتويات المستندات بطريقة لا تعتمد مظهرها البصري على المنصة التي يتم عرضها عليها.
-### **PDF في Aspose.Slides for C++**
-[PDF](https://docs.fileformat.com/pdf/) هو تنسيق ملف تم إنشاؤه بواسطة نظام Adobe لتبادل المستندات بين مؤسسات مختلفة. هدف هذا التنسيق هو جعل المظهر البصري لمحتويات المستند غير معتمد على المنصة التي يتم عرضها عليها.
 
-يمكن تحويل أي مستند عرض يمكن تحميله في Aspose.Slides for C++ إلى مستند PDF. يمكنك تصدير مستندات العرض إلى PDF مباشرةً باستخدام مكوّن Aspose.Slides for C++ فقط. لا تحتاج إلى أي مكتبات طرف ثالث أخرى أو مكوّن Aspose.PDF لهذا الغرض.
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل العرض إلى PDF**](/slides/ar/cpp/convert-powerpoint-to-pdf/).
-{{% /alert %}}
-## **تحويل العروض إلى XPS**
-### **حول XPS**
-المواصفة XML Parser Specification هي لغة وصف الصفحات وتنسيق مستند ثابت تم تطويره أصلاً بواسطة Microsoft. مثل PDF، XPS هو تنسيق مستند ثابت التخطيط صُمم للحفاظ على دقة المستند وتوفير مظهر المستند المستقل عن الجهاز.
-### **تحويل عرض إلى XPS باستخدام Aspose.Slides**
-يمكن لأي مستند عرض يمكن تحميله بواسطة Aspose.Slides for C++ أن يُحوَّل إلى تنسيق XPS. تستخدم Aspose.Slides for C++ محرك تخطيط الصفحات عالي الدقة والتصيير لإنتاج مخرجات بتنسيق مستند XPS ثابت التخطيط. ومن الجدير بالذكر أن Aspose.Slides for C++ تُنشئ XPS مباشرةً دون الاعتماد على فئات Windows Presentation Foundation (WPF) المضمنة في إطار C++ Framework 3.5، مما يسمح لـ Aspose.Slides for C++ بإنتاج مستندات XPS على الأجهزة التي تعمل بإصدارات أقدم من C++ Framework. يمكنك التعرف على تصدير مستندات العرض إلى مستندات XPS عبر Aspose.Slides for C++ في [this topic](/slides/ar/cpp/convert-powerpoint-to-xps/).
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل العرض إلى XPS**.](/slides/ar/cpp/convert-powerpoint-to-xps/)
-{{% /alert %}}
-## **تحويل العروض إلى TIFF**
-### **حول TIFF**
-تنسيق Tagged Image File Format (TIFF) المعروف بتخزين عدة صور في مستند واحد تم إنشاؤه أصلاً بواسطة Aldus. يتم دعم هذا التنسيق على نطاق واسع من قبل تطبيقات المسح والفكس وغيرها من تطبيقات معالجة الصور.
-### **تحويل عرض إلى TIFF باستخدام Aspose.Slides**
-يمكن لأي مستند يمكن تحميله في Aspose.Slides for C++ أن يُحوَّل أيضًا مباشرةً إلى مستند TIFF بواسطة Aspose.Slides for C++، مما يلغي الحاجة إلى أي مكوّن طرف ثالث. بالإضافة إلى ذلك، يمكنك اختيارياً تحديد حجم الصور في مستند TIFF الناتج. يمكنك العثور على معلومات حول تصدير مستندات العرض إلى مستندات TIFF عبر Aspose.Slides for C++ في [this topic](/slides/ar/cpp/convert-powerpoint-to-tiff/).
-{{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل العرض إلى TIFF**.](/slides/ar/cpp/convert-powerpoint-to-tiff/)
-{{% /alert %}}
+PPT هو صيغة PowerPoint الثنائية القديمة، بينما PPTX هو صيغة Office Open XML الحديثة. يدعم Aspose.Slides for C++ تحويلًا عالي الدقة من PPT إلى PPTX مع الحفاظ على هياكل العرض المعقدة مثل القوالب، التخطيطات، الشرائح، المخططات، الأشكال المجمعة، العناصر النائبة، إطارات النص، القوام، وتعبئات الصور.
 
-## **الأسئلة المتكررة**
+للتفاصيل، انظر [تحويل PPT إلى PPTX](/slides/ar/cpp/convert-ppt-to-pptx/).
 
-**هل يمكنني تضمين الشرائح المخفية عند التصدير إلى PDF/XPS؟**
+## **تصدير ثابت التخطيط**
 
-نعم. يدعم التصدير تضمين الشرائح المخفية عبر الخيار المقابل في إعدادات [PDF](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/)/[XPS](https://reference.aspose.com/slides/cpp/aspose.slides.export/xpsoptions/set_showhiddenslides/) .
+PDF وXPS وTIFF مفيدة عندما يجب أن يبدو الناتج متطابقًا عبر الأجهزة ولا ينبغي تحريره كعرض تقديمي. تشرح مقالات PDF وXPS وTIFF كيفية التحكم في التوافق، الشرائح المخفية، الملاحظات، جودة الصورة، الضغط، تنسيق البكسل، وحجم الإخراج.
 
-**هل يدعم الحفظ بتنسيق PDF/A (للتخزين الأرشيفي)؟**
+## **تصدير HTML والصور**
 
-نعم، تتوفر مستويات توافق PDF/A [موجودة](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfcompliance/) (بما في ذلك A-2a/A-2b/A-2u و A-3a/A-3b) أثناء التصدير.
+تصدير HTML وHTML5 مفيد للعرض عبر المتصفح، النشر على الويب، والمشاركة الخفيفة. تصدير الصور مفيد عندما يجب أن تتحول كل شريحة إلى معاينة منفصلة أو صورة مصغرة أو أصل شريطي. استخدم مقالات PNG وJPG وSVG للحصول على إرشادات تصيير خاصة بالصيغ.
 
-**ماذا يحدث للخطوط أثناء التحويل: هل يتم تضمينها أم استبدالها؟**
+## **الأسئلة الشائعة**
 
-هناك خيارات مرنة: يمكنك [تضمين جميع الأحرف أو فقط المجموعات المستخدمة](/slides/ar/cpp/embedded-font/)، تحديد [خط احتياطي](/slides/ar/cpp/fallback-font/)، و[التحكم في السلوك](/slides/ar/cpp/font-substitution/) عندما يفتقر الخط إلى بعض الأنماط.
+**هل أحتاج إلى Microsoft PowerPoint لتحويل العروض؟**
 
-**كيف يمكنني التحكم في جودة وحجم ملف PDF الناتج؟**
+لا. Aspose.Slides for C++ مكتبة مستقلة ولا تتطلب Microsoft PowerPoint أو أتمتة Office.
 
-تتوفر خيارات لـ [جودة JPEG](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/)، [ضغط النص](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_textcompression/)، و[دقة كافية](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) للصور، بالإضافة إلى وضع يختار [أفضل ضغط للصور](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_bestimagescompressionratio/) .
+**هل يمكنني تحويل العديد من العروض دفعة واحدة؟**
 
-**هل يمكنني تصدير نطاق محدد من الشرائح فقط (مثلاً من 5 إلى 12)؟**
+نعم. حمّل كل عرض، احفظه بالصيفة المطلوبة، وتخلص من كائن العرض بعد المعالجة. للمعالجة المتوازية، استخدم نسخًا منفصلة من كائن العرض واتبع إرشادات [متعددة الخيوط](/slides/ar/cpp/multithreading/).
 
-نعم، يدعم التصدير اختيار مجموعة من الشرائح.
+**هل يمكنني تصدير شرائح مختارة فقط؟**
 
-**هل يُدعم المعالجة المتعددة النوى لعدة ملفات في نفس الوقت؟**
+نعم. تسمح عدة طرق تصدير بتمرير فهارس الشرائح أو تصيير شرائح فردية، حسب صيغة الإخراج. انظر المقالة المخصصة للصيغة المستهدفة.
 
-يمكن معالجة عروض تقديمية مختلفة بالتوازي في عمليات منفصلة. مهم: يجب ألا يتم تحميل أو حفظ نفس كائن [العرض](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/cpp/multithreading/) .
+**هل يمكنني تضمين الشرائح المخفية عند التصدير إلى PDF أو XPS؟**
 
-**هل هناك مخاطر عند تطبيق الترخيص من خيوط مختلفة؟**
+نعم. استخدم إعدادات تصدير الشرائح المخفية الموضحة في مقالات [PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/) و [XPS](/slides/ar/cpp/convert-powerpoint-to-xps/).
 
-نعم، استدعاءات [ضبط الترخيص](/slides/ar/cpp/licensing/) ليست آمنة في الخيوط وتحتاج إلى مزامنة.
+**هل يمكنني إنشاء مخرجات PDF/A؟**
+
+نعم. تتوفر إعدادات التوافق لملف PDF. راجع [تحويل PowerPoint إلى PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/) للتفاصيل.
+
+**كيف يتم التعامل مع الخطوط أثناء التحويل؟**
+
+يمكن لـ Aspose.Slides استخدام الخطوط المدمجة، fallback للخطوط، وإعدادات استبدال الخطوط. راجع [خط مدمج](/slides/ar/cpp/embedded-font/)، [Fallback Font](/slides/ar/cpp/fallback-font/)، و [استبدال الخط](/slides/ar/cpp/font-substitution/).
