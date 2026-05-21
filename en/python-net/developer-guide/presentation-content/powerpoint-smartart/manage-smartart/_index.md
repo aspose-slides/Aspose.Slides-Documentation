@@ -20,140 +20,118 @@ description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for
 
 ## **Overview**
 
-This article explains how to work with SmartArt in Aspose.Slides. It shows how to extract text from SmartArt shapes, change a SmartArt layout, check whether a SmartArt node is hidden, get or set an organization chart layout, and create a picture organization chart. It also covers several related questions, including SmartArt reversal for RTL languages, cloning SmartArt while preserving formatting, rendering SmartArt as part of a slide image, and identifying a specific SmartArt object on a slide.
+SmartArt is a PowerPoint diagram made from nodes, node shapes, and a layout. With Aspose.Slides for Python via .NET, you can create SmartArt, read text from its nodes, change its layout, inspect hidden nodes, configure organization chart layouts, and create picture organization charts.
 
-## **Get Text from SmartArt**
+## **Get Text from a SmartArt Object**
 
-The `text_frame` property of the [SmartArtShape](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartshape/) allows you to retrieve all text from a SmartArt shape—not just the text contained in its nodes. The following sample code shows how to get text from a SmartArt node.
+A SmartArt node can contain one or more shapes. To read the visible text, iterate through [SmartArt.all_nodes](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/all_nodes/), then read the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) returned by [SmartArtShape.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartshape/text_frame/).
 
 ```py
 import aspose.slides as slides
+import aspose.slides.smartart as smartart
 
-with slides.Presentation("SmartArt.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
-    smart_art = slide.shapes[0]
+    shape = slide.shapes[0]
 
-    for smart_art_node in smart_art.all_nodes:
-        for node_shape in smart_art_node.shapes:
-            if node_shape.text_frame is not None:
-                print(node_shape.text_frame.text)
+    if isinstance(shape, smartart.SmartArt):
+        smart_art = shape
+
+        for smart_art_node in smart_art.all_nodes:
+            for smart_art_shape in smart_art_node.shapes:
+                if smart_art_shape.text_frame is not None:
+                    print(smart_art_shape.text_frame.text)
 ```
 
-## **Change the SmartArt Layout Type**
+## **Change the Layout Type of a SmartArt Object**
 
-To change the SmartArt layout type, follow these steps:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add a SmartArt shape with the `BASIC_BLOCK_LIST` layout.
-1. Change its layout to `BASIC_PROCESS`.
-1. Save the presentation as a PPTX file.
+The SmartArt layout controls how nodes are arranged and connected. The following example creates a SmartArt object with the [SmartArtLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartlayouttype/) `BASIC_BLOCK_LIST` value, changes it to the `BASIC_PROCESS` value, and saves the presentation.
 
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
 
-    # Add a SmartArt shape with the BASIC_BLOCK_LIST layout.
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    smart_art.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
 
-    # Change the layout type to BASIC_PROCESS.
-    smart.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
-
-    # Save the presentation.
-    presentation.save("ChangedSmartArtLayout.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("ChangeSmartArtLayout_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Check the Hidden Property of SmartArt**
+## **Check Whether a SmartArt Node Is Hidden**
 
-The `SmartArtNode.is_hidden` property returns `True` if the node is hidden in the data model. To check whether a SmartArt node is hidden, follow these steps:
+[SmartArtNode.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/is_hidden/) indicates whether the node is hidden in the SmartArt data model. Hidden nodes can exist in the structure even when the selected layout does not display them as visible diagram elements.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Add a SmartArt shape with the `RADIAL_CYCLE` layout.
-1. Add a node to the SmartArt.
-1. Check the `is_hidden` property.
+The following example adds a node to a SmartArt object that uses the [SmartArtLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartlayouttype/) `RADIAL_CYCLE` value and checks the node's hidden state.
 
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
 
-    # Add a SmartArt shape with the RADIAL_CYCLE layout.
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
+    smart_art_node = smart_art.all_nodes.add_node()
+    is_hidden = smart_art_node.is_hidden
 
-    # Add a node to the SmartArt.
-    node = smart.all_nodes.add_node()
+    if is_hidden:
+        print("The node is hidden in the SmartArt data model.")
 
-    # Check the is_hidden property.
-    if node.is_hidden:
-        print("The node is hidden.")
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Get or Set the Organization Chart Type**
+## **Get or Set the Organization Chart Layout**
 
-The `SmartArtNode.organization_chart_layout` property gets or sets the organization chart type associated with the current node. To get or set the organization chart type, follow these steps:
+For SmartArt diagrams that use an organization chart layout, [SmartArtNode.organization_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/organization_chart_layout/) defines how child nodes are arranged under a parent node. For example, you can set child nodes to hang from the left, right, or both sides, depending on the selected [OrganizationChartLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/organizationchartlayouttype/).
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Add a SmartArt shape to the slide.
-1. Get or set the organization chart type.
-1. Save the presentation as a PPTX file.
+The following example creates an organization chart and sets the layout for the first node to the [OrganizationChartLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/organizationchartlayouttype/) `LEFT_HANGING` value.
 
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
 
-    # Add a SmartArt shape with the ORGANIZATION_CHART layout.
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
+    root_node = smart_art.nodes[0]
+    root_node.organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
 
-    # Set the organization chart type.
-    smart.nodes[0].organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
-
-    # Save the presentation.
-    presentation.save("OrganizationChartLayout.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("OrganizationChartLayout_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Create a Picture Organization Chart**
 
-Aspose.Slides for Python provides a simple API for creating picture organization charts easily. To create a chart on a slide:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Get a reference to the slide by its index.
-1. Add a chart with default data of the desired type.
-1. Save the modified presentation as a PPTX file.
+A picture organization chart is a SmartArt layout designed for hierarchy diagrams that include image placeholders. Use the [SmartArtLayoutType](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartlayouttype/) `PICTURE_ORGANIZATION_CHART` value when adding the SmartArt object to a slide.
 
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
 
-    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
-    
-    presentation.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("PictureOrganizationChart_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Does SmartArt support mirroring/reversing for RTL languages?**
+**Does SmartArt support mirroring or reversing for RTL languages?**
 
-Yes. The [is_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/is_reversed/) property switches the diagram direction (LTR/RTL) if the selected SmartArt type supports reversal.
+Yes. The [SmartArt.is_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/is_reversed/) property switches the diagram direction from left-to-right to right-to-left, or back, when the selected SmartArt layout supports reversal.
 
 **How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
 
-You can [clone the SmartArt shape](/slides/python-net/shape-manipulations/) via the shapes collection ([ShapeCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_clone/)) or [clone the entire slide](/slides/python-net/clone-slides/) containing this shape. Both approaches preserve size, position, and styling.
+You can [clone the SmartArt shape](/slides/python-net/shape-manipulations/) with [ShapeCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_clone/) or [clone the whole slide](/slides/python-net/clone-slides/) that contains the SmartArt. Both approaches preserve size, position, and formatting.
 
 **How do I render SmartArt to a raster image for preview or web export?**
 
-[Render the slide](/slides/python-net/convert-powerpoint-to-png/) (or the whole presentation) to PNG/JPEG through the API that converts slides/presentations to images—SmartArt will be drawn as part of the slide.
+[Render the slide](/slides/python-net/convert-powerpoint-to-png/) or the whole presentation to PNG or JPEG. SmartArt is rendered as part of the slide.
 
-**How can I programmatically select a specific SmartArt on a slide if there are several?**
+**How can I find a specific SmartArt object on a slide if there are several?**
 
-A common practice is to use [alternative text](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/alternative_text/) (Alt Text) or a [name](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/name/) and search for the shape by that attribute within [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/), then check the type to confirm it’s [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/). The documentation describes typical techniques for finding and working with shapes.
+Set a distinctive [Shape.alternative_text](https://reference.aspose.com/slides/python-net/aspose.slides/shape/alternative_text/) or [Shape.name](https://reference.aspose.com/slides/python-net/aspose.slides/shape/name/) value on the SmartArt shape, search for that value in [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/), and then check that the matching shape is a [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/).

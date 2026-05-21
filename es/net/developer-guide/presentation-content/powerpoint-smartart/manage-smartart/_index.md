@@ -1,6 +1,6 @@
 ---
-title: Administrar SmartArt en presentaciones de PowerPoint en .NET
-linktitle: Administrar SmartArt
+title: Gestionar SmartArt en presentaciones de PowerPoint en .NET
+linktitle: Gestionar SmartArt
 type: docs
 weight: 10
 url: /es/net/manage-smartart/
@@ -10,152 +10,130 @@ keywords:
 - tipo de diseño
 - propiedad oculta
 - organigrama
-- organigrama de imagen
+- organigrama con imágenes
 - PowerPoint
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a crear y editar SmartArt de PowerPoint con Aspose.Slides para .NET utilizando ejemplos de código C# claros que aceleran el diseño y la automatización de diapositivas."
+description: "Aprende a crear y editar SmartArt de PowerPoint con Aspose.Slides para .NET utilizando ejemplos de código C# claros que aceleran el diseño y la automatización de diapositivas."
 ---
+## **Resumen**
+
+SmartArt es un diagrama de PowerPoint compuesto por nodos, formas de nodo y un diseño. Con Aspose.Slides para .NET, puedes crear SmartArt, leer el texto de sus nodos, cambiar su diseño, inspeccionar nodos ocultos, configurar diseños de organigramas y crear organigramas con imágenes.
 
 ## **Obtener texto de un objeto SmartArt**
-Ahora se ha añadido la propiedad TextFrame a la interfaz ISmartArtShape y a la clase SmartArtShape respectivamente. Esta propiedad le permite obtener todo el texto de SmartArt, no solo el texto de los nodos. El siguiente fragmento de código le ayudará a obtener el texto de un nodo SmartArt.
-```c#
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-	ISlide slide = pres.Slides[0];
-	ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
 
-	ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
-	foreach (ISmartArtNode smartArtNode in smartArtNodes)
-	{
-		foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
-		{
-			if (nodeShape.TextFrame != null)
-				Console.WriteLine(nodeShape.TextFrame.Text);
-		}
-	}
+Un nodo de SmartArt puede contener una o más formas. Para leer el texto visible, recorre [ISmartArt.AllNodes](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/ismartart/allnodes/), luego lee el [ITextFrame](https://reference.aspose.com/slides/es/net/aspose.slides/itextframe/) devuelto por [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/ismartartshape/textframe/).
+
+```c#
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    if (slide.Shapes[0] is ISmartArt smartArt)
+    {
+        foreach (ISmartArtNode node in smartArt.AllNodes)
+        {
+            foreach (ISmartArtShape nodeShape in node.Shapes)
+            {
+                if (nodeShape.TextFrame != null)
+                {
+                    Console.WriteLine(nodeShape.TextFrame.Text);
+                }
+            }
+        }
+    }
 }
 ```
 
-
 ## **Cambiar el tipo de diseño de un objeto SmartArt**
-Para cambiar el tipo de diseño de SmartArt, siga los pasos a continuación:
 
-- Cree una instancia de la clase `Presentation`.
-- Obtenga la referencia de una diapositiva usando su índice.
-- Añada SmartArt BasicBlockList.
-- Cambie LayoutType a BasicProcess.
-- Guarde la presentación como un archivo PPTX.
+El diseño de SmartArt controla cómo se disponen y conectan los nodos. El siguiente ejemplo crea un objeto SmartArt con el valor `BasicBlockList` de [SmartArtLayoutType](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/smartartlayouttype/), lo cambia al valor `BasicProcess` y guarda la presentación.
 
-En el ejemplo que se muestra a continuación, hemos añadido un conector entre dos formas.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Añadir SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    // Cambiar LayoutType a BasicProcess
-    smart.Layout = SmartArtLayoutType.BasicProcess;
+    smartArt.Layout = SmartArtLayoutType.BasicProcess;
 
-    // Guardar presentación
     presentation.Save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Comprobar si un nodo SmartArt está oculto**
 
-## **Comprobar la propiedad Oculto de un objeto SmartArt**
-Nota: el método com.aspose.slides.ISmartArtNode.isHidden() devuelve true si este nodo es un nodo oculto en el modelo de datos. Para comprobar la propiedad Oculto de cualquier nodo de SmartArt, siga los pasos a continuación:
+[ISmartArtNode.IsHidden](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/ismartartnode/ishidden/) indica si el nodo está oculto en el modelo de datos de SmartArt. Los nodos ocultos pueden existir en la estructura incluso cuando el diseño seleccionado no los muestra como elementos visibles del diagrama.
 
-- Cree una instancia de la clase `Presentation`.
-- Añada SmartArt RadialCycle.
-- Añada un nodo en SmartArt.
-- Compruebe la propiedad isHidden.
-- Guarde la presentación como un archivo PPTX.
+El siguiente ejemplo añade un nodo a un objeto SmartArt que utiliza el valor `RadialCycle` de [SmartArtLayoutType](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/smartartlayouttype/) y comprueba el estado de ocultación del nodo.
 
-En el ejemplo que se muestra a continuación, hemos añadido un conector entre dos formas.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Añadir SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // Añadir nodo en SmartArt 
-    ISmartArtNode node = smart.AllNodes.AddNode();
+    ISmartArtNode node = smartArt.AllNodes.AddNode();
+    bool isHidden = node.IsHidden;
 
-    // Verificar la propiedad isHidden
-    bool hidden = node.IsHidden; // Devuelve true
-
-    if (hidden)
+    if (isHidden)
     {
-        // Realizar algunas acciones o notificaciones
+        Console.WriteLine("The node is hidden in the SmartArt data model.");
     }
-    // Guardar presentación
+
     presentation.Save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Obtener o establecer el diseño del organigrama**
 
-## **Obtener o establecer el tipo de organigrama**
-Los métodos com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() y setOrganizationChartLayout(int) permiten obtener o establecer el tipo de organigrama asociado al nodo actual. Para obtener o establecer el tipo de organigrama, siga los pasos a continuación:
+Para diagramas SmartArt que utilizan un diseño de organigrama, [ISmartArtNode.OrganizationChartLayout](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/ismartartnode/organizationchartlayout/) define cómo se disponen los nodos hijos bajo un nodo padre. Por ejemplo, puedes establecer que los nodos hijos cuelguen por la izquierda, la derecha o ambos lados, según el [OrganizationChartLayoutType](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/organizationchartlayouttype/) seleccionado.
 
-- Cree una instancia de la clase `Presentation`.
-- Añada SmartArt en la diapositiva.
-- Obtenga o establezca el tipo de organigrama.
-- Guarde la presentación como un archivo PPTX.
+El siguiente ejemplo crea un organigrama y establece el diseño del primer nodo al valor `LeftHanging` de [OrganizationChartLayoutType](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/organizationchartlayouttype/).
 
-En el ejemplo que se muestra a continuación, hemos añadido un conector entre dos formas.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Añadir SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // Obtener o establecer el tipo de organigrama 
-    smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
+    ISmartArtNode rootNode = smartArt.Nodes[0];
+    rootNode.OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-    // Guardar presentación
-    presentation.Save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+    presentation.Save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Crear un organigrama con imágenes**
 
-## **Crear un organigrama de imagen**
-Aspose.Slides para .NET proporciona una API simple para crear diagramas PictureOrganization de forma fácil. Para crear un diagrama en una diapositiva:
+Un organigrama con imágenes es un diseño SmartArt creado para diagramas jerárquicos que incluyen marcadores de posición de imágenes. Utiliza el valor `PictureOrganizationChart` de [SmartArtLayoutType](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/smartartlayouttype/) al añadir el objeto SmartArt a una diapositiva.
 
-1. Cree una instancia de la clase `Presentation`.
-2. Obtenga la referencia de una diapositiva mediante su índice.
-3. Añada un diagrama con datos predeterminados y el tipo deseado (ChartType.PictureOrganizationChart).
-4. Guarde la presentación modificada en un archivo PPTX
-
-El siguiente código se utiliza para crear un diagrama.
 ```c#
-public static void Run()
+using (Presentation presentation = new Presentation())
 {
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-		pres.Save("OrganizationChart.pptx", SaveFormat.Pptx);
-	}			
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.Save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Preguntas frecuentes**
 
-## **FAQ**
+**¿SmartArt admite reflejo o inversión para idiomas RTL?**
 
-**¿SmartArt admite el reflejo/inversión para idiomas RTL?**
+Sí. La propiedad [IsReversed](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/smartart/isreversed/) cambia la dirección del diagrama de izquierda a derecha a derecha a izquierda, o viceversa, cuando el diseño SmartArt seleccionado admite la inversión.
 
-Sí. La propiedad [IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/) cambia la dirección del diagrama (LTR/RTL) si el tipo de SmartArt seleccionado admite la reversión.
+**¿Cómo puedo copiar SmartArt a la misma diapositiva o a otra presentación manteniendo el formato?**
 
-**¿Cómo puedo copiar SmartArt a la misma diapositiva o a otra presentación preservando el formato?**
+Puedes [clonar la forma SmartArt](/slides/es/net/shape-manipulations/) con [ShapeCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/shapecollection/addclone/) o [clonar toda la diapositiva](/slides/es/net/clone-slides/) que contiene el SmartArt. Ambos enfoques conservan el tamaño, la posición y el formato.
 
-Puede [clonar la forma SmartArt](/slides/es/net/shape-manipulations/) a través de la colección de formas ([ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/)) o [clonar la diapositiva completa](/slides/es/net/clone-slides/) que contiene esta forma. Ambos enfoques conservan el tamaño, la posición y el estilo.
+**¿Cómo renderizo SmartArt a una imagen raster para vista previa o exportación web?**
 
-**¿Cómo renderizo SmartArt a una imagen rasterizada para vista previa o exportación web?**
+Renderiza la [diapositiva](/slides/es/net/convert-powerpoint-to-png/) o toda la presentación a PNG o JPEG. SmartArt se renderiza como parte de la diapositiva.
 
-[Renderice la diapositiva](/slides/es/net/convert-powerpoint-to-png/) (o la presentación completa) a PNG/JPEG mediante la API que convierte diapositivas/presentaciones a imágenes; SmartArt se dibujará como parte de la diapositiva.
+**¿Cómo puedo encontrar un objeto SmartArt específico en una diapositiva si hay varios?**
 
-**¿Cómo puedo seleccionar programáticamente un SmartArt específico en una diapositiva si hay varios?**
-
-Una práctica común es usar [texto alternativo](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/) (Alt Text) o un [Nombre](https://reference.aspose.com/slides/net/aspose.slides/shape/name/) y buscar la forma por ese atributo dentro de [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/), luego comprobar el tipo para confirmar que es [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/). La documentación describe técnicas típicas para encontrar y trabajar con formas.
+Establece un valor distintivo de [AlternativeText](https://reference.aspose.com/slides/es/net/aspose.slides/shape/alternativetext/) o [Name](https://reference.aspose.com/slides/es/net/aspose.slides/shape/name/) en la forma SmartArt, busca ese valor en [Slide.Shapes](https://reference.aspose.com/slides/es/net/aspose.slides/baseslide/shapes/), y luego verifica que la forma coincidente sea un [ISmartArt](https://reference.aspose.com/slides/es/net/aspose.slides.smartart/ismartart/).

@@ -8,99 +8,106 @@ keywords:
 - 转换演示文稿
 - 导出演示文稿
 - PPT 转 PPTX
+- PPTX 转 PPT
 - ODP 转 PPTX
 - PPT 转 PDF
 - PPTX 转 PDF
 - ODP 转 PDF
+- PPT 转 HTML
+- PPTX 转 HTML
+- ODP 转 HTML
+- PPT 转 PNG
+- PPTX 转 PNG
+- ODP 转 PNG
+- PPTX 转 JPG
+- ODP 转 JPG
 - PPT 转 XPS
 - PPTX 转 XPS
 - ODP 转 XPS
 - PPT 转 TIFF
 - PPTX 转 TIFF
 - ODP 转 TIFF
-- PPT 转 HTML
-- PPTX 转 HTML
-- ODP 转 HTML
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 将 PowerPoint 和 OpenDocument 演示文稿转换为 PPTX、PDF、XPS、TIFF 等格式。简单且高质量的转换。"
+description: "使用 Aspose.Slides for .NET 将 PowerPoint 和 OpenDocument 演示文稿转换为 PPTX、PDF、HTML、图像、XPS、TIFF 等格式。"
 ---
+## **概述**
+
+Aspose.Slides for .NET 可以加载 PowerPoint 和 OpenDocument 演示文稿，并在无需 Microsoft PowerPoint、OpenOffice 或 LibreOffice 的情况下将其保存或渲染为多种其他格式。您可以将旧版 PPT 文件转换为现代 PPTX，将演示文稿导出为 PDF、XPS 等固定布局文档，将幻灯片发布为 HTML，或将幻灯片渲染为图像文件以供预览、缩略图和存档使用。
+
+大多数文档转换遵循相同的通用工作流：加载源文件，选择所需的输出格式，并在需要时应用特定格式的选项。对于图像格式，每张幻灯片会单独渲染，然后保存为光栅或矢量图像。下面链接的专用文章提供了每种情况的实现细节。
+
+## **选择转换场景**
+
+使用下面的文章获取完整的 C# 示例和特定格式的选项。
+
+| 场景 | 适用情况 | 文章 |
+| --- | --- | --- |
+| PPT/PPTX/ODP 转 PPTX | 现代化旧版 PPT 文件，规范化现有 PPTX 文件，或将 OpenDocument 演示文稿转换为 PowerPoint PPTX。 | [Convert PPT to PPTX](/slides/zh/net/convert-ppt-to-pptx/),[Convert ODP to PPTX](/slides/zh/net/convert-odp-to-pptx/),[Save Presentations](/slides/zh/net/save-presentation/) |
+| PPTX 转 PPT | 将现代 PowerPoint 演示文稿保存为旧的二进制 PPT 格式，以兼容旧的工作流。 | [Convert PPTX to PPT](/slides/zh/net/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP 转 PDF | 创建可移植、可搜索的固定布局文档，用于共享、打印或归档。 | [Convert PowerPoint to PDF](/slides/zh/net/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP 转 PDF（含备注） | 将演讲者备注与幻灯片内容一起导出。 | [Convert PowerPoint to PDF with Notes](/slides/zh/net/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP 转 HTML | 将演示文稿发布为 HTML 页面，并控制图像、字体、备注和响应式布局选项。 | [Convert PowerPoint to HTML](/slides/zh/net/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP 转 HTML5 | 将幻灯片导出为 HTML5，以便在浏览器中查看并保留格式和交互性。 | [Convert Presentations to HTML5](/slides/zh/net/export-to-html5/) |
+| PPT/PPTX/ODP 转 PNG | 将每张幻灯片渲染为 PNG 图像，用于预览、缩略图或网页输出。 | [Convert PowerPoint to PNG](/slides/zh/net/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP 转 JPG | 将幻灯片渲染为 JPG 图像，并控制图像尺寸和质量。 | [Convert PowerPoint to JPG](/slides/zh/net/convert-powerpoint-to-jpg/) |
+| 幻灯片转 SVG | 将单个幻灯片导出为可缩放矢量图形。 | [Render Slide as SVG](/slides/zh/net/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP 转 XPS | 生成固定布局 XPS 文档。 | [Convert PowerPoint to XPS](/slides/zh/net/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP 转 TIFF | 将演示文稿保存为多页 TIFF 文件，用于打印、扫描、传真或归档工作流。 | [Convert PowerPoint to TIFF](/slides/zh/net/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP 转 TIFF（含备注） | 将带有演讲者备注的幻灯片保存为 TIFF。 | [Convert PowerPoint to TIFF with Notes](/slides/zh/net/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX 转 Word | 当需要文档式输出时，将幻灯片转换为 Word 文档。 | [Convert PowerPoint to Word](/slides/zh/net/convert-powerpoint-to-word/) |
+| PPT/PPTX 转 Markdown | 将演示文稿内容提取为 Markdown，便于文档编写和基于文本的工作流。 | [Convert PowerPoint to Markdown](/slides/zh/net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX 转 动态 GIF | 从幻灯片创建动画 GIF。 | [Convert PowerPoint to Animated GIF](/slides/zh/net/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX 转 视频 | 构建从演示幻灯片导出为视频的工作流。 | [Convert PowerPoint to Video](/slides/zh/net/convert-powerpoint-to-video/) |
+| 演示文稿转 XAML | 将幻灯片导出为 XAML，以用于 .NET UI 场景。 | [Export Presentations to XAML](/slides/zh/net/export-to-xaml/) |
+
+有关更完整的输入和输出格式列表，请参阅[Supported File Formats](/slides/zh/net/supported-file-formats/)。
+
+## **PowerPoint 和 OpenDocument 转换**
+
+Aspose.Slides for .NET 支持从常用演示文稿格式（如 PPT、PPTX、PPS、PPSX、POT、POTX 和 ODP）进行转换。PowerPoint 和 OpenDocument 文件使用相同的转换 API，因此将 PPTX 文件保存为 PDF 的工作流通常只需更改输入文件即可用于 ODP 文件。
+
+在转换 ODP 文件时，请记住 PowerPoint 和 OpenDocument 应用程序并不以完全相同的方式支持每一种布局和格式化特性。如果 ODP 文件是使用 LibreOffice 或 OpenOffice Impress 创建的，请审查输出并在需要特定格式指导时使用[Convert OpenDocument Presentations](/slides/zh/net/convert-openoffice-odp/)中描述的选项。
 
 ## **PPT 转 PPTX 转换**
-### **关于 PPT 转 PPTX 转换**
-Aspose.Slides 现已支持将 PPT 转换为 PPTX。
 
-### **使用 Aspose.Slides 将 PPT 转换为 PPTX**
-Aspose.Slides for .NET 为将 PPT 文档格式的演示文稿转换为 PPTX 文件格式的演示文稿提供了部分支持。由于此演示文稿转换功能刚刚在 Aspose.Slides for .NET 中引入，因此目前它的功能有限，仅适用于简单形式的演示文稿。Aspose.Slides for .NET API 库在将 PPT 演示文稿转换为 PPTX 格式演示文稿时的主要优势是使用 API 实现目标的简便性。请前往此[link](/slides/zh/net/convert-presentation/)的代码示例部分获取详细信息。以下章节清晰地说明了在将 PPT 格式演示文稿转换为 PPTX 格式演示文稿时哪些功能受支持，哪些不受支持。
+PPT 是旧的二进制 PowerPoint 格式，而 PPTX 是现代的 Office Open XML 格式。Aspose.Slides for .NET 支持高保真度的 PPT 转 PPTX 转换，并保留复杂的演示结构，如母版、布局、幻灯片、图表、组合形状、占位符、文本框、纹理和图片填充。
 
-{{% alert color="primary" %}} 
-了解更多 [**如何将 PPT 转换为 PPTX**](/slides/zh/net/convert-ppt-to-pptx/)。
-{{% /alert %}}
+详细信息请参阅[Convert PPT to PPTX](/slides/zh/net/convert-ppt-to-pptx/)和[PPT vs PPTX](/slides/zh/net/ppt-vs-pptx/)。
 
-## **演示文稿转 PDF 转换**
-### **关于 PDF**
-[Portable Document Format](https://en.wikipedia.org/wiki/PDF) 是一种由 Adobe System 创建的文件格式，用于在不同组织之间交换文档。该格式的目的是使文档内容的视觉外观不依赖于查看平台。
+## **固定布局导出**
 
-### **PDF 在 Aspose.Slides for .NET 中**
-[PDF](https://docs.fileformat.com/pdf/) 是一种由 Adobe System 创建的文件格式，用于在不同组织之间交换文档。该格式的目的是使文档内容的视觉外观不依赖于查看平台。
+PDF、XPS 和 TIFF 在需要在不同设备上保持相同外观且不作为演示文稿进行编辑时非常有用。使用[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)、[XpsOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/xpsoptions/)和[TiffOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/tiffoptions/)来控制合规性、隐藏幻灯片、备注、图像质量、压缩、像素格式和输出尺寸。
 
-任何可以加载到 Aspose.Slides for .NET 中的演示文稿都可以转换为 PDF 文档。您可以仅使用 Aspose.Slides for .NET 组件直接将演示文稿导出为 PDF。无需任何其他第三方库或 Aspose.PDF 组件即可完成此操作。
+## **HTML 与图像导出**
 
-{{% alert color="primary" %}} 
-了解更多 [**如何将演示文稿转换为 PDF**](/slides/zh/net/convert-powerpoint-ppt-and-pptx-to-pdf/)。
-{{% /alert %}}
+HTML 和 HTML5 导出适用于浏览器查看、网页发布和轻量级共享。图像导出适用于每张幻灯片需要生成单独的预览、缩略图或光栅资源的情况。请使用 PNG、JPG 和 SVG 相关文章获取特定格式的渲染指南。
 
-## **演示文稿转 XPS 转换**
-### **关于 XPS**
-[XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) 是一种页面描述语言和固定文档格式，最初由 Microsoft 开发。和 PDF 类似，XPS 是一种固定布局文档格式，旨在保持文档的真实性并提供与设备无关的文档外观。
+## **FAQ**
 
-### **使用 Aspose.Slides 将演示文稿转换为 XPS**
-任何可以由 Aspose.Slides for .NET 加载的演示文稿都可以转换为 XPS 格式。Aspose.Slides for .NET 使用高保真页面布局和渲染引擎生成固定布局的 XPS 文档。值得一提的是，Aspose.Slides for .NET 直接生成 XPS，而不依赖于随 .NET Framework 3.5 打包的 Windows Presentation Foundation（WPF）类，从而使其能够在运行早于 3.5 版本的 .NET Framework 的机器上生成 XPS 文档。您可以在[this topic](/slides/zh/net/convert-powerpoint-to-xps/)中了解通过 Aspose.Slides for .NET 将演示文稿导出为 XPS 文档的方法。
+**是否需要 Microsoft PowerPoint 才能转换演示文稿？**
 
-{{% alert color="primary" %}} 
-了解更多 [**如何将演示文稿转换为 XPS**](/slides/zh/net/convert-powerpoint-to-xps/)。
-{{% /alert %}}
+不需要。Aspose.Slides for .NET 是独立库，不依赖 Microsoft PowerPoint 或 Office 自动化。
 
-## **演示文稿转 TIFF 转换**
-### **关于 TIFF**
-[Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF)（又称 TIFF）因能够在单个文档中存储多张图像而闻名，最初由 Aldus 创建。此格式被扫描、传真及其他图像处理应用广泛支持。
+**能否批量转换大量演示文稿？**
 
-### **使用 Aspose.Slides 将演示文稿转换为 TIFF**
-任何可以在 Aspose.Slides for .NET 中加载的文档都可以直接由 Aspose.Slides for .NET 转换为 TIFF 文档，无需任何第三方组件。此外，您还可以自行定义生成的 TIFF 文档中图像的大小。您可以在[this topic](/slides/zh/net/convert-powerpoint-to-tiff/)中找到通过 Aspose.Slides for .NET 将演示文稿导出为 TIFF 文档的信息。
+可以。加载每个演示文稿后保存为所需格式，处理完毕后释放 `Presentation` 对象。对于并行处理，请使用独立的演示实例并遵循[multithreading](/slides/zh/net/multithreading/)指南。
 
-{{% alert color="primary" %}} 
-了解更多 [**如何将演示文稿转换为 TIFF**](/slides/zh/net/convert-powerpoint-to-tiff/)。
-{{% /alert %}}
+**可以只导出选定的幻灯片吗？**
 
-## **常见问题**
+可以。多种导出方法允许您传递幻灯片索引或单独渲染幻灯片，具体取决于输出格式。请参阅目标格式的专用文章。
 
-**在导出为 PDF/XPS 时我可以包含隐藏的幻灯片吗？**
+**导出为 PDF 或 XPS 时可以包含隐藏幻灯片吗？**
 
-是的。导出时可以通过相应的 [PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) / [XPS](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/) 设置选项来包含隐藏的幻灯片。
+可以。在[PdfOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/)或[XpsOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/xpsoptions/)中使用 `ShowHiddenSlides` 属性。
 
-**是否支持保存为 PDF/A 格式（用于存档）？**
+**可以创建 PDF/A 输出吗？**
 
-是的，导出时可以使用 PDF/A 合规级别，详见[此处](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/)（包括 A-2a/A-2b/A-2u 和 A-3a/A-3b）。
+可以。PDF 合规性设置可通过[PdfOptions.Compliance](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/compliance/)和[PdfCompliance](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfcompliance/)进行配置。
 
-**转换过程中字体会怎样：是嵌入还是替换？**
+**转换过程中字体如何处理？**
 
-提供灵活的选项：您可以[嵌入所有字形或仅嵌入使用的子集](/slides/zh/net/embedded-font/)，指定[后备字体](/slides/zh/net/fallback-font/)，并在字体缺少某些样式时[控制行为](/slides/zh/net/font-substitution/)。
-
-**如何控制生成的 PDF 的质量和大小？**
-
-可以设置 [JPEG 质量](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/)、[文本压缩](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/textcompression/)以及图像的[足够分辨率](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/)阈值，还可以选择[最佳图片压缩比例](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/bestimagescompressionratio/)模式。
-
-**我能只导出一定范围的幻灯片吗（例如 5–12）？**
-
-可以，导出支持选择幻灯片子集。
-
-**是否支持同时对多个文件进行多核处理？**
-
-可以在不同的进程中并行处理不同的演示文稿。重要提示：同一个[presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)对象不得在[multiple threads](/slides/zh/net/multithreading/)中被加载或保存。
-
-**从不同线程应用许可证时是否存在风险？**
-
-是的，[license-setting](/slides/zh/net/licensing/) 调用不是线程安全的，需要进行同步。
+Aspose.Slides 可以使用嵌入字体、字体回退和字体替换设置。请参阅[Embedded Font](/slides/zh/net/embedded-font/)、[Fallback Font](/slides/zh/net/fallback-font/)和[Font Substitution](/slides/zh/net/font-substitution/)。

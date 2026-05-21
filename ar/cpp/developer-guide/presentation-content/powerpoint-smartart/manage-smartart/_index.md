@@ -1,5 +1,5 @@
 ---
-title: إدارة SmartArt في عروض PowerPoint باستخدام C++
+title: إدارة SmartArt في عروض PowerPoint التقديمية باستخدام C++
 linktitle: إدارة SmartArt
 type: docs
 weight: 10
@@ -8,97 +8,138 @@ keywords:
 - SmartArt
 - نص SmartArt
 - نوع التخطيط
-- خاصية الإخفاء
-- مخطط المنظمة
-- مخطط تنظيم الصورة
+- خاصية مخفية
+- مخطط تنظيم
+- مخطط تنظيم بالصور
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتحرير SmartArt في PowerPoint باستخدام Aspose.Slides لـ C++ مع أمثلة شفرة واضحة تسرّع تصميم الشرائح والأتمتة."
+description: "تعلم كيفية إنشاء وتعديل SmartArt في PowerPoint باستخدام Aspose.Slides للغة C++ من خلال أمثلة شفرة واضحة تسرّع تصميم الشرائح وأتمتتها."
 ---
+## **نظرة عامة**
 
-## **الحصول على نص من كائن SmartArt**
-تم الآن إضافة خاصية TextFrame إلى واجهة ISmartArtShape وفئة SmartArtShape على التوالي. تتيح لك هذه الخاصية الحصول على كل النص من SmartArt إذا لم يكن يحتوي فقط على نص العقد. سيساعدك شفرة العينة التالية في الحصول على النص من عقدة SmartArt.
+SmartArt هو مخطط PowerPoint مكوّن من العقد وأشكال العقد وتخطيط. باستخدام Aspose.Slides for C++، يمكنك إنشاء SmartArt، قراءة النص من عقده، تغيير تخطيطه، فحص العقد المخفية، تكوين تخطيطات مخططات التنظيم، وإنشاء مخططات تنظيم بصور.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-GetTextFromSmartArtNode-GetTextFromSmartArtNode.cpp" >}}
+## **استخراج النص من كائن SmartArt**
 
-## **تغيير نوع التخطيط لكائن SmartArt**
-لتغيير نوع التخطيط لـ SmartArt. يرجى اتباع الخطوات التالية:
+يمكن لعقدة SmartArt أن تحتوي على شكل واحد أو أكثر. لقراءة النص الظاهر، قم بالتكرار عبر [ISmartArt::get_AllNodes](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartart/get_allnodes/)، ثم اقرأ الـ[ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) الذي يتم إرجاعه من قبل [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartartshape/get_textframe/).
 
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-- إضافة SmartArt BasicBlockList.
-- تغيير LayoutType إلى BasicProcess.
-- حفظ العرض التقديمي كملف PPTX.
-في المثال أدناه، أضفنا موصلاً بين شكلين.
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeSmartArtLayout-ChangeSmartArtLayout.cpp" >}}
+if (System::ObjectExt::Is<ISmartArt>(shape))
+{
+    auto smartArt = System::ExplicitCast<ISmartArt>(shape);
 
-## **التحقق من خاصية الإخفاء لكائن SmartArt**
-يرجى ملاحظة أن الطريقة com.aspose.slides.ISmartArtNode.isHidden() تُعيد true إذا كانت هذه العقدة عقدة مخفية في نموذج البيانات. للتحقق من خاصية الإخفاء لأي عقدة في SmartArt. يرجى اتباع الخطوات التالية:
+    for (int nodeIndex = 0; nodeIndex < smartArt->get_AllNodes()->get_Count(); nodeIndex++)
+    {
+        auto node = smartArt->get_AllNodes()->idx_get(nodeIndex);
 
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- إضافة SmartArt RadialCycle.
-- إضافة عقدة إلى SmartArt.
-- التحقق من خاصية isHidden.
-- حفظ العرض التقديمي كملف PPTX.
-في المثال أدناه، أضفنا موصلاً بين شكلين.
+        for (int shapeIndex = 0; shapeIndex < node->get_Shapes()->get_Count(); shapeIndex++)
+        {
+            auto nodeShape = node->get_Shape(shapeIndex);
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CheckSmartArtHiddenProperty-CheckSmartArtHiddenProperty.cpp" >}}
+            if (nodeShape->get_TextFrame() != nullptr)
+            {
+                System::Console::WriteLine(nodeShape->get_TextFrame()->get_Text());
+            }
+        }
+    }
+}
 
-## **الحصول على أو تعيين نوع مخطط المنظمة**
-تسمح الطرق com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() و setOrganizationChartLayout(int) بالحصول على أو تعيين نوع مخطط المنظمة المرتبط بالعقدة الحالية. للحصول على أو تعيين نوع مخطط المنظمة. يرجى اتباع الخطوات التالية:
-
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- إضافة SmartArt إلى الشريحة.
-- الحصول على أو تعيين نوع مخطط المنظمة.
-- حفظ العرض التقديمي كملف PPTX.
-في المثال أدناه، أضفنا موصلاً بين شكلين.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-OrganizeChartLayoutType-OrganizeChartLayoutType.cpp" >}}
-
-## **الحصول على أو تعيين حالة SmartArt**
-بعض مخططات SmartArt لا تدعم العكس، على سبيل المثال: قائمة نقطية عمودية، عملية عمودية، عملية هابطة، قمع، تروس، توازن، علاقة دائرة، مجموعة سداسية، قائمة عكسية، فين مكدس. لتغيير اتجاه SmartArt. يرجى اتباع الخطوات التالية:
-
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- إضافة SmartArt إلى الشريحة.
-- الحصول على أو تعيين حالة مخطط SmartArt.
-- حفظ العرض التقديمي كملف PPTX.
-في المثال أدناه، أضفنا موصلاً بين شكلين.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeSmartArtLayout-ChangeSmartArtLayout.cpp" >}}
-
-## **إنشاء مخطط منظمة صورة**
-توفر Aspose.Slides لـ C++ واجهة برمجة تطبيقات بسيطة لإنشاء مخططات PictureOrganization بطريقة سهلة. لإنشاء مخطط على شريحة:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. الحصول على مرجع الشريحة بواسطة الفهرس الخاص بها.
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (ChartType.PictureOrganizationChart).
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX
-
-يتم استخدام الشفرة التالية لإنشاء المخطط.
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto smartArt = pres->get_Slides()->idx_get(0)->get_Shapes()->AddSmartArt(0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
-pres->Save(u"OrganizationChart.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **تغيير نوع التخطيط لكائن SmartArt**
 
-## **الأسئلة المتكررة**
+يتحكم تخطيط SmartArt في طريقة ترتيب العقد وربطها. المثال التالي ينشئ كائن SmartArt باستخدام قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartartlayouttype/) `BasicBlockList`، ثم يغيّرها إلى القيمة `BasicProcess`، ويحفظ العرض التقديمي.
 
-**هل يدعم SmartArt المرآة/العكس للغات RTL؟**
+```cpp
+auto presentation = System::MakeObject<Presentation>();
 
-نعم. طريقة [set_IsReversed](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/set_isreversed/) تغير اتجاه المخطط (LTR/RTL) إذا كان نوع SmartArt المحدد يدعم العكس.
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::BasicBlockList);
+
+smartArt->set_Layout(SmartArtLayoutType::BasicProcess);
+
+presentation->Save(u"ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **التحقق مما إذا كانت عقدة SmartArt مخفية**
+
+[ISmartArtNode::get_IsHidden](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartartnode/get_ishidden/) يشير إلى ما إذا كانت العقدة مخفية في نموذج بيانات SmartArt. يمكن أن توجد عقد مخفية في الهيكل حتى عندما لا يعرض التخطيط المحددها كعناصر مخطط مرئية.
+
+المثال التالي يضيف عقدة إلى كائن SmartArt يستخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartartlayouttype/) `RadialCycle` ويتحقق من حالة إخفاء العقدة.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::RadialCycle);
+
+auto node = smartArt->get_AllNodes()->AddNode();
+bool isHidden = node->get_IsHidden();
+
+if (isHidden)
+{
+    System::Console::WriteLine(u"The node is hidden in the SmartArt data model.");
+}
+
+presentation->Save(u"CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **الحصول على أو تعيين تخطيط مخطط التنظيم**
+
+بالنسبة لمخططات SmartArt التي تستخدم تخطيط مخطط تنظيم، يحدد كل من [ISmartArtNode::get_OrganizationChartLayout](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartartnode/get_organizationchartlayout/) و[ISmartArtNode::set_OrganizationChartLayout](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartartnode/set_organizationchartlayout/) طريقة ترتيب العقد الفرعية تحت العقدة الأم. على سبيل المثال، يمكنك تعيين العقد الفرعية لتتدلى من اليسار أو اليمين أو كلا الجانبين، اعتمادًا على [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/organizationchartlayouttype/).
+
+المثال التالي ينشئ مخطط تنظيم ويضبط التخطيط للعقدة الأولى إلى قيمة [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/organizationchartlayouttype/) `LeftHanging`.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    10.0f, 10.0f, 400.0f, 300.0f, SmartArtLayoutType::OrganizationChart);
+
+auto rootNode = smartArt->get_Node(0);
+rootNode->set_OrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
+
+presentation->Save(u"OrganizationChartLayout_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **إنشاء مخطط تنظيم بصورة**
+
+مخطط التنظيم بالصورة هو تخطيط SmartArt مصمم لمخططات الهرمية التي تتضمن نوافل صور. استخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartartlayouttype/) `PictureOrganizationChart` عند إضافة كائن SmartArt إلى شريحة.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
+    0.0f, 0.0f, 400.0f, 400.0f, SmartArtLayoutType::PictureOrganizationChart);
+
+presentation->Save(u"PictureOrganizationChart_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **الأسئلة الشائعة**
+
+**هل يدعم SmartArt المرآة أو العكس للغات من اليمين إلى اليسار؟**
+
+نعم. طريقة [SmartArt::set_IsReversed](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartart/set_isreversed/) تغير اتجاه المخطط من اليسار إلى اليمين إلى اليمين إلى اليسار، أو العكس، عندما يدعم تخطيط SmartArt المختار العكس.
 
 **كيف يمكنني نسخ SmartArt إلى نفس الشريحة أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
 
-يمكنك [استنساخ شكل SmartArt](/slides/ar/cpp/shape-manipulations/) عبر مجموعة الأشكال ([ShapeCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addclone/)) أو [استنساخ الشريحة بأكملها](/slides/ar/cpp/clone-slides/) التي تحتوي على هذا الشكل. كلا النهجين يحافظان على الحجم والموضع والنمط.
+يمكنك [نسخ شكل SmartArt](/slides/ar/cpp/shape-manipulations/) باستخدام [ShapeCollection::AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shapecollection/addclone/) أو [نسخ الشريحة كاملة](/slides/ar/cpp/clone-slides/) التي تحتوي على SmartArt. كلا الطريقتين تحافظان على الحجم والموقع والتنسيق.
 
-**كيف أقوم بتحويل SmartArt إلى صورة نقطية للمعاينة أو للتصدير إلى الويب؟**
+**كيف أقوم بتصوير SmartArt كصورة نقطية للمعاينة أو التصدير إلى الويب؟**
 
-[قم بتحويل الشريحة](/slides/ar/cpp/convert-powerpoint-to-png/) (أو العرض التقديمي بأكمله) إلى PNG/JPEG عبر واجهة برمجة التطبيقات التي تحول الشرائح/العروض إلى صور — سيتم رسم SmartArt كجزء من الشريحة.
+يمكنك [تصوير الشريحة](/slides/ar/cpp/convert-powerpoint-to-png/) أو العرض التقديمي كاملًا إلى PNG أو JPEG. يتم تصوير SmartArt كجزء من الشريحة.
 
-**كيف يمكنني برمجيًا تحديد SmartArt محدد على شريحة إذا كان هناك عدة؟**
+**كيف يمكنني العثور على كائن SmartArt معين في شريحة إذا كان هناك عدة كائنات؟**
 
-ممارسة شائعة هي استخدام [النص البديل](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_alternativetext/) (Alt Text) أو [الاسم](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_name/) والبحث عن الشكل باستخدام هذه السمة داخل [أشكال الشريحة](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/)، ثم التحقق من النوع للتأكد من أنه [SmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/). توضح الوثائق تقنيات شائعة للعثور على الأشكال والعمل معها.
+عيّن قيمة مميزة لـ[Shape::set_AlternativeText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shape/set_alternativetext/) أو لـ[Shape::set_Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shape/set_name/) على شكل SmartArt، وابحث عن تلك القيمة في [BaseSlide::get_Shapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/baseslide/get_shapes/)، ثم تأكد من أن الشكل المطابق هو [ISmartArt](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/ismartart/).

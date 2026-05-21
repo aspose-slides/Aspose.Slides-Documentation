@@ -124,6 +124,32 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Detect Unsupported Embedded Workbook Formats**
+
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `embedded_workbook_type` property on [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) enumeration to detect unsupported formats and skip those charts.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, charts.Chart):
+            continue
+
+        chart = shape
+        chart_data = chart.chart_data
+
+        if (chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK and
+                chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO):
+            # Embedded workbook is in .xlsb format, which is not supported.
+            continue
+
+        # Read or modify the chart workbook data here.
+```
+
 ## **External Workbooks**
 
 Aspose.Slides supports using external workbooks as a data source for charts.

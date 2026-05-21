@@ -6,154 +6,131 @@ weight: 10
 url: /ar/python-net/manage-smartart/
 keywords:
 - SmartArt
-- نص من SmartArt
+- النص من SmartArt
 - نوع التخطيط
 - الخاصية المخفية
-- مخطط تنظيمي
-- مخطط تنظيمي بصري
+- مخطط التنظيم
+- مخطط تنظيم بالصور
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتعديل SmartArt في PowerPoint باستخدام Aspose.Slides for Python عبر .NET باستخدام أمثلة شفرة واضحة تسرّع تصميم الشرائح والأتمتة."
+description: "تعلم كيفية إنشاء وتعديل SmartArt في PowerPoint باستخدام Aspose.Slides لـ Python عبر .NET باستخدام أمثلة شفرة واضحة تسرّع تصميم الشرائح والأتمتة."
 ---
-
 ## **نظرة عامة**
 
-يوضح هذا الدليل كيفية إنشاء ومعالجة SmartArt في Aspose.Slides للغة Python. ستتعلم كيفية استخراج النص من SmartArt (بما في ذلك محتوى [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) داخل أشكال العقد)، إضافة SmartArt إلى الشرائح وتبديل تخطيطه، اكتشاف ومعالجة العقد المخفية، تكوين تخطيطات مخططات التنظيم، وإنشاء مخططات تنظيمية بالصور — كل ذلك باستخدام أمثلة Python مختصرة قابلة للنسخ واللصق التي تفتح [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، وتعمل مع الشرائح وعقد SmartArt، وتحفظ النتائج كملف PPTX. 
+SmartArt هو مخطط PowerPoint مكوّن من العقد وأشكال العقد وتخطيط. باستخدام Aspose.Slides لـ Python عبر .NET، يمكنك إنشاء SmartArt، قراءة النص من عقده، تعديل التخطيط، فحص العقد المخفية، تكوين تخطيطات مخططات التنظيم، وإنشاء مخططات تنظيمية بالصور.
 
-## **الحصول على النص من SmartArt**
+## **استخراج النص من كائن SmartArt**
 
-تتيح خاصية `text_frame` في [SmartArtShape](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartshape/) استرجاع جميع النصوص من شكل SmartArt — ليس فقط النص الموجود في عقده. يوضح الكود النموذجي التالي كيفية الحصول على النص من عقدة SmartArt.
+يمكن لعقدة SmartArt أن تحتوي على شكل واحد أو أكثر. لقراءة النص الظاهر، قم بالتكرار عبر [SmartArt.all_nodes](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartart/all_nodes/)، ثم اقرأ [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) التي تُرجعها [SmartArtShape.text_frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartartshape/text_frame/).
+
 ```py
 import aspose.slides as slides
+import aspose.slides.smartart as smartart
 
-with slides.Presentation("SmartArt.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
-    smart_art = slide.shapes[0]
+    shape = slide.shapes[0]
 
-    for smart_art_node in smart_art.all_nodes:
-        for node_shape in smart_art_node.shapes:
-            if node_shape.text_frame is not None:
-                print(node_shape.text_frame.text)
+    if isinstance(shape, smartart.SmartArt):
+        smart_art = shape
+
+        for smart_art_node in smart_art.all_nodes:
+            for smart_art_shape in smart_art_node.shapes:
+                if smart_art_shape.text_frame is not None:
+                    print(smart_art_shape.text_frame.text)
 ```
 
+## **تغيير نوع التخطيط لكائن SmartArt**
 
-## **تغيير نوع تخطيط SmartArt**
+يتحكم تخطيط SmartArt في كيفية ترتيب العقد وربطها. المثال التالي ينشئ كائن SmartArt باستخدام قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartartlayouttype/) `BASIC_BLOCK_LIST`، يغيّرها إلى القيمة `BASIC_PROCESS`، ويحفظ العرض التقديمي.
 
-لتغيير نوع تخطيط SmartArt، اتبع الخطوات التالية:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى شريحة بحسب فهرستها.
-3. إضافة شكل SmartArt باستخدام تخطيط `BASIC_BLOCK_LIST`.
-4. تغيير تخطيطه إلى `BASIC_PROCESS`.
-5. حفظ العرض التقديمي كملف PPTX.
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
 
-    # أضف شكل SmartArt باستخدام تخطيط BASIC_BLOCK_LIST.
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    smart_art.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
 
-    # غيّر نوع التخطيط إلى BASIC_PROCESS.
-    smart.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
-
-    # احفظ العرض التقديمي.
-    presentation.save("ChangedSmartArtLayout.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("ChangeSmartArtLayout_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **التحقق مما إذا كانت عقدة SmartArt مخفية**
 
-## **التحقق من الخاصية المخفية لـ SmartArt**
+[SmartArtNode.is_hidden](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartartnode/is_hidden/) يدل على ما إذا كانت العقدة مخفية في نموذج بيانات SmartArt. يمكن أن توجد العقد المخفية في الهيكل حتى عندما لا يعرض التخطيط المحددها كعناصر مخطط مرئية.
 
-تُعيد الخاصية `SmartArtNode.is_hidden` القيمة `True` إذا كانت العقدة مخفية في نموذج البيانات. للتحقق مما إذا كانت عقدة SmartArt مخفية، اتبع الخطوات التالية:
+المثال التالي يضيف عقدة إلى كائن SmartArt يستخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartartlayouttype/) `RADIAL_CYCLE` ويفحص حالة إخفاء العقدة.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. إضافة شكل SmartArt باستخدام تخطيط `RADIAL_CYCLE`.
-3. إضافة عقدة إلى SmartArt.
-4. التحقق من الخاصية `is_hidden`.
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
 
-    # أضف شكل SmartArt باستخدام تخطيط RADIAL_CYCLE.
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
+    smart_art_node = smart_art.all_nodes.add_node()
+    is_hidden = smart_art_node.is_hidden
 
-    # أضف عقدة إلى SmartArt.
-    node = smart.all_nodes.add_node()
+    if is_hidden:
+        print("The node is hidden in the SmartArt data model.")
 
-    # تحقق من خاصية is_hidden.
-    if node.is_hidden:
-        print("The node is hidden.")
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **الحصول على أو تعيين تخطيط مخطط التنظيم**
 
-## **الحصول على أو تعيين نوع مخطط التنظيم**
+بالنسبة لمخططات SmartArt التي تستخدم تخطيط مخطط تنظيم، [SmartArtNode.organization_chart_layout](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartartnode/organization_chart_layout/) يحدد كيفية ترتيب العقد الفرعية تحت عقدة أصلية. على سبيل المثال، يمكنك تعيين العقد الفرعية لتتدَلّ من اليسار أو اليمين أو كلا الجانبين، اعتمادًا على [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/organizationchartlayouttype/) المحدد.
 
-تُتيح الخاصية `SmartArtNode.organization_chart_layout` الحصول على أو تعيين نوع مخطط التنظيم المرتبط بالعقدة الحالية. للحصول على أو تعيين نوع مخطط التنظيم، اتبع الخطوات التالية:
+المثال التالي ينشئ مخطط تنظيم ويضبط تخطيط العقدة الأولى إلى قيمة [OrganizationChartLayoutType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/organizationchartlayouttype/) `LEFT_HANGING`.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. إضافة شكل SmartArt إلى الشريحة.
-3. الحصول على نوع مخطط التنظيم أو تعيينه.
-4. حفظ العرض التقديمي كملف PPTX.
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
 
-    # أضف شكلاً SmartArt باستخدام تخطيط ORGANIZATION_CHART.
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
+    root_node = smart_art.nodes[0]
+    root_node.organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
 
-    # عيّن نوع مخطط التنظيم.
-    smart.nodes[0].organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
-
-    # احفظ العرض التقديمي.
-    presentation.save("OrganizationChartLayout.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("OrganizationChartLayout_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إنشاء مخطط تنظيم بالصور**
 
-## **إنشاء مخطط تنظيم بصري**
+مخطط تنظيم بالصور هو تخطيط SmartArt مصمم لمخططات الهرمية التي تشمل نوافير صور. استخدم قيمة [SmartArtLayoutType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartartlayouttype/) `PICTURE_ORGANIZATION_CHART` عند إضافة كائن SmartArt إلى شريحة.
 
-توفر Aspose.Slides للغة Python واجهة برمجة تطبيقات بسيطة لإنشاء مخططات تنظيم بصري بسهولة. لإنشاء مخطط على شريحة:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى الشريحة بحسب فهرستها.
-3. إضافة مخطط ببيانات افتراضية من النوع المطلوب.
-4. حفظ العرض التقديمي المعدل كملف PPTX.
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    smart_art = presentation.slides[0].shapes.add_smart_art(
+        0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
 
-    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
-    
-    presentation.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("PictureOrganizationChart_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+**هل يدعم SmartArt النقل أو العكس للغات من اليمين إلى اليسار؟**
 
-**هل يدعم SmartArt عكس/انعكاس للغات من اليمين إلى اليسار؟**
+نعم. خاصية [SmartArt.is_reversed](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartart/is_reversed/) تغير اتجاه المخطط من اليسار إلى اليمين إلى اليمين إلى اليسار، أو العكس، عندما يدعم التخطيط المختار لعكس الاتجاه.
 
-نعم. خاصية [is_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/is_reversed/) تغير اتجاه المخطط (من اليسار إلى اليمين / من اليمين إلى اليسار) إذا كان نوع SmartArt المختار يدعم العكس.
+**كيف يمكنني نسخ SmartArt إلى الشريحة نفسها أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
 
-**كيف يمكنني نسخ SmartArt إلى نفس الشريحة أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
+يمكنك [استنساخ شكل SmartArt](/slides/ar/python-net/shape-manipulations/) باستخدام [ShapeCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_clone/) أو [استنساخ الشريحة بالكامل](/slides/ar/python-net/clone-slides/) التي تحتوي على SmartArt. كلا النهجين يحافظان على الحجم والموقع والتنسيق.
 
-يمكنك [clone the SmartArt shape](/slides/ar/python-net/shape-manipulations/) عبر مجموعة الأشكال ([ShapeCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_clone/)) أو [clone the entire slide](/slides/ar/python-net/clone-slides/) التي تحتوي على هذا الشكل. كلا النهجين يحافظان على الحجم والموضع والتنسيق.
+**كيف أقوم بتحويل SmartArt إلى صورة نقطية للمعاينة أو لتصدير الويب؟**
 
-**كيف يمكنني تصيير SmartArt كصورة نقطية للمعاينة أو لتصدير ويب؟**
+[قم بتحويل الشريحة](/slides/ar/python-net/convert-powerpoint-to-png/) أو العرض التقديمي بالكامل إلى PNG أو JPEG. يتم تحويل SmartArt كجزء من الشريحة.
 
-[Render the slide](/slides/ar/python-net/convert-powerpoint-to-png/) (أو العرض التقديمي بالكامل) إلى PNG/JPEG عبر API الذي يحول الشرائح/العروض التقديمية إلى صور — سيتم رسم SmartArt كجزء من الشريحة.
+**كيف يمكنني العثور على كائن SmartArt محدد في شريحة إذا كان هناك عدة كائنات؟**
 
-**كيف يمكنني برمجيًا اختيار SmartArt محدد على شريحة إذا كان هناك عدة؟**
-
-ممارسة شائعة هي استخدام [alternative text](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/alternative_text/) (نص بديل) أو [name](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/name/) والبحث عن الشكل عبر تلك السمة داخل [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/)، ثم التحقق من النوع لتأكيد أنه [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/). الوثائق تصف التقنيات النموذجية للعثور على الأشكال والعمل معها.
+قم بتعيين قيمة مميزة لـ [Shape.alternative_text](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/alternative_text/) أو [Shape.name](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/name/) على شكل SmartArt، ابحث عن تلك القيمة في [Slide.shapes](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/shapes/)، ثم تحقق من أن الشكل المطابق هو [SmartArt](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartart/).

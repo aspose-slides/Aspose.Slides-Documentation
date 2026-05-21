@@ -20,178 +20,128 @@ description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for
 
 ## **Overview**
 
-This article explains how to work with SmartArt in Aspose.Slides. It shows how to extract text from SmartArt shapes, change a SmartArt layout, check whether a SmartArt node is hidden, get or set an organization chart layout, and create a picture organization chart. It also covers several related questions, including SmartArt reversal for RTL languages, cloning SmartArt while preserving formatting, rendering SmartArt as part of a slide image, and identifying a specific SmartArt object on a slide.
+SmartArt is a PowerPoint diagram made from nodes, node shapes, and a layout. With Aspose.Slides for Java, you can create SmartArt, read text from its nodes, change its layout, inspect hidden nodes, configure organization chart layouts, and create picture organization charts.
 
 ## **Get Text from a SmartArt Object**
-Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtShape) interface and [SmartArtShape](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
+
+A SmartArt node can contain one or more shapes. To read the visible text, iterate through [ISmartArt.getAllNodes](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/#getAllNodes--), then read the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) returned by [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartshape/#getTextFrame--).
 
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    ISmartArt smartArt = (ISmartArt)slide.getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
 
-    ISmartArtNodeCollection smartArtNodes = smartArt.getAllNodes();
-    for (ISmartArtNode smartArtNode : smartArtNodes)
-    {
-        for (ISmartArtShape nodeShape : smartArtNode.getShapes())
-        {
-            if (nodeShape.getTextFrame() != null)
-                System.out.println(nodeShape.getTextFrame().getText());
+    if (shape instanceof ISmartArt) {
+        ISmartArt smartArt = (ISmartArt) shape;
+
+        for (ISmartArtNode node : smartArt.getAllNodes()) {
+            for (ISmartArtShape nodeShape : node.getShapes()) {
+                if (nodeShape.getTextFrame() != null) {
+                    System.out.println(nodeShape.getTextFrame().getText());
+                }
+            }
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Change the Layout Type of a SmartArt Object**
-In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). Please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
-- Change [LayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#setLayout-int-) to BasicProcess.
-- Write the presentation as a PPTX file.
-  In the example given below, we have added a connector between two shapes.
+The SmartArt layout controls how nodes are arranged and connected. The following example creates a SmartArt object with the [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType) `BasicBlockList` value, changes it to the `BasicProcess` value, and saves the presentation.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Add SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    // Change LayoutType to BasicProcess
-    smart.setLayout(SmartArtLayoutType.BasicProcess);
+    smartArt.setLayout(SmartArtLayoutType.BasicProcess);
 
-    // Saving Presentation
-    pres.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Check the Visibility Property of a SmartArt Object**
-Please note: method [ISmartArtNode.isHidden()](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). Please follow the steps below:
+## **Check Whether a SmartArt Node Is Hidden**
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Add [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
-- Add node on SmartArt.
-- Check the [visibility](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) property.
-- Write the presentation as a PPTX file.
+[ISmartArtNode.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#isHidden--) indicates whether the node is hidden in the SmartArt data model. Hidden nodes can exist in the structure even when the selected layout does not display them as visible diagram elements.
 
-In the example given below, we have added a connector between two shapes.
+The following example adds a node to a SmartArt object that uses the [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType) `RadialCycle` value and checks the node's hidden state.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Add SmartArt BasicProcess 
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // Add node on SmartArt 
-    ISmartArtNode node = smart.getAllNodes().addNode();
+    ISmartArtNode node = smartArt.getAllNodes().addNode();
+    boolean isHidden = node.isHidden();
 
-    // Check isHidden property
-    boolean hidden = node.isHidden(); // Returns true
-
-    if (hidden)
-    {
-        // Do some actions or notifications
+    if (isHidden) {
+        System.out.println("The node is hidden in the SmartArt data model.");
     }
-    // Saving Presentation
-    pres.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Get or Set the Organization Chart Type**
-Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--), [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
+## **Get or Set the Organization Chart Layout**
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Add [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
-- Get or [set the organization chart type](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-).
-- Write the presentation as a PPTX file.
-  In the example given below, we have added a connector between two shapes.
+For SmartArt diagrams that use an organization chart layout, [ISmartArtNode.getOrganizationChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) and [ISmartArtNode.setOrganizationChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) define how child nodes are arranged under a parent node. For example, you can set child nodes to hang from the left, right, or both sides, depending on the selected [OrganizationChartLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/OrganizationChartLayoutType).
+
+The following example creates an organization chart and sets the layout for the first node to the [OrganizationChartLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/OrganizationChartLayoutType) `LeftHanging` value.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Add SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // Get or Set the organization chart type
-    smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
+    ISmartArtNode rootNode = smartArt.getNodes().get_Item(0);
+    rootNode.setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
-    // Saving Presentation
-    pres.save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+    presentation.save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Create a Picture Organization Chart**
-Aspose.Slides for Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.PictureOrganizationChart).
-1. Write the modified presentation to a PPTX file
-
-The following code is used to create a chart.
+A picture organization chart is a SmartArt layout designed for hierarchy diagrams that include image placeholders. Use the [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType) `PictureOrganizationChart` value when adding the SmartArt object to a slide.
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+Presentation presentation = new Presentation();
 try {
-    ISmartArt smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-    pres.save("OrganizationChart.pptx", SaveFormat.Pptx);
+    ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Get or Set SmartArt State**
-In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). Please follow the steps below:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Add [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
-1. [Get](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#isReversed--) or [Set](https://reference.aspose.com/slides/java/com.aspose.slides/ISmartArt#setReversed-boolean-) the state of SmartArt Diagram.
-1. Write the presentation as a PPTX file.
-
-The following code is used to create a chart.
-
-```java
-// Instantiate Presentation class that represents the PPTX file
-Presentation pres = new Presentation();
-try {
-    // Add SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
-    
-    // Get or Set the state of SmartArt Diagram
-    smart.setReversed(true);
-    boolean flag = smart.isReversed();
-    
-    // Saving Presentation
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Does SmartArt support mirroring/reversing for RTL languages?**
+**Does SmartArt support mirroring or reversing for RTL languages?**
 
-Yes. The [setReversed](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/#setReversed-boolean-) method switches the diagram direction (LTR/RTL) if the selected SmartArt type supports reversal.
+Yes. The [ISmartArt.setReversed](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/#setReversed-boolean-) method switches the diagram direction from left-to-right to right-to-left, or back, when the selected SmartArt layout supports reversal.
 
 **How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
 
-You can [clone the SmartArt shape](/slides/java/shape-manipulations/) via the shapes collection ([ShapeCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)) or [clone the entire slide](/slides/java/clone-slides/) containing this shape. Both approaches preserve size, position, and styling.
+You can [clone the SmartArt shape](/slides/java/shape-manipulations/) with [ShapeCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) or [clone the whole slide](/slides/java/clone-slides/) that contains the SmartArt. Both approaches preserve size, position, and formatting.
 
 **How do I render SmartArt to a raster image for preview or web export?**
 
-[Render the slide](/slides/java/convert-powerpoint-to-png/) (or the whole presentation) to PNG/JPEG through the API that converts slides/presentations to images—SmartArt will be drawn as part of the slide.
+[Render the slide](/slides/java/convert-powerpoint-to-png/) or the whole presentation to PNG or JPEG. SmartArt is rendered as part of the slide.
 
-**How can I programmatically select a specific SmartArt on a slide if there are several?**
+**How can I find a specific SmartArt object on a slide if there are several?**
 
-A common practice is to use [alternative text](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getAlternativeText--) (Alt Text) or a [name](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getName--) and search for the shape by that attribute within [slide shapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--), then check the type to confirm it’s [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/). The documentation describes typical techniques for finding and working with shapes.
+Set a distinctive [Shape.getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getAlternativeText--) or [Shape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getName--) value on the SmartArt shape, search for that value in [BaseSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--), and then check that the matching shape is an [ISmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/).

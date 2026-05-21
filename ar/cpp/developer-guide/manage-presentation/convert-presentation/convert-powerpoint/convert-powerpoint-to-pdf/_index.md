@@ -1,14 +1,14 @@
 ---
-title: تحويل PPT و PPTX إلى PDF في C++ [ميزات متقدمة مشمولة]
+title: تحويل PPT و PPTX إلى PDF في C++ [تشمل الميزات المتقدمة]
 linktitle: PowerPoint إلى PDF
 type: docs
 weight: 40
 url: /ar/cpp/convert-powerpoint-to-pdf/
 keywords:
 - تحويل PowerPoint
-- تحويل العرض التقديمي
+- تحويل عرض تقديمي
 - PowerPoint إلى PDF
-- العرض التقديمي إلى PDF
+- عرض تقديمي إلى PDF
 - PPT إلى PDF
 - تحويل PPT إلى PDF
 - PPTX إلى PDF
@@ -23,12 +23,11 @@ keywords:
 - PDF/UA
 - C++
 - Aspose.Slides
-description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF ذات جودة عالية وقابلة للبحث في C++ باستخدام Aspose.Slides، مع أمثلة كود سريعة وخيارات تحويل متقدمة."
+description: "تحويل عروض PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في C++ باستخدام Aspose.Slides، مع أمثلة كود سريعة وخيارات تحويل متقدمة."
 ---
-
 ## **نظرة عامة**
 
-يقدم تحويل عروض PowerPoint (PPT، PPTX، ODP، وما إلى ذلك) إلى صيغة PDF باستخدام C++ عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وتنسيق العرض الخاص بك. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات متعددة للتحكم في جودة الصور، وتضمين الشرائح المخفية، وحماية ملفات PDF بكلمة مرور، واكتشاف استبدال الخطوط، وتحديد شرائح معينة للتحويل، وتطبيق معايير الامتثال على المستندات الناتجة.
+يقدم تحويل عروض PowerPoint (PPT، PPTX، ODP، إلخ) إلى صيغة PDF في C++ عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وتنسيق العرض التقديمي. يوضح هذا الدليل طريقة تحويل العروض إلى مستندات PDF، واستخدام خيارات مختلفة للتحكم في جودة الصور، وتشمل الشرائح المخفية، وحماية ملفات PDF بكلمة مرور، واكتشاف استبدال الخطوط، وتحديد شرائح معينة للتحويل، وتطبيق معايير التوافق على المستندات الناتجة.
 
 ## **تحويل PowerPoint إلى PDF**
 
@@ -38,20 +37,18 @@ description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF ذات جود
 * **PPTX**
 * **ODP**
 
-لتحويل عرض إلى PDF، قم بتمرير اسم الملف كمعامل إلى فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) ثم احفظ العرض كملف PDF باستخدام طريقة `Save`. تعرض فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) طريقة `Save` التي تُستخدم عادةً لتحويل العرض إلى PDF.
+لتحويل عرض إلى PDF، مرّر اسم الملف كمعامل إلى الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) ثم احفظ العرض كملف PDF باستخدام طريقة `Save`. تُعرّض فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) طريقة `Save` التي تُستخدم عادةً لتحويل العرض إلى PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
-
-يقوم Aspose.Slides للـ C++ بإدراج معلومات واجهة برمجة التطبيقات ورقم الإصدار في المستندات الناتجة. على سبيل المثال، عند تحويل عرض إلى PDF، يملأ Aspose.Slides حقل Application بقيمة "*Aspose.Slides*" وحقل PDF Producer بقيمة بصيغة "*Aspose.Slides v XX.XX*". **ملاحظة** أنه لا يمكنك إرشاد Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
-
+Aspose.Slides for C++ يدرج معلومات API ورقم الإصدار في المستندات الناتجة. على سبيل المثال، عند تحويل عرض إلى PDF، يملأ Aspose.Slides حقل Application بـ "*Aspose.Slides*" وحقل PDF Producer بقيمة على شكل "*Aspose.Slides v XX.XX*". **ملاحظة** أنه لا يمكنك توجيه Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
 {{% /alert %}}
 
 يسمح Aspose.Slides لك بتحويل:
 
 * العروض بالكامل إلى PDF
-* شرائح محددة من عرض إلى PDF
+* شرائح محددة من العرض إلى PDF
 
-يُصدّر Aspose.Slides العروض إلى PDF، مع ضمان أن تكون ملفات PDF الناتجة متطابقة تقريبًا مع العروض الأصلية. يتم عرض العناصر والسمات بدقة خلال التحويل، بما في ذلك:
+يصدّر Aspose.Slides العروض إلى PDF، مع ضمان تطابق ملفات PDF الناتجة مع العروض الأصلية قدر الإمكان. تُرسم العناصر والسمات بدقة أثناء التحويل، بما في ذلك:
 
 * الصور
 * مربعات النص والأشكال
@@ -66,9 +63,10 @@ description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF ذات جود
 
 تستخدم عملية التحويل القياسية من PowerPoint إلى PDF الخيارات الافتراضية. في هذه الحالة، يحاول Aspose.Slides تحويل العرض المقدم إلى PDF باستخدام إعدادات مثالية بأعلى مستويات الجودة.
 
-هذا الكود C++ يوضح كيفية تحويل عرض (PPT، PPTX، ODP، وما إلى ذلك) إلى PDF:
+يعرض الكود التالي كيفية تحويل عرض (PPT، PPTX، ODP، إلخ) إلى PDF في C++:
+
 ```c++
-// إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.ppt");
 
 // حفظ العرض كملف PDF.
@@ -77,42 +75,40 @@ presentation->Save(u"PPT-to-PDF.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 ```
 
-
 {{%  alert  color="primary"  %}} 
-
-يوفر Aspose أداة مجانية على الإنترنت تُدعى [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) تُظهر عملية تحويل العرض إلى PDF. يمكنك إجراء اختبار باستخدام هذه الأداة لتطبيق عملي للإجراء المبيّن هنا.
-
+تقدّم Aspose أداة مجانية على الإنترنت [**PowerPoint to PDF converter**](https://products.aspose.app/slides/ar/conversion/ppt-to-pdf) تُظهر عملية التحويل من العرض إلى PDF. يمكنك تجربة هذه الأداة للحصول على تنفيذ عملي للعملية الموضحة هنا.
 {{% /alert %}}
 
 ## **تحويل PowerPoint إلى PDF مع خيارات**
 
-يقدِّم Aspose.Slides خيارات مخصَّصة — خصائص ضمن فئة [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) — تتيح لك تخصيص ملف PDF الناتج، أو قفل PDF بكلمة مرور، أو تحديد كيفية سير عملية التحويل.
+يوفر Aspose.Slides خيارات مخصصة—خصائص تحت الفئة [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/)—تتيح لك تخصيص ملف PDF الناتج، أو قفل PDF بكلمة مرور، أو تحديد طريقة سير عملية التحويل.
 
-### **تحويل PowerPoint إلى PDF مع خيارات مخصَّصة**
+### **تحويل PowerPoint إلى PDF مع خيارات مخصصة**
 
-باستخدام خيارات التحويل المخصَّصة، يمكنك تحديد إعداد الجودة المفضلة للصور النقطية، وتحديد طريقة معالجة ملفات الميتافايل، وضبط مستوى الضغط للنص، وتكوين DPI للصور، وأكثر.
+باستخدام خيارات تحويل مخصصة، يمكنك تحديد إعداد الجودة المفضلة للصور النقطية، وتحديد طريقة معالجة ملفات الميتا، وضبط مستوى الضغط للنص، وتكوين DPI للصور، وغير ذلك.
 
-يوضح المثال التالي كيفية تحويل عرض PowerPoint إلى PDF مع عدة خيارات مخصَّصة.
+يوضح المثال البرمجي أدناه كيفية تحويل عرض PowerPoint إلى PDF مع عدة خيارات مخصصة:
+
 ```c++
-// إنشاء كائن PdfOptions.
+// إنشاء كائن من الفئة PdfOptions.
 auto pdfOptions = MakeObject<PdfOptions>();
 
-// تعيين جودة صور JPG.
+// ضبط جودة صور JPG.
 pdfOptions->set_JpegQuality(90);
 
-// تعيين DPI للصور.
+// ضبط DPI للصور.
 pdfOptions->set_SufficientResolution(300);
 
-// تعيين سلوك ملفات الميتا.
+// ضبط سلوك ملفات الميتا.
 pdfOptions->set_SaveMetafilesAsPng(true);
 
-// تعيين مستوى ضغط النص للمحتوى النصي.
+// ضبط مستوى ضغط النص للمحتوى النصي.
 pdfOptions->set_TextCompression(PdfTextCompression::Flate);
 
 // تعريف وضع الامتثال لملف PDF.
 pdfOptions->set_Compliance(PdfCompliance::Pdf15);
 
-// إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
 // حفظ العرض كملف PDF.
@@ -121,17 +117,17 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-
 ### **تحويل PowerPoint إلى PDF مع الشرائح المخفية**
 
-إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) من فئة [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) لتضمين الشرائح المخفية كصفحات في PDF الناتج.
+إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [set_ShowHiddenSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) من الفئة [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/) لتضمين الشرائح المخفية كصفحات في PDF الناتج.
 
-هذا الكود C++ يوضح كيفية تحويل عرض PowerPoint إلى PDF مع تضمين الشرائح المخفية:
+يعرض الكود التالي كيفية تحويل عرض PowerPoint إلى PDF مع تضمين الشرائح المخفية:
+
 ```c++
-// إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// إنشاء كائن PdfOptions.
+// إنشاء كائن من الفئة PdfOptions.
 auto pdfOptions = MakeObject<PdfOptions>();
 
 // إضافة الشرائح المخفية.
@@ -143,15 +139,15 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-
 ### **تحويل PowerPoint إلى PDF محمي بكلمة مرور**
 
-هذا الكود C++ يوضح كيفية تحويل عرض PowerPoint إلى PDF محمي بكلمة مرور باستخدام معلمات الحماية من فئة [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/):
+يوضح الكود التالي في C++ كيفية تحويل عرض PowerPoint إلى PDF محمي بكلمة مرور باستخدام معلمات الحماية من الفئة [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/):
+
 ```c++
-// إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// إنشاء كائن PdfOptions.
+// إنشاء كائن من الفئة PdfOptions.
 auto pdfOptions = MakeObject<PdfOptions>();
 
 // تعيين كلمة مرور PDF وأذونات الوصول.
@@ -164,14 +160,14 @@ presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-
 ### **اكتشاف استبدال الخطوط**
 
-يقدم Aspose.Slides طريقة [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) ضمن فئة [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) تتيح لك اكتشاف استبدال الخطوط أثناء عملية تحويل العرض إلى PDF.
+توفر Aspose.Slides طريقة [set_WarningCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/saveoptions/set_warningcallback/) ضمن الفئة [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/) التي تمكنك من اكتشاف استبدال الخطوط أثناء عملية التحويل من العرض إلى PDF.
 
-هذا الكود C++ يوضح كيفية اكتشاف استبدال الخطوط:
+يعرض الكود التالي في C++ كيفية اكتشاف استبدال الخطوط:
+
 ```c++
-// تنفيذ رد النداء للتحذير.
+// تنفيذ رد النداء التحذيري.
 class FontSubstitutionHandler : public IWarningCallback
 {
 public:
@@ -191,10 +187,10 @@ ReturnAction FontSubstitutionHandler::Warning(SharedPtr<IWarningInfo> warning)
 
 int main()
 {
-    // إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+    // إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
     auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-    // تعيين رد النداء للتحذير في خيارات PDF.
+    // تعيين رد النداء التحذيري في خيارات PDF.
     auto pdfOptions = MakeObject<PdfOptions>();
     pdfOptions->set_WarningCallback(MakeObject<FontSubstitutionHandler>());
 
@@ -207,65 +203,63 @@ int main()
 }
 ```
 
-
 {{%  alert color="primary"  %}} 
+لمزيد من المعلومات حول استلام ردود النداءات لاستبدال الخطوط أثناء عملية العرض، راجع [Getting Warning Callbacks for Fonts Substitution](/slides/ar/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-لمزيد من المعلومات حول تلقي ردود النداء لاستبدال الخطوط أثناء عملية العرض، راجع [Getting Warning Callbacks for Fonts Substitution](/slides/ar/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
-
-لمزيد من المعلومات حول استبدال الخطوط، راجع مقالة [Font Substitution](/slides/ar/cpp/font-substitution/).
-
+لمزيد من التفاصيل حول استبدال الخطوط، راجع مقالة [Font Substitution](/slides/ar/cpp/font-substitution/).
 {{% /alert %}} 
 
 ## **تحويل شرائح محددة من PowerPoint إلى PDF**
 
-هذا الكود C++ يوضح كيفية تحويل شرائح معينة فقط من عرض PowerPoint إلى PDF:
+يوضح الكود التالي في C++ كيفية تحويل شرائح محددة فقط من عرض PowerPoint إلى PDF:
+
 ```C++
-// إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// تعيين مصفوفة أرقام الشرائح.
+// Set array of slide numbers.
 auto slides = MakeArray<int32_t>({ 1, 3 });
 
-// حفظ العرض كملف PDF.
+// Save the presentation as a PDF.
 presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
 
 presentation->Dispose();
 ```
 
+## **تحويل PowerPoint إلى PDF بحجم شريحة مخصص**
 
-## **تحويل PowerPoint إلى PDF بحجم شريحة مخصَّص**
+يوضح الكود التالي في C++ كيفية تحويل عرض PowerPoint إلى PDF بحجم شريحة محدد:
 
-هذا الكود C++ يوضح كيفية تحويل عرض PowerPoint إلى PDF مع حجم شريحة محدد:
 ```C++
 auto slideWidth = 612;
 auto slideHeight = 792;
 
-// إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
-// إنشاء عرض تقديمي جديد بحجم شريحة معدل.
+// إنشاء عرض تقديمي جديد مع حجم شريحة معدل.
 auto resizedPresentation = MakeObject<Presentation>();
 
-// تعيين حجم الشريحة المخصص.
+// ضبط حجم الشريحة المخصص.
 resizedPresentation->get_SlideSize()->SetSize(slideWidth, slideHeight, SlideSizeScaleType::EnsureFit);
 
-// استنساخ الشريحة الأولى من العرض التقديمي الأصلي.
+// استنساخ الشريحة الأولى من العرض الأصلي.
 auto slide = presentation->get_Slide(0);
 resizedPresentation->get_Slides()->InsertClone(0, slide);
 
-// حفظ العرض المعاد قياسه إلى ملف PDF مع الملاحظات.
+// حفظ العرض المعاد تحجيمه إلى PDF مع الملاحظات.
 resizedPresentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf);
 
 resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
+## **تحويل PowerPoint إلى PDF في وضع ملاحظة الشريحة**
 
-## **تحويل PowerPoint إلى PDF في وضع ملاحظات الشريحة**
+يوضح الكود التالي في C++ كيفية تحويل عرض PowerPoint إلى PDF يتضمن الملاحظات:
 
-هذا الكود C++ يوضح كيفية تحويل عرض PowerPoint إلى PDF يتضمن الملاحظات:
 ```C++
-// إنشاء كائن Presentation الذي يمثل ملف PowerPoint أو OpenDocument.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
 // تكوين خيارات PDF مع تخطيط الملاحظات.
@@ -274,18 +268,18 @@ notesOptions->set_NotesPosition(NotesPositions::BottomFull);
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-// حفظ العرض إلى PDF مع الملاحظات.
+// حفظ العرض إلى ملف PDF مع الملاحظات.
 presentation->Save(u"PDF_with_notes.tiff", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
 ```
 
+## **معايير الوصول والامتثال للـ PDF**
 
-## **إمكانية الوصول ومعايير الامتثال للـ PDF**
+يتيح Aspose.Slides لك استخدام إجراء تحويل يتوافق مع [إرشادات الوصول إلى محتوى الويب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال التالية: **PDF/A1a**، **PDF/A1b**، و **PDF/UA**.
 
-يتيح لك Aspose.Slides استخدام إجراء تحويل متوافق مع [إرشادات إمكانية الوصول لمحتوى الويب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال التالية: **PDF/A1a**، **PDF/A1b**، و **PDF/UA**.
+يوضح الكود التالي في C++ عملية تحويل PowerPoint إلى PDF تنتج ملفات PDF متعددة بناءً على معايير الامتثال المختلفة:
 
-هذا الكود C++ يوضح عملية تحويل PowerPoint إلى PDF تُنتج ملفات PDF متعددة بناءً على معايير الامتثال المختلفة:
 ```C++
 auto presentation = MakeObject<Presentation>(u"pres.pptx");
 
@@ -306,37 +300,36 @@ presentation->Save(u"pres-ua-compliance.pdf", SaveFormat::Pdf, pdfOptionsUa);
 presentation->Dispose();
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-
-يدعم Aspose.Slides عمليات تحويل PDF، مما يتيح لك تحويل ملفات PDF إلى صيغ شائعة. يمكنك تنفيذ عمليات التحويل التالية: [PDF to HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/)، [PDF to image](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/)، [PDF to JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/)، و[PDF to PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/). كما تُدعم عمليات تحويل PDF إلى صيغ متخصصة أخرى — [PDF to SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/)، [PDF to TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/)، و[PDF to XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/).
-
+يدعم Aspose.Slides عمليات تحويل PDF، مما يتيح لك تحويل ملفات PDF إلى صيغ شائعة. يمكنك تنفيذ التحويلات التالية: [PDF to HTML](https://products.aspose.com/slides/ar/cpp/conversion/pdf-to-html/)، [PDF to image](https://products.aspose.com/slides/ar/cpp/conversion/pdf-to-image/)، [PDF to JPG](https://products.aspose.com/slides/ar/cpp/conversion/pdf-to-jpg/)، و[PDF to PNG](https://products.aspose.com/slides/ar/cpp/conversion/pdf-to-png/). كما تُدعم عمليات تحويل PDF إلى صيغ متخصصة—[PDF to SVG](https://products.aspose.com/slides/ar/cpp/conversion/pdf-to-svg/)، [PDF to TIFF](https://products.aspose.com/slides/ar/cpp/conversion/pdf-to-tiff/)، و[PDF to XML](https://products.aspose.com/slides/ar/cpp/conversion/pdf-to-xml/)—أيضًا.
 {{% /alert %}}
+
+> **ملاحظة:** عند التصدير إلى PDF/UA، يعتبر Aspose.Slides الرسوميات المعقدة مثل SmartArt والرسوم البيانية والصيغ ككيان واحد. لا يتم الحفاظ على عناصر المسار الفردية كمحتوى منفصل وقد تُعدّ كملحقات؛ يُقدَّم النص البديل فقط للكيان بأكمله.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تحويل عدة ملفات PowerPoint إلى PDF دفعيًا؟**
+**هل يمكنني تحويل عدة ملفات PowerPoint إلى PDF دفعة واحدة؟**
 
-نعم، يدعم Aspose.Slides التحويل الدفعي لعدة ملفات PPT أو PPTX إلى PDF. يمكنك تنويع الملفات وتطبيق عملية التحويل برمجيًا.
+نعم، يدعم Aspose.Slides تحويل دفعي لعدة ملفات PPT أو PPTX إلى PDF. يمكنك المرور عبر ملفاتك وتطبيق عملية التحويل برمجيًا.
 
 **هل يمكن حماية PDF الناتج بكلمة مرور؟**
 
-بالطبع. استخدم فئة [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) لتعيين كلمة مرور وتحديد أذونات الوصول أثناء عملية التحويل.
+بالتأكيد. استخدم فئة [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/) لتحديد كلمة مرور وتعريف أذونات الوصول أثناء عملية التحويل.
 
 **كيف يمكنني تضمين الشرائح المخفية في PDF؟**
 
-استخدم طريقة `set_ShowHiddenSlides` في فئة [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
+استخدم طريقة `set_ShowHiddenSlides` في فئة [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
 
-**هل يمكن لـ Aspose.Slides الحفاظ على جودة عالية للصور في PDF؟**
+**هل يمكن لـ Aspose.Slides الحفاظ على جودة الصور العالية في PDF؟**
 
-نعم، يمكنك التحكم في جودة الصور باستخدام طرق مثل `set_JpegQuality` و `set_SufficientResolution` في فئة [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
+نعم، يمكنك التحكم في جودة الصور باستخدام طرق مثل `set_JpegQuality` و`set_SufficientResolution` في فئة [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
 
 **هل يدعم Aspose.Slides معايير الامتثال PDF/A؟**
 
-نعم، يتيح لك Aspose.Slides تصدير ملفات PDF متوافقة مع معايير مختلفة، بما في ذلك PDF/A1a، PDF/A1b، وPDF/UA، لضمان توافق مستنداتك مع متطلبات الوصول والحفظ الأرشيفي.
+نعم، يسمح Aspose.Slides لك بتصدير ملفات PDF تتوافق مع معايير مختلفة، بما في ذلك PDF/A1a، PDF/A1b، وPDF/UA، مما يضمن أن مستنداتك تلبي متطلبات الوصول والأرشفة.
 
-## **موارد إضافية**
+## **الموارد الإضافية**
 
-- [توثيق Aspose.Slides للـ C++](/slides/ar/cpp/)
-- [مرجع API لـ Aspose.Slides للـ C++](https://reference.aspose.com/slides/cpp/)
-- [محولات Aspose المجانية على الإنترنت](https://products.aspose.app/slides/conversion)
+- [وثائق Aspose.Slides for C++](/slides/ar/cpp/)
+- [مرجع API لـ Aspose.Slides for C++](https://reference.aspose.com/slides/ar/cpp/)
+- [محولات Aspose المجانية على الإنترنت](https://products.aspose.app/slides/ar/conversion)

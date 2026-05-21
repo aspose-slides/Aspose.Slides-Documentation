@@ -98,6 +98,12 @@ try {
 }
 ```
 
+### **Limitations**
+
+Tags added through the custom data tag collection using `getCustomData().getTags()` are stored only within the PowerPoint file. They are **not** transferred to the PDF tag structure when the presentation is exported to PDF. Consequently, a custom identifier assigned as a tag cannot be retrieved from the tagged PDF.
+
+**Workaround**: You can store a custom identifier in the object's **Alt Text** (e.g., `shape.setAlternativeText("MyId")`). After exporting to PDF, the Alt Text may appear in the PDF tag structure.
+
 ## **FAQ**
 
 **Can I remove all tags from a presentation, slide, or shape in one operation?**

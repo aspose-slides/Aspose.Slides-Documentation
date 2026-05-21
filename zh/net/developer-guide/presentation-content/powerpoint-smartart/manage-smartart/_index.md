@@ -16,152 +16,124 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "学习使用 Aspose.Slides for .NET 通过清晰的 C# 示例代码构建和编辑 PowerPoint SmartArt，以加快幻灯片设计和自动化。"
+description: "学习使用 Aspose.Slides for .NET，利用清晰的 C# 代码示例，快速构建和编辑 PowerPoint SmartArt，从而加快幻灯片设计和自动化。"
 ---
+## **概述**
 
-## **获取 SmartArt 对象的文本**
-现在 TextFrame 属性已分别添加到 ISmartArtShape 接口和 SmartArtShape 类。此属性允许您获取 SmartArt 中的全部文本，即使它不仅仅是节点文本。以下示例代码将帮助您获取 SmartArt 节点的文本。
+SmartArt 是由节点、节点形状和布局组成的 PowerPoint 图表。使用 Aspose.Slides for .NET，您可以创建 SmartArt、读取其节点中的文本、更改布局、检查隐藏节点、配置组织结构图布局以及创建图片组织结构图。
+
+## **从 SmartArt 对象获取文本**
+
+SmartArt 节点可以包含一个或多个形状。要读取可见文本，请遍历 [ISmartArt.AllNodes](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/ismartart/allnodes/)，然后读取由 [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/ismartartshape/textframe/) 返回的 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)。
+
 ```c#
-using (Presentation pres = new Presentation("Presentation.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-	ISlide slide = pres.Slides[0];
-	ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
+    ISlide slide = presentation.Slides[0];
 
-	ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
-	foreach (ISmartArtNode smartArtNode in smartArtNodes)
-	{
-		foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
-		{
-			if (nodeShape.TextFrame != null)
-				Console.WriteLine(nodeShape.TextFrame.Text);
-		}
-	}
+    if (slide.Shapes[0] is ISmartArt smartArt)
+    {
+        foreach (ISmartArtNode node in smartArt.AllNodes)
+        {
+            foreach (ISmartArtShape nodeShape in node.Shapes)
+            {
+                if (nodeShape.TextFrame != null)
+                {
+                    Console.WriteLine(nodeShape.TextFrame.Text);
+                }
+            }
+        }
+    }
 }
 ```
 
-
-
-
 ## **更改 SmartArt 对象的布局类型**
-为了更改 SmartArt 的布局类型，请按以下步骤操作：
 
-- 创建 `Presentation` 类的实例。
-- 通过使用索引获取幻灯片的引用。
-- 添加 SmartArt BasicBlockList。
-- 将 LayoutType 更改为 BasicProcess。
-- 将演示文稿写入为 PPTX 文件。
-在下面的示例中，我们在两个形状之间添加了连接线。
+SmartArt 布局决定节点的排列和连接方式。下面的示例创建一个使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/smartartlayouttype/) `BasicBlockList` 值的 SmartArt 对象，将其更改为 `BasicProcess` 值，并保存演示文稿。
+
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // 添加 SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    // 将 LayoutType 更改为 BasicProcess
-    smart.Layout = SmartArtLayoutType.BasicProcess;
+    smartArt.Layout = SmartArtLayoutType.BasicProcess;
 
-    // 保存演示文稿
     presentation.Save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **检查 SmartArt 节点是否隐藏**
 
+[ISmartArtNode.IsHidden](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/ismartartnode/ishidden/) 表示该节点在 SmartArt 数据模型中是否隐藏。即使所选布局未将其显示为可见图表元素，隐藏节点仍可能存在于结构中。
 
+下面的示例向使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/smartartlayouttype/) `RadialCycle` 值的 SmartArt 对象添加一个节点，并检查该节点的隐藏状态。
 
-## **检查 SmartArt 对象的 Hidden 属性**
-请注意，方法 com.aspose.slides.ISmartArtNode.isHidden() 如果此节点在数据模型中为隐藏节点则返回 true。为了检查 SmartArt 任意节点的 hidden 属性，请按以下步骤操作：
-
-- 创建 `Presentation` 类的实例。
-- 添加 SmartArt RadialCycle。
-- 在 SmartArt 上添加节点。
-- 检查 isHidden 属性。
-- 将演示文稿写入为 PPTX 文件。
-在下面的示例中，我们在两个形状之间添加了连接线。
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // 添加 SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // 在 SmartArt 上添加节点 
-    ISmartArtNode node = smart.AllNodes.AddNode();
+    ISmartArtNode node = smartArt.AllNodes.AddNode();
+    bool isHidden = node.IsHidden;
 
-    // 检查 isHidden 属性
-    bool hidden = node.IsHidden; // 返回 true
-
-    if (hidden)
+    if (isHidden)
     {
-        // 执行一些操作或通知
+        Console.WriteLine("The node is hidden in the SmartArt data model.");
     }
-    // 保存演示文稿
+
     presentation.Save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **获取或设置组织结构图布局**
 
+对于使用组织结构图布局的 SmartArt 图表，[ISmartArtNode.OrganizationChartLayout](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/ismartartnode/organizationchartlayout/) 定义子节点在父节点下的排列方式。例如，您可以根据所选的 [OrganizationChartLayoutType](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/organizationchartlayouttype/) 将子节点挂在左侧、右侧或两侧。
 
+下面的示例创建一个组织结构图，并将第一个节点的布局设置为 [OrganizationChartLayoutType](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/organizationchartlayouttype/) `LeftHanging` 值。
 
-## **获取或设置组织结构图类型**
-方法 com.aspose.slides.ISmartArtNode.getOrganizationChartLayout()、setOrganizationChartLayout(int) 允许获取或设置与当前节点关联的组织结构图类型。为了获取或设置组织结构图类型，请按以下步骤操作：
-
-- 创建 `Presentation` 类的实例。
-- 在幻灯片上添加 SmartArt。
-- 获取或设置组织结构图类型。
-- 将演示文稿写入为 PPTX 文件。
-在下面的示例中，我们在两个形状之间添加了连接线。
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // 添加 SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // 获取或设置组织结构图类型 
-    smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
+    ISmartArtNode rootNode = smartArt.Nodes[0];
+    rootNode.OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-    // 保存演示文稿
-    presentation.Save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+    presentation.Save("OrganizationChartLayout_out.pptx", SaveFormat.Pptx);
 }
 ```
-
-
-
-
 
 ## **创建图片组织结构图**
-Aspose.Slides for .NET 提供了一个简单的 API，能够轻松创建 PictureOrganization 图表。要在幻灯片上创建图表，请按以下步骤操作：
 
-1. 创建 `Presentation` 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加一个默认数据的图表，并指定所需类型 (ChartType.PictureOrganizationChart)。
-4. 将修改后的演示文稿写入 PPTX 文件
+图片组织结构图是一种为包含图像占位符的层次结构图表设计的 SmartArt 布局。在将 SmartArt 对象添加到幻灯片时，使用 [SmartArtLayoutType](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/smartartlayouttype/) `PictureOrganizationChart` 值。
 
-以下代码用于创建图表。
 ```c#
-public static void Run()
+using (Presentation presentation = new Presentation())
 {
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-		pres.Save("OrganizationChart.pptx", SaveFormat.Pptx);
-	}			
+    ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
+        0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+
+    presentation.Save("PictureOrganizationChart_out.pptx", SaveFormat.Pptx);
 }
 ```
-
 
 ## **常见问题**
 
-**SmartArt 是否支持 RTL 语言的镜像/反转？**
+**SmartArt 是否支持 RTL 语言的镜像或翻转？**
 
-是的。如果所选的 SmartArt 类型支持反转，[IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/) 属性会切换图表方向（LTR/RTL）。
+是的。当所选 SmartArt 布局支持翻转时，[IsReversed](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/smartart/isreversed/) 属性可以将图表方向从左到右切换为右到左，或反之。
 
-**如何在保持格式的情况下将 SmartArt 复制到同一幻灯片或其他演示文稿中？**
+**如何在同一幻灯片或另一个演示文稿中复制 SmartArt 并保留格式？**
 
-您可以通过形状集合[克隆 SmartArt 形状](/slides/zh/net/shape-manipulations/)（[ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/)）或[克隆包含该形状的整个幻灯片](/slides/zh/net/clone-slides/)。这两种方法都能保留大小、位置和样式。
+您可以使用 [ShapeCollection.AddClone](https://reference.aspose.com/slides/zh/net/aspose.slides/shapecollection/addclone/) [克隆 SmartArt 形状](/slides/zh/net/shape-manipulations/)，或 [克隆包含 SmartArt 的整张幻灯片](/slides/zh/net/clone-slides/)。两种方法都能保留大小、位置和格式。
 
 **如何将 SmartArt 渲染为栅格图像以进行预览或网页导出？**
 
-[渲染幻灯片](/slides/zh/net/convert-powerpoint-to-png/)（或整个演示文稿）为 PNG/JPEG，可通过将幻灯片/演示文稿转换为图像的 API 实现——SmartArt 将作为幻灯片的一部分绘制。
+[渲染幻灯片](/slides/zh/net/convert-powerpoint-to-png/) 或将整个演示文稿导出为 PNG 或 JPEG。SmartArt 会作为幻灯片的一部分进行渲染。
 
-**如果幻灯片上有多个 SmartArt，如何以编程方式选择特定的 SmartArt？**
+**如果幻灯片上有多个 SmartArt 对象，如何找到其中的特定对象？**
 
-常用做法是使用[替代文本](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/)（Alt Text）或[名称](https://reference.aspose.com/slides/net/aspose.slides/shape/name/)，在[Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) 中按该属性搜索形状，然后检查其类型以确认是[SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)。文档中描述了查找和操作形状的典型技术。
+在 SmartArt 形状上设置唯一的 [AlternativeText](https://reference.aspose.com/slides/zh/net/aspose.slides/shape/alternativetext/) 或 [Name](https://reference.aspose.com/slides/zh/net/aspose.slides/shape/name/) 值，在 [Slide.Shapes](https://reference.aspose.com/slides/zh/net/aspose.slides/baseslide/shapes/) 中搜索该值，然后检查匹配的形状是否为 [ISmartArt](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/ismartart/)。

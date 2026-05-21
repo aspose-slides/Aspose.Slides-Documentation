@@ -16,11 +16,14 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Descubra los requisitos del sistema de Aspose.Slides for C++. Garantice soporte sin problemas de PowerPoint y OpenDocument en Windows, Linux y macOS."
+description: "Descubra los requisitos del sistema de Aspose.Slides para C++. Garantice un soporte sin problemas de PowerPoint y OpenDocument en Windows, Linux y macOS."
 ---
+## **Introducción**
+
+Aspose.Slides no requiere que Microsoft PowerPoint esté instalado porque Aspose.Slides es un motor independiente de creación, conversión, maquetación y renderizado de documentos Microsoft PowerPoint.
 
 ## **Sistemas operativos compatibles**
-Aspose.Slides for C++ es una biblioteca nativa en C++. Aspose.Slides for C++ admite los siguientes sistemas operativos y plataformas de 64 bits y 32 bits:
+Aspose.Slides for C++ es una biblioteca nativa de C++. Aspose.Slides for C++ admite los siguientes sistemas operativos y plataformas de 64 bits y 32 bits:
 
 ### **Windows**
 - Microsoft Windows Server 2008 (x64, x86)
@@ -34,7 +37,7 @@ Aspose.Slides for C++ es una biblioteca nativa en C++. Aspose.Slides for C++ adm
 - Microsoft Windows 10 (x64, x86)
 
 ### **Linux**
-- Ubuntu 16.04 o posterior.
+- OS Ubuntu 16.04 o posterior.
 - CentOS 8 o posterior.
 - Fedora 24 o posterior.
 - Y otras distribuciones Linux x86_64 con glibc 2.23 o posterior.
@@ -43,7 +46,7 @@ Aspose.Slides for C++ es una biblioteca nativa en C++. Aspose.Slides for C++ adm
 - macOS Monterey 12.1 o posterior.
 
 ## **Entornos de desarrollo**
-Puede utilizar Aspose.Slides for C++ al desarrollar aplicaciones para Windows, Linux o macOS.
+Puede usar Aspose.Slides for C++ al desarrollar aplicaciones para Windows, Linux o macOS.
 
 ### **Windows**
 - Microsoft Visual Studio 2017 o posterior.
@@ -61,8 +64,12 @@ Puede utilizar Aspose.Slides for C++ al desarrollar aplicaciones para Windows, L
 
 **¿Necesito tener Microsoft PowerPoint instalado para conversiones y renderizado?**
 
-No, PowerPoint no es necesario; Aspose.Slides es un motor independiente para [creando](/slides/es/cpp/create-presentation/), modificando, [convirtiendo](/slides/es/cpp/convert-presentation/), y [renderizando](/slides/es/cpp/convert-powerpoint-to-png/) presentaciones.
+No, PowerPoint no es necesario; Aspose.Slides es un motor independiente para [crear](/slides/es/cpp/create-presentation/), modificar, [convertir](/slides/es/cpp/convert-presentation/) y [renderizar](/slides/es/cpp/convert-powerpoint-to-png/) presentaciones.
 
-**¿Qué fuentes se necesitan para un renderizado correcto?**
+**¿Qué fuentes son necesarias para un renderizado correcto?**
 
-En la práctica, las fuentes usadas en la presentación o los [sustitutos](/slides/es/cpp/font-substitution/) adecuados deben estar disponibles. Para garantizar un renderizado coherente en Linux/macOS, es recomendable instalar paquetes de fuentes comunes.
+En la práctica, las fuentes utilizadas en la presentación o sus [sustitutos](/slides/es/cpp/font-substitution/) adecuados deben estar disponibles. Para garantizar un renderizado coherente en Linux/macOS, se recomienda instalar paquetes de fuentes comunes.
+
+**¿Por qué una fuente personalizada se muestra como fuente de reserva o texto faltante en Linux?**
+
+Si el archivo de fuente contiene entradas de tabla de nombres inconsistentes o corruptas, la pila de coincidencia de fuentes de Linux (FreeType/fontconfig) puede seleccionar un registro no válido, lo que provoca que la fuente no se resuelva. Utilizar una versión de la fuente con los registros de tabla de nombres corregidos o instalar un reemplazo coherente soluciona el problema.

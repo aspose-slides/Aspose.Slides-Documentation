@@ -1,6 +1,6 @@
 ---
 title: Python でプレゼンテーションを複数形式に変換
-linktitle: プレゼンテーションを変換
+linktitle: プレゼンテーション変換
 type: docs
 weight: 70
 url: /ja/python-net/convert-presentation/
@@ -8,105 +8,105 @@ keywords:
 - プレゼンテーションを変換
 - プレゼンテーションをエクスポート
 - PPT から PPTX へ
+- PPTX から PPT へ
+- ODP から PPTX へ
 - PPT から PDF へ
 - PPTX から PDF へ
+- ODP から PDF へ
+- PPT から HTML へ
+- PPTX から HTML へ
+- ODP から HTML へ
+- PPT から PNG へ
+- PPTX から PNG へ
+- ODP から PNG へ
+- PPTX から JPG へ
+- ODP から JPG へ
 - PPT から XPS へ
 - PPTX から XPS へ
+- ODP から XPS へ
 - PPT から TIFF へ
 - PPTX から TIFF へ
+- ODP から TIFF へ
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションを PPTX、PDF、XPS、TIFF などに変換します。シンプルで高品質な変換です。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションを PPTX、PDF、HTML、画像、XPS、TIFF などに変換します。"
 ---
+## **概要**
 
-## **はじめに**
+Aspose.Slides for Python via .NET は、Microsoft PowerPoint、OpenOffice、LibreOffice を使用せずに、PowerPoint および OpenDocument のプレゼンテーションを読み込み、他の多くの形式に保存またはレンダリングできます。レガシー PPT ファイルを最新の PPTX に変換したり、プレゼンテーションを PDF や XPS などの固定レイアウトドキュメントにエクスポートしたり、スライドを HTML として公開したり、プレビュー、サムネイル、アーカイブ用に画像ファイルとしてレンダリングしたりできます。
 
-このページでは、Aspose.Slides for Python via .NET を使用したプレゼンテーション変換の概要を提供します。サポートされているシナリオをまとめ、PDF、XPS、TIFF などの形式へのプレゼンテーションやスライドのエクスポート、PPT から PPTX への変換の正確なコードを示すガイドへリンクしています。関連する記事では、ノートのレンダリングや画像品質の調整といった形式固有のオプションや、PPT→PPTX パスでの部分的なサポートなど既知の制限事項がハイライトされています。このページを使って対象形式を選択し、リンクされたレシピに従ってください。
+ほとんどのドキュメント変換は同じ一般的なワークフローを使用します。ソース ファイルを読み込み、必要な出力形式を選択し、必要に応じて形式固有のオプションを適用します。画像形式の場合、各スライドは個別にレンダリングされ、ラスタまたはベクタ画像として保存されます。以下の関連記事では、各ケースの実装詳細が提供されています。
+
+## **変換シナリオの選択**
+
+以下の記事で完全な Python のサンプルと形式固有のオプションを確認してください。
+
+| シナリオ | 必要なとき | 記事 |
+| --- | --- | --- |
+| PPT/PPTX/ODP to PPTX | レガシー PPT ファイルをモダン化し、既存の PPTX ファイルを正規化、または OpenDocument プレゼンテーションを PowerPoint PPTX に変換します。 | [PPT を PPTX に変換](/slides/ja/python-net/convert-ppt-to-pptx/), [ODP を PPTX に変換](/slides/ja/python-net/convert-odp-to-pptx/), [プレゼンテーションの保存](/slides/ja/python-net/save-presentation/) |
+| PPTX to PPT | 最新の PowerPoint プレゼンテーションを古いバイナリ PPT 形式で保存し、古いワークフローとの互換性を保ちます。 | [PPTX を PPT に変換](/slides/ja/python-net/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP to PDF | 共有、印刷、アーカイブ用に、ポータブルで検索可能な固定レイアウトドキュメントを作成します。 | [PowerPoint を PDF に変換](/slides/ja/python-net/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP to PDF with notes | スピーカーノートとスライドの内容を同時にエクスポートします。 | [PowerPoint をノート付き PDF に変換](/slides/ja/python-net/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP to HTML | プレゼンテーションを HTML ページとして公開し、画像、フォント、ノート、レスポンシブレイアウトオプションを制御します。 | [PowerPoint を HTML に変換](/slides/ja/python-net/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP to HTML5 | スライドを HTML5 にエクスポートし、ブラウザでの閲覧時に書式とインタラクティブ性を保持します。 | [プレゼンテーションを HTML5 に変換](/slides/ja/python-net/export-to-html5/) |
+| PPT/PPTX/ODP to PNG | プレビュー、サムネイル、ウェブ出力用に各スライドを PNG 画像としてレンダリングします。 | [PowerPoint を PNG に変換](/slides/ja/python-net/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP to JPG | スライドを JPG 画像としてレンダリングし、画像サイズと品質を制御します。 | [PowerPoint を JPG に変換](/slides/ja/python-net/convert-powerpoint-to-jpg/) |
+| Slide to SVG | 個別のスライドをスケーラブルベクターグラフィック (SVG) としてエクスポートします。 | [スライドを SVG としてレンダリング](/slides/ja/python-net/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP to XPS | 固定レイアウトの XPS ドキュメントを生成します。 | [PowerPoint を XPS に変換](/slides/ja/python-net/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP to TIFF | 印刷、スキャン、ファックス、アーカイブワークフロー用に、プレゼンテーションを複数ページの TIFF ファイルとして保存します。 | [PowerPoint を TIFF に変換](/slides/ja/python-net/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP to TIFF with notes | スピーカーノート付きスライドを TIFF として保存します。 | [PowerPoint をノート付き TIFF に変換](/slides/ja/python-net/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX/ODP to Word | 文書形式の出力が必要なときに、スライドを Word 文書に変換します。 | [PowerPoint を Word に変換](/slides/ja/python-net/convert-powerpoint-to-word/) |
+| PPT/PPTX/ODP to Markdown | ドキュメント作成やテキストベースのワークフローのために、プレゼンテーション内容を Markdown に抽出します。 | [PowerPoint を Markdown に変換](/slides/ja/python-net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP to animated GIF | スライドからアニメーション GIF を作成します。 | [PowerPoint をアニメーション GIF に変換](/slides/ja/python-net/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX/ODP to video | プレゼンテーションスライドからビデオエクスポートのワークフローを構築します。 | [PowerPoint をビデオに変換](/slides/ja/python-net/convert-powerpoint-to-video/) |
+| Presentation to XAML | Python または .NET UI シナリオ向けにスライドを XAML にエクスポートします。 | [プレゼンテーションを XAML にエクスポート](/slides/ja/python-net/export-to-xaml/) |
+
+入力および出力形式の詳細一覧については、[対応ファイル形式](/slides/ja/python-net/supported-file-formats/) を参照してください。
+
+## **PowerPoint と OpenDocument の変換**
+
+Aspose.Slides for Python via .NET は、PPT、PPTX、PPS、PPSX、POT、POTX、ODP などの一般的に使用されるプレゼンテーション形式からの変換をサポートしています。同一の変換 API が PowerPoint と OpenDocument の両方で使用されるため、PPTX ファイルを PDF に保存するワークフローは、入力ファイルを ODP に変更するだけで通常は適用できます。
+
+ODP ファイルを変換する際は、PowerPoint と OpenDocument アプリケーションがすべてのレイアウトや書式設定機能を全く同じようにサポートしているわけではないことに注意してください。ODP ファイルが LibreOffice や OpenOffice Impress で作成された場合、出力を確認し、形式固有のガイダンスが必要なときは[OpenDocument プレゼンテーションの変換](/slides/ja/python-net/convert-openoffice-odp/)で説明されているオプションを使用してください。
 
 ## **PPT から PPTX への変換**
 
-### **PPT/PPTX について**
+PPT は古いバイナリ形式の PowerPoint で、PPTX は最新の Office Open XML 形式です。Aspose.Slides for Python via .NET は、マスター、レイアウト、スライド、チャート、グループ化シェイプ、プレースホルダー、テキスト フレーム、テクスチャ、画像塗りつぶしなどの複雑なプレゼンテーション構造を保持しながら、PPT から PPTX への高忠実度変換をサポートします。
 
-PPT は古いバイナリ形式の PowerPoint（97–2003）で、PPTX は PowerPoint 2007 で導入された ZIP パッケージ化された Open XML 形式です。PPT に比べて PPTX は通常、ファイルサイズが小さく、最新機能をサポートし、ドキュメント自動化に適しており、長期保存やクロスプラットフォーム ワークフローに推奨されます。
+詳細については、[PPT を PPTX に変換](/slides/ja/python-net/convert-ppt-to-pptx/) および[PPT と PPTX の比較](/slides/ja/python-net/ppt-vs-pptx/) を参照してください。
 
-### **PPT を PPTX に変換する**
+## **固定レイアウトのエクスポート**
 
-Aspose.Slides は PPT プレゼンテーションを PPTX 形式に変換することをサポートしています。このタスクに Aspose.Slides API を使用する主な利点は、目的の結果を得るためのワークフローが非常にシンプルなことです。実際には、スライド、レイアウト、メディアの高忠実度を保ちながら、最小限のコードで変換を実行できます。
+PDF、XPS、TIFF は、出力がデバイス間で同一に表示され、プレゼンテーションとして編集されないことが求められる場合に有用です。専用の PDF、XPS、TIFF 記事では、コンプライアンス、非表示スライド、ノート、画像品質、圧縮、ピクセル形式、出力サイズの制御方法が説明されています。
 
-{{% alert color="primary" %}}
-詳しく読む: [Python で PPT を PPTX に変換](/slides/ja/python-net/convert-ppt-to-pptx/).
-{{% /alert %}}
+## **HTML と画像のエクスポート**
 
-## **プレゼンテーションを PDF に変換する**
+HTML および HTML5 のエクスポートは、ブラウザーでの閲覧、ウェブ公開、軽量な共有に便利です。画像エクスポートは、各スライドを個別のプレビュー、サムネイル、ラスタ資産にする必要がある場合に有用です。PNG、JPG、SVG 記事で形式固有のレンダリングガイダンスをご確認ください。
 
-### **PDF について**
+## **よくある質問**
 
-[Portable Document Format](https://en.wikipedia.org/wiki/PDF) (PDF) は、Adobe Systems が組織間で文書を交換するために作成したファイル形式です。その目的は、閲覧プラットフォームに関係なく文書の内容が同じ視覚的外観で表示されることを保証することです。
+**プレゼンテーションの変換に Microsoft PowerPoint は必要ですか？**
 
-### **プレゼンテーションを PDF に変換する**
+いいえ。Aspose.Slides for Python via .NET は単独のライブラリであり、Microsoft PowerPoint や Office の自動化は不要です。
 
-Aspose.Slides で読み込めるプレゼンテーションはすべて PDF 文書に変換できます。Aspose.Slides コンポーネントだけでプレゼンテーションを直接 PDF にエクスポートでき、サードパーティのライブラリや Aspose.PDF コンポーネントは必要ありません。
+**多数のプレゼンテーションを一括変換できますか？**
 
-{{% alert color="primary" %}}
-詳しく読む: [Python で PPT と PPTX を PDF に変換](/slides/ja/python-net/convert-powerpoint-to-pdf/).
-{{% /alert %}}
+はい。各プレゼンテーションを読み込み、必要な形式で保存し、処理後にプレゼンテーション オブジェクトを破棄します。並列処理が必要な場合は、プレゼンテーション インスタンスを分けて使用し、[マルチスレッド処理](/slides/ja/python-net/multithreading/) のガイダンスに従ってください。
 
-## **プレゼンテーションを XPS に変換する**
+**特定のスライドだけをエクスポートできますか？**
 
-### **XPS について**
+はい。出力形式に応じて、スライド インデックスを指定したり個別スライドをレンダリングしたりできるエクスポート メソッドが用意されています。対象形式の記事をご参照ください。
 
-[XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) (XPS) は、Microsoft が元々開発したページ記述言語および固定文書形式です。PDF と同様に、XPS は固定レイアウトの文書形式で、文書の忠実度を保持し、デバイスに依存しない外観を提供します。
+**PDF または XPS にエクスポートする際に非表示スライドを含めることはできますか？**
 
-### **プレゼンテーションを XPS に変換する**
+はい。非表示スライドのエクスポート設定は、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/) および [XPS](/slides/ja/python-net/convert-powerpoint-to-xps/) の変換記事で説明されています。
 
-Aspose.Slides で読み込めるプレゼンテーションはすべて XPS 形式に変換できます。Aspose.Slides は高忠実度のページレイアウトとレンダリングエンジンを使用して、固定レイアウトの XPS 形式で出力します。特筆すべきは、Windows Presentation Foundation (WPF) に依存せずに直接 XPS を生成する点です。
+**PDF/A 出力を作成できますか？**
 
-{{% alert color="primary" %}}
-詳しく読む: [Python で PowerPoint プレゼンテーションを XPS に変換](/slides/ja/python-net/convert-powerpoint-to-xps/).
-{{% /alert %}}
+はい。PDF エクスポート向けに PDF コンプライアンス設定が用意されています。詳細は [PowerPoint を PDF に変換](/slides/ja/python-net/convert-powerpoint-to-pdf/) をご覧ください。
 
-## **プレゼンテーションを TIFF に変換する**
+**変換時のフォントはどのように処理されますか？**
 
-### **TIFF について**
-
-[Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) (TIFF) は、単一ファイル内に複数の画像（ページ）を保存できるラスター画像形式です。もともとは Aldus によって開発され、スキャン、FAX、その他の画像処理アプリケーションで広くサポートされています。
-
-### **プレゼンテーションを TIFF に変換する**
-
-Aspose.Slides で読み込めるドキュメントは、サードパーティ コンポーネントを使用せずに直接 TIFF ファイルに変換できます。さらに、生成される TIFF のページサイズをオプションで指定することも可能です。
-
-{{% alert color="primary" %}}
-詳しく読む: [Python で PowerPoint プレゼンテーションを TIFF に変換](/slides/ja/python-net/convert-powerpoint-to-tiff/).
-{{% /alert %}}
-
-## **FAQ**
-
-**PDF/XPS にエクスポートする際に非表示スライドを含めることはできますか？**
-
-はい。エクスポート時に[PDF](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/) / [XPS](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/show_hidden_slides/) 設定の対応オプションで非表示スライドを含めることができます。
-
-**アーカイブ保存用の PDF/A 形式での保存はサポートされていますか？**
-
-はい、エクスポート時に[PDF/A 準拠レベル](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfcompliance/)（A-2a/A-2b/A-2u および A-3a/A-3b を含む）を選択できます。
-
-**変換時のフォントは埋め込まれますか、置き換えられますか？**
-
-柔軟なオプションがあります。すべての字形を埋め込むか使用されたサブセットのみを埋め込むかを[設定](/slides/ja/python-net/embedded-font/)でき、[代替フォント](/slides/ja/python-net/fallback-font/)を指定し、フォントに特定のスタイルがない場合の[動作](/slides/ja/python-net/font-substitution/)を制御できます。
-
-**生成される PDF の品質とサイズはどのように制御できますか？**
-
-[JPEG 品質](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/jpeg_quality/)、[テキスト圧縮](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/text_compression/)、画像の[十分な解像度](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/sufficient_resolution/)閾値、さらに[画像の最適圧縮率](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/best_images_compression_ratio/)を選択するモードが利用可能です。
-
-**スライドの範囲（例: 5–12）だけをエクスポートできますか？**
-
-はい、エクスポート時にスライドのサブセットを選択できます。
-
-**複数ファイルを同時にマルチコアで処理することはサポートされていますか？**
-
-別々のプロセスで異なるプレゼンテーションを並列に処理することは可能です。重要なのは、同じ[プレゼンテーション]([https://reference.aspose.com/slides/python-net/aspose.slides/presentation/])オブジェクトを[複数スレッド](/slides/ja/python-net/multithreading/)からロードまたは保存しないことです。
-
-**異なるスレッドからライセンスを適用する際のリスクはありますか？**
-
-はい、[ライセンス設定](/slides/ja/python-net/licensing/)の呼び出しはスレッドセーフではなく、同期が必要です。
+Aspose.Slides は埋め込みフォント、フォント フォールバック、フォント 置換設定を使用できます。詳細は [埋め込みフォント](/slides/ja/python-net/embedded-font/)、[フォント フォールバック](/slides/ja/python-net/fallback-font/)、および [フォント 置換](/slides/ja/python-net/font-substitution/) を参照してください。

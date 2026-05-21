@@ -5,11 +5,11 @@ type: docs
 weight: 70
 url: /ar/nodejs-java/chart-workbook/
 keywords:
-- دفتر عمل المخطط
+- دفتر عمل المخططات
 - بيانات المخطط
 - خلية دفتر العمل
-- تسمية البيانات
-- ورقة العمل
+- ملصق البيانات
+- ورقة عمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
@@ -18,13 +18,20 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لـ Node.js عبر Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات العرض التقديمي."
+description: "اكتشف Aspose.Slides لـ Node.js عبر Java: إدارة دفاتر عمل المخططات في صيغ PowerPoint وOpenDocument بسهولة لتبسيط بيانات عرضك التقديمي."
 ---
+## **نظرة عامة**
 
-## **تعيين بيانات المخطط من دفتر العمل**
-توفر Aspose.Slides الطريقة [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) والطريقة [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) التي تتيح لك قراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تحريرها باستخدام Aspose.Cells). **ملاحظة** أنه يجب تنظيم بيانات المخطط بنفس الطريقة أو أن يكون لها بنية مشابهة للمصدر.
+تشرح هذه المقالة كيفية العمل مع دفاتر العمل الرسومية في Aspose.Slides. توضح كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات المخطط، والوصول إلى مجموعات الأوراق، وتحديد نوع مصدر البيانات لقيم المخطط.
+
+كما تغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخطط. توضح الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، استرجاع مسار دفتر العمل الخارجي المرتبط بمخطط، وتحرير بيانات المخطط عندما يكون دفتر العمل متاحًا.
+
+## **قراءة وكتابة بيانات المخطط من دفتر عمل**
+
+توفر Aspose.Slides طرق [readWorkbookStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) و [writeWorkbookStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) التي تتيح لك قراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تحريرها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو يجب أن يكون لها هيكل مشابه للمصدر.
 
 هذا الكود JavaScript يوضح عملية نموذجية:
+
 ```javascript
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -41,22 +48,22 @@ try {
 }
 ```
 
+## **تعيين خلية دفتر العمل كملصق بيانات المخطط**
 
-## **تعيين خلية دفتر العمل كعلامة بيانات المخطط**
+1. إنشاء مثال من الفئة [Presentation](https://apireference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع الشريحة من خلال مؤشرها.
+3. إضافة مخطط فقاعة مع بعض البيانات.
+4. الوصول إلى سلسلة المخطط.
+5. تعيين خلية دفتر العمل كملصق بيانات.
+6. حفظ العرض التقديمي.
 
-1. إنشاء مثيل من الفئة [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. الحصول على مرجع الشريحة عبر فهرسها.
-1. إضافة مخطط فقاعي مع بعض البيانات.
-1. الوصول إلى سلسلة المخطط.
-1. تعيين خلية دفتر العمل كعلامة بيانات.
-1. حفظ العرض التقديمي.
+هذا الكود JavaScript يظهر لك كيفية تعيين خلية دفتر العمل كملصق بيانات المخطط:
 
-هذا الكود JavaScript يوضح كيفية تعيين خلية دفتر العمل كعلامة بيانات للمخطط:
 ```javascript
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// إنشاء فئة عرض تمثل ملف عرض تقديمي
+    // ينشئ فئة العرض التقديمي التي تمثل ملف عرض تقديمي
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -76,10 +83,10 @@ try {
 }
 ```
 
-
 ## **إدارة أوراق العمل**
 
-هذا الكود JavaScript يوضح عملية يتم فيها استخدام الطريقة [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) للوصول إلى مجموعة أوراق العمل:
+هذا الكود JavaScript يوضح عملية يتم فيها استخدام طريقة [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) للوصول إلى مجموعة أوراق العمل:
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -95,10 +102,10 @@ try {
 }
 ```
 
-
 ## **تحديد نوع مصدر البيانات**
 
-هذا الكود JavaScript يوضح كيفية تحديد نوع لمصدر البيانات:
+هذا الكود JavaScript يوضح لك كيفية تحديد نوع لمصدر البيانات:
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -116,16 +123,47 @@ try {
 }
 ```
 
+## **اكتشاف تنسيقات دفتر العمل المضمن غير المدعومة**
+
+لا تدعم Aspose.Slides تنسيق دفتر العمل الثنائي لبرنامج Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام الطريقة `getEmbeddedWorkbookType` على [ChartData](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/workbooktype/) لاكتشاف التنسيقات غير المدعومة وتجاوز تلك المخططات.
+
+```js
+let presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let shapes = slide.getShapes();
+
+    for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+        let shape = shapes.get_Item(shapeIndex);
+
+        if (!java.instanceOf(shape, "com.aspose.slides.IChart")) continue;
+
+        let chart = shape;
+        let chartData = chart.getChartData();
+
+        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
+                chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
+            // دفتر العمل المدمج بتنسيق .xlsb غير مدعوم.
+            continue;
+        }
+
+        // اقرأ أو عدِّل بيانات دفتر عمل المخطط هنا.
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **دفتر عمل خارجي**
 
-يدعم Aspose.Slides دفاتر العمل الخارجية كمصدر بيانات للمخططات.
+تدعم Aspose.Slides دفاتر العمل الخارجية كمصدر بيانات للمخططات.
 
 ### **إنشاء دفتر عمل خارجي**
 
-باستخدام الطريقتين **`readWorkbookStream`** و **`setExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
+باستخدام طريقتي **`readWorkbookStream`** و **`setExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
 
 هذا الكود JavaScript يوضح عملية إنشاء دفتر عمل خارجي:
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -150,16 +188,16 @@ try {
 }
 ```
 
-
 ### **تعيين دفتر عمل خارجي**
 
-باستخدام الطريقة **`setExternalWorkbook`**، يمكنك ربط دفتر عمل خارجي بمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
+باستخدام الطريقة **`setExternalWorkbook`**، يمكنك تعيين دفتر عمل خارجي إلى مخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (في حال تم نقل الأخير).
 
-في حين لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، لا يزال بإمكانك استخدام هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+بينما لا يمكنك تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، لا يزال بإمكانك استخدام تلك الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
 
-هذا الكود JavaScript يوضح كيفية تعيين دفتر عمل خارجي:
+هذا الكود JavaScript يوضح لك كيفية تعيين دفتر عمل خارجي:
+
 ```javascript
-// ينشئ مثيلًا لفئة Presentation
+// ينشئ مثالا من فئة Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
@@ -180,13 +218,13 @@ try {
 }
 ```
 
+معامل `ChartData` (تحت طريقة `setExternalWorkbook`) يُستخدم لتحديد ما إذا كان سيتم تحميل دفتر عمل Excel أم لا.
 
-المعادلة `ChartData` (تحت طريقة `setExternalWorkbook`) تُستخدم لتحديد ما إذا كان سيتم تحميل دفتر عمل إكسل أم لا.
+* عندما يتم ضبط قيمة `ChartData` على `false`، يتم تحديث مسار دفتر العمل فقط—لن يتم تحميل أو تحديث بيانات المخطط من دفتر العمل الهدف. قد ترغب في استخدام هذا الإعداد في حالة عدم وجود دفتر العمل الهدف أو عدم توفره.  
+* عندما يتم ضبط قيمة `ChartData` على `true`، يتم تحديث بيانات المخطط من دفتر العمل الهدف.
 
-* عندما تكون قيمة `ChartData` مضبوطة على `false`، يتم فقط تحديث مسار دفتر العمل — لن يتم تحميل أو تحديث بيانات المخطط من دفتر العمل المستهدف. يمكنك استخدام هذا الإعداد عندما يكون دفتر العمل المستهدف غير موجود أو غير متاح.
-* عندما تكون قيمة `ChartData` مضبوطة على `true`، يتم تحديث بيانات المخطط من دفتر العمل المستهدف.
 ```javascript
-// ينشئ مثيلًا لفئة Presentation
+// ينشئ مثالا من فئة Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
@@ -200,18 +238,18 @@ try {
 }
 ```
 
+### **الحصول على مسار دفتر عمل مصدر البيانات الخارجي للمخطط**
 
-### **الحصول على مسار دفتر عمل مصدر بيانات المخطط الخارجي**
-
-1. إنشاء مثيل من الفئة [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. الحصول على مرجع الشريحة عبر فهرسها.
-1. إنشاء كائن لشكل المخطط.
-1. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
-1. تحديد الشرط المناسب بناءً على كون نوع المصدر هو نفسه نوع مصدر دفتر العمل الخارجي.
+1. إنشاء مثال من الفئة [Presentation](https://apireference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع الشريحة من خلال مؤشرها.
+3. إنشاء كائن لشكل المخطط.
+4. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
+5. تحديد الشرط المناسب بناءً على ما إذا كان نوع المصدر هو نفسه نوع مصدر البيانات لدفتر العمل الخارجي.
 
 هذا الكود JavaScript يوضح العملية:
+
 ```javascript
-// ينشئ مثيلًا لفئة Presentation
+// ينشئ مثالا من فئة Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var slide = pres.getSlides().get_Item(1);
@@ -229,14 +267,14 @@ try {
 }
 ```
 
-
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم إلقاء استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم طرح استثناء.
 
 هذا الكود JavaScript هو تنفيذ للعملية الموصوفة:
+
 ```javascript
-// ينشئ مثيلًا من فئة Presentation
+// ينشئ مثالا من فئة Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -250,29 +288,28 @@ try {
 }
 ```
 
-
 ## **الأسئلة المتكررة**
 
 **هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
 
-نعم. للمخطط [نوع مصدر البيانات](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) و[مسار دفتر عمل خارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
 **هل يتم دعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
 
-نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مفيد لنقلية المشروع؛ ومع ذلك، كن على علم بأن العرض التقديمي سيخزن المسار المطلق في ملف PPTX.
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مفيد لتقابلية نقل المشروع؛ ومع ذلك، يجب أن تكون على علم بأن العرض التقديمي سيخزن المسار المطلق داخل ملف PPTX.
 
 **هل يمكنني استخدام دفاتر العمل الموجودة على موارد/مشاركات الشبكة؟**
 
-نعم، يمكن استخدام هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يدعم Aspose.Slides تعديل دفاتر العمل البعيدة مباشرةً — يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام تلك الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تحرير الدفاتر البعيدة مباشرةً من Aspose.Slides—يمكن استخدامها فقط كمصدر.
 
-**هل يقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
+**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
 
-لا. يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي عند حفظ العرض التقديمي.
+لا. يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) ويستخدمه لقراءة البيانات. الملف الخارجي نفسه لا يتم تعديلها عند حفظ العرض التقديمي.
 
-**ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
+**ماذا يجب أن أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-Aspose.Slides لا يقبل كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال، باستخدام [Aspose.Cells](/cells/nodejs-java/)) وربطها بتلك النسخة.
+لا تقبل Aspose.Slides كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال، باستخدام [Aspose.Cells](/cells/nodejs-java/)) وربطها بهذه النسخة.
 
 **هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. كل مخطط يخزن رابطه الخاص. إذا كانت جميعها تشير إلى نفس الملف، فإن تحديث ذلك الملف سيظهر في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
+نعم. كل مخطط يخزن رابطه الخاص. إذا كانت جميع الروابط تشير إلى نفس الملف، فإن تحديث ذلك الملف سيظهر في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
