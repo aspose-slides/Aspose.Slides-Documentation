@@ -66,6 +66,7 @@ auto equation = System::MakeObject<MathematicalText>(u"c")
 mathParagraph->Add(equation);
 
 presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 {{% alert color="primary" %}}
@@ -94,6 +95,7 @@ auto fraction = System::MakeObject<MathematicalText>(u"1")
 mathParagraph->Add(System::MakeObject<MathBlock>(fraction));
 
 presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 For a stacked fraction, use `MathFractionTypes::Bar`:
@@ -122,6 +124,7 @@ auto radical = System::MakeObject<MathematicalText>(u"x")
 mathParagraph->Add(System::MakeObject<MathBlock>(radical));
 
 presentation->Save(u"radical.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Add Functions and Limits**
@@ -145,6 +148,7 @@ auto limit = System::MakeObject<MathematicalText>(u"lim")
 mathParagraph->Add(System::MakeObject<MathBlock>(limit));
 
 presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 For a custom function name, make the function name the current element:
@@ -176,6 +180,7 @@ auto summation = summationBase->Nary(MathNaryOperatorTypes::Summation, u"k=0", u
 mathParagraph->Add(System::MakeObject<MathBlock>(summation));
 
 presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 N-ary operators are for large operators with optional limits. Simple operators such as `+`, `-`, and `=` are usually added as `MathematicalText` and joined into the expression.
@@ -211,6 +216,7 @@ matrix->idx_set(1, 2, System::MakeObject<MathematicalText>(u"y"));
 mathParagraph->Add(System::MakeObject<MathBlock>(matrix));
 
 presentation->Save(u"matrix.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Add Equation Arrays**
@@ -234,6 +240,7 @@ auto equationArray = System::MakeObject<MathematicalText>(u"x")
 mathParagraph->Add(System::MakeObject<MathBlock>(equationArray));
 
 presentation->Save(u"equation-array.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Add Trigonometric Functions**
@@ -256,6 +263,7 @@ auto cosine = System::MakeObject<MathematicalText>(u"2x")
 mathParagraph->Add(System::MakeObject<MathBlock>(cosine));
 
 presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Add Subscripts and Superscripts**
@@ -278,11 +286,12 @@ auto scripts = System::MakeObject<MathematicalText>(u"Y")
 mathParagraph->Add(System::MakeObject<MathBlock>(scripts));
 
 presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Add Delimiters**
 
-Use `Enclose` to put an expression inside delimiters. You can also pass a separator character for delimiter expressions that contain several elements.
+Use `Enclose` to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
 
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
@@ -302,6 +311,7 @@ auto delimiter = System::MakeObject<MathematicalText>(u"x")
 mathParagraph->Add(System::MakeObject<MathBlock>(delimiter));
 
 presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Add a Border Box**
@@ -329,6 +339,7 @@ auto boxedEquation = System::MakeObject<MathematicalText>(u"a")
 mathParagraph->Add(System::MakeObject<MathBlock>(boxedEquation));
 
 presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Group Terms**
@@ -352,6 +363,7 @@ auto grouped = System::MakeObject<MathematicalText>(u"x + y")
 mathParagraph->Add(System::MakeObject<MathBlock>(grouped));
 
 presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Format Math Elements**
@@ -373,13 +385,13 @@ auto overbar = System::MakeObject<MathematicalText>(u"ABC")->Overbar();
 mathParagraph->Add(System::MakeObject<MathBlock>(overbar));
 
 presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Quick Reference**
 
 | Task | Main API |
 | --- | --- |
-| Create a math shape | [ShapeCollection.AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/) |
 | Create math text | [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) |
 | Combine elements | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
 | Create fractions | [IMathElement.Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) |

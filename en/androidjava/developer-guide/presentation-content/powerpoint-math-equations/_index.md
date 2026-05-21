@@ -433,7 +433,6 @@ try {
 
 | Task | Main API |
 | --- | --- |
-| Create a math shape | [IShapeCollection.addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) |
 | Create math text | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
 | Combine elements | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Create fractions | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
