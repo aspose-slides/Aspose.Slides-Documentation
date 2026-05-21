@@ -340,6 +340,10 @@ try {
 }
 ```
 
+## **Vertical Alignment After PDF to PPTX Conversion**
+
+When a presentation is created from a PDF using `presentation.slides.addFromPdf`, the vertical alignment of text inside table cells may shift upward toward the cell borders. This behavior can be observed in an Excel → PDF → PPTX conversion workflow. At present, Aspose.Slides for Java does not offer a setting to preserve the original vertical alignment of table cell text during this conversion.
+
 ## **FAQ**
 
 **Can I set different line thicknesses and styles for different sides of a single cell?**
