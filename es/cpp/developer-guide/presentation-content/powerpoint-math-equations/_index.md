@@ -17,403 +17,405 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX con Aspose.Slides para C++, compatible con OMML, controles de formato y ejemplos de código C++ claros."
+description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX con Aspose.Slides para C++, con soporte de OMML, controles de formato y ejemplos de código C++ claros."
 ---
+## **Descripción general**
 
-## **Visión general**
-En PowerPoint es posible escribir una ecuación o fórmula matemática y mostrarla en la presentación. Para ello, diversos símbolos matemáticos están representados en PowerPoint y pueden añadirse al texto o a la ecuación. Para ello se utiliza el constructor de ecuaciones matemáticas de PowerPoint, que ayuda a crear fórmulas complejas como:
+PowerPoint almacena las ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides para C++, puedes crear el mismo tipo de contenido matemático de forma programática: fracciones, radicales, funciones, límites, operadores N-ario, matrices, arreglos y bloques matemáticos con formato.
 
-- Fracción matemática
-- Radical matemático
-- Función matemática
-- Límites y funciones logarítmicas
-- Operaciones n‑arias
-- Matriz
-- Operadores grandes
-- Funciones seno, coseno
+En PowerPoint, los usuarios normalmente añaden ecuaciones desde **Insert > Equation**:
 
-Para añadir una ecuación matemática en PowerPoint se utiliza el menú *Insertar -> Ecuación*:
+![Pestaña Insertar de PowerPoint con el comando Ecuación seleccionado](powerpoint-math-equations_1.png)
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+El resultado es texto matemático editable en la diapositiva:
 
-Esto generará un texto matemático en XML que puede mostrarse en PowerPoint de la siguiente forma:
+![Una diapositiva de PowerPoint que contiene una ecuación matemática editable](powerpoint-math-equations_2.png)
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+Aspose.Slides construye ese texto matemático mediante tres objetos principales:
 
-PowerPoint admite numerosos símbolos matemáticos para crear ecuaciones. Sin embargo, crear ecuaciones matemáticas complicadas en PowerPoint a menudo no produce un resultado profesional y estéticamente correcto. Los usuarios que necesitan crear presentaciones matemáticas con frecuencia recurren a soluciones de terceros para obtener fórmulas de buen aspecto.
+- Una forma matemática, creada con [AddMathShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/shapecollection/), es la forma que contiene la ecuación.
+- [MathPortion](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathportion/) almacena el contenido matemático dentro del marco de texto de la forma.
+- [MathParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathparagraph/) contiene uno o más objetos [MathBlock](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathblock/).
 
-Usando [**Aspose.Slide API**](https://products.aspose.com/slides/cpp/), puede trabajar con ecuaciones matemáticas en presentaciones de PowerPoint de forma programática en C++. Crear nuevas expresiones matemáticas o editar las creadas previamente. La exportación de estructuras matemáticas a imágenes también está parcialmente soportada.
+La mayoría de los ejemplos a continuación utilizan [MathematicalText](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathematicaltext/) y los métodos fluidos de [IMathElement](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/) para mantener el código breve y legible.
 
-## **Cómo crear una ecuación matemática**
-Los elementos matemáticos se utilizan para construir cualquier construcción matemática con cualquier nivel de anidado. Una colección lineal de elementos matemáticos forma un bloque matemático representado por la clase [**MathBlock**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/). La clase [**MathBlock**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/) es esencialmente una expresión, fórmula o ecuación matemática separada. [**MathPortion**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) es una porción matemática, usada para contener texto matemático (no confundir con [**Portion**](https://reference.aspose.com/slides/cpp/aspose.slides/portion/)). [**MathParagraph**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) permite manipular un conjunto de bloques matemáticos. Las clases mencionadas son la clave para trabajar con ecuaciones matemáticas de PowerPoint mediante la API Aspose.Slides.
+Para escenarios de exportación a MathML, consulte [Exportar ecuaciones matemáticas de presentaciones en C++](/slides/es/cpp/exporting-math-equations/).
 
-Veamos cómo crear la siguiente ecuación matemática mediante la API Aspose.Slides:
+## **Crear una ecuación**
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
+Este ejemplo crea una forma matemática y añade el teorema de Pitágoras:
 
-Para añadir una expresión matemática en la diapositiva, primero añada una forma que contendrá el texto matemático:
+![La ecuación c al cuadrado es igual a a al cuadrado más b al cuadrado](powerpoint-math-equations_3.png)
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto mathShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddMathShape(0.0f, 0.0f, 720.0f, 150.0f);
-``` 
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Después de crearla, la forma ya contiene un párrafo con una porción matemática por defecto. La clase [**MathPortion**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) es una porción que contiene texto matemático interno. Para acceder al contenido matemático dentro de [**MathPortion**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), consulte la variable [**MathParagraph**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/):
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 120.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-``` cpp
- auto mathParagraph = (System::AsCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)))->get_MathParagraph();
-``` 
+auto equation = System::MakeObject<MathematicalText>(u"c")
+        - >SetSuperscript(u"2")
+        - >Join(u"=")
+        - >Join(System::MakeObject<MathematicalText>(u"a")->SetSuperscript(u"2"))
+        - >Join(u"+")
+        - >Join(System::MakeObject<MathematicalText>(u"b")->SetSuperscript(u"2"));
 
-La clase [**MathParagraph**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) permite leer, añadir, editar y eliminar bloques matemáticos ([**MathBlock**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/)), que constan de una combinación de elementos matemáticos. Por ejemplo, crear una fracción y colocarla en la presentación:
+mathParagraph->Add(equation);
 
-``` cpp
-auto fraction = System::MakeObject<MathematicalText>(u"x")->Divide(u"y");
+presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+{{% alert color="primary" %}}
+
+`AddMathShape` crea una forma que ya contiene un párrafo matemático. Accede al primer `MathPortion`, obtén su `MathParagraph` y añade bloques matemáticos o elementos matemáticos a él.
+
+{{% /alert %}}
+
+## **Añadir fracciones**
+
+Utiliza `Divide` para crear una fracción. Puedes elegir un estilo de fracción con [MathFractionTypes](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathfractiontypes/).
+
+![Una fracción matemática sesgada que muestra uno dividido por x](powerpoint-math-equations_4.png)
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
+
+auto fraction = System::MakeObject<MathematicalText>(u"1")
+        - >Divide(u"x", MathFractionTypes::Skewed);
+
 mathParagraph->Add(System::MakeObject<MathBlock>(fraction));
-``` 
 
-Cada elemento matemático está representado por alguna clase que implementa la interfaz [**IMathElement**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/). Esta interfaz ofrece muchos métodos para crear expresiones matemáticas de forma sencilla. Se puede crear una expresión matemática bastante compleja con una sola línea de código. Por ejemplo, el teorema de Pitágoras quedaría así:
+presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-``` cpp
-auto mathBlock = System::MakeObject<MathematicalText>(u"c")
-  ->SetSuperscript(u"2")
-  ->Join(u"=")
-  ->Join(System::MakeObject<MathematicalText>(u"a")->SetSuperscript(u"2"))
-  ->Join(u"+")
-  ->Join(System::MakeObject<MathematicalText>(u"b")->SetSuperscript(u"2"));
-``` 
+Para una fracción apilada, usa `MathFractionTypes::Bar`:
 
-Las operaciones de la interfaz [**IMathElement**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) están implementadas en cualquier tipo de elemento, incluido el [**MathBlock**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/).
+```cpp
+auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
+```
 
-El ejemplo completo de código fuente:
+## **Añadir radicales**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto mathShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddMathShape(0.0f, 0.0f, 720.0f, 150.0f);
-auto mathParagraph = (System::AsCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)))->get_MathParagraph();
+Utiliza `Radical` para crear una raíz cuadrada, cubica u otra raíz. El elemento actual se convierte en la base y el argumento en el grado.
 
-auto fraction = System::MakeObject<MathematicalText>(u"x")->Divide(u"y");
-mathParagraph->Add(System::MakeObject<MathBlock>(fraction));
+![Una expresión radical de n-ésima raíz con x bajo el signo radical](powerpoint-math-equations_5.png)
 
-auto mathBlock = System::MakeObject<MathematicalText>(u"c")
-  ->SetSuperscript(u"2")
-  ->Join(u"=")
-  ->Join(System::MakeObject<MathematicalText>(u"a")->SetSuperscript(u"2"))
-  ->Join(u"+")->Join(System::MakeObject<MathematicalText>(u"b")->SetSuperscript(u"2"));
-mathParagraph->Add(mathBlock);
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-pres->Save(u"math.pptx", SaveFormat::Pptx);
-``` 
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-## **Tipos de elementos matemáticos**
-Las expresiones matemáticas se forman a partir de secuencias de elementos matemáticos. La secuencia de elementos se representa mediante un bloque matemático, y los argumentos de los elementos forman un anidado tipo árbol.
+auto radical = System::MakeObject<MathematicalText>(u"x")
+        - >Radical(u"n");
 
-Existen muchos tipos de elementos matemáticos que pueden usarse para construir un bloque matemático. Cada uno de estos elementos puede incluirse (agregarse) dentro de otro elemento. Es decir, los elementos son contenedores de otros, formando una estructura arbórea. El tipo más simple es aquel que no contiene otros elementos del texto matemático.
+mathParagraph->Add(System::MakeObject<MathBlock>(radical));
 
-Cada tipo de elemento matemático implementa la interfaz [**IMathElement**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/), lo que permite usar el conjunto común de operaciones matemáticas sobre diferentes tipos de elementos.
+presentation->Save(u"radical.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-### **Clase MathematicalText**
-La clase [**MathematicalText**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) representa un texto matemático, el elemento subyacente de todas las construcciones matemáticas. El texto matemático puede representar operandos y operadores, variables y cualquier otro texto lineal.
+## **Añadir funciones y límites**
 
-Ejemplo: 𝑎=𝑏+𝑐
+Utiliza `AsArgumentOfFunction` o `Function` para funciones como `sin(x)`, `log(x)` o nombres de funciones personalizados. Para límites, coloca `lim` en un [MathLimit](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathlimit/) o usa `SetLowerLimit`.
 
-### **Clase MathFraction**
-La clase [**MathFraction**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfraction/) especifica el objeto fracción, compuesto por un numerador y un denominador separados por una barra de fracción. La barra puede ser horizontal o diagonal, según las propiedades de la fracción. El objeto fracción también se usa para representar la función stack, que coloca un elemento sobre otro sin barra de fracción.
+![El límite de x cuando x tiende a infinito](powerpoint-math-equations_8.png)
 
-Ejemplo:
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-![todo:image_alt_text](powerpoint-math-equations_4.png)
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-### **Clase MathRadical**
-La clase [**MathRadical**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathradical/) especifica la función radical (raíz matemática), compuesta por una base y un grado opcional.
+auto limit = System::MakeObject<MathematicalText>(u"lim")
+        - >SetLowerLimit(u"x→∞")
+        - >Function(u"x");
 
-Ejemplo:
+mathParagraph->Add(System::MakeObject<MathBlock>(limit));
 
-![todo:image_alt_text](powerpoint-math-equations_5.png)
+presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-### **Clase MathFunction**
-La clase [**MathFunction**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfunction/) especifica una función de un argumento. Contiene los métodos: [get_Name()](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfunction/get_name/) – nombre de la función y [get_Base()](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfunction/get_base/) – argumento de la función.
+Para un nombre de función personalizado, convierte el nombre de la función en el elemento actual:
 
-Ejemplo:
+```cpp
+auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
+```
 
-![todo:image_alt_text](powerpoint-math-equations_6.png)
+## **Añadir operadores N-ario e integrales**
 
-### **Clase MathNaryOperator**
-La clase [**MathNaryOperator**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathnaryoperator/) especifica un objeto matemático N‑ario, como Σ o ∫. Consta de un operador, una base (operando) y límites superior e inferior opcionales. Ejemplos de operadores N‑arios son Suma, Unión, Intersección, Integral.
+Utiliza `Nary` para sumas, uniones, intersecciones y otros operadores grandes. Utiliza `Integral` para integrales. Ambos métodos permiten establecer límites inferior y superior.
 
-Esta clase no incluye operadores simples como suma o resta; esos se representan con un solo elemento de texto – [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
+![Una sumatoria con límites inferior y superior](powerpoint-math-equations_7.png)
 
-Ejemplo:
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-![todo:image_alt_text](powerpoint-math-equations_7.png)
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 120.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-### **Clase MathLimit**
-La clase [**MathLimit**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) crea el límite superior o inferior. Define el objeto límite, compuesto por texto en la línea base y texto reducido justo arriba o abajo de él. Este elemento no incluye la palabra “lim”, pero permite colocar texto en la parte superior o inferior de la expresión. Así, la expresión
+auto summationBase = System::MakeObject<MathematicalText>(u"x")
+        - >SetSuperscript(u"k")
+        - >Join(System::MakeObject<MathematicalText>(u"a")->SetSuperscript(u"n-k"));
 
-![todo:image_alt_text](powerpoint-math-equations_8.png)
+auto summation = summationBase->Nary(MathNaryOperatorTypes::Summation, u"k=0", u"n");
 
-se crea combinando los elementos [**MathFunction**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfunction/) y [**MathLimit**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) de la siguiente forma:
+mathParagraph->Add(System::MakeObject<MathBlock>(summation));
 
-``` cpp
-auto funcName = System::MakeObject<MathLimit>(System::MakeObject<MathematicalText>(u"lim"), System::MakeObject<MathematicalText>(u"𝑥→∞"));
-auto mathFunc = System::MakeObject<MathFunction>(funcName, System::MakeObject<MathematicalText>(u"𝑥"));
-``` 
+presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-### **Clases MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement**
-- [MathSubscriptElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathsubscriptelement/)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathsuperscriptelement/)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathrightsubsuperscriptelement/)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathleftsubsuperscriptelement/)
+Los operadores N-ario son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` suelen añadirse como `MathematicalText` y unirse a la expresión.
 
-Las clases siguientes especifican un subíndice inferior o un superíndice superior. Puede establecer subíndice y superíndice simultáneamente a la izquierda o a la derecha de un argumento, pero el subíndice o superíndice único solo se admite a la derecha. El [MathSubscriptElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathsubscriptelement/) también puede usarse para establecer el grado matemático de un número.
+Para una integral, usa `Integral`:
 
-Ejemplo:
+```cpp
+auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
+auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
+```
 
-![todo:image_alt_text](powerpoint-math-equations_9.png)
+## **Añadir matrices**
 
-### **Clase MathMatrix**
-La clase [**MathMatrix**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) especifica el objeto Matriz, compuesto por elementos hijos distribuidos en una o más filas y columnas. Es importante notar que las matrices no incluyen delimitadores incorporados. Para colocar la matriz entre corchetes debe usarse el objeto delimitador – [**IMathDelimiter**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/). Se pueden usar argumentos nulos para crear huecos en las matrices.
+Utiliza [MathMatrix](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathmatrix/) para filas y columnas. Las matrices no incluyen corchetes por defecto, por lo que debes encerrar la matriz cuando necesites paréntesis, corchetes o llaves.
 
-Ejemplo:
+![Una matriz matemática de dos filas con una celda vacía](powerpoint-math-equations_10.png)
 
-![todo:image_alt_text](powerpoint-math-equations_10.png)
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **Clase MathArray**
-La clase [**MathArray**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/matharray/) especifica una matriz vertical de ecuaciones o de cualquier objeto matemático.
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 120.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-Ejemplo:
+auto matrix = System::MakeObject<MathMatrix>(2, 3);
+matrix->idx_set(0, 0, System::MakeObject<MathematicalText>(u"1"));
+matrix->idx_set(0, 1, System::MakeObject<MathematicalText>(u"x"));
+matrix->idx_set(1, 0, System::MakeObject<MathematicalText>(u"x"));
+matrix->idx_set(1, 1, System::MakeObject<MathematicalText>(u"2"));
+matrix->idx_set(1, 2, System::MakeObject<MathematicalText>(u"y"));
 
-![todo:image_alt_text](powerpoint-math-equations_11.png)
+mathParagraph->Add(System::MakeObject<MathBlock>(matrix));
 
-### **Formato de elementos matemáticos**
-- [**MathBorderBox**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathborderbox/) : dibuja un borde rectangular (u otro) alrededor del [**IMathElement**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/).  
-  Ejemplo: ![todo:image_alt_text](powerpoint-math-equations_12.png)
+presentation->Save(u"matrix.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-- [**MathBox**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathbox/) : especifica el empaquetado lógico del elemento matemático. Por ejemplo, un objeto en caja puede servir como emulador de operador con o sin punto de alineación, como punto de ruptura de línea o agruparse para evitar rupturas de línea dentro de él. Por ejemplo, el operador “==” debería estar en caja para impedir rupturas de línea.
+## **Añadir matrices de ecuaciones**
 
-- [**MathDelimiter**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimiter/) : especifica el objeto delimitador, compuesto por caracteres de apertura y cierre (paréntesis, llaves, corchetes, barras verticales, etc.) y uno o más elementos matemáticos internos, separados por un carácter especificado. Ejemplos: (𝑥2); [𝑥2|𝑦2].  
-  Ejemplo: ![todo:image_alt_text](powerpoint-math-equations_13.png)
+Utiliza `ToMathArray` cuando necesites ecuaciones alineadas o una pila vertical de expresiones.
 
-- [**MathAccent**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathaccent/) : especifica la función acento, compuesta por una base y un signo diacrítico combinante.  
-  Ejemplo: 𝑎́.
+![Una matriz matemática vertical con x sobre y](powerpoint-math-equations_11.png)
 
-- [**MathBar**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathbar/) : especifica la función barra, compuesta por un argumento base y una barra superior o inferior.  
-  Ejemplo: ![todo:image_alt_text](powerpoint-math-equations_14.png)
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-- [**MathGroupingCharacter**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathgroupingcharacter/) : especifica un símbolo de agrupación encima o debajo de una expresión, normalmente para resaltar relaciones entre elementos.  
-  Ejemplo: ![todo:image_alt_text](powerpoint-math-equations_15.png)
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 140.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-## **Operaciones matemáticas**
-Cada elemento y expresión matemática (a través de [**MathBlock**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/)) implementa la interfaz [**IMathElement**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/). Permite aplicar operaciones sobre la estructura existente y formar expresiones más complejas. Todas las operaciones disponen de dos conjuntos de parámetros: pueden recibir un [**IMathElement**] o una cadena. Las instancias de la clase [**MathematicalText**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) se crean implícitamente a partir de las cadenas cuando se usan argumentos de tipo string. Las operaciones disponibles en Aspose.Slides se enumeran a continuación.
+auto equationArray = System::MakeObject<MathematicalText>(u"x")
+        - >Join(u"y")
+        - >ToMathArray();
 
-### **Método Join**
-- [Join(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/#imathelementjoinsystemstring-method)
-- [Join(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/#imathelementjoinsystemsharedptrimathelement-method)
+mathParagraph->Add(System::MakeObject<MathBlock>(equationArray));
 
-Une un elemento matemático y forma un bloque matemático. Por ejemplo:
+presentation->Save(u"equation-array.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-``` cpp
-auto element1 = System::MakeObject<MathematicalText>(u"x");
-    
-auto element2 = System::MakeObject<MathematicalText>(u"y");
+## **Añadir funciones trigonométricas**
 
-auto block = element1->Join(element2);
-``` 
+Utiliza `AsArgumentOfFunction` cuando el argumento es el elemento actual y el nombre de la función es conocido.
 
-### **Método Divide**
-- [Divide(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/#imathelementdividesystemstring-method)
-- [Divide(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/#imathelementdividesystemsharedptrimathelement-method)
-- [Divide(String, MathFractionTypes)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/#imathelementdividesystemstring-mathfractiontypes-method)
-- [Divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/#imathelementdividesystemsharedptrimathelement-mathfractiontypes-method)
+![La función trigonométrica cos aplicada a 2x](powerpoint-math-equations_6.png)
 
-Crea una fracción del tipo especificado con este numerador y el denominador indicado. Por ejemplo:
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-auto numerator = System::MakeObject<MathematicalText>(u"x");
-auto fraction = numerator->Divide(u"y", MathFractionTypes::Linear);
-``` 
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-### **Método Enclose**
-- [Enclose()](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/#imathelementenclose-method)
-- [Enclose(Char, Char)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/#imathelementenclosechar16_t-char16_t-method)
+auto cosine = System::MakeObject<MathematicalText>(u"2x")
+        - >AsArgumentOfFunction(MathFunctionsOfOneArgument::Cos);
 
-Envuelve el elemento en los caracteres especificados, como paréntesis u otro carácter de encuadre.
+mathParagraph->Add(System::MakeObject<MathBlock>(cosine));
 
-``` cpp
-/// <summary>
-/// Encloses a math element in parenthesis
-/// </summary>
-virtual System::SharedPtr<IMathDelimiter> Enclose() = 0;
+presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-/// <summary>
-/// Encloses this element in specified characters such as parenthesis or another characters as framing
-/// </summary>
-virtual System::SharedPtr<IMathDelimiter> Enclose(char16_t beginningCharacter, char16_t endingCharacter) = 0;
-``` 
+## **Añadir subíndices y superíndices**
 
-Por ejemplo:
+Utiliza los asistentes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer en el lado izquierdo de la base, usa `SetSubSuperscriptOnTheLeft`.
 
-``` cpp
-auto delimiter = System::MakeObject<MathematicalText>(u"x")->Enclose(u'[', u']');
-auto delimiter2 = System::ExplicitCast<IMathElement>(System::MakeObject<MathematicalText>(u"elem1")->Join(u"elem2"))->Enclose();
-``` 
+![Una Y mayúscula con subíndice 1 a la izquierda y superíndice n](powerpoint-math-equations_9.png)
 
-### **Método Function**
-- [Function(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/#imathelementfunctionsystemstring-method)
-- [Function(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/#imathelementfunctionsystemsharedptrimathelement-method)
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Toma una función de un argumento usando el objeto actual como nombre de la función.
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-``` cpp
-/// <summary>
-/// Takes a function of an argument using this instance as the function name
-/// </summary>
-/// <param name="functionArgument">An argument of the function</param>
+auto scripts = System::MakeObject<MathematicalText>(u"Y")
+        - >SetSubSuperscriptOnTheLeft(u"1", u"n");
 
-virtual System::SharedPtr<IMathFunction> Function(System::SharedPtr<IMathElement> functionArgument) = 0;
+mathParagraph->Add(System::MakeObject<MathBlock>(scripts));
 
-virtual System::SharedPtr<IMathFunction> Function(System::String functionArgument) = 0;
-``` 
+presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-Por ejemplo:
+## **Añadir delimitadores**
 
-``` cpp
-auto func = System::MakeObject<MathematicalText>(u"sin")->Function(u"x");
-``` 
+Utiliza `Enclose` para colocar una expresión dentro de delimitadores. También puedes establecer un carácter separador para expresiones delimitadas que contengan varios elementos.
 
-### **Método AsArgumentOfFunction**
-- [AsArgumentOfFunction(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/#imathelementasargumentoffunctionsystemstring-method)
-- [AsArgumentOfFunction(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/#imathelementasargumentoffunctionsystemsharedptrimathelement-method)
-- [AsArgumentOfFunction(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/#imathelementasargumentoffunctionmathfunctionsofoneargument-method)
-- [AsArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/#imathelementasargumentoffunctionmathfunctionsoftwoarguments-systemsharedptrimathelement-method)
-- [AsArgumentOfFunction(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/#imathelementasargumentoffunctionmathfunctionsoftwoarguments-systemstring-method)
+![Una expresión delimitadora que contiene x, y, y z separados por barras verticales](powerpoint-math-equations_13.png)
 
-Toma la función especificada usando la instancia actual como argumento. Puede:
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-- especificar una cadena como nombre de la función, por ejemplo “cos”.
-- seleccionar uno de los valores predefinidos de las enumeraciones [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfunctionsofoneargument/) o [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfunctionsoftwoarguments/), por ejemplo **MathFunctionsOfOneArgument.ArcSin**.
-- pasar una instancia de [**IMathElement**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/).
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-Por ejemplo:
+auto delimiter = System::MakeObject<MathematicalText>(u"x")
+        - >Join(u"y")
+        - >Join(u"z")
+        - >Enclose(u'<', u'>', u'|');
 
-``` cpp
+mathParagraph->Add(System::MakeObject<MathBlock>(delimiter));
 
-auto funcName = System::MakeObject<MathLimit>(System::MakeObject<MathematicalText>(u"lim"), System::MakeObject<MathematicalText>(u"𝑛→∞"));
-    
-auto func1 = System::MakeObject<MathematicalText>(u"2x")->AsArgumentOfFunction(funcName);
+presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-auto func2 = System::MakeObject<MathematicalText>(u"x")->AsArgumentOfFunction(u"sin");
+## **Añadir un recuadro con borde**
 
-auto func3 = System::MakeObject<MathematicalText>(u"x")->AsArgumentOfFunction(MathFunctionsOfOneArgument::Sin);
+Utiliza `ToBorderBox` cuando la ecuación en sí debe estar enmarcada.
 
-auto func4 = System::MakeObject<MathematicalText>(u"x")->AsArgumentOfFunction(MathFunctionsOfTwoArguments::Log, u"3");
+![Una ecuación en recuadro que muestra a al cuadrado es igual a b al cuadrado más c al cuadrado](powerpoint-math-equations_12.png)
 
-``` 
-### **Métodos SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft**
-- [SetSubscript(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/#imathelementsetsubscriptsystemstring-method)
-- [SetSubscript(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/#imathelementsetsubscriptsystemsharedptrimathelement-method)
-- [SetSuperscript(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/#imathelementsetsuperscriptsystemstring-method)
-- [SetSuperscript(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/#imathelementsetsuperscriptsystemsharedptrimathelement-method)
-- [SetSubSuperscriptOnTheRight(String, String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheright/#imathelementsetsubsuperscriptontherightsystemstring-systemstring-method)
-- [SetSubSuperscriptOnTheRight(IMathElement, IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheright/#imathelementsetsubsuperscriptontherightsystemsharedptrimathelement-systemsharedptrimathelement-method)
-- [SetSubSuperscriptOnTheLeft(String, String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/#imathelementsetsubsuperscriptontheleftsystemstring-systemstring-method)
-- [SetSubSuperscriptOnTheLeft(IMathElement, IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/#imathelementsetsubsuperscriptontheleftsystemsharedptrimathelement-systemsharedptrimathelement-method)
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Establece subíndice y superíndice. Puede establecer ambos simultáneamente a la izquierda o a la derecha del argumento, pero el subíndice o superíndice único solo se admite a la derecha. El **Superscript** también puede usarse para fijar el grado matemático de un número.
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-Ejemplo:
+auto boxedEquation = System::MakeObject<MathematicalText>(u"a")
+        - >SetSuperscript(u"2")
+        - >Join(u"=")
+        - >Join(System::MakeObject<MathematicalText>(u"b")->SetSuperscript(u"2"))
+        - >Join(u"+")
+        - >Join(System::MakeObject<MathematicalText>(u"c")->SetSuperscript(u"2"))
+        - >ToBorderBox();
 
-``` cpp
-auto script = System::MakeObject<MathematicalText>(u"y")->SetSubSuperscriptOnTheLeft(u"2x", u"3z");
-``` 
+mathParagraph->Add(System::MakeObject<MathBlock>(boxedEquation));
 
-### **Método Radical**
-- [Radical(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/#imathelementradicalsystemstring-method)
-- [Radical(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/#imathelementradicalsystemsharedptrimathelement-method)
+presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-Especifica la raíz matemática del grado indicado a partir del argumento especificado.
+## **Agrupar términos**
 
-Ejemplo:
+Utiliza `Group` para colocar un carácter de agrupación encima o debajo de una expresión. Añade un límite para etiquetar los términos agrupados.
 
-``` cpp
-auto radical = System::MakeObject<MathematicalText>(u"x")->Radical(u"3");
-``` 
+![La expresión x más y agrupada con la etiqueta cualquier texto debajo](powerpoint-math-equations_15.png)
 
-### **Métodos SetUpperLimit y SetLowerLimit**
-- [SetUpperLimit(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/#imathelementsetupperlimitsystemstring-method)
-- [SetUpperLimit(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/#imathelementsetupperlimitsystemsharedptrimathelement-method)
-- [SetLowerLimit(String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/#imathelementsetlowerlimitsystemstring-method)
-- [SetLowerLimit(IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/#imathelementsetlowerlimitsystemsharedptrimathelement-method)
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Define el límite superior o inferior. Aquí, “superior” e “inferior” indican simplemente la posición del argumento respecto a la base.
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 120.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-Consideremos la expresión:
+auto grouped = System::MakeObject<MathematicalText>(u"x + y")
+        - >Group(u'\u23DF', MathTopBotPositions::Bottom, MathTopBotPositions::Top)
+        - >SetLowerLimit(u"any text");
 
-![todo:image_alt_text](powerpoint-math-equations_8.png)
+mathParagraph->Add(System::MakeObject<MathBlock>(grouped));
 
-Dichas expresiones pueden crearse combinando las clases [MathFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfunction/) y [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/), y las operaciones de [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) de la siguiente forma:
+presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-``` cpp
-auto mathExpression = System::MakeObject<MathematicalText>(u"lim")->SetLowerLimit(u"x→∞")->Function(u"x");
-``` 
+## **Formatear elementos matemáticos**
 
-### **Métodos Nary e Integral**
-- [Nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/#imathelementnarymathnaryoperatortypes-systemsharedptrimathelement-systemsharedptrimathelement-method)
-- [Nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/#imathelementnarymathnaryoperatortypes-systemstring-systemstring-method)
-- [Integral(MathIntegralTypes)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/#imathelementintegralmathintegraltypes-method)
-- [Integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/#imathelementintegralmathintegraltypes-systemsharedptrimathelement-systemsharedptrimathelement-method)
-- [Integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/#imathelementintegralmathintegraltypes-systemstring-systemstring-method)
-- [Integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/#imathelementintegralmathintegraltypes-systemsharedptrimathelement-systemsharedptrimathelement-mathlimitlocations-method)
-- [Integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/#imathelementintegralmathintegraltypes-systemstring-systemstring-mathlimitlocations-method)
+Utiliza los asistentes de formato solo donde clarifiquen la fórmula. Por ejemplo, `Overbar` coloca una barra sobre un elemento matemático.
 
-Ambos métodos **Nary** e **Integral** crean y devuelven el operador N‑ario representado por el tipo [**IMathNaryOperator**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathnaryoperator/). En el método Nary, la enumeración [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathnaryoperatortypes/) especifica el tipo de operador: suma, unión, etc., sin incluir integrales. En el método Integral, se usa la enumeración [**MathIntegralTypes**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathintegraltypes/) para indicar el tipo de integral.
+![Una expresión matemática ABC con una barra superior](powerpoint-math-equations_14.png)
 
-Ejemplo:
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-auto baseArg = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
-auto integral = baseArg->Integral(MathIntegralTypes::Simple, u"0", u"1");
-``` 
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
 
-### **Método ToMathArray**
-[**ToMathArray**](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) coloca los elementos en una matriz vertical. Si se llama a esta operación para una instancia de **MathBlock**, todos los elementos hijos se colocarán en la matriz devuelta.
+auto overbar = System::MakeObject<MathematicalText>(u"ABC")->Overbar();
 
-Ejemplo:
+mathParagraph->Add(System::MakeObject<MathBlock>(overbar));
 
-``` cpp
-auto arrayFunction = System::MakeObject<MathematicalText>(u"x")->Join(u"y")->ToMathArray();
-``` 
+presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-### **Operaciones de formato: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
-- **Accent** : establece un acento (un carácter sobre el elemento).  
-- **Overbar** y **Underbar** : añaden una barra sobre o bajo el elemento.  
-- **Group** : agrupa usando un carácter de agrupación, como una llave inferior u otro.  
-- **ToBorderBox** : coloca un borde alrededor del elemento.  
-- **ToBox** : coloca el elemento en una caja lógica no visual.
+## **Referencia rápida**
 
-Ejemplos:
-
-``` cpp
-auto accent = System::MakeObject<MathematicalText>(u"x")->Accent(u'\u0303');
-    
-auto bar = System::MakeObject<MathematicalText>(u"x")->Overbar();
-
-auto groupChr = System::MakeObject<MathematicalText>(u"x")->Join(u"y")->Join(u"z")->Group(u'\u23E1', MathTopBotPositions::Bottom, MathTopBotPositions::Top);
-
-auto borderBox = System::MakeObject<MathematicalText>(u"x+y+z")->ToBorderBox();
-
-auto boxedOperator = System::MakeObject<MathematicalText>(u":=")->ToBox();
-``` 
+| Tarea | API principal |
+| --- | --- |
+| Crear texto matemático | [MathematicalText](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathematicaltext/) |
+| Combinar elementos | [IMathElement.Join](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/join/) |
+| Crear fracciones | [IMathElement.Divide](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/divide/) |
+| Añadir superíndice o subíndice | [SetSuperscript](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Añadir funciones | [Function](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Añadir radicales | [IMathElement.Radical](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/radical/) |
+| Añadir límites | [SetLowerLimit](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Añadir scripts en el lado izquierdo | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Añadir sumas e integrales | [Nary](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| Añadir matrices | [MathMatrix](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathmatrix/) |
+| Añadir matrices de ecuaciones | [ToMathArray](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Añadir delimitadores | [Enclose](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| Añadir barras y bordes | [Overbar](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Agrupar términos | [Group](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **Preguntas frecuentes**
 
-**¿Cómo puedo añadir una ecuación matemática a una diapositiva de PowerPoint?**
+**¿Puedo editar una ecuación existente de PowerPoint?**
 
-Para añadir una ecuación matemática, debe crear un objeto de forma matemática, que contiene automáticamente una porción matemática. Luego, recupere el [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) de la [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) y añada objetos [MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/) a él.
+Sí. Abre la presentación, encuentra la forma que contiene un `MathPortion`, obtén su `MathParagraph` y actualiza los bloques matemáticos en ese párrafo.
 
-**¿Es posible crear expresiones matemáticas complejas con anidamiento?**
+**¿Se guardan las ecuaciones como matemáticas editables de PowerPoint?**
 
-Sí, Aspose.Slides permite crear expresiones matemáticas complejas mediante el anidamiento de MathBlocks. Cada elemento matemático implementa la interfaz [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/), lo que permite aplicar operaciones (Join, Divide, Enclose, etc.) para combinar elementos en estructuras más complejas.
+Sí. Al guardar en PPTX, Aspose.Slides escribe la ecuación como contenido matemático de Office editable.
 
-**¿Cómo puedo actualizar o modificar una ecuación matemática existente?**
+**¿Puedo exportar ecuaciones a LaTeX?**
 
-Para actualizar una ecuación, acceda a los MathBlocks existentes a través del [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/). Luego, usando métodos como Join, Divide, Enclose, entre otros, modifique los elementos individuales de la ecuación. Después de editar, guarde la presentación para aplicar los cambios.
+Aspose.Slides exporta ecuaciones matemáticas a MathML. Si necesitas LaTeX, exporta primero a MathML y luego convierte MathML con una herramienta que admita el dialecto LaTeX de tu objetivo.

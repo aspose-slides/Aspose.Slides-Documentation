@@ -18,403 +18,443 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "إدراج وتحرير المعادلات الرياضية في ملفات PowerPoint PPT و PPTX باستخدام Aspose.Slides لـ Node.js، مع دعم OMML، وضبط تنسيقات، وأمثلة شفرة واضحة."
+description: "إدراج وتعديل المعادلات الرياضية في عروض PowerPoint بصيغ PPT و PPTX باستخدام Aspose.Slides لـ Node.js عبر Java، مع دعم OMML، أدوات تنسيق، وعينات شفرة JavaScript واضحة."
 ---
-
 ## **نظرة عامة**
-في PowerPoint يمكن كتابة معادلة أو صيغة رياضية وعرضها في العرض التقديمي. للقيام بذلك يتم تمثيل رموز رياضية متعددة في PowerPoint ويمكن إضافتها إلى النص أو المعادلة. لهذا يُستخدم مُنشئ المعادلات الرياضية في PowerPoint، والذي يساعد على إنشاء صيغ معقدة مثل:
 
-- كسر رياضي
-- جذر رياضي
-- دالة رياضية
-- حدود ودوال اللوغارتم
-- عمليات N-ary
-- مصفوفة
-- معاملات كبيرة
-- دوال الجيب والجيب التمام
+يخزن PowerPoint المعادلات كـ Office Math Markup Language (OMML). باستخدام Aspose.Slides لـ Node.js عبر Java، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجياً: كسور، جذور، دوال، حدود، عوامل N-ary، مصفوفات، صفوف، وكتل رياضية منسقة.
 
-لإضافة معادلة رياضية في PowerPoint يُستخدم القائمة *Insert -> Equation*:
+في PowerPoint، يضيف المستخدمون عادة المعادلات من **Insert > Equation**:
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-سيتم إنشاء نص رياضي بصيغة XML يمكن عرضه في PowerPoint كما يلي:
+النتيجة هي نص رياضي قابل للتحرير على الشريحة:
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
-يُدعم PowerPoint عددًا كبيرًا من الرموز الرياضية لإنشاء المعادلات. ومع ذلك، غالبًا ما لا يعطي إنشاء معادلات رياضية معقدة في PowerPoint نتيجة احترافية وجيدة. يلجأ المستخدمون الذين يحتاجون إلى إنشاء عروض تقديمية رياضية بشكل متكرر إلى حلول الطرف الثالث للحصول على صيغ رياضية ذات مظهر جيد.
+يبني Aspose.Slides ذلك النص الرياضي من خلال ثلاثة كائنات رئيسية:
 
-باستخدام [**Aspose.Slide API**](https://products.aspose.com/slides/nodejs-java/)، يمكنك التعامل مع المعادلات الرياضية في عروض PowerPoint برمجياً بلغة C#. أنشئ تعبيرات رياضية جديدة أو حرّر تلك التي تم إنشاؤها مسبقًا. كما يدعم جزئيًا تصدير الهياكل الرياضية إلى صور.
+- شكل رياضي، يتم إنشاؤه باستخدام [addMathShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/#addMathShape)، وهو الشكل الذي يحتوي على المعادلة.
+- [MathPortion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathportion/) يتخزن محتوى الرياضيات داخل إطار نص الشكل.
+- [MathParagraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathparagraph/) يحتوي على كائن أو أكثر من [MathBlock](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathblock/).
 
+تستخدم معظم الأمثلة أدناه [MathematicalText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathematicaltext/) والطُرق المتسلسلة من [MathElementBase](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) لجعل الكود قصيراً وسهل القراءة.
 
-## **كيفية إنشاء معادلة رياضية**
-يُستخدم العنصر الرياضي لبناء أي بنية رياضية بمستويات تعشيش مختلفة. تشكل مجموعة خطية من العناصر الرياضية كتلة رياضية يُمثّلها الصف [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock). صف **MathBlock** هو في الأساس تعبير رياضي منفصل أو صيغة أو معادلة. صف **MathPortion** هو جزء رياضي يُستخدم لحفظ النص الرياضي (لا تمزج مع [**Portion**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion)). يتيح صف **MathParagraph** تعديل مجموعة من كتل الرياضيات. هذه الأصناف المذكورة أعلاه هي المفتاح للعمل مع معادلات PowerPoint الرياضية عبر Aspose.Slides API.
+للتصدير إلى MathML، راجع [Export Math Equations from Presentations in Node.js via Java](/slides/ar/nodejs-java/exporting-math-equations/).
 
-لنرى كيف يمكن إنشاء المعادلة الرياضية التالية عبر Aspose.Slides API:
+## **إنشاء معادلة**
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
+هذا المثال ينشئ شكلاً رياضياً ويضيف مبرهنة فيثاغورس:
 
-لإضافة تعبير رياضي إلى الشريحة، أضف أولًا شكلًا سيحتوي على النص الرياضي:
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    var mathShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 720, 150);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let equation = new aspose.slides.MathematicalText("c")
+            .setSuperscript("2")
+            .join("=")
+            .join(new aspose.slides.MathematicalText("a").setSuperscript("2"))
+            .join("+")
+            .join(new aspose.slides.MathematicalText("b").setSuperscript("2"));
+
+    mathParagraph.add(equation);
+
+    presentation.save("pythagorean-theorem.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
-``` 
+```
 
-بعد الإنشاء، سيحتوي الشكل بالفعل على فقرة واحدة مع جزء رياضي بشكل افتراضي. صف [**MathPortion**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathPortion) هو الجزء الذي يحتوي على نص رياضي. للوصول إلى المحتوى الرياضي داخل [**MathPortion**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathPortion)، استخدم متغيّر [**MathParagraph**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathParagraph):
+{{% alert color="primary" %}}
+`addMathShape` ينشئ شكلاً يحتوي بالفعل على فقرة رياضية. احصل على أول `MathPortion`، ثم على `MathParagraph` الخاص به، وأضف كتل رياضية أو عناصر رياضية إليه.
+{{% /alert %}}
 
-```javascript
-var mathParagraph = mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph();
-``` 
+## **إضافة الكسور**
 
-يسمح صف [**MathParagraph**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathParagraph) بقراءة وإضافة وتعديل وحذف كتل الرياضيات ([**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock))، التي تتكوّن من مجموعة من العناصر الرياضية. على سبيل المثال، أنشئ كسرًا وضعه في العرض التقديمي:
+استخدم [`divide`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) لإنشاء كسر. يمكنك اختيار نمط الكسر عبر [MathFractionTypes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathfractiontypes/).
 
-```javascript
-var fraction = new aspose.slides.MathematicalText("x").divide("y");
-mathParagraph.add(new aspose.slides.MathBlock(fraction));
-``` 
-
-كل عنصر رياضي يُمثَّل بواسطة صف يُنفّذ صف **MathElement**. يوفّر هذا الصف العديد من الأساليب لإنشاء تعبيرات رياضية بسهولة. يمكنك إنشاء تعبير رياضي معقّد نسبيًا بسطر واحد من الشيفرة. على سبيل المثال، يبدو مبرهن فيثاغورس هكذا:
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```javascript
-var mathBlock = new aspose.slides.MathematicalText("c").setSuperscript("2").join("=").join(new aspose.slides.MathematicalText("a").setSuperscript("2")).join("+").join(new aspose.slides.MathematicalText("b").setSuperscript("2"));
-``` 
-
-تُطبّق عمليات صف **MathElement** على أي نوع من العناصر، بما في ذلك [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock).
-
-العينة الكاملة للشيفرة:
-
-```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    var mathShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 720, 150);
-    var mathParagraph = mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph();
-    var fraction = new aspose.slides.MathematicalText("x").divide("y");
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let fraction = new aspose.slides.MathematicalText("1")
+            .divide("x", aspose.slides.MathFractionTypes.Skewed);
+
     mathParagraph.add(new aspose.slides.MathBlock(fraction));
-    var mathBlock = new aspose.slides.MathematicalText("c").setSuperscript("2").join("=").join(new aspose.slides.MathematicalText("a").setSuperscript("2")).join("+").join(new aspose.slides.MathematicalText("b").setSuperscript("2"));
-    mathParagraph.add(mathBlock);
-    pres.save("math.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("fraction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
-``` 
+```
 
-## **أنواع العناصر الرياضية**
-تتكوّن التعبيرات الرياضية من تسلسلات من العناصر الرياضية. يُمثَّل تسلسل العناصر الرياضية بكتلة رياضية، وتُشكّل وسائط العناصر شجرةً متداخلة.
-
-هناك العديد من أنواع العناصر الرياضية التي يمكن استخدامها لبناء كتلة رياضية. يمكن تضمين كل عنصر داخل عنصر آخر، أي أن العناصر تعمل كحاويات للأخرى، مُشكِّلةً بنية شجرية. أبسط نوع من العنصر هو الذي لا يحتوي على عناصر أخرى من النص الرياضي.
-
-كل نوع من العناصر يُنفّذ صف **MathElement**، مما يتيح استخدام مجموعة مشتركة من عمليات الرياضيات على أنواع مختلفة من العناصر.
-
-### **صف MathematicalText**
-يمثّل الصف [**MathematicalText**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathematicalText) نصًا رياضيًا – العنصر الأساسي لجميع البنى الرياضية. قد يَكون النص الرياضي عوامل أو معطيات أو متغيّرات أو أي نص خطّي آخر.
-
-مثال: 𝑎=𝑏+𝑐
-
-### **صف MathFraction**
-يحدد الصف [**MathFraction**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFraction) كائن الكسر المكوّن من بسط ومقام مفصولين بشريط كسر. يمكن أن يكون شريط الكسر أفقيًا أو مائلًا حسب خصائص الكسر. يُستَخدم كائن الكسر أيضًا لتمثيل دالة المكدس التي تضع عنصرًا فوق آخر دون شريط كسر.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_4.png)
-
-### **صف MathRadical**
-يحدد الصف [**MathRadical**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathRadical) دالة الجذر الرياضي، المكوّن من قاعدة وجذر اختياري الدرجة.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_5.png)
-
-### **صف MathFunction**
-يحدد الصف [**MathFunction**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction) دالة ذات معامل. يحتوي على الخاصيتين: [getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction#getName--) – اسم الدالة و[getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction#getBase--) – معامل الدالة.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_6.png)
-
-### **صف MathNaryOperator**
-يحدد الصف [**MathNaryOperator**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathNaryOperator) كائنًا رياضيًا متعدد الحدود، مثل الجمع والتكامل. يتكوّن من معامل، وقاعدة (أو معامل)، وحدود علوية وسفلية اختيارية. من أمثلة المشغّلين المتعددين: الجمع، الاتحاد، التقاطع، التكامل.
-
-هذا الصف لا يتضمن المشغّلات البسيطة مثل الجمع أو الطرح؛ تُمثَّل تلك بواسطة عنصر نصي واحد – [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathematicalText).
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_7.png)
-
-### **صف MathLimit**
-يُنشئ الصف [**MathLimit**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLimit) حدًا علويًا أو سفليًا. يحدّد كائن الحد نصًا على الخط الأساسي ونصًا مصغرًا فوقه أو تحته مباشرة. لا يتضمن هذا العنصر كلمة “lim”، لكنه يسمح بوضع النص في أعلى أو أسفل التعبير. لذا، يُنشأ التعبير التالي:
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-باستخدام مزيج من صفوف [**MathFunction**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction) و[**MathLimit**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLimit) هكذا:
+لإنشاء كسر مكدس، استخدم `MathFractionTypes.Bar`:
 
 ```javascript
-var funcName = new aspose.slides.MathLimit(new aspose.slides.MathematicalText("lim"), new aspose.slides.MathematicalText("𝑥→∞"));
-var mathFunc = new aspose.slides.MathFunction(funcName, new aspose.slides.MathematicalText("𝑥"));
-``` 
+let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
+```
 
-### **صفوف MathSubscriptElement، MathSuperscriptElement، MathRightSubSuperscriptElement، MathLeftSubSuperscriptElement**
-- [MathSubscriptElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathSubscriptElement)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathSuperscriptElement)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathRightSubSuperscriptElement)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLeftSubSuperscriptElement)
+## **إضافة الجذور**
 
-تُحدِّد الصفوف التالية مؤشرًا سفليًا أو علويًا. يمكنك ضبط الفهرس السفلي والعلوي في آنٍ واحد على الجهة اليسرى أو اليمنى للمعامل، لكن يُدعم الفهرس الفردي (سفلي أو علوي) على الجانب الأيمن فقط. يمكن أيضًا استخدام [MathSubscriptElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathSubscriptElement) لتحديد درجة عددية.
+استخدم [`radical`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) لإنشاء جذر تربيعي، مكعب، أو أي جذر آخر. العنصر الحالي يصبح القاعدة، والحجة تصبح الدرجة.
 
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_9.png)
-
-### **صف MathMatrix**
-يحدد الصف [**MathMatrix**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathMatrix) كائن المصفوفة، المكوّن من عناصر فرعية مرتبة في صفوف وأعمدة. تجدر الإشارة إلى أن المصفوفات لا تحتوي على محددات مدمجة؛ لوضع المصفوفة بين أقواس يجب استعمال كائن المحدد – [**MathDelimiter**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathDelimiter). يمكن استخدام قيم `null` لإنشاء فراغات داخل المصفوفات.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_10.png)
-
-### **صف MathArray**
-يحدد الصف [**MathArray**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathArray) مصفوفةً رأسيةً من المعادلات أو أي كائنات رياضية أخرى.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_11.png)
-
-### **تنسيق العناصر الرياضية**
-- صف [**MathBorderBox**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBorderBox): يرسم حدًا مستطيلًا أو شكلًا آخر حول **MathElement**.  
-  مثال: ![todo:image_alt_text](powerpoint-math-equations_12.png)
-
-- صف [**MathBox**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBox): يحدِّد تغليفًا منطقيًا للعنصر الرياضي. على سبيل المثال، يمكن استخدام كائن مغلق كمحاكي للمشغل مع أو بدون نقطة محاذاة، أو لتجنب كسر السطر داخل الكائن.
-
-- صف [**MathDelimiter**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathDelimiter): يحدِّد كائن المحدد، المكوّن من حرفي افتتاح وإغلاق (مثل الأقواس أو الأقواس المربعة أو الأعمدة العمودية)، وواحد أو أكثر من العناصر الرياضية داخله، مفصولة بحرف محدد. أمثلة: (𝑥²); [𝑥²|𝑦²].  
-  مثال: ![todo:image_alt_text](powerpoint-math-equations_13.png)
-
-- صف [**MathAccent**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathAccent): يحدِّد دالة التشكيل، المكوّن من قاعدة وعلامة تشكيلية مُدمجة.  
-  مثال: 𝑎́.
-
-- صف [**MathBar**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBar): يحدِّد دالة الشريط، المكوّن من معامل أساسي وشريط علوي أو سفلي.  
-  مثال: ![todo:image_alt_text](powerpoint-math-equations_14.png)
-
-- صف [**MathGroupingCharacter**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathGroupingCharacter): يحدِّد رمزًا تجميعيًا فوق أو تحت تعبير، عادةً لتسليط الضوء على العلاقات بين العناصر.  
-  مثال: ![todo:image_alt_text](powerpoint-math-equations_15.png)
-
-
-## **العمليات الرياضية**
-كل عنصر أو تعبير رياضي (عبر [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock)) يُنفّذ صف **MathElement**. يتيح لك ذلك إجراء عمليات على البنية الحالية وتكوين تعبيرات رياضية أكثر تعقيدًا. لكل عملية مجموعتان من المعاملات: إما **MathElement** أو سلسلة نصية. تُخلق كائنات من صف [**MathematicalText**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathematicalText) ضمنيًا من السلاسل عندما تُستعمل كوسائط. تُدرج العمليات الرياضية المتاحة في Aspose.Slides أدناه.
-
-### **طريقة Join**
-- `join(String)`
-- `join(MathElement)`
-
-تدمج عنصرًا رياضيًا وتُكوّن كتلة رياضية. مثال:
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```javascript
-var element1 = new aspose.slides.MathematicalText("x");
-var element2 = new aspose.slides.MathematicalText("y");
-var block = element1.join(element2);
-``` 
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
 
-### **طريقة Divide**
-- `divide(String)`
-- `divide(MathElement)`
-- `divide(String, MathFractionTypes)`
-- `divide(MathElement, MathFractionTypes)`
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
 
-تنشئ كسرًا من النوع المحدد باستخدام هذا البسط والمقام المحدد. مثال:
+    let radical = new aspose.slides.MathematicalText("x")
+            .radical("n");
 
-```javascript
-var numerator = new aspose.slides.MathematicalText("x");
-var fraction = numerator.divide("y", aspose.slides.MathFractionTypes.Linear);
-``` 
+    mathParagraph.add(new aspose.slides.MathBlock(radical));
 
-### **طريقة Enclose**
-- `enclose()`
-- `enclose(Char, Char)`
+    presentation.save("radical.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-تحيط العنصر بأحرف محددة مثل الأقواس أو أي حرف آخر كإطار.
+## **إضافة الدوال والحدود**
 
-```java
-/**
- * <p>
- * Enclose a math element in parenthesis
- * </p>
- */
-public IMathDelimiter enclose();
+استخدم [`asArgumentOfFunction`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) أو [`function`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) للدوال مثل `sin(x)`, `log(x)`, أو أسماء دوال مخصصة. للحدود، ضع `lim` داخل [MathLimit](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathlimit/) أو استخدم [`setLowerLimit`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/).
 
-/**
- * <p>
- * Encloses this element in specified characters such as parenthesis or another characters as framing
- * </p>
- */
-public IMathDelimiter enclose(char beginningCharacter, char endingCharacter);
-``` 
-
-مثال:
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```javascript
-var delimiter = new aspose.slides.MathematicalText("x").enclose('[', ']');
-var delimiter2 = new aspose.slides.MathematicalText("elem1").join("elem2").enclose();
-``` 
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
 
-### **طريقة Function**
-- `function(String)`
-- `function(MathElement)`
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
 
-تُعرِّف دالة ذات معامل باستخدام الكائن الحالي كاسم الدالة.
+    let limit = new aspose.slides.MathematicalText("lim")
+            .setLowerLimit("x\u2192\u221E")
+            .function("x");
 
-```java
-/**
- * <p>
- * Takes a function of an argument using this instance as the function name
- * </p>
- */
-public IMathFunction function(MathElement functionArgument);
+    mathParagraph.add(new aspose.slides.MathBlock(limit));
 
-/**
- * <p>
- * Takes a function of an argument using this instance as the function name
- * </p>
- */
-public IMathFunction function(String functionArgument);
-``` 
+    presentation.save("functions-and-limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-مثال:
+لإعطاء اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي:
 
 ```javascript
-var func = new aspose.slides.MathematicalText("sin").function("x");
-``` 
+let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
+```
 
-### **طريقة AsArgumentOfFunction**
-- `asArgumentOfFunction(String)`
-- `asArgumentOfFunction(MathElement)`
-- `asArgumentOfFunction(MathFunctionsOfOneArgument)`
-- `asArgumentOfFunction(MathFunctionsOfTwoArguments, MathElement)`
-- `asArgumentOfFunction(MathFunctionsOfTwoArguments, String)`
+## **إضافة عوامل N-ary والتكاملات**
 
-تُعطي الدالة المحددة باستخدام الكائن الحالي كمعامل. يمكنك:
+استخدم [`nary`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) للجمع، الاتحاد، التقاطع، وغيرها من العوامل الكبيرة. استخدم [`integral`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) للتكاملات. تسمح الطريقتان بتحديد الحدود السفلية والعليا.
 
-- تحديد سلسلة كاسم الدالة، مثل “cos”.
-- اختيار أحد القيم المعرفة في تعداد [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunctionsOfOneArgument) أو [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunctionsOfTwoArguments)، مثل [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunctionsOfOneArgument).ArcSin.
-- اختيار كائن **MathElement**.
-
-مثال:
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```javascript
-var funcName = new aspose.slides.MathLimit(new aspose.slides.MathematicalText("lim"), new aspose.slides.MathematicalText("𝑛→∞"));
-var func1 = new aspose.slides.MathematicalText("2x").asArgumentOfFunction(funcName);
-var func2 = new aspose.slides.MathematicalText("x").asArgumentOfFunction("sin");
-var func3 = new aspose.slides.MathematicalText("x").asArgumentOfFunction(aspose.slides.MathFunctionsOfOneArgument.Sin);
-var func4 = new aspose.slides.MathematicalText("x").asArgumentOfFunction(aspose.slides.MathFunctionsOfTwoArguments.Log, "3");
-``` 
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
 
-### **طرق SetSubscript و SetSuperscript و SetSubSuperscriptOnTheRight و SetSubSuperscriptOnTheLeft**
-- `setSubscript(String)`
-- `setSubscript(MathElement)`
-- `setSuperscript(String)`
-- `setSuperscript(MathElement)`
-- `setSubSuperscriptOnTheRight(String, String)`
-- `setSubSuperscriptOnTheRight(MathElement, MathElement)`
-- `setSubSuperscriptOnTheLeft(String, String)`
-- `setSubSuperscriptOnTheLeft(MathElement, MathElement)`
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
 
-تُعيّن الفهرس السفلي والعلوي. يمكنك ضبطهما معًا على اليمين أو اليسار، لكن الفهرس الفردي (سفلي أو علوي) يُدعم فقط على اليمين. يمكن أيضًا استخدام **Superscript** لتحديد درجة عددية.
+    let summationBase = new aspose.slides.MathematicalText("x")
+            .setSuperscript("k")
+            .join(new aspose.slides.MathematicalText("a").setSuperscript("n-k"));
 
-مثال:
+    let summation = summationBase.nary(aspose.slides.MathNaryOperatorTypes.Summation, "k=0", "n");
 
-```javascript
-var script = new aspose.slides.MathematicalText("y").setSubSuperscriptOnTheLeft("2x", "3z");
-``` 
+    mathParagraph.add(new aspose.slides.MathBlock(summation));
 
-### **طريقة Radical**
-- `radical(String)`
-- `radical(MathElement)`
+    presentation.save("nary-operators.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-تحدد الجذر الرياضي للدرجة المحددة من المعامل المعطى.
+عوامل N-ary هي عوامل كبيرة يمكن أن تحتوي على حدود اختيارية. تُضاف العوامل البسيطة مثل `+`, `-`, `=` عادةً كـ `MathematicalText` وتُدمج في التعبير.
 
-مثال:
+لإنشاء تكامل، استخدم `integral`:
 
 ```javascript
-var radical = new aspose.slides.MathematicalText("x").radical("3");
-``` 
+let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slides.MathematicalText("dx").toBox());
+let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
+```
 
-### **طرق SetUpperLimit و SetLowerLimit**
-- `setUpperLimit(String)`
-- `setUpperLimit(MathElement)`
-- `setLowerLimit(String)`
-- `setLowerLimit(MathElement)`
+## **إضافة المصفوفات**
 
-تُعيّن الحد العلوي أو السفلي. هنا يُشير الحد العلوي والسفلي ببساطة إلى موقع المعامل بالنسبة للقاعدة.
+استخدم [MathMatrix](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathmatrix/) للصفوف والأعمدة. المصفوفات لا تتضمن الأقواس بشكل افتراضي، لذا أدرج المصفوفة بين أقواس أو أقواس معقوفة عند الحاجة.
 
-نُعيد النظر في التعبير التالي:
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-يمكن إنشاء مثل هذه التعبيرات عبر دمج صفوف [MathFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction) و[MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLimit) وعمليات **MathElement** كما يلي:
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```javascript
-var mathExpression = new aspose.slides.MathematicalText("lim").setLowerLimit("x→∞").function("x");
-``` 
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
 
-### **طرق Nary و Integral**
-- `nary(MathNaryOperatorTypes, MathElement, MathElement)`
-- `nary(MathNaryOperatorTypes, String, String)`
-- `integral(MathIntegralTypes)`
-- `integral(MathIntegralTypes, MathElement, MathElement)`
-- `integral(MathIntegralTypes, String, String)`
-- `integral(MathIntegralTypes, MathElement, MathElement, MathLimitLocations)`
-- `integral(MathIntegralTypes, String, String, MathLimitLocations)`
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
 
-كلا الطريقتين **nary** و**integral** تُنشئ وتُعيد المشغّل متعدد الحدود المُمَثَّل بالصف [**MathNaryOperator**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathNaryOperator). في طريقة **nary**، يحدِّد تعداد [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathNaryOperatorTypes) نوع المشغّل: جمع، اتحاد، إلخ، ولا يشمل التكاملات. في طريقة **integral**، يُستَخدم تعداد [**MathIntegralTypes**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathIntegralTypes) لتحديد نوع التكامل.
+    let matrix = new aspose.slides.MathMatrix(2, 3);
+    matrix.set_Item(0, 0, new aspose.slides.MathematicalText("1"));
+    matrix.set_Item(0, 1, new aspose.slides.MathematicalText("x"));
+    matrix.set_Item(1, 0, new aspose.slides.MathematicalText("x"));
+    matrix.set_Item(1, 1, new aspose.slides.MathematicalText("2"));
+    matrix.set_Item(1, 2, new aspose.slides.MathematicalText("y"));
 
-مثال:
+    mathParagraph.add(new aspose.slides.MathBlock(matrix));
 
-```javascript
-var baseArg = new aspose.slides.MathematicalText("x").join(new aspose.slides.MathematicalText("dx").toBox());
-var integral = baseArg.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
-``` 
+    presentation.save("matrix.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-### **طريقة ToMathArray**
-تضع طريقة **toMathArray** العناصر في مصفوفة رأسية. إذا استُدعِيَت على كائن من صف [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock)، فستُوضع جميع العناصر الفرعية في المصفوفة المرجعة.
+## **إضافة صفوف المعادلات**
 
-مثال:
+استخدم [`toMathArray`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) عندما تحتاج إلى معادلات محاذاة أو مجموعة عمودية من التعبيرات.
 
-```javascript
-var arrayFunction = new aspose.slides.MathematicalText("x").join("y").toMathArray();
-``` 
-
-### **عمليات التنسيق: Accent، Overbar، Underbar، Group، ToBorderBox، ToBox**
-- طريقة **accent** تُضيف علامة تشكيلية (حرف فوق العنصر).
-- طريقتا **overbar** و**underbar** تضيفان شريطًا فوق أو تحت العنصر.
-- طريقة **group** تُوضِّع العنصر في مجموعة باستخدام رمز تجميع مثل القوس المعقوف السفلي أو غيره.
-- طريقة **toBorderBox** تُضع العنصر في حدّ‑مربع.
-- طريقة **toBox** تُضع العنصر في صندوقٍ غير مرئي (تجميع منطقي).
-
-أمثلة:
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```javascript
-var accent = new aspose.slides.MathematicalText("x").accent('̃');
-var bar = new aspose.slides.MathematicalText("x").overbar();
-var groupChr = new aspose.slides.MathematicalText("x").join("y").join("z").group('⏡', aspose.slides.MathTopBotPositions.Bottom, aspose.slides.MathTopBotPositions.Top);
-var borderBox = new aspose.slides.MathematicalText("x+y+z").toBorderBox();
-var boxedOperator = new aspose.slides.MathematicalText(":=").toBox();
-``` 
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
 
-## **الأسئلة الشائعة**
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 140);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
 
-**كيف يمكن إضافة معادلة رياضية إلى شريحة PowerPoint؟**
+    let equationArray = new aspose.slides.MathematicalText("x")
+            .join("y")
+            .toMathArray();
 
-لإضافة معادلة رياضية، عليك إنشاء كائن `MathShape`، والذي يحتوي تلقائيًا على جزء رياضي. ثم تستخرج `MathParagraph` من `MathPortion` وتضيف كائنات `MathBlock` إليه.
+    mathParagraph.add(new aspose.slides.MathBlock(equationArray));
 
-**هل يمكن إنشاء تعبيرات رياضية متداخلة ومعقّدة؟**
+    presentation.save("equation-array.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-نعم، يُتيح Aspose.Slides إنشاء تعبيرات رياضية معقّدة عبر تعشيش `MathBlock`. كل عنصر رياضي يرث صف `MathElement`، ما يسمح بتطبيق عمليات (Join، Divide، Enclose، إلخ) لدمج العناصر في هياكل أكثر تعقيدًا.
+## **إضافة الدوال المثلثية**
 
-**كيف يمكن تعديل أو تحديث معادلة رياضية موجودة؟**
+استخدم [`asArgumentOfFunction`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) عندما يكون المتغير هو العنصر الحالي ويكون اسم الدالة معروفاً.
 
-لتحديث معادلة، عليك الوصول إلى `MathBlock` الموجود عبر `MathParagraph`. ثم باستخدام طرق مثل Join، Divide، Enclose، وغيرها، يمكنك تعديل عناصر المعادلة. بعد التحرير، احفظ العرض لتطبيق التغييرات.
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
+
+```javascript
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let cosine = new aspose.slides.MathematicalText("2x")
+            .asArgumentOfFunction(aspose.slides.MathFunctionsOfOneArgument.Cos);
+
+    mathParagraph.add(new aspose.slides.MathBlock(cosine));
+
+    presentation.save("trigonometric-function.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **إضافة المؤشرات والسوبر سكريبت**
+
+استخدم المساعدين للكتابة السفلية والعلوية للفهارس والقوى. عندما يجب أن تظهر الفهارس على الجانب الأيسر من القاعدة، استخدم [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/).
+
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
+
+```javascript
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let scripts = new aspose.slides.MathematicalText("Y")
+            .setSubSuperscriptOnTheLeft("1", "n");
+
+    mathParagraph.add(new aspose.slides.MathBlock(scripts));
+
+    presentation.save("subscript-superscript.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **إضافة المحددات**
+
+استخدم [`enclose`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) لوضع تعبير داخل محددات. يمكنك أيضًا تحديد حرف فاصل لتعبيرات المحددات التي تحتوي على عدة عناصر.
+
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
+
+```javascript
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let delimiter = new aspose.slides.MathematicalText("x")
+            .join("y")
+            .join("z")
+            .enclose(java.newChar('<'), java.newChar('>'));
+    delimiter.setSeparatorCharacter(java.newChar('|'));
+
+    mathParagraph.add(new aspose.slides.MathBlock(delimiter));
+
+    presentation.save("delimiters.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **إضافة إطار حدودي**
+
+استخدم [`toBorderBox`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) عندما يجب أن تكون المعادلة نفسها محاطة بإطار.
+
+![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
+
+```javascript
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let boxedEquation = new aspose.slides.MathematicalText("a")
+            .setSuperscript("2")
+            .join("=")
+            .join(new aspose.slides.MathematicalText("b").setSuperscript("2"))
+            .join("+")
+            .join(new aspose.slides.MathematicalText("c").setSuperscript("2"))
+            .toBorderBox();
+
+    mathParagraph.add(new aspose.slides.MathBlock(boxedEquation));
+
+    presentation.save("border-box.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تجميع المصطلحات**
+
+استخدم [`group`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) لوضع علامة تجميع فوق أو تحت تعبير. أضف حدًا لتسمية المصطلحات المجمعة.
+
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
+
+```javascript
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let grouped = new aspose.slides.MathematicalText("x + y")
+            .group(java.newChar('\u23DF'), aspose.slides.MathTopBotPositions.Bottom, aspose.slides.MathTopBotPositions.Top)
+            .setLowerLimit("any text");
+
+    mathParagraph.add(new aspose.slides.MathBlock(grouped));
+
+    presentation.save("grouped-terms.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تنسيق عناصر الرياضيات**
+
+استخدم مساعدات التنسيق فقط حيث توضح الصيغة. على سبيل المثال، [`overbar`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) يضع شريطًا فوق عنصر رياضي.
+
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
+
+```javascript
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    let mathParagraph = mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+
+    let overbar = new aspose.slides.MathematicalText("ABC").overbar();
+
+    mathParagraph.add(new aspose.slides.MathBlock(overbar));
+
+    presentation.save("overbar.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **مرجع سريع**
+
+| المهمة | API الرئيسي |
+| --- | --- |
+| إنشاء نص رياضي | [MathematicalText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathematicaltext/) |
+| دمج العناصر | [join](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إنشاء الكسور | [divide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة سوبر سكريبت أو سوبسكريبت | [setSuperscript](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة الدوال | [function](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة الجذور | [radical](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة الحدود | [setLowerLimit](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة السكريبتات الجانبية | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة الجمعيات والتكاملات | [nary](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة المصفوفات | [MathMatrix](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathmatrix/) |
+| إضافة صفوف المعادلات | [toMathArray](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة المحددات | [enclose](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| إضافة الشرائط والإطارات | [overbar](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+| تجميع المصطلحات | [group](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mathelementbase/) |
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تعديل معادلة PowerPoint موجودة؟**
+
+نعم. افتح العرض التقديمي، ابحث عن الشكل الذي يحتوي على `MathPortion`، احصل على `MathParagraph` الخاص به، وقم بتحديث كتل الرياضيات في ذلك الفقرة.
+
+**هل تُحفظ المعادلات كرياضيات PowerPoint قابلة للتحرير؟**
+
+نعم. عند حفظ الملف بصيغة PPTX، يكتب Aspose.Slides المعادلة كـ Office Math محتوى قابل للتحرير.
+
+**هل يمكنني تصدير المعادلات إلى LaTeX؟**
+
+يصدر Aspose.Slides المعادلات الرياضية إلى MathML. إذا كنت بحاجة إلى LaTeX، قم أولاً بالتصدير إلى MathML ثم حول MathML باستخدام أداة تدعم صيغ LaTeX المستهدفة.

@@ -1,5 +1,5 @@
 ---
-title: Добавление математических уравнений в презентации PowerPoint на .NET
+title: Добавление математических уравнений в презентации PowerPoint в .NET
 linktitle: Математические уравнения PowerPoint
 type: docs
 weight: 80
@@ -18,378 +18,378 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Вставка и редактирование математических уравнений в PowerPoint PPT и PPTX с помощью Aspose.Slides для .NET, поддержка OMML, элементов управления форматированием и понятные примеры кода C#."
+description: "Вставка и редактирование математических уравнений в PowerPoint PPT и PPTX с помощью Aspose.Slides для .NET, поддержка OMML, элементов управления форматированием и понятных примеров кода C#."
 ---
-
 ## **Обзор**
 
-В PowerPoint вы можете написать математическое уравнение или формулу и отобразить её в своей презентации. Доступны различные математические символы, которые можно добавить в текст или уравнения. Конструктор математических уравнений используется для создания сложных формул, таких как:
+PowerPoint сохраняет уравнения в виде Office Math Markup Language (OMML). С помощью Aspose.Slides для .NET вы можете программно создавать такой же тип математического контента: дроби, радикалы, функции, пределы, N‑арные операторы, матрицы, массивы и отформатированные блоки формул.
 
-- Математическая дробь
-- Математический радикал
-- Математическая функция
-- Пределы и логарифмические функции
-- N-арные операции
-- Матрица
-- Большие операторы
-- Функции sin, cos
+В PowerPoint пользователи обычно добавляют уравнения через **Insert > Equation**:
 
-Для добавления математического уравнения в PowerPoint используется меню *Insert -> Equation*:
+![Вкладка Insert в PowerPoint с выбранной командой Equation](powerpoint-math-equations_1.png)
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+Результатом является редактируемый математический текст на слайде:
 
-Это создаст математический текст в XML, который может быть отображён в PowerPoint следующим образом:
+![Слайд PowerPoint, содержащий редактируемое математическое уравнение](powerpoint-math-equations_2.png)
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+Aspose.Slides строит этот математический текст с помощью трех основных объектов:
 
-PowerPoint поддерживает широкий набор математических символов для создания уравнений. Однако генерация сложных математических уравнений в PowerPoint часто не даёт отполированный, профессиональный результат. В результате пользователи, часто создающие математические презентации, часто обращаются к сторонним решениям для получения более красивых математических формул.
+- Математическая фигура, создаваемая с помощью [AddMathShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addmathshape/), — это объект, содержащий уравнение.
+- [MathPortion](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathportion/) хранит математическое содержание внутри текстового кадра фигуры.
+- [MathParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathparagraph/) содержит один или несколько объектов [MathBlock](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathblock/).
 
-С помощью [**Aspose.Slides API**](https://products.aspose.com/slides/net/) вы можете работать с математическими уравнениями в презентациях PowerPoint программно на C#. Создавать новые математические выражения или редактировать ранее созданные. Частичная поддержка доступна для экспорта математических структур в виде изображений.
+Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathematicaltext/) и «флюентные» методы из [IMathElement](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/) для краткости и читаемости кода.
 
-## **Как создать математическое уравнение**
+Для сценариев экспорта в MathML см. [Export Math Equations from Presentations in .NET](/slides/ru/net/exporting-math-equations/).
 
-Математические элементы используются для построения любой математической конструкции, независимо от уровня вложенности. Линейная коллекция этих элементов образует математический блок, представленный классом [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock). Класс [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock) представляет отдельное математическое выражение, формулу или уравнение. [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion) используется для хранения математического текста (отличного от обычного класса [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion)), тогда как [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph) позволяет манипулировать набором объектов [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock). Эти классы необходимы для работы с математическими уравнениями PowerPoint через Aspose.Slides API.
+## **Создать уравнение**
 
-Давайте посмотрим, как можно создать следующее математическое уравнение с помощью Aspose.Slides API:
+В этом примере создаётся математическая фигура и добавляется теорема Пифагора:
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
+![Уравнение c² = a² + b²](powerpoint-math-equations_3.png)
 
-Чтобы добавить математическое выражение на слайд, сначала добавьте форму, которая будет содержать математический текст:
-```cs
-using (var presentation = new Presentation())
-{
-    var mathShape = presentation.Slides[0].Shapes.AddMathShape(0, 0, 720, 150);
-}
-```
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 120);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-После создания формы она уже содержит один абзац с математическим фрагментом по умолчанию. Класс [MathPortion] представляет фрагмент, содержащий математический текст. Чтобы получить доступ к математическому содержимому внутри [MathPortion], обратитесь к переменной [MathParagraph]:
-```cs
-var mathParagraph = (mathShape.TextFrame.Paragraphs[0].Portions[0] as MathPortion).MathParagraph;
-```
-
-
-Класс [MathParagraph] позволяет читать, добавлять, редактировать и удалять математические блоки ([MathBlock]), которые состоят из комбинации математических элементов. Например, создать дробь и разместить её в презентации:
-```cs
-var fraction = new MathematicalText("x").Divide("y");
-
-mathParagraph.Add(new MathBlock(fraction));
-```
-
-
-Каждый математический элемент представлен классом, реализующим интерфейс [IMathElement]. Этот интерфейс предоставляет многочисленные методы для простого создания математических выражений, позволяя конструировать достаточно сложные уравнения всего одной строкой кода. Например, теорема Пифагора будет выглядеть так:
-```cs
-var mathBlock = new MathematicalText("c")
+var equation = new MathematicalText("c")
     .SetSuperscript("2")
     .Join("=")
     .Join(new MathematicalText("a").SetSuperscript("2"))
     .Join("+")
     .Join(new MathematicalText("b").SetSuperscript("2"));
+
+mathParagraph.Add(equation);
+
+presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
+{{% alert color="primary" %}}
+`AddMathShape` создает фигуру, уже содержащую математический абзац. Получите первый `MathPortion`, его `MathParagraph` и добавьте в него математические блоки или элементы.
+{{% /alert %}}
 
-Операции интерфейса [IMathElement] реализованы в каждом типе элемента, включая класс [MathBlock].
+## **Добавить дроби**
 
-Ниже приведён полный пример исходного кода:
-```cs
-using (var presentation = new Presentation())
-{
-    var mathShape = presentation.Slides[0].Shapes.AddMathShape(0, 0, 720, 150);
-    var mathParagraph = (mathShape.TextFrame.Paragraphs[0].Portions[0] as MathPortion).MathParagraph;
+Используйте `Divide` для создания дроби. Вы можете выбрать стиль дроби с помощью [MathFractionTypes](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathfractiontypes/).
 
-    var fraction = new MathematicalText("x").Divide("y");
+![Наклонённая математическая дробь, показывающая 1 ÷ x](powerpoint-math-equations_4.png)
 
-    mathParagraph.Add(new MathBlock(fraction));
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    var mathBlock = new MathematicalText("c")
-        .SetSuperscript("2")
-        .Join("=")
-        .Join(new MathematicalText("a").SetSuperscript("2"))
-        .Join("+")
-        .Join(new MathematicalText("b").SetSuperscript("2"));
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-    mathParagraph.Add(mathBlock);
+var fraction = new MathematicalText("1")
+    .Divide("x", MathFractionTypes.Skewed);
 
-    presentation.Save("math.pptx", SaveFormat.Pptx);
-}
+mathParagraph.Add(new MathBlock(fraction));
+
+presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
+Для «stacked» дроби используйте `MathFractionTypes.Bar`:
 
-## **Типы математических элементов**
-
-Математические выражения состоят из последовательностей математических элементов. Математический блок представляет такую последовательность, а аргументы этих элементов образуют вложенную древовидную структуру.
-
-Существует множество типов математических элементов, которые могут использоваться для построения математического блока. Каждый из этих элементов может быть агрегирован внутри другого, образуя древовидную структуру. Самый простой тип элемента — тот, который не содержит других элементов математического текста.
-
-Каждый тип математического элемента реализует интерфейс [IMathElement], позволяя использовать общий набор математических операций над разными типами элементов.
-
-### **Класс MathematicalText**
-
-Класс [MathematicalText] представляет математический текст — базовый элемент всех математических конструкций. Математический текст может представлять операнды и операторы, переменные или любой другой линейный текст.
-
-Example: 𝑎=𝑏+𝑐
-
-### **Класс MathFraction**
-
-Класс [MathFraction] задаёт объект дроби, состоящий из числителя и знаменателя, разделённых чертой дроби. Черта может быть горизонтальной или диагональной, в зависимости от свойств дроби. Объект дроби также используется для представления функции stack, которая размещает один элемент над другим без черты дроби.
-
-![todo:image_alt_text](powerpoint-math-equations_4.png)
-
-### **Класс MathRadical**
-
-Класс [MathRadical] задаёт радикальную функцию (математический корень), состоящую из основания и необязательной степени.
-
-![todo:image_alt_text](powerpoint-math-equations_5.png)
-
-### **Класс MathFunction**
-
-Класс [MathFunction] задаёт функцию аргумента. Он содержит свойства, такие как [Name], представляющее имя функции, и [Base], представляющее аргумент функции.
-
-![todo:image_alt_text](powerpoint-math-equations_6.png)
-
-### **Класс MathNaryOperator**
-
-Класс [MathNaryOperator] задаёт N-арный математический объект, такой как суммирование или интеграл. Он состоит из оператора, основания (или операнда) и необязательных верхних и нижних пределов. Примерами N-арных операторов являются Summation, Union, Intersection и Integral. Этот класс не включает простые операторы, такие как сложение, вычитание и т.п. Они представлены одним текстовым [MathematicalText].
-
-![todo:image_alt_text](powerpoint-math-equations_7.png)
-
-### **Класс MathLimit**
-
-Класс [MathLimit] создаёт верхний или нижний предел. Он задаёт объект предела, состоящий из текста на базовой линии и уменьшенного текста сразу выше или ниже её. Этот элемент не включает слово "lim", но позволяет разместить текст вверху или внизу выражения. Таким образом, выражение  создаётся с помощью комбинации элементов [MathFunction] и [MathLimit] следующим образом:
-```cs
-var funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
-var mathFunc = new MathFunction(funcName, new MathematicalText("𝑥"));
+```csharp
+var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
+## **Добавить радикалы**
 
-### **Классы MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement**
+Используйте `Radical` для создания квадратного корня, кубического корня или другого корня. Текущий элемент становится основанием, а аргумент — степенью.
 
-- [MathSubscriptElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathsubscriptelement)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathsuperscriptelement)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathrightsubsuperscriptelement)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathleftsubsuperscriptelement)
+![Выражение n‑го корня с x под радикальной чертой](powerpoint-math-equations_5.png)
 
-Эти классы задают нижний индекс или верхний индекс. Вы можете одновременно установить и нижний, и верхний индексы слева или справа от аргумента, но отдельный нижний или верхний индекс поддерживается только справа. Класс [MathSubscriptElement] также может использоваться для задания математической степени числа.
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-![todo:image_alt_text](powerpoint-math-equations_9.png)
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-### **Класс MathMatrix**
+var radical = new MathematicalText("x")
+    .Radical("n");
 
-Класс [MathMatrix] задаёт объект Matrix, который состоит из дочерних элементов, расположенных в одной или нескольких строках и столбцах. Важно отметить, что у матриц нет встроенных разделителей. Чтобы заключить матрицу в скобки, используйте объект разделителя [IMathDelimiter]. Нулевые аргументы могут использоваться для создания пробелов в матрицах.
+mathParagraph.Add(new MathBlock(radical));
 
-![todo:image_alt_text](powerpoint-math-equations_10.png)
-
-### **Класс MathArray**
-
-Класс [MathArray] задаёт вертикальный массив уравнений или любых математических объектов.
-
-![todo:image_alt_text](powerpoint-math-equations_11.png)
-
-### **Форматирование математических элементов**
-
-- Класс [MathBorderBox]: Рисует прямоугольную или альтернативную рамку вокруг [IMathElement].
-
-![todo:image_alt_text](powerpoint-math-equations_12.png)
-
-- Класс [MathBox]: Задает логическое оформление (упаковку) математического элемента. Объект в коробке может выступать в роли эмулятора оператора — с точкой выравнивания или без неё — функционировать как разрыв строки или группироваться, чтобы предотвратить разрывы строк внутри. Например, оператор "==" следует поместить в коробку, чтобы предотвратить разрывы строки.
-
-- Класс [MathDelimiter]: Задает объект разделителя, который состоит из открывающих и закрывающих символов (например, скобки, фигурные скобки, квадратные скобки или вертикальные черты) и одного или более математических элементов внутри, разделённых указанным символом. Примеры: (𝑥2); [𝑥2|𝑦2].
-
-![todo:image_alt_text](powerpoint-math-equations_13.png)
-
-- Класс [MathAccent]: Задает функцию акцента, которая состоит из основания и соединительного диакритического знака.
-
-Example: 𝑎́.
-
-- Класс [MathBar]: Задает функцию черты, которая состоит из базового аргумента и надчеркивающей или подчеркивающей линии.
-
-![todo:image_alt_text](powerpoint-math-equations_14.png)
-
-- Класс [MathGroupingCharacter]: Задает символ группировки, размещаемый над или под выражением, обычно для выделения взаимосвязей между элементами.
-
-![todo:image_alt_text](powerpoint-math-equations_15.png)
-
-## **Математические операции**
-
-Каждый математический элемент и каждое математическое выражение (через [MathBlock]) реализует интерфейс [IMathElement]. Это позволяет выполнять операции над существующей структурой и формировать более сложные математические выражения. Все операции имеют два набора параметров: либо [IMathElement], либо строковые аргументы. Экземпляры класса [MathematicalText] неявно создаются из указанных строк, когда используются строковые аргументы. Ниже перечислены математические операции, доступные в Aspose.Slides.
-
-### **Метод Join**
-
-- [Join(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/join/methods/1)
-- [Join(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/join)
-
-Эти методы объединяют математический элемент и формируют математический блок. Например:
-```cs
-IMathElement element1 = new MathematicalText("x");
-IMathElement element2 = new MathematicalText("y");
-
-IMathBlock block = element1.Join(element2);
+presentation.Save("radical.pptx", SaveFormat.Pptx);
 ```
 
+## **Добавить функции и пределы**
 
-### **Метод Divide**
+Для функций, таких как `sin(x)`, `log(x)` или пользовательских имен функций, используйте `AsArgumentOfFunction` или `Function`. Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathlimit/) или используйте `SetLowerLimit`.
 
-- [Divide(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/divide/methods/2)
-- [Divide(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/divide)
-- [Divide(String, MathFractionTypes)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/divide/methods/3)
-- [Divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/divide/methods/1)
+![Предел x при x → ∞](powerpoint-math-equations_8.png)
 
-Эти методы создают дробь указанного типа с заданным числителем и знаменателем. Например:
-```cs
-IMathElement numerator = new MathematicalText("x");
-IMathFraction fraction = numerator.Divide("y", MathFractionTypes.Linear);
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var limit = new MathematicalText("lim")
+    .SetLowerLimit("x→∞")
+    .Function("x");
+
+mathParagraph.Add(new MathBlock(limit));
+
+presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
+Для пользовательского имени функции сделайте имя функции текущим элементом:
 
-### **Метод Enclose**
-
-- [Enclose()](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/enclose)
-- [Enclose(Char, Char)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/enclose/methods/1)
-
-Эти методы заключают элемент в указанные символы, такие как скобки или другие ограничивающие символы. Например:
-```cs
-IMathDelimiter delimiter = new MathematicalText("x"). Enclose('[', ']');
-IMathDelimiter delimiter2 = new MathematicalText("elem1").Join("elem2").Enclose();
+```csharp
+var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
+## **Добавить N‑арные операторы и интегралы**
 
-### **Метод Function**
+Для сумм, объединений, пересечений и других больших операторов используйте `Nary`. Для интегралов — `Integral`. Оба метода позволяют задать нижний и верхний пределы.
 
-- [Function(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/function/methods/1)
-- [Function(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/function)
+![Сумма с нижним и верхним пределами](powerpoint-math-equations_7.png)
 
-Эти методы задают функцию аргумента, используя текущий объект в качестве имени функции. Например:
-```cs
-IMathFunction func = new MathematicalText("sin").Function("x");
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 120);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var summationBase = new MathematicalText("x")
+    .SetSuperscript("k")
+    .Join(new MathematicalText("a").SetSuperscript("n-k"));
+
+var summation = summationBase.Nary(MathNaryOperatorTypes.Summation, "k=0", "n");
+
+mathParagraph.Add(new MathBlock(summation));
+
+presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
+N‑арные операторы предназначены для больших операторов с опциональными пределами. Простые операторы, такие как `+`, `-` и `=`, обычно добавляются как `MathematicalText` и объединяются в выражении.
 
-### **Метод AsArgumentOfFunction**
+Для интеграла используйте `Integral`:
 
-- [AsArgumentOfFunction(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/asargumentoffunction/methods/4)
-- [AsArgumentOfFunction(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/asargumentoffunction)
-- [AsArgumentOfFunction(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/asargumentoffunction/methods/1)
-- [AsArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/asargumentoffunction/methods/2)
-- [AsArgumentOfFunction(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/asargumentoffunction/methods/3)
-
-Эти методы задают указанную функцию, используя текущий экземпляр в качестве аргумента. Вы можете:
-- указать строку в качестве имени функции, например "cos";
-- выбрать одно из предопределённых значений перечислений [MathFunctionsOfOneArgument] или [MathFunctionsOfTwoArguments], например `MathFunctionsOfOneArgument.ArcSin`;
-- выбрать экземпляр [IMathElement].
-
-Например:
-```cs
-var funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
-var func1 = new MathematicalText("2x").AsArgumentOfFunction(funcName);
-var func2 = new MathematicalText("x").AsArgumentOfFunction("sin");
-var func3 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfOneArgument.Sin);
-var func4 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfTwoArguments.Log, "3")
+```csharp
+var integralBase = new MathematicalText("x").Join(new MathematicalText("dx").ToBox());
+var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
+## **Добавить матрицы**
 
-### **Методы SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft**
+Для строк и столбцов используйте [MathMatrix](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathmatrix/). По умолчанию матрицы не включают скобки, поэтому заключайте их в круглые, квадратные или фигурные скобки при необходимости.
 
-- [SetSubscript(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setsubscript/methods/1)
-- [SetSubscript(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setsubscript)
-- [SetSuperscript(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setsuperscript/methods/1)
-- [SetSuperscript(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setsuperscript)
-- [SetSubSuperscriptOnTheRight(String, String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setsubsuperscriptontheright/methods/1)
-- [SetSubSuperscriptOnTheRight(IMathElement, IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setsubsuperscriptontheright)
-- [SetSubSuperscriptOnTheLeft(String, String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setsubsuperscriptontheleft/methods/1)
-- [SetSubSuperscriptOnTheLeft(IMathElement, IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setsubsuperscriptontheleft)
+![Математическая матрица из двух строк с одной пустой ячейкой](powerpoint-math-equations_10.png)
 
-Эти методы задают нижний и верхний индексы. Вы можете установить их одновременно либо слева, либо справа от аргумента; однако отдельный нижний или верхний индекс поддерживается только справа. **Superscript** также может использоваться для задания математической степени числа.
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```cs
-var script = new MathematicalText("y").SetSubSuperscriptOnTheLeft("2x", "3z");
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 120);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var matrix = new MathMatrix(2, 3);
+matrix[0, 0] = new MathematicalText("1");
+matrix[0, 1] = new MathematicalText("x");
+matrix[1, 0] = new MathematicalText("x");
+matrix[1, 1] = new MathematicalText("2");
+matrix[1, 2] = new MathematicalText("y");
+
+mathParagraph.Add(new MathBlock(matrix));
+
+presentation.Save("matrix.pptx", SaveFormat.Pptx);
 ```
 
+## **Добавить массивы уравнений**
 
-### **Метод Radical**
+Когда нужны выровненные уравнения или вертикальная стопка выражений, используйте `ToMathArray`.
 
-- [Radical(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/radical/methods/1)
-- [Radical(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/radical)
+![Вертикальный математический массив с x над y](powerpoint-math-equations_11.png)
 
-Эти методы задают математический корень заданной степени на основе указанного аргумента.
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```cs
-var radical = new MathematicalText("x").Radical("3");
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 140);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var equationArray = new MathematicalText("x")
+    .Join("y")
+    .ToMathArray();
+
+mathParagraph.Add(new MathBlock(equationArray));
+
+presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
+## **Добавить тригонометрические функции**
 
-### **Методы SetUpperLimit и SetLowerLimit**
+Когда аргумент — текущий элемент, а имя функции известно, используйте `AsArgumentOfFunction`.
 
-- [SetUpperLimit(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setupperlimit/methods/1)
-- [SetUpperLimit(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setupperlimit)
-- [SetLowerLimit(String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setlowerlimit/methods/1)
-- [SetLowerLimit(IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setlowerlimit)
+![Тригонометрическая функция cos, применённая к 2x](powerpoint-math-equations_6.png)
 
-Эти методы задают верхний или нижний предел, где "upper" и "lower" указывают положение аргумента относительно основания.
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Рассмотрим выражение:
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-![todo:image_alt_text](powerpoint-math-equations_8.png)
+var cosine = new MathematicalText("2x")
+    .AsArgumentOfFunction(MathFunctionsOfOneArgument.Cos);
 
-Такие выражения можно создать с помощью комбинации классов [MathFunction] и [MathLimit], а также операций интерфейса [IMathElement] следующим образом:
-```cs
-var mathExpression = MathText.Create("lim").SetLowerLimit("x→∞").Function("x");
+mathParagraph.Add(new MathBlock(cosine));
+
+presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
+## **Добавить индексы и степени**
 
-### **Методы Nary и Integral**
+Для индексов и степеней используйте вспомогательные функции субскриптов и суперкриптов. Когда индексы должны располагаться слева от основания, используйте `SetSubSuperscriptOnTheLeft`.
 
-- [Nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/nary)
-- [Nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/nary/methods/1)
-- [Integral(MathIntegralTypes)](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/integral)
-- [Integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/integral/methods/1)
-- [Integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/integral/methods/3)
-- [Integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/integral/methods/2)
-- [Integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/integral/methods/4)
+![Большая Y с левым индексом 1 и степенью n](powerpoint-math-equations_9.png)
 
-Оба метода **Nary** и **Integral** создают и возвращают N-арный оператор, представленный типом [INaryOperator]. В методе Nary перечисление [MathNaryOperatorTypes] указывает тип оператора — например, суммирование или объединение — исключая интегралы. В методе Integral предоставляется специализированная операция для интегралов, используя перечисление [MathIntegralTypes].
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```cs
-IMathBlock baseArg = new MathematicalText("x").Join(new MathematicalText("dx").ToBox());
-IMathNaryOperator integral = baseArg.Integral(MathIntegralTypes.Simple, "0", "1");
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var scripts = new MathematicalText("Y")
+    .SetSubSuperscriptOnTheLeft("1", "n");
+
+mathParagraph.Add(new MathBlock(scripts));
+
+presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
+## **Добавить разделители**
 
-### **Метод ToMathArray**
+Для помещения выражения внутрь разделителей используйте `Enclose`. Можно также установить символ‑разделитель для выражений с несколькими элементами.
 
-[ToMathArray] помещает элементы в вертикальный массив. Если эта операция вызывается у экземпляра [MathBlock], все его дочерние элементы будут размещены в возвращённом массиве.
+![Выражение‑разделитель, содержащий x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
 
-```cs
-var arrayFunction = new MathematicalText("x").Join("y").ToMathArray();
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var delimiter = new MathematicalText("x")
+    .Join("y")
+    .Join("z")
+    .Enclose('<', '>');
+delimiter.SeparatorCharacter = '|';
+
+mathParagraph.Add(new MathBlock(delimiter));
+
+presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
+## **Добавить рамку‑коробку**
 
-### **Операции форматирования: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
+Когда уравнение должно быть обрамлено, используйте `ToBorderBox`.
 
-- Метод [Accent] задаёт знак акцента (символ над элементом).
-- Методы [Overbar] и [Underbar] задают черту сверху или снизу.
-- Метод [Group] размещает в группе, используя символ группировки, такой как нижняя фигурная скобка или иной.
-- Метод [ToBorderBox] размещает в рамочной коробке.
-- Метод [ToBox] размещает в невизуальной коробке (логическое группирование).
+![Уравнение в рамке: a² = b² + c²](powerpoint-math-equations_12.png)
 
-```cs
-var accent = new MathematicalText("x").Accent('\u0303');
-var bar = new MathematicalText("x").Overbar();
-var groupChr = new MathematicalText("x").Join("y").Join("z").Group('\u23E1', MathTopBotPositions.Bottom, MathTopBotPositions.Top);
-var borderBox = new MathematicalText("x+y+z").ToBorderBox();
-var boxedOperator = new MathematicalText(":=").ToBox();
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var boxedEquation = new MathematicalText("a")
+    .SetSuperscript("2")
+    .Join("=")
+    .Join(new MathematicalText("b").SetSuperscript("2"))
+    .Join("+")
+    .Join(new MathematicalText("c").SetSuperscript("2"))
+    .ToBorderBox();
+
+mathParagraph.Add(new MathBlock(boxedEquation));
+
+presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
+## **Группировать элементы**
+
+Для размещения символа группировки над или под выражением используйте `Group`. Добавьте предел, чтобы пометить сгруппированные термы.
+
+![Выражение x + y, сгруппированное с подписью любой текст под ним](powerpoint-math-equations_15.png)
+
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 120);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var grouped = new MathematicalText("x + y")
+    .Group('\u23DF', MathTopBotPositions.Bottom, MathTopBotPositions.Top)
+    .SetLowerLimit("any text");
+
+mathParagraph.Add(new MathBlock(grouped));
+
+presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
+```
+
+## **Форматировать математические элементы**
+
+Используйте функции форматирования только там, где они делают формулу понятнее. Например, `Overbar` ставит черту над элементом.
+
+![Математическое выражение ABC с надчеркой](powerpoint-math-equations_14.png)
+
+```csharp
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
+var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var overbar = new MathematicalText("ABC").Overbar();
+
+mathParagraph.Add(new MathBlock(overbar));
+
+presentation.Save("overbar.pptx", SaveFormat.Pptx);
+```
+
+## **Быстрая справка**
+
+| Задача | Основной API |
+| --- | --- |
+| Создать математический текст | [MathematicalText](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathematicaltext/) |
+| Объединить элементы | [IMathElement.Join](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/join/) |
+| Создать дроби | [IMathElement.Divide](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/divide/) |
+| Добавить надстрочный или подстрочный индекс | [SetSuperscript](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Добавить функции | [Function](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Добавить радикалы | [IMathElement.Radical](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/radical/) |
+| Добавить пределы | [SetLowerLimit](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Добавить индексы слева | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Добавить суммы и интегралы | [Nary](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/integral/) |
+| Добавить матрицы | [MathMatrix](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/mathmatrix/) |
+| Добавить массивы уравнений | [ToMathArray](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Добавить разделители | [Enclose](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/enclose/) |
+| Добавить черты и рамки | [Overbar](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Группировать термы | [Group](https://reference.aspose.com/slides/ru/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
-**Как добавить математическое уравнение на слайд PowerPoint?**
+**Можно ли отредактировать существующее уравнение PowerPoint?**
 
-Чтобы добавить математическое уравнение, необходимо создать объект `MathShape`, который автоматически содержит математический фрагмент. Затем получите `MathParagraph` из `MathPortion` и добавьте в него объекты `MathBlock`.
+Да. Откройте презентацию, найдите фигуру, содержащую `MathPortion`, получите её `MathParagraph` и обновите математические блоки в этом абзаце.
 
-**Можно ли создавать сложные вложенные математические выражения?**
+**Сохраняются ли уравнения как редактируемая математика PowerPoint?**
 
-Да, Aspose.Slides позволяет создавать сложные математические выражения путем вложения MathBlocks. Каждый математический элемент реализует интерфейс `IMathElement`, который позволяет применять операции (Join, Divide, Enclose и т.д.) для объединения элементов в более сложные структуры.
+Да. При сохранении в формате PPTX Aspose.Slides пишет уравнение как редактируемое содержимое Office Math.
 
-**Как обновить или изменить существующее математическое уравнение?**
+**Можно ли экспортировать уравнения в LaTeX?**
 
-Чтобы обновить уравнение, необходимо получить доступ к существующим MathBlocks через `MathParagraph`. Затем, используя методы такие как Join, Divide, Enclose и другие, можно изменить отдельные элементы уравнения. После редактирования сохраните презентацию, чтобы применить изменения.
+Aspose.Slides экспортирует математические уравнения в MathML. Если нужен LaTeX, сначала экспортируйте в MathML, а затем преобразуйте MathML с помощью инструмента, поддерживающего ваш целевой диалект LaTeX.

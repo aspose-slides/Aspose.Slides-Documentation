@@ -1,444 +1,445 @@
 ---
-title: 在 Python 中向 PowerPoint 演示文稿添加数学方程
-linktitle: 数学公式
+title: 在 Python 中向 PowerPoint 演示文稿添加数学公式
+linktitle: PowerPoint 数学公式
 type: docs
 weight: 80
 url: /zh/python-net/powerpoint-math-equations/
 keywords:
-- 数学方程
-- PowerPoint 数学方程
-- 数学符号
-- PowerPoint 数学符号
 - 数学公式
-- PowerPoint 数学公式
+- 数学符号
+- 数学公式
 - 数学文本
-- PowerPoint 数学文本
-- 向 PowerPoint 添加数学方程
-- 向 PowerPoint 添加数学符号
-- 向 PowerPoint 添加数学公式
-- 向 PowerPoint 添加数学文本
+- 添加数学公式
+- 添加数学符号
+- 添加数学公式
+- 添加数学文本
 - PowerPoint
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Python（通过 .NET）在 PowerPoint 中处理数学方程。获取详细的操作指南、代码示例以及自动化创建和编辑演示文稿的技巧。"
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint PPT 和 PPTX 中插入和编辑数学公式，支持 OMML、格式控制，并提供清晰的 Python 代码示例。"
 ---
-
 ## **概述**
 
-在 PowerPoint 中，您可以编写数学公式或表达式并在演示文稿中显示它们。提供了各种数学符号，可添加到文本或公式中。数学公式构造器用于创建如下复杂公式：
+PowerPoint 将公式存储为 Office Math Markup Language（OMML）。使用 Aspose.Slides for Python via .NET，您可以以编程方式创建相同类型的数学内容：分数、根式、函数、极限、N 元运算符、矩阵、数组以及格式化的数学块。
 
-- 数学分数
-- 数学根式
-- 数学函数
-- 极限和对数函数
-- N 元运算
-- 矩阵
-- 大运算符
-- 正弦、余弦函数
+在 PowerPoint 中，用户通常通过 **Insert > Equation** 添加公式：
 
-要在 PowerPoint 中添加数学公式，请使用 *Insert -> Equation* 菜单：
+![PowerPoint Insert 选项卡中选中的 Equation 命令](powerpoint-math-equations_1.png)
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+结果是在幻灯片上出现可编辑的数学文本：
 
-这将在 XML 中创建数学文本，可在 PowerPoint 中如下显示：
+![包含可编辑数学公式的 PowerPoint 幻灯片](powerpoint-math-equations_2.png)
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+Aspose.Slides 通过以下三种主要对象构建该数学文本：
 
-PowerPoint 支持广泛的数学符号用于创建公式。但在 PowerPoint 中生成复杂的数学公式通常无法得到精致、专业的效果。因此，经常制作数学演示文稿的用户往往会转向第三方解决方案，以获得更美观的数学公式。
+- 使用 [add_math_shape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/add_math_shape/) 创建的数学形状，即包含公式的形状。
+- [MathPortion](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathportion/) 在形状的文本框中存储数学内容。
+- [MathParagraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathparagraph/) 包含一个或多个 [MathBlock](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathblock/) 对象。
 
-使用 [**Aspose.Slides API**](https://products.aspose.com/slides/python-net/)，您可以在 Python 中以编程方式处理 PowerPoint 演示文稿中的数学公式。创建新的数学表达式或编辑之前创建的表达式。对将数学结构导出为图像提供了部分支持。
+下面的大多数示例使用 [MathematicalText](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathematicaltext/) 和来自 [IMathElement](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/) 的流式方法，以保持代码简洁易读。
 
-## **如何创建数学公式**
+有关 MathML 导出场景，请参阅 [Export Math Equations from Presentations in Python via .NET](/slides/zh/python-net/exporting-math-equations/)。
 
-数学元素用于构建任何数学结构，不论嵌套层级如何。这些元素的线性集合形成一个数学块，由 [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) 类表示。[MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) 类代表一个独立的数学表达式、公式或方程。[MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) 用于保存数学文本（区别于常规的 [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) 类），而 [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) 允许您操作一组 [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) 对象。这些类是通过 Aspose.Slides API 处理 PowerPoint 数学公式的关键。
+## **创建公式**
 
-让我们看看如何使用 Aspose.Slides API 创建以下数学公式：
+此示例创建一个数学形状并添加勾股定理：
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
-
-要向幻灯片添加数学表达式，首先添加一个用于容纳数学文本的形状：
+![公式 c² = a² + b² 的示意图](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
 import aspose.slides.mathtext as math
 
 with slides.Presentation() as presentation:
-    math_shape = presentation.slides[0].shapes.add_math_shape(0, 0, 720, 150)
-```
+    slide = presentation.slides[0]
 
-
-创建形状后，默认已包含一个带有数学部分的段落。[MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) 类表示包含数学文本的部分。要访问 [MathPortion] 中的数学内容，请参阅 [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) 变量：
-
-```py
-math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
-```
-
-
-[MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) 类允许您读取、添加、编辑和删除数学块（[MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)），这些块由组合的数学元素构成。例如，创建一个分数并将其放入演示文稿中：
-
-```py
-fraction = math.MathematicalText("x").divide("y")
-math_paragraph.add(math.MathBlock(fraction))
-``` 
-
-```py
-math_block = (
-    math.MathematicalText("c").set_superscript("2").
-        join("=").
-        join(math.MathematicalText("a").set_superscript("2")).
-        join("+").
-        join(math.MathematicalText("b").set_superscript("2")))
-```
-
-
-[IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) 类的操作在每种元素类型中都有实现，包括 [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) 类。
-
-下面是完整的源代码示例：
-
-```py
-import aspose.slides as slides
-import aspose.slides.mathtext as math
-
-with slides.Presentation() as presentation:
-    math_shape = presentation.slides[0].shapes.add_math_shape(0, 0, 720, 150)
-
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
     math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
 
-    fraction = math.MathematicalText("x").divide("y")
+    equation = (
+        math.MathematicalText("c")
+        .set_superscript("2")
+        .join("=")
+        .join(math.MathematicalText("a").set_superscript("2"))
+        .join("+")
+        .join(math.MathematicalText("b").set_superscript("2"))
+    )
+
+    math_paragraph.add(equation)
+
+    presentation.save("pythagorean-theorem.pptx", slides.export.SaveFormat.PPTX)
+```
+
+{{% alert color="primary" %}}
+`add_math_shape` 创建的形状已包含一个数学段落。访问第一个 `MathPortion`，获取其 `MathParagraph`，并向其中添加数学块或数学元素。
+{{% /alert %}}
+
+## **添加分数**
+
+使用 [`divide`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/divide/) 创建分数。您可以使用 [MathFractionTypes](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathfractiontypes/) 选择分数样式。
+
+![一个倾斜的分数，显示 1 除以 x](powerpoint-math-equations_4.png)
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    fraction = math.MathematicalText("1").divide("x", math.MathFractionTypes.SKEWED)
+
     math_paragraph.add(math.MathBlock(fraction))
 
-    math_block = (
-        math.MathematicalText("c").set_superscript("2").
-            join("=").
-            join(math.MathematicalText("a").set_superscript("2")).
-            join("+").
-            join(math.MathematicalText("b").set_superscript("2")))
-
-    math_paragraph.add(math_block)
-
-    presentation.save("math.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-## **数学元素类型**
-
-数学表达式由一系列数学元素组成。数学块表示这种序列，这些元素的参数形成嵌套的树状结构。
-
-有许多类型的数学元素可用于构建数学块。每个元素都可以聚合到另一个元素中，形成树状结构。最简单的元素类型是不包含任何其他数学文本元素的元素。
-
-每种数学元素类型都实现了 [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) 类，使您可以对不同类型的数学元素使用通用的数学操作集合。
-
-### **MathematicalText 类**
-
-[MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) 类代表数学文本——所有数学结构的基础元素。数学文本可以表示操作数和运算符、变量或任何其他线性文本。
-
-示例：𝑎=𝑏+𝑐
-
-### **MathFraction 类**
-
-[MathFraction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfraction/) 类指定由分子和分母组成、由分数线分隔的分数对象。分数线可以是水平的或对角的，取决于分数属性。该对象也用于表示堆叠函数，即在没有分数线的情况下将一个元素置于另一个元素之上。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_4.png)
-
-### **MathRadical 类**
-
-[MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) 类指定根式函数（数学根），由基值和可选的次数构成。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_5.png)
-
-### **MathFunction 类**
-
-[MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) 类指定一个参数函数。它包含诸如 [name](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/name/)（表示函数名称）和 [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/base/)（表示函数参数）的属性。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_6.png)
-
-### **MathNaryOperator 类**
-
-[MathNaryOperator](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperator/) 类指定 N 元数学对象，例如求和或积分。它由运算符、基数（或操作数）以及可选的上限和下限组成。N 元运算符的例子包括求和、并集、交集和积分。
-
-该类不包括加法、减法等简单运算符。这些由单个文本 [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) 表示。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_7.png)
-
-### **MathLimit 类**
-
-[MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) 类用于创建上限或下限。它指定限对象，由基线上的文本以及紧挨其上方或下方的缩小文本组成。该元素不包括单词 'lim'，但允许您在表达式的顶部或底部放置文本。因此，表达式 通过以下方式使用 [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) 和 [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) 元素的组合来创建：
+对于堆叠式分数，使用 `MathFractionTypes.BAR`：
 
 ```py
-function_name = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑥→∞"))
-math_function = math.MathFunction(function_name, math.MathematicalText("𝑥"))
+stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
+## **添加根式**
 
-### **MathSubscriptElement、MathSuperscriptElement、MathRightSubSuperscriptElement、MathLeftSubSuperscriptElement 类**
+使用 [`radical`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/radical/) 创建平方根、立方根或其他根式。当前元素成为底数，参数成为指数。
 
-- [MathSubscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsubscriptelement/)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsuperscriptelement/)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathleftsubsuperscriptelement/)
-
-这些类指定下标或上标。您可以在参数的左侧或右侧同时设置下标和上标，但单独的下标或上标仅在右侧受支持。[MathSubscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsubscriptelement/) 还可用于设置数字的数学次数。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_9.png)
-
-### **MathMatrix 类**
-
-[MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) 类指定矩阵对象，由排列在一个或多个行和列中的子元素组成。需要注意的是，矩阵本身没有内置的定界符。若要在矩阵两侧添加括号，请使用定界符对象 [MathDelimiter](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/)。可以使用空参数在矩阵中创建空隙。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_10.png)
-
-### **MathArray 类**
-
-[MathArray](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/) 类指定垂直排列的方程式或任意数学对象的数组。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_11.png)
-
-### **格式化数学元素**
-
-- [MathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/) 类：在 [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) 周围绘制矩形或其他边框。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_12.png)
-
-- [MathBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathbox/) 类：指定数学元素的逻辑盒装（封装）。盒装对象可以用作运算符仿真（带或不带对齐点）、充当换行点，或分组以防止内部换行。例如，应该对 “==” 运算符进行盒装以防止换行。
-
-- [MathDelimiter](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/) 类：指定定界符对象，由左右括号字符（如圆括号、花括号、方括号或竖线）以及内部一个或多个数学元素组成，可通过指定字符分隔。例如：(𝑥2)；[𝑥2|𝑦2]。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_13.png)
-
-- [MathAccent](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathaccent/) 类：指定重音符函数，由基底和结合的变音符号组成。
-
-示例：𝑎́.
-
-- [MathBar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathBar/) 类：指定横线函数，由基参数以及上横线或下横线组成。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_14.png)
-
-- [MathGroupingCharacter](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathGroupingCharacter/) 类：指定放置在表达式上方或下方的分组符号，通常用于突出元素之间的关系。
-
-示例：
-
-![todo:image_alt_text](powerpoint-math-equations_15.png)
-
-## **数学操作**
-
-每个数学元素以及每个数学表达式（通过 [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)）实现了 [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) 类。这使您能够对现有结构执行操作并形成更复杂的数学表达式。所有操作都有两组参数：要么是 [IMathElement]，要么是字符串参数。当使用字符串参数时，会隐式从指定的字符串创建 [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) 类的实例。Aspose.Slides 中可用的数学操作列在下面。
-
-### **Join 方法**
-
-- [join(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/#str)
-- [join(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/#imathelement)
-
-这些方法将数学元素连接起来并形成数学块。例如：
+![一个 n 次根式，x 位于根号下方](powerpoint-math-equations_5.png)
 
 ```py
-element1 = math.MathematicalText("x")
-element2 = math.MathematicalText("y")
-block = element1.join(element2)
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    radical = math.MathematicalText("x").radical("n")
+
+    math_paragraph.add(math.MathBlock(radical))
+
+    presentation.save("radical.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **添加函数和极限**
 
-### **Divide 方法**
+使用 [`as_argument_of_function`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) 或 [`function`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/function/) 来表示 `sin(x)`、`log(x)` 或自定义函数名等函数。对于极限，可在 [MathLimit](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathlimit/) 中放置 `lim`，或使用 [`set_lower_limit`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/)。
 
-- [divide(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#str)
-- [divide(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#imathelement)
-- [divide(String, MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#str-mathfractiontypes)
-- [divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#imathelement-mathfractiontypes)
-
-这些方法根据指定的类型创建分数，并提供分子和指定的分母。例如：
+![极限表达式：x 趋于无穷大时的极限](powerpoint-math-equations_8.png)
 
 ```py
-numerator = math.MathematicalText("x")
-fraction = numerator.divide("y", math.MathFractionTypes.LINEAR)
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    limit = (
+        math.MathematicalText("lim")
+        .set_lower_limit("x\u2192\u221E")
+        .function("x")
+    )
+
+    math_paragraph.add(math.MathBlock(limit))
+
+    presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-### **Enclose 方法**
-
-- [enclose()](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/#)
-- [enclose(Char, Char)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/#char-char)
-
-这些方法使用指定字符（如圆括号或其他围绕字符）将元素包裹起来。例如：
+对于自定义函数名，只需将函数名设为当前元素：
 
 ```py
-delimiter = math.MathematicalText("x").enclose('[', ']')
-delimiter2 = math.MathematicalText("elem1").join("elem2").enclose()
+custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
+## **添加 N 元运算符和积分**
 
-### **Function 方法**
+使用 [`nary`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/nary/) 可生成求和、并集、交集等大型运算符。使用 [`integral`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/integral/) 可生成积分。两者都允许设置上下限。
 
-- [function(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/#str)
-- [function(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/#imathelement)
-
-这些方法使用当前对象作为函数名称，对参数进行函数操作。例如：
+![带有上下限的求和符号示例](powerpoint-math-equations_7.png)
 
 ```py
-function = math.MathematicalText("sin").function("x")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    summation_base = (
+        math.MathematicalText("x")
+        .set_superscript("k")
+        .join(math.MathematicalText("a").set_superscript("n-k"))
+    )
+
+    summation = summation_base.nary(math.MathNaryOperatorTypes.SUMMATION, "k=0", "n")
+
+    math_paragraph.add(math.MathBlock(summation))
+
+    presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+N 元运算符用于带可选上下限的大型运算符。像 `+`、`-`、`=` 这样的普通运算符通常作为 `MathematicalText` 添加并拼接到表达式中。
 
-### **AsArgumentOfFunction 方法**
-
-- [as_argument_of_function(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-
-这些方法使用当前实例作为参数来调用指定的函数。您可以：
-
-- 将字符串指定为函数名称，例如 “cos”；
-- 选择枚举 [MathFunctionsOfOneArgument](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunctionsofoneargument/) 或 [MathFunctionsOfTwoArguments](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunctionsoftwoarguments/) 中的预定义值，例如 `MathFunctionsOfOneArgument.ARC_SIN`；
-- 选择 [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) 的实例。
-
-例如：
+对于积分，使用 `integral`：
 
 ```py
-function_name = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑛→∞"))
-func1 = math.MathematicalText("2x").as_argument_of_function(function_name)
-func2 = math.MathematicalText("x").as_argument_of_function("sin")
-func3 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfOneArgument.SIN)
-func4 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfTwoArguments.LOG, "3")
+integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
+integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
 
+## **添加矩阵**
 
-### **SetSubscript、SetSuperscript、SetSubSuperscriptOnTheRight、SetSubSuperscriptOnTheLeft 方法**
+使用 [MathMatrix](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathmatrix/) 定义行列。矩阵默认不包含括号，如需括号、方括号或大括号，请自行在矩阵外添加相应符号。
 
-- [set_subscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/#str)
-- [set_subscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/#imathelement)
-- [set_superscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/#str)
-- [set_superscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/#imathelement)
-- [set_sub_superscript_on_the_right(String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_right/#str-str)
-- [set_sub_superscript_on_the_right(IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_right/#imathelement-imathelement)
-- [set_sub_superscript_on_the_left(String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/#str-str)
-- [set_sub_superscript_on_the_left(IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/#imathelement-imathelement)
-
-这些方法设置下标和上标。您可以在参数的左侧或右侧同时设置下标和上标；但单独的下标或上标仅在右侧受支持。**Superscript** 也可用于设置数字的数学次数。
-
-示例：
+![一个两行矩阵，其中一个单元格为空](powerpoint-math-equations_10.png)
 
 ```py
-script = math.MathematicalText("y").set_sub_superscript_on_the_left("2x", "3z")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    matrix = math.MathMatrix(2, 3)
+    matrix[0, 0] = math.MathematicalText("1")
+    matrix[0, 1] = math.MathematicalText("x")
+    matrix[1, 0] = math.MathematicalText("x")
+    matrix[1, 1] = math.MathematicalText("2")
+    matrix[1, 2] = math.MathematicalText("y")
+
+    math_paragraph.add(math.MathBlock(matrix))
+
+    presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **添加公式数组**
 
-### **Radical 方法**
+当需要对齐的公式或垂直堆叠的表达式时，使用 [`to_math_array`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/to_math_array/)。
 
-- [radical(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/#str)
-- [radical(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/#imathelement)
-
-这些方法根据指定的参数指定给定次数的数学根。
-
-示例：
+![一个垂直排列的数学数组，x 在 y 上方](powerpoint-math-equations_11.png)
 
 ```py
-radical = math.MathematicalText("x").radical("3")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 140)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    equation_array = (
+        math.MathematicalText("x")
+        .join("y")
+        .to_math_array()
+    )
+
+    math_paragraph.add(math.MathBlock(equation_array))
+
+    presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **添加三角函数**
 
-### **SetUpperLimit 和 SetLowerLimit 方法**
+当函数名已知且参数为当前元素时，使用 [`as_argument_of_function`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/)。
 
-- [set_upper_limit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/#str)
-- [set_upper_limit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/#imathelement)
-- [set_lower_limit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/#str)
-- [set_lower_limit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/#imathelement)
-
-这些方法接受上限或下限，其中 “upper” 和 “lower” 表示参数相对于基数的位置。
-
-让我们考虑一个表达式：
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-此类表达式可以通过结合 [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathFunction/) 和 [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathLimit/) 类，以及 [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) 类的操作来创建，如下所示：
+![三角函数 cos 应用于 2x 的示例](powerpoint-math-equations_6.png)
 
 ```py
-math_expression = math.MathematicalText("lim").set_lower_limit("x→∞").function("x")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    cosine = math.MathematicalText("2x").as_argument_of_function(
+        math.MathFunctionsOfOneArgument.COS
+    )
+
+    math_paragraph.add(math.MathBlock(cosine))
+
+    presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **添加下标和上标**
 
-### **Nary 和 Integral 方法**
+使用下标和上标助手添加指数和下标。当下标需要出现在基准左侧时，使用 [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/)。
 
-- [nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/#mathnaryoperatortypes-imathelement-imathelement)
-- [nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/#mathnaryoperatortypes-str-str)
-- [integral(MathIntegralTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes)
-- [integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-imathelement-imathelement)
-- [integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-str-str)
-- [integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-imathelement-imathelement-mathlimitlocations)
-- [integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-str-str-mathlimitlocations)
-
-`nary` 和 `integral` 方法都创建并返回由 [MathNaryOperator](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperator/) 类型表示的 N 元运算符。在 `nary` 方法中，枚举 [MathNaryOperatorTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperatortypes/) 指定运算符的类型（如求和或并集），不包括积分。 在 `integral` 方法中，使用枚举 [MathIntegralTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathintegraltypes/) 提供针对积分的专用操作。
-
-示例：
+![字母 Y 左侧带下标 1、上标 n 的示例](powerpoint-math-equations_9.png)
 
 ```py
-base_arg = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
-integral = base_arg.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    scripts = math.MathematicalText("Y").set_sub_superscript_on_the_left("1", "n")
+
+    math_paragraph.add(math.MathBlock(scripts))
+
+    presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **添加分界符**
 
-### **ToMathArray 方法**
+使用 [`enclose`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/enclose/) 将表达式包裹在分界符内。对于包含多个元素的分界符表达式，还可以设置分隔符字符。
 
-[to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) 将元素放入垂直数组中。如果在 [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) 实例上调用此操作，则其所有子元素都将放入返回的数组中。
-
-示例：
+![包含 x、y、z，并用竖线分隔的分界符表达式示例](powerpoint-math-equations_13.png)
 
 ```py
-array_function = math.MathematicalText("x").join("y").to_math_array()
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    delimiter = (
+        math.MathematicalText("x")
+        .join("y")
+        .join("z")
+        .enclose("<", ">")
+    )
+    delimiter.separator_character = "|"
+
+    math_paragraph.add(math.MathBlock(delimiter))
+
+    presentation.save("delimiters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **添加边框盒**
 
-### **格式化操作：Accent、Overbar、Underbar、Group、ToBorderBox、ToBox**
+使用 [`to_border_box`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/to_border_box/) 将整个公式框起来。
 
-- [accent](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/accent/) 方法：在元素顶部设置重音符号（字符）。
-- [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) 和 [underbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/underbar/) 方法：在顶部或底部设置横线。
-- [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) 方法：使用分组字符（如下弯括号等）将元素放入组中。
-- [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) 方法：放入边框盒中。
-- [to_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_box/) 方法：放入非可视盒（逻辑分组）中。
-
-示例：
+![一个带边框的公式，表示 a² = b² + c² 的示例](powerpoint-math-equations_12.png)
 
 ```py
-accent = math.MathematicalText("x").accent(chr(0x0303))
-bar = math.MathematicalText("x").overbar()
-group_chr = math.MathematicalText("x").join("y").join("z").group(chr(0x23E1), 
-        math.MathTopBotPositions.BOTTOM, 
-        math.MathTopBotPositions.TOP)
-border_box = math.MathematicalText("x+y+z").to_border_box()
-boxed_operator = math.MathematicalText(":=").to_box()
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    boxed_equation = (
+        math.MathematicalText("a")
+        .set_superscript("2")
+        .join("=")
+        .join(math.MathematicalText("b").set_superscript("2"))
+        .join("+")
+        .join(math.MathematicalText("c").set_superscript("2"))
+        .to_border_box()
+    )
+
+    math_paragraph.add(math.MathBlock(boxed_equation))
+
+    presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **分组项**
 
-## **常见问题**
+使用 [`group`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/group/) 在表达式上方或下方放置分组字符。可以添加限制以标记分组项。
 
-**如何向 PowerPoint 幻灯片添加数学公式？**
+![表达式 x + y 之下带有“任意文本”标签的分组示例](powerpoint-math-equations_15.png)
 
-要添加数学公式，您需要 [create a math shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) 对象，该对象自动包含一个数学部分。然后，您从 [MathPortion] 中检索 [MathParagraph]，并向其添加 [MathBlock] 对象。
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
 
-**是否可以创建复杂的嵌套数学表达式？**
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-是的，Aspose.Slides 允许通过嵌套 [MathBlocks] 来创建复杂的数学表达式。每个数学元素都可以使用操作（Join、Divide、Enclose 等）将元素组合成更复杂的结构。
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
 
-**如何更新或修改已有的数学公式？**
+    grouped = (
+        math.MathematicalText("x + y")
+        .group(chr(0x23DF), math.MathTopBotPositions.BOTTOM, math.MathTopBotPositions.TOP)
+        .set_lower_limit("any text")
+    )
 
-要更新公式，您需要通过 [MathParagraph] 访问现有的 [MathBlock]。然后，使用 Join、Divide、Enclose 等方法，您可以修改公式的各个元素。编辑完成后，保存演示文稿以应用更改。
+    math_paragraph.add(math.MathBlock(grouped))
+
+    presentation.save("grouped-terms.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **格式化数学元素**
+
+仅在有助于澄清公式时使用格式化助手。例如，[`overbar`](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/overbar/) 在数学元素上方添加横线。
+
+![带上划线的数学表达式 ABC 示例](powerpoint-math-equations_14.png)
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    overbar = math.MathematicalText("ABC").overbar()
+
+    math_paragraph.add(math.MathBlock(overbar))
+
+    presentation.save("overbar.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **快速参考**
+
+| 任务 | 主要 API |
+| --- | --- |
+| 创建数学文本 | [MathematicalText](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathematicaltext/) |
+| 合并元素 | [IMathElement.join](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/join/) |
+| 创建分数 | [IMathElement.divide](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/divide/) |
+| 添加上标或下标 | [set_superscript](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
+| 添加函数 | [function](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
+| 添加根式 | [radical](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/radical/) |
+| 添加极限 | [set_lower_limit](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
+| 添加左侧脚本 | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
+| 添加求和与积分 | [nary](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/integral/) |
+| 添加矩阵 | [MathMatrix](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/mathmatrix/) |
+| 添加公式数组 | [to_math_array](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
+| 添加分界符 | [enclose](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/enclose/) |
+| 添加横线和边框 | [overbar](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
+| 分组项 | [group](https://reference.aspose.com/slides/zh/python-net/aspose.slides.mathtext/imathelement/group/) |
+
+## **常见问题解答**
+
+**我可以编辑已有的 PowerPoint 公式吗？**
+
+可以。打开演示文稿，找到包含 `MathPortion` 的形状，获取其 `MathParagraph`，并在该段落中更新数学块。
+
+**公式会以可编辑的 PowerPoint 数学形式保存吗？**
+
+会。保存为 PPTX 时，Aspose.Slides 会将公式写入可编辑的 Office 数学内容。
+
+**我能将公式导出为 LaTeX 吗？**
+
+Aspose.Slides 将公式导出为 MathML。如果需要 LaTeX，请先导出为 MathML，然后使用支持目标 LaTeX 方言的工具将 MathML 转换为 LaTeX。
