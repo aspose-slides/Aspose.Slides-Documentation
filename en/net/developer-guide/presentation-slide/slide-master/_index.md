@@ -59,9 +59,11 @@ In Aspose.Slides, use the `Masters` collection to access master slides:
 using var presentation = new Presentation("presentation.pptx");
 
 var firstMasterSlide = presentation.Masters[0];
+var masterSlideCount = presentation.Masters.Count;
+var firstMasterLayoutSlideCount = firstMasterSlide.LayoutSlides.Count;
 
-Console.WriteLine("Master slides: " + presentation.Masters.Count);
-Console.WriteLine("Layouts in the first master: " + firstMasterSlide.LayoutSlides.Count);
+Console.WriteLine("Master slides: " + masterSlideCount);
+Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
 You can also get the master slide used by a normal slide through its layout:
@@ -72,8 +74,9 @@ using var presentation = new Presentation("presentation.pptx");
 var slide = presentation.Slides[0];
 var layoutSlide = slide.LayoutSlide;
 var masterSlide = layoutSlide.MasterSlide;
+var masterSlideName = masterSlide.Name;
 
-Console.WriteLine(masterSlide.Name);
+Console.WriteLine(masterSlideName);
 ```
 
 ## **What a Slide Master Contains**
@@ -87,7 +90,7 @@ Commonly used master slide members include:
 | `Background` | Sets the master-level slide background. |
 | `Shapes` | Stores shapes placed on the master, such as logos, picture frames, and shared text. |
 | `LayoutSlides` | Stores the layout slides that belong to the master. |
-| `AsIMasterThemeable` | Provides access to the master theme APIs. |
+| `ThemeManager` | Provides access to the master theme APIs. |
 | `HeaderFooterManager` | Controls headers, footers, dates, and slide numbers for the master and its child layouts. |
 | `GetDependingSlides` | Returns normal slides that depend on the master through their layouts. |
 
@@ -101,7 +104,8 @@ The following example adds a logo to the first master slide:
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
-var logoImage = presentation.Images.AddImage(File.ReadAllBytes("logo.png"));
+var logoBytes = File.ReadAllBytes("logo.png");
+var logoImage = presentation.Images.AddImage(logoBytes);
 
 masterSlide.Shapes.AddPictureFrame(
     ShapeType.Rectangle,
@@ -154,10 +158,13 @@ var titlePlaceholder = FindPlaceholder(masterSlide, PlaceholderType.Title);
 
 if (titlePlaceholder != null)
 {
+    var redGradientColor = Color.FromArgb(255, 0, 0);
+    var purpleGradientColor = Color.FromArgb(128, 0, 128);
+
     titlePlaceholder.FillFormat.FillType = FillType.Gradient;
     titlePlaceholder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(0, Color.FromArgb(255, 0, 0));
-    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(255, Color.FromArgb(128, 0, 128));
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(0, redGradientColor);
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(255, purpleGradientColor);
 }
 
 presentation.Save("presentation-title-style.pptx", SaveFormat.Pptx);
@@ -250,11 +257,18 @@ Master slides can be compared with the `Equals` method inherited from [IBaseSlid
 using var firstPresentation = new Presentation("first.pptx");
 using var secondPresentation = new Presentation("second.pptx");
 
-for (var firstMasterIndex = 0; firstMasterIndex < firstPresentation.Masters.Count; firstMasterIndex++)
+var firstPresentationMasterCount = firstPresentation.Masters.Count;
+var secondPresentationMasterCount = secondPresentation.Masters.Count;
+
+for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++)
 {
-    for (var secondMasterIndex = 0; secondMasterIndex < secondPresentation.Masters.Count; secondMasterIndex++)
+    for (var secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++)
     {
-        if (firstPresentation.Masters[firstMasterIndex].Equals(secondPresentation.Masters[secondMasterIndex]))
+        var firstMasterSlide = firstPresentation.Masters[firstMasterIndex];
+        var secondMasterSlide = secondPresentation.Masters[secondMasterIndex];
+        var areMasterSlidesEqual = firstMasterSlide.Equals(secondMasterSlide);
+
+        if (areMasterSlidesEqual)
         {
             Console.WriteLine(
                 "first.pptx master #{0} equals second.pptx master #{1}",

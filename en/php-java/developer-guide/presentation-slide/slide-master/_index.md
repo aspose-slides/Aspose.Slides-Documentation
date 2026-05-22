@@ -21,358 +21,362 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Manage Slide Masters in Aspose.Slides for PHP via Java: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise examples."
+description: "Manage slide masters in Aspose.Slides for PHP via Java: access, edit, clone, compare, and remove master slides in PowerPoint and OpenDocument presentations."
 ---
 
-## **Introduction**
+## **Overview**
 
-A **Slide Master** is a slide template that defines the layout, styles, theme, fonts, background, and other properties for slides in a presentation. If you want to create a presentation (or series of presentations) with the same style and template for your company, you can use a slide master. 
+A **slide master** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
 
-A Slide Master is useful because it allows you to set and change the look of all presentation slides at once. Aspose.Slides supports the Slide Master mechanism from PowerPoint. 
+Aspose.Slides for PHP via Java supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
 
-VBA also allows you to manipulate a Slide Master and execute the same operations supported in PowerPoint: change backgrounds, add shapes, customize the layout, etc. Aspose.Slides provides flexible mechanisms to allow you to use Slide Masters and perform basic tasks with them. 
+The hierarchy is:
 
-These are basic Slide Master operations:
+1. **Slide master** - defines the shared design and theme.
+1. **Layout slide** - defines a specific arrangement of placeholders and layout-level formatting.
+1. **Normal slide** - contains the actual presentation content and uses one layout slide.
 
-- Create or Slide Master.
-- Apply Slides Master to presentation slides.
-- Change Slide Master background. 
-- Add an image, placeholder, Smart Art, etc. to Slide Master.
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-These are more advanced operations involving Slide Master: 
+In Aspose.Slides, a slide master is represented by the [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) class. All master slides in a presentation are available through the [Presentation.getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters) method, which returns a [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) object.
 
-- Compare Slide Masters.
-- Merge Slide Masters.
-- Apply several Slide Masters.
-- Copy slide with Slide Master to another presentation.
-- Find out duplicate Slide Masters in presentations.
-- Set Slide Master as the presentation default view.
+{{% alert color="info" title="Inheritance" %}}
 
-{{% alert color="primary" %}} 
-
-You may want to check out Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) because it is a live implementation of some of the core processes described here.
-
-{{% /alert %}} 
-
-
-## **How Is a Slide Master Applied**
-
-Before you work with a slide master, you may want to understand how they are used in presentations and applied to slides. 
-
-* Every presentation has at least one Slide Master by default. 
-* A presentation can contain several Slide Masters. You can add several Slide Masters and use them to style different parts of a presentation in different ways. 
-
-In **Aspose.Slides**, a Slide Master is represented by [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) type.
-
-Aspose.Slides' [Presentation ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)object contains the [**getMasters** ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters)list of [**MasterSlideCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) type, which contains a list of all master slides that are defined in a presentation.
-
-Besides CRUD operations, the [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/)class contains these useful methods: [**addClone(LayoutSlide sourceLayout)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/#addClone) and [**insertClone(int index, MasterSlide sourceMaster)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/#insertClone) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups.
-
-When a new slide is added to a presentation, a Slide Master is applied to it automatically. The Slide Master of the previous slide is selected by default. 
-
-**Note**: Presentation slides are stored in [getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) list, and every new slide is added to the end of the collection by default. If a presentation contains a single Slide Master, that slide master is selected for all new slides. This is the reason you do not have to define the Slide Master for every new slide you create.
-
-The principle is the same for PowerPoint and Aspose.Slides. For example, in PowerPoint, when you add a new presentation, you can just press on the bottom line under the last slide and then a new slide (with the last presentation's Slide Master) will be created:
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-In Aspose.Slides, you can perform the equivalent task with the [addClone(Slide sourceSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) method under the [Presentation ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)class.
-
-
-## **Slide Master in the Slides Hierarchy**
-
-Using Slide Layouts with Slide Master allows for maximum flexibility. A Slide Layout allows you to set all the same styles as Slide Master (background, fonts, shapes, etc.). However, when several Slide Layouts are combined on a Slide Master, a new style is created. When you apply a Slide Layout to a single slide, you can change its style from the one applied by the Slide Master.
-
-Slide Master outranks all setups items: Slide Master -> Slide Layout -> Slide:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Each [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) object has a [**getLayoutSlides**](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getLayoutSlides) property with a list of Slide Layouts. A [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) type has a [**getLayoutSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/Slide/#getLayoutSlide) property with a link on a Slide Layout applied to the slide. The interaction between a slide and Slide Master occurs through a Slide Layout.
-
-{{% alert color="info" title="Note" %}}
-
-* In Aspose.Slides, all the slide setups (Slide Master, Slide Layout, and the slide itself) are actually slide objects that inherit the [**BaseSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) class.
-* Therefore, Slide Master and Slide Layout may implement the same properties and you need to know how their values will be applied to a  [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) object. The Slide Master is applied first to a slide and then the Slide Layout is applied. For example, if the Slide Master and Slide Layout both have a background value, the Slide will end up with the background from the Slide Layout.
+When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/php-java/slide-layout/).
 
 {{% /alert %}}
 
+## **Access Slide Masters**
+
+In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
+
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+
+In Aspose.Slides, use the `getMasters` method to access master slides:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $firstMasterSlide = $presentation->getMasters()->get_Item(0);
+    $masterSlideCount = $presentation->getMasters()->size();
+    $firstMasterLayoutSlideCount = $firstMasterSlide->getLayoutSlides()->size();
+
+    echo "Master slides: " . $masterSlideCount . PHP_EOL;
+    echo "Layouts in the first master: " . $firstMasterLayoutSlideCount . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+You can also get the master slide used by a normal slide through its layout:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $slide->getLayoutSlide();
+    $masterSlide = $layoutSlide->getMasterSlide();
+    $masterSlideName = $masterSlide->getName();
+
+    echo $masterSlideName . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **What a Slide Master Contains**
 
-To understand how a Slide Master can be changed, you need to know its constituents. These are [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) core properties.
+A master slide is a slide-like object. It extends [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/), so it exposes many of the same slide properties used by normal and layout slides. Master-specific members are listed on the [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) API page.
 
-- [getBackground](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getBackground) get/set slide background.
-- [getBodyStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getBodyStyle) - get/set text styles of the slide’s body.
-- [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getShapes) get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
-- [getControls](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getControls) get/set ActiveX controls.
-- [getThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/#getThemeManager) - get theme manager.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getHeaderFooterManager) - get header and footer manager.
+Commonly used master slide members include:
 
-Slide Master methods:
-
-- [getDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getDependingSlides) - get all Slides depending on the Slide Master.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#applyExternalThemeToDependingSlides) - allows you to create a new Slide Master based on the current Slide Master and a new theme. The new Slide Master will then be applied to all dependent slides.
-
-
-## **Get a Slide Master**
-
-In PowerPoint, Slide Master can be accessed from the View -> Slide Master menu:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-Using Aspose.Slides, you can access a Slide Master this way: 
-
-```php
-  $pres = new Presentation();
-  try {
-    # Gives access to the Presentation's master slide
-    $masterSlide = $pres->getMasters()->get_Item(0);
-  } finally {
-    $pres->dispose();
-  }
-```
-
-The [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) class represents a Slide Master. The [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getMasters) method (related to [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlideCollection) type) returns a list of all Slide Masters that are defined in the presentation. 
-
+| Member | Purpose |
+| --- | --- |
+| `getBackground` | Sets the master-level slide background. |
+| `getShapes` | Stores shapes placed on the master, such as logos, picture frames, and shared text. |
+| `getLayoutSlides` | Stores the layout slides that belong to the master. |
+| `getThemeManager` | Provides access to the master theme APIs. |
+| `getHeaderFooterManager` | Controls headers, footers, dates, and slide numbers for the master and its child layouts. |
+| `getDependingSlides` | Returns normal slides that depend on the master through their layouts. |
 
 ## **Add an Image to a Slide Master**
 
-When you add an image to a Slide Master, that image will appear on all slides dependent on that slide master. 
+When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
 
-For example, you can place your company's logo and a few images on the Slide Master and then switch back to slide editing mode. You should see the image on every slide. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-You can add images to a slide master with Aspose.Slides:
+The following example adds a logo to the first master slide:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $picture;
-    $image = Images->fromFile("image.png");
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $logoImage = Images::fromFile("logo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $presentationImage = $presentation->getImages()->addImage($logoImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        $logoImage->dispose();
     }
-    $pres->getMasters()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $masterSlide->getShapes()->addPictureFrame(
+        ShapeType::Rectangle,
+        20,
+        20,
+        80,
+        80,
+        $presentationImage
+    );
+
+    $presentation->save("presentation-with-logo.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" title="See also" %}} 
+For more information about picture frames, see [Picture Frame](/slides/php-java/picture-frame/).
 
-For more information on adding images to a slide, see the [Picture Frame](/slides/php-java/picture-frame/#create-picture-frame) article.
-{{% /alert %}}
+## **Work with Placeholders**
 
+Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
 
-## **Add a Placeholder to a Slide Master**
+In PowerPoint, placeholder commands are available in Slide Master view.
 
-These text fields are standard placeholders on a Slide Master: 
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
-* Click to edit Master title style
-
-* Edit Master text styles
-
-* Second level
-
-* Third level 
-
-  They also appear on the slides based on Slide Master. You can edit those placeholders on a Slide Master and the changes are applied automatically to the slides. 
-
-In PowerPoint, you can add a placeholder through the Slide Master -> Insert Placeholder path:
-
-
-
-![todo:image_alt_text](slide-master_5.png)
-
-
-
-Let's examine a more complicated example for placeholders with Aspose.Slides. Consider a slide with placeholders templated from the Slide Master:
-
-
-
-![todo:image_alt_text](slide-master_6.png)
-
-
-
-We want to change the Title and Subtitle formatting on the Slide Master this way:
-
-![todo:image_alt_text](slide-master_7.png)
-
-
-
-First, we retrieve the title placeholder content from the Slide Master object and then use the`PlaceHolder.FillFormat` field: 
+To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
 
 ```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $blankLayoutSlideName = "Custom Blank";
+    $blankLayoutSlide = $masterSlide->getLayoutSlides()->add(
+        SlideLayoutType::Blank,
+        $blankLayoutSlideName
+    );
 
+    $blankLayoutSlide->getPlaceholderManager()->addTextPlaceholder(
+        60,
+        120,
+        600,
+        80
+    );
+
+    $presentation->getSlides()->addEmptySlide($blankLayoutSlide);
+    $presentation->save("presentation-with-placeholder.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-The title style and formatting will change for all slides based on the slide master:
-
-
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}} 
-
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/php-java/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/php-java/text-formatting/)
-
-{{% /alert %}}
-
-
-## **Change the Background on a Slide Master**
-
-When you change a master slide's background color, all the normal slides in the presentation will get the new color. This PHP code demonstrates the operation:
+You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $master = $pres->getMasters()->get_Item(0);
-    $master->getBackground()->setType(BackgroundType::OwnBackground);
-    $master->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $master->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $titlePlaceholder = findPlaceholder($masterSlide, PlaceholderType::Title);
+
+    if (!java_is_null($titlePlaceholder)) {
+        $redGradientColor = java("java.awt.Color")->RED;
+        $purpleGradientColor = new Java("java.awt.Color", 128, 0, 128);
+
+        $fillFormat = $titlePlaceholder->getFillFormat();
+        $fillFormat->setFillType(FillType::Gradient);
+        $gradientFormat = $fillFormat->getGradientFormat();
+        $gradientFormat->setGradientShape(GradientShape::Linear);
+        $gradientStops = $gradientFormat->getGradientStops();
+        $gradientStops->add(0, $redGradientColor);
+        $gradientStops->add(255, $purpleGradientColor);
     }
-  }
+
+    $presentation->save("presentation-title-style.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+function findPlaceholder($masterSlide, $placeholderType)
+{
+    $shapesCount = java_values($masterSlide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapesCount; $shapeIndex++) {
+        $shape = $masterSlide->getShapes()->get_Item($shapeIndex);
+        $placeholder = $shape->getPlaceholder();
+
+        if (!java_is_null($placeholder) && java_values($placeholder->getType()) == $placeholderType) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
 ```
 
-{{% alert color="primary" title="See also" %}} 
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-- [Presentation Background](https://docs.aspose.com/slides/php-java/presentation-background/)
+For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/php-java/manage-placeholder/) and [Text Formatting](/slides/php-java/text-formatting/).
 
-- [Presentation Theme](https://docs.aspose.com/slides/php-java/presentation-theme/)
+## **Change a Slide Master Background**
 
-  {{% /alert %}}
+A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $forestGreenColor = new Java("java.awt.Color", 34, 139, 34);
+
+    $background = $masterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($forestGreenColor);
+
+    $presentation->save("presentation-master-background.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+For related topics, see [Presentation Background](/slides/php-java/presentation-background/) and [Presentation Theme](/slides/php-java/presentation-theme/).
 
 ## **Clone a Slide Master to Another Presentation**
 
-To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) method from the destination presentation alongside a Slide Master passed into it. This PHP code shows you how to clone a Slide Master to another presentation:
+Use `addClone` from [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
 
 ```php
-  $presSource = new Presentation();
-  $presTarget = new Presentation();
-  try {
-    $master = $presTarget->getMasters()->addClone($presSource->getMasters()->get_Item(0));
-  } finally {
-    if (!java_is_null($presSource)) {
-      $presSource->dispose();
-    }
-  }
+$sourcePresentation = new Presentation("source.pptx");
+$destinationPresentation = new Presentation("destination.pptx");
+try {
+    $sourceMasterSlide = $sourcePresentation->getMasters()->get_Item(0);
+    $clonedMasterSlide = $destinationPresentation->getMasters()->addClone($sourceMasterSlide);
+
+    $destinationPresentation->save("destination-with-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destinationPresentation->dispose();
+    $sourcePresentation->dispose();
+}
 ```
 
+If you need to clone normal slides together with their master, see [Clone Slides](/slides/php-java/clone-slides/).
 
-## **Add Multiple Slide Masters to a Presentation**
+## **Add Multiple Slide Masters**
 
-Aspose.Slides allows you to add several Slide Masters and Slide Layouts to any given presentation. This allows you to set up styles, layouts, and formatting options for presentation slides in many ways. 
+A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
 
-In PowerPoint, you can add new Slide Masters and Layouts (from the "Slide Master menu) this way:
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-![todo:image_alt_text](slide-master_9.jpg)
-
-Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) method:
+The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
 
 ```php
-  # Adds a new master slide
-  $secondMasterSlide = $pres->getMasters()->addClone($masterSlide);
+$presentation = new Presentation("presentation.pptx");
+try {
+    $defaultMasterSlide = $presentation->getMasters()->get_Item(0);
+    $sectionMasterSlide = $presentation->getMasters()->addClone($defaultMasterSlide);
+    $lightSteelBlueColor = new Java("java.awt.Color", 176, 196, 222);
 
+    $background = $sectionMasterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($lightSteelBlueColor);
+
+    $sourceBlankLayout = $defaultMasterSlide->getLayoutSlides()->get_Item(0);
+    $sectionBlankLayout = $sectionMasterSlide->getLayoutSlides()->addClone($sourceBlankLayout);
+
+    $presentation->getSlides()->addEmptySlide($sectionBlankLayout);
+    $presentation->save("presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-
 
 ## **Compare Slide Masters**
 
-A Master Slide implements the [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) class containing the [**equals**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#equals) method, which can then be used to compare slides. It returns `true` for Master Slides identical in structure and static content.
-
-Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison does not take unique identifier values (e.g. SlideId) and dynamic content (e.g. current date value in Date Placeholder) into account. 
-
-
-## **Set a Slide Master as the Presentation Default View**
-
-Aspose.Slides allows you to set a Slide Master as the default view for a presentation. The default view is what you see first when you open a presentation. 
-
-This code shows you how to set a Slide Master as a presentation's default view :
+Master slides can be compared with the `equals` method inherited from [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
 
 ```php
-  # Instantiates a Presentation class that represents the presentation file
-  $presentation = new Presentation();
-  try {
-    # Sets the Default View as SlideMasterView
-    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    # Saves the presentation
-    $presentation->save("PresView.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
+$firstPresentation = new Presentation("first.pptx");
+$secondPresentation = new Presentation("second.pptx");
+try {
+    $firstPresentationMasterCount = java_values($firstPresentation->getMasters()->size());
+    $secondPresentationMasterCount = java_values($secondPresentation->getMasters()->size());
+
+    for ($firstMasterIndex = 0; $firstMasterIndex < $firstPresentationMasterCount; $firstMasterIndex++) {
+        for ($secondMasterIndex = 0; $secondMasterIndex < $secondPresentationMasterCount; $secondMasterIndex++) {
+            $firstMasterSlide = $firstPresentation->getMasters()->get_Item($firstMasterIndex);
+            $secondMasterSlide = $secondPresentation->getMasters()->get_Item($secondMasterIndex);
+            $areMasterSlidesEqual = $firstMasterSlide->equals($secondMasterSlide);
+
+            if ($areMasterSlidesEqual) {
+                echo "first.pptx master #" . $firstMasterIndex .
+                    " equals second.pptx master #" . $secondMasterIndex . PHP_EOL;
+            }
+        }
+    }
+} finally {
+    $secondPresentation->dispose();
+    $firstPresentation->dispose();
+}
 ```
+
+For more information, see [Compare Presentation Slides](/slides/php-java/compare-slides/).
+
+## **Set Slide Master View as the Default View**
+
+Use the `setLastView` method on [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
+    $presentation->save("presentation-master-view.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+For more view settings, see [Save Presentation](/slides/php-java/save-presentation/).
 
 ## **Remove Unused Master Slides**
 
-Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides) method (from the  [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This PHP code shows you how to remove a master slide from a PowerPoint presentation:
+Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
+
+Use `removeUnused` from [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) to remove unused masters from the `getMasters` collection:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->removeUnusedMasterSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getMasters()->removeUnused(true);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+You can also use the low-code `removeUnusedMasterSlides` method from the [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) class:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    Compress::removeUnusedMasterSlides($presentation);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**What is a Slide Master in PowerPoint?**
+**What is the difference between a slide master and a layout slide?**
 
-A Slide Master is a slide template that defines the layout, styles, themes, fonts, background, and other properties for slides in a presentation. It allows you to set and change the look of all presentation slides at once.  
+A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-**How is a Slide Master applied in a presentation?**
+**Can one presentation contain several slide masters?**
 
-Every presentation has at least one Slide Master by default. When a new slide is added, a Slide Master is applied to it automatically, typically inheriting the master of the previous slide. A presentation can contain multiple Slide Masters to style different parts uniquely.  
+Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-**What elements can be customized in a Slide Master?**
+**Should I add placeholders to a master slide or a layout slide?**
 
-A Slide Master comprises several core properties that can be customized:
+In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-- **Background**: Set the slide background.
-- **BodyStyle**: Define text styles for the slide's body.
-- **Shapes**: Manage all shapes on the Slide Master, including placeholders and picture frames.
-- **Controls**: Handle ActiveX controls.
-- **ThemeManager**: Access the theme manager.
-- **HeaderFooterManager**: Manage headers and footers.  
+**Can I delete a master slide that is still used?**
 
-**How can I add an image to a Slide Master?**
-
-Adding an image to a Slide Master ensures it appears on all slides that depend on that master. For example, placing a company logo on the Slide Master will display it on every slide in the presentation.  
-
-**How do Slide Masters relate to Slide Layouts?**
-
-Slide Layouts work in conjunction with Slide Masters to provide flexibility in slide design. While a Slide Master defines overarching styles and themes, Slide Layouts allow for variations in content arrangement. The hierarchy is as follows:
-
-- **Slide Master** → Defines global styles.
-- **Slide Layout** → Provides different content arrangements.
-- **Slide** → Inherits design from its Slide Layout.
-
-**Can I have multiple Slide Masters in a single presentation?**
-
-Yes, a presentation can contain several Slide Masters. This allows you to style different sections of a presentation in various ways, providing flexibility in design.  
-
-**How do I access and modify a Slide Master using Aspose.Slides?**
-
-In Aspose.Slides, a Slide Master is represented by the [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) class. You can access a Slide Master using the [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) method of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) object.
+No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.
