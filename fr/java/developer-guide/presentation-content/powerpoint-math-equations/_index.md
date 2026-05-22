@@ -1,6 +1,6 @@
 ---
 title: Ajouter des équations mathématiques aux présentations PowerPoint en Java
-linktitle: Équations mathématiques PowerPoint
+linktitle: Équations Mathématiques PowerPoint
 type: docs
 weight: 80
 url: /fr/java/powerpoint-math-equations/
@@ -17,434 +17,443 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Insérer et modifier des équations mathématiques dans les fichiers PowerPoint PPT et PPTX avec Aspose.Slides pour Java, en prenant en charge OMML, les contrôles de formatage et des exemples de code Java clairs."
+description: "Insérer et modifier des équations mathématiques dans PowerPoint PPT et PPTX avec Aspose.Slides for Java, prenant en charge OMML, les contrôles de formatage et des exemples de code Java clairs."
 ---
+## **Vue d'ensemble**
 
-## **Vue d’ensemble**
-Dans PowerPoint, il est possible d’écrire une équation ou une formule mathématique et de l’afficher dans la présentation. Pour cela, divers symboles mathématiques sont représentés dans PowerPoint et peuvent être ajoutés au texte ou à l’équation. Le constructeur d’équations mathématiques de PowerPoint sert à créer des formules complexes telles que :
+PowerPoint stocke les équations au format Office Math Markup Language (OMML). Avec Aspose.Slides for Java, vous pouvez créer le même type de contenu mathématique de manière programmatique : fractions, radicaux, fonctions, limites, opérateurs N‑aires, matrices, tableaux et blocs mathématiques formatés.
 
-- Fraction mathématique
-- Racine mathématique
-- Fonction mathématique
-- Limites et fonctions logarithmiques
-- Opérations n‑aires
-- Matrice
-- Opérateurs larges
-- Fonctions sin, cos
+Dans PowerPoint, les utilisateurs ajoutent généralement des équations via **Insertion > Équation** :
 
-Pour ajouter une équation mathématique dans PowerPoint, le menu *Insertion → Équation* est utilisé :
+![Onglet Insertion de PowerPoint avec la commande Équation sélectionnée](powerpoint-math-equations_1.png)
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+Le résultat est du texte mathématique modifiable sur la diapositive :
 
-Cela crée un texte mathématique en XML qui peut être affiché dans PowerPoint comme suit :
+![Une diapositive PowerPoint contenant une équation mathématique modifiable](powerpoint-math-equations_2.png)
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+Aspose.Slides construit ce texte mathématique à l’aide de trois objets principaux :
 
-PowerPoint prend en charge de nombreux symboles mathématiques pour créer des équations. Cependant, créer des équations complexes dans PowerPoint ne donne pas toujours un résultat élégant et professionnel. Les utilisateurs qui doivent fréquemment créer des présentations mathématiques se tournent souvent vers des solutions tierces pour obtenir de belles formules.
+- Une forme mathématique, créée avec [addMathShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), est la forme qui contient l'équation.
+- [MathPortion](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathportion/) stocke le contenu mathématique à l’intérieur du cadre de texte de la forme.
+- [MathParagraph](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathparagraph/) contient un ou plusieurs objets [MathBlock](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathblock/).
 
-En utilisant [**Aspose.Slide API**](https://products.aspose.com/slides/java/), vous pouvez travailler avec les équations mathématiques dans les présentations PowerPoint de façon programmatique en C#. Créez de nouvelles expressions mathématiques ou modifiez celles existantes. L’exportation des structures mathématiques en images est également partiellement prise en charge.
+La plupart des exemples ci‑dessus utilisent [MathematicalText](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathematicaltext/) et les méthodes fluides de [IMathElement](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/) pour garder le code court et lisible.
 
+Pour les scénarios d’exportation MathML, voir [Exporter des équations mathématiques depuis des présentations en Java](/slides/fr/java/exporting-math-equations/).
 
-## **Comment créer une équation mathématique**
-Les éléments mathématiques sont utilisés pour construire toute construction mathématique avec n’importe quel niveau d’imbrication. Une collection linéaire d’éléments mathématiques forme un bloc mathématique représenté par la classe [**MathBlock**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBlock). La classe [**MathBlock**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBlock) représente essentiellement une expression, une formule ou une équation séparée. [**MathPortion**](https://reference.aspose.com/slides/java/com.aspose.slides/MathPortion) est une portion mathématique, utilisée pour contenir du texte mathématique (à ne pas confondre avec [**Portion**](https://reference.aspose.com/slides/java/com.aspose.slides/Portion)). [**MathParagraph**](https://reference.aspose.com/slides/java/com.aspose.slides/MathParagraph) permet de manipuler un ensemble de blocs mathématiques. Les classes susmentionnées sont la clé pour travailler avec les équations mathématiques PowerPoint via l’API Aspose.Slides.
+## **Créer une équation**
 
-Voyons comment créer l’équation mathématique suivante via l’API Aspose.Slides :
+Cet exemple crée une forme mathématique et ajoute le théorème de Pythagore :
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
-
-Pour ajouter une expression mathématique sur la diapositive, ajoutez d’abord une forme qui contiendra le texte mathématique :
+![L’équation c au carré égale a au carré plus b au carré](powerpoint-math-equations_3.png)
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape mathShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 720, 150);
-} finally {
-    if (pres != null) pres.dispose();
-}
-``` 
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-Après création, la forme contiendra déjà un paragraphe avec une portion mathématique par défaut. La classe [**MathPortion**](https://reference.aspose.com/slides/java/com.aspose.slides/MathPortion) représente une portion contenant du texte mathématique. Pour accéder au contenu mathématique de la [**MathPortion**](https://reference.aspose.com/slides/java/com.aspose.slides/MathPortion), référez‑vous à la variable [**MathParagraph**](https://reference.aspose.com/slides/java/com.aspose.slides/MathParagraph) :
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 
-```java
-IMathParagraph mathParagraph = ((MathPortion)mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)).getMathParagraph();
-``` 
-
-La classe [**MathParagraph**](https://reference.aspose.com/slides/java/com.aspose.slides/MathParagraph) permet de lire, ajouter, modifier et supprimer des blocs mathématiques ([**MathBlock**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBlock)), qui consistent en une combinaison d’éléments mathématiques. Par exemple, créez une fraction et placez‑la dans la présentation :
-
-```java
-IMathFraction fraction = new MathematicalText("x").divide("y");
-
-mathParagraph.add(new MathBlock(fraction));
-``` 
-
-Chaque élément mathématique est représenté par une classe implémentant l’interface [**IMathElement**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement). Cette interface fournit de nombreuses méthodes pour créer facilement des expressions mathématiques. Vous pouvez créer une expression assez complexe en une seule ligne de code. Par exemple, le théorème de Pythagore s’écrirait ainsi :
-
-```java
-IMathBlock mathBlock = new MathematicalText("c")
-        .setSuperscript("2")
-        .join("=")
-        .join(new MathematicalText("a").setSuperscript("2"))
-        .join("+")
-        .join(new MathematicalText("b").setSuperscript("2"));
-``` 
-
-Les opérations de l’interface [**IMathElement**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement) sont implémentées dans tout type d’élément, y compris le [**MathBlock**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBlock).
-
-Exemple complet :
-
-```java
-Presentation pres = new Presentation();
-try {
-    IAutoShape mathShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 720, 150);
-
-    IMathParagraph mathParagraph = ((MathPortion)mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)).getMathParagraph();
-    
-    IMathFraction fraction = new MathematicalText("x").divide("y");
-
-    mathParagraph.add(new MathBlock(fraction));
-
-    IMathBlock mathBlock = new MathematicalText("c")
+    IMathBlock equation = new MathematicalText("c")
             .setSuperscript("2")
             .join("=")
             .join(new MathematicalText("a").setSuperscript("2"))
             .join("+")
             .join(new MathematicalText("b").setSuperscript("2"));
-    mathParagraph.add(mathBlock);
 
-    pres.save("math.pptx", SaveFormat.Pptx);
+    mathParagraph.add(equation);
+
+    presentation.save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-``` 
+```
 
-## **Types d'éléments mathématiques**
-Les expressions mathématiques sont formées à partir de séquences d’éléments mathématiques. La séquence d’éléments est représentée par un bloc mathématique, et les arguments des éléments forment une imbrication en forme d’arbre.
+{{% alert color="primary" %}}
+`addMathShape` crée une forme qui contient déjà un paragraphe mathématique. Accédez au premier `MathPortion`, obtenez son `MathParagraph` et ajoutez des blocs ou des éléments mathématiques.
+{{% /alert %}}
 
-Il existe de nombreux types d’éléments pouvant être utilisés pour construire un bloc mathématique. Chaque élément peut être inclus (agrégé) dans un autre. Autrement dit, les éléments sont en fait des conteneurs pour d’autres, formant une structure arborescente. Le type le plus simple d’élément ne contient pas d’autres éléments du texte mathématique.
+## **Ajouter des fractions**
 
-Chaque type d’élément implémente l’interface [**IMathElement**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement), permettant l’utilisation d’un jeu commun d’opérations mathématiques sur différents types d’éléments.
+Utilisez `divide` pour créer une fraction. Vous pouvez choisir un style de fraction avec [MathFractionTypes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathfractiontypes/).
 
-### **Classe MathematicalText**
-La classe [**MathematicalText**](https://reference.aspose.com/slides/java/com.aspose.slides/MathematicalText) représente du texte mathématique – l’élément sous‑jacent de toutes les constructions mathématiques. Le texte mathématique peut représenter des opérandes, des opérateurs, des variables, etc.
-
-Exemple : 𝑎=𝑏+𝑐
-
-### **Classe MathFraction**
-La classe [**MathFraction**](https://reference.aspose.com/slides/java/com.aspose.slides/MathFraction) définit un objet fraction, constitué d’un numérateur et d’un dénominateur séparés par une barre de fraction. La barre peut être horizontale ou diagonale selon les propriétés. Elle sert également à représenter la fonction « stack », qui place un élément au‑dessus d’un autre sans barre.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_4.png)
-
-### **Classe MathRadical**
-La classe [**MathRadical**](https://reference.aspose.com/slides/java/com.aspose.slides/MathRadical) spécifie la fonction radicale (racine mathématique), composée d’une base et d’un degré optionnel.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_5.png)
-
-### **Classe MathFunction**
-La classe [**MathFunction**](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunction) spécifie une fonction d’un argument. Elle possède les propriétés : [getName](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunction#getName--) – nom de la fonction et [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunction#getBase--) – argument de la fonction.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_6.png)
-
-### **Classe MathNaryOperator**
-La classe [**MathNaryOperator**](https://reference.aspose.com/slides/java/com.aspose.slides/MathNaryOperator) définit un objet mathématique n‑aire, tel que Σ ou ∫. Il comprend un opérateur, une base (ou opérande) et des limites supérieures et inférieures optionnelles. Les opérateurs simples comme + ou – ne sont pas inclus ; ils sont représentés par un seul élément texte – [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/MathematicalText).
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_7.png)
-
-### **Classe MathLimit**
-La classe [**MathLimit**](https://reference.aspose.com/slides/java/com.aspose.slides/MathLimit) crée une limite supérieure ou inférieure. Elle spécifie un objet limite composé d’un texte de base et d’un texte réduit placé immédiatement au-dessus ou en dessous. L’élément n’inclut pas le mot « lim », mais permet de placer le texte en haut ou en bas de l’expression.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-Création :
+![Une fraction mathématique inclinée montrant un divisé par x](powerpoint-math-equations_4.png)
 
 ```java
-MathLimit funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-MathFunction mathFunc = new MathFunction(funcName, new MathematicalText("𝑥"));
-``` 
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 
-### **Classes MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement**
-- [MathSubscriptElement](https://reference.aspose.com/slides/java/com.aspose.slides/MathSubscriptElement)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/java/com.aspose.slides/MathSuperscriptElement)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/java/com.aspose.slides/MathRightSubSuperscriptElement)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/java/com.aspose.slides/MathLeftSubSuperscriptElement)
+    IMathFraction fraction = new MathematicalText("1")
+            .divide("x", MathFractionTypes.Skewed);
 
-Ces classes définissent un indice inférieur ou supérieur. Vous pouvez définir simultanément indice et exposant à gauche ou à droite d’un argument, mais un seul indice ou exposant seul n’est possible qu’à droite. [MathSubscriptElement] peut également servir à définir le degré d’un nombre.
+    mathParagraph.add(new MathBlock(fraction));
 
-Exemple :
+    presentation.save("fraction.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-![todo:image_alt_text](powerpoint-math-equations_9.png)
-
-### **Classe MathMatrix**
-La classe [**MathMatrix**](https://reference.aspose.com/slides/java/com.aspose.slides/MathMatrix) spécifie un objet matrice, composé d’éléments enfants disposés en lignes et colonnes. Les matrices n’ont pas de délimiteurs intégrés ; pour les placer entre crochets, il faut utiliser l’objet délimiteur – [**IMathDelimiter**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathDelimiter). Des arguments nuls permettent de créer des espaces dans les matrices.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_10.png)
-
-### **Classe MathArray**
-La classe [**MathArray**](https://reference.aspose.com/slides/java/com.aspose.slides/MathArray) spécifie un tableau vertical d’équations ou d’autres objets mathématiques.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_11.png)
-
-### **Mise en forme des éléments mathématiques**
-- Classe [**MathBorderBox**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBorderBox) : dessine un rectangle ou toute autre bordure autour de l’[**IMathElement**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement).
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_12.png)
-
-- Classe [**MathBox**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBox) : spécifie un encadrement logique de l’élément mathématique.
-
-- Classe [**MathDelimiter**](https://reference.aspose.com/slides/java/com.aspose.slides/MathDelimiter) : spécifie l’objet délimiteur, composé de caractères d’ouverture et de fermeture (parenthèses, accolades, crochets, barres verticales) et d’un ou plusieurs éléments mathématiques à l’intérieur.
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_13.png)
-
-- Classe [**MathAccent**](https://reference.aspose.com/slides/java/com.aspose.slides/MathAccent) : spécifie la fonction accent, composée d’une base et d’un diacritique combiné.
-
-  Exemple : 𝑎́.
-
-- Classe [**MathBar**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBar) : spécifie la fonction barre, composée d’un argument de base et d’une barre supérieure ou inférieure.
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_14.png)
-
-- Classe [**MathGroupingCharacter**](https://reference.aspose.com/slides/java/com.aspose.slides/MathGroupingCharacter) : spécifie un symbole de regroupement au‑dessus ou au‑dessous d’une expression, généralement pour mettre en évidence les relations entre les éléments.
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_15.png)
-
-
-## **Opérations mathématiques**
-Chaque élément et chaque expression mathématique (via [**MathBlock**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBlock)) implémente l’interface [**IMathElement**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement). Elle permet d’appliquer des opérations sur la structure existante et de former des expressions plus complexes. Toutes les opérations acceptent deux jeux de paramètres : soit un [**IMathElement**], soit une chaîne. Les instances de la classe [**MathematicalText**](https://reference.aspose.com/slides/java/com.aspose.slides/MathematicalText) sont créées implicitement à partir des chaînes lorsqu’on utilise des arguments de type string. Les opérations mathématiques disponibles dans Aspose.Slides sont listées ci‑dessous.
-
-### **Méthode Join**
-- [join(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#join-java.lang.String-)
-- [join(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#join-com.aspose.slides.IMathElement-)
-
-Joint un élément mathématique et forme un bloc mathématique. Exemple :
+Pour une fraction empilée, utilisez `MathFractionTypes.Bar` :
 
 ```java
-IMathElement element1 = new MathematicalText("x");
+IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
+```
 
-IMathElement element2 = new MathematicalText("y");
+## **Ajouter des radicaux**
 
-IMathBlock block = element1.join(element2);
-``` 
+Utilisez `radical` pour créer une racine carrée, cubique ou autre. L’élément actuel devient la base, et l’argument devient le degré.
 
-### **Méthode Divide**
-- [divide(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#divide-java.lang.String-)
-- [divide(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-)
-- [divide(String, MathFractionTypes)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#divide-java.lang.String-int-)
-- [divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-int-)
-
-Crée une fraction du type indiqué avec ce numérateur et ce dénominateur. Exemple :
+![Une expression radicande de degré n avec x sous le signe radical](powerpoint-math-equations_5.png)
 
 ```java
-IMathElement numerator = new MathematicalText("x");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-IMathFraction fraction = numerator.divide("y", MathFractionTypes.Linear);
-``` 
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 
-### **Méthode Enclose**
-- [enclose()](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#enclose--)
-- [enclose(Char, Char)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#enclose-char-char-)
+    IMathRadical radical = new MathematicalText("x")
+            .radical("n");
 
-Encadre l’élément avec les caractères spécifiés, comme des parenthèses.
+    mathParagraph.add(new MathBlock(radical));
 
-```java
-/**
- * <p>
- * Enclose a math element in parenthesis
- * </p>
- */
-public IMathDelimiter enclose();
+    presentation.save("radical.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-/**
- * <p>
- * Encloses this element in specified characters such as parenthesis or another characters as framing
- * </p>
- */
-public IMathDelimiter enclose(char beginningCharacter, char endingCharacter);
-``` 
+## **Ajouter des fonctions et des limites**
 
-Exemple :
+Utilisez `asArgumentOfFunction` ou `function` pour des fonctions comme `sin(x)`, `log(x)` ou des noms de fonctions personnalisés. Pour les limites, placez `lim` dans un [MathLimit](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathlimit/) ou utilisez `setLowerLimit`.
+
+![La limite de x lorsque x tend vers l’infini](powerpoint-math-equations_8.png)
 
 ```java
-IMathDelimiter delimiter = new MathematicalText("x").enclose('[', ']');
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-IMathDelimiter delimiter2 = new MathematicalText("elem1").join("elem2").enclose();
-``` 
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 
-### **Méthode Function**
-- [function(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#function-java.lang.String-)
-- [function(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#function-com.aspose.slides.IMathElement-)
+    IMathFunction limit = new MathematicalText("lim")
+            .setLowerLimit("x\u2192\u221E")
+            .function("x");
 
-Applique une fonction à un argument en utilisant l’objet actuel comme nom de fonction.
+    mathParagraph.add(new MathBlock(limit));
 
-```java
-/**
- * <p>
- * Takes a function of an argument using this instance as the function name
- * </p>
- */
-public IMathFunction function(IMathElement functionArgument);
+    presentation.save("functions-and-limits.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-/**
- * <p>
- * Takes a function of an argument using this instance as the function name
- * </p>
- */
-public IMathFunction function(String functionArgument);
-``` 
-
-Exemple :
+Pour un nom de fonction personnalisé, faites du nom de fonction l’élément actuel :
 
 ```java
-IMathFunction func = new MathematicalText("sin").function("x");
-``` 
+IMathFunction customFunction = new MathematicalText("f").function("x + 1");
+```
 
-### **Méthode AsArgumentOfFunction**
-- [asArgumentOfFunction(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#asArgumentOfFunction-java.lang.String-)
-- [asArgumentOfFunction(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#asArgumentOfFunction-com.aspose.slides.IMathElement-)
-- [asArgumentOfFunction(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#asArgumentOfFunction-int-)
-- [asArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#asArgumentOfFunction-int-com.aspose.slides.IMathElement-)
-- [asArgumentOfFunction(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#asArgumentOfFunction-int-java.lang.String-)
+## **Ajouter des opérateurs N‑aires et des intégrales**
 
-Utilise la fonction spécifiée en prenant l’instance actuelle comme argument. Vous pouvez :
+Utilisez `nary` pour les sommes, unions, intersections et autres opérateurs larges. Utilisez `integral` pour les intégrales. Les deux méthodes vous permettent de définir les limites inférieure et supérieure.
 
-- spécifier une chaîne comme nom de fonction, par ex. « cos ».
-- choisir une des valeurs prédéfinies des énumérations [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunctionsOfOneArgument) ou [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunctionsOfTwoArguments), par ex. [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunctionsOfOneArgument).[**ArcSin**](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunctionsOfOneArgument#ArcSin).
-- fournir une instance de [**IMathElement**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement).
-
-Exemple :
+![Une sommation avec limites inférieure et supérieure](powerpoint-math-equations_7.png)
 
 ```java
-MathLimit funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-IMathFunction func1 = new MathematicalText("2x").asArgumentOfFunction(funcName);
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 
-IMathFunction func2 = new MathematicalText("x").asArgumentOfFunction("sin");
+    IMathBlock summationBase = new MathematicalText("x")
+            .setSuperscript("k")
+            .join(new MathematicalText("a").setSuperscript("n-k"));
 
-IMathFunction func3 = new MathematicalText("x").asArgumentOfFunction(MathFunctionsOfOneArgument.Sin);
+    IMathNaryOperator summation = summationBase.nary(MathNaryOperatorTypes.Summation, "k=0", "n");
 
-IMathFunction func4 = new MathematicalText("x").asArgumentOfFunction(MathFunctionsOfTwoArguments.Log, "3");
-``` 
+    mathParagraph.add(new MathBlock(summation));
 
-### **Méthodes SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft**
-- [setSubscript(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSubscript-java.lang.String-)
-- [setSubscript(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSubscript-com.aspose.slides.IMathElement-)
-- [setSuperscript(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSuperscript-java.lang.String-)
-- [setSuperscript(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSuperscript-com.aspose.slides.IMathElement-)
-- [setSubSuperscriptOnTheRight(String, String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSubSuperscriptOnTheRight-java.lang.String-java.lang.String-)
-- [setSubSuperscriptOnTheRight(IMathElement, IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSubSuperscriptOnTheRight-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [setSubSuperscriptOnTheLeft(String, String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-java.lang.String-java.lang.String-)
-- [setSubSuperscriptOnTheLeft(IMathElement, IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
+    presentation.save("nary-operators.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-Définit les indices et exposants. Vous pouvez définir les deux simultanément à gauche ou à droite de l’argument, mais un seul indice ou exposant seul n’est pris en charge qu’à droite. L’**exposant** peut également servir à indiquer le degré d’un nombre.
+Les opérateurs N‑aires servent aux gros opérateurs avec limites optionnelles. Les opérateurs simples tels que `+`, `-` et `=` sont généralement ajoutés en tant que `MathematicalText` et concaténés dans l’expression.
 
-Exemple :
-
-```java
-IMathLeftSubSuperscriptElement script = new MathematicalText("y").setSubSuperscriptOnTheLeft("2x", "3z");
-``` 
-
-### **Méthode Radical**
-- [radical(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#radical-java.lang.String-)
-- [radical(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#radical-com.aspose.slides.IMathElement-)
-
-Spécifie la racine mathématique du degré indiqué à partir de l’argument donné.
-
-Exemple :
+Pour une intégrale, utilisez `integral` :
 
 ```java
-IMathRadical radical = new MathematicalText("x").radical("3");
-``` 
+IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
+IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
+```
 
-### **Méthodes SetUpperLimit et SetLowerLimit**
-- [setUpperLimit(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setUpperLimit-java.lang.String-)
-- [setUpperLimit(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setUpperLimit-com.aspose.slides.IMathElement-)
-- [setLowerLimit(String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setLowerLimit-java.lang.String-)
-- [setLowerLimit(IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#setLowerLimit-com.aspose.slides.IMathElement-)
+## **Ajouter des matrices**
 
-Définit une limite supérieure ou inférieure. La position indique simplement si l’argument est placé au-dessus ou en dessous de la base.
+Utilisez [MathMatrix](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathmatrix/) pour les lignes et colonnes. Les matrices n’incluent pas de crochets par défaut, donc encadrez la matrice lorsque vous avez besoin de parenthèses, crochets ou accolades.
 
-Considérons l’expression :
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-Cette expression peut être créée en combinant les classes [MathFunction](https://reference.aspose.com/slides/java/com.aspose.slides/MathFunction) et [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/MathLimit) ainsi que les opérations de [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement) :
+![Une matrice mathématique à deux lignes avec une cellule vide](powerpoint-math-equations_10.png)
 
 ```java
-IMathFunction mathExpression = new MathematicalText("lim").setLowerLimit("x→∞").function("x");
-``` 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-### **Méthodes Nary et Integral**
-- [nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#nary-int-java.lang.String-java.lang.String-)
-- [integral(MathIntegralTypes)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#integral-int-)
-- [integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#integral-int-java.lang.String-java.lang.String-)
-- [integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-int-)
-- [integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#integral-int-java.lang.String-java.lang.String-int-)
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 
-Les méthodes **nary** et **integral** créent et renvoient un opérateur n‑aire de type [**IMathNaryOperator**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathNaryOperator). Dans la méthode nary, l’énumération [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/java/com.aspose.slides/MathNaryOperatorTypes) indique le type d’opérateur : somme, union, etc., excluant les intégrales. La méthode Integral utilise l’énumération [**MathIntegralTypes**](https://reference.aspose.com/slides/java/com.aspose.slides/MathIntegralTypes) pour les différents types d’intégrales.
+    MathMatrix matrix = new MathMatrix(2, 3);
+    matrix.set_Item(0, 0, new MathematicalText("1"));
+    matrix.set_Item(0, 1, new MathematicalText("x"));
+    matrix.set_Item(1, 0, new MathematicalText("x"));
+    matrix.set_Item(1, 1, new MathematicalText("2"));
+    matrix.set_Item(1, 2, new MathematicalText("y"));
 
-Exemple :
+    mathParagraph.add(new MathBlock(matrix));
 
-```java
-IMathBlock baseArg = new MathematicalText("x").join(new MathematicalText("dx").toBox());
+    presentation.save("matrix.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-IMathNaryOperator integral = baseArg.integral(MathIntegralTypes.Simple, "0", "1");
-``` 
+## **Ajouter des tableaux d’équations**
 
-### **Méthode ToMathArray**
-[**toMathArray**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#toMathArray--) place les éléments dans un tableau vertical. Si l’opération est appelée sur une instance de [**MathBlock**](https://reference.aspose.com/slides/java/com.aspose.slides/MathBlock), tous les éléments enfants seront placés dans le tableau retourné.
+Utilisez `toMathArray` lorsque vous avez besoin d’équations alignées ou d’une pile verticale d’expressions.
 
-Exemple :
-
-```java
-IMathArray arrayFunction = new MathematicalText("x").join("y").toMathArray();
-``` 
-
-### **Opérations de mise en forme : Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
-- Méthode [**accent**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#accent-char-) : ajoute un accent (caractère au‑dessus de l’élément).
-- Méthodes [**overbar**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#overbar--) et [**underbar**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#underbar--) : ajoutent une barre au‑dessus ou au‑dessous.
-- Méthode [**group**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#group--) : regroupe à l’aide d’un symbole de groupement tel qu’une accolade inférieure ou autre.
-- Méthode [**toBorderBox**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#toBorderBox--) : place dans une bordure.
-- Méthode [**toBox**](https://reference.aspose.com/slides/java/com.aspose.slides/IMathElement#toBox--) : place dans une boîte logique non visuelle.
-
-Exemples :
+![Un tableau mathématique vertical avec x au-dessus de y](powerpoint-math-equations_11.png)
 
 ```java
-IMathAccent accent = new MathematicalText("x").accent('\u0303');
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-IMathBar bar = new MathematicalText("x").overbar();
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 140);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 
-IMathGroupingCharacter groupChr = new MathematicalText("x").join("y").join("z").group('\u23E1', MathTopBotPositions.Bottom, MathTopBotPositions.Top);
+    IMathArray equationArray = new MathematicalText("x")
+            .join("y")
+            .toMathArray();
 
-IMathBorderBox borderBox = new MathematicalText("x+y+z").toBorderBox();
+    mathParagraph.add(new MathBlock(equationArray));
 
-IMathBox boxedOperator = new MathematicalText(":=").toBox();
-``` 
+    presentation.save("equation-array.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ajouter des fonctions trigonométriques**
+
+Utilisez `asArgumentOfFunction` lorsque l’argument est l’élément actuel et que le nom de la fonction est connu.
+
+![La fonction trigonométrique cos appliquée à 2x](powerpoint-math-equations_6.png)
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+
+    IMathFunction cosine = new MathematicalText("2x")
+            .asArgumentOfFunction(MathFunctionsOfOneArgument.Cos);
+
+    mathParagraph.add(new MathBlock(cosine));
+
+    presentation.save("trigonometric-function.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ajouter des indices et exposants**
+
+Utilisez les assistants d’indice et d’exposant pour les index et puissances. Lorsque les index doivent apparaître à gauche de la base, utilisez `setSubSuperscriptOnTheLeft`.
+
+![Un Y majuscule avec indice 1 à gauche et exposant n](powerpoint-math-equations_9.png)
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+
+    IMathLeftSubSuperscriptElement scripts = new MathematicalText("Y")
+            .setSubSuperscriptOnTheLeft("1", "n");
+
+    mathParagraph.add(new MathBlock(scripts));
+
+    presentation.save("subscript-superscript.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ajouter des délimiteurs**
+
+Utilisez `enclose` pour placer une expression entre délimiteurs. Vous pouvez aussi définir un caractère séparateur pour les expressions délimitées contenant plusieurs éléments.
+
+![Une expression délimitée contenant x, y et z séparés par des barres verticales](powerpoint-math-equations_13.png)
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+
+    IMathDelimiter delimiter = new MathematicalText("x")
+            .join("y")
+            .join("z")
+            .enclose('<', '>');
+    delimiter.setSeparatorCharacter('|');
+
+    mathParagraph.add(new MathBlock(delimiter));
+
+    presentation.save("delimiters.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ajouter une boîte à bordure**
+
+Utilisez `toBorderBox` lorsque l’équation elle‑même doit être encadrée.
+
+![Une équation encadrée montrant a au carré égal b au carré plus c au carré](powerpoint-math-equations_12.png)
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+
+    IMathBorderBox boxedEquation = new MathematicalText("a")
+            .setSuperscript("2")
+            .join("=")
+            .join(new MathematicalText("b").setSuperscript("2"))
+            .join("+")
+            .join(new MathematicalText("c").setSuperscript("2"))
+            .toBorderBox();
+
+    mathParagraph.add(new MathBlock(boxedEquation));
+
+    presentation.save("border-box.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Regrouper les termes**
+
+Utilisez `group` pour placer un caractère de regroupement au-dessus ou en dessous d’une expression. Ajoutez une limite pour libelliser les termes regroupés.
+
+![L’expression x plus y groupée avec l’étiquette texte quelconque en dessous](powerpoint-math-equations_15.png)
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 120);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+
+    IMathLimit grouped = new MathematicalText("x + y")
+            .group('\u23DF', MathTopBotPositions.Bottom, MathTopBotPositions.Top)
+            .setLowerLimit("any text");
+
+    mathParagraph.add(new MathBlock(grouped));
+
+    presentation.save("grouped-terms.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Formater les éléments mathématiques**
+
+Utilisez les assistants de formatage uniquement lorsqu’ils clarifient la formule. Par exemple, `overbar` place une barre au-dessus d’un élément mathématique.
+
+![Une expression mathématique ABC avec une barre supérieure](powerpoint-math-equations_14.png)
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
+    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
+            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+
+    IMathBar overbar = new MathematicalText("ABC").overbar();
+
+    mathParagraph.add(new MathBlock(overbar));
+
+    presentation.save("overbar.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Référence rapide**
+
+| Tâche | API principale |
+| --- | --- |
+| Créer du texte mathématique | [MathematicalText](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathematicaltext/) |
+| Combiner des éléments | [IMathElement.join](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
+| Créer des fractions | [IMathElement.divide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
+| Ajouter un exposant ou indice | [setSuperscript](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| Ajouter des fonctions | [function](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
+| Ajouter des radicaux | [IMathElement.radical](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| Ajouter des limites | [setLowerLimit](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| Ajouter des scripts côté gauche | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Ajouter des sommes et intégrales | [nary](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Ajouter des matrices | [MathMatrix](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mathmatrix/) |
+| Ajouter des tableaux d’équations | [toMathArray](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#toMathArray--) |
+| Ajouter des délimiteurs | [enclose](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| Ajouter des barres et bordures | [overbar](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| Regrouper les termes | [group](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
 ## **FAQ**
 
-**Comment ajouter une équation mathématique à une diapositive PowerPoint ?**
+**Puis-je modifier une équation PowerPoint existante ?**
 
-Pour ajouter une équation, créez un objet forme mathématique, qui contient automatiquement une portion mathématique. Ensuite, récupérez le [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) depuis la [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) et ajoutez‑y des objets [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/).
+Oui. Ouvrez la présentation, trouvez la forme contenant un `MathPortion`, obtenez son `MathParagraph` et mettez à jour les blocs mathématiques de ce paragraphe.
 
-**Est‑il possible de créer des expressions mathématiques imbriquées complexes ?**
+**Les équations sont‑elles enregistrées comme mathématiques PowerPoint modifiables ?**
 
-Oui, Aspose.Slides permet de créer des expressions complexes en imbriquant des MathBlocks. Chaque élément implémente l’interface [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/), ce qui vous permet d’appliquer des opérations (Join, Divide, Enclose, etc.) pour les combiner.
+Oui. Lorsque vous enregistrez au format PPTX, Aspose.Slides écrit l’équation en tant que contenu mathématique Office modifiable.
 
-**Comment mettre à jour ou modifier une équation existante ?**
+**Puis‑je exporter les équations vers LaTeX ?**
 
-Pour mettre à jour une équation, accédez aux MathBlocks existants via le [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/). Ensuite, à l’aide des méthodes comme Join, Divide, Enclose, etc., modifiez les éléments de l’équation. Après modification, enregistrez la présentation pour appliquer les changements.
+Aspose.Slides exporte les équations mathématiques vers MathML. Si vous avez besoin de LaTeX, exportez d’abord vers MathML puis convertissez le MathML à l’aide d’un outil qui prend en charge le dialecte LaTeX ciblé.
