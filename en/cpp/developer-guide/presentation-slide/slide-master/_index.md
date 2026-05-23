@@ -21,336 +21,348 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Manage Slide Masters in Aspose.Slides for C++: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise C++ examples."
+description: "Manage slide masters in Aspose.Slides for C++: access, edit, clone, compare, and remove master slides in PowerPoint and OpenDocument presentations."
 ---
 
-## **Introduction**
+## **Overview**
 
-A **Slide Master** is a slide template that defines the layout, styles, theme, fonts, background, and other properties for slides in a presentation. If you want to create a presentation (or series of presentations) with the same style and template for your company, you can use a slide master. 
+A **slide master** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
 
-A Slide Master is useful because it allows you to set and change the look of all presentation slides at once. Aspose.Slides supports the Slide Master mechanism from PowerPoint. 
+Aspose.Slides for C++ supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
 
-VBA also allows you to manipulate a Slide Master and execute the same operations supported in PowerPoint: change backgrounds, add shapes, customize the layout, etc. Aspose.Slides provides flexible mechanisms to allow you to use Slide Masters and perform basic tasks with them. 
+The hierarchy is:
 
-These are basic Slide Master operations:
+1. **Slide master** - defines the shared design and theme.
+1. **Layout slide** - defines a specific arrangement of placeholders and layout-level formatting.
+1. **Normal slide** - contains the actual presentation content and uses one layout slide.
 
-- Create or Slide Master.
-- Apply Slides Master to presentation slides.
-- Change Slide Master background. 
-- Add an image, placeholder, Smart Art, etc. to Slide Master.
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-These are more advanced operations involving Slide Master: 
+In Aspose.Slides, a slide master is represented by the [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/) interface. All master slides in a presentation are available through the [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) collection, which implements [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/).
 
-- Compare Slide Masters.
-- Merge Slide Masters.
-- Apply several Slide Masters.
-- Copy slide with Slide Master to another presentation.
-- Find out duplicate Slide Masters in presentations.
-- Set Slide Master as the presentation default view.
+{{% alert color="info" title="Inheritance" %}}
 
-{{% alert color="primary" %}} 
-
-You may want to check out Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) because it is a live implementation of some of the core processes described here.
-
-{{% /alert %}} 
-
-## **How Is a Slide Master Applied**
-
-Before you work with a slide master, you may want to understand how they are used in presentations and applied to slides. 
-
-* Every presentation has at least one Slide Master by default. 
-* A presentation can contain several Slide Masters. You can add several Slide Masters and use them to style different parts of a presentation in different ways. 
-
-In **Aspose.Slides**, a Slide Master is represented by [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) type. 
-
-Aspose.Slides' [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation
-) object contains the [**get_Masters()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) type, which contains a list of all master slides that are defined in a presentation. 
-
-Besides CRUD operations, the [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) interface contains these useful methods: [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) and [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups. 
-
-When a new slide is added to a presentation, a Slide Master is applied to it automatically. The Slide Master of the previous slide is selected by default. 
-
-**Note**: Presentation slides are stored in [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) list, and every new slide is added to the end of the collection by default. If a presentation contains a single Slide Master, that slide master is selected for all new slides. This is the reason you do not have to define the Slide Master for every new slide you create.
-
-The principle is the same for PowerPoint and Aspose.Slides. For example, in PowerPoint, when you add a new presentation, you can just press on the bottom line under the last slide and then a new slide (with the last presentation's Slide Master) will be created:
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-In Aspose.Slides, you can perform the equivalent task with the [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) method under the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-
-## **Slide Master in Slides Hierarchy**
-
-Using Slide Layouts with Slide Master allows for maximum flexibility. A Slide Layout allows you to set all the same styles as Slide Master (background, fonts, shapes, etc.). However, when several Slide Layouts are combined on a Slide Master, a new style is created. When you apply a Slide Layout to a single slide, you can change its style from the one applied by the Slide Master.
-
-Slide Master outranks all setups items: Slide Master -> Slide Layout -> Slide:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Each [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) object has a [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) property with a list of Slide Layouts. A [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) type has a [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) property with a link on a Slide Layout applied to the slide. The interaction between a slide and Slide Master occurs through a Slide Layout.
-
-{{% alert color="info" title="Note" %}}
-
-* In Aspose.Slides, all the slide setups (Slide Master, Slide Layout, and the slide itself) are actually slide objects implementing the [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) interface.
-* Therefore, Slide Master and Slide Layout may implement the same properties and you need to know how their values will be applied to a  [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) object. The Slide Master is applied first to a slide and then the Slide Layout is applied. For example, if the Slide Master and Slide Layout both have a background value, the Slide will end up with the background from the Slide Layout.
+When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/cpp/slide-layout/).
 
 {{% /alert %}}
 
-## **What a Slide Master Comprises**
+## **Access Slide Masters**
 
-To understand how a Slide Master can be changed, you need to know its constituents. These are [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) core properties. 
+In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
 
-- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - get/set slide background.
-- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - get/set text styles of the slide’s body.
-- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
-- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - get/set ActiveX controls.
-- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - get theme manager.
-- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - get header and footer manager.
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-Slide Master methods:
+In Aspose.Slides, use the `get_Masters()` collection to access master slides:
 
-- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - get all Slides depending on the Slide Master.
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - allows you to create a new Slide Master based on the current Slide Master and a new theme. The new Slide Master will then be applied to all dependent slides.
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **Get a Slide Master**
+auto firstMasterSlide = presentation->get_Master(0);
+auto masterSlideCount = presentation->get_Masters()->get_Count();
+auto firstMasterLayoutSlideCount = firstMasterSlide->get_LayoutSlides()->get_Count();
 
-In PowerPoint, Slide Master can be accessed from the View -> Slide Master menu:
+System::Console::WriteLine(System::String(u"Master slides: ") + masterSlideCount);
+System::Console::WriteLine(System::String(u"Layouts in the first master: ") + firstMasterLayoutSlideCount);
 
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-Using Aspose.Slides, you can access a Slide Master this way:
-
-```c++
-System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
+presentation->Dispose();
 ```
 
-The [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) interface represents a Slide Master. The [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) property (related to [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) type) contains a list of all Slide Masters that are defined in the presentation. 
+You can also get the master slide used by a normal slide through its layout:
 
-## **Add an Image to a Slide Master**
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-When you add an image to a Slide Master, that image will appear on all slides dependent on that slide master. 
+auto slide = presentation->get_Slide(0);
+auto layoutSlide = slide->get_LayoutSlide();
+auto masterSlide = layoutSlide->get_MasterSlide();
+auto masterSlideName = masterSlide->get_Name();
 
-For example, you can place your company's logo and a few images on the Slide Master and then switch back to slide editing mode. You should see the image on every slide. 
+System::Console::WriteLine(masterSlideName);
 
-![todo:image_alt_text](slide-master_4.png)
-
-You can add images to a slide master with Aspose.Slides:
-
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png"));
-pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+## **What a Slide Master Contains**
 
-For more information on adding images to a slide, see the [Picture Frame](/slides/cpp/picture-frame/#create-picture-frame) article.
-{{% /alert %}}
+A master slide is a slide-like object. It implements [IBaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/), so it exposes many of the same slide properties used by normal and layout slides. Master-specific members are listed on the [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/) API page.
 
-## **Add a Placeholder to a Slide Master**
+Commonly used master slide members include:
 
-These text fields are standard placeholders on a Slide Master: 
+| Member | Purpose |
+| --- | --- |
+| `get_Background()` | Sets the master-level slide background. |
+| `get_Shapes()` | Stores shapes placed on the master, such as logos, picture frames, and shared text. |
+| `get_LayoutSlides()` | Stores the layout slides that belong to the master. |
+| `get_ThemeManager()` | Provides access to the master theme APIs. |
+| `get_HeaderFooterManager()` | Controls headers, footers, dates, and slide numbers for the master and its child layouts. |
+| `GetDependingSlides()` | Returns normal slides that depend on the master through their layouts. |
 
-* Click to edit Master title style
+## **Add an Image to a Slide Master**
 
-* Edit Master text styles
+When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
 
-* Second level
+The following example adds a logo to the first master slide:
 
-* Third level 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-  They also appear on the slides based on Slide Master. You can edit those placeholders on a Slide Master and the changes are applied automatically to the slides. 
+auto masterSlide = presentation->get_Master(0);
+auto logoBytes = System::IO::File::ReadAllBytes(u"logo.png");
+auto logoImage = presentation->get_Images()->AddImage(logoBytes);
 
-In PowerPoint, you can add a placeholder through the Slide Master -> Insert Placeholder path:
+masterSlide->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle,
+    20.0f,
+    20.0f,
+    80.0f,
+    80.0f,
+    logoImage);
 
+presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
+For more information about picture frames, see [Picture Frame](/slides/cpp/picture-frame/).
 
-![todo:image_alt_text](slide-master_5.png)
+## **Work with Placeholders**
 
+Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
 
+In PowerPoint, placeholder commands are available in Slide Master view.
 
-Let's examine a more complicated example for placeholders with Aspose.Slides. Consider a slide with placeholders templated from the Slide Master:
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
+To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-![todo:image_alt_text](slide-master_6.png)
+auto masterSlide = presentation->get_Master(0);
+auto blankLayoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-
-
-We want to change the Title and Subtitle formatting on the Slide Master this way:
-
-![todo:image_alt_text](slide-master_7.png)
-
-
-
-First, we retrieve the title placeholder content from the Slide Master object and then use the`PlaceHolder.FillFormat` field: 
-
-```c++
-System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> master, PlaceholderType type)
+if (blankLayoutSlide == nullptr)
 {
-    for (auto& shape : master->get_Shapes())
+    blankLayoutSlide = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::Blank, u"Blank");
+}
+
+blankLayoutSlide->get_PlaceholderManager()->AddTextPlaceholder(
+    60.0f,
+    120.0f,
+    600.0f,
+    80.0f);
+
+presentation->get_Slides()->AddEmptySlide(blankLayoutSlide);
+presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+System::SharedPtr<IAutoShape> titlePlaceholder;
+
+for (auto&& shape : masterSlide->get_Shapes())
+{
+    auto autoShape = System::AsCast<IAutoShape>(shape);
+
+    if (autoShape != nullptr &&
+        autoShape->get_Placeholder() != nullptr &&
+        autoShape->get_Placeholder()->get_Type() == PlaceholderType::Title)
     {
-        System::SharedPtr<IAutoShape> autoShape = System::AsCast<Aspose::Slides::IAutoShape>(shape);
-        if (autoShape != nullptr)
-        {
-            if (autoShape->get_Placeholder()->get_Type() == type)
-            {
-                return autoShape;
-            }
-        }
+        titlePlaceholder = autoShape;
+        break;
     }
-    return nullptr;
 }
 
-void Main()
+if (titlePlaceholder != nullptr)
 {
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
-    System::SharedPtr<IAutoShape> placeHolder = FindPlaceholder(master, Aspose::Slides::PlaceholderType::Title);
-    auto fillFormat = placeHolder->get_FillFormat();
-    fillFormat->set_FillType(Aspose::Slides::FillType::Gradient);
+    auto fillFormat = titlePlaceholder->get_FillFormat();
+    fillFormat->set_FillType(FillType::Gradient);
+
     auto gradientFormat = fillFormat->get_GradientFormat();
-    gradientFormat->set_GradientShape(Aspose::Slides::GradientShape::Linear);
-    gradientFormat->get_GradientStops()->Add(0.0f, System::Drawing::Color::FromArgb(255, 0, 0));
-    gradientFormat->get_GradientStops()->Add(255.0f, System::Drawing::Color::FromArgb(128, 0, 128));
-    
-    pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    gradientFormat->set_GradientShape(GradientShape::Linear);
+
+    auto gradientStops = gradientFormat->get_GradientStops();
+    auto redGradientColor = System::Drawing::Color::FromArgb(255, 0, 0);
+    auto purpleGradientColor = System::Drawing::Color::FromArgb(128, 0, 128);
+
+    gradientStops->Add(0.0f, redGradientColor);
+    gradientStops->Add(255.0f, purpleGradientColor);
 }
+
+presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-The title style and formatting will change for all slides based on the slide master:
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-![todo:image_alt_text](slide-master_8.png)
+For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/cpp/manage-placeholder/) and [Text Formatting](/slides/cpp/text-formatting/).
 
+## **Change a Slide Master Background**
 
+A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
 
-{{% alert color="primary" title="See also" %}} 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/cpp/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/cpp/text-formatting/)
+auto masterSlide = presentation->get_Master(0);
+auto masterBackgroundColor = System::Drawing::Color::get_ForestGreen();
 
-{{% /alert %}}
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(masterBackgroundColor);
 
-## **Change the Background on a Slide Master**
-
-When you change a master slide's background color, all the normal slides in the presentation will get the new color. This C++ code demonstrates the operation:
-
-```c++
-auto pres = System::MakeObject<Presentation>();
-
-auto master = pres->get_Masters()->idx_get(0);
-auto background = master->get_Background();
-background->set_Type(Aspose::Slides::BackgroundType::OwnBackground);
-background->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-background->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
-    
-pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/cpp/presentation-background/)
-
-- [Presentation Theme](https://docs.aspose.com/slides/cpp/presentation-theme/)
-
-  {{% /alert %}}
+For related topics, see [Presentation Background](/slides/cpp/presentation-background/) and [Presentation Theme](/slides/cpp/presentation-theme/).
 
 ## **Clone a Slide Master to Another Presentation**
 
-To clone a Slide Master to another presentation, call the [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) method from the destination presentation alongside a Slide Master passed into it. This C++ code shows you how to clone a Slide Master to another presentation:
+Use [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/addclone/) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
 
-```c++
-auto presSource = System::MakeObject<Presentation>();
-auto presTarget = System::MakeObject<Presentation>();
-    
-auto master = presTarget->get_Masters()->AddClone(presSource->get_Masters()->idx_get(0));
+```cpp
+auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
+auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
+
+auto sourceMasterSlide = sourcePresentation->get_Master(0);
+auto clonedMasterSlide = destinationPresentation->get_Masters()->AddClone(sourceMasterSlide);
+
+destinationPresentation->Save(u"destination-with-master.pptx", SaveFormat::Pptx);
+destinationPresentation->Dispose();
+sourcePresentation->Dispose();
 ```
 
-## **Add Multiple Slide Masters to a Presentation**
+If you need to clone normal slides together with their master, see [Clone Slides](/slides/cpp/clone-slides/).
 
-Aspose.Slides allows you to add several Slide Masters and Slide Layouts to any given presentation. This allows you to set up styles, layouts, and formatting options for presentation slides in many ways. 
+## **Add Multiple Slide Masters**
 
-In PowerPoint, you can add new Slide Masters and Layouts (from the "Slide Master menu) this way:
+A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
 
-![todo:image_alt_text](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-Using Aspose.Slides, you can add a new Slide Master by calling the  [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) method:
+The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
 
-```c++
-pres->get_Masters()->AddClone(pres->get_Masters()->idx_get(0));
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto defaultMasterSlide = presentation->get_Master(0);
+auto sectionMasterSlide = presentation->get_Masters()->AddClone(defaultMasterSlide);
+auto sectionMasterBackgroundColor = System::Drawing::Color::get_LightSteelBlue();
+
+sectionMasterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+sectionMasterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+sectionMasterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(sectionMasterBackgroundColor);
+
+auto sourceBlankLayout = defaultMasterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (sourceBlankLayout == nullptr)
+{
+    sourceBlankLayout = defaultMasterSlide->get_LayoutSlide(0);
+}
+
+auto sectionBlankLayout = sectionMasterSlide->get_LayoutSlides()->AddClone(sourceBlankLayout);
+
+presentation->get_Slides()->AddEmptySlide(sectionBlankLayout);
+presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Compare Slide Masters**
 
-A Master Slide implements the [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) interface containing the  [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f) method, which can then be used to compare slides. It returns `true` for Master Slides identical in structure and static content. 
+Master slides can be compared with the `Equals` method inherited from [IBaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
 
-Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison does not take unique identifier values (e.g. SlideId) and dynamic content (e.g. current date value in Date Placeholder) into account. 
+```cpp
+auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
+auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
+auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
+auto secondPresentationMasterCount = secondPresentation->get_Masters()->get_Count();
 
-## **Set a Slide Master as the Presentation Default View**
+for (int32_t firstMasterIndex = 0;
+     firstMasterIndex < firstPresentationMasterCount;
+     firstMasterIndex++)
+{
+    for (int32_t secondMasterIndex = 0;
+         secondMasterIndex < secondPresentationMasterCount;
+         secondMasterIndex++)
+    {
+        auto firstMasterSlide = firstPresentation->get_Master(firstMasterIndex);
+        auto secondMasterSlide = secondPresentation->get_Master(secondMasterIndex);
+        auto areMasterSlidesEqual = firstMasterSlide->Equals(secondMasterSlide);
 
-Aspose.Slides allows you to set a Slide Master as the default view for a presentation. The default view is what you see first when you open a presentation. 
+        if (areMasterSlidesEqual)
+        {
+            System::Console::WriteLine(
+                System::String::Format(
+                    u"first.pptx master #{0} equals second.pptx master #{1}",
+                    firstMasterIndex,
+                    secondMasterIndex));
+        }
+    }
+}
 
-This code shows you how to set a Slide Master as a presentation's default view in C++:
-
-```c++
-pres->get_ViewProperties()->set_LastView(Aspose::Slides::ViewType::SlideMasterView);
+secondPresentation->Dispose();
+firstPresentation->Dispose();
 ```
+
+For more information, see [Compare Presentation Slides](/slides/cpp/compare-slides/).
+
+## **Set Slide Master View as the Default View**
+
+Use the `set_LastView` method on [ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
+presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+For more view settings, see [Save Presentation](/slides/cpp/save-presentation/).
 
 ## **Remove Unused Master Slides**
 
-Aspose.Slides provides the [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) method (from the  [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This C++ code shows you how to remove a master slide from a PowerPoint presentation:
+Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+Use [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/cpp/aspose.slides/masterslidecollection/removeunused/) to remove unused masters from the `get_Masters()` collection:
 
-LowCode::Compress::RemoveUnusedMasterSlides(pres);
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->get_Masters()->RemoveUnused(true);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+You can also use the low-code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) method:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+LowCode::Compress::RemoveUnusedMasterSlides(presentation);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **FAQ**
 
-**What is a Slide Master in PowerPoint?**
+**What is the difference between a slide master and a layout slide?**
 
-A Slide Master is a slide template that defines the layout, styles, themes, fonts, background, and other properties for slides in a presentation. It allows you to set and change the look of all presentation slides at once.  
+A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-**How is a Slide Master applied in a presentation?**
+**Can one presentation contain several slide masters?**
 
-Every presentation has at least one Slide Master by default. When a new slide is added, a Slide Master is applied to it automatically, typically inheriting the master of the previous slide. A presentation can contain multiple Slide Masters to style different parts uniquely.  
+Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-**What elements can be customized in a Slide Master?**
+**Should I add placeholders to a master slide or a layout slide?**
 
-A Slide Master comprises several core properties that can be customized:
+In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-- **Background**: Set the slide background.
-- **BodyStyle**: Define text styles for the slide's body.
-- **Shapes**: Manage all shapes on the Slide Master, including placeholders and picture frames.
-- **Controls**: Handle ActiveX controls.
-- **ThemeManager**: Access the theme manager.
-- **HeaderFooterManager**: Manage headers and footers.  
+**Can I delete a master slide that is still used?**
 
-**How can I add an image to a Slide Master?**
-
-Adding an image to a Slide Master ensures it appears on all slides that depend on that master. For example, placing a company logo on the Slide Master will display it on every slide in the presentation.  
-
-**How do Slide Masters relate to Slide Layouts?**
-
-Slide Layouts work in conjunction with Slide Masters to provide flexibility in slide design. While a Slide Master defines overarching styles and themes, Slide Layouts allow for variations in content arrangement. The hierarchy is as follows:
-
-- **Slide Master** → Defines global styles.
-- **Slide Layout** → Provides different content arrangements.
-- **Slide** → Inherits design from its Slide Layout.
-
-**Can I have multiple Slide Masters in a single presentation?**
-
-Yes, a presentation can contain several Slide Masters. This allows you to style different sections of a presentation in various ways, providing flexibility in design.  
-
-**How do I access and modify a Slide Master using Aspose.Slides?**
-
-In Aspose.Slides, a Slide Master is represented by the [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/) interface. You can access a Slide Master using the [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) method of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object.
+No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.
