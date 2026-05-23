@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中管理 PowerPoint 幻灯片母版
+title: 在 Python 中管理演示文稿幻灯片母版
 linktitle: 幻灯片母版
 type: docs
 weight: 80
@@ -16,271 +16,315 @@ keywords:
 - 复制母版幻灯片
 - 重复母版幻灯片
 - 未使用的母版幻灯片
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - Python
 - Aspose.Slides
-description: "通过 .NET 的 Aspose.Slides for Python 自动化 PowerPoint 和 OpenDocument 幻灯片母版，以最大化开发效率。为初学者和高级用户提供的完整指南。"
+description: "在 Aspose.Slides for Python via .NET 中管理幻灯片母版：访问、编辑、克隆、比较和删除 PowerPoint 与 OpenDocument 演示文稿中的母版幻灯片。"
 ---
-
 ## **概述**
 
-**Slide Master** 是一种幻灯片模板，定义了演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。如果您想为公司创建具有相同样式和模板的演示文稿（或一系列演示文稿），可以使用 Slide Master。
+**幻灯片母版** 定义了一组幻灯片的共享设计设置。它可以包含通用形状、徽标、背景、文本样式、主题设置以及页脚设置。在 PowerPoint 中，编辑幻灯片母版是保持演示文稿一致性的常用方式，而无需在每张幻灯片上重复相同的格式设置。
 
-Slide Master 非常有用，因为它允许一次性设置和更改所有演示文稿幻灯片的外观。Aspose.Slides 支持 PowerPoint 的 Slide Master 机制。
+Aspose.Slides for Python via .NET 支持相同的模型。一个演示文稿可以包含一个或多个母版幻灯片，每个母版幻灯片可以包含若干版式幻灯片。普通幻灯片通常不会直接引用母版幻灯片，而是使用版式幻灯片，而该版式幻灯片属于某个母版幻灯片。
 
-VBA 也允许您操作 Slide Master 并执行 PowerPoint 支持的相同操作：更改背景、添加形状、定制布局等。Aspose.Slides 提供灵活的 API，使您能够使用 Slide Master 并执行常见任务。
+层级结构如下：
 
-以下是基本的 Slide Master 操作：
+1. **幻灯片母版** – 定义共享的设计和主题。  
+1. **版式幻灯片** – 定义占位符的具体排列以及版式级别的格式。  
+1. **普通幻灯片** – 包含实际的演示内容，并使用一个版式幻灯片。
 
-- 创建 Slide Master。
-- 将 Slide Master 应用于演示文稿幻灯片。
-- 更改 Slide Master 背景。
-- 向 Slide Master 添加图像、占位符、SmartArt 等。
+![母版幻灯片、版式幻灯片和普通幻灯片的层级结构](slide-master_2.jpg)
 
-以下是涉及 Slide Master 的更高级操作：
+在 Aspose.Slides 中，幻灯片母版由 [MasterSlide](https://reference.aspose.com/slides/zh/python-net/aspose.slides/masterslide/) 类表示。演示文稿中的所有母版幻灯片可通过 `Presentation.masters` 集合访问。
 
-- 比较 Slide Master。
-- 合并 Slide Master。
-- 应用多个 Slide Master。
-- 将幻灯片及其 Slide Master 复制到另一个演示文稿。
-- 识别演示文稿中的重复 Slide Master。
-- 将 Slide Master 设置为演示文稿的默认视图。
-
-{{% alert color="primary" %}}
-您可能想查看 Aspose [Online PowerPoint Viewer](https://products.aspose.app/slides/viewer)，因为它是本文所述一些核心流程的实时实现。
+{{% alert color="info" title="Inheritance" %}}
+当同一属性在多个层级上定义时，层级更具体的设置会覆盖前面的设置。例如，若母版幻灯片和版式幻灯片都定义了背景，则基于该版式的幻灯片使用版式背景。有关版式幻灯片的更多信息，请参阅 [Apply or Change Slide Layouts](/python-net/slide-layout/)。
 {{% /alert %}}
 
-## **Slide Master 的应用方式**
+## **访问幻灯片母版**
 
-在使用 Slide Master 之前，您可能想了解 Slide Master 在演示文稿中的使用方式以及如何应用到幻灯片。
+在 PowerPoint 中，可通过 **视图** > **幻灯片母版** 打开幻灯片母版视图。
 
-- 默认情况下，每个演示文稿至少有一个 Slide Master。
-- 一个演示文稿可以包含多个 Slide Master。您可以添加多个 Slide Master，并以不同方式为演示文稿的不同部分设置样式。
+![PowerPoint 视图选项卡上的 幻灯片母版 命令](slide-master_3.jpg)
 
-在 Aspose.Slides 中，Slide Master 由 [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) 类型表示。
+在 Aspose.Slides 中，使用 `masters` 集合访问母版幻灯片：
 
-Aspose.Slides 的 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象包含类型为 [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) 的 [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) 集合，保存了演示文稿中定义的所有母版幻灯片。
 
-除 CRUD 操作外，[MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) 类还提供了诸如 [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/add_clone/) 和 [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/insert_clone/) 等实用方法。这些方法扩展了基本的幻灯片克隆功能，在处理 Slide Master 时可实现更复杂的布局。
 
-当向演示文稿添加新幻灯片时，会自动为其应用 Slide Master。默认情况下，选取前一张幻灯片的 Slide Master。
+您也可以通过普通幻灯片的版式获取其使用的母版幻灯片：
 
-**Note:** 演示文稿幻灯片存储在 [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) 集合中，默认情况下每个新幻灯片都会添加到该集合的末尾。如果演示文稿仅包含一个 Slide Master，则该 Slide Master 会被选中用于所有新幻灯片。因此，您无需为每个新创建的幻灯片显式指定 Slide Master。
-
-相同的原理适用于 PowerPoint 和 Aspose.Slides。例如，在 PowerPoint 中添加新幻灯片时，您可以单击最后一张幻灯片下方的空白区域，系统会创建使用前一张幻灯片 Slide Master 的新幻灯片。
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-在 Aspose.Slides 中，您可以使用 [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) 类的 [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) 方法完成相同的操作。
-
-## **Slides 层次结构中的 Slide Master**
-
-将 **Slide Layouts** 与 **Slide Master** 结合使用能够提供最大的灵活性。Slide Layout 可以定义与 Slide Master 相同类型的样式（背景、字体、形状等）。当在一个 Slide Master 下定义多个 Slide Layout 时，它们共同构成一个统一的样式系统。通过将 Slide Layout 应用于单个幻灯片，您可以在 Slide Master 提供的基础上调整其样式。
-
-优先级顺序为：**Slide Master** → **Slide Layout** → **Slide**。
-
-![todo:image_alt_text](slide-master_2.jpg)
-
-每个 [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) 对象都有一个包含所有幻灯片布局的 [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) 属性。每个 [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) 则拥有一个指向所应用布局的 [layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) 属性。幻灯片与 Slide Master 的交互是通过其 Slide Layout 实现的。
-
-{{% alert color="info" title="Note" %}}
-- 在 Aspose.Slides 中，所有幻灯片构件（Slide Master、Slide Layout 和幻灯片本身）都是继承自 [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/) 类的幻灯片对象。
-- 由于 Slide Master 和 Slide Layout 暴露了许多相同的属性，您需要了解这些属性如何应用到 [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) 对象上。Slide Master 先被应用，随后是 Slide Layout。例如，如果 Slide Master 和 Slide Layout 都定义了背景，则最终使用 Slide Layout 中的背景。
-{{% /alert %}}
-
-## **Slide Master 的组成部分**
-
-要了解如何修改 Slide Master，必须先了解其组成部分。以下是 [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) 的核心属性：
-
-- `background` — 获取/设置幻灯片背景。
-- `body_style` — 获取/设置幻灯片正文的文本样式。
-- `shapes` — 获取/设置 Slide Master 上的所有形状（占位符、图片框等）。
-- `controls` — 获取/设置 ActiveX 控件。
-- `theme_manager` — 获取主题管理器。
-- `header_footer_manager` — 获取页眉和页脚管理器。
-
-Slide Master 方法：
-
-- `get_depending_slides()` — 获取所有依赖于该 Slide Master 的幻灯片。
-- `apply_external_theme_to_depending_slides(fname)` — 基于当前 Slide Master 和外部主题创建新的 Slide Master，然后将其应用于所有依赖的幻灯片。
-
-## **获取 Slide Master**
-
-在 PowerPoint 中，您可以通过 **View** → **Slide Master** 访问 Slide Master：
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-使用 Aspose.Slides，您可以按如下方式访问 Slide Master：
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    # 获取演示文稿中的第一张母版幻灯片。
+with slides.Presentation("presentation.pptx") as presentation:
+    slide = presentation.slides[0]
+    layout_slide = slide.layout_slide
+    master_slide = layout_slide.master_slide
+    master_slide_name = master_slide.name
+
+    print(master_slide_name)
+```
+
+## **幻灯片母版包含的内容**
+
+母版幻灯片是一种类似幻灯片的对象。它从 [BaseSlide](https://reference.aspose.com/slides/zh/python-net/aspose.slides/baseslide/) 类继承通用幻灯片行为，因此暴露出许多普通幻灯片和版式幻灯片使用的相同属性。母版特有的成员列在 [MasterSlide](https://reference.aspose.com/slides/zh/python-net/aspose.slides/masterslide/) API 页面上。
+
+常用的母版幻灯片成员包括：
+
+| 成员 | 用途 |
+| --- | --- |
+| `background` | 设置母版级别的幻灯片背景。 |
+| `shapes` | 存储放置在母版上的形状，如徽标、图片框和共享文本。 |
+| `layout_slides` | 存储属于该母版的版式幻灯片。 |
+| `theme_manager` | 提供对母版主题 API 的访问。 |
+| `header_footer_manager` | 控制母版及其子版式的页眉、页脚、日期和页码。 |
+| `get_depending_slides` | 返回通过其版式依赖于该母版的普通幻灯片。 |
+
+## **向幻灯片母版添加图片**
+
+向母版幻灯片添加图片后，使用该母版的版式的幻灯片都会显示该图片，这对于徽标、水印、装饰条带以及其他重复视觉元素非常有用。
+
+下面的示例向第一个母版幻灯片添加徽标：
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
     master_slide = presentation.masters[0]
+
+    with open("logo.png", "rb") as logo_stream:
+        logo_bytes = logo_stream.read()
+
+    logo_image = presentation.images.add_image(logo_bytes)
+
+    master_slide.shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE,
+        20,
+        20,
+        80,
+        80,
+        logo_image)
+
+    presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+有关图片框的更多信息，请参阅 [Picture Frame](/python-net/picture-frame/)。
 
-[MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) 类表示一个 Slide Master。[masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) 属性（即 [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/)）保存了演示文稿中定义的所有 Slide Master。
+## **使用占位符**
 
-## **向 Slide Master 添加图像**
+占位符通常在版式幻灯片上定义。母版幻灯片提供共享的样式和主题，版式则决定哪些占位符可用以及它们的放置位置。
 
-将图像添加到 Slide Master 后，该图像会出现在所有依赖该母版的幻灯片上。
+在 PowerPoint 中，占位符命令位于幻灯片母版视图中。
 
-例如，将公司徽标或其他图像放置在 Slide Master 上，然后返回普通视图，您将在每个依赖的幻灯片上看到该图像。
+![PowerPoint 幻灯片母版视图中的 插入占位符 命令](slide-master_5.png)
 
-![todo:image_alt_text](slide-master_4.png)
+要使用 Aspose.Slides 添加新占位符，请操作属于母版的版式幻灯片：
 
-您可以使用 Aspose.Slides 向 Slide Master 添加图像：
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-
-    with open("image.png", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream.read())
-
+with slides.Presentation("presentation.pptx") as presentation:
     master_slide = presentation.masters[0]
-    master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+    blank_layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    if blank_layout_slide is None:
+        blank_layout_slide = presentation.layout_slides.add(
+            master_slide,
+            slides.SlideLayoutType.BLANK,
+            "Blank")
+
+    blank_layout_slide.placeholder_manager.add_text_placeholder(60, 120, 600, 80)
+
+    presentation.slides.add_empty_slide(blank_layout_slide)
+    presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-{{% alert color="primary" title="See also" %}}
-有关向幻灯片添加图像的更多信息，请参阅 [Add Picture Frames to Presentations with Python](/slides/zh/python-net/picture-frame/) 文章。
-{{% /alert %}}
-
-## **向 Slide Master 添加占位符**
-
-以下文本字段是 Slide Master 上的标准占位符：
-
-- 单击编辑 Master 标题样式
-- 编辑 Master 文本样式
-- 二级
-- 三级
-
-这些占位符也会出现在基于该 Slide Master 的幻灯片上。您可以在 Slide Master 上编辑这些占位符，修改会自动应用到相应的幻灯片。
-
-在 PowerPoint 中，您可以通过 **Slide Master** → **Insert Placeholder** 添加占位符：
-
-![todo:image_alt_text](slide-master_5.png)
-
-下面我们来看一个更复杂的占位符示例。考虑一张从 Slide Master 继承占位符的幻灯片：
-
-![todo:image_alt_text](slide-master_6.png)
-
-我们希望按如下方式更新 Slide Master 上的标题和副标题格式：
-
-![todo:image_alt_text](slide-master_7.png)
-
-首先，从 Slide Master 中获取标题占位符，然后使用 `PlaceHolder.fill_format` 属性：
+您也可以格式化已经存在于母版上的占位符形状。下面的示例查找标题占位符并应用线性渐变填充：
 
 ```python
-# 获取对母版幻灯片标题占位符的引用。
-title_placeholder = master_slide.shapes[0]
-
-# 设置填充格式为渐变。
-title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
-title_placeholder.fill_format.gradient_format.gradient_stops.add(0, draw.Color.red)
-title_placeholder.fill_format.gradient_format.gradient_stops.add(50, draw.Color.green)
-title_placeholder.fill_format.gradient_format.gradient_stops.add(100, draw.Color.blue)
-```
-
-
-标题样式和格式将在所有基于该 Slide Master 的幻灯片上发生变化：
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}}
-* [使用 Python 管理演示文稿中的占位符](/slides/zh/python-net/manage-placeholder/)
-* [使用 Python 格式化 PowerPoint 文本](/slides/zh/python-net/text-formatting/)
-{{% /alert %}}
-
-## **更改 Slide Master 背景**
-
-更改 Slide Master 的背景颜色后，演示文稿中的所有常规幻灯片都会继承新颜色。下面的 Python 代码演示了这一点：
-
-```python
-master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
-master_slide.background.fill_format.fill_type = slides.FillType.SOLID
-master_slide.background.fill_format.solid_fill_color.color = draw.Color.gray
-```
-
-
-{{% alert color="primary" title="See also" %}}
-- [使用 Python 管理演示文稿背景](/slides/zh/python-net/presentation-background/)
-- [使用 Python 管理 PowerPoint 演示文稿主题](/slides/zh/python-net/presentation-theme/)
-{{% /alert %}}
-
-## **向演示文稿添加多个 Slide Master**
-
-Aspose.Slides 允许您向任何演示文稿添加多个 Slide Master 和 Slide Layout。这使您能够以多种不同方式配置幻灯片的样式、布局和格式选项。
-
-在 PowerPoint 中，您可以通过 **Slide Master** 菜单添加新的 Slide Master 和 Slide Layout，步骤如下：
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-使用 Aspose.Slides，您可以调用 `add_clone` 方法添加新的 Slide Master：
-
-```python
-# 添加新的母版幻灯片。
-master_slide2 = presentation.masters.add_clone(master_slide1)
-```
-
-
-## **比较 Slide Master**
-
-Slide Master 继承自 [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/) 类，该类包含用于比较幻灯片的 `equals(slide)` 方法。当 Slide Master 在结构和静态内容上完全相同时，该方法返回 true。
-
-如果两个 Slide Master 的形状、样式、文本、动画以及其他设置完全相同，则视为相等。比较会忽略唯一标识符值（例如 `slide_id`）和动态内容（例如日期占位符中的当前日期）。
-
-## **将 Slide Master 设置为演示文稿的默认视图**
-
-Aspose.Slides 允许您将 Slide Master 设置为演示文稿的默认视图。默认视图是打开演示文稿时首先看到的视图。下面的 Python 示例展示了如何将 Slide Master 设置为演示文稿的默认视图：
-
-```py
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# 实例化表示演示文稿文件的 Presentation 类。
-with slides.Presentation() as presentation:
-    # 将默认视图设置为母版视图。
+
+def find_placeholder(master_slide, placeholder_type):
+    for shape in master_slide.shapes:
+        if isinstance(shape, slides.AutoShape) and shape.placeholder is not None:
+            if shape.placeholder.type == placeholder_type:
+                return shape
+
+    return None
+
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    title_placeholder = find_placeholder(master_slide, slides.PlaceholderType.TITLE)
+
+    if title_placeholder is not None:
+        red_gradient_color = draw.Color.from_argb(255, 0, 0)
+        purple_gradient_color = draw.Color.from_argb(128, 0, 128)
+
+        title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
+        title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+
+    presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![普通幻灯片继承的已格式化标题占位符](slide-master_8.png)
+
+有关占位符和文本格式的更多选项，请参阅 [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) 和 [Text Formatting](/python-net/text-formatting/)。
+
+## **更改幻灯片母版背景**
+
+母版背景会被版式和未覆盖它的幻灯片继承。以下示例为第一个母版幻灯片设置纯色背景：
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_slide = presentation.masters[0]
+
+    master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    master_slide.background.fill_format.solid_fill_color.color = draw.Color.forest_green
+
+    presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
+```
+
+相关主题请参阅 [Presentation Background](/python-net/presentation-background/) 和 [Presentation Theme](/python-net/presentation-theme/)。
+
+## **将幻灯片母版克隆到其他演示文稿**
+
+使用 [MasterSlideCollection](https://reference.aspose.com/slides/zh/python-net/aspose.slides/masterslidecollection/) 类的 `add_clone` 方法，可将母版幻灯片复制到另一个演示文稿中。复制后的母版随后可以被目标演示文稿中的版式和幻灯片使用。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source.pptx") as source_presentation:
+    with slides.Presentation("destination.pptx") as destination_presentation:
+        source_master_slide = source_presentation.masters[0]
+        cloned_master_slide = destination_presentation.masters.add_clone(source_master_slide)
+
+        destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
+```
+
+如果需要将普通幻灯片连同其母版一起克隆，请参阅 [Clone Slides](/python-net/clone-slides/)。
+
+## **添加多个幻灯片母版**
+
+一个演示文稿可以包含多个母版幻灯片。这在不同章节需要不同品牌、页面结构或主题设置时非常有用。
+
+![PowerPoint 插入和管理母版幻灯片的命令](slide-master_9.jpg)
+
+下面的示例克隆默认母版，给克隆的母版设置不同的背景，获取该克隆母版下的空白版式，并基于该版式添加新幻灯片：
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    default_master_slide = presentation.masters[0]
+    section_master_slide = presentation.masters.add_clone(default_master_slide)
+
+    section_master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    section_master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    section_master_slide.background.fill_format.solid_fill_color.color = draw.Color.light_steel_blue
+
+    section_blank_layout = section_master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if section_blank_layout is None:
+        section_blank_layout = presentation.layout_slides.add(
+            section_master_slide,
+            slides.SlideLayoutType.BLANK,
+            "Section Blank")
+
+    presentation.slides.add_empty_slide(section_blank_layout)
+    presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **比较幻灯片母版**
+
+母版幻灯片可以使用从 [BaseSlide](https://reference.aspose.com/slides/zh/python-net/aspose.slides/baseslide/) 类继承的 `equals` 方法进行比较。比较会检查结构和静态内容，如形状、文本、格式、动画以及其他幻灯片设置。它不比较唯一标识符（如幻灯片 ID）或动态占位符值（如当前日期）。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("first.pptx") as first_presentation:
+    with slides.Presentation("second.pptx") as second_presentation:
+        first_presentation_master_count = len(first_presentation.masters)
+        second_presentation_master_count = len(second_presentation.masters)
+
+        for first_master_index in range(first_presentation_master_count):
+            for second_master_index in range(second_presentation_master_count):
+                first_master_slide = first_presentation.masters[first_master_index]
+                second_master_slide = second_presentation.masters[second_master_index]
+                are_master_slides_equal = first_master_slide.equals(second_master_slide)
+
+                if are_master_slides_equal:
+                    print(
+                        "first.pptx master #{} equals second.pptx master #{}".format(
+                            first_master_index,
+                            second_master_index))
+```
+
+更多信息请参阅 [Compare Presentation Slides](/python-net/compare-slides/)。
+
+## **将幻灯片母版视图设为默认视图**
+
+使用演示文稿的 [ViewProperties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/) 中的 `last_view` 属性，可控制 PowerPoint 首次打开时的视图。下面的示例在打开演示文稿时直接进入幻灯片母版视图：
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
-
-    # 保存演示文稿。
-    presentation.save("presentation_view.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+更多视图设置请参阅 [Save Presentation](/python-net/save-presentation/)。
 
-## **删除未使用的母版幻灯片**
+## **移除未使用的母版幻灯片**
 
-Aspose.Slides 在 [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) 类中提供了 `remove_unused_master_slides` 方法，可删除不需要的、未使用的母版幻灯片。以下 Python 代码展示了如何从 PowerPoint 演示文稿中删除未使用的母版幻灯片：
+有时演示文稿中会存在不再被任何普通幻灯片使用的母版幻灯片。移除未使用的母版可以减小文件大小并简化模板维护。
+
+使用 `remove_unused` 方法可从 `masters` 集合中移除未使用的母版：
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.masters.remove_unused(True)
+    presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
+```
+
+您也可以使用 [Compress](https://reference.aspose.com/slides/zh/python-net/aspose.slides.lowcode/compress/) 类中的低代码 `remove_unused_master_slides` 方法：
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
     slides.lowcode.Compress.remove_unused_master_slides(presentation)
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **常见问题**
 
-## **FAQ**
+**幻灯片母版和版式幻灯片有什么区别？**
 
-**什么是 PowerPoint 中的 Slide Master？**
+幻灯片母版定义共享的设计设置，如主题、背景、通用形状和文本样式。版式幻灯片属于某个母版，定义占位符的具体排列。普通幻灯片使用版式幻灯片，从而同时继承版式和母版的设置。
 
-Slide Master 是一种幻灯片模板，定义了演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。它允许您一次性设置和更改所有演示文稿幻灯片的外观。
+**一个演示文稿可以包含多个幻灯片母版吗？**
 
-**Slide Master 与 Slide Layout 有何关联？**
+可以。一个演示文稿可以包含多个幻灯片母版。当不同章节需要不同的视觉系统或品牌时，请使用多个母版。
 
-Slide Layout 与 Slide Master 协同工作，为幻灯片设计提供灵活性。Slide Master 定义全局样式和主题，而 [Slide Layout](/slides/zh/python-net/slide-layout/) 则允许在内容布局上进行变化。层级结构如下：
+**应该在母版幻灯片还是版式幻灯片上添加占位符？**
 
-- **Slide Master** → 定义全局样式。
-- **Slide Layout** → 提供不同的内容布局。
-- **Slide** → 从其 Slide Layout 继承设计。
+大多数情况下，应在版式幻灯片上添加占位符。将共享的视觉元素和共享格式放在母版上，然后在普通幻灯片将使用的版式上放置内容占位符。
 
-**演示文稿中可以有多个 Slide Master 吗？**
+**我可以删除仍在使用中的母版幻灯片吗？**
 
-可以，一个演示文稿可以包含多个 Slide Master。这使您能够以不同方式为演示文稿的不同章节设置样式，提供了更大的设计灵活性。
-
-**如何使用 Aspose.Slides 访问和修改 Slide Master？**
-
-在 Aspose.Slides 中，Slide Master 由 [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) 类表示。您可以通过 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象的 [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) 属性访问 Slide Master。
+不能。拥有依赖幻灯片的母版不能直接安全删除。请先将这些幻灯片移动到另一个母版的版式下，或使用只删除未使用母版的清理方法。

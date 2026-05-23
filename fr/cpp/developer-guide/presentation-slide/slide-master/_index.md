@@ -1,11 +1,11 @@
 ---
-title: Gérer les masques de diapositives de présentation en C++
-linktitle: Masque de diapositive
+title: Gérer les maîtres de diapositives de présentation en C++
+linktitle: Maître de diapositive
 type: docs
 weight: 80
 url: /fr/cpp/slide-master/
 keywords:
-- masque de diapositive
+- maître de diapositive
 - diapositive maître
 - diapositive maître PPT
 - plusieurs diapositives maîtres
@@ -21,318 +21,345 @@ keywords:
 - présentation
 - C++
 - Aspose.Slides
-description: "Gérez les masques de diapositives dans Aspose.Slides pour C++ : créez, modifiez et appliquez des dispositions, des thèmes et des espaces réservés aux fichiers PPT, PPTX et ODP avec des exemples C++ concis."
+description: "Gérer les maîtres de diapositives dans Aspose.Slides pour C++ : accéder, modifier, cloner, comparer et supprimer les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
 ---
+## **Vue d’ensemble**
 
-## **Qu’est‑ce qu’un Masque des diapositives dans PowerPoint**
+Un **slide master** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un slide master est la méthode habituelle pour garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Un **Masque des diapositives** est un modèle de diapositive qui définit la disposition, les styles, le thème, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un masque des diapositives.  
+Aspose.Slides for C++ prend en charge le même modèle. Une présentation peut contenir une ou plusieurs diapositives maîtres, et chaque diapositive maître peut contenir plusieurs diapositives de mise en page. Les diapositives normales ne font généralement pas référence directement à une diapositive maître. Au lieu de cela, une diapositive normale utilise une diapositive de mise en page, qui appartient à une diapositive maître.
 
-Un masque des diapositives est utile car il permet de définir et de modifier l’aspect de toutes les diapositives de la présentation en une seule fois. Aspose.Slides prend en charge le mécanisme de masque des diapositives de PowerPoint.  
+La hiérarchie est :
 
-VBA permet également de manipuler un masque des diapositives et d’exécuter les mêmes opérations prises en charge dans PowerPoint : modifier les arrière‑plans, ajouter des formes, personnaliser la disposition, etc. Aspose.Slides offre des mécanismes flexibles pour vous permettre d’utiliser les masques des diapositives et d’effectuer des tâches de base avec eux.  
+1. **Slide master** - définit la conception partagée et le thème.  
+1. **Layout slide** - définit un arrangement spécifique d’espaces réservés et de formatage au niveau de la mise en page.  
+1. **Normal slide** - contient le contenu réel de la présentation et utilise une diapositive de mise en page.
 
-Voici les opérations de base sur les masques des diapositives :
+![Hiérarchie des diapositives maîtres, des diapositives de mise en page et des diapositives normales](slide-master_2.jpg)
 
-- Créer ou modifier un masque des diapositives.  
-- Appliquer le masque des diapositives aux diapositives de la présentation.  
-- Modifier l’arrière‑plan du masque des diapositives.  
-- Ajouter une image, un espace réservé, Smart Art, etc. au masque des diapositives.  
+Dans Aspose.Slides, un slide master est représenté par l’interface [IMasterSlide](https://reference.aspose.com/slides/fr/cpp/aspose.slides/imasterslide/). Toutes les diapositives maîtres d’une présentation sont accessibles via la collection [Presentation::get_Masters](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/get_masters/), qui implémente [IMasterSlideCollection](https://reference.aspose.com/slides/fr/cpp/aspose.slides/imasterslidecollection/).
 
-Voici des opérations plus avancées impliquant les masques des diapositives :  
+{{% alert color="info" title="Héritage" %}}
 
-- Comparer des masques des diapositives.  
-- Fusionner des masques des diapositives.  
-- Appliquer plusieurs masques des diapositives.  
-- Copier une diapositive avec son masque des diapositives vers une autre présentation.  
-- Détecter les masques des diapositives en double dans des présentations.  
-- Définir le masque des diapositives comme affichage par défaut de la présentation.  
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si une diapositive maître et une diapositive de mise en page définissent toutes deux un arrière‑plan, les diapositives basées sur cette mise en page utilisent l’arrière‑plan de la mise en page. Pour plus d’informations sur les diapositives de mise en page, consultez [Appliquer ou modifier les mises en page des diapositives](/slides/fr/cpp/slide-layout/).
 
-{{% alert color="primary" %}}  
+{{% /alert %}}
 
-Vous pouvez consulter la [**Visionneuse PowerPoint en ligne**](https://products.aspose.app/slides/viewer) d’Aspose, car il s’agit d’une implémentation en direct de certains des processus décrits ici.  
+## **Accéder aux slide masters**
 
-{{% /alert %}}  
+Dans PowerPoint, vous pouvez ouvrir la vue Slide Master depuis **Affichage** > **Slide Master**.
 
-## **Comment le masque des diapositives est‑il appliqué**
+![Commande Slide Master dans l’onglet Affichage de PowerPoint](slide-master_3.jpg)
 
-Avant de travailler avec un masque des diapositives, il est utile de comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives.  
+Dans Aspose.Slides, utilisez la collection `get_Masters()` pour accéder aux diapositives maîtres :
 
-* Chaque présentation possède au moins un masque des diapositives par défaut.  
-* Une présentation peut contenir plusieurs masques des diapositives. Vous pouvez ajouter plusieurs masques des diapositives et les utiliser pour styliser différentes parties d’une présentation de manières différentes.  
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-Dans **Aspose.Slides**, un masque des diapositives est représenté par le type [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide).  
+auto firstMasterSlide = presentation->get_Master(0);
+auto masterSlideCount = presentation->get_Masters()->get_Count();
+auto firstMasterLayoutSlideCount = firstMasterSlide->get_LayoutSlides()->get_Count();
 
-L’objet [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) d’Aspose.Slides contient la liste [**get_Masters()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) de type [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection), qui contient toutes les diapositives maîtres définies dans une présentation.  
+System::Console::WriteLine(System::String(u"Master slides: ") + masterSlideCount);
+System::Console::WriteLine(System::String(u"Layouts in the first master: ") + firstMasterLayoutSlideCount);
 
-En plus des opérations CRUD, l’interface [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) propose les méthodes utiles : [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) et [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311). Ces méthodes proviennent de la fonction de clonage de base des diapositives, mais lorsqu’on travaille avec des masques des diapositives, elles permettent de mettre en place des configurations complexes.  
-
-Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un masque des diapositives lui est appliqué automatiquement. Le masque des diapositives de la diapositive précédente est sélectionné par défaut.  
-
-**Note** : les diapositives de la présentation sont stockées dans la liste [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne contient qu’un seul masque des diapositives, ce masque est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas besoin de définir le masque des diapositives pour chaque nouvelle diapositive que vous créez.  
-
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle diapositive, il suffit de cliquer sur la ligne située sous la dernière diapositive ; une nouvelle diapositive (avec le même masque des diapositives que la présentation précédente) sera créée :  
-
-![todo:image_alt_text](slide-master_1.jpg)  
-
-Dans Aspose.Slides, vous pouvez effectuer la tâche équivalente avec la méthode [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-
-## **Masque des diapositives dans la hiérarchie des diapositives**
-
-Utiliser des dispositions de diapositives avec le masque des diapositives offre une flexibilité maximale. Une disposition de diapositive vous permet de définir les mêmes styles que le masque des diapositives (arrière‑plan, polices, formes, etc.). Cependant, lorsque plusieurs dispositions de diapositives sont combinées sur un même masque des diapositives, un nouveau style est créé. Lorsque vous appliquez une disposition de diapositive à une diapositive unique, vous pouvez modifier son style par rapport à celui appliqué par le masque des diapositives.  
-
-Le masque des diapositives prime sur tous les éléments de configuration : Masque des diapositives → Disposition de diapositive → Diapositive :  
-
-![todo:image_alt_text](slide-master_2)  
-
-Chaque objet [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) possède la propriété [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) contenant une liste de dispositions de diapositives. Un objet de type [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) possède la propriété [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) pointant vers la disposition de diapositive appliquée à la diapositive. L’interaction entre une diapositive et le masque des diapositives s’effectue via la disposition de diapositive.  
-
-{{% alert color="info" title="Remarque" %}}  
-
-* Dans Aspose.Slides, toutes les configurations de diapositive (masque des diapositives, disposition de diapositive et la diapositive elle‑même) sont en fait des objets de diapositive implémentant l’interface [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide).  
-* Ainsi, le masque des diapositives et la disposition de diapositive peuvent implémenter les mêmes propriétés et il faut savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide). Le masque des diapositives est appliqué en premier, puis la disposition de diapositive. Par exemple, si le masque des diapositives et la disposition de diapositive possèdent tous deux une valeur d’arrière‑plan, la diapositive affichera l’arrière‑plan de la disposition de diapositive.  
-
-{{% /alert %}}  
-
-## **Ce que comporte un masque des diapositives**
-
-Pour comprendre comment un masque des diapositives peut être modifié, il faut connaître ses constituants. Ce sont les propriétés essentielles de [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) :  
-
-- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) – obtenir/ définir l’arrière‑plan de la diapositive.  
-- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) – obtenir/ définir les styles de texte du corps de la diapositive.  
-- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) – obtenir/ définir toutes les formes du masque des diapositives (espaces réservés, cadres d’image, etc.).  
-- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) – obtenir/ définir les contrôles ActiveX.  
-- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) – obtenir le gestionnaire de thèmes.  
-- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) – obtenir le gestionnaire d’en‑tête et de pied de page.  
-
-Méthodes du masque des diapositives :  
-
-- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) – récupérer toutes les diapositives dépendant du masque des diapositives.  
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) – créer un nouveau masque des diapositives à partir du masque actuel et d’un nouveau thème, puis l’appliquer à toutes les diapositives dépendantes.  
-
-## **Obtenir un masque des diapositives**
-
-Dans PowerPoint, le masque des diapositives est accessible via le menu Affichage → Masque des diapositives :  
-
-![todo:image_alt_text](slide-master_3.jpg)  
-
-Avec Aspose.Slides, vous pouvez accéder à un masque des diapositives de cette façon :  
-```c++
-System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
+presentation->Dispose();
 ```
-  
 
-L’interface [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) représente un masque des diapositives. La propriété [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) (associée au type [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection)) contient la liste de tous les masques des diapositives définis dans la présentation.  
+Vous pouvez également obtenir la diapositive maître utilisée par une diapositive normale via sa mise en page :
 
-## **Ajouter une image à un masque des diapositives**
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-Lorsque vous ajoutez une image à un masque des diapositives, cette image apparaît sur toutes les diapositives dépendant de ce masque.  
+auto slide = presentation->get_Slide(0);
+auto layoutSlide = slide->get_LayoutSlide();
+auto masterSlide = layoutSlide->get_MasterSlide();
+auto masterSlideName = masterSlide->get_Name();
 
-Par exemple, vous pouvez placer le logo de votre entreprise et quelques images sur le masque des diapositives, puis repasser en mode édition des diapositives. L’image apparaîtra sur chaque diapositive.  
+System::Console::WriteLine(masterSlideName);
 
-![todo:image_alt_text](slide-master_4.png)  
-
-Vous pouvez ajouter des images à un masque des diapositives avec Aspose.Slides :  
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png"));
-pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-  
 
-{{% alert color="primary" title="Voir aussi" %}}  
+## **Ce que contient un slide master**
 
-Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Cadre d’image](/slides/fr/cpp/picture-frame/#create-picture-frame).  
-{{% /alert %}}  
+Une diapositive maître est un objet semblable à une diapositive. Elle implémente [IBaseSlide](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ibaseslide/), de sorte qu’elle expose de nombreuses propriétés de diapositive également utilisées par les diapositives normales et de mise en page. Les membres spécifiques au maître sont répertoriés sur la page d’API [IMasterSlide](https://reference.aspose.com/slides/fr/cpp/aspose.slides/imasterslide/).
 
-## **Ajouter un espace réservé à un masque des diapositives**
+Les membres de slide master les plus couramment utilisés comprennent :
 
-Ces champs de texte sont des espaces réservés standards sur un masque des diapositives :  
+| Membre | Fonction |
+| --- | --- |
+| `get_Background()` | Définit l’arrière‑plan de la diapositive au niveau du master. |
+| `get_Shapes()` | Stocke les formes placées sur le master, comme les logos, les cadres d’image et le texte partagé. |
+| `get_LayoutSlides()` | Stocke les diapositives de mise en page appartenant au master. |
+| `get_ThemeManager()` | Fournit l’accès aux API du thème du master. |
+| `get_HeaderFooterManager()` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le master et ses mises en page enfants. |
+| `GetDependingSlides()` | Renvoie les diapositives normales dépendant du master via leurs mises en page. |
 
-* Cliquez pour modifier le style du titre du masque  
+## **Ajouter une image à un slide master**
 
-* Modifier les styles de texte du masque  
+Lorsque vous ajoutez une image à une diapositive maître, elle apparaît sur les diapositives qui utilisent des mises en page provenant de ce master. Cela est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
 
-* Niveau secondaire  
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-* Niveau tertiaire  
+auto masterSlide = presentation->get_Master(0);
+auto logoBytes = System::IO::File::ReadAllBytes(u"logo.png");
+auto logoImage = presentation->get_Images()->AddImage(logoBytes);
 
-Ils apparaissent également sur les diapositives basées sur le masque des diapositives. Vous pouvez modifier ces espaces réservés sur le masque et les changements seront appliqués automatiquement aux diapositives.  
+masterSlide->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle,
+    20.0f,
+    20.0f,
+    80.0f,
+    80.0f,
+    logoImage);
 
-Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Masque des diapositives → Insérer un espace réservé :  
+presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-![todo:image_alt_text](slide-master_5.png)  
+Pour plus d’informations sur les cadres d’image, consultez [Cadre d’image](/slides/fr/cpp/picture-frame/).
 
-Examinons un exemple plus complexe d’espaces réservés avec Aspose.Slides. Considérons une diapositive dont les espaces réservés proviennent du masque des diapositives :  
+## **Travailler avec les espaces réservés**
 
-![todo:image_alt_text](slide-master_6.png)  
+Les espaces réservés sont normalement définis sur les diapositives de mise en page. La diapositive maître fournit le style partagé et le thème que ces mises en page héritent, tandis que chaque mise en page décide quels espaces réservés sont disponibles et où ils sont placés.
 
-Nous voulons modifier la mise en forme du titre et du sous‑titre du masque des diapositives ainsi :  
+Dans PowerPoint, les commandes d’espace réservé sont disponibles dans la vue Slide Master.
 
-![todo:image_alt_text](slide-master_7.png)  
+![Commande Insérer un espace réservé dans la vue Slide Master de PowerPoint](slide-master_5.png)
 
-Tout d’abord, nous récupérons le contenu de l’espace réservé du titre depuis l’objet masque des diapositives, puis nous utilisons le champ `PlaceHolder.FillFormat` :  
-```c++
-System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> master, PlaceholderType type)
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur la diapositive de mise en page qui appartient au master :
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto blankLayoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (blankLayoutSlide == nullptr)
 {
-    for (auto& shape : master->get_Shapes())
+    blankLayoutSlide = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::Blank, u"Blank");
+}
+
+blankLayoutSlide->get_PlaceholderManager()->AddTextPlaceholder(
+    60.0f,
+    120.0f,
+    600.0f,
+    80.0f);
+
+presentation->get_Slides()->AddEmptySlide(blankLayoutSlide);
+presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Vous pouvez également formater les formes d’espace réservé déjà présentes sur une diapositive maître. L’exemple suivant trouve l’espace réservé de titre et applique un remplissage en dégradé linéaire :
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+System::SharedPtr<IAutoShape> titlePlaceholder;
+
+for (auto&& shape : masterSlide->get_Shapes())
+{
+    auto autoShape = System::AsCast<IAutoShape>(shape);
+
+    if (autoShape != nullptr &&
+        autoShape->get_Placeholder() != nullptr &&
+        autoShape->get_Placeholder()->get_Type() == PlaceholderType::Title)
     {
-        System::SharedPtr<IAutoShape> autoShape = System::AsCast<Aspose::Slides::IAutoShape>(shape);
-        if (autoShape != nullptr)
+        titlePlaceholder = autoShape;
+        break;
+    }
+}
+
+if (titlePlaceholder != nullptr)
+{
+    auto fillFormat = titlePlaceholder->get_FillFormat();
+    fillFormat->set_FillType(FillType::Gradient);
+
+    auto gradientFormat = fillFormat->get_GradientFormat();
+    gradientFormat->set_GradientShape(GradientShape::Linear);
+
+    auto gradientStops = gradientFormat->get_GradientStops();
+    auto redGradientColor = System::Drawing::Color::FromArgb(255, 0, 0);
+    auto purpleGradientColor = System::Drawing::Color::FromArgb(128, 0, 128);
+
+    gradientStops->Add(0.0f, redGradientColor);
+    gradientStops->Add(255.0f, purpleGradientColor);
+}
+
+presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+![Espace réservé de titre formaté hérité par les diapositives normales](slide-master_8.png)
+
+Pour plus d’options de formatage des espaces réservés et du texte, consultez [Définir le texte d’invite dans un espace réservé](/slides/fr/cpp/manage-placeholder/) et [Mise en forme du texte](/slides/fr/cpp/text-formatting/).
+
+## **Modifier l’arrière‑plan d’un slide master**
+
+Un arrière‑plan de master est hérité par les mises en page et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour la première diapositive maître :
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto masterBackgroundColor = System::Drawing::Color::get_ForestGreen();
+
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(masterBackgroundColor);
+
+presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Pour des sujets associés, consultez [Arrière‑plan de la présentation](/slides/fr/cpp/presentation-background/) et [Thème de la présentation](/slides/fr/cpp/presentation-theme/).
+
+## **Cloner un slide master vers une autre présentation**
+
+Utilisez [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/fr/cpp/aspose.slides/imasterslidecollection/addclone/) pour copier une diapositive maître dans une autre présentation. Le master copié peut alors être utilisé par les mises en page et les diapositives de la présentation de destination.
+
+```cpp
+auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
+auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
+
+auto sourceMasterSlide = sourcePresentation->get_Master(0);
+auto clonedMasterSlide = destinationPresentation->get_Masters()->AddClone(sourceMasterSlide);
+
+destinationPresentation->Save(u"destination-with-master.pptx", SaveFormat::Pptx);
+destinationPresentation->Dispose();
+sourcePresentation->Dispose();
+```
+
+Si vous devez cloner des diapositives normales avec leur master, consultez [Cloner des diapositives](/slides/fr/cpp/clone-slides/).
+
+## **Ajouter plusieurs slide masters**
+
+Une présentation peut contenir plusieurs diapositives maîtres. Cela est utile lorsque différentes sections nécessitent un branding, une structure de page ou des paramètres de thème différents.
+
+![Commandes PowerPoint pour insérer et gérer les diapositives maîtres](slide-master_9.jpg)
+
+L’exemple suivant clone le master par défaut, donne au clone un arrière‑plan différent, crée une mise en page sous ce master cloné, puis ajoute une nouvelle diapositive basée sur cette mise en page :
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto defaultMasterSlide = presentation->get_Master(0);
+auto sectionMasterSlide = presentation->get_Masters()->AddClone(defaultMasterSlide);
+auto sectionMasterBackgroundColor = System::Drawing::Color::get_LightSteelBlue();
+
+sectionMasterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+sectionMasterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+sectionMasterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(sectionMasterBackgroundColor);
+
+auto sourceBlankLayout = defaultMasterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (sourceBlankLayout == nullptr)
+{
+    sourceBlankLayout = defaultMasterSlide->get_LayoutSlide(0);
+}
+
+auto sectionBlankLayout = sectionMasterSlide->get_LayoutSlides()->AddClone(sourceBlankLayout);
+
+presentation->get_Slides()->AddEmptySlide(sectionBlankLayout);
+presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Comparer les slide masters**
+
+Les diapositives maîtres peuvent être comparées avec la méthode `Equals` héritée de [IBaseSlide](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ibaseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les ID de diapositive, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
+
+```cpp
+auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
+auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
+auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
+auto secondPresentationMasterCount = secondPresentation->get_Masters()->get_Count();
+
+for (int32_t firstMasterIndex = 0;
+     firstMasterIndex < firstPresentationMasterCount;
+     firstMasterIndex++)
+{
+    for (int32_t secondMasterIndex = 0;
+         secondMasterIndex < secondPresentationMasterCount;
+         secondMasterIndex++)
+    {
+        auto firstMasterSlide = firstPresentation->get_Master(firstMasterIndex);
+        auto secondMasterSlide = secondPresentation->get_Master(secondMasterIndex);
+        auto areMasterSlidesEqual = firstMasterSlide->Equals(secondMasterSlide);
+
+        if (areMasterSlidesEqual)
         {
-            if (autoShape->get_Placeholder()->get_Type() == type)
-            {
-                return autoShape;
-            }
+            System::Console::WriteLine(
+                System::String::Format(
+                    u"first.pptx master #{0} equals second.pptx master #{1}",
+                    firstMasterIndex,
+                    secondMasterIndex));
         }
     }
-    return nullptr;
 }
 
-void Main()
-{
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
-    System::SharedPtr<IAutoShape> placeHolder = FindPlaceholder(master, Aspose::Slides::PlaceholderType::Title);
-    auto fillFormat = placeHolder->get_FillFormat();
-    fillFormat->set_FillType(Aspose::Slides::FillType::Gradient);
-    auto gradientFormat = fillFormat->get_GradientFormat();
-    gradientFormat->set_GradientShape(Aspose::Slides::GradientShape::Linear);
-    gradientFormat->get_GradientStops()->Add(0.0f, System::Drawing::Color::FromArgb(255, 0, 0));
-    gradientFormat->get_GradientStops()->Add(255.0f, System::Drawing::Color::FromArgb(128, 0, 128));
-    
-    pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-}
+secondPresentation->Dispose();
+firstPresentation->Dispose();
 ```
-  
 
-Le style et la mise en forme du titre changeront pour toutes les diapositives basées sur le masque :  
+Pour plus d’informations, consultez [Comparer les diapositives d’une présentation](/slides/fr/cpp/compare-slides/).
 
-![todo:image_alt_text](slide-master_8.png)  
+## **Définir la vue Slide Master comme vue par défaut**
 
-{{% alert color="primary" title="Voir aussi" %}}  
+Utilisez la méthode `set_LastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/cpp/aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Slide Master :
 
-* [Définir le texte d’invite dans un espace réservé](https://docs.aspose.com/slides/cpp/manage-placeholder/)  
-* [Mise en forme du texte](https://docs.aspose.com/slides/cpp/text-formatting/)  
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-{{% /alert %}}  
-
-## **Modifier l’arrière‑plan d’un masque des diapositives**
-
-Lorsque vous modifiez la couleur d’arrière‑plan d’une diapositive maître, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code C++ montre l’opération :  
-```c++
-auto pres = System::MakeObject<Presentation>();
-
-auto master = pres->get_Masters()->idx_get(0);
-auto background = master->get_Background();
-background->set_Type(Aspose::Slides::BackgroundType::OwnBackground);
-background->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-background->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
-    
-pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
+presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-  
 
-{{% alert color="primary" title="Voir aussi" %}}  
+Pour plus de paramètres d’affichage, consultez [Enregistrer la présentation](/slides/fr/cpp/save-presentation/).
 
-- [Arrière‑plan de la présentation](https://docs.aspose.com/slides/cpp/presentation-background/)  
-- [Thème de la présentation](https://docs.aspose.com/slides/cpp/presentation-theme/)  
+## **Supprimer les slide masters inutilisés**
 
-{{% /alert %}}  
+Les présentations contiennent parfois des diapositives maîtres qui ne sont plus utilisées par aucune diapositive normale. Supprimer les maîtres inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
 
-## **Cloner un masque des diapositives vers une autre présentation**
+Utilisez [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/fr/cpp/aspose.slides/masterslidecollection/removeunused/) pour supprimer les maîtres inutilisés de la collection `get_Masters()` :
 
-Pour cloner un masque des diapositives vers une autre présentation, appelez la méthode [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) de la présentation de destination en lui transmettant le masque des diapositives. Ce code C++ montre comment cloner un masque des diapositives vers une autre présentation :  
-```c++
-auto presSource = System::MakeObject<Presentation>();
-auto presTarget = System::MakeObject<Presentation>();
-    
-auto master = presTarget->get_Masters()->AddClone(presSource->get_Masters()->idx_get(0));
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+presentation->get_Masters()->RemoveUnused(true);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-  
 
-## **Ajouter plusieurs masques des diapositives à une présentation**
+Vous pouvez également utiliser la méthode low‑code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/fr/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
 
-Aspose.Slides vous permet d’ajouter plusieurs masques des diapositives et plusieurs dispositions de diapositives à une même présentation. Cela vous permet de configurer les styles, les dispositions et les options de mise en forme des diapositives de nombreuses manières.  
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-Dans PowerPoint, vous pouvez ajouter de nouveaux masques des diapositives et dispositions (via le « Menu Masque des diapositives ») de cette façon :  
-
-![todo:image_alt_text](slide-master_9.jpg)  
-
-Avec Aspose.Slides, vous pouvez ajouter un nouveau masque des diapositives en appelant la méthode [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) :  
-```c++
-pres->get_Masters()->AddClone(pres->get_Masters()->idx_get(0));
+LowCode::Compress::RemoveUnusedMasterSlides(presentation);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-  
-
-## **Comparer des masques des diapositives**
-
-Une diapositive maître implémente l’interface [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) contenant la méthode [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f), qui peut être utilisée pour comparer des diapositives. Elle renvoie `true` lorsque les diapositives maîtres sont identiques en structure et en contenu statique.  
-
-Deux diapositives maîtres sont égales si leurs formes, styles, textes, animations et autres paramètres sont identiques. La comparaison ne tient pas compte des valeurs d’identifiant uniques (par exemple : SlideId) ni du contenu dynamique (par exemple : la date actuelle dans un espace réservé de date).  
-
-## **Définir un masque des diapositives comme affichage par défaut de la présentation**
-
-Aspose.Slides vous permet de définir un masque des diapositives comme affichage par défaut d’une présentation. L’affichage par défaut est ce que vous voyez en premier lorsque vous ouvrez une présentation.  
-
-Ce code montre comment définir un masque des diapositives comme affichage par défaut d’une présentation en C++ :  
-```c++
-pres->get_ViewProperties()->set_LastView(Aspose::Slides::ViewType::SlideMasterView);
-```
-  
-
-## **Supprimer les masques des diapositives inutilisés**
-
-Aspose.Slides fournit la méthode [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) (de la classe [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) pour supprimer les masques des diapositives indésirables et inutilisés. Ce code C++ montre comment supprimer un masque des diapositives d’une présentation PowerPoint :  
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-LowCode::Compress::RemoveUnusedMasterSlides(pres);
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-  
 
 ## **FAQ**
 
-**Qu’est‑ce qu’un masque des diapositives dans PowerPoint ?**
+**Quelle est la différence entre un slide master et une diapositive de mise en page ?**
 
-Un masque des diapositives est un modèle de diapositive qui définit la disposition, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une seule fois.  
+Un slide master définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une diapositive de mise en page appartient à un slide master et définit un arrangement spécifique d’espaces réservés. Une diapositive normale utilise une diapositive de mise en page, et hérite ainsi à la fois de la mise en page et du master.
 
-**Comment un masque des diapositives est‑il appliqué dans une présentation ?**
+**Une présentation peut-elle contenir plusieurs slide masters ?**
 
-Chaque présentation possède au moins un masque des diapositives par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un masque des diapositives lui est appliqué automatiquement, généralement en héritant du masque de la diapositive précédente. Une présentation peut contenir plusieurs masques des diapositives pour styliser différentes parties de manière unique.  
+Oui. Une présentation peut contenir plusieurs slide masters. Utilisez plusieurs maîtres lorsque différentes sections nécessitent des systèmes visuels ou un branding différents.
 
-**Quels éléments peuvent être personnalisés dans un masque des diapositives ?**
+**Devrais‑je ajouter des espaces réservés à une diapositive maître ou à une diapositive de mise en page ?**
 
-Un masque des diapositives comprend plusieurs propriétés essentielles qui peuvent être personnalisées :  
+Dans la plupart des cas, ajoutez les espaces réservés aux diapositives de mise en page. Placez les éléments visuels partagés et le formatage partagé sur la diapositive maître, puis ajoutez les espaces réservés de contenu sur les mises en page que les diapositives normales utiliseront.
 
-- **Background** : définir l’arrière‑plan de la diapositive.  
-- **BodyStyle** : définir les styles de texte du corps de la diapositive.  
-- **Shapes** : gérer toutes les formes du masque des diapositives, y compris les espaces réservés et les cadres d’image.  
-- **Controls** : gérer les contrôles ActiveX.  
-- **ThemeManager** : accéder au gestionnaire de thèmes.  
-- **HeaderFooterManager** : gérer les en‑têtes et pieds de page.  
+**Puis‑je supprimer une diapositive maître qui est encore utilisée ?**
 
-**Comment ajouter une image à un masque des diapositives ?**
-
-Ajouter une image à un masque des diapositives garantit qu’elle apparaît sur toutes les diapositives dépendant de ce masque. Par exemple, placer le logo de l’entreprise sur le masque des diapositives l’affichera sur chaque diapositive de la présentation.  
-
-**Comment les masques des diapositives sont‑ils liés aux dispositions de diapositives ?**
-
-Les dispositions de diapositives fonctionnent en combinaison avec les masques des diapositives pour offrir une flexibilité dans la conception des diapositives. Le masque des diapositives définit les styles et thèmes globaux, tandis que les dispositions de diapositives permettent des variantes dans l’arrangement du contenu. La hiérarchie est la suivante :  
-
-- **Masque des diapositives** → définit les styles globaux.  
-- **Disposition de diapositive** → propose différents agencements de contenu.  
-- **Diapositive** → hérite du design de sa disposition de diapositive.  
-
-**Puis‑je avoir plusieurs masques des diapositives dans une même présentation ?**
-
-Oui, une présentation peut contenir plusieurs masques des diapositives. Cela vous permet de styliser différentes sections d’une présentation de manières variées, offrant ainsi plus de souplesse au niveau du design.  
-
-**Comment accéder et modifier un masque des diapositives avec Aspose.Slides ?**
-
-Dans Aspose.Slides, un masque des diapositives est représenté par l’interface [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/). Vous pouvez accéder à un masque des diapositives à l’aide de la méthode [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) de l’objet [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+Non. Une diapositive maître qui possède des diapositives dépendantes ne peut pas être supprimée en toute sécurité directement. Déplacez d’abord ces diapositives vers des mises en page sous un autre master, ou utilisez une méthode de nettoyage des maîtres inutilisés qui ne supprime que les maîtres qui ne sont pas en usage.

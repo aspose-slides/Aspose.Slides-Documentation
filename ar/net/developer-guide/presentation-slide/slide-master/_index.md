@@ -1,5 +1,5 @@
 ---
-title: إدارة ماسترات الشرائح في .NET
+title: إدارة ماسترات شرائح العرض التقديمي في .NET
 linktitle: ماستر الشريحة
 type: docs
 weight: 80
@@ -9,7 +9,7 @@ keywords:
 - شريحة ماستر
 - شريحة ماستر PPT
 - شرائح ماستر متعددة
-- مقارنة شرائح الماستر
+- مقارنة شرائح ماستر
 - خلفية
 - عنصر نائب
 - استنساخ شريحة ماستر
@@ -22,173 +22,158 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة ماسترات الشريحة في Aspose.Slides لـ .NET: إنشاء، تعديل وتطبيق التخطيطات والسمات والعناصر النائبة على PPT و PPTX و ODP مع أمثلة مختصرة بلغة C#."
+description: "إدارة ماسترات الشرائح في Aspose.Slides لـ .NET: الوصول، التعديل، الاستنساخ، المقارنة، وإزالة شرائح ماستر في عروض PowerPoint و OpenDocument."
 ---
+## **نظرة عامة**
 
-## **ما هو Slide Master في PowerPoint**
-A **Slide Master** في PowerPoint هو خاصية تتحكم في تخطيط الخطوط والأنماط عبر عدة شرائح. يساعد ذلك على الحفاظ على الاتساق والعلامة التجارية في العروض التقديمية. إذا كنت ترغب في إنشاء عرض تقديمي (أو سلسلة عروض) بنفس النمط والقالب لشركتك، يمكنك استخدام Slide Master.
+يحدد **slide master** إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن يحتوي على أشكال مشتركة، شعارات، خلفيات، أنماط نص، إعدادات موضوع، وإعدادات تذييل. في PowerPoint، يُعد تعديل slide master الطريقة المعتادة للحفاظ على تناسق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
 
-يعد Slide Master مفيدًا لأنه يتيح لك ضبط وتغيير مظهر جميع شرائح العرض مرة واحدة. يدعم Aspose.Slides آلية Slide Master من PowerPoint.
+يدعم Aspose.Slides for .NET النموذج نفسه. يمكن للعرض التقديمي أن يحتوي على شريحة رئيسية واحدة أو أكثر، ويمكن لكل شريحة رئيسية أن تحتوي على عدة شرائح تخطيط. عادةً لا تشير الشرائح العادية إلى الشريحة الرئيسية مباشرة. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتكون تلك الشريحة التخطيطية جزءًا من شريحة رئيسية.
 
-كما يتيح VBA التلاعب بـ Slide Master وتنفيذ نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة أشكال، تخصيص التخطيط، إلخ. يوفر Aspose.Slides آليات مرنة لاستخدام Slide Masters وأداء المهام الأساسية معها.
+التسلسل الهرمي هو:
 
-هذه هي عمليات Slide Master الأساسية:
+1. **Slide master** - يحدد التصميم المشترك والموضوع.
+1. **Layout slide** - يحدد ترتيبًا معينًا للعنصر النائب وتنسيق على مستوى التخطيط.
+1. **Normal slide** - يحتوي على محتوى العرض الفعلي ويستخدم شريحة تخطيط واحدة.
 
-- إنشاء أو تعديل Slide Master.
-- تطبيق Slide Master على شرائح العرض.
-- تغيير خلفية Slide Master. 
-- إضافة صورة أو عنصر نائب أو Smart Art، إلخ إلى Slide Master.
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-هذه عمليات أكثر تقدماً تتضمن Slide Master:
+في Aspose.Slides، يتم تمثيل slide master بواجهة [IMasterSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/). جميع الشرائح الرئيسية في عرض تقديمي متاحة من خلال مجموعة [Presentation.Masters](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/masters/)، التي تُطبق [IMasterSlideCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/).
 
-- مقارنة Slide Masters.
-- دمج Slide Masters.
-- تطبيق عدة Slide Masters.
-- نسخ شريحة مع Slide Master إلى عرض تقديمي آخر.
-- العثور على Slide Masters مكررة في العروض.
-- تعيين Slide Master كعرض افتراضي للعرض التقديمي.
-
-{{% alert color="primary" %}} 
-قد ترغب في تجربة Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) لأنه تنفيذ حي لبعض العمليات الأساسية الموضحة هنا.
-{{% /alert %}} 
-
-## **كيف يتم تطبيق Slide Master**
-قبل العمل بـ Slide Master، قد ترغب في فهم كيفية استخدامها في العروض وتطبيقها على الشرائح.
-
-* كل عرض تقديمي يحتوي على Slide Master واحد على الأقل افتراضياً. 
-* يمكن للعرض أن يحتوي على عدة Slide Masters. يمكنك إضافة عدة Slide Masters واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة. 
-
-في **Aspose.Slides**، يتم تمثيل Slide Master بواسطة النوع [**IMasterSlide**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide).
-
-كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في Aspose.Slides يحتوي على قائمة [**Masters**](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/masters) من النوع [**IMasterSlideCollection**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)، والتي تحتوي على جميع الشرائح الرئيسية المعرفة في العرض. 
-
-بالإضافة إلى عمليات CRUD، تحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) على الطريقتين المفيدتين: [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/addclone) و[**InsertClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/insertclone). تلك الطُرُق موروثة من وظيفة استنساخ الشرائح الأساسية. ولكن عند التعامل مع Slide Masters، تسمح لك هذه الطُرُق بتنفيذ إعدادات معقدة. 
-
-عند إضافة شريحة جديدة إلى عرض تقديمي، يتم تطبيق Slide Master عليها تلقائياً. يتم اختيار Slide Master للشرائح السابقة افتراضياً. 
-
-**ملاحظة**: يتم تخزين شرائح العرض في قائمة [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides)، وتُضاف كل شريحة جديدة إلى نهاية المجموعة افتراضياً. إذا كان العرض يحتوي على Slide Master واحد، يتم اختيار ذلك الـ Slide Master لجميع الشرائح الجديدة. هذا هو السبب في عدم الحاجة لتحديد Slide Master لكل شريحة جديدة تنشئها.
-
-المبدأ نفسه ينطبق على PowerPoint وAspose.Slides. على سبيل المثال، في PowerPoint، عند إضافة شريحة جديدة، يمكنك الضغط على الخط السفلي تحت آخر شريحة لتُنشأ شريحة جديدة (مع Slide Master الخاص بالعرض الأخير):
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-في Aspose.Slides، يمكنك تنفيذ المهمة المكافئة باستخدام طريقة [AddClone(ISlide)](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addclone) داخل فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-
-## **Slide Master في هيكلية الشرائح**
-استخدام تخطيطات الشرائح مع Slide Master يتيح أقصى مرونة. يسمح لك تخطيط الشريحة (Slide Layout) بتعيين جميع الأنماط نفسها مثل Slide Master (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عندما يتم دمج عدة تخطيطات شرائح على Slide Master، يتم إنشاء نمط جديد. عند تطبيق تخطيط شريحة على شريحة واحدة، يمكنك تغيير نمطها من النمط المطبق بواسطة Slide Master.
-
-Slide Master يتفوق على جميع العناصر الأخرى: Slide Master → Slide Layout → Slide:
-
-![todo:image_alt_text](slide-master_2)
-
-كل كائن [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) يحتوي على خاصية [**LayoutSlides**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/layoutslides) مع قائمة تخطيطات الشرائح. نوع [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) يحتوي على خاصية [**LayoutSlide**](https://reference.aspose.com/slides/net/aspose.slides/islide/properties/layoutslide) مرتبطة بتخطيط شريحة مُطبق على الشريحة. يحدث التفاعل بين الشريحة وSlide Master عبر تخطيط الشريحة.
-
-{{% alert color="info" title="Note" %}}
-* في Aspose.Slides، جميع إعدادات الشريحة (Slide Master، Slide Layout، والشريحة نفسها) هي في الواقع كائنات شريحة تُطبق واجهة [**IBaseSlide**](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide).  
-* لذلك، قد تُطبق Slide Master وSlide Layout نفس الخصائص ويجب معرفة كيفية تطبيق قيمها على كائن [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/) . يتم تطبيق Slide Master أولاً على الشريحة ثم يُطبق تخطيط الشريحة. على سبيل المثال، إذا كان لكل من Slide Master وتخطيط الشريحة قيمة خلفية، ستحصل الشريحة على الخلفية من تخطيط الشريحة.
+{{% alert color="info" title="Inheritance" %}}
+عند تعريف الخاصية نفسها في أكثر من مستوى، ينتصر المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة رئيسية وشريحة تخطيط خلفية، فإن الشرائح المستندة إلى ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/slides/ar/net/slide-layout/).
 {{% /alert %}}
 
-## **ما الذي يحتويه Slide Master**
-لفهم كيفية تعديل Slide Master، يجب أن تعرف مكوناته. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/):
+## **الوصول إلى Slide Masters**
 
-- [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/background) - الحصول/تعيين خلفية الشريحة.  
-- [BodyStyle](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/bodystyle) - الحصول/تعيين أنماط النص في جسم الشريحة.  
-- [Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/shapes) - الحصول/تعيين جميع الأشكال في Slide Master (عناصر نائبة، إطارات صور، إلخ).  
-- [Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/controls) - الحصول/تعيين عناصر تحكم ActiveX.  
-- [ThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/imasterthemeable/properties/thememanager) - الحصول على مدير السمة.  
-- [HeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/headerfootermanager) - الحصول على مدير الترويسات وتذييلات الصفحات.
+في PowerPoint، يمكنك فتح عرض Slide Master من **View** > **Slide Master**.
 
-طرق Slide Master:
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-- [GetDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/getdependingslides) - الحصول على جميع الشرائح التي تعتمد على Slide Master.  
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/applyexternalthemetodependingslides) - يتيح لك إنشاء Slide Master جديد بناءً على Slide Master الحالي وسمة جديدة. سيتم تطبيق الـ Slide Master الجديد بعد ذلك على جميع الشرائح التابعة.
+في Aspose.Slides، استخدم مجموعة `Masters` للوصول إلى الشرائح الرئيسية:
 
-## **الحصول على Slide Master**
-في PowerPoint، يمكن الوصول إلى Slide Master من خلال القائمة View → Slide Master:
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-![todo:image_alt_text](slide-master_3.jpg)
+var firstMasterSlide = presentation.Masters[0];
+var masterSlideCount = presentation.Masters.Count;
+var firstMasterLayoutSlideCount = firstMasterSlide.LayoutSlides.Count;
 
-باستخدام Aspose.Slides، يمكنك الوصول إلى Slide Master بهذه الطريقة:
-```c#
-IMasterSlide master = pres.Masters[0];
+Console.WriteLine("Master slides: " + masterSlideCount);
+Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
+يمكنك أيضًا الحصول على الشريحة الرئيسية التي تستخدمها شريحة عادية من خلال تخطيطها:
 
-واجهة [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) تمثل Slide Master. خاصية [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) (المتعلقة بنوع [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)) تحتوي على قائمة جميع Slide Masters المعرفة في العرض.
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var slide = presentation.Slides[0];
+var layoutSlide = slide.LayoutSlide;
+var masterSlide = layoutSlide.MasterSlide;
+var masterSlideName = masterSlide.Name;
+
+Console.WriteLine(masterSlideName);
+```
+
+## **ما يحتويه Slide Master**
+
+الشريحة الرئيسية هي كائن يشبه الشريحة. إنها تُطبق [IBaseSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/)، وبالتالي تُظهر العديد من خصائص الشرائح نفسها المستخدمة في الشرائح العادية وتخطيطات الشرائح. تُدرج الأعضاء الخاصة بالماستر في صفحة API الخاصة بـ [IMasterSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/).
+
+من بين الأعضاء الشائعة الاستخدام في slide master:
+
+| Member | Purpose |
+| --- | --- |
+| `Background` | يحدد خلفية الشريحة على مستوى الماستر. |
+| `Shapes` | يخزن الأشكال الموضوعة على الماستر، مثل الشعارات، إطارات الصور، والنص المشترك. |
+| `LayoutSlides` | يخزن شرائح التخطيط التي تنتمي إلى الماستر. |
+| `ThemeManager` | يوفر الوصول إلى واجهات برمجة تطبيقات موضوع الماستر. |
+| `HeaderFooterManager` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للماستر وتخطيطات الطفل. |
+| `GetDependingSlides` | يُعيد الشرائح العادية التي تعتمد على الماستر عبر تخطيطاتها. |
 
 ## **إضافة صورة إلى Slide Master**
-عند إضافة صورة إلى Slide Master، ستظهر تلك الصورة على جميع الشرائح التي تعتمد على هذا الـ Slide Master.
 
-على سبيل المثال، يمكنك وضع شعار الشركة وعدد من الصور على Slide Master ثم العودة إلى وضع تحرير الشرائح. يجب أن ترى الصورة على كل شريحة.
+عند إضافة صورة إلى شريحة رئيسية، تظهر هذه الصورة في الشرائح التي تستخدم التخطيطات من هذا الماستر. هذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، والعناصر المرئية المتكررة الأخرى.
 
-![todo:image_alt_text](slide-master_4.png)
+المثال التالي يضيف شعارًا إلى أول شريحة رئيسية:
 
-يمكنك إضافة صور إلى Slide Master باستخدام Aspose.Slides:
-```c#
-using (Presentation pres = new Presentation())
-{
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    pres.Masters[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var logoBytes = File.ReadAllBytes("logo.png");
+var logoImage = presentation.Images.AddImage(logoBytes);
+
+masterSlide.Shapes.AddPictureFrame(
+    ShapeType.Rectangle,
+    x: 20,
+    y: 20,
+    width: 80,
+    height: 80,
+    image: logoImage);
+
+presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
 ```
 
+لمزيد من المعلومات حول إطارات الصور، راجع [Picture Frame](/slides/ar/net/picture-frame/).
 
-{{% alert color="primary" title="See also" %}} 
-لمزيد من المعلومات حول إضافة الصور إلى شريحة، راجع مقال [Picture Frame](/slides/ar/net/picture-frame/#create-picture-frame).
-{{% /alert %}}
+## **العمل مع Placeholders**
 
-## **إضافة عنصر نائب إلى Slide Master**
-هذه الحقول النصية هي عناصر نائبة قياسية على Slide Master:
+عادةً ما تُعرَّف العنصر النائب في شرائح التخطيط. يوفر الماستر النمط والموضوع المشتركين الذين يرثهما تلك التخطيطات، بينما يقرر كل تخطيط أي العنصر النائب متاح وأين يُوضع.
 
-* انقر لتحرير نمط عنوان الـ Master  
-* تحرير أنماط نص الـ Master  
-* المستوى الثاني  
-* المستوى الثالث  
+في PowerPoint، تتوفر أوامر العنصر النائب في عرض Slide Master.
 
-تظهر هذه العناصر أيضاً على الشرائح المعتمدة على Slide Master. يمكنك تحرير تلك العناصر النائبة على Slide Master وتُطبق التغييرات تلقائياً على الشرائح.
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
-في PowerPoint، يمكنك إضافة عنصر نائب عبر المسار Slide Master → Insert Placeholder:
+لإضافة عنصر نائب جديد باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى الماستر:
 
-![todo:image_alt_text](slide-master_5.png)
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-لنستعرض مثالاً أكثر تعقيداً للعناصر النائبة باستخدام Aspose.Slides. اعتبر شريحة تحتوي على عناصر نائبة مُقَدمة من Slide Master:
+var masterSlide = presentation.Masters[0];
+var blankLayoutSlide =
+    masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    masterSlide.LayoutSlides.Add(SlideLayoutType.Blank, "Blank");
 
-![todo:image_alt_text](slide-master_6.png)
+blankLayoutSlide.PlaceholderManager.AddTextPlaceholder(
+    x: 60,
+    y: 120,
+    width: 600,
+    height: 80);
 
-نريد تغيير تنسيق العنوان والعنوان الفرعي على Slide Master بهذه الطريقة:
+presentation.Slides.AddEmptySlide(blankLayoutSlide);
+presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+```
 
-![todo:image_alt_text](slide-master_7.png)
+يمكنك أيضًا تنسيق أشكال العنصر النائب الموجودة بالفعل في شريحة رئيسية. المثال التالي يجد عنصر نائب العنوان ويطبق تعبئة تدرجية خطية:
 
-أولاً، نستعيد محتوى عنصر العنوان من كائن Slide Master ثم نستخدم حقل `PlaceHolder.FillFormat`:
-```c#
-public static void Main()
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var titlePlaceholder = FindPlaceholder(masterSlide, PlaceholderType.Title);
+
+if (titlePlaceholder != null)
 {
-    using (var pres = new Presentation())
-    {
-        IMasterSlide master = pres.Masters[0];
-        IAutoShape placeHolder = FindPlaceholder(master, PlaceholderType.Title);
-        placeHolder.FillFormat.FillType = FillType.Gradient;
-        placeHolder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(0, Color.FromArgb(255, 0, 0));
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(255, Color.FromArgb(128, 0, 128));
-        
-        pres.Save("pres.pptx", SaveFormat.Pptx);
-    }
+    var redGradientColor = Color.FromArgb(255, 0, 0);
+    var purpleGradientColor = Color.FromArgb(128, 0, 128);
+
+    titlePlaceholder.FillFormat.FillType = FillType.Gradient;
+    titlePlaceholder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(0, redGradientColor);
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(255, purpleGradientColor);
 }
 
-static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
+presentation.Save("presentation-title-style.pptx", SaveFormat.Pptx);
+
+static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType placeholderType)
 {
-    foreach (IShape shape in master.Shapes)
+    foreach (var shape in masterSlide.Shapes)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        if (shape is IAutoShape { Placeholder: not null } autoShape &&
+            autoShape.Placeholder.Type == placeholderType)
         {
-            if (autoShape.Placeholder.Type == type)
-            {
-                return autoShape;
-            }
+            return autoShape;
         }
     }
 
@@ -196,122 +181,152 @@ static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
 }
 ```
 
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-سيتغير نمط العنوان وتنسيقه لجميع الشرائح المعتمدة على الـ Slide Master:
+لمزيد من خيارات تنسيق العنصر النائب والنص، راجع [Set Prompt Text in Placeholder](/slides/ar/net/manage-placeholder/) و[Text Formatting](/slides/ar/net/text-formatting/).
 
-![todo:image_alt_text](slide-master_8.png)
+## **تغيير خلفية Slide Master**
 
-{{% alert color="primary" title="See also" %}} 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/net/manage-placeholder/)  
-* [Text Formatting](https://docs.aspose.com/slides/net/text-formatting/)
-{{% /alert %}}
+تُورّث خلفية الماستر إلى التخطيطات والشرائح التي لا تتجاوزها. المثال التالي يحدد لون خلفية صلبة لأول شريحة رئيسية:
 
-## **تغيير الخلفية على Slide Master**
-عند تغيير لون خلفية الشريحة الرئيسية، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يُظهر هذا الكود C# العملية:
-```c#
-using (var pres = new Presentation())
-{
-    IMasterSlide master = pres.Masters[0];
-    master.Background.Type = BackgroundType.OwnBackground;
-    master.Background.FillFormat.FillType = FillType.Solid;
-    master.Background.FillFormat.SolidFillColor.Color = Color.Green;
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+
+masterSlide.Background.Type = BackgroundType.OwnBackground;
+masterSlide.Background.FillFormat.FillType = FillType.Solid;
+masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
+
+presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
 ```
 
+للموضوعات ذات الصلة، راجع [Presentation Background](/slides/ar/net/presentation-background/) و[Presentation Theme](/slides/ar/net/presentation-theme/).
 
-{{% alert color="primary" title="See also" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/net/presentation-background/)  
-- [Presentation Theme](https://docs.aspose.com/slides/net/presentation-theme/)  
-{{% /alert %}}
+## **استنساخ Slide Master إلى عرض تقديمي آخر**
 
-## **نسخ Slide Master إلى عرض تقديمي آخر**
-لنسخ Slide Master إلى عرض تقديمي آخر، استدعِ طريقة [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) من العرض الوجهة مع تمرير Slide Master إليه. يُظهر هذا الكود C# كيفية نسخ Slide Master إلى عرض تقديمي آخر:
-```c#
-using (Presentation presSource = new Presentation(), presTarget = new Presentation())
-{
-    IMasterSlide master = presTarget.Masters.AddClone(presSource.Masters[0]);
-}
+استخدم [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/addclone/) لنسخ شريحة رئيسية إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الماستر المنسوخ من قبل التخطيطات والشرائح في العرض الهدف.
+
+```csharp
+using var sourcePresentation = new Presentation("source.pptx");
+using var destinationPresentation = new Presentation("destination.pptx");
+
+var sourceMasterSlide = sourcePresentation.Masters[0];
+var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSlide);
+
+destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
 ```
 
+إذا كنت بحاجة إلى استنساخ الشرائح العادية مع الماستر الخاص بها، راجع [Clone Slides](/slides/ar/net/clone-slides/).
 
-## **إضافة عدة Slide Masters إلى عرض تقديمي**
-يسمح Aspose.Slides لك بإضافة عدة Slide Masters وتخطيطات شرائح إلى أي عرض تقديمي. يتيح ذلك إعداد أنماط وتخطيطات وخيارات تنسيق للشرائح بطرق متعددة.
+## **إضافة عدة Slide Masters**
 
-في PowerPoint، يمكنك إضافة Slide Masters وتخطيطات جديدة (من قائمة "Slide Master") بهذه الطريقة:
+يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. هذا مفيد عندما تتطلب الأقسام المختلفة علامات تجارية مختلفة أو هيكل صفحات أو إعدادات موضوع مختلفة.
 
-![todo:image_alt_text](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-باستخدام Aspose.Slides، يمكنك إضافة Slide Master جديد عن طريق استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/):
-```c#
-pres.Masters.AddClone(pres.Masters[0]);
+المثال التالي يستنسخ الماستر الافتراضي، يمنح النسخة المستنسخة خلفية مختلفة، ينشئ تخطيطًا تحت ذلك الماستر المستنسخ، ويضيف شريحة جديدة تعتمد على ذلك التخطيط:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var defaultMasterSlide = presentation.Masters[0];
+var sectionMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
+
+sectionMasterSlide.Background.Type = BackgroundType.OwnBackground;
+sectionMasterSlide.Background.FillFormat.FillType = FillType.Solid;
+sectionMasterSlide.Background.FillFormat.SolidFillColor.Color = Color.LightSteelBlue;
+
+var sourceBlankLayout =
+    defaultMasterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    defaultMasterSlide.LayoutSlides[0];
+var sectionBlankLayout = sectionMasterSlide.LayoutSlides.AddClone(sourceBlankLayout);
+
+presentation.Slides.AddEmptySlide(sectionBlankLayout);
+presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **مقارنة Slide Masters**
-تُطبق شريحة الـ Master واجهة [IBaseSlide](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide) التي تحتوي على طريقة [Equals](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/methods/equals)، والتي يمكن استخدامها لمقارنة الشرائح. تُعيد `true` إذا كانت شرائح الـ Master متماثلة في الهيكل والمحتوى الثابت.
 
-تُعتبر شريحتا Master متساويتين إذا كانت الأشكال والأنماط والنصوص والرسوم المتحركة والإعدادات الأخرى متساوية. لا تأخذ المقارنة في الاعتبار قيم المعرف الفريدة (مثل SlideId) أو المحتوى الديناميكي (مثل قيمة التاريخ الحالي في عنصر التاريخ النائب).
+يمكن مقارنة الشرائح الرئيسية باستخدام طريقة `Equals` الموروثة من [IBaseSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/). تتحقق المقارنة من الهيكل والمحتوى الثابت مثل الأشكال والنص والتنسيق والرسوم المتحركة وإعدادات الشريحة الأخرى. لا تتم مقارنة المعرفات الفريدة مثل معرفات الشرائح، أو قيم العنصر النائب الديناميكية مثل التاريخ الحالي.
 
-## **تعيين Slide Master كعرض افتراضي للعرض التقديمي**
-يسمح Aspose.Slides بتعيين Slide Master كعرض افتراضي للعرض التقديمي. العرض الافتراضي هو ما تراه أولاً عند فتح العرض.
+```csharp
+using var firstPresentation = new Presentation("first.pptx");
+using var secondPresentation = new Presentation("second.pptx");
 
-يُظهر هذا الكود كيفية تعيين Slide Master كعرض افتراضي للعرض في C#:
-```c#
-pres.ViewProperties.LastView = ViewType.SlideMasterView;
-```
+var firstPresentationMasterCount = firstPresentation.Masters.Count;
+var secondPresentationMasterCount = secondPresentation.Masters.Count;
 
-
-## **إزالة شرائح Master غير المستخدمة**
-يوفر Aspose.Slides طريقة [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) (من الفئة [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)) لحذف شرائح Master غير المطلوبة وغير المستخدمة. يُظهر هذا الكود C# كيفية إزالة شريحة Master من عرض PowerPoint:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++)
 {
-    Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(pres);
-    
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+    for (var secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++)
+    {
+        var firstMasterSlide = firstPresentation.Masters[firstMasterIndex];
+        var secondMasterSlide = secondPresentation.Masters[secondMasterIndex];
+        var areMasterSlidesEqual = firstMasterSlide.Equals(secondMasterSlide);
+
+        if (areMasterSlidesEqual)
+        {
+            Console.WriteLine(
+                "first.pptx master #{0} equals second.pptx master #{1}",
+                firstMasterIndex,
+                secondMasterIndex);
+        }
+    }
 }
 ```
 
+لمزيد من المعلومات، راجع [Compare Presentation Slides](/slides/ar/net/compare-slides/).
 
-## **الأسئلة الشائعة**
+## **تعيين عرض Slide Master كالعرض الافتراضي**
 
-**ما هو Slide Master في PowerPoint؟**
+استخدم الخاصية `LastView` على [ViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتحه PowerPoint أولاً. المثال التالي يفتح العرض التقديمي في عرض Slide Master:
 
-Slide Master هو قالب شريحة يحدد التخطيط والأنماط والسمات والخطوط والخلفية وغيرها من الخصائص للشرائح في العرض. يتيح لك ضبط وتغيير مظهر جميع الشرائح مرة واحدة.  
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-**كيف يتم تطبيق Slide Master في العرض؟**
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
+```
 
-كل عرض يحتوي على Slide Master واحد على الأقل افتراضياً. عند إضافة شريحة جديدة، يُطبق عليها Slide Master تلقائياً، عادةً ما يكون Slide Master للشرائح السابقة. يمكن للعرض أن يحتوي على عدة Slide Masters لتنسيق أجزاء مختلفة بشكل فريد.  
+لمزيد من إعدادات العرض، راجع [Save Presentation](/slides/ar/net/save-presentation/).
 
-**ما العناصر التي يمكن تخصيصها في Slide Master؟**
+## **إزالة Slide Masters غير المستخدمة**
 
-يتألف Slide Master من عدة خصائص أساسية يمكن تخصيصها:
+أحيانًا تحتوي العروض التقديمية على شرائح رئيسية لم تعد تستخدمها أي شريحة عادية. يمكن أن يقلل إزالة الماسترات غير المستخدمة من حجم الملف ويبسط صيانة القالب.
 
-- **Background**: تعيين خلفية الشريحة.  
-- **BodyStyle**: تعريف أنماط النص لجسم الشريحة.  
-- **Shapes**: إدارة جميع الأشكال على Slide Master، بما في ذلك العناصر النائبة وإطارات الصور.  
-- **Controls**: التعامل مع عناصر تحكم ActiveX.  
-- **ThemeManager**: الوصول إلى مدير السمة.  
-- **HeaderFooterManager**: إدارة الترويسات والتذييلات.  
+استخدم [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/ar/net/aspose.slides/masterslidecollection/removeunused/) لإزالة الماسترات غير المستخدمة من مجموعة `Masters`:
 
-**كيف يمكنني إضافة صورة إلى Slide Master؟**
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-إضافة صورة إلى Slide Master تضمن ظهورها على جميع الشرائح التي تعتمد على هذا الـ Master. على سبيل المثال، وضع شعار الشركة على Slide Master سيظهر على كل شريحة في العرض.  
+presentation.Masters.RemoveUnused(ignorePreserveField: true);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
+```
 
-**كيف يرتبط Slide Master بـ Slide Layouts؟**
+يمكنك أيضًا استخدام طريقة الكود المنخفض [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
 
-تعمل Slide Layouts بالاشتراك مع Slide Master لتوفير مرونة في تصميم الشرائح. بينما يحدد Slide Master الأنماط العامة والسمات، تسمح Slide Layouts بتغيّر ترتيب المحتوى. الهيكلية كالتالي:
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-- **Slide Master** → يحدد الأنماط العامة.  
-- **Slide Layout** → يوفر ترتيبات محتوى مختلفة.  
-- **Slide** → يرث التصميم من تخطيط الشريحة الخاص به.  
+Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
+```
 
-**هل يمكن أن يكون لدي عدة Slide Masters في عرض واحد؟**
+## **FAQ**
 
-نعم، يمكن للعرض أن يحتوي على عدة Slide Masters. يتيح ذلك تنسيق أقسام مختلفة من العرض بطرق متعددة، مما يوفر مرونة في التصميم.  
+**ما الفرق بين Slide Master و Layout Slide؟**
 
-**كيف يمكنني الوصول إلى Slide Master وتعديله باستخدام Aspose.Slides؟**
+يحدد Slide Master إعدادات التصميم المشتركة مثل الموضوع، الخلفية، الأشكال الشائعة، وأنماط النص. تنتمي Layout Slide إلى Slide Master وتحدد ترتيبًا معينًا للعناصر النائبة. تستخدم الشريحة العادية Layout Slide، وبالتالي ترث من كل من التخطيط والماستر.
 
-في Aspose.Slides، يُمثل Slide Master الواجهة `IMasterSlide`. يمكنك الوصول إلى Slide Master باستخدام خاصية `Masters` لكائن `Presentation`.
+**هل يمكن لعرض تقديمي واحد أن يحتوي على عدة Slide Masters؟**
+
+نعم. يمكن لعرض تقديمي أن يحتوي على عدة Slide Masters. استخدم عدة ماسترات عندما تحتاج الأقسام المختلفة إلى أنظمة بصرية أو علامات تجارية مختلفة.
+
+**هل يجب إضافة العناصر النائبة إلى Slide Master أم إلى Layout Slide؟**
+
+في معظم الحالات، أضف العناصر النائبة إلى Layout Slides. ضع العناصر البصرية المشتركة والتنسيقات المشتركة على Slide Master، ثم ضع عناصر النائب الخاصة بالمحتوى على التخطيطات التي ستستخدمها الشرائح العادية.
+
+**هل يمكن حذف Slide Master لا يزال مستخدمًا؟**
+
+لا. لا يمكن حذف Slide Master يحتوي على شرائح依赖 مباشرة بأمان. يجب أولاً نقل تلك الشرائح إلى تخطيطات تحت ماستر آخر، أو استخدام طريقة تنظيف الماسترات غير المستخدمة التي تزيل فقط الماسترات التي لا تُستَخدم.

@@ -1,363 +1,370 @@
 ---
-title: إدارة أسس شرائح العرض التقديمي في Java
-linktitle: شريحة الأساس
+title: إدارة شرائح ماستر العرض في Java
+linktitle: شريحة ماستر
 type: docs
 weight: 70
 url: /ar/java/slide-master/
 keywords:
-- شريحة أساس
-- شريحة أساسية
-- شريحة أساسية PPT
-- شرائح أساسية متعددة
-- مقارنة الشرائح الأساسية
+- شريحة ماستر
+- شريحة رئيسية
+- شريحة ماستر PPT
+- شرائح ماستر متعددة
+- مقارنة شرائح ماستر
 - خلفية
-- عنصر نائب
-- استنساخ شريحة أساسية
-- نسخ شريحة أساسية
-- تكرار شريحة أساسية
-- شريحة أساسية غير مستخدمة
+- ملف نائب
+- استنساخ شريحة ماستر
+- نسخ شريحة ماستر
+- تكرار شريحة ماستر
+- شريحة ماستر غير مستخدمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "إدارة شرائح الأساس في Aspose.Slides لـ Java: إنشاء وتحرير وتطبيق التخطيطات والسمات والعناصر النائبة على ملفات PPT و PPTX و ODP مع أمثلة Java مختصرة."
+description: "إدارة شرائح ماستر في Aspose.Slides for Java: الوصول، التعديل، الاستنساخ، المقارنة، وإزالة شرائح ماستر في عروض PowerPoint و OpenDocument."
 ---
+## **نظرة عامة**
 
-## **ما هي شريحة الأساس في PowerPoint**
+**الشريحة الرئيسية** تُعرّف إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن تحتوي على أشكال مشتركة، شعارات، خلفيات، أنماط نص، إعدادات السمة، وإعدادات التذييل. في PowerPoint، تعديل الشريحة الرئيسية هو الطريقة المعتادة للحفاظ على تناسق العرض دون تكرار نفس التنسيق في كل شريحة.
 
-شريحة **الأساس** هي قالب شريحة يحدد التخطيط والأنماط والموضوع والخطوط والخلفية والخصائص الأخرى للشرائح في عرض تقديمي. إذا كنت تريد إنشاء عرض تقديمي (أو سلسلة عروض) بنفس النمط والقالب لشركتك، يمكنك استخدام شريحة الأساس.
+Aspose.Slides for Java يدعم النموذج نفسه. يمكن للعرض أن يحتوي على شريحة رئيسية أو أكثر، ويمكن لكل شريحة رئيسية أن تحتوي على عدة شرائح تخطيط. عادةً لا تشير الشرائح العادية إلى شريحة رئيسية مباشرةً. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتلك الشريحة التخطيطية تنتمي إلى شريحة رئيسية.
 
-تُعد شريحة الأساس مفيدة لأنها تتيح لك ضبط وتغيير مظهر جميع شرائح العرض مرة واحدة. تدعم Aspose.Slides آلية شريحة الأساس من PowerPoint.
+التسلسل الهرمي هو:
 
-كما يتيح VBA تعديل شريحة الأساس وتنفيذ نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة أشكال، تخصيص التخطيط، إلخ. توفر Aspose.Slides آليات مرنة تسمح لك باستخدام شرائح الأساس وأداء المهام الأساسية معها.
+1. **الشريحة الرئيسية** - تُعرّف التصميم والسمة المشتركة.  
+1. **شريحة التخطيط** - تُعرّف ترتيبًا محددًا للملفات النائبة وتنسيقًا على مستوى التخطيط.  
+1. **الشريحة العادية** - تحتوي على محتوى العرض الفعلي وتستخدم شريحة تخطيط واحدة.
 
-هذه هي عمليات شريحة الأساس الأساسية:
+![تسلسل الشريحة الرئيسية، شرائح التخطيط، والشرائح العادية](slide-master_2.jpg)
 
-- إنشاء أو شريحة أساس.
-- تطبيق شريحة الأساس على شرائح العرض.
-- تغيير خلفية شريحة الأساس. 
-- إضافة صورة أو عنصر نائب أو Smart Art، إلخ إلى شريحة الأساس.
+في Aspose.Slides، تُمثل الشريحة الرئيسية الواجهة [IMasterSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterslide/). جميع الشرائح الرئيسية في عرض ما يمكن الوصول إليها من خلال مجموعة [Presentation.getMasters](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getMasters--) التي تُنفّذ [IMasterSlideCollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterslidecollection/).
 
-هذه هي العمليات المتقدمة التي تتضمن شريحة الأساس:
-
-- مقارنة شرائح الأساس.
-- دمج شرائح الأساس.
-- تطبيق عدة شرائح أساس.
-- نسخ شريحة مع شريحة أساس إلى عرض تقديمي آخر.
-- العثور على شرائح أساس مكررة في العروض.
-- تعيين شريحة الأساس كعرض افتراضي للعرض.
-
-{{% alert color="primary" %}} 
-قد ترغب في الاطلاع على Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) لأنه تنفيذ مباشر لبعض العمليات الأساسية الموضحة هنا.
-{{% /alert %}} 
-
-## **كيف يتم تطبيق شريحة الأساس**
-
-قبل العمل مع شريحة الأساس، قد ترغب في فهم كيفية استخدامها في العروض وتطبيقها على الشرائح.
-
-* كل عرض تقديمي يحتوي على شريحة أساس واحدة على الأقل بشكل افتراضي. 
-* يمكن للعرض أن يحتوي على عدة شرائح أساس. يمكنك إضافة عدة شرائح أساس واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة. 
-
-في **Aspose.Slides**، تمثَّل شريحة الأساس النوع [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/).
-
-كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) في Aspose.Slides يحتوي على القائمة [**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) من النوع [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/)، والتي تضم جميع شرائح الأساس المعرفة في العرض.
-
-إلى جانب عمليات CRUD، يحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) على الأساليب المفيدة التالية: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) و [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-). هذه الأساليب موروثة من وظيفة استنساخ الشرائح الأساسية، لكن عند التعامل مع شرائح الأساس تسمح لك بتنفيذ إعدادات معقدة.
-
-عند إضافة شريحة جديدة إلى عرض تقديمي، تُطبق شريحة الأساس عليها تلقائيًا. تُختار شريحة الأساس الخاصة بالشريحة السابقة بشكل افتراضي.
-
-**ملاحظة**: تُخزن شرائح العرض في القائمة [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)، وتُضاف كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان العرض يحتوي على شريحة أساس واحدة، فسيتم اختيار تلك الشريحة لجميع الشرائح الجديدة. وهذا هو السبب في عدم الحاجة لتحديد شريحة الأساس لكل شريحة جديدة تنشئها.
-
-المبدأ نفسه ينطبق على PowerPoint وAspose.Slides. على سبيل المثال، في PowerPoint، عند إضافة شريحة جديدة يمكنك الضغط على السطر السفلي تحت الشريحة الأخيرة، ثم تُنشأ شريحة جديدة (مع شريحة الأساس الأخيرة).
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-في Aspose.Slides، يمكنك تنفيذ المهمة المكافئة بالأسلوب [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) ضمن الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-
-## **شريحة الأساس في هيكل الشرائح**
-
-استخدام تخطيطات الشرائح مع شريحة الأساس يمنح أقصى مرونة. يسمح لك تخطيط الشريحة بتعيين جميع الأنماط نفسها كما في شريحة الأساس (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عندما يتم دمج عدة تخطيطات شرائح على شريحة أسس، تُنشأ نمط جديد. عند تطبيق تخطيط شريحة على شريحة واحدة، يمكنك تغيير نمطها عن النمط المطبق من شريحة الأساس.
-
-تتفوّق شريحة الأساس على جميع عناصر الإعداد: شريحة الأساس → تخطيط الشريحة → الشريحة:
-
-![todo:image_alt_text](slide-master_2)
-
-كل كائن [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) يحتوي على الخاصية [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) التي تُعيد قائمة بتخطيطات الشرائح. نوع [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) يحتوي على الخاصية [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) التي تُشير إلى تخطيط الشريحة المطبق على الشريحة. يحدث التفاعل بين الشريحة وشريحة الأساس عبر تخطيط الشريحة.
-
-{{% alert color="info" title="Note" %}}
-* في Aspose.Slides، جميع إعدادات الشريحة (شريحة الأساس، تخطيط الشريحة، والشريحة نفسها) هي في الواقع كائنات شريحة تُنفّذ الواجهة [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).
-* لذلك، قد تُنفّذ شريحة الأساس وتخطيط الشريحة نفس الخصائص وتحتاج إلى معرفة كيفية تطبيق قيمهما على كائن [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). يتم تطبيق شريحة الأساس أولاً على الشريحة ثم يُطبق تخطيط الشريحة. على سبيل المثال، إذا كان لكلٍ منهما قيمة خلفية، فإن الشريحة ستحصل على الخلفية من تخطيط الشريحة.
+{{% alert color="info" title="الوراثة" %}}
+عند تعريف الخاصية نفسها في أكثر من مستوى، يفوز المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة رئيسية وشريحة تخطيط خلفية، فإن الشرائح المعتمدة على ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، اطلع على [Apply or Change Slide Layouts](/slides/ar/java/slide-layout/).
 {{% /alert %}}
 
-## **ما الذي تحتويه شريحة الأساس**
+## **الوصول إلى الشرائح الرئيسية**
 
-لفهم كيفية تعديل شريحة الأساس، تحتاج إلى معرفة مكوّناتها. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/):
+في PowerPoint، يمكنك فتح نافذة عرض الشريحة الرئيسية من **View**>**Slide Master**.
 
-- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) : الحصول/تعيين خلفية الشريحة.
-- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) : الحصول/تعيين أنماط نص جسم الشريحة.
-- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) : الحصول/تعيين جميع الأشكال في شريحة الأساس (عناصر نائب، إطارات صور، إلخ).
-- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) : الحصول/تعيين عناصر التحكم ActiveX.
-- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) : الحصول على مدير السمات.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) : الحصول على مدير الرأس والتذييل.
+![أمر شريحة رئيسية في علامة تبويب العرض في PowerPoint](slide-master_3.jpg)
 
-أساليب شريحة الأساس:
+في Aspose.Slides، استخدم مجموعة `getMasters()` للوصول إلى الشرائح الرئيسية:
 
-- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) : الحصول على جميع الشرائح المعتمدة على شريحة الأساس.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) : يتيح لك إنشاء شريحة أسس جديدة بناءً على شريحة الأساس الحالية وسمّة جديدة. ثم تُطبق شريحة الأساس الجديدة على جميع الشرائح المعتمدة.
-
-## **الحصول على شريحة أساس**
-
-في PowerPoint، يمكن الوصول إلى شريحة الأساس من قائمة View → Slide Master:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-باستخدام Aspose.Slides، يمكنك الوصول إلى شريحة الأساس بهذه الطريقة:
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // يمنح الوصول إلى شريحة الأساس للعرض التقديمي
-    IMasterSlide masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
+    IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+    int masterSlideCount = presentation.getMasters().size();
+    int firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-
-تمثل الواجهة [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) شريحة الأساس. الخاصية [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (المربوطة بنوع [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection)) تحتوي على قائمة بجميع شرائح الأساس المعرفة في العرض.
-
-## **إضافة صورة إلى شريحة أساس**
-
-عند إضافة صورة إلى شريحة الأساس، ستظهر تلك الصورة على جميع الشرائح المعتمدة على تلك الشريحة.
-
-على سبيل المثال، يمكنك وضع شعار الشركة وعدد من الصور على شريحة الأساس ثم العودة إلى وضع تحرير الشرائح. سترى الصورة على كل شريحة.
-
-![todo:image_alt_text](slide-master_4.png)
-
-يمكنك إضافة صور إلى شريحة أساس باستخدام Aspose.Slides:
-```java
-Presentation pres = new Presentation();
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-لمزيد من المعلومات حول إضافة صور إلى شريحة، راجع مقالة [Picture Frame](/slides/ar/java/picture-frame/#create-picture-frame).
-{{% /alert %}}
-
-## **إضافة عنصر نائب إلى شريحة أساس**
-
-هذه الحقول النصية هي عناصر نائب قياسية على شريحة الأساس:
-
-* انقر لتعديل نمط عنوان الشريحة
-* تعديل أنماط نص الشريحة
-* المستوى الثاني
-* المستوى الثالث
-
-تظهر أيضًا على الشرائح المستندة إلى شريحة الأساس. يمكنك تعديل تلك العناصر على شريحة الأساس وستُطبق التغييرات تلقائيًا على الشرائح.
-
-في PowerPoint، يمكنك إضافة عنصر نائب عبر مسار Slide Master → Insert Placeholder:
-
-![todo:image_alt_text](slide-master_5.png)
-
-لنستعرض مثالًا أكثر تعقيدًا للعناصر النائبة مع Aspose.Slides. افترض شريحة تحتوي على عناصر نائب مُقَـيَّدة من شريحة الأساس:
-
-![todo:image_alt_text](slide-master_6.png)
-
-نريد تغيير تنسيق العنوان والعنوان الفرعي على شريحة الأساس كالتالي:
-
-![todo:image_alt_text](slide-master_7.png)
-
-أولاً، نستخرج محتوى عنصر العنوان من كائن شريحة الأساس ثم نستخدم الحقل `PlaceHolder.FillFormat`:
-```java
-public static void main(String[] args) {
-    Presentation pres = new Presentation();
-    try {
-        IMasterSlide master = pres.getMasters().get_Item(0);
-        IAutoShape placeHolder = findPlaceholder(master, PlaceholderType.Title);
-        placeHolder.getFillFormat().setFillType(FillType.Gradient);
-        placeHolder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, new Color(255, 0, 0));
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, new Color(128, 0, 128));
-
-        pres.save("pres.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-}
-
-static IAutoShape findPlaceholder(IMasterSlide master, int type)
-{
-    for (IShape shape : master.getShapes())
-    {
-        IAutoShape autoShape = (IAutoShape) shape;
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-سيتغيّر نمط وتنسيق العنوان لجميع الشرائح المستندة إلى شريحة الأساس:
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}} 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/java/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/java/text-formatting/)
-{{% /alert %}}
-
-## **تغيير الخلفية على شريحة أساس**
-
-عند تغيير لون خلفية شريحة الأساس، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يُظهر هذا المثال بلغة Java العملية:
-```java
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(FillType.Solid);
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/java/presentation-background/)
-- [Presentation Theme](https://docs.aspose.com/slides/java/presentation-theme/)
-{{% /alert %}}
-
-## **استنساخ شريحة أساس إلى عرض تقديمي آخر**
-
-لاستنساخ شريحة أساس إلى عرض آخر، استدعِ الأسلوب [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) من العرض الوجهة مع تمرير شريحة الأساس المراد استنساخها. يُظهر هذا المثال بلغة Java كيفية استنساخ شريحة أساس إلى عرض آخر:
-```java
-Presentation presSource = new Presentation();
-Presentation presTarget = new Presentation();
-try {
-    IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) presSource.dispose();
-}
-```
-
-
-## **إضافة عدة شرائح أساس إلى عرض تقديمي**
-
-تتيح Aspose.Slides لك إضافة عدة شرائح أساس وتخطيطات شرائح إلى أي عرض تقديمي. يتيح لك ذلك إعداد الأنماط والتخطيطات وخيارات التنسيق للشرائح بطرق متعددة.
-
-في PowerPoint، يمكنك إضافة شرائح أساس جديدة وتخطيطات (من قائمة “Slide Master”) بهذه الطريقة:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-باستخدام Aspose.Slides، يمكنك إضافة شريحة أساس جديدة عبر استدعاء الأسلوب [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-):
-```java
-// يضيف شريحة أساس جديدة
-IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-## **مقارنة شرائح الأساس**
-
-تُنفّذ شريحة الأساس الواجهة [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) التي تحتوي على الأسلوب [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-)، والذي يمكن استخدامه لمقارنة الشرائح. تُعيد القيمة true إذا كانت شرائح الأساس متطابقة في البنية والمحتوى الثابت.
-
-تُعتبر شريحتا أساس متساويتين إذا كانت الأشكال والأنماط والنصوص والرسوم المتحركة وغيرها من الإعدادات متساوية. لا يُؤخذ في الاعتبار قيم المعرف الفريد (مثل SlideId) والمحتوى الديناميكي (مثل قيمة التاريخ في عنصر نائب التاريخ).
-
-## **تعيين شريحة أساس كعرض افتراضي للعرض**
-
-تسمح Aspose.Slides لك بتعيين شريحة أساس كعرض افتراضي للعرض. العرض الافتراضي هو ما تراه أولًا عند فتح العرض.
-
-يُظهر هذا المثال بلغة Java كيفية تعيين شريحة أساس كعرض افتراضي للعرض:
-```java
-// ينشئ فئة Presentation التي تمثل ملف العرض التقديمي
-Presentation presentation = new Presentation();
-try {
-    // يحدد طريقة العرض الافتراضية كـ SlideMasterView
-    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
-
-    // يحفظ العرض التقديمي
-    presentation.save("PresView.pptx", SaveFormat.Pptx);
+    System.out.println("Master slides: " + masterSlideCount);
+    System.out.println("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+يمكنك أيضًا الحصول على الشريحة الرئيسية التي يستخدمها شريحة عادية من خلال تخطيطها:
 
-## **إزالة شرائح الأساس غير المستخدمة**
-
-توفر Aspose.Slides الأسلوب [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) لتتيح لك حذف شرائح الأساس غير المرغوب فيها وغير المستخدمة. يُظهر هذا المثال بلغة Java كيفية إزالة شريحة أساس من عرض PowerPoint:
 ```java
-Presentation pres = new Presentation("pres.pptx");
- try {
-     Compress.removeUnusedMasterSlides(pres);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = slide.getLayoutSlide();
+    IMasterSlide masterSlide = layoutSlide.getMasterSlide();
+    String masterSlideName = masterSlide.getName();
 
-     pres.save("pres-out.pptx", SaveFormat.Pptx);
- } finally {
-     if (pres != null) pres.dispose();
- }
+    System.out.println(masterSlideName);
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **ما الذي تحتويه الشريحة الرئيسية**
 
-## **الأسئلة المتكررة**
+الشريحة الرئيسية هي كائن شبيه بالشريحة. إنها تنفّذ [IBaseSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/)، لذا تُظهر العديد من خصائص الشرائح نفسها المستخدمة في الشرائح العادية وشرائح التخطيط. تُدرج الأعضاء الخاصة بالشريحة الرئيسية في صفحة API [IMasterSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterslide/).
 
-**ما هي شريحة الأساس في PowerPoint؟**
+الأعضاء الشائعة الاستخدام في الشريحة الرئيسية تشمل:
 
-شريحة الأساس هي قالب شريحة يحدد التخطيط والأنماط والسمات والخطوط والخلفية والخصائص الأخرى للشرائح في عرض تقديمي. تتيح لك ضبط وتغيير مظهر جميع الشرائح مرة واحدة.
+| العضو | الغرض |
+| --- | --- |
+| `getBackground()` | يحدد خلفية الشريحة على مستوى الشريحة الرئيسية. |
+| `getShapes()` | يخزن الأشكال الموضوعة على الشريحة الرئيسية، مثل الشعارات، إطارات الصور، والنص المشترك. |
+| `getLayoutSlides()` | يخزن شرائح التخطيط التي تنتمي إلى الشريحة الرئيسية. |
+| `getThemeManager()` | يوفّر الوصول إلى واجهات برمجة تطبيقات سمة الشريحة الرئيسية. |
+| `getHeaderFooterManager()` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للشريحة الرئيسية وتخطيطاتها الفرعية. |
+| `getDependingSlides()` | يُرجع الشرائح العادية التي تعتمد على الشريحة الرئيسية عبر تخطيطاتها. |
 
-**كيف يتم تطبيق شريحة الأساس في العرض؟**
+## **إضافة صورة إلى الشريحة الرئيسية**
 
-كل عرض يحتوي على شريحة أساس واحدة على الأقل بشكل افتراضي. عند إضافة شريحة جديدة، تُطبق شريحة الأساس عليها تلقائيًا، عادةً ما تكون شريحة الأساس للشرحة السابقة. يمكن للعرض أن يحتوي على عدة شرائح أساس لتنسيق أقسام مختلفة بطرق فريدة.
+عند إضافة صورة إلى شريحة رئيسية، تظهر في الشرائح التي تستخدم تخطيطات من تلك الشريحة. هذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، والعناصر البصرية المتكررة الأخرى.
 
-**ما العناصر التي يمكن تخصيصها في شريحة الأساس؟**
+المثال التالي يضيف شعارًا إلى الشريحة الرئيسية الأولى:
 
-تتضمن شريحة الأساس عدة خصائص أساسية يمكن تخصيصها:
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IImage logo = Images.fromFile("logo.png");
 
-- **Background**: تحديد خلفية الشريحة.
-- **BodyStyle**: تعريف أنماط النص لجسم الشريحة.
-- **Shapes**: إدارة جميع الأشكال على شريحة الأساس، بما في ذلك العناصر النائبة وإطارات الصور.
-- **Controls**: التعامل مع عناصر التحكم ActiveX.
-- **ThemeManager**: الوصول إلى مدير السمات.
-- **HeaderFooterManager**: إدارة الرؤوس والتذييلات.
+    try {
+        IPPImage logoImage = presentation.getImages().addImage(logo);
 
-**كيف يمكنني إضافة صورة إلى شريحة أساس؟**
+        masterSlide.getShapes().addPictureFrame(
+                ShapeType.Rectangle,
+                20,
+                20,
+                80,
+                80,
+                logoImage);
+    } finally {
+        logo.dispose();
+    }
 
-إضافة صورة إلى شريحة الأساس يضمن ظهورها على جميع الشرائح المعتمدة على تلك الشريحة. على سبيل المثال، وضع شعار الشركة على شريحة الأساس سيظهر على كل شريحة في العرض.
+    presentation.save("presentation-with-logo.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**كيف ترتبط شرائح الأساس بتخطيطات الشرائح؟**
+لمزيد من المعلومات حول إطارات الصور، انظر [Picture Frame](/slides/ar/java/picture-frame/).
 
-تعمل تخطيطات الشرائح بالتكامل مع شرائح الأساس لتوفير مرونة في تصميم الشرائح. بينما تحدد شريحة الأساس الأنماط العامة والسمات، تسمح تخطيطات الشرائح بتنوع ترتيب المحتوى. التسلسل الهرمي كالتالي:
+## **العمل مع الملفات النائبة**
 
-- **شريحة الأساس** → تحديد الأنماط العامة.
-- **تخطيط الشريحة** → توفير ترتيبات محتوى مختلفة.
-- **الشريحة** → وراثة التصميم من تخطيط الشريحة.
+عادةً ما تُعرّف الملفات النائبة على شرائح التخطيط. توفر الشريحة الرئيسية النمط والسمة المشتركة التي يرثها تلك التخطيطات، بينما تقرّر كل تخطيط أي الملفات النائبة متاحة وأين تُوضع.
 
-**هل يمكنني وجود عدة شرائح أساس في عرض واحد؟**
+في PowerPoint، تتوفر أوامر الملفات النائبة في عرض الشريحة الرئيسية.
 
-نعم، يمكن للعرض أن يحتوي على عدة شرائح أساس. يتيح لك ذلك تنسيق أقسام مختلفة من العرض بطرق متعددة، مما يوفر مرونة في التصميم.
+![أمر إدراج ملف نائب في عرض الشريحة الرئيسية في PowerPoint](slide-master_5.png)
 
-**كيف أُصلِح وأُعدِّل شريحة أساس باستخدام Aspose.Slides؟**
+لإضافة ملفات نائبة جديدة باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى الشريحة الرئيسية:
 
-في Aspose.Slides، تُمثَّل شريحة الأساس بالواجهة [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/). يمكنك الوصول إلى شريحة الأساس باستخدام الأسلوب [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) لكائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide blankLayoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    if (blankLayoutSlide == null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(SlideLayoutType.Blank, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+يمكنك أيضًا تنسيق أشكال الملفات النائبة الموجودة بالفعل على شريحة رئيسية. المثال التالي يجد ملف العنوان النائب ويطبّق تعبئة تدرج خطي:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IAutoShape titlePlaceholder = null;
+
+    for (IShape shape : masterSlide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+
+            if (autoShape.getPlaceholder() != null &&
+                    autoShape.getPlaceholder().getType() == PlaceholderType.Title) {
+                titlePlaceholder = autoShape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder != null) {
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
+
+        titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0f, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![ملف عنوان مُنسق يورثه الشرائح العادية](slide-master_8.png)
+
+لمزيد من خيارات تنسيق الملفات النائبة والنص، اطلع على [Set Prompt Text in Placeholder](/slides/ar/java/manage-placeholder/) و[Text Formatting](/slides/ar/java/text-formatting/).
+
+## **تغيير خلفية الشريحة الرئيسية**
+
+الخلفية الرئيسية تُورّث من قبل التخطيطات والشرائح التي لا تتجاوزها. المثال التالي يحدّد لون خلفية صلب للشريحة الرئيسية الأولى:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    Color masterBackgroundColor = Color.GREEN;
+
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+للموضوعات ذات الصلة، انظر [Presentation Background](/slides/ar/java/presentation-background/) و[Presentation Theme](/slides/ar/java/presentation-theme/).
+
+## **استنساخ شريحة رئيسية إلى عرض آخر**
+
+استخدم [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) لنسخ شريحة رئيسية إلى عرض آخر. يمكن بعد ذلك استخدام الشريحة المستنسخة من قبل التخطيطات والشرائح في العرض الوجهة.
+
+```java
+Presentation sourcePresentation = new Presentation("source.pptx");
+Presentation destinationPresentation = new Presentation("destination.pptx");
+try {
+    IMasterSlide sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    IMasterSlide clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+إذا كنت بحاجة إلى استنساخ الشرائح العادية مع شريطها الرئيسي، انظر [Clone Slides](/slides/ar/java/clone-slides/).
+
+## **إضافة عدة شرائح رئيسية**
+
+يمكن للعرض أن يحتوي على عدة شرائح رئيسية. هذا مفيد عندما تتطلب أقسام مختلفة علامات تجارية، بنية صفحات، أو إعدادات سمة مختلفة.
+
+![أوامر PowerPoint لإدراج وإدارة الشرائح الرئيسية](slide-master_9.jpg)
+
+المثال التالي يستنسخ الشريحة الرئيسية الافتراضية، يمنح النسخة المستنسخة خلفية مختلفة، يُنشئ تخطيطًا تحت تلك الشريحة المستنسخة، ويضيف شريحة جديدة تعتمد على ذلك التخطيط:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
+    IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    Color sectionMasterBackgroundColor = Color.LIGHT_GRAY;
+
+    sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    ILayoutSlide sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    if (sourceBlankLayout == null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    ILayoutSlide sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **مقارنة الشرائح الرئيسية**
+
+يمكن مقارنة الشرائح الرئيسية باستخدام طريقة `equals` الموروثة من [IBaseSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/). تتحقق المقارنة من الهيكل والمحتوى الثابت مثل الأشكال، النص، التنسيق، الحركات، وإعدادات الشريحة الأخرى. لا تُقارن المعرّفات الفريدة مثل معرفات الشرائح أو القيم الديناميكية للملفات النائبة مثل التاريخ الحالي.
+
+```java
+Presentation firstPresentation = new Presentation("first.pptx");
+Presentation secondPresentation = new Presentation("second.pptx");
+try {
+    int firstPresentationMasterCount = firstPresentation.getMasters().size();
+    int secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (int firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (int secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            IMasterSlide firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            IMasterSlide secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            boolean areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                System.out.printf(
+                        "first.pptx master #%d equals second.pptx master #%d%n",
+                        firstMasterIndex,
+                        secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+لمزيد من المعلومات، انظر [Compare Presentation Slides](/slides/ar/java/compare-slides/).
+
+## **تعيين عرض الشريحة الرئيسية كعرض افتراضي**
+
+استخدم طريقة `setLastView` على [ViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/viewproperties/) للتحكم في العرض الذي يفتح PowerPoint أولاً. المثال التالي يفتح العرض في عرض الشريحة الرئيسية:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("presentation-master-view.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+لمزيد من إعدادات العرض، انظر [Save Presentation](/slides/ar/java/save-presentation/).
+
+## **إزالة الشرائح الرئيسية غير المستخدمة**
+
+أحيانًا تحتوي العروض على شرائح رئيسية لم تعد تُستَخدم من قبل أي شرائح عادية. يمكن أن يقلل إزالة الشرائح غير المستخدمة من حجم الملف ويسهّل صيانة القالب.
+
+استخدم `removeUnused` لإزالة الشرائح الرئيسية غير المستخدمة من مجموعة `getMasters()`:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+يمكنك أيضًا استخدام الطريقة منخفضة الكود [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ar/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **الأسئلة الشائعة**
+
+**ما الفرق بين الشريحة الرئيسية وشريحة التخطيط؟**
+
+الشريحة الرئيسية تُعرّف إعدادات التصميم المشتركة مثل السمة، الخلفية، الأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى شريحة رئيسية وتُعرّف ترتيبًا محددًا للملفات النائبة. الشريحة العادية تستخدم شريحة تخطيط، وبالتالي تُورّث من كل من التخطيط والشريحة الرئيسية.
+
+**هل يمكن لعرض واحد أن يحتوي على عدة شرائح رئيسية؟**
+
+نعم. يمكن للعرض أن يحتوي على عدة شرائح رئيسية. استخدم عدة شرائح عندما تحتاج أقسام مختلفة إلى أنظمة بصرية أو علامات تجارية مختلفة.
+
+**هل يجب إضافة الملفات النائبة إلى الشريحة الرئيسية أم شريحة التخطيط؟**
+
+في معظم الحالات، أضف الملفات النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيقات المشتركة على الشريحة الرئيسية، ثم ضع ملفات المحتوى على التخطيطات التي ستستخدمها الشرائح العادية.
+
+**هل يمكنني حذف شريحة رئيسية لا تزال قيد الاستخدام؟**
+
+لا. لا يمكن حذف شريحة رئيسية لديها شرائح تابعة بأمان مباشرةً. انقل تلك الشرائح إلى تخطيطات تحت شريحة رئيسية أخرى، أو استخدم طريقة تنظيف الشرائح الرئيسية غير المستخدمة التي تُزيل فقط الشرائح غير المستخدمة.

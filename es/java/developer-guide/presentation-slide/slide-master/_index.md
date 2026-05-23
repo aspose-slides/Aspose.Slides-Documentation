@@ -1,11 +1,11 @@
 ---
-title: Gestionar patrones de diapositivas de presentación en Java
-linktitle: Patrón de diapositiva
+title: Gestionar maestros de diapositivas de presentación en Java
+linktitle: Maestro de diapositiva
 type: docs
 weight: 70
 url: /es/java/slide-master/
 keywords:
-- patrón de diapositiva
+- maestro de diapositiva
 - diapositiva maestra
 - diapositiva maestra PPT
 - varias diapositivas maestras
@@ -21,366 +21,350 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Gestionar patrones de diapositivas en Aspose.Slides para Java: crear, editar y aplicar diseños, temas y marcadores de posición a PPT, PPTX y ODP con ejemplos concisos en Java."
+description: "Gestionar maestros de diapositivas en Aspose.Slides para Java: acceder, editar, clonar, comparar y eliminar diapositivas maestras en presentaciones de PowerPoint y OpenDocument."
 ---
+## **Visión general**
 
-## **Qué es un Patrón de diapositivas en PowerPoint**
+Un **slide master** define configuraciones de diseño compartidas para un grupo de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, configuraciones de tema y configuraciones de pie de página. En PowerPoint, editar un slide master es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
 
-Un **Patrón de diapositivas** es una plantilla de diapositiva que define el diseño, los estilos, el tema, las fuentes, el fondo y otras propiedades de las diapositivas en una presentación. Si deseas crear una presentación (o una serie de presentaciones) con el mismo estilo y plantilla para tu empresa, puedes usar un patrón de diapositivas. 
+Aspose.Slides for Java admite el mismo modelo. Una presentación puede contener una o más diapositivas master, y cada diapositiva master puede contener varias diapositivas de diseño. Las diapositivas normales normalmente no hacen referencia a una diapositiva master directamente. En su lugar, una diapositiva normal usa una diapositiva de diseño, y esa diapositiva de diseño pertenece a una diapositiva master.
 
-Un Patrón de diapositivas es útil porque permite establecer y cambiar el aspecto de todas las diapositivas de la presentación de una sola vez. Aspose.Slides admite el mecanismo de Patrón de diapositivas de PowerPoint. 
+La jerarquía es:
 
-VBA también permite manipular un Patrón de diapositivas y ejecutar las mismas operaciones admitidas en PowerPoint: cambiar fondos, añadir formas, personalizar el diseño, etc. Aspose.Slides proporciona mecanismos flexibles para que puedas usar Patrones de diapositivas y realizar tareas básicas con ellos. 
+1. **Slide master** - define el diseño y tema compartidos.  
+1. **Layout slide** - define una disposición específica de marcadores de posición y formato a nivel de diseño.  
+1. **Normal slide** - contiene el contenido real de la presentación y usa una diapositiva de diseño.
 
-Estas son operaciones básicas de Patrón de diapositivas:
+![La jerarquía de diapositivas master, diapositivas de diseño y diapositivas normales](slide-master_2.jpg)
 
-- Crear un Patrón de diapositivas.  
-- Aplicar el Patrón de diapositivas a las diapositivas de la presentación.  
-- Cambiar el fondo del Patrón de diapositivas.  
-- Añadir una imagen, marcador de posición, Smart Art, etc., al Patrón de diapositivas.  
+En Aspose.Slides, un slide master está representado por la interfaz [IMasterSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/). Todas las diapositivas master en una presentación están disponibles a través de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getMasters--) , que implementa [IMasterSlideCollection](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslidecollection/).
 
-Estas son operaciones más avanzadas con el Patrón de diapositivas: 
-
-- Comparar Patrones de diapositivas.  
-- Combinar Patrones de diapositivas.  
-- Aplicar varios Patrones de diapositivas.  
-- Copiar una diapositiva con Patrón de diapositivas a otra presentación.  
-- Encontrar Patrones de diapositivas duplicados en presentaciones.  
-- Establecer el Patrón de diapositivas como vista predeterminada de la presentación.  
-
-{{% alert color="primary" %}} 
-
-Quizá quieras probar Aspose [**Visor online de PowerPoint**](https://products.aspose.app/slides/viewer) porque es una implementación en vivo de algunos de los procesos principales descritos aquí.
-
-{{% /alert %}} 
-
-
-## **Cómo se aplica un Patrón de diapositivas**
-
-Antes de trabajar con un Patrón de diapositivas, quizá quieras entender cómo se utilizan en las presentaciones y se aplican a las diapositivas. 
-
-* Cada presentación tiene al menos un Patrón de diapositivas por defecto. 
-* Una presentación puede contener varios Patrones de diapositivas. Puedes añadir varios Patrones de diapositivas y utilizarlos para dar estilo a diferentes partes de una presentación de diferentes maneras. 
-
-En **Aspose.Slides**, un Patrón de diapositivas está representado por [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) tipo. 
-
-El objeto [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) de Aspose.Slides contiene la lista [**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) de tipo [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) que contiene una lista de todos los patrones de diapositivas que están definidos en una presentación. 
-
-Además de las operaciones CRUD, la interfaz [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) contiene estos métodos útiles: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) y [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . Esos métodos se heredan de la función básica de clonación de diapositivas. Pero al trabajar con Patrones de diapositivas, esos métodos permiten implementar configuraciones complicadas. 
-
-Cuando se añade una nueva diapositiva a una presentación, se le aplica automáticamente un Patrón de diapositivas. Por defecto se selecciona el Patrón de diapositivas de la diapositiva anterior. 
-
-**Nota**: Las diapositivas de la presentación se almacenan en la lista [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) y cada nueva diapositiva se agrega al final de la colección por defecto. Si una presentación contiene un único Patrón de diapositivas, ese patrón se selecciona para todas las nuevas diapositivas. Esta es la razón por la que no tienes que definir el Patrón de diapositivas para cada nueva diapositiva que creas.
-
-El principio es el mismo para PowerPoint y Aspose.Slides. Por ejemplo, en PowerPoint, cuando añades una nueva diapositiva, puedes simplemente pulsar en la línea inferior bajo la última diapositiva y entonces se creará una nueva diapositiva (con el Patrón de diapositivas de la presentación anterior):
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-En Aspose.Slides, puedes realizar la tarea equivalente con el método [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) bajo la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-
-
-## **Patrón de diapositivas en la jerarquía de Slides**
-
-Usar Diseños de diapositiva con el Patrón de diapositivas permite la máxima flexibilidad. Un Diseño de diapositiva permite establecer los mismos estilos que el Patrón de diapositivas (fondo, fuentes, formas, etc.). Sin embargo, cuando varios Diseños de diapositiva se combinan en un Patrón de diapositivas, se crea un nuevo estilo. Cuando aplicas un Diseño de diapositiva a una sola diapositiva, puedes cambiar su estilo respecto al aplicado por el Patrón de diapositivas.
-
-El Patrón de diapositivas supera a todos los elementos de configuración: Patrón de diapositivas → Diseño de diapositiva → Diapositiva:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Cada objeto [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) tiene una propiedad [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) con una lista de Diseños de diapositiva. Un tipo [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) tiene una propiedad [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) con un enlace a un Diseño de diapositiva aplicado a la diapositiva. La interacción entre una diapositiva y el Patrón de diapositivas ocurre a través de un Diseño de diapositiva.
-
-{{% alert color="info" title="Nota" %}}
-
-* En Aspose.Slides, todas las configuraciones de diapositiva (Patrón de diapositivas, Diseño de diapositiva y la propia diapositiva) son en realidad objetos de diapositiva que implementan la interfaz [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).  
-* Por lo tanto, Patrón de diapositivas y Diseño de diapositiva pueden implementar las mismas propiedades y debes saber cómo se aplicarán sus valores a un objeto [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). El Patrón de diapositivas se aplica primero a una diapositiva y luego se aplica el Diseño de diapositiva. Por ejemplo, si el Patrón de diapositivas y el Diseño de diapositiva tienen ambos un valor de fondo, la diapositiva terminará con el fondo del Diseño de diapositiva.
-
+{{% alert color="info" title="Inheritance" %}}
+Cuando la misma propiedad se define en más de un nivel, el nivel más específico prevalece. Por ejemplo, si una diapositiva master y una diapositiva de diseño ambas definen un fondo, las diapositivas basadas en ese diseño usan el fondo del diseño. Para obtener más información sobre las diapositivas de diseño, consulte [Apply or Change Slide Layouts](/slides/es/java/slide-layout/).
 {{% /alert %}}
 
+## **Acceder a los slide masters**
 
-## **Qué contiene un Patrón de diapositivas**
+En PowerPoint, puede abrir la vista Slide Master desde **View** > **Slide Master**.
 
-Para entender cómo se puede modificar un Patrón de diapositivas, necesitas conocer sus componentes. Estas son las propiedades principales de [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/). 
+![El comando Slide Master en la pestaña View de PowerPoint](slide-master_3.jpg)
 
-- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) get/set fondo de la diapositiva.  
-- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) get/set estilos de texto del cuerpo de la diapositiva.  
-- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) get/set todas las formas del Patrón de diapositivas (marcadores de posición, marcos de imagen, etc.).  
-- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) get/set controles ActiveX.  
-- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) get/get gestor de temas.  
-- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) get/get gestor de encabezado y pie de página.  
+En Aspose.Slides, use la colección `getMasters()` para acceder a diapositivas master:
 
-Métodos del Patrón de diapositivas:
-
-- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) get/get todas las diapositivas que dependen del Patrón de diapositivas.  
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) permite crear un nuevo Patrón de diapositivas basado en el actual y un nuevo tema. El nuevo Patrón de diapositivas se aplicará a todas las diapositivas dependientes.  
-
-
-## **Obtener un Patrón de diapositivas**
-
-En PowerPoint, el Patrón de diapositivas se puede acceder desde el menú Vista → Patrón de diapositivas:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-Con Aspose.Slides, puedes acceder a un Patrón de diapositivas de esta manera: 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Da acceso al patrón maestro de la presentación
-    IMasterSlide masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
+    IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+    int masterSlideCount = presentation.getMasters().size();
+    int firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-
-La interfaz [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) representa un Patrón de diapositivas. La propiedad [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (relacionada con el tipo [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection)) contiene una lista de todos los Patrones de diapositivas que están definidos en la presentación.  
-
-
-## **Añadir una imagen a un Patrón de diapositivas**
-
-Cuando añades una imagen a un Patrón de diapositivas, esa imagen aparecerá en todas las diapositivas que dependan de ese patrón. 
-
-Por ejemplo, puedes colocar el logotipo de tu empresa y algunas imágenes en el Patrón de diapositivas y luego volver al modo de edición de diapositivas. Deberías ver la imagen en cada diapositiva. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Puedes añadir imágenes a un Patrón de diapositivas con Aspose.Slides:
-```java
-Presentation pres = new Presentation();
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="Ver también" %}} 
-
-Para más información sobre cómo añadir imágenes a una diapositiva, consulta el artículo [Picture Frame](/slides/es/java/picture-frame/#create-picture-frame).
-{{% /alert %}}
-
-
-## **Añadir un marcador de posición a un Patrón de diapositivas**
-
-Estos campos de texto son marcadores de posición estándar en un Patrón de diapositivas: 
-
-* Haz clic para editar el estilo del título del patrón  
-* Editar los estilos de texto del patrón  
-* Segundo nivel  
-* Tercer nivel  
-
-También aparecen en las diapositivas basadas en el Patrón de diapositivas. Puedes editar esos marcadores de posición en un Patrón de diapositivas y los cambios se aplicarán automáticamente a las diapositivas. 
-
-En PowerPoint, puedes añadir un marcador de posición a través de la ruta Patrón de diapositivas → Insertar marcador de posición:
-
-![todo:image_alt_text](slide-master_5.png)
-
-Veamos un ejemplo más complicado de marcadores de posición con Aspose.Slides. Considera una diapositiva con marcadores de posición basados en el Patrón de diapositivas:
-
-![todo:image_alt_text](slide-master_6.png)
-
-Queremos cambiar el formato del Título y el Subtítulo en el Patrón de diapositivas de esta manera:
-
-![todo:image_alt_text](slide-master_7.png)
-
-Primero, obtenemos el contenido del marcador de posición del título del objeto Patrón de diapositivas y luego usamos el campo `PlaceHolder.FillFormat`:
-```java
-public static void main(String[] args) {
-    Presentation pres = new Presentation();
-    try {
-        IMasterSlide master = pres.getMasters().get_Item(0);
-        IAutoShape placeHolder = findPlaceholder(master, PlaceholderType.Title);
-        placeHolder.getFillFormat().setFillType(FillType.Gradient);
-        placeHolder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, new Color(255, 0, 0));
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, new Color(128, 0, 128));
-
-        pres.save("pres.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-}
-
-static IAutoShape findPlaceholder(IMasterSlide master, int type)
-{
-    for (IShape shape : master.getShapes())
-    {
-        IAutoShape autoShape = (IAutoShape) shape;
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-El estilo y formato del título cambiará en todas las diapositivas basadas en el patrón:
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="Ver también" %}} 
-
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/java/manage-placeholder/)  
-* [Text Formatting](https://docs.aspose.com/slides/java/text-formatting/)
-
-{{% /alert %}}
-
-
-## **Cambiar el fondo en un Patrón de diapositivas**
-
-Cuando cambias el color de fondo de una diapositiva maestra, todas las diapositivas normales de la presentación obtendrán el nuevo color. Este código Java demuestra la operación:
-```java
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(FillType.Solid);
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="Ver también" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/java/presentation-background/)  
-- [Presentation Theme](https://docs.aspose.com/slides/java/presentation-theme/)
-
-{{% /alert %}}
-
-## **Clonar un Patrón de diapositivas a otra presentación**
-
-Para clonar un Patrón de diapositivas a otra presentación, llama al método [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) de la presentación de destino junto con un Patrón de diapositivas pasado como argumento. Este código Java muestra cómo clonar un Patrón de diapositivas a otra presentación:
-```java
-Presentation presSource = new Presentation();
-Presentation presTarget = new Presentation();
-try {
-    IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) presSource.dispose();
-}
-```
-
-
-
-## **Añadir varios Patrones de diapositivas a una presentación**
-
-Aspose.Slides permite añadir varios Patrones de diapositivas y Diseños de diapositiva a cualquier presentación. Esto permite configurar estilos, diseños y opciones de formato para las diapositivas de la presentación de muchas maneras. 
-
-En PowerPoint, puedes añadir nuevos Patrones de diapositivas y Diseños (desde el “menú Patrón de diapositivas”) de esta forma:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-Con Aspose.Slides, puedes añadir un nuevo Patrón de diapositivas llamando al método [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-):
-```java
-// Añade una nueva diapositiva maestra
-IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-
-## **Comparar Patrones de diapositivas**
-
-Un Patrón de diapositivas implementa la interfaz [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) que contiene el método [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-), que puede usarse para comparar diapositivas. Devuelve `true` para Patrones de diapositivas idénticos en estructura y contenido estático. 
-
-Dos Patrones de diapositivas son iguales si sus formas, estilos, textos, animaciones y demás configuraciones son iguales. La comparación no tiene en cuenta valores de identificadores únicos (p. ej., SlideId) ni contenido dinámico (p. ej., el valor de fecha actual en un marcador de posición de fecha). 
-
-
-## **Establecer un Patrón de diapositivas como vista predeterminada de la presentación**
-
-Aspose.Slides permite establecer un Patrón de diapositivas como vista predeterminada de una presentación. La vista predeterminada es lo que ves primero al abrir una presentación. 
-
-Este código muestra cómo establecer un Patrón de diapositivas como vista predeterminada de una presentación en Java:
-```java
-// Instancia una clase Presentation que representa el archivo de presentación
-Presentation presentation = new Presentation();
-try {
-    // Establece la vista predeterminada como SlideMasterView
-    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
-
-    // Guarda la presentación
-    presentation.save("PresView.pptx", SaveFormat.Pptx);
+    System.out.println("Master slides: " + masterSlideCount);
+    System.out.println("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+También puede obtener la diapositiva master usada por una diapositiva normal a través de su diseño:
 
-## **Eliminar Patrones de diapositivas no utilizados**
-
-Aspose.Slides proporciona el método [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (de la clase [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) para permitir eliminar patrones de diapositivas no deseados y sin usar. Este código Java muestra cómo eliminar un patrón de diapositivas de una presentación PowerPoint:
 ```java
-Presentation pres = new Presentation("pres.pptx");
- try {
-     Compress.removeUnusedMasterSlides(pres);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = slide.getLayoutSlide();
+    IMasterSlide masterSlide = layoutSlide.getMasterSlide();
+    String masterSlideName = masterSlide.getName();
 
-     pres.save("pres-out.pptx", SaveFormat.Pptx);
- } finally {
-     if (pres != null) pres.dispose();
- }
+    System.out.println(masterSlideName);
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **Qué contiene un Slide Master**
+
+Una diapositiva master es un objeto similar a una diapositiva. Implementa [IBaseSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibaseslide/), por lo que expone muchas de las mismas propiedades de diapositiva utilizadas por diapositivas normales y de diseño. Los miembros específicos de master se enumeran en la página de API [IMasterSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/).
+
+Los miembros de diapositiva master más utilizados incluyen:
+
+| Miembro | Propósito |
+| --- | --- |
+| `getBackground()` | Establece el fondo de la diapositiva a nivel de master. |
+| `getShapes()` | Almacena las formas colocadas en el master, como logotipos, marcos de imagen y texto compartido. |
+| `getLayoutSlides()` | Almacena las diapositivas de diseño que pertenecen al master. |
+| `getThemeManager()` | Proporciona acceso a las API del tema del master. |
+| `getHeaderFooterManager()` | Controla encabezados, pies de página, fechas y números de diapositiva para el master y sus diseños secundarios. |
+| `getDependingSlides()` | Devuelve las diapositivas normales que dependen del master a través de sus diseños. |
+
+## **Agregar una imagen a un Slide Master**
+
+Cuando agrega una imagen a una diapositiva master, aparece en las diapositivas que usan diseños de ese master. Esto es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales repetidos.
+
+El siguiente ejemplo agrega un logotipo a la primera diapositiva master:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IImage logo = Images.fromFile("logo.png");
+
+    try {
+        IPPImage logoImage = presentation.getImages().addImage(logo);
+
+        masterSlide.getShapes().addPictureFrame(
+                ShapeType.Rectangle,
+                20,
+                20,
+                80,
+                80,
+                logoImage);
+    } finally {
+        logo.dispose();
+    }
+
+    presentation.save("presentation-with-logo.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Para obtener más información sobre los marcos de imagen, consulte [Picture Frame](/slides/es/java/picture-frame/).
+
+## **Trabajar con marcadores de posición**
+
+Los marcadores de posición normalmente se definen en las diapositivas de diseño. La diapositiva master proporciona el estilo y tema compartidos que esos diseños heredan, mientras que cada diseño decide qué marcadores de posición están disponibles y dónde se colocan.
+
+En PowerPoint, los comandos de marcador de posición están disponibles en la vista Slide Master.
+
+![El comando Insert Placeholder en la vista Slide Master de PowerPoint](slide-master_5.png)
+
+Para agregar nuevos marcadores de posición con Aspose.Slides, trabaje con la diapositiva de diseño que pertenece al master:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide blankLayoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    if (blankLayoutSlide == null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(SlideLayoutType.Blank, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+También puede formatear formas de marcador de posición que ya existen en una diapositiva master. El siguiente ejemplo encuentra el marcador de posición de título y aplica un relleno de degradado lineal:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IAutoShape titlePlaceholder = null;
+
+    for (IShape shape : masterSlide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+
+            if (autoShape.getPlaceholder() != null &&
+                    autoShape.getPlaceholder().getType() == PlaceholderType.Title) {
+                titlePlaceholder = autoShape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder != null) {
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
+
+        titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0f, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Marcador de posición de título formateado heredado por diapositivas normales](slide-master_8.png)
+
+Para obtener más opciones de formato de marcadores de posición y texto, consulte [Set Prompt Text in Placeholder](/slides/es/java/manage-placeholder/) y [Text Formatting](/slides/es/java/text-formatting/).
+
+## **Cambiar el fondo de un Slide Master**
+
+Un fondo de master se hereda por los diseños y diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para la primera diapositiva master:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    Color masterBackgroundColor = Color.GREEN;
+
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Para temas relacionados, consulte [Presentation Background](/slides/es/java/presentation-background/) y [Presentation Theme](/slides/es/java/presentation-theme/).
+
+## **Clonar un Slide Master a otra presentación**
+
+Utilice [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) para copiar una diapositiva master a otra presentación. El master copiado puede entonces ser usado por los diseños y diapositivas en la presentación de destino.
+
+```java
+Presentation sourcePresentation = new Presentation("source.pptx");
+Presentation destinationPresentation = new Presentation("destination.pptx");
+try {
+    IMasterSlide sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    IMasterSlide clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+Si necesita clonar diapositivas normales junto con su master, consulte [Clone Slides](/slides/es/java/clone-slides/).
+
+## **Agregar varios Slide Masters**
+
+Una presentación puede contener varias diapositivas master. Esto es útil cuando diferentes secciones requieren diferentes marcas, estructura de página o configuraciones de tema.
+
+![Comandos de PowerPoint para insertar y gestionar diapositivas master](slide-master_9.jpg)
+
+El siguiente ejemplo clona el master predeterminado, le asigna al clon un fondo diferente, crea un diseño bajo ese master clonado y agrega una nueva diapositiva basada en ese diseño:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
+    IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    Color sectionMasterBackgroundColor = Color.LIGHT_GRAY;
+
+    sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    ILayoutSlide sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    if (sourceBlankLayout == null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    ILayoutSlide sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Comparar Slide Masters**
+
+Las diapositivas master pueden compararse con el método `equals` heredado de [IBaseSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibaseslide/). La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otras configuraciones de diapositiva. No compara identificadores únicos, como los IDs de diapositiva, ni valores dinámicos de marcadores de posición, como la fecha actual.
+
+```java
+Presentation firstPresentation = new Presentation("first.pptx");
+Presentation secondPresentation = new Presentation("second.pptx");
+try {
+    int firstPresentationMasterCount = firstPresentation.getMasters().size();
+    int secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (int firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (int secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            IMasterSlide firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            IMasterSlide secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            boolean areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                System.out.printf(
+                        "first.pptx master #%d equals second.pptx master #%d%n",
+                        firstMasterIndex,
+                        secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+Para obtener más información, consulte [Compare Presentation Slides](/slides/es/java/compare-slides/).
+
+## **Establecer la vista Slide Master como vista predeterminada**
+
+Utilice el método `setLastView` en [ViewProperties](https://reference.aspose.com/slides/es/java/com.aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en la vista Slide Master:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("presentation-master-view.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Para más configuraciones de vista, consulte [Save Presentation](/slides/es/java/save-presentation/).
+
+## **Eliminar diapositivas master sin usar**
+
+A veces las presentaciones contienen diapositivas master que ya no son usadas por ninguna diapositiva normal. Eliminar masters sin usar puede reducir el tamaño del archivo y simplificar el mantenimiento de la plantilla.
+
+Use `removeUnused` para eliminar masters sin usar de la colección `getMasters()`:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+También puede usar el método de bajo código [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**¿Qué es un Patrón de diapositivas en PowerPoint?**
+**¿Cuál es la diferencia entre un slide master y una diapositiva de diseño?**
 
-Un Patrón de diapositivas es una plantilla de diapositiva que define el diseño, los estilos, los temas, las fuentes, el fondo y otras propiedades de las diapositivas en una presentación. Permite establecer y cambiar el aspecto de todas las diapositivas de la presentación de una sola vez.  
+Un slide master define configuraciones de diseño compartidas como tema, fondo, formas comunes y estilos de texto. Una diapositiva de diseño pertenece a una diapositiva master y define una disposición específica de marcadores de posición. Una diapositiva normal usa una diapositiva de diseño, por lo que hereda tanto del diseño como del master.
 
-**¿Cómo se aplica un Patrón de diapositivas en una presentación?**
+**¿Puede una presentación contener varios slide masters?**
 
-Cada presentación tiene al menos un Patrón de diapositivas por defecto. Cuando se añade una nueva diapositiva, se le aplica automáticamente un Patrón de diapositivas, normalmente heredando el patrón de la diapositiva anterior. Una presentación puede contener varios Patrones de diapositivas para dar estilo a diferentes partes de forma única.  
+Sí. Una presentación puede contener varios slide masters. Utilice varios masters cuando diferentes secciones necesiten sistemas visuales o marcas diferentes.
 
-**¿Qué elementos pueden personalizarse en un Patrón de diapositivas?**
+**¿Debo añadir marcadores de posición a una diapositiva master o a una diapositiva de diseño?**
 
-Un Patrón de diapositivas comprende varias propiedades principales que pueden personalizarse:
+En la mayoría de los casos, añada marcadores de posición a las diapositivas de diseño. Coloque los elementos visuales compartidos y el formato compartido en la diapositiva master, y luego ponga los marcadores de posición de contenido en los diseños que usarán las diapositivas normales.
 
-- **Background**: establecer el fondo de la diapositiva.  
-- **BodyStyle**: definir los estilos de texto del cuerpo de la diapositiva.  
-- **Shapes**: gestionar todas las formas del Patrón de diapositivas, incluidos marcadores de posición y marcos de imagen.  
-- **Controls**: manejar controles ActiveX.  
-- **ThemeManager**: acceder al gestor de temas.  
-- **HeaderFooterManager**: gestionar encabezados y pies de página.  
+**¿Puedo eliminar una diapositiva master que todavía se está usando?**
 
-**¿Cómo puedo añadir una imagen a un Patrón de diapositivas?**
-
-Añadir una imagen a un Patrón de diapositivas asegura que aparezca en todas las diapositivas que dependen de ese patrón. Por ejemplo, colocar el logotipo de la empresa en el Patrón de diapositivas hará que se muestre en cada diapositiva de la presentación.  
-
-**¿Cómo se relacionan los Patrones de diapositivas con los Diseños de diapositiva?**
-
-Los Diseños de diapositiva trabajan junto con los Patrones de diapositivas para ofrecer flexibilidad en el diseño. Mientras que un Patrón de diapositivas define estilos y temas globales, los Diseños de diapositiva permiten variaciones en la disposición del contenido. La jerarquía es la siguiente:
-
-- **Patrón de diapositivas** → Define estilos globales.  
-- **Diseño de diapositiva** → Proporciona diferentes disposiciones de contenido.  
-- **Diapositiva** → Hereda el diseño de su Diseño de diapositiva.  
-
-**¿Puedo tener varios Patrones de diapositivas en una sola presentación?**
-
-Sí, una presentación puede contener varios Patrones de diapositivas. Esto permite dar estilo a diferentes secciones de una presentación de diversas maneras, proporcionando flexibilidad en el diseño.  
-
-**¿Cómo accedo y modifico un Patrón de diapositivas usando Aspose.Slides?**
-
-En Aspose.Slides, un Patrón de diapositivas está representado por la interfaz [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/). Puedes acceder a un Patrón de diapositivas mediante el método [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) del objeto [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+No. Una diapositiva master que tiene diapositivas dependientes no puede eliminarse de forma segura directamente. Primero mueva esas diapositivas a diseños bajo otro master, o utilice un método de limpieza de masters sin usar que elimine solo los masters que no estén en uso.

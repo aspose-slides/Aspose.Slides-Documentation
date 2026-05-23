@@ -1,5 +1,5 @@
 ---
-title: 管理 C++ 中的演示文稿幻灯片母版
+title: 在 C++ 中管理演示文稿幻灯片母版
 linktitle: 幻灯片母版
 type: docs
 weight: 80
@@ -14,321 +14,352 @@ keywords:
 - 占位符
 - 克隆母版幻灯片
 - 复制母版幻灯片
-- 重复的母版幻灯片
+- 重复母版幻灯片
 - 未使用的母版幻灯片
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "在 Aspose.Slides for C++ 中管理幻灯片母版：使用简洁的 C++ 示例创建、编辑并应用布局、主题和占位符到 PPT、PPTX 和 ODP。"
+description: "在 Aspose.Slides for C++ 中管理幻灯片母版：访问、编辑、克隆、比较和删除 PowerPoint 与 OpenDocument 演示文稿中的母版幻灯片。"
 ---
+## **概述**
 
-## **PowerPoint 中的幻灯片母版是什么**
+**幻灯片母版** 定义了一组幻灯片的共享设计设置。它可以包含常用形状、徽标、背景、文字样式、主题设置和页脚设置。在 PowerPoint 中，编辑幻灯片母版是保持演示文稿一致性的常用方法，无需在每张幻灯片上重复相同的格式。
 
-A **Slide Master** 是一种幻灯片模板，用于定义演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。如果希望为公司制作一套具有相同样式和模板的演示文稿（或一系列演示文稿），可以使用幻灯片母版。
+Aspose.Slides for C++ 支持相同的模型。一个演示文稿可以包含一个或多个母版幻灯片，每个母版幻灯片可以包含多个布局幻灯片。普通幻灯片通常不会直接引用母版幻灯片。相反，普通幻灯片使用布局幻灯片，而该布局幻灯片属于某个母版幻灯片。
 
-幻灯片母版的优势在于可以一次性设置并更改所有演示文稿幻灯片的外观。Aspose.Slides 支持 PowerPoint 的幻灯片母版机制。
+层次结构如下：
 
-VBA 也允许操作幻灯片母版并执行 PowerPoint 支持的相同操作：更改背景、添加形状、定制布局等。Aspose.Slides 提供灵活的机制，帮助您使用幻灯片母版并完成基本任务。
+1. **幻灯片母版** - 定义共享的设计和主题。  
+1. **布局幻灯片** - 定义占位符的具体排列以及布局级别的格式。  
+1. **普通幻灯片** - 包含实际的演示内容并使用一个布局幻灯片。  
 
-以下是基本的幻灯片母版操作：
+![母版幻灯片、布局幻灯片和普通幻灯片的层次结构](slide-master_2.jpg)
 
-- 创建或获取幻灯片母版。
-- 将幻灯片母版应用于演示文稿中的幻灯片。
-- 更改幻灯片母版的背景。 
-- 向幻灯片母版添加图片、占位符、Smart Art 等。
+在 Aspose.Slides 中，幻灯片母版由 [IMasterSlide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imasterslide/) 接口表示。演示文稿中的所有母版幻灯片可通过 [Presentation::get_Masters](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_masters/) 集合获取，该集合实现了 [IMasterSlideCollection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imasterslidecollection/)。
 
-以下是更高级的幻灯片母版操作：
-
-- 比较幻灯片母版。
-- 合并幻灯片母版。
-- 应用多个幻灯片母版。
-- 将包含幻灯片母版的幻灯片复制到另一个演示文稿。
-- 查找演示文稿中重复的幻灯片母版。
-- 将幻灯片母版设为演示文稿的默认视图。
-
-{{% alert color="primary" %}} 
-
-您可能想查看 Aspose [**在线 PowerPoint 查看器**](https://products.aspose.app/slides/viewer)，因为它实现了本文中描述的部分核心流程。
-
-{{% /alert %}} 
-
-## **幻灯片母版是如何应用的**
-
-在使用幻灯片母版之前，您可能需要了解它们在演示文稿中的使用方式以及如何应用到幻灯片上。
-
-* 每个演示文稿默认至少包含一个幻灯片母版。 
-* 一个演示文稿可以包含多个幻灯片母版。您可以添加多个幻灯片母版，并以不同方式为演示文稿的不同部分设置样式。 
-
-在 **Aspose.Slides** 中，幻灯片母版由 [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) 类型表示。
-
-Aspose.Slides 的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 对象包含 [**get_Masters()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) 列表，它是 [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) 类型的实例，存放演示文稿中定义的所有母版幻灯片。
-
-除了 CRUD 操作，[IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) 接口还提供以下实用方法： [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) 和 [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311)。这些方法继承自基本的幻灯片克隆功能，但在处理幻灯片母版时，可用于实现更复杂的布局。
-
-当向演示文稿添加新幻灯片时，会自动为其应用幻灯片母版。默认情况下选择前一张幻灯片的母版。
-
-**Note**: 演示文稿幻灯片存放在 [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) 列表中，默认情况下每个新幻灯片都会追加到集合末尾。如果演示文稿仅包含单个幻灯片母版，则该母版会被选中用于所有新幻灯片。这就是为什么您无需为每个新幻灯片单独指定母版的原因。
-
-PowerPoint 与 Aspose.Slides 的原理相同。例如，在 PowerPoint 中，添加新幻灯片时，只需单击最后一张幻灯片下方的空白行，即可创建一张使用上一张幻灯片母版的新幻灯片：
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-在 Aspose.Slides 中，您可以使用 [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) 方法在 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类下完成同样的操作。
-
-## **幻灯片母版在 Slides 层级结构中的位置**
-
-使用幻灯片布局结合幻灯片母版可实现最大灵活性。幻灯片布局允许您设置与幻灯片母版相同的所有样式（背景、字体、形状等）。然而，当在同一幻灯片母版上组合多个幻灯片布局时，会产生新的样式。将幻灯片布局应用于单个幻灯片后，您可以将其样式从母版的样式中切换。
-
-幻灯片母版的层级高于所有设置项： 幻灯片母版 -> 幻灯片布局 -> 幻灯片：
-
-![todo:image_alt_text](slide-master_2)
-
-每个 [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) 对象都有一个 [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) 属性，返回幻灯片布局列表。每个 [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) 类型拥有一个 [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) 属性，指向应用于该幻灯片的幻灯片布局。幻灯片与幻灯片母版之间的交互通过幻灯片布局实现。
-
-{{% alert color="info" title="Note" %}}
-
-* 在 Aspose.Slides 中，所有幻灯片设置（幻灯片母版、幻灯片布局以及幻灯片本身）实际都是实现了 [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) 接口的幻灯片对象。  
-* 因此，幻灯片母版和幻灯片布局可能实现相同的属性，您需要了解它们的值如何最终作用于 [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) 对象。幻灯片母版先应用于幻灯片，随后幻灯片布局再应用。例如，如果幻灯片母版和幻灯片布局都设置了背景，则最终幻灯片的背景将以幻灯片布局的背景为准。
-
+{{% alert color="info" title="Inheritance" %}}
+当同一属性在多个层级上定义时，层级更具体的会覆盖前者。例如，如果母版幻灯片和布局幻灯片都定义了背景，则基于该布局的幻灯片使用布局的背景。有关布局幻灯片的更多信息，请参阅 [应用或更改幻灯片布局](/slides/zh/cpp/slide-layout/)。
 {{% /alert %}}
 
-## **幻灯片母版包含哪些内容**
+## **访问幻灯片母版**
 
-要了解如何更改幻灯片母版，需先掌握其组成部分。以下是 [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) 的核心属性：
+在 PowerPoint 中，您可以通过 **视图** > **幻灯片母版** 打开幻灯片母版视图。
 
-- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - 获取/设置幻灯片背景。  
-- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - 获取/设置幻灯片正文的文本样式。  
-- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - 获取/设置幻灯片母版上的所有形状（占位符、图片框等）。  
-- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - 获取/设置 ActiveX 控件。  
-- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - 获取主题管理器。  
-- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - 获取页眉页脚管理器。
+![PowerPoint 视图选项卡上的幻灯片母版命令](slide-master_3.jpg)
 
-幻灯片母版的方法：
+在 Aspose.Slides 中，使用 `get_Masters()` 集合来访问母版幻灯片：
 
-- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - 获取所有依赖于该母版的幻灯片。  
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - 基于当前母版和新主题创建新的幻灯片母版，并将其应用于所有关联幻灯片。
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **获取幻灯片母版**
+auto firstMasterSlide = presentation->get_Master(0);
+auto masterSlideCount = presentation->get_Masters()->get_Count();
+auto firstMasterLayoutSlideCount = firstMasterSlide->get_LayoutSlides()->get_Count();
 
-在 PowerPoint 中，可通过 “视图 → 幻灯片母版” 菜单访问幻灯片母版：
+System::Console::WriteLine(System::String(u"Master slides: ") + masterSlideCount);
+System::Console::WriteLine(System::String(u"Layouts in the first master: ") + firstMasterLayoutSlideCount);
 
-![todo:image_alt_text](slide-master_3.jpg)
-
-使用 Aspose.Slides，可按如下方式访问幻灯片母版：
-```c++
-System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
+presentation->Dispose();
 ```
 
+您还可以通过布局获取普通幻灯片使用的母版幻灯片：
 
-[IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) 接口代表幻灯片母版。[get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) 属性（对应 [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) 类型）包含演示文稿中定义的所有幻灯片母版列表。
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **向幻灯片母版添加图片**
+auto slide = presentation->get_Slide(0);
+auto layoutSlide = slide->get_LayoutSlide();
+auto masterSlide = layoutSlide->get_MasterSlide();
+auto masterSlideName = masterSlide->get_Name();
 
-向幻灯片母版添加图片后，该图片会出现在所有依赖该母版的幻灯片上。例如，您可以在幻灯片母版上放置公司标志和若干图片，然后切换回幻灯片编辑模式，您会看到每张幻灯片都显示该图片。
+System::Console::WriteLine(masterSlideName);
 
-![todo:image_alt_text](slide-master_4.png)
-
-使用 Aspose.Slides 添加图片：
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png"));
-pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **幻灯片母版包含什么**
 
-{{% alert color="primary" title="See also" %}} 
+母版幻灯片是一种类似幻灯片的对象。它实现了 [IBaseSlide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseslide/)，因此公开了许多普通幻灯片和布局幻灯片使用的相同属性。母版特有的成员列在 [IMasterSlide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imasterslide/) API 页面上。
 
-有关向幻灯片添加图片的更多信息，请参阅 [Picture Frame](/slides/zh/cpp/picture-frame/#create-picture-frame) 文章。
+常用的母版幻灯片成员包括：
 
-{{% /alert %}}
+| 成员 | 用途 |
+| --- | --- |
+| `get_Background()` | 设置母版级别的幻灯片背景。 |
+| `get_Shapes()` | 存储放置在母版上的形状，例如徽标、图片框和共享文本。 |
+| `get_LayoutSlides()` | 存储属于该母版的布局幻灯片。 |
+| `get_ThemeManager()` | 提供对母版主题 API 的访问。 |
+| `get_HeaderFooterManager()` | 控制母版及其子布局的页眉、页脚、日期和幻灯片编号。 |
+| `GetDependingSlides()` | 返回通过其布局依赖于该母版的普通幻灯片。 |
 
-## **向幻灯片母版添加占位符**
+## **向幻灯片母版添加图像**
 
-以下文本框是幻灯片母版上的标准占位符：
+当您向母版幻灯片添加图像时，它会出现在使用该母版布局的幻灯片上。这对于徽标、水印、装饰带和其他重复的视觉元素非常有用。
 
-* Click to edit Master title style  
-* Edit Master text styles  
-* Second level  
-* Third level  
+以下示例向第一个母版幻灯片添加徽标：
 
-它们同样会出现在基于该母版的幻灯片上。您可以在幻灯片母版上编辑这些占位符，修改会自动应用到相应的幻灯片。
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-在 PowerPoint 中，可通过 “幻灯片母版 → 插入占位符” 路径添加占位符：
+auto masterSlide = presentation->get_Master(0);
+auto logoBytes = System::IO::File::ReadAllBytes(u"logo.png");
+auto logoImage = presentation->get_Images()->AddImage(logoBytes);
 
-![todo:image_alt_text](slide-master_5.png)
+masterSlide->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle,
+    20.0f,
+    20.0f,
+    80.0f,
+    80.0f,
+    logoImage);
 
-下面演示使用 Aspose.Slides 处理更复杂占位符的示例。假设一张幻灯片的占位符模板来源于幻灯片母版：
+presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-![todo:image_alt_text](slide-master_6.png)
+有关图片框的更多信息，请参阅 [Picture Frame](/slides/zh/cpp/picture-frame/)。
 
-我们希望以如下方式更改幻灯片母版上的标题和副标题格式：
+## **使用占位符**
 
-![todo:image_alt_text](slide-master_7.png)
+占位符通常在布局幻灯片上定义。母版幻灯片提供共享的样式和主题，供这些布局继承，而每个布局决定哪些占位符可用以及它们放置的位置。
 
-首先，从幻灯片母版对象获取标题占位符内容，然后使用 `PlaceHolder.FillFormat` 字段：
-```c++
-System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> master, PlaceholderType type)
+在 PowerPoint 中，占位符命令可在幻灯片母版视图中使用。
+
+![PowerPoint 幻灯片母版视图中的插入占位符命令](slide-master_5.png)
+
+要使用 Aspose.Slides 添加新占位符，请操作属于该母版的布局幻灯片：
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto blankLayoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (blankLayoutSlide == nullptr)
 {
-    for (auto& shape : master->get_Shapes())
+    blankLayoutSlide = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::Blank, u"Blank");
+}
+
+blankLayoutSlide->get_PlaceholderManager()->AddTextPlaceholder(
+    60.0f,
+    120.0f,
+    600.0f,
+    80.0f);
+
+presentation->get_Slides()->AddEmptySlide(blankLayoutSlide);
+presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+您还可以格式化已存在于母版幻灯片上的占位符形状。以下示例找到标题占位符并应用线性渐变填充：
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+System::SharedPtr<IAutoShape> titlePlaceholder;
+
+for (auto&& shape : masterSlide->get_Shapes())
+{
+    auto autoShape = System::AsCast<IAutoShape>(shape);
+
+    if (autoShape != nullptr &&
+        autoShape->get_Placeholder() != nullptr &&
+        autoShape->get_Placeholder()->get_Type() == PlaceholderType::Title)
     {
-        System::SharedPtr<IAutoShape> autoShape = System::AsCast<Aspose::Slides::IAutoShape>(shape);
-        if (autoShape != nullptr)
-        {
-            if (autoShape->get_Placeholder()->get_Type() == type)
-            {
-                return autoShape;
-            }
-        }
+        titlePlaceholder = autoShape;
+        break;
     }
-    return nullptr;
 }
 
-void Main()
+if (titlePlaceholder != nullptr)
 {
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
-    System::SharedPtr<IAutoShape> placeHolder = FindPlaceholder(master, Aspose::Slides::PlaceholderType::Title);
-    auto fillFormat = placeHolder->get_FillFormat();
-    fillFormat->set_FillType(Aspose::Slides::FillType::Gradient);
+    auto fillFormat = titlePlaceholder->get_FillFormat();
+    fillFormat->set_FillType(FillType::Gradient);
+
     auto gradientFormat = fillFormat->get_GradientFormat();
-    gradientFormat->set_GradientShape(Aspose::Slides::GradientShape::Linear);
-    gradientFormat->get_GradientStops()->Add(0.0f, System::Drawing::Color::FromArgb(255, 0, 0));
-    gradientFormat->get_GradientStops()->Add(255.0f, System::Drawing::Color::FromArgb(128, 0, 128));
-    
-    pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    gradientFormat->set_GradientShape(GradientShape::Linear);
+
+    auto gradientStops = gradientFormat->get_GradientStops();
+    auto redGradientColor = System::Drawing::Color::FromArgb(255, 0, 0);
+    auto purpleGradientColor = System::Drawing::Color::FromArgb(128, 0, 128);
+
+    gradientStops->Add(0.0f, redGradientColor);
+    gradientStops->Add(255.0f, purpleGradientColor);
 }
+
+presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+![普通幻灯片继承的已格式化标题占位符](slide-master_8.png)
 
-标题样式和格式将对所有基于该母版的幻灯片生效：
+有关更多占位符和文本格式化选项，请参阅 [Set Prompt Text in Placeholder](/slides/zh/cpp/manage-placeholder/) 和 [Text Formatting](/slides/zh/cpp/text-formatting/)。
 
-![todo:image_alt_text](slide-master_8.png)
+## **更改幻灯片母版背景**
 
-{{% alert color="primary" title="See also" %}} 
+母版背景会被未覆盖的布局和幻灯片继承。以下示例为第一个母版幻灯片设置纯色背景：
 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/cpp/manage-placeholder/)  
-* [Text Formatting](https://docs.aspose.com/slides/cpp/text-formatting/)
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-{{% /alert %}}
+auto masterSlide = presentation->get_Master(0);
+auto masterBackgroundColor = System::Drawing::Color::get_ForestGreen();
 
-## **更改幻灯片母版的背景**
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(masterBackgroundColor);
 
-更改母版幻灯片的背景颜色后，演示文稿中的所有普通幻灯片都会使用新颜色。下面的 C++ 代码演示了该操作：
-```c++
-auto pres = System::MakeObject<Presentation>();
-
-auto master = pres->get_Masters()->idx_get(0);
-auto background = master->get_Background();
-background->set_Type(Aspose::Slides::BackgroundType::OwnBackground);
-background->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-background->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
-    
-pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-
-{{% alert color="primary" title="See also" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/cpp/presentation-background/)  
-- [Presentation Theme](https://docs.aspose.com/slides/cpp/presentation-theme/)
-
-{{% /alert %}}
+相关主题，请参阅 [Presentation Background](/slides/zh/cpp/presentation-background/) 和 [Presentation Theme](/slides/zh/cpp/presentation-theme/)。
 
 ## **将幻灯片母版克隆到另一个演示文稿**
 
-要将幻灯片母版克隆到另一个演示文稿，只需在目标演示文稿上调用 [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) 方法，并传入要克隆的幻灯片母版。以下 C++ 代码展示了具体实现：
-```c++
-auto presSource = System::MakeObject<Presentation>();
-auto presTarget = System::MakeObject<Presentation>();
-    
-auto master = presTarget->get_Masters()->AddClone(presSource->get_Masters()->idx_get(0));
+使用 [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imasterslidecollection/addclone/) 将母版幻灯片复制到另一个演示文稿中。复制的母版随后可以被目标演示文稿中的布局和幻灯片使用。
+
+```cpp
+auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
+auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
+
+auto sourceMasterSlide = sourcePresentation->get_Master(0);
+auto clonedMasterSlide = destinationPresentation->get_Masters()->AddClone(sourceMasterSlide);
+
+destinationPresentation->Save(u"destination-with-master.pptx", SaveFormat::Pptx);
+destinationPresentation->Dispose();
+sourcePresentation->Dispose();
 ```
 
+如果需要连同其母版一起克隆普通幻灯片，请参阅 [Clone Slides](/slides/zh/cpp/clone-slides/)。
 
-## **向演示文稿添加多个幻灯片母版**
+## **添加多个幻灯片母版**
 
-Aspose.Slides 允许在任意演示文稿中添加多个幻灯片母版和幻灯片布局，从而以多种方式设置幻灯片的样式、布局和格式。
+一个演示文稿可以包含多个母版幻灯片。当不同章节需要不同的品牌、页面结构或主题设置时，这非常有用。
 
-在 PowerPoint 中，可通过 “幻灯片母版” 菜单添加新的幻灯片母版和布局：
+![PowerPoint 插入和管理母版幻灯片的命令](slide-master_9.jpg)
 
-![todo:image_alt_text](slide-master_9.jpg)
+以下示例克隆默认母版，为克隆体设置不同的背景，在该克隆母版下创建布局，并基于该布局添加新幻灯片：
 
-使用 Aspose.Slides，可通过调用 [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) 方法添加新的幻灯片母版：
-```c++
-pres->get_Masters()->AddClone(pres->get_Masters()->idx_get(0));
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto defaultMasterSlide = presentation->get_Master(0);
+auto sectionMasterSlide = presentation->get_Masters()->AddClone(defaultMasterSlide);
+auto sectionMasterBackgroundColor = System::Drawing::Color::get_LightSteelBlue();
+
+sectionMasterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+sectionMasterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+sectionMasterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(sectionMasterBackgroundColor);
+
+auto sourceBlankLayout = defaultMasterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (sourceBlankLayout == nullptr)
+{
+    sourceBlankLayout = defaultMasterSlide->get_LayoutSlide(0);
+}
+
+auto sectionBlankLayout = sectionMasterSlide->get_LayoutSlides()->AddClone(sourceBlankLayout);
+
+presentation->get_Slides()->AddEmptySlide(sectionBlankLayout);
+presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-
 
 ## **比较幻灯片母版**
 
-母版幻灯片实现了 [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) 接口，其中包含 [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f) 方法，可用于比较幻灯片。对于结构和静态内容相同的母版幻灯片，返回 `true`。
+可以使用从 [IBaseSlide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseslide/) 继承的 `Equals` 方法比较母版幻灯片。比较会检查结构和静态内容，如形状、文本、格式、动画以及其他幻灯片设置。它不会比较唯一标识符（如幻灯片 ID）或动态占位符值（如当前日期）。
 
-如果母版幻灯片的形状、样式、文本、动画等设置全部相同，则视为相等。比较过程不考虑唯一标识符（例如 SlideId）以及动态内容（例如日期占位符中的当前日期）。
+```cpp
+auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
+auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
+auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
+auto secondPresentationMasterCount = secondPresentation->get_Masters()->get_Count();
 
-## **将幻灯片母版设为演示文稿的默认视图**
+for (int32_t firstMasterIndex = 0;
+     firstMasterIndex < firstPresentationMasterCount;
+     firstMasterIndex++)
+{
+    for (int32_t secondMasterIndex = 0;
+         secondMasterIndex < secondPresentationMasterCount;
+         secondMasterIndex++)
+    {
+        auto firstMasterSlide = firstPresentation->get_Master(firstMasterIndex);
+        auto secondMasterSlide = secondPresentation->get_Master(secondMasterIndex);
+        auto areMasterSlidesEqual = firstMasterSlide->Equals(secondMasterSlide);
 
-Aspose.Slides 允许将幻灯片母版设置为演示文稿的默认视图。默认视图是打开演示文稿时首先看到的视图。
+        if (areMasterSlidesEqual)
+        {
+            System::Console::WriteLine(
+                System::String::Format(
+                    u"first.pptx master #{0} equals second.pptx master #{1}",
+                    firstMasterIndex,
+                    secondMasterIndex));
+        }
+    }
+}
 
-以下代码展示了在 C++ 中将幻灯片母版设为演示文稿默认视图的实现：
-```c++
-pres->get_ViewProperties()->set_LastView(Aspose::Slides::ViewType::SlideMasterView);
+secondPresentation->Dispose();
+firstPresentation->Dispose();
 ```
 
+更多信息，请参阅 [Compare Presentation Slides](/slides/zh/cpp/compare-slides/)。
 
-## **移除未使用的母版幻灯片**
+## **将幻灯片母版视图设为默认视图**
 
-Aspose.Slides 提供了 [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) 方法（来自 [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) 类），帮助删除不需要的母版幻灯片。以下 C++ 代码演示了如何从 PowerPoint 演示文稿中移除母版幻灯片：
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+使用 [ViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/) 上的 `set_LastView` 方法来控制 PowerPoint 首次打开的视图。以下示例以幻灯片母版视图打开演示文稿：
 
-LowCode::Compress::RemoveUnusedMasterSlides(pres);
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
+presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+有关更多视图设置，请参阅 [Save Presentation](/slides/zh/cpp/save-presentation/)。
 
-## **FAQ**
+## **删除未使用的母版幻灯片**
 
-**PowerPoint 中的幻灯片母版是什么？**
+演示文稿有时会包含不再被任何普通幻灯片使用的母版幻灯片。删除未使用的母版可以减小文件大小并简化模板维护。
 
-幻灯片母版是一种幻灯片模板，用于定义演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。它可以一次性设置并更改所有演示文稿幻灯片的外观。
+使用 [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/zh/cpp/aspose.slides/masterslidecollection/removeunused/) 从 `get_Masters()` 集合中删除未使用的母版：
 
-**幻灯片母版在演示文稿中是如何应用的？**
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-每个演示文稿默认至少包含一个幻灯片母版。当添加新幻灯片时，会自动为其应用幻灯片母版，通常继承前一张幻灯片的母版。演示文稿可以包含多个幻灯片母版，用于为不同部分设置独特样式。
+presentation->get_Masters()->RemoveUnused(true);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-**幻灯片母版可以自定义哪些元素？**
+您也可以使用低代码的 [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/zh/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) 方法：
 
-幻灯片母版由以下核心属性组成，可进行自定义：
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-- **Background**：设置幻灯片背景。  
-- **BodyStyle**：定义幻灯片正文的文本样式。  
-- **Shapes**：管理幻灯片母版上的所有形状，包括占位符和图片框。  
-- **Controls**：处理 ActiveX 控件。  
-- **ThemeManager**：访问主题管理器。  
-- **HeaderFooterManager**：管理页眉页脚。
+LowCode::Compress::RemoveUnusedMasterSlides(presentation);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-**如何向幻灯片母版添加图片？**
+## **常见问题**
 
-向幻灯片母版添加图片后，所有依赖该母版的幻灯片都会显示该图片。例如，将公司徽标放置在幻灯片母版上，即可在演示文稿的每张幻灯片中看到该徽标。
+**幻灯片母版和布局幻灯片有什么区别？**
 
-**幻灯片母版与幻灯片布局的关系是什么？**
+幻灯片母版定义了共享的设计设置，如主题、背景、常见形状和文字样式。布局幻灯片属于某个母版幻灯片，定义了占位符的具体排列。普通幻灯片使用布局幻灯片，因此它既继承布局的设置，也继承母版的设置。
 
-幻灯片布局与幻灯片母版协同工作，提供灵活的幻灯片设计。幻灯片母版定义全局样式和主题，幻灯片布局则允许在内容安排上进行变化。层级关系如下：
+**一个演示文稿可以包含多个幻灯片母版吗？**
 
-- **幻灯片母版** → 定义全局样式。  
-- **幻灯片布局** → 提供不同的内容排列方式。  
-- **幻灯片** → 从其对应的幻灯片布局继承设计。
+可以。一个演示文稿可以包含多个幻灯片母版。当不同章节需要不同的视觉系统或品牌时，请使用多个母版。
 
-**一个演示文稿可以有多个幻灯片母版吗？**
+**我应该在母版幻灯片还是布局幻灯片上添加占位符？**
 
-可以，一个演示文稿可以包含多个幻灯片母版，这使您能够以不同方式对演示文稿的不同章节进行样式设置，提供更大的设计灵活性。
+大多数情况下，应在布局幻灯片上添加占位符。将共享的视觉元素和共享的格式放在母版幻灯片上，然后在普通幻灯片将使用的布局上放置内容占位符。
 
-**如何使用 Aspose.Slides 访问和修改幻灯片母版？**
+**我可以删除仍在使用的母版幻灯片吗？**
 
-在 Aspose.Slides 中，幻灯片母版由 [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/) 接口表示。您可以通过 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 对象的 [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) 方法访问幻灯片母版。
+不能。具有依赖幻灯片的母版幻灯片不能直接安全地删除。请先将这些幻灯片移动到另一个母版下的布局，或使用仅删除未使用母版的清理方法。
