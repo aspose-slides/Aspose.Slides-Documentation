@@ -1,212 +1,179 @@
 ---
-title: Gérer les masques de diapositives de présentation en .NET
-linktitle: Masque de diapositive
+title: Gérer les maîtres de diapositives de présentation en .NET
+linktitle: Maître de diapositive
 type: docs
 weight: 80
 url: /fr/net/slide-master/
 keywords:
-- masque de diapositive
+- maître de diapositive
 - diapositive maître
 - diapositive maître PPT
-- plusieurs diapositives maîtres
-- comparer les diapositives maîtres
+- plusieurs maîtres de diapositives
+- comparer les maîtres de diapositives
 - arrière-plan
 - espace réservé
 - cloner la diapositive maître
 - copier la diapositive maître
 - dupliquer la diapositive maître
-- diapositive maître inutilisée
+- maître de diapositive inutilisé
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Gérer les masques de diapositives dans Aspose.Slides pour .NET : créer, modifier et appliquer des mises en page, des thèmes et des espaces réservés aux fichiers PPT, PPTX et ODP avec des exemples C# concis."
+description: "Gérer les maîtres de diapositives dans Aspose.Slides pour .NET : accéder, modifier, cloner, comparer et supprimer les maîtres de diapositives dans les présentations PowerPoint et OpenDocument."
 ---
+## **Aperçu**
 
-## **Qu'est-ce qu'un masque de diapositive dans PowerPoint**
-Un **masque de diapositive** dans PowerPoint est une fonctionnalité qui contrôle la disposition, les polices et les styles sur plusieurs diapositives. Il permet de maintenir la cohérence et l’image de marque dans les présentations. Si vous voulez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un masque de diapositive. 
+Un **maître de diapositive** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, la modification d’un maître de diapositive est la façon habituelle de garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Un masque de diapositive est utile car il vous permet de définir et de modifier l’aspect de toutes les diapositives de la présentation en une seule fois. Aspose.Slides prend en charge le mécanisme de masque de diapositive de PowerPoint. 
+Aspose.Slides for .NET prend en charge le même modèle. Une présentation peut contenir une ou plusieurs maîtrises de diapositives, et chaque maître de diapositive peut contenir plusieurs diapositives de mise en page. Les diapositives normales ne font généralement pas référence directement à un maître de diapositive. Au lieu de cela, une diapositive normale utilise une diapositive de mise en page, et cette diapositive de mise en page appartient à un maître de diapositive.
 
-VBA vous permet également de manipuler un masque de diapositive et d’exécuter les mêmes opérations prises en charge dans PowerPoint : modifier les arrière-plans, ajouter des formes, personnaliser la disposition, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d’utiliser les masques de diapositives et d’effectuer des tâches de base avec eux. 
+La hiérarchie est :
 
-Voici les opérations de base sur les masques de diapositives :
+1. **Maître de diapositive** – définit la conception et le thème partagés.  
+1. **Diapositive de mise en page** – définit un agencement spécifique d’espaces réservés et de formatage au niveau de la mise en page.  
+1. **Diapositive normale** – contient le contenu réel de la présentation et utilise une diapositive de mise en page.
 
-- Créer un masque de diapositive.
-- Appliquer le masque de diapositives aux diapositives de la présentation.
-- Modifier l’arrière-plan du masque de diapositive. 
-- Ajouter une image, un espace réservé, SmartArt, etc. au masque de diapositive.
+![La hiérarchie des maîtres de diapositives, des diapositives de mise en page et des diapositives normales](slide-master_2.jpg)
 
-Voici des opérations plus avancées impliquant les masques de diapositives : 
+Dans Aspose.Slides, un maître de diapositive est représenté par l’interface [IMasterSlide](https://reference.aspose.com/slides/fr/net/aspose.slides/imasterslide/). Tous les maîtres de diapositives d’une présentation sont accessibles via la collection [Presentation.Masters](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/masters/), qui implémente [IMasterSlideCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/imasterslidecollection/).
 
-- Comparer des masques de diapositives.
-- Fusionner des masques de diapositives.
-- Appliquer plusieurs masques de diapositives.
-- Copier une diapositive avec masque de diapositive vers une autre présentation.
-- Détecter les masques de diapositives dupliqués dans les présentations.
-- Définir le masque de diapositive comme affichage par défaut de la présentation.
-
-{{% alert color="primary" %}} 
-
-Vous pouvez consulter l’[**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) d’Aspose car il s’agit d’une implémentation en direct de certains des processus principaux décrits ici.
-
-{{% /alert %}} 
-
-
-## **Comment un masque de diapositive est appliqué**
-Avant de travailler avec un masque de diapositive, vous voudrez peut‑être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives. 
-
-* Chaque présentation possède au moins un masque de diapositive par défaut. 
-* Une présentation peut contenir plusieurs masques de diapositives. Vous pouvez ajouter plusieurs masques de diapositives et les utiliser pour styliser différentes parties d’une présentation de manières différentes. 
-
-Dans **Aspose.Slides**, un masque de diapositive est représenté par le type [**IMasterSlide**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide). 
-
-L’objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) d’Aspose.Slides contient la liste [**Masters**](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/masters) de type [**IMasterSlideCollection**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection), qui contient la liste de tous les masques de diapositives définis dans une présentation. 
-
-Outre les opérations CRUD, l’interface [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) comprend ces méthodes utiles : [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/addclone) et [**InsertClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/insertclone). Ces méthodes sont héritées de la fonction de clonage de diapositive de base. Mais lorsqu’on travaille avec des masques de diapositives, ces méthodes vous permettent de mettre en œuvre des configurations complexes. 
-
-Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un masque de diapositive lui est appliqué automatiquement. Le masque de diapositive de la diapositive précédente est sélectionné par défaut. 
-
-**Note** : Les diapositives de la présentation sont stockées dans la liste [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides), et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne contient qu’un seul masque de diapositive, ce masque est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas besoin de définir le masque de diapositive pour chaque nouvelle diapositive que vous créez.
-
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle présentation, vous pouvez simplement cliquer sur la ligne inférieure sous la dernière diapositive et une nouvelle diapositive (avec le masque de diapositive de la dernière présentation) sera créée :
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-Dans Aspose.Slides, vous pouvez réaliser la même tâche avec la méthode [AddClone(ISlide)](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addclone) de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-
-
-## **Masque de diapositive dans la hiérarchie des diapositives**
-L’utilisation des dispositions de diapositive avec le masque de diapositive permet la plus grande flexibilité. Une disposition de diapositive vous permet de définir tous les mêmes styles que le masque de diapositive (arrière‑plan, polices, formes, etc.). Cependant, lorsque plusieurs dispositions de diapositive sont combinées sur un masque de diapositive, un nouveau style est créé. Lorsque vous appliquez une disposition de diapositive à une seule diapositive, vous pouvez modifier son style par rapport à celui appliqué par le masque de diapositive.
-
-Le masque de diapositive domine tous les éléments de configuration : Masque de diapositive → Disposition de diapositive → Diapositive :
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Chaque objet [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) possède une propriété [**LayoutSlides**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/layoutslides) contenant une liste de dispositions de diapositive. Un type [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) a une propriété [**LayoutSlide**](https://reference.aspose.com/slides/net/aspose.slides/islide/properties/layoutslide) qui pointe vers la disposition de diapositive appliquée à la diapositive. L’interaction entre une diapositive et le masque de diapositive se fait via une disposition de diapositive.
-
-{{% alert color="info" title="Note" %}}
-
-* Dans Aspose.Slides, toutes les configurations de diapositive (masque de diapositive, disposition de diapositive et la diapositive elle‑même) sont en réalité des objets diapositive implémentant l’interface [**IBaseSlide**](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide).  
-* Par conséquent, le masque de diapositive et la disposition de diapositive peuvent implémenter les mêmes propriétés et vous devez savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/). Le masque de diapositive est appliqué en premier à une diapositive, puis la disposition de diapositive est appliquée. Par exemple, si le masque de diapositive et la disposition de diapositive possèdent toutes deux une valeur d’arrière‑plan, la diapositive finira avec l’arrière‑plan de la disposition de diapositive.
-
+{{% alert color="info" title="Inheritance" %}}
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un maître de diapositive et une diapositive de mise en page définissent toutes deux un arrière‑plan, les diapositives basées sur cette mise en page utilisent l’arrière‑plan de la mise en page. Pour plus d’informations sur les diapositives de mise en page, voir [Apply or Change Slide Layouts](/slides/fr/net/slide-layout/).
 {{% /alert %}}
 
+## **Accéder aux maîtres de diapositives**
 
-## **Ce que contient un masque de diapositive**
-Pour comprendre comment un masque de diapositive peut être modifié, vous devez connaître ses constituants. Ce sont les propriétés de base du [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) :
+Dans PowerPoint, vous pouvez ouvrir la vue Maître de diapositive via **Affichage** > **Maître de diapositive**.
 
-- [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/background) - obtenir/definir l’arrière‑plan de la diapositive.  
-- [BodyStyle](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/bodystyle) - obtenir/definir les styles de texte du corps de la diapositive.  
-- [Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/shapes) - obtenir/definir toutes les formes du masque de diapositive (espaces réservés, cadres d’image, etc.).  
-- [Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/controls) - obtenir/definir les contrôles ActiveX.  
-- [ThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/imasterthemeable/properties/thememanager) - obtenir le gestionnaire de thème.  
-- [HeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/headerfootermanager) - obtenir le gestionnaire d’en‑têtes et de pieds de page.  
+![La commande Maître de diapositive dans l’onglet Affichage de PowerPoint](slide-master_3.jpg)
 
-Méthodes du masque de diapositive :
+Dans Aspose.Slides, utilisez la collection `Masters` pour accéder aux maîtres de diapositives :
 
-- [GetDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/getdependingslides) - obtenir toutes les diapositives dépendantes du masque de diapositive.  
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/applyexternalthemetodependingslides) - vous permet de créer un nouveau masque de diapositive basé sur le masque actuel et un nouveau thème. Le nouveau masque sera alors appliqué à toutes les diapositives dépendantes.  
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
+var firstMasterSlide = presentation.Masters[0];
+var masterSlideCount = presentation.Masters.Count;
+var firstMasterLayoutSlideCount = firstMasterSlide.LayoutSlides.Count;
 
-## **Obtenir un masque de diapositive**
-Dans PowerPoint, le masque de diapositive est accessible via le menu Affichage → Masque des diapositives :
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-Avec Aspose.Slides, vous pouvez accéder à un masque de diapositive de la façon suivante :
-```c#
-IMasterSlide master = pres.Masters[0];
+Console.WriteLine("Master slides: " + masterSlideCount);
+Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
+Vous pouvez également obtenir le maître de diapositive utilisé par une diapositive normale via sa mise en page :
 
-L’interface [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) représente un masque de diapositive. La propriété [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) (liée au type [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)) contient la liste de tous les masques de diapositives définis dans la présentation. 
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
+var slide = presentation.Slides[0];
+var layoutSlide = slide.LayoutSlide;
+var masterSlide = layoutSlide.MasterSlide;
+var masterSlideName = masterSlide.Name;
 
-## **Ajouter une image à un masque de diapositive**
-Lorsque vous ajoutez une image à un masque de diapositive, cette image apparaîtra sur toutes les diapositives dépendantes de ce masque. 
-
-Par exemple, vous pouvez placer le logo de votre société et quelques images sur le masque de diapositive puis revenir en mode édition des diapositives. Vous devriez voir l’image sur chaque diapositive. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Vous pouvez ajouter des images à un masque de diapositive avec Aspose.Slides : 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    pres.Masters[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+Console.WriteLine(masterSlideName);
 ```
 
+## **Ce que contient un maître de diapositive**
 
-{{% alert color="primary" title="Voir aussi" %}} 
+Un maître de diapositive est un objet similaire à une diapositive. Il implémente [IBaseSlide](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseslide/), de sorte qu’il expose de nombreuses propriétés de diapositive également utilisées par les diapositives normales et de mise en page. Les membres spécifiques aux maîtres sont répertoriés sur la page API [IMasterSlide](https://reference.aspose.com/slides/fr/net/aspose.slides/imasterslide/).
 
-Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Picture Frame](/slides/fr/net/picture-frame/#create-picture-frame).
-{{% /alert %}}
+Parmi les membres de maître les plus couramment utilisés :
 
+| Membre | Objectif |
+| --- | --- |
+| `Background` | Définit l’arrière‑plan au niveau du maître. |
+| `Shapes` | Contient les formes placées sur le maître, telles que logos, cadres d’image et texte partagé. |
+| `LayoutSlides` | Contient les diapositives de mise en page appartenant au maître. |
+| `ThemeManager` | Fournit l’accès aux API du thème du maître. |
+| `HeaderFooterManager` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le maître et ses mises en page enfants. |
+| `GetDependingSlides` | Renvoie les diapositives normales qui dépendent du maître via leurs mises en page. |
 
-## **Ajouter un espace réservé à un masque de diapositive**
-Ces champs texte sont des espaces réservés standard sur un masque de diapositive : 
+## **Ajouter une image à un maître de diapositive**
 
-* Cliquer pour modifier le style du titre du masque
+Lorsque vous ajoutez une image à un maître de diapositive, elle apparaît sur les diapositives qui utilisent les mises en page de ce maître. C’est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
 
-* Modifier les styles de texte du masque
+L’exemple suivant ajoute un logo au premier maître de diapositive :
 
-* Niveau secondaire
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-* Niveau tertiaire 
+var masterSlide = presentation.Masters[0];
+var logoBytes = File.ReadAllBytes("logo.png");
+var logoImage = presentation.Images.AddImage(logoBytes);
 
-  Ils apparaissent également sur les diapositives basées sur le masque de diapositive. Vous pouvez modifier ces espaces réservés sur le masque et les changements seront appliqués automatiquement aux diapositives. 
+masterSlide.Shapes.AddPictureFrame(
+    ShapeType.Rectangle,
+    x: 20,
+    y: 20,
+    width: 80,
+    height: 80,
+    image: logoImage);
 
-Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Masque de diapositive → Insérer un espace réservé :
+presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
+```
 
-![todo:image_alt_text](slide-master_5.png)
+Pour plus d’informations sur les cadres d’image, voir [Picture Frame](/slides/fr/net/picture-frame/).
 
-Examinons un exemple plus complexe d’espaces réservés avec Aspose.Slides. Considérez une diapositive avec des espaces réservés provenant du masque de diapositive :
+## **Travailler avec les espaces réservés**
 
-![todo:image_alt_text](slide-master_6.png)
+Les espaces réservés sont généralement définis sur les diapositives de mise en page. Le maître de diapositive fournit le style et le thème partagés que ces mises en page héritent, tandis que chaque mise en page décide quels espaces réservés sont disponibles et où ils sont placés.
 
-Nous voulons modifier le format du titre et du sous‑titre sur le masque de diapositive ainsi :
+Dans PowerPoint, les commandes d’espace réservé sont disponibles en vue Maître de diapositive.
 
-![todo:image_alt_text](slide-master_7.png)
+![La commande Insérer un espace réservé dans la vue Maître de diapositive de PowerPoint](slide-master_5.png)
 
-Tout d’abord, nous récupérons le contenu de l’espace réservé du titre à partir de l’objet masque de diapositive puis utilisons le champ `PlaceHolder.FillFormat` : 
-```c#
-public static void Main()
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur la diapositive de mise en page qui appartient au maître :
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var blankLayoutSlide =
+    masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    masterSlide.LayoutSlides.Add(SlideLayoutType.Blank, "Blank");
+
+blankLayoutSlide.PlaceholderManager.AddTextPlaceholder(
+    x: 60,
+    y: 120,
+    width: 600,
+    height: 80);
+
+presentation.Slides.AddEmptySlide(blankLayoutSlide);
+presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+```
+
+Vous pouvez également formater les formes d’espace réservé déjà présentes sur un maître de diapositive. L’exemple suivant trouve l’espace réservé au titre et applique un remplissage en dégradé linéaire :
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var titlePlaceholder = FindPlaceholder(masterSlide, PlaceholderType.Title);
+
+if (titlePlaceholder != null)
 {
-    using (var pres = new Presentation())
-    {
-        IMasterSlide master = pres.Masters[0];
-        IAutoShape placeHolder = FindPlaceholder(master, PlaceholderType.Title);
-        placeHolder.FillFormat.FillType = FillType.Gradient;
-        placeHolder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(0, Color.FromArgb(255, 0, 0));
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(255, Color.FromArgb(128, 0, 128));
-        
-        pres.Save("pres.pptx", SaveFormat.Pptx);
-    }
+    var redGradientColor = Color.FromArgb(255, 0, 0);
+    var purpleGradientColor = Color.FromArgb(128, 0, 128);
+
+    titlePlaceholder.FillFormat.FillType = FillType.Gradient;
+    titlePlaceholder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(0, redGradientColor);
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(255, purpleGradientColor);
 }
 
-static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
+presentation.Save("presentation-title-style.pptx", SaveFormat.Pptx);
+
+static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType placeholderType)
 {
-    foreach (IShape shape in master.Shapes)
+    foreach (var shape in masterSlide.Shapes)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        if (shape is IAutoShape { Placeholder: not null } autoShape &&
+            autoShape.Placeholder.Type == placeholderType)
         {
-            if (autoShape.Placeholder.Type == type)
-            {
-                return autoShape;
-            }
+            return autoShape;
         }
     }
 
@@ -214,133 +181,152 @@ static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
 }
 ```
 
+![Espace réservé au titre formaté hérité par les diapositives normales](slide-master_8.png)
 
-Le style et le format du titre changeront pour toutes les diapositives basées sur le masque de diapositive :
+Pour plus d’options de formatage d’espace réservé et de texte, voir [Set Prompt Text in Placeholder](/slides/fr/net/manage-placeholder/) et [Text Formatting](/slides/fr/net/text-formatting/).
 
-![todo:image_alt_text](slide-master_8.png)
+## **Modifier l’arrière‑plan d’un maître de diapositive**
 
-{{% alert color="primary" title="Voir aussi" %}} 
+Un arrière‑plan de maître est hérité par les mises en page et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour le premier maître de diapositive :
 
-* [Définir le texte d’invite dans l’espace réservé](https://docs.aspose.com/slides/net/manage-placeholder/)  
-* [Mise en forme du texte](https://docs.aspose.com/slides/net/text-formatting/)
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-{{% /alert %}}
+var masterSlide = presentation.Masters[0];
 
+masterSlide.Background.Type = BackgroundType.OwnBackground;
+masterSlide.Background.FillFormat.FillType = FillType.Solid;
+masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-## **Modifier l’arrière‑plan d’un masque de diapositive**
-Lorsque vous modifiez la couleur d’arrière‑plan d’un masque de diapositive, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code C# montre l’opération :
-```c#
-using (var pres = new Presentation())
+presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
+```
+
+Pour les sujets associés, voir [Presentation Background](/slides/fr/net/presentation-background/) et [Presentation Theme](/slides/fr/net/presentation-theme/).
+
+## **Cloner un maître de diapositive vers une autre présentation**
+
+Utilisez [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/fr/net/aspose.slides/imasterslidecollection/addclone/) pour copier un maître de diapositive dans une autre présentation. Le maître copié peut alors être utilisé par les mises en page et les diapositives de la présentation de destination.
+
+```csharp
+using var sourcePresentation = new Presentation("source.pptx");
+using var destinationPresentation = new Presentation("destination.pptx");
+
+var sourceMasterSlide = sourcePresentation.Masters[0];
+var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSlide);
+
+destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
+```
+
+Si vous devez cloner des diapositives normales avec leur maître, voir [Clone Slides](/slides/fr/net/clone-slides/).
+
+## **Ajouter plusieurs maîtres de diapositives**
+
+Une présentation peut contenir plusieurs maîtres de diapositives. Cela est utile lorsque différentes sections nécessitent une image de marque, une structure de page ou des paramètres de thème différents.
+
+![Commandes PowerPoint pour insérer et gérer les maîtres de diapositives](slide-master_9.jpg)
+
+L’exemple suivant clone le maître par défaut, donne au clone un arrière‑plan différent, crée une mise en page sous ce maître cloné, et ajoute une nouvelle diapositive basée sur cette mise en page :
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var defaultMasterSlide = presentation.Masters[0];
+var sectionMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
+
+sectionMasterSlide.Background.Type = BackgroundType.OwnBackground;
+sectionMasterSlide.Background.FillFormat.FillType = FillType.Solid;
+sectionMasterSlide.Background.FillFormat.SolidFillColor.Color = Color.LightSteelBlue;
+
+var sourceBlankLayout =
+    defaultMasterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    defaultMasterSlide.LayoutSlides[0];
+var sectionBlankLayout = sectionMasterSlide.LayoutSlides.AddClone(sourceBlankLayout);
+
+presentation.Slides.AddEmptySlide(sectionBlankLayout);
+presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+```
+
+## **Comparer les maîtres de diapositives**
+
+Les maîtres de diapositives peuvent être comparés avec la méthode `Equals` héritée de [IBaseSlide](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les ID de diapositive, ni les valeurs dynamiques d’espaces réservés, comme la date actuelle.
+
+```csharp
+using var firstPresentation = new Presentation("first.pptx");
+using var secondPresentation = new Presentation("second.pptx");
+
+var firstPresentationMasterCount = firstPresentation.Masters.Count;
+var secondPresentationMasterCount = secondPresentation.Masters.Count;
+
+for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++)
 {
-    IMasterSlide master = pres.Masters[0];
-    master.Background.Type = BackgroundType.OwnBackground;
-    master.Background.FillFormat.FillType = FillType.Solid;
-    master.Background.FillFormat.SolidFillColor.Color = Color.Green;
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+    for (var secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++)
+    {
+        var firstMasterSlide = firstPresentation.Masters[firstMasterIndex];
+        var secondMasterSlide = secondPresentation.Masters[secondMasterIndex];
+        var areMasterSlidesEqual = firstMasterSlide.Equals(secondMasterSlide);
+
+        if (areMasterSlidesEqual)
+        {
+            Console.WriteLine(
+                "first.pptx master #{0} equals second.pptx master #{1}",
+                firstMasterIndex,
+                secondMasterIndex);
+        }
+    }
 }
 ```
 
+Pour plus d’informations, voir [Compare Presentation Slides](/slides/fr/net/compare-slides/).
 
-{{% alert color="primary" title="Voir aussi" %}} 
-- [Arrière‑plan de la présentation](https://docs.aspose.com/slides/net/presentation-background/)  
+## **Définir la vue Maître de diapositive comme vue par défaut**
 
-- [Thème de la présentation](https://docs.aspose.com/slides/net/presentation-theme/)  
+Utilisez la propriété `LastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/net/aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Maître de diapositive :
 
-{{% /alert %}}
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-## **Cloner un masque de diapositive vers une autre présentation**
-Pour cloner un masque de diapositive vers une autre présentation, appelez la méthode [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) de la présentation de destination en lui transmettant le masque de diapositive. Ce code C# vous montre comment cloner un masque de diapositive vers une autre présentation :
-```c#
-using (Presentation presSource = new Presentation(), presTarget = new Presentation())
-{
-    IMasterSlide master = presTarget.Masters.AddClone(presSource.Masters[0]);
-}
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
 ```
 
+Pour plus de paramètres de vue, voir [Save Presentation](/slides/fr/net/save-presentation/).
 
+## **Supprimer les maîtres de diapositives inutilisés**
 
-## **Ajouter plusieurs masques de diapositives à une présentation**
-Aspose.Slides vous permet d’ajouter plusieurs masques de diapositives et dispositions de diapositives à toute présentation donnée. Cela vous permet de configurer des styles, mises en page et options de formatage pour les diapositives de la présentation de multiples façons. 
+Les présentations contiennent parfois des maîtres de diapositives qui ne sont plus utilisés par aucune diapositive normale. Supprimer les maîtres inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
 
-Dans PowerPoint, vous pouvez ajouter de nouveaux masques de diapositives et dispositions (depuis le « menu Masque de diapositive ») ainsi :
+Utilisez [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/fr/net/aspose.slides/masterslidecollection/removeunused/) pour retirer les maîtres inutilisés de la collection `Masters` :
 
-![todo:image_alt_text](slide-master_9.jpg)
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-Avec Aspose.Slides, vous pouvez ajouter un nouveau masque de diapositive en appelant la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/) :
-```c#
-pres.Masters.AddClone(pres.Masters[0]);
+presentation.Masters.RemoveUnused(ignorePreserveField: true);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
 
+Vous pouvez également utiliser la méthode low‑code [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/fr/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
 
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-## **Comparer des masques de diapositives**
-Un Master Slide implémente l’interface [IBaseSlide](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide) contenant la méthode [Equals](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/methods/equals), qui peut être utilisée pour comparer des diapositives. Elle renvoie `true` pour les Master Slides identiques en structure et en contenu statique. 
-
-Deux Master Slides sont égaux si leurs formes, styles, textes, animations et autres paramètres, etc. sont identiques. La comparaison ne prend pas en compte les valeurs d’identifiants uniques (par ex. SlideId) ni le contenu dynamique (par ex. la valeur de date actuelle dans un espace réservé Date). 
-
-
-## **Définir un masque de diapositive comme affichage par défaut de la présentation**
-Aspose.Slides vous permet de définir un masque de diapositive comme affichage par défaut d’une présentation. L’affichage par défaut est ce que vous voyez en premier lorsque vous ouvrez une présentation. 
-
-Ce code vous montre comment définir un masque de diapositive comme affichage par défaut d’une présentation en C# :
-```c#
-pres.ViewProperties.LastView = ViewType.SlideMasterView;
+Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
-
-
-
-## **Supprimer les masques de diapositives inutilisés**
-
-Aspose.Slides fournit la méthode [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) (de la classe [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)) pour vous permettre de supprimer les masques de diapositives indésirables et inutilisés. Ce code C# montre comment supprimer un masque de diapositive d’une présentation PowerPoint :
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(pres);
-    
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-
 
 ## **FAQ**
 
-**Qu’est‑ce qu’un masque de diapositive dans PowerPoint ?**
+**Quelle est la différence entre un maître de diapositive et une diapositive de mise en page ?**
 
-Un masque de diapositive est un modèle de diapositive qui définit la disposition, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Il vous permet de définir et de modifier l’aspect de toutes les diapositives de la présentation en une seule fois.  
+Un maître de diapositive définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une diapositive de mise en page appartient à un maître de diapositive et définit un agencement spécifique d’espaces réservés. Une diapositive normale utilise une diapositive de mise en page, elle hérite donc à la fois de la mise en page et du maître.
 
-**Comment un masque de diapositive est‑il appliqué dans une présentation ?**
+**Une présentation peut‑elle contenir plusieurs maîtres de diapositives ?**
 
-Chaque présentation possède au moins un masque de diapositive par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un masque de diapositive lui est appliqué automatiquement, généralement en héritant du masque de la diapositive précédente. Une présentation peut contenir plusieurs masques de diapositives pour styliser différemment les différentes parties.  
+Oui. Une présentation peut contenir plusieurs maîtres de diapositives. Utilisez plusieurs maîtres lorsque différentes sections nécessitent des systèmes visuels ou une image de marque différents.
 
-**Quels éléments peuvent être personnalisés dans un masque de diapositive ?**
+**Dois‑je ajouter des espaces réservés à un maître de diapositive ou à une diapositive de mise en page ?**
 
-Un masque de diapositive comprend plusieurs propriétés de base qui peuvent être personnalisées :
+Dans la plupart des cas, ajoutez les espaces réservés aux diapositives de mise en page. Placez les éléments visuels partagés et le formatage commun sur le maître de diapositive, puis les espaces réservés de contenu sur les mises en page que les diapositives normales utiliseront.
 
-- **Background** : définir l’arrière‑plan de la diapositive.  
-- **BodyStyle** : définir les styles de texte du corps de la diapositive.  
-- **Shapes** : gérer toutes les formes du masque, y compris les espaces réservés et les cadres d’image.  
-- **Controls** : gérer les contrôles ActiveX.  
-- **ThemeManager** : accéder au gestionnaire de thème.  
-- **HeaderFooterManager** : gérer les en‑têtes et pieds de page.  
+**Puis‑je supprimer un maître de diapositive qui est encore utilisé ?**
 
-**Comment ajouter une image à un masque de diapositive ?**
-
-L’ajout d’une image à un masque de diapositive garantit qu’elle apparaît sur toutes les diapositives dépendantes de ce masque. Par exemple, placer le logo de l’entreprise sur le masque de diapositive l’affichera sur chaque diapositive de la présentation.  
-
-**Comment les masques de diapositives se rapportent‑ils aux dispositions de diapositives ?**
-
-Les dispositions de diapositives fonctionnent en conjonction avec les masques de diapositives pour offrir de la flexibilité dans la conception. Alors qu’un masque de diapositive définit les styles et thèmes globaux, les dispositions permettent des variations dans l’agencement du contenu. La hiérarchie est la suivante :
-
-- **Masque de diapositive** → définit les styles globaux.  
-- **Disposition de diapositive** → offre différents agencements de contenu.  
-- **Diapositive** → hérite du design de sa disposition.  
-
-**Puis‑je avoir plusieurs masques de diapositives dans une même présentation ?**
-
-Oui, une présentation peut contenir plusieurs masques de diapositives. Cela vous permet de styliser différentes sections de la présentation de façons variées, offrant ainsi une plus grande flexibilité de conception.  
-
-**Comment accéder et modifier un masque de diapositive avec Aspose.Slides ?**
-
-Dans Aspose.Slides, un masque de diapositive est représenté par l’interface `IMasterSlide`. Vous pouvez accéder à un masque de diapositive via la propriété `Masters` de l’objet `Presentation`.
+Non. Un maître de diapositive qui possède des diapositives dépendantes ne peut pas être supprimé directement en toute sécurité. Déplacez d’abord ces diapositives vers des mises en page sous un autre maître, ou utilisez une méthode de nettoyage des maîtres inutilisés qui ne supprime que les maîtres qui ne sont pas employés.

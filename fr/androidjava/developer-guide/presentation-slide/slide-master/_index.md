@@ -1,5 +1,5 @@
 ---
-title: Gérer les masques de diapositive de présentation sur Android
+title: Gérer les masques de diapositives de présentation sur Android
 linktitle: Masque de diapositive
 type: docs
 weight: 70
@@ -8,341 +8,364 @@ keywords:
 - masque de diapositive
 - diapositive maître
 - diapositive maître PPT
-- plusieurs masques de diapositive
-- comparer les masques de diapositive
-- arrière‑plan
+- multiples diapositives maîtres
+- comparer les diapositives maîtres
+- arrière-plan
 - espace réservé
-- cloner le masque de diapositive
-- copier le masque de diapositive
-- dupliquer le masque de diapositive
-- masque de diapositive inutilisé
+- cloner la diapositive maître
+- copier la diapositive maître
+- dupliquer la diapositive maître
+- diapositive maître inutilisée
 - PowerPoint
 - OpenDocument
 - présentation
 - Android
 - Java
 - Aspose.Slides
-description: "Gérer les masques de diapositive dans Aspose.Slides pour Android : créer, modifier et appliquer des mises en page, des thèmes et des espaces réservés aux fichiers PPT, PPTX et ODP avec des exemples Java concis."
+description: "Gérer les masques de diapositives dans Aspose.Slides pour Android via Java : accéder, modifier, cloner, comparer et supprimer les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
 ---
+## **Vue d’ensemble**
 
-## **Qu’est‑ce qu’un Slide Master dans PowerPoint**
+Un **masque de diapositives** définit les paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un masque de diapositives est la façon habituelle de garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Un **Slide Master** est un modèle de diapositive qui définit la mise en page, les styles, le thème, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un slide master. 
+Aspose.Slides for Android via Java prend en charge le même modèle. Une présentation peut contenir une ou plusieurs diapositives maîtres, et chaque diapositive maître peut contenir plusieurs diapositives de mise en page. Les diapositives normales ne font généralement pas directement référence à une diapositive maître. À la place, une diapositive normale utilise une diapositive de mise en page, et cette diapositive de mise en page appartient à une diapositive maître.
 
-Un Slide Master est utile car il vous permet de définir et de modifier l’apparence de toutes les diapositives de la présentation en une seule fois. Aspose.Slides prend en charge le mécanisme de Slide Master de PowerPoint. 
+La hiérarchie est :
 
-VBA permet également de manipuler un Slide Master et d’exécuter les mêmes opérations prises en charge dans PowerPoint : changer les arrière‑plans, ajouter des formes, personnaliser la mise en page, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d’utiliser les Slide Masters et d’effectuer des tâches de base avec eux. 
+1. **Masque de diapositives** - définit la conception et le thème partagés.  
+1. **Diapositive de mise en page** - définit une disposition spécifique d'espaces réservés et de formatage au niveau de la mise en page.  
+1. **Diapositive normale** - contient le contenu réel de la présentation et utilise une diapositive de mise en page.
 
-Voici les opérations de base du Slide Master :
-- Créer un Slide Master.
-- Appliquer le Slide Master aux diapositives de la présentation.
-- Modifier l’arrière‑plan du Slide Master. 
-- Ajouter une image, un espace réservé, un SmartArt, etc. au Slide Master.
+![Hiérarchie des masques de diapositives, des diapositives de mise en page et des diapositives normales](slide-master_2.jpg)
 
-Voici des opérations plus avancées impliquant le Slide Master :
-- Comparer les Slide Masters.
-- Fusionner les Slide Masters.
-- Appliquer plusieurs Slide Masters.
-- Copier une diapositive avec son Slide Master vers une autre présentation.
-- Détecter les Slide Masters en double dans les présentations.
-- Définir le Slide Master comme vue par défaut de la présentation.
+Dans Aspose.Slides, un masque de diapositives est représenté par l'interface [IMasterSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imasterslide/). Toutes les masques de diapositives d'une présentation sont accessibles via la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/presentation/#getMasters--) qui implémente [IMasterSlideCollection](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imasterslidecollection/). Pour l’ensemble complet de l'API Android via Java, voir la [référence de l'API com.aspose.slides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/).
 
-{{% alert color="primary" %}} 
-Vous pouvez consulter l’[**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) d’Aspose car il s’agit d’une implémentation en direct de certains des processus clés décrits ici.
-{{% /alert %}} 
-
-## **Comment le Slide Master est‑il appliqué**
-
-Avant de travailler avec un Slide Master, vous voudrez peut‑être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives. 
-- Chaque présentation possède au moins un Slide Master par défaut. 
-- Une présentation peut contenir plusieurs Slide Masters. Vous pouvez ajouter plusieurs Slide Masters et les utiliser pour styliser différentes parties d’une présentation de manières différentes. 
-
-Dans **Aspose.Slides**, un Slide Master est représenté par le type [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/). L’objet [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) d’Aspose.Slides contient la liste [**getMasters**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) de type [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/), qui contient la liste de tous les masques maîtres définis dans une présentation. 
-
-En plus des opérations CRUD, l’interface [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) propose ces méthodes utiles : [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) et [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . Ces méthodes sont héritées de la fonction de clonage de diapositive de base. Mais lorsqu’on travaille avec des Slide Masters, elles permettent d’implémenter des configurations complexes. 
-
-Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un Slide Master lui est appliqué automatiquement. Le Slide Master de la diapositive précédente est sélectionné par défaut. 
-
-**Note** : Les diapositives de la présentation sont stockées dans la liste [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne contient qu’un seul Slide Master, ce masque maître est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas à définir le Slide Master pour chaque nouvelle diapositive que vous créez. 
-
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle présentation, vous pouvez simplement cliquer sur la ligne inférieure sous la dernière diapositive et une nouvelle diapositive (avec le Slide Master de la dernière présentation) sera créée :
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-Dans Aspose.Slides, vous pouvez effectuer la tâche équivalente avec la méthode [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-
-## **Slide Master dans la hiérarchie des diapositives**
-
-Utiliser les dispositions de diapositive avec le Slide Master permet une flexibilité maximale. Une disposition de diapositive vous permet de définir les mêmes styles que le Slide Master (arrière‑plan, polices, formes, etc.). Cependant, lorsque plusieurs dispositions sont combinées sur un Slide Master, un nouveau style est créé. Lorsque vous appliquez une disposition à une seule diapositive, vous pouvez modifier son style par rapport à celui appliqué par le Slide Master. 
-
-Le Slide Master prime sur tous les éléments de configuration : Slide Master → Slide Layout → Slide :
-
-![todo:image_alt_text](slide-master_2)
-
-Chaque objet [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) possède la propriété [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--) contenant une liste de dispositions de diapositive. Un type [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide) possède la propriété [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--) qui pointe vers la disposition appliquée à la diapositive. L’interaction entre une diapositive et le Slide Master s’effectue via une disposition de diapositive. 
-
-{{% alert color="info" title="Note" %}}
-* Dans Aspose.Slides, toutes les configurations de diapositive (Slide Master, Slide Layout et la diapositive elle‑même) sont en fait des objets diapositive implémentant l’interface [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide).  
-* Par conséquent, Slide Master et Slide Layout peuvent implémenter les mêmes propriétés et vous devez savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide). Le Slide Master est appliqué en premier à une diapositive, puis la disposition de diapositive est appliquée. Par exemple, si le Slide Master et la disposition possèdent tous deux une valeur d’arrière‑plan, la diapositive affichera l’arrière‑plan provenant de la disposition.
+{{% alert color="info" title="Inheritance" %}}
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l'emporte. Par exemple, si un masque de diapositives et une diapositive de mise en page définissent tous deux un arrière‑plan, les diapositives basées sur cette mise en page utilisent l'arrière‑plan de la mise en page. Pour plus d'informations sur les diapositives de mise en page, voir [Appliquer ou modifier les mises en page de diapositives](/slides/fr/androidjava/slide-layout/).
 {{% /alert %}}
 
-## **Ce que contient un Slide Master**
+## **Accéder aux masques de diapositives**
 
-Pour comprendre comment un Slide Master peut être modifié, vous devez connaître ses constituants. Ce sont les propriétés principales du [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) :  
+Dans PowerPoint, vous pouvez ouvrir la vue Masque des diapositives depuis **Affichage** > **Masque des diapositives**.
 
-- [getBackground] obtenir/definir l’arrière‑plan de la diapositive.  
-- [getBodyStyle] – obtenir/definir les styles de texte du corps de la diapositive.  
-- [getShapes] obtenir/definir toutes les formes du Slide Master (espaces réservés, cadres d’image, etc.).  
-- [getControls] obtenir/definir les contrôles ActiveX.  
-- [getThemeManager] – obtenir le gestionnaire de thème.  
-- [getHeaderFooterManager] – obtenir le gestionnaire d’en‑tête et de pied de page.  
+![Commande Masque des diapositives dans l'onglet Affichage de PowerPoint](slide-master_3.jpg)
 
-Méthodes du Slide Master :  
+Dans Aspose.Slides, utilisez la collection `getMasters()` pour accéder aux masques de diapositives :
 
-- [getDependingSlides] – obtenir toutes les diapositives dépendant du Slide Master.  
-- [applyExternalThemeToDependingSlides] – vous permet de créer un nouveau Slide Master basé sur le Slide Master actuel et un nouveau thème. Le nouveau Slide Master sera alors appliqué à toutes les diapositives dépendantes.  
-
-## **Obtenir un Slide Master**
-
-Dans PowerPoint, le Slide Master est accessible via le menu Affichage → Masque des diapositives :
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-Avec Aspose.Slides, vous pouvez accéder à un Slide Master de cette façon :  
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Donne accès à la diapositive maître de la présentation
-    IMasterSlide masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
+    IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+    int masterSlideCount = presentation.getMasters().size();
+    int firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-
-L’interface [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) représente un Slide Master. La propriété [Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--) (associée au type [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection)) contient la liste de tous les Slide Masters définis dans la présentation.  
-
-## **Ajouter une image à un Slide Master**
-
-Lorsque vous ajoutez une image à un Slide Master, cette image apparaîtra sur toutes les diapositives dépendantes de ce maître. Par exemple, vous pouvez placer le logo de votre société et quelques images sur le Slide Master, puis revenir en mode édition des diapositives ; l’image sera visible sur chaque diapositive.  
-
-![todo:image_alt_text](slide-master_4.png)
-
-Vous pouvez ajouter des images à un Slide Master avec Aspose.Slides :  
-```java
-Presentation pres = new Presentation();
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="Voir aussi" %}} 
-Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Picture Frame](/slides/fr/androidjava/picture-frame/#create-picture-frame).
-{{% /alert %}}
-
-## **Ajouter un espace réservé à un Slide Master**
-
-Ces champs de texte sont des espaces réservés standards sur un Slide Master :  
-
-* Cliquez pour modifier le style du titre du Master  
-* Modifier les styles de texte du Master  
-* Deuxième niveau  
-* Troisième niveau  
-
-Ils apparaissent également sur les diapositives basées sur le Slide Master. Vous pouvez modifier ces espaces réservés sur le Slide Master et les changements seront appliqués automatiquement aux diapositives. 
-
-Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Slide Master → Insérer un espace réservé :  
-
-![todo:image_alt_text](slide-master_5.png)
-
-Examinons un exemple plus complexe d’espaces réservés avec Aspose.Slides. Considérez une diapositive contenant des espaces réservés provenant du Slide Master :  
-
-![todo:image_alt_text](slide-master_6.png)
-
-Nous voulons modifier la mise en forme du titre et du sous‑titre sur le Slide Master de cette façon :  
-
-![todo:image_alt_text](slide-master_7.png)
-
-Tout d’abord, nous récupérons le contenu de l’espace réservé de titre depuis l’objet Slide Master, puis nous utilisons le champ `PlaceHolder.FillFormat` :  
-```java
-public static void main(String[] args) {
-    Presentation pres = new Presentation();
-    try {
-        IMasterSlide master = pres.getMasters().get_Item(0);
-        IAutoShape placeHolder = findPlaceholder(master, PlaceholderType.Title);
-        placeHolder.getFillFormat().setFillType(FillType.Gradient);
-        placeHolder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, new Color(255, 0, 0));
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, new Color(128, 0, 128));
-
-        pres.save("pres.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-}
-
-static IAutoShape findPlaceholder(IMasterSlide master, int type)
-{
-    for (IShape shape : master.getShapes())
-    {
-        IAutoShape autoShape = (IAutoShape) shape;
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-Le style et la mise en forme du titre changeront pour toutes les diapositives basées sur le Slide Master :  
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="Voir aussi" %}} 
-* [Définir le texte d’invite dans l’espace réservé](https://docs.aspose.com/slides/androidjava/manage-placeholder/)  
-* [Mise en forme du texte](https://docs.aspose.com/slides/androidjava/text-formatting/)  
-{{% /alert %}}
-
-## **Modifier l’arrière‑plan d’un Slide Master**
-
-Lorsque vous modifiez la couleur d’arrière‑plan d’un masque de diapositive, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code Java montre l’opération :  
-```java
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(FillType.Solid);
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="Voir aussi" %}} 
-- [Arrière‑plan de la présentation](https://docs.aspose.com/slides/androidjava/presentation-background/)  
-- [Thème de la présentation](https://docs.aspose.com/slides/androidjava/presentation-theme/)  
-{{% /alert %}}
-
-## **Cloner un Slide Master vers une autre présentation**
-
-Pour cloner un Slide Master vers une autre présentation, appelez la méthode [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) de la présentation cible en transmettant le Slide Master. Ce code Java montre comment cloner un Slide Master vers une autre présentation :  
-```java
-Presentation presSource = new Presentation();
-Presentation presTarget = new Presentation();
-try {
-    IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) presSource.dispose();
-}
-```
-
-
-## **Ajouter plusieurs Slide Masters à une présentation**
-
-Aspose.Slides vous permet d’ajouter plusieurs Slide Masters et dispositions de diapositives à n’importe quelle présentation. Cela vous permet de configurer des styles, des mises en page et des options de mise en forme de diverses manières. 
-
-Dans PowerPoint, vous pouvez ajouter de nouveaux Slide Masters et dispositions (via le menu « Slide Master ») de cette façon :  
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-Avec Aspose.Slides, vous pouvez ajouter un nouveau Slide Master en appelant la méthode [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) :  
-```java
-// Ajoute un nouveau masque de diapositive
-IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-## **Comparer les Slide Masters**
-
-Un Master Slide implémente l’interface [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) contenant la méthode [**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-), qui peut être utilisée pour comparer les diapositives. Elle renvoie `true` pour les Master Slides identiques en structure et en contenu statique.  
-
-Deux Master Slides sont égaux si leurs formes, styles, textes, animations et autres paramètres sont identiques. La comparaison ne prend pas en compte les valeurs d’identifiants uniques (ex. SlideId) ni le contenu dynamique (ex. valeur de date actuelle dans un espace réservé Date).  
-
-## **Définir un Slide Master comme vue par défaut de la présentation**
-
-Aspose.Slides vous permet de définir un Slide Master comme vue par défaut d’une présentation. La vue par défaut est ce que vous voyez en premier lors de l’ouverture d’une présentation.  
-
-Ce code montre comment définir un Slide Master comme vue par défaut d’une présentation en Java :  
-```java
-// Instancie une classe Presentation qui représente le fichier de présentation
-Presentation presentation = new Presentation();
-try {
-    // Définit la vue par défaut comme SlideMasterView
-    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
-
-    // Enregistre la présentation
-    presentation.save("PresView.pptx", SaveFormat.Pptx);
+    System.out.println("Master slides: " + masterSlideCount);
+    System.out.println("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+Vous pouvez également obtenir le masque utilisé par une diapositive normale via sa mise en page :
 
-## **Supprimer les Slide Masters inutilisés**
-
-Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)) pour vous permettre de supprimer les masques maîtres indésirables et inutilisés. Ce code Java montre comment supprimer un masque maître d’une présentation PowerPoint :  
 ```java
-Presentation pres = new Presentation("pres.pptx");
- try {
-     Compress.removeUnusedMasterSlides(pres);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = slide.getLayoutSlide();
+    IMasterSlide masterSlide = layoutSlide.getMasterSlide();
+    String masterSlideName = masterSlide.getName();
 
-     pres.save("pres-out.pptx", SaveFormat.Pptx);
- } finally {
-     if (pres != null) pres.dispose();
- }
+    System.out.println(masterSlideName);
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **Ce que contient un masque de diapositives**
+
+Un masque de diapositives est un objet similaire à une diapositive. Il implémente [IBaseSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ibaseslide/), aussi il expose de nombreuses propriétés de diapositive utilisées par les diapositives normales et de mise en page.
+
+Les membres de masque de diapositives les plus couramment utilisés incluent :
+
+| Membre | Objectif |
+| --- | --- |
+| `getBackground()` | Définit l'arrière‑plan de la diapositive au niveau du masque. |
+| `getShapes()` | Conserve les formes placées sur le masque, comme les logos, les cadres d'image et le texte partagé. |
+| `getLayoutSlides()` | Conserve les diapositives de mise en page qui appartiennent au masque. |
+| `getThemeManager()` | Fournit l'accès aux API du thème du masque. |
+| `getHeaderFooterManager()` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le masque et ses mises en page enfants. |
+| `getDependingSlides()` | Renvoie les diapositives normales qui dépendent du masque via leurs mises en page. |
+
+## **Ajouter une image à un masque de diapositives**
+
+Lorsque vous ajoutez une image à un masque de diapositives, elle apparaît sur les diapositives qui utilisent les mises en page de ce masque. Cela est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
+
+L'exemple suivant ajoute un logo au premier masque de diapositives :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IImage logo = Images.fromFile("logo.png");
+
+    try {
+        IPPImage logoImage = presentation.getImages().addImage(logo);
+
+        masterSlide.getShapes().addPictureFrame(
+                ShapeType.Rectangle,
+                20,
+                20,
+                80,
+                80,
+                logoImage);
+    } finally {
+        logo.dispose();
+    }
+
+    presentation.save("presentation-with-logo.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pour plus d'informations sur les cadres d'image, voir [Cadre d'image](/slides/fr/androidjava/picture-frame/).
+
+## **Travailler avec les espaces réservés**
+
+Les espaces réservés sont normalement définis sur les diapositives de mise en page. Le masque de diapositives fournit le style et le thème partagés que ces mises en page héritent, tandis que chaque mise en page décide quels espaces réservés sont disponibles et où ils sont placés.
+
+Dans PowerPoint, les commandes d'espace réservé sont disponibles dans la vue Masque des diapositives.
+
+![Commande Insérer un espace réservé dans la vue Masque des diapositives de PowerPoint](slide-master_5.png)
+
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur la diapositive de mise en page qui appartient au masque :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide blankLayoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    if (blankLayoutSlide == null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(SlideLayoutType.Blank, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Vous pouvez également formater les formes d'espace réservé déjà existantes sur un masque de diapositives. L'exemple suivant trouve l'espace réservé du titre et applique un remplissage en dégradé linéaire :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IAutoShape titlePlaceholder = null;
+
+    for (IShape shape : masterSlide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+
+            if (autoShape.getPlaceholder() != null &&
+                    autoShape.getPlaceholder().getType() == PlaceholderType.Title) {
+                titlePlaceholder = autoShape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder != null) {
+        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
+        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+
+        titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Espace réservé titre formaté hérité par les diapositives normales](slide-master_8.png)
+
+Pour plus d'options de formatage des espaces réservés et du texte, voir [Définir le texte d'invite dans un espace réservé](/slides/fr/androidjava/manage-placeholder/) et [Mise en forme du texte](/slides/fr/androidjava/text-formatting/).
+
+## **Modifier l'arrière‑plan d'un masque de diapositives**
+
+Un arrière‑plan de masque est hérité par les mises en page et les diapositives qui ne le remplacent pas. L'exemple suivant définit une couleur d'arrière‑plan unie pour le premier masque de diapositives :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    int masterBackgroundColor = Color.GREEN;
+
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pour les sujets connexes, voir [Arrière‑plan de la présentation](/slides/fr/androidjava/presentation-background/) et [Thème de la présentation](/slides/fr/androidjava/presentation-theme/).
+
+## **Cloner un masque de diapositives vers une autre présentation**
+
+Utilisez [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) pour copier un masque de diapositives dans une autre présentation. Le masque copié peut alors être utilisé par les mises en page et les diapositives de la présentation cible.
+
+```java
+Presentation sourcePresentation = new Presentation("source.pptx");
+Presentation destinationPresentation = new Presentation("destination.pptx");
+try {
+    IMasterSlide sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    IMasterSlide clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+Si vous devez cloner des diapositives normales avec leur masque, voir [Cloner des diapositives](/slides/fr/androidjava/clone-slides/).
+
+## **Ajouter plusieurs masques de diapositives**
+
+Une présentation peut contenir plusieurs masques de diapositives. Cela est utile lorsque différentes sections nécessitent une identité visuelle, une structure de page ou des paramètres de thème différents.
+
+![Commandes PowerPoint pour insérer et gérer les masques de diapositives](slide-master_9.jpg)
+
+L'exemple suivant clone le masque par défaut, donne au clone un arrière‑plan différent, crée une mise en page sous ce masque cloné, et ajoute une nouvelle diapositive basée sur cette mise en page :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
+    IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    int sectionMasterBackgroundColor = Color.GRAY;
+
+    sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    ILayoutSlide sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    if (sourceBlankLayout == null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    ILayoutSlide sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Comparer les masques de diapositives**
+
+Les masques de diapositives peuvent être comparés avec la méthode `equals` héritée de [IBaseSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ibaseslide/). La comparaison vérifie la structure et le contenu statique, comme les formes, le texte, le formatage, les animations et d'autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les ID de diapositive, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
+
+```java
+Presentation firstPresentation = new Presentation("first.pptx");
+Presentation secondPresentation = new Presentation("second.pptx");
+try {
+    int firstPresentationMasterCount = firstPresentation.getMasters().size();
+    int secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (int firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (int secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            IMasterSlide firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            IMasterSlide secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            boolean areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                System.out.printf(
+                        "first.pptx master #%d equals second.pptx master #%d%n",
+                        firstMasterIndex,
+                        secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+Pour plus d'informations, voir [Comparer les diapositives d'une présentation](/slides/fr/androidjava/compare-slides/).
+
+## **Définir la vue Masque de diapositives comme vue par défaut**
+
+Utilisez la méthode `setLastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L'exemple suivant ouvre la présentation dans la vue Masque de diapositives :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("presentation-master-view.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pour plus de paramètres d'affichage, voir [Enregistrer la présentation](/slides/fr/androidjava/save-presentation/).
+
+## **Supprimer les masques de diapositives inutilisés**
+
+Les présentations contiennent parfois des masques de diapositives qui ne sont plus utilisés par aucune diapositive normale. Supprimer les masques inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
+
+Utilisez `removeUnused` pour supprimer les masques inutilisés de la collection `getMasters()` :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Vous pouvez également utiliser la méthode low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**Qu’est‑ce qu’un Slide Master dans PowerPoint ?**  
-Un Slide Master est un modèle de diapositive qui définit la mise en page, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives à la fois.  
+**Quelle est la différence entre un masque de diapositives et une diapositive de mise en page ?**
 
-**Comment un Slide Master est‑il appliqué dans une présentation ?**  
-Chaque présentation possède au moins un Slide Master par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un Slide Master lui est appliqué automatiquement, héritant généralement du maître de la diapositive précédente. Une présentation peut contenir plusieurs Slide Masters pour styliser différemment diverses parties.  
+Un masque de diapositives définit les paramètres de conception partagés tels que le thème, l'arrière‑plan, les formes communes et les styles de texte. Une diapositive de mise en page appartient à un masque de diapositives et définit une disposition spécifique d'espaces réservés. Une diapositive normale utilise une diapositive de mise en page, ainsi elle hérite à la fois de la mise en page et du masque.
 
-**Quels éléments peuvent être personnalisés dans un Slide Master ?**  
-Un Slide Master comprend plusieurs propriétés principales pouvant être personnalisées :  
-- **Arrière‑plan** : définir l’arrière‑plan de la diapositive.  
-- **BodyStyle** : définir les styles de texte du corps de la diapositive.  
-- **Shapes** : gérer toutes les formes du Slide Master (espaces réservés, cadres d’image, etc.).  
-- **Controls** : gérer les contrôles ActiveX.  
-- **ThemeManager** : accéder au gestionnaire de thème.  
-- **HeaderFooterManager** : gérer les en‑têtes et pieds de page.  
+**Une présentation peut‑elle contenir plusieurs masques de diapositives ?**
 
-**Comment puis‑je ajouter une image à un Slide Master ?**  
-L’ajout d’une image à un Slide Master garantit qu’elle apparaît sur toutes les diapositives dépendantes de ce maître. Par exemple, placer le logo de l’entreprise sur le Slide Master l’affichera sur chaque diapositive de la présentation.  
+Oui. Une présentation peut contenir plusieurs masques de diapositives. Utilisez plusieurs masques lorsque différentes sections nécessitent des systèmes visuels ou une identité de marque différents.
 
-**Comment les Slide Masters sont‑ils liés aux Slide Layouts ?**  
-Les Slide Layouts fonctionnent avec les Slide Masters pour offrir une flexibilité dans la conception des diapositives. Un Slide Master définit les styles et thèmes globaux, tandis que les Slide Layouts permettent des variations dans l’agencement du contenu. La hiérarchie est la suivante :  
-- **Slide Master** → définit les styles globaux.  
-- **Slide Layout** → propose différentes dispositions de contenu.  
-- **Slide** → hérite du design de son Slide Layout.  
+**Dois‑je ajouter des espaces réservés à un masque de diapositives ou à une diapositive de mise en page ?**
 
-**Puis‑je avoir plusieurs Slide Masters dans une même présentation ?**  
-Oui, une présentation peut contenir plusieurs Slide Masters. Cela vous permet de styliser différentes sections de la présentation de manières variées, offrant ainsi une grande flexibilité de conception.  
+Dans la plupart des cas, ajoutez les espaces réservés aux diapositives de mise en page. Placez les éléments visuels partagés et le formatage partagé sur le masque de diapositives, puis placez les espaces réservés de contenu sur les mises en page que les diapositives normales utiliseront.
 
-**Comment accéder et modifier un Slide Master avec Aspose.Slides ?**  
-Dans Aspose.Slides, un Slide Master est représenté par l’interface [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/). Vous pouvez accéder à un Slide Master en utilisant la méthode [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) de l’objet [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+**Puis‑je supprimer un masque de diapositives qui est encore utilisé ?**
+
+Non. Un masque de diapositives qui possède des diapositives dépendantes ne peut pas être supprimé directement en toute sécurité. Déplacez d'abord ces diapositives vers des mises en page sous un autre masque, ou utilisez une méthode de nettoyage des masques inutilisés qui ne supprime que les masques qui ne sont pas utilisés.

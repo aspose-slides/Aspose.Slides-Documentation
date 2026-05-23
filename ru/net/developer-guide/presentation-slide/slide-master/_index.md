@@ -1,210 +1,179 @@
 ---
-title: "Управление мастер‑слайдами презентации в .NET"
-linktitle: "Мастер‑слайд"
+title: Управление слайд‑мастерами презентации в .NET
+linktitle: Слайд‑мастер
 type: docs
 weight: 80
 url: /ru/net/slide-master/
 keywords:
-- "мастер‑слайд"
-- "мастер‑слайд"
-- "мастер‑слайд PPT"
-- "несколько мастер‑слайдов"
-- "сравнение мастер‑слайдов"
-- "фон"
-- "заполнитель"
-- "клонирование мастер‑слайда"
-- "копирование мастер‑слайда"
-- "дубликат мастер‑слайда"
-- "неиспользуемый мастер‑слайд"
-- "PowerPoint"
-- "OpenDocument"
-- "презентация"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Управляйте мастер‑слайдами в Aspose.Slides для .NET: создавайте, редактируйте и применяйте макеты, темы и заполнители к PPT, PPTX и ODP с помощью кратких примеров на C#."
+- слайд‑мастер
+- мастер‑слайд
+- PPT мастер‑слайд
+- несколько мастер‑слайдов
+- сравнение мастер‑слайдов
+- фон
+- заполнитель
+- клонирование мастер‑слайда
+- копирование мастер‑слайда
+- дублирование мастер‑слайда
+- неиспользуемый мастер‑слайд
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Управление слайд‑мастерами в Aspose.Slides для .NET: доступ, редактирование, клонирование, сравнение и удаление мастер‑слайдов в презентациях PowerPoint и OpenDocument."
 ---
+## **Обзор**
 
-## **Что такое мастер‑слайд в PowerPoint**
-**Мастер‑слайд** в PowerPoint — это функция, управляющая макетом, шрифтами и стилями на нескольких слайдах. Он помогает поддерживать единообразие и фирменный стиль в презентациях. Если вы хотите создать презентацию (или серию презентаций) с одинаковым стилем и шаблоном для вашей компании, вы можете использовать мастер‑слайд. 
+**Слайд‑мастер** определяет общие настройки дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фоны, стили текста, параметры темы и настройки нижних колонтитулов. В PowerPoint редактирование слайд‑мастера — обычный способ поддерживать презентацию в едином стиле без повторения одинакового форматирования на каждом слайде.
 
-Мастер‑слайд полезен тем, что позволяет задать и изменить внешний вид всех слайдов презентации одновременно. Aspose.Slides поддерживает механизм мастер‑слайдов из PowerPoint. 
+Aspose.Slides for .NET поддерживает ту же модель. Презентация может содержать один или несколько слайд‑мастеров, каждый из которых может включать несколько макетных слайдов. Обычные слайды обычно не ссылаются непосредственно на слайд‑мастер. Вместо этого обычный слайд использует макетный слайд, который принадлежит слайд‑мастеру.
 
-VBA также позволяет манипулировать мастер‑слайдом и выполнять те же операции, что поддерживаются в PowerPoint: изменять фон, добавлять фигуры, настраивать макет и т.д. Aspose.Slides предоставляет гибкие механизмы для использования мастер‑слайдов и выполнения базовых задач с ними. 
+Иерархия выглядит так:
 
-Это базовые операции с мастер‑слайдом:
+1. **Slide master** – определяет общий дизайн и тему.  
+1. **Layout slide** – определяет конкретное расположение заполнителей и форматирование уровня макета.  
+1. **Normal slide** – содержит фактическое содержимое презентации и использует один макетный слайд.
 
-- Создание или редактирование мастер‑слайда.  
-- Применение мастер‑слайда к слайдам презентации.  
-- Изменение фона мастер‑слайда.  
-- Добавление изображения, заполнителя, Smart Art и т.п. к мастер‑слайду.  
+![Иерархия слайд‑мастеров, макетных слайдов и обычных слайдов](slide-master_2.jpg)
 
-Это более продвинутые операции с мастер‑слайдом:  
+В Aspose.Slides слайд‑мастер представлен интерфейсом [IMasterSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/imasterslide/). Все слайд‑мастера в презентации доступны через коллекцию [Presentation.Masters](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/masters/), реализующую [IMasterSlideCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/imasterslidecollection/).
 
-- Сравнение мастер‑слайдов.  
-- Объединение мастер‑слайдов.  
-- Применение нескольких мастер‑слайдов.  
-- Копирование слайда с мастер‑слайдом в другую презентацию.  
-- Поиск дублирующихся мастер‑слайдов в презентациях.  
-- Установка мастер‑слайда как представления по умолчанию для презентации.  
-
-{{% alert color="primary" %}} 
-
-Возможно, вам будет интересно посмотреть Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer), поскольку это живой пример некоторых основных процессов, описанных здесь.
-
-{{% /alert %}} 
-
-
-## **Как применяется мастер‑слайд**
-Прежде чем работать с мастер‑слайдом, стоит понять, как они используются в презентациях и применяются к слайдам. 
-
-* Каждая презентация имеет как минимум один мастер‑слайд по умолчанию.  
-* Презентация может содержать несколько мастер‑слайдов. Вы можете добавить несколько мастер‑слайдов и использовать их для стилизации разных частей презентации по‑разному.  
-
-В **Aspose.Slides** мастер‑слайд представлен типом [**IMasterSlide**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide). 
-
-Объект [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation) в Aspose.Slides содержит список [**Masters** ](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/masters) типа [**IMasterSlideCollection**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection), который хранит все мастер‑слайды, определённые в презентации. 
-
-Помимо CRUD‑операций, интерфейс [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) содержит полезные методы: [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/addclone) и [**InsertClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/insertclone). Эти методы унаследованы от базовой функции клонирования слайдов. Но при работе с мастер‑слайдами они позволяют реализовывать сложные настройки. 
-
-Когда в презентацию добавляется новый слайд, к нему автоматически применяется мастер‑слайд. По умолчанию выбирается мастер‑слайд предыдущего слайда. 
-
-**Note**: Слайды презентации хранятся в списке [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides), и каждый новый слайд добавляется в конец коллекции по умолчанию. Если презентация содержит один единственный мастер‑слайд, этот мастер‑слайд будет выбран для всех новых слайдов. Поэтому вам не нужно задавать мастер‑слайд для каждого нового слайда.  
-
-Принцип тот же, что и в PowerPoint. Например, в PowerPoint, когда вы добавляете новый слайд, достаточно щёлкнуть по нижней линии под последним слайдом — будет создан новый слайд (с мастер‑слайдом последней презентации):
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-В Aspose.Slides вы можете выполнить эквивалентную задачу с помощью метода [AddClone(ISlide)](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addclone) класса [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-
-
-## **Мастер‑слайд в иерархии слайдов**
-Использование макетов слайдов вместе с мастер‑слайдом обеспечивает максимальную гибкость. Макет слайда позволяет задать те же стили, что и мастер‑слайд (фон, шрифты, фигуры и т.п.). Однако, когда несколько макетов слайдов объединяются на одном мастер‑слайде, появляется новый стиль. При применении макета к отдельному слайду вы можете изменить его стиль относительно того, который задаёт мастер‑слайд.
-
-Мастер‑слайд имеет приоритет над всеми настройками: Мастер‑слайд → Макет слайда → Слайд:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Каждый объект [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) имеет свойство [**LayoutSlides**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/layoutslides) со списком макетов слайдов. Тип [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) имеет свойство [**LayoutSlide**](https://reference.aspose.com/slides/net/aspose.slides/islide/properties/layoutslide), указывающее на макет, применённый к этому слайду. Взаимодействие между слайдом и мастер‑слайдом происходит через макет слайда.
-
-{{% alert color="info" title="Note" %}}
-
-* В Aspose.Slides все настройки слайда (Мастер‑слайд, Макет слайда и сам слайд) являются объектами слайдов, реализующими интерфейс [**IBaseSlide**](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide).  
-* Поэтому Мастер‑слайд и Макет слайда могут реализовывать одинаковые свойства, и вам нужно знать, как их значения будут применяться к объекту [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/). Сначала к слайду применяется Мастер‑слайд, затем — Макет слайда. Например, если у Мастер‑слайда и у Макета слайда задан фон, в итоге у слайда будет фон из Макета слайда.
-
+{{% alert color="info" title="Inheritance" %}}
+Когда одно и то же свойство определено на нескольких уровнях, более конкретный уровень имеет приоритет. Например, если слайд‑мастер и макетный слайд оба определяют фон, слайды, основанные на этом макете, используют фон макетного слайда. Для получения дополнительной информации о макетных слайдах см. [Apply or Change Slide Layouts](/slides/ru/net/slide-layout/).
 {{% /alert %}}
 
+## **Access Slide Masters**
 
-## **Содержание мастер‑слайда**
-Чтобы понять, как можно изменять мастер‑слайд, следует знать его составные части. Ниже перечислены основные свойства [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/).
+В PowerPoint вы можете открыть представление слайд‑мастера через **View** > **Slide Master**.
 
-- [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/background) — получение/установка фона слайда.  
-- [BodyStyle](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/bodystyle) — получение/установка стилей текста тела слайда.  
-- [Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/shapes) — получение/установка всех фигур мастер‑слайда (заполнители, рамки изображений и т.п.).  
-- [Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/controls) — получение/установка элементов ActiveX.  
-- [ThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/imasterthemeable/properties/thememanager) — получение менеджера тем.  
-- [HeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/headerfootermanager) — получение менеджера верхних и нижних колонтитулов.  
+![Команда Slide Master на вкладке View в PowerPoint](slide-master_3.jpg)
 
-Методы мастер‑слайда:
+В Aspose.Slides используйте коллекцию `Masters` для доступа к слайд‑мастерам:
 
-- [GetDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/getdependingslides) — получение всех слайдов, зависящих от данного мастер‑слайда.  
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/applyexternalthemetodependingslides) — позволяет создать новый мастер‑слайд на основе текущего и новой темы. Новый мастер‑слайд затем будет применён ко всем зависимым слайдам.
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
+var firstMasterSlide = presentation.Masters[0];
+var masterSlideCount = presentation.Masters.Count;
+var firstMasterLayoutSlideCount = firstMasterSlide.LayoutSlides.Count;
 
-## **Получить мастер‑слайд**
-В PowerPoint мастер‑слайд доступен через меню Вид → Мастер‑слайд:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-В Aspose.Slides вы можете получить мастер‑слайд так:
-```c#
-IMasterSlide master = pres.Masters[0];
+Console.WriteLine("Master slides: " + masterSlideCount);
+Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
+Также можно получить слайд‑мастер, используемый обычным слайдом, через его макет:
 
-Интерфейс [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) представляет мастер‑слайд. Свойство [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) (связано с типом [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)) содержит список всех мастер‑слайдов, определённых в презентации. 
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
+var slide = presentation.Slides[0];
+var layoutSlide = slide.LayoutSlide;
+var masterSlide = layoutSlide.MasterSlide;
+var masterSlideName = masterSlide.Name;
 
-## **Добавить изображение в мастер‑слайд**
-При добавлении изображения в мастер‑слайд это изображение будет отображаться на всех слайдах, зависящих от данного мастер‑слайда. 
-
-Например, вы можете разместить логотип вашей компании и несколько изображений на мастер‑слайде, затем вернуться в режим редактирования слайдов. Вы увидите изображение на каждом слайде. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Вы можете добавить изображения в мастер‑слайд с помощью Aspose.Slides: 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    pres.Masters[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+Console.WriteLine(masterSlideName);
 ```
 
+## **What a Slide Master Contains**
 
-{{% alert color="primary" title="See also" %}} 
+Слайд‑мастер — это объект, похожий на слайд. Он реализует [IBaseSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseslide/), поэтому предоставляет многие те же свойства слайдов, что и обычные и макетные слайды. Члены, специфичные для мастера, перечислены на странице API [IMasterSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/imasterslide/).
 
-Для получения дополнительной информации о добавлении изображений см. статью [Picture Frame](/slides/ru/net/picture-frame/#create-picture-frame).
+Часто используемые члены слайд‑мастера включают:
 
-{{% /alert %}}
+| Member | Purpose |
+| --- | --- |
+| `Background` | Устанавливает фон уровня мастера. |
+| `Shapes` | Сохраняет фигуры, размещённые на мастере, такие как логотипы, рамки изображений и общий текст. |
+| `LayoutSlides` | Содержит макетные слайды, принадлежащие мастеру. |
+| `ThemeManager` | Предоставляет доступ к API темы мастера. |
+| `HeaderFooterManager` | Управляет заголовками, нижними колонтитулами, датами и номерами слайдов для мастера и его дочерних макетов. |
+| `GetDependingSlides` | Возвращает обычные слайды, зависящие от мастера через их макеты. |
 
+## **Add an Image to a Slide Master**
 
-## **Добавить заполнитель в мастер‑слайд**
-Эти текстовые поля являются стандартными заполнителями на мастер‑слайде: 
+Когда вы добавляете изображение в слайд‑мастер, оно появляется на слайдах, использующих макеты этого мастера. Это удобно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
 
-* Щёлкните, чтобы отредактировать стиль заголовка мастера  
-* Отредактировать стили текста мастера  
-* Уровень 2  
-* Уровень 3  
+Следующий пример добавляет логотип на первый слайд‑мастер:
 
-Они также отображаются на слайдах, основанных на мастер‑слайде. Вы можете редактировать эти заполнители на мастер‑слайде, и изменения автоматически применятся к слайдам. 
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-В PowerPoint вы можете добавить заполнитель через путь Мастер‑слайд → Вставить заполнитель:
+var masterSlide = presentation.Masters[0];
+var logoBytes = File.ReadAllBytes("logo.png");
+var logoImage = presentation.Images.AddImage(logoBytes);
 
-![todo:image_alt_text](slide-master_5.png)
+masterSlide.Shapes.AddPictureFrame(
+    ShapeType.Rectangle,
+    x: 20,
+    y: 20,
+    width: 80,
+    height: 80,
+    image: logoImage);
 
-Рассмотрим более сложный пример заполнителей с Aspose.Slides. Предположим, есть слайд с заполнителями, полученными из мастер‑слайда:
+presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
+```
 
-![todo:image_alt_text](slide-master_6.png)
+Для получения более подробной информации о рамках изображений см. [Picture Frame](/slides/ru/net/picture-frame/).
 
-Мы хотим изменить форматирование заголовка и подзаголовка на мастер‑слайде следующим образом:
+## **Work with Placeholders**
 
-![todo:image_alt_text](slide-master_7.png)
+Заполнители обычно определяются на макетных слайдах. Слайд‑мастер предоставляет общий стиль и тему, которые наследуют эти макеты, а каждый макет решает, какие заполнители доступны и где они расположены.
 
-Сначала получаем содержимое заполнителя заголовка из объекта мастер‑слайда, затем используем поле `PlaceHolder.FillFormat`: 
-```c#
-public static void Main()
+В PowerPoint команды заполнителей доступны в представлении слайд‑мастера.
+
+![Команда Insert Placeholder в представлении Slide Master PowerPoint](slide-master_5.png)
+
+Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с макетным слайдом, принадлежащим мастеру:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var blankLayoutSlide =
+    masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    masterSlide.LayoutSlides.Add(SlideLayoutType.Blank, "Blank");
+
+blankLayoutSlide.PlaceholderManager.AddTextPlaceholder(
+    x: 60,
+    y: 120,
+    width: 600,
+    height: 80);
+
+presentation.Slides.AddEmptySlide(blankLayoutSlide);
+presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+```
+
+Вы также можете форматировать уже существующие фигуры‑заполнители на слайд‑мастере. Следующий пример находит заполнитель заголовка и применяет линейный градиентный залив:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var titlePlaceholder = FindPlaceholder(masterSlide, PlaceholderType.Title);
+
+if (titlePlaceholder != null)
 {
-    using (var pres = new Presentation())
-    {
-        IMasterSlide master = pres.Masters[0];
-        IAutoShape placeHolder = FindPlaceholder(master, PlaceholderType.Title);
-        placeHolder.FillFormat.FillType = FillType.Gradient;
-        placeHolder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(0, Color.FromArgb(255, 0, 0));
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(255, Color.FromArgb(128, 0, 128));
-        
-        pres.Save("pres.pptx", SaveFormat.Pptx);
-    }
+    var redGradientColor = Color.FromArgb(255, 0, 0);
+    var purpleGradientColor = Color.FromArgb(128, 0, 128);
+
+    titlePlaceholder.FillFormat.FillType = FillType.Gradient;
+    titlePlaceholder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(0, redGradientColor);
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(255, purpleGradientColor);
 }
 
-static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
+presentation.Save("presentation-title-style.pptx", SaveFormat.Pptx);
+
+static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType placeholderType)
 {
-    foreach (IShape shape in master.Shapes)
+    foreach (var shape in masterSlide.Shapes)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        if (shape is IAutoShape { Placeholder: not null } autoShape &&
+            autoShape.Placeholder.Type == placeholderType)
         {
-            if (autoShape.Placeholder.Type == type)
-            {
-                return autoShape;
-            }
+            return autoShape;
         }
     }
 
@@ -212,131 +181,152 @@ static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
 }
 ```
 
+![Отформатированный заголовок‑заполнитель, унаследованный обычными слайдами](slide-master_8.png)
 
-Стиль заголовка и форматирование изменятся на всех слайдах, основанных на данном мастер‑слайде:
+Для получения дополнительных вариантов форматирования заполнителей и текста см. [Set Prompt Text in Placeholder](/slides/ru/net/manage-placeholder/) и [Text Formatting](/slides/ru/net/text-formatting/).
 
-![todo:image_alt_text](slide-master_8.png)
+## **Change a Slide Master Background**
 
-{{% alert color="primary" title="See also" %}} 
+Фон мастера наследуется макетами и слайдами, которые его не переопределяют. Следующий пример задаёт сплошной цвет фона для первого слайд‑мастера:
 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/net/manage-placeholder/)  
-* [Text Formatting](https://docs.aspose.com/slides/net/text-formatting/)
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-{{% /alert %}}
+var masterSlide = presentation.Masters[0];
 
+masterSlide.Background.Type = BackgroundType.OwnBackground;
+masterSlide.Background.FillFormat.FillType = FillType.Solid;
+masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-## **Изменить фон мастер‑слайда**
-При изменении цвета фона мастер‑слайда все обычные слайды презентации получат новый цвет. Этот C#‑код демонстрирует операцию:
-```c#
-using (var pres = new Presentation())
+presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
+```
+
+См. также [Presentation Background](/slides/ru/net/presentation-background/) и [Presentation Theme](/slides/ru/net/presentation-theme/).
+
+## **Clone a Slide Master to Another Presentation**
+
+Используйте [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ru/net/aspose.slides/imasterslidecollection/addclone/) для копирования слайд‑мастера в другую презентацию. Скопированный мастер затем может использоваться макетами и слайдами в целевой презентации.
+
+```csharp
+using var sourcePresentation = new Presentation("source.pptx");
+using var destinationPresentation = new Presentation("destination.pptx");
+
+var sourceMasterSlide = sourcePresentation.Masters[0];
+var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSlide);
+
+destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
+```
+
+Если необходимо клонировать обычные слайды вместе с их мастером, см. [Clone Slides](/slides/ru/net/clone-slides/).
+
+## **Add Multiple Slide Masters**
+
+Презентация может содержать несколько слайд‑мастеров. Это полезно, когда разные разделы требуют различного фирменного стиля, структуры страниц или настроек темы.
+
+![Команды PowerPoint для вставки и управления слайд‑мастерами](slide-master_9.jpg)
+
+Следующий пример клонирует мастер по умолчанию, задаёт клону другой фон, создаёт макет под этим клонированным мастером и добавляет новый слайд на основе этого макета:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var defaultMasterSlide = presentation.Masters[0];
+var sectionMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
+
+sectionMasterSlide.Background.Type = BackgroundType.OwnBackground;
+sectionMasterSlide.Background.FillFormat.FillType = FillType.Solid;
+sectionMasterSlide.Background.FillFormat.SolidFillColor.Color = Color.LightSteelBlue;
+
+var sourceBlankLayout =
+    defaultMasterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    defaultMasterSlide.LayoutSlides[0];
+var sectionBlankLayout = sectionMasterSlide.LayoutSlides.AddClone(sourceBlankLayout);
+
+presentation.Slides.AddEmptySlide(sectionBlankLayout);
+presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+```
+
+## **Compare Slide Masters**
+
+Слайд‑мастера можно сравнивать методом `Equals`, унаследованным от [IBaseSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseslide/). Сравнение проверяет структуру и статическое содержимое, такое как фигуры, текст, форматирование, анимацию и другие настройки слайда. Оно не сравнивает уникальные идентификаторы, например ID слайдов, или динамические значения заполнителей, такие как текущая дата.
+
+```csharp
+using var firstPresentation = new Presentation("first.pptx");
+using var secondPresentation = new Presentation("second.pptx");
+
+var firstPresentationMasterCount = firstPresentation.Masters.Count;
+var secondPresentationMasterCount = secondPresentation.Masters.Count;
+
+for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++)
 {
-    IMasterSlide master = pres.Masters[0];
-    master.Background.Type = BackgroundType.OwnBackground;
-    master.Background.FillFormat.FillType = FillType.Solid;
-    master.Background.FillFormat.SolidFillColor.Color = Color.Green;
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+    for (var secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++)
+    {
+        var firstMasterSlide = firstPresentation.Masters[firstMasterIndex];
+        var secondMasterSlide = secondPresentation.Masters[secondMasterIndex];
+        var areMasterSlidesEqual = firstMasterSlide.Equals(secondMasterSlide);
+
+        if (areMasterSlidesEqual)
+        {
+            Console.WriteLine(
+                "first.pptx master #{0} equals second.pptx master #{1}",
+                firstMasterIndex,
+                secondMasterIndex);
+        }
+    }
 }
 ```
 
+Для получения дополнительной информации см. [Compare Presentation Slides](/slides/ru/net/compare-slides/).
 
+## **Set Slide Master View as the Default View**
 
-{{% alert color="primary" title="See also" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/net/presentation-background/)  
-- [Presentation Theme](https://docs.aspose.com/slides/net/presentation-theme/)
+Используйте свойство `LastView` на [ViewProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/viewproperties/) для управления представлением, которое PowerPoint открывает первым. Следующий пример открывает презентацию в режиме Slide Master:
 
-{{% /alert %}}
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-## **Клонировать мастер‑слайд в другую презентацию**
-Чтобы клонировать мастер‑слайд в другую презентацию, вызовите метод [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) из целевой презентации, передав в него мастер‑слайд. Этот C#‑код показывает, как клонировать мастер‑слайд в другую презентацию:
-```c#
-using (Presentation presSource = new Presentation(), presTarget = new Presentation())
-{
-    IMasterSlide master = presTarget.Masters.AddClone(presSource.Masters[0]);
-}
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
 ```
 
+Для получения информации о настройках представления см. [Save Presentation](/slides/ru/net/save-presentation/).
 
+## **Remove Unused Master Slides**
 
-## **Добавить несколько мастер‑слайдов в презентацию**
-Aspose.Slides позволяет добавить несколько мастер‑слайдов и макетов слайдов в любую презентацию. Это даёт возможность настраивать стили, макеты и параметры форматирования слайдов множеством способов. 
+Иногда презентации содержат слайд‑мастера, которые больше не используются обычными слайдами. Удаление неиспользуемых мастеров может уменьшить размер файла и упростить обслуживание шаблона.
 
-В PowerPoint новые мастер‑слайды и макеты (из меню «Мастер‑слайд») добавляются так:
+Используйте [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/ru/net/aspose.slides/masterslidecollection/removeunused/) для удаления неиспользуемых мастеров из коллекции `Masters`:
 
-![todo:image_alt_text](slide-master_9.jpg)
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-В Aspose.Slides вы можете добавить новый мастер‑слайд, вызвав метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/):
-```c#
-pres.Masters.AddClone(pres.Masters[0]);
+presentation.Masters.RemoveUnused(ignorePreserveField: true);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
 
+Вы также можете воспользоваться методом низко‑кода [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/removeunusedmasterslides/):
 
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-## **Сравнение мастер‑слайдов**
-Мастер‑слайд реализует интерфейс [IBaseSlide](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide) с методом [Equals](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/methods/equals), который можно использовать для сравнения слайдов. Он возвращает `true`, если мастер‑слайды идентичны по структуре и статическому содержимому. 
-
-Два мастер‑слайда считаются равными, если их фигуры, стили, тексты, анимация и другие настройки совпадают. При сравнении не учитываются уникальные идентификаторы (например, SlideId) и динамическое содержимое (например, текущая дата в заполняющем поле даты). 
-
-
-## **Установить мастер‑слайд как представление по умолчанию для презентации**
-Aspose.Slides позволяет установить мастер‑слайд как представление по умолчанию для презентации. Представление по умолчанию — это то, что вы видите первым при открытии презентации. 
-
-Этот код показывает, как установить мастер‑слайд как представление по умолчанию в C#:
-```c#
-pres.ViewProperties.LastView = ViewType.SlideMasterView;
+Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
-
-
-## **Удалить неиспользуемые мастер‑слайды**
-
-Aspose.Slides предоставляет метод [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) (класса [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)), позволяющий удалять нежелательные и неиспользуемые мастер‑слайды. Этот C#‑код показывает, как удалить мастер‑слайд из презентации PowerPoint:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(pres);
-    
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
 
 ## **FAQ**
 
-**Что такое мастер‑слайд в PowerPoint?**
+**В чём разница между слайд‑мастером и макетным слайдом?**
 
-Мастер‑слайд — это шаблон слайда, определяющий макет, стили, темы, шрифты, фон и другие свойства слайдов презентации. Он позволяет задать и изменить внешний вид всех слайдов презентации одновременно.  
+Слайд‑мастер определяет общие настройки дизайна, такие как тема, фон, общие фигуры и стили текста. Макетный слайд принадлежит слайд‑мастеру и задаёт конкретное расположение заполнителей. Обычный слайд использует макетный слайд, поэтому наследует как от макета, так и от мастера.
 
-**Как применяется мастер‑слайд в презентации?**
+**Может ли одна презентация содержать несколько слайд‑мастеров?**
 
-Каждая презентация имеет как минимум один мастер‑слайд по умолчанию. Когда добавляется новый слайд, к нему автоматически применяется мастер‑слайд, обычно наследующийся от мастера предыдущего слайда. Презентация может содержать несколько мастер‑слайдов для стилизации разных частей по‑отдельности.  
+Да. Презентация может содержать несколько слайд‑мастеров. Используйте несколько мастеров, когда разные разделы требуют разных визуальных систем или фирменного стиля.
 
-**Какие элементы можно настраивать в мастер‑слайде?**
+**Стоит ли добавлять заполнители в слайд‑мастер или в макетный слайд?**
 
-Мастер‑слайд состоит из нескольких основных свойств, которые можно изменять:
+В большинстве случаев заполнители добавляют в макетные слайды. Общие визуальные элементы и общие форматирования размещайте на слайд‑мастере, а заполнители содержимого — на макетах, которые будут использовать обычные слайды.
 
-- **Background**: задаёт фон слайда.  
-- **BodyStyle**: определяет стили текста тела слайда.  
-- **Shapes**: управляет всеми фигурами на мастер‑слайде, включая заполнители и рамки изображений.  
-- **Controls**: работает с элементами ActiveX.  
-- **ThemeManager**: предоставляет доступ к менеджеру тем.  
-- **HeaderFooterManager**: управляет верхними и нижними колонтитулами.  
+**Могу ли я удалить слайд‑мастер, который всё ещё используется?**
 
-**Как добавить изображение в мастер‑слайд?**
-
-Добавление изображения в мастер‑слайд гарантирует его отображение на всех слайдах, зависящих от данного мастера. Например, размещение логотипа компании на мастер‑слайде сделает его видимым на каждом слайде презентации.  
-
-**Как мастер‑слайды связаны с макетами слайдов?**
-
-Макеты слайдов работают совместно с мастер‑слайдами, обеспечивая гибкость дизайна. Пока мастер‑слайд задаёт общие стили и темы, макет слайда позволяет варьировать расположение контента. Иерархия выглядит так:
-
-- **Мастер‑слайд** → определяет глобальные стили.  
-- **Макет слайда** → предоставляет разные варианты расположения контента.  
-- **Слайд** → наследует дизайн от своего макета слайда.  
-
-**Можно ли иметь несколько мастер‑слайдов в одной презентации?**
-
-Да, презентация может содержать несколько мастер‑слайдов. Это позволяет стилизовать разные разделы презентации различными способами, обеспечивая гибкость дизайна.  
-
-**Как получить и изменить мастер‑слайд с помощью Aspose.Slides?**
-
-В Aspose.Slides мастер‑слайд представлен интерфейсом `IMasterSlide`. Вы можете получить мастер‑слайд, используя свойство `Masters` объекта `Presentation`.
+Нет. Слайд‑мастер, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды в макеты под другим мастером или используйте метод очистки неиспользуемых мастеров, который удаляет только те мастера, которые не задействованы.

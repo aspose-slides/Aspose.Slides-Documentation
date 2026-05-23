@@ -1,351 +1,373 @@
 ---
-title: إدارة ماسترات شرائح العرض على Android
-linktitle: ماستر الشريحة
+title: إدارة شرائح الرئيس في العروض التقديمية على Android
+linktitle: شريحة الرئيس
 type: docs
 weight: 70
 url: /ar/androidjava/slide-master/
 keywords:
-- ماستر الشريحة
-- الشريحة الرئيسية
-- شريحة ماستر PPT
-- شرائح ماستر متعددة
-- مقارنة شرائح الماستر
-- الخلفية
-- العنصر النائب
-- استنساخ شريحة ماستر
-- نسخ شريحة ماستر
-- تكرار شريحة ماستر
-- شريحة ماستر غير مستخدمة
+- شريحة رئيس
+- شريحة رئيسية
+- شريحة رئيس PPT
+- شرائح رئيسية متعددة
+- مقارنة شرائح الرئيس
+- خلفية
+- عنصر نائب
+- استنساخ شريحة رئيس
+- نسخ شريحة رئيس
+- تكرار شريحة رئيس
+- شريحة رئيس غير مستخدمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "إدارة ماسترات الشرائح في Aspose.Slides لـ Android: إنشاء وتحرير وتطبيق التخطيطات والسمات والعناصر النائبة على ملفات PPT و PPTX و ODP باستخدام أمثلة Java موجزة."
+description: "إدارة شرائح الرئيس في Aspose.Slides for Android عبر Java: الوصول، التعديل، الاستنساخ، المقارنة، وإزالة شرائح الرئيس في عروض PowerPoint وOpenDocument."
 ---
+## **نظرة عامة**
 
-## **ما هو Slide Master في PowerPoint**
+يُعرّف **slide master** إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن يحتوي على أشكال مشتركة، وشعارات، وخلفيات، وأنماط نصية، وإعدادات سمة، وإعدادات تذييل. في PowerPoint، يُعد تعديل slide master الطريقة المعتادة للحفاظ على تناسق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
 
-إن **Slide Master** هو قالب شريحة يحدد التخطيط، الأنماط، السمة، الخطوط، الخلفية، وغيرها من الخصائص للشرائح في عرض تقديمي. إذا كنت ترغب في إنشاء عرض تقديمي (أو سلسلة من العروض) بنفس النمط والقالب لشركتك، يمكنك استخدام Slide Master.  
+يدعم Aspose.Slides for Android عبر Java النموذج نفسه. يمكن للعرض التقديمي أن يحتوي على شريحة رئيسية واحدة أو أكثر، ويمكن لكل شريحة رئيسية أن تحتوي على عدة شرائح تخطيط. عادةً لا تُشير الشرائح العادية إلى شريحة رئيسية مباشرة. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتلك الشريحة التخطيطية تنتمي إلى شريحة رئيسية.
 
-يكون Slide Master مفيدًا لأنه يتيح لك ضبط وتغيير مظهر جميع شرائح العرض التقديمي مرة واحدة. يدعم Aspose.Slides آلية Slide Master من PowerPoint.  
+التسلسل الهرمي هو:
 
-كما يتيح VBA تعديل Slide Master وتنفيذ نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة أشكال، تخصيص التخطيط، إلخ. يوفر Aspose.Slides آليات مرنة لاستخدام Slide Masters وأداء المهام الأساسية معها.  
+1. **Slide master** - يحدد التصميم والسمة المشتركة.  
+1. **Layout slide** - يعرّف ترتيبًا محددًا للعناصر النائبة وتنسيق على مستوى التخطيط.  
+1. **Normal slide** - يحتوي على محتوى العرض الفعلي ويستخدم شريحة تخطيط واحدة.
 
-هذه هي عمليات Slide Master الأساسية:
-- إنشاء Slide Master.
-- تطبيق Slide Master على شرائح العرض التقديمي.
-- تغيير خلفية Slide Master. 
-- إضافة صورة أو عنصر نائب أو Smart Art، إلخ إلى Slide Master.
+![تسلسل شريحة الرئيس، شرائح التخطيط، والشرائح العادية](slide-master_2.jpg)
 
-هذه هي العمليات المتقدمة المتعلقة بـ Slide Master:
-- مقارنة Slide Masters.
-- دمج Slide Masters.
-- تطبيق عدة Slide Masters.
-- نسخ شريحة مع Slide Master إلى عرض تقديمي آخر.
-- العثور على Slide Masters مكررة في العروض التقديمية.
-- تعيين Slide Master كعرض افتراضي للعرض التقديمي.
+في Aspose.Slides، يُمثَّل slide master بواجهة [IMasterSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/). جميع الشرائح الرئيسة في عرض تقديمي متوفرة عبر مجموعة [Presentation.getMasters](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getMasters--)، التي تُنفّذ [IMasterSlideCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/). للاطلاع على كامل سطح API لـ Android عبر Java، راجع [مرجع API com.aspose.slides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/).
 
-{{% alert color="primary" %}} 
-ربما ترغب في الاطلاع على Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) لأنه تنفيذ مباشر لبعض العمليات الأساسية الواردة هنا.
-{{% /alert %}} 
+{{% alert color="info" title="Inheritance" %}}
 
-## **كيف يتم تطبيق Slide Master**
+عند تعريف الخاصية نفسها على أكثر من مستوى، يفوز المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّف كل من slide master وlayout slide خلفية، فإن الشرائح القائمة على ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/slides/ar/androidjava/slide-layout/).
 
-قبل العمل مع Slide Master، قد ترغب في فهم كيفية استخدامها في العروض التقديمية وتطبيقها على الشرائح. 
-
-* يحتوي كل عرض تقديمي على Slide Master واحد على الأقل بشكل افتراضي. 
-* يمكن للعرض التقديمي أن يحتوي على عدة Slide Masters. يمكنك إضافة عدة Slide Masters واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة. 
-
-في **Aspose.Slides**، يُمثَّل Slide Master بواسطة النوع [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) .  
-
-كائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) في Aspose.Slides يحتوي على قائمة [**getMasters**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) من النوع [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) ، والتي تحتوي على جميع الشرائح الرئيسية المعرفة في العرض.  
-
-إلى جانب عمليات CRUD، يحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) على الطرق المفيدة: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) و[**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . هذه الطرق موروثة من دالة استنساخ الشرائح الأساسية، لكن عند التعامل مع Slide Masters تسمح لك بتنفيذ إعدادات معقدة.  
-
-عند إضافة شريحة جديدة إلى عرض تقديمي، يُطبق Slide Master عليها تلقائيًا. يتم اختيار Slide Master الخاص بالشريحة السابقة بشكل افتراضي.  
-
-**Note**: تُخزن شرائح العرض في قائمة [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--)، وتُضاف كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان للعرض Master واحد فقط، يتم اختيار ذلك Master لجميع الشرائح الجديدة. وهذا هو السبب في عدم الحاجة لتعريف Slide Master لكل شريحة جديدة تُنشئها.  
-
-المبدأ نفسه للـ PowerPoint وAspose.Slides. على سبيل المثال، في PowerPoint، عند إضافة شريحة جديدة يمكنك الضغط على الخط السفلي تحت آخر شريحة، ثم تُنشأ شريحة جديدة (مع Slide Master الخاص بالعرض الأخير):
-![todo:image_alt_text](slide-master_1.jpg)
-
-في Aspose.Slides، يمكنك تنفيذ المهمة المكافئة باستخدام طريقة [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) ضمن فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).  
-
-## **Slide Master في هيكل الشرائح**
-
-استخدام Slide Layouts مع Slide Master يتيح أقصى مرونة. يسمح Slide Layout بضبط جميع الأنماط نفسها كما في Slide Master (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عندما تُدمج عدة Slide Layouts على Slide Master يُنشأ نمط جديد. عند تطبيق Slide Layout على شريحة واحدة، يمكنك تغيير نمطها عن النمط المطبق من قبل Slide Master.  
-
-Slide Master يتجاوز جميع عناصر الإعداد: Slide Master → Slide Layout → Slide:
-![todo:image_alt_text](slide-master_2)
-
-كل كائن [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) يحتوي على خاصية [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--) التي تُعيد قائمة من Slide Layouts. نوع [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide) يمتلك خاصية [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--) التي تُشير إلى Slide Layout المطبق على الشريحة. يتم التفاعل بين الشريحة وSlide Master عبر Slide Layout.  
-
-{{% alert color="info" title="Note" %}}
-* في Aspose.Slides، جميع إعدادات الشريحة (Slide Master، Slide Layout، والشريحة نفسها) هي في الواقع كائنات شريحة تُطبق واجهة [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide).  
-* لذلك قد تُطبق Slide Master وSlide Layout نفس الخصائص ويجب معرفة كيفية تطبيق قيمها على كائن [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide). يُطبق Slide Master أولاً على الشريحة ثم يُطبق Slide Layout. على سبيل المثال، إذا كان لكلٍ منهما قيمة خلفية، ستحصل الشريحة على الخلفية من Slide Layout.  
 {{% /alert %}}
 
-## **ما يحتويه Slide Master**
+## **الوصول إلى Slide Masters**
 
-لفهم كيفية تعديل Slide Master، عليك معرفة مكوناته. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/):
+في PowerPoint، يمكنك فتح عرض Slide Master من **View** > **Slide Master**.
 
-- [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) الحصول/تعيين خلفية الشريحة.  
-- [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) الحصول/تعيين أنماط النص لجسم الشريحة.  
-- [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getShapes--) الحصول/تعيين جميع الأشكال في Slide Master (العناصر النائبة، إطارات الصور، إلخ).  
-- [getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getControls--) الحصول/تعيين عناصر التحكم ActiveX.  
-- [getThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterThemeable#getThemeManager--) الحصول على مدير السمة.  
-- [getHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) الحصول على مدير الترويسة والتذييل.  
+![أمر Slide Master في تبويب View في PowerPoint](slide-master_3.jpg)
 
-طرق Slide Master:
+في Aspose.Slides، استخدم مجموعة `getMasters()` للوصول إلى الشرائح الرئيسة:
 
-- [getDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getDependingSlides--) الحصول على جميع الشرائح التي تعتمد على Slide Master.  
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) يتيح لك إنشاء Slide Master جديد بناءً على Slide Master الحالي وسمة جديدة. ثم يُطبق Slide Master الجديد على جميع الشرائح التابعة.  
-
-## **الحصول على Slide Master**
-
-في PowerPoint، يمكن الوصول إلى Slide Master عبر قائمة View → Slide Master:
-![todo:image_alt_text](slide-master_3.jpg)
-
-باستخدام Aspose.Slides، يمكنك الوصول إلى Slide Master بهذه الطريقة:
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // يوفر وصولًا إلى الشريحة الرئيسية للعرض التقديمي
-    IMasterSlide masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
+    IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+    int masterSlideCount = presentation.getMasters().size();
+    int firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-
-واجهة [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) تمثل Slide Master. خاصية [Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--) (المرتبطة بنوع [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection)) تحتوي على قائمة بجميع Slide Masters المعرفة في العرض.  
-
-## **إضافة صورة إلى Slide Master**
-
-عند إضافة صورة إلى Slide Master، ستظهر تلك الصورة على جميع الشرائح المعتمدة على ذلك الـ Master. على سبيل المثال، يمكنك وضع شعار الشركة على Slide Master ثم العودة إلى وضع تحرير الشرائح؛ ستظهر الصورة على كل شريحة.  
-![todo:image_alt_text](slide-master_4.png)
-
-يمكنك إضافة صور إلى Slide Master باستخدام Aspose.Slides:
-```java
-Presentation pres = new Presentation();
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-لمزيد من المعلومات حول إضافة صور إلى شريحة، راجع مقالة [Picture Frame](/slides/ar/androidjava/picture-frame/#create-picture-frame).  
-{{% /alert %}}
-
-## **إضافة عنصر نائب إلى Slide Master**
-
-هذه الحقول النصية هي عناصر نائب قياسية على Slide Master:
-
-* Click to edit Master title style
-* Edit Master text styles
-* Second level
-* Third level  
-
-تظهر أيضًا على الشرائح المستندة إلى Slide Master. يمكنك تعديل تلك العناصر النائبة على Slide Master وتُطبق التغييرات تلقائيًا على الشرائح.  
-
-في PowerPoint، يمكنك إضافة عنصر نائب عبر المسار Slide Master → Insert Placeholder:
-![todo:image_alt_text](slide-master_5.png)
-
-دعنا نستعرض مثالًا أكثر تعقيدًا للعناصر النائبة باستخدام Aspose.Slides. اعتبر شريحة تحوي عناصر نائب مُستندة إلى Slide Master:
-![todo:image_alt_text](slide-master_6.png)
-
-نريد تغيير تنسيق العنوان والفرعي على Slide Master بهذه الطريقة:
-![todo:image_alt_text](slide-master_7.png)
-
-أولاً، نسترجع محتوى عنصر العنوان النائب من كائن Slide Master ثم نستخدم حقل `PlaceHolder.FillFormat`:
-```java
-public static void main(String[] args) {
-    Presentation pres = new Presentation();
-    try {
-        IMasterSlide master = pres.getMasters().get_Item(0);
-        IAutoShape placeHolder = findPlaceholder(master, PlaceholderType.Title);
-        placeHolder.getFillFormat().setFillType(FillType.Gradient);
-        placeHolder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, new Color(255, 0, 0));
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, new Color(128, 0, 128));
-
-        pres.save("pres.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-}
-
-static IAutoShape findPlaceholder(IMasterSlide master, int type)
-{
-    for (IShape shape : master.getShapes())
-    {
-        IAutoShape autoShape = (IAutoShape) shape;
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-سيتغير نمط العنوان وتنسيقه لجميع الشرائح المعتمدة على الـ Slide Master:
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}} 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/androidjava/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/androidjava/text-formatting/)
-{{% /alert %}}
-
-## **تغيير الخلفية على Slide Master**
-
-عند تغيير لون خلفية شريحة الـ Master، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يُظهر هذا الكود Java العملية:
-```java
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(FillType.Solid);
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/androidjava/presentation-background/)
-- [Presentation Theme](https://docs.aspose.com/slides/androidjava/presentation-theme/)
-{{% /alert %}}
-
-## **استنساخ Slide Master إلى عرض تقديمي آخر**
-
-لاستنساخ Slide Master إلى عرض آخر، استدعِ طريقة [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) من العرض الهدف مع تمرير Slide Master إليه. يوضح هذا الكود Java كيفية استنساخ Slide Master إلى عرض آخر:
-```java
-Presentation presSource = new Presentation();
-Presentation presTarget = new Presentation();
-try {
-    IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) presSource.dispose();
-}
-```
-
-
-## **إضافة عدة Slide Masters إلى عرض تقديمي**
-
-يسمح Aspose.Slides بإضافة عدة Slide Masters وSlide Layouts إلى أي عرض تقديمي. يتيح ذلك ضبط الأنماط، التخطيطات، وخيارات التنسيق للشرائح بطرق متعددة.  
-
-في PowerPoint، يمكنك إضافة Slide Masters وتخطيطات جديدة (من قائمة "Slide Master") بهذه الطريقة:
-![todo:image_alt_text](slide-master_9.jpg)
-
-باستخدام Aspose.Slides، يمكنك إضافة Slide Master جديد عبر استدعاء طريقة [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-):
-```java
-// يضيف شريحة ماستر جديدة
-IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-## **مقارنة Slide Masters**
-
-تُطبق الشريحة الرئيسية واجهة [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) التي تحتوي على طريقة [**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-)، والتي يمكن استخدامها لمقارنة الشرائح. تُرجع `true` إذا كانت Slide Masters متطابقة في البنية والمحتوى الثابت.  
-
-تُعد Slide Masters متساوية إذا كان أشكالها، أنماطها، نصوصها، الرسوم المتحركة وإعداداتها الأخرى متساوية. لا تُؤخذ القيم المعرفية الفريدة (مثل SlideId) أو المحتوى الديناميكي (مثل قيمة التاريخ في العنصر النائب) في الاعتبار.  
-
-## **تعيين Slide Master كعرض افتراضي للعرض التقديمي**
-
-يسمح Aspose.Slides بتعيين Slide Master كعرض افتراضي للعرض. العرض الافتراضي هو ما تُراه أولًا عند فتح العرض.  
-
-يُظهر هذا الكود كيفية تعيين Slide Master كعرض افتراضي للعرض باستخدام Java:
-```java
-// ينشئ كائنًا من فئة Presentation التي تمثل ملف العرض التقديمي
-Presentation presentation = new Presentation();
-try {
-    // يضبط العرض الافتراضي كـ SlideMasterView
-    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
-
-    // يحفظ العرض التقديمي
-    presentation.save("PresView.pptx", SaveFormat.Pptx);
+    System.out.println("Master slides: " + masterSlideCount);
+    System.out.println("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+يمكنك أيضًا الحصول على شريحة الرئيس المستخدمة من قبل شريحة عادية عبر تخطيطها:
 
-## **إزالة Slide Masters غير المستخدمة**
-
-يوفر Aspose.Slides طريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من فئة [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)) للسماح بحذف الشرائح الرئيسية غير المرغوبة وغير المستخدمة. يُظهر هذا الكود Java كيفية إزالة Slide Master من عرض PowerPoint:
 ```java
-Presentation pres = new Presentation("pres.pptx");
- try {
-     Compress.removeUnusedMasterSlides(pres);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = slide.getLayoutSlide();
+    IMasterSlide masterSlide = layoutSlide.getMasterSlide();
+    String masterSlideName = masterSlide.getName();
 
-     pres.save("pres-out.pptx", SaveFormat.Pptx);
- } finally {
-     if (pres != null) pres.dispose();
- }
+    System.out.println(masterSlideName);
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **ما يحتويه Slide Master**
 
-## **الأسئلة الشائعة**
+شريحة الرئيس هي كائن شبيه بالشريحة. فهي تُنفّذ [IBaseSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/)، لذا تُظهر العديد من خصائص الشريحة نفسها المستخدمة في الشرائح العادية وشرائح التخطيط.
 
-**ما هو Slide Master في PowerPoint؟**
+تشمل الأعضاء الشائعة المستخدمة في شريحة الرئيس ما يلي:
 
-Slide Master هو قالب شريحة يحدد التخطيط، الأنماط، السُمات، الخطوط، الخلفية، وغيرها من الخصائص للشرائح في عرض تقديمي. يتيح لك ضبط وتغيير مظهر جميع الشرائح مرة واحدة.  
+| العضو | الغرض |
+| --- | --- |
+| `getBackground()` | يضبط خلفية الشريحة على مستوى الرئيس. |
+| `getShapes()` | يخزن الأشكال الموجودة على الرئيس، مثل الشعارات، وإطارات الصور، والنص المشترك. |
+| `getLayoutSlides()` | يخزن شرائح التخطيط التي تنتمي إلى الرئيس. |
+| `getThemeManager()` | يُوفر الوصول إلى واجهات برمجة تطبيقات سمة الرئيس. |
+| `getHeaderFooterManager()` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للـ master وتخطيطاتها الفرعية. |
+| `getDependingSlides()` | يُعيد الشرائح العادية التي تعتمد على الرئيس عبر تخطيطاتها. |
 
-**كيف يتم تطبيق Slide Master في عرض تقديمي؟**
+## **إضافة صورة إلى Slide Master**
 
-كل عرض تقديمي يحتوي على Slide Master واحد على الأقل بشكل افتراضي. عند إضافة شريحة جديدة، يُطبق عليها Slide Master تلقائيًا، عادةً ما يكون Master الشريحة السابقة هو المختار. يمكن للعرض أن يحتوي على عدة Slide Masters لتنسيق أجزاء مختلفة بشكل فريد.  
+عند إضافة صورة إلى شريحة رئيسية، تظهر على الشرائح التي تستخدم تخطيطات من هذا الرئيس. وهذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، والعناصر البصرية المتكررة الأخرى.
 
-**ما العناصر التي يمكن تخصيصها في Slide Master؟**
+المثال التالي يضيف شعارًا إلى الشريحة الرئيسة الأولى:
 
-يتألف Slide Master من عدة خصائص أساسية يمكن تخصيصها:
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IImage logo = Images.fromFile("logo.png");
 
-- **Background**: ضبط خلفية الشريحة.  
-- **BodyStyle**: تعريف أنماط النص لجسم الشريحة.  
-- **Shapes**: إدارة جميع الأشكال على Slide Master، بما في ذلك العناصر النائبة وإطارات الصور.  
-- **Controls**: التعامل مع عناصر التحكم ActiveX.  
-- **ThemeManager**: الوصول إلى مدير السمة.  
-- **HeaderFooterManager**: إدارة الترويسات والتذييلات.  
+    try {
+        IPPImage logoImage = presentation.getImages().addImage(logo);
 
-**كيف يمكنني إضافة صورة إلى Slide Master؟**
+        masterSlide.getShapes().addPictureFrame(
+                ShapeType.Rectangle,
+                20,
+                20,
+                80,
+                80,
+                logoImage);
+    } finally {
+        logo.dispose();
+    }
 
-إضافة صورة إلى Slide Master تضمن ظهورها على جميع الشرائح التي تعتمد على ذلك الـ Master. على سبيل المثال، وضع شعار الشركة على Slide Master سيظهره على كل شريحة في العرض.  
+    presentation.save("presentation-with-logo.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**كيف يرتبط Slide Master بـ Slide Layouts؟**
+لمزيد من المعلومات حول إطارات الصور، راجع [Picture Frame](/slides/ar/androidjava/picture-frame/).
 
-تعمل Slide Layouts بالتعاون مع Slide Master لتوفير مرونة في تصميم الشرائح. يحدد Slide Master الأنماط والسُمات العامة، بينما تسمح Slide Layouts بتنوع ترتيب المحتوى. الهرمية كالتالي:
+## **العمل مع العناصر النائبة (Placeholders)**
 
-- **Slide Master** → يحدد الأنماط العالمية.  
-- **Slide Layout** → يوفر ترتيبات محتوى مختلفة.  
-- **Slide** → يرث التصميم من Slide Layout الخاص به.  
+عادةً ما تُعرّف العناصر النائبة في شرائح التخطيط. توفر شريحة الرئيس النمط والسمة المشتركة التي يرثها تلك التخطيطات، بينما يقرر كل تخطيط أي العناصر النائبة متاحة وأين توضع.
 
-**هل يمكن أن يكون لدي عدة Slide Masters في عرض تقديمي واحد؟**
+في PowerPoint، تتوفر أوامر العناصر النائبة في عرض Slide Master.
 
-نعم، يمكن للعرض أن يحتوي على عدة Slide Masters. يتيح ذلك تنسيق أقسام مختلفة من العرض بطرق متعددة، مما يوفر مرونة في التصميم.  
+![أمر Insert Placeholder في عرض Slide Master في PowerPoint](slide-master_5.png)
 
-**كيف يمكنني الوصول إلى Slide Master وتعديله باستخدام Aspose.Slides؟**
+لإضافة عناصر نائبة جديدة باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى الرئيس:
 
-في Aspose.Slides، يُمثَّل Slide Master بواجهة [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/). يمكنك الوصول إلى Slide Master باستخدام طريقة [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) لكائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide blankLayoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    if (blankLayoutSlide == null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(SlideLayoutType.Blank, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+يمكنك أيضًا تنسيق أشكال العناصر النائبة التي توجد بالفعل على شريحة الرئيس. المثال التالي يجد العنصر النائب للعنوان ويطبق تعبئة تدرجية خطية:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IAutoShape titlePlaceholder = null;
+
+    for (IShape shape : masterSlide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+
+            if (autoShape.getPlaceholder() != null &&
+                    autoShape.getPlaceholder().getType() == PlaceholderType.Title) {
+                titlePlaceholder = autoShape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder != null) {
+        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
+        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+
+        titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![العنوان المُنسق الموروث من شريحة الرئيس إلى الشرائح العادية](slide-master_8.png)
+
+لمزيد من خيارات تنسيق العناصر النائبة والنص، راجع [Set Prompt Text in Placeholder](/slides/ar/androidjava/manage-placeholder/) و[Text Formatting](/slides/ar/androidjava/text-formatting/).
+
+## **تغيير خلفية Slide Master**
+
+الخلفية الرئيسة تُورّث إلى التخطيطات والشرائح التي لا تُعيد تعريفها. المثال التالي يضبط لون خلفية صلبة للشريحة الرئيسة الأولى:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    int masterBackgroundColor = Color.GREEN;
+
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+للمواضيع ذات الصلة، راجع [Presentation Background](/slides/ar/androidjava/presentation-background/) و[Presentation Theme](/slides/ar/androidjava/presentation-theme/).
+
+## **استنساخ Slide Master إلى عرض تقديمي آخر**
+
+استخدم [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) لنسخ شريحة الرئيس إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الرئيس المستنسخ في التخطيطات والشرائح بالعرض الهدف.
+
+```java
+Presentation sourcePresentation = new Presentation("source.pptx");
+Presentation destinationPresentation = new Presentation("destination.pptx");
+try {
+    IMasterSlide sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    IMasterSlide clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+إذا كنت بحاجة إلى استنساخ الشرائح العادية مع الرئيس الخاص بها، راجع [Clone Slides](/slides/ar/androidjava/clone-slides/).
+
+## **إضافة عدة Slide Masters**
+
+يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. هذا مفيد عندما تتطلب الأقسام المختلفة هوية بصرية، أو هيكل صفحات، أو إعدادات سمة مختلفة.
+
+![أوامر PowerPoint لإدراج وإدارة شرائح الرئيس](slide-master_9.jpg)
+
+المثال التالي يستنسخ الرئيس الافتراضي، يمنح النسخة خلفية مختلفة، ينشئ تخطيطًا تحت هذا الرئيس المستنسخ، ويضيف شريحة جديدة تعتمد على ذلك التخطيط:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
+    IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    int sectionMasterBackgroundColor = Color.GRAY;
+
+    sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    ILayoutSlide sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    if (sourceBlankLayout == null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    ILayoutSlide sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **مقارنة Slide Masters**
+
+يمكن مقارنة شرائح الرئيس باستخدام طريقة `equals` الموروثة من [IBaseSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/). تتحقق المقارنة من الهيكل والمحتوى الثابت، مثل الأشكال، والنص، والتنسيق، والرسوم المتحركة، وإعدادات الشريحة الأخرى. لا تُقارن المعرفات الفريدة مثل معرفات الشرائح، ولا قيم العناصر النائبة الديناميكية مثل التاريخ الحالي.
+
+```java
+Presentation firstPresentation = new Presentation("first.pptx");
+Presentation secondPresentation = new Presentation("second.pptx");
+try {
+    int firstPresentationMasterCount = firstPresentation.getMasters().size();
+    int secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (int firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (int secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            IMasterSlide firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            IMasterSlide secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            boolean areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                System.out.printf(
+                        "first.pptx master #%d equals second.pptx master #%d%n",
+                        firstMasterIndex,
+                        secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+لمزيد من المعلومات، راجع [Compare Presentation Slides](/slides/ar/androidjava/compare-slides/).
+
+## **ضبط عرض Slide Master كعرض افتراضي**
+
+استخدم طريقة `setLastView` على [ViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/viewproperties/) للتحكم في العرض الذي يفتحه PowerPoint أولاً. المثال التالي يفتح العرض التقديمي في عرض Slide Master:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("presentation-master-view.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+لمزيد من إعدادات العرض، راجع [Save Presentation](/slides/ar/androidjava/save-presentation/).
+
+## **إزالة شرائح الرئيس غير المستخدمة**
+
+أحيانًا يحتوي العرض التقديمي على شرائح رئيسة لم تعد تُستخدم من قبل أي شريحة عادية. إزالة الشرائح الرئيسة غير المستخدمة يمكن أن يقلل حجم الملف ويسهّل صيانة القوالب.
+
+استخدم `removeUnused` لإزالة الشرائح الرئيسة غير المستخدمة من مجموعة `getMasters()`:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+يمكنك أيضًا استخدام طريقة منخفضة الكود [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **الأسئلة المتداولة**
+
+**ما الفرق بين slide master وlayout slide؟**
+
+Slide master يحدد إعدادات التصميم المشتركة مثل السمة، الخلفية، الأشكال المشتركة، وأنماط النص. Layout slide ينتمي إلى slide master ويُعرّف ترتيبًا محددًا للعناصر النائبة. الشريحة العادية تستخدم layout slide، thus تُورّث من كل من التخطيط والرئيس.
+
+**هل يمكن للعرض التقديمي أن يحتوي على عدة slide masters؟**
+
+نعم. يمكن للعرض التقديمي أن يحتوي على عدة slide masters. استخدم عدة رؤساء عندما تحتاج الأقسام المختلفة إلى أنظمة بصرية أو هوية علامة تجارية مختلفة.
+
+**هل يجب إضافة العناصر النائبة إلى slide master أم إلى layout slide؟**
+
+في معظم الحالات، أضف العناصر النائبة إلى layout slides. ضع العناصر البصرية المشتركة والتنسيق المشترك على slide master، ثم ضع عناصر النائب للمحتوى على التخطيطات التي ستستخدمها الشرائح العادية.
+
+**هل يمكن حذف شريحة رئيسة لا تزال قيد الاستخدام؟**
+
+لا. لا يمكن حذف شريحة رئيسة لها شرائح معتمدة بأمان مباشرة. انقل تلك الشرائح أولاً إلى تخطيطات تحت رئيس آخر، أو استخدم طريقة تنظيف الرؤساء غير المستخدمة التي تُزيل فقط الرؤساء غير المستعملة.

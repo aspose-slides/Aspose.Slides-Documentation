@@ -14,7 +14,7 @@ keywords:
 - 占位符
 - 克隆母版幻灯片
 - 复制母版幻灯片
-- 重复的母版幻灯片
+- 重复母版幻灯片
 - 未使用的母版幻灯片
 - PowerPoint
 - OpenDocument
@@ -22,360 +22,364 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "通过 Java 在 Aspose.Slides for Node.js 中管理幻灯片母版：创建、编辑并应用布局、主题和占位符到 PPT、PPTX 和 ODP，提供简明示例。"
+description: "在 Aspose.Slides for Node.js via Java 中管理幻灯片母版：访问、编辑、克隆、比较并删除 PowerPoint 和 OpenDocument 演示文稿中的母版幻灯片。"
 ---
+## **概述**
 
-## **PowerPoint 中的母版是什么**
+**幻灯片母版** 定义了一组幻灯片的共享设计设置。它可以包含通用形状、徽标、背景、文字样式、主题设置和页脚设置。在 PowerPoint 中，编辑幻灯片母版是保持演示文稿一致性的常用方式，无需在每张幻灯片上重复相同的格式。
 
-A **Slide Master** 是一种幻灯片模板，定义了演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。如果你想为公司创建一套样式统一的演示文稿（或一系列演示文稿），可以使用母版。 
+Aspose.Slides for Node.js via Java 支持相同的模型。一个演示文稿可以包含一个或多个母版幻灯片，每个母版幻灯片可以包含若干版式幻灯片。普通幻灯片通常不会直接引用母版幻灯片，而是使用版式幻灯片，而该版式幻灯片属于某个母版幻灯片。
 
-A Slide Master 有用，因为它允许一次性设置并更改所有演示文稿幻灯片的外观。Aspose.Slides 支持来自 PowerPoint 的母版机制。 
+层级结构为：
 
-VBA 也允许你操作母版并执行 PowerPoint 支持的相同操作：更改背景、添加形状、自定义布局等。Aspose.Slides 提供灵活的机制，使你能够使用母版并执行基本任务。 
+1. **幻灯片母版** – 定义共享的设计和主题。  
+1. **版式幻灯片** – 定义占位符的具体排列以及版式级别的格式。  
+1. **普通幻灯片** – 包含实际的演示内容并使用一个版式幻灯片。
 
-These are basic Slide Master operations:
+![母版幻灯片、版式幻灯片和普通幻灯片的层级结构](slide-master_2.jpg)
 
-- 创建或获取母版。
-- 将母版应用于演示文稿幻灯片。
-- 更改母版背景。 
-- 向母版添加图像、占位符、Smart Art 等。
+在 Aspose.Slides 中，幻灯片母版由 [MasterSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/masterslide/) 类表示。演示文稿中的所有母版幻灯片可以通过 `Presentation.getMasters()` 集合获取。
 
-These are more advanced operations involving Slide Master: 
+{{% alert color="info" title="Inheritance" %}}
 
-- 比较母版。
-- 合并母版。
-- 应用多个母版。
-- 将带有母版的幻灯片复制到另一个演示文稿。
-- 查找演示文稿中重复的母版。
-- 将母版设为演示文稿的默认视图。
-
-{{% alert color="primary" %}} 
-
-您可能想查看 Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) 因为它是本文所述核心过程的一些实时实现。
-
-{{% /alert %}} 
-
-
-## **如何应用母版**
-
-在使用母版之前，你可能想了解它们在演示文稿中的使用方式以及如何应用到幻灯片。 
-
-* 每个演示文稿默认至少有一个母版。 
-* 演示文稿可以包含多个母版。你可以添加多个母版，并用它们以不同方式为演示文稿的不同部分设置样式。 
-
-在 **Aspose.Slides** 中，母版由[**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/)类型表示。
-
-Aspose.Slides 的[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)对象包含[**getMasters**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--)列表，返回[**MasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/)类型，该集合包含演示文稿中定义的所有母版列表。
-
-除了 CRUD 操作外，[MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/)类还提供以下有用方法： [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) 和 [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-) 方法。这些方法继承自基本的幻灯片克隆功能。但在处理母版时，这些方法允许你实现复杂的设置。
-
-当向演示文稿添加新幻灯片时，会自动为其应用母版。默认选择前一张幻灯片的母版。
-
-**注意**：演示文稿幻灯片存储在[getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides--)列表中，默认情况下每个新幻灯片都会添加到集合末尾。如果演示文稿仅包含一个母版，则该母版会被选为所有新幻灯片的母版。这就是你无需为创建的每个新幻灯片单独定义母版的原因。
-
-PowerPoint 和 Aspose.Slides 的原理相同。例如，在 PowerPoint 中，当你在最后一张幻灯片下方单击底部线时，会创建一个带有上一张演示文稿母版的新幻灯片：
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-在 Aspose.Slides 中，你可以使用[addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)方法在[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)类下执行相同任务。
-
-## **母版在幻灯片层级中的位置**
-
-使用幻灯片布局与母版相结合可实现最大灵活性。幻灯片布局允许你设置与母版相同的所有样式（背景、字体、形状等）。然而，当多个幻灯片布局组合在母版上时，会创建新的样式。当你将幻灯片布局应用于单个幻灯片时，可以将其样式从母版应用的样式中更改。
-
-母版高于所有设置项：母版 → 幻灯片布局 → 幻灯片：
-
-![todo:image_alt_text](slide-master_2)
-
-每个[MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide)对象都有一个[**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getLayoutSlides--)属性，返回幻灯片布局列表。一个[Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide)类型拥有[**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getLayoutSlide--)属性，指向应用于该幻灯片的幻灯片布局。幻灯片与母版之间的交互通过幻灯片布局实现。
-
-{{% alert color="info" title="Note" %}}
-
-* 在 Aspose.Slides 中，所有幻灯片设置（母版、幻灯片布局以及幻灯片本身）实际上都是实现了[**BaseSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide)类的幻灯片对象。
-* 因此，母版和幻灯片布局可能实现相同的属性，你需要了解它们的值如何应用到[Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide)对象。母版首先应用于幻灯片，然后应用幻灯片布局。例如，如果母版和幻灯片布局都具有背景值，最终幻灯片将使用幻灯片布局的背景。
+当同一属性在多个层级上定义时，层级更具体的会覆盖更上层的。例如，如果母版幻灯片和版式幻灯片都定义了背景，则基于该版式的幻灯片使用版式背景。有关版式幻灯片的更多信息，请参阅 [Apply or Change Slide Layouts](/nodejs-java/slide-layout/)。
 
 {{% /alert %}}
 
+## **访问幻灯片母版**
 
-## **母版包含哪些内容**
+在 PowerPoint 中，可以通过 **视图** > **幻灯片母版** 打开幻灯片母版视图。
 
-要了解如何更改母版，需要知道其组成部分。这些是[MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/)的核心属性。
+![PowerPoint “视图”选项卡上的幻灯片母版命令](slide-master_3.jpg)
 
-- [getBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getBackground--) 获取/设置幻灯片背景。
-- [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getBodyStyle--) 获取/设置幻灯片正文的文本样式。
-- [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getShapes--) 获取/设置母版的所有形状（占位符、图片框等）。
-- [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getControls--) 获取/设置 ActiveX 控件。
-- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getThemeManager) 获取主题管理器。
-- [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getHeaderFooterManager--) 获取页眉页脚管理器。
+在 Aspose.Slides 中，使用 `getMasters()` 集合访问母版幻灯片：
 
-母版方法：
-
-- [getDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getDependingSlides--) 获取所有依赖于该母版的幻灯片。
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) 允许你基于当前母版和新主题创建新的母版，然后将该新母版应用于所有依赖的幻灯片。
-
-## **获取母版**
-
-在 PowerPoint 中，可通过“视图 -> 幻灯片母版”菜单访问母版：
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-使用 Aspose.Slides，你可以这样访问母版：
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // 获取对演示文稿母版幻灯片的访问
-    var masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
+    let firstMasterSlide = presentation.getMasters().get_Item(0);
+    let masterSlideCount = presentation.getMasters().size();
+    let firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-
-[MasterSlide]类表示母版。[Masters]属性（对应[MasterSlideCollection]类型）包含演示文稿中定义的所有母版列表。
-
-## **向母版添加图像**
-
-当向母版添加图像时，该图像会出现在所有依赖该母版的幻灯片上。
-
-例如，你可以在母版上放置公司徽标和几张图片，然后切换回幻灯片编辑模式。你应该在每张幻灯片上看到该图像。
-
-![todo:image_alt_text](slide-master_4.png)
-
-你可以使用 Aspose.Slides 向母版添加图像：
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {
-    console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-{{% alert color="primary" title="另见" %}} 
-
-有关向幻灯片添加图像的更多信息，请参阅[Picture Frame](/slides/zh/nodejs-java/picture-frame/#create-picture-frame)文章。
-{{% /alert %}}
-
-## **向母版添加占位符**
-
-这些文本字段是母版上的标准占位符：
-
-* 单击编辑母版标题样式
-* 编辑母版文本样式
-* 二级标题
-* 三级标题
-
-它们也会出现在基于母版的幻灯片上。你可以在母版上编辑这些占位符，修改会自动应用到幻灯片。
-
-在 PowerPoint 中，你可以通过“母版 -> 插入占位符”路径添加占位符：
-
-![todo:image_alt_text](slide-master_5.png)
-
-让我们查看一个更复杂的占位符示例，使用 Aspose.Slides。考虑一个从母版模板化占位符的幻灯片：
-
-![todo:image_alt_text](slide-master_6.png)
-
-我们想以如下方式更改母版上的标题和副标题格式：
-
-![todo:image_alt_text](slide-master_7.png)
-
-首先，我们从母版对象检索标题占位符内容，然后使用`PlaceHolder.FillFormat`字段：
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    var placeHolder = findPlaceholder(master, aspose.slides.PlaceholderType.Title);
-    placeHolder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
-    placeHolder.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-    var awtColor = java.import('java.awt.Color');
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, java.newInstanceSync('java.awt.Color', 255, 0, 0));
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, java.newInstanceSync('java.awt.Color', 128, 0, 128));
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-function findPlaceholder(master, type)
-{    
-    for (var i = 0 ; i < master.getShapes().size(); i++)
-    {
-        var autoShape = master.getShapes().get_Item(i);
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-标题样式和格式会对所有基于该母版的幻灯片产生更改：
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="另见" %}} 
-
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/nodejs-java/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/nodejs-java/text-formatting/)
-
-{{% /alert %}}
-
-## **更改母版背景**
-
-当你更改母版幻灯片的背景颜色时，演示文稿中的所有普通幻灯片都会获得新颜色。以下 JavaScript 代码演示了该操作：
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-{{% alert color="primary" title="另见" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/nodejs-java/presentation-background/)
-- [Presentation Theme](https://docs.aspose.com/slides/nodejs-java/presentation-theme/)
-
-{{% /alert %}}
-
-## **将母版克隆到另一个演示文稿**
-
-要将母版克隆到另一个演示文稿，调用目标演示文稿的[**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)方法，并传入要克隆的母版。以下 JavaScript 代码展示了如何将母版克隆到另一个演示文稿：
-```javascript
-var presSource = new aspose.slides.Presentation();
-var presTarget = new aspose.slides.Presentation();
-try {
-    var master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) {
-        presSource.dispose();
-    }
-}
-```
-
-
-## **向演示文稿添加多个母版**
-
-Aspose.Slides 允许向任意演示文稿添加多个母版和幻灯片布局。这使你能够以多种方式为演示文稿幻灯片设置样式、布局和格式选项。
-
-在 PowerPoint 中，你可以通过“母版菜单”添加新的母版和布局：
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-使用 Aspose.Slides，你可以通过调用[**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)方法添加新的母版：
-```javascript
-// 添加新的母版幻灯片
-var secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-## **比较母版**
-
-母版实现了[BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide)类，其中包含[**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#equals-aspose.slides.IBaseSlide-)方法，可用于比较母版。对于结构和静态内容相同的母版，该方法返回`true`。
-
-两个母版在形状、样式、文本、动画及其他设置等方面相同即视为相等。比较不考虑唯一标识符（如 SlideId）和动态内容（如日期占位符的当前日期值）。
-
-## **将母版设为演示文稿默认视图**
-
-Aspose.Slides 允许将母版设为演示文稿的默认视图。默认视图是打开演示文稿时首先看到的视图。
-
-以下代码展示了如何在 JavaScript 中将母版设为演示文稿的默认视图：
-```javascript
-// 实例化一个表示演示文件的 Presentation 类
-var presentation = new aspose.slides.Presentation();
-try {
-    // 将默认视图设置为 SlideMasterView
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    // 保存演示文稿
-    presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
+    console.log("Master slides: " + masterSlideCount);
+    console.log("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+也可以通过普通幻灯片的版式获取其使用的母版幻灯片：
 
-## **删除未使用的母版幻灯片**
-
-Aspose.Slides 提供了[removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-)方法（来自[Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/)类），可删除不需要且未使用的母版幻灯片。以下 JavaScript 代码展示了如何从 PowerPoint 演示文稿中删除母版幻灯片：
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    aspose.slides.Compress.removeUnusedMasterSlides(pres);
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+    let slide = presentation.getSlides().get_Item(0);
+    let layoutSlide = slide.getLayoutSlide();
+    let masterSlide = layoutSlide.getMasterSlide();
+    let masterSlideName = masterSlide.getName();
+
+    console.log(masterSlideName);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **幻灯片母版包含的内容**
 
-## **FAQ**
+母版幻灯片是类似幻灯片的对象。它从 [BaseSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseslide/) 继承通用幻灯片行为，因此公开了许多普通幻灯片和版式幻灯片使用的相同属性。母版专有成员列在 [MasterSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/masterslide/) API 页面。
 
-**PowerPoint 中的母版是什么？**
+常用的母版幻灯片成员包括：
 
-母版是一种幻灯片模板，定义了演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。它允许一次性设置并更改所有演示文稿幻灯片的外观。  
+| 成员 | 用途 |
+| --- | --- |
+| `getBackground()` | 设置母版级别的幻灯片背景。 |
+| `getShapes()` | 存储放置在母版上的形状，例如徽标、图片框和共享文字。 |
+| `getLayoutSlides()` | 存储属于该母版的版式幻灯片。 |
+| `getThemeManager()` | 提供对母版主题 API 的访问。 |
+| `getHeaderFooterManager()` | 控制母版及其子版式的页眉、页脚、日期和页码。 |
+| `getDependingSlides()` | 返回通过版式依赖于该母版的普通幻灯片。 |
 
-**母版在演示文稿中如何应用？**
+## **向幻灯片母版添加图片**
 
-每个演示文稿默认至少有一个母版。当添加新幻灯片时，会自动为其应用母版，通常继承前一张幻灯片的母版。演示文稿可以包含多个母版，以独特方式为不同部分设置样式。  
+向母版幻灯片添加图片后，使用该母版版式的所有幻灯片都会显示该图片。这对徽标、水印、装饰条以及其他重复的视觉元素非常有用。
 
-**母版中可以自定义哪些元素？**
+下面的示例向第一张母版幻灯片添加徽标：
 
-母版由多个核心属性组成，可自定义：
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let logo = aspose.slides.Images.fromFile("logo.png");
 
-- **背景**：设置幻灯片背景。
-- **BodyStyle**：定义幻灯片正文的文本样式。
-- **Shapes**：管理母版上的所有形状，包括占位符和图片框。
-- **Controls**：处理 ActiveX 控件。
-- **ThemeManager**：访问主题管理器。
-- **HeaderFooterManager**：管理页眉和页脚。  
+    try {
+        let logoImage = presentation.getImages().addImage(logo);
 
-**如何向母版添加图像？**
+        masterSlide.getShapes().addPictureFrame(
+            aspose.slides.ShapeType.Rectangle,
+            20,
+            20,
+            80,
+            80,
+            logoImage);
+    } finally {
+        logo.dispose();
+    }
 
-向母版添加图像可确保它出现在所有依赖该母版的幻灯片上。例如，将公司徽标放置在母版上后，演示文稿中的每张幻灯片都会显示该徽标。  
+    presentation.save("presentation-with-logo.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**母版与幻灯片布局有何关联？**
+有关图片框的更多信息，请参阅 [Picture Frame](/nodejs-java/picture-frame/)。
 
-幻灯片布局与母版协同工作，提供幻灯片设计的灵活性。母版定义全局样式和主题，幻灯片布局允许在内容安排上进行变化。层级如下：
+## **使用占位符**
 
-- **母版** → 定义全局样式。
-- **幻灯片布局** → 提供不同的内容安排。
-- **幻灯片** → 从其幻灯片布局继承设计。
+占位符通常在版式幻灯片上定义。母版幻灯片提供共享的样式和主题，版式幻灯片继承这些样式，而每个版式决定哪些占位符可用以及它们的位置。
 
-**一个演示文稿可以包含多个母版吗？**
+在 PowerPoint 中，占位符命令可在幻灯片母版视图中使用。
 
-是的，演示文稿可以包含多个母版。这允许你以不同方式为演示文稿的不同章节设置样式，提供设计上的灵活性。  
+![PowerPoint 幻灯片母版视图中的“插入占位符”命令](slide-master_5.png)
 
-**如何使用 Aspose.Slides 访问和修改母版？**
+要在 Aspose.Slides 中添加新的占位符，请操作属于母版的版式幻灯片：
 
-在 Aspose.Slides 中，母版由[MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/)类表示。你可以通过[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)对象的[getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmasters/)方法访问母版。
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+
+    if (blankLayoutSlide === null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(blankLayoutType, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+也可以格式化已存在于母版上的占位符形状。下面的示例查找标题占位符并应用线性渐变填充：
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titlePlaceholder = null;
+    let masterShapes = masterSlide.getShapes();
+    let masterShapeCount = masterShapes.size();
+
+    for (let masterShapeIndex = 0; masterShapeIndex < masterShapeCount; masterShapeIndex++) {
+        let shape = masterShapes.get_Item(masterShapeIndex);
+
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            let placeholder = shape.getPlaceholder();
+
+            if (placeholder !== null && placeholder.getType() === aspose.slides.PlaceholderType.Title) {
+                titlePlaceholder = shape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder !== null) {
+        let gradientFillType = java.newByte(aspose.slides.FillType.Gradient);
+        let linearGradientShape = java.newByte(aspose.slides.GradientShape.Linear);
+        let redGradientColor = java.newInstanceSync("java.awt.Color", 255, 0, 0);
+        let purpleGradientColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
+
+        titlePlaceholder.getFillFormat().setFillType(gradientFillType);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![普通幻灯片继承的已格式化标题占位符](slide-master_8.png)
+
+有关占位符和文本格式的更多选项，请参阅 [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) 和 [Text Formatting](/nodejs-java/text-formatting/)。
+
+## **更改幻灯片母版背景**
+
+母版背景会被版式和未覆盖它的幻灯片继承。下面的示例为第一张母版幻灯片设置纯色背景：
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let masterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "GREEN");
+
+    masterSlide.getBackground().setType(ownBackgroundType);
+    masterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+相关主题请参阅 [Presentation Background](/nodejs-java/presentation-background/) 和 [Presentation Theme](/nodejs-java/presentation-theme/)。
+
+## **将幻灯片母版克隆到另一演示文稿**
+
+使用 `MasterSlideCollection.addClone` 可将母版幻灯片复制到另一演示文稿中。复制后的母版随后可被目标演示文稿中的版式和幻灯片使用。
+
+```javascript
+let sourcePresentation = new aspose.slides.Presentation("source.pptx");
+let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
+try {
+    let sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    let clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+如果需要连同母版一起克隆普通幻灯片，请参阅 [Clone Slides](/nodejs-java/clone-slides/)。
+
+## **添加多个幻灯片母版**
+
+一个演示文稿可以包含多个母版幻灯片。当不同章节需要不同的品牌、页面结构或主题设置时，这非常有用。
+
+![PowerPoint 中插入和管理母版幻灯片的命令](slide-master_9.jpg)
+
+下面的示例克隆默认母版，为克隆副本设置不同的背景，在该克隆母版下创建版式，并基于该版式添加新幻灯片：
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let defaultMasterSlide = presentation.getMasters().get_Item(0);
+    let sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let sectionMasterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
+
+    sectionMasterSlide.getBackground().setType(ownBackgroundType);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(blankLayoutType);
+    if (sourceBlankLayout === null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    let sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **比较幻灯片母版**
+
+母版幻灯片可以使用从 [BaseSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseslide/) 继承的 `equals` 方法进行比较。比较检查结构和静态内容，如形状、文本、格式、动画以及其他幻灯片设置。它不比较唯一标识符（例如幻灯片 ID）或动态占位符值（例如当前日期）。
+
+```javascript
+let firstPresentation = new aspose.slides.Presentation("first.pptx");
+let secondPresentation = new aspose.slides.Presentation("second.pptx");
+try {
+    let firstPresentationMasterCount = firstPresentation.getMasters().size();
+    let secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (let firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (let secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            let firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            let secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            let areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                console.log(
+                    "first.pptx master #" + firstMasterIndex +
+                    " equals second.pptx master #" + secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+更多信息请参阅 [Compare Presentation Slides](/nodejs-java/compare-slides/)。
+
+## **将幻灯片母版视图设为默认视图**
+
+在 [ViewProperties](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/viewproperties/) 上使用 `setLastView` 方法可控制 PowerPoint 首次打开的视图。下面的示例在幻灯片母版视图中打开演示文稿：
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
+
+    presentation.getViewProperties().setLastView(slideMasterViewType);
+    presentation.save("presentation-master-view.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+有关更多视图设置，请参阅 [Save Presentation](/nodejs-java/save-presentation/)。
+
+## **删除未使用的母版幻灯片**
+
+有时演示文稿会包含已不再被任何普通幻灯片使用的母版幻灯片。删除未使用的母版可以减小文件大小并简化模板维护。
+
+使用 `removeUnused` 从 `getMasters()` 集合中删除未使用的母版：
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+也可以使用低代码的 `Compress.removeUnusedMasterSlides` 方法：
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    aspose.slides.Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **常见问答**
+
+**幻灯片母版和版式幻灯片有什么区别？**
+
+幻灯片母版定义共享的设计设置，如主题、背景、通用形状和文字样式。版式幻灯片属于某个母版，定义占位符的具体排列。普通幻灯片使用版式幻灯片，从而同时继承版式和母版的设置。
+
+**一个演示文稿可以包含多个幻灯片母版吗？**
+
+可以。演示文稿可以包含多个母版。当不同章节需要不同的视觉系统或品牌时，请使用多个母版。
+
+**应该在母版幻灯片还是版式幻灯片上添加占位符？**
+
+大多数情况下，在版式幻灯片上添加占位符。将共享的视觉元素和共享格式放在母版上，然后在普通幻灯片使用的版式上放置内容占位符。
+
+**我可以删除仍在使用的母版幻灯片吗？**
+
+不能。仍有依赖幻灯片的母版不能直接安全删除。请先将这些幻灯片移动到其他母版的版式下，或使用仅删除未使用母版的清理方法。

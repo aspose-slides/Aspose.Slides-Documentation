@@ -1,20 +1,20 @@
 ---
-title: Gérer les masques de diapositives de présentation en JavaScript
-linktitle: Masque de diapositive
+title: "Gérer les masters de diapositives de présentation en JavaScript"
+linktitle: "Master de diapositive"
 type: docs
 weight: 70
 url: /fr/nodejs-java/slide-master/
 keywords:
-- masque de diapositive
+- master de diapositive
 - diapositive maître
 - diapositive maître PPT
 - plusieurs diapositives maîtres
 - comparer les diapositives maîtres
 - arrière-plan
 - espace réservé
-- cloner diapositive maître
-- copier diapositive maître
-- dupliquer diapositive maître
+- cloner la diapositive maître
+- copier la diapositive maître
+- dupliquer la diapositive maître
 - diapositive maître inutilisée
 - PowerPoint
 - OpenDocument
@@ -22,388 +22,362 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gérez les masques de diapositives dans Aspose.Slides pour Node.js via Java: créez, modifiez et appliquez des mises en page, des thèmes et des espaces réservés aux fichiers PPT, PPTX et ODP avec des exemples concis."
+description: "Gérer les masters de diapositive dans Aspose.Slides pour Node.js via Java : accéder, modifier, cloner, comparer et supprimer les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
 ---
+## **Vue d'ensemble**
 
-## **Qu’est‑ce qu’un Masque de diapositive dans PowerPoint**
+Un **slide master** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un slide master est la façon habituelle de garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Un **Masque de diapositive** est un modèle de diapositive qui définit la mise en page, les styles, le thème, les polices, l’arrière‑plan et d’autres propriétés pour les diapositives d’une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un masque de diapositive.  
+Aspose.Slides pour Node.js via Java prend en charge le même modèle. Une présentation peut contenir une ou plusieurs diapositives maîtres, et chaque diapositive maître peut contenir plusieurs diapositives de mise en page. Les diapositives normales ne font généralement pas référence directement à une diapositive maître. Au lieu de cela, une diapositive normale utilise une diapositive de mise en page, et cette diapositive de mise en page appartient à une diapositive maître.
 
-Un masque de diapositive est utile parce qu’il vous permet de définir et de modifier l’apparence de toutes les diapositives de la présentation en une seule fois. Aspose.Slides prend en charge le mécanisme de masque de diapositive de PowerPoint.  
+La hiérarchie est :
 
-VBA permet également de manipuler un masque de diapositive et d’exécuter les mêmes opérations prises en charge dans PowerPoint : changer les arrière‑plans, ajouter des formes, personnaliser la mise en page, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d’utiliser les masques de diapositives et d’effectuer les tâches de base avec eux.  
+1. **Slide master** – définit la conception et le thème partagés.  
+1. **Layout slide** – définit une disposition spécifique d’espaces réservés et de formatage au niveau de la mise en page.  
+1. **Normal slide** – contient le contenu réel de la présentation et utilise une diapositive de mise en page.
 
-Voici les opérations de base sur les masques de diapositives :
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-- Créer ou supprimer un masque de diapositive.  
-- Appliquer le masque de diapositives aux diapositives de la présentation.  
-- Modifier l’arrière‑plan du masque de diapositive.  
-- Ajouter une image, un espace réservé, un SmartArt, etc. au masque de diapositive.  
+Dans Aspose.Slides, un slide master est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/). Toutes les diapositives maîtres d’une présentation sont accessibles via la collection `Presentation.getMasters()`.
 
-Voici des opérations plus avancées impliquant les masques de diapositives :  
+{{% alert color="info" title="Héritage" %}}
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si une diapositive maître et une diapositive de mise en page définissent toutes deux un arrière‑plan, les diapositives basées sur cette mise en page utilisent l’arrière‑plan de la mise en page. Pour plus d’informations sur les diapositives de mise en page, consultez [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
+{{% /alert %}}
 
-- Comparer des masques de diapositives.  
-- Fusionner des masques de diapositives.  
-- Appliquer plusieurs masques de diapositives.  
-- Copier une diapositive avec son masque de diapositive vers une autre présentation.  
-- Trouver les masques de diapositives en double dans les présentations.  
-- Définir le masque de diapositive comme vue par défaut de la présentation.  
+## **Accéder aux Slide Masters**
 
-{{% alert color="primary" %}} 
+Dans PowerPoint, vous pouvez ouvrir la vue Slide Master depuis **View** > **Slide Master**.
 
-Vous pouvez consulter l’[**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) d’Aspose car il s’agit d’une implémentation en direct de certains des processus fondamentaux décrits ici.
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-{{% /alert %}} 
+Dans Aspose.Slides, utilisez la collection `getMasters()` pour accéder aux diapositives maîtres :
 
-
-## **Comment le masque de diapositive est‑il appliqué**
-
-Avant de travailler avec un masque de diapositive, vous voudrez peut‑être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives.  
-
-* Chaque présentation possède au moins un masque de diapositive par défaut.  
-* Une présentation peut contenir plusieurs masques de diapositives. Vous pouvez ajouter plusieurs masques de diapositives et les utiliser pour styliser différentes parties d’une présentation de manières différentes.  
-
-Dans **Aspose.Slides**, un masque de diapositive est représenté par le type [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/).  
-
-L’objet [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) d’Aspose.Slides contient la liste [**getMasters**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--) de type [**MasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), qui réunit toutes les masques de diapositives définis dans une présentation.  
-
-Outre les opérations CRUD, la classe [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) propose les méthodes utiles : [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) et [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-). Ces méthodes héritent de la fonction de clonage de diapositive de base. Mais lorsqu’on travaille avec des masques de diapositives, elles permettent d’implémenter des configurations complexes.  
-
-Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un masque de diapositive lui est appliqué automatiquement. Le masque de la diapositive précédente est sélectionné par défaut.  
-
-**Remarque** : les diapositives de la présentation sont stockées dans la liste [getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides--) et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne contient qu’un seul masque de diapositive, ce masque est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas à définir le masque de diapositive pour chaque nouvelle diapositive que vous créez.  
-
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle diapositive, il suffit de cliquer sur la ligne du bas sous la dernière diapositive et une nouvelle diapositive (avec le masque de la dernière présentation) sera créée :  
-
-![todo:image_alt_text](slide-master_1.jpg)  
-
-Dans Aspose.Slides, vous pouvez réaliser la tâche équivalente avec la méthode [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).  
-
-
-
-## **Masque de diapositive dans la hiérarchie des diapositives**
-
-Utiliser des dispositions de diapositive avec le masque de diapositive offre une flexibilité maximale. Une disposition de diapositive vous permet de définir les mêmes styles que le masque de diapositive (arrière‑plan, polices, formes, etc.). Cependant, lorsque plusieurs dispositions de diapositive sont combinées sur un masque de diapositive, un nouveau style est créé. Lorsque vous appliquez une disposition de diapositive à une seule diapositive, vous pouvez modifier son style par rapport à celui appliqué par le masque de diapositive.  
-
-Le masque de diapositive domine tous les éléments de configuration : Masque de diapositive → Disposition de diapositive → Diapositive :  
-
-![todo:image_alt_text](slide-master_2)  
-
-
-
-Chaque objet [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) possède la propriété [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getLayoutSlides--) contenant la liste des dispositions de diapositive. Un type [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) possède la propriété [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getLayoutSlide--) qui fait le lien vers la disposition de diapositive appliquée à la diapositive. L’interaction entre une diapositive et le masque de diapositive s’opère via la disposition de diapositive.  
-
-{{% alert color="info" title="Remarque" %}}
-
-* Dans Aspose.Slides, toutes les configurations de diapositive (masque de diapositive, disposition de diapositive et la diapositive elle‑même) sont en réalité des objets diapositive implémentant la classe [**BaseSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide).  
-* Ainsi, le masque de diapositive et la disposition de diapositive peuvent implémenter les mêmes propriétés et il faut savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide). Le masque de diapositive est appliqué en premier à une diapositive, puis la disposition de diapositive. Par exemple, si le masque de diapositive et la disposition de diapositive possèdent tous deux une valeur d’arrière‑plan, la diapositive affichera l’arrière‑plan de la disposition de diapositive.
-
-{{% /alert %}}  
-
-
-
-## **Ce que comprend un masque de diapositive**
-
-Pour comprendre comment un masque de diapositive peut être modifié, vous devez connaître ses constituants. Ce sont les propriétés de base du [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) :  
-
-- [getBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getBackground--) obtenir/definir l’arrière‑plan de la diapositive.  
-- [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getBodyStyle--) obtenir/definir les styles de texte du corps de la diapositive.  
-- [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getShapes--) obtenir/definir toutes les formes du masque de diapositive (espaces réservés, cadres d’image, etc.).  
-- [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getControls--) obtenir/definir les contrôles ActiveX.  
-- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getThemeManager) – obtenir le gestionnaire de thèmes.  
-- [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getHeaderFooterManager--) – obtenir le gestionnaire d’en‑tête et de pied de page.  
-
-Méthodes du masque de diapositive :  
-
-- [getDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getDependingSlides--) – obtenir toutes les diapositives dépendant du masque de diapositive.  
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – permet de créer un nouveau masque de diapositive basé sur le masque actuel et un nouveau thème. Le nouveau masque sera alors appliqué à toutes les diapositives dépendantes.  
-
-
-
-## **Obtenir le masque de diapositive**
-
-Dans PowerPoint, le masque de diapositive est accessible via le menu Affichage → Masque des diapositives :  
-
-![todo:image_alt_text](slide-master_3.jpg)  
-
-
-
-Avec Aspose.Slides, vous pouvez accéder à un masque de diapositive de cette manière :  
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Donne accès au masque de la présentation
-    var masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
-  
+    let firstMasterSlide = presentation.getMasters().get_Item(0);
+    let masterSlideCount = presentation.getMasters().size();
+    let firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-La classe [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) représente un masque de diapositive. La propriété [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) (associée au type [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlideCollection)) contient la liste de tous les masques de diapositives définis dans la présentation.  
-
-
-
-## **Ajouter une image au masque de diapositive**
-
-Lorsque vous ajoutez une image à un masque de diapositive, cette image apparaît sur toutes les diapositives dépendant de ce masque.  
-
-Par exemple, vous pouvez placer le logo de votre entreprise et quelques images sur le masque de diapositive, puis revenir en mode édition de diapositive. Vous devriez voir l’image sur chaque diapositive.  
-
-![todo:image_alt_text](slide-master_4.png)  
-
-Vous pouvez ajouter des images à un masque de diapositive avec Aspose.Slides :  
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {
-    console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-  
-
-{{% alert color="primary" title="Voir aussi" %}} 
-
-Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Picture Frame](/slides/fr/nodejs-java/picture-frame/#create-picture-frame).
-
-{{% /alert %}}  
-
-
-
-## **Ajouter un espace réservé au masque de diapositive**
-
-Ces champs de texte sont des espaces réservés standard sur un masque de diapositive :  
-
-* Cliquer pour modifier le style du titre du masque  
-* Modifier les styles de texte du masque  
-* Niveau 2  
-* Niveau 3  
-
-Ils apparaissent également sur les diapositives basées sur le masque de diapositive. Vous pouvez modifier ces espaces réservés sur le masque et les changements seront appliqués automatiquement aux diapositives.  
-
-Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Masque de diapositive → Insérer un espace réservé :  
-
-![todo:image_alt_text](slide-master_5.png)  
-
-Examinons un exemple plus compliqué d’espaces réservés avec Aspose.Slides. Considérez une diapositive avec des espaces réservés issus du masque de diapositive :  
-
-![todo:image_alt_text](slide-master_6.png)  
-
-Nous voulons modifier le format du titre et du sous‑titre sur le masque de diapositive de cette façon :  
-
-![todo:image_alt_text](slide-master_7.png)  
-
-Tout d’abord, nous récupérons le contenu de l’espace réservé titre depuis l’objet masque de diapositive, puis nous utilisons le champ `PlaceHolder.FillFormat` :  
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    var placeHolder = findPlaceholder(master, aspose.slides.PlaceholderType.Title);
-    placeHolder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
-    placeHolder.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-    var awtColor = java.import('java.awt.Color');
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, java.newInstanceSync('java.awt.Color', 255, 0, 0));
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, java.newInstanceSync('java.awt.Color', 128, 0, 128));
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-function findPlaceholder(master, type)
-{    
-    for (var i = 0 ; i < master.getShapes().size(); i++)
-    {
-        var autoShape = master.getShapes().get_Item(i);
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-  
-
-Le style et le format du titre changeront pour toutes les diapositives basées sur le masque de diapositive :  
-
-![todo:image_alt_text](slide-master_8.png)  
-
-{{% alert color="primary" title="Voir aussi" %}} 
-
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/nodejs-java/manage-placeholder/)  
-* [Text Formatting](https://docs.aspose.com/slides/nodejs-java/text-formatting/)
-
-{{% /alert %}}  
-
-
-
-## **Modifier l’arrière‑plan du masque de diapositive**
-
-Lorsque vous modifiez la couleur d’arrière‑plan d’un masque de diapositive, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code JavaScript démontre l’opération :  
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-  
-
-{{% alert color="primary" title="Voir aussi" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/nodejs-java/presentation-background/)  
-- [Presentation Theme](https://docs.aspose.com/slides/nodejs-java/presentation-theme/)
-
-{{% /alert %}}  
-
-
-
-## **Cloner un masque de diapositive vers une autre présentation**
-
-Pour cloner un masque de diapositive vers une autre présentation, appelez la méthode [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) de la présentation de destination en lui transmettant le masque de diapositive à cloner. Ce code JavaScript montre comment cloner un masque de diapositive vers une autre présentation :  
-```javascript
-var presSource = new aspose.slides.Presentation();
-var presTarget = new aspose.slides.Presentation();
-try {
-    var master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) {
-        presSource.dispose();
-    }
-}
-```
-  
-
-
-
-## **Ajouter plusieurs masques de diapositive à une présentation**
-
-Aspose.Slides vous permet d’ajouter plusieurs masques de diapositives et dispositions de diapositives à une présentation donnée. Cela vous permet de configurer les styles, les mises en page et les options de formatage des diapositives de présentation de nombreuses manières.  
-
-Dans PowerPoint, vous pouvez ajouter de nouveaux masques de diapositives et dispositions (via le « Menu Masque de diapositive ») de cette façon :  
-
-![todo:image_alt_text](slide-master_9.jpg)  
-
-Avec Aspose.Slides, vous pouvez ajouter un nouveau masque de diapositive en appelant la méthode [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) :  
-```javascript
-// Ajoute un nouveau masque de diapositive
-var secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-  
-
-
-
-## **Comparer les masques de diapositives**
-
-Un MasterSlide implémente la classe [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide) contenant la méthode [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#equals-aspose.slides.IBaseSlide-), qui peut être utilisée pour comparer les masques. Elle renvoie `true` lorsque les masques sont identiques en structure et en contenu statique.  
-
-Deux masques de diapositives sont égaux si leurs formes, styles, textes, animations et autres paramètres sont identiques. La comparaison ne prend pas en compte les valeurs d’identifiants uniques (par ex. SlideId) ni le contenu dynamique (par ex. valeur de date dans un espace réservé de date).  
-
-
-
-## **Définir le masque de diapositive comme vue par défaut de la présentation**
-
-Aspose.Slides vous permet de définir un masque de diapositive comme vue par défaut d’une présentation. La vue par défaut est ce que vous voyez en premier lorsque vous ouvrez une présentation.  
-
-Ce code montre comment définir un masque de diapositive comme vue par défaut d’une présentation en JavaScript :  
-```javascript
-// Instancie une classe Presentation qui représente le fichier de présentation
-var presentation = new aspose.slides.Presentation();
-try {
-    // Définit la vue par défaut comme SlideMasterView
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    // Enregistre la présentation
-    presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
+    console.log("Master slides: " + masterSlideCount);
+    console.log("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
-  
 
+Vous pouvez également obtenir la diapositive maître utilisée par une diapositive normale via sa mise en page :
 
-
-## **Supprimer un masque de diapositive inutilisé**
-
-Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/)) pour vous permettre de supprimer les masques de diapositives indésirables et inutilisés. Ce code JavaScript montre comment supprimer un masque de diapositive d’une présentation PowerPoint :  
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    aspose.slides.Compress.removeUnusedMasterSlides(pres);
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+    let slide = presentation.getSlides().get_Item(0);
+    let layoutSlide = slide.getLayoutSlide();
+    let masterSlide = layoutSlide.getMasterSlide();
+    let masterSlideName = masterSlide.getName();
+
+    console.log(masterSlideName);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-  
 
+## **Ce qu’un Slide Master contient**
 
+Une diapositive maître est un objet de type diapositive. Elle hérite du comportement commun des diapositives de [BaseSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseslide/), ce qui lui donne accès à de nombreuses propriétés de diapositive également utilisées par les diapositives normales et de mise en page. Les membres spécifiques aux maîtres sont listés sur la page API [MasterSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/).
+
+Les membres de slide master les plus couramment utilisés comprennent :
+
+| Member | Purpose |
+| --- | --- |
+| `getBackground()` | Définit l’arrière‑plan de la diapositive au niveau du maître. |
+| `getShapes()` | Contient les formes placées sur le maître, comme les logos, cadres d’image et texte partagé. |
+| `getLayoutSlides()` | Contient les diapositives de mise en page appartenant au maître. |
+| `getThemeManager()` | Fournit l’accès aux API du thème du maître. |
+| `getHeaderFooterManager()` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le maître et ses mises en page enfants. |
+| `getDependingSlides()` | Retourne les diapositives normales qui dépendent du maître via leurs mises en page. |
+
+## **Ajouter une image à un Slide Master**
+
+Lorsque vous ajoutez une image à une diapositive maître, elle apparaît sur les diapositives qui utilisent des mises en page de ce maître. Ceci est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
+
+L’exemple suivant ajoute un logo à la première diapositive maître :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let logo = aspose.slides.Images.fromFile("logo.png");
+
+    try {
+        let logoImage = presentation.getImages().addImage(logo);
+
+        masterSlide.getShapes().addPictureFrame(
+            aspose.slides.ShapeType.Rectangle,
+            20,
+            20,
+            80,
+            80,
+            logoImage);
+    } finally {
+        logo.dispose();
+    }
+
+    presentation.save("presentation-with-logo.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pour plus d’informations sur les cadres d’image, consultez [Picture Frame](/nodejs-java/picture-frame/).
+
+## **Travailler avec les espaces réservés**
+
+Les espaces réservés sont généralement définis sur les diapositives de mise en page. Le slide master fournit le style et le thème partagés que ces mises en page héritent, tandis que chaque mise en page décide quels espaces réservés sont disponibles et où ils sont placés.
+
+Dans PowerPoint, les commandes d’espaces réservés sont disponibles en vue Slide Master.
+
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez avec la diapositive de mise en page qui appartient au maître :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+
+    if (blankLayoutSlide === null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(blankLayoutType, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Vous pouvez également formater des formes d’espace réservé déjà présentes sur un slide master. L’exemple suivant trouve l’espace réservé au titre et applique un remplissage en dégradé linéaire :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titlePlaceholder = null;
+    let masterShapes = masterSlide.getShapes();
+    let masterShapeCount = masterShapes.size();
+
+    for (let masterShapeIndex = 0; masterShapeIndex < masterShapeCount; masterShapeIndex++) {
+        let shape = masterShapes.get_Item(masterShapeIndex);
+
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            let placeholder = shape.getPlaceholder();
+
+            if (placeholder !== null && placeholder.getType() === aspose.slides.PlaceholderType.Title) {
+                titlePlaceholder = shape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder !== null) {
+        let gradientFillType = java.newByte(aspose.slides.FillType.Gradient);
+        let linearGradientShape = java.newByte(aspose.slides.GradientShape.Linear);
+        let redGradientColor = java.newInstanceSync("java.awt.Color", 255, 0, 0);
+        let purpleGradientColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
+
+        titlePlaceholder.getFillFormat().setFillType(gradientFillType);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+
+Pour plus d’options de formatage des espaces réservés et du texte, voir [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) et [Text Formatting](/nodejs-java/text-formatting/).
+
+## **Modifier l’arrière‑plan d’un Slide Master**
+
+Un arrière‑plan de maître est hérité par les mises en page et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan solide pour la première diapositive maître :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let masterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "GREEN");
+
+    masterSlide.getBackground().setType(ownBackgroundType);
+    masterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pour les sujets associés, consultez [Presentation Background](/nodejs-java/presentation-background/) et [Presentation Theme](/nodejs-java/presentation-theme/).
+
+## **Cloner un Slide Master vers une autre présentation**
+
+Utilisez `MasterSlideCollection.addClone` pour copier une diapositive maître dans une autre présentation. Le maître copié peut alors être utilisé par les mises en page et les diapositives de la présentation de destination.
+
+```javascript
+let sourcePresentation = new aspose.slides.Presentation("source.pptx");
+let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
+try {
+    let sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    let clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+Si vous devez cloner des diapositives normales avec leur maître, consultez [Clone Slides](/nodejs-java/clone-slides/).
+
+## **Ajouter plusieurs Slide Masters**
+
+Une présentation peut contenir plusieurs diapositives maîtres. Ceci est utile lorsque différentes sections nécessitent une identité visuelle, une structure de page ou des paramètres de thème différents.
+
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+
+L’exemple suivant clone le maître par défaut, attribue un arrière‑plan différent au clone, crée une mise en page sous ce maître cloné, puis ajoute une nouvelle diapositive basée sur cette mise en page :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let defaultMasterSlide = presentation.getMasters().get_Item(0);
+    let sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let sectionMasterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
+
+    sectionMasterSlide.getBackground().setType(ownBackgroundType);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(blankLayoutType);
+    if (sourceBlankLayout === null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    let sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Comparer les Slide Masters**
+
+Les diapositives maîtres peuvent être comparées avec la méthode `equals` héritée de [BaseSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les ID de diapositive, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
+
+```javascript
+let firstPresentation = new aspose.slides.Presentation("first.pptx");
+let secondPresentation = new aspose.slides.Presentation("second.pptx");
+try {
+    let firstPresentationMasterCount = firstPresentation.getMasters().size();
+    let secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (let firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (let secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            let firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            let secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            let areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                console.log(
+                    "first.pptx master #" + firstMasterIndex +
+                    " equals second.pptx master #" + secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+Pour plus d’informations, consultez [Compare Presentation Slides](/nodejs-java/compare-slides/).
+
+## **Définir la vue Slide Master comme vue par défaut**
+
+Utilisez la méthode `setLastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Slide Master :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
+
+    presentation.getViewProperties().setLastView(slideMasterViewType);
+    presentation.save("presentation-master-view.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pour plus de paramètres de vue, voir [Save Presentation](/nodejs-java/save-presentation/).
+
+## **Supprimer les Slide Masters inutilisés**
+
+Les présentations contiennent parfois des diapositives maîtres qui ne sont plus utilisées par aucune diapositive normale. Supprimer les maîtres inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
+
+Utilisez `removeUnused` pour supprimer les maîtres inutilisés de la collection `getMasters()` :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Vous pouvez également utiliser la méthode low‑code `Compress.removeUnusedMasterSlides` :
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    aspose.slides.Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**Qu’est‑ce qu’un masque de diapositive dans PowerPoint ?**  
+**Quelle est la différence entre un slide master et une layout slide ?**
 
-Un masque de diapositive est un modèle qui définit la mise en page, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés pour les diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une fois.  
+Un slide master définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une layout slide appartient à un slide master et définit une disposition spécifique d’espaces réservés. Une diapositive normale utilise une layout slide, elle hérite donc à la fois de la mise en page et du maître.
 
-**Comment le masque de diapositive est‑il appliqué dans une présentation ?**  
+**Une présentation peut‑elle contenir plusieurs slide masters ?**
 
-Chaque présentation possède au moins un masque de diapositive par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un masque de diapositive lui est appliqué automatiquement, héritant généralement du masque de la diapositive précédente. Une présentation peut contenir plusieurs masques de diapositives pour styliser différentes parties de manière unique.  
+Oui. Une présentation peut contenir plusieurs slide masters. Utilisez plusieurs maîtres lorsque différentes sections nécessitent des systèmes visuels ou une identité de marque différents.
 
-**Quels éléments peuvent être personnalisés dans un masque de diapositive ?**  
+**Dois‑je ajouter des espaces réservés à un slide master ou à une layout slide ?**
 
-Un masque de diapositive comprend plusieurs propriétés de base pouvant être personnalisées :  
+Dans la plupart des cas, ajoutez les espaces réservés aux layout slides. Placez les éléments visuels partagés et le formatage commun sur le slide master, puis placez les espaces réservés de contenu sur les mises en page que les diapositives normales utiliseront.
 
-- **Background** : définir l’arrière‑plan de la diapositive.  
-- **BodyStyle** : définir les styles de texte du corps de la diapositive.  
-- **Shapes** : gérer toutes les formes du masque, y compris les espaces réservés et les cadres d’image.  
-- **Controls** : gérer les contrôles ActiveX.  
-- **ThemeManager** : accéder au gestionnaire de thèmes.  
-- **HeaderFooterManager** : gérer les en‑têtes et pieds de page.  
+**Puis‑je supprimer un slide master qui est encore utilisé ?**
 
-**Comment ajouter une image à un masque de diapositive ?**  
-
-Ajouter une image à un masque de diapositive garantit qu’elle apparaît sur toutes les diapositives dépendant de ce masque. Par exemple, placer le logo de l’entreprise sur le masque affichera le logo sur chaque diapositive de la présentation.  
-
-**Comment les masques de diapositives sont‑ils liés aux dispositions de diapositives ?**  
-
-Les dispositions de diapositives fonctionnent conjointement avec les masques pour offrir une grande flexibilité de conception. Un masque définit les styles et thèmes globaux, tandis que les dispositions permettent des variations dans l’arrangement du contenu. La hiérarchie est la suivante :  
-
-- **Masque de diapositive** → définit les styles globaux.  
-- **Disposition de diapositive** → propose différents arrangements de contenu.  
-- **Diapositive** → hérite du design de sa disposition.  
-
-**Puis‑je avoir plusieurs masques de diapositives dans une même présentation ?**  
-
-Oui, une présentation peut contenir plusieurs masques de diapositives. Cela vous permet de styliser différentes sections d’une présentation de manière variée, offrant ainsi une plus grande flexibilité de conception.  
-
-**Comment accéder et modifier un masque de diapositive avec Aspose.Slides ?**  
-
-Dans Aspose.Slides, un masque de diapositive est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/). Vous pouvez accéder à un masque de diapositive en utilisant la méthode [getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmasters/) de l’objet [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+Non. Un slide master qui possède des diapositives dépendantes ne peut pas être supprimé en toute sécurité directement. Déplacez d’abord ces diapositives vers des mises en page sous un autre maître, ou utilisez une méthode de nettoyage des maîtres inutilisés qui ne supprime que les maîtres qui ne sont pas utilisés.

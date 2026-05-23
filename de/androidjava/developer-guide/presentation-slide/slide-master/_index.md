@@ -1,5 +1,5 @@
 ---
-title: Verwaltung von Folienmastern auf Android
+title: Verwalten von Folienmastern auf Android
 linktitle: Folienmaster
 type: docs
 weight: 70
@@ -15,387 +15,357 @@ keywords:
 - Masterfolie klonen
 - Masterfolie kopieren
 - Masterfolie duplizieren
-- ungenutzte Masterfolie
+- unbenutzte Masterfolie
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Verwalten Sie Folienmaster in Aspose.Slides für Android: Erstellen, Bearbeiten und Anwenden von Layouts, Themes und Platzhaltern auf PPT, PPTX und ODP mit prägnanten Java-Beispielen."
+description: "Verwalten von Folienmastern in Aspose.Slides für Android via Java: Zugriff, Bearbeitung, Klonen, Vergleichen und Entfernen von Masterfolien in PowerPoint- und OpenDocument-Präsentationen."
 ---
+## **Übersicht**
 
-## **Was ist ein Slide Master in PowerPoint**
+Ein **Slide-Master** definiert gemeinsam genutzte Designeinstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Theme-Einstellungen und Fußzeileneinstellungen enthalten. In PowerPoint ist die Bearbeitung eines Slide-Masters der übliche Weg, um eine Präsentation konsistent zu halten, ohne die gleiche Formatierung auf jeder Folie zu wiederholen.
 
-Ein **Slide Master** ist eine Folienvorlage, die Layout, Stile, Thema, Schriften, Hintergrund und weitere Eigenschaften für Folien in einer Präsentation definiert. Wenn Sie eine Präsentation (oder eine Reihe von Präsentationen) mit demselben Stil und derselben Vorlage für Ihr Unternehmen erstellen möchten, können Sie einen Slide Master verwenden.  
+Aspose.Slides für Android via Java unterstützt dasselbe Modell. Eine Präsentation kann ein oder mehrere Master‑Folien enthalten, und jede Master‑Folie kann mehrere Layout‑Folien enthalten. Normale Folien verweisen normalerweise nicht direkt auf eine Master‑Folie. Stattdessen verwendet eine normale Folie eine Layout‑Folie, und diese Layout‑Folie gehört zu einer Master‑Folie.
 
-Ein Slide Master ist nützlich, weil er Ihnen ermöglicht, das Aussehen aller Folien einer Präsentation gleichzeitig festzulegen und zu ändern. Aspose.Slides unterstützt den Slide‑Master‑Mechanismus von PowerPoint.  
+The hierarchy is:
 
-VBA ermöglicht ebenfalls die Manipulation eines Slide Masters und die Ausführung derselben Operationen, die in PowerPoint unterstützt werden: Hintergründe ändern, Formen hinzufügen, Layout anpassen usw. Aspose.Slides bietet flexible Mechanismen, um Slide Masters zu nutzen und grundlegende Aufgaben damit auszuführen.  
+1. **Slide-Master** - definiert das gemeinsam genutzte Design und Theme.
+1. **Layout slide** - definiert eine spezifische Anordnung von Platzhaltern und Layout‑formatierungen.
+1. **Normal slide** - enthält den eigentlichen Präsentationsinhalt und verwendet eine Layout‑Folie.
 
-Dies sind grundlegende Slide‑Master‑Operationen:
+![Die Hierarchie von Master‑Folien, Layout‑Folien und normalen Folien](slide-master_2.jpg)
 
-- Erstellen oder **Slide Master**.
-- **Slide Master** auf Präsentationsfolien anwenden.
-- Hintergrund des **Slide Master** ändern. 
-- Ein Bild, Platzhalter, SmartArt usw. zum **Slide Master** hinzufügen.
+In Aspose.Slides wird ein Slide‑Master durch das Interface [IMasterSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imasterslide/) dargestellt. Alle Master‑Folien in einer Präsentation sind über die Sammlung [Presentation.getMasters](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/#getMasters--) verfügbar, die [IMasterSlideCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imasterslidecollection/) implementiert. Für die vollständige Android‑via‑Java‑API-Referenz siehe die [com.aspose.slides API reference](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/).
 
-Dies sind weiterführende Operationen mit Slide Master:
-
-- Slide Masters vergleichen.
-- Slide Masters zusammenführen.
-- Mehrere Slide Masters anwenden.
-- Folie mit Slide Master in eine andere Präsentation kopieren.
-- Doppelte Slide Masters in Präsentationen finden.
-- Slide Master als Standardansicht der Präsentation festlegen.
-
-{{% alert color="primary" %}} 
-
-Vielleicht möchten Sie Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) ausprobieren, da er eine Live‑Implementierung einiger hier beschriebener Kernvorgänge darstellt.
-
-{{% /alert %}} 
-
-
-## **Wie ein Slide Master angewendet wird**
-
-Bevor Sie mit einem Slide Master arbeiten, sollten Sie verstehen, wie er in Präsentationen verwendet und auf Folien angewendet wird. 
-
-* Jede Präsentation besitzt standardmäßig mindestens einen Slide Master. 
-* Eine Präsentation kann mehrere Slide Masters enthalten. Sie können mehrere Slide Masters hinzufügen und sie verwenden, um verschiedene Teile einer Präsentation unterschiedlich zu gestalten. 
-
-In **Aspose.Slides** wird ein Slide Master durch den Typ [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) repräsentiert.
-
-Das Aspose.Slides‑[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Objekt enthält die [**getMasters**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--)‑Liste des Typs [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/), die eine Liste aller in einer Präsentation definierten Master‑Folien enthält.
-
-Neben CRUD‑Operationen liefert die [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/)‑Schnittstelle nützliche Methoden: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) und [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-). Diese Methoden werden von der Grundfunktion zum Klonen von Folien geerbt, ermöglichen jedoch bei Slide Masters komplexere Setups.
-
-Wird einer Präsentation eine neue Folie hinzugefügt, wird automatisch ein Slide Master darauf angewendet. Standardmäßig wird der Slide Master der vorherigen Folie übernommen. 
-
-**Hinweis**: Präsentationsfolien werden in der [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--)‑Liste gespeichert, und jede neue Folie wird standardmäßig am Ende der Sammlung eingefügt. Enthält eine Präsentation nur einen Slide Master, wird dieser Master für alle neuen Folien verwendet. Deshalb müssen Sie den Slide Master nicht für jede neu erstellte Folie explizit festlegen.
-
-Das Prinzip ist für PowerPoint und Aspose.Slides identisch. In PowerPoint können Sie beim Hinzufügen einer neuen Folie einfach auf die untere Zeile unterhalb der letzten Folie klicken; es wird dann eine neue Folie (mit dem Slide Master der vorherigen Folie) erstellt:
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-In Aspose.Slides können Sie denselben Vorgang mit der [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)‑Methode der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Klasse ausführen.
-
-
-## **Slide Master in der Slides‑Hierarchie**
-
-Die Kombination von Slide Layouts mit einem Slide Master bietet maximale Flexibilität. Ein Slide Layout ermöglicht es Ihnen, dieselben Stile wie beim Slide Master (Hintergrund, Schriften, Formen usw.) festzulegen. Wenn mehrere Slide Layouts auf einem Slide Master kombiniert werden, entsteht ein neuer Stil. Wird ein Slide Layout einer einzelnen Folie zugewiesen, kann dessen Stil den vom Slide Master vorgegebenen Stil überschreiben.
-
-Slide Master hat Vorrang vor allen anderen Einstellungen: Slide Master → Slide Layout → Folie:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Jedes [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide)-Objekt besitzt die [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--)‑Eigenschaft mit einer Liste von Slide Layouts. Ein [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide)-Typ hat die [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--)‑Eigenschaft, die auf das dem Slide zugewiesene Layout verweist. Die Interaktion zwischen einer Folie und dem Slide Master erfolgt über ein Slide Layout.
-
-{{% alert color="info" title="Hinweis" %}}
-
-* In Aspose.Slides sind alle Folieneinstellungen (Slide Master, Slide Layout und die Folie selbst) tatsächlich Folienobjekte, die das [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide)‑Interface implementieren.
-* Daher können Slide Master und Slide Layout dieselben Eigenschaften besitzen; Sie sollten wissen, wie deren Werte auf ein [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide)-Objekt angewendet werden. Zuerst wird der Slide Master auf die Folie angewendet, anschließend das Slide Layout. Hat beispielsweise sowohl der Slide Master als auch das Slide Layout einen Hintergrundwert, so endet die Folie mit dem Hintergrund des Slide Layouts.
-
+{{% alert color="info" title="Inheritance" %}}
+Wenn dieselbe Eigenschaft auf mehr als einer Ebene definiert ist, gewinnt die spezifischere Ebene. Beispiel: Wenn sowohl eine Master‑Folie als auch eine Layout‑Folie einen Hintergrund definieren, verwenden Folien, die auf diesem Layout basieren, den Layout‑Hintergrund. Weitere Informationen zu Layout‑Folien finden Sie unter [Apply or Change Slide Layouts](/slides/de/androidjava/slide-layout/).
 {{% /alert %}}
 
+## **Zugriff auf Slide-Master**
 
-## **Inhalt eines Slide Masters**
+In PowerPoint können Sie die Slide‑Master‑Ansicht über **Ansicht** > **Slide Master** öffnen.
 
-Um zu verstehen, wie ein Slide Master geändert werden kann, müssen Sie dessen Bestandteile kennen. Dazu gehören die Kern‑Properties des [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/):
+![Der Slide-Master-Befehl im PowerPoint-Register „Ansicht“](slide-master_3.jpg)
 
-- [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) – Liest/legt den Folienhintergrund fest.
-- [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) – Liest/legt Textstile des Folienkörpers fest.
-- [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getShapes--) – Liest/legt alle Formen des Slide Masters (Platzhalter, Bildrahmen usw.) fest.
-- [getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getControls--) – Liest/legt ActiveX‑Steuerelemente fest.
-- [getThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterThemeable#getThemeManager--) – Liest den Theme‑Manager.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) – Liest das Header‑ und Footer‑Management.
+In Aspose.Slides verwenden Sie die `getMasters()`‑Sammlung, um Master‑Folien zuzugreifen:
 
-Methoden des Slide Masters:
-
-- [getDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getDependingSlides--) – Ermittelt alle Folien, die vom Slide Master abhängen.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – Erstellt einen neuen Slide Master auf Basis des aktuellen Masters und eines neuen Themes; der neue Master wird anschließend auf alle abhängigen Folien angewendet.
-
-
-## **Einen Slide Master abrufen**
-
-In PowerPoint kann man den Slide Master über das Menü **Ansicht → Folienmaster** öffnen:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-Mit Aspose.Slides greifen Sie auf einen Slide Master folgendermaßen zu: 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Gibt Zugriff auf die Master‑Folien der Präsentation
-    IMasterSlide masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
-
-
-Das [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide)-Interface repräsentiert einen Slide Master. Die [Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--)‑Eigenschaft (bezogen auf den Typ [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection)) enthält eine Liste aller in der Präsentation definierten Slide Masters.
-
-
-## **Ein Bild zu einem Slide Master hinzufügen**
-
-Wird ein Bild zu einem Slide Master hinzugefügt, erscheint es auf allen Folien, die von diesem Master abhängen. 
-
-Beispielsweise können Sie das Firmenlogo und weitere Bilder auf dem Slide Master platzieren und anschließend in den Bearbeitungsmodus zurückkehren – das Bild wird auf jeder Folie sichtbar sein. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Sie können Bilder zu einem Slide Master mit Aspose.Slides hinzufügen:
-```java
-Presentation pres = new Presentation();
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="Siehe auch" %}} 
-
-Weitere Informationen zum Hinzufügen von Bildern zu einer Folie finden Sie im Artikel [Picture Frame](/slides/de/androidjava/picture-frame/#create-picture-frame).
-{{% /alert %}}
-
-
-## **Einen Platzhalter zu einem Slide Master hinzufügen**
-
-Diese Textfelder sind Standard‑Platzhalter auf einem Slide Master: 
-
-* Klick zum Bearbeiten des Master‑Titelstils
-* Master‑Textstile bearbeiten
-* Zweite Ebene
-* Dritte Ebene 
-
-Sie erscheinen auch auf Folien, die auf dem Slide Master basieren. Änderungen an diesen Platzhaltern auf dem Slide Master werden automatisch auf die Folien übernommen. 
-
-In PowerPoint können Sie einen Platzhalter über den Pfad **Slide Master → Platzhalter einfügen** hinzufügen:
-
-
-
-![todo:image_alt_text](slide-master_5.png)
-
-
-
-Ein komplexeres Beispiel für Platzhalter mit Aspose.Slides sehen Sie hier: Eine Folie mit vom Slide Master vorgefertigten Platzhaltern:
-
-
-
-![todo:image_alt_text](slide-master_6.png)
-
-
-
-Wir wollen die Formatierung von Titel und Untertitel auf dem Slide Master wie folgt ändern:
-
-![todo:image_alt_text](slide-master_7.png)
-
-
-
-Zunächst holen wir den Inhalt des Titel‑Platzhalters vom Slide Master‑Objekt und verwenden das Feld `PlaceHolder.FillFormat`:
-```java
-public static void main(String[] args) {
-    Presentation pres = new Presentation();
-    try {
-        IMasterSlide master = pres.getMasters().get_Item(0);
-        IAutoShape placeHolder = findPlaceholder(master, PlaceholderType.Title);
-        placeHolder.getFillFormat().setFillType(FillType.Gradient);
-        placeHolder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, new Color(255, 0, 0));
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, new Color(128, 0, 128));
-
-        pres.save("pres.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-}
-
-static IAutoShape findPlaceholder(IMasterSlide master, int type)
-{
-    for (IShape shape : master.getShapes())
-    {
-        IAutoShape autoShape = (IAutoShape) shape;
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-Der Titel‑Stil und die Formatierung ändern sich für alle Folien, die auf dem Slide Master basieren:
-
-
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="Siehe auch" %}} 
-
-* [Prompt‑Text in Platzhaltern festlegen](https://docs.aspose.com/slides/androidjava/manage-placeholder/)
-* [Textformatierung](https://docs.aspose.com/slides/androidjava/text-formatting/)
-
-{{% /alert %}}
-
-
-## **Den Hintergrund eines Slide Masters ändern**
-
-Ändern Sie die Hintergrundfarbe eines Master‑Slides, erhalten alle normalen Folien in der Präsentation die neue Farbe. Der folgende Java‑Code demonstriert die Operation:
-```java
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(FillType.Solid);
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{% alert color="primary" title="Siehe auch" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/androidjava/presentation-background/)
-- [Presentation Theme](https://docs.aspose.com/slides/androidjava/presentation-theme/)
-
-{{% /alert %}}
-
-## **Einen Slide Master in eine andere Präsentation klonen**
-
-Um einen Slide Master in eine andere Präsentation zu klonen, rufen Sie die [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)‑Methode der Zielpräsentation auf und übergeben den zu klonenden Slide Master. Der folgende Java‑Code zeigt, wie ein Slide Master geklont wird:
-```java
-Presentation presSource = new Presentation();
-Presentation presTarget = new Presentation();
-try {
-    IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) presSource.dispose();
-}
-```
-
-
-
-## **Mehrere Slide Masters zu einer Präsentation hinzufügen**
-
-Aspose.Slides ermöglicht das Hinzufügen mehrerer Slide Masters und Slide Layouts zu einer beliebigen Präsentation. Dadurch können Stile, Layouts und Formatierungsoptionen für Präsentationsfolien auf vielfältige Weise festgelegt werden. 
-
-In PowerPoint können Sie neue Slide Masters und Layouts (über das **Slide‑Master‑Menü**) wie folgt hinzufügen:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-Mit Aspose.Slides fügen Sie einen neuen Slide Master hinzu, indem Sie die [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)‑Methode verwenden:
-```java
-// Fügt eine neue Masterfolie hinzu
-IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-
-## **Slide Masters vergleichen**
-
-Ein Master‑Slide implementiert das [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide)‑Interface mit der [**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-)‑Methode, die zum Vergleich von Folien verwendet werden kann. Sie liefert `true`, wenn Master‑Slides in Struktur und statischem Inhalt identisch sind.
-
-Zwei Master‑Slides sind gleich, wenn ihre Formen, Stile, Texte, Animationen und weitere Einstellungen exakt übereinstimmen. Der Vergleich berücksichtigt keine eindeutigen Kennungen (z. B. SlideId) und keinen dynamischen Inhalt (z. B. aktuelles Datum in einem Datums‑Platzhalter).
-
-
-## **Slide Master als Standardansicht einer Präsentation festlegen**
-
-Aspose.Slides ermöglicht das Festlegen eines Slide Masters als Standardansicht einer Präsentation. Die Standardansicht ist das, was Sie zuerst sehen, wenn Sie eine Präsentation öffnen. 
-
-Der folgende Code zeigt, wie Sie in Java einen Slide Master als Standardansicht festlegen:
-```java
-// Instanziiert eine Presentation-Klasse, die die Präsentationsdatei darstellt
-Presentation presentation = new Presentation();
-try {
-    // Setzt die Standardansicht auf SlideMasterView
-    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
-
-    // Speichert die Präsentation
-    presentation.save("PresView.pptx", SaveFormat.Pptx);
+    IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+    int masterSlideCount = presentation.getMasters().size();
+    int firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
+
+    System.out.println("Master slides: " + masterSlideCount);
+    System.out.println("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+Sie können auch die Master‑Folie, die von einer normalen Folie verwendet wird, über deren Layout erhalten:
 
-
-## **Ungenutzte Master‑Slides entfernen**
-
-Aspose.Slides stellt die Methode [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) der [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)‑Klasse bereit, um unerwünschte und ungenutzte Master‑Slides zu löschen. Der folgende Java‑Code demonstriert das Entfernen eines Master‑Slides aus einer PowerPoint‑Präsentation:
 ```java
-Presentation pres = new Presentation("pres.pptx");
- try {
-     Compress.removeUnusedMasterSlides(pres);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = slide.getLayoutSlide();
+    IMasterSlide masterSlide = layoutSlide.getMasterSlide();
+    String masterSlideName = masterSlide.getName();
 
-     pres.save("pres-out.pptx", SaveFormat.Pptx);
- } finally {
-     if (pres != null) pres.dispose();
- }
+    System.out.println(masterSlideName);
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **Was ein Slide-Master enthält**
 
+Eine Master‑Folie ist ein folienähnliches Objekt. Sie implementiert [IBaseSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ibaseslide/), sodass sie viele der gleichen Folieneigenschaften bereitstellt, die von normalen und Layout‑Folien verwendet werden.
+
+Häufig verwendete Master‑Folie‑Member umfassen:
+
+| Member | Zweck |
+| --- | --- |
+| `getBackground()` | Legt den master‑seitigen Folienhintergrund fest. |
+| `getShapes()` | Speichert Formen, die auf dem Master platziert sind, wie Logos, Bildrahmen und gemeinsamen Text. |
+| `getLayoutSlides()` | Speichert die Layout‑Folien, die zum Master gehören. |
+| `getThemeManager()` | Stellt Zugriff auf die Master‑Theme‑APIs bereit. |
+| `getHeaderFooterManager()` | Steuert Kopf‑ und Fußzeilen, Datumsangaben und Foliennummern für den Master und seine untergeordneten Layouts. |
+| `getDependingSlides()` | Gibt normale Folien zurück, die über ihre Layouts vom Master abhängen. |
+
+## **Ein Bild zu einem Slide-Master hinzufügen**
+
+Wenn Sie ein Bild zu einer Master‑Folie hinzufügen, erscheint es auf Folien, die Layout‑Folien dieses Masters verwenden. Das ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederholte Bildelemente.
+
+Das folgende Beispiel fügt dem ersten Master‑Slide ein Logo hinzu:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IImage logo = Images.fromFile("logo.png");
+
+    try {
+        IPPImage logoImage = presentation.getImages().addImage(logo);
+
+        masterSlide.getShapes().addPictureFrame(
+                ShapeType.Rectangle,
+                20,
+                20,
+                80,
+                80,
+                logoImage);
+    } finally {
+        logo.dispose();
+    }
+
+    presentation.save("presentation-with-logo.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Weitere Informationen zu Bildrahmen finden Sie unter [Picture Frame](/slides/de/androidjava/picture-frame/).
+
+## **Arbeiten mit Platzhaltern**
+
+Platzhalter werden normalerweise auf Layout‑Folien definiert. Die Master‑Folie stellt den gemeinsamen Stil und das Theme bereit, das diese Layouts erben, während jedes Layout entscheidet, welche Platzhalter verfügbar sind und wo sie platziert werden.
+
+In PowerPoint sind Platzhalter‑Befehle in der Slide‑Master‑Ansicht verfügbar.
+
+![Der Befehl „Platzhalter einfügen“ in der PowerPoint‑Slide‑Master‑Ansicht](slide-master_5.png)
+
+Um neue Platzhalter mit Aspose.Slides hinzuzufügen, arbeiten Sie mit der Layout‑Folie, die zum Master gehört:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide blankLayoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    if (blankLayoutSlide == null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(SlideLayoutType.Blank, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sie können auch Platzhalter‑Formen formatieren, die bereits auf einer Master‑Folie vorhanden sind. Das folgende Beispiel findet den Titel‑Platzhalter und wendet eine lineare Farbverlauf‑Füllung an:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IAutoShape titlePlaceholder = null;
+
+    for (IShape shape : masterSlide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+
+            if (autoShape.getPlaceholder() != null &&
+                    autoShape.getPlaceholder().getType() == PlaceholderType.Title) {
+                titlePlaceholder = autoShape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder != null) {
+        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
+        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+
+        titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Formatierter Titel‑Platzhalter, der von normalen Folien geerbt wird](slide-master_8.png)
+
+Weitere Optionen für Platzhalter‑ und Textformatierung finden Sie unter [Set Prompt Text in Placeholder](/slides/de/androidjava/manage-placeholder/) und [Text Formatting](/slides/de/androidjava/text-formatting/).
+
+## **Slide-Master-Hintergrund ändern**
+
+Ein Master‑Hintergrund wird von Layouts und Folien geerbt, die ihn nicht überschreiben. Das folgende Beispiel setzt eine einfarbige Hintergrundfarbe für den ersten Master‑Slide:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    int masterBackgroundColor = Color.GREEN;
+
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Verwandte Themen finden Sie unter [Presentation Background](/slides/de/androidjava/presentation-background/) und [Presentation Theme](/slides/de/androidjava/presentation-theme/).
+
+## **Einen Slide-Master in eine andere Präsentation klonen**
+
+Verwenden Sie [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-), um eine Master‑Folie in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layout‑ und Folien in der Zielpräsentation verwendet werden.
+
+```java
+Presentation sourcePresentation = new Presentation("source.pptx");
+Presentation destinationPresentation = new Presentation("destination.pptx");
+try {
+    IMasterSlide sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    IMasterSlide clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+Wenn Sie normale Folien zusammen mit ihrem Master klonen müssen, siehe [Clone Slides](/slides/de/androidjava/clone-slides/).
+
+## **Mehrere Slide-Master hinzufügen**
+
+Eine Präsentation kann mehrere Master‑Folien enthalten. Das ist nützlich, wenn verschiedene Abschnitte unterschiedliche Markenauftritte, Seitenstrukturen oder Theme‑Einstellungen benötigen.
+
+![PowerPoint‑Befehle zum Einfügen und Verwalten von Master‑Folien](slide-master_9.jpg)
+
+Das folgende Beispiel klont den Standard‑Master, gibt dem Klon einen anderen Hintergrund, erstellt ein Layout unter diesem geklonten Master und fügt eine neue Folie basierend auf diesem Layout hinzu:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
+    IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    int sectionMasterBackgroundColor = Color.GRAY;
+
+    sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    ILayoutSlide sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    if (sourceBlankLayout == null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    ILayoutSlide sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Slide-Master vergleichen**
+
+Master‑Folien können mit der von [IBaseSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ibaseslide/) geerbten `equals`‑Methode verglichen werden. Der Vergleich prüft Struktur und statischen Inhalt, wie Formen, Text, Formatierung, Animationen und andere Folieneinstellungen. Er vergleicht keine eindeutigen Kennungen wie Folien‑IDs oder dynamische Platzhalterwerte wie das aktuelle Datum.
+
+```java
+Presentation firstPresentation = new Presentation("first.pptx");
+Presentation secondPresentation = new Presentation("second.pptx");
+try {
+    int firstPresentationMasterCount = firstPresentation.getMasters().size();
+    int secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (int firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (int secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            IMasterSlide firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            IMasterSlide secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            boolean areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                System.out.printf(
+                        "first.pptx master #%d equals second.pptx master #%d%n",
+                        firstMasterIndex,
+                        secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+Weitere Informationen finden Sie unter [Compare Presentation Slides](/slides/de/androidjava/compare-slides/).
+
+## **Slide-Master-Ansicht als Standardansicht festlegen**
+
+Verwenden Sie die `setLastView`‑Methode auf [ViewProperties](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/viewproperties/), um die Ansicht zu steuern, die PowerPoint zuerst öffnet. Das folgende Beispiel öffnet die Präsentation in der Slide‑Master‑Ansicht:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("presentation-master-view.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Weitere Ansichtseinstellungen finden Sie unter [Save Presentation](/slides/de/androidjava/save-presentation/).
+
+## **Unbenutzte Master‑Folien entfernen**
+
+Präsentationen enthalten manchmal Master‑Folien, die von keinen normalen Folien mehr verwendet werden. Das Entfernen ungenutzter Master‑Folien kann die Dateigröße verringern und die Wartung von Vorlagen vereinfachen.
+
+Verwenden Sie `removeUnused`, um ungenutzte Master aus der `getMasters()`‑Sammlung zu entfernen:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sie können auch die Low‑Code‑Methode [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) verwenden:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**Was ist ein Slide Master in PowerPoint?**
+**Was ist der Unterschied zwischen einem Slide-Master und einer Layout‑Folie?**
 
-Ein Slide Master ist eine Folienvorlage, die Layout, Stile, Themen, Schriften, Hintergrund und weitere Eigenschaften für Folien einer Präsentation definiert. Sie können damit das Aussehen aller Folien gleichzeitig festlegen und ändern.  
+Ein Slide‑Master definiert gemeinsam genutzte Designeinstellungen wie Theme, Hintergrund, gemeinsame Formen und Textstile. Eine Layout‑Folie gehört zu einem Slide‑Master und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layout‑Folie und erbt somit sowohl vom Layout als auch vom Master.
 
-**Wie wird ein Slide Master in einer Präsentation angewendet?**
+**Kann eine Präsentation mehrere Slide-Master enthalten?**
 
-Jede Präsentation enthält standardmäßig mindestens einen Slide Master. Beim Hinzufügen einer neuen Folie wird automatisch ein Slide Master darauf angewendet, meist der Master der vorherigen Folie. Eine Präsentation kann mehrere Slide Masters enthalten, um verschiedene Teile individuell zu gestalten.  
+Ja. Eine Präsentation kann mehrere Slide‑Master enthalten. Verwenden Sie mehrere Master, wenn verschiedene Abschnitte unterschiedliche visuelle Systeme oder Markenauftritte benötigen.
 
-**Welche Elemente können in einem Slide Master angepasst werden?**
+**Sollte ich Platzhalter zu einer Master‑Folie oder einer Layout‑Folie hinzufügen?**
 
-Ein Slide Master besteht aus mehreren Kern‑Properties, die angepasst werden können:
+In den meisten Fällen fügen Sie Platzhalter zu Layout‑Folien hinzu. Platzieren Sie gemeinsam genutzte visuelle Elemente und Formatierungen auf der Master‑Folie und die Inhalts‑Platzhalter auf den Layout‑Folien, die von normalen Folien verwendet werden.
 
-- **Background**: Folienhintergrund festlegen.
-- **BodyStyle**: Textstile des Folienkörpers definieren.
-- **Shapes**: Alle Formen auf dem Slide Master verwalten, inkl. Platzhalter und Bildrahmen.
-- **Controls**: ActiveX‑Steuerelemente verwalten.
-- **ThemeManager**: Zugriff auf den Theme‑Manager.
-- **HeaderFooterManager**: Header‑ und Footer‑Verwaltung.  
+**Kann ich eine Master‑Folie löschen, die noch verwendet wird?**
 
-**Wie füge ich ein Bild zu einem Slide Master hinzu?**
-
-Ein Bild, das Sie zu einem Slide Master hinzufügen, erscheint auf allen Folien, die von diesem Master abhängen. Beispiel: Das Firmenlogo auf dem Slide Master wird auf jeder Folie der Präsentation angezeigt.  
-
-**Wie stehen Slide Masters zu Slide Layouts?**
-
-Slide Layouts arbeiten zusammen mit Slide Masters, um Flexibilität im Foliendesign zu bieten. Während ein Slide Master globale Stile und Themen definiert, ermöglichen Slide Layouts Variationen in der Anordnung des Inhalts. Die Hierarchie lautet:
-
-- **Slide Master** → Definiert globale Stile.
-- **Slide Layout** → Bietet unterschiedliche Inhaltsanordnungen.
-- **Slide** → Erbt das Design vom zugewiesenen Slide Layout.
-
-**Kann ich mehrere Slide Masters in einer einzelnen Präsentation haben?**
-
-Ja, eine Präsentation kann mehrere Slide Masters enthalten. Dadurch lassen sich verschiedene Abschnitte einer Präsentation unterschiedlich gestalten, was mehr Design‑Flexibilität bietet.  
-
-**Wie greife ich mit Aspose.Slides auf einen Slide Master zu und ändere ihn?**
-
-In Aspose.Slides wird ein Slide Master durch das [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/)‑Interface repräsentiert. Sie können einen Slide Master über die [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--)‑Methode des [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Objekts abrufen.
+Nein. Eine Master‑Folie, die abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie zunächst diese Folien zu Layouts unter einem anderen Master oder verwenden Sie eine Bereinigungs‑Methode für unbenutzte Master, die nur nicht verwendete Master entfernt.

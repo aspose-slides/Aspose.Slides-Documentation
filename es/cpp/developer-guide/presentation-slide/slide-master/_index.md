@@ -1,5 +1,5 @@
 ---
-title: Administrar maestros de diapositivas de presentación en C++
+title: Administrar maestros de diapositivas de presentaciones en C++
 linktitle: Maestro de diapositiva
 type: docs
 weight: 80
@@ -15,322 +15,351 @@ keywords:
 - clonar diapositiva maestra
 - copiar diapositiva maestra
 - duplicar diapositiva maestra
-- diapositiva maestra sin usar
+- diapositiva maestra no usada
 - PowerPoint
 - OpenDocument
 - presentación
 - C++
 - Aspose.Slides
-description: "Administrar maestros de diapositivas en Aspose.Slides para C++: crear, editar y aplicar diseños, temas y marcadores de posición a PPT, PPTX y ODP con ejemplos concisos en C++."
+description: "Administrar maestros de diapositivas en Aspose.Slides para C++: acceder, editar, clonar, comparar y eliminar diapositivas maestras en presentaciones PowerPoint y OpenDocument."
 ---
+## **Descripción general**
 
-## **Qué es un Slide Master en PowerPoint**
+Un **slide master** define los ajustes de diseño compartidos para un conjunto de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, ajustes de tema y de pie de página. En PowerPoint, editar un slide master es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
 
-Un **Slide Master** es una plantilla de diapositiva que define el diseño, los estilos, el tema, las fuentes, el fondo y otras propiedades para las diapositivas en una presentación. Si desea crear una presentación (o una serie de presentaciones) con el mismo estilo y plantilla para su empresa, puede usar un Slide Master. 
+Aspose.Slides para C++ admite el mismo modelo. Una presentación puede contener una o varias diapositivas master, y cada diapositiva master puede contener varias diapositivas de diseño. Normalmente, las diapositivas habituales no hacen referencia directa a una diapositiva master. En su lugar, una diapositiva habitual utiliza una diapositiva de diseño, y esa diapositiva de diseño pertenece a una diapositiva master.
 
-Un Slide Master es útil porque le permite establecer y cambiar el aspecto de todas las diapositivas de la presentación de una sola vez. Aspose.Slides admite el mecanismo de Slide Master de PowerPoint. 
+La jerarquía es:
 
-VBA también le permite manipular un Slide Master y ejecutar las mismas operaciones admitidas en PowerPoint: cambiar fondos, agregar formas, personalizar el diseño, etc. Aspose.Slides proporciona mecanismos flexibles para que pueda usar Slide Masters y realizar tareas básicas con ellos. 
+1. **Slide master** - define el diseño y tema compartidos.  
+1. **Layout slide** - define una disposición específica de marcadores de posición y formato a nivel de diseño.  
+1. **Normal slide** - contiene el contenido real de la presentación y utiliza una diapositiva de diseño.
 
-Estas son operaciones básicas de Slide Master:
+![Jerarquía de diapositivas master, diapositivas de diseño y diapositivas habituales](slide-master_2.jpg)
 
-- Crear un Slide Master.
-- Aplicar Slide Master a las diapositivas de la presentación.
-- Cambiar el fondo del Slide Master. 
-- Agregar una imagen, marcador de posición, Smart Art, etc. al Slide Master.
+En Aspose.Slides, un slide master está representado por la interfaz [IMasterSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterslide/). Todas las diapositivas master de una presentación están disponibles mediante la colección [Presentation::get_Masters](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/get_masters/), que implementa [IMasterSlideCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterslidecollection/).
 
-Estas son operaciones más avanzadas que involucran Slide Master: 
-
-- Comparar Slide Masters.
-- Fusionar Slide Masters.
-- Aplicar varios Slide Masters.
-- Copiar diapositiva con Slide Master a otra presentación.
-- Encontrar Slide Masters duplicados en presentaciones.
-- Establecer Slide Master como la vista predeterminada de la presentación.
-
-{{% alert color="primary" %}} 
-
-Es posible que desee consultar Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) porque es una implementación en vivo de algunos de los procesos centrales descritos aquí.
-
-{{% /alert %}} 
-
-## **Cómo se aplica un Slide Master**
-
-Antes de trabajar con un Slide Master, es posible que desee comprender cómo se utilizan en las presentaciones y se aplican a las diapositivas. 
-
-* Cada presentación tiene al menos un Slide Master de forma predeterminada. 
-* Una presentación puede contener varios Slide Masters. Puede agregar varios Slide Masters y usarlos para dar estilo a diferentes partes de una presentación de distintas maneras. 
-
-En **Aspose.Slides**, un Slide Master está representado por el tipo [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide). 
-
-El objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) de Aspose.Slides contiene la lista [**get_Masters()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) de tipo [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection), que contiene una lista de todos los slides maestros definidos en una presentación. 
-
-Además de las operaciones CRUD, la interfaz [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) contiene estos métodos útiles: [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) y [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311). Esos métodos se heredan de la función básica de clonación de diapositivas. Pero al trabajar con Slide Masters, esos métodos le permiten implementar configuraciones complicadas. 
-
-Cuando se agrega una nueva diapositiva a una presentación, se le aplica automáticamente un Slide Master. El Slide Master de la diapositiva anterior se selecciona de forma predeterminada. 
-
-**Nota**: Las diapositivas de la presentación se almacenan en la lista [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), y cada nueva diapositiva se agrega al final de la colección de forma predeterminada. Si una presentación contiene un solo Slide Master, ese Slide Master se selecciona para todas las diapositivas nuevas. Esta es la razón por la que no tiene que definir el Slide Master para cada diapositiva nueva que cree.
-
-El principio es el mismo para PowerPoint y Aspose.Slides. Por ejemplo, en PowerPoint, cuando agrega una nueva presentación, puede simplemente presionar en la línea inferior bajo la última diapositiva y entonces se creará una nueva diapositiva (con el Slide Master de la última presentación):
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-En Aspose.Slides, puede realizar la tarea equivalente con el método [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) bajo la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-
-## **Slide Master en la jerarquía de diapositivas**
-
-Usar Slide Layouts con Slide Master permite la máxima flexibilidad. Un Slide Layout le permite establecer los mismos estilos que el Slide Master (fondo, fuentes, formas, etc.). Sin embargo, cuando varios Slide Layouts se combinan en un Slide Master, se crea un nuevo estilo. Cuando aplica un Slide Layout a una sola diapositiva, puede cambiar su estilo del que aplicó el Slide Master.
-
-Slide Master sobrescribe todos los elementos de configuración: Slide Master → Slide Layout → Slide:
-
-![todo:image_alt_text](slide-master_2)
-
-Cada objeto [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) tiene una propiedad [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) con una lista de Slide Layouts. Un tipo [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) tiene una propiedad [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) con un enlace a un Slide Layout aplicado a la diapositiva. La interacción entre una diapositiva y el Slide Master ocurre a través de un Slide Layout.
-
-{{% alert color="info" title="Nota" %}}
-
-* En Aspose.Slides, todas las configuraciones de diapositiva (Slide Master, Slide Layout y la propia diapositiva) son en realidad objetos de diapositiva que implementan la interfaz [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide).
-
-* Por lo tanto, Slide Master y Slide Layout pueden implementar las mismas propiedades y debe saber cómo se aplicarán sus valores a un objeto [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide). El Slide Master se aplica primero a una diapositiva y luego se aplica el Slide Layout. Por ejemplo, si el Slide Master y el Slide Layout ambos tienen un valor de fondo, la diapositiva terminará con el fondo del Slide Layout.
-
+{{% alert color="info" title="Herencia" %}}
+Cuando la misma propiedad se define en más de un nivel, gana el nivel más específico. Por ejemplo, si una diapositiva master y una diapositiva de diseño definen ambas un fondo, las diapositivas basadas en ese diseño utilizan el fondo del diseño. Para obtener más información sobre las diapositivas de diseño, consulte [Aplicar o cambiar diseños de diapositivas](/slides/es/cpp/slide-layout/).
 {{% /alert %}}
 
-## **Qué compone un Slide Master**
+## **Acceder a los slide masters**
 
-Para comprender cómo se puede cambiar un Slide Master, necesita conocer sus componentes. Estas son las propiedades principales de [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/).
+En PowerPoint, puede abrir la vista Slide Master desde **View** > **Slide Master**.
 
-- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - obtener/establecer el fondo de la diapositiva.
-- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - obtener/establecer los estilos de texto del cuerpo de la diapositiva.
-- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - obtener/establecer todas las formas del Slide Master (marcadores de posición, marcos de imagen, etc).
-- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - obtener/establecer los controles ActiveX.
-- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - obtener el gestor de temas.
-- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - obtener el gestor de encabezado y pie de página.
+![El comando Slide Master en la pestaña View de PowerPoint](slide-master_3.jpg)
 
-Métodos de Slide Master:
+En Aspose.Slides, use la colección `get_Masters()` para acceder a las diapositivas master:
 
-- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - obtener todas las diapositivas que dependen del Slide Master.
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - le permite crear un nuevo Slide Master basado en el Slide Master actual y un nuevo tema. El nuevo Slide Master se aplicará a todas las diapositivas dependientes.
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **Obtener un Slide Master**
+auto firstMasterSlide = presentation->get_Master(0);
+auto masterSlideCount = presentation->get_Masters()->get_Count();
+auto firstMasterLayoutSlideCount = firstMasterSlide->get_LayoutSlides()->get_Count();
 
-En PowerPoint, el Slide Master se puede acceder desde el menú Ver → Slide Master:
+System::Console::WriteLine(System::String(u"Master slides: ") + masterSlideCount);
+System::Console::WriteLine(System::String(u"Layouts in the first master: ") + firstMasterLayoutSlideCount);
 
-![todo:image_alt_text](slide-master_3.jpg)
-
-Usando Aspose.Slides, puede acceder a un Slide Master de esta manera:
-```c++
-System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
+presentation->Dispose();
 ```
 
+También puede obtener la diapositiva master utilizada por una diapositiva habitual a través de su diseño:
 
-La interfaz [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) representa un Slide Master. La propiedad [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) (relacionada con el tipo [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection)) contiene una lista de todos los Slide Masters que están definidos en la presentación.
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **Agregar una imagen a un Slide Master**
+auto slide = presentation->get_Slide(0);
+auto layoutSlide = slide->get_LayoutSlide();
+auto masterSlide = layoutSlide->get_MasterSlide();
+auto masterSlideName = masterSlide->get_Name();
 
-Cuando agrega una imagen a un Slide Master, esa imagen aparecerá en todas las diapositivas dependientes de ese slide master. 
+System::Console::WriteLine(masterSlideName);
 
-Por ejemplo, puede colocar el logotipo de su empresa y algunas imágenes en el Slide Master y luego volver al modo de edición de diapositivas. Debería ver la imagen en cada diapositiva. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Puede agregar imágenes a un slide master con Aspose.Slides:
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png"));
-pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **Qué contiene un slide master**
 
-{{% alert color="primary" title="Ver también" %}} 
+Una diapositiva master es un objeto similar a una diapositiva. Implementa [IBaseSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibaseslide/), por lo que expone muchas de las mismas propiedades de diapositiva que usan las diapositivas habituales y de diseño. Los miembros específicos del master aparecen en la página de la API [IMasterSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterslide/).
 
-Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulte el artículo [Picture Frame](/slides/es/cpp/picture-frame/#create-picture-frame).
+Los miembros de diapositiva master más usados incluyen:
 
-{{% /alert %}}
+| Miembro | Propósito |
+| --- | --- |
+| `get_Background()` | Establece el fondo de la diapositiva a nivel de master. |
+| `get_Shapes()` | Almacena las formas colocadas en el master, como logotipos, marcos de imágenes y texto compartido. |
+| `get_LayoutSlides()` | Almacena las diapositivas de diseño que pertenecen al master. |
+| `get_ThemeManager()` | Proporciona acceso a las API del tema del master. |
+| `get_HeaderFooterManager()` | Controla encabezados, pies de página, fechas y números de diapositiva para el master y sus diseños hijos. |
+| `GetDependingSlides()` | Devuelve las diapositivas habituales que dependen del master a través de sus diseños. |
 
-## **Agregar un marcador de posición a un Slide Master**
+## **Añadir una imagen a un slide master**
 
-Estos campos de texto son marcadores de posición estándar en un Slide Master: 
+Cuando añades una imagen a una diapositiva master, aparece en las diapositivas que utilizan diseños de ese master. Es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales repetidos.
 
-* Haga clic para editar el estilo del título del Master
-* Editar estilos de texto del Master
-* Segundo nivel
-* Tercer nivel 
+El siguiente ejemplo añade un logotipo a la primera diapositiva master:
 
-También aparecen en las diapositivas basadas en el Slide Master. Puede editar esos marcadores de posición en un Slide Master y los cambios se aplicarán automáticamente a las diapositivas. 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-En PowerPoint, puede agregar un marcador de posición a través de la ruta Slide Master → Insert Placeholder:
+auto masterSlide = presentation->get_Master(0);
+auto logoBytes = System::IO::File::ReadAllBytes(u"logo.png");
+auto logoImage = presentation->get_Images()->AddImage(logoBytes);
 
-![todo:image_alt_text](slide-master_5.png)
+masterSlide->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle,
+    20.0f,
+    20.0f,
+    80.0f,
+    80.0f,
+    logoImage);
 
-Examinemos un ejemplo más complicado de marcadores de posición con Aspose.Slides. Considere una diapositiva con marcadores de posición basados en el Slide Master:
+presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-![todo:image_alt_text](slide-master_6.png)
+Para obtener más información sobre marcos de imágenes, consulte [Marco de imagen](/slides/es/cpp/picture-frame/).
 
-Queremos cambiar el formato del Título y el Subtítulo en el Slide Master de esta manera:
+## **Trabajar con marcadores de posición**
 
-![todo:image_alt_text](slide-master_7.png)
+Los marcadores de posición se definen normalmente en las diapositivas de diseño. La diapositiva master proporciona el estilo y tema compartidos que esos diseños heredan, mientras que cada diseño decide qué marcadores de posición están disponibles y dónde se colocan.
 
-Primero, recuperamos el contenido del marcador de posición del título del objeto Slide Master y luego usamos el campo `PlaceHolder.FillFormat`:
-```c++
-System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> master, PlaceholderType type)
+En PowerPoint, los comandos de marcador de posición están disponibles en la vista Slide Master.
+
+![El comando Insertar marcador de posición en la vista Slide Master de PowerPoint](slide-master_5.png)
+
+Para añadir nuevos marcadores de posición con Aspose.Slides, trabaje con la diapositiva de diseño que pertenece al master:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto blankLayoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (blankLayoutSlide == nullptr)
 {
-    for (auto& shape : master->get_Shapes())
+    blankLayoutSlide = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::Blank, u"Blank");
+}
+
+blankLayoutSlide->get_PlaceholderManager()->AddTextPlaceholder(
+    60.0f,
+    120.0f,
+    600.0f,
+    80.0f);
+
+presentation->get_Slides()->AddEmptySlide(blankLayoutSlide);
+presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+También puede formatear las formas de marcador de posición que ya existen en una diapositiva master. El siguiente ejemplo localiza el marcador de posición de título y le aplica un relleno de degradado lineal:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+System::SharedPtr<IAutoShape> titlePlaceholder;
+
+for (auto&& shape : masterSlide->get_Shapes())
+{
+    auto autoShape = System::AsCast<IAutoShape>(shape);
+
+    if (autoShape != nullptr &&
+        autoShape->get_Placeholder() != nullptr &&
+        autoShape->get_Placeholder()->get_Type() == PlaceholderType::Title)
     {
-        System::SharedPtr<IAutoShape> autoShape = System::AsCast<Aspose::Slides::IAutoShape>(shape);
-        if (autoShape != nullptr)
+        titlePlaceholder = autoShape;
+        break;
+    }
+}
+
+if (titlePlaceholder != nullptr)
+{
+    auto fillFormat = titlePlaceholder->get_FillFormat();
+    fillFormat->set_FillType(FillType::Gradient);
+
+    auto gradientFormat = fillFormat->get_GradientFormat();
+    gradientFormat->set_GradientShape(GradientShape::Linear);
+
+    auto gradientStops = gradientFormat->get_GradientStops();
+    auto redGradientColor = System::Drawing::Color::FromArgb(255, 0, 0);
+    auto purpleGradientColor = System::Drawing::Color::FromArgb(128, 0, 128);
+
+    gradientStops->Add(0.0f, redGradientColor);
+    gradientStops->Add(255.0f, purpleGradientColor);
+}
+
+presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+![Marcador de posición de título formateado heredado por diapositivas habituales](slide-master_8.png)
+
+Para más opciones de marcadores de posición y formato de texto, vea [Establecer texto de solicitud en marcador de posición](/slides/es/cpp/manage-placeholder/) y [Formato de texto](/slides/es/cpp/text-formatting/).
+
+## **Cambiar el fondo de un slide master**
+
+Un fondo de master se hereda por los diseños y las diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para la primera diapositiva master:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto masterBackgroundColor = System::Drawing::Color::get_ForestGreen();
+
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(masterBackgroundColor);
+
+presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Para temas relacionados, vea [Fondo de presentación](/slides/es/cpp/presentation-background/) y [Tema de presentación](/slides/es/cpp/presentation-theme/).
+
+## **Clonar un slide master a otra presentación**
+
+Utilice [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterslidecollection/addclone/) para copiar una diapositiva master a otra presentación. El master copiado puede entonces ser usado por diseños y diapositivas en la presentación de destino.
+
+```cpp
+auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
+auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
+
+auto sourceMasterSlide = sourcePresentation->get_Master(0);
+auto clonedMasterSlide = destinationPresentation->get_Masters()->AddClone(sourceMasterSlide);
+
+destinationPresentation->Save(u"destination-with-master.pptx", SaveFormat::Pptx);
+destinationPresentation->Dispose();
+sourcePresentation->Dispose();
+```
+
+Si necesita clonar diapositivas habituales junto con su master, consulte [Clonar diapositivas](/slides/es/cpp/clone-slides/).
+
+## **Añadir varios slide masters**
+
+Una presentación puede contener varias diapositivas master. Esto es útil cuando diferentes secciones requieren distintas marcas, estructuras de página o ajustes de tema.
+
+![Comandos de PowerPoint para insertar y gestionar diapositivas master](slide-master_9.jpg)
+
+El siguiente ejemplo clona el master predeterminado, le da al clon un fondo diferente, crea un diseño bajo ese master clonado y añade una nueva diapositiva basada en ese diseño:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto defaultMasterSlide = presentation->get_Master(0);
+auto sectionMasterSlide = presentation->get_Masters()->AddClone(defaultMasterSlide);
+auto sectionMasterBackgroundColor = System::Drawing::Color::get_LightSteelBlue();
+
+sectionMasterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+sectionMasterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+sectionMasterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(sectionMasterBackgroundColor);
+
+auto sourceBlankLayout = defaultMasterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (sourceBlankLayout == nullptr)
+{
+    sourceBlankLayout = defaultMasterSlide->get_LayoutSlide(0);
+}
+
+auto sectionBlankLayout = sectionMasterSlide->get_LayoutSlides()->AddClone(sourceBlankLayout);
+
+presentation->get_Slides()->AddEmptySlide(sectionBlankLayout);
+presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Comparar slide masters**
+
+Las diapositivas master pueden compararse con el método `Equals` heredado de [IBaseSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibaseslide/). La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otros ajustes de diapositiva. No compara identificadores únicos, como IDs de diapositiva, ni valores dinámicos de marcadores de posición, como la fecha actual.
+
+```cpp
+auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
+auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
+auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
+auto secondPresentationMasterCount = secondPresentation->get_Masters()->get_Count();
+
+for (int32_t firstMasterIndex = 0;
+     firstMasterIndex < firstPresentationMasterCount;
+     firstMasterIndex++)
+{
+    for (int32_t secondMasterIndex = 0;
+         secondMasterIndex < secondPresentationMasterCount;
+         secondMasterIndex++)
+    {
+        auto firstMasterSlide = firstPresentation->get_Master(firstMasterIndex);
+        auto secondMasterSlide = secondPresentation->get_Master(secondMasterIndex);
+        auto areMasterSlidesEqual = firstMasterSlide->Equals(secondMasterSlide);
+
+        if (areMasterSlidesEqual)
         {
-            if (autoShape->get_Placeholder()->get_Type() == type)
-            {
-                return autoShape;
-            }
+            System::Console::WriteLine(
+                System::String::Format(
+                    u"first.pptx master #{0} equals second.pptx master #{1}",
+                    firstMasterIndex,
+                    secondMasterIndex));
         }
     }
-    return nullptr;
 }
 
-void Main()
-{
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
-    System::SharedPtr<IAutoShape> placeHolder = FindPlaceholder(master, Aspose::Slides::PlaceholderType::Title);
-    auto fillFormat = placeHolder->get_FillFormat();
-    fillFormat->set_FillType(Aspose::Slides::FillType::Gradient);
-    auto gradientFormat = fillFormat->get_GradientFormat();
-    gradientFormat->set_GradientShape(Aspose::Slides::GradientShape::Linear);
-    gradientFormat->get_GradientStops()->Add(0.0f, System::Drawing::Color::FromArgb(255, 0, 0));
-    gradientFormat->get_GradientStops()->Add(255.0f, System::Drawing::Color::FromArgb(128, 0, 128));
-    
-    pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-}
+secondPresentation->Dispose();
+firstPresentation->Dispose();
 ```
 
+Para más información, vea [Comparar diapositivas de presentación](/slides/es/cpp/compare-slides/).
 
-El estilo y formato del título cambiarán para todas las diapositivas basadas en el slide master:
+## **Establecer la vista Slide Master como vista predeterminada**
 
-![todo:image_alt_text](slide-master_8.png)
+Utilice el método `set_LastView` en [ViewProperties](https://reference.aspose.com/slides/es/cpp/aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en la vista Slide Master:
 
-{{% alert color="primary" title="Ver también" %}} 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/cpp/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/cpp/text-formatting/)
-
-{{% /alert %}}
-
-## **Cambiar el fondo en un Slide Master**
-
-Cuando cambia el color de fondo de una diapositiva maestra, todas las diapositivas normales de la presentación obtendrán el nuevo color. Este código C++ demuestra la operación:
-```c++
-auto pres = System::MakeObject<Presentation>();
-
-auto master = pres->get_Masters()->idx_get(0);
-auto background = master->get_Background();
-background->set_Type(Aspose::Slides::BackgroundType::OwnBackground);
-background->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-background->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
-    
-pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
+presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Para más ajustes de vista, vea [Guardar presentación](/slides/es/cpp/save-presentation/).
 
-{{% alert color="primary" title="Ver también" %}} 
+## **Eliminar slide masters sin usar**
 
-- [Presentation Background](https://docs.aspose.com/slides/cpp/presentation-background/)
+A veces las presentaciones contienen diapositivas master que ya no son usadas por ninguna diapositiva habitual. Eliminar masters sin usar puede reducir el tamaño del archivo y simplificar el mantenimiento de plantillas.
 
-- [Presentation Theme](https://docs.aspose.com/slides/cpp/presentation-theme/)
+Utilice [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/es/cpp/aspose.slides/masterslidecollection/removeunused/) para eliminar los masters no usados de la colección `get_Masters()`:
 
-{{% /alert %}}
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **Clonar un Slide Master a otra presentación**
-
-Para clonar un Slide Master a otra presentación, llame al método [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) de la presentación de destino junto con un Slide Master pasado a él. Este código C++ le muestra cómo clonar un Slide Master a otra presentación:
-```c++
-auto presSource = System::MakeObject<Presentation>();
-auto presTarget = System::MakeObject<Presentation>();
-    
-auto master = presTarget->get_Masters()->AddClone(presSource->get_Masters()->idx_get(0));
+presentation->get_Masters()->RemoveUnused(true);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+También puede usar el método de bajo código [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/es/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/):
 
-## **Agregar varios Slide Masters a una presentación**
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-Aspose.Slides le permite agregar varios Slide Masters y Slide Layouts a cualquier presentación. Esto le permite configurar estilos, diseños y opciones de formato para las diapositivas de la presentación de varias maneras. 
-
-En PowerPoint, puede agregar nuevos Slide Masters y Layouts (desde el menú "Slide Master") de esta manera:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-Usando Aspose.Slides, puede agregar un nuevo Slide Master llamando al método [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48):
-```c++
-pres->get_Masters()->AddClone(pres->get_Masters()->idx_get(0));
+LowCode::Compress::RemoveUnusedMasterSlides(presentation);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-
-
-## **Comparar Slide Masters**
-
-Un Master Slide implementa la interfaz [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) que contiene el método [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f), que puede usarse para comparar diapositivas. Devuelve `true` para Master Slides idénticos en estructura y contenido estático. 
-
-Dos Master Slides son iguales si sus formas, estilos, textos, animaciones y otras configuraciones, etc., son iguales. La comparación no tiene en cuenta los valores de identificadores únicos (p. ej., SlideId) ni el contenido dinámico (p. ej., el valor de fecha actual en el marcador de posición de fecha).
-
-## **Establecer un Slide Master como la vista predeterminada de la presentación**
-
-Aspose.Slides le permite establecer un Slide Master como la vista predeterminada de una presentación. La vista predeterminada es lo que ve primero al abrir una presentación. 
-
-Este código le muestra cómo establecer un Slide Master como la vista predeterminada de una presentación en C++:
-```c++
-pres->get_ViewProperties()->set_LastView(Aspose::Slides::ViewType::SlideMasterView);
-```
-
-
-## **Eliminar Master Slides no utilizados**
-
-Aspose.Slides proporciona el método [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) (de la clase [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) para permitirle eliminar master slides no deseados y sin usar. Este código C++ le muestra cómo eliminar un master slide de una presentación PowerPoint:
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-LowCode::Compress::RemoveUnusedMasterSlides(pres);
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-
 
 ## **Preguntas frecuentes**
 
-**¿Qué es un Slide Master en PowerPoint?**
+**¿Cuál es la diferencia entre un slide master y una diapositiva de diseño?**
 
-Un Slide Master es una plantilla de diapositiva que define el diseño, los estilos, los temas, las fuentes, el fondo y otras propiedades de las diapositivas en una presentación. Le permite establecer y cambiar el aspecto de todas las diapositivas de la presentación de una sola vez.  
+Un slide master define los ajustes de diseño compartidos como tema, fondo, formas comunes y estilos de texto. Una diapositiva de diseño pertenece a un slide master y define una disposición específica de marcadores de posición. Una diapositiva habitual usa una diapositiva de diseño, por lo que hereda tanto del diseño como del master.
 
-**¿Cómo se aplica un Slide Master en una presentación?**
+**¿Puede una presentación contener varios slide masters?**
 
-Cada presentación tiene al menos un Slide Master de forma predeterminada. Cuando se agrega una nueva diapositiva, se le aplica automáticamente un Slide Master, normalmente heredando el master de la diapositiva anterior. Una presentación puede contener varios Slide Masters para dar estilo a diferentes partes de forma única.  
+Sí. Una presentación puede contener varios slide masters. Use varios masters cuando diferentes secciones necesiten sistemas visuales o marcas distintas.
 
-**¿Qué elementos se pueden personalizar en un Slide Master?**
+**¿Debo añadir marcadores de posición a una diapositiva master o a una diapositiva de diseño?**
 
-- **Background**: Establecer el fondo de la diapositiva.
-- **BodyStyle**: Definir los estilos de texto del cuerpo de la diapositiva.
-- **Shapes**: Administrar todas las formas en el Slide Master, incluidos los marcadores de posición y los marcos de imagen.
-- **Controls**: Gestionar controles ActiveX.
-- **ThemeManager**: Acceder al gestor de temas.
-- **HeaderFooterManager**: Gestionar encabezados y pies de página.  
+En la mayoría de los casos, añada los marcadores de posición a las diapositivas de diseño. Coloque los elementos visuales y formatos compartidos en la diapositiva master y los marcadores de contenido en los diseños que usarán las diapositivas habituales.
 
-**¿Cómo puedo agregar una imagen a un Slide Master?**
+**¿Puedo eliminar una diapositiva master que sigue en uso?**
 
-Agregar una imagen a un Slide Master garantiza que aparezca en todas las diapositivas que dependen de ese master. Por ejemplo, colocar el logotipo de la empresa en el Slide Master lo mostrará en cada diapositiva de la presentación.  
-
-**¿Cómo se relacionan los Slide Masters con los Slide Layouts?**
-
-Los Slide Layouts funcionan en conjunto con los Slide Masters para brindar flexibilidad en el diseño de las diapositivas. Mientras que un Slide Master define estilos y temas generales, los Slide Layouts permiten variaciones en la organización del contenido. La jerarquía es la siguiente:
-
-- **Slide Master** → Define estilos globales.
-- **Slide Layout** → Proporciona diferentes disposiciones de contenido.
-- **Slide** → Hereda el diseño de su Slide Layout.
-
-**¿Puedo tener múltiples Slide Masters en una única presentación?**
-
-Sí, una presentación puede contener varios Slide Masters. Esto permite dar estilo a diferentes secciones de una presentación de diversas maneras, proporcionando flexibilidad en el diseño.  
-
-**¿Cómo accedo y modifico un Slide Master usando Aspose.Slides?**
-
-En Aspose.Slides, un Slide Master está representado por la interfaz [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/). Puede acceder a un Slide Master mediante el método [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) del objeto [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+No. Una diapositiva master que tiene diapositivas dependientes no puede eliminarse de forma segura directamente. Primero mueva esas diapositivas a diseños bajo otro master, o utilice un método de limpieza de masters no usados que elimine solo los masters que no están en uso.
