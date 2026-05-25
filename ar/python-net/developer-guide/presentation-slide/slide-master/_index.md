@@ -1,281 +1,342 @@
 ---
-title: إدارة ماسترات شرائح PowerPoint في Python
-linktitle: ماستر الشريحة
+title: إدارة شرائح الرئيس في بايثون
+linktitle: شريحة رئيس
 type: docs
 weight: 80
 url: /ar/python-net/slide-master/
 keywords:
-- ماستر شريحة
-- شريحة ماستر
-- شريحة ماستر PPT
-- شرائح ماستر متعددة
-- مقارنة شرائح الماستر
+- شريحة رئيس
+- شريحة رئيسية
+- شريحة رئيسية PPT
+- شرائح رئيسية متعددة
+- مقارنة شرائح رئيسية
 - خلفية
 - عنصر نائب
-- استنساخ شريحة ماستر
-- نسخ شريحة ماستر
-- تكرار شريحة ماستر
-- شريحة ماستر غير مستخدمة
+- استنساخ شريحة رئيسية
+- نسخ شريحة رئيسية
+- تكرار شريحة رئيسية
+- شريحة رئيس غير مستخدمة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "أتمتة ماسترات شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر .NET لتعزيز كفاءة التطوير إلى أقصى حد. دليل شامل للمبتدئين والمتقدمين."
+description: "إدارة شرائح الرئيس في Aspose.Slides للغة Python عبر .NET: الوصول، التحرير، الاستنساخ، المقارنة، وإزالة شرائح الرئيس في عروض PowerPoint وOpenDocument."
 ---
-
 ## **نظرة عامة**
 
-**Slide Master** هو قالب شريحة يحدد التخطيط، الأنماط، السمة، الخطوط، الخلفية، والخصائص الأخرى للشرائح في عرض تقديمي. إذا كنت تريد إنشاء عرض تقديمي (أو سلسلة من العروض) بنفس النمط والقالب لشركتك، يمكنك استخدام **Slide Master**.
+يُعرّف **شريحة الرئيس** (slide master) إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكنه احتواء الأشكال الشائعة، والشعارات، والخلفيات، وأنماط النص، وإعدادات السمة، وإعدادات التذييل. في PowerPoint، يُعد تحرير شريحة الرئيس الطريقة المعتادة للحفاظ على اتساق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
 
-يُعد **Slide Master** مفيدًا لأنه يتيح لك ضبط وتغيير مظهر جميع شرائح العرض التقديمي دفعة واحدة. تدعم Aspose.Slides آلية **Slide Master** في PowerPoint.
+يدعم Aspose.Slides للغة Python عبر .NET نفس النموذج. يمكن للعرض التقديمي أن يحتوي على شريحة رئيس واحدة أو أكثر، ويمكن لكل شريحة رئيس أن تحتوي على عدة شرائح تخطيط. عادةً لا تشير الشرائح العادية إلى شريحة رئيس مباشرةً. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتلك الشريحة التخطيطية تنتمي إلى شريحة رئيس.
 
-كما يتيح VBA تعديل **Slide Master** وأداء نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة أشكال، تخصيص التخطيطات، وأكثر. توفر Aspose.Slides واجهات برمجة تطبيقات مرنة تسمح لك بالعمل مع **Slide Masters** وأداء المهام الشائعة.
+التسلسل الهرمي هو:
 
-هذه هي عمليات **Slide Master** الأساسية:
+1. **شريحة الرئيس** - تُعرّف التصميم والسمة المشتركة.  
+1. **شريحة التخطيط** - تُعرّف ترتيبًا محددًا للعناصر النائبة وتنسيق المستوى التخطيطي.  
+1. **الشريحة العادية** - تحتوي على محتوى العرض الفعلي وتستخدم شريحة تخطيط واحدة.
 
-- إنشاء **Slide Master**.
-- تطبيق **Slide Master** على شرائح العرض التقديمي.
-- تغيير خلفية **Slide Master**.
-- إضافة صورة أو عنصر نائب أو SmartArt، إلخ، إلى **Slide Master**.
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-هذه عمليات أكثر تقدماً تتضمن **Slide Master**:
+في Aspose.Slides، تُمثَّل شريحة الرئيس بالفئة [MasterSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/). جميع شرائح الرئيس في العرض التقديمي متاحة عبر مجموعة `Presentation.masters`.
 
-- مقارنة **Slide Masters**.
-- دمج **Slide Masters**.
-- تطبيق عدة **Slide Masters**.
-- نسخ شريحة مع **Slide Master** الخاص بها إلى عرض تقديمي آخر.
-- تحديد **Slide Masters** المكررة في العروض التقديمية.
-- تعيين **Slide Master** كعرض افتراضي للعرض التقديمي.
+{{% alert color="info" title="الوراثة" %}}
 
-{{% alert color="primary" %}}
-قد ترغب في تجربة Aspose [Online PowerPoint Viewer](https://products.aspose.app/slides/viewer) لأنه تنفيذ حي لبعض العمليات الأساسية الموصوفة هنا.
+عند تعريف الخاصية نفسها في أكثر من مستوى، يفلُح المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة الرئيس وشريحة التخطيط خلفيةً، فإن الشرائح المستندة إلى ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/python-net/slide-layout/).
+
 {{% /alert %}}
 
-## **كيفية تطبيق Slide Master**
+## **الوصول إلى شرائح الرئيس**
 
-قبل البدء في العمل مع **Slide Master**، قد تريد فهم كيفية استخدام **Slide Masters** في العروض التقديمية وتطبيقها على الشرائح.
+في PowerPoint، يمكنك فتح عرض شريحة الرئيس من **View** > **Slide Master**.
 
-- يحتوي كل عرض تقديمي على **Slide Master** واحد على الأقل افتراضيًا.
-- يمكن للعرض التقديمي أن يحتوي على عدة **Slide Masters**. يمكنك إضافة عدة **Slide Masters** واستخدامها لتصيير أجزاء مختلفة من العرض بطرق مختلفة.
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-في Aspose.Slides، يُمثَّل **Slide Master** بالنوع [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/).
+في Aspose.Slides، استخدم مجموعة `masters` للوصول إلى شرائح الرئيس:
 
-كائن Aspose.Slides [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يحتوي على مجموعة [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) من النوع [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/)، التي تحتفظ بجميع الشرائح الرئيسية المعرفة في العرض التقديمي.
-
-بالإضافة إلى عمليات CRUD، توفر فئة [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) طرقًا مفيدة مثل [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/add_clone/) و[insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/insert_clone/). هذه الطرق توسّع وظائف استنساخ الشرائح الأساسية، وعند العمل مع **Slide Masters**، تسمح لك بتنفيذ إعدادات أكثر تعقيدًا.
-
-عند إضافة شريحة جديدة إلى عرض تقديمي، يُطبق **Slide Master** عليها تلقائيًا. افتراضيًا، يتم اختيار **Slide Master** من الشريحة السابقة.
-
-**ملاحظة:** تُخزن شرائح العرض التقديمي في مجموعة [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/)، وتُضاف كل شريحة جديدة إلى نهاية تلك المجموعة افتراضيًا. إذا كان العرض يحتوي على **Slide Master** واحد، يتم اختيار ذلك **Slide Master** لجميع الشرائح الجديدة. لذلك لا تحتاج إلى تحديد **Slide Master** لكل شريحة جديدة تنشئها.
-
-ينطبق المبدأ نفسه في PowerPoint وAspose.Slides. على سبيل المثال، في PowerPoint، عند إضافة شريحة جديدة، يمكنك النقر على المنطقة أسفل آخر شريحة، وستُنشأ شريحة جديدة (باستخدام **Slide Master** الخاص بالشريحة السابقة).
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-في Aspose.Slides، يمكنك تنفيذ المهمة المكافئة باستخدام طريقة [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) من فئة [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/).
-
-## **Slide Master في تسلسل الشرائح الهرمي**
-
-استخدام **Slide Layouts** مع **Slide Master** يوفر أقصى مرونة. يمكن لـ **Slide Layout** أن يعرّف نفس أنواع الأنماط كما في **Slide Master** (الخلفية، الخطوط، الأشكال، إلخ). عندما يتم تعريف عدة **Slide Layouts** تحت **Slide Master**، تُكوّن معًا نظام نمط موحد. عبر تطبيق **Slide Layout** على شريحة فردية، يمكنك تعديل نمطها بناءً على ما يقدّمه **Slide Master**.
-
-الأولوية هي: **Slide Master** → **Slide Layout** → **Slide**.
-
-![todo:image_alt_text](slide-master_2.jpg)
-
-كل كائن [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) يحتوي على خاصية [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) التي تضم قائمة تخطيطات الشرائح. كائن [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) لديه خاصية [layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) التي تُشير إلى تخطيط الشريحة المطبق عليه. يحدث التفاعل بين الشريحة و**Slide Master** من خلال تخطيط الشريحة الخاص بها.
-
-{{% alert color="info" title="ملاحظة" %}}
-- في Aspose.Slides، جميع بنى الشرائح (Slide Master، Slide Layout، والشريحة نفسها) هي كائنات شريحة تمتد من فئة [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/).
-- لأن **Slide Master** و**Slide Layout** يقدمان العديد من الخصائص نفسها، تحتاج إلى معرفة كيف تُطبق قيمهما على كائن [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/). يُطبق **Slide Master** أولًا، ثم **Slide Layout**. على سبيل المثال، إذا عرّف كلاهما خلفية، تستخدم الشريحة الخلفية من **Slide Layout**.
-{{% /alert %}}
-
-## **ما يتكوّن منه Slide Master**
-
-لفهم كيفية تعديل **Slide Master**، تحتاج لمعرفة مكوناته. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/):
-
-- `background` — الحصول/تعيين خلفية الشريحة.
-- `body_style` — الحصول/تعيين أنماط النص لجسم الشريحة.
-- `shapes` — الحصول/تعيين جميع الأشكال على **Slide Master** (عناصر نائب، إطارات صور، إلخ).
-- `controls` — الحصول/تعيين عناصر التحكم ActiveX.
-- `theme_manager` — الحصول على مدير السمة.
-- `header_footer_manager` — الحصول على مدير الرأس والتذييل.
-
-طرق **Slide Master**:
-
-- `get_depending_slides()` — يحصل على جميع الشرائح التي تعتمد على **Slide Master**.
-- `apply_external_theme_to_depending_slides(fname)` — ينشئ **Slide Master** جديدًا بناءً على الحالي وسمة خارجية، ثم يطبّق **Slide Master** الجديد على جميع الشرائح التابعة.
-
-## **الحصول على Slide Master**
-
-في PowerPoint، يمكنك الوصول إلى **Slide Master** عبر **View** → **Slide Master**:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-باستخدام Aspose.Slides، يمكنك الوصول إلى **Slide Master** كما يلي:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    # احصل على أول شريحة ماستر في العرض التقديمي.
+with slides.Presentation("presentation.pptx") as presentation:
+    first_master_slide = presentation.masters[0]
+    master_slide_count = len(presentation.masters)
+    first_master_layout_slide_count = len(first_master_slide.layout_slides)
+
+    print("Master slides: " + str(master_slide_count))
+    print("Layouts in the first master: " + str(first_master_layout_slide_count))
+```
+
+يمكنك أيضًا الحصول على شريحة الرئيس التي تستخدمها شريحة عادية عبر تخطيطها:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    slide = presentation.slides[0]
+    layout_slide = slide.layout_slide
+    master_slide = layout_slide.master_slide
+    master_slide_name = master_slide.name
+
+    print(master_slide_name)
+```
+
+## **ما الذي تحتويه شريحة الرئيس**
+
+شريحة الرئيس هي كائن شبيه بالشريحة. تُورث سلوك الشريحة العام من الفئة [BaseSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/baseslide/)، لذا تُظهر العديد من خصائص الشريحة نفسها المستخدمة في الشرائح العادية وشرائح التخطيط. تُدرج الأعضاء الخاصة بالشريحة الرئيس على صفحة واجهة برمجة التطبيقات [MasterSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/).
+
+تشمل الأعضاء الشائعة الاستخدام في شريحة الرئيس:
+
+| العضو | الغرض |
+| --- | --- |
+| `background` | يحدّد خلفية الشريحة على مستوى الرئيس. |
+| `shapes` | يخزن الأشكال الموضوعة على الرئيس، مثل الشعارات، وإطارات الصور، والنص المشترك. |
+| `layout_slides` | يخزن شرائح التخطيط التي تنتمي إلى الرئيس. |
+| `theme_manager` | يوفّر الوصول إلى واجهات برمجة تطبيقات سمة الرئيس. |
+| `header_footer_manager` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للرئيس وتخطيطاته الفرعية. |
+| `get_depending_slides` | يُرجع الشرائح العادية التي تعتمد على الرئيس من خلال تخطيطاتها. |
+
+## **إضافة صورة إلى شريحة الرئيس**
+
+عند إضافة صورة إلى شريحة الرئيس، تظهر على الشرائح التي تستخدم تخطيطات من ذلك الرئيس. وهذا مفيد للشعارات، وعلامات المائية، والشعارات الزخرفية، وغيرها من العناصر البصرية المتكررة.
+
+المثال التالي يضيف شعارًا إلى أول شريحة رئيس:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
     master_slide = presentation.masters[0]
+
+    with open("logo.png", "rb") as logo_stream:
+        logo_bytes = logo_stream.read()
+
+    logo_image = presentation.images.add_image(logo_bytes)
+
+    master_slide.shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE,
+        20,
+        20,
+        80,
+        80,
+        logo_image)
+
+    presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+لمزيد من المعلومات حول إطارات الصور، راجع [Picture Frame](/python-net/picture-frame/).
 
-فئة [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) تمثل **Slide Master**. خاصية [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) (وهي [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/)) تحتفظ بجميع **Slide Masters** المعرفة في العرض التقديمي.
+## **العمل مع العناصر النائبة**
 
-## **إضافة صورة إلى Slide Master**
+عادةً ما تُعرّف العناصر النائبة في شرائح التخطيط. تُوفر شريحة الرئيس النمط والسمة المشتركة التي يرثها تلك التخطيطات، بينما يقرر كل تخطيط أي العناصر النائبة متاحة وأين تُوضع.
 
-عند إضافة صورة إلى **Slide Master**، تظهر تلك الصورة على جميع الشرائح التي تعتمد على ذلك الماستر.
+في PowerPoint، تتوفر أوامر العنصر النائب في عرض شريحة الرئيس.
 
-على سبيل المثال، ضع شعار شركتك أو صورًا أخرى على **Slide Master**، ثم عُد إلى عرض Normal. سترى الصورة على كل شريحة تابعة.
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
-![todo:image_alt_text](slide-master_4.png)
+لإضافة عناصر نائبة جديدة باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى الرئيس:
 
-يمكنك إضافة صور إلى **Slide Master** باستخدام Aspose.Slides:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-
-    with open("image.png", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream.read())
-
+with slides.Presentation("presentation.pptx") as presentation:
     master_slide = presentation.masters[0]
-    master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+    blank_layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    if blank_layout_slide is None:
+        blank_layout_slide = presentation.layout_slides.add(
+            master_slide,
+            slides.SlideLayoutType.BLANK,
+            "Blank")
+
+    blank_layout_slide.placeholder_manager.add_text_placeholder(60, 120, 600, 80)
+
+    presentation.slides.add_empty_slide(blank_layout_slide)
+    presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+يمكنك أيضًا تنسيق أشكال العناصر النائبة الموجودة بالفعل على شريحة الرئيس. المثال التالي يجد العنصر النائب للعنوان ويطبق تعبئة تدرج خطية:
 
-{{% alert color="primary" title="انظر أيضًا" %}}
-لمزيد من المعلومات حول إضافة صور إلى شريحة، راجع مقالة [Add Picture Frames to Presentations with Python](/slides/ar/python-net/picture-frame/).
-{{% /alert %}}
-
-## **إضافة عنصر نائب إلى Slide Master**
-
-هذه الحقول النصية هي عناصر نائب قياسية على **Slide Master**:
-
-- انقر لتحرير نمط عنوان الماستر
-- تحرير أنماط نص الماستر
-- المستوى الثاني
-- المستوى الثالث
-
-تظهر هذه العناصر النائبة أيضًا على الشرائح المستندة إلى **Slide Master**. يمكنك تحرير هذه العناصر النائبة على **Slide Master**، وتُطبّق التغييرات تلقائيًا على الشرائح.
-
-في PowerPoint، يمكنك إضافة عنصر نائب عبر **Slide Master** → **Insert Placeholder**:
-
-![todo:image_alt_text](slide-master_5.png)
-
-دعنا نستعرض مثالًا أكثر تعقيدًا للعناصر النائبة في Aspose.Slides. اعتبر شريحة تحتوي على عناصر نائب موروثة من **Slide Master**:
-
-![todo:image_alt_text](slide-master_6.png)
-
-نريد تحديث تنسيق العنوان والعنوان الفرعي على **Slide Master** كما يلي:
-
-![todo:image_alt_text](slide-master_7.png)
-
-أولاً، احصل على عنصر نائب العنوان من **Slide Master**، ثم استخدم خاصية `PlaceHolder.fill_format`:
 ```python
-# احصل على مرجع إلى العنصر النائب لعنوان شريحة الماستر.
-title_placeholder = master_slide.shapes[0]
-
-# تعيين تنسيق التعبئة إلى تدرج.
-title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
-title_placeholder.fill_format.gradient_format.gradient_stops.add(0, draw.Color.red)
-title_placeholder.fill_format.gradient_format.gradient_stops.add(50, draw.Color.green)
-title_placeholder.fill_format.gradient_format.gradient_stops.add(100, draw.Color.blue)
-```
-
-
-سيتغير نمط وتنسيق العنوان على جميع الشرائح المستندة إلى **Slide Master**:
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="انظر أيضًا" %}}
-* [Manage Placeholders in Presentations with Python](/slides/ar/python-net/manage-placeholder/)
-* [Format PowerPoint Text in Python](/slides/ar/python-net/text-formatting/)
-{{% /alert %}}
-
-## **تغيير خلفية Slide Master**
-
-عند تغيير لون خلفية **Slide Master**، ترث جميع الشرائح العادية في العرض التقديمي اللون الجديد. يوضح كود Python التالي ذلك:
-```python
-master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
-master_slide.background.fill_format.fill_type = slides.FillType.SOLID
-master_slide.background.fill_format.solid_fill_color.color = draw.Color.gray
-```
-
-
-{{% alert color="primary" title="انظر أيضًا" %}}
-- [Manage Presentation Backgrounds in Python](/slides/ar/python-net/presentation-background/)
-- [Manage PowerPoint Presentation Themes in Python](/slides/ar/python-net/presentation-theme/)
-{{% /alert %}}
-
-## **إضافة عدة Slide Masters إلى عرض تقديمي**
-
-تتيح Aspose.Slides لك إضافة عدة **Slide Masters** و**Slide Layouts** إلى أي عرض تقديمي. يتيح لك ذلك تكوين الأنماط والتخطيطات وخيارات التنسيق للشرائح بطرق مختلفة متعددة.
-
-في PowerPoint، يمكنك إضافة **Slide Masters** و**Slide Layouts** جديدة من قائمة **Slide Master** كما يلي:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-باستخدام Aspose.Slides، يمكنك إضافة **Slide Master** جديد عبر استدعاء طريقة `add_clone`:
-```python
-# أضف شريحة ماستر جديدة.
-master_slide2 = presentation.masters.add_clone(master_slide1)
-```
-
-
-## **مقارنة Slide Masters**
-
-يمتد **Slide Master** من فئة [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/)، التي تتضمن طريقة `equals(slide)` لمقارنة الشرائح. تُعيد هذه الطريقة true عندما تكون **Slide Masters** متطابقة في الهيكلة والمحتوى الثابت.
-
-تُعتبر **Slide Masters** متساوية إذا كانت الأشكال والأنماط والنصوص والرسوم المتحركة والإعدادات الأخرى متطابقة. يتجاهل المقارنة قيم المعرفات الفريدة (مثل `slide_id`) والمحتوى الديناميكي (مثل التاريخ الحالي في عنصر نائب التاريخ).
-
-## **تعيين Slide Master كعرض افتراضي للعرض التقديمي**
-
-تتيح Aspose.Slides لك تعيين **Slide Master** كعرض افتراضي للعرض التقديمي. العرض الافتراضي هو ما تراه أولًا عند فتح العرض. يوضح المثال التالي بـ Python كيفية تعيين **Slide Master** كعرض افتراضي للعرض:
-```py
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# إنشاء كائن من الفئة Presentation الذي يمثل ملف عرض تقديمي.
-with slides.Presentation() as presentation:
-    # تعيين العرض الافتراضي كعرض ماستر الشرائح.
+
+def find_placeholder(master_slide, placeholder_type):
+    for shape in master_slide.shapes:
+        if isinstance(shape, slides.AutoShape) and shape.placeholder is not None:
+            if shape.placeholder.type == placeholder_type:
+                return shape
+
+    return None
+
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    title_placeholder = find_placeholder(master_slide, slides.PlaceholderType.TITLE)
+
+    if title_placeholder is not None:
+        red_gradient_color = draw.Color.from_argb(255, 0, 0)
+        purple_gradient_color = draw.Color.from_argb(128, 0, 128)
+
+        title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
+        title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+
+    presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+
+لمزيد من خيارات تنسيق العناصر النائبة والنص، راجع [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) و[Text Formatting](/python-net/text-formatting/).
+
+## **تغيير خلفية شريحة الرئيس**
+
+تُورّث خلفية الرئيس من قبل التخطيطات والشرائح التي لا تُعيد تعريفها. المثال التالي يحدد لون خلفية صلب لأول شريحة رئيس:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_slide = presentation.masters[0]
+
+    master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    master_slide.background.fill_format.solid_fill_color.color = draw.Color.forest_green
+
+    presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
+```
+
+للمواضيع ذات الصلة، راجع [Presentation Background](/python-net/presentation-background/) و[Presentation Theme](/python-net/presentation-theme/).
+
+## **استنساخ شريحة الرئيس إلى عرض تقديمي آخر**
+
+استخدم طريقة `add_clone` على الفئة [MasterSlideCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/) لنسخ شريحة رئيس إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الرئيس المنسوخ بواسطة التخطيطات والشرائح في العرض الهدف.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source.pptx") as source_presentation:
+    with slides.Presentation("destination.pptx") as destination_presentation:
+        source_master_slide = source_presentation.masters[0]
+        cloned_master_slide = destination_presentation.masters.add_clone(source_master_slide)
+
+        destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
+```
+
+إذا كنت بحاجة إلى استنساخ الشرائح العادية مع الرئيس الخاص بها، راجع [Clone Slides](/python-net/clone-slides/).
+
+## **إضافة عدة شرائح رئيس**
+
+يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيس. هذا مفيد عندما تتطلب الأقسام المختلفة هوية بصرية أو هيكل صفحة أو إعدادات سمة مختلفة.
+
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+
+المثال التالي يستنسخ الرئيس الافتراضي، يمنح النسخة المستنسخة خلفية مختلفة، يحصل على تخطيط فارغ تحت ذلك الرئيس المستنسخ، ثم يضيف شريحة جديدة بناءً على ذلك التخطيط:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    default_master_slide = presentation.masters[0]
+    section_master_slide = presentation.masters.add_clone(default_master_slide)
+
+    section_master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    section_master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    section_master_slide.background.fill_format.solid_fill_color.color = draw.Color.light_steel_blue
+
+    section_blank_layout = section_master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if section_blank_layout is None:
+        section_blank_layout = presentation.layout_slides.add(
+            section_master_slide,
+            slides.SlideLayoutType.BLANK,
+            "Section Blank")
+
+    presentation.slides.add_empty_slide(section_blank_layout)
+    presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **مقارنة شرائح الرئيس**
+
+يمكن مقارنة شرائح الرئيس باستخدام طريقة `equals` الموروثة من الفئة [BaseSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/baseslide/). تتحقق المقارنة من البنية والمحتوى الثابت، مثل الأشكال والنص والتنسيق والرسوم المتحركة وإعدادات الشريحة الأخرى. لا تُقارن المعرفات الفريدة مثل معرفات الشرائح، ولا قيم العناصر النائبة الديناميكية مثل التاريخ الحالي.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("first.pptx") as first_presentation:
+    with slides.Presentation("second.pptx") as second_presentation:
+        first_presentation_master_count = len(first_presentation.masters)
+        second_presentation_master_count = len(second_presentation.masters)
+
+        for first_master_index in range(first_presentation_master_count):
+            for second_master_index in range(second_presentation_master_count):
+                first_master_slide = first_presentation.masters[first_master_index]
+                second_master_slide = second_presentation.masters[second_master_index]
+                are_master_slides_equal = first_master_slide.equals(second_master_slide)
+
+                if are_master_slides_equal:
+                    print(
+                        "first.pptx master #{} equals second.pptx master #{}".format(
+                            first_master_index,
+                            second_master_index))
+```
+
+لمزيد من المعلومات، راجع [Compare Presentation Slides](/python-net/compare-slides/).
+
+## **تعيين عرض شريحة الرئيس كعرض افتراضي**
+
+استخدم خاصية `last_view` على كائن العرض [ViewProperties](https://reference.aspose.com/slides/ar/python-net/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتحه PowerPoint أولًا. المثال التالي يفتح العرض في عرض شريحة الرئيس:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
-
-    # حفظ العرض التقديمي.
-    presentation.save("presentation_view.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+لمزيد من إعدادات العرض، راجع [Save Presentation](/python-net/save-presentation/).
 
-## **إزالة Master Slide غير مستخدم**
+## **إزالة شرائح الرئيس غير المستخدمة**
 
-توفر Aspose.Slides طريقة `remove_unused_master_slides` (في فئة [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)) لحذف الشرائح الرئيسية غير المرغوب فيها وغير المستخدمة. يوضح كود Python التالي كيفية إزالة الشرائح الرئيسية غير المستخدمة من عرض PowerPoint:
+في بعض الأحيان تحتوي العروض التقديمية على شرائح رئيس لم تعد مستخدمة من قبل أي شريحة عادية. يمكن أن يقلل حذف الرؤساء غير المستعملة من حجم الملف ويبسط صيانة القالب.
+
+استخدم `remove_unused` لإزالة الرؤساء غير المستعملة من مجموعة `masters`:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.masters.remove_unused(True)
+    presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
+```
+
+يمكنك أيضًا استخدام طريقة `remove_unused_master_slides` منخفضة الكود من الفئة [Compress](https://reference.aspose.com/slides/ar/python-net/aspose.slides.lowcode/compress/):
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
     slides.lowcode.Compress.remove_unused_master_slides(presentation)
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **الأسئلة المتداولة**
 
-## **الأسئلة الشائعة**
+**ما الفرق بين شريحة الرئيس وشريحة التخطيط؟**
 
-**ما هو Slide Master في PowerPoint؟**
+تُعرّف شريحة الرئيس إعدادات التصميم المشتركة مثل السمة، والخلفية، والأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى شريحة الرئيس وتُحدد ترتيبًا محددًا للعناصر النائبة. الشريحة العادية تستخدم شريحة التخطيط، وبالتالي ترث من كل من التخطيط والرئيس.
 
-Slide Master هو قالب شريحة يحدد التخطيط، الأنماط، السمات، الخطوط، الخلفية، والخصائص الأخرى للشرائح في عرض تقديمي. يسمح لك بضبط وتغيير مظهر جميع شرائح العرض دفعة واحدة.
+**هل يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيس؟**
 
-**كيف يرتبط Slide Masters بـ Slide Layouts؟**
+نعم. يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيس. استخدم عدة رؤساء عندما تحتاج الأقسام المختلفة إلى أنظمة بصرية أو هوية علامة تجارية مختلفة.
 
-تعمل Slide Layouts بالتوازي مع Slide Masters لتوفير مرونة في تصميم الشرائح. بينما يحدد Slide Master الأنماط والسمات العامة، تسمح [Slide Layouts](/slides/ar/python-net/slide-layout/) بتنوع ترتيبات المحتوى. التسلسل الهرمي هو كما يلي:
+**هل يجب إضافة العناصر النائبة إلى شريحة الرئيس أم إلى شريحة التخطيط؟**
 
-- **Slide Master** → يحدد الأنماط العامة.
-- **Slide Layout** → يوفر ترتيبات محتوى مختلفة.
-- **Slide** → يرث التصميم من Slide Layout الخاص به.
+في معظم الحالات، أضف العناصر النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيق المشترك على شريحة الرئيس، ثم ضع عناصر المحتوى النائبة على التخطيطات التي ستستخدمها الشرائح العادية.
 
-**هل يمكن أن يكون لدي عدة Slide Masters في عرض تقديمي واحد؟**
+**هل يمكن حذف شريحة رئيس لا تزال مستخدمة؟**
 
-نعم، يمكن للعرض التقديمي أن يحتوي على عدة Slide Masters. يتيح لك ذلك تنسيق أقسام مختلفة من العرض بطرق متعددة، مما يوفر مرونة في التصميم.
-
-**كيف يمكنني الوصول إلى Slide Master وتعديله باستخدام Aspose.Slides؟**
-
-في Aspose.Slides، يُمثَّل Slide Master بالفئة [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/). يمكنك الوصول إلى Slide Master عبر خاصية [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) لكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+لا. لا يمكن حذف شريحة رئيس لها شرائح معتمدة بأمان مباشرةً. لنقل تلك الشرائح إلى تخطيطات تحت رئيس آخر، أو استخدم طريقة تنظيف الرؤساء غير المستخدمة التي تحذف فقط الرؤساء غير المستعملة.

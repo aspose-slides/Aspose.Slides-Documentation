@@ -22,382 +22,353 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Manage Slide Masters in Aspose.Slides for Android: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise Java examples."
+description: "Manage slide masters in Aspose.Slides for Android via Java: access, edit, clone, compare, and remove master slides in PowerPoint and OpenDocument presentations."
 ---
 
-## **Introduction**
+## **Overview**
 
-A **Slide Master** is a slide template that defines the layout, styles, theme, fonts, background, and other properties for slides in a presentation. If you want to create a presentation (or series of presentations) with the same style and template for your company, you can use a slide master. 
+A **slide master** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
 
-A Slide Master is useful because it allows you to set and change the look of all presentation slides at once. Aspose.Slides supports the Slide Master mechanism from PowerPoint. 
+Aspose.Slides for Android via Java supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
 
-VBA also allows you to manipulate a Slide Master and execute the same operations supported in PowerPoint: change backgrounds, add shapes, customize the layout, etc. Aspose.Slides provides flexible mechanisms to allow you to use Slide Masters and perform basic tasks with them. 
+The hierarchy is:
 
-These are basic Slide Master operations:
+1. **Slide master** - defines the shared design and theme.
+1. **Layout slide** - defines a specific arrangement of placeholders and layout-level formatting.
+1. **Normal slide** - contains the actual presentation content and uses one layout slide.
 
-- Create or Slide Master.
-- Apply Slides Master to presentation slides.
-- Change Slide Master background. 
-- Add an image, placeholder, Smart Art, etc. to Slide Master.
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-These are more advanced operations involving Slide Master: 
+In Aspose.Slides, a slide master is represented by the [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) interface. All master slides in a presentation are available through the [Presentation.getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) collection, which implements [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/). For the full Android via Java API surface, see the [com.aspose.slides API reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/).
 
-- Compare Slide Masters.
-- Merge Slide Masters.
-- Apply several Slide Masters.
-- Copy slide with Slide Master to another presentation.
-- Find out duplicate Slide Masters in presentations.
-- Set Slide Master as the presentation default view.
+{{% alert color="info" title="Inheritance" %}}
 
-{{% alert color="primary" %}} 
-
-You may want to check out Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) because it is a live implementation of some of the core processes described here.
-
-{{% /alert %}} 
-
-
-## **How Is a Slide Master Applied**
-
-Before you work with a slide master, you may want to understand how they are used in presentations and applied to slides. 
-
-* Every presentation has at least one Slide Master by default. 
-* A presentation can contain several Slide Masters. You can add several Slide Masters and use them to style different parts of a presentation in different ways. 
-
-In **Aspose.Slides**, a Slide Master is represented by [**IMasterSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) type.
-
-Aspose.Slides' [Presentation ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)object contains the [**getMasters** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--)list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) type, which contains a list of all master slides that are defined in a presentation.
-
-Besides CRUD operations, the [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/) interface contains these useful methods: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) and [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups.
-
-When a new slide is added to a presentation, a Slide Master is applied to it automatically. The Slide Master of the previous slide is selected by default. 
-
-**Note**: Presentation slides are stored in [getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) list, and every new slide is added to the end of the collection by default. If a presentation contains a single Slide Master, that slide master is selected for all new slides. This is the reason you do not have to define the Slide Master for every new slide you create.
-
-The principle is the same for PowerPoint and Aspose.Slides. For example, in PowerPoint, when you add a new presentation, you can just press on the bottom line under the last slide and then a new slide (with the last presentation's Slide Master) will be created:
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-In Aspose.Slides, you can perform the equivalent task with the [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) method under the [Presentation ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)class.
-
-
-## **Slide Master in the Slides Hierarchy**
-
-Using Slide Layouts with Slide Master allows for maximum flexibility. A Slide Layout allows you to set all the same styles as Slide Master (background, fonts, shapes, etc.). However, when several Slide Layouts are combined on a Slide Master, a new style is created. When you apply a Slide Layout to a single slide, you can change its style from the one applied by the Slide Master.
-
-Slide Master outranks all setups items: Slide Master -> Slide Layout -> Slide:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Each [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) object has a [**getLayoutSlides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getLayoutSlides--) property with a list of Slide Layouts. A [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide) type has a [**getLayoutSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getLayoutSlide--) property with a link on a Slide Layout applied to the slide. The interaction between a slide and Slide Master occurs through a Slide Layout.
-
-{{% alert color="info" title="Note" %}}
-
-* In Aspose.Slides, all the slide setups (Slide Master, Slide Layout, and the slide itself) are actually slide objects implementing the [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) interface.
-* Therefore, Slide Master and Slide Layout may implement the same properties and you need to know how their values will be applied to a  [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Slide) object. The Slide Master is applied first to a slide and then the Slide Layout is applied. For example, if the Slide Master and Slide Layout both have a background value, the Slide will end up with the background from the Slide Layout.
+When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/androidjava/slide-layout/).
 
 {{% /alert %}}
 
+## **Access Slide Masters**
 
-## **What a Slide Master Contains**
+In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
 
-To understand how a Slide Master can be changed, you need to know its constituents. These are [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) core properties.
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-- [getBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getBackground--) get/set slide background.
-- [getBodyStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getBodyStyle--) - get/set text styles of the slide’s body.
-- [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getShapes--) get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
-- [getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getControls--) get/set ActiveX controls.
-- [getThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterThemeable#getThemeManager--) - get theme manager.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) - get header and footer manager.
-
-Slide Master methods:
-
-- [getDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#getDependingSlides--) - get all Slides depending on the Slide Master.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) - allows you to create a new Slide Master based on the current Slide Master and a new theme. The new Slide Master will then be applied to all dependent slides.
-
-
-## **Get a Slide Master**
-
-In PowerPoint, Slide Master can be accessed from the View -> Slide Master menu:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-Using Aspose.Slides, you can access a Slide Master this way: 
+In Aspose.Slides, use the `getMasters()` collection to access master slides:
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Gives access to the Presentation's master slide
-    IMasterSlide masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
-
-The [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlide) interface represents a Slide Master. The [Masters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getMasters--) property (related to [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) type) contains a list of all Slide Masters that are defined in the presentation. 
-
-
-## **Add an Image to a Slide Master**
-
-When you add an image to a Slide Master, that image will appear on all slides dependent on that slide master. 
-
-For example, you can place your company's logo and a few images on the Slide Master and then switch back to slide editing mode. You should see the image on every slide. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-You can add images to a slide master with Aspose.Slides:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{% alert color="primary" title="See also" %}} 
-
-For more information on adding images to a slide, see the [Picture Frame](/slides/androidjava/picture-frame/#create-picture-frame) article.
-{{% /alert %}}
-
-
-## **Add a Placeholder to a Slide Master**
-
-These text fields are standard placeholders on a Slide Master: 
-
-* Click to edit Master title style
-
-* Edit Master text styles
-
-* Second level
-
-* Third level 
-
-  They also appear on the slides based on Slide Master. You can edit those placeholders on a Slide Master and the changes are applied automatically to the slides. 
-
-In PowerPoint, you can add a placeholder through the Slide Master -> Insert Placeholder path:
-
-
-
-![todo:image_alt_text](slide-master_5.png)
-
-
-
-Let's examine a more complicated example for placeholders with Aspose.Slides. Consider a slide with placeholders templated from the Slide Master:
-
-
-
-![todo:image_alt_text](slide-master_6.png)
-
-
-
-We want to change the Title and Subtitle formatting on the Slide Master this way:
-
-![todo:image_alt_text](slide-master_7.png)
-
-
-
-First, we retrieve the title placeholder content from the Slide Master object and then use the`PlaceHolder.FillFormat` field: 
-
-```java
-public static void main(String[] args) {
-    Presentation pres = new Presentation();
-    try {
-        IMasterSlide master = pres.getMasters().get_Item(0);
-        IAutoShape placeHolder = findPlaceholder(master, PlaceholderType.Title);
-        placeHolder.getFillFormat().setFillType(FillType.Gradient);
-        placeHolder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, new Color(255, 0, 0));
-        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, new Color(128, 0, 128));
-
-        pres.save("pres.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-}
-
-static IAutoShape findPlaceholder(IMasterSlide master, int type)
-{
-    for (IShape shape : master.getShapes())
-    {
-        IAutoShape autoShape = (IAutoShape) shape;
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-The title style and formatting will change for all slides based on the slide master:
-
-
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}} 
-
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/androidjava/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/androidjava/text-formatting/)
-
-{{% /alert %}}
-
-
-## **Change the Background on a Slide Master**
-
-When you change a master slide's background color, all the normal slides in the presentation will get the new color. This Java code demonstrates the operation:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(FillType.Solid);
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{% alert color="primary" title="See also" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/androidjava/presentation-background/)
-
-- [Presentation Theme](https://docs.aspose.com/slides/androidjava/presentation-theme/)
-
-  {{% /alert %}}
-
-## **Clone a Slide Master to Another Presentation**
-
-To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Java code shows you how to clone a Slide Master to another presentation:
-
-```java
-Presentation presSource = new Presentation();
-Presentation presTarget = new Presentation();
-try {
-    IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) presSource.dispose();
-}
-```
-
-
-## **Add Multiple Slide Masters to a Presentation**
-
-Aspose.Slides allows you to add several Slide Masters and Slide Layouts to any given presentation. This allows you to set up styles, layouts, and formatting options for presentation slides in many ways. 
-
-In PowerPoint, you can add new Slide Masters and Layouts (from the "Slide Master menu) this way:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method:
-
-```java
-// Adds a new master slide
-IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-## **Compare Slide Masters**
-
-A Master Slide implements the [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) interface containing the [**equals**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) method, which can then be used to compare slides. It returns `true` for Master Slides identical in structure and static content.
-
-Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison does not take unique identifier values (e.g. SlideId) and dynamic content (e.g. current date value in Date Placeholder) into account. 
-
-
-## **Set a Slide Master as the Presentation Default View**
-
-Aspose.Slides allows you to set a Slide Master as the default view for a presentation. The default view is what you see first when you open a presentation. 
-
-This code shows you how to set a Slide Master as a presentation's default view in Java:
-
-```java
-// Instantiates a Presentation class that represents the presentation file
-Presentation presentation = new Presentation();
-try {
-    // Sets the Default View as SlideMasterView
-    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
-
-    // Saves the presentation
-    presentation.save("PresView.pptx", SaveFormat.Pptx);
+    IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
+    int masterSlideCount = presentation.getMasters().size();
+    int firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
+
+    System.out.println("Master slides: " + masterSlideCount);
+    System.out.println("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Remove Unused Master Slides**
-
-Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Java code shows you how to remove a master slide from a PowerPoint presentation:
+You can also get the master slide used by a normal slide through its layout:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
- try {
-     Compress.removeUnusedMasterSlides(pres);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = slide.getLayoutSlide();
+    IMasterSlide masterSlide = layoutSlide.getMasterSlide();
+    String masterSlideName = masterSlide.getName();
 
-     pres.save("pres-out.pptx", SaveFormat.Pptx);
- } finally {
-     if (pres != null) pres.dispose();
- }
+    System.out.println(masterSlideName);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **What a Slide Master Contains**
+
+A master slide is a slide-like object. It implements [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/), so it exposes many of the same slide properties used by normal and layout slides.
+
+Commonly used master slide members include:
+
+| Member | Purpose |
+| --- | --- |
+| `getBackground()` | Sets the master-level slide background. |
+| `getShapes()` | Stores shapes placed on the master, such as logos, picture frames, and shared text. |
+| `getLayoutSlides()` | Stores the layout slides that belong to the master. |
+| `getThemeManager()` | Provides access to the master theme APIs. |
+| `getHeaderFooterManager()` | Controls headers, footers, dates, and slide numbers for the master and its child layouts. |
+| `getDependingSlides()` | Returns normal slides that depend on the master through their layouts. |
+
+## **Add an Image to a Slide Master**
+
+When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
+
+The following example adds a logo to the first master slide:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IImage logo = Images.fromFile("logo.png");
+
+    try {
+        IPPImage logoImage = presentation.getImages().addImage(logo);
+
+        masterSlide.getShapes().addPictureFrame(
+                ShapeType.Rectangle,
+                20,
+                20,
+                80,
+                80,
+                logoImage);
+    } finally {
+        logo.dispose();
+    }
+
+    presentation.save("presentation-with-logo.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+For more information about picture frames, see [Picture Frame](/slides/androidjava/picture-frame/).
+
+## **Work with Placeholders**
+
+Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
+
+In PowerPoint, placeholder commands are available in Slide Master view.
+
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+
+To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide blankLayoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    if (blankLayoutSlide == null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(SlideLayoutType.Blank, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    IAutoShape titlePlaceholder = null;
+
+    for (IShape shape : masterSlide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+
+            if (autoShape.getPlaceholder() != null &&
+                    autoShape.getPlaceholder().getType() == PlaceholderType.Title) {
+                titlePlaceholder = autoShape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder != null) {
+        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
+        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+
+        titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+
+For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/androidjava/manage-placeholder/) and [Text Formatting](/slides/androidjava/text-formatting/).
+
+## **Change a Slide Master Background**
+
+A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    int masterBackgroundColor = Color.GREEN;
+
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+For related topics, see [Presentation Background](/slides/androidjava/presentation-background/) and [Presentation Theme](/slides/androidjava/presentation-theme/).
+
+## **Clone a Slide Master to Another Presentation**
+
+Use [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
+
+```java
+Presentation sourcePresentation = new Presentation("source.pptx");
+Presentation destinationPresentation = new Presentation("destination.pptx");
+try {
+    IMasterSlide sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    IMasterSlide clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+If you need to clone normal slides together with their master, see [Clone Slides](/slides/androidjava/clone-slides/).
+
+## **Add Multiple Slide Masters**
+
+A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
+
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+
+The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
+    IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    int sectionMasterBackgroundColor = Color.GRAY;
+
+    sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    ILayoutSlide sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    if (sourceBlankLayout == null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    ILayoutSlide sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Compare Slide Masters**
+
+Master slides can be compared with the `equals` method inherited from [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
+
+```java
+Presentation firstPresentation = new Presentation("first.pptx");
+Presentation secondPresentation = new Presentation("second.pptx");
+try {
+    int firstPresentationMasterCount = firstPresentation.getMasters().size();
+    int secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (int firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (int secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            IMasterSlide firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            IMasterSlide secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            boolean areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                System.out.printf(
+                        "first.pptx master #%d equals second.pptx master #%d%n",
+                        firstMasterIndex,
+                        secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+For more information, see [Compare Presentation Slides](/slides/androidjava/compare-slides/).
+
+## **Set Slide Master View as the Default View**
+
+Use the `setLastView` method on [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("presentation-master-view.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+For more view settings, see [Save Presentation](/slides/androidjava/save-presentation/).
+
+## **Remove Unused Master Slides**
+
+Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
+
+Use `removeUnused` to remove unused masters from the `getMasters()` collection:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+You can also use the low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **FAQ**
 
-**What is a Slide Master in PowerPoint?**
+**What is the difference between a slide master and a layout slide?**
 
-A Slide Master is a slide template that defines the layout, styles, themes, fonts, background, and other properties for slides in a presentation. It allows you to set and change the look of all presentation slides at once.  
+A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-**How is a Slide Master applied in a presentation?**
+**Can one presentation contain several slide masters?**
 
-Every presentation has at least one Slide Master by default. When a new slide is added, a Slide Master is applied to it automatically, typically inheriting the master of the previous slide. A presentation can contain multiple Slide Masters to style different parts uniquely.  
+Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-**What elements can be customized in a Slide Master?**
+**Should I add placeholders to a master slide or a layout slide?**
 
-A Slide Master comprises several core properties that can be customized:
+In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-- **Background**: Set the slide background.
-- **BodyStyle**: Define text styles for the slide's body.
-- **Shapes**: Manage all shapes on the Slide Master, including placeholders and picture frames.
-- **Controls**: Handle ActiveX controls.
-- **ThemeManager**: Access the theme manager.
-- **HeaderFooterManager**: Manage headers and footers.  
+**Can I delete a master slide that is still used?**
 
-**How can I add an image to a Slide Master?**
-
-Adding an image to a Slide Master ensures it appears on all slides that depend on that master. For example, placing a company logo on the Slide Master will display it on every slide in the presentation.  
-
-**How do Slide Masters relate to Slide Layouts?**
-
-Slide Layouts work in conjunction with Slide Masters to provide flexibility in slide design. While a Slide Master defines overarching styles and themes, Slide Layouts allow for variations in content arrangement. The hierarchy is as follows:
-
-- **Slide Master** → Defines global styles.
-- **Slide Layout** → Provides different content arrangements.
-- **Slide** → Inherits design from its Slide Layout.
-
-**Can I have multiple Slide Masters in a single presentation?**
-
-Yes, a presentation can contain several Slide Masters. This allows you to style different sections of a presentation in various ways, providing flexibility in design.  
-
-**How do I access and modify a Slide Master using Aspose.Slides?**
-
-In Aspose.Slides, a Slide Master is represented by the [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/) interface. You can access a Slide Master using the [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) method of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) object.
+No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.

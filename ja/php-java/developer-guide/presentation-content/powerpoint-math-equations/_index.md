@@ -1,5 +1,5 @@
 ---
-title: PHPでPowerPointプレゼンテーションに数式を追加
+title: PHP で PowerPoint プレゼンテーションに数式を追加する
 linktitle: PowerPoint 数式
 type: docs
 weight: 80
@@ -8,370 +8,478 @@ keywords:
 - 数式
 - 数学記号
 - 数学式
-- 数学テキスト
-- 数式を追加
-- 記号を追加
-- 式を追加
-- テキストを追加
+- 数式テキスト
+- 数式を追加する
+- 数学記号を追加する
+- 数式を追加する
+- 数式テキストを追加する
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java経由でPHP用Aspose.Slidesを使用し、PowerPoint PPTおよびPPTXに数式を挿入・編集します。OMML、書式設定コントロール、明確なコードサンプルをサポートしています。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint の PPT と PPTX に数式を挿入および編集でき、OMML、書式設定コントロール、明確な PHP コードサンプルをサポートします。"
 ---
-
 ## **概要**
-PowerPointでは、数式やフォーミュラを書いてプレゼンテーションに表示することが可能です。そのために、PowerPointではさまざまな数学記号が表現され、テキストや数式に追加できます。そのためにPowerPointの数式コンストラクタが使用され、次のような複雑な式を作成できます:
 
-- 数学分数
-- 数学根号
-- 数学関数
-- 極限と対数関数
-- N元演算
-- 行列
-- 大きな演算子
-- サイン、コサイン関数
+PowerPointは方程式をOffice Math Markup Language（OMML）として保存します。Aspose.Slides for PHP via Java を使用すると、プログラムで同様の数式コンテンツ（分数、根号、関数、リミット、N項演算子、行列、配列、書式設定された数式ブロック）を作成できます。
 
-PowerPointで数式を追加するには、*挿入 -> 数式* メニューを使用します:
+PowerPointでは、ユーザーは通常**挿入 > 数式**から方程式を追加します:
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+![PowerPointの挿入タブで数式コマンドが選択された状態](powerpoint-math-equations_1.png)
 
-これにより、XML形式の数式テキストが作成され、PowerPointで次のように表示されます: 
+結果として、スライド上に編集可能な数式テキストが表示されます:
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+![編集可能な数式が含まれる PowerPoint スライド](powerpoint-math-equations_2.png)
 
-PowerPointは多数の数学記号をサポートして数式を作成できますが、複雑な数式を作成すると見栄えの良いプロフェッショナルな結果が得られないことが多いです。頻繁に数学的なプレゼンテーションを作成するユーザーは、見栄えの良い数式を作るためにサードパーティ製品を利用します。
+Aspose.Slides は、次の 3 つの主要オブジェクトを使用してその数式テキストを構築します:
 
-[**Aspose.Slide API**](https://products.aspose.com/slides/php-java/) を使用すると、C# で PowerPoint プレゼンテーション内の数式をプログラムで操作できます。新しい数式を作成したり、既存のものを編集したりできます。数式構造を画像としてエクスポートする機能も一部サポートされています。
+- 数式シェイプは、[addMathShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/#addMathShape) で作成され、方程式を含むシェイプです。
+- [MathPortion](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathportion/) は、シェイプのテキストフレーム内に数式コンテンツを格納します。
+- [MathParagraph](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathparagraph/) は、1 つ以上の [MathBlock](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathblock/) オブジェクトを含みます。
 
-## **数式の作成方法**
-数学要素は、任意の入れ子構造で数学的構造を構築するために使用されます。数学要素の線形コレクションは、[**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock) クラスによって表される数学ブロックを形成します。[**MathBlock**] クラスは本質的に個別の数式、式、または方程式です。[**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) は数学テキストを保持するための数学部分で、[**Portion**] と混同しないでください。[**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph) は複数の MathBlock を操作できるようにします。上記のクラスは Aspose.Slides API を介して PowerPoint の数式を扱う鍵となります。
+以下のほとんどの例は、[MathematicalText](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathematicaltext/) と [MathElementBase](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) のフルエントメソッドを使用して、コードを短く読みやすくしています。
 
-以下の数式を Aspose.Slides API で作成する方法を見てみましょう:
+MathML エクスポートのシナリオについては、[PHP via Java でプレゼンテーションから数式をエクスポート](/slides/ja/php-java/exporting-math-equations/) を参照してください。
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
+## **方程式の作成**
 
-スライドに数式を追加するには、まず数式テキストを含むシェイプを追加します:
+この例では、数式シェイプを作成し、ピタゴラスの定理を追加します:
+
+![c の二乗が a の二乗 + b の二乗に等しい方程式](powerpoint-math-equations_3.png)
 
 ```php
-  $pres = new Presentation();
-  try {
-    $mathShape = $pres->getSlides()->get_Item(0)->getShapes()->addMathShape(0, 0, 720, 150);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $equation = (new MathematicalText("c"))
+        - >setSuperscript("2")
+        - >join("=")
+        - >join((new MathematicalText("a"))->setSuperscript("2"))
+        - >join("+")
+        - >join((new MathematicalText("b"))->setSuperscript("2"));
+
+    $mathParagraph->add($equation);
+
+    $presentation->save("pythagorean-theorem.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
+{{% alert color="primary" %}}
+`addMathShape` は、既に数式段落を含むシェイプを作成します。最初の `MathPortion` にアクセスし、その `MathParagraph` を取得して、数式ブロックまたは数式要素を追加します。
+{{% /alert %}}
 
-作成後、シェイプにはデフォルトで数学部分を含む段落が1つ入ります。[**MathPortion**] クラスは内部に数学テキストを含む部分です。[**MathPortion**] 内の数学コンテンツにアクセスするには、[**MathParagraph**] 変数を参照してください:
+## **分数の追加**
 
-```php
-  $mathParagraph = $mathShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+[`divide`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して分数を作成します。分数のスタイルは [MathFractionTypes](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathfractiontypes/)で選択できます。
 
-``` 
-
-The [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph) class allows to read, add, edit and delete math blocks ([**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)), that consist of a combination of mathematical elements. For example, create a fraction and place it in the presentation:
-
-```php
-  $fraction = new MathematicalText("x")->divide("y");
-  $mathParagraph->add(new MathBlock($fraction));
-``` 
-
-Each mathematical element is represented by some class that implements the `MathElement` class. This class provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
+![1 ÷ x を示す傾いた分数](powerpoint-math-equations_4.png)
 
 ```php
-  $mathBlock = new MathematicalText("c")->setSuperscript("2")->join("=")->join(new MathematicalText("a")->setSuperscript("2"))->join("+")->join(new MathematicalText("b")->setSuperscript("2"));
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Operations of the class `MathElement` are implemented in any type of element, including the [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock).
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-The full source code sample:
+    $fraction = (new MathematicalText("1"))
+        - >divide("x", MathFractionTypes::Skewed);
 
-```php
-  $pres = new Presentation();
-  try {
-    $mathShape = $pres->getSlides()->get_Item(0)->getShapes()->addMathShape(0, 0, 720, 150);
-    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
-    $fraction = new MathematicalText("x")->divide("y");
     $mathParagraph->add(new MathBlock($fraction));
-    $mathBlock = new MathematicalText("c")->setSuperscript("2")->join("=")->join(new MathematicalText("a")->setSuperscript("2"))->join("+")->join(new MathematicalText("b")->setSuperscript("2"));
-    $mathParagraph->add($mathBlock);
-    $pres->save("math.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $presentation->save("fraction.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-
-## **数学要素の種類**
-数式は数学要素のシーケンスから形成されます。数学要素のシーケンスは数学ブロックで表され、要素の引数はツリー構造の入れ子を形成します。
-
-数学ブロックを構成するために使用できる数学要素の種類は多数あります。各要素は別の要素に含める（集約する）ことができ、要素は実質的に他の要素のコンテナとなりツリー構造を形成します。数学テキストの他要素を含まない最も単純な要素です。
-
-各種数学要素は `MathElement` クラスを実装しており、異なるタイプの数学要素に共通の数学操作セットを使用できます。
-
-### **MathematicalText クラス**
-[**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) クラスは数学テキストを表し、すべての数学構造の基礎要素です。数学テキストは被演算子や演算子、変数、その他の線形テキストを表すことができます。
-
-例: 𝑎=𝑏+𝑐
-
-### **MathFraction クラス**
-[**MathFraction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFraction) クラスは分数オブジェクトを指定し、分子と分母が分数線で区切られます。分数線は横または斜めで、分数のプロパティにより決まります。このオブジェクトは、分数線なしで要素を上下に配置するスタック関数としても使用されます。
-
-![todo:image_alt_text](powerpoint-math-equations_4.png)
-
-### **MathRadical クラス**
-[**MathRadical**](https://reference.aspose.com/slides/php-java/aspose.slides/MathRadical) クラスは根号関数（数学的ルート）を指定し、基底とオプションの次数から構成されます。
-
-![todo:image_alt_text](powerpoint-math-equations_5.png)
-
-### **MathFunction クラス**
-[**MathFunction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) クラスは引数の関数を指定します。プロパティは [getName] - 関数名、[getBase] - 関数の引数です。
-
-![todo:image_alt_text](powerpoint-math-equations_6.png)
-
-### **MathNaryOperator クラス**
-[**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator) クラスは総和や積分などの N 元数学オブジェクトを指定します。演算子、基底（またはオペランド）、および任意の上限・下限から構成されます。N元演算子の例は総和、合併、交差、積分です。
-
-このクラスは加算や減算などの単純な演算子は含みません。それらは単一のテキスト要素 [MathematicalText] で表されます。
-
-![todo:image_alt_text](powerpoint-math-equations_7.png)
-
-### **MathLimit クラス**
-[**MathLimit**](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) クラスは上限または下限を作成します。ベースライン上のテキストと、その直上または直下に小さく表示されるテキストからなる限界オブジェクトを指定します。この要素は “lim” という語を含まず、式の上部または下部にテキストを配置できます。したがって、式
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-は以下のように [**MathFunction**] と [**MathLimit**] 要素の組み合わせで作成されます:
+積み上げ式分数を作成するには、`MathFractionTypes::Bar` を使用します:
 
 ```php
-  $funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
-  $mathFunc = new MathFunction($funcName, new MathematicalText("𝑥"));
-``` 
+$stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
+```
 
-### **MathSubscriptElement、MathSuperscriptElement、MathRightSubSuperscriptElement、MathLeftSubSuperscriptElement クラス**
-- [MathSubscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathSubscriptElement)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathSuperscriptElement)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathRightSubSuperscriptElement)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathLeftSubSuperscriptElement)
+## **根号の追加**
 
-以下のクラスは下付きインデックスまたは上付きインデックスを指定します。引数の左側または右側で下付きと上付きの両方を同時に設定できますが、単独の下付きまたは上付きは右側のみでサポートされます。[MathSubscriptElement] は数値の数学的次数を設定することもできます。
+[`radical`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して平方根、立方根、その他の根号を作成します。現在の要素が基底になり、引数が次数になります。
 
-例: 
-
-![todo:image_alt_text](powerpoint-math-equations_9.png)
-
-### **MathMatrix クラス**
-[**MathMatrix**](https://reference.aspose.com/slides/php-java/aspose.slides/MathMatrix) クラスは行列オブジェクトを指定し、子要素が1つ以上の行と列に配置されます。行列には組み込みの区切り記号がないことに注意してください。括弧で囲むには区切りオブジェクト [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/) を使用します。Null 引数は行列の隙間作成に使用できます。
-
-![todo:image_alt_text](powerpoint-math-equations_10.png)
-
-### **MathArray クラス**
-[**MathArray**](https://reference.aspose.com/slides/php-java/aspose.slides/MathArray) クラスは垂直配列の方程式または任意の数学オブジェクトを指定します。
-
-![todo:image_alt_text](powerpoint-math-equations_11.png)
-
-### **数学要素の書式設定**
-- [**MathBorderBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBorderBox) クラス: `MathElement` の周囲に長方形またはその他の枠線を描画します。  
-  例: ![todo:image_alt_text](powerpoint-math-equations_12.png)
-
-- [**MathBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBox) クラス: 数学要素の論理的なボックス化（パッケージ化）を指定します。例えば、ボックス化されたオブジェクトは整列ポイントの有無にかかわらず演算子のエミュレータとして、行分割点として、または行分割を許可しないようにグループ化することができます。例として、"==" 演算子は行分割を防ぐためにボックス化すべきです。
-
-- [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathDelimiter) クラス: 開始文字と終了文字（括弧、波かっこ、角括弧、縦棒など）からなる区切りオブジェクトを指定し、内部に1つ以上の数学要素を、指定文字で区切って配置します。例: (𝑥2); [𝑥2|𝑦2].  
-  例: ![todo:image_alt_text](powerpoint-math-equations_13.png)
-
-- [**MathAccent**](https://reference.aspose.com/slides/php-java/aspose.slides/MathAccent) クラス: 基底と結合アクセント記号からなるアクセント機能を指定します。例: 𝑎́.
-
-- [**MathBar**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBar) クラス: 基底引数と上バーまたは下バーからなるバー機能を指定します。  
-  例: ![todo:image_alt_text](powerpoint-math-equations_14.png)
-
-- [**MathGroupingCharacter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathGroupingCharacter) クラス: 式の上または下に配置されるグルーピング記号を指定し、要素間の関係を強調します。  
-  例: ![todo:image_alt_text](powerpoint-math-equations_15.png)
-
-## **数学的操作**
-各数学要素と数学式（[**MathBlock**] 経由）は `MathElement` クラスを継承します。これにより、既存の構造に対して操作を適用し、より複雑な数学式を形成できます。すべての操作は2つのパラメータセットを持ち、`MathElement` または文字列を引数として受け取ります。文字列引数が使用される場合、指定された文字列から暗黙的に [**MathematicalText**] クラスのインスタンスが作成されます。Aspose.Slides で利用可能な数式操作を以下に示します。
-
-### **Join メソッド**
-- `join(String)`
-- `join(MathElement)`
-
-数学要素を結合して数学ブロックを形成します。例:
+![x が根号記号の下にある n 次根号の式](powerpoint-math-equations_5.png)
 
 ```php
-  $element1 = new MathematicalText("x");
-  $element2 = new MathematicalText("y");
-  $block = $element1->join($element2);
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-### **Divide メソッド**
-- `[divide(String)`
-- `divide(MathElement)`
-- `divide(String, MathFractionTypes)`
-- `divide(MathElement, MathFractionTypes)`
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-指定された分子と分母で、指定されたタイプの分数を作成します。例:
+    $radical = (new MathematicalText("x"))
+        - >radical("n");
 
-```php
-  $numerator = new MathematicalText("x");
-  $fraction = $numerator->divide("y", MathFractionTypes->Linear);
-``` 
+    $mathParagraph->add(new MathBlock($radical));
 
-### **Enclose メソッド**
-- `enclose()`
-- `enclose(Char, Char)`
+    $presentation->save("radical.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
-要素を指定した文字（括弧など）で囲みます。
+## **関数とリミットの追加**
 
-```php
+[`asArgumentOfFunction`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) または [`function`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して、`sin(x)`、`log(x)` などの関数やカスタム関数名を指定します。リミットでは、`lim` を [MathLimit](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathlimit/) に入れるか、[`setLowerLimit`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用します。
 
-``` 
-
-例:
+![x が無限大に近づくときの lim](powerpoint-math-equations_8.png)
 
 ```php
-  $delimiter = new MathematicalText("x")->enclose('[', ']');
-  $delimiter2 = new MathematicalText("elem1")->join("elem2")->enclose();
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-### **Function メソッド**
-- `function(String)`
-- `function(MathElement)`
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-現在のオブジェクトを関数名として、引数の関数を取得します。
+    $limit = (new MathematicalText("lim"))
+        - >setLowerLimit("x\u{2192}\u{221E}")
+        - >function("x");
 
-```php
+    $mathParagraph->add(new MathBlock($limit));
 
-``` 
+    $presentation->save("functions-and-limits.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
-例:
-
-```php
-  $func = new MathematicalText("sin")->function("x");
-``` 
-
-### **AsArgumentOfFunction メソッド**
-- `asArgumentOfFunction(String)`
-- `asArgumentOfFunction(MathElement)`
-- `asArgumentOfFunction(MathFunctionsOfOneArgument)`
-- `asArgumentOfFunction(MathFunctionsOfTwoArguments, MathElement)`
-- `asArgumentOfFunction(MathFunctionsOfTwoArguments, String)`
-
-現在のインスタンスを引数として、指定された関数を取得します。以下が可能です:
-- 関数名を文字列で指定（例: “cos”）。
-- 列挙型 [**MathFunctionsOfOneArgument**] または [**MathFunctionsOfTwoArguments**] の事前定義値を選択（例: [**MathFunctionsOfOneArgument::ArcSin**]）。
-- `MathElement` のインスタンスを選択。
+カスタム関数名の場合は、関数名を現在の要素にします:
 
 ```php
-  $funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
-  $func1 = new MathematicalText("2x")->asArgumentOfFunction($funcName);
-  $func2 = new MathematicalText("x")->asArgumentOfFunction("sin");
-  $func3 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfOneArgument->Sin);
-  $func4 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfTwoArguments->Log, "3");
-``` 
+$customFunction = (new MathematicalText("f"))->function("x + 1");
+```
 
-### **SetSubscript、SetSuperscript、SetSubSuperscriptOnTheRight、SetSubSuperscriptOnTheLeft メソッド**
-- `setSubscript(String)`
-- `setSubscript(MathElement)`
-- `setSuperscript(String)`
-- `setSuperscript(MathElement)`
-- `setSubSuperscriptOnTheRight(String, String)`
-- `setSubSuperscriptOnTheRight(MathElement, MathElement)`
-- `setSubSuperscriptOnTheLeft(String, String)`
-- `setSubSuperscriptOnTheLeft(MathElement, MathElement)`
+## **N項演算子と積分の追加**
 
-下付きと上付き文字を設定します。引数の左側または右側で同時に設定可能ですが、単独の下付きまたは上付きは右側のみでサポートされます。**Superscript** は数の次数を設定することもできます。
+[`nary`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して総和、合併、交差、その他の大きな演算子を作成します。[`integral`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して積分を作成します。どちらのメソッドも下限と上限を設定できます。
 
-例:
+![下限と上限を持つ総和記号](powerpoint-math-equations_7.png)
 
 ```php
-  $script = new MathematicalText("y")->setSubSuperscriptOnTheLeft("2x", "3z");
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-### **Radical メソッド**
-- `radical(String)`
-- `radical(MathElement)`
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-指定された引数の次数の数学的根号を指定します。
+    $summationBase = (new MathematicalText("x"))
+        - >setSuperscript("k")
+        - >join((new MathematicalText("a"))->setSuperscript("n-k"));
 
-例:
+    $summation = $summationBase->nary(MathNaryOperatorTypes::Summation, "k=0", "n");
 
-```php
-  $radical = new MathematicalText("x")->radical("3");
-``` 
+    $mathParagraph->add(new MathBlock($summation));
 
-### **SetUpperLimit と SetLowerLimit メソッド**
-- `setUpperLimit(String)`
-- `setUpperLimit(MathElement)`
-- `setLowerLimit(String)`
-- `setLowerLimit(MathElement)`
+    $presentation->save("nary-operators.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
-上限または下限を取得します。ここで、上限と下限は基底に対する引数の位置を示します。
+N-項演算子は、オプションのリミットを持つ大きな演算子用です。`+`、`-`、`=` などの単純な演算子は通常 `MathematicalText` として追加し、式に結合します。
 
-以下の式を考えます:
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-```php
-  $mathExpression = new MathematicalText("lim")->setLowerLimit("x→∞")->function("x");
-``` 
-
-### **Nary と Integral メソッド**
-- `nary(MathNaryOperatorTypes, MathElement, MathElement`
-- `nary(MathNaryOperatorTypes, String, String)`
-- `integral(MathIntegralTypes)`
-- `integral(MathIntegralTypes, MathElement, MathElement)`
-- `integral(MathIntegralTypes, String, String)`
-- `integral(MathIntegralTypes, MathElement, MathElement, MathLimitLocations)`
-- `integral(MathIntegralTypes, String, String, MathLimitLocations)`
-
-**nary** と **integral** の両メソッドは [**MathNaryOperator**] タイプの N元演算子を作成して返します。nary メソッドでは、[**MathNaryOperatorTypes**] 列挙型が演算子タイプ（総和、合併など）を指定し、積分は含みません。Integral メソッドでは、積分専用の列挙型 [**MathIntegralTypes**] を使用します。
-
-例:
+積分を作成するには、`integral` を使用します:
 
 ```php
-  $baseArg = new MathematicalText("x")->join(new MathematicalText("dx")->toBox());
-  $integral = $baseArg->integral(MathIntegralTypes->Simple, "0", "1");
-``` 
+$integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
+$integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
+```
 
-### **ToMathArray メソッド**
-`MathElement.toMathArray` は要素を垂直配列に配置します。[**MathBlock**] インスタンスに対して呼び出すと、すべての子要素が返された配列に配置されます。
+## **行列の追加**
 
-例:
+行と列には [MathMatrix](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathmatrix/) を使用します。行列はデフォルトで括弧が付かないため、丸括弧、角括弧、波括弧が必要な場合は行列を囲んでください。
 
-```php
-  $arrayFunction = new MathematicalText("x")->join("y")->toMathArray();
-``` 
-
-### **書式設定操作: Accent、Overbar、Underbar、Group、ToBorderBox、ToBox**
-- **`accent`** メソッドは要素の上にアクセント記号（文字）を設定します。
-- **`overbar`** と **`underbar`** メソッドは上部または下部にバーを設定します。
-- **`group`** メソッドは下部の波かっこなどのグルーピング文字を使用して要素をグループ化します。
-- **`toBorderBox`** メソッドは要素を枠線付きボックスに配置します。
-- **`toBox`** メソッドは要素を非表示のボックス（論理グループ）に配置します。
-
-例:
+![1 つの空セルを含む2行の数式行列](powerpoint-math-equations_10.png)
 
 ```php
-  $accent = new MathematicalText("x")->accent('̃');
-  $bar = new MathematicalText("x")->overbar();
-  $groupChr = new MathematicalText("x")->join("y")->join("z")->group('⏡', MathTopBotPositions::Bottom, MathTopBotPositions::Top);
-  $borderBox = new MathematicalText("x+y+z")->toBorderBox();
-  $boxedOperator = new MathematicalText(":=")->toBox();
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-## **FAQ**
-**PowerPoint スライドに数式を追加するにはどうすればよいですか？**
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-数式を追加するには、数学シェイプオブジェクトを作成します。このオブジェクトは自動的に数学部分を含みます。次に、[MathParagraph] から [MathPortion] を取得し、[MathBlock] オブジェクトを追加します。
+    $matrix = new MathMatrix(2, 3);
+    $matrix->set_Item(0, 0, new MathematicalText("1"));
+    $matrix->set_Item(0, 1, new MathematicalText("x"));
+    $matrix->set_Item(1, 0, new MathematicalText("x"));
+    $matrix->set_Item(1, 1, new MathematicalText("2"));
+    $matrix->set_Item(1, 2, new MathematicalText("y"));
 
-**複雑な入れ子数式を作成できますか？**
+    $mathParagraph->add(new MathBlock($matrix));
 
-はい、Aspose.Slides は MathBlock を入れ子にすることで複雑な数式を作成できます。各数学要素は Join、Divide、Enclose などの操作を適用して、より複雑な構造に結合できます。
+    $presentation->save("matrix.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
-**既存の数式を更新または修正するにはどうすればよいですか？**
+## **方程式配列の追加**
 
-数式を更新するには、[MathParagraph] を通じて既存の MathBlock にアクセスします。その後、Join、Divide、Enclose などのメソッドを使用して要素を変更し、プレゼンテーションを保存して変更を適用します。
+[`toMathArray`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して、整列した方程式や縦方向に積み重ねた式が必要な場合に使用します。
+
+![x の上に y がある縦方向の数式配列](powerpoint-math-equations_11.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 140);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $equationArray = (new MathematicalText("x"))
+        - >join("y")
+        - >toMathArray();
+
+    $mathParagraph->add(new MathBlock($equationArray));
+
+    $presentation->save("equation-array.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **三角関数の追加**
+
+引数が現在の要素で関数名が既知の場合は、[`asArgumentOfFunction`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用します。
+
+![2x に適用された三角関数 cos](powerpoint-math-equations_6.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $cosine = (new MathematicalText("2x"))
+        - >asArgumentOfFunction(MathFunctionsOfOneArgument::Cos);
+
+    $mathParagraph->add(new MathBlock($cosine));
+
+    $presentation->save("trigonometric-function.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **添字と上付き文字の追加**
+
+添字と上付き文字のヘルパーを使用して、インデックスや指数を設定します。インデックスを基底の左側に表示する必要がある場合は、[`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用します。
+
+![左側添字 1 と上付き n を持つ大文字 Y](powerpoint-math-equations_9.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $scripts = (new MathematicalText("Y"))
+        - >setSubSuperscriptOnTheLeft("1", "n");
+
+    $mathParagraph->add(new MathBlock($scripts));
+
+    $presentation->save("subscript-superscript.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **区切り記号の追加**
+
+[`enclose`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して式を区切り記号で囲みます。複数の要素を含む区切り記号式では、区切り文字も設定できます。
+
+![x, y, z を縦棒で区切った区切り記号式](powerpoint-math-equations_13.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $delimiter = (new MathematicalText("x"))
+        - >join("y")
+        - >join("z")
+        - >enclose(new Java("java.lang.Character", "<"), new Java("java.lang.Character", ">"));
+    $delimiter->setSeparatorCharacter(new Java("java.lang.Character", "|"));
+
+    $mathParagraph->add(new MathBlock($delimiter));
+
+    $presentation->save("delimiters.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **枠付きボックスの追加**
+
+式自体を枠で囲む場合は、[`toBorderBox`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用します。
+
+![a² = b² + c² を示す枠付き方程式](powerpoint-math-equations_12.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $boxedEquation = (new MathematicalText("a"))
+        - >setSuperscript("2")
+        - >join("=")
+        - >join((new MathematicalText("b"))->setSuperscript("2"))
+        - >join("+")
+        - >join((new MathematicalText("c"))->setSuperscript("2"))
+        - >toBorderBox();
+
+    $mathParagraph->add(new MathBlock($boxedEquation));
+
+    $presentation->save("border-box.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **項のグループ化**
+
+[`group`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) を使用して、式の上または下にグループ化文字を配置します。リミットを追加してグループ化した項にラベルを付けます。
+
+![x + y の式が下にラベル（任意のテキスト）でグループ化された様子](powerpoint-math-equations_15.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $grouped = (new MathematicalText("x + y"))
+        - >group(new Java("java.lang.Character", "\u{23DF}"), MathTopBotPositions::Bottom, MathTopBotPositions::Top)
+        - >setLowerLimit("any text");
+
+    $mathParagraph->add(new MathBlock($grouped));
+
+    $presentation->save("grouped-terms.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **数式要素の書式設定**
+
+書式設定ヘルパーは、式を明確にする場合にのみ使用してください。例として、[`overbar`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) は数式要素の上にバーを付けます。
+
+![上にバーが付いた数式 ABC](powerpoint-math-equations_14.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $overbar = (new MathematicalText("ABC"))->overbar();
+
+    $mathParagraph->add(new MathBlock($overbar));
+
+    $presentation->save("overbar.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **クイックリファレンス**
+
+| タスク | 主な API |
+| --- | --- |
+| 数式テキストの作成 | [MathematicalText](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathematicaltext/) |
+| 要素の結合 | [join](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 分数の作成 | [divide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 上付き文字または下付き文字の追加 | [setSuperscript](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 関数の追加 | [function](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 根号の追加 | [radical](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| リミットの追加 | [setLowerLimit](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 左側添字/上付き文字の追加 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 総和と積分の追加 | [nary](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 行列の追加 | [MathMatrix](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathmatrix/) |
+| 方程式配列の追加 | [toMathArray](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 区切り記号の追加 | [enclose](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| バーと枠の追加 | [overbar](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+| 項のグループ化 | [group](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mathelementbase/) |
+
+## **よくある質問**
+
+**既存の PowerPoint の数式を編集できますか？**
+
+はい。プレゼンテーションを開き、`MathPortion` を含むシェイプを見つけ、その `MathParagraph` を取得し、その段落内の数式ブロックを更新します。
+
+**方程式は編集可能な PowerPoint の数式として保存されますか？**
+
+はい。PPTX に保存すると、Aspose.Slides は方程式を編集可能な Office 数式コンテンツとして書き込みます。
+
+**方程式を LaTeX にエクスポートできますか？**
+
+Aspose.Slides は数式を MathML にエクスポートします。LaTeX が必要な場合は、まず MathML にエクスポートし、対象の LaTeX 方言をサポートするツールで MathML を変換してください。

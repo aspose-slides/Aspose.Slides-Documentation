@@ -1,194 +1,179 @@
 ---
-title: ".NET でプレゼンテーション スライド マスターを管理"
-linktitle: "スライド マスター"
+title: .NET でプレゼンテーション スライドマスターを管理する
+linktitle: スライドマスター
 type: docs
 weight: 80
 url: /ja/net/slide-master/
 keywords:
-- "スライド マスター"
-- "マスタースライド"
-- "PPT マスタースライド"
-- "複数のマスタースライド"
-- "マスタースライドの比較"
-- "背景"
-- "プレースホルダー"
-- "マスタースライドのクローン"
-- "マスタースライドのコピー"
-- "マスタースライドの重複"
-- "未使用のマスタースライド"
-- "PowerPoint"
-- "OpenDocument"
-- "プレゼンテーション"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET でスライド マスターを管理: PPT、PPTX、ODP にレイアウト、テーマ、プレースホルダーを作成、編集、適用する簡潔な C# サンプルです。"
+- スライドマスター
+- マスタースライド
+- PPT マスタースライド
+- 複数のマスタースライド
+- マスタースライドの比較
+- 背景
+- プレースホルダー
+- マスタースライドのクローン
+- マスタースライドのコピー
+- マスタースライドの複製
+- 未使用のマスタースライド
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET でスライドマスターを管理します：PowerPoint および OpenDocument プレゼンテーションのマスタースライドにアクセス、編集、クローン、比較、削除が可能です。"
 ---
+## **概要**
 
-## **PowerPoint のスライド マスターとは**
-**スライド マスター**は、PowerPoint の機能で、複数のスライドにわたってレイアウト、フォント、スタイルを制御します。プレゼンテーションの一貫性とブランド維持に役立ちます。会社向けに同じスタイルとテンプレートのプレゼンテーション（または一連のプレゼンテーション）を作成したい場合は、スライド マスターを使用できます。
+**スライドマスター** は、スライドのグループに対して共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキストスタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスターを編集することが、各スライドで同じ書式を繰り返さずにプレゼンテーションの一貫性を保つ一般的な方法です。
 
-スライド マスターは、すべてのプレゼンテーション スライドの外観を一度に設定・変更できるため便利です。Aspose.Slides は PowerPoint のスライド マスター機構をサポートしています。
+Aspose.Slides for .NET は同じモデルをサポートします。プレゼンテーションは 1 つまたは複数のマスタースライドを含めることができ、各マスタースライドは複数のレイアウトスライドを保持できます。通常、ノーマルスライドはマスタースライドを直接参照しません。代わりに、ノーマルスライドはレイアウトスライドを使用し、そのレイアウトスライドがマスタースライドに属します。
 
-VBA でもスライド マスターを操作し、PowerPoint がサポートする同様の操作（背景の変更、図形の追加、レイアウトのカスタマイズ等）を実行できます。Aspose.Slides はスライド マスターを使用して基本的なタスクを実行できる柔軟な機構を提供します。
+階層構造は次のとおりです。
 
-これらは基本的なスライド マスター操作です:
+1. **スライドマスター** - 共有デザインとテーマを定義します。  
+1. **レイアウトスライド** - プレースホルダーの配置とレイアウトレベルの書式設定を定義します。  
+1. **ノーマルスライド** - 実際のプレゼンテーション コンテンツを保持し、1 つのレイアウトスライドを使用します。
 
-- スライド マスターを作成または取得する。
-- スライド マスターをプレゼンテーション スライドに適用する。
-- スライド マスターの背景を変更する。
-- 画像、プレースホルダー、SmartArt 等をスライド マスターに追加する。
+![マスタースライド、レイアウトスライド、ノーマルスライドの階層構造](slide-master_2.jpg)
 
-これらはスライド マスターに関する高度な操作です:
+Aspose.Slides では、スライドマスターは [IMasterSlide](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterslide/) インターフェイスで表されます。プレゼンテーション内のすべてのマスタースライドは、[Presentation.Masters](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/masters/) コレクションから取得でき、これは [IMasterSlideCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterslidecollection/) を実装しています。
 
-- スライド マスターを比較する。
-- スライド マスターをマージする。
-- 複数のスライド マスターを適用する。
-- スライド マスター付きスライドを別のプレゼンテーションにコピーする。
-- プレゼンテーション内の重複スライド マスターを検索する。
-- スライド マスターをプレゼンテーションのデフォルトビューとして設定する。
-
-{{% alert color="primary" %}} 
-ここで説明した主要プロセスのライブ実装である Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) を確認するとよいでしょう。
-{{% /alert %}} 
-
-## **スライド マスターはどのように適用されるか**
-スライド マスターを操作する前に、プレゼンテーションでの使用方法とスライドへの適用方法を理解するとよいでしょう。
-
-* すべてのプレゼンテーションはデフォルトで少なくとも1つのスライド マスターを持ちます。  
-* プレゼンテーションは複数のスライド マスターを含めることができます。複数のスライド マスターを追加し、プレゼンテーションの異なる部分を異なる方法でスタイル設定できます。
-
-**Aspose.Slides** では、スライド マスターは [**IMasterSlide**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) 型で表されます。
-
-Aspose.Slides の [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトは、[**Masters**](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/masters) リスト（[**IMasterSlideCollection**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) 型）を保持し、プレゼンテーションで定義されたすべてのマスタースライドの一覧が格納されています。
-
-CRUD 操作に加えて、[IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) インターフェイスは次の便利なメソッドを提供します: [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/addclone) と [**InsertClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/insertclone)。これらのメソッドは基本的なスライド クローン機能から継承されていますが、スライド マスターを扱う場合は複雑な設定を実装するために利用できます。
-
-プレゼンテーションに新しいスライドを追加すると、スライド マスターが自動的に適用されます。既定では直前のスライドのスライド マスターが選択されます。
-
-**Note**: プレゼンテーション スライドは [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) リストに格納され、デフォルトで新しいスライドはコレクションの末尾に追加されます。プレゼンテーションに単一のスライド マスターしかない場合、そのスライド マスターがすべての新しいスライドに適用されます。これが、各新規スライドでスライド マスターを個別に定義する必要がない理由です。
-
-PowerPoint と Aspose.Slides の原理は同じです。たとえば PowerPoint では、最後のスライドの下のラインをクリックするだけで（最後のプレゼンテーションのスライド マスターを使用した）新しいスライドが作成されます:
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-Aspose.Slides では、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスの [AddClone(ISlide)](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addclone) メソッドを使用して同等の操作を実行できます。
-
-## **スライド階層におけるスライド マスター**
-スライド レイアウトとスライド マスターを組み合わせて使用すると、最大の柔軟性が得られます。スライド レイアウトはスライド マスターと同じスタイル（背景、フォント、図形等）を設定できますが、複数のスライド レイアウトがスライド マスター上に組み合わさると新しいスタイルが生成されます。単一のスライドにスライド レイアウトを適用すると、スライド マスターが適用したスタイルとは別にそのスライドのスタイルを変更できます。
-
-スライド マスターはすべての設定項目より上位です: Slide Master -> Slide Layout -> Slide:
-
-![todo:image_alt_text](slide-master_2)
-
-各 [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) オブジェクトは、スライド レイアウトの一覧を保持する [**LayoutSlides**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/layoutslides) プロパティを持ちます。 [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) 型は、スライド に適用されたスライド レイアウトへのリンクを保持する [**LayoutSlide**](https://reference.aspose.com/slides/net/aspose.slides/islide/properties/layoutslide) プロパティを持ちます。スライド とスライド マスターの相互作用はスライド レイアウトを介して行われます。
-
-{{% alert color="info" title="Note" %}}
-* Aspose.Slides では、すべてのスライド設定（Slide Master、Slide Layout、スライドそのもの）が実際には [**IBaseSlide**](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide) インターフェイスを実装したスライド オブジェクトです。  
-* したがって、Slide Master と Slide Layout は同じプロパティを実装する可能性があり、[Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/) オブジェクトにどのように適用されるかを理解する必要があります。Slide Master がまずスライドに適用され、続いて Slide Layout が適用されます。たとえば、Slide Master と Slide Layout の両方に背景が設定されている場合、最終的なスライドは Slide Layout の背景を使用します。
+{{% alert color="info" title="Inheritance" %}}
+同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウトスライドの両方で背景が定義されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[レイアウトスライドの適用または変更](/slides/ja/net/slide-layout/) を参照してください。
 {{% /alert %}}
 
-## **スライド マスターに含まれるもの**
-スライド マスターを変更する方法を理解するには、その構成要素を把握する必要があります。以下は [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) のコアプロパティです。
+## **スライドマスターへのアクセス**
 
-- [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/background) - スライドの背景を取得/設定します。  
-- [BodyStyle](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/bodystyle) - スライド本体のテキストスタイルを取得/設定します。  
-- [Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/shapes) - スライド マスター上のすべての図形（プレースホルダー、画像フレーム等）を取得/設定します。  
-- [Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/controls) - ActiveX コントロールを取得/設定します。  
-- [ThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/imasterthemeable/properties/thememanager) - テーママネージャーを取得します。  
-- [HeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/headerfootermanager) - ヘッダーとフッターのマネージャーを取得します。
+PowerPoint では、**表示** > **スライドマスター** からスライドマスタービューを開くことができます。
 
-スライド マスターのメソッド:
+![PowerPoint の表示タブにあるスライドマスターコマンド](slide-master_3.jpg)
 
-- [GetDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/getdependingslides) - スライド マスターに依存しているすべてのスライドを取得します。  
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/applyexternalthemetodependingslides) - 現在のスライド マスターと新しいテーマに基づいて新しいスライド マスターを作成し、依存するすべてのスライドに適用します。
+Aspose.Slides では、`Masters` コレクションを使用してマスタースライドにアクセスします:
 
-## **スライド マスターの取得**
-PowerPoint では、[View] → [Slide Master] メニューからスライド マスターにアクセスできます:
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-![todo:image_alt_text](slide-master_3.jpg)
+var firstMasterSlide = presentation.Masters[0];
+var masterSlideCount = presentation.Masters.Count;
+var firstMasterLayoutSlideCount = firstMasterSlide.LayoutSlides.Count;
 
-Aspose.Slides を使用すると、次のようにスライド マスターにアクセスできます:
-```c#
-IMasterSlide master = pres.Masters[0];
+Console.WriteLine("Master slides: " + masterSlideCount);
+Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
+また、ノーマルスライドのレイアウトから使用されているマスタースライドを取得することもできます:
 
-[IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) インターフェイスはスライド マスターを表します。 [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) プロパティ（[IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) 型に関連）には、プレゼンテーションで定義されたすべてのスライド マスターのリストが含まれます。
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-## **スライド マスターに画像を追加する**
-スライド マスターに画像を追加すると、その画像はそのマスターに依存するすべてのスライドに表示されます。
+var slide = presentation.Slides[0];
+var layoutSlide = slide.LayoutSlide;
+var masterSlide = layoutSlide.MasterSlide;
+var masterSlideName = masterSlide.Name;
 
-たとえば、会社のロゴやいくつかの画像をスライド マスターに配置し、スライド編集モードに戻すと、すべてのスライドで画像が表示されます。
-
-![todo:image_alt_text](slide-master_4.png)
-
-Aspose.Slides を使用してスライド マスターに画像を追加できます:
-```c#
-using (Presentation pres = new Presentation())
-{
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    pres.Masters[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+Console.WriteLine(masterSlideName);
 ```
 
+## **スライドマスターに含まれるもの**
 
-{{% alert color="primary" title="See also" %}} 
-スライドへの画像追加に関する詳細は、[Picture Frame](/slides/ja/net/picture-frame/#create-picture-frame) 記事をご参照ください。
-{{% /alert %}}
+マスタースライドはスライドに類似したオブジェクトです。`IBaseSlide` を実装しているため、ノーマルスライドやレイアウトスライドと同様の多数のスライドプロパティにアクセスできます。マスター固有のメンバーは [IMasterSlide](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterslide/) API ページに記載されています。
 
-## **スライド マスターにプレースホルダーを追加する**
-これらのテキスト領域はスライド マスター上の標準プレースホルダーです:
+一般的に使用されるマスタースライド メンバーは次のとおりです:
 
-* クリックしてマスタータイトルスタイルを編集
-* マスターテキストスタイルを編集
-* 第2レベル
-* 第3レベル
+| メンバー | 目的 |
+| --- | --- |
+| `Background` | マスターレベルのスライド背景を設定します。 |
+| `Shapes` | ロゴ、画像フレーム、共有テキストなど、マスター上に配置された図形を格納します。 |
+| `LayoutSlides` | マスターに属するレイアウトスライドを格納します。 |
+| `ThemeManager` | マスターのテーマ API へのアクセスを提供します。 |
+| `HeaderFooterManager` | マスターとその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
+| `GetDependingSlides` | レイアウトを介してマスターに依存しているノーマルスライドを返します。 |
 
-これらはスライド マスターに基づくスライドでも表示されます。スライド マスター上でプレースホルダーを編集すると、変更は自動的にスライドに反映されます。
+## **スライドマスターに画像を追加する**
 
-PowerPoint では、Slide Master → Insert Placeholder パスからプレースホルダーを追加できます:
+マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するスライドすべてに画像が表示されます。ロゴ、透かし、装飾帯、その他の繰り返し使用されるビジュアル要素に便利です。
 
-![todo:image_alt_text](slide-master_5.png)
+次の例は、最初のマスタースライドにロゴを追加します:
 
-Aspose.Slides を使用したプレースホルダーのより複雑な例を見てみましょう。以下はスライド マスターからテンプレート化されたプレースホルダーを持つスライドの例です:
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-![todo:image_alt_text](slide-master_6.png)
+var masterSlide = presentation.Masters[0];
+var logoBytes = File.ReadAllBytes("logo.png");
+var logoImage = presentation.Images.AddImage(logoBytes);
 
-次のようにスライド マスター上でタイトルとサブタイトルの書式を変更したいとします:
+masterSlide.Shapes.AddPictureFrame(
+    ShapeType.Rectangle,
+    x: 20,
+    y: 20,
+    width: 80,
+    height: 80,
+    image: logoImage);
 
-![todo:image_alt_text](slide-master_7.png)
+presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
+```
 
-まず、スライド マスター オブジェクトからタイトルプレースホルダーの内容を取得し、`PlaceHolder.FillFormat` フィールドを使用します:
-```c#
-public static void Main()
+画像フレームの詳細については、[画像フレーム](/slides/ja/net/picture-frame/) を参照してください。
+
+## **プレースホルダーの操作**
+
+プレースホルダーは通常、レイアウトスライド上で定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーと配置場所を決定します。
+
+PowerPoint では、スライドマスタービューでプレースホルダーコマンドが利用できます。
+
+![PowerPoint スライドマスター表示でのプレースホルダー挿入コマンド](slide-master_5.png)
+
+Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウトスライドを操作します:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var blankLayoutSlide =
+    masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    masterSlide.LayoutSlides.Add(SlideLayoutType.Blank, "Blank");
+
+blankLayoutSlide.PlaceholderManager.AddTextPlaceholder(
+    x: 60,
+    y: 120,
+    width: 600,
+    height: 80);
+
+presentation.Slides.AddEmptySlide(blankLayoutSlide);
+presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
+```
+
+既存のプレースホルダー形状の書式設定も可能です。以下の例はタイトルプレースホルダーを検索し、線形グラデーション塗りを適用します:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+var titlePlaceholder = FindPlaceholder(masterSlide, PlaceholderType.Title);
+
+if (titlePlaceholder != null)
 {
-    using (var pres = new Presentation())
-    {
-        IMasterSlide master = pres.Masters[0];
-        IAutoShape placeHolder = FindPlaceholder(master, PlaceholderType.Title);
-        placeHolder.FillFormat.FillType = FillType.Gradient;
-        placeHolder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(0, Color.FromArgb(255, 0, 0));
-        placeHolder.FillFormat.GradientFormat.GradientStops.Add(255, Color.FromArgb(128, 0, 128));
-        
-        pres.Save("pres.pptx", SaveFormat.Pptx);
-    }
+    var redGradientColor = Color.FromArgb(255, 0, 0);
+    var purpleGradientColor = Color.FromArgb(128, 0, 128);
+
+    titlePlaceholder.FillFormat.FillType = FillType.Gradient;
+    titlePlaceholder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(0, redGradientColor);
+    titlePlaceholder.FillFormat.GradientFormat.GradientStops.Add(255, purpleGradientColor);
 }
 
-static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
+presentation.Save("presentation-title-style.pptx", SaveFormat.Pptx);
+
+static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType placeholderType)
 {
-    foreach (IShape shape in master.Shapes)
+    foreach (var shape in masterSlide.Shapes)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        if (shape is IAutoShape { Placeholder: not null } autoShape &&
+            autoShape.Placeholder.Type == placeholderType)
         {
-            if (autoShape.Placeholder.Type == type)
-            {
-                return autoShape;
-            }
+            return autoShape;
         }
     }
 
@@ -196,115 +181,152 @@ static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
 }
 ```
 
+![ノーマルスライドに継承された書式設定済みタイトルプレースホルダー](slide-master_8.png)
 
-タイトルのスタイルと書式は、スライド マスターに基づくすべてのスライドで変更されます:
+プレースホルダーやテキストの書式設定オプションの詳細については、[プレースホルダーにプロンプト テキストを設定](/slides/ja/net/manage-placeholder/) と [テキストの書式設定](/slides/ja/net/text-formatting/) を参照してください。
 
-![todo:image_alt_text](slide-master_8.png)
+## **スライドマスターの背景を変更する**
 
-{{% alert color="primary" title="See also" %}} 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/net/manage-placeholder/)  
-* [Text Formatting](https://docs.aspose.com/slides/net/text-formatting/)
-{{% /alert %}}
+マスターベースの背景は、レイアウトとその背景を上書きしないスライドに継承されます。次の例は、最初のマスタースライドに単色背景色を設定します:
 
-## **スライド マスターの背景を変更する**
-マスタースライドの背景色を変更すると、プレゼンテーション内の通常スライドすべてが新しい色になります。この C# コードは操作例を示しています:
-```c#
-using (var pres = new Presentation())
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var masterSlide = presentation.Masters[0];
+
+masterSlide.Background.Type = BackgroundType.OwnBackground;
+masterSlide.Background.FillFormat.FillType = FillType.Solid;
+masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
+
+presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
+```
+
+関連トピックについては、[プレゼンテーションの背景](/slides/ja/net/presentation-background/) と [プレゼンテーションのテーマ](/slides/ja/net/presentation-theme/) を参照してください。
+
+## **スライドマスターを別のプレゼンテーションにクローンする**
+
+[IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterslidecollection/addclone/) を使用して、マスタースライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
+
+```csharp
+using var sourcePresentation = new Presentation("source.pptx");
+using var destinationPresentation = new Presentation("destination.pptx");
+
+var sourceMasterSlide = sourcePresentation.Masters[0];
+var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSlide);
+
+destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
+```
+
+ノーマルスライドとそのマスターを一緒にクローンする必要がある場合は、[スライドのクローン](/slides/ja/net/clone-slides/) を参照してください。
+
+## **複数のスライドマスターを追加する**
+
+プレゼンテーションは複数のマスタースライドを含めることができます。これは、セクションごとに異なるブランディング、ページ構造、テーマ設定が必要な場合に便利です。
+
+![マスタースライドの挿入と管理のための PowerPoint コマンド](slide-master_9.jpg)
+
+次の例はデフォルトのマスターをクローンし、クローンに別の背景を設定し、そのクローンマスターの下にレイアウトを作成し、最後にそのレイアウトに基づく新しいスライドを追加します:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var defaultMasterSlide = presentation.Masters[0];
+var sectionMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
+
+sectionMasterSlide.Background.Type = BackgroundType.OwnBackground;
+sectionMasterSlide.Background.FillFormat.FillType = FillType.Solid;
+sectionMasterSlide.Background.FillFormat.SolidFillColor.Color = Color.LightSteelBlue;
+
+var sourceBlankLayout =
+    defaultMasterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank) ??
+    defaultMasterSlide.LayoutSlides[0];
+var sectionBlankLayout = sectionMasterSlide.LayoutSlides.AddClone(sourceBlankLayout);
+
+presentation.Slides.AddEmptySlide(sectionBlankLayout);
+presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
+```
+
+## **スライドマスターの比較**
+
+マスタースライドは、[IBaseSlide](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseslide/) が継承する `Equals` メソッドで比較できます。比較は構造と静的コンテンツ（図形、テキスト、書式設定、アニメーション、その他のスライド設定）をチェックします。スライド ID のような一意の識別子や、現在の日付などの動的プレースホルダー値は比較対象に含まれません。
+
+```csharp
+using var firstPresentation = new Presentation("first.pptx");
+using var secondPresentation = new Presentation("second.pptx");
+
+var firstPresentationMasterCount = firstPresentation.Masters.Count;
+var secondPresentationMasterCount = secondPresentation.Masters.Count;
+
+for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++)
 {
-    IMasterSlide master = pres.Masters[0];
-    master.Background.Type = BackgroundType.OwnBackground;
-    master.Background.FillFormat.FillType = FillType.Solid;
-    master.Background.FillFormat.SolidFillColor.Color = Color.Green;
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+    for (var secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++)
+    {
+        var firstMasterSlide = firstPresentation.Masters[firstMasterIndex];
+        var secondMasterSlide = secondPresentation.Masters[secondMasterIndex];
+        var areMasterSlidesEqual = firstMasterSlide.Equals(secondMasterSlide);
+
+        if (areMasterSlidesEqual)
+        {
+            Console.WriteLine(
+                "first.pptx master #{0} equals second.pptx master #{1}",
+                firstMasterIndex,
+                secondMasterIndex);
+        }
+    }
 }
 ```
 
+詳細については、[プレゼンテーションスライドの比較](/slides/ja/net/compare-slides/) を参照してください。
 
-{{% alert color="primary" title="See also" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/net/presentation-background/)  
-- [Presentation Theme](https://docs.aspose.com/slides/net/presentation-theme/)
-{{% /alert %}}
+## **スライドマスター表示をデフォルトビューに設定する**
 
-## **スライド マスターを別のプレゼンテーションにクローンする**
-スライド マスターを別のプレゼンテーションにクローンするには、宛先プレゼンテーションの [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) メソッドを呼び出し、対象のスライド マスターを渡します。この C# コードはクローン方法を示しています:
-```c#
-using (Presentation presSource = new Presentation(), presTarget = new Presentation())
-{
-    IMasterSlide master = presTarget.Masters.AddClone(presSource.Masters[0]);
-}
+[ViewProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/viewproperties/) の `LastView` プロパティを使用して、PowerPoint が最初に開くビューを制御できます。次の例はプレゼンテーションをスライドマスタービューで開きます:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
 ```
 
-
-## **プレゼンテーションに複数のスライド マスターを追加する**
-Aspose.Slides を使用すると、任意のプレゼンテーションに複数のスライド マスターとスライド レイアウトを追加できます。これにより、プレゼンテーション スライドのスタイル、レイアウト、書式設定オプションを多様に構成できます。
-
-PowerPoint では、[Slide Master] メニューから新しいスライド マスターとレイアウトを追加できます:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-Aspose.Slides を使用して、[AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/) メソッドを呼び出すことで新しいスライド マスターを追加できます:
-```c#
-pres.Masters.AddClone(pres.Masters[0]);
-```
-
-
-## **スライド マスターを比較する**
-マスタースライドは [IBaseSlide](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide) インターフェイスを実装しており、[Equals](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/methods/equals) メソッドで比較できます。構造と静的コンテンツが同一のマスタースライドは `true` を返します。
-
-形状、スタイル、テキスト、アニメーション、その他の設定が同等であればマスタースライドは等価とみなされます。比較では一意の識別子（例: SlideId）や動的コンテンツ（例: 日付プレースホルダーの現在の日付値）は考慮されません。
-
-## **スライド マスターをプレゼンテーションのデフォルトビューとして設定する**
-Aspose.Slides では、スライド マスターをプレゼンテーションのデフォルトビューとして設定できます。デフォルトビューはプレゼンテーションを開いたときに最初に表示されるビューです。
-
-このコードは C# でスライド マスターをプレゼンテーションのデフォルトビューに設定する方法を示しています:
-```c#
-pres.ViewProperties.LastView = ViewType.SlideMasterView;
-```
-
+その他のビュー設定については、[プレゼンテーションの保存](/slides/ja/net/save-presentation/) を参照してください。
 
 ## **未使用のマスタースライドを削除する**
-Aspose.Slides は、[Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) クラスの [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) メソッドを提供し、不要かつ未使用のマスタースライドを削除できます。この C# コードは PowerPoint プレゼンテーションからマスタースライドを削除する方法を示しています:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(pres);
-    
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+
+プレゼンテーションには、もはやノーマルスライドで使用されていないマスタースライドが含まれることがあります。未使用のマスターを削除すると、ファイルサイズが削減され、テンプレートの保守が簡素化されます。
+
+`Masters` コレクションの [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/ja/net/aspose.slides/masterslidecollection/removeunused/) メソッドを使用して未使用のマスターを削除します:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+presentation.Masters.RemoveUnused(ignorePreserveField: true);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
 
+低コードの [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ja/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) メソッドも利用可能です:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
+presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
+```
 
 ## **FAQ**
 
-**PowerPoint のスライド マスターとは何ですか？**  
-スライド マスターは、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライド テンプレートです。すべてのプレゼンテーション スライドの外観を一括で設定・変更できます。
+**スライドマスターとレイアウトスライドの違いは何ですか？**
 
-**スライド マスターはプレゼンテーションでどのように適用されますか？**  
-すべてのプレゼンテーションはデフォルトで少なくとも1つのスライド マスターを持ちます。新しいスライドが追加されると自動的にスライド マスターが適用され、通常は前のスライドのマスターが継承されます。プレゼンテーションは複数のスライド マスターを含めて、異なる部分を個別にスタイル設定できます。
+スライドマスターはテーマ、背景、共通図形、テキストスタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。ノーマルスライドはレイアウトスライドを使用するため、レイアウトとマスターの両方から設定を継承します。
 
-**スライド マスターでカスタマイズできる要素は何ですか？**  
-スライド マスターは以下のコアプロパティをカスタマイズできます:
+**1つのプレゼンテーションに複数のスライドマスターを含めることはできますか？**
 
-- **Background**：スライドの背景を設定  
-- **BodyStyle**：スライド本体のテキストスタイルを設定  
-- **Shapes**：プレースホルダーや画像フレームなど、マスター上のすべての図形を管理  
-- **Controls**：ActiveX コントロールを管理  
-- **ThemeManager**：テーママネージャーにアクセス  
-- **HeaderFooterManager**：ヘッダーとフッターを管理  
+はい。プレゼンテーションは複数のスライドマスターを含めることができます。セクションごとに異なるビジュアルシステムやブランディングが必要な場合は、複数のマスターを使用してください。
 
-**スライド マスターに画像を追加するにはどうすればよいですか？**  
-スライド マスターに画像を追加すると、その画像はマスターに依存するすべてのスライドに表示されます。たとえば、会社のロゴをスライド マスターに配置すれば、プレゼンテーション内のすべてのスライドにロゴが表示されます。
+**プレースホルダーはマスタースライドに追加すべきですか、レイアウトスライドに追加すべきですか？**
 
-**スライド マスターとスライド レイアウトの関係は？**  
-スライド レイアウトはスライド マスターと連携してスライド デザインの柔軟性を提供します。スライド マスターが全体的なスタイルとテーマを定義し、スライド レイアウトはコンテンツ配置のバリエーションを可能にします。階層は次の通りです:
+ほとんどの場合、プレースホルダーはレイアウトスライドに追加します。共通のビジュアル要素や書式設定はマスタースライドに配置し、実際のコンテンツ用プレースホルダーはノーマルスライドが使用するレイアウトに配置します。
 
-- **Slide Master** → グローバルなスタイルを定義  
-- **Slide Layout** → 異なるコンテンツ配置を提供  
-- **Slide** → そのスライド レイアウトからデザインを継承  
+**まだ使用されているマスタースライドを削除できますか？**
 
-**1 つのプレゼンテーションに複数のスライド マスターを持てますか？**  
-はい、プレゼンテーションは複数のスライド マスターを含めることができ、セクションごとに異なるスタイルを設定してデザインの柔軟性を高められます。
-
-**Aspose.Slides でスライド マスターにアクセスし、変更するには？**  
-Aspose.Slides では、`IMasterSlide` インターフェイスがスライド マスターを表します。`Presentation` オブジェクトの `Masters` プロパティを使用してスライド マスターにアクセスできます。
+いいえ。依存スライドがあるマスタースライドは直接安全に削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、使用されていないマスターだけを削除するクリーンアップ手法を使用してください。

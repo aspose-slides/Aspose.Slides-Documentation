@@ -8,332 +8,374 @@ keywords:
 - masque de diapositive
 - diapositive maître
 - diapositive maître PPT
-- plusieurs masques maîtres
-- comparer les masques maîtres
+- plusieurs masques de diapositives
+- comparer les masques de diapositives
 - arrière-plan
 - espace réservé
-- cloner le masque maître
-- copier le masque maître
-- dupliquer le masque maître
-- masque maître inutilisé
+- cloner la diapositive maître
+- copier la diapositive maître
+- dupliquer la diapositive maître
+- masque de diapositive inutilisé
 - PowerPoint
 - OpenDocument
 - présentation
 - PHP
 - Aspose.Slides
-description: "Gérez les masques de diapositives dans Aspose.Slides pour PHP via Java : créez, modifiez et appliquez des dispositions, des thèmes et des espaces réservés aux formats PPT, PPTX et ODP avec des exemples concis."
+description: "Gérez les masques de diapositives dans Aspose.Slides pour PHP via Java : accédez, modifiez, clonez, comparez et supprimez les masques de diapositives dans les présentations PowerPoint et OpenDocument."
 ---
+## **Aperçu**
 
-## **Qu’est‑ce qu’un masque des diapositives dans PowerPoint**
+Un **masque de diapositive** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, la modification d’un masque de diapositive est la façon habituelle de garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Un **masque des diapositives** est un modèle de diapositive qui définit la disposition, les styles, le thème, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un masque des diapositives.  
+Aspose.Slides for PHP via Java prend en charge le même modèle. Une présentation peut contenir une ou plusieurs masques de diapositives, et chaque masque de diapositive peut contenir plusieurs dispositions de diapositives. Les diapositives normales ne font généralement pas référence directement à un masque de diapositive. Au lieu de cela, une diapositive normale utilise une disposition de diapositive, et cette disposition appartient à un masque de diapositive.
 
-Un masque des diapositives est utile car il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une seule opération. Aspose.Slides prend en charge le mécanisme du masque des diapositives provenant de PowerPoint.  
+La hiérarchie est :
 
-VBA vous permet également de manipuler un masque des diapositives et d’exécuter les mêmes opérations prises en charge dans PowerPoint : modifier les arrière‑plans, ajouter des formes, personnaliser la disposition, etc. Aspose.Slides fournit des mécanismes flexibles vous permettant d’utiliser les masques des diapositives et d’accomplir des tâches de base avec eux.  
+1. **Masque de diapositive** – définit la conception et le thème partagés.  
+1. **Disposition de diapositive** – définit un arrangement spécifique d’emplacements réservés et de formatage au niveau de la disposition.  
+1. **Diapositive normale** – contient le contenu réel de la présentation et utilise une disposition de diapositive.
 
-Voici les opérations de base du masque des diapositives :
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-- Créer un masque des diapositives.  
-- Appliquer le masque des diapositives aux diapositives de la présentation.  
-- Modifier l’arrière‑plan du masque des diapositives.  
-- Ajouter une image, un espace réservé, SmartArt, etc. au masque des diapositives.  
+Dans Aspose.Slides, un masque de diapositive est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/masterslide/). Tous les masques de diapositives d’une présentation sont accessibles via la méthode [Presentation.getMasters](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#getMasters), qui renvoie un objet [MasterSlideCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/masterslidecollection/).
 
-Voici des opérations plus avancées impliquant le masque des diapositives :
+{{% alert color="info" title="Héritage" %}}
 
-- Comparer les masques des diapositives.  
-- Fusionner les masques des diapositives.  
-- Appliquer plusieurs masques des diapositives.  
-- Copier une diapositive avec le masque des diapositives vers une autre présentation.  
-- Détecter les masques des diapositives en double dans les présentations.  
-- Définir le masque des diapositives comme affichage par défaut de la présentation.  
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un masque de diapositive et une disposition de diapositive définissent tous deux un arrière‑plan, les diapositives basées sur cette disposition utilisent l’arrière‑plan de la disposition. Pour plus d’informations sur les dispositions de diapositives, voir [Apply or Change Slide Layouts](/slides/fr/php-java/slide-layout/).
 
-{{% alert color="primary" %}} 
-Vous voudrez peut‑être consulter Aspose [**Visionneuse PowerPoint en ligne**](https://products.aspose.app/slides/viewer) car il s’agit d’une implémentation en direct de certains des processus principaux décrits ici.
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Comment le masque des diapositives est‑il appliqué**
+## **Accéder aux masques de diapositives**
 
-Avant de travailler avec un masque des diapositives, vous voudrez peut‑être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives.  
+Dans PowerPoint, vous pouvez ouvrir la vue Masque des diapositives depuis **Affichage** > **Masque des diapositives**.
 
-- Chaque présentation possède au moins un masque des diapositives par défaut.  
-- Une présentation peut contenir plusieurs masques des diapositives. Vous pouvez ajouter plusieurs masques des diapositives et les utiliser pour styliser différentes parties d’une présentation de manières différentes.  
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-Dans **Aspose.Slides**, un masque des diapositives est représenté par le type [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/).  
+Dans Aspose.Slides, utilisez la méthode `getMasters` pour accéder aux masques de diapositives :
 
-L’objet [Presentation ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) d’Aspose.Slides contient la liste [**getMasters** ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters) de type [**MasterSlideCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/), qui renvoie la liste de toutes les masques de diapositives définies dans une présentation.  
-
-En plus des opérations CRUD, la classe [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) contient ces méthodes utiles : [**addClone(LayoutSlide sourceLayout)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/#addClone) et [**insertClone(int index, MasterSlide sourceMaster)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/#insertClone). Ces méthodes proviennent de la fonction de clonage de diapositives de base. Mais lorsqu’on travaille avec des masques des diapositives, ces méthodes permettent de mettre en place des configurations complexes.  
-
-Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un masque des diapositives lui est appliqué automatiquement. Le masque des diapositives de la diapositive précédente est sélectionné par défaut.  
-
-**Note** : Les diapositives de la présentation sont stockées dans la liste [getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) , et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne contient qu’un seul masque des diapositives, ce masque est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas besoin de définir le masque des diapositives pour chaque nouvelle diapositive que vous créez.  
-
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle diapositive, vous pouvez simplement cliquer sur la ligne inférieure sous la dernière diapositive et une nouvelle diapositive (avec le masque des diapositives de la dernière présentation) sera créée :
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-Dans Aspose.Slides, vous pouvez réaliser la tâche équivalente avec la méthode [addClone(Slide sourceSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) de la classe [Presentation ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
-
-## **Masque des diapositives dans la hiérarchie des diapositives**
-
-Utiliser les dispositions de diapositives avec le masque des diapositives permet une flexibilité maximale. Une disposition de diapositive vous permet de définir les mêmes styles que le masque des diapositives (arrière‑plan, polices, formes, etc.). Cependant, lorsque plusieurs dispositions sont combinées sur un même masque des diapositives, un nouveau style est créé. Lorsque vous appliquez une disposition à une seule diapositive, vous pouvez modifier son style par rapport à celui appliqué par le masque des diapositives.  
-
-Le masque des diapositives prime sur tous les éléments de configuration : Masque des diapositives → Disposition de diapositive → Diapositive :
-
-![todo:image_alt_text](slide-master_2)
-
-Chaque objet [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) possède la propriété [**getLayoutSlides**](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getLayoutSlides) contenant une liste de dispositions de diapositives. Un type [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) possède la propriété [**getLayoutSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/Slide/#getLayoutSlide) qui pointe vers la disposition de diapositive appliquée à la diapositive. L’interaction entre une diapositive et le masque des diapositives se fait via la disposition de diapositive.  
-
-{{% alert color="info" title="Note" %}} 
-* Dans Aspose.Slides, toutes les configurations de diapositives (masque des diapositives, disposition de diapositive et la diapositive elle‑même) sont en réalité des objets diapositive qui héritent de la classe [**BaseSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide).  
-* Par conséquent, le masque des diapositives et la disposition de diapositive peuvent implémenter les mêmes propriétés et vous devez savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide). Le masque des diapositives est appliqué en premier à une diapositive, puis la disposition de diapositive est appliquée. Par exemple, si le masque des diapositives et la disposition de diapositive possèdent tous deux une valeur d’arrière‑plan, la diapositive affichera l’arrière‑plan provenant de la disposition de diapositive.  
-{{% /alert %}}  
-
-## **Ce que contient un masque des diapositives**
-
-Pour comprendre comment un masque des diapositives peut être modifié, vous devez connaître ses constituants. Voici les propriétés principales de [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/).  
-
-- [getBackground](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getBackground) obtenir/definir l’arrière‑plan de la diapositive.  
-- [getBodyStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getBodyStyle) – obtenir/definir les styles de texte du corps de la diapositive.  
-- [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getShapes) obtenir/definir toutes les formes du masque des diapositives (espaces réservés, cadres d’image, etc.).  
-- [getControls](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getControls) obtenir/definir les contrôles ActiveX.  
-- [getThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/#getThemeManager) – obtenir le gestionnaire de thème.  
-- [getHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getHeaderFooterManager) – obtenir le gestionnaire d’en‑tête et de pied de page.  
-
-Méthodes du masque des diapositives :  
-
-- [getDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getDependingSlides) – obtenir toutes les diapositives dépendant du masque des diapositives.  
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#applyExternalThemeToDependingSlides) – vous permet de créer un nouveau masque des diapositives basé sur le masque actuel et un nouveau thème. Le nouveau masque sera alors appliqué à toutes les diapositives dépendantes.  
-
-## **Obtenir un masque des diapositives**
-
-Dans PowerPoint, le masque des diapositives est accessible via le menu **Affichage → Masque des diapositives** :  
-
-![todo:image_alt_text](slide-master_3.jpg)  
-
-En utilisant Aspose.Slides, vous pouvez accéder à un masque des diapositives de cette manière :  
 ```php
-  $pres = new Presentation();
-  try {
-    # Donne accès au masque maître de la présentation
-    $masterSlide = $pres->getMasters()->get_Item(0);
-  } finally {
-    $pres->dispose();
-  }
-```
-  
+$presentation = new Presentation("presentation.pptx");
+try {
+    $firstMasterSlide = $presentation->getMasters()->get_Item(0);
+    $masterSlideCount = $presentation->getMasters()->size();
+    $firstMasterLayoutSlideCount = $firstMasterSlide->getLayoutSlides()->size();
 
-La classe [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) représente un masque des diapositives. La méthode [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getMasters) (associée au type [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlideCollection)) renvoie une liste de tous les masques des diapositives définis dans la présentation.  
-
-## **Ajouter une image à un masque des diapositives**
-
-Lorsque vous ajoutez une image à un masque des diapositives, cette image apparaîtra sur toutes les diapositives dépendant de ce masque.  
-
-Par exemple, vous pouvez placer le logo de votre société et quelques images sur le masque des diapositives, puis revenir en mode édition des diapositives. Vous devriez voir l’image sur chaque diapositive.  
-
-![todo:image_alt_text](slide-master_4.png)  
-
-Vous pouvez ajouter des images à un masque des diapositives avec Aspose.Slides :  
-```php
-  $pres = new Presentation();
-  try {
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $pres->getMasters()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-  
-
-{{% alert color="primary" title="Voir aussi" %}} 
-Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Cadre d’image](/slides/fr/php-java/picture-frame/#create-picture-frame).  
-{{% /alert %}}  
-
-## **Ajouter un espace réservé à un masque des diapositives**
-
-Ces champs de texte sont des espaces réservés standard sur un masque des diapositives :  
-
-* Cliquez pour modifier le style du titre du masque  
-* Modifier les styles de texte du masque  
-* Deuxième niveau  
-* Troisième niveau  
-
-Ils apparaissent également sur les diapositives basées sur le masque des diapositives. Vous pouvez modifier ces espaces réservés sur le masque des diapositives et les modifications seront automatiquement appliquées aux diapositives.  
-
-Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin **Masque des diapositives → Insérer un espace réservé** :  
-
-![todo:image_alt_text](slide-master_5.png)  
-
-Examinons un exemple plus complexe d’espaces réservés avec Aspose.Slides. Considérez une diapositive contenant des espaces réservés provenant du masque des diapositives :  
-
-![todo:image_alt_text](slide-master_6.png)  
-
-Nous voulons modifier le format du titre et du sous‑titre sur le masque des diapositives de cette façon :  
-
-![todo:image_alt_text](slide-master_7.png)  
-
-Tout d’abord, nous récupérons le contenu du titre de l’espace réservé à partir de l’objet masque des diapositives puis nous utilisons le champ `PlaceHolder.FillFormat` :  
-```php
-
-```
-  
-
-Le style et le format du titre changeront pour toutes les diapositives basées sur le masque des diapositives :  
-
-![todo:image_alt_text](slide-master_8.png)  
-
-{{% alert color="primary" title="Voir aussi" %}} 
-* [Définir le texte d’invite dans l’espace réservé](https://docs.aspose.com/slides/php-java/manage-placeholder/)  
-* [Mise en forme du texte](https://docs.aspose.com/slides/php-java/text-formatting/)  
-{{% /alert %}}  
-
-## **Modifier l’arrière‑plan d’un masque des diapositives**
-
-Lorsque vous modifiez la couleur d’arrière‑plan d’un masque de diapositive, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code PHP montre l’opération :  
-```php
-  $pres = new Presentation();
-  try {
-    $master = $pres->getMasters()->get_Item(0);
-    $master->getBackground()->setType(BackgroundType::OwnBackground);
-    $master->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $master->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-  
-
-{{% alert color="primary" title="Voir aussi" %}} 
-- [Arrière‑plan de la présentation](https://docs.aspose.com/slides/php-java/presentation-background/)  
-- [Thème de la présentation](https://docs.aspose.com/slides/php-java/presentation-theme/)  
-{{% /alert %}}  
-
-## **Cloner un masque des diapositives vers une autre présentation**
-
-Pour cloner un masque des diapositives vers une autre présentation, appelez la méthode [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) de la présentation de destination en lui passant le masque des diapositives à cloner. Ce code PHP montre comment cloner un masque des diapositives vers une autre présentation :  
-```php
-  $presSource = new Presentation();
-  $presTarget = new Presentation();
-  try {
-    $master = $presTarget->getMasters()->addClone($presSource->getMasters()->get_Item(0));
-  } finally {
-    if (!java_is_null($presSource)) {
-      $presSource->dispose();
-    }
-  }
-```
-  
-
-## **Ajouter plusieurs masques des diapositives à une présentation**
-
-Aspose.Slides vous permet d’ajouter plusieurs masques des diapositives et plusieurs dispositions de diapositives à une présentation donnée. Cela vous permet de configurer les styles, les dispositions et les options de formatage des diapositives de la présentation de nombreuses façons.  
-
-Dans PowerPoint, vous pouvez ajouter de nouveaux masques des diapositives et dispositions (à partir du **menu Masque des diapositives**) de cette façon :  
-
-![todo:image_alt_text](slide-master_9.jpg)  
-
-En utilisant Aspose.Slides, vous pouvez ajouter un nouveau masque des diapositives en appelant la méthode [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) :  
-```php
-  # Ajoute une nouvelle diapositive maître
-  $secondMasterSlide = $pres->getMasters()->addClone($masterSlide);
-```
-  
-
-## **Comparer les masques des diapositives**
-
-Un Master Slide implémente la classe [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) contenant la méthode [**equals**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#equals), qui peut ensuite être utilisée pour comparer des diapositives. Elle renvoie `true` pour les masques identiques en structure et en contenu statique.  
-
-Deux masques sont égaux si leurs formes, styles, textes, animations et autres paramètres, etc., sont identiques. La comparaison ne prend pas en compte les valeurs d’identifiants uniques (p. ex. SlideId) ni le contenu dynamique (p. ex. valeur de date actuelle dans l’espace réservé Date).  
-
-## **Définir un masque des diapositives comme affichage par défaut de la présentation**
-
-Aspose.Slides vous permet de définir un masque des diapositives comme affichage par défaut d’une présentation. L’affichage par défaut est ce que vous voyez en premier lorsque vous ouvrez une présentation.  
-
-Ce code montre comment définir un masque des diapositives comme affichage par défaut d’une présentation :  
-```php
-  # Instancie une classe Presentation qui représente le fichier de présentation
-  $presentation = new Presentation();
-  try {
-    # Définit la vue par défaut comme SlideMasterView
-    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    # Enregistre la présentation
-    $presentation->save("PresView.pptx", SaveFormat::Pptx);
-  } finally {
+    echo "Master slides: " . $masterSlideCount . PHP_EOL;
+    echo "Layouts in the first master: " . $firstMasterLayoutSlideCount . PHP_EOL;
+} finally {
     $presentation->dispose();
-  }
+}
 ```
-  
+
+Vous pouvez également obtenir le masque de diapositive utilisé par une diapositive normale via sa disposition :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $slide->getLayoutSlide();
+    $masterSlide = $layoutSlide->getMasterSlide();
+    $masterSlideName = $masterSlide->getName();
+
+    echo $masterSlideName . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Contenu d’un masque de diapositive**
+
+Un masque de diapositive est un objet semblable à une diapositive. Il hérite de [BaseSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseslide/), ce qui lui donne accès à de nombreuses propriétés de diapositive également utilisées par les diapositives normales et les dispositions. Les membres spécifiques au masque sont répertoriés sur la page API [MasterSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/masterslide/).
+
+Les membres les plus couramment utilisés sont :
+
+| Membre | Objectif |
+| --- | --- |
+| `getBackground` | Définit l’arrière‑plan au niveau du masque. |
+| `getShapes` | Contient les formes placées sur le masque, comme les logos, les cadres d’image et le texte partagé. |
+| `getLayoutSlides` | Contient les dispositions qui appartiennent au masque. |
+| `getThemeManager` | Fournit l’accès aux API du thème du masque. |
+| `getHeaderFooterManager` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le masque et ses dispositions enfant. |
+| `getDependingSlides` | Retourne les diapositives normales qui dépendent du masque via leurs dispositions. |
+
+## **Ajouter une image à un masque de diapositive**
+
+Lorsque vous ajoutez une image à un masque de diapositive, elle apparaît sur les diapositives qui utilisent des dispositions de ce masque. Cela est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
+
+L’exemple suivant ajoute un logo au premier masque de diapositive :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $logoImage = Images::fromFile("logo.png");
+    try {
+        $presentationImage = $presentation->getImages()->addImage($logoImage);
+    } finally {
+        $logoImage->dispose();
+    }
+
+    $masterSlide->getShapes()->addPictureFrame(
+        ShapeType::Rectangle,
+        20,
+        20,
+        80,
+        80,
+        $presentationImage
+    );
+
+    $presentation->save("presentation-with-logo.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pour plus d’informations sur les cadres d’image, voir [Picture Frame](/slides/fr/php-java/picture-frame/).
+
+## **Travailler avec les espaces réservés**
+
+Les espaces réservés sont généralement définis sur les dispositions de diapositives. Le masque de diapositive fournit le style et le thème partagés que ces dispositions héritent, tandis que chaque disposition décide quels espaces réservés sont disponibles et où ils sont placés.
+
+Dans PowerPoint, les commandes d’espace réservé sont disponibles dans la vue Masque des diapositives.
+
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur la disposition qui appartient au masque :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $blankLayoutSlideName = "Custom Blank";
+    $blankLayoutSlide = $masterSlide->getLayoutSlides()->add(
+        SlideLayoutType::Blank,
+        $blankLayoutSlideName
+    );
+
+    $blankLayoutSlide->getPlaceholderManager()->addTextPlaceholder(
+        60,
+        120,
+        600,
+        80
+    );
+
+    $presentation->getSlides()->addEmptySlide($blankLayoutSlide);
+    $presentation->save("presentation-with-placeholder.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Vous pouvez également mettre en forme les formes d’espace réservé déjà présentes sur un masque de diapositive. L’exemple suivant trouve l’espace réservé de titre et applique un remplissage en dégradé linéaire :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $titlePlaceholder = findPlaceholder($masterSlide, PlaceholderType::Title);
+
+    if (!java_is_null($titlePlaceholder)) {
+        $redGradientColor = java("java.awt.Color")->RED;
+        $purpleGradientColor = new Java("java.awt.Color", 128, 0, 128);
+
+        $fillFormat = $titlePlaceholder->getFillFormat();
+        $fillFormat->setFillType(FillType::Gradient);
+        $gradientFormat = $fillFormat->getGradientFormat();
+        $gradientFormat->setGradientShape(GradientShape::Linear);
+        $gradientStops = $gradientFormat->getGradientStops();
+        $gradientStops->add(0, $redGradientColor);
+        $gradientStops->add(255, $purpleGradientColor);
+    }
+
+    $presentation->save("presentation-title-style.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+function findPlaceholder($masterSlide, $placeholderType)
+{
+    $shapesCount = java_values($masterSlide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapesCount; $shapeIndex++) {
+        $shape = $masterSlide->getShapes()->get_Item($shapeIndex);
+        $placeholder = $shape->getPlaceholder();
+
+        if (!java_is_null($placeholder) && java_values($placeholder->getType()) == $placeholderType) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+```
+
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+
+Pour plus d’options de mise en forme des espaces réservés et du texte, voir [Set Prompt Text in Placeholder](/slides/fr/php-java/manage-placeholder/) et [Text Formatting](/slides/fr/php-java/text-formatting/).
+
+## **Modifier l’arrière‑plan d’un masque de diapositive**
+
+Un arrière‑plan de masque est hérité par les dispositions et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour le premier masque de diapositive :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $forestGreenColor = new Java("java.awt.Color", 34, 139, 34);
+
+    $background = $masterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($forestGreenColor);
+
+    $presentation->save("presentation-master-background.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pour les sujets associés, voir [Presentation Background](/slides/fr/php-java/presentation-background/) et [Presentation Theme](/slides/fr/php-java/presentation-theme/).
+
+## **Cloner un masque de diapositive vers une autre présentation**
+
+Utilisez `addClone` depuis [MasterSlideCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/masterslidecollection/) pour copier un masque de diapositive dans une autre présentation. Le masque copié peut alors être utilisé par les dispositions et les diapositives de la présentation de destination.
+
+```php
+$sourcePresentation = new Presentation("source.pptx");
+$destinationPresentation = new Presentation("destination.pptx");
+try {
+    $sourceMasterSlide = $sourcePresentation->getMasters()->get_Item(0);
+    $clonedMasterSlide = $destinationPresentation->getMasters()->addClone($sourceMasterSlide);
+
+    $destinationPresentation->save("destination-with-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destinationPresentation->dispose();
+    $sourcePresentation->dispose();
+}
+```
+
+Si vous devez cloner des diapositives normales avec leur masque, voir [Clone Slides](/slides/fr/php-java/clone-slides/).
+
+## **Ajouter plusieurs masques de diapositives**
+
+Une présentation peut contenir plusieurs masques de diapositives. Cela est utile lorsque différentes sections nécessitent une identité visuelle, une structure de page ou des paramètres de thème distincts.
+
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+
+L’exemple suivant clone le masque par défaut, donne au clone un arrière‑plan différent, crée une disposition sous ce masque cloné et ajoute une nouvelle diapositive basée sur cette disposition :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $defaultMasterSlide = $presentation->getMasters()->get_Item(0);
+    $sectionMasterSlide = $presentation->getMasters()->addClone($defaultMasterSlide);
+    $lightSteelBlueColor = new Java("java.awt.Color", 176, 196, 222);
+
+    $background = $sectionMasterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($lightSteelBlueColor);
+
+    $sourceBlankLayout = $defaultMasterSlide->getLayoutSlides()->get_Item(0);
+    $sectionBlankLayout = $sectionMasterSlide->getLayoutSlides()->addClone($sourceBlankLayout);
+
+    $presentation->getSlides()->addEmptySlide($sectionBlankLayout);
+    $presentation->save("presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Comparer les masques de diapositives**
+
+Les masques de diapositives peuvent être comparés avec la méthode `equals` héritée de [BaseSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les IDs de diapositive, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
+
+```php
+$firstPresentation = new Presentation("first.pptx");
+$secondPresentation = new Presentation("second.pptx");
+try {
+    $firstPresentationMasterCount = java_values($firstPresentation->getMasters()->size());
+    $secondPresentationMasterCount = java_values($secondPresentation->getMasters()->size());
+
+    for ($firstMasterIndex = 0; $firstMasterIndex < $firstPresentationMasterCount; $firstMasterIndex++) {
+        for ($secondMasterIndex = 0; $secondMasterIndex < $secondPresentationMasterCount; $secondMasterIndex++) {
+            $firstMasterSlide = $firstPresentation->getMasters()->get_Item($firstMasterIndex);
+            $secondMasterSlide = $secondPresentation->getMasters()->get_Item($secondMasterIndex);
+            $areMasterSlidesEqual = $firstMasterSlide->equals($secondMasterSlide);
+
+            if ($areMasterSlidesEqual) {
+                echo "first.pptx master #" . $firstMasterIndex .
+                    " equals second.pptx master #" . $secondMasterIndex . PHP_EOL;
+            }
+        }
+    }
+} finally {
+    $secondPresentation->dispose();
+    $firstPresentation->dispose();
+}
+```
+
+Pour plus d’informations, voir [Compare Presentation Slides](/slides/fr/php-java/compare-slides/).
+
+## **Définir la vue Masque de diapositives comme vue par défaut**
+
+Utilisez la méthode `setLastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Masque de diapositives :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
+    $presentation->save("presentation-master-view.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pour d’autres paramètres de vue, voir [Save Presentation](/slides/fr/php-java/save-presentation/).
 
 ## **Supprimer les masques de diapositives inutilisés**
 
-Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides) (de la classe [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) pour vous permettre de supprimer les masques de diapositives indésirables et inutilisés. Ce code PHP montre comment supprimer un masque de diapositive d’une présentation PowerPoint :  
+Les présentations contiennent parfois des masques de diapositives qui ne sont plus utilisés par aucune diapositive normale. Supprimer les masques inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
+
+Utilisez `removeUnused` depuis [MasterSlideCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/masterslidecollection/) pour retirer les masques inutilisés de la collection `getMasters` :
+
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->removeUnusedMasterSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getMasters()->removeUnused(true);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-  
+
+Vous pouvez également utiliser la méthode low‑code `removeUnusedMasterSlides` de la classe [Compress](https://reference.aspose.com/slides/fr/php-java/aspose.slides/compress/) :
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    Compress::removeUnusedMasterSlides($presentation);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **FAQ**
 
-**Qu’est‑ce qu’un masque des diapositives dans PowerPoint ?**  
+**Quelle est la différence entre un masque de diapositive et une disposition de diapositive ?**
 
-Un masque des diapositives est un modèle de diapositive qui définit la disposition, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une seule opération.  
+Un masque de diapositive définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une disposition de diapositive appartient à un masque et définit un arrangement spécifique d’espaces réservés. Une diapositive normale utilise une disposition, elle hérite donc à la fois de la disposition et du masque.
 
-**Comment un masque des diapositives est‑il appliqué dans une présentation ?**  
+**Une présentation peut‑elle contenir plusieurs masques de diapositives ?**
 
-Chaque présentation possède au moins un masque des diapositives par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un masque des diapositives lui est appliqué automatiquement, généralement celui de la diapositive précédente. Une présentation peut contenir plusieurs masques des diapositives pour styliser différentes parties de manière unique.  
+Oui. Une présentation peut contenir plusieurs masques de diapositives. Utilisez plusieurs masques lorsque différentes sections nécessitent des systèmes visuels ou une identité de marque différents.
 
-**Quels éléments peuvent être personnalisés dans un masque des diapositives ?**  
+**Dois‑je ajouter des espaces réservés à un masque de diapositive ou à une disposition ?**
 
-Un masque des diapositives comprend plusieurs propriétés principales qui peuvent être personnalisées :  
+Dans la plupart des cas, ajoutez les espaces réservés aux dispositions. Placez les éléments visuels partagés et le formatage commun sur le masque, puis mettez les espaces réservés de contenu sur les dispositions que les diapositives normales utiliseront.
 
-- **Background** : Définir l’arrière‑plan de la diapositive.  
-- **BodyStyle** : Définir les styles de texte du corps de la diapositive.  
-- **Shapes** : Gérer toutes les formes du masque (espaces réservés, cadres d’image, etc.).  
-- **Controls** : Gérer les contrôles ActiveX.  
-- **ThemeManager** : Accéder au gestionnaire de thème.  
-- **HeaderFooterManager** : Gérer les en‑têtes et pieds de page.  
+**Puis‑je supprimer un masque de diapositive qui est encore utilisé ?**
 
-**Comment puis‑je ajouter une image à un masque des diapositives ?**  
-
-L’ajout d’une image à un masque des diapositives garantit qu’elle apparaît sur toutes les diapositives dépendant de ce masque. Par exemple, placer le logo de votre entreprise sur le masque affichera le logo sur chaque diapositive de la présentation.  
-
-**Comment les masques des diapositives se rapportent‑ils aux dispositions de diapositives ?**  
-
-Les dispositions de diapositives travaillent en conjonction avec les masques des diapositives pour offrir de la flexibilité dans la conception. Le masque définit les styles et thèmes globaux, tandis que les dispositions permettent des variations dans l’arrangement du contenu. La hiérarchie est la suivante :  
-
-- **Masque des diapositives** → Définit les styles globaux.  
-- **Disposition de diapositive** → Propose différentes dispositions de contenu.  
-- **Diapositive** → Hérite du design de sa disposition.  
-
-**Puis‑je avoir plusieurs masques des diapositives dans une même présentation ?**  
-
-Oui, une présentation peut contenir plusieurs masques des diapositives. Cela vous permet de styliser différentes sections de la présentation de manières variées, offrant ainsi une plus grande flexibilité de conception.  
-
-**Comment accéder et modifier un masque des diapositives avec Aspose.Slides ?**  
-
-Dans Aspose.Slides, un masque des diapositives est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). Vous pouvez accéder à un masque des diapositives en utilisant la méthode [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) de l’objet [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
-
+Non. Un masque de diapositive qui possède des diapositives dépendantes ne peut pas être supprimé directement. Déplacez d’abord ces diapositives vers des dispositions d’un autre masque, ou utilisez une méthode de nettoyage des masques inutilisés qui ne retire que les masques qui ne sont pas en usage.

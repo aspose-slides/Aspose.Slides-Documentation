@@ -14,333 +14,368 @@ keywords:
 - 占位符
 - 克隆母版幻灯片
 - 复制母版幻灯片
-- 重复的母版幻灯片
+- 重复母版幻灯片
 - 未使用的母版幻灯片
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "在 Aspose.Slides for PHP via Java 中管理幻灯片母版：创建、编辑并将布局、主题和占位符应用于 PPT、PPTX 和 ODP，提供简洁示例。"
+description: "在 Aspose.Slides for PHP via Java 中管理幻灯片母版：访问、编辑、克隆、比较以及删除 PowerPoint 和 OpenDocument 演示文稿中的母版幻灯片。"
 ---
+## **概述**
 
-## **PowerPoint 中的幻灯片母版是什么**
+**幻灯片母版** 定义一组幻灯片的共享设计设置。它可以包含公共形状、徽标、背景、文本样式、主题设置和页脚设置。在 PowerPoint 中，编辑幻灯片母版是保持演示文稿一致性的常用方式，无需在每张幻灯片上重复相同的格式。
 
-A **Slide Master** 是一种幻灯片模板，定义了演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。如果您想为公司创建具有相同样式和模板的演示文稿（或系列演示文稿），可以使用幻灯片母版。 
+Aspose.Slides for PHP via Java 支持相同的模型。一个演示文稿可以包含一个或多个母版幻灯片，每个母版幻灯片可以包含若干版式幻灯片。普通幻灯片通常不直接引用母版幻灯片，而是使用版式幻灯片，并且该版式幻灯片属于某个母版幻灯片。
 
-Slide Master 对于一次性设置和更改所有演示文稿幻灯片的外观非常有用。Aspose.Slides 支持 PowerPoint 的幻灯片母版机制。 
+层次结构如下：
 
-VBA 也允许您操作幻灯片母版并执行 PowerPoint 支持的相同操作：更改背景、添加形状、自定义布局等。Aspose.Slides 提供灵活的机制，让您使用幻灯片母版并执行基本任务。 
+1. **幻灯片母版** - 定义共享的设计和主题。  
+1. **版式幻灯片** - 定义占位符的特定排列以及版式级别的格式。  
+1. **普通幻灯片** - 包含实际的演示内容，并使用一个版式幻灯片。
 
-以下是基本的幻灯片母版操作：
+![母版幻灯片、版式幻灯片和普通幻灯片的层次结构](slide-master_2.jpg)
 
-- 创建幻灯片母版。
-- 将幻灯片母版应用于演示文稿幻灯片。
-- 更改幻灯片母版背景。 
-- 向幻灯片母版添加图像、占位符、Smart Art 等。 
+在 Aspose.Slides 中，幻灯片母版由 [MasterSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslide/) 类表示。演示文稿中的所有母版幻灯片可通过 [Presentation.getMasters](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#getMasters) 方法获取，该方法返回一个 [MasterSlideCollection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslidecollection/) 对象。
 
-以下是涉及幻灯片母版的更高级操作：
+{{% alert color="info" title="继承" %}}
 
-- 比较幻灯片母版。
-- 合并幻灯片母版。
-- 应用多个幻灯片母版。
-- 将带有幻灯片母版的幻灯片复制到另一个演示文稿。
-- 查找演示文稿中重复的幻灯片母版。
-- 将幻灯片母版设置为演示文稿的默认视图。
-
-{{% alert color="primary" %}} 
-您可能想查看 Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer)，因为它是本文所述核心流程的一些实时实现。
-{{% /alert %}} 
-
-## **如何应用幻灯片母版**
-
-在使用幻灯片母版之前，您可能需要了解它们在演示文稿中的使用方式以及如何应用到幻灯片上。 
-
-- 每个演示文稿默认至少有一个幻灯片母版。 
-- 一个演示文稿可以包含多个幻灯片母版。您可以添加多个幻灯片母版，并以不同方式为演示文稿的不同部分设置样式。 
-
-In **Aspose.Slides** 中，幻灯片母版由 [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) 类型表示。 
-
-Aspose.Slides 的 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 对象包含 [**getMasters**](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters) 列表，类型为 [**MasterSlideCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/)，其中包含演示文稿中定义的所有母版幻灯片的列表。 
-
-除了 CRUD 操作外，[MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) 类还包含以下有用的方法： [**addClone(LayoutSlide sourceLayout)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/#addClone) 和 [**insertClone(int index, MasterSlide sourceMaster)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/#insertClone) 方法。这些方法继承自基本的幻灯片克隆功能。但在处理幻灯片母版时，这些方法允许您实现复杂的设置。 
-
-当向演示文稿添加新幻灯片时，会自动为其应用幻灯片母版。默认选择前一张幻灯片的幻灯片母版。 
-
-**Note**：演示文稿幻灯片存储在 [getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) 列表中，每个新幻灯片默认添加到集合的末尾。如果演示文稿仅包含一个幻灯片母版，则该母版会被选中用于所有新幻灯片。这就是您不必为每个新幻灯片单独定义幻灯片母版的原因。 
-
-PowerPoint 与 Aspose.Slides 的原理相同。例如，在 PowerPoint 中，当您在最后一张幻灯片下方单击底部线条时，会创建一个使用上一个演示文稿的幻灯片母版的新幻灯片：
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-在 Aspose.Slides 中，您可以使用 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类下的 [addClone(Slide sourceSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) 方法执行等效操作。
-
-## **幻灯片层次结构中的幻灯片母版**
-
-将幻灯片布局与幻灯片母版一起使用可实现最大灵活性。幻灯片布局允许您设置与幻灯片母版相同的所有样式（背景、字体、形状等）。然而，当多个幻灯片布局组合在同一个幻灯片母版上时，会生成新的样式。当您将幻灯片布局应用于单个幻灯片时，可以将其样式从幻灯片母版的样式中更改。 
-
-幻灯片母版优先于所有设置项： 幻灯片母版 → 幻灯片布局 → 幻灯片：
-
-![todo:image_alt_text](slide-master_2)
-
-每个 [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) 对象都有一个 [**getLayoutSlides**](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getLayoutSlides) 属性，其中包含幻灯片布局列表。 [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) 类型具有 [**getLayoutSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/Slide/#getLayoutSlide) 属性，指向应用于该幻灯片的幻灯片布局。幻灯片与幻灯片母版之间的交互通过幻灯片布局进行。 
-
-{{% alert color="info" title="Note" %}}
-
-- 在 Aspose.Slides 中，所有幻灯片设置（幻灯片母版、幻灯片布局以及幻灯片本身）实际上都是继承自 [**BaseSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) 类的幻灯片对象。 
-- 因此，幻灯片母版和幻灯片布局可能实现相同的属性，您需要了解它们的值将如何应用于 [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) 对象。幻灯片母版首先应用于幻灯片，然后再应用幻灯片布局。例如，如果幻灯片母版和幻灯片布局都设置了背景值，最终幻灯片的背景将采用幻灯片布局的背景。 
+当同一属性在多个层级上定义时，层级更具体的会生效。例如，如果母版幻灯片和版式幻灯片都定义了背景，则基于该版式的幻灯片使用版式背景。有关版式幻灯片的更多信息，请参阅 [Apply or Change Slide Layouts](/slides/zh/php-java/slide-layout/)。
 
 {{% /alert %}}
 
-## **幻灯片母版包含什么**
+## **访问幻灯片母版**
 
-要了解如何更改幻灯片母版，需要了解其组成部分。这些是 [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) 的核心属性。 
+在 PowerPoint 中，可以通过 **视图** > **幻灯片母版** 打开幻灯片母版视图。
 
-- [getBackground](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getBackground) 获取/设置幻灯片背景。 
-- [getBodyStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getBodyStyle) 获取/设置幻灯片正文的文本样式。 
-- [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getShapes) 获取/设置幻灯片母版的所有形状（占位符、图片框等）。 
-- [getControls](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getControls) 获取/设置 ActiveX 控件。 
-- [getThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/#getThemeManager) 获取主题管理器。 
-- [getHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getHeaderFooterManager) 获取页眉页脚管理器。 
+![PowerPoint“视图”选项卡上的幻灯片母版命令](slide-master_3.jpg)
 
-幻灯片母版方法：
-
-- [getDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getDependingSlides) 获取所有依赖于该幻灯片母版的幻灯片。 
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#applyExternalThemeToDependingSlides) 允许您基于当前幻灯片母版和新主题创建新的幻灯片母版。新的幻灯片母版随后将应用于所有依赖的幻灯片。 
-
-## **获取幻灯片母版**
-
-在 PowerPoint 中，幻灯片母版可以通过视图 -> 幻灯片母版 菜单访问：
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-使用 Aspose.Slides，您可以这样访问幻灯片母版：
+在 Aspose.Slides 中，使用 `getMasters` 方法访问母版幻灯片：
 
 ```php
-  $pres = new Presentation();
-  try {
-    # 获取对演示文稿母版幻灯片的访问
-    $masterSlide = $pres->getMasters()->get_Item(0);
-  } finally {
-    $pres->dispose();
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $firstMasterSlide = $presentation->getMasters()->get_Item(0);
+    $masterSlideCount = $presentation->getMasters()->size();
+    $firstMasterLayoutSlideCount = $firstMasterSlide->getLayoutSlides()->size();
+
+    echo "Master slides: " . $masterSlideCount . PHP_EOL;
+    echo "Layouts in the first master: " . $firstMasterLayoutSlideCount . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+也可以通过普通幻灯片的版式获取其使用的母版幻灯片：
 
-[MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) 类表示幻灯片母版。[getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getMasters) 方法（与 [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlideCollection) 类型相关）返回演示文稿中定义的所有幻灯片母版的列表。 
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $slide->getLayoutSlide();
+    $masterSlide = $layoutSlide->getMasterSlide();
+    $masterSlideName = $masterSlide->getName();
+
+    echo $masterSlideName . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **幻灯片母版包含的内容**
+
+母版幻灯片是类似幻灯片的对象。它继承自 [BaseSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/baseslide/)，因此具有普通幻灯片和版式幻灯片的许多属性。母版特有的成员列在 [MasterSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslide/) API 页面上。
+
+常用的母版幻灯片成员包括：
+
+| 成员 | 用途 |
+| --- | --- |
+| `getBackground` | 设置母版级别的幻灯片背景。 |
+| `getShapes` | 存储放置在母版上的形状，如徽标、图片框和共享文本。 |
+| `getLayoutSlides` | 存储属于该母版的版式幻灯片。 |
+| `getThemeManager` | 提供对母版主题 API 的访问。 |
+| `getHeaderFooterManager` | 控制母版及其子版式的页眉、页脚、日期和页码。 |
+| `getDependingSlides` | 返回通过其版式依赖于该母版的普通幻灯片。 |
 
 ## **向幻灯片母版添加图像**
 
-当您向幻灯片母版添加图像时，该图像会出现在所有依赖该母版的幻灯片上。 
+向母版幻灯片添加图像后，使用该母版版式的幻灯片都会显示该图像。这对于徽标、 水印、装饰条以及其他重复的视觉元素非常有用。
 
-例如，您可以在幻灯片母版上放置公司徽标和几张图片，然后切换回幻灯片编辑模式。您应该在每张幻灯片上看到该图像。 
-
-![todo:image_alt_text](slide-master_4.png)
-
-您可以使用 Aspose.Slides 向幻灯片母版添加图像：
+下面的示例向第一张母版幻灯片添加徽标：
 
 ```php
-  $pres = new Presentation();
-  try {
-    $picture;
-    $image = Images->fromFile("image.png");
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $logoImage = Images::fromFile("logo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $presentationImage = $presentation->getImages()->addImage($logoImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        $logoImage->dispose();
     }
-    $pres->getMasters()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $masterSlide->getShapes()->addPictureFrame(
+        ShapeType::Rectangle,
+        20,
+        20,
+        80,
+        80,
+        $presentationImage
+    );
+
+    $presentation->save("presentation-with-logo.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+有关图片框的更多信息，请参阅 [Picture Frame](/slides/zh/php-java/picture-frame/)。
 
-{{% alert color="primary" title="See also" %}} 
-另请参阅 
+## **使用占位符**
 
-有关向幻灯片添加图像的更多信息，请参见 [Picture Frame](/slides/zh/php-java/picture-frame/#create-picture-frame) 文章。 
-{{% /alert %}}
+占位符通常在版式幻灯片上定义。母版幻灯片提供共享的样式和主题，版式继承这些设置，并决定哪些占位符可用以及它们的位置。
 
-## **向幻灯片母版添加占位符**
+在 PowerPoint 中，占位符命令位于幻灯片母版视图中。
 
-以下文本字段是幻灯片母版上的标准占位符：
+![PowerPoint 幻灯片母版视图中的插入占位符命令](slide-master_5.png)
 
-- 单击以编辑母版标题样式
-- 编辑母版文本样式
-- 第二级
-- 第三级  
-
-它们也会出现在基于幻灯片母版的幻灯片上。您可以在幻灯片母版上编辑这些占位符，修改会自动应用到幻灯片。 
-
-在 PowerPoint 中，您可以通过 幻灯片母版 -> 插入占位符 路径添加占位符：
-
-![todo:image_alt_text](slide-master_5.png)
-
-让我们通过 Aspose.Slides 查看一个更复杂的占位符示例。考虑一个从幻灯片母版模板化的占位符幻灯片：
-
-![todo:image_alt_text](slide-master_6.png)
-
-我们想以如下方式更改幻灯片母版上的标题和副标题格式：
-
-![todo:image_alt_text](slide-master_7.png)
-
-首先，我们从幻灯片母版对象检索标题占位符内容，然后使用 `PlaceHolder.FillFormat` 字段：
+要使用 Aspose.Slides 添加新占位符，请操作属于母版的版式幻灯片：
 
 ```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $blankLayoutSlideName = "Custom Blank";
+    $blankLayoutSlide = $masterSlide->getLayoutSlides()->add(
+        SlideLayoutType::Blank,
+        $blankLayoutSlideName
+    );
 
+    $blankLayoutSlide->getPlaceholderManager()->addTextPlaceholder(
+        60,
+        120,
+        600,
+        80
+    );
+
+    $presentation->getSlides()->addEmptySlide($blankLayoutSlide);
+    $presentation->save("presentation-with-placeholder.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-标题样式和格式将对所有基于该母版的幻灯片进行更改：
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}} 
-另请参阅 
-
-- [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/php-java/manage-placeholder/) 
-- [Text Formatting](https://docs.aspose.com/slides/php-java/text-formatting/) 
-
-{{% /alert %}}
-
-## **更改幻灯片母版的背景**
-
-当您更改母版幻灯片的背景颜色时，演示文稿中的所有普通幻灯片都会获得新颜色。以下 PHP 代码演示了此操作：
+也可以格式化已存在于母版幻灯片上的占位符形状。下面的示例找到标题占位符并应用线性渐变填充：
 
 ```php
-  $pres = new Presentation();
-  try {
-    $master = $pres->getMasters()->get_Item(0);
-    $master->getBackground()->setType(BackgroundType::OwnBackground);
-    $master->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $master->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $titlePlaceholder = findPlaceholder($masterSlide, PlaceholderType::Title);
+
+    if (!java_is_null($titlePlaceholder)) {
+        $redGradientColor = java("java.awt.Color")->RED;
+        $purpleGradientColor = new Java("java.awt.Color", 128, 0, 128);
+
+        $fillFormat = $titlePlaceholder->getFillFormat();
+        $fillFormat->setFillType(FillType::Gradient);
+        $gradientFormat = $fillFormat->getGradientFormat();
+        $gradientFormat->setGradientShape(GradientShape::Linear);
+        $gradientStops = $gradientFormat->getGradientStops();
+        $gradientStops->add(0, $redGradientColor);
+        $gradientStops->add(255, $purpleGradientColor);
     }
-  }
-```
 
+    $presentation->save("presentation-title-style.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 
-{{% alert color="primary" title="See also" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/php-java/presentation-background/) 
-- [Presentation Theme](https://docs.aspose.com/slides/php-java/presentation-theme/) 
-{{% /alert %}}
+function findPlaceholder($masterSlide, $placeholderType)
+{
+    $shapesCount = java_values($masterSlide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapesCount; $shapeIndex++) {
+        $shape = $masterSlide->getShapes()->get_Item($shapeIndex);
+        $placeholder = $shape->getPlaceholder();
 
-## **将幻灯片母版克隆到另一个演示文稿**
-
-要将幻灯片母版克隆到另一个演示文稿，请在目标演示文稿上调用 [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) 方法，并传入幻灯片母版。以下 PHP 代码演示了如何将幻灯片母版克隆到另一个演示文稿：
-
-```php
-  $presSource = new Presentation();
-  $presTarget = new Presentation();
-  try {
-    $master = $presTarget->getMasters()->addClone($presSource->getMasters()->get_Item(0));
-  } finally {
-    if (!java_is_null($presSource)) {
-      $presSource->dispose();
+        if (!java_is_null($placeholder) && java_values($placeholder->getType()) == $placeholderType) {
+            return $shape;
+        }
     }
-  }
+
+    return null;
+}
 ```
 
+![普通幻灯片继承的已格式化标题占位符](slide-master_8.png)
 
-## **向演示文稿添加多个幻灯片母版**
+有关占位符和文本格式化的更多选项，请参阅 [Set Prompt Text in Placeholder](/slides/zh/php-java/manage-placeholder/) 和 [Text Formatting](/slides/zh/php-java/text-formatting/)。
 
-Aspose.Slides 允许您向任意演示文稿添加多个幻灯片母版和幻灯片布局。这使您能够以多种方式为演示文稿幻灯片设置样式、布局和格式选项。 
+## **更改幻灯片母版背景**
 
-在 PowerPoint 中，您可以通过“幻灯片母版”菜单以如下方式添加新的幻灯片母版和布局：
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-使用 Aspose.Slides，您可以通过调用 [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) 方法添加新的幻灯片母版：
+母版背景会被版式和未覆盖该背景的幻灯片继承。下面的示例为第一张母版幻灯片设置纯色背景：
 
 ```php
-  # 添加新的母版幻灯片
-  $secondMasterSlide = $pres->getMasters()->addClone($masterSlide);
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $forestGreenColor = new Java("java.awt.Color", 34, 139, 34);
+
+    $background = $masterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($forestGreenColor);
+
+    $presentation->save("presentation-master-background.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+相关主题请参阅 [Presentation Background](/slides/zh/php-java/presentation-background/) 和 [Presentation Theme](/slides/zh/php-java/presentation-theme/)。
+
+## **将幻灯片母版克隆到其他演示文稿**
+
+使用 [MasterSlideCollection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslidecollection/) 的 `addClone` 将母版幻灯片复制到另一演示文稿。复制后的母版可供目标演示文稿中的版式和幻灯片使用。
+
+```php
+$sourcePresentation = new Presentation("source.pptx");
+$destinationPresentation = new Presentation("destination.pptx");
+try {
+    $sourceMasterSlide = $sourcePresentation->getMasters()->get_Item(0);
+    $clonedMasterSlide = $destinationPresentation->getMasters()->addClone($sourceMasterSlide);
+
+    $destinationPresentation->save("destination-with-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destinationPresentation->dispose();
+    $sourcePresentation->dispose();
+}
+```
+
+如果需要连同母版一起克隆普通幻灯片，请参阅 [Clone Slides](/slides/zh/php-java/clone-slides/)。
+
+## **添加多个幻灯片母版**
+
+一个演示文稿可以包含多个母版幻灯片。这在不同章节需要不同品牌、页面结构或主题设置时非常有用。
+
+![PowerPoint 插入和管理母版幻灯片的命令](slide-master_9.jpg)
+
+下面的示例克隆默认母版，为克隆副本设置不同的背景，随后在该克隆母版下创建版式，并基于该版式添加新幻灯片：
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $defaultMasterSlide = $presentation->getMasters()->get_Item(0);
+    $sectionMasterSlide = $presentation->getMasters()->addClone($defaultMasterSlide);
+    $lightSteelBlueColor = new Java("java.awt.Color", 176, 196, 222);
+
+    $background = $sectionMasterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($lightSteelBlueColor);
+
+    $sourceBlankLayout = $defaultMasterSlide->getLayoutSlides()->get_Item(0);
+    $sectionBlankLayout = $sectionMasterSlide->getLayoutSlides()->addClone($sourceBlankLayout);
+
+    $presentation->getSlides()->addEmptySlide($sectionBlankLayout);
+    $presentation->save("presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **比较幻灯片母版**
 
-母版幻灯片实现了包含 [**equals**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#equals) 方法的 [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) 类，可用于比较幻灯片。对结构和静态内容相同的母版幻灯片返回 `true`。 
-
-如果两个母版幻灯片的形状、样式、文本、动画及其他设置等相同，则它们被视为相等。比较不考虑唯一标识符值（例如 SlideId）和动态内容（例如日期占位符中的当前日期值）。 
-
-## **将幻灯片母版设置为演示文稿默认视图**
-
-Aspose.Slides 允许您将幻灯片母版设置为演示文稿的默认视图。默认视图是打开演示文稿时首先看到的视图。 
-
-以下代码演示如何将幻灯片母版设置为演示文稿的默认视图：
+可以使用从 [BaseSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/baseslide/) 继承的 `equals` 方法比较母版幻灯片。比较会检查结构和静态内容，如形状、文本、格式、动画以及其他幻灯片设置。不比较唯一标识符（如幻灯片 ID）或动态占位符值（如当前日期）。
 
 ```php
-  # 实例化一个表示演示文稿文件的 Presentation 类
-  $presentation = new Presentation();
-  try {
-    # 将默认视图设置为 SlideMasterView
-    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    # 保存演示文稿
-    $presentation->save("PresView.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
+$firstPresentation = new Presentation("first.pptx");
+$secondPresentation = new Presentation("second.pptx");
+try {
+    $firstPresentationMasterCount = java_values($firstPresentation->getMasters()->size());
+    $secondPresentationMasterCount = java_values($secondPresentation->getMasters()->size());
 
+    for ($firstMasterIndex = 0; $firstMasterIndex < $firstPresentationMasterCount; $firstMasterIndex++) {
+        for ($secondMasterIndex = 0; $secondMasterIndex < $secondPresentationMasterCount; $secondMasterIndex++) {
+            $firstMasterSlide = $firstPresentation->getMasters()->get_Item($firstMasterIndex);
+            $secondMasterSlide = $secondPresentation->getMasters()->get_Item($secondMasterIndex);
+            $areMasterSlidesEqual = $firstMasterSlide->equals($secondMasterSlide);
 
-## **移除未使用的母版幻灯片**
-
-Aspose.Slides 提供了 [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides) 方法（来自 [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) 类），以删除不需要的未使用的母版幻灯片。以下 PHP 代码演示如何从 PowerPoint 演示文稿中移除母版幻灯片：
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->removeUnusedMasterSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+            if ($areMasterSlidesEqual) {
+                echo "first.pptx master #" . $firstMasterIndex .
+                    " equals second.pptx master #" . $secondMasterIndex . PHP_EOL;
+            }
+        }
     }
-  }
+} finally {
+    $secondPresentation->dispose();
+    $firstPresentation->dispose();
+}
 ```
 
+有关详细信息，请参阅 [Compare Presentation Slides](/slides/zh/php-java/compare-slides/)。
+
+## **将幻灯片母版视图设为默认视图**
+
+使用 [ViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/) 的 `setLastView` 方法可以控制 PowerPoint 首次打开的视图。下面的示例在幻灯片母版视图中打开演示文稿：
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
+    $presentation->save("presentation-master-view.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+有关更多视图设置，请参阅 [Save Presentation](/slides/zh/php-java/save-presentation/)。
+
+## **删除未使用的母版幻灯片**
+
+有时演示文稿中会存在不再被任何普通幻灯片使用的母版幻灯片。删除未使用的母版可减小文件大小并简化模板维护。
+
+使用 [MasterSlideCollection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslidecollection/) 的 `removeUnused` 方法从 `getMasters` 集合中删除未使用的母版：
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getMasters()->removeUnused(true);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+也可以使用 [Compress](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compress/) 类的低代码 `removeUnusedMasterSlides` 方法：
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    Compress::removeUnusedMasterSlides($presentation);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **常见问题**
 
-**PowerPoint 中的幻灯片母版是什么？**  
-幻灯片母版是一种幻灯片模板，定义了演示文稿中幻灯片的布局、样式、主题、字体、背景以及其他属性。它允许您一次性设置和更改所有演示文稿幻灯片的外观。  
+**幻灯片母版和版式幻灯片有什么区别？**
 
-**幻灯片母版在演示文稿中如何应用？**  
-每个演示文稿默认至少有一个幻灯片母版。当添加新幻灯片时，会自动为其应用幻灯片母版，通常继承前一张幻灯片的母版。一个演示文稿可以包含多个幻灯片母版，以独特的方式为不同部分设置样式。  
+幻灯片母版定义共享的设计设置，如主题、背景、公共形状和文本样式。版式幻灯片属于母版，并定义占位符的具体排列。普通幻灯片使用版式幻灯片，因此同时继承版式和母版的设置。
 
-**幻灯片母版可以自定义哪些元素？**  
-幻灯片母版包含多个可自定义的核心属性：
+**一个演示文稿可以包含多个幻灯片母版吗？**
 
-- **Background**：设置幻灯片背景。  
-- **BodyStyle**：定义幻灯片正文的文本样式。  
-- **Shapes**：管理幻灯片母版上的所有形状，包括占位符和图片框。  
-- **Controls**：处理 ActiveX 控件。  
-- **ThemeManager**：访问主题管理器。  
-- **HeaderFooterManager**：管理页眉和页脚。  
+可以。演示文稿可以包含多个幻灯片母版。不同章节需要不同视觉体系或品牌时，请使用多个母版。
 
-**如何向幻灯片母版添加图像？**  
-向幻灯片母版添加图像可确保该图像出现在所有依赖该母版的幻灯片上。例如，将公司徽标放置在幻灯片母版上后，它将在演示文稿的每张幻灯片中显示。  
+**应该在母版幻灯片还是版式幻灯片上添加占位符？**
 
-**幻灯片母版与幻灯片布局之间的关系是什么？**  
-幻灯片布局与幻灯片母版协同工作，为幻灯片设计提供灵活性。幻灯片母版定义全局样式和主题，幻灯片布局则允许在内容排列上进行变化。层次结构如下：
+大多数情况下，应在版式幻灯片上添加占位符。将共享的视觉元素和共享格式放在母版上，然后在普通幻灯片将使用的版式上放置内容占位符。
 
-- **幻灯片母版** → 定义全局样式。  
-- **幻灯片布局** → 提供不同的内容排列方式。  
-- **幻灯片** → 从其幻灯片布局继承设计。  
+**我可以删除仍在使用的母版幻灯片吗？**
 
-**在单个演示文稿中可以有多个幻灯片母版吗？**  
-可以，演示文稿可以包含多个幻灯片母版。这使您能够以不同方式为演示文稿的不同章节设定样式，提供设计上的灵活性。  
-
-**如何使用 Aspose.Slides 访问和修改幻灯片母版？**  
-在 Aspose.Slides 中，幻灯片母版由 [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) 类表示。您可以使用 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 对象的 [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) 方法访问幻灯片母版。
+不能。拥有依赖幻灯片的母版不能直接安全删除。请先将这些幻灯片移动到其他母版的版式下，或使用仅删除未使用母版的清理方法。

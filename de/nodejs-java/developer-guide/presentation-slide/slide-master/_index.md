@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Folienmastern in Präsentationen mit JavaScript
+title: Präsentations-Folienmaster in JavaScript verwalten
 linktitle: Folienmaster
 type: docs
 weight: 70
@@ -22,374 +22,364 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Verwalten Sie Folienmaster in Aspose.Slides für Node.js via Java: Erstellen, bearbeiten und anwenden von Layouts, Designs und Platzhaltern für PPT, PPTX und ODP mit prägnanten Beispielen."
+description: "Verwalten Sie Folienmaster in Aspose.Slides für Node.js via Java: Zugriff, Bearbeitung, Klonen, Vergleich und Entfernen von Masterfolien in PowerPoint- und OpenDocument-Präsentationen."
 ---
+## **Übersicht**
 
-## **Was ist ein Folienmaster in PowerPoint**
+Ein **Folienmaster** definiert freigegebene Designeinstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Theme‑Einstellungen und Fußzeileneinstellungen enthalten. In PowerPoint ist das Bearbeiten eines Folienmasters die übliche Methode, eine Präsentation konsistent zu halten, ohne dieselbe Formatierung auf jeder Folie zu wiederholen.
 
-Ein **Slide Master** ist eine Folienvorlage, die Layout, Stile, Design, Schriftarten, Hintergrund und weitere Eigenschaften für Folien in einer Präsentation definiert. Wenn Sie eine Präsentation (oder Reihe von Präsentationen) mit demselben Stil und derselben Vorlage für Ihr Unternehmen erstellen möchten, können Sie einen Folienmaster verwenden. 
+Aspose.Slides für Node.js via Java unterstützt dasselbe Modell. Eine Präsentation kann einen oder mehrere Masterfolien enthalten, und jede Masterfolie kann mehrere Layoutfolien enthalten. Normale Folien verweisen normalerweise nicht direkt auf eine Masterfolie. Stattdessen verwendet eine normale Folie eine Layoutfolie, und diese Layoutfolie gehört zu einer Masterfolie.
 
-Ein Folienmaster ist nützlich, weil er es Ihnen ermöglicht, das Aussehen aller Präsentationsfolien auf einmal festzulegen und zu ändern. Aspose.Slides unterstützt den Folienmaster‑Mechanismus aus PowerPoint. 
+Die Hierarchie ist:
 
-VBA ermöglicht ebenfalls die Manipulation eines Folienmasters und die Ausführung derselben in PowerPoint unterstützten Vorgänge: Hintergründe ändern, Formen hinzufügen, Layout anpassen usw. Aspose.Slides bietet flexible Mechanismen, um Folienmaster zu verwenden und grundlegende Aufgaben damit auszuführen. 
+1. **Folienmaster** – definiert das gemeinsame Design und Theme.
+1. **Layoutfolie** – definiert eine spezifische Anordnung von Platzhaltern und layoutbezogener Formatierung.
+1. **Normale Folie** – enthält den eigentlichen Präsentationsinhalt und verwendet eine Layoutfolie.
 
-Dies sind grundlegende Folienmaster‑Operationen:
+![Die Hierarchie von Masterfolien, Layoutfolien und normalen Folien](slide-master_2.jpg)
 
-- Erstellen eines Folienmasters.
-- Folienmaster auf Präsentationsfolien anwenden.
-- Hintergrund des Folienmasters ändern. 
-- Ein Bild, Platzhalter, SmartArt usw. zum Folienmaster hinzufügen.
+In Aspose.Slides wird ein Folienmaster durch die Klasse [MasterSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslide/) repräsentiert. Alle Masterfolien in einer Präsentation sind über die Sammlung `Presentation.getMasters()` verfügbar.
 
-Dies sind fortgeschrittenere Vorgänge, die Folienmaster betreffen: 
+{{% alert color="info" title="Vererbung" %}}
 
-- Folienmaster vergleichen.
-- Folienmaster zusammenführen.
-- Mehrere Folienmaster anwenden.
-- Folie mit Folienmaster in eine andere Präsentation kopieren.
-- Doppelte Folienmaster in Präsentationen finden.
-- Folienmaster als Standardansicht der Präsentation festlegen.
-
-{{% alert color="primary" %}} 
-
-Vielleicht möchten Sie sich den Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) ansehen, da er eine Live‑Implementierung einiger der hier beschriebenen Kernprozesse darstellt.
-
-{{% /alert %}} 
-
-
-## **Wie wird ein Folienmaster angewendet**
-
-Bevor Sie mit einem Folienmaster arbeiten, sollten Sie verstehen, wie er in Präsentationen verwendet und auf Folien angewendet wird. 
-
-* Jede Präsentation hat standardmäßig mindestens einen Folienmaster. 
-* Eine Präsentation kann mehrere Folienmaster enthalten. Sie können mehrere Folienmaster hinzufügen und sie verwenden, um verschiedene Teile einer Präsentation auf unterschiedliche Weise zu gestalten. 
-
-In **Aspose.Slides** wird ein Folienmaster durch den Typ [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) dargestellt.
-
-Das Aspose.Slides‑[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)-Objekt enthält die [**getMasters**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--)‑Liste des Typs [**MasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), die eine Liste aller in einer Präsentation definierten Master‑Folien enthält.
-
-Neben CRUD‑Operationen enthält die Klasse [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) nützliche Methoden: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) und [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-). Diese Methoden sind von der grundlegenden Folien‑Klon‑Funktion geerbt. Beim Umgang mit Folienmastern ermöglichen sie jedoch komplizierte Setups.
-
-Wenn einer Präsentation eine neue Folie hinzugefügt wird, wird automatisch ein Folienmaster darauf angewendet. Der Folienmaster der vorherigen Folie wird standardmäßig ausgewählt. 
-
-**Hinweis**: Präsentationsfolien werden in der [getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides--)‑Liste gespeichert, und jede neue Folie wird standardmäßig am Ende der Sammlung eingefügt. Enthält eine Präsentation nur einen Folienmaster, wird dieser Master für alle neuen Folien verwendet. Das ist der Grund, warum Sie den Folienmaster nicht für jede neu erstellte Folie festlegen müssen.
-
-Das Prinzip ist für PowerPoint und Aspose.Slides identisch. In PowerPoint können Sie beispielsweise einfach auf die untere Linie unter der letzten Folie klicken, und eine neue Folie (mit dem Folienmaster der letzten Präsentation) wird erstellt:
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-In Aspose.Slides können Sie die äquivalente Aufgabe mit der [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)‑Methode der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)-Klasse ausführen.
-
-
-## **Folienmaster in der Folienhierarchie**
-
-Die Verwendung von Folienlayouts zusammen mit dem Folienmaster ermöglicht maximale Flexibilität. Ein Folienlayout erlaubt es Ihnen, dieselben Stile wie beim Folienmaster (Hintergrund, Schriftarten, Formen usw.) festzulegen. Wenn mehrere Folienlayouts auf einem Folienmaster kombiniert werden, entsteht ein neuer Stil. Wenn Sie ein Folienlayout auf eine einzelne Folie anwenden, können Sie dessen Stil vom vom Folienmaster festgelegten Stil abweichen.
-
-Der Folienmaster hat Vorrang vor allen Setup‑Elementen: Folienmaster → Folienlayout → Folie:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Jedes [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide)-Objekt besitzt die Eigenschaft [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getLayoutSlides--) mit einer Liste von Folienlayouts. Ein [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide)-Typ hat die Eigenschaft [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getLayoutSlide--) mit einem Verweis auf das auf die Folie angewendete Folienlayout. Die Interaktion zwischen einer Folie und dem Folienmaster erfolgt über ein Folienlayout.
-
-{{% alert color="info" title="Hinweis" %}}
-
-* In Aspose.Slides sind alle Folien‑Setups (Folienmaster, Folienlayout und die Folie selbst) tatsächlich Folienobjekte, die die Klasse [**BaseSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide) implementieren.  
-* Daher können Folienmaster und Folienlayout dieselben Eigenschaften implementieren, und Sie müssen wissen, wie deren Werte auf ein [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide)-Objekt angewendet werden. Der Folienmaster wird zuerst auf die Folie angewendet, danach das Folienlayout. Beispielsweise erhält die Folie bei gleichzeitig definiertem Hintergrund im Folienmaster und im Folienlayout den Hintergrund des Folienlayouts.
+Wenn dieselbe Eigenschaft auf mehr als einer Ebene definiert ist, gewinnt die spezifischere Ebene. Wenn beispielsweise eine Masterfolie und eine Layoutfolie beide einen Hintergrund definieren, verwenden Folien, die auf diesem Layout basieren, den Layout‑Hintergrund. Weitere Informationen zu Layoutfolien finden Sie unter [Layoutfolien anwenden oder ändern](/nodejs-java/slide-layout/).
 
 {{% /alert %}}
 
+## **Zugriff auf Folienmaster**
 
-## **Was ein Folienmaster enthält**
+In PowerPoint können Sie die Folienmaster‑Ansicht über **Ansicht** > **Folienmaster** öffnen.
 
-Um zu verstehen, wie ein Folienmaster geändert werden kann, müssen Sie seine Bestandteile kennen. Dies sind die Kern‑Eigenschaften von [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/):
+![Der Folienmaster‑Befehl auf der Registerkarte Ansicht in PowerPoint](slide-master_3.jpg)
 
-- [getBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getBackground--) – Erhält/legt den Folienhintergrund fest.  
-- [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getBodyStyle--) – Erhält/legt Textstile des Folienkörpers fest.  
-- [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getShapes--) – Erhält/legt alle Formen des Folienmasters fest (Platzhalter, Bildrahmen usw.).  
-- [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getControls--) – Erhält/legt ActiveX‑Steuerelemente fest.  
-- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getThemeManager) – Erhält Theme‑Manager.  
-- [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getHeaderFooterManager--) – Erhält Header‑ und Footer‑Manager.  
+In Aspose.Slides verwenden Sie die Sammlung `getMasters()`, um Masterfolien zuzugreifen:
 
-Methoden des Folienmasters:
-
-- [getDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getDependingSlides--) – Erhält alle Folien, die vom Folienmaster abhängen.  
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – Ermöglicht das Erstellen eines neuen Folienmasters basierend auf dem aktuellen Folienmaster und einem neuen Design. Der neue Folienmaster wird dann auf alle abhängigen Folien angewendet.  
-
-
-## **Folienmaster abrufen**
-
-In PowerPoint kann der Folienmaster über das Menü Ansicht → Folienmaster aufgerufen werden:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-Mit Aspose.Slides können Sie einen Folienmaster wie folgt abrufen: 
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Gibt Zugriff auf die Masterfolie der Präsentation
-    var masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
+    let firstMasterSlide = presentation.getMasters().get_Item(0);
+    let masterSlideCount = presentation.getMasters().size();
+    let firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-
-Die Klasse [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) repräsentiert einen Folienmaster. Die Eigenschaft [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) (bezogen auf den Typ [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlideCollection)) enthält eine Liste aller in der Präsentation definierten Folienmaster.  
-
-
-## **Bild zum Folienmaster hinzufügen**
-
-Wenn Sie ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf allen Folien, die von diesem Master abhängen. 
-
-Beispielsweise können Sie das Logo Ihres Unternehmens und einige Bilder auf dem Folienmaster platzieren und dann wieder in den Folien‑Bearbeitungsmodus wechseln. Das Bild sollte auf jeder Folie sichtbar sein. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Sie können mit Aspose.Slides Bilder zu einem Folienmaster hinzufügen:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {
-    console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-{{% alert color="primary" title="Siehe auch" %}} 
-
-Weitere Informationen zum Hinzufügen von Bildern zu einer Folie finden Sie im Artikel [Picture Frame](/slides/de/nodejs-java/picture-frame/#create-picture-frame).
-
-{{% /alert %}}
-
-
-## **Platzhalter zum Folienmaster hinzufügen**
-
-Diese Textfelder sind Standard‑Platzhalter auf einem Folienmaster: 
-
-* Auf Titelstil des Masters klicken zum Bearbeiten
-* Textstile des Masters bearbeiten
-* Zweite Ebene
-* Dritte Ebene 
-
-Sie erscheinen auch auf den Folien, die auf dem Folienmaster basieren. Sie können diese Platzhalter auf einem Folienmaster bearbeiten, und die Änderungen werden automatisch auf die Folien angewendet. 
-
-In PowerPoint können Sie über den Pfad Folienmaster → Platzhalter einfügen einen Platzhalter hinzufügen:
-
-![todo:image_alt_text](slide-master_5.png)
-
-Betrachten wir ein komplexeres Beispiel für Platzhalter mit Aspose.Slides. Angenommen, eine Folie enthält Platzhalter, die vom Folienmaster stammen:
-
-![todo:image_alt_text](slide-master_6.png)
-
-Wir möchten die Formatierung von Titel und Untertitel auf dem Folienmaster wie folgt ändern:
-
-![todo:image_alt_text](slide-master_7.png)
-
-Zuerst lesen wir den Inhalt des Titel‑Platzhalters aus dem Folienmaster‑Objekt und verwenden dann das Feld `PlaceHolder.FillFormat`:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    var placeHolder = findPlaceholder(master, aspose.slides.PlaceholderType.Title);
-    placeHolder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
-    placeHolder.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-    var awtColor = java.import('java.awt.Color');
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, java.newInstanceSync('java.awt.Color', 255, 0, 0));
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, java.newInstanceSync('java.awt.Color', 128, 0, 128));
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-function findPlaceholder(master, type)
-{    
-    for (var i = 0 ; i < master.getShapes().size(); i++)
-    {
-        var autoShape = master.getShapes().get_Item(i);
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-Der Titelstil und die Formatierung ändern sich für alle Folien, die auf dem Folienmaster basieren:
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="Siehe auch" %}} 
-
-* [Prompt‑Text im Platzhalter festlegen](https://docs.aspose.com/slides/nodejs-java/manage-placeholder/)
-* [Textformatierung](https://docs.aspose.com/slides/nodejs-java/text-formatting/)
-
-{{% /alert %}}
-
-
-## **Hintergrund des Folienmasters ändern**
-
-Wenn Sie die Hintergrundfarbe einer Master‑Folie ändern, erhalten alle normalen Folien in der Präsentation die neue Farbe. Dieser JavaScript‑Code demonstriert den Vorgang:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-{{% alert color="primary" title="Siehe auch" %}} 
-
-- [Präsentationshintergrund](https://docs.aspose.com/slides/nodejs-java/presentation-background/)
-- [Präsentationsdesign](https://docs.aspose.com/slides/nodejs-java/presentation-theme/)
-
-{{% /alert %}}
-
-## **Folienmaster in eine andere Präsentation klonen**
-
-Um einen Folienmaster in eine andere Präsentation zu klonen, rufen Sie die [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)‑Methode der Zielpräsentation auf und übergeben ihr einen Folienmaster. Dieser JavaScript‑Code zeigt, wie ein Folienmaster in eine andere Präsentation geklont wird:
-```javascript
-var presSource = new aspose.slides.Presentation();
-var presTarget = new aspose.slides.Presentation();
-try {
-    var master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) {
-        presSource.dispose();
-    }
-}
-```
-
-
-
-## **Mehrere Folienmaster zu einer Präsentation hinzufügen**
-
-Aspose.Slides ermöglicht das Hinzufügen mehrerer Folienmaster und Folienlayouts zu einer beliebigen Präsentation. Damit können Sie Stile, Layouts und Formatierungsoptionen für Präsentationsfolien auf vielfältige Weise festlegen. 
-
-In PowerPoint können Sie neue Folienmaster und Layouts (aus dem „Folienmaster‑Menü“) wie folgt hinzufügen:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-Mit Aspose.Slides können Sie einen neuen Folienmaster hinzufügen, indem Sie die [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)‑Methode aufrufen:
-```javascript
-// Fügt eine neue Masterfolie hinzu
-var secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-
-## **Folienmaster vergleichen**
-
-Ein Master‑Slide implementiert die Klasse [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide) mit der Methode [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#equals-aspose.slides.IBaseSlide-), die zum Vergleichen von Folien verwendet werden kann. Sie gibt `true` zurück, wenn Master‑Slides in Struktur und statischem Inhalt identisch sind.
-
-Zwei Master‑Slides gelten als gleich, wenn ihre Formen, Stile, Texte, Animationen und weitere Einstellungen gleich sind. Der Vergleich berücksichtigt keine eindeutigen Kennungen (z. B. SlideId) und keinen dynamischen Inhalt (z. B. aktuelles Datum in einem Datums‑Platzhalter). 
-
-
-## **Folienmaster als Standardansicht der Präsentation festlegen**
-
-Aspose.Slides ermöglicht das Festlegen eines Folienmasters als Standardansicht einer Präsentation. Die Standardansicht ist das, was Sie zuerst sehen, wenn Sie eine Präsentation öffnen. 
-
-Dieser Code zeigt, wie ein Folienmaster in JavaScript als Standardansicht einer Präsentation festgelegt wird:
-```javascript
-// Instanziiert eine Presentation-Klasse, die die Präsentationsdatei darstellt
-var presentation = new aspose.slides.Presentation();
-try {
-    // Setzt die Standardansicht auf SlideMasterView
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    // Speichert die Präsentation
-    presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
+    console.log("Master slides: " + masterSlideCount);
+    console.log("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+Sie können auch die Masterfolie, die von einer normalen Folie verwendet wird, über ihr Layout holen:
 
-
-## **Unbenutzten Folienmaster entfernen**
-
-Aspose.Slides stellt die Methode [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) (aus der Klasse [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/)) bereit, um unerwünschte und ungenutzte Master‑Folien zu löschen. Dieser JavaScript‑Code zeigt, wie ein Master‑Slide aus einer PowerPoint‑Präsentation entfernt wird:
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    aspose.slides.Compress.removeUnusedMasterSlides(pres);
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+    let slide = presentation.getSlides().get_Item(0);
+    let layoutSlide = slide.getLayoutSlide();
+    let masterSlide = layoutSlide.getMasterSlide();
+    let masterSlideName = masterSlide.getName();
+
+    console.log(masterSlideName);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Was ein Folienmaster enthält**
+
+Eine Masterfolie ist ein folienähnliches Objekt. Sie erbt das gemeinsame Folienverhalten von [BaseSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseslide/), sodass sie viele der gleichen Folieneigenschaften bereitstellt, die von normalen und Layoutfolien verwendet werden. Master‑spezifische Member werden auf der API‑Seite [MasterSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslide/) aufgelistet.
+
+Häufig verwendete Masterfolie‑Member umfassen:
+
+| Member | Zweck |
+| --- | --- |
+| `getBackground()` | Legt den Hintergrund der Masterfolie fest. |
+| `getShapes()` | Speichert Formen, die auf dem Master platziert sind, wie Logos, Bildrahmen und gemeinsamen Text. |
+| `getLayoutSlides()` | Speichert die Layoutfolien, die zum Master gehören. |
+| `getThemeManager()` | Stellt Zugriff auf die Master‑Theme‑APIs bereit. |
+| `getHeaderFooterManager()` | Steuert Kopf‑ und Fußzeilen, Datumsangaben und Foliennummern für den Master und seine untergeordneten Layouts. |
+| `getDependingSlides()` | Gibt normale Folien zurück, die über ihre Layouts vom Master abhängen. |
+
+## **Ein Bild zu einem Folienmaster hinzufügen**
+
+Wenn Sie ein Bild zu einer Masterfolie hinzufügen, erscheint es auf Folien, die Layouts dieses Masters verwenden. Das ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederholte Bildelemente.
+
+Das folgende Beispiel fügt der ersten Masterfolie ein Logo hinzu:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let logo = aspose.slides.Images.fromFile("logo.png");
+
+    try {
+        let logoImage = presentation.getImages().addImage(logo);
+
+        masterSlide.getShapes().addPictureFrame(
+            aspose.slides.ShapeType.Rectangle,
+            20,
+            20,
+            80,
+            80,
+            logoImage);
+    } finally {
+        logo.dispose();
+    }
+
+    presentation.save("presentation-with-logo.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Für weitere Informationen zu Bildrahmen siehe [Bildrahmen](/nodejs-java/picture-frame/).
+
+## **Arbeiten mit Platzhaltern**
+
+Platzhalter werden normalerweise auf Layoutfolien definiert. Die Masterfolie liefert den gemeinsamen Stil und das Theme, das diese Layouts erben, während jedes Layout entscheidet, welche Platzhalter verfügbar sind und wo sie platziert werden.
+
+In PowerPoint sind Platzhalterbefehle in der Folienmaster‑Ansicht verfügbar.
+
+![Der Befehl 'Platzhalter einfügen' in der Folienmaster‑Ansicht von PowerPoint](slide-master_5.png)
+
+Um mit Aspose.Slides neue Platzhalter hinzuzufügen, arbeiten Sie mit der Layoutfolie, die zum Master gehört:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+
+    if (blankLayoutSlide === null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(blankLayoutType, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sie können auch Platzhalterformen formatieren, die bereits auf einer Masterfolie vorhanden sind. Das folgende Beispiel findet den Titel‑Platzhalter und wendet eine lineare Farbverlauf‑Füllung an:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titlePlaceholder = null;
+    let masterShapes = masterSlide.getShapes();
+    let masterShapeCount = masterShapes.size();
+
+    for (let masterShapeIndex = 0; masterShapeIndex < masterShapeCount; masterShapeIndex++) {
+        let shape = masterShapes.get_Item(masterShapeIndex);
+
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            let placeholder = shape.getPlaceholder();
+
+            if (placeholder !== null && placeholder.getType() === aspose.slides.PlaceholderType.Title) {
+                titlePlaceholder = shape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder !== null) {
+        let gradientFillType = java.newByte(aspose.slides.FillType.Gradient);
+        let linearGradientShape = java.newByte(aspose.slides.GradientShape.Linear);
+        let redGradientColor = java.newInstanceSync("java.awt.Color", 255, 0, 0);
+        let purpleGradientColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
+
+        titlePlaceholder.getFillFormat().setFillType(gradientFillType);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Formatierter Titelplatzhalter, der von normalen Folien geerbt wird](slide-master_8.png)
+
+Für weitere Platzhalter‑ und Textformatierungsoptionen siehe [Platzhalter‑Prompt‑Text festlegen](/nodejs-java/manage-placeholder/) und [Textformatierung](/nodejs-java/text-formatting/).
+
+## **Hintergrund eines Folienmasters ändern**
+
+Ein Master‑Hintergrund wird von Layouts und Folien geerbt, die ihn nicht überschreiben. Das folgende Beispiel setzt eine einfarbige Hintergrundfarbe für die erste Masterfolie:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let masterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "GREEN");
+
+    masterSlide.getBackground().setType(ownBackgroundType);
+    masterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Für verwandte Themen siehe [Präsentationshintergrund](/nodejs-java/presentation-background/) und [Präsentationstheme](/nodejs-java/presentation-theme/).
+
+## **Einen Folienmaster in eine andere Präsentation klonen**
+
+Verwenden Sie `MasterSlideCollection.addClone`, um eine Masterfolie in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layouts und Folien in der Zielpräsentation verwendet werden.
+
+```javascript
+let sourcePresentation = new aspose.slides.Presentation("source.pptx");
+let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
+try {
+    let sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    let clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+Wenn Sie normale Folien zusammen mit ihrem Master klonen müssen, siehe [Folien klonen](/nodejs-java/clone-slides/).
+
+## **Mehrere Folienmaster hinzufügen**
+
+Eine Präsentation kann mehrere Masterfolien enthalten. Das ist nützlich, wenn verschiedene Abschnitte unterschiedliche Markenauftritte, Seitenstrukturen oder Theme‑Einstellungen benötigen.
+
+![PowerPoint‑Befehle zum Einfügen und Verwalten von Masterfolien](slide-master_9.jpg)
+
+Das folgende Beispiel klont den Standard‑Master, gibt dem Klon einen anderen Hintergrund, erstellt ein Layout unter diesem geklonten Master und fügt eine neue Folie basierend auf diesem Layout hinzu:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let defaultMasterSlide = presentation.getMasters().get_Item(0);
+    let sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let sectionMasterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
+
+    sectionMasterSlide.getBackground().setType(ownBackgroundType);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(blankLayoutType);
+    if (sourceBlankLayout === null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    let sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Folienmaster vergleichen**
+
+Masterfolien können mit der von [BaseSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseslide/) geerbten `equals`‑Methode verglichen werden. Der Vergleich prüft Struktur und statische Inhalte wie Formen, Text, Formatierung, Animationen und andere Folienschutzeinstellungen. Er vergleicht nicht eindeutige Kennungen wie Folien‑IDs oder dynamische Platzhalterwerte wie das aktuelle Datum.
+
+```javascript
+let firstPresentation = new aspose.slides.Presentation("first.pptx");
+let secondPresentation = new aspose.slides.Presentation("second.pptx");
+try {
+    let firstPresentationMasterCount = firstPresentation.getMasters().size();
+    let secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (let firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (let secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            let firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            let secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            let areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                console.log(
+                    "first.pptx master #" + firstMasterIndex +
+                    " equals second.pptx master #" + secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+Für weitere Informationen siehe [Präsentationsfolien vergleichen](/nodejs-java/compare-slides/).
+
+## **Folienmaster‑Ansicht als Standardansicht festlegen**
+
+Verwenden Sie die Methode `setLastView` auf [ViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/), um die Ansicht zu steuern, die PowerPoint zuerst öffnet. Das folgende Beispiel öffnet die Präsentation in der Folienmaster‑Ansicht:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
+
+    presentation.getViewProperties().setLastView(slideMasterViewType);
+    presentation.save("presentation-master-view.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Für weitere Ansichtseinstellungen siehe [Präsentation speichern](/nodejs-java/save-presentation/).
+
+## **Unbenutzte Masterfolien entfernen**
+
+Präsentationen enthalten manchmal Masterfolien, die von keinen normalen Folien mehr verwendet werden. Das Entfernen ungenutzter Master kann die Dateigröße reduzieren und die Wartung von Vorlagen vereinfachen.
+
+Verwenden Sie `removeUnused`, um ungenutzte Master aus der Sammlung `getMasters()` zu entfernen:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sie können außerdem die Low‑Code‑Methode `Compress.removeUnusedMasterSlides` verwenden:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    aspose.slides.Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**Was ist ein Folienmaster in PowerPoint?**
+**Was ist der Unterschied zwischen einem Folienmaster und einer Layoutfolie?**
 
-Ein Folienmaster ist eine Folienvorlage, die Layout, Stile, Designs, Schriftarten, Hintergrund und weitere Eigenschaften für Folien in einer Präsentation definiert. Er ermöglicht es, das Aussehen aller Präsentationsfolien auf einmal festzulegen und zu ändern.  
+Ein Folienmaster definiert gemeinsame Designeinstellungen wie Theme, Hintergrund, gemeinsame Formen und Textstile. Eine Layoutfolie gehört zu einem Folienmaster und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layoutfolie, sodass sie sowohl vom Layout als auch vom Master erbt.
 
-**Wie wird ein Folienmaster in einer Präsentation angewendet?**
+**Kann eine Präsentation mehrere Folienmaster enthalten?**
 
-Jede Präsentation hat standardmäßig mindestens einen Folienmaster. Wenn eine neue Folie hinzugefügt wird, wird automatisch ein Folienmaster darauf angewendet, in der Regel der Master der vorherigen Folie. Eine Präsentation kann mehrere Folienmaster enthalten, um verschiedene Teile individuell zu gestalten.  
+Ja. Eine Präsentation kann mehrere Folienmaster enthalten. Verwenden Sie mehrere Master, wenn verschiedene Abschnitte unterschiedliche visuelle Systeme oder Markenauftritte benötigen.
 
-**Welche Elemente können in einem Folienmaster angepasst werden?**
+**Sollte ich Platzhalter zu einer Masterfolie oder zu einer Layoutfolie hinzufügen?**
 
-Ein Folienmaster besteht aus mehreren Kern‑Eigenschaften, die angepasst werden können:
+In den meisten Fällen sollten Platzhalter zu Layoutfolien hinzugefügt werden. Gemeinsame visuelle Elemente und gemeinsame Formatierungen auf die Masterfolie legen, dann Inhalte‑Platzhalter auf die Layouts setzen, die von normalen Folien verwendet werden.
 
-- **Background**: Folienhintergrund festlegen.  
-- **BodyStyle**: Textstile des Folienkörpers definieren.  
-- **Shapes**: Alle Formen auf dem Folienmaster verwalten, einschließlich Platzhaltern und Bildrahmen.  
-- **Controls**: ActiveX‑Steuerelemente handhaben.  
-- **ThemeManager**: Zugriff auf den Theme‑Manager.  
-- **HeaderFooterManager**: Header‑ und Footer‑Manager verwalten.  
+**Kann ich eine Masterfolie löschen, die noch verwendet wird?**
 
-**Wie kann ich ein Bild zu einem Folienmaster hinzufügen?**
-
-Durch das Hinzufügen eines Bildes zu einem Folienmaster erscheint es auf allen Folien, die von diesem Master abhängen. Beispielsweise wird das Firmenlogo, das Sie auf dem Folienmaster platzieren, auf jeder Folie der Präsentation angezeigt.  
-
-**Wie stehen Folienmaster zu Folienlayouts?**
-
-Folienlayouts arbeiten zusammen mit Folienmastern, um Flexibilität im Foliendesign zu bieten. Während ein Folienmaster übergeordnete Stile und Designs definiert, ermöglichen Folienlayouts Variationen in der Anordnung des Inhalts. Die Hierarchie lautet:
-
-- **Folienmaster** → Definiert globale Stile.  
-- **Folienlayout** → Bietet unterschiedliche Inhaltsanordnungen.  
-- **Folie** → Erbt das Design vom zugeordneten Folienlayout.  
-
-**Kann ich mehrere Folienmaster in einer einzelnen Präsentation haben?**
-
-Ja, eine Präsentation kann mehrere Folienmaster enthalten. Dadurch können Sie verschiedene Abschnitte einer Präsentation auf unterschiedliche Weise gestalten und erhalten mehr Design‑Flexibilität.  
-
-**Wie greife ich mit Aspose.Slides auf einen Folienmaster zu und ändere ihn?**
-
-In Aspose.Slides wird ein Folienmaster durch die Klasse [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) repräsentiert. Sie können mit der Methode [getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmasters/) des [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)-Objekts auf einen Folienmaster zugreifen.
+Nein. Eine Masterfolie, die abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie zunächst diese Folien zu Layouts unter einem anderen Master oder verwenden Sie eine Bereinigungsmethode für ungenutzte Master, die nur Master entfernt, die nicht verwendet werden.
