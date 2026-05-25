@@ -1,5 +1,5 @@
 ---
-title: Extract Images from Presentation Shapes
+title: Extract Images from Presentation Shapes in Node.js
 linktitle: Image from Shape
 type: docs
 weight: 100
@@ -7,117 +7,710 @@ url: /nodejs-java/extracting-images-from-presentation-shapes/
 keywords:
 - extract image
 - retrieve image
-- slide background
-- shape background
 - PowerPoint
 - OpenDocument
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Extract images from shapes in PowerPoint and OpenDocument presentations with JavaScript and Aspose.Slides for Node.js — quick, code-friendly solution."
+description: "Extract images from shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for Node.js via Java - quick, code-friendly solution."
 ---
 
 ## **Overview**
 
-Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [ImageCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection/), which is a collection of [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) objects.
+Images in a presentation can appear in several shape types: as ordinary picture frames, as picture fills applied to shapes, as OLE object preview images, as video or audio frame thumbnails, as zoom images, or as images nested inside table, chart, and SmartArt shapes. Aspose.Slides stores those images in the presentation image collection, exposed through [ImageCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/) and [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) objects.
 
-This article explains how you can extract the images added to presentations. 
+If you only need to export every image resource embedded in a presentation, iterate through `presentation.getImages()`. This article focuses on a different task: traversing shapes to find where images are used on slides, so the saved files can keep useful context such as the slide number, shape position, and source type (picture frame, fill image, media preview, OLE preview, or zoom image).
 
-## **Extract Images from Shapes**
+{{% alert title="Tip" color="primary" %}}
 
-To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. 
+Use [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) and its `getBinaryData()` method to preserve the original encoded image data and file type. Use `getImage()` when you want to normalize the output to a specific format such as PNG.
+
+{{% /alert %}}
+
+## **Shared Helper Methods**
+
+The helper methods below keep the examples short. `saveOriginalImage` writes the original embedded bytes, chooses a safe extension from the MIME type, and skips duplicate image binaries by SHA-256 hash.
 
 ```javascript
-function extractImages() {
-    const folderPath = "./";
-    const pres = new aspose.slides.Presentation(folderPath + "ExtractImages.pptx");
-    let img = null;
-    let backImage = null;
+const fileSystem = require("fs");
+const pathModule = require("path");
+const cryptoModule = require("crypto");
+const asposeSlides = require("aspose.slides.via.java");
 
-    let slideIndex = 0;
-    let imageType = 0;
-    let ifImageFound = false;
+class ShapeReference {
+    constructor(shape, namePart) {
+        this.shape = shape;
+        this.namePart = namePart;
+    }
+}
 
-    for (let i = 0; i < pres.getSlides().size(); i++) {
-        slideIndex++;
-        let sl = pres.getSlides().get_Item(i);
+function saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes) {
+    const imageData = image.getBinaryData();
+    const imageBuffer = Buffer.from(imageData);
+    const imageHash = getSha256Hash(imageBuffer);
+    if (savedImageHashes.has(imageHash)) {
+        return false;
+    }
 
-        if (sl.getBackground().getFillFormat().getFillType() === aspose.slides.FillType.Picture) {
-            backImage = sl.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
-            imageType = getImageTType(backImage);
+    savedImageHashes.add(imageHash);
 
-            const imagePath = folderPath + "backImage_Slide_" + slideIndex + "." + imageType;
-            saveImage(backImage, imagePath, imageType);
-        } else if (sl.getLayoutSlide().getBackground().getFillFormat().getFillType() === aspose.slides.FillType.Picture) {
-            backImage = sl.getLayoutSlide().getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
-            imageType = getImageTType(backImage);
+    const extension = getExtensionFromContentType(image.getContentType());
+    const fileName = `${fileNameBase}.${extension}`;
+    const outputPath = pathModule.join(outputDirectory, fileName);
+    fileSystem.writeFileSync(outputPath, imageBuffer);
+    return true;
+}
 
-            const imagePath = folderPath + "backImage_LayoutSlide_" + slideIndex + "." + imageType;
-            saveImage(backImage, imagePath, imageType);
-        }
+function saveImageAsPng(image, outputDirectory, fileNameBase) {
+    const fileName = `${fileNameBase}.png`;
+    const outputPath = pathModule.join(outputDirectory, fileName);
 
-        for (let j = 0; j < sl.getShapes().size(); j++) {
-            let sh = sl.getShapes().get_Item(j);
-
-            if (java.instanceOf(sh, "com.aspose.slides.IAutoShape")) {
-                let ashp = sh;
-                if (ashp.getFillFormat().getFillType() === aspose.slides.FillType.Picture) {
-                    img = ashp.getFillFormat().getPictureFillFormat().getPicture().getImage();
-                    imageType = getImageTType(img);
-                    ifImageFound = true;
-                }
-            } else if (java.instanceOf(sh, "com.aspose.slides.IPictureFrame")) {
-                let pf = sh;
-                img = pf.getPictureFormat().getPicture().getImage();
-                imageType = getImageTType(img);
-                ifImageFound = true;
-            }
-
-            if (ifImageFound) {
-                const imagePath = folderPath + "backImage_Slide_" + slideIndex + "_Shape_" + j + "." + imageType;
-                saveImage(img, imagePath, imageType);
-            }
-            ifImageFound = false;
+    const outputImage = image.getImage();
+    try {
+        outputImage.save(outputPath, asposeSlides.ImageFormat.Png);
+    } finally {
+        if (outputImage !== null) {
+            outputImage.dispose();
         }
     }
 }
 
-function getImageTType(image) {
-    let imageContentType = image.getContentType();
-    imageContentType = imageContentType.substring(imageContentType.indexOf("/") + 1);
-    imageContentType = imageContentType.substring(imageContentType.indexOf("-") + 1);
-    return imageContentType;
+function getPictureFillImage(fillFormat) {
+    if (fillFormat == null || fillFormat.getFillType() !== asposeSlides.FillType.Picture) {
+        return null;
+    }
+
+    return fillFormat.getPictureFillFormat().getPicture().getImage();
 }
 
-function capitalize(str) {
-    if (!str || str.length <= 1) return str;
-    return str.charAt(0).toUpperCase() + str.slice(1);
+function enumerateShapes(shapes, prefix, includeGroupedShapes) {
+    const shapeReferences = [];
+    const shapeCount = shapes.size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+        const shape = shapes.get_Item(shapeIndex);
+        const displayIndex = shapeIndex + 1;
+        const shapeNamePart = `${prefix}_shape_${displayIndex}`;
+        const shapeReference = new ShapeReference(shape, shapeNamePart);
+        shapeReferences.push(shapeReference);
+
+        if (includeGroupedShapes && java.instanceOf(shape, "com.aspose.slides.GroupShape")) {
+            const childShapes = shape.getShapes();
+            const childReferences = enumerateShapes(childShapes, shapeNamePart, includeGroupedShapes);
+            shapeReferences.push(...childReferences);
+        }
+    }
+
+    return shapeReferences;
 }
 
-function saveImage(image, path, imageType) {    
-    var ImageFormatClass = java.import('com.aspose.slides.ImageFormat');
-    let imageTypeValue = java.callStaticMethodSync("com.aspose.slides.ImageFormat", "getValue", ImageFormatClass.class, capitalize(imageType));
-    
-    image.getImage().save(path, java.newInstanceSync("java.lang.Integer", imageTypeValue.longValue));
-    console.log(`Image saved to ${path}`);
+function getSha256Hash(data) {
+    return cryptoModule.createHash("sha256").update(data).digest("hex");
+}
+
+function getExtensionFromContentType(contentType) {
+    if (contentType == null || contentType.trim().length === 0) {
+        return "bin";
+    }
+
+    const mediaType = contentType.split(";")[0].trim().toLowerCase();
+    if (mediaType === "image/jpeg") {
+        return "jpg";
+    }
+
+    if (mediaType === "image/png") {
+        return "png";
+    }
+
+    if (mediaType === "image/gif") {
+        return "gif";
+    }
+
+    if (mediaType === "image/bmp") {
+        return "bmp";
+    }
+
+    if (mediaType === "image/tiff") {
+        return "tiff";
+    }
+
+    if (mediaType === "image/x-emf" || mediaType === "image/emf") {
+        return "emf";
+    }
+
+    if (mediaType === "image/x-wmf" || mediaType === "image/wmf") {
+        return "wmf";
+    }
+
+    if (mediaType === "image/svg+xml") {
+        return "svg";
+    }
+
+    if (mediaType.startsWith("image/")) {
+        const extension = mediaType.substring("image/".length);
+        return makeSafeFileNamePart(extension);
+    }
+
+    return "bin";
+}
+
+function makeSafeFileNamePart(value) {
+    return value.replace(/[^A-Za-z0-9._-]/g, "_");
 }
 ```
 
+## **Extract Images from Picture Frames**
+
+Use this approach for pictures inserted as standalone objects. A [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) stores its picture in `getPictureFormat().getPicture().getImage()`, which returns a [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) object.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "extracted-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, false);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.PictureFrame")) {
+                const pictureFrame = shapeReference.shape;
+                const image = pictureFrame.getPictureFormat().getPicture().getImage();
+                saveOriginalImage(image, outputDirectory, shapeReference.namePart, savedImageHashes);
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Images from Picture-Filled Shapes**
+
+Shapes can use a picture as their fill. Check the shape's fill type first: if it is not [FillType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), there is no picture to extract from that fill. The example below handles [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) objects and saves each image as PNG through [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) and its `getImage()` method.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "shape-fill-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, false);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.AutoShape")) {
+                const autoShape = shapeReference.shape;
+                const fillFormat = autoShape.getFillFormat();
+                const image = getPictureFillImage(fillFormat);
+                if (image !== null) {
+                    saveImageAsPng(image, outputDirectory, shapeReference.namePart);
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Preview Images from OLE Object Frames**
+
+An [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) can have a substitute picture that PowerPoint uses as the object's preview on a slide. This image is available through `getSubstitutePictureFormat().getPicture().getImage()`. Extracting this picture gives you the preview image, not the embedded OLE package contents.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "ole-preview-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, false);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.OleObjectFrame")) {
+                const oleObjectFrame = shapeReference.shape;
+                const image = oleObjectFrame.getSubstitutePictureFormat().getPicture().getImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_ole_preview`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Preview Images from Video Frames**
+
+A [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) can also store a preview image in `getPictureFormat().getPicture().getImage()`. This is the poster or thumbnail shown on the slide, not a frame decoded from the video stream.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "video-preview-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, false);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.VideoFrame")) {
+                const videoFrame = shapeReference.shape;
+                const image = videoFrame.getPictureFormat().getPicture().getImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_video_preview`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Preview Images from Audio Frames**
+
+An [AudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/) can store a thumbnail in `getPictureFormat().getPicture().getImage()`. This is the image shown for the audio object on the slide.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "audio-preview-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, false);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.AudioFrame")) {
+                const audioFrame = shapeReference.shape;
+                const image = audioFrame.getPictureFormat().getPicture().getImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_audio_preview`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Images from Zoom Objects**
+
+[ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) and [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) shapes can use custom images. Read `getZoomImage()` from the zoom frame.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "zoom-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, false);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.ZoomFrame")) {
+                const zoomFrame = shapeReference.shape;
+                const image = zoomFrame.getZoomImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_zoom`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                    continue;
+                }
+            }
+
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.SectionZoomFrame")) {
+                const sectionZoomFrame = shapeReference.shape;
+                const image = sectionZoomFrame.getZoomImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_section_zoom`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                    continue;
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Images from Summary Zoom Frames**
+
+A [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `getZoomImage()` method.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "summary-zoom-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, false);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.SummaryZoomFrame")) {
+                const summaryZoomFrame = shapeReference.shape;
+                const summaryZoomCollection = summaryZoomFrame.getSummaryZoomCollection();
+                const sectionCount = summaryZoomCollection.size();
+                for (let sectionIndex = 0; sectionIndex < sectionCount; sectionIndex++) {
+                    const summaryZoomSection = summaryZoomCollection.get_Item(sectionIndex);
+                    const image = summaryZoomSection.getZoomImage();
+                    if (image !== null) {
+                        const displayIndex = sectionIndex + 1;
+                        const fileNameBase = `${shapeReference.namePart}_summary_zoom_${displayIndex}`;
+                        saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Images from Table Shapes**
+
+A [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) is a shape. Images in a table are usually stored as picture fills in table cells.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "table-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, true);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.Table")) {
+                const table = shapeReference.shape;
+                const rowCount = table.getRows().size();
+                const columnCount = table.getColumns().size();
+                for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+                    for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+                        const cell = table.get_Item(columnIndex, rowIndex);
+                        const fillFormat = cell.getCellFormat().getFillFormat();
+                        const image = getPictureFillImage(fillFormat);
+                        if (image !== null) {
+                            const displayRow = rowIndex + 1;
+                            const displayColumn = columnIndex + 1;
+                            const fileNameBase = `${shapeReference.namePart}_cell_${displayRow}_${displayColumn}`;
+                            saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Images from Chart Shapes**
+
+A [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) is a shape. The example below extracts an image from the chart area's picture fill.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "chart-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, true);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.Chart")) {
+                const chart = shapeReference.shape;
+                const fillFormat = chart.getFillFormat();
+                const image = getPictureFillImage(fillFormat);
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_chart_area`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Extract Images from SmartArt Shapes**
+
+A [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/) object is a shape. Depending on the SmartArt layout, images may be stored in node bullet fills or in the fill formats of node shapes.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "smartart-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, true);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.SmartArt")) {
+                const smartArt = shapeReference.shape;
+                const allNodes = smartArt.getAllNodes();
+                const nodeCount = allNodes.size();
+                for (let nodeIndex = 0; nodeIndex < nodeCount; nodeIndex++) {
+                    const node = allNodes.get_Item(nodeIndex);
+                    const bulletFillFormat = node.getBulletFillFormat();
+                    const bulletImage = getPictureFillImage(bulletFillFormat);
+                    if (bulletImage !== null) {
+                        const displayNode = nodeIndex + 1;
+                        const fileNameBase = `${shapeReference.namePart}_smartart_node_${displayNode}_bullet`;
+                        saveOriginalImage(bulletImage, outputDirectory, fileNameBase, savedImageHashes);
+                    }
+
+                    const nodeShapes = node.getShapes();
+                    const nodeShapeCount = nodeShapes.size();
+                    for (let nodeShapeIndex = 0; nodeShapeIndex < nodeShapeCount; nodeShapeIndex++) {
+                        const nodeShape = nodeShapes.get_Item(nodeShapeIndex);
+                        const fillFormat = nodeShape.getFillFormat();
+                        const image = getPictureFillImage(fillFormat);
+                        if (image !== null) {
+                            const displayNode = nodeIndex + 1;
+                            const displayNodeShape = nodeShapeIndex + 1;
+                            const fileNameBase = `${shapeReference.namePart}_smartart_node_${displayNode}_shape_${displayNodeShape}`;
+                            saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Include Images Inside Grouped Shapes**
+
+Grouped shapes contain their own shape collections. The shared `enumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
+
+```javascript
+const inputPath = "sample.pptx";
+const currentDirectory = process.cwd();
+const outputDirectory = pathModule.join(currentDirectory, "all-shape-images");
+fileSystem.mkdirSync(outputDirectory, { recursive: true });
+
+const savedImageHashes = new Set();
+
+const presentation = new asposeSlides.Presentation(inputPath);
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slide.getSlideNumber();
+        const slidePrefix = `slide_${slideNumber}`;
+        const shapes = slide.getShapes();
+        const shapeReferences = enumerateShapes(shapes, slidePrefix, true);
+        for (const shapeReference of shapeReferences) {
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.OleObjectFrame")) {
+                const oleObjectFrame = shapeReference.shape;
+                const image = oleObjectFrame.getSubstitutePictureFormat().getPicture().getImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_ole_preview`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+
+                continue;
+            }
+
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.VideoFrame")) {
+                const videoFrame = shapeReference.shape;
+                const image = videoFrame.getPictureFormat().getPicture().getImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_video_preview`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+
+                continue;
+            }
+
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.AudioFrame")) {
+                const audioFrame = shapeReference.shape;
+                const image = audioFrame.getPictureFormat().getPicture().getImage();
+                if (image !== null) {
+                    const fileNameBase = `${shapeReference.namePart}_audio_preview`;
+                    saveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+
+                continue;
+            }
+
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.PictureFrame")) {
+                const pictureFrame = shapeReference.shape;
+                const image = pictureFrame.getPictureFormat().getPicture().getImage();
+                saveOriginalImage(image, outputDirectory, shapeReference.namePart, savedImageHashes);
+                continue;
+            }
+
+            if (java.instanceOf(shapeReference.shape, "com.aspose.slides.AutoShape")) {
+                const autoShape = shapeReference.shape;
+                const fillFormat = autoShape.getFillFormat();
+                const image = getPictureFillImage(fillFormat);
+                if (image !== null) {
+                    saveOriginalImage(image, outputDirectory, shapeReference.namePart, savedImageHashes);
+                }
+            }
+        }
+    }
+} finally {
+    if (presentation !== null) {
+        presentation.dispose();
+    }
+}
+```
+
+## **Edge Cases and Practical Notes**
+
+- **Duplicate images:** Multiple shapes may reference the same image or separate images with identical bytes. Hash [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) data from `getBinaryData()` before writing files if you want one output file per unique image.
+- **Original data vs. converted output:** Saving [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) data from `getBinaryData()` preserves the embedded JPEG, PNG, GIF, SVG, EMF, or WMF data. Saving the image returned by `getImage()` is useful when you want a consistent output format.
+- **Unsupported fill types:** Solid, gradient, pattern, and no-fill shapes do not contain a picture fill. Check [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) before reading `getPictureFillFormat()`.
+- **Grouped shapes:** The top-level slide shape collection does not flatten groups. Recursively inspect [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) content through `getShapes()` when grouped content matters.
+- **OLE object previews:** An [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) may expose a preview image through `getSubstitutePictureFormat()`, but that image is only the slide preview. It is not the embedded file inside the OLE object.
+- **Video frame thumbnails:** A [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) may expose a preview image through `getPictureFormat()`, but that image is only the poster shown on the slide. It is not extracted from the video stream.
+- **Audio frame thumbnails:** An [AudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/) may expose an icon or thumbnail through `getPictureFormat()`; it is not the embedded audio data.
+- **Zoom images:** Slide zoom, section zoom, and summary zoom shapes may use custom [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) objects through `getZoomImage()`.
+- **Nested shape models:** Table, chart, and SmartArt objects implement [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/), but their images are often stored in nested table cell, chart element, or SmartArt node formatting objects.
+- **Cropped or transformed pictures:** Accessing [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) gives you the stored image resource. It does not render cropping, transparency, recoloring, rotation, or other visual effects applied by the shape.
+
 ## **FAQ**
 
-**Can I extract the original image without any cropping, effects, or shape transformations?**
+**Can I extract the original image without cropping, effects, or shape transformations?**
 
-Yes. When you access a shape’s image, you get the image object from the presentation’s [image collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/), meaning the original pixels without cropping or styling effects. The workflow goes through the presentation’s image collection and [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) objects, which store the raw data.
+Yes. Access the [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) object and write the data from `getBinaryData()` to disk. This preserves the original encoded image stored in the presentation, not the way the image is rendered on the slide.
 
-**Is there a risk of duplicating identical files when saving many images at once?**
+**Can I export every extracted image as PNG?**
 
-Yes, if you save everything indiscriminately. A presentation’s [image collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/) can contain identical binary data referenced by different shapes or slides. To avoid duplicates, compare hashes, sizes, or contents of the extracted data before writing.
+Yes. Use [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) and its `getImage()` method, and then call `save()` with [ImageFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/). This converts the output and may not preserve the original file type or vector data.
 
-**How can I determine which shapes are linked to a specific image from the presentation’s collection?**
+**How do I avoid saving the same image more than once?**
 
-Aspose.Slides does not store reverse links from [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) to shapes. Build a mapping manually during traversal: whenever you find a reference to an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/), record which shapes use it.
+Use a hash of [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) data from `getBinaryData()` and keep the hashes in a set. If a new image has a hash that already exists, skip it or record another reference to the existing output file.
+
+**Why do some shapes not produce an image?**
+
+Picture frames, picture-filled shapes, OLE object frames, media frames, zoom frames, tables, charts, and SmartArt objects can reference images. Some shape types expose images through nested formatting objects, so a simple `getPictureFormat()` or shape `getFillFormat()` check is not always enough.
+
+**Can I extract the thumbnail shown for a video frame?**
+
+Yes. Use [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) and read `getPictureFormat().getPicture().getImage()`. This extracts the poster image stored with the video frame, not a frame generated from the video file.
+
+**How can I determine which shapes use a specific image from the presentation image collection?**
+
+Aspose.Slides does not store reverse links from [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) to shapes. Build a mapping during traversal: whenever you find an image reference, record the slide number, shape path, and image hash or collection item.
 
 **Can I extract images embedded inside OLE objects, such as attached documents?**
 
-Not directly, because an OLE object is a container. You need to extract the OLE package itself and then analyze its contents using separate tools. Presentation picture shapes work via [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/); OLE is a different object type.
+You can extract the OLE object's slide preview from [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/). However, that preview is not the embedded document itself. To extract images from inside the embedded file, extract the OLE data and inspect it with tools for that file type.

@@ -72,7 +72,7 @@ private static void SaveImageAsPng(IPPImage image, string outputDirectory, strin
 
 private static IPPImage GetPictureFillImage(IFillFormat fillFormat)
 {
-    if (fillFormat.FillType != FillType.Picture)
+    if (fillFormat == null || fillFormat.FillType != FillType.Picture)
     {
         return null;
     }
@@ -167,7 +167,7 @@ private static string MakeSafeFileNamePart(string value)
 
 ## **Extract Images from Picture Frames**
 
-Use this approach for pictures inserted as standalone objects. A [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) stores its picture in `PictureFormat.Picture.Image`, which returns an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) object.
+Use this approach for pictures inserted as standalone objects. An [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) stores its picture in `PictureFormat.Picture.Image`, which returns an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) object.
 
 ```c#
 string inputPath = "sample.pptx";
@@ -335,7 +335,7 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extract Images from Zoom Objects**
 
-[ZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe/) and [SectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/sectionzoomframe/) shapes can use custom images. Read `ZoomImage` from the zoom frame.
+[IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe/) and [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe/) shapes can use custom images. Read `ZoomImage` from the zoom frame.
 
 ```c#
 string inputPath = "sample.pptx";
@@ -375,7 +375,7 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extract Images from Summary Zoom Frames**
 
-An [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `ZoomImage` property.
+An [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `ZoomImage` property.
 
 ```c#
 string inputPath = "sample.pptx";
@@ -459,7 +459,7 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extract Images from Chart Shapes**
 
-An [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) is a shape. Many chart elements can use picture fills. The example below extracts images from data point markers.
+An [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) is a shape. The example below extracts an image from the chart area's picture fill.
 
 ```c#
 string inputPath = "sample.pptx";
@@ -480,21 +480,12 @@ using (Presentation presentation = new Presentation(inputPath))
         {
             if (item.Shape is Aspose.Slides.Charts.IChart chart)
             {
-                int seriesCount = chart.ChartData.Series.Count;
-                for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
+                IFillFormat fillFormat = chart.FillFormat;
+                IPPImage image = GetPictureFillImage(fillFormat);
+                if (image != null)
                 {
-                    Aspose.Slides.Charts.IChartSeries series = chart.ChartData.Series[seriesIndex];
-                    int pointCount = series.DataPoints.Count;
-                    for (int pointIndex = 0; pointIndex < pointCount; pointIndex++)
-                    {
-                        Aspose.Slides.Charts.IChartDataPoint point = series.DataPoints[pointIndex];
-                        IPPImage image = GetPictureFillImage(point.Marker.Format.Fill);
-                        if (image != null)
-                        {
-                            string fileNameBase = $"{item.NamePart}_series_{seriesIndex + 1}_point_{pointIndex + 1}_marker";
-                            SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
-                        }
-                    }
+                    string fileNameBase = $"{item.NamePart}_chart_area";
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
                 }
             }
         }
@@ -556,7 +547,7 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Include Images Inside Grouped Shapes**
 
-Grouped shapes contain their own shape collections. The shared `EnumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails.
+Grouped shapes contain their own shape collections. The shared `EnumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
 
 ```c#
 string inputPath = "sample.pptx";
@@ -641,7 +632,7 @@ using (Presentation presentation = new Presentation(inputPath))
 - **Video frame thumbnails:** An [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) may expose a preview image through `PictureFormat`, but that image is only the poster shown on the slide. It is not extracted from the video stream.
 - **Audio frame thumbnails:** An [IAudioFrame](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/) may expose an icon or thumbnail through `PictureFormat`; it is not the embedded audio data.
 - **Zoom images:** Slide zoom, section zoom, and summary zoom shapes may use custom [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) objects through `ZoomImage`.
-- **Nested shape models:** Table, chart, and SmartArt objects implement `IShape`, but their images are often stored in nested table cell, chart element, or SmartArt node formatting objects.
+- **Nested shape models:** Table, chart, and SmartArt objects implement [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), but their images are often stored in nested table cell, chart element, or SmartArt node formatting objects.
 - **Cropped or transformed pictures:** Accessing [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) gives you the stored image resource. It does not render cropping, transparency, recoloring, rotation, or other visual effects applied by the shape.
 
 ## **FAQ**
