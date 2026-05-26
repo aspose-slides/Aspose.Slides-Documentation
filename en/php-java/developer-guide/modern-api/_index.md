@@ -28,19 +28,21 @@ Historically, Aspose Slides has a dependency on java.awt and has in the public A
 
 As of version 24.4, this public API is declared deprecated.
 
-In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on BufferedImage. Graphics2D is declared deprecated and its support is removed from the public Slides API.
+In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html). [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) is declared deprecated and its support is removed from the public Slides API.
 
-Removal of the deprecated public API with dependencies on System.Drawing will be in release 24.8.
+In current versions, treat the public API that depends on java.awt types as legacy/deprecated. Use the Modern API for new code and when migrating existing image-processing workflows.
 
 ## **Modern API**
 
 Added the following classes and enums to the public API:
 
-- IImage - represents the raster or vector image.
-- ImageFormat - represents the file format of the image.
-- Images - methods to instantiate and work with the IImage class.
+- [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) - represents the raster or vector image.
+- [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/) - represents the file format of the image.
+- [Images](https://reference.aspose.com/slides/php-java/aspose.slides/images/) - methods to instantiate and work with the [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) class.
 
-Note that `IImage` is disposable (it should be disposed of after use).
+Note that [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) is disposable (it should be disposed of after use).
+
+Use `getImage` to render a single slide or shape. Use `getImages` to render several presentation slides. Use [Images](https://reference.aspose.com/slides/php-java/aspose.slides/images/) methods to load images, `addImage` with [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) to add them to a presentation, and `replaceImage` with [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) to update an existing presentation image.
 
 A typical scenario of using the new API may look as follows:
 
@@ -76,9 +78,9 @@ $pres->dispose();
 
 ## **Replacing Old Code with Modern API**
 
-In general, you will need to replace the call to the old method using ImageIO with the new one.
+In general, you will need to replace calls that use [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) and [ImageIO](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html) with the new methods that use [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/).
 
-Old:
+Legacy/deprecated API:
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getThumbnail($dimension);
@@ -86,7 +88,7 @@ $imageio = new Java("javax.imageio.ImageIO");
 $javafile = new Java("java.io.File", "image.png");
 $imageio->write($slideImage, "PNG", $javafile);
 ```
-New:
+Modern API:
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getImage($dimension);
@@ -96,7 +98,7 @@ $slideImage->dispose();
 
 ### **Getting a Slide Thumbnail**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` php
 use aspose\slides\Presentation;
@@ -131,7 +133,7 @@ $pres->dispose();
 
 ### **Getting a Shape Thumbnail**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` php
 use aspose\slides\Presentation;
@@ -166,7 +168,7 @@ $pres->dispose();
 
 ### **Getting a Presentation Thumbnail**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` php
 use aspose\slides\Presentation;
@@ -215,7 +217,7 @@ $pres->dispose();
 
 ### **Adding a Picture to a Presentation**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` php
 use aspose\slides\Presentation;
@@ -254,7 +256,7 @@ $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectang
 $pres->dispose();
 ```
 
-## **Methods to Be Removed and Their Replacement in Modern API**
+## **Deprecated Methods and Their Replacement in Modern API**
 
 ### **Presentation**
 | Method Signature                               | Replacement Method Signature                             |
@@ -282,9 +284,9 @@ $pres->dispose();
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | No Modern API replacement  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | No Modern API replacement  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | No Modern API replacement  |
 
 ### **Output**
 | Method Signature                                                | Replacement Method Signature                                |
@@ -313,25 +315,25 @@ $pres->dispose();
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
 
-## **API Support for Graphics2D Will Be Discontinued**
+## **API Support for Graphics2D**
 
-Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) are declared deprecated and their support will be removed from the public API.
+Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) are declared deprecated and have no direct Modern API replacement.
 
-The part of the API that uses it will be removed:
+Use the Modern API image-rendering methods instead of the API that renders to [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html):
 
-[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
 ## **FAQ**
 
-**Why was java.awt.Graphics2D dropped?**
+**Why was [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) dropped?**
 
-Support for `Graphics2D` is being removed from the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). All rendering methods to `Graphics2D` will be removed.
+Support for [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Use `getImage` or `getImages` instead of rendering to [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html).
 
-**What is the practical benefit of IImage compared to BufferedImage?**
+**What is the practical benefit of [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) compared to [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)?**
 
 [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) unifies working with both raster and vector images and simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
 

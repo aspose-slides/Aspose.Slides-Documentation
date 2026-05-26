@@ -30,17 +30,19 @@ The Aspose.Slides for Python public API currently depends on the following `aspo
 
 As of version 24.4, this public API is **deprecated** due to [changes](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) in the Aspose.Slides for Python public API.
 
-To eliminate `aspose.pydrawing` from the public API, we introduced the **Modern API**. Methods that use `aspose.pydrawing.Image` and `aspose.pydrawing.Bitmap` are deprecated and will be replaced by their Modern API equivalents. Methods that use `aspose.pydrawing.Graphics` are deprecated, and support for them will be removed from the public API.
+To eliminate `aspose.pydrawing` from the public API, we introduced the **Modern API**. Methods that use `aspose.pydrawing.Image` and `aspose.pydrawing.Bitmap` are deprecated and should be replaced by their Modern API equivalents. Methods that use `aspose.pydrawing.Graphics` are deprecated and have no direct Modern API replacement.
 
-Removal of the deprecated API that depends on `aspose.pydrawing` is planned for release **24.8**.
+In current versions, treat the public API that depends on `aspose.pydrawing` as legacy/deprecated. Use the Modern API for new code and when migrating existing image-processing workflows.
 
 ## **Modern API**
 
 The following classes and enums have been added to the public API:
 
-- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — represents a raster or vector image.
-- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — represents an image file format.
-- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — provides methods to create and work with `IImage`.
+- [aspose.slides.IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) - represents a raster or vector image.
+- [aspose.slides.ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) - represents an image file format.
+- [aspose.slides.Images](https://reference.aspose.com/slides/python-net/aspose.slides/images/) - provides methods to create and work with [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/).
+
+Use `get_image` to render a single slide or shape. Use `get_images` to render several presentation slides. Use [Images](https://reference.aspose.com/slides/python-net/aspose.slides/images/) methods to load images, `add_image` with [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) to add them to a presentation, and `replace_image` with [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) to update an existing presentation image.
 
 A typical usage scenario for the new API looks like this:
 
@@ -62,7 +64,7 @@ with slides.Presentation() as presentation:
 
 ## **Replace Old Code with the Modern API**
 
-For an easier transition, the new `IImage` class mirrors the separate APIs of the `Image` and `Bitmap` classes. In most cases, you only need to replace calls to methods that use `aspose.pydrawing` with their Modern API equivalents.
+For an easier transition, the new [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) class mirrors the separate APIs of the `aspose.pydrawing.Image` and `aspose.pydrawing.Bitmap` classes. In most cases, you only need to replace calls to methods that use `aspose.pydrawing` with their Modern API equivalents.
 
 ### **Get a Slide Thumbnail**
 
@@ -184,12 +186,12 @@ with slides.Presentation() as presentation:
 |get_thumbnails(options, slides, scale_x, scale_y)|[get_images(options, slides, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-float-float)|
 |get_thumbnails(options, image_size)|[get_images(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
 |get_thumbnails(options, slides, image_size)|[get_images(options, slides, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-asposepydrawingsize)|
-|save(fname, format, response, show_inline)|Will be deleted completely|
-|save(fname, format, options, response, show_inline)|Will be deleted completely|
-|print()|Will be deleted completely|
-|print(printer_settings)|Will be deleted completely|
-|print(printer_name)|Will be deleted completely|
-|print(printer_settings, pres_name)|Will be deleted completely|
+|save(fname, format, response, show_inline)|No Modern API replacement|
+|save(fname, format, options, response, show_inline)|No Modern API replacement|
+|print()|No Modern API replacement|
+|print(printer_settings)|No Modern API replacement|
+|print(printer_name)|No Modern API replacement|
+|print(printer_settings, pres_name)|No Modern API replacement|
 
 ### **Slide Class**
 
@@ -198,13 +200,13 @@ with slides.Presentation() as presentation:
 |get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#)|
 |get_thumbnail(scale_x, scale_y)|[get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float)|
 |get_thumbnail(image_size)|[get_image(image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize)|
-|get_thumbnail(options)|[get_image(options: ITiffOotions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportitiffoptions)|
+|get_thumbnail(options)|[get_image(options: ITiffOptions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportitiffoptions)|
 |get_thumbnail(options)|[get_image(options: IRenderingOptions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions)|
 |get_thumbnail(options, scale_x, scale_y)|[get_image(options, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-float-float)|
 |get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
-|render_to_graphics(options, graphics)|Will be deleted completely|
-|render_to_graphics(options, graphics, scale_x, scale_y)|Will be deleted completely|
-|render_to_graphics(options, graphics, rendering_size)|Will be deleted completely|
+|render_to_graphics(options, graphics)|No Modern API replacement|
+|render_to_graphics(options, graphics, scale_x, scale_y)|No Modern API replacement|
+|render_to_graphics(options, graphics, rendering_size)|No Modern API replacement|
 
 ### **Shape Class**
 
@@ -251,22 +253,22 @@ with slides.Presentation() as presentation:
 | :- | :- |
 |add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## **API Support for aspose.pydrawing.Graphics Will Be Discontinued**
+## **API Support for aspose.pydrawing.Graphics**
 
-Methods that use `aspose.pydrawing.Graphics` are deprecated; support for them will be removed from the public API.
+Methods that use `aspose.pydrawing.Graphics` are deprecated and have no direct Modern API replacement.
 
-The API members that rely on `aspose.pydrawing.Graphics` and will be removed include:
+Use the Modern API image-rendering methods instead of the API that renders to `aspose.pydrawing.Graphics`:
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
 
 # **FAQ**
 
-**Why was aspose.pydrawing.Graphics dropped?**
+**Why was `aspose.pydrawing.Graphics` dropped?**
 
-Support for Graphics is being removed from the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). All rendering methods to Graphics will be removed.
+Support for `aspose.pydrawing.Graphics` is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). Use `get_image` or `get_images` instead of rendering to `aspose.pydrawing.Graphics`.
 
-**What is the practical benefit of IImage compared to Image/Bitmap?**
+**What is the practical benefit of [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) compared to `aspose.pydrawing.Image`/`aspose.pydrawing.Bitmap`?**
 
 [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) unifies working with both raster and vector images, simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), reduces dependence on pydrawing, and makes code more portable across environments.
 
