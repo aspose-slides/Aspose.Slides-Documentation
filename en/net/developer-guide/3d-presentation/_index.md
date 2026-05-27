@@ -1,5 +1,5 @@
 ---
-title: Create 3D Presentations in .NET
+title: Create 3D Effects in Presentations Using .NET
 linktitle: 3D Presentation
 type: docs
 weight: 232
@@ -13,234 +13,246 @@ keywords:
 - 3D gradient
 - 3D text
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Generate interactive 3D presentations in .NET with Aspose.Slides effortlessly. Export quickly to PowerPoint and OpenDocument formats for versatile use."
+description: "Apply and render 3D effects for PowerPoint shapes and text in .NET with Aspose.Slides. Configure camera, lighting, material, extrusion, fills, and 3D text."
 ---
 
+Aspose.Slides for .NET can create, edit, preserve, and render PowerPoint-style 3D formatting for shapes and text. This article covers 3D effects such as rotation, extrusion, bevels, lighting, material, gradient or picture fills, and 3D text.
 
-## **Introduction**
+{{% alert color="primary" %}}
 
-How do you usually create a 3D PowerPoint presentation?
-Microsoft PowerPoint enables to create 3D presentations in terms that we may add 3D models there, apply 3D effects on shapes, 
-create 3D text, upload 3D graphics into presentation, create PowerPoint 3D animations. 
+This article is about 3D formatting effects on PowerPoint shapes and text. It is not about inserting or editing standalone 3D model files. When you export a slide to an image, PDF, or HTML, Aspose.Slides renders those 3D effects into the exported 2D output.
 
-Creating 3D effects makes a big impact into improving your presentation to a 3D presentation, and may be the easiest implementation of 3D presentation. 
-Since Aspose.Slides 20.9 version, a new **cross-platform 3D engine** has been added. The new 3D engine enables 
-to export and rasterize shapes and text with 3D effects. In the previous versions, 
-Slides shapes with 3D effects applied, had been rendered flat. But, now it’s possible to 
-render shapes with a **full-fledged 3D**.
-Moreover, now it’s possible to create shapes with 3D effects via Slides public API.
+{{% /alert %}}
 
-In Aspose.Slides API, to make 
-a shape become a PowerPoint 3D shape use [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) property, 
-which inherits the features of [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat) interface:
-- [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) 
-and [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop): set bevel to the shape, define bevel type (e.g. Angle, Circle, SoftRound), define height and width of bevel.
-- [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera): is used to imitate camera movements around the object. In other words, by setting came rotation, zoom and other properties - you may entertain with your 
-shapes as with the 3D model in PowerPoint.
-- [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) 
-and [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth): set contour properties to make the shape look like 3D PowerPoint shape.
-- [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth), 
-[ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) 
-and [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight): are used to make the shape three-dimension, which means to convert a 2D shape into a 3D shape, 
-by setting its depth or extrusing it.
-- [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig): can create a light effect on a 3D shape. The logic of this property is closed to Camera, you can set the rotation of the light 
-in relation to the #D shape and choose the light type.
-- [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material): setting the type of 3D shape material can bring more alive effect into it. The property provides a set of predefined materials, like: 
-Metal, Plastic, Powder, Matte, etc.  
+## **3D Formatting Concepts**
 
-All 3D features can be applied to both shapes and text. Let us see how to access the properties mentioned above and then look on them in details step by step:
-``` csharp 
+Use the [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) property to apply 3D formatting to a shape. The property exposes [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat), which controls the 3D scene for that shape.
+
+For text, use the [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) property. This applies 3D formatting to the text frame instead of the shape body.
+
+The most important properties are:
+
+| Property | What it controls | When to use it |
+|---|---|---|
+| [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) | Viewpoint, preset camera type, rotation, zoom, and perspective. | Rotate the object in 3D space or match a PowerPoint 3D rotation preset. |
+| [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig) | Light preset, direction, and light rotation. | Change how highlights and shadows appear on the 3D surface. |
+| [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material) | Surface material, such as flat, matte, plastic, or metal. | Make the same geometry look flatter, softer, glossy, or metallic. |
+| [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) | How far the shape extends backward from its front face. | Turn a flat shape into a visibly thick 3D object. |
+| [ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) | Color of the extruded sides. | Make depth visible or coordinate the side color with the front fill. |
+| [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth) | Additional 3D depth used by PowerPoint 3D formatting. | Fine-tune depth for shapes or text, especially together with bevel and material settings. |
+| [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop) and [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) | Raised or rounded edges on the front and back faces. | Add a softened or molded edge instead of a sharp flat face. |
+| [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) and [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth) | Outline around the 3D object. | Emphasize the object boundary in rendered output. |
+
+## **Create a 3D Shape**
+
+A shape usually needs four kinds of settings before it looks convincingly 3D:
+
+- Camera settings, because the default front view may hide the extrusion.
+- Light settings, because lighting makes the faces and sides readable.
+- Material settings, because the surface affects how light is rendered.
+- Extrusion or depth settings, because a flat shape needs thickness.
+
+The following example creates a rectangle, adds text to its front face, applies 3D formatting, saves the presentation as PPTX, and renders the slide to a PNG image.
+
+```csharp
 const float imageScale = 2;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
 
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-    shape.TextFrame.Text = "3D";
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.TextFrame.Text = "3D";
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
 
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.Material = MaterialPresetType.Flat;
-    shape.ThreeDFormat.ExtrusionHeight = 100;
-    shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.CornflowerBlue;
 
-    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-    {
-        thumbnail.Save("sample_3d.png");
-    }
-
-    presentation.Save("sandbox_3d.pptx", SaveFormat.Pptx);
-}
-```
-
-The rendered thumbnail looks like that:
-
-![todo:image_alt_text](img_01_01.png)
-
-## **3D Rotation**
-It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more interactivity. To rotate 3D shape in PowerPoint, you usually use the following menu:
-
-![todo:image_alt_text](img_02_01.png)
-
-In Aspose.Slides API 3D shape rotation can be managed using [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) property:
-
-``` csharp
-IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-// ... set other 3D scene parameters
+shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
+shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+shape.ThreeDFormat.Material = MaterialPresetType.Flat;
+shape.ThreeDFormat.ExtrusionHeight = 100;
+shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
 
-using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-{
-    thumbnail.Save("sample_3d.png");
-}
+using var thumbnail = slide.GetImage(imageScale, imageScale);
+thumbnail.Save("shape_3d.png");
+
+presentation.Save("shape_3d.pptx", SaveFormat.Pptx);
 ```
 
-## **3D Depth and Extrusion**
-To bring the third dimension to your shape and make it a 3D shape, use [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) 
-and [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) properties:
+The rendered slide image shows the rectangle as a thick 3D block:
 
-``` csharp
-IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
+
+## **Rotate a Shape with the Camera**
+
+In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, and Z rotation values correspond to the rotation you set through the camera API.
+
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
+
+In Aspose.Slides, set the camera type and rotation through [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera):
+
+```csharp
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
+```
+
+Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
+
+## **Add Extrusion and Depth**
+
+Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.
+
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
+
+Set [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) for the thickness and [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) for the side color:
+
+```csharp
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
-// ... set other 3D scene parameters
-
-using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-{
-    thumbnail.Save("sample_3d.png");
-}
 ```
 
-Usually, you use Depth menu in PowerPoint to set Depth for PowerPoint 3D shape:
+Use [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth) when you need to work with PowerPoint's depth value directly or combine depth with bevel, material, and text effects. In many shape scenarios, `ExtrusionHeight` is the clearer setting because it directly expresses the visible extrusion.
 
-![todo:image_alt_text](img_02_02.png)
+## **Use Gradient or Picture Fills with 3D Effects**
 
+3D formatting is independent from the shape fill. You can apply a solid color, gradient, pattern, or picture fill to the front face and still use the same camera, light, material, and extrusion settings.
 
-## **3D Gradient**
-Gradient can be used to fill the color of PowerPoint 3D shape. Let us create a shape with gradient fill color and apply a 3D effect on it:
+This example applies a gradient fill to the shape and a darker extrusion color to the sides:
 
-``` csharp
+```csharp
 const float imageScale = 2;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
 
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.TextFrame.Text = "3D Gradient";
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+shape.TextFrame.Text = "3D Gradient";
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
 
-    shape.FillFormat.FillType = FillType.Gradient;
-    shape.FillFormat.GradientFormat.GradientStops.Add(0, Color.Blue);
-    shape.FillFormat.GradientFormat.GradientStops.Add(100, Color.Orange);
-    
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.ExtrusionHeight = 150;
-    shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
+shape.FillFormat.FillType = FillType.Gradient;
+shape.FillFormat.GradientFormat.GradientStops.Add(0, Color.Blue);
+shape.FillFormat.GradientFormat.GradientStops.Add(100, Color.Orange);
 
-    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-    {
-        thumbnail.Save("sample_3d.png");
-    }
-}
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
+shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
+shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+shape.ThreeDFormat.Material = MaterialPresetType.Flat;
+shape.ThreeDFormat.ExtrusionHeight = 150;
+shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
+
+using var thumbnail = slide.GetImage(imageScale, imageScale);
+thumbnail.Save("gradient_3d.png");
 ```
 
-And here is the result:
+The rendered output keeps the gradient on the front face and renders the extrusion separately:
 
-![todo:image_alt_text](img_02_03.png)
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
 
-Except a gradient fill color, its possible to fill shapes with an image:
-``` csharp
-byte[] imageData = File.ReadAllBytes("image.jpg");
-IPPImage image = presentation.Images.AddImage(imageData);
+To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
+
+```csharp
+var imageData = File.ReadAllBytes("image.jpg");
+var image = presentation.Images.AddImage(imageData);
 
 shape.FillFormat.FillType = FillType.Picture;
 shape.FillFormat.PictureFillFormat.Picture.Image = image;
 shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-// ... setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
 
-using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-{
-    thumbnail.Save("sample_3d.png");
-}
+shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
+shape.ThreeDFormat.ExtrusionHeight = 150;
+shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
 ```
 
-That's how it looks like:
+The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:
 
-![todo:image_alt_text](img_02_04.png)
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
-## **3D Text (WordArt)**
-Aspose.Slides allows to apply 3D on text too. For creating a 3D text its possible to use WordArt transform effect:
+## **Apply 3D Formatting to Text**
 
-``` csharp
+Shape 3D formatting affects the shape body. Text 3D formatting affects the text frame. This is useful for WordArt-like effects where the letters themselves need extrusion, material, lighting, and camera settings.
+
+The following example creates text with a pattern fill, applies a WordArt transform, and configures 3D settings on [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat):
+
+```csharp
 const float imageScale = 2;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
 
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.FillFormat.FillType = FillType.NoFill;
-    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
-    shape.TextFrame.Text = "3D Text";
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+shape.TextFrame.Text = "3D Text";
 
-    Portion portion = (Portion)shape.TextFrame.Paragraphs[0].Portions[0];
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.LargeGrid;
+var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.LargeGrid;
 
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
 
-    ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
-    // set the "Arch Up" WordArt transform effect
-    textFrameFormat.Transform = TextShapeType.ArchUp;
+var textFrameFormat = shape.TextFrame.TextFrameFormat;
+textFrameFormat.Transform = TextShapeType.ArchUp;
+textFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
+textFrameFormat.ThreeDFormat.Depth = 3;
+textFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 
-    textFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
-    textFrameFormat.ThreeDFormat.Depth = 3;
-    textFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
-    textFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+using var thumbnail = slide.GetImage(imageScale, imageScale);
+thumbnail.Save("text_3d.png");
 
-    textFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
-
-    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-    {
-        thumbnail.Save("text3d.png");
-    }
-
-    presentation.Save("text3d.pptx", SaveFormat.Pptx);
-}
+presentation.Save("text_3d.pptx", SaveFormat.Pptx);
 ```
 
-Here is the result:
+The text is rendered as curved, extruded 3D lettering:
 
-![todo:image_alt_text](img_02_05.png)
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
+
+## **Export and Rendering Behavior**
+
+Aspose.Slides preserves 3D formatting when saving to PowerPoint formats such as PPTX. When rendering or exporting to fixed-layout formats, the 3D scene is rasterized or drawn into the output as a 2D result. This applies when you render slides to [PNG](/slides/net/convert-powerpoint-to-png/), export to [PDF](/slides/net/convert-powerpoint-to-pdf/), export to [HTML](/slides/net/convert-powerpoint-to-html/), or generate frames for [video conversion](/slides/net/convert-powerpoint-to-video/).
+
+Keep these points in mind:
+
+- Exported images and PDFs are not interactive. The object cannot be rotated by the viewer after export.
+- The final appearance depends on the combination of camera, light rig, material, extrusion, fill, and slide scaling.
+- If you need to inspect inherited or theme-based formatting values, read the [effective shape properties](/slides/net/shape-effective-properties/).
+- Some output formats cannot store editable PowerPoint 3D formatting. In those formats, the visual result is rendered rather than preserved as editable 3D settings.
 
 ## **FAQ**
 
-**Will 3D effects be preserved when exporting a presentation to images/PDF/HTML?**
+**Can Aspose.Slides create interactive 3D presentations?**
 
-Yes. The Slides 3D engine renders 3D effects when exporting to supported formats ([images](/slides/net/convert-powerpoint-to-png/), [PDF](/slides/net/convert-powerpoint-to-pdf/), [HTML](/slides/net/convert-powerpoint-to-html/), etc.).
+Aspose.Slides creates and renders PowerPoint 3D effects for shapes and text. It does not make exported images, PDFs, or HTML pages interactive 3D scenes that a viewer can rotate. In PPTX, the 3D formatting remains editable in PowerPoint where the format supports it.
 
-**Can I retrieve the "effective" (final) 3D parameter values that account for themes, inheritance, etc.?**
+**What is the difference between a 3D model and a 3D effect?**
 
-Yes. Slides provides APIs to [read effective values](/slides/net/shape-effective-properties/) (including for 3D—lighting, bevels, etc.) so you can see the final applied settings.
+A 3D model is a separate 3D object inserted into a presentation. A 3D effect is formatting applied to a regular PowerPoint shape or text, such as rotation, extrusion, bevel, lighting, and material. This article covers 3D effects.
 
-**Do 3D effects work when converting a presentation to video?**
+**Which settings are required for a visible 3D shape?**
 
-Yes. When [generating frames for the video](/slides/net/convert-powerpoint-to-video/), 3D effects are rendered just as they are for [exported images](/slides/net/convert-powerpoint-to-png/).
+At minimum, set a camera rotation and either extrusion or depth. In practice, also set a light rig and material so the rendered faces have clear highlights and shadows.
+
+**Can I apply 3D effects to both shapes and text?**
+
+Yes. Use [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) for the shape body and [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) for text.
+
+**Will 3D effects appear when exporting to images, PDF, HTML, or video frames?**
+
+Yes. Aspose.Slides renders 3D effects when producing slide images, PDF output, HTML output, and frames used for video conversion. The exported output contains the rendered appearance, not an editable 3D object.
+
+**Can I read the final 3D values after inheritance and theme settings are applied?**
+
+Yes. Use the effective formatting APIs described in [Shape Effective Properties](/slides/net/shape-effective-properties/) to read final camera, light rig, bevel, and related 3D values.
