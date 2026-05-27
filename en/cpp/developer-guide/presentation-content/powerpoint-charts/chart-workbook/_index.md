@@ -324,3 +324,7 @@ Aspose.Slides does not accept a password when linking. A common approach is to r
 **Can multiple charts reference the same external workbook?**
 
 Yes. Each chart stores its own link. If they all point to the same file, updating that file will be reflected in each chart the next time the data is loaded.
+
+**Can I retrieve cached chart values when the workbook is linked externally and not available?**
+
+No. Aspose.Slides for C++ does not provide a public API to read the cached chart values stored in the chart XML when the external workbook cannot be loaded.
