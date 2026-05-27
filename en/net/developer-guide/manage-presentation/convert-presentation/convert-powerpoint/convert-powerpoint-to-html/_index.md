@@ -233,8 +233,7 @@ var outputDirectory = Path.Combine(Environment.CurrentDirectory, "html-output");
 var fontsDirectory = Path.Combine(outputDirectory, "fonts");
 Directory.CreateDirectory(outputDirectory);
 
-string[] fontNamesToExclude = { "Arial", "Calibri" };
-var fontController = new LinkedFontsHtmlController(fontNamesToExclude, fontsDirectory, "fonts");
+var fontController = new LinkedFontsHtmlController(fontsDirectory, "fonts");
 var formatter = HtmlFormatter.CreateCustomFormatter(fontController);
 
 var htmlOptions = new HtmlOptions
@@ -253,10 +252,9 @@ public sealed class LinkedFontsHtmlController : EmbedAllFontsHtmlController
     private readonly string _fontUrlPrefix;
 
     public LinkedFontsHtmlController(
-        string[] fontNamesToExclude,
         string fontOutputDirectory,
         string fontUrlPrefix)
-        : base(fontNamesToExclude)
+        : base(Array.Empty<string>())
     {
         _fontOutputDirectory = fontOutputDirectory;
         _fontUrlPrefix = fontUrlPrefix.TrimEnd('/') + "/";
