@@ -36,6 +36,10 @@ Previously, when Aspose.Slides was used on a Linux host, additional dependencies
 
 Another consideration is problems that occurred when Aspose.Slides was used on a cloud solution with a Windows host. For example, [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) have limitations for the process and results in problems during a PDF export operation (see [this](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks)). The usage of Aspose.Slides for .NET6 resolves this issue.
 
+### Using Aspose.Slides.NET6.CrossPlatform on Linux
+
+When running on Linux (e.g., Debian 12) the `Slides.AddClone` method can throw a `System.Drawing.Common` not-supported exception because the default Aspose.Slides package depends on System.Drawing. Use the cross-platform package `Aspose.Slides.NET6.CrossPlatform` (or a newer version) which removes that dependency. Ensure the container includes required native libraries such as **fontconfig**, a GLIBC version ≥ 2.23, and the fonts used in the source presentation.
+
 ## **Using the System.Drawing.Common Package and Slides for .NET 6 Classes (CS0433: The Type Exists in Both Slides and System.Drawing.Common Error)**
 
 Sometimes, both System.Drawing and Slides for .NET6 dependencies have to be used in a project (for example, when the .NET6 project depends on other packages, which in turn depend on System.Drawing). This may cause complication errors like these:
