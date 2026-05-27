@@ -59,6 +59,16 @@ with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as pptx:
     pptx.save("output_out.xps", slides.export.SaveFormat.XPS)
 ```
 
+### Ensuring Font Styles Are Preserved
+
+When generating PNG thumbnails, Aspose.Slides uses the fonts available on the rendering machine. If the original font family is not found, the engine falls back to the *default_regular_font* (or *default_asian_font*) and may lose style variants such as **italic** or **bold**. To keep all font styles intact:
+
+* **Embed the original fonts** in the PPTX file before rendering. Embedded fonts are always used, regardless of the server’s font configuration.
+* **Install the required font families** on the Azure Linux web app or add their locations via a custom font source (`slides.Fonts.add_folder(path)`).
+* Verify that the installed fonts contain the necessary style files (e.g., *.ttf* for regular and *.ttf* for italic). Missing style files cause the engine to substitute a regular style, resulting in the observed loss of italics.
+
+Applying either of these steps ensures that the PNG thumbnail matches the original slide’s typography.
+
 ## **FAQ**
 
 **What exactly do default_regular_font and default_asian_font affect—only export, or also thumbnails, PDF, XPS, HTML, and SVG?**
