@@ -223,7 +223,7 @@ try {
     $fontNamesToExclude = $arrayClass->newInstance($stringClass, 1);
     $arrayClass->set($fontNamesToExclude, 0, new Java("java.lang.String", "Calibri"));
 
-    $fontController = new EmbedAllFontsHtmlController($fontNamesToExclude);
+    $fontController = new EmbedAllFontsHtmlController(java_values($fontNamesToExclude));
     $formatter = java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($fontController);
 
     $htmlOptions = new HtmlOptions();

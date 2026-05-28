@@ -238,17 +238,18 @@ To reduce the HTML file size, you can write font data to separate WOFF files and
 
 ```java
 class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
-    private final java.nio.file.Path fontOutputDirectory;
+    private final String fontOutputDirectory;
     private final String fontUrlPrefix;
 
     LinkedFontsHtmlController(
-            java.nio.file.Path fontOutputDirectory,
+            String fontOutputDirectory,
             String fontUrlPrefix) throws java.io.IOException {
         super(new String[0]);
         this.fontOutputDirectory = fontOutputDirectory;
         this.fontUrlPrefix = fontUrlPrefix.endsWith("/") ? fontUrlPrefix : fontUrlPrefix + "/";
-
-        java.nio.file.Files.createDirectories(fontOutputDirectory);
+        
+        File dirs = new File(fontOutputDirectory);
+        dirs.mkdirs();
     }
 
     @Override
@@ -265,9 +266,11 @@ class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
             String safeFontStyle = fontStyle == null || fontStyle.trim().isEmpty() ? "normal" : fontStyle;
             String safeFontWeight = fontWeight == null || fontWeight.trim().isEmpty() ? "normal" : fontWeight;
             String fontFileName = safeFontName + "-" + safeFontStyle + "-" + safeFontWeight + ".woff";
-            java.nio.file.Path fontFilePath = fontOutputDirectory.resolve(fontFileName);
+            String fontFilePath = fontOutputDirectory + "/" + fontFileName;
 
-            java.nio.file.Files.write(fontFilePath, fontData);
+            FileOutputStream fos = new FileOutputStream(fontFilePath);
+            fos.write(fontData);
+            fos.close();
 
             String encodedFontFileName = java.net.URLEncoder.encode(fontFileName, "UTF-8");
             String fontUrl = fontUrlPrefix + encodedFontFileName.replace("+", "%20");
@@ -301,9 +304,10 @@ class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
     }
 }
 
-java.nio.file.Path outputDirectory = java.nio.file.Paths.get(System.getProperty("user.dir"), "html-output");
-java.nio.file.Path fontsDirectory = outputDirectory.resolve("fonts");
-java.nio.file.Files.createDirectories(outputDirectory);
+String outputDirectory = System.getProperty("user.dir") + "/html-output";
+String fontsDirectory = outputDirectory + "/fonts";
+File dir = new File("path/to/folder");
+dir.mkdir();
 
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -313,7 +317,7 @@ try {
     HtmlOptions htmlOptions = new HtmlOptions();
     htmlOptions.setHtmlFormatter(formatter);
 
-    java.nio.file.Path htmlFilePath = outputDirectory.resolve("presentation.html");
+    String htmlFilePath = outputDirectory + "/presentation.html";
     presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
 } finally {
     presentation.dispose();
@@ -342,24 +346,25 @@ When you externalize resources, choose two paths deliberately:
 If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
 
 ```java
-java.nio.file.Path outputDirectory = java.nio.file.Paths.get(System.getProperty("user.dir"), "html-output");
-java.nio.file.Path mediaDirectory = outputDirectory.resolve("media");
-java.nio.file.Files.createDirectories(outputDirectory);
-java.nio.file.Files.createDirectories(mediaDirectory);
+String outputDirectory = System.getProperty("user.dir") + "/html-output";
+String mediaDirectory = outputDirectory + "/media";
+File outDir = new File(outputDirectory);
+outDir.mkdir();
+File mediaDir = new File(mediaDirectory);
+mediaDir.mkdir();
 
 String htmlFileName = "presentation.html";
-String mediaBaseUri = mediaDirectory.toUri().toString();
+String mediaBaseUri = mediaDirectory;
 
 Presentation presentation = new Presentation();
 try {
-    java.nio.file.Path videoFilePath = java.nio.file.Paths.get("intro.mp4");
-    byte[] videoData = java.nio.file.Files.readAllBytes(videoFilePath);
+    byte[] videoData = ...;// intro.mp4
 
     IVideo video = presentation.getVideos().addVideo(videoData);
     ISlide slide = presentation.getSlides().get_Item(0);
     slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
 
-    String mediaDirectoryPath = mediaDirectory.toString();
+    String mediaDirectoryPath = mediaDirectory;
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(mediaDirectoryPath, htmlFileName, mediaBaseUri);
     HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(controller);
     SVGOptions svgOptions = new SVGOptions(controller);
@@ -369,7 +374,7 @@ try {
     htmlOptions.setHtmlFormatter(formatter);
     htmlOptions.setSlideImageFormat(slideImageFormat);
 
-    java.nio.file.Path htmlFilePath = outputDirectory.resolve(htmlFileName);
+    String htmlFilePath = outputDirectory + "/" + htmlFileName;
     presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
 } finally {
     presentation.dispose();
