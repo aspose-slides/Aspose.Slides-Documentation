@@ -20,6 +20,8 @@ keywords:
 description: "Apply and render 3D effects for PowerPoint shapes and text in .NET with Aspose.Slides. Configure camera, lighting, material, extrusion, fills, and 3D text."
 ---
 
+## **Overview**
+
 Aspose.Slides for .NET can create, edit, preserve, and render PowerPoint-style 3D formatting for shapes and text. This article covers 3D effects such as rotation, extrusion, bevels, lighting, material, gradient or picture fills, and 3D text.
 
 {{% alert color="primary" %}}
