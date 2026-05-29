@@ -1,422 +1,332 @@
 ---
-title: 使用 JavaScript 将 PowerPoint 演示文稿转换为 HTML
+title: 在 Node.js 中将 PowerPoint 演示文稿转换为 HTML
 linktitle: PowerPoint 转 HTML
 type: docs
 weight: 30
 url: /zh/nodejs-java/convert-powerpoint-to-html/
 keywords:
 - 转换 PowerPoint
-- 转换演示文稿
-- 转换幻灯片
+- 转换 演示文稿
+- 转换 幻灯片
 - 转换 PPT
 - 转换 PPTX
 - PowerPoint 转 HTML
-- 演示文稿转 HTML
-- 幻灯片转 HTML
+- 演示文稿 转 HTML
+- 幻灯片 转 HTML
 - PPT 转 HTML
 - PPTX 转 HTML
 - 将 PowerPoint 保存为 HTML
-- 将演示文稿保存为 HTML
-- 将幻灯片保存为 HTML
+- 将 演示文稿 保存为 HTML
+- 将 幻灯片 保存为 HTML
 - 将 PPT 保存为 HTML
 - 将 PPTX 保存为 HTML
-- 将 PPT 导出为 HTML
-- 将 PPTX 导出为 HTML
+- 导出 PPT 为 HTML
+- 导出 PPTX 为 HTML
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides 转换指南，快速、完美地保留布局、链接和图像。"
+description: "在 Node.js 中将 PowerPoint 演示文稿转换为 HTML。使用 Aspose.Slides for Node.js via Java 导出 PPT 和 PPTX 文件、选定的幻灯片、备注、字体、图像、SVG 和媒体。"
 ---
-
 ## **概述**
 
-本文说明如何使用 JavaScript 将 PowerPoint 演示文稿转换为 HTML 格式。它涵盖以下主题。
+Aspose.Slides for Node.js via Java 可在没有 Microsoft PowerPoint 的情况下将 PowerPoint 演示文稿保存为 HTML。基本的转换只需加载一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 并使用 [SaveFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/saveformat/) 调用 `save`。当需要控制导出布局、字体、图像、备注、批注、SVG 输出或链接资源时，请使用 [HtmlOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/htmloptions/)。
 
-- 在 JavaScript 中将 PowerPoint 转换为 HTML
-- 在 JavaScript 中将 PPT 转换为 HTML
-- 在 JavaScript 中将 PPTX 转换为 HTML
-- 在 JavaScript 中将 ODP 转换为 HTML
-- 在 JavaScript 中将 PowerPoint 幻灯片转换为 HTML
+本指南侧重于实际的 HTML 导出场景：
 
-## **JavaScript 将 PowerPoint 转换为 HTML**
+- 导出整个演示文稿或选定的幻灯片。
+- 生成固定布局、响应式或基于 SVG 的 HTML。
+- 包含演讲者备注和批注。
+- 控制图像质量和裁剪图像数据。
+- 嵌入字体或单独保存字体文件。
+- 选择外部资源和媒体文件的写入和引用方式。
 
-有关将 PowerPoint 转换为 HTML 的 JavaScript 示例代码，请参见下面的章节，即[Convert PowerPoint to HTML](#convert-powerpoint-to-html)。该代码可以在 Presentation 对象中加载 PPT、PPTX 和 ODP 等多种格式，并将其保存为 HTML 格式。
+默认情况下，HTML 导出生成一个自包含的 HTML 文档，大多数资源都已嵌入。这对于共享单个文件很方便，但会增加输出大小。对于 Web 发布，建议使用外部资源、降低图像 DPI，并仅嵌入目标环境中不可靠可用的字体。
 
-## **关于 PowerPoint 转换为 HTML**
+## **将演示文稿转换为 HTML**
 
-使用[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)，应用程序和开发人员可以将 PowerPoint 演示文稿转换为 HTML：**PPTX to HTML** 或 **PPT to HTML**。
+要将演示文稿导出为 HTML，使用 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 加载并使用 [SaveFormat.Html](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/saveformat/) 保存。
 
-**Aspose.Slides** 提供许多选项（主要来自[**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) 类），用于定义 PowerPoint 转换为 HTML 的过程：
-
-* 将整个 PowerPoint 演示文稿转换为 HTML。
-* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
-* 将演示文稿媒体（图像、视频等）转换为 HTML。
-* 将 PowerPoint 演示文稿转换为响应式 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。
-* 将 PowerPoint 演示文稿转换为使用原始或嵌入字体的 HTML。
-* 在使用新 CSS 样式的情况下将 PowerPoint 演示文稿转换为 HTML。
-
-{{% alert color="primary" %}} 
-
-使用 Aspose 自己的 API，Aspose 开发了免费[演示文稿转 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)转换器：[PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html)等。
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-您可能想要查看 Aspose 提供的其他[免费转换器](https://products.aspose.app/slides/conversion)。
-
-{{% /alert %}} 
-
-## **将 PowerPoint 转换为 HTML**
-使用 Aspose.Slides，您可以这样将整个 PowerPoint 演示文稿转换为 HTML：
-
-1. 创建一个[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)类的实例。
-2. 使用[save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-)方法将对象保存为 HTML 文件。
-
-下面的代码演示了如何在 JavaScript 中将 PowerPoint 转换为 HTML：
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 对象
-var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var htmlOpt = new aspose.slides.HtmlOptions();
-    htmlOpt.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    htmlOpt.setHtmlFormatter(aspose.slides.HtmlFormatter.createDocumentFormatter("", false));
-    // 将演示文稿保存为 HTML
-    pres.save("ConvertWholePresentationToHTML_out.html", aspose.slides.SaveFormat.Html, htmlOpt);
+    presentation.save("presentation.html", aspose.slides.SaveFormat.Html);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+此示例写入一个 HTML 文件。演示文稿对象在 `finally` 块中被释放，释放文件句柄和渲染资源。
 
-## **将 PowerPoint 转换为响应式 HTML**
-Aspose.Slides 提供了[ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController)类，允许生成响应式 HTML 文件。下面的代码演示了如何在 JavaScript 中将 PowerPoint 演示文稿转换为响应式 HTML：
+## **使用 HtmlOptions**
+
+[HtmlOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/htmloptions/) 是 HTML 导出的主要配置类。常用设置包括：
+
+- `SlidesLayoutOptions`：添加备注、批注、讲义或其他布局信息。
+- `HtmlFormatter`：更改 HTML 文档结构或将格式化委托给控制器。
+- `SlideImageFormat`：更改幻灯片的表示方式，例如作为 SVG。
+- `PicturesCompression`：控制图像 DPI 和输出大小。
+- `DeletePicturesCroppedAreas`：保留或移除裁剪的图像数据。
+- `SvgResponsiveLayout`：使导出的 SVG 内容适应其容器。
+- `ShowHiddenSlides`：在需要时包含隐藏的幻灯片。
+
+下面的章节分别展示最常用的选项，以便仅组合工作流所需的部分。
+
+## **将选定的幻灯片转换为 HTML**
+
+接受幻灯片编号的 `Presentation.save` 重载使用基于 1 的幻灯片位置。下面的循环将每张幻灯片保存为单独的 HTML 文件。
+
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 对象
-var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var controller = new aspose.slides.ResponsiveHtmlController();
-    var htmlOptions = new aspose.slides.HtmlOptions();
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(controller));
-    // 将演示文稿保存为 HTML
-    pres.save("ConvertPresentationToResponsiveHTML_out.html", aspose.slides.SaveFormat.Html, htmlOptions);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    let slideCount = presentation.getSlides().size();
+
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        let slideNumber = slideIndex + 1;
+        let slideNumbers = java.newArray("int", [slideNumber]);
+        let htmlFileName = "slide-" + slideNumber + ".html";
+
+        presentation.save(htmlFileName, slideNumbers, aspose.slides.SaveFormat.Html);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+当网站或应用程序需要每张幻灯片对应一个 HTML 页面时，请使用此模式。如果每张幻灯片应使用相同布局，请创建一个 [HtmlOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/htmloptions/) 实例，并将其传递给每个 `save` 调用。
 
-## **将 PowerPoint 转换为带备注的 HTML**
-下面的代码演示了如何在 JavaScript 中将 PowerPoint 转换为带备注的 HTML：
+## **创建响应式 HTML**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/responsivehtmlcontroller/) 通过 [HtmlFormatter](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/htmlformatter/) 提供响应式 HTML 输出。当导出页面需要更好地适应浏览器宽度时使用它。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var opt = new aspose.slides.HtmlOptions();
-    var options = opt.getNotesCommentsLayouting();
-    options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    // 保存备注页面
-    pres.save("Output.html", aspose.slides.SaveFormat.Html, opt);
+    let controller = new aspose.slides.ResponsiveHtmlController();
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-responsive.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+对于基于 SVG 的响应式布局，请在 [HtmlOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/htmloptions/) 上设置 `SvgResponsiveLayout`。这在幻灯片内容以可伸缩 SVG 标记导出时非常有用。
 
-## **将 PowerPoint 转换为带原始字体的 HTML**
-
-Aspose.Slides 提供了[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController)类，允许在将演示文稿转换为 HTML 时嵌入所有字体。
-
-为了防止嵌入某些字体，您可以向[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController)类的带参数构造函数传递字体名称数组。常用字体，如 Calibri 或 Arial，在演示文稿中使用时无需嵌入，因为大多数系统已经包含这些字体。嵌入这些字体会导致生成的 HTML 文档体积不必要地增大。
-
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) 类支持继承，并提供 [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) 方法，供子类重写。
 ```javascript
-var pres = new aspose.slides.Presentation("input.pptx");
-try {
-    // 排除默认演示文稿字体
-    var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
-    var embedFontsController = new aspose.slides.EmbedAllFontsHtmlController(fontNameExcludeList);
-    var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(embedFontsController));
-    pres.save("input-PFDinDisplayPro-Regular-installed.html", aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **将 PowerPoint 转换为高质量图像的 HTML**
-默认情况下，将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出带有 72 DPI 图像且已删除裁剪区域的精简 HTML。要获取图像质量更高的 HTML 文件，需要向 `HtmlOptions` 类的 `setPicturesCompression` 方法传递 `96`（即 `PicturesCompression.Dpi96`）或更高的[值](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression)。
-
-下面的 JavaScript 代码演示了如何在将 PowerPoint 演示文稿转换为 HTML 时获取 150 DPI（即 `PicturesCompression.Dpi150`）的高质量图像：
-```javascript
-var pres = new aspose.slides.Presentation("InputDoc.pptx");
-try {
-    var htmlOpts = new aspose.slides.HtmlOptions();
-    htmlOpts.setPicturesCompression(aspose.slides.PicturesCompression.Dpi150);
-    pres.save("OutputDoc-dpi150.html", aspose.slides.SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-下面的 JavaScript 代码演示了如何输出带有完整质量图像的 HTML：
-```javascript
-var pres = new aspose.slides.Presentation("InputDoc.pptx");
-try {
-    var htmlOpts = new aspose.slides.HtmlOptions();
-    htmlOpts.setDeletePicturesCroppedAreas(false);
-    pres.save("Outputdoc-noCrop.html", aspose.slides.SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **将幻灯片转换为 HTML**
-要将 PowerPoint 中的特定幻灯片转换为 HTML，需要实例化相同的[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)类（用于将整个演示文稿转换为 HTML），然后使用[save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-)方法将文件保存为 HTML。[HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) 类可用于指定其他转换选项：
-
-下面的 JavaScript 代码演示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：
-```javascript
-var pres = new aspose.slides.Presentation("Individual-Slide.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let htmlOptions = new aspose.slides.HtmlOptions();
-    htmlOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    
-    const CustomFormattingController = java.newProxy("com.aspose.slides.IHtmlFormattingController", {
-        writeDocumentStart: function(generator, presentation) {
+    htmlOptions.setSvgResponsiveLayout(true);
 
-        },
-
-        writeDocumentEnd: function(generator, presentation) {
-
-        },
-
-        writeSlideStart: function(generator, slide) {
-            const slideIndex = generator.getSlideIndex() + 1;
-            const slideHeaderHtml = `<div class="slide" name="slide" id="slide${slideIndex}">`;
-            generator.addHtml(slideHeaderHtml);
-        },
-
-        writeSlideEnd: function(generator, slide) {
-            const slideFooterHtml = "</div>";
-            generator.addHtml(slideFooterHtml);
-        },
-
-        writeShapeStart: function(generator, shape) {
-        },
-
-        writeShapeEnd: function(generator, shape) {
-        }
-    });
-    
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(CustomFormattingController));
-    // 保存文件
-    for (var i = 0; i < pres.getSlides().size(); i++) {
-        pres.save(("Individual Slide" + (i + 1)) + "_out.html", java.newArray("int", [i + 1]), aspose.slides.SaveFormat.Html, htmlOptions);
-    }
+    presentation.save("presentation-svg-responsive.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **包含演讲者备注和批注**
 
-## **导出为 HTML 时保存 CSS 和图像**
-使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转换为 HTML 过程生成的 HTML 文件的样式。
+通过 `HtmlOptions.setSlidesLayoutOptions` 使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/notescommentslayoutingoptions/) 将演讲者备注或批注包含进来。默认情况下，备注和批注是隐藏的，除非你指定它们的位置。
 
-本例中的 JavaScript 代码演示了如何使用可重写的方法创建带有 CSS 文件链接的自定义 HTML 文档：
+假设源演示文稿包含演讲者备注：
+
+![Slide with speaker notes in PowerPoint](slide_with_notes.png)
+
+以下代码在幻灯片下方导出带有演讲者备注的幻灯片内容。
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var htmlController = java.newInstanceSync("CustomHeaderAndFontsController", "styles.css");
-    var options = new aspose.slides.HtmlOptions();
-    options.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(htmlController));
-    pres.save("pres.html", aspose.slides.SaveFormat.Html, options);
+    let layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+    layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setSlidesLayoutOptions(layoutOptions);
+
+    presentation.save("presentation-with-notes.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-您需要在 Java 中实现 CustomHeaderAndFontsController，编译后将其添加到模块位置 \\aspose.slides.via.java\\lib\\。
+导出的 HTML 包含备注区域：
 
-下面的 Java 代码展示了 `CustomHeaderAndFontsController` 的实现方式：
-```java
-public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
-{
-    private final int m_basePath = 0;
+![HTML output with the slide and speaker notes](HTML_with_notes.png)
 
-    // 自定义头部模板
-    final static String Header = "<!DOCTYPE html>\n" +
-            "<html>\n" +
-            "<head>\n" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-            "</head>";
+要导出批注，请设置 `CommentsPosition`，例如 `CommentsPositions.Right` 或 `CommentsPositions.Bottom`。如果只需要批注，省略 `NotesPosition`。如果需要同时包含备注和批注，请同时设置这两个属性。
 
-    private final String m_cssFileName;
+## **控制图像质量和裁剪区域**
 
-    public CustomHeaderAndFontsController(String cssFileName)
-    {
-        m_cssFileName = cssFileName;
-    }
+HTML 导出可以压缩幻灯片图像以减小输出大小。当需要更高图像质量时，请将 `PicturesCompression` 设置为 [PicturesCompression](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/picturescompression/) 中的相应值。
 
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.addHtml(String.format(Header, m_cssFileName));
-        writeAllFonts(generator, presentation);
-    }
-
-    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.addHtml("<!-- Embedded fonts -->");
-        super.writeAllFonts(generator, presentation);
-    }
-}
-```
-
-
-## **在将演示文稿转换为 HTML 时链接所有字体**
-
-如果您不想嵌入字体（以避免增大生成的 HTML 大小），可以通过实现自定义的 `LinkAllFontsHtmlController` 来链接所有字体。
-
-下面的 JavaScript 代码演示了如何在将 PowerPoint 转换为 HTML 时链接所有字体，并排除 "Calibri" 和 "Arial"（因为系统中已经存在这些字体）：
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // 排除默认演示文稿字体
-    var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
-    var linkcont = java.newInstanceSync("LinkAllFontsHtmlController", fontNameExcludeList, "C:/Windows/Fonts/");
-    var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(linkcont));
-    pres.save("pres.html", aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setPicturesCompression(aspose.slides.PicturesCompression.Dpi150);
+
+    presentation.save("presentation-dpi-150.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+默认情况下，裁剪的图像区域可能会从导出输出中移除。仅当用户必须能够恢复或检查这些隐藏的图像部分时才保留裁剪数据。保留它会增加 HTML 大小。
 
-您需要在 Java 中实现 LinkAllFontsHtmlController，编译后将其添加到模块位置 \\aspose.slides.via.java\\lib\\。
-
-下面的 Java 代码展示了 `LinkAllFontsHtmlController` 的实现方式：
-```java
-public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private final String m_basePath;
-
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
-    {
-        super(fontNameExcludeList);
-        m_basePath = basePath;
-    }
-
-    public void writeFont
-    (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            String fontStyle,
-            String fontWeight,
-            byte[] fontData)
-    {
-        try {
-            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // 可能需要对路径进行清理
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
-
-            generator.addHtml("<style>");
-            generator.addHtml("@font-face { ");
-            generator.addHtml("font-family: '" + fontName + "'; ");
-            generator.addHtml("src: url('" + path + "')");
-
-            generator.addHtml(" }");
-            generator.addHtml("</style>");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-}
-```
-
-
-## **将 PowerPoint 转换为响应式 HTML**
-下面的 JavaScript 代码演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var saveOptions = new aspose.slides.HtmlOptions();
-    saveOptions.setSvgResponsiveLayout(true);
-    pres.save("SomePresentation-out.html", aspose.slides.SaveFormat.Html, saveOptions);
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setDeletePicturesCroppedAreas(false);
+
+    presentation.save("presentation-with-cropped-areas.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **添加 CSS**
 
-## **导出媒体文件为 HTML**
-使用 Aspose.Slides for Node.js via Java，您可以通过以下方式导出媒体文件：
+对于简单样式，可将 CSS 字符串传递给 `HtmlFormatter.createDocumentFormatter`。这会更改外围 HTML 文档，而 Aspose.Slides 继续渲染幻灯片内容。
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)类的实例。
-2. 获取对幻灯片的引用。
-3. 向幻灯片添加视频。
-4. 将演示文稿写入为 HTML 文件。
-
-下面的 JavaScript 代码演示了如何向演示文稿添加视频并将其保存为 HTML：
 ```javascript
-// 加载演示文稿
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var path = "./out/";
-    final var fileName = "ExportMediaFiles_out.html";
-    final var baseUri = "http://www.example.com/";
-    var videoData = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "my_video.avi"));
-    var video = pres.getVideos().addVideo(videoData);
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-    var controller = new aspose.slides.VideoPlayerHtmlController(path, fileName, baseUri);
-    // 设置 HTML 选项
-    var htmlOptions = new aspose.slides.HtmlOptions(controller);
-    var svgOptions = new aspose.slides.SVGOptions(controller);
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(controller));
-    htmlOptions.setSlideImageFormat(aspose.slides.SlideImageFormat.svg(svgOptions));
-    // 保存文件
-    pres.save(fileName, aspose.slides.SaveFormat.Html, htmlOptions);
-} catch (e) {console.log(e);
+    let cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+    let formatter = aspose.slides.HtmlFormatter.createDocumentFormatter(cssRules, true);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-styled.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+若需自定义文档头、链接的 CSS 文件或在幻灯片和形状周围添加自定义标记，请使用带有格式化控制器的 [HtmlFormatter](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/htmlformatter/)。
 
-## **FAQ**
+## **嵌入字体**
 
-**将多个演示文稿转换为 HTML 时，Aspose.Slides 的性能如何？**
+如果目标环境可能未安装演示文稿使用的字体，请使用 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/embedallfontshtmlcontroller/) 在 HTML 中嵌入字体。嵌入可提高视觉保真度，但会增大输出大小。
 
-性能取决于演示文稿的大小和复杂度。Aspose.Slides 在批量操作中非常高效且具可扩展性。为了在转换大量演示文稿时获得最佳性能，建议尽可能使用多线程或并行处理。
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let fontNamesToExclude = java.newArray("java.lang.String", ["Arial"]);
+    let fontController = new aspose.slides.EmbedAllFontsHtmlController(fontNamesToExclude);
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(fontController);
 
-**Aspose.Slides 是否支持将超链接导出为 HTML？**
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
 
-是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。转换为 HTML 格式时，超链接会自动保留并保持可点击。
+    presentation.save("presentation-embedded-fonts.html", aspose.slides.SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
 
-**在将演示文稿转换为 HTML 时，幻灯片数量是否有限制？**
+仅当你确信目标浏览器或系统已经提供这些字体时才排除嵌入。对于品牌字体或不常见的字体，嵌入通常更安全。
 
-使用 Aspose.Slides 时对幻灯片数量没有限制。您可以转换任意大小的演示文稿。但对于包含非常多幻灯片的演示文稿，性能可能取决于服务器或系统的可用资源。
+## **链接字体文件而非嵌入**
+
+为减小 HTML 文件大小，可以将字体数据写入单独的 WOFF 文件，并在 HTML 中添加 `@font-face` 规则。在 Node.js via Java 中，这通常通过一个继承自 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/embedallfontshtmlcontroller/) 的小型 Java 辅助类实现，该类将字体字节写入输出目录并将 `@font-face` 规则注入生成的 HTML。编译该辅助类并将其添加到 Node.js 模块的类路径，然后在 JavaScript 中使用 `java.newInstanceSync` 实例化它。
+
+构建此类辅助工具时，请有意识地选择两条路径：
+
+- 文件系统输出路径：生成的字体文件写入的位置。
+- URL 路径：浏览器从 HTML 文档加载这些字体文件时使用的路径。
+
+## **外部保存资源**
+
+自包含的 HTML 易于移动，但嵌入的 Base64 资源会使文件变大。如果你的应用需要外部图像、字体、音频或视频文件，请使用能够将资源写入指定目录并生成浏览器可见 URL 的导出控制器。保持文件系统路径与 URL 路径在部署布局中保持一致。
+
+## **导出媒体文件**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/videoplayerhtmlcontroller/) 导出视频和音频文件，并生成可在浏览器中播放的 HTML。其构造函数接受：
+
+- `path`：生成的媒体文件写入的目录。
+- `fileName`：正在生成的 HTML 文件名。
+- `baseUri`：HTML 中指向媒体文件的链接使用的绝对 URI 前缀。
+
+如果 HTML 文件位于 `html-output/presentation.html`，媒体文件保存在 `html-output/media`，则 `path` 应指向磁盘上的媒体目录，而 `baseUri` 应指向浏览器视角下相同的目录。对于本地预览，可以使用 `file:///` URI；对于已部署的应用，则使用已发布媒体目录的绝对 URL。
+
+```javascript
+let fs = require("fs");
+let path = require("path");
+
+let outputDirectory = path.join(process.cwd(), "html-output");
+let mediaDirectory = path.join(outputDirectory, "media");
+fs.mkdirSync(mediaDirectory, { recursive: true });
+
+let htmlFileName = "presentation.html";
+let mediaBaseUri = "file:///" + mediaDirectory.replace(/\\/g, "/") + "/";
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let videoFilePath = path.join(process.cwd(), "intro.mp4");
+    let videoBytes = Array.from(fs.readFileSync(videoFilePath));
+    let videoData = java.newArray("byte", videoBytes);
+
+    let video = presentation.getVideos().addVideo(videoData);
+    let slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
+
+    let controller = new aspose.slides.VideoPlayerHtmlController(mediaDirectory, htmlFileName, mediaBaseUri);
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
+    let svgOptions = new aspose.slides.SVGOptions(controller);
+    let slideImageFormat = aspose.slides.SlideImageFormat.svg(svgOptions);
+
+    let htmlOptions = new aspose.slides.HtmlOptions(controller);
+    htmlOptions.setHtmlFormatter(formatter);
+    htmlOptions.setSlideImageFormat(slideImageFormat);
+
+    let htmlFilePath = path.join(outputDirectory, htmlFileName);
+    presentation.save(htmlFilePath, aspose.slides.SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+在服务器应用中，请为每次导出作业使用唯一的输出目录。共享的输出路径可能导致不同转换的文件相互覆盖。
+
+## **性能与资源管理**
+
+HTML 转换是一次渲染操作，处理时间和内存使用取决于幻灯片数量、图像分辨率、字体、效果、图表以及嵌入的媒体。较高的 `PicturesCompression` DPI 值、嵌入字体、SVG 输出以及保留裁剪图像区域可以提升保真度，但通常会增加输出大小。
+
+批量转换时：
+
+- 及时释放每个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 实例。
+- 为不同作业使用独立的输出目录。
+- 除非保真度要求，否则不要嵌入常用字体。
+- 当 HTML 用于预览或缩略图时降低图像 DPI。
+- 在部署路径确定之前，保持源演示文稿、生成的 HTML 与外部资源放在一起。
+
+## **常见问题**
+
+**HTML 输出中会保留超链接吗？**
+
+会。演示文稿中的超链接会导出到 HTML，并在目标 URL 有效时保持可点击。
+
+**可以并行转换演示文稿为 HTML 吗？**
+
+可以，但不要在多个工作线程之间共享同一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 实例。请为不同文件使用独立的演示文稿实例、独立的流和独立的输出目录。详情请参阅 [multithreading guidance](/slides/zh/nodejs-java/multithreading/)。
+
+**Presentation 对象是线程安全的吗？**
+
+不是。单个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 实例应在同一工作线程中完成加载、修改、保存和释放。并行工作时，请为每个工作线程或进程创建独立的实例。
+
+**生成的 HTML 文件为何很大？**
+
+默认导出会将资源直接嵌入 HTML。嵌入的字体、高 DPI 图像、媒体、SVG 内容以及保留的裁剪图像区域都会增加大小。可改用外部资源、排除常用字体的嵌入，并在对输出大小更敏感时降低 `PicturesCompression`。
+
+**媒体导出时应如何选择 baseUri？**
+
+从浏览器的视角选择 `baseUri` 并以绝对 URI 形式传入。本地预览时，可从输出目录生成 `file:///` URI；部署时，请使用已发布媒体目录的绝对 URL。文件系统的 `path` 与浏览器的 `baseUri` 不必是相同的字符串，但必须指向相同的资源位置。
+
+**可以包含隐藏的幻灯片吗？**
+
+可以。将 [HtmlOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/htmloptions/) 的 `ShowHiddenSlides` 设置为 `true`，即可导出隐藏的幻灯片。

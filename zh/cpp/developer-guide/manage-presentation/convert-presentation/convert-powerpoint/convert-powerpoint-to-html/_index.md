@@ -1,18 +1,18 @@
 ---
-title: 将 PowerPoint 演示文稿转换为 HTML（C++）
+title: 在 C++ 中将 PowerPoint 演示文稿转换为 HTML
 linktitle: PowerPoint 转 HTML
 type: docs
 weight: 30
 url: /zh/cpp/convert-powerpoint-to-html/
 keywords:
 - 转换 PowerPoint
-- 转换 演示文稿
-- 转换 幻灯片
+- 转换演示文稿
+- 转换幻灯片
 - 转换 PPT
 - 转换 PPTX
 - PowerPoint 转 HTML
-- 演示文稿 转 HTML
-- 幻灯片 转 HTML
+- 演示文稿转 HTML
+- 幻灯片转 HTML
 - PPT 转 HTML
 - PPTX 转 HTML
 - 将 PowerPoint 保存为 HTML
@@ -24,359 +24,380 @@ keywords:
 - 导出 PPTX 为 HTML
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides 将 PowerPoint 演示文稿转换为响应式 HTML（C++）。保持布局、链接和图像，快速获得无瑕结果的转换指南。"
+description: "在 C++ 中将 PowerPoint 演示文稿转换为 HTML。使用 Aspose.Slides 导出 PPT 和 PPTX 文件、选定的幻灯片、备注、字体、图像、SVG 和媒体。"
 ---
+## **概述**
 
-## **关于 PowerPoint 到 HTML 的转换**
-使用 [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/)，应用程序和开发人员可以将 PowerPoint 演示文稿转换为 HTML：**PPTX 到 HTML** 或 **PPT 到 HTML**。
+Aspose.Slides for C++ 可以在没有 Microsoft PowerPoint 的情况下将 PowerPoint 演示文稿保存为 HTML。基本转换只需加载一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 并使用 `Save` 调用并指定 [SaveFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/saveformat/)。需要控制导出布局、字体、图像、备注、批注、SVG 输出或链接资源时，请使用 [HtmlOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmloptions/)。
 
-**Aspose.Slides** 提供了许多选项（主要来自 [**HtmlOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) 类），用于定义 PowerPoint 到 HTML 的转换过程：
+本指南侧重于实用的 HTML 导出场景：
 
-* 将整个 PowerPoint 演示文稿转换为 HTML。
-* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
-* 将演示文稿媒体（图像、视频等）转换为 HTML。
-* 将 PowerPoint 演示文稿转换为响应式 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含注释的 HTML。
-* 将 PowerPoint 演示文稿转换为使用原始字体或嵌入字体的 HTML。
-* 在使用新 CSS 样式的情况下将 PowerPoint 演示文稿转换为 HTML。
+- 导出完整演示文稿或选定的幻灯片。
+- 生成固定布局、响应式或基于 SVG 的 HTML。
+- 包含演讲者备注和批注。
+- 控制图像质量和裁剪的图像数据。
+- 嵌入字体或单独保存字体文件。
+- 选择外部资源和媒体文件的写入和引用方式。
 
-{{% alert color="primary" %}} 
+默认情况下，HTML 导出会生成一个自包含的 HTML 文档，其中大多数资源都是嵌入的。这对于共享单个文件很方便，但会增加输出大小。对于网络发布，建议使用外部资源、降低图像 DPI，并仅嵌入在目标环境中不可靠的字体。
 
-使用其自己的 API，Aspose 开发了免费的 [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) 转换器： [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。
+## **将演示文稿转换为 HTML**
 
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
+要将演示文稿导出为 HTML，使用 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 加载它，并使用 `SaveFormat::Html` 保存。
 
-您可能想查看其他来自 Aspose 的 [免费转换器](https://products.aspose.app/slides/conversion)。
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-除此之外，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作：
-
-* [HTML 转图片](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
-* [HTML 转 JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
-* [HTML 转 XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
-* [HTML 转 TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
-## **将 PowerPoint 转换为 HTML**
-使用 Aspose.Slides，您可以按以下方式将整个 PowerPoint 演示文稿转换为 HTML：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
-   * 在 _Presentation_ 类中加载 **.ppt** 以 **在 C++ 中将 PPT 转换为 HTML**
-   * 在 _Presentation_ 类中加载 **.pptx** 以 **在 C++ 中将 PPTX 转换为 HTML**
-   * 在 _Presentation_ 类中加载 **.odp** 以 **在 C++ 中将 ODP 转换为 HTML**
-3. 使用 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) 方法将对象保存为 HTML 文件。
-
-此代码演示了如何在 C++ 中将 PowerPoint 转换为 HTML：
 ```cpp
-// 实例化一个代表演示文稿文件的 Presentation 对象
-auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
-    
-auto htmlOpt = System::MakeObject<HtmlOptions>();
-htmlOpt->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(u"", false));
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-// 将演示文稿保存为 HTML
-presentation->Save(u"ConvertWholePresentationToHTML_out.html", SaveFormat::Html, htmlOpt);
+presentation->Save(u"presentation.html", SaveFormat::Html);
+
+presentation->Dispose();
 ```
 
+此示例写入一个 HTML 文件。调用 `Dispose` 在导出后释放文件句柄和渲染资源。
 
-## **将 PowerPoint 转换为响应式 HTML**
-Aspose.Slides 提供了 [ResponsiveHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller) 类，允许您生成响应式 HTML 文件。此代码演示了如何在 C++ 中将 PowerPoint 演示文稿转换为响应式 HTML：
+## **使用 HtmlOptions**
+
+[HtmlOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmloptions/) 是 HTML 导出的主要配置类。常用设置包括：
+
+- `SlidesLayoutOptions`：添加备注、批注、讲义或其他布局信息。
+- `HtmlFormatter`：更改 HTML 文档结构或将格式化委托给控制器。
+- `SlideImageFormat`：改变幻灯片的表示方式，例如作为 SVG。
+- `PicturesCompression`：控制图像 DPI 和输出大小。
+- `DeletePicturesCroppedAreas`：保留或删除裁剪的图像数据。
+- `SvgResponsiveLayout`：使导出的 SVG 内容适配其容器。
+- `ShowHiddenSlides`：在需要时包含隐藏的幻灯片。
+
+以下章节分别展示最常用的选项，以便您仅组合工作流需要的选项。
+
+## **将选定的幻灯片转换为 HTML**
+
+`Presentation::Save` 的重载接受幻灯片编号，使用基于 1 的幻灯片位置。下面的循环将每个幻灯片保存为单独的 HTML 文件。
+
 ```cpp
-// 实例化一个代表演示文稿文件的 Presentation 对象
-auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+
+for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    auto slideNumber = slideIndex + 1;
+    auto slideNumbers = System::MakeArray<int>({ slideNumber });
+    auto htmlFileName = System::String::Format(u"slide-{0}.html", slideNumber);
+
+    presentation->Save(htmlFileName, slideNumbers, SaveFormat::Html);
+}
+
+presentation->Dispose();
+```
+
+当网站或应用程序需要每张幻灯片对应一个 HTML 页面时使用此模式。如果每张幻灯片应具有相同的布局，请创建一个 [HtmlOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmloptions/) 实例并将其传递给每个 `Save` 调用。
+
+## **创建响应式 HTML**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/responsivehtmlcontroller/) 通过 [HtmlFormatter](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmlformatter/) 提供响应式 HTML 输出。当导出的页面需要更好地适配浏览器宽度时使用它。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto controller = System::MakeObject<ResponsiveHtmlController>();
+auto formatter = HtmlFormatter::CreateCustomFormatter(controller);
+
 auto htmlOptions = System::MakeObject<HtmlOptions>();
-htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller));
+htmlOptions->set_HtmlFormatter(formatter);
 
-// 将演示文稿保存为 HTML
-presentation->Save(u"ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, htmlOptions);
+presentation->Save(u"presentation-responsive.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
+对于基于 SVG 的响应式布局，请在 [HtmlOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmloptions/) 上设置 `SvgResponsiveLayout`。当幻灯片内容以可伸缩的 SVG 标记导出时，这很有用。
 
-## **将 PowerPoint 转换为带备注的 HTML**
-此代码演示了如何在 C++ 中将 PowerPoint 转换为带备注的 HTML：
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto opt = System::MakeObject<HtmlOptions>();
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_SvgResponsiveLayout(true);
 
-auto options = opt->get_NotesCommentsLayouting();
-options->set_NotesPosition(NotesPositions::BottomFull);
+presentation->Save(u"presentation-svg-responsive.html", SaveFormat::Html, htmlOptions);
 
-// Saving notes pages
-pres->Save(u"Output.html", SaveFormat::Html, opt);
+presentation->Dispose();
 ```
 
+## **包含演讲者备注和批注**
 
-## **将 PowerPoint 转换为带原始字体的 HTML**
-Aspose.Slides 提供了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) 类，允许您在将演示文稿转换为 HTML 时嵌入所有字体。
+通过 `HtmlOptions.SlidesLayoutOptions` 使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/notescommentslayoutingoptions/) 来包含演讲者备注或批注。默认情况下，备注和批注是隐藏的，除非您选择它们的位置。
 
-为了防止嵌入某些字体，您可以向 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) 类的参数化构造函数传递字体名称数组。常用字体，如 Calibri 或 Arial，在演示文稿中使用时不必嵌入，因为大多数系统已包含这些字体。当这些字体被嵌入时，生成的 HTML 文档会不必要地变大。
+假设源演示文稿包含演讲者备注：
 
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) 类支持继承并提供了 [WriteFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/writefont/) 方法，可用于覆盖。
+![PowerPoint 中带有演讲者备注的幻灯片](slide_with_notes.png)
+
+以下代码将在幻灯片下方导出带有演讲者备注的幻灯片内容。
+
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"input.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-// 排除默认演示文稿字体
-auto fontNameExcludeList = System::MakeArray<System::String>({ u"Calibri", u"Arial" });
+auto layoutOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomFull);
 
-auto embedFontsController = System::MakeObject<EmbedAllFontsHtmlController>(fontNameExcludeList);
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_SlidesLayoutOptions(layoutOptions);
 
-auto htmlOptionsEmbed = System::MakeObject<HtmlOptions>();
-htmlOptionsEmbed->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(embedFontsController));
+presentation->Save(u"presentation-with-notes.html", SaveFormat::Html, htmlOptions);
 
-pres->Save(u"input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, htmlOptionsEmbed);
+presentation->Dispose();
 ```
 
+导出的 HTML 包含备注区域：
 
-## **将 PowerPoint 转换为带高质量图像的 HTML**
-默认情况下，当您将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出的 HTML 较小，图像分辨率为 72 DPI，且裁剪区域被删除。要获取具有更高质量图像的 HTML 文件，您必须将 `PicturesCompression` 属性（来自 `HtmlOptions` 类）设置为 96（即 `PicturesCompression::Dpi96`）或更高的[值](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8)。
+![带有幻灯片和演讲者备注的 HTML 输出](HTML_with_notes.png)
 
-此 C++ 代码演示了如何在获取 150 DPI（即 `PicturesCompression::Dpi150`）的高质量图像时，将 PowerPoint 演示文稿转换为 HTML：
+要导出批注，请设置 `CommentsPosition`，例如设为 `CommentsPositions::Right` 或 `CommentsPositions::Bottom`。如果只需要批注，省略 `NotesPosition`。如果需要同时包含备注和批注，请同时设置这两个属性。
+
+## **控制图像质量和裁剪区域**
+
+HTML 导出可以压缩幻灯片图像以减少输出大小。当需要更高的图像质量时，将 `PicturesCompression` 设置为 [PicturesCompression](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/picturescompression/) 中的值。
+
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto htmlOpts = System::MakeObject<HtmlOptions>();
-htmlOpts->set_PicturesCompression(PicturesCompression::Dpi150);
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_PicturesCompression(PicturesCompression::Dpi150);
 
-pres->Save(u"OutputDoc-dpi150.html", SaveFormat::Html, htmlOpts);
+presentation->Save(u"presentation-dpi-150.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
+默认情况下，图像的裁剪区域可能会从导出结果中移除。仅在用户必须能够恢复或检查这些隐藏图像部分时才保留裁剪数据。保留它会增加 HTML 大小。
 
-此 C++ 代码演示了如何输出具有完整质量图像的 HTML：
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto htmlOpts = System::MakeObject<HtmlOptions>();
-htmlOpts->set_DeletePicturesCroppedAreas(false);
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_DeletePicturesCroppedAreas(false);
 
-pres->Save(u"Outputdoc-noCrop.html", SaveFormat::Html, htmlOpts);
+presentation->Save(u"presentation-with-cropped-areas.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
+## **添加 CSS**
 
-## **将幻灯片转换为 HTML**
-要将 PowerPoint 中的特定幻灯片转换为 HTML，您需要实例化与将整个演示文稿转换为 HTML 相同的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类，然后使用 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) 方法将文件保存为 HTML。可以使用 [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) 类指定其他转换选项：
+对于简单的样式设置，可将 CSS 字符串传递给 `HtmlFormatter::CreateDocumentFormatter`。这会更改外围 HTML 文档，而 Aspose.Slides 继续渲染幻灯片内容。
 
-此 C++ 代码演示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：
-``` cpp
-class CustomFormattingController : public IHtmlFormattingController
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto cssRules = u"body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+auto formatter = HtmlFormatter::CreateDocumentFormatter(cssRules, true);
+
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_HtmlFormatter(formatter);
+
+presentation->Save(u"presentation-styled.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
+```
+
+如需自定义文档头部、链接的 CSS 文件或围绕幻灯片和形状的自定义标记，请实现 [IHtmlFormattingController](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/ihtmlformattingcontroller/) 并使用 `CreateCustomFormatter` 将其传递给 [HtmlFormatter](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmlformatter/)。
+
+## **嵌入字体**
+
+如果目标环境可能没有安装演示文稿所使用的字体，请使用 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/embedallfontshtmlcontroller/) 将字体嵌入 HTML。嵌入可提高视觉保真度，但会增加输出大小。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto fontNamesToExclude = System::MakeArray<System::String>({ u"Arial" });
+auto fontController = System::MakeObject<EmbedAllFontsHtmlController>(fontNamesToExclude);
+auto formatter = HtmlFormatter::CreateCustomFormatter(fontController);
+
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_HtmlFormatter(formatter);
+
+presentation->Save(u"presentation-embedded-fonts.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
+```
+
+仅在确信目标浏览器或系统已提供这些字体时才排除嵌入。对于品牌字体或不常用的字体，嵌入通常更安全。
+
+## **链接字体文件而不是嵌入它们**
+
+为减少 HTML 文件大小，您可以将字体数据写入单独的 WOFF 文件，并在 HTML 中添加 `@font-face` 规则。以下辅助类扩展了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/embedallfontshtmlcontroller/) 并覆盖 `WriteFont`。
+
+```cpp
+class LinkedFontsHtmlController : public EmbedAllFontsHtmlController
 {
 public:
-    void WriteDocumentStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override{}
-    void WriteDocumentEnd(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override{}
-    void WriteSlideStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<ISlide> slide) override
+    LinkedFontsHtmlController(
+        System::String fontOutputDirectory,
+        System::String fontUrlPrefix)
+        : EmbedAllFontsHtmlController(System::MakeArray<System::String>(0)),
+          m_fontOutputDirectory(fontOutputDirectory),
+          m_fontUrlPrefix(fontUrlPrefix.TrimEnd(u'/') + u"/")
     {
-        generator->AddHtml(String::Format(SlideHeader, generator->get_SlideIndex() + 1));
-    }
-    void WriteSlideEnd(SharedPtr<IHtmlGenerator> generator, SharedPtr<ISlide> slide) override
-    {
-        generator->AddHtml(SlideFooter);
-    }
-    void WriteShapeStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<IShape> shape) override{}
-    void WriteShapeEnd(SharedPtr<IHtmlGenerator> generator, SharedPtr<IShape> shape) override{}
-
-private:
-    static const String SlideHeader;
-    static const String SlideFooter;
-};
-
-const String CustomFormattingController::SlideHeader = u"<div class=\"slide\" name=\"slide\" id=\"slide{0}\">";
-const String CustomFormattingController::SlideFooter = u"</div>";
-```
-
-``` cpp
-void Run()
-{
-    String dataDir = GetDataPath();
-    
-    auto presentation = System::MakeObject<Presentation>(dataDir + u"Individual-Slide.pptx");
-
-    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>();
-    auto htmlOptions = System::MakeObject<HtmlOptions>();
-    htmlOptions->set_HtmlFormatter(formatter);
-
-    // 保存文件              
-    for (int32_t i = 0; i < presentation->get_Slides()->get_Count(); i++)
-    {
-        presentation->Save(dataDir + u"Individual Slide" + (i + 1) + u"_out.html", 
-            MakeArray<int32_t>({ i + 1 }), SaveFormat::Html, htmlOptions);
-    }
-}
-```
-
-
-## **导出为 HTML 时保存 CSS 和图像**
-使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 到 HTML 转换过程生成的 HTML 文件的样式。
-
-此示例中的 C++ 代码演示了如何使用可覆盖的方法创建带有指向 CSS 文件链接的自定义 HTML 文档：
-``` cpp
-class CustomHeaderAndFontsController : public EmbedAllFontsHtmlController
-{
-public:
-    CustomHeaderAndFontsController(String cssFileName)
-        : m_cssFileName(cssFileName)
-    {
+        System::IO::Directory::CreateDirectory_(m_fontOutputDirectory);
     }
 
-    void WriteDocumentStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override
+    void WriteFont(
+        System::SharedPtr<IHtmlGenerator> generator,
+        System::SharedPtr<IFontData> originalFont,
+        System::SharedPtr<IFontData> substitutedFont,
+        System::String fontStyle,
+        System::String fontWeight,
+        System::ArrayPtr<uint8_t> fontData) override
     {
-        generator->AddHtml(System::String::Format(Header, m_cssFileName));
-        WriteAllFonts(generator, presentation);
-    }
+        auto font = substitutedFont == nullptr ? originalFont : substitutedFont;
+        auto safeFontName = MakeSafeFileName(font->get_FontName());
+        auto safeFontStyle = System::String::IsNullOrWhiteSpace(fontStyle) ? u"normal" : fontStyle;
+        auto safeFontWeight = System::String::IsNullOrWhiteSpace(fontWeight) ? u"normal" : fontWeight;
+        auto fontFileName = System::String::Format(u"{0}-{1}-{2}.woff", safeFontName, safeFontStyle, safeFontWeight);
+        auto fontFilePath = System::IO::Path::Combine(m_fontOutputDirectory, fontFileName);
 
-    void WriteAllFonts(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override
-    {
-        generator->AddHtml(u"<!-- Embedded fonts -->");
-        EmbedAllFontsHtmlController::WriteAllFonts(generator, presentation);
-    }
+        System::IO::File::WriteAllBytes(fontFilePath, fontData);
 
-private:
-    static const String Header;
-    String m_cssFileName;
-};
-
-const String CustomHeaderAndFontsController::Header = String(u"<!DOCTYPE html>\n") + 
-u"<html>\n" + u"<head>\n" + 
-u"<meta http-equiv=\"Content-Type\" content=\"text/html;charset=UTF-8\">\n" + 
-u"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" + 
-u"<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" + u"</head>";
-```
-
-``` cpp
-void Run()
-{
-    // 文档目录的路径。
-    System::String dataDir = GetDataPath();
-
-    auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-    auto htmlController = System::MakeObject<CustomHeaderAndFontsController>(u"styles.css");
-    auto options = System::MakeObject<HtmlOptions>();
-    options->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(htmlController));
-    pres->Save(u"pres.html", SaveFormat::Html, options);
-}
-```
-
-
-## **转换演示文稿为 HTML 时链接所有字体**
-如果您不想嵌入字体（以避免增大生成的 HTML 大小），可以通过实现自己的 `LinkAllFontsHtmlController` 版本来链接所有字体。
-
-此 C++ 代码演示了如何在链接所有字体并排除 “Calibri” 和 “Arial”（因为系统已存在）时，将 PowerPoint 转换为 HTML：
-```cpp
-class LinkAllFontsHtmlController : public EmbedAllFontsHtmlController
-{
-public:
-    LinkAllFontsHtmlController(ArrayPtr<String> fontNameExcludeList, String basePath)
-        :   EmbedAllFontsHtmlController(fontNameExcludeList)
-    {
-        m_basePath = basePath;
-    }
-
-    void WriteFont(SharedPtr<IHtmlGenerator> generator, SharedPtr<IFontData> originalFont, SharedPtr<IFontData> substitutedFont,
-        String fontStyle, String fontWeight, ArrayPtr<uint8_t> fontData)
-    {
-        String fontName = substitutedFont == nullptr ? originalFont->get_FontName() : substitutedFont->get_FontName();
-        String path = String::Format(u"{0}.woff", fontName); // 可能需要对路径进行清理
-        IO::File::WriteAllBytes(IO::Path::Combine(m_basePath, path), fontData);
+        auto fontUrl = m_fontUrlPrefix + System::Uri::EscapeDataString(fontFileName);
+        auto fontFamily = font->get_FontName().Replace(u"\\", u"\\\\").Replace(u"'", u"\\'");
 
         generator->AddHtml(u"<style>");
-        generator->AddHtml(u"@font-face { ");
-        generator->AddHtml(String::Format(u"font-family: '{0}'; ", fontName));
-        generator->AddHtml(String::Format(u"src: url('{0}')", path));
-
-        generator->AddHtml(u" }");
+        generator->AddHtml(u"@font-face {");
+        generator->AddHtml(System::String::Format(u"font-family: '{0}';", fontFamily));
+        generator->AddHtml(System::String::Format(u"font-style: {0};", safeFontStyle));
+        generator->AddHtml(System::String::Format(u"font-weight: {0};", safeFontWeight));
+        generator->AddHtml(System::String::Format(u"src: url('{0}') format('woff');", fontUrl));
+        generator->AddHtml(u"}");
         generator->AddHtml(u"</style>");
     }
 
 private:
-    String m_basePath;
+    System::String m_fontOutputDirectory;
+    System::String m_fontUrlPrefix;
+
+    System::String MakeSafeFileName(System::String fileName)
+    {
+        auto invalidCharacters = System::IO::Path::GetInvalidFileNameChars();
+        auto safeCharacters = fileName.ToCharArray();
+
+        for (int characterIndex = 0; characterIndex < safeCharacters->get_Length(); characterIndex++)
+        {
+            if (System::Array<int16_t>::IndexOf(invalidCharacters, safeCharacters[characterIndex]) >= 0)
+            {
+                safeCharacters[characterIndex] = u'_';
+            }
+        }
+
+        return System::String(safeCharacters);
+    }
 };
+
+auto outputDirectory = System::IO::Path::Combine(System::Environment::get_CurrentDirectory(), u"html-output");
+auto fontsDirectory = System::IO::Path::Combine(outputDirectory, u"fonts");
+System::IO::Directory::CreateDirectory_(outputDirectory);
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto fontController = System::MakeObject<LinkedFontsHtmlController>(fontsDirectory, u"fonts");
+auto formatter = HtmlFormatter::CreateCustomFormatter(fontController);
+
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_HtmlFormatter(formatter);
+
+auto htmlFilePath = System::IO::Path::Combine(outputDirectory, u"presentation.html");
+presentation->Save(htmlFilePath, SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
-``` cpp
-void Run()
-{
-    auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+在此示例中，字体文件保存到 `html-output/fonts`，HTML 使用诸如 `fonts/BrandFont-normal-400.woff` 的 URL 引用它们。如果 HTML 文件和字体部署到其他位置，请选择 `fontUrlPrefix` 使其匹配部署后的 URL 路径。
 
-    // 排除默认演示文稿字体
-    auto fontNameExcludeList = System::MakeArray<String>({ u"Calibri", u"Arial" });
-    
-    auto linkcont = System::MakeObject<LinkAllFontsHtmlController>(fontNameExcludeList, u"C://Windows//Fonts//");
+## **外部保存资源**
 
-    System::SharedPtr<HtmlOptions> htmlOptionsEmbed = System::MakeObject<HtmlOptions>();
-    htmlOptionsEmbed->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(linkcont));
-    
-    pres->Save(u"pres.html", SaveFormat::Html, htmlOptionsEmbed);
-}
-```
+自包含的 HTML 易于迁移，但嵌入的 Base64 资源会使文件变大。如果您的应用程序需要外部图像文件，请实现 [ILinkEmbedController](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/ilinkembedcontroller/) 并将其传递给 [HtmlOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmloptions/) 构造函数。
 
+外部化资源时，请有意识地选择两个路径：
 
-## **将 PowerPoint 转换为响应式 HTML**
-此 C++ 代码演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
+- 文件系统输出路径，您的应用程序在此写入生成的图像、字体、音频或视频。
+- URL 路径，浏览器从 HTML 文档加载这些文件时使用的路径。
+
+## **导出媒体文件**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/videoplayerhtmlcontroller/) 导出视频和音频文件，并生成可在浏览器中播放的 HTML。其构造函数接受以下参数：
+
+- `path`：生成的媒体文件将写入的目录。
+- `fileName`：正在生成的 HTML 文件名。
+- `baseUri`：在 HTML 链接到媒体文件时使用的绝对 URI 前缀。
+
+如果 HTML 文件为 `html-output/presentation.html`，媒体文件保存在 `html-output/media`，则 `path` 应指向磁盘上的媒体目录，而 `baseUri` 应指向浏览器视角下的相同目录。对于本地预览，您可以从媒体目录构建 `file:///` URI。对于已部署的应用程序，请使用已发布媒体目录的绝对 URL。
+
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"SomePresentation.pptx");
-auto saveOptions = System::MakeObject<HtmlOptions>();
-saveOptions->set_SvgResponsiveLayout(true);
-presentation->Save(u"SomePresentation-out.html", SaveFormat::Html, saveOptions);
-```
+auto outputDirectory = System::IO::Path::Combine(System::Environment::get_CurrentDirectory(), u"html-output");
+auto mediaDirectory = System::IO::Path::Combine(outputDirectory, u"media");
+System::IO::Directory::CreateDirectory_(outputDirectory);
+System::IO::Directory::CreateDirectory_(mediaDirectory);
 
+auto htmlFileName = u"presentation.html";
+auto mediaBaseUri = System::MakeObject<System::Uri>(mediaDirectory + System::IO::Path::DirectorySeparatorChar)->get_AbsoluteUri();
 
+auto presentation = System::MakeObject<Presentation>();
+auto videoStream = System::MakeObject<System::IO::FileStream>(u"intro.mp4", System::IO::FileMode::Open, System::IO::FileAccess::Read);
 
-## **将媒体文件导出为 HTML**
-使用 Aspose.Slides for C++，您可以按以下方式导出媒体文件：
+auto video = presentation->get_Videos()->AddVideo(videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddVideoFrame(20.0f, 20.0f, 480.0f, 270.0f, video);
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
-1. 获取对幻灯片的引用。
-1. 向幻灯片添加视频。
-1. 将演示文稿写入为 HTML 文件。
-
-此 C++ 代码演示了如何向演示文稿添加视频，然后将其保存为 HTML：
-```cpp
- // 加载演示文稿
-auto pres = System::MakeObject<Presentation>();
-
-const System::String path = u"C:/out/";
-const System::String fileName = u"ExportMediaFiles_out.html";
-const System::String baseUri = u"http://www.example.com/";
-
-auto fileStream = System::MakeObject<IO::FileStream>(u"my_video.avi", IO::FileMode::Open, IO::FileAccess::Read);
-
-auto video = pres->get_Videos()->AddVideo(fileStream, Aspose::Slides::LoadingStreamBehavior::ReadStreamAndRelease);
-
-auto slide = pres->get_Slides()->idx_get(0);
-slide->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
-
-auto controller = System::MakeObject<VideoPlayerHtmlController>(path, fileName, baseUri);
-
-// 设置 HTML 选项
-auto htmlOptions = System::MakeObject<HtmlOptions>(controller);
+auto controller = System::MakeObject<VideoPlayerHtmlController>(mediaDirectory, htmlFileName, mediaBaseUri);
+auto formatter = HtmlFormatter::CreateCustomFormatter(controller);
 auto svgOptions = System::MakeObject<SVGOptions>(controller);
+auto slideImageFormat = SlideImageFormat::Svg(svgOptions);
 
-htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller));
-htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(svgOptions));
+auto htmlOptions = System::MakeObject<HtmlOptions>(controller);
+htmlOptions->set_HtmlFormatter(formatter);
+htmlOptions->set_SlideImageFormat(slideImageFormat);
 
-// 保存文件
-pres->Save(IO::Path::Combine(path, fileName), SaveFormat::Html, htmlOptions);
+auto htmlFilePath = System::IO::Path::Combine(outputDirectory, htmlFileName);
+presentation->Save(htmlFilePath, SaveFormat::Html, htmlOptions);
+
+videoStream->Dispose();
+presentation->Dispose();
 ```
 
+为每个导出任务使用唯一的输出目录，尤其是在服务器应用程序中。共享输出路径可能导致不同转换的文件相互覆盖。
 
-## **常见问题**
+## **性能与资源管理**
 
-**Aspose.Slides 在将多个演示文稿转换为 HTML 时的性能如何？**
+HTML 转换是一项渲染操作，处理时间和内存使用取决于幻灯片数量、图像分辨率、字体、效果、图表和嵌入的媒体。更高的 `PicturesCompression` DPI 值、嵌入的字体、SVG 输出以及保留的裁剪图像区域可以提升保真度，但通常会增加输出大小。
 
-性能取决于演示文稿的大小和复杂程度。Aspose.Slides 对批量操作具有高效且可扩展的性能。为在转换大量演示文稿时获得最佳性能，建议尽可能使用多线程或并行处理。
+批量转换时：
 
-**Aspose.Slides 是否支持将超链接导出为 HTML？**
+- 及时释放每个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 实例。
+- 为不同的任务使用独立的输出目录。
+- 除非保真度要求，否则避免嵌入常用字体。
+- 当 HTML 用于预览或缩略图时，降低图像 DPI。
+- 在部署路径确定之前，保持源演示文稿、生成的 HTML 和外部资源放在一起。
 
-是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。将演示文稿转换为 HTML 格式时，超链接会自动保留并保持可点击。
+## **FAQ**
 
-**在将演示文稿转换为 HTML 时，幻灯片数量是否有限制？**
+**HTML 输出中会保留超链接吗？**
 
-使用 Aspose.Slides 时对幻灯片数量没有限制。您可以转换任意大小的演示文稿。不过，对于包含非常大量幻灯片的演示文稿，性能可能会受服务器或系统可用资源的影响。
+是的。演示文稿中的超链接会导出到 HTML，并在目标 URL 有效时保持可点击。
+
+**我可以并行将演示文稿转换为 HTML 吗？**
+
+可以，但不要在多个线程之间共享同一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 实例。请使用独立的演示实例、独立的流和独立的输出目录来处理不同的文件。详情请参见 [multithreading guidance](/slides/zh/cpp/multithreading/)。
+
+**Presentation 对象是线程安全的吗？**
+
+不是。单个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 实例应在同一线程上加载、修改、保存并释放。对于并行工作，请为每个线程或进程创建独立的实例。
+
+**生成的 HTML 文件为何很大？**
+
+默认导出会将资源直接嵌入 HTML。嵌入的字体、高 DPI 图像、媒体、SVG 内容以及保留的裁剪图像区域也会增加大小。当输出体积比最高保真度更重要时，请使用外部资源、排除常用字体的嵌入，并降低 `PicturesCompression`。
+
+**在媒体导出时应如何选择 baseUri？**
+
+请从浏览器的视角选择 `baseUri`，并将其作为绝对 URI 传递。对于本地预览，可以使用 `System::MakeObject<System::Uri>(mediaDirectory + System::IO::Path::DirectorySeparatorChar)->get_AbsoluteUri()` 从输出目录生成。对于部署，请使用已发布媒体目录的绝对 URL。文件系统的 `path` 与浏览器的 `baseUri` 不必是相同的字符串，但必须指向同一资源位置。
+
+**我可以包含隐藏的幻灯片吗？**
+
+可以。当必须导出隐藏幻灯片时，请在 [HtmlOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/htmloptions/) 上将 `ShowHiddenSlides` 设置为 `true`。
