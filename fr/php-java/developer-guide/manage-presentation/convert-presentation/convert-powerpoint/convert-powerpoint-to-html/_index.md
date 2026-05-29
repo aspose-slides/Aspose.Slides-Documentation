@@ -1,452 +1,348 @@
 ---
 title: Convertir des présentations PowerPoint en HTML avec PHP
-linktitle: PowerPoint en HTML
+linktitle: PowerPoint vers HTML
 type: docs
 weight: 30
 url: /fr/php-java/convert-powerpoint-to-html/
 keywords:
 - convertir PowerPoint
-- convertir présentation
-- convertir diapositive
+- convertir la présentation
+- convertir la diapositive
 - convertir PPT
 - convertir PPTX
-- PowerPoint en HTML
-- présentation en HTML
-- diapositive en HTML
-- PPT en HTML
-- PPTX en HTML
+- PowerPoint vers HTML
+- présentation vers HTML
+- diapositive vers HTML
+- PPT vers HTML
+- PPTX vers HTML
 - enregistrer PowerPoint en HTML
-- enregistrer présentation en HTML
-- enregistrer diapositive en HTML
+- enregistrer la présentation en HTML
+- enregistrer la diapositive en HTML
 - enregistrer PPT en HTML
 - enregistrer PPTX en HTML
 - exporter PPT en HTML
 - exporter PPTX en HTML
 - PHP
 - Aspose.Slides
-description: "Convertir des présentations PowerPoint en HTML réactif avec PHP. Conservez la mise en page, les liens et les images grâce au guide de conversion Aspose.Slides pour des résultats rapides et impeccables."
+description: "Convertir des présentations PowerPoint en HTML avec PHP. Utilisez Aspose.Slides pour exporter des fichiers PPT et PPTX, des diapositives sélectionnées, des notes, des polices, des images, du SVG et des médias."
 ---
-
 ## **Vue d'ensemble**
 
-Cet article explique comment convertir une présentation PowerPoint au format HTML en utilisant PHP. Il couvre les sujets suivants.
+Aspose.Slides for PHP via Java peut enregistrer les présentations PowerPoint au format HTML sans Microsoft PowerPoint. La conversion de base consiste à charger une seule [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) et à appeler `save` avec [SaveFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/saveformat/). Utilisez [HtmlOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmloptions/) lorsque vous devez contrôler la disposition exportée, les polices, les images, les notes, les commentaires, la sortie SVG ou les ressources liées.
 
-- Convertir PowerPoint en HTML
-- Convertir PPT en HTML
-- Convertir PPTX en HTML
-- Convertir ODP en HTML
-- Convertir une diapositive PowerPoint en HTML
+Ce guide se concentre sur des scénarios pratiques d’exportation HTML :
 
-## **PowerPoint en HTML avec PHP**
+- Exporter une présentation complète ou des diapositives sélectionnées.
+- Générer du HTML à mise en page fixe, réactif ou basé sur SVG.
+- Inclure les notes du présentateur et les commentaires.
+- Contrôler la qualité des images et les données d’image recadrées.
+- Incorporer les polices ou enregistrer les fichiers de police séparément.
+- Choisir comment les ressources externes et les fichiers multimédias sont écrits et référencés.
 
-Pour le code d'exemple Java permettant de convertir PowerPoint en HTML, veuillez consulter la section ci-dessous, c’est-a-dire [Convert PowerPoint to HTML](#convert-powerpoint-to-html). Le code peut charger plusieurs formats tels que PPT, PPTX et ODP dans l'objet Presentation et l'enregistrer au format HTML.
+Par défaut, l’exportation HTML produit un document HTML autonome où la plupart des ressources sont incorporées. Cela est pratique pour partager un seul fichier, mais peut augmenter la taille du résultat. Pour la publication Web, envisagez des ressources externes, un DPI d’image plus faible et n’incorporez que les polices qui ne sont pas assurément disponibles dans l’environnement cible.
 
-## **A propos de la conversion PowerPoint en HTML**
+## **Convertir une présentation en HTML**
 
-En utilisant [**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/), les applications et les développeurs peuvent convertir une présentation PowerPoint en HTML : **PPTX en HTML** ou **PPT en HTML**.
+Pour exporter une présentation en HTML, chargez‑la avec [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) et enregistrez‑la avec [SaveFormat.Html](https://reference.aspose.com/slides/fr/php-java/aspose.slides/saveformat/).
 
-**Aspose.Slides** fournit de nombreuses options (principalement de la classe [**HtmlOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions)) qui définissent le processus de conversion PowerPoint en HTML :
-
-* Convertir une présentation PowerPoint entière en HTML.
-* Convertir une diapositive spécifique d'une présentation PowerPoint en HTML.
-* Convertir les médias de la présentation (images, videos, etc.) en HTML.
-* Convertir une présentation PowerPoint en HTML reactif.
-* Convertir une présentation PowerPoint en HTML avec ou sans notes du presentateur.
-* Convertir une présentation PowerPoint en HTML avec ou sans commentaires.
-* Convertir une présentation PowerPoint en HTML avec les polices originales ou incorporees.
-* Convertir une présentation PowerPoint en HTML en utilisant le nouveau style CSS.
-
-{{% alert color="primary" %}} 
-
-En utilisant son propre API, Aspose a developpe des convertisseurs gratuits [presentation en HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) : [PPT en HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX en HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP en HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-Vous pouvez egalement consulter d'autres [convertisseurs gratuits d'Aspose](https://products.aspose.app/slides/conversion).
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-En plus des processus de conversion décrits ici, Aspose.Slides prend également en charge les operations de conversion suivantes impliquant le format HTML : 
-
-* [HTML en image](https://products.aspose.com/slides/php-java/conversion/html-to-image/)
-* [HTML en JPG](https://products.aspose.com/slides/php-java/conversion/html-to-jpg/)
-* [HTML en XML](https://products.aspose.com/slides/php-java/conversion/html-to-xml/)
-* [HTML en TIFF](https://products.aspose.com/slides/php-java/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
-## **Convertir PowerPoint en HTML**
-En utilisant Aspose.Slides, vous pouvez convertir une presentation PowerPoint entière en HTML de cette maniere :
-
-1. Créez une instance de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe.
-2. Utilisez la [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) methode pour enregistrer l'objet en tant que fichier HTML.
-
-Ce code montre comment convertir un PowerPoint en HTML :
 ```php
-// Instancier un objet Presentation qui représente un fichier de présentation
-  $pres = new Presentation("Convert_HTML.pptx");
-  try {
-    $htmlOpt = new HtmlOptions();
-    $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $htmlOpt->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createDocumentFormatter("", false));
-    # Enregistrement de la présentation en HTML
-    $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->save("presentation.html", SaveFormat::Html);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+Cet exemple écrit un fichier HTML. L’objet présentation est libéré dans le bloc `finally`, ce qui libère les poignées de fichiers et les ressources de rendu après l’exportation.
 
+## **Utiliser HtmlOptions**
 
-## **Convertir PowerPoint en HTML réactif**
-Aspose.Slides fourni la classe [ResponsiveHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/ResponsiveHtmlController) qui vous permet de generer des fichiers HTML reactifs. Ce code montre comment convertir une presentation PowerPoint en HTML reactif :
+[HtmlOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmloptions/) est la classe principale de configuration pour l’exportation HTML. Les paramètres courants incluent :
+
+- `SlidesLayoutOptions` : ajoute des notes, commentaires, annexes ou d’autres informations de mise en page.
+- `HtmlFormatter` : modifie la structure du document HTML ou délègue le formatage à un contrôleur.
+- `SlideImageFormat` : modifie la façon dont les diapositives sont représentées, par exemple en SVG.
+- `PicturesCompression` : contrôle le DPI des images et la taille de la sortie.
+- `DeletePicturesCroppedAreas` : conserve ou supprime les données d’image recadrées.
+- `SvgResponsiveLayout` : rend le contenu SVG exporté adaptable à son conteneur.
+- `ShowHiddenSlides` : inclut les diapositives masquées si nécessaire.
+
+Les sections suivantes montrent les options les plus courantes séparément afin que vous puissiez combiner uniquement celles dont votre flux de travail a besoin.
+
+## **Convertir les diapositives sélectionnées en HTML**
+
+La surcharge `save` qui accepte les numéros de diapositives utilise des positions basées sur 1. La boucle ci‑dessous enregistre chaque diapositive dans un fichier HTML séparé.
+
 ```php
-// Instancier un objet Presentation qui représente un fichier de présentation
-  $pres = new Presentation("Convert_HTML.pptx");
-  try {
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slideNumber = $slideIndex + 1;
+        $slideNumbers = array($slideNumber);
+        $htmlFileName = "slide-" . $slideNumber . ".html";
+
+        $presentation->save($htmlFileName, $slideNumbers, SaveFormat::Html);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Utilisez ce modèle lorsqu’un site Web ou une application a besoin d’une page HTML par diapositive. Si chaque diapositive doit avoir la même mise en page, créez une instance [HtmlOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmloptions/) et transmettez‑la à chaque appel `save`.
+
+## **Créer un HTML réactif**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/fr/php-java/aspose.slides/responsivehtmlcontroller/) fournit une sortie HTML réactive via [HtmlFormatter](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmlformatter/). Utilisez‑le lorsque la page exportée doit mieux s’adapter à la largeur du navigateur.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
     $controller = new ResponsiveHtmlController();
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller);
+
     $htmlOptions = new HtmlOptions();
-    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
-    # Enregistrement de la présentation en HTML
-    $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, $htmlOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+    $htmlOptions->setHtmlFormatter($formatter);
 
-
-## **Convertir PowerPoint en HTML avec notes**
-Ce code montre comment convertir un PowerPoint en HTML avec les notes :
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    $opt = new HtmlOptions();
-    $options = $opt->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions::BottomFull);
-    # Enregistrement des pages de notes
-    $pres->save("Output.html", SaveFormat::Html, $opt);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Convertir PowerPoint en HTML avec polices originales**
-
-Aspose.Slides fourni la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController) qui vous permet d'incorporer toutes les polices d'une presentation lors de la conversion en HTML.
-
-Pour eviter l'incorporation de certaines polices, vous pouvez transmettre un tableau de noms de polices a un constructeur parametre de la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController). Les polices populaires, telles que Calibri ou Arial, lorsqu'utilisees dans une presentation, n'ont pas besoin d'etre incorporees car la plupart des systemes les contiennent deja. Lorsque ces polices sont incorporees, le document HTML resultant devient inutilement volumineux.
-
-La classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController) supporte l'héritage et fournit la méthode [WriteFont](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) qui est destinée a être surchargée.
-```php
-  $pres = new Presentation("input.pptx");
-  try {
-    # exclure les polices de présentation par défaut
-    $fontNameExcludeList = array("Calibri", "Arial" );
-    $embedFontsController = new EmbedAllFontsHtmlController($fontNameExcludeList);
-    $htmlOptionsEmbed = new HtmlOptions();
-    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($embedFontsController));
-    $pres->save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, $htmlOptionsEmbed);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Convertir PowerPoint en HTML avec images haute qualite**
-
-Par défaut, lors de la conversion de PowerPoint en HTML, Aspose.Slides genere un HTML avec des images a 72 DPI et supprime les zones recadrees. Pour obtenir des fichiers HTML avec des images de meilleure qualite, vous devez definir la propriete `PicturesCompression` (de la classe `HtmlOptions`) sur 96 (c'est-a-dire `PicturesCompression.Dpi96`) ou des [valeurs](https://reference.aspose.com/slides/php-java/aspose.slides/PicturesCompression).
-
-Ce code PHP montre comment convertir une presentation PowerPoint en HTML tout en obtenant des images haute qualite a 150 DPI (c'est-a-dire `PicturesCompression.Dpi150`) :
-```php
-  $pres = new Presentation("InputDoc.pptx");
-  try {
-    $htmlOpts = new HtmlOptions();
-    $htmlOpts->setPicturesCompression(PicturesCompression::Dpi150);
-    $pres->save("OutputDoc-dpi150.html", SaveFormat::Html, $htmlOpts);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-Ce code montre comment produire du HTML avec des images en pleine qualite :
-```php
-  $pres = new Presentation("InputDoc.pptx");
-  try {
-    $htmlOpts = new HtmlOptions();
-    $htmlOpts->setDeletePicturesCroppedAreas(false);
-    $pres->save("Outputdoc-noCrop.html", SaveFormat::Html, $htmlOpts);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Convertir une diapositive en HTML**
-Pour convertir une diapositive specifique d'un PowerPoint en HTML, vous devez instancier la meme [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe (utilisee pour convertir des presentations entieres en HTML) puis utiliser la [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) methode pour enregistrer le fichier au format HTML. La classe [HtmlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions) peut etre utilisee pour specifier des options de conversion supplementaires :
-
-Ce code PHP montre comment convertir une diapositive d'une presentation PowerPoint en HTML :
-```php
-use aspose\slides\Presentation;
-use aspose\slides\HtmlOptions;
-use aspose\slides\NotesPositions;
-use aspose\slides\SaveFormat;
-
-
-class CustomFormattingController
-{
-    function writeDocumentStart($generator, $presentation) { }
-
-    function writeDocumentEnd($generator, $presentation) { }
-
-    function writeSlideStart($generator, $slide)
-	{
-        $generator->addHtml(sprintf(self::SlideHeader, $generator->getSlideIndex() + 1));
-    }
-
-    function writeSlideEnd($generator, $slide)
-	{
-        $generator->addHtml(self::SlideFooter);
-    }
-
-    function writeShapeStart($generator, $shape) { }
-
-    function writeShapeEnd($generator, $shape) { }
-
-    const SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-    const SlideFooter = "</div>";
+    $presentation->save("presentation-responsive.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
 }
-  $pres = new Presentation("Individual-Slide.pptx");
-  try {
+```
+
+Pour une mise en page réactive basée sur SVG, définissez `SvgResponsiveLayout` sur [HtmlOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmloptions/). Cela est utile lorsque le contenu de la diapositive est exporté sous forme de balisage SVG évolutif.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
     $htmlOptions = new HtmlOptions();
-    $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-	$formattingController= java_closure(new CustomFormattingController(), null, java("com.aspose.slides.IHtmlFormattingController"));
-    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($formattingController));
-    # Enregistrement du fichier
-    for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      $pres->save("Individual Slide" . ($i + 1) . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $htmlOptions->setSvgResponsiveLayout(true);
+
+    $presentation->save("presentation-svg-responsive.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Inclure les notes du présentateur et les commentaires**
 
-## **Enregistrer le CSS et les images lors de l'exportation en HTML**
-En utilisant les nouveaux fichiers de style CSS, vous pouvez facilement modifier le style du fichier HTML resultnant du processus de conversion PowerPoint en HTML. 
+Utilisez [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/notescommentslayoutingoptions/) via `HtmlOptions.SlidesLayoutOptions` pour inclure les notes du présentateur ou les commentaires. Les notes et les commentaires sont masqués par défaut sauf si vous choisissez leurs positions.
 
-Le code PHP de cet exemple montre comment utiliser des methodes surchargables pour creer un document HTML personnalise avec un lien vers un fichier CSS :
+Supposons que la présentation source contienne des notes du présentateur :
+
+![Diapositive avec notes du présentateur dans PowerPoint](slide_with_notes.png)
+
+Le code suivant exporte le contenu de la diapositive avec les notes du présentateur affichées sous la diapositive.
+
 ```php
-use aspose\slides\Presentation;
-use aspose\slides\HtmlOptions;
-use aspose\slides\NotesPositions;
-use aspose\slides\SaveFormat;
-use aspose\slides\EmbedAllFontsHtmlController;
+$presentation = new Presentation("presentation.pptx");
+try {
+    $layoutOptions = new NotesCommentsLayoutingOptions();
+    $layoutOptions->setNotesPosition(NotesPositions::BottomFull);
 
-class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
-    const m_basePath = 0;
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setSlidesLayoutOptions($layoutOptions);
 
-    # Modèle d'en-tête personnalisé
-    const Header = "<!DOCTYPE html>\n" .
-            "<html>\n" .
-            "<head>\n" .
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" .
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" .
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" .
-            "</head>";
+    $presentation->save("presentation-with-notes.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    public $m_cssFileName;
+Le HTML exporté comprend la zone de notes :
 
-    public function __construct($cssFileName)
-    {
-        parent::__construct();
-		$this->m_cssFileName = $cssFileName;
-	}
+![Résultat HTML avec la diapositive et les notes du présentateur](HTML_with_notes.png)
 
-    public function writeDocumentStart($generator, $presentation)
-    {
-        $generator->addHtml(sprintf(self::Header, $m_cssFileName));
-        $this->writeAllFonts($generator, $presentation);
-    }
+Pour exporter les commentaires, définissez `CommentsPosition`, par exemple à `CommentsPositions.Right` ou `CommentsPositions.Bottom`. Si vous ne souhaitez exporter que les commentaires, omettez `NotesPosition`. Si vous avez besoin à la fois des notes et des commentaires, définissez les deux propriétés.
 
-    public function writeAllFonts($generator, $presentation)
-    {
-        $generator->addHtml("<!-- Embedded fonts -->");
-        parent::writeAllFonts($generator, $presentation);
-    }
+## **Contrôler la qualité des images et les zones recadrées**
+
+L’exportation HTML peut compresser les images des diapositives afin de réduire la taille du résultat. Réglez `PicturesCompression` sur une valeur de [PicturesCompression](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturescompression/) lorsque vous avez besoin d’une meilleure qualité d’image.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setPicturesCompression(PicturesCompression::Dpi150);
+
+    $presentation->save("presentation-dpi-150.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Par défaut, les zones recadrées des images peuvent être supprimées du résultat exporté. Conservez les données recadrées uniquement lorsque les utilisateurs doivent pouvoir récupérer ou inspecter ces parties d’image cachées. Leur conservation peut augmenter la taille du HTML.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setDeletePicturesCroppedAreas(false);
+
+    $presentation->save("presentation-with-cropped-areas.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Ajouter du CSS**
+
+Pour un style simple, transmettez une chaîne CSS à [HtmlFormatter](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmlformatter/) via `createDocumentFormatter`. Cela modifie le document HTML environnant tandis qu’Aspose.Slides continue de rendre le contenu des diapositives.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+    $showSlideTitle = true;
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createDocumentFormatter($cssRules, $showSlideTitle);
+
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setHtmlFormatter($formatter);
+
+    $presentation->save("presentation-styled.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pour un en‑tête de document personnalisé, un fichier CSS lié ou un balisage personnalisé autour des diapositives et formes, utilisez un contrôleur de formatage personnalisé et transmettez‑le à [HtmlFormatter](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmlformatter/) avec `createCustomFormatter`.
+
+## **Incorporer les polices**
+
+Si l’environnement cible ne possède pas les polices de la présentation, incorporez les polices dans le HTML avec [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/fr/php-java/aspose.slides/embedallfontshtmlcontroller/). L’incorporation améliore la fidélité visuelle mais augmente la taille du résultat.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $stringClass = new JavaClass("java.lang.String");
+
+    $fontNamesToExclude = $arrayClass->newInstance($stringClass, 1);
+    $arrayClass->set($fontNamesToExclude, 0, new Java("java.lang.String", "Calibri"));
+
+    $fontController = new EmbedAllFontsHtmlController(java_values($fontNamesToExclude));
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($fontController);
+
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setHtmlFormatter($formatter);
+
+    $presentation->save("presentation-embedded-fonts.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Excluez les polices uniquement lorsque vous êtes sûr que les navigateurs ou systèmes cibles les fournissent déjà. Pour les polices de marque ou moins courantes, l’incorporation est généralement plus sûre.
+
+## **Lier les fichiers de police au lieu de les incorporer**
+
+Pour réduire la taille du fichier HTML, vous pouvez écrire les données de police dans des fichiers WOFF séparés et ajouter des règles `@font-face` au HTML. En PHP via Java, ce scénario est généralement implémenté avec une petite classe d’assistance Java qui étend [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/fr/php-java/aspose.slides/embedallfontshtmlcontroller/), écrit les octets de police dans un répertoire de sortie et injecte les règles `@font-face` dans le HTML généré. Compilez cette classe d’assistance, ajoutez‑la au classpath du PHP Java Bridge, puis instanciez‑la depuis PHP avec `new Java(...)`.
+
+Lors de la création d’une telle assistance, choisissez soigneusement deux chemins :
+
+- Le chemin de sortie du système de fichiers, où les fichiers de police générés sont écrits.
+- Le chemin URL, que le navigateur utilise depuis le document HTML pour charger ces fichiers de police.
+
+## **Enregistrer les ressources à l'extérieur**
+
+Le HTML autonome est facile à déplacer, mais les ressources Base64 incorporées peuvent rendre le fichier volumineux. Si votre application a besoin de fichiers image externes, fournissez un contrôleur de lien/incorporation personnalisé au constructeur de [HtmlOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmloptions/).
+
+Lorsque vous externalisez les ressources, choisissez soigneusement deux chemins :
+
+- Le chemin de sortie du système de fichiers, où votre application écrit les images, polices, audio ou vidéo générés.
+- Le chemin URL, que le navigateur utilise depuis le document HTML pour charger ces fichiers.
+
+Gardez ces chemins cohérents avec la disposition de votre déploiement afin que le HTML généré puisse charger ses ressources externes après son déplacement vers un serveur Web ou un autre répertoire.
+
+## **Exporter les fichiers multimédias**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/fr/php-java/aspose.slides/videoplayerhtmlcontroller/) exporte les fichiers vidéo et audio et génère un HTML capable de les lire dans un navigateur. Son constructeur accepte :
+
+- `path` : le répertoire de sortie utilisé par le HTML généré et les fichiers multimédias.
+- `fileName` : le nom du fichier HTML en cours de génération.
+- `baseUri` : le préfixe URI absolu utilisé dans les liens HTML vers les fichiers multimédias.
+
+Si le fichier HTML est `html-output/presentation.html`, `path` doit pointer vers `html-output`, et `baseUri` doit pointer vers le même répertoire du point de vue du navigateur. Pour un aperçu local, vous pouvez construire une URI `file:///` à partir du répertoire de sortie. Pour une application déployée, utilisez l’URL absolue du répertoire de sortie publié.
+
+```php
+$outputDirectory = getcwd() . DIRECTORY_SEPARATOR . "html-output";
+
+if (!is_dir($outputDirectory)) {
+    mkdir($outputDirectory, 0777, true);
 }
 
-  $pres = new Presentation("pres.pptx");
-  try {
-    $options = new HtmlOptions();
-    $options->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter(new CustomHeaderAndFontsController("styles.css")));
-    $pres->save("pres.html", SaveFormat::Html, $options);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$htmlFileName = "presentation.html";
+$outputDirectoryPath = realpath($outputDirectory);
+$outputDirectoryPath = str_replace("\\", "/", $outputDirectoryPath);
+$outputBaseUri = "file:///" . ltrim($outputDirectoryPath, "/") . "/";
 
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoFilePath = getcwd() . DIRECTORY_SEPARATOR . "intro.mp4";
+    $videoStream = new Java("java.io.FileInputStream", $videoFilePath);
+    $video = $presentation->getVideos()->addVideo($videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addVideoFrame(20, 20, 480, 270, $video);
 
-## **Lier toutes les polices lors de la conversion d'une presentation en HTML**
-
-Si vous ne souhaitez pas incorporer les polices (pour eviter d'augmenter la taille du HTML resultant), vous pouvez lier toutes les polices en implementant votre propre version `LinkAllFontsHtmlController`. 
-
-Ce code PHP montre comment convertir un PowerPoint en HTML tout en liant toutes les polices et en excluant "Calibri" et "Arial" (puisqu'elles existent deja dans le systeme) :
-```php
-use aspose\slides\Presentation;
-use aspose\slides\HtmlOptions;
-use aspose\slides\NotesPositions;
-use aspose\slides\SaveFormat;
-use aspose\slides\EmbedAllFontsHtmlController;
-
-class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private $m_basePath;
-
-    public function __construct($fontNameExcludeList, $basePath)
-    {
-        parent::__construct($fontNameExcludeList);
-        $this->m_basePath = $basePath;
-    }
-
-    function writeFont
-    (
-            $generator,
-            $originalFont,
-            $substitutedFont,
-            $fontStyle,
-            $fontWeight,
-            $fontData)
-    {
-        try {
-            $fontName = java_is_null($substitutedFont) ? $originalFont->getFontName() : $substitutedFont->getFontName();
-            $path = $fontName . ".woff"; // une certaine désinfection du chemin peut être nécessaire
-			$fstr = new Java("java.io.FileOutputStream", $this->m_basePath . $path);
-			$Array = new java_class("java.lang.reflect.Array");
-			try {
-				$fstr->write($fontData, 0, $Array->getLength($fontData));
-			} finally {
-				$fstr->close();
-			}
-
-            $generator->addHtml("<style>");
-            $generator->addHtml("@font-face { ");
-            $generator->addHtml("font-family: '" . $fontName . "'; ");
-            $generator->addHtml("src: url('" . $path . "')");
-
-            $generator->addHtml(" }");
-            $generator->addHtml("</style>");
-        } catch (JavaException $ex) {
-        }
-    }
-}
-    $pres = new Presentation("pres.pptx");
-  try {
-    # Exclure les polices de présentation par défaut
-	$fontNameExcludeList = array("Calibri", "Arial");
-    $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
-    $htmlOptionsEmbed = new HtmlOptions();
-    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($linkcont));
-    $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Convertir PowerPoint en HTML réactif**
-Ce code PHP montre comment convertir une presentation PowerPoint en HTML réactif :
-```php
-  $pres = new Presentation("SomePresentation.pptx");
-  try {
-    $saveOptions = new HtmlOptions();
-    $saveOptions->setSvgResponsiveLayout(true);
-    $pres->save("SomePresentation-out.html", SaveFormat::Html, $saveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **Exporter les fichiers multimédia en HTML**
-En utilisant Aspose.Slides for PHP via Java, vous pouvez exporter des fichiers multimédia de cette maniere :
-
-1. Créez une instance de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe.
-2. Obtenez une référence à la diapositive.
-3. Ajoutez une video à la diapositive.
-4. Enregistrez la presentation sous forme de fichier HTML.
-
-Ce code PHP montre comment ajouter une video a la presentation puis l'enregistrer en HTML :
-```php
-// Chargement d'une présentation
-  $pres = new Presentation();
-  try {
-    $path = "./out/";
-    $fileName = "ExportMediaFiles_out.html";
-    $baseUri = "http://www.example.com/";
-    $file = new Java("java.io.File", "my_video.avi");
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
-    $videoData = $Array->newInstance($Byte, $Array->getLength($file));
-    try {
-        $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
-        $dis->readFully($videoData);
-    } finally {
-        if (!java_is_null($dis)) $dis->close();
-    }
-    $video = $pres->getVideos()->addVideo($videoData);
-    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
-    $controller = new VideoPlayerHtmlController($path, $fileName, $baseUri);
-    # Définition des options HTML
-    $htmlOptions = new HtmlOptions($controller);
+    $controller = new VideoPlayerHtmlController($outputDirectory, $htmlFileName, $outputBaseUri);
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller);
     $svgOptions = new SVGOptions($controller);
-    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
-    $htmlOptions->setSlideImageFormat(SlideImageFormat::svg($svgOptions));
-    # Enregistrement du fichier
-    $pres->save($fileName, SaveFormat::Html, $htmlOptions);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $slideImageFormat = SlideImageFormat::svg($svgOptions);
+
+    $htmlOptions = new HtmlOptions($controller);
+    $htmlOptions->setHtmlFormatter($formatter);
+    $htmlOptions->setSlideImageFormat($slideImageFormat);
+
+    $htmlFilePath = $outputDirectory . DIRECTORY_SEPARATOR . $htmlFileName;
+    $presentation->save($htmlFilePath, SaveFormat::Html, $htmlOptions);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
     }
-  }
+
+    $presentation->dispose();
+}
 ```
 
+Utilisez des répertoires de sortie uniques pour chaque tâche d’exportation, en particulier dans les applications serveur. Des chemins de sortie partagés peuvent entraîner le remplacement de fichiers provenant de conversions différentes.
+
+## **Performances et gestion des ressources**
+
+La conversion HTML est une opération de rendu, de sorte que le temps de traitement et l’utilisation de la mémoire dépendent du nombre de diapositives, de la résolution des images, des polices, des effets, des graphiques et des médias incorporés. Des valeurs de DPI plus élevées pour `PicturesCompression`, l’incorporation de polices, la sortie SVG et la conservation des zones d’image recadrées peuvent améliorer la fidélité mais augmentent généralement la taille du résultat.
+
+Pour une conversion par lots :
+
+- Libérez chaque instance [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) rapidement.
+- Utilisez des répertoires de sortie distincts pour chaque tâche.
+- Évitez d’incorporer les polices courantes sauf si la fidélité l’exige.
+- Réduisez le DPI des images lorsque le HTML est destiné à un aperçu ou à des vignettes.
+- Conservez la présentation source, le HTML généré et les ressources externes ensemble jusqu’à ce que les chemins de déploiement soient définitifs.
 
 ## **FAQ**
 
-**Quelle est la performance d'Aspose.Slides lors de la conversion de plusieurs presentations en HTML?**
+**Les hyperliens sont-ils conservés dans la sortie HTML ?**
 
-La performance dépend de la taille et de la complexite des presentations. Aspose.Slides est tres efficace et scalable pour les operations en lot. Pour obtenir des performances optimales lors de la conversion d'un grand nombre de presentations, il est recommande d'utiliser le multithreading ou le traitement parallel chaque fois que possible.
+Oui. Les hyperliens de la présentation sont exportés vers le HTML et restent cliquables lorsque l’URL cible est valide.
 
-**Aspose.Slides prend-il en charge l'exportation des hyperliens vers HTML?**
+**Puis‑je convertir plusieurs présentations en HTML en parallèle ?**
 
-Oui, Aspose.Slides prend pleinement en charge l'exportation des hyperliens incorporees vers HTML. Lorsque vous convertissez des presentations au format HTML, les hyperliens sont preserves automatiquement et restent cliquables.
+Oui, mais ne partagez pas une même instance [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) entre plusieurs threads. Traitez des fichiers différents avec des instances de présentation distinctes, des flux séparés et des répertoires de sortie différents.
 
-**Existe-t-il une limite au nombre de diapositives lors de la conversion de presentations en HTML?**
+**Un objet Presentation est‑il thread‑safe ?**
 
-Il n'existe aucune limite au nombre de diapositives lorsque vous utilisez Aspose.Slides. Vous pouvez convertir des presentations de toute taille. Cependant, pour des presentations contenant un nombre tres eleve de diapositives, la performance peut dépendre des ressources disponibles sur votre serveur ou systeme.
+Non. Une seule instance [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) doit être chargée, modifiée, enregistrée et libérée sur un même thread. Pour un traitement parallèle, créez une instance indépendante par thread ou processus.
+
+**Pourquoi le fichier HTML généré est‑il volumineux ?**
+
+L’exportation par défaut peut incorporer les ressources directement dans le HTML. Les polices incorporées, les images haute résolution, les médias, le contenu SVG et la conservation des zones d’image recadrées augmentent également la taille. Utilisez des ressources externes, excluez les polices courantes de l’incorporation et réduisez `PicturesCompression` lorsque la taille réduite prime sur la fidélité maximale.
+
+**Comment choisir baseUri pour l’exportation des médias ?**
+
+Choisissez `baseUri` du point de vue du navigateur et transmettez‑le comme URI absolu. Pour un aperçu local, vous pouvez le dériver du répertoire de sortie avec une URI de fichier Java. Pour le déploiement, utilisez l’URL absolue du répertoire de médias publié. Le chemin système `path` et le `baseUri` du navigateur n’ont pas besoin d’être identiques en texte, mais ils doivent désigner le même emplacement de ressource.
+
+**Puis‑je inclure les diapositives masquées ?**
+
+Oui. Définissez `ShowHiddenSlides` sur `true` dans [HtmlOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/htmloptions/) lorsque les diapositives masquées doivent être exportées.
