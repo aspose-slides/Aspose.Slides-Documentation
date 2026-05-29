@@ -1,168 +1,199 @@
 ---
-title: إنشاء عروض تقديمية ثلاثية الأبعاد في C++
+title: إنشاء تأثيرات ثلاثية الأبعاد في العروض التقديمية باستخدام C++
 linktitle: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
 url: /ar/cpp/3d-presentation/
 keywords:
-- PowerPoint ثلاثي الأبعاد
+- 3D PowerPoint ثلاثي الأبعاد
 - عرض ثلاثي الأبعاد
-- تدوير ثلاثي الأبعاد
+- دوران ثلاثي الأبعاد
 - عمق ثلاثي الأبعاد
-- بروز ثلاثي الأبعاد
+- استخراج ثلاثي الأبعاد
 - تدرج ثلاثي الأبعاد
 - نص ثلاثي الأبعاد
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية في C++ باستخدام Aspose.Slides بكل سهولة. تصدير سريع إلى صيغ PowerPoint و OpenDocument للاستخدام المتعدد."
+description: "تطبيق وعرض تأثيرات ثلاثية الأبعاد لأشكال PowerPoint والنص في C++ باستخدام Aspose.Slides. تكوين الكاميرا، الإضاءة، المادة، الإخراج، التعبئات، والنص ثلاثي الأبعاد."
 ---
-
 ## **نظرة عامة**
-منذ إصدار Aspose.Slides 20.9 أصبح من الممكن إنشاء وتعديل نماذج PowerPoint ثلاثية الأبعاد. يمكن تحقيق ذلك بإضافة مجموعة من التأثيرات ثلاثية الأبعاد إلى الأشكال ثنائية الأبعاد. من خلال إنشاء منظور كاميرا على الشكل، يمكنك تدويره حول المحور. إنشاء بروز أو عمق على الشكل سيحول الشكل من شكل ثنائي الأبعاد إلى نموذج ثلاثي الأبعاد. تعيين تأثير الضوء على الشكل الثلاثي الأبعاد أو تغيير المواد يمكن أن يجعله يبدو أكثر حيوية. تغيير ألوان النماذج الثلاثية الأبعاد إلى تدرج ثلاثي الأبعاد، تعديل محيط الأشكال، إضافة حافة تجعل النموذج الثلاثي الأبعاد أكثر حجمًا. يمكن تطبيق جميع التأثيرات الثلاثية الأبعاد على نماذج PowerPoint ثلاثية الأبعاد والنصوص.
 
-دعونا نلاحظ المثال الأول لإنشاء نماذج ثلاثية الأبعاد، والذي يتضمن جميع الميزات المذكورة أعلاه:
-``` cpp
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
+يمكن لـ Aspose.Slides for C++ إنشاء وتعديل وحفظ وعرض تنسيق ثلاثي الأبعاد بنمط PowerPoint للأشكال والنص. يغطي هذا المقال تأثيرات ثلاثية الأبعاد مثل الدوران، والإخراج، والحواف المائلة، والإضاءة، والمواد، وتعبئة التدرج أو الصورة، والنص ثلاثي الأبعاد.
 
-auto imageScale = 2;
+{{% alert color="primary" %}}
+يتناول هذا المقال تأثيرات تنسيق ثلاثي الأبعاد على أشكال PowerPoint والنص. لا يتعامل مع إدراج أو تعديل ملفات نموذج ثلاثي الأبعاد مستقلة. عند تصدير شريحة إلى صورة أو PDF أو HTML، يقوم Aspose.Slides بتحويل تلك التأثيرات الثلاثية الأبعاد إلى المخرجات الثنائية الأبعاد المُصدرة.
+{{% /alert %}}
+
+## **مفاهيم تنسيق ثلاثي الأبعاد**
+
+استخدم طريقة [get_ThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_threedformat/) في واجهة [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) لتطبيق تنسيق ثلاثي الأبعاد على الشكل. تُعيد الطريقة كائنًا من النوع [IThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/)، الذي يتحكم في المشهد ثلاثي الأبعاد لذلك الشكل.
+
+بالنسبة للنص، استخدم طريقة [get_ThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/get_threedformat/) في واجهة [ITextFrameFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/). تُطبق هذه الطريقة تنسيق ثلاثي الأبعاد على إطار النص بدلاً من جسم الشكل.
+
+الطرق الأكثر أهمية هي:
+
+| الطريقة | ما الذي يتحكم به | متى يتم استخدامها |
+|---|---|---|
+| [get_Camera](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/get_camera/) | وجهة العرض، نوع الكاميرا المحدد مسبقًا، الدوران، التكبير، والمنظور. | دوران الكائن في الفضاء ثلاثي الأبعاد أو مطابقة إعداد مسبق لدوران ثلاثي الأبعاد في PowerPoint. |
+| [get_LightRig](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/get_lightrig/) | إعداد إضاءة محدد مسبقًا، الاتجاه، ودوران الضوء. | تغيير مظهر الإضاءات والظلال على السطح ثلاثي الأبعاد. |
+| [set_Material](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/set_material/) | مادة السطح، مثل مسطح، غير لامع، بلاستيك أو معدن. | جعل الشكل نفسه يبدو أكثر تسطحًا، أو نعومة، أو لامعًا، أو معدنيًا. |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | المسافة التي يمتد فيها الشكل إلى الخلف من سطحه الأمامي. | تحويل شكل مسطح إلى كائن ثلاثي الأبعاد سميك ظاهر. |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | لون الجوانب المستخرجة. | إظهار العمق أو تنسيق لون الجوانب مع التعبئة الأمامية. |
+| [set_Depth](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/set_depth/) | عمق ثلاثي الأبعاد إضافي يُستخدم في تنسيق ثلاثي الأبعاد في PowerPoint. | ضبط عمق الشكل أو النص بدقة، خاصةً مع إعدادات الحافة والمواد. |
+| [get_BevelTop](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/get_beveltop/) and [get_BevelBottom](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | حواف مرتفعة أو مُدَّورة على الوجوه الأمامية والخلفية. | إضافة حافة ناعمة أو مُصقَّلة بدلًا من وجه مسطح حاد. |
+| [get_ContourColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/get_contourcolor/) and [set_ContourWidth](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/set_contourwidth/) | محيط حول الكائن ثلاثي الأبعاد. | تأكيد حدود الكائن في النتيجة المعروضة. |
+
+## **إنشاء شكل ثلاثي الأبعاد**
+
+- إعدادات الكاميرا، لأن العرض الأمامي الافتراضي قد يخفي الإخراج.  
+- إعدادات الإضاءة، لأن الإضاءة تجعل الوجوه والجوانب واضحة.  
+- إعدادات المادة، لأن السطح يؤثر على طريقة عرض الضوء.  
+- إعدادات الإخراج أو العمق، لأن الشكل المسطح يحتاج إلى السماكة.
+
+المثال التالي ينشئ مستطيلًا، يضيف نصًا إلى وجهه الأمامي، يطبق تنسيقًا ثلاثيًا الأبعاد، يحفظ العرض التقديمي كملف PPTX، ويحوّل الشريحة إلى صورة PNG.
+
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
 shape->get_TextFrame()->set_Text(u"3D");
-shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
+shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
+auto frontColor = System::Drawing::Color::get_CornflowerBlue();
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(frontColor);
+
+auto extrusionColor = System::Drawing::Color::get_Blue();
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
+shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Matte);
-shape->get_ThreeDFormat()->set_ExtrusionHeight(100);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Blue());
+shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Flat);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
+thumbnail->Save(u"shape_3d.png");
 thumbnail->Dispose();
 
-presentation->Save(u"sandbox_3d.pptx", Export::SaveFormat::Pptx);
+presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+تظهر صورة الشريحة المُرَسَمة المستطيل ككتلة ثلاثية الأبعاد سميكة:
 
-نموذج PowerPoint ثلاثي الأبعاد الناتج:
+![مستطيل ثلاثي الأبعاد أزرق مُرَسَم مع نص ثلاثي الأبعاد أبيض على الوجه الأمامي](img_01_01.png)
 
-![todo:image_alt_text](img_01_01.png)
+## **دوران شكل باستخدام الكاميرا**
 
-## **تدوير ثلاثي الأبعاد**
-في PowerPoint يتوفر تدوير الشكل عبر:
+في PowerPoint، يتم تكوين الدوران ثلاثي الأبعاد من لوحة 3-D Rotation. قيم الدوران X وY وZ تتطابق مع الدوران الذي تحدده عبر واجهة برمجة تطبيقات الكاميرا.
 
-![todo:image_alt_text](img_02_01.png)
+![لوحة PowerPoint 3-D Rotation مع إبراز قيم الدوران X وY وZ](img_02_01.png)
 
-لتدوير نماذج PowerPoint ثلاثية الأبعاد، يلزم إنشاء منظور كاميرا على الشكل. يتم ذلك باستخدام طريقة [IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4). تُستدعى طريقة التدوير من فئة الكاميرا كما لو أنك تقوم بتدوير الكاميرا. في الواقع، عندما تدور الكاميرا بالنسبة إلى الشكل، تقوم بتدوير الشكل على المستوى الثلاثي الأبعاد.
-``` cpp
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+في Aspose.Slides، اضبط نوع الكاميرا والدوران عبر [IThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/):
+
+```cpp
+shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-// ... ضبط معلمات المشهد ثلاثي الأبعاد
-
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
 ```
 
+استخدم الكاميرا عندما تحتاج إلى تغيير طريقة رؤية المشاهد للكائن. لا تغير الهندسة ثنائية الأبعاد للشكل على الشريحة. إنها تغير منظور ثلاثي الأبعاد المستخدم من قبل PowerPoint وAspose.Slides عند العرض.
 
-## **العمق الثلاثي الأبعاد والبروز**
-لإضافة العمق والبروز إلى نموذج PowerPoint ثلاثي الأبعاد استخدم طريقة [IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295).
+## **إضافة الإخراج والعمق**
 
-لتعديل لون البروز استخدم طريقة [IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e):
-``` cpp
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+الإخراج يجعل الشكل يبدو سميكًا بتمديده خلف الوجه الأمامي. في PowerPoint، يتحكم التحكم بالعمق في هذا السمك المرئي، وتتحكم أداة اللون في لون الجوانب.
+
+![تحكمات العمق في PowerPoint مرتبطة بخصائص لون الإخراج وارتفاع الإخراج](img_02_02.png)
+
+قم بتعيين [set_ExtrusionHeight](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/set_extrusionheight/) للسمك و[get_ExtrusionColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) للون الجوانب:
+
+```cpp
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Purple());
-// ... ضبط معلمات المشهد ثلاثي الأبعاد الأخرى
 
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
+auto extrusionColor = System::Drawing::Color::get_Purple();
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
+استخدم [set_Depth](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/set_depth/) عندما تحتاج إلى التعامل مباشرةً مع قيمة العمق في PowerPoint أو دمج العمق مع الحافة، المادة، وتأثيرات النص. في العديد من سيناريوهات الشكل، يكون `set_ExtrusionHeight` الإعداد الأكثر وضوحًا لأنه يعبر مباشرةً عن الإخراج المرئي.
 
-قائمة العمق في PowerPoint:
+## **استخدام تعبئة بالتدرج أو صورة مع تأثيرات ثلاثية الأبعاد**
 
-![todo:image_alt_text](img_02_02.png)
+تنسيق ثلاثي الأبعاد مستقل عن تعبئة الشكل. يمكنك تطبيق لون صلب أو تدرج أو نمط أو تعبئة صورة على الوجه الأمامي مع الاستمرار في استخدام نفس إعدادات الكاميرا والإضاءة والمادة والإخراج.
 
+هذا المثال يطبق تعبئة بالتدرج على الشكل ولون إخراج أغمق على الجوانب:
 
-## **تدرج ثلاثي الأبعاد**
-يمكن رسم تدرج ثلاثي الأبعاد على نموذج PowerPoint ثلاثي الأبعاد عبر طريقة [Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58):
-``` cpp
-using namespace Aspose::Slides;
-
-auto imageScale = 2;
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_TextFrame()->set_Text(u"3D Gradient");
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
+auto firstGradientColor = System::Drawing::Color::get_Blue();
+auto secondGradientColor = System::Drawing::Color::get_Orange();
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
-shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0, System::Drawing::Color::get_Blue());
-shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, System::Drawing::Color::get_Orange());
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, firstGradientColor);
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, secondGradientColor);
 
+auto extrusionColor = System::Drawing::Color::get_DarkOrange();
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
+shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Flat);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_DarkOrange());
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
+thumbnail->Save(u"gradient_3d.png");
 thumbnail->Dispose();
+
+presentation->Dispose();
 ```
 
+المخرج المُرَسَم يحافظ على التدرج على الوجه الأمامي ويعرض الإخراج بشكل منفصل:
 
-نموذج ثلاثي الأبعاد مع تدرج ثلاثي الأبعاد:
+![مستطيل ثلاثي الأبعاد مُرَسَم مع تعبئة تدرج أزرق إلى برتقالي وإخراج برتقالي](img_02_03.png)
 
-![todo:image_alt_text](img_02_03.png)
-  
-لإنشاء تدرج صورة استخدم طريقة [Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb):
-``` cpp
+استخدام تعبئة صورة بدلاً من ذلك، أضف الصورة إلى العرض التقديمي وعيّنها لتعبئة الشكل:
+
+```cpp
 auto imageData = System::IO::File::ReadAllBytes(u"image.jpg");
 auto image = presentation->get_Images()->AddImage(imageData);
 
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-// .. إعداد 3D: Camera, LightRig, Extrusion
 
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
+auto extrusionColor = System::Drawing::Color::get_DarkOrange();
+shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
+![مستطيل ثلاثي الأبعاد مُرَسَم مع تعبئة صورة على الوجه الأمامي وإخراج برتقالي](img_02_04.png)
 
-نموذج ثلاثي الأبعاد مع تدرج صورة:
+## **تطبيق تنسيق ثلاثي الأبعاد على النص**
 
-![todo:image_alt_text](img_02_04.png)
+تنسيق الشكل ثلاثي الأبعاد يؤثر على جسم الشكل. تنسيق النص ثلاثي الأبعاد يؤثر على إطار النص. هذا مفيد لتأثيرات شبيهة بـ WordArt حيث تحتاج الأحرف نفسها إلى الإخراج، المادة، الإضاءة، وإعدادات الكاميرا.
 
-## **نص ثلاثي الأبعاد (WordArt)**
-لتطبيق التدوير، البروز، الإضاءة، التدرج على النص وتحويله إلى نص ثلاثي الأبعاد (WordArt)، تحتاج إلى الوصول إلى طريقة [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30):
-``` cpp
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
+المثال التالي ينشئ نصًا مع تعبئة بنمط، يطبق تحويل WordArt، ويضبط إعدادات ثلاثية الأبعاد على [ITextFrameFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/):
 
-auto imageScale = 2;
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -170,48 +201,60 @@ shape->get_TextFrame()->set_Text(u"3D Text");
 
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(System::Drawing::Color::get_DarkOrange());
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(System::Drawing::Color::get_White());
+
+auto foregroundColor = System::Drawing::Color::get_DarkOrange();
+auto backgroundColor = System::Drawing::Color::get_White();
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(foregroundColor);
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(backgroundColor);
 portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::LargeGrid);
 
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(128.0f);
 
 auto textFrameFormat = shape->get_TextFrame()->get_TextFrameFormat();
-// إعداد تأثير تحويل WordArt "Arch Up"
 textFrameFormat->set_Transform(TextShapeType::ArchUp);
-
 textFrameFormat->get_ThreeDFormat()->set_ExtrusionHeight(3.5);
 textFrameFormat->get_ThreeDFormat()->set_Depth(3.0);
 textFrameFormat->get_ThreeDFormat()->set_Material(MaterialPresetType::Plastic);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
-
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+textFrameFormat->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"text3d.png");
+thumbnail->Save(u"text_3d.png");
 thumbnail->Dispose();
 
-presentation->Save(u"text3d.pptx", SaveFormat::Pptx);
+presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+![نص ثلاثي الأبعاد مُرَسَم مع تحويل WordArt مقوس، تعبئة نمط برتقالي، وإخراج داكن](img_02_05.png)
 
-مثال على نص ثلاثي الأبعاد (WordArt):
+## **سلوك التصدير والعرض**
 
-![todo:image_alt_text](img_02_05.png)
+يحافظ Aspose.Slides على تنسيق ثلاثي الأبعاد عند الحفظ إلى صيغ PowerPoint مثل PPTX. عند العرض أو التصدير إلى صيغ ذات تخطيط ثابت، يتم تحويل المشهد ثلاثي الأبعاد إلى نمط نقطي أو رسمه في المخرجات كنتيجة ثنائية الأبعاد. ينطبق هذا عندما تقوم بعرض الشرائح إلى [PNG](/slides/ar/cpp/convert-powerpoint-to-png/)، أو تصدير إلى [PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/)، أو تصدير إلى [HTML](/slides/ar/cpp/convert-powerpoint-to-html/)، أو إنشاء إطارات للتحويل إلى [video conversion](/slides/ar/cpp/convert-powerpoint-to-video/).
 
-## **الأسئلة المتكررة**
+- الصور وملفات PDF المصدرة ليست تفاعلية. لا يمكن للمشاهد تدوير الكائن بعد التصدير.  
+- المظهر النهائي يعتمد على مجموعة الكاميرا، وإضاءة المشهد، والمادة، والإخراج، والتعبئة، وتوسعة الشريحة.  
+- إذا كنت بحاجة إلى فحص قيم التنسيق الموروثة أو المستندة إلى السمة، اقرأ [effective shape properties](/slides/ar/cpp/shape-effective-properties/).  
+- بعض صيغ الإخراج لا يمكنها تخزين تنسيق ثلاثي الأبعاد القابل للتعديل في PowerPoint. في تلك الصيغ، يتم عرض النتيجة المرئية بدلاً من حفظها كإعدادات ثلاثية الأبعاد قابلة للتحرير.
 
-**هل سيتم الحفاظ على التأثيرات الثلاثية الأبعاد عند تصدير العرض إلى صور/PDF/HTML؟**
+## **الأسئلة المتداولة**
 
-نعم. يقوم محرك Slides ثلاثي الأبعاد بتصيير التأثيرات الثلاثية الأبعاد عند التصدير إلى التنسيقات المدعومة ([images](/slides/ar/cpp/convert-powerpoint-to-png/)، [PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/)، [HTML](/slides/ar/cpp/convert-powerpoint-to-html/)، إلخ).
+**هل يمكن لـ Aspose.Slides إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية؟**  
+يقوم Aspose.Slides بإنشاء وعرض تأثيرات ثلاثية الأبعاد في PowerPoint للأشكال والنص. ولا يجعل الصور، ملفات PDF، أو صفحات HTML المصدرة مشاهد ثلاثية الأبعاد تفاعلية يمكن للمشاهد تدويرها. في ملف PPTX، يظل تنسيق ثلاثي الأبعاد قابلًا للتعديل في PowerPoint حيث يدعم الصيغة ذلك.
 
-**هل يمكنني استرجاع القيم "الفعالة" (النهائية) لمعلمات 3D التي تأخذ في الاعتبار السمات، الوراثة، إلخ؟**
+**ما الفرق بين النموذج الثلاثي الأبعاد والتأثير الثلاثي الأبعاد؟**  
+النموذج الثلاثي الأبعاد هو كائن ثلاثي الأبعاد مستقل يُدرج في العرض التقديمي. أما التأثير الثلاثي الأبعاد فهو تنسيق يُطبق على شكل أو نص عادي في PowerPoint، مثل الدوران، الإخراج، الحافة، الإضاءة، والمادة. يغطي هذا المقال التأثيرات الثلاثية الأبعاد.
 
-نعم. توفر Slides واجهات برمجة تطبيقات لـ [read effective values](/slides/ar/cpp/shape-effective-properties/) (بما في ذلك للـ 3D — الإضاءة، الحواف، إلخ) بحيث يمكنك رؤية الإعدادات النهائية المطبقة.
+**ما الإعدادات المطلوبة للحصول على شكل ثلاثي الأبعاد ظاهر؟**  
+على الأقل، يجب ضبط دوران الكاميرا وإما الإخراج أو العمق. عمليًا، يُفضَّل أيضًا ضبط إضاءة المشهد والمادة بحيث تكون الوجوه المعروضة ذات إضاءات وظلال واضحة.
 
-**هل تعمل التأثيرات الثلاثية الأبعاد عند تحويل العرض إلى فيديو؟**
+**هل يمكنني تطبيق تأثيرات ثلاثية الأبعاد على الأشكال والنص معًا؟**  
+نعم. استخدم [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) لجسم الشكل و[ITextFrameFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/) للنص.
 
-نعم. عند [generating frames for the video](/slides/ar/cpp/convert-powerpoint-to-video/)، تُصَدر التأثيرات الثلاثية الأبعاد كما هي للـ [exported images](/slides/ar/cpp/convert-powerpoint-to-png/).
+**هل ستظهر تأثيرات ثلاثية الأبعاد عند التصدير إلى صور أو PDF أو HTML أو إطارات فيديو؟**  
+نعم. يقوم Aspose.Slides بعرض تأثيرات ثلاثية الأبعاد عند إنتاج صور الشرائح، ومخرجات PDF، ومخرجات HTML، والإطارات المستخدمة في تحويل الفيديو. يحتوي الناتج المصدَّر على الشكل المعروض، وليس كائنًا ثلاثيًا أبعادًا قابلًا للتعديل.
+
+**هل يمكنني قراءة القيم ثلاثية الأبعاد النهائية بعد تطبيق الوراثة وإعدادات السمة؟**  
+نعم. استخدم واجهات برمجة التطبيقات للتنسيق الفعلي الموضحة في [Shape Effective Properties](/slides/ar/cpp/shape-effective-properties/) لقراءة الكاميرا النهائية، وإضاءة المشهد، والحافة، والقيم الثلاثية الأبعاد ذات الصلة.
