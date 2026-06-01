@@ -96,3 +96,7 @@ Yes. Convert points to pixels using: pixels = points × (DPI / 72). The result d
 **How do I get the "effective" paragraph formatting parameters, taking style inheritance into account?**
 
 Use the [effective paragraph formatting data structure](/slides/cpp/shape-effective-properties/); it returns the final consolidated values for indents, spacing, wrapping, RTL, and more.
+
+**How can I retrieve the text rectangle of a preset shape?**
+
+For preset shapes, the text rectangle defined by ECMA-376 is not exposed directly through a separate API. You can obtain the bounds of the text using `IParagraph::GetRect()` or `IPortion::GetRect()`. These methods return the text bounds for the paragraph or portion regardless of whether the shape is custom or preset.
