@@ -1,21 +1,21 @@
 ---
-title: استخراج النص المتقدم من العروض التقديمية في Java
+title: استخراج النص المتقدم من العروض التقديمية في جافا
 linktitle: استخراج النص
 type: docs
 weight: 90
 url: /ar/java/extract-text-from-presentation/
 keywords:
 - استخراج النص
-- استخراج النص من الشريحة
-- استخراج النص من العرض التقديمي
+- استخراج النص من شريحة
+- استخراج النص من عرض تقديمي
 - استخراج النص من PowerPoint
 - استخراج النص من OpenDocument
 - استخراج النص من PPT
 - استخراج النص من PPTX
 - استخراج النص من ODP
 - استرجاع النص
-- استرجاع النص من الشريحة
-- استرجاع النص من العرض التقديمي
+- استرجاع النص من شريحة
+- استرجاع النص من عرض تقديمي
 - استرجاع النص من PowerPoint
 - استرجاع النص من OpenDocument
 - استرجاع النص من PPT
@@ -26,132 +26,138 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "استخراج النص بسرعة من عروض PowerPoint و OpenDocument باستخدام Aspose.Slides for Java. اتبع دليلنا البسيط خطوة بخطوة لتوفير الوقت."
+description: "استخراج النص بسرعة من عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لجافا. اتبع دليلنا البسيط خطوة بخطوة لتوفير الوقت."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+يعد استخراج النص من العروض التقديمية مهمة شائعة ولكنها أساسية للمطورين الذين يعملون مع محتوى الشرائح. سواء كنت تتعامل مع ملفات Microsoft PowerPoint بصيغة PPT أو PPTX، أو عروض OpenDocument (ODP)، فإن الوصول إلى البيانات النصية واسترجاعها يمكن أن يكون حيويًا للتحليل أو الأتمتة أو الفهرسة أو أغراض ترحيل المحتوى.
 
-ليس من الغريب أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال على جميع الشرائح في العرض التقديمي. يشرح هذا المقال كيفية استخراج النص من عروض Microsoft PowerPoint PPTX باستخدام Aspose.Slides. 
+توفر هذه المقالة دليلًا شاملاً حول كيفية استخراج النص بفعالية من صيغ العروض المختلفة، بما في ذلك PPT و PPTX و ODP، باستخدام Aspose.Slides for Java. ستتعرّف على كيفية التكرار المنهجي عبر عناصر العرض لاستخراج محتوى النص الذي تحتاجه بدقة.
 
-{{% /alert %}} 
-## **استخراج النص من الشرائح**
-توفر Aspose.Slides for Java فئة [SlideUtil](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil). تكشف هذه الفئة عن عدد من الأساليب الساكنة المحملة لاستخراج النص بالكامل من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض PPTX، استخدم الطريقة الساكنة المحملة [getAllTextBoxes](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) التي تكشفها فئة [SlideUtil](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil). تقبل هذه الطريقة كائن Slide كمعامل.
-عند التنفيذ، تقوم طريقة Slide بمسح النص بالكامل من الشريحة التي تم تمريرها كمعامل وتعيد مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame). هذا يعني أن أي تنسيق نص مرتبط بالنص متاح. الجزء التالي من الشيفرة يستخرج كل النص في الشريحة الأولى من العرض التقديمي:
+## **استخراج النص من شريحة**
+
+توفر Aspose.Slides for Java الفئة [SlideUtil](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slideutil/). تكشف هذه الفئة عن عدة أساليب ثابتة محمَّلة لاستخراج كل النص من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض تقديمي، استخدم طريقة [SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-) . تقبل هذه الطريقة كمعامل كائن من النوع [IBaseSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/). عند تنفيذها، تُفحص الطريقة الشريحة بأكملها للبحث عن النص وتُعيد مصفوفة من الكائنات من النوع [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/)، مع الحفاظ على أي تنسيق للنص.
+
+المقتطف البرمجي التالي يستخرج كل النص من الشريحة الأولى في العرض:
+
 ```java
-//إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation("demo.pptx");
+int slideIndex = 0;
+
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        //احصل على مصفوفة من كائنات ITextFrame من جميع الشرائح في ملف PPTX
-        ITextFrame[] textFramesPPTX = SlideUtil.getAllTextBoxes(slide);
+    ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-        //التكرار عبر مصفوفة TextFrames
-        for (int i = 0; i < textFramesPPTX.length; i++) {
-            //التكرار عبر الفقرات في كائن ITextFrame الحالي
-            for (IParagraph para : textFramesPPTX[i].getParagraphs()) {
-                //التكرار عبر المقاطع في كائن IParagraph الحالي
-                for (IPortion port : para.getPortions()) {
-                    //عرض النص في المقطع الحالي
-                    System.out.println(port.getText());
+    ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
 
-                    //عرض ارتفاع خط النص
-                    System.out.println(port.getPortionFormat().getFontHeight());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                    //عرض اسم خط النص
-                    if (port.getPortionFormat().getLatinFont() != null)
-                        System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
+
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
                 }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **استخراج النص من عرض تقديمي**
 
-## **استخراج النص من العروض التقديمية**
-للمسح النص من كامل العرض التقديمي، استخدم الطريقة الساكنة [getAllTextFrames](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) التي تكشفها فئة SlideUtil. تأخذ هذه الطريقة معاملين:
-1. أولاً، كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode#Unarranged) الذي يمثل العرض التقديمي الذي يُستخرج منه النص.
-2. ثانياً، قيمة من نوع boolean تحدد ما إذا كان يجب تضمين الشريحة الأصلية (master slide) عند مسح النص من العرض التقديمي.
-تُعيد الطريقة مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame)، مع كامل معلومات تنسيق النص. الشيفرة أدناه تقوم بمسح النص ومعلومات التنسيق من عرض تقديمي، بما في ذلك الشرائح الأصلية.
+للمسح النصي عبر العرض التقديمي بأكمله، استخدم الطريقة الثابتة [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) التي تكشفها الفئة [SlideUtil](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slideutil/). تقبل هذه الطريقة معاملين:
+
+1. أولاً، كائن من النوع [IPresentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentation/) يمثل عرض PowerPoint أو OpenDocument الذي سيُستخرج منه النص.
+1. ثانياً، قيمة `boolean` تشير إلى ما إذا كان يجب تضمين الشرائح الرئيسية عند مسح النص من العرض.
+
+تُرجع الطريقة مصفوفة من الكائنات من النوع [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/)، متضمنةً معلومات تنسيق النص. يُظهر الكود أدناه عملية مسح النص وتفاصيل التنسيق من عرض تقديمي، بما فيها الشرائح الرئيسية.
+
 ```java
-//إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation("demo.pptx");
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    //احصل على مصفوفة من كائنات ITextFrame من جميع الشرائح في ملف PPTX
-    ITextFrame[] textFramesPPTX = SlideUtil.getAllTextFrames(pres, true);
+    boolean includeMasterSlides = true;
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, includeMasterSlides);
 
-    //التكرار عبر مصفوفة TextFrames
-    for (int i = 0; i < textFramesPPTX.length; i++) 
-    {
-        //التكرار عبر الفقرات في كائن ITextFrame الحالي
-        for (IParagraph para : textFramesPPTX[i].getParagraphs())
-        {
-            //التكرار عبر المقاطع في كائن IParagraph الحالي
-            for (IPortion port : para.getPortions())
-            {
-                //عرض النص في المقطع الحالي
-                System.out.println(port.getText());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                //عرض ارتفاع الخط للنص
-                System.out.println(port.getPortionFormat().getFontHeight());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
 
-                //عرض اسم الخط للنص
-                if (port.getPortionFormat().getLatinFont() != null)
-                    System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
+                }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **استخراج النص المصنف والسريع**
 
-## **استخراج نص مصنف وسريع**
-تمت إضافة الطريقة الساكنة الجديدة getPresentationText إلى فئة Presentation. هناك ثلاث تحميلات (overloads) لهذه الطريقة:
-```java
-public IPresentationText getPresentationText(String file, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
-``` 
-
-The [TextExtractionArrangingMode](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:
-- [Unarranged](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode#Unarranged) - The raw text with no respect to position on the slide
-- [Arranged](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode#Arranged) - The text is positioned in the same order as on the slide
-
-**Unarranged** mode can be used when speed is critical, it's faster than Arranged mode.
-
-[IPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText#getSlidesText--) method which returns an array of [ISlideText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText) objects. Every object represent the text on the corresponding slide. [ISlideText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText) object have the following methods:
-
-- [ISlideText.getText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getText--) - The text on the slide's shapes
-- [ISlideText.getMasterText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getMasterText--) - The text on the master page's shapes for this slide
-- [ISlideText.getLayoutText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getLayoutText--) - The text on the layout page's shapes for this slide
-- [ISlideText.getNotesText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getNotesText--) - The text on the notes page's shapes for this slide
-
-The new API can be used like this:
+توفر الفئة [PresentationFactory](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentationfactory/) أيضًا أساليب لاستخراج كل النص من العروض التقديمية:
 
 ```java
-IPresentationText text1 = PresentationFactory.getInstance().getPresentationText("presentation.pptx", TextExtractionArrangingMode.Unarranged);
-System.out.println(text1.getSlidesText()[0].getText());
-System.out.println(text1.getSlidesText()[0].getLayoutText());
-System.out.println(text1.getSlidesText()[0].getMasterText());
-System.out.println(text1.getSlidesText()[0].getNotesText());
+IPresentationText getPresentationText(String file, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
 ```
 
+تُحدد الوسيطة enum [TextExtractionArrangingMode](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textextractionarrangingmode/) وضعية تنظيم نتيجة استخراج النص ويمكن ضبطها على القيم التالية:
+
+- `Unarranged` - النص الخام دون اعتبار لموقعه على الشريحة.
+- `Arranged` - يتم ترتيب النص بنفس الترتيب الموجود على الشريحة.
+
+يمكن استخدام وضعية `Unarranged` عندما تكون السرعة أمرًا حاسمًا؛ فهي أسرع من وضعية `Arranged`.
+
+تمثل الواجهة [IPresentationText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentationtext/) النص الخام المستخرج من العرض التقديمي. تُعيد الطريقة `getSlidesText` مصفوفة من الكائنات من النوع [ISlideText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidetext/). كل كائن يمثل النص على الشريحة المقابلة. يحتوي كائن النوع [ISlideText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidetext/) على الطرق التالية:
+
+- `getText` - النص داخل أشكال الشريحة.
+- `getMasterText` - النص داخل أشكال الشريحة الرئيسية المرتبطة بهذه الشريحة.
+- `getLayoutText` - النص داخل أشكال شريحة التخطيط المرتبطة بهذه الشريحة.
+- `getNotesText` - النص داخل أشكال شريحة الملاحظات المرتبطة بهذه الشريحة.
+- `getCommentsText` - النص داخل التعليقات المرتبطة بهذه الشريحة.
+
+```java
+String presentationPath = "presentation.ppt";
+int arrangingMode = TextExtractionArrangingMode.Unarranged;
+IPresentationText presentationText = PresentationFactory.getInstance().getPresentationText(presentationPath, arrangingMode);
+ISlideText firstSlideText = presentationText.getSlidesText()[0];
+
+System.out.println(firstSlideText.getText());
+System.out.println(firstSlideText.getLayoutText());
+System.out.println(firstSlideText.getMasterText());
+System.out.println(firstSlideText.getNotesText());
+System.out.println(firstSlideText.getCommentsText());
+```
 
 ## **الأسئلة المتكررة**
 
 **ما مدى سرعة معالجة Aspose.Slides للعروض الكبيرة أثناء استخراج النص؟**
 
-تم تحسين Aspose.Slides لأداء عالي وتقوم بمعالجة حتى [العروض الكبيرة](/slides/ar/java/open-presentation/) بكفاءة، مما يجعلها مناسبة للسيناريوهات في الوقت الحقيقي أو المعالجة الضخمة.
+تم تحسين Aspose.Slides لأداء عالٍ ويمكنه معالجة حتى [العروض الكبيرة](/slides/ar/java/open-presentation/)، مما يجعله مناسبًا لسيناريوهات المعالجة في الوقت الحقيقي أو على نطاق واسع.
 
-**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والرسوم البيانية داخل العروض التقديمية؟**
+**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والمخططات داخل العروض؟**
 
-نعم، تدعم Aspose.Slides بالكامل استخراج النص من الجداول والرسوم البيانية وغيرها من عناصر الشريحة المعقدة، مما يتيح لك الوصول إلى جميع المحتويات النصية وتحليلها بسهولة.
+نعم. يمكن لـ Aspose.Slides استخراج النص من العديد من عناصر الشريحة، بما في ذلك الجداول والكائنات المرتبطة بالمخططات، بحيث يمكنك الوصول إلى المحتوى النصي وتحليه في هياكل العرض الشائعة.
 
-**هل أحتاج إلى ترخيص خاص من Aspose.Slides لاستخراج النص من العروض التقديمية؟**
+**هل أحتاج إلى ترخيص خاص من Aspose.Slides لاستخراج النص من العروض؟**
 
-يمكنك استخراج النص باستخدام نسخة التجربة المجانية من Aspose.Slides، رغم أنها ستفرض بعض القيود مثل معالجة عدد محدود من الشرائح فقط. للحصول على استخدام غير مقيد وللتعامل مع العروض الأكبر، يُنصح بشراء ترخيص كامل.
+يمكنك استخراج النص باستخدام النسخة التجريبية المجانية من Aspose.Slides، رغم أنها تحتوي على [قيود معينة](/slides/ar/java/licensing/)، مثل معالجة عدد محدود من الشرائح فقط. للحصول على استخدام غير مقيد ومعالجة عروض أكبر، يُنصح بشراء ترخيص كامل.

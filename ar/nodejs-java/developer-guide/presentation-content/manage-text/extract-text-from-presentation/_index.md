@@ -1,5 +1,5 @@
 ---
-title: استخراج النص المتقدم من العروض التقديمية في جافا سكريبت
+title: استخراج النص المتقدم من العروض التقديمية في JavaScript
 linktitle: استخراج النص
 type: docs
 weight: 90
@@ -25,138 +25,119 @@ keywords:
 - OpenDocument
 - عرض تقديمي
 - Node.js
-- جافا سكريبت
+- JavaScript
 - Aspose.Slides
-description: "استخراج النص بسرعة من عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لـ Node.js. اتبع دليلنا البسيط خطوة بخطوة لتوفير الوقت."
+description: "استخراج النص بسرعة من عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Node.js عبر Java. اتبع دليلنا البسيط خطوة بخطوة لتوفير الوقت."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+استخراج النص من العروض التقديمية هو مهمة شائعة لكنها أساسية للمطورين الذين يتعاملون مع محتوى الشرائح. سواء كنت تتعامل مع ملفات Microsoft PowerPoint بصيغة PPT أو PPTX، أو عروض OpenDocument (ODP)، فإن الوصول إلى البيانات النصية واسترجاعها يمكن أن يكون حاسمًا للتحليل أو الأتمتة أو الفهرسة أو أغراض ترحيل المحتوى.
 
-ليس من غير المعتاد أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال على جميع الشرائح في العرض التقديمي. تشرح هذه المقالة كيفية استخراج النص من عروض Microsoft PowerPoint PPTX باستخدام Aspose.Slides. 
+توفر هذه المقالة دليلًا شاملًا حول كيفية استخراج النص بكفاءة من صيغ عروض تقديمية متعددة، بما في ذلك PPT وPPTX وODP، باستخدام Aspose.Slides for Node.js via Java. ستتعلم كيفية التجول بشكل منهجي عبر عناصر العرض التقديمي لاسترجاع محتوى النص الذي تحتاجه بدقة.
 
-{{% /alert %}} 
+## **استخراج النص من شريحة**
 
-## **استخراج النص من الشريحة**
+Aspose.Slides for Node.js via Java يوفر الفئة [SlideUtil](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideutil/). هذه الفئة تعرض عدة طرق ثابتة محملة لاستخراج كل النص من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض تقديمي، استخدم طريقة [getAllTextBoxes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideutil/#getAllTextBoxes-aspose.slides.IBaseSlide-) . تقبل هذه الطريقة كائن شريحة كمعامل. عندما تُنفذ، تقوم الطريقة بفحص كامل الشريحة للبحث عن النص وتعيد مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) مع الحفاظ على أي تنسيق للنص.
 
-توفر Aspose.Slides for Node.js عبر Java الفئة [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil) . تعرض هذه الفئة عددًا من الأساليب الساكنة المتجاوزة لاستخراج النص الكامل من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض PPTX، استخدم الأسلوب الساكن المتجاوز [getAllTextBoxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#getAllTextBoxes-aspose.slides.IBaseSlide-) المقدم من الفئة [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil) . يتلقى هذا الأسلوب كائن Slide كمعامل.
-عند التنفيذ، يقوم أسلوب Slide بمسح النص الكامل من الشريحة الممرَّرة كمعامل ويعيد مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) . هذا يعني أن أي تنسيق نصي مرتبط بالنص متاح. القطعة البرمجية التالية تستخرج كل النص في الشريحة الأولى من العرض التقديمي:
+المقتطف البرمجي التالي يستخرج كل النص من الشريحة الأولى في العرض التقديمي:
+
+
+
+## **استخراج النص من عرض تقديمي**
+
+لفحص النص من كامل العرض التقديمي، استخدم الطريقة الثابتة [getAllTextFrames](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) المعروضة في الفئة [SlideUtil](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideutil/). تقبل الطريقة معاملين:
+
+1. أولاً، كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) يمثل عرض PowerPoint أو OpenDocument سيُستخرج منه النص.
+1. ثانياً، قيمة `boolean` تُحدِّد ما إذا كان يجب تضمين الشرائح الرئيسية عند فحص النص من العرض التقديمي.
+
+تعود الطريقة بمصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) تشمل معلومات تنسيق النص. الشيفرة أدناه تفحص النص وتفاصيل التنسيق من عرض تقديمي، بما في ذلك الشرائح الرئيسية.
+
 ```javascript
-// إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX
-var pres = new aspose.slides.Presentation("demo.pptx");
+const presentation = new aspose.slides.Presentation("demo.pptx");
 try {
-    for (var s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        // احصل على مصفوفة من كائنات ITextFrame من جميع الشرائح في PPTX
-        var textFramesPPTX = aspose.slides.SlideUtil.getAllTextBoxes(slide);
-        // التكرار عبر مصفوفة TextFrames
-        for (var i = 0; i < textFramesPPTX.length; i++) {
-            // التكرار عبر الفقرات في ITextFrame الحالي
-            for (let j = 0; j < textFramesPPTX[i].getParagraphs().getCount(); j++) {
-                let para = textFramesPPTX[i].getParagraphs().get_Item(j);
-                // التكرار عبر الأجزاء في IParagraph الحالي
-                for (let k = 0; k < para.getPortions().getCount(); k++) {
-                    let port = para.getPortions().get_Item(k);
-                    // عرض النص في الجزء الحالي
-                    console.log(port.getText());
-                    // عرض ارتفاع الخط للنص
-                    console.log(port.getPortionFormat().getFontHeight());
-                    // عرض اسم الخط للنص
-                    if (port.getPortionFormat().getLatinFont() != null) {
-                        console.log(port.getPortionFormat().getLatinFont().getFontName());
-                    }
-                });
-            }
-        }
-    });
-} finally {
-    pres.dispose();
-}
-```
+    const includeMasterSlides = true;
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, includeMasterSlides);
 
+    for (let textFrameIndex = 0; textFrameIndex < textFrames.length; textFrameIndex++) {
+        const textFrame = textFrames[textFrameIndex];
 
-## **استخراج النص من العرض التقديمي**
+        const paragraphs = textFrame.getParagraphs();
+        const paragraphCount = paragraphs.getCount();
+        for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+            const paragraph = paragraphs.get_Item(paragraphIndex);
 
-لمسح النص من كامل العرض التقديمي، استخدم الأسلوب الساكن [getAllTextFrames](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#getAllTextFrames-aspose.slides.IPresentation-boolean-) المقدم من الفئة SlideUtil. يأخذ هذا الأسلوب معاملين:
+            const portions = paragraph.getPortions();
+            const portionCount = portions.getCount();
+            for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                const portion = portions.get_Item(portionIndex);
 
-1. أولًا، كائن [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode#Unarranged) يمثل العرض التقديمي الذي يتم استخراج النص منه.
-1. ثانيًا، قيمة منطقية تحدد ما إذا كان يجب تضمين الشريحة الرئيسة عند مسح النص من العرض التقديمي.
-   يعيد الأسلوب مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) ، مع معلومات تنسيق النص. الشيفرة أدناه تمسح النص ومعلومات التنسيق من عرض تقديمي، بما في ذلك الشرائح الرئيسة.
-```javascript
-// إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX
-var pres = new aspose.slides.Presentation("demo.pptx");
-try {
-    // الحصول على مصفوفة من كائنات ITextFrame من جميع الشرائح في PPTX
-    var textFramesPPTX = aspose.slides.SlideUtil.getAllTextFrames(pres, true);
-    // التكرار عبر مصفوفة TextFrames
-    for (var i = 0; i < textFramesPPTX.length; i++) {
-        // التكرار عبر الفقرات في ITextFrame الحالي
-        for (let j = 0; j < textFramesPPTX[i].getParagraphs().getCount(); j++) {
-            let para = textFramesPPTX[i].getParagraphs().get_Item(j);
-            // التكرار عبر الأجزاء في IParagraph الحالي
-            for (let k = 0; k < para.getPortions().getCount(); k++) {
-                let port = para.getPortions().get_Item(k);
-                // عرض النص في الجزء الحالي
-                console.log(port.getText());
-                // عرض ارتفاع الخط للنص
-                console.log(port.getPortionFormat().getFontHeight());
-                // عرض اسم الخط للنص
-                if (port.getPortionFormat().getLatinFont() != null) {
-                    console.log(port.getPortionFormat().getLatinFont().getFontName());
+                const portionText = portion.getText();
+                console.log(portionText);
+
+                const portionFormat = portion.getPortionFormat();
+                const fontHeight = portionFormat.getFontHeight();
+                console.log(fontHeight);
+
+                const latinFont = portionFormat.getLatinFont();
+                if (latinFont !== null) {
+                    const fontName = latinFont.getFontName();
+                    console.log(fontName);
                 }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **استخراج النص المصنف والسريع**
 
-تم إضافة الأسلوب الساكن الجديد getPresentationText إلى الفئة Presentation. هناك ثلاثة تجاوزات لهذا الأسلوب:
-```javascript
-IPresentationText getPresentationText(String file, int mode);
-IPresentationText getPresentationText(InputStream stream, int mode);
-IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
-``` 
-
-The [TextExtractionArrangingMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:
-- [Unarranged](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode#Unarranged) - The raw text with no respect to position on the slide
-- [Arranged](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode#Arranged) - The text is positioned in the same order as on the slide
-
-**Unarranged** mode can be used when speed is critical, it's faster than Arranged mode.
-
-[PresentationText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText#getSlidesText--) method which returns an array of `SlideText` objects. Every object represent the text on the corresponding slide. `SlideText` object have the following methods:
-
-- `SlideText.getText` - The text on the slide's shapes
-- `SlideText.getMasterText` - The text on the master page's shapes for this slide
-- `SlideText.getLayoutText` - The text on the layout page's shapes for this slide
-- `SlideText.getNotesText` - The text on the notes page's shapes for this slide
-
-There is also a `SlideText` class which implements the `SlideText` class.
-
-The new API can be used like this:
+الفئة [PresentationFactory](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/) توفر أيضاً طرقًا لاستخراج كل النص من العروض التقديمية:
 
 ```javascript
-var text1 = aspose.slides.PresentationFactory.getInstance().getPresentationText("presentation.pptx", aspose.slides.TextExtractionArrangingMode.Unarranged);
-console.log(text1.getSlidesText()[0].getText());
-console.log(text1.getSlidesText()[0].getLayoutText());
-console.log(text1.getSlidesText()[0].getMasterText());
-console.log(text1.getSlidesText()[0].getNotesText());
+PresentationText getPresentationText(String file, int mode);
+PresentationText getPresentationText(InputStream stream, int mode);
+PresentationText getPresentationText(InputStream stream, int mode, LoadOptions options);
 ```
 
+معامل تعداد [TextExtractionArrangingMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textextractionarrangingmode/) يحدد نمط تنظيم نتيجة استخراج النص ويمكن تعيينه إلى القيم التالية:
+- `Unarranged` - النص الخام دون مراعاة موقعه على الشريحة.
+- `Arranged` - يتم ترتيب النص بنفس الترتيب الموجود على الشريحة.
 
-## **الأسئلة الشائعة**
+يمكن استخدام وضع `Unarranged` عندما تكون السرعة حاسمة؛ فهو أسرع من وضع `Arranged`.
 
-**ما مدى سرعة معالجة Aspose.Slides للعروض التقديمية الكبيرة أثناء استخراج النص؟**
+الفئة [PresentationText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationtext/) تمثل النص الخام المستخرج من العرض التقديمي. تُعيد الطريقة `getSlidesText` مصفوفة من الكائنات، كل منها يمثل النص على الشريحة المقابلة. لكل كائن نص شريحة الطرق التالية:
 
-تم تحسين Aspose.Slides لأداء عالٍ وتقوم بمعالجة العروض التقديمية الكبيرة بكفاءة، مما يجعلها مناسبة لسيناريوهات المعالجة في الوقت الحقيقي أو المعالجة الضخمة.
+- طريقة `getText` تُعيد النص داخل أشكال الشريحة.
+- طريقة `getMasterText` تُعيد النص داخل أشكال الشريحة الرئيسية المرتبطة بهذه الشريحة.
+- طريقة `getLayoutText` تُعيد النص داخل أشكال شريحة التخطيط المرتبطة بهذه الشريحة.
+- طريقة `getNotesText` تُعيد النص داخل أشكال شريحة الملاحظات المرتبطة بهذه الشريحة.
+- طريقة `getCommentsText` تُعيد النص داخل التعليقات المرتبطة بهذه الشريحة.
 
-**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والرسوم البيانية داخل العروض التقديمية؟**
+```javascript
+const presentationPath = "presentation.ppt";
+const arrangingMode = aspose.slides.TextExtractionArrangingMode.Unarranged;
+const presentationText = aspose.slides.PresentationFactory.getInstance().getPresentationText(presentationPath, arrangingMode);
+const firstSlideText = presentationText.getSlidesText()[0];
 
-نعم، يدعم Aspose.Slides بالكامل استخراج النص من الجداول والرسوم البيانية وغيرها من عناصر الشريحة المعقدة، مما يتيح لك الوصول إلى كل المحتوى النصي وتحليله بسهولة.
+console.log(firstSlideText.getText());
+console.log(firstSlideText.getLayoutText());
+console.log(firstSlideText.getMasterText());
+console.log(firstSlideText.getNotesText());
+console.log(firstSlideText.getCommentsText());
+```
 
-**هل أحتاج إلى ترخيص خاص من Aspose.Slides لاستخراج النص من العروض التقديمية؟**
+## **FAQ**
 
-يمكنك استخراج النص باستخدام النسخة التجريبية المجانية من Aspose.Slides، على الرغم من أنها ستفرض بعض القيود، مثل معالجة عدد محدود من الشرائح فقط. للاستخدام غير المقيد وللتعامل مع عروض تقديمية أكبر، يُنصح بشراء ترخيص كامل.
+**ما هي سرعة معالجة Aspose.Slides للعروض الكبيرة أثناء استخراج النص؟**
+
+Aspose.Slides مُحسَّن لأداء عالي ويمكنه معالجة حتى [العروض الكبيرة](/slides/ar/nodejs-java/open-presentation/)، مما يجعله مناسبًا لسيناريوهات المعالجة الفورية أو الضخمة.
+
+**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والرسوم البيانية داخل العروض؟**
+
+نعم. يمكن لـ Aspose.Slides استخراج النص من العديد من عناصر الشريحة، بما في ذلك الجداول والكائنات المتعلقة بالرسوم البيانية، بحيث يمكنك الوصول إلى المحتوى النصي وتحليله في هياكل العرض الشائعة.
+
+**هل أحتاج إلى ترخيص خاص من Aspose.Slides لاستخراج النص من العروض؟**
+
+يمكنك استخراج النص باستخدام نسخة التجربة المجانية من Aspose.Slides، على الرغم من أنها ستحتوي على [قيود معينة](/slides/ar/nodejs-java/licensing/)، مثل معالجة عدد محدود من الشرائح فقط. للاستخدام غير المقيد ومعالجة عروض أكبر، يُنصح بشراء ترخيص كامل.

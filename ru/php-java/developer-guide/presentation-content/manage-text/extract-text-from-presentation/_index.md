@@ -1,127 +1,84 @@
 ---
-title: Продвинутое извлечение текста из презентаций на PHP
-linktitle: Извлечение текста
+title: "Продвинутое извлечение текста из презентаций в PHP"
+linktitle: "Извлечение текста"
 type: docs
 weight: 90
 url: /ru/php-java/extract-text-from-presentation/
 keywords:
-- извлечение текста
-- извлечение текста со слайда
-- извлечение текста из презентации
-- извлечение текста из PowerPoint
-- извлечение текста из OpenDocument
-- извлечение текста из PPT
-- извлечение текста из PPTX
-- извлечение текста из ODP
-- получение текста
-- получение текста со слайда
-- получение текста из презентации
-- получение текста из PowerPoint
-- получение текста из OpenDocument
-- получение текста из PPT
-- получение текста из PPTX
-- получение текста из ODP
+- извлекать текст
+- извлекать текст со слайда
+- извлекать текст из презентации
+- извлекать текст из PowerPoint
+- извлекать текст из OpenDocument
+- извлекать текст из PPT
+- извлекать текст из PPTX
+- извлекать текст из ODP
+- получать текст
+- получать текст со слайда
+- получать текст из презентации
+- получать текст из PowerPoint
+- получать текст из OpenDocument
+- получать текст из PPT
+- получать текст из PPTX
+- получать текст из ODP
 - PowerPoint
 - OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Быстро извлеките текст из презентаций PowerPoint и OpenDocument с помощью Aspose.Slides for PHP via Java. Следуйте нашему простому пошаговому руководству, чтобы сэкономить время."
+description: "Быстро извлекайте текст из презентаций PowerPoint и OpenDocument с помощью Aspose.Slides for PHP via Java. Следуйте нашему простому пошаговому руководству, чтобы сэкономить время."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
+Извлечение текста из презентаций — обычная, но важная задача для разработчиков, работающих с содержимым слайдов. Независимо от того, имеете ли вы дело с файлами Microsoft PowerPoint в формате PPT или PPTX, или с презентациями OpenDocument (ODP), доступ к текстовым данным может быть критически важным для анализа, автоматизации, индексирования или миграции контента.
 
-Не редкость, когда разработчикам необходимо извлечь текст из презентации. Для этого нужно извлечь текст из всех фигур на всех слайдах презентации. В этой статье объясняется, как извлечь текст из презентаций Microsoft PowerPoint PPTX с помощью Aspose.Slides. 
+В этой статье представлено полное руководство по эффективному извлечению текста из различных форматов презентаций, включая PPT, PPTX и ODP, с использованием Aspose.Slides for PHP via Java. Вы узнаете, как систематически обходить элементы презентации, чтобы точно получить нужный текстовый контент.
 
-{{% /alert %}} 
-## **Извлечение текста со слайдов**
-Aspose.Slides for PHP via Java предоставляет класс [SlideUtil](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/). Этот класс раскрывает несколько перегруженных статических методов для извлечения полного текста из презентации или слайда. Чтобы извлечь текст со слайда в PPTX‑презентации, используйте перегруженный статический метод [getAllTextBoxes](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/getalltextboxes/) , предоставляемый классом [SlideUtil](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/). Этот метод принимает объект Slide в качестве параметра.
-При выполнении метод Slide сканирует весь текст со слайда, переданного в качестве параметра, и возвращает массив объектов [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) . Это означает, что любое форматирование текста доступно. Следующий фрагмент кода извлекает весь текст с первого слайда презентации:
+## **Извлечение текста со слайда**
+
+Aspose.Slides for PHP via Java предоставляет класс [SlideUtil](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideutil/). Этот класс предоставляет несколько перегруженных статических методов для извлечения всего текста из презентации или слайда. Чтобы извлечь текст со слайда в презентации, используйте метод [getAllTextBoxes](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideutil/#getAllTextBoxes). Этот метод принимает объект типа [BaseSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseslide/) в качестве параметра. При выполнении метод сканирует весь слайд в поисках текста и возвращает массив объектов типа [TextFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/textframe/), сохраняющих любое форматирование текста.
+
+Следующий фрагмент кода извлекает весь текст с первого слайда презентации:
+
 ```php
-  # Создайте экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation("demo.pptx");
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      # Получить массив объектов ITextFrame со всех слайдов в PPTX
-      $textFramesPPTX = SlideUtil->getAllTextBoxes($slide);
-      # Итерировать массив TextFrames
-      for($i = 0; $i < java_values($Array->getLength($textFramesPPTX)) ; $i++) {
-        # Итерировать абзацы в текущем ITextFrame
-        foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
-          # Итерировать части в текущем IParagraph
-          foreach($para->getPortions() as $port) {
-            # Отобразить текст в текущей части
-            echo($port->getText());
-            # Отобразить высоту шрифта текста
-            echo($port->getPortionFormat()->getFontHeight());
-            # Отобразить название шрифта текста
-            if (!java_is_null($port->getPortionFormat()->getLatinFont())) {
-              echo($port->getPortionFormat()->getLatinFont()->getFontName());
+$slideIndex = 0;
+
+$presentation = new Presentation("demo.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $slide = $presentation->getSlides()->get_Item($slideIndex);
+
+    $textFrames = SlideUtil::getAllTextBoxes($slide);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        foreach ($textFrames[$textFrameIndex]->getParagraphs() as $paragraph) {
+            foreach ($paragraph->getPortions() as $portion) {
+                $portionText = $portion->getText();
+                echo($portionText);
+
+                $portionFormat = $portion->getPortionFormat();
+                $fontHeight = $portionFormat->getFontHeight();
+                echo($fontHeight);
+
+                $latinFont = $portionFormat->getLatinFont();
+                if (!java_is_null($latinFont)) {
+                    $fontName = $latinFont->getFontName();
+                    echo($fontName);
+                }
             }
-          }
         }
-      }
     }
-  } finally {
-    $pres->dispose();
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Извлечение текста из презентации**
 
-## **Извлечение текста из презентаций**
-Чтобы просканировать текст всей презентации, используйте статический метод [getAllTextFrames](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/getalltextframes/) , предоставляемый классом SlideUtil. Он принимает два параметра:
+Чтобы просканировать текст во всей презентации, используйте статический метод [getAllTextFrames](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideutil/#getAllTextFrames), предоставляемый классом [SlideUtil](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideutil/). Он принимает два параметра:
 
-1. Во‑первых, объект [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) , представляющий презентацию, из которой извлекается текст.
-2. Во‑вторых, булево значение, определяющее, включать ли главный слайд при сканировании текста презентации.  
-Метод возвращает массив объектов [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) , содержащих информацию о форматировании текста. Приведённый ниже код сканирует текст и информацию о форматировании из презентации, включая главные слайды.
-```php
-  # Создать экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation("demo.pptx");
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Получить массив объектов ITextFrame со всех слайдов в PPTX
-    $textFramesPPTX = SlideUtil->getAllTextFrames($pres, true);
-    # Перебрать массив TextFrames
-    for($i = 0; $i < java_values($Array->getLength($textFramesPPTX)) ; $i++) {
-      # Перебрать абзацы в текущем ITextFrame
-      foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
-        # Перебрать части в текущем IParagraph
-        foreach($para->getPortions() as $port) {
-          # Отобразить текст в текущей части
-          echo($port->getText());
-          # Отобразить высоту шрифта текста
-          echo($port->getPortionFormat()->getFontHeight());
-          # Отобразить название шрифта текста
-          if (!java_is_null($port->getPortionFormat()->getLatinFont())) {
-            echo($port->getPortionFormat()->getLatinFont()->getFontName());
-          }
-        }
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
-```
+1. Сначала объект [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), представляющий презентацию PowerPoint или OpenDocument, из которой будет извлечён текст.
+2. Затем значение `boolean`, указывающее, следует ли включать мастер‑слайды при сканировании текста презентации.
 
-
-## **Категоризированное и быстрое извлечение текста**
-В класс Presentation добавлен новый статический метод getPresentationText. У этого метода три перегрузки:
-```php
-
-```
-
-
-## **FAQ**
-
-**Насколько быстро Aspose.Slides обрабатывает большие презентации при извлечении текста?**
-
-Aspose.Slides оптимизирован для высокой производительности и эффективно обрабатывает даже большие презентации, что делает его подходящим для сценариев реального времени или пакетной обработки.
-
-**Может ли Aspose.Slides извлекать текст из таблиц и диаграмм в презентациях?**
-
-Да, Aspose.Slides полностью поддерживает извлечение текста из таблиц, диаграмм и других сложных элементов слайда, позволяя легко получать и анализировать весь текстовый контент.
-
-**Нужна ли специальная лицензия Aspose.Slides для извлечения текста из презентаций?**
-
-Вы можете извлекать текст с помощью бесплатной пробной версии Aspose.Slides, однако она имеет определённые ограничения, например, обработку только ограниченного количества слайдов. Для неограниченного использования и работы с более крупными презентациями рекомендуется приобрести полную лицензию.

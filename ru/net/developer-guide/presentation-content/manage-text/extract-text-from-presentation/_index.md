@@ -1,164 +1,165 @@
 ---
-title: Продвинутое извлечение текста из презентаций в .NET
-linktitle: Извлечение текста
+title: "Продвинутое извлечение текста из презентаций в .NET"
+linktitle: "Извлечение текста"
 type: docs
 weight: 90
 url: /ru/net/extract-text-from-presentation/
 keywords:
-- извлечение текста
-- извлечение текста со слайда
-- извлечение текста из презентации
-- извлечение текста из PowerPoint
-- извлечение текста из OpenDocument
-- извлечение текста из PPT
-- извлечение текста из PPTX
-- извлечение текста из ODP
-- получение текста
-- получение текста со слайда
-- получение текста из презентации
-- получение текста из PowerPoint
-- получение текста из OpenDocument
-- получение текста из PPT
-- получение текста из PPTX
-- получение текста из ODP
-- PowerPoint
-- OpenDocument
-- презентация
-- .NET
-- C#
-- Aspose.Slides
-description: "Быстро извлеките текст из презентаций PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Следуйте нашему простому пошаговому руководству, чтобы сэкономить время."
+- "извлечение текста"
+- "извлечение текста со слайда"
+- "извлечение текста из презентации"
+- "извлечение текста из PowerPoint"
+- "извлечение текста из OpenDocument"
+- "извлечение текста из PPT"
+- "извлечение текста из PPTX"
+- "извлечение текста из ODP"
+- "получение текста"
+- "получение текста со слайда"
+- "получение текста из презентации"
+- "получение текста из PowerPoint"
+- "получение текста из OpenDocument"
+- "получение текста из PPT"
+- "получение текста из PPTX"
+- "получение текста из ODP"
+- "PowerPoint"
+- "OpenDocument"
+- "презентация"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Быстро извлекайте текст из презентаций PowerPoint и OpenDocument с помощью Aspose.Slides for .NET. Следуйте нашему простому пошаговому руководству, чтобы сэкономить время."
 ---
+## **Overview**
 
-## **Обзор**
+Извлечение текста из презентаций — распространённая, но одновременно важная задача для разработчиков, работающих с содержимым слайдов. Независимо от того, имеете ли вы дело с файлами Microsoft PowerPoint в формате PPT или PPTX, или с презентациями OpenDocument (ODP), доступ к текстовым данным может быть критически важным для анализа, автоматизации, индексации или миграции контента.
 
-Извлечение текста из презентаций – распространённая, но при этом важная задача для разработчиков, работающих с содержимым слайдов. Независимо от того, имеете ли вы дело с файлами Microsoft PowerPoint в формате PPT или PPTX, или с презентациями OpenDocument (ODP), доступ к текстовым данным и их получение могут быть критически важными для анализа, автоматизации, индексации или миграции контента.
+В этой статье представлено полное руководство по эффективному извлечению текста из различных форматов презентаций, включая PPT, PPTX и ODP, с использованием Aspose.Slides for .NET. Вы узнаете, как систематически перебрать элементы презентации, чтобы точно получить необходимый текстовый контент.
 
-В этой статье представлено полное руководство по эффективному извлечению текста из различных форматов презентаций, включая PPT, PPTX и ODP, с помощью Aspose.Slides for .NET. Вы узнаете, как систематически перебрать элементы презентации для точного получения необходимого текстового содержания.
+## **Extract Text from a Slide**
 
-## **Извлечение текста со слайда**
+Aspose.Slides for .NET предоставляет пространство имён [Aspose.Slides.Util](https://reference.aspose.com/slides/ru/net/aspose.slides.util/), в котором находится класс [SlideUtil](https://reference.aspose.com/slides/ru/net/aspose.slides.util/slideutil/). Этот класс содержит несколько перегруженных статических методов для извлечения всего текста из презентации или слайда. Чтобы извлечь текст из слайда презентации, используйте метод [GetAllTextBoxes](https://reference.aspose.com/slides/ru/net/aspose.slides.util/slideutil/getalltextboxes/). Метод принимает объект типа [IBaseSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseslide/) в качестве параметра. При выполнении метод сканирует весь слайд в поиске текста и возвращает массив объектов типа [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/), сохраняющий любое форматирование текста.
 
-Aspose.Slides for .NET предоставляет пространство имён [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/), которое включает класс [SlideUtil](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/). Этот класс раскрывает несколько перегруженных статических методов для извлечения всего текста из презентации или отдельного слайда. Чтобы извлечь текст со слайда в презентации, используйте метод [GetAllTextBoxes](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/getalltextboxes/). Этот метод принимает объект типа [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) в качестве параметра. При выполнении метод просматривает весь слайд в поиске текста и возвращает массив объектов типа [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), сохраняющих любое форматирование текста.
+Следующий фрагмент кода извлекает весь текст из первого слайда презентации:
 
-Следующий фрагмент кода извлекает весь текст с первого слайда презентации:
 ```cs
 int slideIndex = 0;
 
-// Создайте экземпляр класса Presentation, представляющего файл презентации (PPT, PPTX, ODP и т.д.).
-using Presentation presentation = new Presentation("demo.pptx");
+using var presentation = new Presentation("demo.pptx");
 
-// Get a reference to the slide.
-ISlide slide = presentation.Slides[slideIndex];
+var slide = presentation.Slides[slideIndex];
 
-// Get an array of text frames from the slide.
-ITextFrame[] textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextBoxes(slide);
+var textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextBoxes(slide);
 
-// Loop through the array of the text frames.
-for (int i = 0; i < textFrames.Length; i++)
+foreach (var textFrame in textFrames)
 {
-    // Переберите абзацы в текущем текстовом фрейме.
-    foreach (IParagraph paragraph in textFrames[i].Paragraphs)
+    foreach (var paragraph in textFrame.Paragraphs)
     {
-        // Переберите части текста в текущем абзаце.
-        foreach (IPortion portion in paragraph.Portions)
+        foreach (var portion in paragraph.Portions)
         {
-            // Выведите текст текущей части.
-            Console.WriteLine(portion.Text);
+            var portionText = portion.Text;
+            Console.WriteLine(portionText);
 
-            // Выведите высоту шрифта текста.
-            Console.WriteLine(portion.PortionFormat.FontHeight);
+            var portionFormat = portion.PortionFormat;
+            var fontHeight = portionFormat.FontHeight;
+            Console.WriteLine(fontHeight);
 
-            // Выведите имя шрифта текста.
-            if (portion.PortionFormat.LatinFont != null)
-                Console.WriteLine(portion.PortionFormat.LatinFont.FontName);
+            var latinFont = portionFormat.LatinFont;
+            if (latinFont != null)
+            {
+                var fontName = latinFont.FontName;
+                Console.WriteLine(fontName);
+            }
         }
     }
 }
 ```
 
+## **Extract Text from a Presentation**
 
-## **Извлечение текста из презентации**
+Чтобы просканировать текст во всей презентации, используйте статический метод [GetAllTextFrames](https://reference.aspose.com/slides/ru/net/aspose.slides.util/slideutil/getalltextframes/) класса [SlideUtil](https://reference.aspose.com/slides/ru/net/aspose.slides.util/slideutil/). Он принимает два параметра:
 
-Чтобы просканировать текст во всей презентации, используйте статический метод [GetAllTextFrames](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/getalltextframes/) класса [SlideUtil](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/). Он принимает два параметра:
-
-1. Сначала объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), представляющий презентацию PowerPoint или OpenDocument, из которой будет извлечён текст.  
+1. Сначала объект [IPresentation](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/), представляющий презентацию PowerPoint или OpenDocument, из которой будет извлечён текст.
 2. Затем значение `Boolean`, указывающее, следует ли включать мастер‑слайды при сканировании текста презентации.
 
-Метод возвращает массив объектов типа [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), включающий информацию о форматировании текста. Приведённый ниже код сканирует текст и детали форматирования из презентации, включая мастер‑слайды.
+Метод возвращает массив объектов типа [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/), включающий информацию о форматировании текста. Ниже приведён код, который сканирует текст и детали форматирования из презентации, включая мастер‑слайды.
+
 ```cs
-// Создать экземпляр класса Presentation, представляющего файл презентации (PPT, PPTX, ODP и т.д.).
-using Presentation presentation = new Presentation("demo.pptx");
+using var presentation = new Presentation("demo.pptx");
 
-// Get an array of text frames from all slides in the presentation.
-ITextFrame[] textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(presentation, true);
+var includeMasterSlides = true;
+var textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(presentation, includeMasterSlides);
 
-// Loop through the array of the text frames.
-for (int i = 0; i < textFrames.Length; i++)
+foreach (var textFrame in textFrames)
 {
-    // Перебрать абзацы в текущем текстовом фрейме.
-    foreach (IParagraph paragraph in textFrames[i].Paragraphs)
+    foreach (var paragraph in textFrame.Paragraphs)
     {
-        // Перебрать части текста в текущем абзаце.
-        foreach (IPortion portion in paragraph.Portions)
+        foreach (var portion in paragraph.Portions)
         {
-            // Вывести текст текущей части.
-            Console.WriteLine(portion.Text);
+            var portionText = portion.Text;
+            Console.WriteLine(portionText);
 
-            // Вывести высоту шрифта текста.
-            Console.WriteLine(portion.PortionFormat.FontHeight);
+            var portionFormat = portion.PortionFormat;
+            var fontHeight = portionFormat.FontHeight;
+            Console.WriteLine(fontHeight);
 
-            // Вывести имя шрифта текста.
-            if (portion.PortionFormat.LatinFont != null)
-                Console.WriteLine(portion.PortionFormat.LatinFont.FontName);
+            var latinFont = portionFormat.LatinFont;
+            if (latinFont != null)
+            {
+                var fontName = latinFont.FontName;
+                Console.WriteLine(fontName);
+            }
         }
     }
 }
 ```
 
+## **Categorized and Fast Text Extraction**
 
-## **Категоризированное и быстрое извлечение текста**
+Класс [PresentationFactory](https://reference.aspose.com/slides/ru/net/aspose.slides/presentationfactory/) также предоставляет методы для извлечения всего текста из презентаций:
 
-Класс [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/) также предоставляет статические методы для извлечения всего текста из презентаций:
 ``` cs
 IPresentationText GetPresentationText(string file, TextExtractionArrangingMode mode);
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode);
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode, ILoadOptions options);
 ```
 
+Аргумент‑перечисление [TextExtractionArrangingMode](https://reference.aspose.com/slides/ru/net/aspose.slides/textextractionarrangingmode/) указывает режим организации результата извлечения текста и может принимать следующие значения:
+- `Unarranged` — Неупорядоченный текст без учёта его положения на слайде.
+- `Arranged` — Текст упорядочен в том же порядке, что и на слайде.
 
-Аргумент перечисления [TextExtractionArrangingMode](https://reference.aspose.com/slides/net/aspose.slides/textextractionarrangingmode/) указывает режим организации результата извлечения текста и может принимать следующие значения:
-- `Unarranged` – необработанный текст без учёта его позиции на слайде.  
-- `Arranged` – текст упорядочен в том же порядке, что и на слайде.
+Неупорядоченный режим можно использовать, когда важна скорость; он работает быстрее, чем упорядоченный режим.
 
-Неупорядоченный режим может использоваться, когда важна скорость; он быстрее упорядоченного режима.
+[IPresentationText](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationtext/) представляет собой необработанный текст, извлечённый из презентации. Его свойство `SlidesText` возвращает массив объектов типа [ISlideText](https://reference.aspose.com/slides/ru/net/aspose.slides/islidetext/). Каждый объект представляет текст соответствующего слайда. Объект типа [ISlideText](https://reference.aspose.com/slides/ru/net/aspose.slides/islidetext/) имеет следующие свойства:
 
-[IPresentationText](https://reference.aspose.com/slides/net/aspose.slides/ipresentationtext/) представляет необработанный текст, извлечённый из презентации. Он содержит свойство [SlidesText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/) из пространства имён [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/), которое возвращает массив объектов типа [ISlideText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/). Каждый объект представляет текст на соответствующем слайде. Объект типа [ISlideText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/) имеет следующие свойства:
+- `Text` — Текст внутри фигур слайда.
+- `MasterText` — Текст внутри фигур мастер‑слайда, связанного с этим слайдом.
+- `LayoutText` — Текст внутри фигур шаблона слайда, связанного с этим слайдом.
+- `NotesText` — Текст внутри фигур заметок слайда, связанного с этим слайдом.
+- `CommentsText` — Текст внутри комментариев, связанных с этим слайдом.
 
-- `Text` – текст внутри фигур слайда.  
-- `MasterText` – текст внутри фигур мастер‑слайда, связанного с данным слайдом.  
-- `LayoutText` – текст внутри фигур шаблона слайда, связанного с данным слайдом.  
-- `NotesText` – текст внутри фигур слайда заметок, связанного с данным слайдом.  
-- `CommentsText` – текст внутри комментариев, связанных с этим слайдом.
 ```cs
-IPresentationText text = new PresentationFactory().GetPresentationText("presentation.ppt", TextExtractionArrangingMode.Unarranged);
-Console.WriteLine(text.SlidesText[0].Text);
-Console.WriteLine(text.SlidesText[0].LayoutText);
-Console.WriteLine(text.SlidesText[0].MasterText);
-Console.WriteLine(text.SlidesText[0].NotesText);
-Console.WriteLine(text.SlidesText[0].CommentsText);
-```
+var presentationPath = "presentation.ppt";
+var arrangingMode = TextExtractionArrangingMode.Unarranged;
+var presentationText = PresentationFactory.Instance.GetPresentationText(presentationPath, arrangingMode);
+var firstSlideText = presentationText.SlidesText[0];
 
+Console.WriteLine(firstSlideText.Text);
+Console.WriteLine(firstSlideText.LayoutText);
+Console.WriteLine(firstSlideText.MasterText);
+Console.WriteLine(firstSlideText.NotesText);
+Console.WriteLine(firstSlideText.CommentsText);
+```
 
 ## **FAQ**
 
-**Насколько быстро Aspose.Slides обрабатывает большие презентации при извлечении текста?**
+**How fast does Aspose.Slides process large presentations during text extraction?**
 
-Aspose.Slides оптимизирован для высокой производительности и эффективно обрабатывает даже крупные презентации, что делает его подходящим для сценариев в реальном времени или массовой обработки.
+Aspose.Slides оптимизирован для высокой производительности и может обрабатывать даже [large presentations](/slides/ru/net/open-presentation/), что делает его подходящим для сценариев реального времени или пакетной обработки.
 
-**Может ли Aspose.Slides извлекать текст из таблиц и диаграмм внутри презентаций?**
+**Can Aspose.Slides extract text from tables and charts within presentations?**
 
-Да, Aspose.Slides полностью поддерживает извлечение текста из таблиц, диаграмм и других сложных элементов слайда, позволяя легко получать и анализировать всё текстовое содержание.
+Да. Aspose.Slides может извлекать текст из многих элементов слайда, включая таблицы и объекты, связанные с диаграммами, позволяя получать и анализировать текстовое содержание в типичных структурах презентаций.
 
-**Нужна ли специальная лицензия Aspose.Slides для извлечения текста из презентаций?**
+**Do I need a special Aspose.Slides license to extract text from presentations?**
 
-Текст можно извлекать с помощью бесплатной пробной версии Aspose.Slides, однако она имеет определённые ограничения, например, обработку ограниченного количества слайдов. Для неограниченного использования и работы с крупными презентациями рекомендуется приобрести полную лицензию.
+Вы можете извлекать текст с помощью бесплатной пробной версии Aspose.Slides, хотя она имеет [certain limitations](/slides/ru/net/licensing/), например обработку только ограниченного количества слайдов. Для неограниченного использования и работы с более крупными презентациями рекомендуется приобрести полную лицензию.

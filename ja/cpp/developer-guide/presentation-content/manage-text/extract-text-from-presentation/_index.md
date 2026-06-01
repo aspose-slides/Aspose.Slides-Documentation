@@ -1,167 +1,163 @@
 ---
-title: C++ におけるプレゼンテーションからの高度なテキスト抽出
-linktitle: テキスト抽出
+title: "C++ によるプレゼンテーションの高度なテキスト抽出"
+linktitle: "テキスト抽出"
 type: docs
 weight: 90
 url: /ja/cpp/extract-text-from-presentation/
 keywords:
-- テキスト抽出
-- スライドからのテキスト抽出
-- プレゼンテーションからのテキスト抽出
-- PowerPoint からのテキスト抽出
-- OpenDocument からのテキスト抽出
-- PPT からのテキスト抽出
-- PPTX からのテキスト抽出
-- ODP からのテキスト抽出
-- テキスト取得
-- スライドからのテキスト取得
-- プレゼンテーションからのテキスト取得
-- PowerPoint からのテキスト取得
-- OpenDocument からのテキスト取得
-- PPT からのテキスト取得
-- PPTX からのテキスト取得
-- ODP からのテキスト取得
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- C++
-- Aspose.Slides
+- "テキスト抽出"
+- "スライドからテキストを抽出"
+- "プレゼンテーションからテキストを抽出"
+- "PowerPoint からテキストを抽出"
+- "OpenDocument からテキストを抽出"
+- "PPT からテキストを抽出"
+- "PPTX からテキストを抽出"
+- "ODP からテキストを抽出"
+- "テキスト取得"
+- "スライドからテキストを取得"
+- "プレゼンテーションからテキストを取得"
+- "PowerPoint からテキストを取得"
+- "OpenDocument からテキストを取得"
+- "PPT からテキストを取得"
+- "PPTX からテキストを取得"
+- "ODP からテキストを取得"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- "C++"
+- "Aspose.Slides"
 description: "Aspose.Slides for C++ を使用して、PowerPoint および OpenDocument のプレゼンテーションからテキストを迅速に抽出します。シンプルでステップバイステップのガイドに従い、時間を節約しましょう。"
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
+プレゼンテーションからテキストを抽出することは、スライドコンテンツを扱う開発者にとって一般的かつ重要な作業です。Microsoft PowerPoint の PPT または PPTX 形式、あるいは OpenDocument プレゼンテーション（ODP）を扱う場合でも、テキストデータへのアクセスと取得は、分析、Automation、インデックス作成、コンテンツ移行などの目的で重要です。
 
-開発者がプレゼンテーションからテキストを抽出する必要があることは珍しくありません。そのためには、プレゼンテーション内のすべてのスライドのすべてのシェイプからテキストを抽出する必要があります。この記事では、Aspose.Slides を使用して Microsoft PowerPoint PPTX プレゼンテーションからテキストを抽出する方法を説明します。テキストは以下の方法で抽出できます:
+この記事では、Aspose.Slides for C++ を使用して PPT、PPTX、ODP などのさまざまなプレゼンテーション形式からテキストを効率的に抽出する包括的な手順を紹介します。プレゼンテーション要素を体系的に走査し、必要なテキストコンテンツを正確に取得する方法を学びます。
 
-- [1 つのスライドからテキストを抽出する](/slides/ja/cpp/extracting-text-from-the-presentation/)
-- [GetAllTextBoxes メソッドを使用してテキストを抽出する](/slides/ja/cpp/extracting-text-from-the-presentation/)
-- [分類された高速テキスト抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
-
-{{% /alert %}} 
 ## **スライドからテキストを抽出する**
-Aspose.Slides for C++ は Aspose.Slides.Util 名前空間を提供し、その中に SlideUtil クラスがあります。このクラスはプレゼンテーションまたはスライドからテキスト全体を抽出するための多数のオーバーロードされた静的メソッドを公開しています。PPTX プレゼンテーションのスライドからテキストを抽出するには、SlideUtil クラスが公開するオーバーロードされた静的メソッド [GetAllTextBoxes](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a97da94e3fc5230cdfc0e30b444c127df) を使用します。このメソッドは Slide オブジェクトをパラメータとして受け取ります。実行すると、Slide メソッドはパラメータとして渡されたスライドのテキスト全体をスキャンし、TextFrame オブジェクトの配列を返します。これにより、テキストに関連付けられた書式情報も取得できます。以下のコードはプレゼンテーションの最初のスライド上のすべてのテキストを抽出します:
-``` cpp
-// ドキュメントディレクトリへのパス。
-System::String dataDir = GetDataPath();
 
-// PPTX ファイルを表す Presentation クラスのインスタンス化
-auto pptxPresentation = System::MakeObject<Presentation>(dataDir + u"demo.pptx");
+Aspose.Slides for C++ は、[Aspose.Slides.Util](https://reference.aspose.com/slides/ja/cpp/aspose.slides.util/) 名前空間を提供し、そこに [SlideUtil](https://reference.aspose.com/slides/ja/cpp/aspose.slides.util/slideutil/) クラスがあります。このクラスは、プレゼンテーションまたはスライド全体のテキストを抽出するためのオーバーロードされた静的メソッドを複数公開しています。スライド内のテキストを抽出するには、[GetAllTextBoxes](https://reference.aspose.com/slides/ja/cpp/aspose.slides.util/slideutil/getalltextboxes/) メソッドを使用します。このメソッドは、[IBaseSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseslide/) 型のオブジェクトをパラメータとして受け取ります。実行すると、スライド全体を走査してテキストを検出し、[ITextFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframe/) 型オブジェクトの配列を返し、テキストの書式情報も保持します。
 
-// PPTX のすべてのスライドから ITextFrame オブジェクトの配列を取得
-auto textFramesPPTX = Util::SlideUtil::GetAllTextFrames(pptxPresentation, true);
+以下のコードスニペットは、プレゼンテーションの最初のスライドからすべてのテキストを抽出します。
 
-// TextFrame 配列をループ
-for (int32_t i = 0; i < textFramesPPTX->get_Length(); i++)
+```cpp
+auto slideIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto textFrames = Util::SlideUtil::GetAllTextBoxes(slide);
+
+for (const auto& textFrame : textFrames)
 {
-	// 現在の ITextFrame の段落をループ
-	for (const auto& para : textFramesPPTX[i]->get_Paragraphs())
-	{
-		// 現在の IParagraph の各ポーションをループ
-		for (const auto& port : para->get_Portions())
-		{
-			// 現在のポーションのテキストを表示
-			Console::WriteLine(port->get_Text());
+    for (const auto& paragraph : textFrame->get_Paragraphs())
+    {
+        for (const auto& portion : paragraph->get_Portions())
+        {
+            auto portionText = portion->get_Text();
+            Console::WriteLine(portionText);
 
-			// テキストのフォント高さを表示
-			Console::WriteLine(port->get_PortionFormat()->get_FontHeight());
+            auto portionFormat = portion->get_PortionFormat();
+            auto fontHeight = portionFormat->get_FontHeight();
+            Console::WriteLine(fontHeight);
 
-			// テキストのフォント名を表示
-			if (port->get_PortionFormat()->get_LatinFont() != nullptr)
-			{
-				Console::WriteLine(port->get_PortionFormat()->get_LatinFont()->get_FontName());
-			}
-		}
-	}
+            auto latinFont = portionFormat->get_LatinFont();
+            if (latinFont != nullptr)
+            {
+                auto fontName = latinFont->get_FontName();
+                Console::WriteLine(fontName);
+            }
+        }
+    }
 }
-```
 
+presentation->Dispose();
+```
 
 ## **プレゼンテーションからテキストを抽出する**
-プレゼンテーション全体のテキストをスキャンするには、SlideUtil クラスが公開する静的メソッド [GetAllTextFrames](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a5a0aebdc520e5258c8a1f665fdb8be12) を使用します。このメソッドは 2 つのパラメータを受け取ります。
 
-1. 最初に、テキストを抽出する対象となる PPTX プレゼンテーションを表す Presentation オブジェクト。
-1. 次に、プレゼンテーションからテキストをスキャンする際にマスタースライドを含めるかどうかを決定する Boolean 値。
-   このメソッドはテキスト書式情報を含む TextFrame オブジェクトの配列を返します。以下のコードはマスタースライドを含むプレゼンテーションのテキストと書式情報をスキャンします。
-``` cpp
-// ドキュメントディレクトリへのパス。
-System::String dataDir = GetDataPath();
+プレゼンテーション全体のテキストを走査するには、[SlideUtil](https://reference.aspose.com/slides/ja/cpp/aspose.slides.util/slideutil/) クラスが提供する [GetAllTextFrames](https://reference.aspose.com/slides/ja/cpp/aspose.slides.util/slideutil/getalltextframes/) 静的メソッドを使用します。 このメソッドは 2 つのパラメータを受け取ります。
 
-// PPTX ファイルを表す Presentation クラスのインスタンス化
-auto pptxPresentation = System::MakeObject<Presentation>(dataDir + u"demo.pptx");
+1. 最初に、テキストを抽出する対象となる PowerPoint または OpenDocument プレゼンテーションを表す [IPresentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentation/) オブジェクト。
+1. 次に、プレゼンテーションのテキスト走査時にマスタースライドを含めるかどうかを示す `Boolean` 値。
 
-// PPTX のすべてのスライドから ITextFrame オブジェクトの配列を取得
-auto textFramesPPTX = Util::SlideUtil::GetAllTextFrames(pptxPresentation, true);
+メソッドは、[ITextFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframe/) 型オブジェクトの配列を返し、テキストの書式情報も含みます。以下のコードは、プレゼンテーション全体（マスタースライドを含む）のテキストと書式詳細を走査します。
 
-// TextFrame 配列をループ
-for (int32_t i = 0; i < textFramesPPTX->get_Length(); i++)
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto includeMasterSlides = true;
+auto textFrames = Util::SlideUtil::GetAllTextFrames(presentation, includeMasterSlides);
+
+for (const auto& textFrame : textFrames)
 {
-	// 現在の ITextFrame の段落をループ
-	for (const auto& para : textFramesPPTX[i]->get_Paragraphs())
-	{
-		// 現在の IParagraph の各ポーションをループ
-		for (const auto& port : para->get_Portions())
-		{
-			// 現在のポーションのテキストを表示
-			Console::WriteLine(port->get_Text());
+    for (const auto& paragraph : textFrame->get_Paragraphs())
+    {
+        for (const auto& portion : paragraph->get_Portions())
+        {
+            auto portionText = portion->get_Text();
+            Console::WriteLine(portionText);
 
-			// テキストのフォント高さを表示
-			Console::WriteLine(port->get_PortionFormat()->get_FontHeight());
+            auto portionFormat = portion->get_PortionFormat();
+            auto fontHeight = portionFormat->get_FontHeight();
+            Console::WriteLine(fontHeight);
 
-			// テキストのフォント名を表示
-			if (port->get_PortionFormat()->get_LatinFont() != nullptr)
-			{
-				Console::WriteLine(port->get_PortionFormat()->get_LatinFont()->get_FontName());
-			}
-		}
-	}
+            auto latinFont = portionFormat->get_LatinFont();
+            if (latinFont != nullptr)
+            {
+                auto fontName = latinFont->get_FontName();
+                Console::WriteLine(fontName);
+            }
+        }
+    }
 }
+
+presentation->Dispose();
 ```
 
+## **カテゴリ別かつ高速なテキスト抽出**
 
-## **分類された高速テキスト抽出**
-Presentation クラスに新しい静的メソッド GetPresentationText が追加されました。このメソッドには 2 つのオーバーロードがあります:
-``` cpp
-System::SharedPtr<IPresentationText> GetPresentationText(System::String file, TextExtractionArrangingMode mode) override
- 
-System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode) override
+[PresentationFactory](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentationfactory/) クラスも、プレゼンテーションからすべてのテキストを抽出するメソッドを提供しています。
+
+```cpp
+System::SharedPtr<IPresentationText> GetPresentationText(System::String file, TextExtractionArrangingMode mode);
+System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode);
+System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode, System::SharedPtr<ILoadOptions> options);
 ```
 
+`TextExtractionArrangingMode` 列挙体引数は、テキスト抽出結果の整理方法を示し、次の値に設定できます。
+- `Unarranged` – スライド上の位置を考慮しない生テキスト。
+- `Arranged` – スライド上の表示順序と同じ順序でテキストが整理されます。
 
-The TextExtractionArrangingMode 列挙体の引数はテキスト結果の出力を整理するモードを示し、次の値に設定できます:
-Unarranged - スライド上の位置を考慮しない生テキスト
-Arranged - スライド上の順序と同じ位置にテキストが配置される
+速度が重要な場合は `Unarranged` モードを使用できます。`Arranged` モードよりも高速です。
 
-速度が重要な場合は Unarranged モードを使用できます。Arranged モードよりも高速です。
+[IPresentationText](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentationtext/) は、プレゼンテーションから抽出された生テキストを表します。その `get_SlidesText()` メソッドは、[ISlideText](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidetext/) 型オブジェクトの配列を返します。各オブジェクトは対応するスライド上のテキストを表します。`ISlideText` 型オブジェクトには次のメソッドがあります。
 
-PresentationText はプレゼンテーションから抽出された生テキストを表します。Aspose.Slides.Util 名前空間の get_SlidesText() メソッドを含み、ISlideText オブジェクトの配列を返します。各オブジェクトは対応するスライド上のテキストを表します。ISlideText オブジェクトは次のメソッドを持ちます:
+- `get_Text()` – スライドのシェイプ内のテキスト。
+- `get_MasterText()` – 当該スライドに関連付けられたマスタースライドのシェイプ内のテキスト。
+- `get_LayoutText()` – 当該スライドに関連付けられたレイアウトスライドのシェイプ内のテキスト。
+- `get_NotesText()` – 当該スライドのノートスライドのシェイプ内のテキスト。
+- `get_CommentsText()` – 当該スライドに付随するコメントのテキスト。
 
-get_Text() - スライドのシェイプ上のテキスト。  
-get_MasterText() - このスライドのマスターページのシェイプ上のテキスト。  
-get_LayoutText() - このスライドのレイアウトページのシェイプ上のテキスト。  
-get_NotesText() - このスライドのノートページのシェイプ上のテキスト。
+```cpp
+auto presentationPath = u"presentation.ppt";
+auto arrangingMode = TextExtractionArrangingMode::Unarranged;
+auto presentationText = PresentationFactory::get_Instance()->GetPresentationText(presentationPath, arrangingMode);
+auto firstSlideText = presentationText->get_SlidesText()[0];
 
-また、ISlideText インターフェイスを実装する SlideText クラスもあります。
-
-新しい API は以下のように使用できます:
-``` cpp
-auto text = System::MakeObject<PresentationFactory>()->GetPresentationText(u"presentation.ppt", TextExtractionArrangingMode::Unarranged);
-Console::WriteLine(text->get_SlidesText()[0]->get_Text());
-Console::WriteLine(text->get_SlidesText()[0]->get_LayoutText());
-Console::WriteLine(text->get_SlidesText()[0]->get_MasterText());
-Console::WriteLine(text->get_SlidesText()[0]->get_NotesText());
+Console::WriteLine(firstSlideText->get_Text());
+Console::WriteLine(firstSlideText->get_LayoutText());
+Console::WriteLine(firstSlideText->get_MasterText());
+Console::WriteLine(firstSlideText->get_NotesText());
+Console::WriteLine(firstSlideText->get_CommentsText());
 ```
-
 
 ## **FAQ**
 
-**テキスト抽出時に Aspose.Slides は大規模なプレゼンテーションをどの程度高速に処理しますか？**
+**Aspose.Slides は大規模なプレゼンテーションのテキスト抽出をどれくらい高速に処理できますか？**
 
-Aspose.Slides は高性能に最適化されており、非常に大きなプレゼンテーションでも効率的に処理でき、リアルタイムまたはバルク処理シナリオに適しています。
+Aspose.Slides は高性能に最適化されており、[大規模なプレゼンテーション](/slides/ja/cpp/open-presentation/) でもリアルタイムまたはバルク処理シナリオに適した速度で処理できます。
 
 **Aspose.Slides はプレゼンテーション内の表やチャートからテキストを抽出できますか？**
 
-はい、Aspose.Slides は表、チャート、その他の複雑なスライド要素からのテキスト抽出を完全にサポートしており、すべてのテキストコンテンツに簡単にアクセスして分析できます。
-
-**プレゼンテーションからテキストを抽出するために特別な Aspose.Slides ライセンスが必要ですか？**
-
-Aspose.Slides の無料トライアル版でもテキストの抽出は可能ですが、スライド数に制限があるなどの制約があります。制限なく利用し、大規模なプレゼンテーションを扱うにはフルライセンスの購入が推奨されます。
+はい。Aspose.Slides は表やグラフ関連オブジェクトを含む多くのスライド要素からテキストを抽出できるため、一般的

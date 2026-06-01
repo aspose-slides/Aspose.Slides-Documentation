@@ -5,155 +5,134 @@ type: docs
 weight: 90
 url: /ja/java/extract-text-from-presentation/
 keywords:
-- テキスト抽出
-- スライドからテキスト抽出
-- プレゼンテーションからテキスト抽出
-- PowerPoint からテキスト抽出
-- OpenDocument からテキスト抽出
-- PPT からテキスト抽出
-- PPTX からテキスト抽出
-- ODP からテキスト抽出
-- テキスト取得
-- スライドからテキスト取得
-- プレゼンテーションからテキスト取得
-- PowerPoint からテキスト取得
-- OpenDocument からテキスト取得
-- PPT からテキスト取得
-- PPTX からテキスト取得
-- ODP からテキスト取得
+- テキストを抽出
+- スライドからテキストを抽出
+- プレゼンテーションからテキストを抽出
+- PowerPoint からテキストを抽出
+- OpenDocument からテキストを抽出
+- PPT からテキストを抽出
+- PPTX からテキストを抽出
+- ODP からテキストを抽出
+- テキストを取得
+- スライドからテキストを取得
+- プレゼンテーションからテキストを取得
+- PowerPoint からテキストを取得
+- OpenDocument からテキストを取得
+- PPT からテキストを取得
+- PPTX からテキストを取得
+- ODP からテキストを取得
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument のプレゼンテーションからテキストを迅速に抽出します。シンプルでステップバイステップのガイドに従って、時間を節約しましょう。"
+description: Aspose.Slides for Java を使用して、PowerPoint と OpenDocument のプレゼンテーションからテキストを迅速に抽出します。シンプルで段階的なガイドに従って、時間を節約しましょう。
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
+プレゼンテーションからテキストを抽出することは、スライドコンテンツを扱う開発者にとって一般的でありながら重要な作業です。Microsoft PowerPoint の PPT または PPTX 形式、あるいは OpenDocument の ODP 形式のファイルを扱う場合でも、テキスト データへのアクセスと取得は、分析、Automation、インデックス作成、コンテンツ移行などの目的で重要になることがあります。
 
-開発者がプレゼンテーションからテキストを抽出する必要があることは珍しくありません。そのためには、プレゼンテーション内のすべてのスライドのすべてのシェイプからテキストを抽出する必要があります。本記事では、Aspose.Slides を使用して Microsoft PowerPoint PPTX プレゼンテーションからテキストを抽出する方法を説明します。
+本記事では、Aspose.Slides for Java を使用して PPT、PPTX、ODP の各プレゼンテーション形式からテキストを効率的に抽出する包括的な手順を紹介します。プレゼンテーション要素を体系的に反復処理し、必要なテキスト コンテンツを正確に取得する方法を学べます。
 
-{{% /alert %}} 
-## **スライドからテキストを抽出する**
-Aspose.Slides for Java は [SlideUtil](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil) クラスを提供します。このクラスは、プレゼンテーションまたはスライド全体のテキストを抽出するための多数のオーバーロードされた静的メソッドを公開しています。PPTX プレゼンテーションのスライドからテキストを抽出するには、[SlideUtil](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil) クラスが提供するオーバーロードされた静的メソッド [getAllTextBoxes](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) を使用します。このメソッドは Slide オブジェクトをパラメーターとして受け取ります。
-実行すると、Slide メソッドはパラメーターとして渡されたスライドからテキスト全体をスキャンし、[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) オブジェクトの配列を返します。これにより、テキストに関連付けられた書式情報も取得できます。以下のコードは、プレゼンテーションの最初のスライド上のすべてのテキストを抽出します:
+## **スライドからテキストを抽出する方法**
+
+Aspose.Slides for Java は [SlideUtil](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slideutil/) クラスを提供します。このクラスは、プレゼンテーションまたはスライドからすべてのテキストを抽出するためのオーバーロードされた static メソッドを多数公開しています。プレゼンテーション内のスライドからテキストを抽出するには、[SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-) メソッドを使用します。このメソッドは [IBaseSlide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseslide/) 型のオブジェクトをパラメータとして受け取ります。実行されると、メソッドはスライド全体を走査してテキストを検索し、[ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) 型のオブジェクト配列を返し、テキストの書式情報を保持します。
+
+以下のコード スニペットは、プレゼンテーションの最初のスライドからすべてのテキストを抽出します。
+
 ```java
-//PPTX ファイルを表す Presentation クラスをインスタンス化する
-Presentation pres = new Presentation("demo.pptx");
+int slideIndex = 0;
+
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        //PPTX のすべてのスライドから ITextFrame オブジェクトの配列を取得する
-        ITextFrame[] textFramesPPTX = SlideUtil.getAllTextBoxes(slide);
+    ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-        //TextFrames の配列をループ処理する
-        for (int i = 0; i < textFramesPPTX.length; i++) {
-            //現在の ITextFrame の段落をループ処理する
-            for (IParagraph para : textFramesPPTX[i].getParagraphs()) {
-                //現在の IParagraph のポーションをループ処理する
-                for (IPortion port : para.getPortions()) {
-                    //現在のポーションのテキストを表示する
-                    System.out.println(port.getText());
+    ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
 
-                    //テキストのフォント高さを表示する
-                    System.out.println(port.getPortionFormat().getFontHeight());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                    //テキストのフォント名を表示する
-                    if (port.getPortionFormat().getLatinFont() != null)
-                        System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
+
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
                 }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **プレゼンテーション全体からテキストを抽出する方法**
 
-## **プレゼンテーション全体からテキストを抽出する**
-プレゼンテーション全体のテキストをスキャンするには、SlideUtil クラスが提供する静的メソッド [getAllTextFrames](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) を使用します。このメソッドは 2 つのパラメーターを受け取ります:
+プレゼンテーション全体のテキストを走査するには、[SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) static メソッドを使用します。このメソッドは [SlideUtil](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slideutil/) クラスによって公開されています。2 つのパラメータを受け取ります。
 
-1. テキストを抽出する対象のプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode#Unarranged) オブジェクト。
-2. プレゼンテーションからテキストをスキャンする際に、マスタースライドを含めるかどうかを決定するブール値。
+1. 最初に、テキストを抽出する対象となる PowerPoint または OpenDocument プレゼンテーションを表す [IPresentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentation/) オブジェクト。
+2. 次に、プレゼンテーションのテキスト走査時にマスタースライドも含めるかどうかを示す `boolean` 値。
 
-このメソッドは、テキスト書式情報を含む [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) オブジェクトの配列を返します。以下のコードは、プレゼンテーションおよびマスタースライドからテキストと書式情報をスキャンします:
+このメソッドは [ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) 型のオブジェクト配列を返し、テキストの書式情報も含みます。以下のコードは、マスタースライドを含めてプレゼンテーションのテキストと書式情報を走査します。
+
 ```java
-//PPTX ファイルを表す Presentation クラスをインスタンス化する
-Presentation pres = new Presentation("demo.pptx");
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    //PPTX の全スライドから ITextFrame オブジェクトの配列を取得する
-    ITextFrame[] textFramesPPTX = SlideUtil.getAllTextFrames(pres, true);
+    boolean includeMasterSlides = true;
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, includeMasterSlides);
 
-    //TextFrames 配列をループ処理する
-    for (int i = 0; i < textFramesPPTX.length; i++) 
-    {
-        //現在の ITextFrame の段落をループ処理する
-        for (IParagraph para : textFramesPPTX[i].getParagraphs())
-        {
-            //現在の IParagraph のポーションをループ処理する
-            for (IPortion port : para.getPortions())
-            {
-                //現在のポーションのテキストを表示する
-                System.out.println(port.getText());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                //テキストのフォント高さを表示する
-                System.out.println(port.getPortionFormat().getFontHeight());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
 
-                //テキストのフォント名を表示する
-                if (port.getPortionFormat().getLatinFont() != null)
-                    System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
+                }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **カテゴリ別かつ高速なテキスト抽出**
-Presentation クラスに新しい静的メソッド getPresentationText が追加されました。このメソッドには 3 つのオーバーロードがあります:
-```java
-public IPresentationText getPresentationText(String file, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
-``` 
 
-The [TextExtractionArrangingMode](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:
-- [Unarranged](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode#Unarranged) - The raw text with no respect to position on the slide
-- [Arranged](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode#Arranged) - The text is positioned in the same order as on the slide
-
-**Unarranged** mode can be used when speed is critical, it's faster than Arranged mode.
-
-[IPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText#getSlidesText--) method which returns an array of [ISlideText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText) objects. Every object represent the text on the corresponding slide. [ISlideText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText) object have the following methods:
-
-- [ISlideText.getText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getText--) - The text on the slide's shapes
-- [ISlideText.getMasterText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getMasterText--) - The text on the master page's shapes for this slide
-- [ISlideText.getLayoutText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getLayoutText--) - The text on the layout page's shapes for this slide
-- [ISlideText.getNotesText](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideText#getNotesText--) - The text on the notes page's shapes for this slide
-
-The new API can be used like this:
+[PresentationFactory](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentationfactory/) クラスも、プレゼンテーションからすべてのテキストを抽出するメソッドを提供します。
 
 ```java
-IPresentationText text1 = PresentationFactory.getInstance().getPresentationText("presentation.pptx", TextExtractionArrangingMode.Unarranged);
-System.out.println(text1.getSlidesText()[0].getText());
-System.out.println(text1.getSlidesText()[0].getLayoutText());
-System.out.println(text1.getSlidesText()[0].getMasterText());
-System.out.println(text1.getSlidesText()[0].getNotesText());
+IPresentationText getPresentationText(String file, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
 ```
 
+[TextExtractionArrangingMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/textextractionarrangingmode/) 列挙体引数は、テキスト抽出結果の整理モードを示し、以下の値に設定できます。
 
-## **FAQ**
+- `Unarranged` - スライド上の位置を考慮しない生テキスト。
+- `Arranged` - スライド上の順序と同じ順序でテキストが整理されます。
 
-**Aspose.Slides はテキスト抽出時に大規模なプレゼンテーションをどのくらい高速に処理できますか？**
+速度が重要な場合は、`Unarranged` モードを使用できます。こちらの方が `Arranged` モードより高速です。
 
-Aspose.Slides は高性能に最適化されており、[大規模なプレゼンテーション](/slides/ja/java/open-presentation/) でも効率的に処理できるため、リアルタイムや大量処理シナリオに適しています。
+[IPresentationText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationtext/) は、プレゼンテーションから抽出された生テキストを表します。その `getSlidesText` メソッドは [ISlideText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islidetext/) 型のオブジェクト配列を返します。各オブジェクトは対応するスライド上のテキストを表します。[ISlideText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islidetext/) 型のオブジェクトは次のメソッドを提供します。
 
-**Aspose.Slides はプレゼンテーション内の表やチャートなどからテキストを抽出できますか？**
+- `getText` - スライド内のシェイプに含まれるテキスト。
+- `getMasterText` - 当該スライドに関連付けられたマスタースライドのシェイプに含まれるテキスト。
+- `getLayoutText` - 当該スライドに関連付けられたレイアウトスライドのシェイプに含まれるテキスト。
+- `getNotesText` - 当該スライドに関連付けられたノートスライドのシェイプに含まれるテキスト。
+- `getCommentsText` - 当該スライドに関連付けられたコメントに含まれるテキスト。
 
-はい、Aspose.Slides は表、チャート、その他の複雑なスライド要素からのテキスト抽出を完全にサポートしており、すべてのテキストコンテンツに簡単にアクセスして分析できます。
-
-**プレゼンテーションからテキストを抽出するために特別な Aspose.Slides ライセンスは必要ですか？**
-
-無料トライアル版でもテキストの抽出は可能ですが、スライド数に制限などの制約があります。制限なく使用し、より大きなプレゼンテーションを扱うにはフルライセンスの購入が推奨されます。
+{{67149bd5-20e6-4
