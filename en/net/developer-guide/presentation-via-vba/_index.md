@@ -133,6 +133,16 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
+### Access VBA Code in ActiveX Controls
+
+Code that belongs to an ActiveX control (for example, event-handler macros generated when you add a checkbox) is **not** exposed through `presentation.VbaProject.Modules`. To work with such code, access the control via the slide’s `Controls` collection.
+
+```c#
+// Access ActiveX controls on the first slide
+var presentation = new Presentation("PP_Acx_CheckBox_Status.pptm");
+var controls = presentation.Slides[0].Controls;
+```
+
 ## **Check Whether a VBA Project Is Password-Protected**
 
 Using the [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) property, you can determine whether a project’s properties are password-protected.
