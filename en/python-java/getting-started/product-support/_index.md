@@ -31,6 +31,10 @@ When you experience an issue with Aspose.Slides for Python via Java, follow thes
 
 - Create and use one thread for a specific issue. If you experience another issue, you have to create another thread to report it. 
 
+**Python version compatibility**
+
+The Aspose.Slides for Python via Java package currently specifies compatibility up to Python 3.12 (e.g., `<=3.12`). For information on support for Python 3.12.x (including 3.12.10) or newer versions such as Python 3.13, refer to the release notes on the download page or contact technical support.
+
 ## **Resources**
 
 This table lists useful Aspose.Slides for Python via Java technical resources.
