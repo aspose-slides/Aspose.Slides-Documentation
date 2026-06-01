@@ -31,6 +31,8 @@ keywords:
 description: "Explore the capabilities of Aspose.Slides for Android via Java in handling PowerPoint animations. This general overview highlights key features."
 ---
 
+## **Introduction**
+
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.
 
 **PowerPoint animation** plays an important role in order to make presentation eye-catching and attractive for the viewers. Aspose.Slides for Android via Java offers a wide range of options to add animation to PowerPoint presentation:

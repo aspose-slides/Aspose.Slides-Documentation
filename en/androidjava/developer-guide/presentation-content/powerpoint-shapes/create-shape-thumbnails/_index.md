@@ -18,12 +18,9 @@ description: "Generate high-quality shape thumbnails from PowerPoint slides with
 ---
 
 
-## **Overview**
-{{% alert color="primary" %}} 
+## **Introduction**
 
 Aspose.Slides for Android via Java can be used to create presentation files in which each page corresponds to a slide. The slides can be viewed by opening the presentation files using Microsoft PowerPoint. However, developers sometimes need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for Android via Java helps them generate thumbnail images of the slide shapes.
-
-{{% /alert %}} 
 
 In this topic, we will show how to generate slide thumbnails in different situations:
 

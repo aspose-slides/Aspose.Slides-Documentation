@@ -19,12 +19,9 @@ keywords:
 description: "Learn how Aspose.Slides for Android via Java leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
-
-{{% alert color="primary" %}} 
+## **Introduction**
 
 ActiveX controls are used in presentations. Aspose.Slides for Android via Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/). They are part of the separate [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/) instead. In this topic, we will show you how to work with them.
-
-{{% /alert %}} 
 
 ## **Add a Media Player ActiveX Control to a Slide**
 To add an ActiveX Media Player control, do this:

@@ -31,6 +31,8 @@ keywords:
 description: "Master paragraph formatting with Aspose.Slides for Android—optimize alignment, spacing & style in PPT, PPTX, and ODP presentations in Java."
 ---
 
+## **Introduction**
+
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
 
 * Aspose.Slides provides the [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).

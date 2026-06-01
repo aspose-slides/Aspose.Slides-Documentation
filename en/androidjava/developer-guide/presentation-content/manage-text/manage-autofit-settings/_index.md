@@ -21,6 +21,8 @@ keywords:
 description: "Manage AutoFit settings in Aspose.Slides for Android via Java to optimize text display in your PowerPoint and OpenDocument presentations and improve content readability."
 ---
 
+## **Introduction**
+
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)

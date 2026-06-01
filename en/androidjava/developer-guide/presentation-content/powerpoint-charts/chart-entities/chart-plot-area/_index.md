@@ -18,6 +18,11 @@ keywords:
 description: "Discover how to customize chart plot areas in PowerPoint presentations with Aspose.Slides for Android via Java. Improve your slide visuals effortlessly."
 ---
 
+## **Overview**
+
+This article shows how to work with a chart’s plot area in Aspose.Slides. It explains how to get the actual position and size of the plot area by validating the chart layout and then reading its X, Y, width, and height values.
+
+It also demonstrates how to configure the plot area’s layout mode when the layout is set manually, using `LayoutTargetType` to define whether the plot area is calculated by its inner region or by its outer region together with axes and axis labels.
 
 ## **Get Width and Height of a Chart Plot Area**
 Aspose.Slides for Android via Java provides a simple API for . 

@@ -16,6 +16,10 @@ keywords:
 description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for Android. Identify slide differences in Java code quickly."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to compare slides, layout slides, and master slides using the `equals` method provided by the `IBaseSlide` interface and the `BaseSlide` class. This method returns `true` when the compared slides are identical in their structure and static content.
+
 ## **Compare Two Slides**
 Equals method has been added to [IBaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) interface and [BaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BaseSlide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content. 
 

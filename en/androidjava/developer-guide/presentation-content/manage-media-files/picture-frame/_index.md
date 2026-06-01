@@ -31,6 +31,8 @@ keywords:
 description: "Add picture frames to PowerPoint and OpenDocument presentations with Aspose.Slides for Android via Java. Streamline your workflow and enhance slide designs."
 ---
 
+## **Introduction**
+
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
 
 You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.

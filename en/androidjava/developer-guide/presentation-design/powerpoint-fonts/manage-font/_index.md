@@ -18,6 +18,12 @@ keywords:
 description: "Control fonts in Java with Aspose.Slides for Android: embed, substitute, and load custom fonts to keep PPT, PPTX and ODP presentations clear, brand-safe, and consistent."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to manage font properties in presentation text directly from your code. You can access text in slides through shapes, text frames, paragraphs, and portions, and then apply formatting to the selected text.
+
+This article explains how to configure font-related properties for existing text in a presentation, including font family, bold and italic styles, paragraph alignment, and font color. It also shows how to create a text box, add text to it, and set font properties such as font family, bold, italic, underline, font size, and color before saving the result as a PPTX file.
+
 ## **Manage Font Related Properties**
 {{% alert color="primary" %}} 
 

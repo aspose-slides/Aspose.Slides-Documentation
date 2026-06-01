@@ -41,12 +41,6 @@ Please note that the **Application** and **Producer** fields cannot be modified,
 
 Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007 as shown below:
 
-{{% alert color="primary" %}} 
-
-Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Java x.x.x will be displayed against these fields.
-
-{{% /alert %}} 
-
 |**Selecting Advanced Properties menu item**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |

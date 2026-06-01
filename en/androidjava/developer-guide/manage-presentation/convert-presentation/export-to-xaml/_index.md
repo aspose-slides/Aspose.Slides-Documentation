@@ -29,9 +29,9 @@ keywords:
 description: "Convert PowerPoint and OpenDocument slides to XAML in Java using Aspose.Slides for Android—quick, Office-free solution that keeps your layout intact."
 ---
 
-## **Export Presentations to XAML**
+## **Overview**
 
-Aspose.Slides supports XAML export. You can convert your presentations to XAML.
+This article explains how to export PowerPoint presentations to XAML using Aspose.Slides. It includes a brief introduction to XAML, shows how to save a presentation to XAML with default settings, and demonstrates how to customize the export through [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xamloptions/), including exporting hidden slides. The article also answers a few common questions related to fallback fonts, XAML stack compatibility, and hidden slide export behavior.
 
 ## **About XAML**
 

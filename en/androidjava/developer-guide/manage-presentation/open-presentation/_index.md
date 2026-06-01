@@ -25,7 +25,7 @@ keywords:
 description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for Android via Java—fast, reliable, fully featured."
 ---
 
-## **Overview**
+## **Introduction**
 
 Beyond creating PowerPoint presentations from scratch, Aspose.Slides also lets you open existing presentations. After loading a presentation, you can retrieve information about it, edit slide content, add new slides, remove existing ones, and more.
 
