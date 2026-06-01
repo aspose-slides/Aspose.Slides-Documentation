@@ -27,138 +27,158 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Quickly extract text from PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js. Follow our simple, step-by-step guide to save time."
+description: "Quickly extract text from PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js via Java. Follow our simple, step-by-step guide to save time."
 ---
 
 ## **Overview**
 
 Extracting text from presentations is a common yet essential task for developers working with slide content. Whether you're dealing with Microsoft PowerPoint files in PPT or PPTX format, or OpenDocument presentations (ODP), accessing and retrieving textual data can be critical for analysis, automation, indexing, or content migration purposes.
 
-This article provides a comprehensive guide on how to efficiently extract text from various presentation formats, including PPT, PPTX, and ODP, using Aspose.Slides. You'll learn how to systematically iterate through presentation elements to accurately retrieve the text content you need.
+This article provides a comprehensive guide on how to efficiently extract text from various presentation formats, including PPT, PPTX, and ODP, using Aspose.Slides for Node.js via Java. You'll learn how to systematically iterate through presentation elements to accurately retrieve the text content you need.
 
-## **Extract Text from Slide**
+## **Extract Text from a Slide**
 
-Aspose.Slides for Node.js via Java provides the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil) class. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation,
-use the [getAllTextBoxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#getAllTextBoxes-aspose.slides.IBaseSlide-) overloaded static method exposed by the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil) class. This method accepts the Slide object as a parameter.
-Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
+Aspose.Slides for Node.js via Java provides the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/) class. This class exposes several overloaded static methods for extracting all text from a presentation or slide. To extract text from a slide in a presentation, use the [getAllTextBoxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/#getAllTextBoxes-aspose.slides.IBaseSlide-) method. This method accepts a slide object as a parameter. When executed, the method scans the entire slide for text and returns an array of [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) objects, preserving any text formatting.
 
-```javascript
-// Instatiate Presentation class that represents a PPTX file
-var pres = new aspose.slides.Presentation("demo.pptx");
-try {
-    for (var s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        // Get an Array of ITextFrame objects from all slides in the PPTX
-        var textFramesPPTX = aspose.slides.SlideUtil.getAllTextBoxes(slide);
-        // Loop through the Array of TextFrames
-        for (var i = 0; i < textFramesPPTX.length; i++) {
-            // Loop through paragraphs in current ITextFrame
-            for (let j = 0; j < textFramesPPTX[i].getParagraphs().getCount(); j++) {
-                let para = textFramesPPTX[i].getParagraphs().get_Item(j);
-                // Loop through portions in the current IParagraph
-                for (let k = 0; k < para.getPortions().getCount(); k++) {
-                    let port = para.getPortions().get_Item(k);
-                    // Display text in the current portion
-                    console.log(port.getText());
-                    // Display font height of the text
-                    console.log(port.getPortionFormat().getFontHeight());
-                    // Display font name of the text
-                    if (port.getPortionFormat().getLatinFont() != null) {
-                        console.log(port.getPortionFormat().getLatinFont().getFontName());
-                    }
-                });
-            }
-        }
-    });
-} finally {
-    pres.dispose();
-}
-```
-
-## **Extract Text from Presentation**
-
-To scan the text from the whole presentation, use the
- [getAllTextFrames](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#getAllTextFrames-aspose.slides.IPresentation-boolean-) static method exposed by the SlideUtil class. It takes two parameters:
-
-1. First, a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode#Unarranged) object that represents the presentation from which the text is being extracted.
-1. Second, a boolean value determining whether the master slide is to be included when the text is scanned from the presentation.
-   The method returns an array of [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
+The following code snippet extracts all the text from the first slide of the presentation:
 
 ```javascript
-// Instatiate Presentation class that represents a PPTX file
-var pres = new aspose.slides.Presentation("demo.pptx");
+const slideIndex = 0;
+
+const presentation = new aspose.slides.Presentation("demo.pptx");
 try {
-    // Get an Array of ITextFrame objects from all slides in the PPTX
-    var textFramesPPTX = aspose.slides.SlideUtil.getAllTextFrames(pres, true);
-    // Loop through the Array of TextFrames
-    for (var i = 0; i < textFramesPPTX.length; i++) {
-        // Loop through paragraphs in current ITextFrame
-        for (let j = 0; j < textFramesPPTX[i].getParagraphs().getCount(); j++) {
-            let para = textFramesPPTX[i].getParagraphs().get_Item(j);
-            // Loop through portions in the current IParagraph
-            for (let k = 0; k < para.getPortions().getCount(); k++) {
-                let port = para.getPortions().get_Item(k);
-                // Display text in the current portion
-                console.log(port.getText());
-                // Display font height of the text
-                console.log(port.getPortionFormat().getFontHeight());
-                // Display font name of the text
-                if (port.getPortionFormat().getLatinFont() != null) {
-                    console.log(port.getPortionFormat().getLatinFont().getFontName());
+    const slide = presentation.getSlides().get_Item(slideIndex);
+
+    const textFrames = aspose.slides.SlideUtil.getAllTextBoxes(slide);
+
+    for (let textFrameIndex = 0; textFrameIndex < textFrames.length; textFrameIndex++) {
+        const textFrame = textFrames[textFrameIndex];
+
+        const paragraphs = textFrame.getParagraphs();
+        const paragraphCount = paragraphs.getCount();
+        for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+            const paragraph = paragraphs.get_Item(paragraphIndex);
+
+            const portions = paragraph.getPortions();
+            const portionCount = portions.getCount();
+            for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                const portion = portions.get_Item(portionIndex);
+
+                const portionText = portion.getText();
+                console.log(portionText);
+
+                const portionFormat = portion.getPortionFormat();
+                const fontHeight = portionFormat.getFontHeight();
+                console.log(fontHeight);
+
+                const latinFont = portionFormat.getLatinFont();
+                if (latinFont !== null) {
+                    const fontName = latinFont.getFontName();
+                    console.log(fontName);
                 }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
+}
+```
+
+## **Extract Text from a Presentation**
+
+To scan text from the entire presentation, use the [getAllTextFrames](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) static method exposed by the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/) class. It accepts two parameters:
+
+1. First, a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) object representing a PowerPoint or OpenDocument presentation from which text will be extracted.
+1. Second, a `boolean` value indicating whether the master slides should be included when scanning text from the presentation.
+
+The method returns an array of [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) objects, including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
+
+```javascript
+const presentation = new aspose.slides.Presentation("demo.pptx");
+try {
+    const includeMasterSlides = true;
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, includeMasterSlides);
+
+    for (let textFrameIndex = 0; textFrameIndex < textFrames.length; textFrameIndex++) {
+        const textFrame = textFrames[textFrameIndex];
+
+        const paragraphs = textFrame.getParagraphs();
+        const paragraphCount = paragraphs.getCount();
+        for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+            const paragraph = paragraphs.get_Item(paragraphIndex);
+
+            const portions = paragraph.getPortions();
+            const portionCount = portions.getCount();
+            for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                const portion = portions.get_Item(portionIndex);
+
+                const portionText = portion.getText();
+                console.log(portionText);
+
+                const portionFormat = portion.getPortionFormat();
+                const fontHeight = portionFormat.getFontHeight();
+                console.log(fontHeight);
+
+                const latinFont = portionFormat.getLatinFont();
+                if (latinFont !== null) {
+                    const fontName = latinFont.getFontName();
+                    console.log(fontName);
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Categorized and Fast Text Extraction**
 
-The new static method getPresentationText has been added to Presentation class. There are three overloads for this method:
+The [PresentationFactory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ```javascript
-IPresentationText getPresentationText(String file, int mode);
-IPresentationText getPresentationText(InputStream stream, int mode);
-IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
-``` 
+PresentationText getPresentationText(String file, int mode);
+PresentationText getPresentationText(InputStream stream, int mode);
+PresentationText getPresentationText(InputStream stream, int mode, LoadOptions options);
+```
 
-The [TextExtractionArrangingMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:
-- [Unarranged](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode#Unarranged) - The raw text with no respect to position on the slide
-- [Arranged](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode#Arranged) - The text is positioned in the same order as on the slide
+The [TextExtractionArrangingMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:
+- `Unarranged` - The raw text without regard to its position on the slide.
+- `Arranged` - The text is arranged in the same order as on the slide.
 
-**Unarranged** mode can be used when speed is critical, it's faster than Arranged mode.
+The unarranged mode can be used when speed is critical; it's faster than the arranged mode.
 
-[PresentationText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText#getSlidesText--) method which returns an array of `SlideText` objects. Every object represent the text on the corresponding slide. `SlideText` object have the following methods:
+[PresentationText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationtext/) represents the raw text extracted from the presentation. Its `getSlidesText` method returns an array of objects, each representing the text on the corresponding slide. Each slide text object has the following methods:
 
-- `SlideText.getText` - The text on the slide's shapes
-- `SlideText.getMasterText` - The text on the master page's shapes for this slide
-- `SlideText.getLayoutText` - The text on the layout page's shapes for this slide
-- `SlideText.getNotesText` - The text on the notes page's shapes for this slide
-
-There is also a `SlideText` class which implements the `SlideText` class.
-
-The new API can be used like this:
+- Its `getText` method returns the text within the slide's shapes.
+- Its `getMasterText` method returns the text within the master slide's shapes associated with this slide.
+- Its `getLayoutText` method returns the text within the layout slide's shapes associated with this slide.
+- Its `getNotesText` method returns the text within the notes slide's shapes associated with this slide.
+- Its `getCommentsText` method returns the text within comments associated with this slide.
 
 ```javascript
-var text1 = aspose.slides.PresentationFactory.getInstance().getPresentationText("presentation.pptx", aspose.slides.TextExtractionArrangingMode.Unarranged);
-console.log(text1.getSlidesText()[0].getText());
-console.log(text1.getSlidesText()[0].getLayoutText());
-console.log(text1.getSlidesText()[0].getMasterText());
-console.log(text1.getSlidesText()[0].getNotesText());
+const presentationPath = "presentation.ppt";
+const arrangingMode = aspose.slides.TextExtractionArrangingMode.Unarranged;
+const presentationText = aspose.slides.PresentationFactory.getInstance().getPresentationText(presentationPath, arrangingMode);
+const firstSlideText = presentationText.getSlidesText()[0];
+
+console.log(firstSlideText.getText());
+console.log(firstSlideText.getLayoutText());
+console.log(firstSlideText.getMasterText());
+console.log(firstSlideText.getNotesText());
+console.log(firstSlideText.getCommentsText());
 ```
 
 ## **FAQ**
 
 **How fast does Aspose.Slides process large presentations during text extraction?**
 
-Aspose.Slides is optimized for high performance and efficiently processes even large presentations, making it suitable for real-time or bulk processing scenarios.
+Aspose.Slides is optimized for high performance and can process even [large presentations](/slides/nodejs-java/open-presentation/), making it suitable for real-time or bulk processing scenarios.
 
 **Can Aspose.Slides extract text from tables and charts within presentations?**
 
-Yes, Aspose.Slides fully supports extracting text from tables, charts, and other complex slide elements, allowing you to access and analyze all textual content easily.
+Yes. Aspose.Slides can extract text from many slide elements, including tables and chart-related objects, so you can access and analyze textual content in common presentation structures.
 
 **Do I need a special Aspose.Slides license to extract text from presentations?**
 
-You can extract text using the free trial version of Aspose.Slides, although it will have certain limitations, such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.
+You can extract text using the free trial version of Aspose.Slides, although it will have [certain limitations](/slides/nodejs-java/licensing/), such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.
