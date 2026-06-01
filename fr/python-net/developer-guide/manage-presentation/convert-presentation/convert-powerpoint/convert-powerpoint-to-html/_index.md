@@ -1,5 +1,5 @@
 ---
-title: Convertir les présentations PowerPoint en HTML avec Python
+title: Convertir des présentations PowerPoint en HTML avec Python
 linktitle: PowerPoint en HTML
 type: docs
 weight: 30
@@ -20,251 +20,305 @@ keywords:
 - enregistrer diapositive en HTML
 - enregistrer PPT en HTML
 - enregistrer PPTX en HTML
+- exporter PPT en HTML
+- exporter PPTX en HTML
 - Python
 - Aspose.Slides
-description: "Convertissez les présentations PowerPoint en HTML réactif avec Python. Conservez la mise en page, les liens et les images grâce au guide de conversion Aspose.Slides pour des résultats rapides et impeccables."
+description: "Convertir des présentations PowerPoint en HTML avec Python. Utilisez Aspose.Slides pour exporter des fichiers PPT et PPTX, des diapositives sélectionnées, des notes, des polices, des images, du SVG et des médias."
 ---
+## **Aperçu**
 
-## **Vue d'ensemble**
+Aspose.Slides for Python via .NET peut enregistrer les présentations PowerPoint au format HTML sans Microsoft PowerPoint. La conversion de base consiste en un seul [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) chargé et un appel `save` avec [SaveFormat](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/saveformat/). Utilisez [HtmlOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmloptions/) lorsque vous devez contrôler la disposition exportée, les polices, les images, les notes, les commentaires, la sortie SVG ou les ressources liées.
 
-Cet article explique comment convertir une présentation PowerPoint au format HTML à l'aide de Python. Il couvre les sujets suivants.
+Ce guide se concentre sur des scénarios pratiques d’exportation HTML :
 
-- Convertir PowerPoint en HTML avec Python
-- Convertir PPT en HTML avec Python
-- Convertir PPTX en HTML avec Python
-- Convertir ODP en HTML avec Python
-- Convertir une diapositive PowerPoint en HTML avec Python
+- Exporter une présentation complète ou des diapositives sélectionnées.  
+- Générer du HTML à mise en page fixe, réactif ou basé sur SVG.  
+- Inclure les notes du présentateur et les commentaires.  
+- Contrôler la qualité des images et les données d’images rognées.  
+- Incorporer les polices ou enregistrer les fichiers de police séparément.  
+- Choisir la manière dont les ressources externes et les fichiers multimédias sont écrits et référencés.
 
-## **PowerPoint Python vers HTML**
+Par défaut, l’exportation HTML produit un document HTML autonome où la plupart des ressources sont intégrées. Cela facilite le partage d’un seul fichier, mais peut augmenter la taille du résultat. Pour la publication Web, envisagez des ressources externes, une résolution d’image plus faible et n’incorporez que les polices qui ne sont pas fiables dans l’environnement cible.
 
-Pour le code d'exemple Python permettant de convertir PowerPoint en HTML, veuillez consulter la section ci-dessous, à savoir [Convertir PowerPoint en HTML](#convert-powerpoint-to-html). Le code peut charger plusieurs formats tels que PPT, PPTX et ODP dans l'objet Presentation et les enregistrer au format HTML.
+## **Convertir une présentation en HTML**
 
-## **À propos de la conversion PowerPoint en HTML**
+Pour exporter une présentation en HTML, chargez‑la avec [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) et enregistrez‑la avec [SaveFormat](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/saveformat/).
 
-En utilisant [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/), les applications et les développeurs peuvent convertir une présentation PowerPoint en HTML : **PPTX en HTML** ou **PPT en HTML**.
-
-**Aspose.Slides** fournit de nombreuses options (principalement de la classe [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/)) qui définissent le processus de conversion PowerPoint en HTML :
-
-* Convertir l'intégralité d'une présentation PowerPoint en HTML.
-* Convertir une diapositive spécifique d’une présentation PowerPoint en HTML.
-* Convertir les médias de la présentation (images, vidéos, etc.) en HTML.
-* Convertir une présentation PowerPoint en HTML réactif.
-* Convertir une présentation PowerPoint en HTML avec ou sans les notes du présentateur.
-* Convertir une présentation PowerPoint en HTML avec ou sans les commentaires.
-* Convertir une présentation PowerPoint en HTML avec les polices originales ou incorporées.
-* Convertir une présentation PowerPoint en HTML en utilisant le nouveau style CSS.
-
-{{% alert color="primary" %}} 
-
-En utilisant sa propre API, Aspose a développé des convertisseurs gratuits de [présentation vers HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) : [PPT en HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX en HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP en HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-Vous pouvez également consulter d’autres [convertisseurs gratuits d’Aspose](https://products.aspose.app/slides/conversion).
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-En plus des processus de conversion décrits ici, Aspose.Slides prend également en charge les opérations de conversion suivantes impliquant le format HTML :
-
-* [HTML vers image](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
-* [HTML vers JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
-* [HTML vers XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
-* [HTML vers TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-## **Convertir PowerPoint en HTML**
-
-Avec Aspose.Slides, vous pouvez convertir une présentation PowerPoint complète en HTML de cette façon :
-
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. Utiliser la méthode [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) pour enregistrer l'objet sous forme de fichier HTML.
-
-Ce code montre comment convertir un PowerPoint en HTML avec Python :
 ```python
 import aspose.slides as slides
 
-# Instancier un objet Presentation qui représente un fichier de présentation
-pres = slides.Presentation("Convert_HTML.pptx")
-
-options = slides.export.HtmlOptions()
-
-options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
-options.html_formatter = slides.export.HtmlFormatter.create_document_formatter("", False)
-
-# Enregistrer la présentation au format HTML
-pres.save("ConvertWholePresentationToHTML_out.html", slides.export.SaveFormat.HTML, options)
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.html", slides.export.SaveFormat.HTML)
 ```
 
+Cet exemple écrit un fichier HTML. L’instruction `with` libère l’objet présentation ainsi que les poignées de fichier et les ressources de rendu après l’exportation.
 
-## **Convertir PowerPoint en HTML réactif**
+## **Utiliser HtmlOptions**
 
-Aspose.Slides fournit la classe [ResponsiveHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/responsivehtmlcontroller/) qui permet de générer des fichiers HTML réactifs. Ce code montre comment convertir une présentation PowerPoint en HTML réactif avec Python :
-```py
-# Instancier un objet Presentation qui représente un fichier de présentation
+[HtmlOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmloptions/) est la classe principale de configuration pour l’exportation HTML. Les réglages courants incluent :
+
+- `slides_layout_options` : ajoute des notes, des commentaires, des documents d’accompagnement ou d’autres informations de mise en page.  
+- `html_formatter` : modifie la structure du document HTML ou délègue le formatage à un contrôleur.  
+- `slide_image_format` : change la façon dont les diapositives sont représentées, par exemple en SVG.  
+- `pictures_compression` : contrôle la DPI des images et la taille du résultat.  
+- `delete_pictures_cropped_areas` : conserve ou supprime les données d’images rognées.  
+- `svg_responsive_layout` : rend le contenu SVG exporté adaptable à son conteneur.  
+- `show_hidden_slides` : inclut les diapositives masquées lorsqu’elles sont requises.
+
+Les sections suivantes présentent les options les plus courantes séparément afin que vous puissiez combiner uniquement celles dont votre flux de travail a besoin.
+
+## **Convertir des diapositives sélectionnées en HTML**
+
+La surcharge `save` qui accepte des numéros de diapositives utilise des positions basées sur 1. La boucle ci‑dessous enregistre chaque diapositive dans un fichier HTML séparé.
+
+```python
 import aspose.slides as slides
 
-pres = slides.Presentation("Convert_HTML.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    slide_count = len(presentation.slides)
 
-controller = slides.export.ResponsiveHtmlController()
-htmlOptions = slides.export.HtmlOptions()
-htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
+    for slide_index in range(slide_count):
+        slide_number = slide_index + 1
+        slide_numbers = [slide_number]
+        html_file_name = "slide-{}.html".format(slide_number)
 
-# Enregistrement de la présentation au format HTML
-pres.save("ConvertPresentationToResponsiveHTML_out.html", slides.export.SaveFormat.HTML, htmlOptions)
+        presentation.save(html_file_name, slide_numbers, slides.export.SaveFormat.HTML)
 ```
 
+Utilisez ce modèle lorsqu’un site Web ou une application a besoin d’une page HTML par diapositive. Si chaque diapositive doit partager la même mise en page, créez une instance de [HtmlOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmloptions/) et transmettez‑la à chaque appel `save`.
 
-## **Convertir PowerPoint en HTML avec notes**
+## **Créer du HTML réactif**
 
-Ce code montre comment convertir un PowerPoint en HTML avec les notes en Python :
-```py
+[ResponsiveHtmlController](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/responsivehtmlcontroller/) fournit une sortie HTML réactive via [HtmlFormatter](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmlformatter/). Utilisez‑le lorsque la page exportée doit mieux s’adapter à la largeur du navigateur.
+
+```python
 import aspose.slides as slides
 
-pres = slides.Presentation("Presentation.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    controller = slides.export.ResponsiveHtmlController()
+    formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
 
-opt = slides.export.HtmlOptions()
-opt.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+    html_options = slides.export.HtmlOptions()
+    html_options.html_formatter = formatter
 
-pres.save("Output.html", slides.export.SaveFormat.HTML, opt)
+    presentation.save("presentation-responsive.html", slides.export.SaveFormat.HTML, html_options)
 ```
 
+Pour une mise en page réactive basée sur SVG, définissez `svg_responsive_layout` sur [HtmlOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmloptions/). Cela est utile lorsque le contenu des diapositives est exporté sous forme de balisage SVG évolutif.
 
-## **Convertir PowerPoint en HTML avec les polices originales**
-
-Aspose.Slides fournit la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) qui permet d'incorporer toutes les polices d’une présentation lors de la conversion de celle‑ci en HTML.
-
-Pour empêcher l’incorporation de certaines polices, vous pouvez transmettre un tableau de noms de polices à un constructeur parametré de la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/). Les polices populaires, telles que Calibri ou Arial, lorsqu’elles sont utilisées dans une présentation, n’ont pas besoin d’être incorporées car la plupart des systèmes les possèdent déjà. Lorsque ces polices sont incorporées, le document HTML résultant devient inutilement volumineux.
-
-La classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) prend en charge l’héritage et fournit la méthode `WriteFont`, qui est destinée à être remplacée. 
-```py
+```python
 import aspose.slides as slides
 
-pres = slides.Presentation("input.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    html_options = slides.export.HtmlOptions()
+    html_options.svg_responsive_layout = True
 
-# exclure les polices de présentation par défaut
-fontNameExcludeList = ["Calibri", "Arial"]
-
-htmlOptionsEmbed = slides.export.HtmlOptions()
-htmlOptionsEmbed.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(slides.export.EmbedAllFontsHtmlController(fontNameExcludeList))
-
-pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveFormat.HTML, htmlOptionsEmbed)
+    presentation.save("presentation-svg-responsive.html", slides.export.SaveFormat.HTML, html_options)
 ```
 
+## **Inclure les notes du présentateur et les commentaires**
 
-## **Convertir la diapositive en HTML**
+Utilisez [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/notescommentslayoutingoptions/) via `html_options.slides_layout_options` pour inclure les notes du présentateur ou les commentaires. Les notes et les commentaires sont cachés par défaut, sauf si vous choisissez leurs positions.
 
-Convertir une diapositive de présentation distincte en HTML. Pour cela, utilisez la même méthode [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) exposée par la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) qui sert à convertir l’ensemble de la présentation PPT(X) en un document HTML. La classe [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) peut également être utilisée pour définir des options de conversion supplémentaires :
-```py
-# [TODO[not_supported_yet]: implémentation python de l'interface .net]
-```
+Supposons que la présentation source contienne des notes du présentateur :
 
+![Diapositive avec notes du présentateur dans PowerPoint](slide_with_notes.png)
 
-## **Enregistrer le CSS et les images lors de l’exportation vers HTML**
+Le code suivant exporte le contenu de la diapositive avec les notes du présentateur en dessous de la diapositive.
 
-En utilisant de nouveaux fichiers de style CSS, vous pouvez facilement modifier le style du fichier HTML résultant du processus de conversion PowerPoint en HTML.
-
-Le code Python de cet exemple montre comment utiliser des méthodes pouvant être surchargées pour créer un document HTML personnalisé avec un lien vers un fichier CSS :
-```py
-# [TODO[not_supported_yet]: implémentation python des interfaces .net]
-```
-
-
-## **Lier toutes les polices lors de la conversion d’une présentation en HTML**
-
-Si vous ne souhaitez pas incorporer les polices (pour éviter d’augmenter la taille du HTML résultant), vous pouvez lier toutes les polices en implémentant votre propre version du `LinkAllFontsHtmlController`.
-
-Ce code Python montre comment convertir un PowerPoint en HTML tout en liant toutes les polices et en excluant "Calibri" et "Arial" (puisqu’elles existent déjà dans le système) :
-```py
-# [TODO[not_supported_yet]: implémentation python des interfaces .net]
-```
-
-
-## **Prise en charge de la propriété SVG réactive**
-
-L’exemple de code ci‑dessous montre comment exporter une présentation PPT(X) en HTML avec une mise en page réactive :
-```py
-presentation = slides.Presentation("SomePresentation.pptx")
-
-saveOptions = slides.export.HtmlOptions()
-saveOptions.svg_responsive_layout = True
-
-presentation.save("SomePresentation-out.html", slides.export.SaveFormat.HTML, saveOptions)
-```
-
-
-## **Exporter les fichiers multimédias vers un fichier HTML**
-
-Avec Aspose.Slides pour Python, vous pouvez exporter les fichiers multimédias de cette manière :
-
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Obtenir une référence à la diapositive.
-3. Ajouter une vidéo à la diapositive.
-4. Enregistrer la présentation sous forme de fichier HTML.
-
-Ce code Python montre comment ajouter une vidéo à la présentation puis l’enregistrer en HTML :
-```py
+```python
 import aspose.slides as slides
 
-# Chargement d'une présentation
-presentation = slides.Presentation("Media File.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    layout_options = slides.export.NotesCommentsLayoutingOptions()
+    layout_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-path = "C:\\"
-fileName = "ExportMediaFiles_out.html"
-baseUri = "http://www.example.com/"
+    html_options = slides.export.HtmlOptions()
+    html_options.slides_layout_options = layout_options
 
-controller = slides.export.VideoPlayerHtmlController(path, fileName, baseUri)
-
-htmlOptions = slides.export.HtmlOptions(controller)
-svgOptions = slides.export.SVGOptions(controller)
-
-htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
-htmlOptions.slide_image_format = slides.export.SlideImageFormat.svg(svgOptions)
-
-presentation.save(path + "ExportMediaFiles_out.html", slides.export.SaveFormat.HTML, htmlOptions)
+    presentation.save("presentation-with-notes.html", slides.export.SaveFormat.HTML, html_options)
 ```
 
+Le HTML exporté inclut la zone des notes :
+
+![Résultat HTML avec la diapositive et les notes du présentateur](HTML_with_notes.png)
+
+Pour exporter les commentaires, définissez `comments_position`, par exemple `CommentsPositions.RIGHT` ou `CommentsPositions.BOTTOM`. Si vous avez seulement besoin des commentaires, omettez `notes_position`. Si vous avez besoin à la fois des notes et des commentaires, définissez les deux propriétés.
+
+## **Contrôler la qualité de l'image et les zones rognées**
+
+L’exportation HTML peut compresser les images des diapositives afin de réduire la taille du fichier. Définissez `pictures_compression` sur une valeur de [PicturesCompression](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/picturescompression/) lorsque vous avez besoin d’une qualité d’image supérieure.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    html_options = slides.export.HtmlOptions()
+    html_options.pictures_compression = slides.export.PicturesCompression.DPI150
+
+    presentation.save("presentation-dpi-150.html", slides.export.SaveFormat.HTML, html_options)
+```
+
+Par défaut, les zones rognées des images peuvent être supprimées du résultat exporté. Conservez les données rognées uniquement lorsque les utilisateurs doivent pouvoir récupérer ou inspecter ces parties d’images cachées. Conserver ces données peut augmenter la taille du HTML.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    html_options = slides.export.HtmlOptions()
+    html_options.delete_pictures_cropped_areas = False
+
+    presentation.save("presentation-with-cropped-areas.html", slides.export.SaveFormat.HTML, html_options)
+```
+
+## **Ajouter du CSS**
+
+Pour un style simple, transmettez une chaîne CSS à [HtmlFormatter](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmlformatter/). Cela modifie le document HTML environnant tandis qu’Aspose.Slides continue de rendre le contenu des diapositives.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    css_rules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }"
+    formatter = slides.export.HtmlFormatter.create_document_formatter(css_rules, True)
+
+    html_options = slides.export.HtmlOptions()
+    html_options.html_formatter = formatter
+
+    presentation.save("presentation-styled.html", slides.export.SaveFormat.HTML, html_options)
+```
+
+Pour un en‑tête de document personnalisé, un fichier CSS lié ou un balisage personnalisé autour des diapositives et des formes, utilisez un contrôleur de formatage personnalisé et passez‑le à [HtmlFormatter](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmlformatter/) avec `create_custom_formatter`.
+
+## **Incorporer des polices**
+
+Si l’environnement cible peut ne pas avoir les polices de la présentation installées, incorporez les polices dans le HTML avec [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/embedallfontshtmlcontroller/). L’incorporation améliore la fidélité visuelle mais augmente la taille du résultat.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    font_names_to_exclude = ["Arial"]
+    font_controller = slides.export.EmbedAllFontsHtmlController(font_names_to_exclude)
+    formatter = slides.export.HtmlFormatter.create_custom_formatter(font_controller)
+
+    html_options = slides.export.HtmlOptions()
+    html_options.html_formatter = formatter
+
+    presentation.save("presentation-embedded-fonts.html", slides.export.SaveFormat.HTML, html_options)
+```
+
+Excluez une police uniquement lorsque vous êtes certain que les navigateurs ou systèmes cibles la fournissent déjà. Pour les polices de marque ou moins courantes, l’incorporation est généralement plus sûre.
+
+## **Lier les fichiers de police plutôt que de les incorporer**
+
+Pour réduire la taille du fichier HTML, vous pouvez écrire les données de police dans des fichiers WOFF distincts et ajouter des règles `@font-face` au HTML. Cela nécessite un contrôleur qui personnalise la façon dont les données de police sont écrites pendant l’exportation. En Python via .NET, implémentez ce contrôleur dans une petite assembly .NET d’assistance, chargez‑le en Python et transmettez l’objet d’aide à [HtmlFormatter](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmlformatter/) avec `create_custom_formatter`.
+
+Lorsque vous externalisez les polices, choisissez deux chemins de manière délibérée :
+
+- Le répertoire de sortie du système de fichiers où les fichiers WOFF générés seront écrits.  
+- Le chemin URL qui apparaîtra dans le document HTML et que le navigateur utilisera pour charger ces fichiers de police.
+
+Conservez le fichier HTML et les fichiers de police générés ensemble jusqu’à ce que les chemins de déploiement soient définitifs. Si les fichiers sont déployés ailleurs, faites correspondre le préfixe URL au chemin URL déployé.
+
+## **Enregistrer les ressources à l'extérieur**
+
+Le HTML autonome est facile à déplacer, mais les ressources Base64 intégrées peuvent rendre le fichier volumineux. Si votre application a besoin de fichiers image, police, audio ou vidéo externes, utilisez un contrôleur de liaison/incorporation personnalisé et transmettez‑le au constructeur de [HtmlOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmloptions/).
+
+Lorsque vous externalisez les ressources, choisissez deux chemins de manière délibérée :
+
+- Le chemin de sortie du système de fichiers où votre application écrit les images, polices, audio ou vidéo générés.  
+- Le chemin URL, qui est ce que le navigateur utilise depuis le document HTML pour charger ces fichiers.
+
+Pour une discussion complète sur le lien d’images, voyez [Exporter les présentations au format HTML avec des images liées extérieurement](/slides/fr/python-net/exporting-presentations-to-html-with-externally-linked-images/).
+
+## **Exporter les fichiers multimédias**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/videoplayerhtmlcontroller/) exporte les fichiers vidéo et audio et génère du HTML capable de les lire dans un navigateur. Son constructeur prend :
+
+- `path` : le répertoire où les fichiers multimédia générés seront écrits.  
+- `file_name` : le nom du fichier HTML en cours de génération.  
+- `base_uri` : le préfixe URI absolu utilisé dans les liens HTML vers les fichiers multimédia.
+
+Si le fichier HTML est `html-output/presentation.html` et les fichiers multimédia sont enregistrés dans `html-output/media`, `path` doit pointer vers le répertoire multimédia sur le disque, tandis que `base_uri` doit pointer vers le même répertoire du point de vue du navigateur. Pour un aperçu local, vous pouvez construire un URI `file:///` à partir du répertoire multimédia. Pour une application déployée, utilisez l’URL absolue du répertoire multimédia publié.
+
+```python
+import os
+from pathlib import Path
+
+import aspose.slides as slides
+
+output_directory = os.path.join(os.getcwd(), "html-output")
+media_directory = os.path.join(output_directory, "media")
+os.makedirs(output_directory, exist_ok=True)
+os.makedirs(media_directory, exist_ok=True)
+
+html_file_name = "presentation.html"
+media_base_uri = Path(media_directory).as_uri() + "/"
+
+with slides.Presentation() as presentation:
+    with open("intro.mp4", "rb") as video_stream:
+        video = presentation.videos.add_video(
+            video_stream,
+            slides.LoadingStreamBehavior.READ_STREAM_AND_RELEASE)
+
+    slide = presentation.slides[0]
+    slide.shapes.add_video_frame(20, 20, 480, 270, video)
+
+    controller = slides.export.VideoPlayerHtmlController(
+        media_directory,
+        html_file_name,
+        media_base_uri)
+
+    formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
+    svg_options = slides.export.SVGOptions(controller)
+    slide_image_format = slides.export.SlideImageFormat.svg(svg_options)
+
+    html_options = slides.export.HtmlOptions(controller)
+    html_options.html_formatter = formatter
+    html_options.slide_image_format = slide_image_format
+
+    html_file_path = os.path.join(output_directory, html_file_name)
+    presentation.save(html_file_path, slides.export.SaveFormat.HTML, html_options)
+```
+
+Utilisez des répertoires de sortie uniques par tâche d’exportation, en particulier dans les applications serveur. Des chemins de sortie partagés peuvent provoquer l’écrasement de fichiers provenant de conversions différentes.
+
+## **Performance et gestion des ressources**
+
+La conversion HTML est une opération de rendu, donc le temps de traitement et l’utilisation de la mémoire dépendent du nombre de diapositives, de la résolution des images, des polices, des effets, des graphiques et du multimédia intégré. Des valeurs DPI plus élevées de `pictures_compression`, des polices incorporées, une sortie SVG et la conservation des zones d’image rognées peuvent améliorer la fidélité mais augmentent généralement la taille du résultat.
+
+Pour la conversion par lots :
+
+- Libérez chaque instance de [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) rapidement.  
+- Utilisez des répertoires de sortie distincts pour des travaux distincts.  
+- Évitez d’incorporer les polices communes sauf si la fidélité l’exige.  
+- Réduisez la DPI des images lorsque le HTML est destiné à une prévisualisation ou à des miniatures.  
+- Conservez la présentation source, le HTML généré et les ressources externes ensemble jusqu’à ce que les chemins de déploiement soient définitifs.
 
 ## **FAQ**
 
-**Comment puis‑je convertir une présentation PowerPoint en HTML à l’aide de Python ?**
+**Les hyperliens sont‑ils conservés dans le rendu HTML ?**
 
-Vous pouvez utiliser la bibliothèque Aspose.Slides for Python via .NET pour charger des fichiers PPT, PPTX ou ODP et les convertir en HTML en utilisant la méthode `save()` avec `SaveFormat.HTML`.
+Oui. Les hyperliens de la présentation sont exportés vers le HTML et restent cliquables lorsque l’URL cible est valide.
 
-**Aspose.Slides prend‑il en charge la conversion de diapositives PowerPoint individuelles en HTML ?**
+**Puis‑je convertir des présentations en HTML en parallèle ?**
 
-Oui, Aspose.Slides vous permet de convertir soit l’ensemble de la présentation, soit des diapositives spécifiques en HTML en configurant `HtmlOptions` en conséquence.
+Oui, mais ne partagez pas une même instance de [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) entre plusieurs threads. Traitez différents fichiers avec des instances de présentation distinctes, des flux distincts et des répertoires de sortie distincts. Consultez les directives sur le [multithreading](/slides/fr/python-net/multithreading/) pour plus de détails.
 
-**Puis‑je générer du HTML réactif à partir de présentations PowerPoint ?**
+**Un objet Presentation est‑il thread‑safe ?**
 
-Oui, avec la classe `ResponsiveHtmlController`, vous pouvez exporter votre présentation vers une mise en page HTML réactive qui s’adapte à différentes tailles d’écran.
+Non. Une instance unique de [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) doit être chargée, modifiée, enregistrée et libérée sur un seul thread. Pour un travail parallèle, créez une instance indépendante par thread ou processus.
 
-**Est‑il possible d’inclure les notes du présentateur ou les commentaires dans le HTML exporté ?**
+**Pourquoi le fichier HTML généré est‑il volumineux ?**
 
-Oui, vous pouvez configurer `HtmlOptions` pour inclure ou exclure les notes du présentateur et les commentaires lors de l’exportation de présentations PowerPoint en HTML.
+L’exportation par défaut peut incorporer les ressources directement dans le HTML. Les polices incorporées, les images haute DPI, le multimédia, le contenu SVG et la conservation des zones d’image rognées augmentent également la taille. Utilisez des ressources externes, excluez les polices courantes de l’incorporation et réduisez `pictures_compression` lorsque la taille réduite prime sur la fidélité maximale.
 
-**Puis‑je incorporer des polices lors de la conversion d’une présentation en HTML ?**
+**Comment choisir base_uri pour l’exportation multimédia ?**
 
-Oui, Aspose.Slides fournit la classe `EmbedAllFontsHtmlController`, qui vous permet d’incorporer des polices ou d’exclure certaines polices afin de réduire la taille du fichier de sortie.
+Choisissez `base_uri` du point de vue du navigateur et transmettez‑le comme URI absolu. Pour un aperçu local, vous pouvez le dériver du répertoire de sortie avec `Path(media_directory).as_uri() + "/"`. En production, utilisez l’URL absolue du répertoire multimédia publié. Le `path` du système de fichiers et le `base_uri` du navigateur n’ont pas besoin d’être la même chaîne, mais ils doivent désigner le même emplacement de ressource.
 
-**La conversion PowerPoint en HTML prend‑elle en charge les fichiers multimédias tels que les vidéos et l’audio ?**
+**Puis‑je inclure les diapositives masquées ?**
 
-Oui, Aspose.Slides permet d’exporter le contenu multimédia intégré aux diapositives vers HTML en utilisant `VideoPlayerHtmlController` et les classes de configuration associées.
-
-**Quels formats de fichiers sont pris en charge pour la conversion vers HTML ?**
-
-Aspose.Slides prend en charge la conversion des formats de présentation PPT, PPTX et ODP vers HTML. Il permet également d’enregistrer le contenu des diapositives au format SVG et d’exporter les ressources multimédias.
-
-**Puis‑je éviter d’incorporer les polices pour réduire la taille du HTML ?**
-
-Oui, vous pouvez lier les polices système couramment disponibles comme Arial ou Calibri au lieu de les incorporer, en utilisant une implémentation personnalisée du `HtmlController`.
-
-**Existe‑t‑il un outil en ligne pour convertir PowerPoint en HTML ?**
-
-Oui, vous pouvez essayer les outils web gratuits d’Aspose tels que [PPT en HTML](https://products.aspose.app/slides/conversion/ppt-to-html) ou [PPTX en HTML](https://products.aspose.app/slides/conversion/pptx-to-html) pour convertir des présentations directement dans votre navigateur sans écrire de code.
-
-**Puis‑je utiliser des styles CSS personnalisés dans le fichier HTML exporté ?**
-
-Oui, Aspose.Slides permet de créer des liens vers des fichiers CSS externes lors de la conversion, vous permettant de personnaliser entièrement l’apparence du contenu HTML résultant.
+Oui. Définissez `show_hidden_slides = True` sur [HtmlOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/htmloptions/) lorsque les diapositives masquées doivent être exportées.

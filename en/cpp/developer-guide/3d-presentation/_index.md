@@ -1,5 +1,5 @@
 ---
-title: Create 3D Presentations in C++
+title: Create 3D Effects in Presentations Using C++
 linktitle: 3D Presentation
 type: docs
 weight: 232
@@ -13,166 +13,194 @@ keywords:
 - 3D gradient
 - 3D text
 - PowerPoint
-- OpenDocument
 - presentation
 - C++
 - Aspose.Slides
-description: "Generate interactive 3D presentations in C++ with Aspose.Slides effortlessly. Export quickly to PowerPoint and OpenDocument formats for versatile use."
+description: "Apply and render 3D effects for PowerPoint shapes and text in C++ with Aspose.Slides. Configure camera, lighting, material, extrusion, fills, and 3D text."
 ---
 
-## **Introduction**
+## **Overview**
 
-Since Aspose.Slides 20.9 its possible to create and modify PowerPoint 3D models. This can be achieved by bringing 2D shapes a set of 3D effects. By creating a camera 
-view on the shape, you may rotate it by the axis. Create an extrusion or depth on the shape, which will transform the shape from a 2d shape to a 3D model. 
-Setting the light effect on the 3D shape or changing the materials can make it look more alive. Changing the colors of 3D models to a 3D gradient, 
-modifying shapes contour, adding a bevel make 3D model more volume. All the 3D effects can be applied on both PowerPoint 3D models and texts.
+Aspose.Slides for C++ can create, edit, preserve, and render PowerPoint-style 3D formatting for shapes and text. This article covers 3D effects such as rotation, extrusion, bevels, lighting, material, gradient or picture fills, and 3D text.
 
-Let us observe the first example of creating 3D models, which includes all the abovementioned features:
-``` cpp
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
+{{% alert color="primary" %}}
 
-auto imageScale = 2;
+This article is about 3D formatting effects on PowerPoint shapes and text. It is not about inserting or editing standalone 3D model files. When you export a slide to an image, PDF, or HTML, Aspose.Slides renders those 3D effects into the exported 2D output.
+
+{{% /alert %}}
+
+## **3D Formatting Concepts**
+
+Use the [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interface's [get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) method to apply 3D formatting to a shape. The method returns [IThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/), which controls the 3D scene for that shape.
+
+For text, use the [ITextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/) interface's [get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) method. This applies 3D formatting to the text frame instead of the shape body.
+
+The most important methods are:
+
+| Method | What it controls | When to use it |
+|---|---|---|
+| [get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) | Viewpoint, preset camera type, rotation, zoom, and perspective. | Rotate the object in 3D space or match a PowerPoint 3D rotation preset. |
+| [get_LightRig](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_lightrig/) | Light preset, direction, and light rotation. | Change how highlights and shadows appear on the 3D surface. |
+| [set_Material](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_material/) | Surface material, such as flat, matte, plastic, or metal. | Make the same geometry look flatter, softer, glossy, or metallic. |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | How far the shape extends backward from its front face. | Turn a flat shape into a visibly thick 3D object. |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Color of the extruded sides. | Make depth visible or coordinate the side color with the front fill. |
+| [set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) | Additional 3D depth used by PowerPoint 3D formatting. | Fine-tune depth for shapes or text, especially together with bevel and material settings. |
+| [get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) and [get_BevelBottom](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Raised or rounded edges on the front and back faces. | Add a softened or molded edge instead of a sharp flat face. |
+| [get_ContourColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_contourcolor/) and [set_ContourWidth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Outline around the 3D object. | Emphasize the object boundary in rendered output. |
+
+## **Create a 3D Shape**
+
+A shape usually needs four kinds of settings before it looks convincingly 3D:
+
+- Camera settings, because the default front view may hide the extrusion.
+- Light settings, because lighting makes the faces and sides readable.
+- Material settings, because the surface affects how light is rendered.
+- Extrusion or depth settings, because a flat shape needs thickness.
+
+The following example creates a rectangle, adds text to its front face, applies 3D formatting, saves the presentation as PPTX, and renders the slide to a PNG image.
+
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
 shape->get_TextFrame()->set_Text(u"3D");
-shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
+shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
+auto frontColor = System::Drawing::Color::get_CornflowerBlue();
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(frontColor);
+
+auto extrusionColor = System::Drawing::Color::get_Blue();
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
+shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Matte);
-shape->get_ThreeDFormat()->set_ExtrusionHeight(100);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Blue());
+shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Flat);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
+thumbnail->Save(u"shape_3d.png");
 thumbnail->Dispose();
 
-presentation->Save(u"sandbox_3d.pptx", Export::SaveFormat::Pptx);
+presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-The resulting PowerPoint 3D model:
+The rendered slide image shows the rectangle as a thick 3D block:
 
-![todo:image_alt_text](img_01_01.png)
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
 
-## **3D Rotation**
-In PowerPoint shape rotation is available via:
+## **Rotate a Shape with the Camera**
 
-![todo:image_alt_text](img_02_01.png)
+In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, and Z rotation values correspond to the rotation you set through the camera API.
 
-To rotate PowerPoint 3D models, it is necessary to create a camera view on the shape. This is done with [IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) 
-method. The rotation method is called from the camera class as if you would be 
-rotating the camera. In fact, when you rotate the camera relatively to the shape, you rotate the shape on the 3D plane.
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
-``` cpp
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+In Aspose.Slides, set the camera type and rotation through [IThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/):
+
+```cpp
+shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-// ... set other 3D scene parameters
-
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
 ```
 
-## **3D Depth and Extrusion**
-To add depth and extrusion for a PowerPoint 3D model use 
-[IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295) method.
-For modifying extrusion color use 
-[IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e) method:
+Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
 
-``` cpp
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+## **Add Extrusion and Depth**
+
+Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.
+
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
+
+Set [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) for the thickness and [get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) for the side color:
+
+```cpp
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Purple());
-// ... set other 3D scene parameters
 
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
+auto extrusionColor = System::Drawing::Color::get_Purple();
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
-Depth menu in PowerPoint:
+Use [set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) when you need to work with PowerPoint's depth value directly or combine depth with bevel, material, and text effects. In many shape scenarios, `set_ExtrusionHeight` is the clearer setting because it directly expresses the visible extrusion.
 
-![todo:image_alt_text](img_02_02.png)
+## **Use Gradient or Picture Fills with 3D Effects**
 
+3D formatting is independent from the shape fill. You can apply a solid color, gradient, pattern, or picture fill to the front face and still use the same camera, light, material, and extrusion settings.
 
-## **3D Gradient**
-Drawing a 3D gradient on PowerPoint 3D model can be done via 
-[Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58) 
-method:
+This example applies a gradient fill to the shape and a darker extrusion color to the sides:
 
-``` cpp
-using namespace Aspose::Slides;
-
-auto imageScale = 2;
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_TextFrame()->set_Text(u"3D Gradient");
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
+auto firstGradientColor = System::Drawing::Color::get_Blue();
+auto secondGradientColor = System::Drawing::Color::get_Orange();
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
-shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0, System::Drawing::Color::get_Blue());
-shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, System::Drawing::Color::get_Orange());
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, firstGradientColor);
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, secondGradientColor);
 
+auto extrusionColor = System::Drawing::Color::get_DarkOrange();
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
+shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Flat);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_DarkOrange());
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
+thumbnail->Save(u"gradient_3d.png");
 thumbnail->Dispose();
+
+presentation->Dispose();
 ```
 
-3D model with 3D gradient:
+The rendered output keeps the gradient on the front face and renders the extrusion separately:
 
-![todo:image_alt_text](img_02_03.png)
-  
-To create image gradient use 
-[Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb) method:
-``` cpp
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
+
+To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
+
+```cpp
 auto imageData = System::IO::File::ReadAllBytes(u"image.jpg");
 auto image = presentation->get_Images()->AddImage(imageData);
 
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-// .. setup 3D: Camera, LightRig, Extrusion
 
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
+auto extrusionColor = System::Drawing::Color::get_DarkOrange();
+shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
+The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:
 
-3d model with image gradient:
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
-![todo:image_alt_text](img_02_04.png)
+## **Apply 3D Formatting to Text**
 
-## **3D Text (WordArt)**
-To apply rotation, extrusion, light, gradient on text and make it a 3D text(WordArt), you need to access [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) method:
+Shape 3D formatting affects the shape body. Text 3D formatting affects the text frame. This is useful for WordArt-like effects where the letters themselves need extrusion, material, lighting, and camera settings.
 
-``` cpp
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
+The following example creates text with a pattern fill, applies a WordArt transform, and configures 3D settings on [ITextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/):
 
-auto imageScale = 2;
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -180,47 +208,70 @@ shape->get_TextFrame()->set_Text(u"3D Text");
 
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(System::Drawing::Color::get_DarkOrange());
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(System::Drawing::Color::get_White());
+
+auto foregroundColor = System::Drawing::Color::get_DarkOrange();
+auto backgroundColor = System::Drawing::Color::get_White();
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(foregroundColor);
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(backgroundColor);
 portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::LargeGrid);
 
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(128.0f);
 
 auto textFrameFormat = shape->get_TextFrame()->get_TextFrameFormat();
-// setup "Arch Up" WordArt transform effect
 textFrameFormat->set_Transform(TextShapeType::ArchUp);
-
 textFrameFormat->get_ThreeDFormat()->set_ExtrusionHeight(3.5);
 textFrameFormat->get_ThreeDFormat()->set_Depth(3.0);
 textFrameFormat->get_ThreeDFormat()->set_Material(MaterialPresetType::Plastic);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
-
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+textFrameFormat->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"text3d.png");
+thumbnail->Save(u"text_3d.png");
 thumbnail->Dispose();
 
-presentation->Save(u"text3d.pptx", SaveFormat::Pptx);
+presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-An example of 3D text (WordArt):
+The text is rendered as curved, extruded 3D lettering:
 
-![todo:image_alt_text](img_02_05.png)
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
+
+## **Export and Rendering Behavior**
+
+Aspose.Slides preserves 3D formatting when saving to PowerPoint formats such as PPTX. When rendering or exporting to fixed-layout formats, the 3D scene is rasterized or drawn into the output as a 2D result. This applies when you render slides to [PNG](/slides/cpp/convert-powerpoint-to-png/), export to [PDF](/slides/cpp/convert-powerpoint-to-pdf/), export to [HTML](/slides/cpp/convert-powerpoint-to-html/), or generate frames for [video conversion](/slides/cpp/convert-powerpoint-to-video/).
+
+Keep these points in mind:
+
+- Exported images and PDFs are not interactive. The object cannot be rotated by the viewer after export.
+- The final appearance depends on the combination of camera, light rig, material, extrusion, fill, and slide scaling.
+- If you need to inspect inherited or theme-based formatting values, read the [effective shape properties](/slides/cpp/shape-effective-properties/).
+- Some output formats cannot store editable PowerPoint 3D formatting. In those formats, the visual result is rendered rather than preserved as editable 3D settings.
 
 ## **FAQ**
 
-**Will 3D effects be preserved when exporting a presentation to images/PDF/HTML?**
+**Can Aspose.Slides create interactive 3D presentations?**
 
-Yes. The Slides 3D engine renders 3D effects when exporting to supported formats ([images](/slides/cpp/convert-powerpoint-to-png/), [PDF](/slides/cpp/convert-powerpoint-to-pdf/), [HTML](/slides/cpp/convert-powerpoint-to-html/), etc.).
+Aspose.Slides creates and renders PowerPoint 3D effects for shapes and text. It does not make exported images, PDFs, or HTML pages interactive 3D scenes that a viewer can rotate. In PPTX, the 3D formatting remains editable in PowerPoint where the format supports it.
 
-**Can I retrieve the "effective" (final) 3D parameter values that account for themes, inheritance, etc.?**
+**What is the difference between a 3D model and a 3D effect?**
 
-Yes. Slides provides APIs to [read effective values](/slides/cpp/shape-effective-properties/) (including for 3D—lighting, bevels, etc.) so you can see the final applied settings.
+A 3D model is a separate 3D object inserted into a presentation. A 3D effect is formatting applied to a regular PowerPoint shape or text, such as rotation, extrusion, bevel, lighting, and material. This article covers 3D effects.
 
-**Do 3D effects work when converting a presentation to video?**
+**Which settings are required for a visible 3D shape?**
 
-Yes. When [generating frames for the video](/slides/cpp/convert-powerpoint-to-video/), 3D effects are rendered just as they are for [exported images](/slides/cpp/convert-powerpoint-to-png/).
+At minimum, set a camera rotation and either extrusion or depth. In practice, also set a light rig and material so the rendered faces have clear highlights and shadows.
+
+**Can I apply 3D effects to both shapes and text?**
+
+Yes. Use [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) for the shape body and [ITextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/) for text.
+
+**Will 3D effects appear when exporting to images, PDF, HTML, or video frames?**
+
+Yes. Aspose.Slides renders 3D effects when producing slide images, PDF output, HTML output, and frames used for video conversion. The exported output contains the rendered appearance, not an editable 3D object.
+
+**Can I read the final 3D values after inheritance and theme settings are applied?**
+
+Yes. Use the effective formatting APIs described in [Shape Effective Properties](/slides/cpp/shape-effective-properties/) to read final camera, light rig, bevel, and related 3D values.

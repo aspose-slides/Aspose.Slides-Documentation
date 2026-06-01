@@ -1,424 +1,417 @@
 ---
-title: PowerPoint-Präsentationen auf Android in HTML konvertieren
-linktitle: PowerPoint zu HTML
+title: "PowerPoint-Präsentationen auf Android in HTML konvertieren"
+linktitle: "PowerPoint zu HTML"
 type: docs
 weight: 30
 url: /de/androidjava/convert-powerpoint-to-html/
 keywords:
-- PowerPoint konvertieren
-- Präsentation konvertieren
-- Folie konvertieren
-- PPT konvertieren
-- PPTX konvertieren
-- PowerPoint zu HTML
-- Präsentation zu HTML
-- Folie zu HTML
-- PPT zu HTML
-- PPTX zu HTML
-- PowerPoint als HTML speichern
-- Präsentation als HTML speichern
-- Folie als HTML speichern
-- PPT als HTML speichern
-- PPTX als HTML speichern
-- PPT nach HTML exportieren
-- PPTX nach HTML exportieren
-- Android
-- Java
-- Aspose.Slides
-description: "PowerPoint-Präsentationen in responsives HTML in Java konvertieren. Layout, Links und Bilder mit Aspose.Slides für Android beibehalten – ein Konvertierungsleitfaden für schnelle, fehlerfreie Ergebnisse."
+- "PowerPoint konvertieren"
+- "Präsentation konvertieren"
+- "Folie konvertieren"
+- "PPT konvertieren"
+- "PPTX konvertieren"
+- "PowerPoint zu HTML"
+- "Präsentation zu HTML"
+- "Folie zu HTML"
+- "PPT zu HTML"
+- "PPTX zu HTML"
+- "PowerPoint als HTML speichern"
+- "Präsentation als HTML speichern"
+- "Folie als HTML speichern"
+- "PPT als HTML speichern"
+- "PPTX als HTML speichern"
+- "PPT nach HTML exportieren"
+- "PPTX nach HTML exportieren"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "PowerPoint-Präsentationen auf Android in HTML konvertieren. Verwenden Sie Aspose.Slides für Android über Java, um PPT- und PPTX-Dateien, ausgewählte Folien, Notizen, Schriftarten, Bilder, SVG und Medien zu exportieren."
 ---
-
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man PowerPoint‑Präsentationen mit Java in das HTML‑Format konvertiert. Er behandelt die folgenden Themen.
+Aspose.Slides für Android über Java kann PowerPoint‑Präsentationen als HTML speichern, ohne Microsoft PowerPoint zu benötigen. Die grundlegende Konvertierung besteht aus einem einzigen [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/)‑Laden und einem Aufruf von `save` mit [SaveFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/saveformat/). Verwenden Sie [HtmlOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/htmloptions/), wenn Sie das exportierte Layout, Schriftarten, Bilder, Notizen, Kommentare, SVG‑Ausgabe oder verknüpfte Ressourcen steuern müssen.
 
-- PowerPoint in HTML mit Java konvertieren
-- PPT in HTML mit Java konvertieren
-- PPTX in HTML mit Java konvertieren
-- ODP in HTML mit Java konvertieren
-- PowerPoint‑Folie in HTML mit Java konvertieren
+Dieser Leitfaden konzentriert sich auf praktische HTML‑Export‑Szenarien:
 
-## **PowerPoint zu HTML auf Android**
+- Exportieren einer gesamten Präsentation oder ausgewählter Folien.
+- Erzeugen von festem Layout, responsivem oder SVG‑basiertem HTML.
+- Einbinden von Rednernotizen und Kommentaren.
+- Steuern der Bildqualität und beschnittener Bilddaten.
+- Schriftarten einbetten oder Schriftdateien separat speichern.
+- Auswählen, wie externe Ressourcen und Mediendateien geschrieben und referenziert werden.
 
-Für Java‑Beispielcode zur Konvertierung von PowerPoint zu HTML siehe den Abschnitt unten, also [PowerPoint zu HTML konvertieren](#convert-powerpoint-to-html). Der Code kann verschiedene Formate wie PPT, PPTX und ODP in ein Presentation‑Objekt laden und im HTML‑Format speichern.
+Standardmäßig erzeugt der HTML‑Export ein eigenständiges HTML‑Dokument, in dem die meisten Ressourcen eingebettet sind. Das ist praktisch für die Freigabe einer einzigen Datei, kann jedoch die Ausgabengröße erhöhen. Für die Web‑Veröffentlichung sollten externe Ressourcen, ein niedrigeres Bild‑DPI und das Einbetten nur jener Schriftarten, die in der Zielumgebung nicht zuverlässig verfügbar sind, in Betracht gezogen werden.
 
-## **Über die PowerPoint‑zu‑HTML‑Konvertierung**
-Mit [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/) können Anwendungen und Entwickler eine PowerPoint‑Präsentation zu HTML konvertieren: **PPTX zu HTML** oder **PPT zu HTML**.
+## **Konvertieren einer Präsentation in HTML**
 
-**Aspose.Slides** bietet viele Optionen (hauptsächlich aus der Klasse [**HtmlOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions)), die den PowerPoint‑zu‑HTML‑Konvertierungsprozess definieren:
+Um eine Präsentation nach HTML zu exportieren, laden Sie sie mit [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) und speichern sie mit [SaveFormat.Html](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/saveformat/).
 
-* Eine gesamte PowerPoint‑Präsentation zu HTML konvertieren.
-* Eine bestimmte Folie einer PowerPoint‑Präsentation zu HTML konvertieren.
-* Präsentationsmedien (Bilder, Videos usw.) zu HTML konvertieren.
-* Eine PowerPoint‑Präsentation zu responsive HTML konvertieren. 
-* Eine PowerPoint‑Präsentation zu HTML konvertieren, wobei Referenten‑Notizen ein- oder ausgeschlossen werden. 
-* Eine PowerPoint‑Präsentation zu HTML konvertieren, wobei Kommentare ein- oder ausgeschlossen werden. 
-* Eine PowerPoint‑Präsentation zu HTML konvertieren, wobei Original‑ oder eingebettete Schriftarten verwendet werden. 
-* Eine PowerPoint‑Präsentation zu HTML konvertieren, wobei der neue CSS‑Stil verwendet wird. 
-
-{{% alert color="primary" %}} 
-
-Mit ihrer eigenen API hat Aspose kostenlose [Präsentation‑zu‑HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)‑Konverter entwickelt: [PPT zu HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX zu HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP zu HTML](https://products.aspose.app/slides/conversion/odp-to-html) usw. 
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-Weitere [kostenlose Konverter von Aspose](https://products.aspose.app/slides/conversion) können Sie sich ansehen. 
-
-{{% /alert %}} 
-
-## **PowerPoint zu HTML konvertieren**
-Mit Aspose.Slides können Sie eine gesamte PowerPoint‑Präsentation wie folgt zu HTML konvertieren:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse.
-1. Verwenden Sie die [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)‑Methode, um das Objekt als HTML‑Datei zu speichern.
-
-Dieser Code zeigt, wie Sie in Java eine PowerPoint‑Präsentation zu HTML konvertieren:
 ```java
-// Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
-Presentation pres = new Presentation("Convert_HTML.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    HtmlOptions htmlOpt = new HtmlOptions();
-	
-    htmlOpt.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOpt.setHtmlFormatter(HtmlFormatter.createDocumentFormatter("", false));
-
-    // Speichern der Präsentation als HTML
-    pres.save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
+    presentation.save("presentation.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Dieses Beispiel schreibt eine HTML‑Datei. Das Präsentationsobjekt wird im `finally`‑Block freigegeben, wodurch Dateihandles und Rendering‑Resourcen nach dem Export freigegeben werden.
 
-## **PowerPoint zu responsive HTML konvertieren**
-Aspose.Slides stellt die Klasse [ResponsiveHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ResponsiveHtmlController) bereit, mit der Sie responsive HTML‑Dateien erzeugen können. Dieser Code zeigt, wie Sie in Java eine PowerPoint‑Präsentation zu responsive HTML konvertieren:
+## **Verwenden von HtmlOptions**
+
+[HtmlOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/htmloptions/) ist die Hauptkonfigurationsklasse für den HTML‑Export. Häufige Einstellungen umfassen:
+
+- `SlidesLayoutOptions`: fügt Notizen, Kommentare, Handouts oder andere Layout‑Informationen hinzu.
+- `HtmlFormatter`: ändert die HTML‑Dokumentstruktur oder delegiert die Formatierung an einen Controller.
+- `SlideImageFormat`: ändert, wie Folien dargestellt werden, zum Beispiel als SVG.
+- `PicturesCompression`: steuert Bild‑DPI und Ausgabengröße.
+- `DeletePicturesCroppedAreas`: behält beschnittene Bilddaten bei oder entfernt sie.
+- `SvgResponsiveLayout`: lässt exportierten SVG‑Inhalt an seinen Container anpassen.
+- `ShowHiddenSlides`: schließt versteckte Folien ein, wenn erforderlich.
+
+Die folgenden Abschnitte zeigen die gebräuchlichsten Optionen einzeln, sodass Sie nur die für Ihren Arbeitsablauf benötigten kombinieren können.
+
+## **Ausgewählte Folien zu HTML konvertieren**
+
+Die Überladung `Presentation.save`, die Foliennummern akzeptiert, verwendet 1‑basierte Folienpositionen. Die nachfolgende Schleife speichert jede Folie in einer separaten HTML‑Datei.
+
 ```java
-// Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
-Presentation pres = new Presentation("Convert_HTML.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        int slideNumber = slideIndex + 1;
+        int[] slideNumbers = { slideNumber };
+        String htmlFileName = "slide-" + slideNumber + ".html";
+
+        presentation.save(htmlFileName, slideNumbers, SaveFormat.Html);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Verwenden Sie dieses Muster, wenn eine Website oder Anwendung für jede Folie eine HTML‑Seite benötigt. Wenn jede Folie dasselbe Layout haben soll, erstellen Sie eine [HtmlOptions]‑Instanz und übergeben Sie sie jedem `save`‑Aufruf.
+
+## **Responsives HTML erstellen**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/responsivehtmlcontroller/) liefert responsiven HTML‑Output über [HtmlFormatter](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/htmlformatter/). Verwenden Sie ihn, wenn die exportierte Seite besser an die Browser‑Breite angepasst werden soll.
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     ResponsiveHtmlController controller = new ResponsiveHtmlController();
+    HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(controller);
+
     HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
+    htmlOptions.setHtmlFormatter(formatter);
 
-    // Speichern der Präsentation als HTML
-    pres.save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
+    presentation.save("presentation-responsive.html", SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Für ein SVG‑basiertes responsives Layout setzen Sie `SvgResponsiveLayout` auf [HtmlOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/htmloptions/). Dies ist nützlich, wenn der Folieninhalt als skalierbares SVG‑Markup exportiert wird.
 
-## **PowerPoint zu HTML mit Notizen konvertieren**
-Dieser Code zeigt, wie Sie in Java eine PowerPoint‑Präsentation zu HTML mit Notizen konvertieren:
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    HtmlOptions opt = new HtmlOptions();
-	
-    INotesCommentsLayoutingOptions options = opt.getNotesCommentsLayouting();
-    options.setNotesPosition(NotesPositions.BottomFull);
-
-    // Speichern der Notizseiten
-    pres.save("Output.html", SaveFormat.Html, opt);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **PowerPoint zu HTML mit Original‑Schriftarten konvertieren**
-
-Aspose.Slides bietet die Klasse [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController) an, mit der Sie beim Konvertieren einer Präsentation zu HTML alle Schriftarten einbetten können.
-
-Um bestimmte Schriftarten nicht einzubetten, können Sie dem parametrisierten Konstruktor der Klasse [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController) ein Array von Schriftartnamen übergeben. Beliebte Schriftarten wie Calibri oder Arial müssen nicht eingebettet werden, da die meisten Systeme diese bereits enthalten. Werden sie dennoch eingebettet, wird das resultierende HTML‑Dokument unnötig groß.
-
-Die Klasse [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController) unterstützt Vererbung und stellt die Methode [WriteFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) bereit, die überschrieben werden kann.
-```java
-Presentation pres = new Presentation("input.pptx");
-try {
-    // Standard-Präsentationsschriftarten ausschließen
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter(embedFontsController));
-
-    pres.save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat.Html, htmlOptionsEmbed);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **PowerPoint zu HTML mit hochqualitativen Bildern konvertieren**
-
-Standardmäßig erzeugt Aspose.Slides beim Konvertieren von PowerPoint zu HTML kleine HTML‑Dateien mit Bildern bei 72 DPI und entfernten beschnittenen Bereichen. Um HTML‑Dateien mit höherwertigen Bildern zu erhalten, müssen Sie die Eigenschaft `PicturesCompression` (aus der Klasse `HtmlOptions`) auf 96 (d. h. `PicturesCompression.Dpi96`) oder höhere Werte setzen ([Siehe Werte](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PicturesCompression)).
-
-Dieser Java‑Code zeigt, wie Sie eine PowerPoint‑Präsentation zu HTML konvertieren und dabei hochwertige Bilder mit 150 DPI erhalten (d. h. `PicturesCompression.Dpi150`):
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setPicturesCompression(PicturesCompression.Dpi150);
-    
-    pres.save("OutputDoc-dpi150.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-Dieser Java‑Code zeigt, wie Sie HTML mit Bildern in voller Qualität ausgeben:
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setDeletePicturesCroppedAreas(false);
-
-    pres.save("Outputdoc-noCrop.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Eine Folie zu HTML konvertieren**
-Um eine bestimmte Folie einer PowerPoint‑Präsentation zu HTML zu konvertieren, müssen Sie dieselbe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse instanziieren (die auch zum Konvertieren ganzer Präsentationen zu HTML verwendet wird) und anschließend die [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)‑Methode zum Speichern der Datei als HTML nutzen. Die Klasse [HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions) kann verwendet werden, um zusätzliche Konvertierungsoptionen anzugeben:
-
-Dieser Java‑Code zeigt, wie Sie eine Folie einer PowerPoint‑Präsentation zu HTML konvertieren:
-```java
-Presentation pres = new Presentation("Individual-Slide.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(new CustomFormattingController()));
+    htmlOptions.setSvgResponsiveLayout(true);
 
-    // Datei speichern
-    for (int i = 0; i < pres.getSlides().size(); i++)
-        pres.save("Individual Slide" + (i + 1) + "_out.html", new int[]{i + 1},SaveFormat.Html, htmlOptions);
+    presentation.save("presentation-svg-responsive.html", SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Rednernotizen und Kommentare einbinden**
+
+Verwenden Sie [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/notescommentslayoutingoptions/) über `HtmlOptions.SlidesLayoutOptions`, um Rednernotizen oder Kommentare einzubinden. Notizen und Kommentare sind standardmäßig ausgeblendet, es sei denn, Sie wählen deren Positionen.
+
+![Folie mit Rednernotizen in PowerPoint](slide_with_notes.png)
+
+Der folgende Code exportiert den Folieninhalt mit Rednernotizen unterhalb der Folie.
+
 ```java
-public class CustomFormattingController implements IHtmlFormattingController
-{
-    @Override
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeDocumentEnd(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeSlideStart(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(String.format(SlideHeader, generator.getSlideIndex() + 1));
-    }
-
-    @Override
-    public void writeSlideEnd(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(SlideFooter);
-    }
-
-    @Override
-    public void writeShapeStart(IHtmlGenerator generator, IShape shape) { }
-
-    @Override
-    public void writeShapeEnd(IHtmlGenerator generator, IShape shape) { }
-
-    private final String SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-    private final String SlideFooter = "</div>";
-}
-```
-
-
-## **CSS und Bilder beim Export nach HTML speichern**
-Mit neuen CSS‑Stildateien können Sie das Aussehen der aus der PowerPoint‑zu‑HTML‑Konvertierung resultierenden HTML‑Datei leicht ändern.
-
-Der Java‑Code in diesem Beispiel zeigt, wie Sie überschreibbare Methoden nutzen, um ein benutzerdefiniertes HTML‑Dokument mit einem Link zu einer CSS‑Datei zu erstellen:
-```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-    HtmlOptions options = new HtmlOptions();
-    options.setHtmlFormatter(HtmlFormatter.createCustomFormatter(htmlController));
+    NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+    layoutOptions.setNotesPosition(NotesPositions.BottomFull);
 
-    pres.save("pres.html", SaveFormat.Html, options);
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setSlidesLayoutOptions(layoutOptions);
+
+    presentation.save("presentation-with-notes.html", SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+![HTML‑Ausgabe mit der Folie und Rednernotizen](HTML_with_notes.png)
+
+Um Kommentare zu exportieren, setzen Sie `CommentsPosition`, zum Beispiel auf `CommentsPositions.Right` oder `CommentsPositions.Bottom`. Wenn Sie nur Kommentare benötigen, lassen Sie `NotesPosition` weg. Wenn Sie sowohl Notizen als auch Kommentare benötigen, setzen Sie beide Eigenschaften.
+
+## **Bildqualität und beschnittene Bereiche steuern**
+
+Der HTML‑Export kann Folienbilder komprimieren, um die Ausgabengröße zu reduzieren. Setzen Sie `PicturesCompression` auf einen Wert aus [PicturesCompression](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/picturescompression/), wenn Sie höhere Bildqualität benötigen.
+
 ```java
-public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
-{
-    private final int m_basePath = 0;
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setPicturesCompression(PicturesCompression.Dpi150);
 
-    // Benutzerdefinierte Header-Vorlage
-    final static String Header = "<!DOCTYPE html>\n" +
-            "<html>\n" +
-            "<head>\n" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-            "</head>";
-
-    private final String m_cssFileName;
-
-    public CustomHeaderAndFontsController(String cssFileName) 
-    {
-        m_cssFileName = cssFileName;
-    }
-
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml(String.format(Header, m_cssFileName));
-        writeAllFonts(generator, presentation);
-    }
-
-    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml("<!-- Embedded fonts -->");
-        super.writeAllFonts(generator, presentation);
-    }
+    presentation.save("presentation-dpi-150.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
 }
 ```
 
+Standardmäßig können beschnittene Bildbereiche aus der exportierten Ausgabe entfernt werden. Bewahren Sie beschnittene Daten nur dann auf, wenn Benutzer in der Lage sein müssen, diese verborgenen Bildteile wiederherzustellen oder zu prüfen. Das Beibehalten kann die HTML‑Größe erhöhen.
 
-## **Alle Schriftarten verlinken, wenn eine Präsentation zu HTML konvertiert wird**
-
-Wenn Sie Schriftarten nicht einbetten möchten (um die Größe des resultierenden HTML zu begrenzen), können Sie alle Schriftarten verlinken, indem Sie Ihre eigene Version von `LinkAllFontsHtmlController` implementieren.
-
-Dieser Java‑Code zeigt, wie Sie eine PowerPoint‑Präsentation zu HTML konvertieren, während alle Schriftarten verlinkt und „Calibri“ sowie „Arial“ ausgeschlossen werden (da sie bereits im System vorhanden sind):
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try
-{
-    // Standard-Präsentationsschriftarten ausschließen
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setDeletePicturesCroppedAreas(false);
 
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList,"C:/Windows/Fonts/");
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter((IHtmlFormattingController) linkcont));
-
-    pres.save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
-}
-finally {
-    if (pres != null) pres.dispose();
+    presentation.save("presentation-with-cropped-areas.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
 }
 ```
 
+## **CSS hinzufügen**
 
-Dieser Java‑Code zeigt die Implementierung von `LinkAllFontsHtmlController`:
+Für einfache Formatierungen übergeben Sie einen CSS‑String an `HtmlFormatter.createDocumentFormatter`. Dadurch wird das umgebende HTML‑Dokument geändert, während Aspose.Slides weiterhin den Folieninhalt rendert.
+
 ```java
-public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private final String m_basePath;
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    String cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+    HtmlFormatter formatter = HtmlFormatter.createDocumentFormatter(cssRules, true);
 
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
-    {
-        super(fontNameExcludeList);
-        m_basePath = basePath;
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-styled.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Für einen benutzerdefinierten Dokumentkopf, eine verknüpfte CSS‑Datei oder benutzerdefiniertes Markup um Folien und Formen implementieren Sie [IHtmlFormattingController](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ihtmlformattingcontroller/) und übergeben es an [HtmlFormatter](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/htmlformatter/) mit `createCustomFormatter`.
+
+## **Schriftarten einbetten**
+
+Falls die Zielumgebung die Präsentationsschriftarten nicht installiert hat, betten Sie die Schriftarten mit [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/embedallfontshtmlcontroller/) in das HTML ein. Das Einbetten verbessert die visuelle Treue, erhöht jedoch die Ausgabengröße.
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    String[] fontNamesToExclude = { "Arial", "Calibri" };
+    EmbedAllFontsHtmlController fontController = new EmbedAllFontsHtmlController(fontNamesToExclude);
+    HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(fontController);
+
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-embedded-fonts.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Schließen Sie Schriftarten nur aus, wenn Sie sicher sind, dass die Ziel‑Browser oder -Systeme sie bereits bereitstellen. Für Marken‑ oder weniger verbreitete Schriftarten ist das Einbetten in der Regel sicherer.
+
+## **Schriftdateien verlinken anstatt sie einzubetten**
+
+Um die HTML‑Dateigröße zu reduzieren, können Sie Schriftartdaten in separate WOFF‑Dateien schreiben und `@font-face`‑Regeln zum HTML hinzufügen. Der Hilfs‑Code unten erweitert [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/embedallfontshtmlcontroller/) und überschreibt `writeFont`.
+
+```java
+class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
+    private final String fontOutputDirectory;
+    private final String fontUrlPrefix;
+
+    LinkedFontsHtmlController(
+            String fontOutputDirectory,
+            String fontUrlPrefix) throws java.io.IOException {
+        super(new String[0]);
+        this.fontOutputDirectory = fontOutputDirectory;
+        this.fontUrlPrefix = fontUrlPrefix.endsWith("/") ? fontUrlPrefix : fontUrlPrefix + "/";
+        
+        File dirs = new File(fontOutputDirectory);
+        dirs.mkdirs();
     }
 
-    public void writeFont
-    (
+    @Override
+    public void writeFont(
             IHtmlGenerator generator,
             IFontData originalFont,
             IFontData substitutedFont,
             String fontStyle,
             String fontWeight,
-            byte[] fontData)
-    {
+            byte[] fontData) {
         try {
-            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // ggf. muss der Pfad bereinigt werden
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
+            IFontData font = substitutedFont == null ? originalFont : substitutedFont;
+            String safeFontName = makeSafeFileName(font.getFontName());
+            String safeFontStyle = fontStyle == null || fontStyle.trim().isEmpty() ? "normal" : fontStyle;
+            String safeFontWeight = fontWeight == null || fontWeight.trim().isEmpty() ? "normal" : fontWeight;
+            String fontFileName = safeFontName + "-" + safeFontStyle + "-" + safeFontWeight + ".woff";
+            String fontFilePath = fontOutputDirectory + "/" + fontFileName;
+
+            FileOutputStream fos = new FileOutputStream(fontFilePath);
+            fos.write(fontData);
+            fos.close();
+
+            String encodedFontFileName = java.net.URLEncoder.encode(fontFileName, "UTF-8");
+            String fontUrl = fontUrlPrefix + encodedFontFileName.replace("+", "%20");
+            String escapedBackslashes = font.getFontName().replace("\\", "\\\\");
+            String fontFamily = escapedBackslashes.replace("'", "\\'");
 
             generator.addHtml("<style>");
-            generator.addHtml("@font-face { ");
-            generator.addHtml("font-family: '" + fontName + "'; ");
-            generator.addHtml("src: url('" + path + "')");
-
-            generator.addHtml(" }");
+            generator.addHtml("@font-face {");
+            generator.addHtml("font-family: '" + fontFamily + "';");
+            generator.addHtml("font-style: " + safeFontStyle + ";");
+            generator.addHtml("font-weight: " + safeFontWeight + ";");
+            generator.addHtml("src: url('" + fontUrl + "') format('woff');");
+            generator.addHtml("}");
             generator.addHtml("</style>");
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (java.io.IOException exception) {
+            throw new RuntimeException("Unable to write an exported font.", exception);
         }
     }
+
+    private String makeSafeFileName(String fileName) {
+        String invalidCharacters = "\\/:*?\"<>|";
+        char[] safeCharacters = fileName.toCharArray();
+
+        for (int characterIndex = 0; characterIndex < safeCharacters.length; characterIndex++) {
+            if (invalidCharacters.indexOf(safeCharacters[characterIndex]) >= 0) {
+                safeCharacters[characterIndex] = '_';
+            }
+        }
+
+        return new String(safeCharacters);
+    }
 }
-```
 
+String outputDirectory = System.getProperty("user.dir") + "/html-output";
+String fontsDirectory = outputDirectory + "/fonts";
+File dir = new File("path/to/folder");
+dir.mkdir();
 
-## **PowerPoint zu responsive HTML konvertieren**
-Dieser Java‑Code zeigt, wie Sie eine PowerPoint‑Präsentation zu responsive HTML konvertieren:
-```java
-Presentation pres = new Presentation("SomePresentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    HtmlOptions saveOptions = new HtmlOptions();
-    saveOptions.setSvgResponsiveLayout(true);
-    pres.save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
+    LinkedFontsHtmlController fontController = new LinkedFontsHtmlController(fontsDirectory, "fonts");
+    HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(fontController);
+
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    String htmlFilePath = outputDirectory + "/presentation.html";
+    presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+In diesem Beispiel werden Schriftdateien nach `html-output/fonts` gespeichert und das HTML verweist mit URLs wie `fonts/BrandFont-normal-400.woff` darauf. Wenn die HTML‑Datei und die Schriftarten an einem anderen Ort bereitgestellt werden, wählen Sie `fontUrlPrefix` so, dass es zum bereitgestellten URL‑Pfad passt.
 
-## **Mediendateien nach HTML exportieren**
-Mit Aspose.Slides for Android via Java können Sie Mediendateien wie folgt exportieren:
+## **Ressourcen extern speichern**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse.
-1. Holen Sie sich eine Referenz zur Folie.
-1. Fügen Sie ein Video zur Folie hinzu.
-1. Schreiben Sie die Präsentation als HTML‑Datei.
+Eigenständiges HTML lässt sich leicht verschieben, aber eingebettete Base64‑Resourcen können die Datei groß machen. Wenn Ihre Anwendung externe Bilddateien benötigt, implementieren Sie [ILinkEmbedController](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ilinkembedcontroller/) und übergeben ihn dem Konstruktor von [HtmlOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/htmloptions/).
 
-Dieser Java‑Code zeigt, wie Sie ein Video zur Präsentation hinzufügen und anschließend als HTML speichern:
+Wenn Sie Ressourcen auslagern, wählen Sie bewusst zwei Pfade:
+
+- Den Ausgabepfad im Dateisystem, in dem Ihre Anwendung erzeugte Bilder, Schriftarten, Audio‑ oder Videodateien schreibt.
+- Den URL‑Pfad, den der Browser aus dem HTML‑Dokument verwendet, um diese Dateien zu laden.
+
+## **Mediadateien exportieren**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/videoplayerhtmlcontroller/) exportiert Video‑ und Audiodateien und schreibt HTML, das sie in einem Browser abspielen kann. Sein Konstruktor erwartet:
+
+- `path`: das Verzeichnis, in das erzeugte Mediendateien geschrieben werden.
+- `fileName`: der erzeugte HTML‑Dateiname.
+- `baseUri`: das absolute URI‑Präfix, das in den HTML‑Links zu Mediendateien verwendet wird.
+
+Wenn die HTML‑Datei `html-output/presentation.html` ist und Mediendateien in `html-output/media` gespeichert werden, sollte `path` auf das Medienverzeichnis auf dem Datenträger zeigen, während `baseUri` aus Sicht des Browsers auf dasselbe Verzeichnis zeigen sollte. Für eine lokale Vorschau können Sie eine `file:///`‑URI aus dem Medienverzeichnis erstellen. Für eine bereitgestellte Anwendung verwenden Sie die absolute URL des veröffentlichten Medienverzeichnisses.
+
 ```java
-// Präsentation laden
-Presentation pres = new Presentation();
+String outputDirectory = System.getProperty("user.dir") + "/html-output";
+String mediaDirectory = outputDirectory + "/media";
+File outDir = new File(outputDirectory);
+outDir.mkdir();
+File mediaDir = new File(mediaDirectory);
+mediaDir.mkdir();
+
+String htmlFileName = "presentation.html";
+String mediaBaseUri = mediaDirectory;
+
+Presentation presentation = new Presentation();
 try {
-    String path = "./out/";
-    final String fileName = "ExportMediaFiles_out.html";
-    final String baseUri = "http://www.example.com/";
+    byte[] videoData = ...;// intro.mp4
 
-    byte[] videoData = Files.readAllBytes(Paths.get("my_video.avi"));
-    IVideo video = pres.getVideos().addVideo(videoData);
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
+    IVideo video = presentation.getVideos().addVideo(videoData);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
 
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
-
-    // HTML-Optionen festlegen
-    HtmlOptions htmlOptions = new HtmlOptions(controller);
+    String mediaDirectoryPath = mediaDirectory;
+    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(mediaDirectoryPath, htmlFileName, mediaBaseUri);
+    HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(controller);
     SVGOptions svgOptions = new SVGOptions(controller);
+    SlideImageFormat slideImageFormat = SlideImageFormat.svg(svgOptions);
 
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
-    htmlOptions.setSlideImageFormat(SlideImageFormat.svg(svgOptions));
+    HtmlOptions htmlOptions = new HtmlOptions(controller);
+    htmlOptions.setHtmlFormatter(formatter);
+    htmlOptions.setSlideImageFormat(slideImageFormat);
 
-    // Datei speichern
-    pres.save(fileName, SaveFormat.Html, htmlOptions);
-} catch(Exception e) {
+    String htmlFilePath = outputDirectory + "/" + htmlFileName;
+    presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Verwenden Sie Ausgabeverzeichnisse, die für jeden Exportauftrag eindeutig sind, besonders in Server‑Anwendungen. Gemeinsame Ausgabepfade können dazu führen, dass Dateien verschiedener Konvertierungen einander überschreiben.
+
+## **Leistung und Ressourcenverwaltung**
+
+Die HTML‑Konvertierung ist ein Rendering‑Vorgang, daher hängen Verarbeitungszeit und Speicherverbrauch von der Folienanzahl, Bildauflösung, Schriftarten, Effekten, Diagrammen und eingebetteten Medien ab. Höhere `PicturesCompression`‑DPI‑Werte, eingebettete Schriftarten, SVG‑Ausgabe und beibehaltene beschnittene Bildbereiche können die Treue erhöhen, führen jedoch meist zu einer größeren Ausgabedatei.
+
+Für Batch‑Konvertierung:
+
+- Jede [Presentation]‑Instanz sofort freigeben.
+- Separate Ausgabeverzeichnisse für unterschiedliche Aufträge verwenden.
+- Vermeiden Sie das Einbetten gängiger Schriftarten, es sei denn, die Treue erfordert es.
+- Bild‑DPI reduzieren, wenn das HTML für Vorschau oder Thumbnails gedacht ist.
+- Die Quellpräsentation, das erzeugte HTML und die externen Ressourcen zusammenhalten, bis die Bereitstellungspfade final sind.
 
 ## **FAQ**
 
-**Wie ist die Leistung von Aspose.Slides beim Konvertieren mehrerer Präsentationen zu HTML?**
+**Werden Hyperlinks im HTML‑Ausgabe erhalten?**
 
-Die Leistung hängt von Größe und Komplexität der Präsentationen ab. Aspose.Slides ist hoch effizient und skalierbar für Batch‑Operationen. Für optimale Leistung bei vielen Konvertierungen empfiehlt sich der Einsatz von Multithreading oder Parallelverarbeitung, wann immer möglich.
+Ja. Präsentations‑Hyperlinks werden nach HTML exportiert und bleiben anklickbar, wenn die Ziel‑URL gültig ist.
 
-**Unterstützt Aspose.Slides das Exportieren von Hyperlinks nach HTML?**
+**Kann ich Präsentationen parallel zu HTML konvertieren?**
 
-Ja, Aspose.Slides unterstützt das vollständige Exportieren eingebetteter Hyperlinks nach HTML. Beim Konvertieren von Präsentationen zu HTML bleiben Hyperlinks automatisch erhalten und anklickbar.
+Ja, aber teilen Sie keine einzelne [Presentation]‑Instanz über Threads hinweg. Verarbeiten Sie verschiedene Dateien mit separaten Präsentations‑Instanzen, separaten Streams und separaten Ausgabeverzeichnissen. Siehe die [multithreading guidance](/slides/de/androidjava/multithreading/) für Details.
 
-**Gibt es eine Begrenzung der Folienzahl beim Konvertieren von Präsentationen zu HTML?**
+**Ist ein Presentation‑Objekt thread‑sicher?**
 
-Es gibt keine Begrenzung der Folienzahl bei der Verwendung von Aspose.Slides. Sie können Präsentationen jeder Größe konvertieren. Bei sehr großen Präsentationen kann die Leistung jedoch von den verfügbaren Ressourcen Ihres Servers oder Systems abhängen.
+Nein. Eine einzelne [Presentation]‑Instanz sollte in einem Thread geladen, geändert, gespeichert und freigegeben werden. Für parallele Arbeit erstellen Sie pro Thread oder Prozess eine unabhängige Instanz.
+
+**Warum ist die erzeugte HTML‑Datei groß?**
+
+Der Standard‑Export kann Ressourcen direkt in das HTML einbetten. Eingebettete Schriftarten, hoch‑DPI‑Bilder, Medien, SVG‑Inhalt und beibehaltene beschnittene Bildbereiche erhöhen ebenfalls die Größe. Verwenden Sie externe Ressourcen, schließen Sie gängige Schriftarten vom Einbetten aus und reduzieren Sie `PicturesCompression`, wenn ein kleineres Ergebnis wichtiger ist als maximale Treue.
+
+**Wie soll ich baseUri für den Medien‑Export wählen?**
+
+Wählen Sie `baseUri` aus Sicht des Browsers und übergeben Sie es als absolute URI. Für eine lokale Vorschau können Sie es aus dem Ausgabeverzeichnis mit `mediaDirectory.toUri().toString()` ableiten. Für die Bereitstellung verwenden Sie die absolute URL des veröffentlichten Medienverzeichnisses. Der Dateisystem‑`path` und der Browser‑`baseUri` müssen nicht dieselbe Zeichenkette sein, sie müssen jedoch denselben Ressourcen‑Ort beschreiben.
+
+**Kann ich versteckte Folien einbinden?**
+
+Ja. Setzen Sie `ShowHiddenSlides` auf `true` bei [HtmlOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/htmloptions/), wenn versteckte Folien exportiert werden müssen.

@@ -11,7 +11,7 @@ keywords:
 - конвертировать PPT
 - конвертировать PPTX
 - PowerPoint в HTML
-- презентация в HTML
+- презентацию в HTML
 - слайд в HTML
 - PPT в HTML
 - PPTX в HTML
@@ -25,428 +25,379 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Конвертировать презентации PowerPoint в адаптивный HTML в .NET. Сохранить макет, ссылки и изображения с помощью руководства по конвертации Aspose.Slides для быстрых и безошибочных результатов."
+description: "Конвертировать презентации PowerPoint в HTML в .NET. Используйте Aspose.Slides для экспорта файлов PPT и PPTX, выбранных слайдов, заметок, шрифтов, изображений, SVG и медиа."
 ---
-
 ## **Обзор**
 
-Улучшите свой рабочий процесс, конвертируя презентации PowerPoint и OpenDocument в HTML с помощью Aspose.Slides для .NET. Это руководство предлагает подробные инструкции, надежные примеры кода и проверенные методы, обеспечивая надежный и эффективный процесс конвертации, оптимизированный для веб‑просмотра.
+Aspose.Slides for .NET может сохранять презентации PowerPoint в формате HTML без Microsoft PowerPoint. Базовое преобразование состоит из единственной загрузки [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и вызова [Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/) с использованием [SaveFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.export/saveformat/). Используйте [HtmlOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmloptions/) когда необходимо управлять экспортируемым макетом, шрифтами, изображениями, заметками, комментариями, выводом SVG или связанными ресурсами.
 
-Aspose.Slides предоставляет множество вариантов — в основном из класса [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) — которые определяют процесс конвертации из формата PowerPoint (или OpenDocument) в HTML:
+Это руководство сосредоточено на практических сценариях экспорта HTML:
 
-* Преобразовать всю презентацию PowerPoint в HTML.
-* Преобразовать отдельный слайд презентации PowerPoint в HTML.
-* Преобразовать медиаданные презентации (изображения, видео и т. д.) в HTML.
-* Преобразовать презентацию PowerPoint в адаптивный HTML.
-* Преобразовать презентацию PowerPoint в HTML с включенными или исключенными заметками докладчика.
-* Преобразовать презентацию PowerPoint в HTML с включенными или исключенными комментариями.
-* Преобразовать презентацию PowerPoint в HTML с оригинальными или встроенными шрифтами.
-* Преобразовать презентацию PowerPoint в HTML, используя новый стиль CSS.
+- Экспорт всей презентации или выбранных слайдов.
+- Генерация HTML с фиксированным макетом, адаптивным или основанным на SVG.
+- Включение заметок докладчика и комментариев.
+- Управление качеством изображений и данными обрезанных областей.
+- Встраивание шрифтов или отдельное сохранение файлов шрифтов.
+- Выбор способа записи и ссылки на внешние ресурсы и медиа‑файлы.
 
-## **Преобразовать презентацию в HTML**
+По умолчанию экспорт HTML создаёт автономный HTML‑документ, в котором большинство ресурсов встроено. Это удобно для обмена одним файлом, но может увеличить размер вывода. Для публикации в вебе рассмотрите внешние ресурсы, уменьшите DPI изображений и встраивайте только те шрифты, которые недоступны в целевой среде.
 
-С помощью Aspose.Slides вы можете преобразовать всю презентацию PowerPoint или OpenDocument в HTML следующим образом:
+## **Преобразование презентации в HTML**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Вызовите метод [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save), чтобы сохранить объект в виде HTML‑файла.
+Чтобы экспортировать презентацию в HTML, загрузите её с помощью [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и сохраните с помощью [SaveFormat.Html](https://reference.aspose.com/slides/ru/net/aspose.slides.export/saveformat/).
 
-```c#
-// Создайте экземпляр класса Presentation, который представляет файл презентации (например, PPT, PPTX, ODP и т. д.).
-using (Presentation presentation = new Presentation("presentation.pptx"))
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+presentation.Save("presentation.html", SaveFormat.Html);
+```
+
+В этом примере записывается один HTML‑файл. Объект презентации освобождается объявлением `using`, которое закрывает файловые дескрипторы и ресурсы рендеринга после экспорта.
+
+## **Использование HtmlOptions**
+
+[HtmlOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmloptions/) — основной класс конфигурации экспорта HTML. Общие параметры включают:
+
+- `SlidesLayoutOptions`: добавляет заметки, комментарии, раздаточные материалы или другую информацию о макете.
+- `HtmlFormatter`: меняет структуру HTML‑документа или делегирует форматирование контроллеру.
+- `SlideImageFormat`: меняет способ представления слайдов, например как SVG.
+- `PicturesCompression`: управляет DPI изображений и размером вывода.
+- `DeletePicturesCroppedAreas`: сохраняет или удаляет данные обрезанных изображений.
+- `SvgResponsiveLayout`: заставляет экспортированный SVG‑контент адаптироваться к контейнеру.
+- `ShowHiddenSlides`: включает скрытые слайды, если требуется.
+
+В следующих разделах показаны самые распространённые варианты параметров отдельно, чтобы вы могли комбинировать только те, которые нужны вашему рабочему процессу.
+
+## **Преобразование выбранных слайдов в HTML**
+
+Перегрузка [Presentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/), принимающая номера слайдов, использует позицию слайдов, начинающуюся с 1. Ниже приводится цикл, сохраняющий каждый слайд в отдельный HTML‑файл.
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+
+for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
-    // Сохраните презентацию в формате HTML.
-    presentation.Save("output.html", SaveFormat.Html);
+    var slideNumber = slideIndex + 1;
+    var slideNumbers = new[] { slideNumber };
+    var htmlFileName = $"slide-{slideNumber}.html";
+
+    presentation.Save(htmlFileName, slideNumbers, SaveFormat.Html);
 }
 ```
 
+Используйте этот шаблон, когда веб‑сайт или приложение требует одну HTML‑страницу на каждый слайд. Если у всех слайдов одинаковый макет, создайте один объект [HtmlOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmloptions/) и передайте его в каждый вызов `Save`.
 
-## **Преобразовать презентацию в адаптивный HTML**
+## **Создание адаптивного HTML**
 
-Aspose.Slides предоставляет класс [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller), который позволяет генерировать адаптивные HTML‑файлы. Этот код демонстрирует, как преобразовать презентацию PowerPoint в адаптивный HTML на C#:
+[ResponsiveHtmlController](https://reference.aspose.com/slides/ru/net/aspose.slides.export/responsivehtmlcontroller/) предоставляет адаптивный HTML‑вывод через [HtmlFormatter](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmlformatter/). Используйте его, когда экспортированная страница должна лучше подстраиваться под ширину браузера.
 
-```c#
- // Создайте экземпляр класса Presentation, который представляет файл презентации.
-using (Presentation presentation = new Presentation("presentation.pptx"))
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var controller = new ResponsiveHtmlController();
+var formatter = HtmlFormatter.CreateCustomFormatter(controller);
+
+var htmlOptions = new HtmlOptions
 {
-    ResponsiveHtmlController controller = new ResponsiveHtmlController();
+    HtmlFormatter = formatter
+};
 
-    HtmlOptions htmlOptions = new HtmlOptions 
-    { 
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller) 
-    };
-
-    // Сохраните презентацию в формате HTML.
-    presentation.Save("responsive.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-responsive.html", SaveFormat.Html, htmlOptions);
 ```
 
+Для адаптивного макета на основе SVG установите `SvgResponsiveLayout` в [HtmlOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmloptions/). Это полезно, когда содержимое слайда экспортируется как масштабируемая разметка SVG.
 
-## **Преобразовать презентацию в HTML с заметками докладчика**
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-При конвертации презентации PowerPoint или OpenDocument в HTML с заметками докладчика важно сохранить полную сущность исходного документа. Этот процесс гарантирует, что не только визуальные элементы слайдов точно воспроизводятся, но и сопутствующие заметки докладчика сохраняются, обогащая содержание дополнительным контекстом и инсайтами.
-
-Допустим, у нас есть презентация PowerPoint со следующим слайдом:
-
-![Слайд презентации с заметками докладчика](slide_with_notes.png)
-
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+var htmlOptions = new HtmlOptions
 {
-    // Установить параметры для заметок докладчика.
-    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
-    {
-        NotesPosition = NotesPositions.BottomFull
-    };
+    SvgResponsiveLayout = true
+};
 
-    // Установить параметры для выходного HTML-документа.
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        SlidesLayoutOptions = notesOptions
-    };
-
-    // Сохранить презентацию в HTML с заметками докладчика.
-    presentation.Save("slide_with_notes.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-svg-responsive.html", SaveFormat.Html, htmlOptions);
 ```
 
+## **Включение заметок докладчика и комментариев**
 
-Результат:
+Используйте [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/notescommentslayoutingoptions/) через `HtmlOptions.SlidesLayoutOptions`, чтобы включить заметки докладчика или комментарии. По умолчанию заметки и комментарии скрыты, если только вы не зададите их положения.
 
-![HTML‑документ со слайдом и заметками докладчика](HTML_with_notes.png)
+Предположим, исходная презентация содержит заметки докладчика:
 
-## **Преобразовать презентацию в HTML с оригинальными шрифтами**
+![Слайд с заметками докладчика в PowerPoint](slide_with_notes.png)
 
-Aspose.Slides предоставляет класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller), который позволяет внедрять все шрифты презентации при её конвертации в HTML.
+Следующий код экспортирует содержимое слайда с заметками докладчика под слайдом.
 
-Чтобы предотвратить внедрение определённых шрифтов, вы можете передать массив имён шрифтов в параметризованный конструктор класса [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller). Популярные шрифты, такие как Calibri или Arial, внедрять не требуется, поскольку большинство систем уже включают их. Их внедрение лишь ненужно увеличит размер получаемого HTML‑документа.
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-Класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) поддерживает наследование и предоставляет метод [WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont), который предполагается переопределять.
-
-```c#
-using (Presentation presentation = new Presentation("input.pptx"))
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Исключить шрифты презентации по умолчанию.
-    string[] excludeFonts = { "Calibri", "Arial" };
+    NotesPosition = NotesPositions.BottomFull
+};
 
-    EmbedAllFontsHtmlController fontController = new EmbedAllFontsHtmlController(excludeFonts);
+var htmlOptions = new HtmlOptions
+{
+    SlidesLayoutOptions = layoutOptions
+};
 
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(fontController)
-    };
-
-    presentation.Save("embedded_fonts.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-with-notes.html", SaveFormat.Html, htmlOptions);
 ```
 
+Экспортированный HTML включает область заметок:
 
-## **Преобразовать презентацию в HTML с изображениями высокого качества**
+![HTML‑вывод со слайдом и заметками докладчика](HTML_with_notes.png)
 
-По умолчанию при конвертации презентации PowerPoint в HTML Aspose.Slides создаёт небольшой HTML‑файл с изображениями 72 DPI и удаляет обрезанные области. Чтобы получить HTML‑файлы с изображениями более высокого качества, необходимо установить свойство `PicturesCompression` (из класса `HtmlOptions`) в значение 96 (т.е. `PicturesCompression.Dpi96`) или более высокое, как описано в [этом справочнике](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression).
+Чтобы экспортировать комментарии, установите `CommentsPosition`, например в `CommentsPositions.Right` или `CommentsPositions.Bottom`. Если нужны только комментарии, опустите `NotesPosition`. Если нужны и заметки, и комментарии, задайте оба свойства.
 
-Этот код на C# демонстрирует, как преобразовать презентацию PowerPoint в HTML, получая изображения высокого качества с разрешением 150 DPI (т.е. `PicturesCompression.Dpi150`):
+## **Управление качеством изображений и обрезанными областями**
 
-```c#
-using (Presentation presentation = new Presentation("input.pptx"))
+Экспорт HTML может сжимать изображения слайдов для уменьшения размера вывода. Установите `PicturesCompression` в значение из [PicturesCompression](https://reference.aspose.com/slides/ru/net/aspose.slides.export/picturescompression/), когда требуется более высокое качество изображений.
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var htmlOptions = new HtmlOptions
 {
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        PicturesCompression = PicturesCompression.Dpi150
-    };
+    PicturesCompression = PicturesCompression.Dpi150
+};
 
-    presentation.Save("output_dpi_150.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-dpi-150.html", SaveFormat.Html, htmlOptions);
 ```
 
+По умолчанию обрезанные области изображений могут быть удалены из экспортированного вывода. Сохраняйте обрезанные данные только тогда, когда пользователи должны иметь возможность восстановить или изучить скрытые части изображения. Сохранение увеличивает размер HTML.
 
-Этот код на C# показывает, как преобразовать презентацию PowerPoint в HTML без удаления обрезанных областей:
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-```c#
-using (Presentation presentation = new Presentation("input.pptx"))
+var htmlOptions = new HtmlOptions
 {
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        DeletePicturesCroppedAreas = false
-    };
+    DeletePicturesCroppedAreas = false
+};
 
-    presentation.Save("output_no_crop.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-with-cropped-areas.html", SaveFormat.Html, htmlOptions);
 ```
 
+## **Добавление CSS**
 
-## **Преобразовать слайд презентации в HTML**
+Для простого оформления передайте строку CSS в [HtmlFormatter.CreateDocumentFormatter](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmlformatter/createdocumentformatter/). Это изменит окружающий HTML‑документ, пока Aspose.Slides продолжает рендерить содержимое слайда.
 
-Чтобы преобразовать конкретный слайд презентации PowerPoint в HTML, необходимо создать экземпляр того же класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), который используется для конвертации всей презентации в HTML, а затем вызвать метод [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save), чтобы сохранить файл в формате HTML. Класс [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) можно использовать для указания дополнительных параметров конвертации.
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-Этот код на C# демонстрирует, как преобразовать слайд с заметками докладчика в презентации PowerPoint в HTML:
+var cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+var formatter = HtmlFormatter.CreateDocumentFormatter(cssRules, true);
 
-```c#
-public static void Run()
+var htmlOptions = new HtmlOptions
 {
-    using (Presentation presentation = new Presentation("sample.pptx"))
+    HtmlFormatter = formatter
+};
+
+presentation.Save("presentation-styled.html", SaveFormat.Html, htmlOptions);
+```
+
+Для пользовательского заголовка документа, связанного CSS‑файла или пользовательской разметки вокруг слайдов и фигур реализуйте [IHtmlFormattingController](https://reference.aspose.com/slides/ru/net/aspose.slides.export/ihtmlformattingcontroller/) и передайте его в [HtmlFormatter](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmlformatter/) с помощью `CreateCustomFormatter`.
+
+## **Встраивание шрифтов**
+
+Если в целевой среде шрифты презентации могут быть не установлены, встраивайте шрифты в HTML с помощью [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/ru/net/aspose.slides.export/embedallfontshtmlcontroller/). Встраивание улучшает визуальное соответствие, но увеличивает размер вывода.
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+string[] fontNamesToExclude = { "Arial", "Calibri" };
+var fontController = new EmbedAllFontsHtmlController(fontNamesToExclude);
+var formatter = HtmlFormatter.CreateCustomFormatter(fontController);
+
+var htmlOptions = new HtmlOptions
+{
+    HtmlFormatter = formatter
+};
+
+presentation.Save("presentation-embedded-fonts.html", SaveFormat.Html, htmlOptions);
+```
+
+Исключайте шрифты только тогда, когда уверены, что целевые браузеры или системы уже предоставляют их. Для фирменных или редких шрифтов встраивание обычно безопаснее.
+
+## **Связывание файлов шрифтов вместо их встраивания**
+
+Чтобы уменьшить размер HTML‑файла, можно записать данные шрифтов в отдельные файлы WOFF и добавить правила `@font-face` в HTML. Помощник ниже расширяет [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/ru/net/aspose.slides.export/embedallfontshtmlcontroller/) и переопределяет `WriteFont`.
+
+```cs
+using var presentation = new Presentation("presentation.pptx");
+
+var outputDirectory = Path.Combine(Environment.CurrentDirectory, "html-output");
+var fontsDirectory = Path.Combine(outputDirectory, "fonts");
+Directory.CreateDirectory(outputDirectory);
+
+var fontController = new LinkedFontsHtmlController(fontsDirectory, "fonts");
+var formatter = HtmlFormatter.CreateCustomFormatter(fontController);
+
+var htmlOptions = new HtmlOptions
+{
+    HtmlFormatter = formatter
+};
+
+var htmlFilePath = Path.Combine(outputDirectory, "presentation.html");
+presentation.Save(htmlFilePath, SaveFormat.Html, htmlOptions);
+```
+```cs
+public sealed class LinkedFontsHtmlController : EmbedAllFontsHtmlController
+{
+    private readonly string _fontOutputDirectory;
+    private readonly string _fontUrlPrefix;
+
+    public LinkedFontsHtmlController(
+        string fontOutputDirectory,
+        string fontUrlPrefix)
+        : base(Array.Empty<string>())
     {
-        NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
+        _fontOutputDirectory = fontOutputDirectory;
+        _fontUrlPrefix = fontUrlPrefix.TrimEnd('/') + "/";
+
+        Directory.CreateDirectory(_fontOutputDirectory);
+    }
+
+    public override void WriteFont(
+        IHtmlGenerator generator,
+        IFontData originalFont,
+        IFontData substitutedFont,
+        string fontStyle,
+        string fontWeight,
+        byte[] fontData)
+    {
+        var font = substitutedFont ?? originalFont;
+        var safeFontName = MakeSafeFileName(font.FontName);
+        var safeFontStyle = string.IsNullOrWhiteSpace(fontStyle) ? "normal" : fontStyle;
+        var safeFontWeight = string.IsNullOrWhiteSpace(fontWeight) ? "normal" : fontWeight;
+        var fontFileName = $"{safeFontName}-{safeFontStyle}-{safeFontWeight}.woff";
+        var fontFilePath = Path.Combine(_fontOutputDirectory, fontFileName);
+
+        File.WriteAllBytes(fontFilePath, fontData);
+
+        var fontUrl = _fontUrlPrefix + Uri.EscapeDataString(fontFileName);
+        var fontFamily = font.FontName.Replace("\\", "\\\\").Replace("'", "\\'");
+
+        generator.AddHtml("<style>");
+        generator.AddHtml("@font-face {");
+        generator.AddHtml($"font-family: '{fontFamily}';");
+        generator.AddHtml($"font-style: {safeFontStyle};");
+        generator.AddHtml($"font-weight: {safeFontWeight};");
+        generator.AddHtml($"src: url('{fontUrl}') format('woff');");
+        generator.AddHtml("}");
+        generator.AddHtml("</style>");
+    }
+
+    private static string MakeSafeFileName(string fileName)
+    {
+        var invalidCharacters = Path.GetInvalidFileNameChars();
+        var safeCharacters = fileName.ToCharArray();
+
+        for (var characterIndex = 0; characterIndex < safeCharacters.Length; characterIndex++)
         {
-            NotesPosition = NotesPositions.BottomFull
-        };
-
-        HtmlOptions htmlOptions = new HtmlOptions
-        {
-            SlidesLayoutOptions = notesOptions,
-            HtmlFormatter = HtmlFormatter.CreateCustomFormatter(new CustomFormattingController())
-        };
-
-        for (int i = 0; i < presentation.Slides.Count; i++)
-        {
-            int slideIndex = i + 1;
-
-            // Сохранить слайд в HTML‑файл.
-            string fileName = $"output_slide_{slideIndex}.html";
-            presentation.Save(fileName, new[] { slideIndex }, SaveFormat.Html, htmlOptions);
+            if (Array.IndexOf(invalidCharacters, safeCharacters[characterIndex]) >= 0)
+            {
+                safeCharacters[characterIndex] = '_';
+            }
         }
-    }
-}
 
-public class CustomFormattingController : IHtmlFormattingController
-{
-    void IHtmlFormattingController.WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {}
-
-    void IHtmlFormattingController.WriteDocumentEnd(IHtmlGenerator generator, IPresentation presentation)
-    {}
-
-    void IHtmlFormattingController.WriteSlideStart(IHtmlGenerator generator, ISlide slide)
-    {
-        generator.AddHtml(string.Format(SlideHeader, generator.SlideIndex + 1));
-    }
-
-    void IHtmlFormattingController.WriteSlideEnd(IHtmlGenerator generator, ISlide slide)
-    {
-        generator.AddHtml(SlideFooter);
-    }
-
-    void IHtmlFormattingController.WriteShapeStart(IHtmlGenerator generator, IShape shape)
-    {}
-
-    void IHtmlFormattingController.WriteShapeEnd(IHtmlGenerator generator, IShape shape)
-    {}
-
-    private const string SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide{0}\">";
-    private const string SlideFooter = "</div>";
-}
-```
-
-
-## **Сохранить CSS и изображения при экспорте в HTML**
-
-С помощью новых файлов стилей CSS вы можете легко изменить внешний вид HTML‑файла, полученного в результате конвертации PowerPoint в HTML.
-
-Код на C# в этом примере демонстрирует, как использовать переопределяемые методы для создания пользовательского HTML‑документа, включающего ссылку на файл CSS:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-	CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-
-	HtmlOptions options = new HtmlOptions
-	{
-		HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
-	};
-	presentation.Save("pres.html", SaveFormat.Html, options);
-}
-```
-
-```c#
-public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
-{
-    // Шаблон пользовательского заголовка.
-    const string Header = "<!DOCTYPE html>\n" +
-                            "<html>\n" +
-                            "<head>\n" +
-                            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-                            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-                            "<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" +
-                            "</head>";
-
-    private readonly string m_cssFileName;
-
-    public CustomHeaderAndFontsController(string cssFileName)
-    {
-        m_cssFileName = cssFileName;
-    }
-
-    public override void WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.AddHtml(string.Format(Header, m_cssFileName));
-        WriteAllFonts(generator, presentation);
-    }
-
-    public override void WriteAllFonts(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.AddHtml("<!-- Embedded fonts -->");
-        base.WriteAllFonts(generator, presentation);
+        return new string(safeCharacters);
     }
 }
 ```
 
+В этом примере файлы шрифтов сохраняются в `html-output/fonts`, а HTML ссылается на них через URL‑ы, например `fonts/BrandFont-normal-400.woff`. Если HTML‑файл и шрифты развёртываются в другом месте, выберите `fontUrlPrefix`, соответствующий пути URL‑а развертывания.
 
-## **Связать все шрифты при конвертации презентации в HTML**
+## **Сохранение ресурсов во внешних файлах**
 
-Если вы не хотите внедрять шрифты (чтобы не увеличивать размер получаемого HTML), вы можете связать все шрифты, реализовав собственную версию `LinkAllFontsHtmlController`.
+Автономный HTML удобно перемещать, но встроенные ресурсы Base64 делают файл большим. Если приложению нужны внешние файлы изображений, реализуйте [ILinkEmbedController](https://reference.aspose.com/slides/ru/net/aspose.slides.export/ilinkembedcontroller/) и передайте его в конструктор [HtmlOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmloptions/htmloptions/).
 
-Этот код на C# показывает, как преобразовать презентацию PowerPoint в HTML, связывая все шрифты и исключая "Calibri" и "Arial" (поскольку они уже установлены в системе):
+При внешнем размещении ресурсов выбирайте два пути сознательно:
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+- Путь вывода в файловой системе, куда приложение записывает сгенерированные изображения, шрифты, аудио или видео.
+- URL‑путь, который браузер использует из HTML‑документа для загрузки этих файлов.
+
+Для полной реализации связывания изображений смотрите [Export Presentations to HTML with Externally Linked Images](/slides/ru/net/exporting-presentations-to-html-with-externally-linked-images/).
+
+## **Экспорт медиа‑файлов**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/ru/net/aspose.slides.export/videoplayerhtmlcontroller/) экспортирует видео и аудио файлы и генерирует HTML, способный воспроизводить их в браузере. Его конструктор принимает:
+
+- `path`: каталог, в который будут записаны сгенерированные медиа‑файлы.
+- `fileName`: имя генерируемого HTML‑файла.
+- `baseUri`: абсолютный префикс URI, используемый в HTML‑ссылках на медиа‑файлы.
+
+Если HTML‑файл находится по пути `html-output/presentation.html`, а медиа‑файлы сохраняются в `html-output/media`, `path` должен указывать на каталог медиа‑файлов на диске, а `baseUri` — на тот же каталог с точки зрения браузера. Для локального предварительного просмотра можно построить URI `file:///` из каталога медиа. Для развернутого приложения используйте абсолютный URL опубликованного каталога медиа.
+
+```csharp
+var outputDirectory = Path.Combine(Environment.CurrentDirectory, "html-output");
+var mediaDirectory = Path.Combine(outputDirectory, "media");
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(mediaDirectory);
+
+var htmlFileName = "presentation.html";
+var mediaBaseUri = new Uri(mediaDirectory + Path.DirectorySeparatorChar).AbsoluteUri;
+
+using var presentation = new Presentation();
+using var videoStream = new FileStream("intro.mp4", FileMode.Open, FileAccess.Read);
+
+var video = presentation.Videos.AddVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+var slide = presentation.Slides[0];
+slide.Shapes.AddVideoFrame(20, 20, 480, 270, video);
+
+var controller = new VideoPlayerHtmlController(mediaDirectory, htmlFileName, mediaBaseUri);
+var formatter = HtmlFormatter.CreateCustomFormatter(controller);
+var svgOptions = new SVGOptions(controller);
+var slideImageFormat = SlideImageFormat.Svg(svgOptions);
+
+var htmlOptions = new HtmlOptions(controller)
 {
-    // Исключить шрифты презентации по умолчанию.
-    string[] fontNameExcludeList = { "Calibri", "Arial" };
+    HtmlFormatter = formatter,
+    SlideImageFormat = slideImageFormat
+};
 
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");;
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions
-    {
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
-    };
-
-    presentation.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
-}
+var htmlFilePath = Path.Combine(outputDirectory, htmlFileName);
+presentation.Save(htmlFilePath, SaveFormat.Html, htmlOptions);
 ```
 
+Используйте каталоги вывода, уникальные для каждой задачи экспорта, особенно в серверных приложениях. Общие пути вывода могут привести к перезаписи файлов разных конвертаций.
 
-Этот код на C# демонстрирует, как реализован `LinkAllFontsHtmlController`:
+## **Производительность и управление ресурсами**
 
-```c#
-public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
-{
-    private readonly string m_basePath;
+Конверсия HTML — это операция рендеринга, поэтому время обработки и использование памяти зависят от количества слайдов, разрешения изображений, шрифтов, эффектов, диаграмм и встроенных медиа. Более высокие значения DPI в `PicturesCompression`, встроенные шрифты, вывод SVG и сохранённые обрезанные области изображений могут повысить точность, но обычно увеличивают размер вывода.
 
-    public LinkAllFontsHtmlController(string[] fontNameExcludeList, string basePath) : base(fontNameExcludeList)
-    {
-        m_basePath = basePath;
-    }
+Для пакетного преобразования:
 
-    public override void WriteFont
-    (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            string fontStyle,
-            string fontWeight,
-            byte[] fontData)
-    {
-        try
-        {
-            string fontName = substitutedFont == null ? originalFont.FontName : substitutedFont.FontName;
-            string path = fontName + ".woff"; // Возможно потребуется очистка пути.
+- Своевременно освобождайте каждый объект [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/).
+- Используйте отдельные каталоги вывода для разных задач.
+- Избегайте встраивания общих шрифтов, если только не требуется высокий уровень точности.
+- Уменьшайте DPI изображений, когда HTML нужен для предварительного просмотра или миниатюр.
+- Храните исходную презентацию, сгенерированный HTML и внешние ресурсы вместе, пока не будут окончательно определены пути развертывания.
 
-            File.WriteAllBytes(Path.Combine(m_basePath, path), fontData);
-            
-            generator.AddHtml("<style>");
-            generator.AddHtml("@font-face { ");
-            generator.AddHtml("font-family: '" + fontName + "'; ");
-            generator.AddHtml("src: url('" + path + "')");
+## **Часто задаваемые вопросы**
 
-            generator.AddHtml(" }");
-            generator.AddHtml("</style>");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-}
-```
+**Сохраняются ли гиперссылки в HTML‑выводе?**
 
+Да. Гиперссылки презентации экспортируются в HTML и остаются кликабельными, если целевой URL действителен.
 
-## **Преобразовать презентацию с SVG‑изображениями в адаптивный HTML**
+**Могу ли я конвертировать презентации в HTML параллельно?**
 
-Этот код на C# показывает, как преобразовать презентацию PowerPoint в адаптивный HTML:
+Да, но не делите один объект [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) между потоками. Обрабатывайте разные файлы отдельными экземплярами презентаций, отдельными потоками и отдельными каталогами вывода. См. руководство по [multithreading guidance](/slides/ru/net/multithreading/) для деталей.
 
-```c#
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    HtmlOptions saveOptions = new HtmlOptions
-    {
-        SvgResponsiveLayout = true
-    };
+**Объект Presentation потокобезопасен?**
 
-    presentation.Save("SvgResponsiveLayout-out.html", SaveFormat.Html, saveOptions);
-}
-```
+Нет. Один экземпляр [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) должен быть загружен, изменён, сохранён и освобождён в одном потоке. Для параллельной работы создавайте отдельный экземпляр на каждый поток или процесс.
 
+**Почему сгенерированный HTML‑файл большой?**
 
-## **Экспортировать медиа‑файлы в HTML**
+По умолчанию экспорт может встраивать ресурсы прямо в HTML. Встроенные шрифты, изображения высокого DPI, медиа, SVG‑контент и сохранённые обрезанные области изображений также увеличивают размер. Используйте внешние ресурсы, исключайте общие шрифты из встраивания и уменьшайте `PicturesCompression`, когда важнее небольшой размер вывода, чем максимальная точность.
 
-С помощью Aspose.Slides для .NET вы можете экспортировать медиа‑файлы следующим образом:
+**Как выбрать baseUri для экспорта медиа?**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд.
-1. Добавьте видео на слайд.
-1. Запишите презентацию в виде HTML‑файла.
+Выберите `baseUri` с точки зрения браузера и передайте его как абсолютный URI. Для локального предварительного просмотра можно получить его из каталога вывода с помощью `new Uri(mediaDirectory + Path.DirectorySeparatorChar).AbsoluteUri`. Для развертывания используйте абсолютный URL опубликованного каталога медиа. Путь в файловой системе (`path`) и браузерный `baseUri` не обязаны быть одинаковыми строками, но должны указывать на одно и то же местоположение ресурса.
 
-```c#
-// Создать новую презентацию.
-using (Presentation presentation = new Presentation())
-{
-    string path = "C:/out/";
-    const string fileName = "ExportMediaFiles_out.html";
-    const string baseUri = "http://www.example.com/";
+**Могу ли я включать скрытые слайды?**
 
-    using (FileStream fileStream = new FileStream("my_video.avi", FileMode.Open, FileAccess.Read))
-    {
-        IVideo video = presentation.Videos.AddVideo(fileStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        
-        ISlide slide = presentation.Slides[0];
-        slide.Shapes.AddVideoFrame(10, 10, 100, 100, video);
-    }
-        
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
-
-    // Установить параметры HTML.
-    HtmlOptions htmlOptions = new HtmlOptions(controller);
-    SVGOptions svgOptions = new SVGOptions(controller);
-
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
-
-    // Сохранить презентацию в HTML‑файл.
-    presentation.Save(Path.Combine(path, fileName), SaveFormat.Html, htmlOptions);
-}
-```
-
-
-{{% alert color="primary" %}} 
-
-Aspose разработала бесплатные конвертеры [презентацию в HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT в HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX в HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP в HTML](https://products.aspose.app/slides/conversion/odp-to-html), и т. д. 
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-[бесплатные конвертеры от Aspose](https://products.aspose.app/slides/conversion).
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-Помимо описанных здесь процессов конвертации, Aspose.Slides также поддерживает следующие операции конвертации, связанные с форматом HTML:
-
-* [HTML в изображение](https://products.aspose.com/slides/net/conversion/html-to-image/)
-* [HTML в JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
-* [HTML в XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
-* [HTML в TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-## **FAQ**
-
-**Какова производительность Aspose.Slides при конвертации нескольких презентаций в HTML?**
-
-Производительность зависит от размера и сложности презентаций. Aspose.Slides обладает высокой эффективностью и масштабируемостью для пакетных операций. Для достижения оптимальной производительности при конвертации большого количества презентаций рекомендуется использовать многопоточность или параллельную обработку, когда это возможно.
-
-**Поддерживает ли Aspose.Slides экспорт гиперссылок в HTML?**
-
-Да, Aspose.Slides полностью поддерживает экспорт встроенных гиперссылок в HTML. При конвертации презентаций в формат HTML гиперссылки автоматически сохраняются и остаются кликабельными.
-
-**Есть ли ограничение на количество слайдов при конвертации презентаций в HTML?**
-
-Ограничений на количество слайдов при использовании Aspose.Slides нет. Вы можете конвертировать презентации любого размера. Однако для презентаций, содержащих очень большое количество слайдов, производительность может зависеть от доступных ресурсов вашего сервера или системы.
+Да. Установите `ShowHiddenSlides = true` в [HtmlOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/htmloptions/) когда необходимо экспортировать скрытые слайды.

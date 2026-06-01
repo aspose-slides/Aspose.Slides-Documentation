@@ -25,9 +25,11 @@ description: "Discover Aspose.Slides for .NET system requirements. Ensure seamle
 Aspose.Slides for .NET does not require Microsoft PowerPoint to be installed because Aspose.Slides is an independent Microsoft PowerPoint document creation, conversion, page layout, and rendering engine.
 
 ## **Supported Operating Systems**
+
 Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET or Mono framework is installed including (but not limited to):
 
 ### **Windows**
+
 - Microsoft Windows 2000 Server ( x64, x86)
 - Microsoft Windows 2003 Server ( x64, x86)
 - Microsoft Windows 2022 Server
@@ -40,15 +42,19 @@ Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET
 - Microsoft Azure
 
 ### **Linux**
+
 - Linux (Ubuntu, OpenSUSE, CentOS, Alpine, and others)
 
 ### **Mac**
+
 - Mac OS X
 
 ## **Supported Frameworks**
+
 Aspose.Slides for .NET supports .NET and Mono frameworks:
 
 ### **.NET Frameworks**
+
 - .NET Framework 2.0
 - .NET Framework 3.5
 - .NET Framework 4.0
@@ -73,9 +79,11 @@ Aspose.Slides for .NET supports .NET and Mono frameworks:
 - COM Interop support (COM, C++, VBScript)
 
 ### **Mono Framework**
+
 - MONO Support in MAC and Linux platforms
 
 ## **Development Environments**
+
 Aspose.Slides for .NET can be used to develop applications in any development environment that targets the .NET platform, but these environments are explicitly supported:
 
 - Microsoft Visual Studio 2005
@@ -89,9 +97,11 @@ Aspose.Slides for .NET can be used to develop applications in any development en
 - Microsoft Visual Studio 2022
 
 ## **Aspose.Slides Main Builds**
+
 Currently, there are two main builds of Aspose.Slides — Aspose.Slides.NET and Aspose.Slides.NET6.CrossPlatform.
 
 ### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
+
 This is the main version of the product. It uses the standard .NET graphics engine.
 - On non-Windows platforms, you may need to install the `libgdiplus` library and its dependencies.
 - Prior to version Aspose.Slides 25.3, for non-Windows platforms, it was necessary to use the .NET Standard 2.0 DLL from the Aspose.Slides ZIP package.
@@ -102,7 +112,44 @@ AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 ```
 - **Starting from version 25.3, you can use this package on platforms that support .NET, such as Linux aarch64 (ARM64).**
 
+#### **Additional Packages for Linux Alpine**
+
+When running Aspose.Slides for .NET in an Alpine Linux container, installing `libgdiplus` alone may not be sufficient. Alpine containers usually do not include fonts by default. If no fonts are available, rendering or conversion operations may fail with an error similar to:
+
+```text
+System.ArgumentException: Font '?' cannot be found
+```
+To use Aspose.Slides on Alpine, install `libgdiplus` together with at least one font package.
+
+**Option 1: DejaVu Fonts**
+
+The recommended option is to install the ttf-dejavu package:
+
+```
+RUN apk add --no-cache \
+    libgdiplus \
+    ttf-dejavu
+```
+
+The `ttf-dejavu` package automatically installs the required font-related dependencies, such as `fontconfig`, `encodings`, `mkfontscale`, and `mkfontdir`. No additional font packages are required for most use cases.
+
+**Option 2: Microsoft Core Fonts**
+
+If your presentations use Microsoft-specific fonts, such as Arial, Times New Roman, Courier New, or Verdana, install Microsoft Core Fonts instead:
+
+```
+RUN apk add --no-cache \
+    libgdiplus \
+    fontconfig \
+    msttcorefonts-installer \
+    && update-ms-fonts \
+    && fc-cache -fv
+```
+
+Use this option only when the presentations being processed require Microsoft fonts. For most scenarios, installing `ttf-dejavu` is simpler and more reliable.
+
 ### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
+
 This is the version of Aspose.Slides using a custom cross-platform graphics engine developed by the Aspose.Slides team.  
 On non-Windows platforms, the `fontconfig` library may be required.
 
@@ -126,7 +173,9 @@ No, PowerPoint is not required; Aspose.Slides is a standalone engine for [creati
 
 **Which fonts are needed for correct rendering?**
 
-In practice, the fonts used in the presentation or proper [substitutes](/slides/net/font-substitution/) must be available. To ensure consistent rendering on Linux/macOS, it is advisable to install common font packages.
+The fonts used in the presentation, or suitable substitutes, must be available in the operating system. On Linux and macOS, install common font packages to ensure consistent rendering.
+
+For Alpine Linux containers, install at least one font package in addition to `libgdiplus`. The recommended minimal setup is `libgdiplus` with `ttf-dejavu`. If Microsoft fonts such as Arial, Times New Roman, Courier New, or Verdana are required, use `msttcorefonts-installer` together with `fontconfig`.
 
 **Why does a custom font render as a fallback or missing text on Linux?**
 
