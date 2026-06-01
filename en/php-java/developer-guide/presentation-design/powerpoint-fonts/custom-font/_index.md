@@ -42,14 +42,16 @@ Aspose Slides allows you to load these fonts using the [loadExternalFonts](https
 Aspose.Slides allows you to load fonts used in a presentation without installing them on the system. This affects export output—such as PDF, images, and other supported formats—so the resulting documents look consistent across environments. Fonts are loaded from custom directories.
 
 1. Specify one or more folders that contain the font files.
-2. Call the static [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) method to load fonts from those folders.
+2. Call the static [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) method to load fonts from those folders.
 3. Load and render/export the presentation.
-4. Call [FontsLoader::clearCache](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/clearcache/) to clear the font cache.
+4. Call [FontsLoader::clearCache](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#clearCache--) to clear the font cache.
 
 The following code example demonstrates the font loading process:
 
 ```php
 // Define folders that contain custom font files.
+$externalFontFolder1 = __DIR__ . "/external-fonts-1";
+$externalFontFolder2 = __DIR__ . "/external-fonts-2";
 $fontFolders = array($externalFontFolder1, $externalFontFolder2);
 
 // Load custom fonts from the specified folders.
@@ -57,10 +59,12 @@ FontsLoader::loadExternalFonts($fontFolders);
 
 $presentation = null;
 try {
-    $presentation = new Presentation("sample.pptx");
+    $presentationPath = __DIR__ . "/sample.pptx";
+    $presentation = new Presentation($presentationPath);
     
     // Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
-    $presentation->save("output.pdf", SaveFormat::Pdf);
+    $outputPath = __DIR__ . "/output.pdf";
+    $presentation->save($outputPath, SaveFormat::Pdf);
 } finally {
     if ($presentation != null) $presentation->dispose();
 
@@ -71,7 +75,7 @@ try {
 
 {{% alert color="info" title="Note" %}}
 
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) adds additional folders to the font search paths, but it does not change the font initialization order.
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) adds additional folders to the font search paths, but it does not change the font initialization order.
 Fonts are initialized in this order:
 
 1. The default operating system font path.
@@ -85,48 +89,63 @@ Aspose.Slides provides the [getFontFolders](https://reference.aspose.com/slides/
 This PHP code shows you how to use [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
 
 ```php
-  # This line outputs folders where font files are searched.
-  # Those are folders added through the LoadExternalFonts method and system font folders.
-  $fontFolders = FontsLoader->getFontFolders();
-
+# This line outputs folders where font files are searched.
+# Those are folders added through the LoadExternalFonts method and system font folders.
+$fontFolders = FontsLoader::getFontFolders();
 ```
 
 ## **Specify Custom Fonts Used with a Presentation**
-Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) method to allow you to specify external fonts that will be used with the presentation.
+Aspose.Slides provides the [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) method to allow you to specify external fonts that will be used with the presentation.
 
-This PHP code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) method:
+This PHP code shows you how to use the [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) method:
 
 ```php
-  $Array = new JavaClass("java.lang.reflect.Array");
-  $Byte = new JavaClass("java.lang.Byte");
-  $file1 = new Java("java.io.File", "customfonts/CustomFont1.ttf");
-  $memoryFont1 = $Array->newInstance($Byte, $Array->getLength($file1));
-  try {
-      $dis1 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file1));
-      $dis1->readFully($memoryFont1);
-  } finally {
-      if (!java_is_null($dis1)) $dis1->close();
-  }
-  $file2 = new Java("java.io.File", "customfonts/CustomFont2.ttf");
-  $memoryFont2 = $Array->newInstance($Byte, $Array->getLength($file2));
-  try {
-        $dis2 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file2));
-        $dis2->readFully($memoryFont2);
-  } finally {
-        if (!java_is_null($dis2)) $dis2->close();
-  }
-  $loadOptions = new LoadOptions();
-  $loadOptions->getDocumentLevelFontSources()->setFontFolders(array("assets/fonts", "global/fonts" ));
-  $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
-  $pres = new Presentation("MyPresentation.pptx", $loadOptions);
-  try {
+$javaArray = new JavaClass("java.lang.reflect.Array");
+$javaByteType = (new JavaClass("java.lang.Byte"))->TYPE;
+
+$customFontsDirectory = __DIR__ . "/customfonts/";
+$customFont1Path = $customFontsDirectory . "CustomFont1.ttf";
+$customFontFile1 = new Java("java.io.File", $customFont1Path);
+$customFontFile1Length = $customFontFile1->length();
+$memoryFont1 = $javaArray->newInstance($javaByteType, $customFontFile1Length);
+$dataInputStream1 = null;
+try {
+    $fileInputStream1 = new Java("java.io.FileInputStream", $customFontFile1);
+    $dataInputStream1 = new Java("java.io.DataInputStream", $fileInputStream1);
+    $dataInputStream1->readFully($memoryFont1);
+} finally {
+    if (!java_is_null($dataInputStream1)) $dataInputStream1->close();
+}
+
+$customFont2Path = $customFontsDirectory . "CustomFont2.ttf";
+$customFontFile2 = new Java("java.io.File", $customFont2Path);
+$customFontFile2Length = $customFontFile2->length();
+$memoryFont2 = $javaArray->newInstance($javaByteType, $customFontFile2Length);
+$dataInputStream2 = null;
+try {
+    $fileInputStream2 = new Java("java.io.FileInputStream", $customFontFile2);
+    $dataInputStream2 = new Java("java.io.DataInputStream", $fileInputStream2);
+    $dataInputStream2->readFully($memoryFont2);
+} finally {
+    if (!java_is_null($dataInputStream2)) $dataInputStream2->close();
+}
+
+$loadOptions = new LoadOptions();
+$assetFontsFolder = __DIR__ . "/assets/fonts";
+$globalFontsFolder = __DIR__ . "/global/fonts";
+$loadOptions->getDocumentLevelFontSources()->setFontFolders(array($assetFontsFolder, $globalFontsFolder));
+$loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
+
+$presentationPath = __DIR__ . "/MyPresentation.pptx";
+$presentation = new Presentation($presentationPath, $loadOptions);
+try {
     # Work with the presentation
     # CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
 ## **Manage Fonts Externally**
@@ -136,44 +155,58 @@ Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slide
 This PHP code demonstrates the byte array font loading process:
 
 ```php
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$javaArray = new JavaClass("java.lang.reflect.Array");
+$javaByteType = (new JavaClass("java.lang.Byte"))->TYPE;
+$fontDirectory = __DIR__ . "/";
+
+$dataInputStream = null;
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALN.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $fontPath = $fontDirectory . "ARIALN.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
 }
-  FontsLoader->loadExternalFont($bytes);
+FontsLoader::loadExternalFont($fontBytes);
+
+$dataInputStream = null;
+try {
+    $fontPath = $fontDirectory . "ARIALNBI.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
+} finally {
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
+}
+FontsLoader::loadExternalFont($fontBytes);
+
+$dataInputStream = null;
+try {
+    $fontPath = $fontDirectory . "ARIALNI.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
+} finally {
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
+}
+FontsLoader::loadExternalFont($fontBytes);
 
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALNBI.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-  FontsLoader->loadExternalFont($bytes);
-
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALNI.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-  FontsLoader->loadExternalFont($bytes);
-
-  try {
-    $pres = new Presentation("");
+    $presentation = new Presentation();
     try {
-      # external font loaded during the presentation lifetime
+        # external font loaded during the presentation lifetime
     } finally {
+        if (!java_is_null($presentation)) {
+            $presentation->dispose();
+        }
     }
-  } finally {
+} finally {
     FontsLoader->clearCache();
-  }
+}
 ```
 
 ## **FAQ**
