@@ -16,176 +16,217 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint 幻灯片中自定义字体，以保持您的演示在任何设备上都清晰一致。"
+description: "使用 Aspose.Slides for PHP via Java 自定义 PowerPoint 幻灯片中的字体，确保您的演示在任何设备上都保持清晰一致。"
 ---
+## **概述**
+
+Aspose.Slides 允许您在演示文稿中使用自定义字体，而无需在操作系统上安装这些字体。您可以从自定义文件夹加载字体，通过文档级字体源为特定演示文稿提供字体，或直接从二进制数据加载外部字体。
+
+已加载的字体会在渲染或导出演示文稿时使用，例如导出为 PDF、图像以及其他受支持的格式。这有助于在不同环境中保持演示文稿输出的一致性。本文还说明了如何检查 Aspose.Slides 使用的字体文件夹以及在使用外部字体后如何清除字体缓存。
+
+为渲染注册自定义字体与将字体嵌入 PPTX 文件是分开的。如果必须将字体存储在演示文稿本身内，请显式使用字体嵌入功能。
 
 {{% alert color="primary" %}} 
 
-Aspose Slides 允许您使用 [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) 方法加载这些字体：
+Aspose Slides 允许您使用 [loadExternalFonts](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) 方法加载这些字体：
 
-* TrueType（.ttf）和 TrueType Collection（.ttc）字体。参见 [TrueType](https://en.wikipedia.org/wiki/TrueType)。
-
+* TrueType（.ttf）和 TrueType 集合（.ttc）字体。参见 [TrueType](https://en.wikipedia.org/wiki/TrueType)。
 * OpenType（.otf）字体。参见 [OpenType](https://en.wikipedia.org/wiki/OpenType)。
 
 {{% /alert %}}
 
 ## **加载自定义字体**
 
-Aspose.Slides 允许您在演示文稿中加载使用的字体，而无需在系统上安装它们。这会影响导出输出——例如 PDF、图像和其他受支持的格式——从而使生成的文档在不同环境中保持一致。字体会从自定义目录加载。
+Aspose.Slides 允许您在不将字体安装到系统的情况下加载演示文稿中使用的字体。这会影响导出输出——如 PDF、图像和其他受支持的格式——从而使生成的文档在各环境中保持一致。字体从自定义目录加载。
 
 1. 指定一个或多个包含字体文件的文件夹。
-2. 调用静态 [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) 方法从这些文件夹加载字体。
+2. 调用静态 [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) 方法从这些文件夹加载字体。
 3. 加载并渲染/导出演示文稿。
-4. 调用 [FontsLoader::clearCache](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/clearcache/) 清除字体缓存。
+4. 调用 [FontsLoader::clearCache](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/#clearCache--) 清除字体缓存。
 
 以下代码示例演示了字体加载过程：
+
 ```php
 // 定义包含自定义字体文件的文件夹。
+$externalFontFolder1 = __DIR__ . "/external-fonts-1";
+$externalFontFolder2 = __DIR__ . "/external-fonts-2";
 $fontFolders = array($externalFontFolder1, $externalFontFolder2);
 
-// 加载指定文件夹中的自定义字体。
+// 从指定的文件夹加载自定义字体。
 FontsLoader::loadExternalFonts($fontFolders);
 
 $presentation = null;
 try {
-    $presentation = new Presentation("sample.pptx");
+    $presentationPath = __DIR__ . "/sample.pptx";
+    $presentation = new Presentation($presentationPath);
     
     // 使用已加载的字体渲染/导出演示文稿（例如导出为 PDF、图像或其他格式）。
-    $presentation->save("output.pdf", SaveFormat::Pdf);
+    $outputPath = __DIR__ . "/output.pdf";
+    $presentation->save($outputPath, SaveFormat::Pdf);
 } finally {
     if ($presentation != null) $presentation->dispose();
 
-    // 工作完成后清除字体缓存。
+    // 在完成工作后清除字体缓存。
     FontsLoader::clearCache();
 }
 ```
 
-
 {{% alert color="info" title="Note" %}}
 
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) 会向字体搜索路径添加额外的文件夹，但不会更改字体初始化顺序。  
-字体的初始化顺序如下：
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) 会向字体搜索路径添加额外的文件夹，但不会更改字体初始化顺序。
+字体按以下顺序初始化：
 
-1. 默认操作系统字体路径。  
-1. 通过 [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) 加载的路径。
+1. 默认操作系统字体路径。
+1. 通过 [FontsLoader](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/) 加载的路径。
 
 {{%/alert %}}
 
 ## **获取自定义字体文件夹**
-Aspose.Slides 提供了 [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) 方法，以便您查找字体文件夹。该方法返回通过 `LoadExternalFonts` 方法添加的文件夹以及系统字体文件夹。
 
-以下 PHP 代码展示了如何使用 [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
+Aspose.Slides 提供了 [getFontFolders](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/#getFontFolders--) 方法，帮助您查找字体文件夹。该方法返回通过 `LoadExternalFonts` 方法添加的文件夹以及系统字体文件夹。
+
+以下 PHP 代码展示了如何使用 [getFontFolders](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/#getFontFolders--)：
+
 ```php
-  # 此行输出搜索字体文件的文件夹。
-  # 这些文件夹是通过 LoadExternalFonts 方法添加的以及系统字体文件夹。
-  $fontFolders = FontsLoader->getFontFolders();
-
+# 此行输出搜索字体文件的文件夹。
+# 这些文件夹是通过 LoadExternalFonts 方法添加的以及系统字体文件夹。
+$fontFolders = FontsLoader::getFontFolders();
 ```
-
 
 ## **指定演示文稿使用的自定义字体**
-Aspose.Slides 提供了 [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) 方法，以便您指定将在演示文稿中使用的外部字体。
 
-以下 PHP 代码展示了如何使用 [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) 方法：
+Aspose.Slides 提供了 [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/zh/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) 方法，允许您为演示文稿指定将使用的外部字体。
+
+以下 PHP 代码展示了如何使用 [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/zh/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) 方法：
+
 ```php
-  $Array = new JavaClass("java.lang.reflect.Array");
-  $Byte = new JavaClass("java.lang.Byte");
-  $file1 = new Java("java.io.File", "customfonts/CustomFont1.ttf");
-  $memoryFont1 = $Array->newInstance($Byte, $Array->getLength($file1));
-  try {
-      $dis1 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file1));
-      $dis1->readFully($memoryFont1);
-  } finally {
-      if (!java_is_null($dis1)) $dis1->close();
-  }
-  $file2 = new Java("java.io.File", "customfonts/CustomFont2.ttf");
-  $memoryFont2 = $Array->newInstance($Byte, $Array->getLength($file2));
-  try {
-        $dis2 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file2));
-        $dis2->readFully($memoryFont2);
-  } finally {
-        if (!java_is_null($dis2)) $dis2->close();
-  }
-  $loadOptions = new LoadOptions();
-  $loadOptions->getDocumentLevelFontSources()->setFontFolders(array("assets/fonts", "global/fonts" ));
-  $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
-  $pres = new Presentation("MyPresentation.pptx", $loadOptions);
-  try {
-    # 对演示文稿进行操作
-    # CustomFont1、CustomFont2，以及来自 assets\fonts 和 global\fonts 文件夹及其子文件夹的字体可用于演示文稿
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$javaArray = new JavaClass("java.lang.reflect.Array");
+$javaByteType = (new JavaClass("java.lang.Byte"))->TYPE;
 
+$customFontsDirectory = __DIR__ . "/customfonts/";
+$customFont1Path = $customFontsDirectory . "CustomFont1.ttf";
+$customFontFile1 = new Java("java.io.File", $customFont1Path);
+$customFontFile1Length = $customFontFile1->length();
+$memoryFont1 = $javaArray->newInstance($javaByteType, $customFontFile1Length);
+$dataInputStream1 = null;
+try {
+    $fileInputStream1 = new Java("java.io.FileInputStream", $customFontFile1);
+    $dataInputStream1 = new Java("java.io.DataInputStream", $fileInputStream1);
+    $dataInputStream1->readFully($memoryFont1);
+} finally {
+    if (!java_is_null($dataInputStream1)) $dataInputStream1->close();
+}
+
+$customFont2Path = $customFontsDirectory . "CustomFont2.ttf";
+$customFontFile2 = new Java("java.io.File", $customFont2Path);
+$customFontFile2Length = $customFontFile2->length();
+$memoryFont2 = $javaArray->newInstance($javaByteType, $customFontFile2Length);
+$dataInputStream2 = null;
+try {
+    $fileInputStream2 = new Java("java.io.FileInputStream", $customFontFile2);
+    $dataInputStream2 = new Java("java.io.DataInputStream", $fileInputStream2);
+    $dataInputStream2->readFully($memoryFont2);
+} finally {
+    if (!java_is_null($dataInputStream2)) $dataInputStream2->close();
+}
+
+$loadOptions = new LoadOptions();
+$assetFontsFolder = __DIR__ . "/assets/fonts";
+$globalFontsFolder = __DIR__ . "/global/fonts";
+$loadOptions->getDocumentLevelFontSources()->setFontFolders(array($assetFontsFolder, $globalFontsFolder));
+$loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
+
+$presentationPath = __DIR__ . "/MyPresentation.pptx";
+$presentation = new Presentation($presentationPath, $loadOptions);
+try {
+    # 对演示文稿进行操作
+    # CustomFont1、CustomFont2，及来自 assets\fonts 与 global\fonts 文件夹及其子文件夹的字体可供演示文稿使用
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
 ## **外部管理字体**
 
-Aspose.Slides 提供了 [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) 方法，以便您从二进制数据加载外部字体。
+Aspose.Slides 提供了 [loadExternalFont](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) 方法，允许您从二进制数据加载外部字体。
 
 以下 PHP 代码演示了字节数组字体加载过程：
+
 ```php
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$javaArray = new JavaClass("java.lang.reflect.Array");
+$javaByteType = (new JavaClass("java.lang.Byte"))->TYPE;
+$fontDirectory = __DIR__ . "/";
+
+$dataInputStream = null;
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALN.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $fontPath = $fontDirectory . "ARIALN.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
 }
-  FontsLoader->loadExternalFont($bytes);
+FontsLoader::loadExternalFont($fontBytes);
+
+$dataInputStream = null;
+try {
+    $fontPath = $fontDirectory . "ARIALNBI.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
+} finally {
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
+}
+FontsLoader::loadExternalFont($fontBytes);
+
+$dataInputStream = null;
+try {
+    $fontPath = $fontDirectory . "ARIALNI.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
+} finally {
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
+}
+FontsLoader::loadExternalFont($fontBytes);
 
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALNBI.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-  FontsLoader->loadExternalFont($bytes);
-
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALNI.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-  FontsLoader->loadExternalFont($bytes);
-
-  try {
-    $pres = new Presentation("");
+    $presentation = new Presentation();
     try {
-      # 演示文稿生命周期期间加载的外部字体
+        # 演示文稿生命周期期间已加载外部字体
     } finally {
+        if (!java_is_null($presentation)) {
+            $presentation->dispose();
+        }
     }
-  } finally {
+} finally {
     FontsLoader->clearCache();
-  }
+}
 ```
-
 
 ## **常见问题**
 
-**自定义字体是否会影响所有格式的导出（PDF、PNG、SVG、HTML）？**
+**自定义字体会影响所有导出格式（PDF、PNG、SVG、HTML）吗？**
 
-是。已连接的字体会被渲染器在所有导出格式中使用。
+是的。已连接的字体会在渲染器中用于所有导出格式。
 
 **自定义字体会自动嵌入生成的 PPTX 吗？**
 
-否。为渲染注册字体并不等同于将其嵌入 PPTX。如果需要将字体随演示文稿文件一起保存，必须使用显式的 [embedding features](/slides/zh/php-java/embedded-font/)。
+不会。为渲染注册字体与将其嵌入 PPTX 并不相同。如果需要将字体随演示文稿文件一起携带，必须使用显式的[嵌入功能](/slides/zh/php-java/embedded-font/)。
 
-**当自定义字体缺少某些字形时，我能控制回退行为吗？**
+**当自定义字体缺少某些字形时，我可以控制回退行为吗？**
 
-是。可以配置 [font substitution](/slides/zh/php-java/font-substitution/)、[replacement rules](/slides/zh/php-java/font-replacement/) 和 [fallback sets](/slides/zh/php-java/fallback-font/) 来精确指定在请求的字形缺失时使用哪种字体。
+可以。配置[字体替换](/slides/zh/php-java/font-substitution/)、[替换规则](/slides/zh/php-java/font-replacement/)和[回退集合](/slides/zh/php-java/fallback-font/)，即可明确指定在缺少请求字形时使用哪种字体。
 
-**我可以在 Linux/Docker 容器中使用字体，而无需在系统范围内安装它们吗？**
+**我可以在 Linux/Docker 容器中使用字体而无需系统范围安装吗？**
 
-是。只需指向自己的字体文件夹或从字节数组加载字体。这样就消除了容器镜像对系统字体目录的依赖。
+可以。指向您自己的字体文件夹或从字节数组加载字体，这样就消除了容器镜像对系统字体目录的依赖。
 
-**关于许可证——我可以在没有限制的情况下嵌入任何自定义字体吗？**
+**关于授权——我可以在没有限制的情况下嵌入任何自定义字体吗？**
 
-您需要自行负责字体许可证的合规性。条款各不相同，某些许可证禁止嵌入或商业使用。分发输出前请始终查阅字体的 EULA。
+您需要自行负责字体授权合规性。授权条款各不相同，有些授权禁止嵌入或商业使用。分发
