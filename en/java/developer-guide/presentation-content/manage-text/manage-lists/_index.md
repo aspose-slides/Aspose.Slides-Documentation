@@ -1,9 +1,9 @@
 ---
-title: Manage Bulleted and Numbered Lists in Presentations on Android
+title: Manage Bulleted and Numbered Lists in Presentations in Java
 linktitle: Manage Lists
 type: docs
 weight: 60
-url: /androidjava/manage-lists/
+url: /java/manage-lists/
 keywords:
 - bullet
 - bulleted list
@@ -18,17 +18,16 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- Android
 - Java
 - Aspose.Slides
-description: "Learn how to create and format bulleted, picture, multilevel, and numbered lists in PowerPoint and OpenDocument presentations using Aspose.Slides for Android via Java."
+description: "Learn how to create and format bulleted, picture, multilevel, and numbered lists in PowerPoint and OpenDocument presentations using Aspose.Slides for Java."
 ---
 
 ## **Overview**
 
-Aspose.Slides for Android via Java lets you create and format bulleted and numbered lists in PowerPoint and OpenDocument presentations. A list item is a paragraph whose bullet settings are controlled through its paragraph format.
+Aspose.Slides for Java lets you create and format bulleted and numbered lists in PowerPoint and OpenDocument presentations. A list item is a paragraph whose bullet settings are controlled through its paragraph format.
 
-Use the [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) method to access paragraph-level list settings. The main entry point is [IParagraphFormat.getBullet](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), which returns an [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) object. With this object, you can set the bullet type, symbol, picture, color, size, numbering style, and starting number.
+Use the [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--) method to access paragraph-level list settings. The main entry point is [IParagraphFormat.getBullet](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getBullet--), which returns an [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) object. With this object, you can set the bullet type, symbol, picture, color, size, numbering style, and starting number.
 
 This article shows how to:
 
@@ -40,7 +39,7 @@ This article shows how to:
 
 ## **Create a Bulleted List**
 
-To create a bulleted list, add paragraphs to an [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) and set [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) to [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/). You can then set [IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getColor--), and [IBulletFormat.setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) to control the bullet appearance.
+To create a bulleted list, add [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) objects to an [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) and set [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) to [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/#Symbol). You can then set [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getColor--), and [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) to control the bullet appearance.
 
 The following Java code demonstrates how to create a bulleted list in a slide:
 
@@ -53,12 +52,14 @@ try {
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.getParagraphs().clear();
 
+    Color bulletColor = new Color(205, 92, 92);
+
     Paragraph paragraph1 = new Paragraph();
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     paragraph1.getParagraphFormat().getBullet().setChar('*');
     paragraph1.getParagraphFormat().setIndent(15);
     paragraph1.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph1.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph1.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph1.getParagraphFormat().getBullet().setHeight(100);
     paragraph1.setText("The first paragraph");
     textFrame.getParagraphs().add(paragraph1);
@@ -68,7 +69,7 @@ try {
     paragraph2.getParagraphFormat().getBullet().setChar('*');
     paragraph2.getParagraphFormat().setIndent(15);
     paragraph2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph2.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph2.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph2.getParagraphFormat().getBullet().setHeight(100);
     paragraph2.setText("The second paragraph");
     textFrame.getParagraphs().add(paragraph2);
@@ -85,7 +86,7 @@ The result:
 
 ## **Create a Numbered List**
 
-Use numbered lists when the order of items matters. Set [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) to [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/). You can also choose a numbering format with [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) or set [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) when the list should start from a value other than 1.
+Use numbered lists when the order of items matters. Set [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) to [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/#Numbered). You can also choose a numbering format with [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) or set [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) when the list should start from a value other than 1.
 
 The following Java code shows how to create a numbered list in a slide:
 
@@ -135,7 +136,7 @@ Keep in mind that the image will be scaled down to a very small size. For that r
 
 {{% /alert %}}
 
-To create a picture bullet, add an image to [Presentation.getImages](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--) and assign the returned [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) object to [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--). Set [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) to [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) before assigning the image.
+To create a picture bullet, add an image to [Presentation.getImages](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getImages--) and assign the returned image object to [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). Set [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) to [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/#Picture) before assigning the image.
 
 Let's say we have an "image.png":
 
@@ -153,11 +154,11 @@ try {
     textFrame.getParagraphs().clear();
 
     IPPImage bulletImage;
-    FileInputStream imageStream = new FileInputStream("image.png");
+    IImage image = Images.fromFile("image.png");
     try {
-        bulletImage = presentation.getImages().addImage(imageStream);
+        bulletImage = presentation.getImages().addImage(image);
     } finally {
-        imageStream.close();
+        image.dispose();
     }
 
     Paragraph paragraph1 = new Paragraph();
@@ -188,7 +189,7 @@ The result:
 
 ## **Create a Multilevel List**
 
-Use [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) to place list items on different levels. Level 0 is the top level, level 1 is nested below it, and so on.
+Use [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) to place list items on different levels. Level 0 is the top level, level 1 is nested below it, and so on.
 
 The following Java code shows how to create a multilevel bulleted list:
 
@@ -233,7 +234,7 @@ The result:
 
 ## **Change an Existing List**
 
-To change list formatting in an existing presentation, access the target paragraph and update its [IParagraphFormat.getBullet](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getBullet--) settings. The same methods used to create lists can be used to inspect or modify lists loaded from a PPT, PPTX, or ODP file.
+To change list formatting in an existing presentation, access the target paragraph and update its [IParagraphFormat.getBullet](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getBullet--) settings. The same properties used to create lists can be used to inspect or modify lists loaded from a PPT, PPTX, or ODP file.
 
 The following Java code changes the first paragraph in a text frame to use a numbered list style:
 
@@ -264,7 +265,7 @@ Yes. Aspose.Slides preserves list formatting when the target format supports the
 
 **Can I edit lists in existing presentations?**
 
-Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat.getBullet](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getBullet--) settings, and save the presentation.
+Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat.getBullet](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getBullet--) settings, and save the presentation.
 
 **Can lists contain non-Latin text?**
 
