@@ -5,7 +5,7 @@ type: docs
 weight: 237
 url: /androidjava/modern-api/
 keywords:
-- System.Drawing
+- android.graphics
 - modern API
 - drawing
 - slide thumbnail
@@ -24,25 +24,27 @@ description: "Modernize slide image processing by replacing deprecated imaging A
 
 ## **Introduction**
 
-Historically, Aspose Slides has a dependency on java.awt and has in the public API the following classes from there:
+Historically, Aspose Slides has a dependency on android.graphics and has in the public API the following classes from there:
 - [Canvas](https://developer.android.com/reference/android/graphics/Canvas)
 - [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)
 
 As of version 24.4, this public API is declared deprecated.
 
-In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on Bitmap. Canvas is declared deprecated and its support is removed from the public Slides API.
+In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap). [Canvas](https://developer.android.com/reference/android/graphics/Canvas) is declared deprecated and its support is removed from the public Slides API.
 
-Removal of the deprecated public API with dependencies on System.Drawing will be in release 24.8.
+In current versions, treat the public API that depends on android.graphics types as legacy/deprecated. Use the Modern API for new code and when migrating existing image-processing workflows.
 
 ## **Modern API**
 
 Added the following classes and enums to the public API:
 
-- IImage - represents the raster or vector image.
-- ImageFormat - represents the file format of the image.
-- Images - methods to instantiate and work with the IImage interface.
+- [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) - represents the raster or vector image.
+- [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/) - represents the file format of the image.
+- [Images](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/) - methods to instantiate and work with the [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) interface.
 
-Please note that IImage is disposable (it implements the IDisposable interface and its use should be wrapped in using or dispose-it in another convenient way).
+Please note that [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) is disposable and its use should be followed by a `dispose()` call or another convenient disposal pattern.
+
+Use `getImage` to render a single slide or shape. Use `getImages` to render several presentation slides. Use [Images](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/) methods to load images, `addImage` with [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) to add them to a presentation, and `replaceImage` with [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) to update an existing presentation image.
 
 A typical scenario of using the new API may look as follows:
 
@@ -77,9 +79,9 @@ try {
 
 ## **Replacing Old Code with Modern API**
 
-In general, you will need to replace the call to the old method using ImageIO with the new one.
+In general, you will need to replace calls that use [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap) with the new methods that use [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/).
 
-Old:
+Legacy/deprecated API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -103,7 +105,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-New:
+Modern API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -120,7 +122,7 @@ try {
 
 ### **Getting a Slide Thumbnail**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` java
 Presentation pres = new Presentation("pres.pptx");
@@ -164,7 +166,7 @@ try {
 
 ### **Getting a Shape Thumbnail**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` java
 Presentation pres = new Presentation("pres.pptx");
@@ -208,7 +210,7 @@ try {
 
 ### **Getting a Presentation Thumbnail**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` java
 Presentation pres = new Presentation("pres.pptx");
@@ -266,7 +268,7 @@ try {
 
 ### **Adding a Picture to a Presentation**
 
-Code using a deprecated API:
+Legacy/deprecated API:
 
 ``` java
 Presentation pres = new Presentation();
@@ -301,7 +303,7 @@ try {
 }
 ```
 
-## **Methods to Be Removed and Their Replacement in Modern API**
+## **Deprecated Methods and Their Replacement in Modern API**
 
 ### **Presentation**
 | Method Signature                               | Replacement Method Signature                             |
@@ -329,9 +331,9 @@ try {
 | public final Bitmap getThumbnail(IRenderingOptions options, Size imageSize) | public final IImage getImage(IRenderingOptions options, Size imageSize) |
 | public final Bitmap getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final Bitmap getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | Will be deleted completely  |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Will be deleted completely  |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Will be deleted completely  |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | No Modern API replacement  |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | No Modern API replacement  |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | No Modern API replacement  |
 
 ### **Output**
 | Method Signature                                                | Replacement Method Signature                                |
@@ -360,11 +362,11 @@ try {
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTileIImage(Integer background, Integer foreground) |
 
 
-## **API Support for Canvas Will Be Discontinued**
+## **API Support for Canvas**
 
-Methods with [Canvas](https://developer.android.com/reference/android/graphics/Canvas) are declared deprecated and their support will be removed from the public API.
+Methods with [Canvas](https://developer.android.com/reference/android/graphics/Canvas) are declared deprecated and have no direct Modern API replacement.
 
-The part of the API that uses it will be removed:
+Use the Modern API image-rendering methods instead of the API that renders to [Canvas](https://developer.android.com/reference/android/graphics/Canvas):
 
 [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/)
 
@@ -376,9 +378,9 @@ The part of the API that uses it will be removed:
 
 **Why was android.graphics.Canvas dropped?**
 
-Support for `Canvas` is being removed from the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). All rendering methods to `Canvas` will be removed.
+Support for [Canvas](https://developer.android.com/reference/android/graphics/Canvas) is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). Use `getImage` or `getImages` instead of rendering to [Canvas](https://developer.android.com/reference/android/graphics/Canvas).
 
-**What is the practical benefit of IImage compared to BufferedImage?**
+**What is the practical benefit of [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) compared to [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)?**
 
 [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) unifies working with both raster and vector images and simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/).
 
