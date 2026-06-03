@@ -312,6 +312,56 @@ During cropping, this method converts WMF/EMF metafiles to a raster PNG image.
 
 {{% /alert %}}
 
+## **Compress Images**
+
+You can compress a picture in a presentation using the [PictureFillFormat.compress_image](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/compress_image/) method.
+This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas.
+
+It adjusts the picture's size and resolution similarly to PowerPoint's **Picture Format -> Compress Pictures -> Resolution** feature.
+
+The following Python examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = slide.shapes[0]
+
+    # Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
+    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+
+    # Check the result of the compression.
+    if result:
+        print("Image successfully compressed.")
+    else:
+        print("Image compression failed or no changes were necessary.")
+
+    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Or using a custom DPI value directly:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = slide.shapes[0]
+
+    # Compress the image to 150 DPI (web resolution), removing cropped areas.
+    picture_frame.picture_format.compress_image(True, 150)
+
+    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+{{% alert title="NOTE" color="warning" %}}
+
+The method converts the image to a lower resolution based on the shape's size and provided DPI. Cropped regions can also be deleted to optimize file size.
+If the image is a metafile (WMF/EMF) or SVG, compression will not be applied. Also, JPEG quality is preserved or slightly reduced based on resolution, similarly to how PowerPoint handles high-resolution JPEGs.
+
+{{% /alert %}}
+
 ## **Lock the Aspect Ratio**
 
 If you want a shape that contains an image to retain its aspect ratio after you change the image’s dimensions, set the [aspect_ratio_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) property to `True`.

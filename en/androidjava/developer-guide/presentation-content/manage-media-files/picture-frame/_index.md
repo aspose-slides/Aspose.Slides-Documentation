@@ -362,6 +362,61 @@ This method converts WMF/EMF metafiles to raster PNG image in the cropping opera
 
 {{% /alert %}}
 
+## **Compress Images**
+
+You can compress a picture in a presentation using the [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) method.
+This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas.
+
+It adjusts the picture's size and resolution similarly to PowerPoint's **Picture Format > Compress Pictures > Resolution** feature.
+
+The following Java examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
+
+```java
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+
+    // Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
+    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+
+    // Check the result of the compression.
+    if (result) {
+        System.out.println("Image successfully compressed.");
+    } else {
+        System.out.println("Image compression failed or no changes were necessary.");
+    }
+
+    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Or using a custom DPI value directly:
+
+```java
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+
+    // Compress the image to 150 DPI (web resolution), removing cropped areas.
+    pictureFrame.getPictureFormat().compressImage(true, 150f);
+
+    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+The method converts the image to a lower resolution based on the shape's size and provided DPI. Cropped regions can also be deleted to optimize file size.  
+If the image is a metafile (WMF/EMF) or SVG, compression will not be applied. Also, JPEG quality is preserved or slightly reduced based on resolution, similarly to how PowerPoint handles high-resolution JPEGs.
+
+{{% /alert %}}
+
 ## **Lock Aspect Ratio**
 
 If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [setAspectRatioLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) method to set the *Lock Aspect Ratio* setting.
