@@ -23,9 +23,9 @@ keywords:
 description: "Aspose.Slides for Java lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
-![todo:image_alt_text](product-overview_1.png)
+![Aspose.Slides for Java](product-overview_1.png)
 
-**Welcome to Aspose.Slides for Java!**
+## **Welcome to Aspose.Slides for Java!**
 
 Aspose.Slides for Java is a Microsoft PowerPoint® management API that enables Java applications to read and write PowerPoint® documents without Microsoft PowerPoint®. 
 
@@ -33,8 +33,8 @@ Aspose.Slides for Java is the first and only component that provides functionali
 
 Aspose.Slides for Java offers a lot of key features such as managing text, shapes, tables & animations, adding audio & video to slides, previewing slides, exporting slides to SVG, PDF and other formats.
 
-
 ## **Product Description**
+
 Aspose.Slides for Java not only lets you open PowerPoint files from different sources, but it also allows you to save your presentations in a variety of ways. For example, you can save your presentations in PPT; you can also save your slides as images. 
 
 Aspose.Slides for Java gives you almost all the features you may or may not find in Microsoft PowerPoint. Given the versatility of Aspose.Slides for Java, besides tables and different kinds of shapes, you can also add different kinds of frames—text, audio, and video frames—to your slides. 

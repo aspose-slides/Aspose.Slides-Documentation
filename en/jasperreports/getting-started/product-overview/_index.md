@@ -5,14 +5,11 @@ weight: 10
 url: /jasperreports/product-overview/
 ---
 
-{{% alert color="primary" %}} 
+![Aspose.Slides for JasperReports](product-overview_1.png)
 
-![todo:image_alt_text](product-overview_1.png)
+## **Welcome to the Aspose.Slides for JasperReports!**
 
-## **Welcome to the Aspose.Slides for JasperReports documentation!**
 Aspose.Slides for JasperReports is a library specially designed and developed for developers who need to easily export reports from JasperReports to Microsoft PowerPoint Presentation (PPT) and Microsoft PowerPoint Show (PPS) formats in their Java applications. All report features are converted with the highest degree of precision to Microsoft PowerPoint presentations. Aspose.Slides for JasperReports includes support for JasperReports 5+.
-
-{{% /alert %}} 
 
 ## **Product Description**
 JasperReports and JasperServer do not have built-in abilities to export reports as Microsoft PowerPoint presentations, but Aspose.Slides for JasperReports, gives you access to two additional export formats: 
@@ -41,4 +38,4 @@ exporter.exportReport();
 
 **Presentation generated with JasperReports xmldatasource demo** 
 
-![todo:image_alt_text](product-overview_2.png)
+![Presentation generated with JasperReports](product-overview_2.png)
