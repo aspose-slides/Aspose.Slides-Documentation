@@ -4,30 +4,26 @@ type: docs
 weight: 10
 url: /ar/jasperreports/product-overview/
 ---
+![Aspose.Slides لـ JasperReports](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **مرحبًا بك في Aspose.Slides لـ JasperReports!**
 
-![todo:image_alt_text](product-overview_1.png)
-
-## **مرحبًا بكم في توثيق Aspose.Slides لـ JasperReports!**
-Aspose.Slides لـ JasperReports هي مكتبة مصممة خصيصًا ومطورة للمطورين الذين يحتاجون إلى تصدير التقارير بسهولة من JasperReports إلى تنسيقات Microsoft PowerPoint Presentation (PPT) و Microsoft PowerPoint Show (PPS) في تطبيقاتهم المكتوبة بلغة Java. يتم تحويل جميع ميزات التقرير بأعلى درجة من الدقة إلى عروض Microsoft PowerPoint التقديمية. تدعم Aspose.Slides لـ JasperReports إصدار JasperReports 5 وما فوق.
-
-{{% /alert %}} 
+Aspose.Slides for JasperReports هي مكتبة صُممت وطُورت خصيصًا للمطورين الذين بحاجة إلى تصدير التقارير بسهولة من JasperReports إلى صيغ Microsoft PowerPoint Presentation (PPT) و Microsoft PowerPoint Show (PPS) في تطبيقاتهم Java. جميع ميزات التقرير تُحوّل بأعلى درجة من الدقة إلى عروض Microsoft PowerPoint. Aspose.Slides for JasperReports تدعم JasperReports 5+.
 
 ## **وصف المنتج**
-ليس لدى JasperReports و JasperServer قدرات مدمجة لتصدير التقارير كعروض تقديمية من Microsoft PowerPoint، ولكن Aspose.Slides لـ JasperReports، يمنحك الوصول إلى تنسيقات تصدير إضافية:
+JasperReports و JasperServer لا تمتلكان قدرات مدمجة لتصدير التقارير كعروض Microsoft PowerPoint، لكن Aspose.Slides for JasperReports يمنحك إمكانية تصدير بصيغتين إضافيتين: 
 
 - PPT – عرض PowerPoint عبر Aspose.Slides
-- PPS - عرض PowerPoint عبر Aspose.Slides
+- PPS – عرض PowerPoint Show عبر Aspose.Slides
 - PPTX – عرض PowerPoint عبر Aspose.Slides
-- PPSX - عرض PowerPoint عبر Aspose.Slides
+- PPSX – عرض PowerPoint Show عبر Aspose.Slides
 
-تستخدم Aspose.Slides لـ JasperReports داخليًا مكتباتنا النقية 100% بلغة Java، Aspose.Slides لـ Java و Aspose.Metafiles لـ Java، وهي مكتبات عالمية المستوى لمعالجة العروض التقديمية في الجانب الخادم وملفات التعريف.
+Aspose.Slides for JasperReports يستخدم داخليًا مكتبات Java النقية 100% الخاصة بنا، Aspose.Slides for Java و Aspose.Metafiles for Java، وهي مكتبات عالمية المستوى لمعالجة العروض التقديمية من جانب الخادم والملفات الفوقية.
 
-تجعل Aspose.Slides لـ JasperReports من الممكن تصدير أي تقرير بصيغة PPT أو PPS.
+Aspose.Slides for JasperReports يجعل من الممكن تصدير أي تقرير إلى صيغة PPT أو PPS.
 
-### **مثال على المخرجات**
-تقوم فئة ASPptExporter بتمديد فئة ASAbstractExporter حتى يمكن استخدامها بنفس طريقة استخدام أي من المصدرين القياسيين الآخرين. يعرض هذا المثال القصير كودًا نموذجيًا ولقطة شاشة لتقرير تم عرضه في MS PowerPoint. يمكن العثور على أمثلة مفصلة في التقارير التجريبية المقدمة.
+### **مثال على الناتج**
+الفئة ASPptExporter تمتد من الفئة ASAbstractExporter لتتمكن من استخدامها بنفس طريقة أي مُصدّر قياسي آخر. تُظهر هذه العينة القصيرة الكود النموذجي وصورة شاشة لتقرير يُعرض في MS PowerPoint. يمكن العثور على أمثلة مفصلة في التقارير التجريبية المقدمة. 
 
 ``` java
 File sourceFile = new File(fileName); 
@@ -39,6 +35,6 @@ exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString())
 exporter.exportReport();
 ```
 
-**عرض تقديمي تم إنشاؤه باستخدام عرض البيانات xmldatasource من JasperReports** 
+**العرض التقديمي المولّد باستخدام عرض تجريبي JasperReports xmldatasource** 
 
-![todo:image_alt_text](product-overview_2.png)
+![العرض التقديمي المولّد باستخدام JasperReports](product-overview_2.png)

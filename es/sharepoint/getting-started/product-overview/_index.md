@@ -1,39 +1,36 @@
 ---
-title: Visión General del Producto
+title: Descripción del producto
 type: docs
 weight: 10
 url: /es/sharepoint/product-overview/
 ---
+![Aspose.Slides for SharePoint](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **¡Bienvenido a Aspose.Slides for SharePoint!**
 
-![todo:image_alt_text](product-overview_1)
+Aspose.Slides for SharePoint es una solución flexible que permite convertir documentos PowerPoint® dentro de los sitios de Microsoft SharePoint.
 
-**¡Bienvenido a Aspose.Slides para SharePoint!**
+## **Descripción del producto**
 
-Aspose.Slides para SharePoint es una solución flexible que hace posible convertir documentos de PowerPoint® dentro de los sitios de Microsoft SharePoint.
+Aspose.Slides for SharePoint admite varios formatos de documentos PowerPoint:
 
-{{% /alert %}} 
-### **Visión General del Producto**
-Aspose.Slides para SharePoint es compatible con varios formatos de documentos de PowerPoint:
+- PPT – Presentación de Microsoft PowerPoint 97‑2003
+- PPS – Presentación de diapositivas de Microsoft PowerPoint 97‑2003
+- POT – Plantilla de Microsoft PowerPoint 97‑2003
+- PPTX – Presentación Office Open XML
+- PPSX – Presentación de diapositivas Office Open XML
+- POTX – Plantilla Office Open XML
 
-- PPT – Presentación de Microsoft PowerPoint 97 - 2003
-- PPS – Presentación de Microsoft PowerPoint 97 - 2003
-- POT – Plantilla de Microsoft PowerPoint 97 - 2003
-- PPTX – Presentación de Office Open XML
-- PPSX – Presentación de Office Open XML
-- POTX – Plantilla de Office Open XML
-
-Aspose.Slides para SharePoint está diseñado para trabajar con los siguientes productos:
+Aspose.Slides for SharePoint está diseñado para trabajar con los siguientes productos:
 
 - Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Estándar
-- Microsoft Office SharePoint Server 2007 (MOSS) Empresarial
+- Microsoft Office SharePoint Server 2007 (MOSS) Standard
+- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
 - Microsoft Office SharePoint Server 2013
 - Microsoft Office SharePoint Server 2019
 
-No hay otros requisitos del sistema además de los que existen para los productos anteriores.
+No existen otros requisitos del sistema además de los que ya existen para los productos anteriores.
 
-**Utilice Aspose.Slides para SharePoint para convertir documentos de la biblioteca de documentos de SharePoint** 
+**Utilice Aspose.Slides for SharePoint para convertir documentos desde la biblioteca de documentos de SharePoint** 
 
-![todo:image_alt_text](product-overview_2.png)
+![SharePoint's document library](product-overview_2.png)

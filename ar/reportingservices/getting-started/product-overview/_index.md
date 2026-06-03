@@ -4,28 +4,27 @@ type: docs
 weight: 10
 url: /ar/reportingservices/product-overview/
 ---
+![Aspose.Slides for Reporting Services](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **مرحبًا بكم في Aspose.Slides for Reporting Services!**
 
-![todo:image_alt_text](product-overview_1.png)
-### **مرحبًا بكم في وثائق Aspose.Slides لخدمات التقارير!**
-Aspose.Slides لخدمات التقارير هي الحل الوحيد في السوق الذي يجعل من الممكن توليد تقارير PPT و PPS حقيقية في Microsoft SQL Server 2005 و 2008 و 2012 و 2016 و 2017 خدمات التقارير (32 بت و 64 بت). جميع ميزات تقرير RDL، بما في ذلك الجداول والمصفوفات والمخططات والصور، يتم تحويلها بأعلى درجات الدقة إلى عروض PowerPoint التقديمية من Microsoft.
+Aspose.Slides for Reporting Services هو الحل الوحيد في السوق الذي يجعل من الممكن إنشاء تقارير PPT وPPS حقيقية في Microsoft SQL Server 2005، 2008، 2012، 2016 و2017 Reporting Services (إصدار 32‑bit و64‑bit). يتم تحويل جميع ميزات تقارير RDL، بما في ذلك الجداول والمصفوفات والرسوم البيانية والصور، بأعلى درجة من الدقة إلى عروض PowerPoint التقديمية.
 
-{{% /alert %}} 
-### **نظرة عامة على المنتج**
-لا تحتوي خدمات التقارير في Microsoft SQL Server على قدرات مدمجة لتصدير التقارير كعروض PowerPoint التقديمية، ولكن بعد تثبيت Aspose.Slides لخدمات التقارير على خادمك، ستحصل على الوصول إلى تنسيقات تصدير إضافية:
+## **نظرة عامة على المنتج**
+
+Microsoft SQL Server Reporting Services لا يتوفر فيه إمكانيات مدمجة لتصدير التقارير كعروض تقديمية Microsoft PowerPoint، ولكن بعد تثبيت Aspose.Slides for Reporting Services على الخادم الخاص بك، ستحصل على إمكانية الوصول إلى صيغ تصدير إضافية:
 
 - PPT - عرض PowerPoint عبر Aspose.Slides
-- PPS - عرض PowerPoint عبر Aspose.Slides
+- PPS - عرض شريحة PowerPoint عبر Aspose.Slides
 - PPTX - عرض PowerPoint 2007 عبر Aspose.Slides
-- PPSX - عرض PowerPoint 2007 عبر Aspose.Slides
+- PPSX - عرض شريحة PowerPoint 2007 عبر Aspose.Slides
 
-تقوم Aspose.Slides لخدمات التقارير بإنشاء العروض التقديمية على الخادم دون استخدام Microsoft PowerPoint. تستخدم Aspose.Slides لخدمات التقارير داخليًا Aspose.Slides لـ .NET - المكون العالمي لمعالجة العروض التقديمية على جانب الخادم.
+Aspose.Slides for Reporting Services ينشئ العروض التقديمية على الخادم دون استخدام Microsoft PowerPoint. يستخدم Aspose.Slides for Reporting Services داخليًا Aspose.Slides for .NET – المكوّن العالمي المستوى لمعالجة العروض التقديمية على الخادم.
 
-**تجعل Aspose.Slides لخدمات التقارير من الممكن تصدير أي تقرير بتنسيق PPT أو PPS أو PPTX أو PPSX.** 
+**يتيح Aspose.Slides for Reporting Services إمكانية تصدير أي تقرير بصيغة PPT أو PPS أو PPTX أو PPSX.**
 
-![todo:image_alt_text](product-overview_2.png)
+![تنسيقات التقارير المصدرة](product-overview_2.png)
 
-**قامت Aspose.Slides لخدمات التقارير بتصدير تقرير كملف PPT.** 
+**قام Aspose.Slides for Reporting Services بتصدير تقرير كملف PPT.**
 
-![todo:image_alt_text](product-overview_3.png)
+![تقرير تم تصديره](product-overview_3.png)

@@ -4,30 +4,26 @@ type: docs
 weight: 10
 url: /ja/jasperreports/product-overview/
 ---
+![Aspose.Slides for JasperReports](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **Aspose.Slides for JasperReportsへようこそ！**
 
-![todo:image_alt_text](product-overview_1.png)
+Aspose.Slides for JasperReports は、JasperReports から Microsoft PowerPoint プレゼンテーション (PPT) および Microsoft PowerPoint ショー (PPS) 形式へレポートを簡単にエクスポートする必要がある開発者向けに特別に設計・開発されたライブラリです。すべてのレポート機能は、最高の精度で Microsoft PowerPoint プレゼンテーションに変換されます。Aspose.Slides for JasperReports は JasperReports 5 以降をサポートしています。
 
-## **Aspose.Slides for JasperReports ドキュメントへようこそ！**
-Aspose.Slides for JasperReports は、JasperReports から Microsoft PowerPoint プレゼンテーション (PPT) および Microsoft PowerPoint ショー (PPS) 形式にレポートを簡単にエクスポートする必要がある開発者のために特別に設計および開発されたライブラリです。すべてのレポート機能は、Microsoft PowerPoint プレゼンテーションに高い精度で変換されます。Aspose.Slides for JasperReports は、JasperReports 5+をサポートしています。
+## **製品の説明**
+JasperReports と JasperServer には、レポートを Microsoft PowerPoint プレゼンテーションとしてエクスポートする組み込み機能がありませんが、Aspose.Slides for JasperReports を使用すると、次の 2 つの追加エクスポート形式が利用できます。
 
-{{% /alert %}} 
+- PPT – Aspose.Slides による PowerPoint プレゼンテーション
+- PPS – Aspose.Slides による PowerPoint ショー
+- PPTX – Aspose.Slides による PowerPoint プレゼンテーション
+- PPSX – Aspose.Slides による PowerPoint ショー
 
-## **製品説明**
-JasperReports および JasperServer には、レポートを Microsoft PowerPoint プレゼンテーションとしてエクスポートするための組み込み機能はありませんが、Aspose.Slides for JasperReports は、次の 2 つの追加エクスポート形式へのアクセスを提供します：
-
-- PPT – Aspose.SlidesによるPowerPointプレゼンテーション
-- PPS - Aspose.SlidesによるPowerPointショー
-- PPTX – Aspose.SlidesによるPowerPointプレゼンテーション
-- PPSX - Aspose.SlidesによるPowerPointショー
-
-Aspose.Slides for JasperReports は、内部的に私たちの100%純粋なJavaライブラリであるAspose.Slides for JavaとAspose.Metafiles for Javaを使用しており、サーバーサイドのプレゼンテーションやメタファイル処理のための世界クラスのライブラリです。
+Aspose.Slides for JasperReports は内部で、当社の 100% 純粋な Java ライブラリである Aspose.Slides for Java と Aspose.Metafiles for Java を使用します。これらはサーバー側のプレゼンテーションとメタファイル処理のための世界クラスのライブラリです。
 
 Aspose.Slides for JasperReports を使用すると、任意のレポートを PPT または PPS 形式でエクスポートできます。
 
 ### **出力例**
-ASPptExporter クラスは ASAbstractExporter クラスを拡張しており、他の標準エクスポーターと同様に使用できます。この短い例は、MS PowerPoint で表示されるレポートの典型的なコードとスクリーンショットを示しています。詳細な例は、提供されたデモレポートに見つかります。
+ASPptExporter クラスは ASAbstractExporter クラスを継承しているため、他の標準エクスポーターと同様に使用できます。この簡単な例は、典型的なコードと MS PowerPoint で表示されたレポートのスクリーンショットを示しています。詳細な例は、提供されているデモレポートで確認できます。
 
 ``` java
 File sourceFile = new File(fileName); 
@@ -41,4 +37,4 @@ exporter.exportReport();
 
 **JasperReports xmldatasource デモで生成されたプレゼンテーション** 
 
-![todo:image_alt_text](product-overview_2.png)
+![JasperReportsで生成されたプレゼンテーション](product-overview_2.png)

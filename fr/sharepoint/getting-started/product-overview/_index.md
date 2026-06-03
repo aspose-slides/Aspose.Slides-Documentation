@@ -1,21 +1,18 @@
 ---
-title: Présentation du produit
+title: Aperçu du produit
 type: docs
 weight: 10
 url: /fr/sharepoint/product-overview/
 ---
+![Aspose.Slides for SharePoint](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **Bienvenue sur Aspose.Slides for SharePoint!**
 
-![todo:image_alt_text](product-overview_1)
+Aspose.Slides for SharePoint est une solution flexible qui permet de convertir des documents PowerPoint® au sein des sites Microsoft SharePoint.
 
-**Bienvenue dans Aspose.Slides pour SharePoint !**
+## **Aperçu du produit**
 
-Aspose.Slides pour SharePoint est une solution flexible qui permet de convertir des documents PowerPoint® au sein des sites Microsoft SharePoint.
-
-{{% /alert %}} 
-### **Présentation du produit**
-Aspose.Slides pour SharePoint prend en charge un certain nombre de formats de documents PowerPoint :
+Aspose.Slides for SharePoint prend en charge plusieurs formats de documents PowerPoint :
 
 - PPT – présentation Microsoft PowerPoint 97 - 2003
 - PPS – diaporama Microsoft PowerPoint 97 - 2003
@@ -24,7 +21,7 @@ Aspose.Slides pour SharePoint prend en charge un certain nombre de formats de do
 - PPSX – diaporama Office Open XML
 - POTX – modèle Office Open XML
 
-Aspose.Slides pour SharePoint est conçu pour fonctionner avec les produits suivants :
+Aspose.Slides for SharePoint est conçu pour fonctionner avec les produits suivants :
 
 - Windows SharePoint Services 3.0 (WSS)
 - Microsoft Office SharePoint Server 2007 (MOSS) Standard
@@ -32,8 +29,8 @@ Aspose.Slides pour SharePoint est conçu pour fonctionner avec les produits suiv
 - Microsoft Office SharePoint Server 2013
 - Microsoft Office SharePoint Server 2019
 
-Il n'y a pas d'autres exigences système au-delà de celles qui existent pour les produits ci-dessus.
+Il n'existe aucune autre exigence système en dehors de celles requises par les produits ci-dessous.
 
-**Utilisez Aspose.Slides pour SharePoint pour convertir des documents depuis la bibliothèque de documents de SharePoint** 
+**Utilisez Aspose.Slides for SharePoint pour convertir des documents depuis la bibliothèque de documents SharePoint** 
 
-![todo:image_alt_text](product-overview_2.png)
+![SharePoint's document library](product-overview_2.png)
