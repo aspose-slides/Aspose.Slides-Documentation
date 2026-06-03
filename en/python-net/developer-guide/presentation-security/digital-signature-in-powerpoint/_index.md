@@ -37,9 +37,6 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```py
-
-#[TODO:Exception] RuntimeError: Proxy error(FileNotFoundException): Could not load file or assembly 'System.Security.Cryptography.Xml, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'. File was not found.
-
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
