@@ -20,31 +20,31 @@ keywords:
 - كائن ثنائي
 - Python
 - Aspose.Slides
-description: "فتح عروض PowerPoint (.pptx، .ppt) وOpenDocument (.odp) بسهولة باستخدام Aspose.Slides لبايثون عبر .NET—سريع، موثوق، ذو ميزات كاملة."
+description: "افتح عروض PowerPoint (.pptx, .ppt) وOpenDocument (.odp) بسهولة مع Aspose.Slides للبايثون عبر .NET—سريعة، موثوقة، ومتجمعة بالكامل."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
-
-بالإضافة إلى إنشاء عروض PowerPoint من الصفر، يتيح لك Aspose.Slides أيضًا فتح العروض التقديمية الموجودة. بعد تحميل العرض التقديمي، يمكنك استرجاع معلومات عنه، تعديل محتوى الشرائح، إضافة شرائح جديدة، إزالة الشرائح الحالية، وأكثر من ذلك.
+بالإضافة إلى إنشاء عروض PowerPoint من الصفر، يتيح لك Aspose.Slides أيضًا فتح العروض التقديمية الموجودة. بعد تحميل عرض تقديمي، يمكنك استرجاع معلومات حوله، تعديل محتوى الشرائح، إضافة شرائح جديدة، إزالة الشرائح الحالية، والمزيد.
 
 ## **فتح العروض التقديمية**
 
-لفتح عرض تقديمي موجود، قم بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) ومرّر مسار الملف إلى منشئها.
+لفتح عرض تقديمي موجود، أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) ومرّر مسار الملف إلى مُنشئها.
 
-يعرض المثال التالي بلغة Python كيفية فتح عرض تقديمي والحصول على عدد الشرائح:
+يُظهر المثال التالي بلغة Python كيفية فتح عرض تقديمي والحصول على عدد الشرائح الخاصة به:
+
 ```python
 import aspose.slides as slides
 
-# إنشاء كائن من الفئة Presentation وتمرير مسار ملف إلى المنشئ.
+# إنشاء كائن من الفئة Presentation وتمرير مسار ملف إلى المُنشئ.
 with slides.Presentation("sample.pptx") as presentation:
     # طباعة العدد الإجمالي للشرائح في العرض التقديمي.
     print(presentation.slides.length)
 ```
 
-
 ## **فتح العروض التقديمية المحمية بكلمة مرور**
 
-عند الحاجة لفتح عرض تقديمي محمي بكلمة مرور، مرّر كلمة المرور عبر الخاصية [password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) في فئة [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) لفك التشفير وتحميله. يوضح الكود التالي بلغة Python هذه العملية:
+عند الحاجة لفتح عرض تقديمي محمي بكلمة مرور، مرّر كلمة المرور عبر خاصية [password](https://reference.aspose.com/slides/ar/python-net/aspose.slides/loadoptions/password/) في الفئة [LoadOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides/loadoptions/) لفك التشفير وتحميله. يوضح الكود التالي بلغة Python هذه العملية:
+
 ```python
 import aspose.slides as slides
 
@@ -52,15 +52,15 @@ load_options = slides.LoadOptions()
 load_options.password = "YOUR_PASSWORD"
 
 with slides.Presentation("sample.pptx", load_options) as presentation:
-    # تنفيذ عمليات على العرض التقديمي المفكوك تشفيره.
+    # تنفيذ عمليات على العرض التقديمي المفكوك.
 ```
-
 
 ## **فتح العروض التقديمية الكبيرة**
 
-يوفر Aspose.Slides خيارات—وخاصة الخاصية [blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) في فئة [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)—لمساعدتك على تحميل عروض تقديمية كبيرة.
+يوفر Aspose.Slides خيارات—وخاصة خاصية [blob_management_options](https://reference.aspose.com/slides/ar/python-net/aspose.slides/loadoptions/blob_management_options/) في الفئة [LoadOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides/loadoptions/)—لمساعدتك في تحميل العروض التقديمية الكبيرة.
 
-يظهر الكود التالي بلغة Python كيفية تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
+يوضح الكود التالي بلغة Python تحميل عرض تقديمي كبير (مثلاً 2 جيجابايت):
+
 ```python
 import aspose.slides as slides
 import os
@@ -68,53 +68,46 @@ import os
 file_path = "LargePresentation.pptx"
 
 load_options = slides.LoadOptions()
-# اختر سلوك KeepLocked — سيبقى ملف العرض مقفلاً طوال مدة 
-# نسخة Presentation، لكن لا يلزم تحميله إلى الذاكرة أو نسخه إلى ملف مؤقت.
+# اختر سلوك KeepLocked — سيبقى ملف العرض مقفلًا طوال عمر
+# كائن Presentation، ولكن لا يلزم تحميله إلى الذاكرة أو نسخه إلى ملف مؤقت.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 ميغابايت
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 ميجابايت
 
 with slides.Presentation(file_path, load_options) as presentation:
     # تم تحميل العرض التقديمي الكبير ويمكن استخدامه، مع بقاء استهلاك الذاكرة منخفضًا.
 
-    # إجراء تعديلات على العرض التقديمي.
+    # إجراء تغييرات على العرض التقديمي.
     presentation.slides[0].name = "Large presentation"
 
-    # حفظ العرض التقديمي إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا أثناء هذه العملية.
+    # حفظ العرض التقديمي إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا خلال هذه العملية.
     presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
 
-    # لا تفعل هذا! سيحدث استثناء I/O لأن الملف مقفول حتى يتم تحرير كائن العرض التقديمي.
+    # لا تفعل ذلك! سيُطلق استثناء I/O لأن الملف مقفل حتى يتم التخلص من كائن العرض التقديمي.
     os.remove(file_path)
 
-# يمكن فعل ذلك هنا. لم يعد ملف المصدر مقفولًا بواسطة كائن العرض التقديمي.
+# لا مانع من القيام بذلك هنا. لم يعد ملف المصدر مقفلًا بواسطة كائن العرض التقديمي.
 os.remove(file_path)
 ```
 
-
 {{% alert color="info" title="Info" %}}
-لتجاوز بعض القيود عند العمل مع التدفقات، قد يقوم Aspose.Slides بنسخ محتويات التدفق. تحميل عرض تقديمي كبير من تدفق يؤدي إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عند الحاجة لتحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التدفق.
+لتجاوز بعض القيود عند العمل مع التدفقات، قد يقوم Aspose.Slides بنسخ محتويات التدفق. تحميل عرض تقديمي كبير من تدفق يؤدي إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عندما تحتاج إلى تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التدفق.
 
 عند إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [BLOB management](/slides/ar/python-net/manage-blob/) لتقليل استهلاك الذاكرة.
 {{%/alert %}}
 
-## **التحكم في الموارد الخارجية**
-
-يوفر Aspose.Slides الفئة [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) التي تتيح لك إدارة الموارد الخارجية. يوضح الكود التالي بلغة Python كيفية استخدام الفئة `IResourceLoadingCallback`:
-```python
-# [TODO[not_supported_yet]: تنفيذ python لواجهات .NET]
-```
-
-
 ## **تحميل العروض التقديمية دون كائنات ثنائية مدمجة**
 
 يمكن أن يحتوي عرض PowerPoint على الأنواع التالية من الكائنات الثنائية المدمجة:
-- مشروع VBA (يمكن الوصول إليه عبر [Presentation.vba_project](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/vba_project/));
-- بيانات كائن OLE المدمجة (يمكن الوصول إليها عبر [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
-- بيانات ثنائية للتحكم ActiveX (يمكن الوصول إليها عبر [Control.active_x_control_binary](https://reference.aspose.com/slides/python-net/aspose.slides/control/active_x_control_binary/)).
 
-باستخدام الخاصية [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) ، يمكنك تحميل عرض تقديمي بدون أي كائنات ثنائية مدمجة.
+- مشروع VBA (متاح عبر [Presentation.vba_project](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/vba_project/));
+- بيانات كائن OLE المدمجة (متاحة عبر [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
+- بيانات ثنائية للتحكم ActiveX (متاحة عبر [Control.active_x_control_binary](https://reference.aspose.com/slides/ar/python-net/aspose.slides/control/active_x_control_binary/)).
 
-هذه الخاصية مفيدة لإزالة المحتوى الثنائي المحتمل أن يكون خبيثًا. يوضح الكود التالي بلغة Python كيفية تحميل عرض تقديمي بدون أي محتوى ثنائي مدمج:
+باستخدام خاصية [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/ar/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/)، يمكنك تحميل عرض تقديمي دون أي كائنات ثنائية مدمجة.
+
+تفيد هذه الخاصية في إزالة المحتوى الثنائي المحتمل أن يكون خبيثًا. يوضح الكود التالي بلغة Python كيفية تحميل عرض تقديمي بدون أي محتوى ثنائي مدمج:
+
 ```py
 import aspose.slides as slides
 
@@ -125,17 +118,16 @@ with slides.Presentation("malware.ppt", load_options) as presentation:
     # تنفيذ عمليات على العرض التقديمي.
 ```
 
-
 ## **الأسئلة الشائعة**
 
 **كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-ستصلك استثناء أثناء التحميل يشير إلى فشل في التحليل/تحقق من الصيغة. غالبًا ما تشير هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint معطوبة.
+ستتلقى استثناءً متعلقًا بالتحليل أو التحقق من صحة التنسيق أثناء التحميل. غالبًا ما تشير هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint مكسورة.
 
 **ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة عند الفتح؟**
 
-سيفتح الملف، لكن قد يستبدل [التصيير/التصدير](/slides/ar/python-net/convert-presentation/) الخطوط لاحقًا. قم بـ [تكوين استبدالات الخطوط](/slides/ar/python-net/font-substitution/) أو [إضافة الخطوط المطلوبة](/slides/ar/python-net/custom-font/) إلى بيئة التشغيل.
+سيتم فتح الملف، ولكن قد يستبدل [التص渲/rendering/export](/slides/ar/python-net/convert-presentation/) الخطوط لاحقًا. قم بـ[تكوين استبدالات الخطوط](/slides/ar/python-net/font-substitution/) أو [إضافة الخطوط المطلوبة](/slides/ar/python-net/custom-font/) إلى بيئة التشغيل.
 
 **ماذا عن الوسائط المدمجة (فيديو/صوت) عند الفتح؟**
 
-تُصبح متاحة كموارد للعرض التقديمي. إذا تم الإشارة إلى الوسائط عبر مسارات خارجية، تأكد من أن هذه المسارات متاحة في بيئتك؛ وإلا قد يقوم [التصيير/التصدير](/slides/ar/python-net/convert-presentation/) بتجاهل الوسائط.
+تصبح الوسائط متاحة كموارد للعرض التقديمي. إذا كانت الوسائط مُشار إليها عبر مسارات خارجية، تأكد من إمكانية الوصول إلى تلك المسارات في بيئتك؛ وإلا قد تُهمل [التص渲/rendering/export](/slides/ar/python-net/convert-presentation/) الوسائط.
