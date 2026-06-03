@@ -340,6 +340,12 @@ No. A single [Presentation](https://reference.aspose.com/slides/php-java/aspose.
 
 The default export can embed resources directly in the HTML. Embedded fonts, high-DPI images, media, SVG content, and retained cropped image areas also increase size. Use external resources, exclude common fonts from embedding, and lower `PicturesCompression` when smaller output is more important than maximum fidelity.
 
+**Why does a PowerPoint font size such as 24 pt appear as 17.999819 pt in HTML?**
+
+This can happen because PowerPoint and HTML use different DPI models. PowerPoint stores text sizes in typographic points based on 72 DPI, while HTML layout is based on CSS pixels in a 96 DPI model. When Aspose.Slides exports a presentation to HTML, the font size is translated between these systems, and the conversion may introduce small rounding differences.
+
+These values do not indicate a real visual font-size change. They are only a mathematical side effect of converting text metrics between PowerPoint and HTML.
+
 **How should I choose baseUri for media export?**
 
 Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with a Java file URI. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same resource location.
