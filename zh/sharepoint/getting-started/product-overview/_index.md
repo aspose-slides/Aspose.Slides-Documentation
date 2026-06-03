@@ -4,21 +4,14 @@ type: docs
 weight: 10
 url: /zh/sharepoint/product-overview/
 ---
+![Aspose.Slides for SharePoint](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **欢迎使用 Aspose.Slides for SharePoint!**
 
-![todo:image_alt_text](product-overview_1)
+Aspose.Slides for SharePoint 是一个灵活的解决方案，能够在 Microsoft SharePoint 站点中转换 PowerPoint® 文档。
 
-**欢迎使用 Aspose.Slides for SharePoint！**
+## **产品概述**
 
-Aspose.Slides for SharePoint 是一个灵活的解决方案，使您能够在 Microsoft SharePoint 站点内转换 PowerPoint® 文档。
-
-
-
-
-
-{{% /alert %}} 
-### **产品概述**
 Aspose.Slides for SharePoint 支持多种 PowerPoint 文档格式：
 
 - PPT – Microsoft PowerPoint 演示文稿 97 - 2003
@@ -28,16 +21,16 @@ Aspose.Slides for SharePoint 支持多种 PowerPoint 文档格式：
 - PPSX – Office Open XML 幻灯片放映
 - POTX – Office Open XML 模板
 
-Aspose.Slides for SharePoint 旨在与以下产品配合使用：
+Aspose.Slides for SharePoint 旨在与以下产品一起使用：
 
 - Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) 标准版
-- Microsoft Office SharePoint Server 2007 (MOSS) 企业版
+- Microsoft Office SharePoint Server 2007 (MOSS) Standard
+- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
 - Microsoft Office SharePoint Server 2013
 - Microsoft Office SharePoint Server 2019
 
-除了上述产品外，没有其他系统要求。
+除上述产品的系统要求外，无其他额外的系统需求。
 
-**使用 Aspose.Slides for SharePoint 从 SharePoint 的文档库转换文档** 
+**使用 Aspose.Slides for SharePoint 将文档从 SharePoint 的文档库中转换** 
 
-![todo:image_alt_text](product-overview_2.png)
+![SharePoint 文档库](product-overview_2.png)

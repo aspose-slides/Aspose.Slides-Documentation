@@ -4,28 +4,27 @@ type: docs
 weight: 10
 url: /ja/reportingservices/product-overview/
 ---
+![Aspose.Slides for Reporting Services](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **Aspose.Slides for Reporting Servicesへようこそ！**
 
-![todo:image_alt_text](product-overview_1.png)
-### **Aspose.Slides for Reporting Services ドキュメントへようこそ！**
-Aspose.Slides for Reporting Services は、Microsoft SQL Server 2005、2008、2012、2016 および 2017 Reporting Services (32ビットおよび 64ビット) で真の PPT および PPS レポートを生成できる唯一のソリューションです。テーブル、マトリックス、チャート、画像を含むすべての RDL レポート機能は、Microsoft PowerPoint プレゼンテーションに対して最高の精度で変換されます。
+Aspose.Slides for Reporting Servicesは、市場で唯一、Microsoft SQL Server 2005、2008、2012、2016、2017 Reporting Services（32ビットおよび64ビット）で実際のPPTおよびPPSレポートを生成できるソリューションです。テーブル、マトリックス、チャート、画像などのすべてのRDLレポート機能が、最高精度でMicrosoft PowerPointプレゼンテーションに変換されます。
 
-{{% /alert %}} 
-### **製品概要**
-Microsoft SQL Server Reporting Services には、レポートを Microsoft PowerPoint プレゼンテーションとしてエクスポートするための組み込み機能がありませんが、サーバーに Aspose.Slides for Reporting Services をインストールすると、追加のエクスポート形式にアクセスできます。
+## **製品概要**
 
-- PPT - Aspose.Slidesによる PowerPoint プレゼンテーション
-- PPS - Aspose.Slidesによる PowerPoint スライドショー
-- PPTX - Aspose.Slidesによる PowerPoint 2007 プレゼンテーション
-- PPSX - Aspose.Slidesによる PowerPoint 2007 スライドショー
+Microsoft SQL Server Reporting Services には、レポートをMicrosoft PowerPointプレゼンテーションとしてエクスポートする組み込み機能がありませんが、サーバーに Aspose.Slides for Reporting Services をインストールすると、追加のエクスポート形式が利用可能になります：
 
-Aspose.Slides for Reporting Services は、Microsoft PowerPoint を使用せずにサーバー上でプレゼンテーションを作成します。Aspose.Slides for Reporting Services は内部で Aspose.Slides for .NET を使用しており、サーバーサイドのプレゼンテーション処理のための世界クラスのコンポーネントです。
+- PPT - Aspose.Slides を使用した PowerPoint プレゼンテーション
+- PPS - Aspose.Slides を使用した PowerPoint スライドショー
+- PPTX - Aspose.Slides を使用した PowerPoint 2007 プレゼンテーション
+- PPSX - Aspose.Slides を使用した PowerPoint 2007 スライドショー
 
-**Aspose.Slides for Reporting Services は、任意のレポートを PPT、PPS、PPTX または PPSX 形式でエクスポートすることを可能にします。** 
+Aspose.Slides for Reporting Services は、Microsoft PowerPoint を使用せずにサーバー上でプレゼンテーションを作成します。内部では Aspose.Slides for .NET を使用しており、サーバーサイドのプレゼンテーション処理に特化した世界クラスのコンポーネントです。
 
-![todo:image_alt_text](product-overview_2.png)
+**Aspose.Slides for Reporting Services を使用すると、任意のレポートを PPT、PPS、PPTX、PPSX 形式でエクスポートできます。** 
 
-**Aspose.Slides for Reporting Services は、PPT ファイルとしてレポートをエクスポートしました。** 
+![エクスポートされたレポート形式](product-overview_2.png)
 
-![todo:image_alt_text](product-overview_3.png)
+**Aspose.Slides for Reporting Services はレポートを PPT ファイルとしてエクスポートしました。** 
+
+![エクスポートされたレポート](product-overview_3.png)

@@ -4,134 +4,122 @@ type: docs
 weight: 10
 url: /de/nodejs-net/product-overview/
 ---
-
-![todo:image_alt_text](aspose_slides-for-nodejs-via-net.png)
+![Aspose.Slides für Node.js via .NET](aspose_slides-for-nodejs-via-net.png)
 
 ## **Produktbeschreibung**
-Aspose.Slides für Node.js über .NET ist eine plattformübergreifende Klassenbibliothek, die es Ihren Anwendungen ermöglicht, eine Vielzahl von Dokumentverarbeitungsaufgaben ohne Microsoft PowerPoint® durchzuführen.
 
-### Warum Sie Aspose.Slides für Node.js über .NET verwenden sollten
+Aspose.Slides für Node.js via .NET ist eine plattformübergreifende Klassenbibliothek, die es Ihren Anwendungen ermöglicht, eine Vielzahl von Dokumentenverarbeitungsaufgaben auszuführen, ohne Microsoft PowerPoint® zu verwenden.
 
-- Aspose.Slides für Node.js über .NET ist das erste und einzige Modul, das die Funktionen bietet, die zur Verwaltung von PowerPoint®-Dokumenten erforderlich sind.
-- Aspose.Slides für Node.js über .NET bietet viele wichtige Funktionen, wie die Verwaltung von Texten, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschau von Folien, das Exportieren von Folien in SVG, PDF und andere Formate und viele weitere Möglichkeiten.
-- Aspose.Slides für Node.js über .NET ermöglicht es Ihnen nicht nur, PowerPoint-Dateien aus verschiedenen Quellen zu öffnen, sondern auch Ihre Präsentationen auf vielfältige Weise zu speichern. Beispielsweise können Sie Ihre Präsentationen in PPT speichern; Sie können auch Ihre Folien als Bilder speichern.
-- Aspose.Slides für Node.js über .NET bietet Ihnen fast alle Funktionen, die Sie möglicherweise in Microsoft PowerPoint finden oder nicht finden. Angesichts der Vielseitigkeit von Aspose.Slides für Node.js über .NET können Sie neben Tabellen und verschiedenen Arten von Formen auch verschiedene Arten von Rahmen—Text-, Audio- und Video-Rahmen—zu Ihren Folien hinzufügen.
+### **Warum Sie Aspose.Slides für Node.js via .NET verwenden sollten**
 
-## **Aspose.Slides-Funktionen**
+- Aspose.Slides für Node.js via .NET ist die erste und einzige Komponente, die die Funktionen zum Verwalten von PowerPoint®‑Dokumenten bereitstellt.  
+- Aspose.Slides für Node.js via .NET bietet zahlreiche wichtige Funktionen wie das Verwalten von Texten, Formen, Tabellen & Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien nach SVG, PDF und anderen Formaten sowie viele weitere Möglichkeiten.  
+- Aspose.Slides für Node.js via .NET ermöglicht nicht nur das Öffnen von PowerPoint‑Dateien aus verschiedenen Quellen, sondern auch das Speichern Ihrer Präsentationen auf vielfältige Weise. Beispielsweise können Sie Ihre Präsentationen im PPT‑Format speichern; Sie können Ihre Folien zudem als Bilder speichern.  
+- Aspose.Slides für Node.js via .NET stellt nahezu alle Funktionen bereit, die Sie in Microsoft PowerPoint finden – und teilweise sogar mehr. Neben Tabellen und unterschiedlichen Formen können Sie damit verschiedene Rahmen‑Typen — Text‑, Audio‑ und Video‑Frames — zu Ihren Folien hinzufügen.  
 
-Die Funktionen von Aspose.Slides für Node.js über .NET können in folgende Gruppen unterteilt werden:
+## **Aspose.Slides‑Funktionen**
 
-- Präsentationsfunktionen.
-- Folienfunktionen.
-- Grafik- und Multimediafunktionen.
-- Tabellenfunktionen.
-- Text- und Absatzfunktionen.
-- Erweiterte Funktionen.
+Die Funktionen von Aspose.Slides für Node.js via .NET lassen sich in folgende Gruppen einteilen:
+
+- Präsentationsfunktionen  
+- Folienfunktionen  
+- Grafik‑ und Multimedia‑Funktionen  
+- Tabellenfunktionen  
+- Text‑ & Absatz‑Funktionen  
+- Erweiterte Funktionen  
 
 ### **Präsentationsfunktionen**
 
-- Öffnen von Microsoft PowerPoint-Präsentationen aus verschiedenen Quellen.
-- Speichern von Präsentationen in verschiedenen Microsoft PowerPoint-Formaten.
-- Erstellen von Präsentationen von Grund auf.
-- Konvertieren von Präsentationen in PDF-Dokumente, ohne andere Komponenten zu verwenden.
-- Lesen oder Ändern der Dokumenteigenschaften einer Präsentation.
-- Anwenden von Schutz auf Präsentationen.
-- Exportieren von Präsentationen in PDF.
-- Exportieren von Präsentationen in TIFF.
-- Exportieren von Präsentationen in XPS.
-- Exportieren von Präsentationen in SWF.
-- Exportieren von Präsentationen in PDF-Notizen / TIFF-Notizen.
-- Exportieren von Präsentationen in HTML.
+- Öffnen von Microsoft PowerPoint‑Präsentationen aus verschiedenen Quellen  
+- Speichern von Präsentationen in verschiedenen Microsoft PowerPoint‑Formaten  
+- Erstellen von Präsentationen von Grund auf  
+- Konvertieren von Präsentationen in PDF‑Dokumente ohne Verwendung anderer Komponenten  
+- Lesen oder Ändern von Dokumenteigenschaften einer Präsentation  
+- Anwenden von Schutzmaßnahmen auf Präsentationen  
+- Exportieren von Präsentationen nach PDF  
+- Exportieren von Präsentationen nach TIFF  
+- Exportieren von Präsentationen nach XPS  
+- Exportieren von Präsentationen nach SWF  
+- Exportieren von Präsentationen nach PDF‑Notizen / TIFF‑Notizen  
+- Exportieren von Präsentationen nach HTML  
 
 ### **Folienfunktionen**
 
-- Erstellen neuer Folien von Grund auf und Hinzufügen zu Präsentationen.
-- Zugriff auf jede Folie über ihre Position in einer Präsentation.
-- Kopieren oder Klonen von Folien in dieselbe oder eine andere Präsentation.
-- Bearbeiten und Löschen von Folien.
-- Automatisches Kopieren von Masterfolien mit Folien.
-- Vorschau von Folien.
-- Abrufen oder Festlegen des Namens einer Folie.
-- Speichern von Folien als Bilder.
-- Exportieren von Folien im SVG-Format.
-- Arbeiten mit vielen Masterfolien in Präsentationen.
-- Füllen des Folienhintergrunds mit beliebigem unterstützten Stil.
-- Hinzufügen neuer oder Verwalten von Foliennotizen.
-- Dynamisches Festlegen neuer Folienmaster und -stile.
-- Hinzufügen oder Ändern von Folienübergängen.
-- Hinzufügen von Morphübergängen.
+- Erstellen neuer Folien von Grund auf und Hinzufügen zu Präsentationen  
+- Zugriff auf jede Folie über ihre Position in einer Präsentation  
+- Kopieren oder Klonen von Folien in derselben oder einer anderen Präsentation  
+- Bearbeiten und Löschen von Folien  
+- Kopieren von Master‑Folien inklusive zugehöriger Folien  
+- Vorschau von Folien  
+- Abrufen oder Festlegen des Namens einer Folie  
+- Speichern von Folien als Bilder  
+- Exportieren von Folien im SVG‑Format  
+- Arbeiten mit vielen Master‑Folien in Präsentationen  
+- Befüllen des Folienhintergrunds mit beliebigen unterstützten Stilen  
+- Hinzufügen oder Verwalten von Folien‑Notizen  
+- Dynamisches Festlegen neuer Folien‑Master und -Stile  
+- Hinzufügen oder Ändern von Folienübergängen  
+- Hinzufügen von Morph‑Übergängen  
 
-### **Grafik- und Multimediafunktionen**
+### **Grafik‑ & Multimedia‑Funktionen**
 
-- Erstellen oder Verwalten von Formen wie Linien, Rechtecken, Ellipsen und Polyline.
-- Verwalten von Linienstilen in Formen.
-- Abrufen des Alternativtexts einer Form.
-- Drehen von Flipformen.
-- Füllen von Formen in verschiedenen Stilen—zum Beispiel, solid, Gradient, Muster, Textur und Bild.
-- Verwenden eines der 48 vordefinierten Muster und 24 Texturen.
-- Zuweisen von Links zu Formen.
-- Lesen, Ändern und Hinzufügen neuer Animationseffekte zu Folien und Formen.
-- Hinzufügen neuer Bilder zu Präsentationen und Verwalten bestehender.
-- Hinzufügen neuer Bildlisten zu Präsentationen und Verwalten bestehender.
-- Hinzufügen neuer Audio-Rahmen zu Präsentationen und Verwalten bestehender.
-- Hinzufügen neuer Video-Rahmen zu Präsentationen und Verwalten bestehender.
+- Erstellen oder Verwalten von Formen wie Linien, Rechtecken, Ellipsen und Polylinien  
+- Verwalten von Linienstilen in Formen  
+- Abrufen des Alternativtexts einer Form  
+- Drehen und Spiegeln von Formen  
+- Befüllen von Formen mit verschiedenen Stilen — z. B. einfarbig, Verlauf, Muster, Textur und Bild  
+- Verwendung von 48 vordefinierten Mustern und 24 Texturen  
+- Zuweisen von Hyperlinks zu Formen  
+- Lesen, Ändern und Hinzufügen neuer Animationseffekte zu Folien und Formen  
+- Hinzufügen neuer Bilder zu Präsentationen und Verwalten vorhandener Bilder  
+- Hinzufügen neuer Bild‑Aufzählungszeichen zu Präsentationen und Verwalten vorhandener Aufzählungszeichen  
+- Hinzufügen neuer Audio‑Frames zu Präsentationen und Verwalten vorhandener Audio‑Frames  
+- Hinzufügen neuer Video‑Frames zu Präsentationen und Verwalten vorhandener Video‑Frames  
 
-### **Tabellenfunktionen**
+### **Tabellen‑Funktionen**
 
-- Erstellen von Tabellen von Grund auf und Hinzufügen zu Folien.
-- Ändern der Größe und Verschieben von Tabellen.
-- Zugriff auf jede Zelle in einer Tabelle.
-- Ändern des Formats und der Ränder jeder Zelle.
-- Ändern der Größe von Spalten und Zeilen.
-- Hinzufügen und Löschen von Spalten und Zeilen.
-- Festlegen der Randbreite und -farbe für die gesamte Tabelle.
+- Erstellen von Tabellen von Grund auf und Hinzufügen zu Folien  
+- Ändern von Größe und Position von Tabellen  
+- Zugriff auf jede Zelle einer Tabelle  
+- Ändern von Format und Rahmen jeder Zelle  
+- Ändern der Breite von Spalten und Zeilen  
+- Hinzufügen und Löschen von Spalten und Zeilen  
+- Festlegen von Rahmenbreite und -farbe für die gesamte Tabelle  
 
-### **Text- und Absatzfunktionen**
+### **Text‑ & Absatz‑Funktionen**
 
-- Abrufen und Festlegen von Texten in Textplatzhaltern und Textfeldern.
-- Abrufen des Typs eines Platzhalters.
-- Ändern der Textformatierung in einem Textfeld.
-- Hinzufügen neuer Schriftarten oder Verwalten der bereits in einer Präsentation verwendeten Schriftarten.
-- Ändern von Texten und Textformatierungen.
-- Erstellen oder Verwalten von Links zum Text.
-- Unterstützung von Tabs und effektiven Tabs.
-- Hinzufügen neuer Textfelder zu fast jeder Art von Form.
-- Zugriff auf und Ändern von Rändern und Textumbruch-Einstellungen von Textfeldern.
-- Zugriff auf und Ändern der Absatz-Einzüge.
+- Abrufen und Festlegen von Texten in Text‑Platzhaltern und Text‑Frames  
+- Ermitteln des Typs eines Platzhalters  
+- Ändern der Textformatierung in einem Text‑Frame  
+- Hinzufügen neuer Schriften oder Verwalten bereits genutzter Schriften in einer Präsentation  
+- Ändern von Texten und Textformatierung  
+- Erstellen oder Verwalten von Hyperlinks im Text  
+- Unterstützung von Tabulatoren und effektiven Tabulatoren  
+- Hinzufügen neuer Text‑Frames zu fast allen Formen  
+- Zugriff auf und Ändern von Rändern sowie Textumbruch‑Einstellungen von Text‑Frames  
+- Zugriff auf und Ändern von Absatz‑Einzügen  
 
 ### **Erweiterte Funktionen**
 
-- Zugriff auf OLE-Objekte, die in Präsentationen eingebettet sind.
-- Sperren von Präsentationen.
+- Zugriff auf in Präsentationen eingebettete OLE‑Objekte  
+- Sperren von Präsentationen  
 
 ## **Technischer Support**
 
-Aspose bietet unbegrenzten kostenlosen technischen Support für alle seine Produkte. Der Support steht allen Benutzern (einschließlich Benutzern mit Evaluierungspaketen) zur Verfügung. Wenn Sie Hilfe mit Aspose.Slides für Node.js über .NET benötigen, beachten Sie Folgendes:
+Aspose bietet unbegrenzten kostenfreien technischen Support für alle seine Produkte. Der Support steht allen Benutzern zur Verfügung (einschließlich Benutzern mit Evaluierungspaketen). Wenn Sie Hilfe zu Aspose.Slides für Node.js via .NET benötigen, beachten Sie Folgendes:
 
-- Der Hauptweg für Support ist das [Aspose-Forum](https://forum.aspose.com/). Stellen Sie Ihre Frage im [Aspose.Slides-Forum](https://forum.aspose.com/c/slides/11)—und sie wird innerhalb weniger Stunden beantwortet. Das Support-Team von Aspose.Slides antwortet direkt auf Fragen, die im Forum gestellt werden.
-- Bitte beachten Sie, dass Aspose keinen technischen Support telefonisch anbietet. Telefonischer Support ist nur für Verkaufs- und Kaufanfragen verfügbar.
-- Wenn Sie eine Antwort in den Foren erwarten, seien Sie bitte geduldig und berücksichtigen Sie Zeitunterschiede.
+- Der Hauptweg für Support ist das [Aspose-Forum](https://forum.aspose.com/). Stellen Sie Ihre Frage im [Aspose.Slides‑Forum](https://forum.aspose.com/c/slides/de/11) — und Sie erhalten innerhalb weniger Stunden eine Antwort. Das Aspose.Slides‑Support‑Team beantwortet Fragen, die im Forum gestellt werden, direkt.  
+- Bitte beachten Sie, dass Aspose keinen telefonischen technischen Support anbietet. Telefonischer Support ist nur für Verkaufs‑ und Kauffragen verfügbar.  
+- Wenn Sie auf eine Antwort im Forum warten, haben Sie bitte Geduld und berücksichtigen Sie Zeitzonenunterschiede.  
 
-Wenn Sie ein Problem mit Aspose.Slides für Node.js über .NET haben, befolgen Sie diese Richtlinien, um es auf die effizienteste Weise zu lösen:
+Wenn Sie ein Problem mit Aspose.Slides für Node.js via .NET haben, befolgen Sie diese Richtlinien, um es möglichst effizient zu lösen:
 
-- Überprüfen und bestätigen Sie zuerst, dass Sie die neueste Version von Aspose.Slides für Node.js über .NET verwenden, bevor Sie das Problem melden. Möglicherweise wurde das Problem, das Sie erlebt haben, bereits in einem Update behoben.
+- Überprüfen und bestätigen Sie zunächst, dass Sie die neueste Version von Aspose.Slides für Node.js via .NET verwenden, bevor Sie das Problem melden. Möglicherweise wurde das von Ihnen erlebte Problem bereits in einem Update behoben.  
 
-  Siehe [Aspose.Slides-Download](https://releases.aspose.com/slides/nodejs-net/), um Informationen zur neuesten Produktversion zu erhalten.
+  Siehe [Aspose.Slides‑Download](https://releases.aspose.com/slides/de/nodejs-net/) für Informationen zur neuesten Produktversion.  
 
-- Bevor Sie ein Problem melden, möchten Sie möglicherweise unsere Foren, diese Dokumentation und die API-Referenz durchgehen. Möglicherweise wurde die Antwort auf Ihre Frage bereits gegeben.
+- Bevor Sie ein Problem melden, sollten Sie unsere Foren, diese Dokumentation und die API‑Referenz durchsehen. Vielleicht wurde Ihre Frage bereits beantwortet.  
 
-- Bei der Meldung eines Problems fügen Sie bitte das Originaldokument und (wenn möglich) einen Fragment Ihres Codes zu, der das Problem betrifft. Wenn Sie mehrere Dateien anhängen müssen, packen Sie sie in ein ZIP-Paket.
+- Wenn Sie ein Problem melden, fügen Sie das Originaldokument und (wenn möglich) einen Code‑Auszug, der das Problem betrifft, bei. Wenn Sie mehrere Dateien anhängen müssen, packen Sie sie in ein ZIP‑Archiv.  
 
-  Sie können Ihre Dokumente sicher im Aspose-Forum anhängen, da nur Sie und die Entwickler von Aspose Zugriff auf die angehängten Dateien haben.
-
-- Erstellen und verwenden Sie einen Thread für ein bestimmtes Problem. Wenn Sie ein weiteres Problem haben, müssen Sie einen weiteren Thread erstellen, um es zu melden.
-
-Diese Tabelle listet wichtige technische Ressourcen für Aspose.Slides für Node.js über .NET auf.
-
-|**Ressource**|**Beschreibung**|
-| :- | :- |
-|[Aspose.Slides für Node.js über .NET-Startseite](https://products.aspose.com/slides/nodejs-net/)|Produktstartseite.|
-|[Aspose.Slide-Blog](https://blog.aspose.com/category/slides/)|Überprüfen Sie diese Seite regelmäßig auf Informationen zu neuen Versionen und nützlichen Tipps zu Aspose.Slides.|
-|[Aspose.Slides für Node.js über .NET-Download](https://releases.aspose.com/slides/nodejs-net/)|Laden Sie hier die neueste Version von Aspose.Slides herunter. Wir veröffentlichen oft neue Versionen.|
-|[Aspose.Slides-Supportforum](https://forum.aspose.com/c/slides/11)|Stellen Sie hier Ihre Fragen und Probleme für eine schnelle Lösung.|
-|[Aspose.Slides für Node.js über .NET-Produktdokumentation](/slides/de/nodejs-net/)|Umfassende Online-Dokumentation, die dieses Dokument und die Aspose.Slides API-Referenz enthält.|
+  Sie können Ihre Dokumente sicher im Aspose‑Forum hochladen, da nur Sie und die Aspose‑Entwickler Zugriff auf die ange
