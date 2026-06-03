@@ -5,12 +5,13 @@ weight: 10
 url: /python-java/product-overview/
 ---
 
-![todo:image_alt_text](aspose_slides-for-python-via-java.png)
+![Aspose.Slides for Python via Java](aspose_slides-for-python-via-java.png)
 
 ## **Product Description**
+
 Aspose.Slides for Python via Java is a cross-platform class library that enables your applications to perform a wide variety of document processing tasks without using Microsoft PowerPoint®.
 
-### Why You Should Use Aspose.Slides for Python via Java
+### **Why You Should Use Aspose.Slides for Python via Java**
 
 - Aspose.Slides for Python via Java is the first and only component that provides the functionalities required to manage PowerPoint® documents. 
 - Aspose.Slides for Python via Java offers a lot of key features such as managing texts, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and other formats, and many more capabilities. 
