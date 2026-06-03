@@ -356,6 +356,58 @@ This method converts WMF/EMF metafiles to raster PNG image in the cropping opera
 
 {{% /alert %}}
 
+## **Compress Images**
+
+You can compress a picture in a presentation using the [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/compressimage/) method.
+This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas.
+
+It adjusts the picture's size and resolution similarly to PowerPoint's **Picture Format -> Compress Pictures -> Resolution** feature.
+
+The following C++ examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
+
+```c++
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
+
+// Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
+bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+
+// Check the result of the compression.
+if (result)
+{
+    System::Console::WriteLine(u"Image successfully compressed.");
+}
+else
+{
+    System::Console::WriteLine(u"Image compression failed or no changes were necessary.");
+}
+
+presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Or using a custom DPI value directly:
+
+```c++
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
+
+// Compress the image to 150 DPI (web resolution), removing cropped areas.
+pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
+
+presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+{{% alert title="NOTE" color="warning" %}}
+
+The method converts the image to a lower resolution based on the shape's size and provided DPI. Cropped regions can also be deleted to optimize file size.
+If the image is a metafile (WMF/EMF) or SVG, compression will not be applied. Also, JPEG quality is preserved or slightly reduced based on resolution, similarly to how PowerPoint handles high-resolution JPEGs.
+
+{{% /alert %}}
+
 ## **Lock Aspect Ratio**
 
 If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [set_AspectRatioLocked()](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) method to set the *Lock Aspect Ratio* setting. 
