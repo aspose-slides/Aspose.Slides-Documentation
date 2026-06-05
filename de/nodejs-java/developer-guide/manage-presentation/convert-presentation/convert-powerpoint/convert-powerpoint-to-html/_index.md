@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Präsentationen mit JavaScript in HTML konvertieren
+title: PowerPoint-Präsentationen in Node.js in HTML konvertieren
 linktitle: PowerPoint zu HTML
 type: docs
 weight: 30
@@ -25,395 +25,308 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint-Präsentationen in responsives HTML konvertieren. Layout, Links und Bilder mit dem Aspose.Slides-Konvertierungsleitfaden für schnelle, fehlerfreie Ergebnisse erhalten."
+description: "PowerPoint-Präsentationen in Node.js nach HTML konvertieren. Verwenden Sie Aspose.Slides für Node.js über Java, um PPT- und PPTX-Dateien, ausgewählte Folien, Notizen, Schriftarten, Bilder, SVG und Medien zu exportieren."
 ---
-
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man eine PowerPoint‑Präsentation mit JavaScript in das HTML‑Format konvertiert. Er behandelt die folgenden Themen.
+Aspose.Slides for Node.js via Java kann PowerPoint‑Präsentationen ohne Microsoft PowerPoint als HTML speichern. Die Grundkonvertierung besteht aus einem einzelnen [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)-Ladevorgang und einem Aufruf von `save` mit [SaveFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/saveformat/). Verwenden Sie [HtmlOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/htmloptions/), wenn Sie das exportierte Layout, Schriftarten, Bilder, Notizen, Kommentare, SVG‑Ausgabe oder verknüpfte Ressourcen steuern müssen.
 
-- PowerPoint nach HTML in JavaScript konvertieren
-- PPT nach HTML in JavaScript konvertieren
-- PPTX nach HTML in JavaScript konvertieren
-- ODP nach HTML in JavaScript konvertieren
-- PowerPoint‑Folie nach HTML in JavaScript konvertieren
+Dieser Leitfaden konzentriert sich auf praktische HTML‑Export‑Szenarien:
 
-## **Java PowerPoint zu HTML**
+- Exportieren einer gesamten Präsentation oder ausgewählter Folien.
+- Erzeugen von festem Layout, responsive oder SVG‑basiertem HTML.
+- Einbinden von Referenten‑Notizen und Kommentaren.
+- Steuerung der Bildqualität und zugeschnittener Bilddaten.
+- Einbetten von Schriftarten oder getrenntes Speichern von Schriftartdateien.
+- Auswahl, wie externe Ressourcen und Mediendateien geschrieben und referenziert werden.
 
-Für Beispielcode in JavaScript zum Konvertieren von PowerPoint zu HTML siehe bitte den Abschnitt unten, d.h.[Convert PowerPoint to HTML](#convert-powerpoint-to-html). Der Code kann eine Reihe von Formaten wie PPT, PPTX und ODP im Presentation‑Objekt laden und in das HTML‑Format speichern.
+Standardmäßig erzeugt der HTML‑Export ein eigenständiges HTML‑Dokument, in dem die meisten Ressourcen eingebettet sind. Das ist praktisch zum Teilen einer einzigen Datei, kann jedoch die Ausgabengröße erhöhen. Für die Veröffentlichung im Web sollten Sie externe Ressourcen, niedrigere Bild‑DPI und das Einbetten nur jener Schriftarten in Betracht ziehen, die in der Zielumgebung nicht zuverlässig verfügbar sind.
 
-## **Über die Konvertierung von PowerPoint zu HTML**
+## **Konvertieren einer Präsentation nach HTML**
 
-Mit **Aspose.Slides for Node.js via Java** können Anwendungen und Entwickler eine PowerPoint‑Präsentation in HTML konvertieren: PPTX zu HTML oder PPT zu HTML.
+Um eine Präsentation nach HTML zu exportieren, laden Sie sie mit [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/) und speichern sie mit [SaveFormat.Html](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/saveformat/).
 
-**Aspose.Slides** bietet viele Optionen (hauptsächlich aus der [**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions)‑Klasse), die den PowerPoint‑zu‑HTML‑Konvertierungsprozess definieren:
-
-* Eine gesamte PowerPoint‑Präsentation nach HTML konvertieren.
-* Eine bestimmte Folie einer PowerPoint‑Präsentation nach HTML konvertieren.
-* Präsentationsmedien (Bilder, Videos usw.) nach HTML konvertieren.
-* Eine PowerPoint‑Präsentation in responsives HTML konvertieren.
-* Eine PowerPoint‑Präsentation nach HTML konvertieren, wobei Sprecher‑Notizen ein‑ oder ausgeschlossen werden.
-* Eine PowerPoint‑Präsentation nach HTML konvertieren, wobei Kommentare ein‑ oder ausgeschlossen werden.
-* Eine PowerPoint‑Präsentation nach HTML konvertieren, mit originalen oder eingebetteten Schriften.
-* Eine PowerPoint‑Präsentation nach HTML konvertieren, wobei der neue CSS‑Stil verwendet wird.
-
-{{% alert color="primary" %}} 
-
-Mit seiner eigenen API hat Aspose kostenlose [Präsentation‑zu‑HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)‑Konverter entwickelt: [PPT zu HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX zu HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP zu HTML](https://products.aspose.app/slides/conversion/odp-to-html), usw. 
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-Vielleicht möchten Sie sich weitere [kostenlose Konverter von Aspose](https://products.aspose.app/slides/conversion) ansehen.
-
-{{% /alert %}} 
-
-## **PowerPoint nach HTML konvertieren**
-Mit Aspose.Slides können Sie eine gesamte PowerPoint‑Präsentation folgendermaßen nach HTML konvertieren:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.
-1. Verwenden Sie die [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-)‑Methode, um das Objekt als HTML‑Datei zu speichern.
-
-Dieser Code zeigt, wie man eine PowerPoint‑Präsentation in JavaScript nach HTML konvertiert:
 ```javascript
-// Instanziiere ein Presentation-Objekt, das eine Präsentationsdatei darstellt
-var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var htmlOpt = new aspose.slides.HtmlOptions();
-    htmlOpt.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    htmlOpt.setHtmlFormatter(aspose.slides.HtmlFormatter.createDocumentFormatter("", false));
-    // Speichern der Präsentation als HTML
-    pres.save("ConvertWholePresentationToHTML_out.html", aspose.slides.SaveFormat.Html, htmlOpt);
+    presentation.save("presentation.html", aspose.slides.SaveFormat.Html);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Dieses Beispiel schreibt eine HTML‑Datei. Das Präsentationsobjekt wird im `finally`‑Block verworfen, wodurch Datei‑Handles und Rendering‑Ressourcen nach dem Export freigegeben werden.
 
-## **PowerPoint zu responsivem HTML konvertieren**
-Aspose.Slides stellt die Klasse [ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ResponsiveHtmlController) bereit, die das Erzeugen responsiver HTML‑Dateien ermöglicht. Dieser Code zeigt, wie man eine PowerPoint‑Präsentation in JavaScript zu responsivem HTML konvertiert:
+## **Verwenden von HtmlOptions**
+
+[HtmlOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/htmloptions/) ist die Hauptkonfigurationsklasse für den HTML‑Export. Häufig genutzte Einstellungen umfassen:
+
+- `SlidesLayoutOptions`: fügt Notizen, Kommentare, Handouts oder andere Layout‑Informationen hinzu.
+- `HtmlFormatter`: ändert die HTML‑Dokumentstruktur oder delegiert die Formatierung an einen Controller.
+- `SlideImageFormat`: legt fest, wie Folien dargestellt werden, z. B. als SVG.
+- `PicturesCompression`: steuert Bild‑DPI und Ausgabengröße.
+- `DeletePicturesCroppedAreas`: behält zugeschnittene Bilddaten bei oder entfernt sie.
+- `SvgResponsiveLayout`: lässt exportierten SVG‑Inhalt an seinen Container anpassen.
+- `ShowHiddenSlides`: schließt versteckte Folien bei Bedarf ein.
+
+Die folgenden Abschnitte zeigen die gebräuchlichsten Optionen einzeln, sodass Sie nur die Kombinationen auswählen können, die Ihr Workflow benötigt.
+
+## **Ausgewählte Folien nach HTML konvertieren**
+
+Die `Presentation.save`‑Überladung, die Foliennummern akzeptiert, verwendet 1‑basierte Folienpositionen. Die nachfolgende Schleife speichert jede Folie in einer separaten HTML‑Datei.
+
 ```javascript
-// Instanziiere ein Presentation-Objekt, das eine Präsentationsdatei darstellt
-var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var controller = new aspose.slides.ResponsiveHtmlController();
-    var htmlOptions = new aspose.slides.HtmlOptions();
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(controller));
-    // Speichern der Präsentation als HTML
-    pres.save("ConvertPresentationToResponsiveHTML_out.html", aspose.slides.SaveFormat.Html, htmlOptions);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    let slideCount = presentation.getSlides().size();
+
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        let slideNumber = slideIndex + 1;
+        let slideNumbers = java.newArray("int", [slideNumber]);
+        let htmlFileName = "slide-" + slideNumber + ".html";
+
+        presentation.save(htmlFileName, slideNumbers, aspose.slides.SaveFormat.Html);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Verwenden Sie dieses Muster, wenn eine Website oder Anwendung für jede Folie eine eigene HTML‑Seite benötigt. Wenn jede Folie das gleiche Layout haben soll, erstellen Sie eine einzige [HtmlOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/htmloptions/)-Instanz und übergeben sie jedem `save`‑Aufruf.
 
-## **PowerPoint nach HTML mit Notizen konvertieren**
-Dieser Code zeigt, wie man eine PowerPoint‑Präsentation in JavaScript nach HTML mit Notizen konvertiert:
+## **Responsive HTML erzeugen**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/responsivehtmlcontroller/) liefert responsive HTML‑Ausgabe über [HtmlFormatter](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/htmlformatter/). Verwenden Sie ihn, wenn die exportierte Seite besser an die Browser‑Breite angepasst werden soll.
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var opt = new aspose.slides.HtmlOptions();
-    var options = opt.getNotesCommentsLayouting();
-    options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    // Speichern der Notizseiten
-    pres.save("Output.html", aspose.slides.SaveFormat.Html, opt);
+    let controller = new aspose.slides.ResponsiveHtmlController();
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-responsive.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Für ein SVG‑basiertes responsives Layout setzen Sie `SvgResponsiveLayout` auf [HtmlOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/htmloptions/). Dies ist nützlich, wenn der Folieninhalt als skalierbare SVG‑Markup exportiert wird.
 
-## **PowerPoint nach HTML mit Originalschriften konvertieren**
-Aspose.Slides stellt die Klasse [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController) bereit, die es ermöglicht, während der Konvertierung einer Präsentation nach HTML alle Schriftarten in die Präsentation einzubetten.
-
-Um zu verhindern, dass bestimmte Schriftarten eingebettet werden, können Sie ein Array mit Schriftartnamen an den parameterisierten Konstruktor der [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController)‑Klasse übergeben. Beliebte Schriftarten wie Calibri oder Arial müssen bei Verwendung in einer Präsentation nicht eingebettet werden, da die meisten Systeme diese bereits enthalten. Werden diese Schriftarten eingebettet, wird das resultierende HTML‑Dokument unnötig groß.
-
-Die [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController)‑Klasse unterstützt Vererbung und stellt die [WriteFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-aspose.slides.IHtmlGenerator-aspose.slides.IFontData-aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-)‑Methode bereit, die überschrieben werden soll.
 ```javascript
-var pres = new aspose.slides.Presentation("input.pptx");
-try {
-    // Standard-Schriften der Präsentation ausschließen
-    var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
-    var embedFontsController = new aspose.slides.EmbedAllFontsHtmlController(fontNameExcludeList);
-    var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(embedFontsController));
-    pres.save("input-PFDinDisplayPro-Regular-installed.html", aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **PowerPoint nach HTML mit hochqualitativen Bildern konvertieren**
-Standardmäßig gibt Aspose.Slides beim Konvertieren von PowerPoint zu HTML ein kleines HTML mit Bildern bei 72 DPI und gelöschten Beschnittbereichen aus. Um HTML‑Dateien mit höherwertigen Bildern zu erhalten, müssen Sie `96` an die `setPicturesCompression`‑Methode der `HtmlOptions`‑Klasse übergeben (d. h. `PicturesCompression.Dpi96`) oder höhere Werte verwenden.
-
-Dieser JavaScript‑Code zeigt, wie man eine PowerPoint‑Präsentation in HTML konvertiert und dabei hochqualitative Bilder mit 150 DPI erhält (d. h. `PicturesCompression.Dpi150`):
-```javascript
-var pres = new aspose.slides.Presentation("InputDoc.pptx");
-try {
-    var htmlOpts = new aspose.slides.HtmlOptions();
-    htmlOpts.setPicturesCompression(aspose.slides.PicturesCompression.Dpi150);
-    pres.save("OutputDoc-dpi150.html", aspose.slides.SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-Dieser Code in JavaScript zeigt, wie man HTML mit Bildern in voller Qualität ausgibt:
-```javascript
-var pres = new aspose.slides.Presentation("InputDoc.pptx");
-try {
-    var htmlOpts = new aspose.slides.HtmlOptions();
-    htmlOpts.setDeletePicturesCroppedAreas(false);
-    pres.save("Outputdoc-noCrop.html", aspose.slides.SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **Folie nach HTML konvertieren**
-Um eine bestimmte Folie einer PowerPoint‑Präsentation nach HTML zu konvertieren, müssen Sie dieselbe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑Klasse instanziieren (wie beim Konvertieren ganzer Präsentationen) und anschließend die [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-)‑Methode verwenden, um die Datei als HTML zu speichern. Die [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions)‑Klasse kann verwendet werden, um zusätzliche Konvertierungsoptionen anzugeben:
-
-Dieser JavaScript‑Code zeigt, wie man eine Folie einer PowerPoint‑Präsentation in HTML konvertiert:
-```javascript
-var pres = new aspose.slides.Presentation("Individual-Slide.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let htmlOptions = new aspose.slides.HtmlOptions();
-    htmlOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    
-    const CustomFormattingController = java.newProxy("com.aspose.slides.IHtmlFormattingController", {
-        writeDocumentStart: function(generator, presentation) {
+    htmlOptions.setSvgResponsiveLayout(true);
 
-        },
-
-        writeDocumentEnd: function(generator, presentation) {
-
-        },
-
-        writeSlideStart: function(generator, slide) {
-            const slideIndex = generator.getSlideIndex() + 1;
-            const slideHeaderHtml = `<div class="slide" name="slide" id="slide${slideIndex}">`;
-            generator.addHtml(slideHeaderHtml);
-        },
-
-        writeSlideEnd: function(generator, slide) {
-            const slideFooterHtml = "</div>";
-            generator.addHtml(slideFooterHtml);
-        },
-
-        writeShapeStart: function(generator, shape) {
-        },
-
-        writeShapeEnd: function(generator, shape) {
-        }
-    });
-    
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(CustomFormattingController));
-    // Datei speichern
-    for (var i = 0; i < pres.getSlides().size(); i++) {
-        pres.save(("Individual Slide" + (i + 1)) + "_out.html", java.newArray("int", [i + 1]), aspose.slides.SaveFormat.Html, htmlOptions);
-    }
+    presentation.save("presentation-svg-responsive.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Referenten‑Notizen und Kommentare einbinden**
 
-## **CSS und Bilder beim Exportieren nach HTML speichern**
-Mit neuen CSS‑Stildateien können Sie das Aussehen der HTML‑Datei, die aus dem PowerPoint‑zu‑HTML‑Konvertierungsprozess entsteht, leicht ändern. 
+Verwenden Sie [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notescommentslayoutingoptions/) über `HtmlOptions.setSlidesLayoutOptions`, um Referenten‑Notizen oder Kommentare einzubeziehen. Notizen und Kommentare sind standardmäßig ausgeblendet, es sei denn, Sie bestimmen deren Position.
 
-Der JavaScript‑Code in diesem Beispiel zeigt, wie Sie überschreibbare Methoden nutzen, um ein benutzerdefiniertes HTML‑Dokument mit einem Link zu einer CSS‑Datei zu erstellen:
+Angenommen, die Quellpräsentation enthält Referenten‑Notizen:
+
+![Slide with speaker notes in PowerPoint](slide_with_notes.png)
+
+Der folgende Code exportiert den Folieninhalt mit den Notizen unterhalb der Folie.
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var htmlController = java.newInstanceSync("CustomHeaderAndFontsController", "styles.css");
-    var options = new aspose.slides.HtmlOptions();
-    options.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(htmlController));
-    pres.save("pres.html", aspose.slides.SaveFormat.Html, options);
+    let layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+    layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setSlidesLayoutOptions(layoutOptions);
+
+    presentation.save("presentation-with-notes.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Sie müssen `CustomHeaderAndFontsController` in Java implementieren, kompilieren und in das Modulverzeichnis \aspose.slides.via.java\lib\ einbinden.
-Dieser Java‑Code zeigt, wie `CustomHeaderAndFontsController` implementiert wird:
-```java
-public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
-{
-    private final int m_basePath = 0;
+Das exportierte HTML enthält den Notizbereich:
 
-    // Benutzerdefinierte Kopfzeilenvorlage
-    final static String Header = "<!DOCTYPE html>\n" +
-            "<html>\n" +
-            "<head>\n" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-            "</head>";
+![HTML output with the slide and speaker notes](HTML_with_notes.png)
 
-    private final String m_cssFileName;
+Um Kommentare zu exportieren, setzen Sie `CommentsPosition`, z. B. auf `CommentsPositions.Right` oder `CommentsPositions.Bottom`. Wenn Sie nur Kommentare benötigen, lassen Sie `NotesPosition` weg. Wenn Sie sowohl Notizen als auch Kommentare benötigen, setzen Sie beide Eigenschaften.
 
-    public CustomHeaderAndFontsController(String cssFileName)
-    {
-        m_cssFileName = cssFileName;
-    }
+## **Bildqualität und zugeschnittene Bereiche steuern**
 
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.addHtml(String.format(Header, m_cssFileName));
-        writeAllFonts(generator, presentation);
-    }
+Der HTML‑Export kann Folienbilder komprimieren, um die Ausgabengröße zu verringern. Setzen Sie `PicturesCompression` auf einen Wert aus [PicturesCompression](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/picturescompression/), wenn Sie höhere Bildqualität benötigen.
 
-    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.addHtml("<!-- Embedded fonts -->");
-        super.writeAllFonts(generator, presentation);
-    }
-}
-```
-
-
-## **Alle Schriften verlinken beim Konvertieren einer Präsentation zu HTML**
-
-Wenn Sie Schriftarten nicht einbetten möchten (um die Größe des resultierenden HTML zu reduzieren), können Sie alle Schriften verlinken, indem Sie Ihre eigene Version des `LinkAllFontsHtmlController` implementieren. 
-
-Dieser JavaScript‑Code zeigt, wie man eine PowerPoint‑Präsentation nach HTML konvertiert, dabei alle Schriftarten verlinkt und „Calibri“ sowie „Arial“ ausschließt (da diese bereits im System vorhanden sind):
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Standard-Schriften der Präsentation ausschließen
-    var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
-    var linkcont = java.newInstanceSync("LinkAllFontsHtmlController", fontNameExcludeList, "C:/Windows/Fonts/");
-    var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(linkcont));
-    pres.save("pres.html", aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setPicturesCompression(aspose.slides.PicturesCompression.Dpi150);
+
+    presentation.save("presentation-dpi-150.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Standardmäßig können zugeschnittene Bildbereiche aus dem exportierten Ergebnis entfernt werden. Behalten Sie zugeschnittene Daten nur dann bei, wenn Benutzer diese verborgenen Bildteile wiederherstellen oder untersuchen müssen. Das Beibehalten kann die HTML‑Größe erhöhen.
 
-Sie müssen `LinkAllFontsHtmlController` in Java implementieren, kompilieren und in das Modulverzeichnis \aspose.slides.via.java\lib\ einbinden.
-Dieser Java‑Code zeigt, wie `LinkAllFontsHtmlController` implementiert wird:
-```java
-public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private final String m_basePath;
-
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
-    {
-        super(fontNameExcludeList);
-        m_basePath = basePath;
-    }
-
-    public void writeFont
-    (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            String fontStyle,
-            String fontWeight,
-            byte[] fontData)
-    {
-        try {
-            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // einige Pfadbereinigungen können erforderlich sein
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
-
-            generator.addHtml("<style>");
-            generator.addHtml("@font-face { ");
-            generator.addHtml("font-family: '" + fontName + "'; ");
-            generator.addHtml("src: url('" + path + "')");
-
-            generator.addHtml(" }");
-            generator.addHtml("</style>");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-}
-```
-
-
-## **PowerPoint nach HTML konvertieren**
-Dieser JavaScript‑Code zeigt, wie man eine PowerPoint‑Präsentation in responsives HTML konvertiert:
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var saveOptions = new aspose.slides.HtmlOptions();
-    saveOptions.setSvgResponsiveLayout(true);
-    pres.save("SomePresentation-out.html", aspose.slides.SaveFormat.Html, saveOptions);
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setDeletePicturesCroppedAreas(false);
+
+    presentation.save("presentation-with-cropped-areas.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **CSS hinzufügen**
 
-## **Mediendateien nach HTML exportieren**
-Mit Aspose.Slides for Node.js via Java können Sie Mediendateien wie folgt exportieren:
+Für einfaches Styling übergeben Sie einen CSS‑String an `HtmlFormatter.createDocumentFormatter`. Dadurch wird das umgebende HTML‑Dokument geändert, während Aspose.Slides weiterhin den Folieninhalt rendert.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑Klasse.
-1. Holen Sie sich eine Referenz zur Folie.
-1. Fügen Sie der Folie ein Video hinzu.
-1. Schreiben Sie die Präsentation als HTML‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Video zur Präsentation hinzufügt und anschließend als HTML speichert:
 ```javascript
-// Lade eine Präsentation
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var path = "./out/";
-    final var fileName = "ExportMediaFiles_out.html";
-    final var baseUri = "http://www.example.com/";
-    var videoData = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "my_video.avi"));
-    var video = pres.getVideos().addVideo(videoData);
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-    var controller = new aspose.slides.VideoPlayerHtmlController(path, fileName, baseUri);
-    // HTML-Optionen festlegen
-    var htmlOptions = new aspose.slides.HtmlOptions(controller);
-    var svgOptions = new aspose.slides.SVGOptions(controller);
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(controller));
-    htmlOptions.setSlideImageFormat(aspose.slides.SlideImageFormat.svg(svgOptions));
-    // Datei speichern
-    pres.save(fileName, aspose.slides.SaveFormat.Html, htmlOptions);
-} catch (e) {console.log(e);
+    let cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+    let formatter = aspose.slides.HtmlFormatter.createDocumentFormatter(cssRules, true);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-styled.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Für einen benutzerdefinierten Dokument‑Header, eine verknüpfte CSS‑Datei oder benutzerdefiniertes Markup um Folien und Formen herum verwenden Sie [HtmlFormatter](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/htmlformatter/) mit einem Formatierungs‑Controller.
+
+## **Schriftarten einbetten**
+
+Falls die Zielumgebung die in der Präsentation verwendeten Schriftarten nicht installiert hat, betten Sie die Schriftarten mit [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/embedallfontshtmlcontroller/) in das HTML ein. Das Einbetten verbessert die visuelle Treue, erhöht jedoch die Dateigröße.
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let fontNamesToExclude = java.newArray("java.lang.String", ["Arial"]);
+    let fontController = new aspose.slides.EmbedAllFontsHtmlController(fontNamesToExclude);
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(fontController);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-embedded-fonts.html", aspose.slides.SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Schließen Sie Schriftarten nur aus, wenn Sie sicher sind, dass die Ziel‑Browser oder -Systeme sie bereits bereitstellen. Für Marken‑ oder weniger verbreitete Schriftarten ist das Einbetten in der Regel sicherer.
+
+## **Statt Einbetten Schriftartdateien verlinken**
+
+Um die HTML‑Dateigröße zu reduzieren, können Sie Schriftartdaten in separate WOFF‑Dateien schreiben und `@font-face`‑Regeln zum HTML hinzufügen. In Node.js via Java wird dieses Szenario typischerweise mit einer kleinen Java‑Hilfsklasse implementiert, die [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/embedallfontshtmlcontroller/) erweitert, Schriftbytes in ein Ausgabeverzeichnis schreibt und `@font-face`‑Regeln in das erzeugte HTML injiziert. Kompilieren Sie diese Hilfsklasse, fügen Sie sie dem Klassenpfad des Node.js‑Moduls hinzu und instanziieren Sie sie dann aus JavaScript mit `java.newInstanceSync`.
+
+Beim Erstellen einer solchen Hilfsklasse wählen Sie bewusst zwei Pfade:
+
+- Den Dateisystem‑Ausgabepfad, in dem die generierten Schriftdateien abgelegt werden.
+- Den URL‑Pfad, den der Browser aus dem HTML‑Dokument zum Laden dieser Schriftdateien verwendet.
+
+## **Ressourcen extern speichern**
+
+Ein eigenständiges HTML ist leicht zu verschieben, aber eingebettete Base64‑Ressourcen können die Datei groß machen. Wenn Ihre Anwendung externe Bild‑, Schrift‑, Audio‑ oder Videodateien benötigt, verwenden Sie einen Export‑Controller, der Ressourcen in ein gewähltes Verzeichnis schreibt und für den Browser sichtbare URLs erzeugt. Halten Sie den Dateisystem‑Pfad und den URL‑Pfad im Einklang mit Ihrem Bereitstellungs‑Layout.
+
+## **Mediendateien exportieren**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/videoplayerhtmlcontroller/) exportiert Video‑ und Audiodateien und erzeugt HTML, das sie im Browser abspielen kann. Sein Konstruktor erwartet:
+
+- `path`: das Verzeichnis, in das die generierten Mediendateien geschrieben werden.
+- `fileName`: der zu erzeugende HTML‑Dateiname.
+- `baseUri`: das absolute URI‑Präfix, das in den HTML‑Links zu den Mediendateien verwendet wird.
+
+Wenn die HTML‑Datei `html-output/presentation.html` heißt und Mediendateien in `html-output/media` gespeichert werden, sollte `path` auf das Medien‑Verzeichnis im Dateisystem zeigen, während `baseUri` aus Sicht des Browsers auf dasselbe Verzeichnis verweisen muss. Für eine lokale Vorschau können Sie aus dem Medien‑Verzeichnis eine `file:///`‑URI erstellen. Für eine bereitgestellte Anwendung verwenden Sie die absolute URL des veröffentlichten Medien‑Verzeichnisses.
+
+```javascript
+let fs = require("fs");
+let path = require("path");
+
+let outputDirectory = path.join(process.cwd(), "html-output");
+let mediaDirectory = path.join(outputDirectory, "media");
+fs.mkdirSync(mediaDirectory, { recursive: true });
+
+let htmlFileName = "presentation.html";
+let mediaBaseUri = "file:///" + mediaDirectory.replace(/\\/g, "/") + "/";
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let videoFilePath = path.join(process.cwd(), "intro.mp4");
+    let videoBytes = Array.from(fs.readFileSync(videoFilePath));
+    let videoData = java.newArray("byte", videoBytes);
+
+    let video = presentation.getVideos().addVideo(videoData);
+    let slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
+
+    let controller = new aspose.slides.VideoPlayerHtmlController(mediaDirectory, htmlFileName, mediaBaseUri);
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
+    let svgOptions = new aspose.slides.SVGOptions(controller);
+    let slideImageFormat = aspose.slides.SlideImageFormat.svg(svgOptions);
+
+    let htmlOptions = new aspose.slides.HtmlOptions(controller);
+    htmlOptions.setHtmlFormatter(formatter);
+    htmlOptions.setSlideImageFormat(slideImageFormat);
+
+    let htmlFilePath = path.join(outputDirectory, htmlFileName);
+    presentation.save(htmlFilePath, aspose.slides.SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Verwenden Sie Ausgabeverzeichnisse, die pro Export‑Job eindeutig sind, insbesondere in Server‑Anwendungen. Gemeinsame Ausgabe‑Pfade können dazu führen, dass Dateien verschiedener Konvertierungen überschrieben werden.
+
+## **Leistung und Ressourcenverwaltung**
+
+HTML‑Konvertierung ist ein Rendering‑Vorgang, sodass Verarbeitungszeit und Speicherverbrauch von Folienzahl, Bildauflösung, Schriftarten, Effekten, Diagrammen und eingebetteten Medien abhängen. Höhere `PicturesCompression`‑DPI‑Werte, eingebettete Schriftarten, SVG‑Ausgabe und beibehaltene zugeschnittene Bildbereiche können die Treue verbessern, erhöhen jedoch in der Regel die Ausgabengröße.
+
+Für Batch‑Konvertierung:
+
+- Verwerfen Sie jede [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)-Instanz zügig.
+- Nutzen Sie separate Ausgabeverzeichnisse für verschiedene Jobs.
+- Betten Sie gängige Schriftarten nur ein, wenn die Treue dies erfordert.
+- Reduzieren Sie die Bild‑DPI, wenn das HTML nur zur Vorschau oder für Thumbnails bestimmt ist.
+- Halten Sie Quellpräsentation, erzeugtes HTML und externe Ressourcen zusammen, bis die Bereitstellungspfade final sind.
 
 ## **FAQ**
 
-**Wie ist die Leistung von Aspose.Slides beim Konvertieren mehrerer Präsentationen nach HTML?**
+**Werden Hyperlinks im HTML‑Export erhalten?**
 
-Die Leistung hängt von Größe und Komplexität der Präsentationen ab. Aspose.Slides ist sehr effizient und skalierbar für Batch‑Operationen. Für optimale Leistung beim Konvertieren vieler Präsentationen wird empfohlen, Mehrfach‑Threading oder parallele Verarbeitung zu nutzen, wann immer möglich.
+Ja. Präsentations‑Hyperlinks werden nach HTML exportiert und bleiben anklickbar, solange die Ziel‑URL gültig ist.
 
-**Unterstützt Aspose.Slides das Exportieren von Hyperlinks nach HTML?**
+**Kann ich Präsentationen parallel nach HTML konvertieren?**
 
-Ja, Aspose.Slides unterstützt das vollständige Exportieren eingebetteter Hyperlinks nach HTML. Beim Konvertieren von Präsentationen nach HTML werden Hyperlinks automatisch erhalten und bleiben anklickbar.
+Ja, teilen Sie jedoch niemals eine [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)-Instanz zwischen Workern. Verarbeiten Sie verschiedene Dateien mit separaten Präsentations‑Instanzen, separaten Streams und separaten Ausgabeverzeichnissen. Siehe die [multithreading guidance](/slides/de/nodejs-java/multithreading/) für Details.
 
-**Gibt es eine Begrenzung der Folienzahl beim Konvertieren von Präsentationen nach HTML?**
+**Ist ein Presentation‑Objekt thread‑sicher?**
 
-Es gibt keine Begrenzung der Folienzahl bei der Verwendung von Aspose.Slides. Sie können Präsentationen jeder Größe konvertieren. Bei sehr großen Präsentationen kann die Leistung jedoch von den verfügbaren Ressourcen Ihres Servers oder Systems abhängen.
+Nein. Eine einzelne [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)-Instanz sollte in einem Worker geladen, verändert, gespeichert und verworfen werden. Für parallele Verarbeitung erstellen Sie pro Worker eine unabhängige Instanz.
+
+**Warum ist die erzeugte HTML‑Datei groß?**
+
+Der Standard‑Export kann Ressourcen direkt in das HTML einbetten. Eingebettete Schriftarten, hochauflösende Bilder, Medien, SVG‑Inhalt und beibehaltene zugeschnittene Bildbereiche erhöhen die Größe ebenfalls. Verwenden Sie externe Ressourcen, schließen Sie gängige Schriftarten vom Einbetten aus und reduzieren Sie `PicturesCompression`, wenn eine kleinere Ausgabe wichtiger ist als maximale Treue.
+
+**Wie soll ich baseUri für den Medien‑Export wählen?**
+
+Wählen Sie `baseUri` aus Sicht des Browsers und übergeben Sie ihn als absolute URI. Für lokale Vorschau können Sie ihn aus dem Ausgabeverzeichnis mit einer `file:///`‑URI ableiten. Für die Bereitstellung verwenden Sie die absolute URL des veröffentlichten Medien‑Verzeichnisses. Der Dateisystem‑`path` und der Browser‑`baseUri` müssen nicht dieselbe Zeichenkette sein, sie müssen jedoch denselben Ressourcenort beschreiben.
+
+**Kann ich versteckte Folien einbeziehen?**
+
+Ja. Setzen Sie `ShowHiddenSlides` auf `true` bei [HtmlOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/htmloptions/), wenn versteckte Folien exportiert werden müssen.

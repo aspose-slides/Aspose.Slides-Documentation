@@ -4,28 +4,27 @@ type: docs
 weight: 10
 url: /ru/reportingservices/product-overview/
 ---
+![Aspose.Slides for Reporting Services](product-overview_1.png)
 
-{{% alert color="primary" %}} 
+## **Добро пожаловать в Aspose.Slides for Reporting Services!**
 
-![todo:image_alt_text](product-overview_1.png)
-### **Добро пожаловать в документацию Aspose.Slides для Reporting Services!**
-Aspose.Slides для Reporting Services — единственное решение на рынке, которое позволяет генерировать настоящие отчеты PPT и PPS в Microsoft SQL Server 2005, 2008, 2012, 2016 и 2017 Reporting Services (32-разрядные и 64-разрядные). Все функции отчетов RDL, включая таблицы, матрицы, диаграммы и изображения, преобразуются с максимальной точностью в презентации Microsoft PowerPoint.
+Aspose.Slides for Reporting Services — единственное решение на рынке, позволяющее генерировать настоящие PPT и PPS отчеты в Microsoft SQL Server 2005, 2008, 2012, 2016 и 2017 Reporting Services (32-bit и 64-bit). Все функции RDL‑отчетов, включая таблицы, матрицы, диаграммы и изображения, конвертируются с высочайшей точностью в презентации Microsoft PowerPoint.
 
-{{% /alert %}} 
-### **Обзор продукта**
-Microsoft SQL Server Reporting Services не имеет встроенных возможностей для экспорта отчетов в виде презентаций Microsoft PowerPoint, но после установки Aspose.Slides для Reporting Services на ваш сервер вы получите доступ к дополнительным форматам экспорта:
+## **Обзор продукта**
 
-- PPT - Презентация PowerPoint через Aspose.Slides
-- PPS - Слайд-шоу PowerPoint через Aspose.Slides
-- PPTX - Презентация PowerPoint 2007 через Aspose.Slides
-- PPSX - Слайд-шоу PowerPoint 2007 через Aspose.Slides
+Microsoft SQL Server Reporting Services не имеет встроенных возможностей экспорта отчетов в презентации Microsoft PowerPoint, но после установки Aspose.Slides for Reporting Services на ваш сервер вы получаете доступ к дополнительным форматам экспорта:
 
-Aspose.Slides для Reporting Services создает презентации на сервере без использования Microsoft PowerPoint. Aspose.Slides для Reporting Services внутренне использует Aspose.Slides для .NET — компонент мирового класса для обработки презентаций на серверной стороне.
+- PPT - PowerPoint Presentation via Aspose.Slides
+- PPS - PowerPoint SlideShow via Aspose.Slides
+- PPTX - PowerPoint 2007 Presentation via Aspose.Slides
+- PPSX - PowerPoint 2007 SlideShow via Aspose.Slides
 
-**Aspose.Slides для Reporting Services делает возможным экспорт любого отчета в формат PPT, PPS, PPTX или PPSX.** 
+Aspose.Slides for Reporting Services создает презентации на сервере без использования Microsoft PowerPoint. Aspose.Slides for Reporting Services внутри использует Aspose.Slides for .NET – компонент мирового уровня для серверной обработки презентаций.
 
-![todo:image_alt_text](product-overview_2.png)
+**Aspose.Slides for Reporting Services делает возможным экспорт любого отчета в форматах PPT, PPS, PPTX или PPSX.** 
 
-**Aspose.Slides для Reporting Services экспортировал отчет в виде файла PPT.** 
+![Форматы экспортированных отчетов](product-overview_2.png)
 
-![todo:image_alt_text](product-overview_3.png)
+**Aspose.Slides for Reporting Services экспортировал отчет в файл PPT.** 
+
+![Экспортированный отчет](product-overview_3.png)

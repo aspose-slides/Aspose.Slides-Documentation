@@ -1,434 +1,445 @@
 ---
-title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية في Python
-linktitle: معادلات رياضية
+title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية باستخدام Python
+linktitle: معادلات الرياضيات في PowerPoint
 type: docs
 weight: 80
 url: /ar/python-net/powerpoint-math-equations/
 keywords:
 - معادلة رياضية
-- معادلة رياضية في PowerPoint
 - رمز رياضي
-- رمز رياضي في PowerPoint
 - صيغة رياضية
-- صيغة رياضية في PowerPoint
 - نص رياضي
-- نص رياضي في PowerPoint
-- إضافة معادلة رياضية إلى PowerPoint
-- إضافة رمز رياضي إلى PowerPoint
-- إضافة صيغة رياضية إلى PowerPoint
-- إضافة نص رياضي إلى PowerPoint
+- إضافة معادلة رياضية
+- إضافة رمز رياضي
+- إضافة صيغة رياضية
+- إضافة نص رياضي
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية التعامل مع المعادلات الرياضية في PowerPoint باستخدام Aspose.Slides للغة Python عبر .NET. احصل على تعليمات مفصلة، أمثلة على الشيفرة، ونصائح لأتمتة إنشاء وتعديل العروض التقديمية."
+description: "إدراج وتحرير المعادلات الرياضية في عروض PowerPoint بصيغ PPT و PPTX باستخدام Aspose.Slides لبايثون عبر .NET، مع دعم OMML، وضوابط التنسيق، وعينات شفرة بايثون واضحة."
 ---
-
 ## **نظرة عامة**
 
-في PowerPoint، يمكنك كتابة معادلة رياضية أو صيغة وعرضها في عرضك التقديمي. تتوفر مجموعة متنوعة من الرموز الرياضية ويمكن إضافتها إلى النص أو المعادلات. يُستخدم مُنشئ المعادلات الرياضية لإنشاء صيغ معقدة مثل:
+PowerPoint يخزن المعادلات بصيغة Office Math Markup Language (OMML). باستخدام Aspose.Slides for Python عبر .NET، يمكنك إنشاء نفس نوع المحتوى الرياضي برمجياً: الكسور، الجذور، الدوال، الحدود، العوامل N-ary، المصفوفات، المصفوفات المتعددة، وكتل الرياضيات المنسقة.
 
-- كسر رياضي
-- جذر رياضي
-- دالة رياضية
-- حدود وظائف اللوغاريتم
-- عمليات N-ary
-- مصفوفة
-- عمليات كبيرة
-- دوال sin, cos
+في PowerPoint، يضيف المستخدمون عادة المعادلات من **إدراج > معادلة**:
 
-لإضافة معادلة رياضية في PowerPoint، يُستخدم القائمة *Insert -> Equation*:
+![علامة تبويب إدراج في PowerPoint مع تحديد أمر المعادلة](powerpoint-math-equations_1.png)
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+النتيجة هي نص رياضي قابل للتحرير على الشريحة:
 
-سينشئ ذلك نصًا رياضيًا بصيغة XML يمكن عرضه في PowerPoint كما يلي:
+![شريحة PowerPoint تحتوي على معادلة رياضية قابلة للتحرير](powerpoint-math-equations_2.png)
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+Aspose.Slides يبني ذلك النص الرياضي من خلال ثلاثة كائنات رئيسية:
 
-يدعم PowerPoint مجموعة واسعة من الرموز الرياضية لإنشاء المعادلات. ومع ذلك، غالبًا ما لا ينتج عن توليد معادلات رياضية معقدة في PowerPoint نتيجة مصقولة ومهنية. وبالتالي، يلجأ المستخدمون الذين ينشئون عروضًا تقديمية رياضية بشكل متكرر إلى حلول طرف ثالث للحصول على صيغ رياضية ذات مظهر أفضل.
+- شكل رياضي، يتم إنشاؤه باستخدام [add_math_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_math_shape/)، هو الشكل الذي يحتوي على المعادلة.
+- [MathPortion](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathportion/) يخزن محتوى الرياضيات داخل إطار النص في الشكل.
+- [MathParagraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathparagraph/) يحتوي على كائن واحد أو أكثر من [MathBlock](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathblock/).
 
-باستخدام [**Aspose.Slides API**](https://products.aspose.com/slides/python-net/)، يمكنك التعامل مع المعادلات الرياضية في عروض PowerPoint برمجيًا بلغة Python. أنشئ تعبيرات رياضية جديدة أو حرر التعابير التي تم إنشاؤها مسبقًا. يتوفر دعم جزئي لتصدير الهياكل الرياضية كصور.
+معظم الأمثلة أدناه تستخدم [MathematicalText](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathematicaltext/) والطرق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/) لجعل الشيفرة قصيرة وسهلة القراءة.
 
-## **كيفية إنشاء معادلة رياضية**
+لسيناريوهات تصدير MathML، راجع [Export Math Equations from Presentations in Python via .NET](/slides/ar/python-net/exporting-math-equations/).
 
-تُستخدم العناصر الرياضية لبناء أي بنية رياضية، بغض النظر عن مستوى التعشيق. تشكل مجموعة خطية من هذه العناصر كتلة رياضية، تمثّلها فئة [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/). تمثّل فئة [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) تعبيرًا رياضيًا مستقلًا أو صيغة أو معادلة. تُستخدم فئة [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) لاحتواء نص رياضي (مختلف عن فئة [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) العادية)، بينما تسمح فئة [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) بالتعامل مع مجموعة من كائنات [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/). تُعد هذه الفئات أساسية للعمل مع معادلات PowerPoint الرياضية عبر Aspose.Slides API.
+## **إنشاء معادلة**
 
-لنرَ كيف يمكننا إنشاء المعادلة الرياضية التالية باستخدام Aspose.Slides API:
+هذا المثال ينشئ شكلاً رياضياً ويضيف نظرية فيثاغورس:
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
+![المعادلة c² = a² + b²](powerpoint-math-equations_3.png)
 
-لإضافة تعبير رياضي إلى الشريحة، أضف أولًا شكلًا سيحتوي على النص الرياضي:
 ```py
 import aspose.slides as slides
 import aspose.slides.mathtext as math
 
 with slides.Presentation() as presentation:
-    math_shape = presentation.slides[0].shapes.add_math_shape(0, 0, 720, 150)
-```
+    slide = presentation.slides[0]
 
-
-بعد إنشاء الشكل، يحتوي بالفعل على فقرة واحدة مع جزء رياضي بشكل افتراضي. تمثّل فئة [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) جزءًا يحتوي على نص رياضي. للوصول إلى المحتوى الرياضي داخل [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/)، ارجع إلى المتغيّر [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/):
-```py
-math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
-```
-
-
-تسمح فئة [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) بقراءة وإضافة وتحرير وحذف كتل رياضية ([MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/))، والتي تتكوّن من مجموعة من العناصر الرياضية. على سبيل المثال، أنشئ كسرًا وضعه في العرض التقديمي:
-```py
-fraction = math.MathematicalText("x").divide("y")
-math_paragraph.add(math.MathBlock(fraction))
-``` 
-
-```py
-math_block = (
-    math.MathematicalText("c").set_superscript("2").
-        join("=").
-        join(math.MathematicalText("a").set_superscript("2")).
-        join("+").
-        join(math.MathematicalText("b").set_superscript("2")))
-```
-
-
-تنفّذ عمليات فئة [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) في كل نوع من العناصر، بما في ذلك فئة [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/).
-
-فيما يلي عينة الشيفرة الكاملة:
-```py
-import aspose.slides as slides
-import aspose.slides.mathtext as math
-
-with slides.Presentation() as presentation:
-    math_shape = presentation.slides[0].shapes.add_math_shape(0, 0, 720, 150)
-
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
     math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
 
-    fraction = math.MathematicalText("x").divide("y")
+    equation = (
+        math.MathematicalText("c")
+        .set_superscript("2")
+        .join("=")
+        .join(math.MathematicalText("a").set_superscript("2"))
+        .join("+")
+        .join(math.MathematicalText("b").set_superscript("2"))
+    )
+
+    math_paragraph.add(equation)
+
+    presentation.save("pythagorean-theorem.pptx", slides.export.SaveFormat.PPTX)
+```
+
+{{% alert color="primary" %}}
+`add_math_shape` ينشئ شكلاً يحتوي مسبقاً على فقرة رياضية. احصل على أول `MathPortion`، ثم على `MathParagraph` الخاص به، وأضف كتل رياضية أو عناصر رياضية إليها.
+{{% /alert %}}
+
+## **إضافة كسور**
+
+استخدم [`divide`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/divide/) لإنشاء كسر. يمكنك اختيار نمط الكسر باستخدام [MathFractionTypes](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathfractiontypes/).
+
+![كسر مائل يُظهر 1 مقسومًا على x](powerpoint-math-equations_4.png)
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    fraction = math.MathematicalText("1").divide("x", math.MathFractionTypes.SKEWED)
+
     math_paragraph.add(math.MathBlock(fraction))
 
-    math_block = (
-        math.MathematicalText("c").set_superscript("2").
-            join("=").
-            join(math.MathematicalText("a").set_superscript("2")).
-            join("+").
-            join(math.MathematicalText("b").set_superscript("2")))
-
-    math_paragraph.add(math_block)
-
-    presentation.save("math.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+لإنشاء كسر مكدس، استخدم `MathFractionTypes.BAR`:
 
-## **أنواع العناصر الرياضية**
-
-تُكوّن التعبيرات الرياضية سلاسل من العناصر الرياضية. تمثّل الكتلة الرياضية مثل هذه السلاسل، وتشكل وسائط هذه العناصر بنية شجرية متعشّقة.
-
-هناك العديد من أنواع العناصر الرياضية التي يمكن استخدامها لبناء كتلة رياضية. يمكن تجميع كل من هذه العناصر داخل أخرى، لتشكيل بنية شجرية. أبسط نوع من العناصر هو ذلك الذي لا يحتوي على أي عناصر نصية رياضية أخرى.
-
-كل نوع من العناصر الرياضية يطبّق فئة [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)، مما يتيح لك استخدام مجموعة مشتركة من عمليات الرياضيات على أنواع مختلفة من العناصر.
-
-### **فئة MathematicalText**
-
-تمثّل فئة [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) نصًا رياضيًا — العنصر الأساسي لجميع البنى الرياضية. قد يمثل النص الرياضي معاملات ومشغّلات، أو متغيّرات، أو أي نص خطي آخر.
-
-مثال: 𝑎=𝑏+𝑐
-
-### **فئة MathFraction**
-
-تحدد فئة [MathFraction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfraction/) كائن كسر يتكوّن من بسط ومقام مفصولين بشريط كسر. يمكن أن يكون شريط الكسر أفقيًا أو مائلًا حسب خصائص الكسر. يُستخدم كائن الكسر أيضًا لتمثيل دالة المكدس، التي تضع عنصرًا فوق آخر دون شريط كسر.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_4.png)
-
-### **فئة MathRadical**
-
-تحدد فئة [MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) دالة الجذر (الجذر الرياضي)، وتتكوّن من أساس ودرجة اختيارية.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_5.png)
-
-### **فئة MathFunction**
-
-تحدد فئة [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) دالة لوسيط. تحتوي على خصائص مثل [name](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/name/)، التي تمثّل اسم الدالة، و[base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/base/)، التي تمثّل وسيط الدالة.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_6.png)
-
-### **فئة MathNaryOperator**
-
-تحدد فئة [MathNaryOperator](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperator/) كائنًا رياضيًا N-ary، مثل المجموع أو التكامل. يتكوّن من مشغّل، أساس (أو معامل)، وحدود علوية وسفلية اختيارية. تشمل أمثلة المشغّلات N-ary: Summation، Union، Intersection، Integral.
-
-هذه الفئة لا تشمل المشغّلات البسيطة مثل الجمع والطرح، التي تمثّل بنص واحد في فئة [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/).
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_7.png)
-
-### **فئة MathLimit**
-
-تُنشئ فئة [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) الحد العلوي أو السفلي. تحدد كائن الحد النص على الخط الأساسي والنص المصغر مباشرةً فوقه أو تحته. لا يتضمن هذا العنصر كلمة "lim"، بل يسمح لك بوضع نص في أعلى أو أسفل التعبير.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-يُنشأ باستخدام مزيج من فئتي [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) و[MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/):
 ```py
-function_name = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑥→∞"))
-math_function = math.MathFunction(function_name, math.MathematicalText("𝑥"))
+stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
+## **إضافة جذور**
 
-### **فئات MathSubscriptElement، MathSuperscriptElement، MathRightSubSuperscriptElement، MathLeftSubSuperscriptElement**
+استخدم [`radical`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/radical/) لإنشاء جذر تربيعي، أو جذر مكعب، أو أي جذر آخر. العنصر الحالي يصبح الأساس، والوسيط يصبح الدرجة.
 
-- [MathSubscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsubscriptelement/)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsuperscriptelement/)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathleftsubsuperscriptelement/)
+![تعبير جذري من الدرجة n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
 
-تحدد هذه الفئات موضعًا سفليًا أو علويًا. يمكنك تعيين كل من الأسفل والعلو في الوقت نفسه على الجانب الأيمن أو الأيسر للوسيط، لكن يُدعم موضع واحد فقط على الجانب الأيمن. يمكن أيضًا استخدام [MathSubscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsubscriptelement/) لتعيين درجة عددية.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_9.png)
-
-### **فئة MathMatrix**
-
-تحدد فئة [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) كائن المصفوفة، الذي يتكوّن من عناصر فرعية مرتّبة في صفوف وأعمدة. تجدر الإشارة إلى أنّ المصفوفات لا تحتوي على محددات مدمجة؛ لإحاطة المصفوفة بأقواس، استخدم كائن المحدِّد [MathDelimiter](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/). يمكن استخدام الوسائط الفارغة لإنشاء فجوات في المصفوفات.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_10.png)
-
-### **فئة MathArray**
-
-تحدد فئة [MathArray](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/) مصفوفة رأسية من المعادلات أو أي كائنات رياضية.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_11.png)
-
-### **تنسيق العناصر الرياضية**
-
-- فئة [MathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/): ترسم حدًا مستطيلاً أو بديلاً حول [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/).
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_12.png)
-
-- فئة [MathBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathbox/): تحدد تغليفًا منطقيًا لكائن رياضي. يمكن أن يعمل الكائن المغلق كمحاكي مشغّل — مع أو بدون نقطة محاذاة — أو كفاصل سطر، أو يُجمّع لمنع كسر السطر داخله. على سبيل المثال، يجب تغليف المشغّل "==" لمنع كسر السطر.
-
-- فئة [MathDelimiter](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/): تحدد كائن المحدِّد، الذي يتكوّن من حرفي فتح وإغلاق (مثل الأقواس أو الأقواس المعقوفة أو الأقواس المربعة أو الشرطيات العمودية) وعناصر رياضية واحدة أو أكثر داخلها، مفصولة بحرف محدد.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_13.png)
-
-- فئة [MathAccent](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathaccent/): تحدد وظيفة اللكنة، التي تتكوّن من أساس وعلامة تشكيلية مركبة.
-
-مثال: 𝑎́.
-
-- فئة [MathBar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathBar/): تحدد وظيفة الشريط، التي تتكوّن من وسيلة أساسية وشريط أعلى أو أسفل.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_14.png)
-
-- فئة [MathGroupingCharacter](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathGroupingCharacter/): تحدد رمز تجميع يُوضع فوق أو تحت تعبير، عادةً لتسليط الضوء على العلاقات بين العناصر.
-
-مثال:
-
-![todo:image_alt_text](powerpoint-math-equations_15.png)
-
-## **العمليات الرياضية**
-
-كل عنصر رياضي وكل تعبير رياضي (عبر [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)) يطبّق فئة [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/). هذا يتيح لك إجراء عمليات على البنية الحالية وتكوين تعبيرات رياضية أكثر تعقيدًا. جميع العمليات لها مجموعتان من المعاملات: إما [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) أو سلاسل نصية. تُنشأ كائنات [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) ضمنيًا من السلاسل النصية عند استخدام معامل نصي. تُدرج العمليات الرياضية المتاحة في Aspose.Slides أدناه.
-
-### **طريقة Join**
-
-- [join(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/#str)
-- [join(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/#imathelement)
-
-تجمع هذه الطريقة عنصرًا رياضيًا وتشكل كتلة رياضية. مثال:
 ```py
-element1 = math.MathematicalText("x")
-element2 = math.MathematicalText("y")
-block = element1.join(element2)
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    radical = math.MathematicalText("x").radical("n")
+
+    math_paragraph.add(math.MathBlock(radical))
+
+    presentation.save("radical.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة الدوال والحدود**
 
-### **طريقة Divide**
+استخدم [`as_argument_of_function`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) أو [`function`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/function/) للدوال مثل `sin(x)`، `log(x)`، أو أسماء دوال مخصصة. للحدود، ضع `lim` في [MathLimit](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathlimit/) أو استخدم [`set_lower_limit`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
 
-- [divide(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#str)
-- [divide(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#imathelement)
-- [divide(String, MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#str-mathfractiontypes)
-- [divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#imathelement-mathfractiontypes)
+![حد x عندما يقترب x من ما لا نهاية](powerpoint-math-equations_8.png)
 
-تُنشئ هذه الطريقة كسرًا من النوع المحدد مع بسط ومقام محدد. مثال:
 ```py
-numerator = math.MathematicalText("x")
-fraction = numerator.divide("y", math.MathFractionTypes.LINEAR)
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    limit = (
+        math.MathematicalText("lim")
+        .set_lower_limit("x\u2192\u221E")
+        .function("x")
+    )
+
+    math_paragraph.add(math.MathBlock(limit))
+
+    presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+لإعطاء اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي:
 
-### **طريقة Enclose**
-
-- [enclose()](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/#)
-- [enclose(Char, Char)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/#char-char)
-
-تُحاط العنصر بأحرف محددة، مثل الأقواس أو أي أحرف إطار أخرى. مثال:
 ```py
-delimiter = math.MathematicalText("x").enclose('[', ']')
-delimiter2 = math.MathematicalText("elem1").join("elem2").enclose()
+custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
+## **إضافة عوامل N-ary والتكاملات**
 
-### **طريقة Function**
+استخدم [`nary`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/nary/) للجمعيات، الاتحادات، التقاطعات، وغيرها من العوامل الكبيرة. استخدم [`integral`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/integral/) للتكاملات. كلا الطريقتين تسمحان بتحديد الحدود السفلية والعلوية.
 
-- [function(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/#str)
-- [function(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/#imathelement)
+![جمعية مع حدود سفلية وعليا](powerpoint-math-equations_7.png)
 
-تستقبل دالة لوسيط باستخدام الكائن الحالي كاسم الدالة. مثال:
 ```py
-function = math.MathematicalText("sin").function("x")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    summation_base = (
+        math.MathematicalText("x")
+        .set_superscript("k")
+        .join(math.MathematicalText("a").set_superscript("n-k"))
+    )
+
+    summation = summation_base.nary(math.MathNaryOperatorTypes.SUMMATION, "k=0", "n")
+
+    math_paragraph.add(math.MathBlock(summation))
+
+    presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+العوامل N-ary مخصصة للعوامل الكبيرة ذات حدود اختيارية. تُضاف العوامل البسيطة مثل `+`، `-`، و`=` عادةً كـ `MathematicalText` وتُربط في التعبير.
 
-### **طريقة AsArgumentOfFunction**
+للتكامل، استخدم `integral`:
 
-- [as_argument_of_function(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [as_argument_of_function(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-
-تستقبل الدالة المحددة باستخدام المثيل الحالي كوسيط. يمكنك:
-
-- تحديد سلسلة كاسم الدالة، مثل "cos".
-- اختيار إحدى القيم المعرّفة مسبقًا في تعداد [MathFunctionsOfOneArgument](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunctionsofoneargument/) أو [MathFunctionsOfTwoArguments](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunctionsoftwoarguments/)، مثل `MathFunctionsOfOneArgument.ARC_SIN`.
-- اختيار مثيل [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/).
-
-مثال:
 ```py
-function_name = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑛→∞"))
-func1 = math.MathematicalText("2x").as_argument_of_function(function_name)
-func2 = math.MathematicalText("x").as_argument_of_function("sin")
-func3 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfOneArgument.SIN)
-func4 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfTwoArguments.LOG, "3")
+integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
+integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
 
+## **إضافة مصفوفات**
 
-### **طرق SetSubscript، SetSuperscript، SetSubSuperscriptOnTheRight، SetSubSuperscriptOnTheLeft**
+استخدم [MathMatrix](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathmatrix/) للصفوف والأعمدة. المصفوفات لا تتضمن أقواسًا افتراضيًا، لذا احط المصفوفة بالأقواس أو الأقواس المربعة أو الأقواس المعقوفة حسب الحاجة.
 
-- [set_subscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/#str)
-- [set_subscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/#imathelement)
-- [set_superscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/#str)
-- [set_superscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/#imathelement)
-- [set_sub_superscript_on_the_right(String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_right/#str-str)
-- [set_sub_superscript_on_the_right(IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_right/#imathelement-imathelement)
-- [set_sub_superscript_on_the_left(String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/#str-str)
-- [set_sub_superscript_on_the_left(IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/#imathelement-imathelement)
+![مصفوفة رياضية ذات صفين وخلية فارغة واحدة](powerpoint-math-equations_10.png)
 
-تحدد هذه الطرق أسفلًا وعلوًا. يمكنك تعيينهما معًا إما على اليمين أو على اليسار؛ ومع ذلك، يُدعم أسفل أو علو واحد فقط على الجانب الأيمن. يمكن أيضًا استخدام **Superscript** لتحديد درجة عددية.
-
-مثال:
 ```py
-script = math.MathematicalText("y").set_sub_superscript_on_the_left("2x", "3z")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    matrix = math.MathMatrix(2, 3)
+    matrix[0, 0] = math.MathematicalText("1")
+    matrix[0, 1] = math.MathematicalText("x")
+    matrix[1, 0] = math.MathematicalText("x")
+    matrix[1, 1] = math.MathematicalText("2")
+    matrix[1, 2] = math.MathematicalText("y")
+
+    math_paragraph.add(math.MathBlock(matrix))
+
+    presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة مصفوفات المعادلات**
 
-### **طريقة Radical**
+استخدم [`to_math_array`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/to_math_array/) عندما تحتاج إلى معادلات محاذاة أو مجموعة رأسية من التعابير.
 
-- [radical(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/#str)
-- [radical(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/#imathelement)
+![مصفوفة رياضية عمودية مع x فوق y](powerpoint-math-equations_11.png)
 
-تحدد هذه الطريقة الجذر الرياضي للدرجة المحددة بناءً على الوسيط المحدد.
-
-مثال:
 ```py
-radical = math.MathematicalText("x").radical("3")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 140)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    equation_array = (
+        math.MathematicalText("x")
+        .join("y")
+        .to_math_array()
+    )
+
+    math_paragraph.add(math.MathBlock(equation_array))
+
+    presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة الدوال المثلثية**
 
-### **طرق SetUpperLimit و SetLowerLimit**
+استخدم [`as_argument_of_function`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) عندما يكون الوسيط هو العنصر الحالي ويكون اسم الدالة معروفًا.
 
-- [set_upper_limit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/#str)
-- [set_upper_limit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/#imathelement)
-- [set_lower_limit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/#str)
-- [set_lower_limit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/#imathelement)
+![الدالة المثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
 
-تأخذ هذه الطرق حدًا علويًا أو سفليًا، حيث يشير "علوي" و"سفلي" إلى موقع الوسيط بالنسبة للأساس.
-
-دعنا ننظر إلى تعبير:
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-يمكن إنشاء مثل هذه التعبيرات من خلال دمج فئتي [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathFunction/) و[MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathLimit/) مع عمليات فئة [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)، على النحو التالي:
 ```py
-math_expression = math.MathematicalText("lim").set_lower_limit("x→∞").function("x")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    cosine = math.MathematicalText("2x").as_argument_of_function(
+        math.MathFunctionsOfOneArgument.COS
+    )
+
+    math_paragraph.add(math.MathBlock(cosine))
+
+    presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة المؤشرات السفلية والعلوية**
 
-### **طرق Nary و Integral**
+استخدم مساعدي المؤشر السفلي والعلوي للفهارس والقوى. عندما يجب أن تظهر الفهارس على الجانب الأيسر من الأساس، استخدم [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
 
-- [nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/#mathnaryoperatortypes-imathelement-imathelement)
-- [nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/#mathnaryoperatortypes-str-str)
-- [integral(MathIntegralTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes)
-- [integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-imathelement-imathelement)
-- [integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-str-str)
-- [integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-imathelement-imathelement-mathlimitlocations)
-- [integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-str-str-mathlimitlocations)
+![حرف Y كبير مع مؤشر سفلي 1 ومؤشر علوي n على الجانب الأيسر](powerpoint-math-equations_9.png)
 
-كلا الطريقتين `nary` و `integral` تنشئ وتعيد المشغّل N-ary الممثّل بنوع [MathNaryOperator](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperator/). في طريقة Nary، يحدِّد تعداد [MathNaryOperatorTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperatortypes/) نوع المشغّل—مثل الجمع أو الاتحاد—مستثنيًا التكاملات. في طريقة Integral، يُوفر عملية متخصصة للتكاملات باستخدام تعداد [MathIntegralTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathintegraltypes/).
-
-مثال:
 ```py
-base_arg = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
-integral = base_arg.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    scripts = math.MathematicalText("Y").set_sub_superscript_on_the_left("1", "n")
+
+    math_paragraph.add(math.MathBlock(scripts))
+
+    presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة محددات**
 
-### **طريقة ToMathArray**
+استخدم [`enclose`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/enclose/) لوضع تعبير داخل محددات. يمكنك أيضًا تعيين حرف فاصل لتعبيرات المحدد التي تحتوي على عدة عناصر.
 
-[to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) تضع العناصر في مصفوفة رأسية. إذا استُدعيَت هذه العملية على كائن [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)، فستُوضع جميع العناصر الفرعية في المصفوفة المُرجعة.
+![تعبير محدد يحتوي على x و y و z مفصولة بأعمدة رأسية](powerpoint-math-equations_13.png)
 
-مثال:
 ```py
-array_function = math.MathematicalText("x").join("y").to_math_array()
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    delimiter = (
+        math.MathematicalText("x")
+        .join("y")
+        .join("z")
+        .enclose("<", ">")
+    )
+    delimiter.separator_character = "|"
+
+    math_paragraph.add(math.MathBlock(delimiter))
+
+    presentation.save("delimiters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة صندوق حدودي**
 
-### **عمليات التنسيق: Accent، Overbar، Underbar، Group، ToBorderBox، ToBox**
+استخدم [`to_border_box`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/to_border_box/) عندما يجب أن تكون المعادلة نفسها محاطة بإطار.
 
-- طريقة [accent](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/accent/) تُضيف علامة تشديد (حرف فوق العنصر).
-- طريقتا [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) و[underbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/underbar/) تُضيف شريطًا فوق أو تحت العنصر.
-- طريقة [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) تُضع العنصر في مجموعة باستخدام رمز تجميع مثل القوس المعقوف السفلي أو غيره.
-- طريقة [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) تُضع العنصر في حد‑مستطيل.
-- طريقة [to_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_box/) تُضع العنصر في صندوق غير مرئي (تجميع منطقي).
+![معادلة محاطة بمربع تُظهر a² = b² + c²](powerpoint-math-equations_12.png)
 
-أمثلة:
 ```py
-accent = math.MathematicalText("x").accent(chr(0x0303))
-bar = math.MathematicalText("x").overbar()
-group_chr = math.MathematicalText("x").join("y").join("z").group(chr(0x23E1), 
-        math.MathTopBotPositions.BOTTOM, 
-        math.MathTopBotPositions.TOP)
-border_box = math.MathematicalText("x+y+z").to_border_box()
-boxed_operator = math.MathematicalText(":=").to_box()
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    boxed_equation = (
+        math.MathematicalText("a")
+        .set_superscript("2")
+        .join("=")
+        .join(math.MathematicalText("b").set_superscript("2"))
+        .join("+")
+        .join(math.MathematicalText("c").set_superscript("2"))
+        .to_border_box()
+    )
+
+    math_paragraph.add(math.MathBlock(boxed_equation))
+
+    presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **تجميع المصطلحات**
+
+استخدم [`group`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/group/) لوضع حرف تجميع أعلى أو أسفل تعبير. أضف حدًا لتسمية المصطلحات المجمعة.
+
+![التعبير x + y مجمّع مع تسمية أي نص تحته](powerpoint-math-equations_15.png)
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 120)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    grouped = (
+        math.MathematicalText("x + y")
+        .group(chr(0x23DF), math.MathTopBotPositions.BOTTOM, math.MathTopBotPositions.TOP)
+        .set_lower_limit("any text")
+    )
+
+    math_paragraph.add(math.MathBlock(grouped))
+
+    presentation.save("grouped-terms.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **تنسيق عناصر الرياضيات**
+
+استخدم مساعدات التنسيق فقط حيث توضح الصيغة. على سبيل المثال، [`overbar`](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/overbar/) يضع شريطًا فوق عنصر رياضي.
+
+![تعبير رياضي ABC مع شريط فوقه](powerpoint-math-equations_14.png)
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    overbar = math.MathematicalText("ABC").overbar()
+
+    math_paragraph.add(math.MathBlock(overbar))
+
+    presentation.save("overbar.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **مرجع سريع**
+
+| المهمة | واجهة برمجة التطبيقات الأساسية |
+| --- | --- |
+| إنشاء نص رياضي | [MathematicalText](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathematicaltext/) |
+| دمج العناصر | [IMathElement.join](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/join/) |
+| إنشاء كسور | [IMathElement.divide](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/divide/) |
+| إضافة أس أو أس سفلي | [set_superscript](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
+| إضافة دوال | [function](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
+| إضافة جذور | [radical](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/radical/) |
+| إضافة حدود | [set_lower_limit](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
+| إضافة مؤشرات على الجانب الأيسر | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
+| إضافة جمعيات وتكاملات | [nary](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/integral/) |
+| إضافة مصفوفات | [MathMatrix](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/mathmatrix/) |
+| إضافة مصفوفات المعادلات | [to_math_array](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
+| إضافة محددات | [enclose](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/enclose/) |
+| إضافة أشرطة وإطارات | [overbar](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
+| تجميع المصطلحات | [group](https://reference.aspose.com/slides/ar/python-net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني إضافة معادلة رياضية إلى شريحة PowerPoint؟**
+**هل يمكنني تعديل معادلة PowerPoint موجودة؟**
 
-لإضافة معادلة رياضية، تحتاج إلى [إنشاء شكل رياضي](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) يُضيف تلقائيًا جزءًا رياضيًا. بعد ذلك، احصل على [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) من [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) وأضف كائنات [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) إليه.
+نعم. افتح العرض التقديمي، ابحث عن الشكل الذي يحتوي على `MathPortion`، احصل على `MathParagraph` الخاص به، وقم بتحديث كتل الرياضيات في تلك الفقرة.
 
-**هل من الممكن إنشاء تعابير رياضية متداخلة معقدة؟**
+**هل تُحفظ المعادلات كرياضيات PowerPoint قابلة للتحرير؟**
 
-نعم، يتيح Aspose.Slides إنشاء تعابير رياضية معقدة عبر تعشيش [MathBlocks](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/). كل عنصر رياضي يسمح لك بتطبيق عمليات (Join، Divide، Enclose، إلخ) لدمج العناصر في تركيبات أكثر تعقيدًا.
+نعم. عند حفظ الملف كـ PPTX، يكتب Aspose.Slides المعادلة كـ Office Math قابل للتحرير.
 
-**كيف يمكنني تحديث أو تعديل معادلة رياضية موجودة؟**
+**هل يمكنني تصدير المعادلات إلى LaTeX؟**
 
-لتحديث معادلة، يجب الوصول إلى [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) الموجود عبر [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/). ثم، باستخدام طرق مثل Join، Divide، Enclose، وغيرها، يمكنك تعديل عناصر المعادلة الفردية. بعد التحرير، احفظ العرض لتطبيق التغييرات.
+Aspose.Slides يصدر المعادلات إلى MathML. إذا كنت تحتاج إلى LaTeX، قم أولاً بتصدير إلى MathML ثم حوّله إلى LaTeX باستخدام أداة تدعم صيغ LaTeX المستهدفة.

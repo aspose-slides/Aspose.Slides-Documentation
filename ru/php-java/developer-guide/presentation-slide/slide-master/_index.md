@@ -1,361 +1,375 @@
 ---
-title: Управление шаблонами слайдов презентации в PHP
-linktitle: Шаблон слайда
+title: Управление мастер‑слайдами презентации в PHP
+linktitle: Мастер‑слайд
 type: docs
 weight: 70
 url: /ru/php-java/slide-master/
 keywords:
-- шаблон слайда
 - мастер‑слайд
-- PPT мастер‑слайд
-- несколько мастер‑слайдов
+- мастер‑слайд
+- PPT-мастер‑слайд
+- множество мастер‑слайдов
 - сравнение мастер‑слайдов
 - фон
 - заполнитель
 - клонирование мастер‑слайда
-- копировать мастер‑слайд
-- дублировать мастер‑слайд
+- копирование мастер‑слайда
+- дублирование мастер‑слайда
 - неиспользуемый мастер‑слайд
 - PowerPoint
 - OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Управляйте шаблонами слайдов в Aspose.Slides для PHP через Java: создавайте, редактируйте и применяйте макеты, темы и заполнители к PPT, PPTX и ODP с лаконичными примерами."
+description: "Управление мастер‑слайдами в Aspose.Slides для PHP через Java: доступ, редактирование, клонирование, сравнение и удаление мастер‑слайдов в презентациях PowerPoint и OpenDocument."
 ---
+## **Обзор**
 
-## **Что такое Slide Master в PowerPoint**
+**Слайд‑мастер** определяет общие настройки дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фон, стили текста, параметры темы и параметры нижнего колонтитула. В PowerPoint редактирование слайд‑мастера — обычный способ поддерживать презентацию в едином стиле без повторения одинакового форматирования на каждом слайде.
 
-**Slide Master** — это шаблон слайда, который определяет макет, стили, тему, шрифты, фон и другие свойства слайдов в презентации. Если вы хотите создать презентацию (или серию презентаций) с одинаковым стилем и шаблоном для вашей компании, можете использовать Slide Master. 
+Aspose.Slides for PHP via Java поддерживает ту же модель. Презентация может содержать один или несколько мастер‑слайдов, каждый из которых может включать несколько слайдов‑разметки. Обычные слайды обычно не ссылаются напрямую на мастер‑слайд. Вместо этого обычный слайд использует слайд‑разметку, а эта разметка принадлежит мастер‑слайду.
 
-Slide Master полезен, потому что позволяет задать и изменить внешний вид всех слайдов презентации одновременно. Aspose.Slides поддерживает механизм Slide Master из PowerPoint. 
+Иерархия выглядит так:
 
-VBA также позволяет манипулировать Slide Master и выполнять те же операции, что поддерживаются в PowerPoint: менять фон, добавлять фигуры, настраивать макет и т.п. Aspose.Slides предоставляет гибкие механизмы для работы с Slide Master и выполнения базовых задач. 
+1. **Слайд‑мастер** – определяет общий дизайн и тему.  
+1. **Слайд‑разметка** – определяет конкретное расположение заполнителей и форматирование уровня разметки.  
+1. **Обычный слайд** – содержит фактическое содержимое презентации и использует одну слайд‑разметку.
 
-Это базовые операции с Slide Master:
+![Иерархия мастер‑слайдов, слайдов‑разметки и обычных слайдов](slide-master_2.jpg)
 
-- Создать Slide Master.
-- Применить Slide Master к слайдам презентации.
-- Изменить фон Slide Master. 
-- Добавить изображение, заполнитель, Smart Art и т.д. к Slide Master.
+В Aspose.Slides слайд‑мастер представлен классом [MasterSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslide/). Все мастер‑слайды в презентации доступны через метод [Presentation.getMasters](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#getMasters), который возвращает объект [MasterSlideCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslidecollection/).
 
-Это более продвинутые операции с Slide Master: 
-
-- Сравнение Slide Master.
-- Объединение Slide Master.
-- Применение нескольких Slide Master.
-- Копирование слайда с Slide Master в другую презентацию.
-- Поиск дублирующих Slide Master в презентациях.
-- Установка Slide Master как представления по умолчанию для презентации.
-
-{{% alert color="primary" %}} 
-
-Возможно, вам будет интересен Aspose [**Онлайн просмотрщик PowerPoint**](https://products.aspose.app/slides/viewer), поскольку это живой пример некоторых основных процессов, описанных здесь.
-
-{{% /alert %}} 
-
-
-## **Как применяется Slide Master**
-
-Прежде чем работать со Slide Master, имеет смысл понять, как они используются в презентациях и как применяются к слайдам. 
-
-* Каждая презентация имеет как минимум один Slide Master по умолчанию. 
-* Презентация может содержать несколько Slide Master. Вы можете добавить несколько Slide Master и использовать их для стилизации разных частей презентации разными способами. 
-
-В **Aspose.Slides** Slide Master представлен типом [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). 
-
-Объект Aspose.Slides [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) содержит список [**getMasters**](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters) типа [**MasterSlideCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/), в котором находятся все шаблоны слайдов, определённые в презентации.
-
-Помимо CRUD‑операций, класс [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) имеет полезные методы: [**addClone(LayoutSlide sourceLayout)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/#addClone) и [**insertClone(int index, MasterSlide sourceMaster)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/#insertClone). Эти методы наследуются от базовой функции клонирования слайдов, но при работе со Slide Master они позволяют реализовать сложные сценарии.
-
-Когда в презентацию добавляется новый слайд, к нему автоматически применяется Slide Master. По умолчанию выбирается Slide Master предыдущего слайда. 
-
-**Примечание**: Слайды презентации хранятся в списке [getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides), и каждый новый слайд добавляется в конец коллекции. Если презентация содержит единственный Slide Master, он будет выбран для всех новых слайдов. Поэтому не требуется явно задавать Slide Master для каждого нового слайда.
-
-Принцип тот же в PowerPoint и в Aspose.Slides. Например, в PowerPoint, когда вы добавляете новый слайд, достаточно нажать на строку под последним слайдом, и будет создан новый слайд (с тем же Slide Master, что и у предыдущего):
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-В Aspose.Slides то же действие можно выполнить методом [addClone(Slide sourceSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-
-
-## **Slide Master в иерархии Slides**
-
-Использование Slide Layout вместе со Slide Master обеспечивает максимальную гибкость. Slide Layout позволяет задать те же стили, что и Slide Master (фон, шрифты, фигуры и т.п.). Однако при комбинации нескольких Slide Layout на одном Slide Master появляется новый стиль. Применяя Slide Layout к отдельному слайду, вы можете изменить его стиль по сравнению со стилем, установленным Slide Master.
-
-Slide Master находится выше всех остальных элементов: Slide Master → Slide Layout → Slide:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Каждый объект [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) имеет свойство [**getLayoutSlides**](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getLayoutSlides) со списком Slide Layout. Тип [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) имеет свойство [**getLayoutSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/Slide/#getLayoutSlide), указывающее на применённый к слайду Slide Layout. Взаимодействие между слайдом и Slide Master происходит через Slide Layout.
-
-{{% alert color="info" title="Note" %}}
-
-* В Aspose.Slides все настройки слайда (Slide Master, Slide Layout и сам слайд) являются объектами, наследующими класс [**BaseSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide).
-* Поэтому Slide Master и Slide Layout могут содержать одинаковые свойства, и важно знать, как их значения применяются к объекту [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide). Сначала к слайду применяется Slide Master, затем — Slide Layout. Например, если и Slide Master, и Slide Layout задают фон, в результате будет использован фон из Slide Layout.
-
+{{% alert color="info" title="Inheritance" %}}
+Когда одно и то же свойство определено на нескольких уровнях, более конкретный уровень имеет приоритет. Например, если мастер‑слайд и слайд‑разметка оба задают фон, слайды, основанные на этой разметке, используют фон разметки. Подробнее о слайдах‑разметке см. в статье [Apply or Change Slide Layouts](/slides/ru/php-java/slide-layout/).
 {{% /alert %}}
 
+## **Доступ к мастер‑слайдам**
 
-## **Что содержит Slide Master**
+В PowerPoint вы можете открыть режим просмотра Слайд‑мастер через **View** > **Slide Master**.
 
-Чтобы понять, как можно изменять Slide Master, необходимо знать его составные части. Ниже перечислены основные свойства [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/).
+![Команда Слайд‑мастер на вкладке Вид в PowerPoint](slide-master_3.jpg)
 
-- [getBackground](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getBackground) — получить/установить фон слайда.
-- [getBodyStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getBodyStyle) — получить/установить стили текста тела слайда.
-- [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getShapes) — получить/установить все фигуры Slide Master (заполнители, рамки изображений и т.д.).
-- [getControls](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getControls) — получить/установить элементы управления ActiveX.
-- [getThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/#getThemeManager) — получить менеджер темы.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getHeaderFooterManager) — получить менеджер заголовков и нижних колонтитулов.
+В Aspose.Slides используйте метод `getMasters` для доступа к мастер‑слайдам:
 
-Методы Slide Master:
-
-- [getDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getDependingSlides) — получить все слайды, зависящие от данного Slide Master.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#applyExternalThemeToDependingSlides) — позволяет создать новый Slide Master на основе текущего и новой темы; новый Slide Master затем применяется ко всем зависимым слайдам.
-
-
-## **Получить Slide Master**
-
-В PowerPoint доступ к Slide Master осуществляется через меню View → Slide Master:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-В Aspose.Slides доступ к Slide Master выглядит так: 
 ```php
-  $pres = new Presentation();
-  try {
-    # Предоставляет доступ к мастер-слайду презентации
-    $masterSlide = $pres->getMasters()->get_Item(0);
-  } finally {
-    $pres->dispose();
-  }
-```
+$presentation = new Presentation("presentation.pptx");
+try {
+    $firstMasterSlide = $presentation->getMasters()->get_Item(0);
+    $masterSlideCount = $presentation->getMasters()->size();
+    $firstMasterLayoutSlideCount = $firstMasterSlide->getLayoutSlides()->size();
 
-
-Класс [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) представляет Slide Master. Метод [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getMasters) (возвращающий [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlideCollection)) возвращает список всех Slide Master, определённых в презентации. 
-
-
-## **Добавить изображение в Slide Master**
-
-При добавлении изображения в Slide Master оно будет отображаться на всех слайдах, зависящих от данного шаблона. 
-
-Например, можно разместить логотип компании и несколько изображений на Slide Master, а затем вернуться в режим редактирования слайдов — изображение появится на каждом слайде. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Добавить изображения в Slide Master с помощью Aspose.Slides можно так:
-```php
-  $pres = new Presentation();
-  try {
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $pres->getMasters()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-
-Для получения дополнительной информации о добавлении изображений см. статью [Picture Frame](/slides/ru/php-java/picture-frame/#create-picture-frame).
-{{% /alert %}}
-
-
-## **Добавить заполнитель в Slide Master**
-
-Эти текстовые поля являются стандартными заполнителями на Slide Master: 
-
-* Щелкните, чтобы отредактировать стиль заголовка Master
-* Отредактируйте стили текста Master
-* Второй уровень
-* Третий уровень 
-
-Они также отображаются на слайдах, основанных на Slide Master. Вы можете редактировать эти заполнители в Slide Master, и изменения автоматически применятся к слайдам. 
-
-В PowerPoint добавить заполнитель можно через путь Slide Master → Insert Placeholder:
-
-![todo:image_alt_text](slide-master_5.png)
-
-Рассмотрим более сложный пример заполнителей с Aspose.Slides. Предположим, что слайд содержит заполнители, полученные из Slide Master:
-
-![todo:image_alt_text](slide-master_6.png)
-
-Мы хотим изменить форматирование заголовка и подзаголовка на Slide Master следующим образом:
-
-![todo:image_alt_text](slide-master_7.png)
-
-Сначала получаем содержимое заполнителя заголовка из объекта Slide Master и затем используем поле `PlaceHolder.FillFormat`:
-```php
-
-```
-
-
-Стиль и форматирование заголовка изменятся для всех слайдов, основанных на этом шаблоне:
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}} 
-
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/php-java/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/php-java/text-formatting/)
-
-{{% /alert %}}
-
-
-## **Изменить фон Slide Master**
-
-При изменении цвета фона мастер‑слайда все обычные слайды презентации получат новый цвет. Ниже приведён пример кода PHP, демонстрирующий эту операцию:
-```php
-  $pres = new Presentation();
-  try {
-    $master = $pres->getMasters()->get_Item(0);
-    $master->getBackground()->setType(BackgroundType::OwnBackground);
-    $master->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $master->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/php-java/presentation-background/)
-- [Presentation Theme](https://docs.aspose.com/slides/php-java/presentation-theme/)
-
-{{% /alert %}}
-
-## **Клонировать Slide Master в другую презентацию**
-
-Чтобы клонировать Slide Master в другую презентацию, вызовите метод [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) целевой презентации, передав в него нужный Slide Master. Пример кода PHP:
-```php
-  $presSource = new Presentation();
-  $presTarget = new Presentation();
-  try {
-    $master = $presTarget->getMasters()->addClone($presSource->getMasters()->get_Item(0));
-  } finally {
-    if (!java_is_null($presSource)) {
-      $presSource->dispose();
-    }
-  }
-```
-
-
-
-## **Добавить несколько Slide Master в презентацию**
-
-Aspose.Slides позволяет добавить несколько Slide Master и Slide Layout в любую презентацию. Это даёт возможность задавать стили, макеты и параметры форматирования слайдов различными способами. 
-
-В PowerPoint новые Slide Master и Layout можно добавить из меню "Slide Master" следующим образом:
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-В Aspose.Slides новый Slide Master добавляется вызовом метода [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone):
-```php
-  # Добавляет новый мастер‑слайд
-  $secondMasterSlide = $pres->getMasters()->addClone($masterSlide);
-```
-
-
-
-## **Сравнение Slide Master**
-
-Slide Master реализует класс [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide), содержащий метод [**equals**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#equals), который можно использовать для сравнения слайдов. Метод возвращает `true`, если Slide Master идентичен по структуре и статическому содержимому.
-
-Два Slide Master считаются равными, если их фигуры, стили, тексты, анимации и другие параметры совпадают. При сравнении не учитываются уникальные идентификаторы (например, SlideId) и динамическое содержимое (например, текущая дата в заполнитель даты). 
-
-
-## **Установить Slide Master как представление по умолчанию для презентации**
-
-Aspose.Slides позволяет задать Slide Master как представление по умолчанию для презентации. Это представление, которое открывается первым при запуске презентации. 
-
-Пример кода, показывающий, как установить Slide Master как представление по умолчанию:
-```php
-  # Создает экземпляр класса Presentation, представляющего файл презентации
-  $presentation = new Presentation();
-  try {
-    # Устанавливает вид по умолчанию как SlideMasterView
-    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    # Сохраняет презентацию
-    $presentation->save("PresView.pptx", SaveFormat::Pptx);
-  } finally {
+    echo "Master slides: " . $masterSlideCount . PHP_EOL;
+    echo "Layouts in the first master: " . $firstMasterLayoutSlideCount . PHP_EOL;
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+Также можно получить мастер‑слайд, используемый обычным слайдом, через его разметку:
 
-## **Удалить неиспользуемые Slide Master**
-
-Aspose.Slides предоставляет метод [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides) класса [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/), позволяющий удалить нежелательные и неиспользуемые шаблоны слайдов. Пример кода PHP, демонстрирующий удаление Slide Master из PowerPoint‑презентации:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->removeUnusedMasterSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $slide->getLayoutSlide();
+    $masterSlide = $layoutSlide->getMasterSlide();
+    $masterSlideName = $masterSlide->getName();
+
+    echo $masterSlideName . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Что содержит мастер‑слайд**
+
+Мастер‑слайд — объект, похожий на обычный слайд. Он наследует [BaseSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseslide/), поэтому предоставляет многие из тех же свойств, что и обычные и разметочные слайды. Специфичные для мастера члены перечислены на странице API [MasterSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslide/).
+
+Часто используемые члены мастер‑слайда:
+
+| Элемент | Назначение |
+| --- | --- |
+| `getBackground` | Устанавливает фон уровня мастера. |
+| `getShapes` | Хранит фигуры, размещённые на мастере, такие как логотипы, рамки изображений и общий текст. |
+| `getLayoutSlides` | Хранит слайды‑разметки, принадлежащие мастеру. |
+| `getThemeManager` | Предоставляет доступ к API темы мастера. |
+| `getHeaderFooterManager` | Управляет верхними и нижними колонтитулами, датами и номерами слайдов для мастера и его дочерних разметок. |
+| `getDependingSlides` | Возвращает обычные слайды, зависящие от мастера через их разметки. |
+
+## **Добавление изображения в мастер‑слайд**
+
+Когда вы добавляете изображение в мастер‑слайд, оно появляется на слайдах, использующих разметки этого мастера. Это удобно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
+
+Следующий пример добавляет логотип на первый мастер‑слайд:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $logoImage = Images::fromFile("logo.png");
+    try {
+        $presentationImage = $presentation->getImages()->addImage($logoImage);
+    } finally {
+        $logoImage->dispose();
+    }
+
+    $masterSlide->getShapes()->addPictureFrame(
+        ShapeType::Rectangle,
+        20,
+        20,
+        80,
+        80,
+        $presentationImage
+    );
+
+    $presentation->save("presentation-with-logo.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Подробнее о рамках изображений см. в статье [Picture Frame](/slides/ru/php-java/picture-frame/).
+
+## **Работа с заполнителями**
+
+Заполнители обычно определяются на слайдах‑разметке. Мастер‑слайд предоставляет общий стиль и тему, которые наследуют эти разметки, а каждая разметка решает, какие заполнители доступны и где они расположены.
+
+В PowerPoint команды заполнителей доступны в режиме просмотра Слайд‑мастер.
+
+![Команда Вставить заполнитель в режиме Слайд‑мастер PowerPoint](slide-master_5.png)
+
+Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с слайдом‑разметкой, принадлежащим мастеру:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $blankLayoutSlideName = "Custom Blank";
+    $blankLayoutSlide = $masterSlide->getLayoutSlides()->add(
+        SlideLayoutType::Blank,
+        $blankLayoutSlideName
+    );
+
+    $blankLayoutSlide->getPlaceholderManager()->addTextPlaceholder(
+        60,
+        120,
+        600,
+        80
+    );
+
+    $presentation->getSlides()->addEmptySlide($blankLayoutSlide);
+    $presentation->save("presentation-with-placeholder.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Также можно форматировать фигуры заполнителей, уже существующие на мастере. В следующем примере находится заполнитель заголовка и применяется линейная градиентная заливка:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $titlePlaceholder = findPlaceholder($masterSlide, PlaceholderType::Title);
+
+    if (!java_is_null($titlePlaceholder)) {
+        $redGradientColor = java("java.awt.Color")->RED;
+        $purpleGradientColor = new Java("java.awt.Color", 128, 0, 128);
+
+        $fillFormat = $titlePlaceholder->getFillFormat();
+        $fillFormat->setFillType(FillType::Gradient);
+        $gradientFormat = $fillFormat->getGradientFormat();
+        $gradientFormat->setGradientShape(GradientShape::Linear);
+        $gradientStops = $gradientFormat->getGradientStops();
+        $gradientStops->add(0, $redGradientColor);
+        $gradientStops->add(255, $purpleGradientColor);
+    }
+
+    $presentation->save("presentation-title-style.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+function findPlaceholder($masterSlide, $placeholderType)
+{
+    $shapesCount = java_values($masterSlide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapesCount; $shapeIndex++) {
+        $shape = $masterSlide->getShapes()->get_Item($shapeIndex);
+        $placeholder = $shape->getPlaceholder();
+
+        if (!java_is_null($placeholder) && java_values($placeholder->getType()) == $placeholderType) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+```
+
+![Отформатированный заполнитель заголовка, унаследованный обычными слайдами](slide-master_8.png)
+
+Больше вариантов форматирования заполнителей и текста см. в статьях [Set Prompt Text in Placeholder](/slides/ru/php-java/manage-placeholder/) и [Text Formatting](/slides/ru/php-java/text-formatting/).
+
+## **Изменение фона мастер‑слайда**
+
+Фон мастера наследуется разметками и слайдами, которые его не переопределяют. Ниже пример установки сплошного фонового цвета для первого мастер‑слайда:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $forestGreenColor = new Java("java.awt.Color", 34, 139, 34);
+
+    $background = $masterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($forestGreenColor);
+
+    $presentation->save("presentation-master-background.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Связанные темы см. в [Presentation Background](/slides/ru/php-java/presentation-background/) и [Presentation Theme](/slides/ru/php-java/presentation-theme/).
+
+## **Клонирование мастер‑слайда в другую презентацию**
+
+Используйте `addClone` из [MasterSlideCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslidecollection/) для копирования мастер‑слайда в другую презентацию. Скопированный мастер затем может использоваться разметками и слайдами в целевой презентации.
+
+```php
+$sourcePresentation = new Presentation("source.pptx");
+$destinationPresentation = new Presentation("destination.pptx");
+try {
+    $sourceMasterSlide = $sourcePresentation->getMasters()->get_Item(0);
+    $clonedMasterSlide = $destinationPresentation->getMasters()->addClone($sourceMasterSlide);
+
+    $destinationPresentation->save("destination-with-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destinationPresentation->dispose();
+    $sourcePresentation->dispose();
+}
+```
+
+Если необходимо клонировать обычные слайды вместе с их мастером, см. в статье [Clone Slides](/slides/ru/php-java/clone-slides/).
+
+## **Добавление нескольких мастер‑слайдов**
+
+Презентация может содержать несколько мастер‑слайдов. Это полезно, когда разные разделы требуют различного брендинга, структуры страниц или параметров темы.
+
+![Команды PowerPoint для вставки и управления мастер‑слайдами](slide-master_9.jpg)
+
+Следующий пример клонирует мастер‑слайд по умолчанию, задаёт клону иной фон, создаёт разметку под этим клоном и добавляет новый слайд на основе этой разметки:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $defaultMasterSlide = $presentation->getMasters()->get_Item(0);
+    $sectionMasterSlide = $presentation->getMasters()->addClone($defaultMasterSlide);
+    $lightSteelBlueColor = new Java("java.awt.Color", 176, 196, 222);
+
+    $background = $sectionMasterSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $fillFormat = $background->getFillFormat();
+    $fillFormat->setFillType(FillType::Solid);
+    $fillFormat->getSolidFillColor()->setColor($lightSteelBlueColor);
+
+    $sourceBlankLayout = $defaultMasterSlide->getLayoutSlides()->get_Item(0);
+    $sectionBlankLayout = $sectionMasterSlide->getLayoutSlides()->addClone($sourceBlankLayout);
+
+    $presentation->getSlides()->addEmptySlide($sectionBlankLayout);
+    $presentation->save("presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Сравнение мастер‑слайдов**
+
+Мастер‑слайды можно сравнивать с помощью метода `equals`, унаследованного от [BaseSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseslide/). Сравнение проверяет структуру и статическое содержание, такие как фигуры, текст, форматирование, анимации и другие параметры слайдов. Оно не сравнивает уникальные идентификаторы, например ID слайдов, или динамические значения заполнителей, такие как текущая дата.
+
+```php
+$firstPresentation = new Presentation("first.pptx");
+$secondPresentation = new Presentation("second.pptx");
+try {
+    $firstPresentationMasterCount = java_values($firstPresentation->getMasters()->size());
+    $secondPresentationMasterCount = java_values($secondPresentation->getMasters()->size());
+
+    for ($firstMasterIndex = 0; $firstMasterIndex < $firstPresentationMasterCount; $firstMasterIndex++) {
+        for ($secondMasterIndex = 0; $secondMasterIndex < $secondPresentationMasterCount; $secondMasterIndex++) {
+            $firstMasterSlide = $firstPresentation->getMasters()->get_Item($firstMasterIndex);
+            $secondMasterSlide = $secondPresentation->getMasters()->get_Item($secondMasterIndex);
+            $areMasterSlidesEqual = $firstMasterSlide->equals($secondMasterSlide);
+
+            if ($areMasterSlidesEqual) {
+                echo "first.pptx master #" . $firstMasterIndex .
+                    " equals second.pptx master #" . $secondMasterIndex . PHP_EOL;
+            }
+        }
+    }
+} finally {
+    $secondPresentation->dispose();
+    $firstPresentation->dispose();
+}
+```
+
+Подробнее см. в статье [Compare Presentation Slides](/slides/ru/php-java/compare-slides/).
+
+## **Установка режима мастер‑слайда как представление по умолчанию**
+
+Используйте метод `setLastView` у [ViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/) для управления тем, какое представление PowerPoint открывает первым. Ниже пример открытия презентации в режиме Слайд‑мастер:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
+    $presentation->save("presentation-master-view.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Больше параметров просмотра см. в статье [Save Presentation](/slides/ru/php-java/save-presentation/).
+
+## **Удаление неиспользуемых мастер‑слайдов**
+
+Иногда презентации содержат мастер‑слайды, которые больше не используются ни одним обычным слайдом. Удаление таких мастеров может уменьшить размер файла и упростить обслуживание шаблона.
+
+Вызовите `removeUnused` из [MasterSlideCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslidecollection/) для удаления неиспользуемых мастеров из коллекции `getMasters`:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->getMasters()->removeUnused(true);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Можно также воспользоваться методом низкого кода `removeUnusedMasterSlides` из класса [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/):
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    Compress::removeUnusedMasterSlides($presentation);
+    $presentation->save("presentation-clean.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **FAQ**
 
-**Что такое Slide Master в PowerPoint?**
+**В чём разница между мастер‑слайдом и слайдом‑разметкой?**  
+Мастер‑слайд определяет общие настройки дизайна, такие как тема, фон, общие фигуры и стили текста. Слайд‑разметка принадлежит мастер‑слайду и задаёт конкретное расположение заполнителей. Обычный слайд использует слайд‑разметку, поэтому наследует свойства как разметки, так и мастера.
 
-Slide Master — это шаблон слайда, который определяет макет, стили, темы, шрифты, фон и прочие свойства слайдов в презентации. Он позволяет задавать и изменять внешний вид всех слайдов одновременно.  
+**Может ли одна презентация содержать несколько мастер‑слайдов?**  
+Да. Презентация может включать несколько мастер‑слайдов. Используйте несколько мастеров, когда разные разделы требуют различных визуальных систем или брендинга.
 
-**Как применяется Slide Master в презентации?**
+**Куда лучше добавлять заполнители: в мастер‑слайд или в слайд‑разметку?**  
+В большинстве случаев добавляйте заполнители в слайды‑разметку. Общие визуальные элементы и общие форматы размещайте на мастер‑слайде, а заполнительные области контента — на разметках, которые будут использовать обычные слайды.
 
-Каждая презентация имеет как минимум один Slide Master по умолчанию. При добавлении нового слайда к нему автоматически применяется Slide Master, обычно наследуемый от предыдущего слайда. Презентация может содержать несколько Slide Master для стилизации разных частей по‑разному.  
-
-**Какие элементы можно настраивать в Slide Master?**
-
-Slide Master состоит из нескольких основных свойств, которые можно настраивать:
-
-- **Background**: задаёт фон слайда.
-- **BodyStyle**: определяет стили текста тела слайда.
-- **Shapes**: управляет всеми фигурами на Slide Master, включая заполнители и рамки изображений.
-- **Controls**: управляет элементами ActiveX.
-- **ThemeManager**: доступ к менеджеру темы.
-- **HeaderFooterManager**: управление заголовками и нижними колонтитулами.  
-
-**Как добавить изображение в Slide Master?**
-
-Добавление изображения в Slide Master гарантирует его появление на всех слайдах, зависящих от данного шаблона. Например, размещение логотипа компании на Slide Master отобразит его на каждом слайде презентации.  
-
-**Как Slide Master связан с Slide Layout?**
-
-Slide Layout работают совместно со Slide Master, обеспечивая гибкость в дизайне слайдов. Slide Master задаёт глобальные стили и темы, а Slide Layout позволяют варьировать расположение контента. Иерархия выглядит так:
-
-- **Slide Master** → задаёт глобальные стили.
-- **Slide Layout** → предоставляет различные варианты расположения контента.
-- **Slide** → наследует дизайн от своего Slide Layout.
-
-**Можно ли иметь несколько Slide Master в одной презентации?**
-
-Да, презентация может содержать несколько Slide Master. Это позволяет стилизовать разные секции презентации различными способами, обеспечивая гибкость дизайна.  
-
-**Как получить доступ к Slide Master и изменить его с помощью Aspose.Slides?**
-
-В Aspose.Slides Slide Master представлен классом [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). Доступ к Slide Master можно получить с помощью метода [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) объекта [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+**Можно ли удалить мастер‑слайд, который ещё используется?**  
+Нет. Мастер‑слайд, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды к разметкам другого мастера или воспользуйтесь методом очистки, который удалит только неиспользуемые мастеры.

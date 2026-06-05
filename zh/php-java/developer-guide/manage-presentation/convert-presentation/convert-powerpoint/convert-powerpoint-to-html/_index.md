@@ -6,8 +6,8 @@ weight: 30
 url: /zh/php-java/convert-powerpoint-to-html/
 keywords:
 - 转换 PowerPoint
-- 转换演示文稿
-- 转换幻灯片
+- 转换 演示文稿
+- 转换 幻灯片
 - 转换 PPT
 - 转换 PPTX
 - PowerPoint 转 HTML
@@ -16,438 +16,333 @@ keywords:
 - PPT 转 HTML
 - PPTX 转 HTML
 - 将 PowerPoint 保存为 HTML
-- 将演示文稿保存为 HTML
-- 将幻灯片保存为 HTML
+- 将 演示文稿 保存为 HTML
+- 将 幻灯片 保存为 HTML
 - 将 PPT 保存为 HTML
 - 将 PPTX 保存为 HTML
 - 导出 PPT 为 HTML
 - 导出 PPTX 为 HTML
 - PHP
 - Aspose.Slides
-description: "在 PHP 中将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides 转换指南，可保留布局、链接和图像，实现快速、完美的效果。"
+description: "在 PHP 中将 PowerPoint 演示文稿转换为 HTML。使用 Aspose.Slides 导出 PPT 和 PPTX 文件、选定的幻灯片、备注、字体、图像、SVG 和媒体。"
 ---
-
 ## **概述**
 
-本文介绍如何使用 PHP 将 PowerPoint 演示文稿转换为 HTML 格式。涵盖以下主题。
+Aspose.Slides for PHP via Java 可以在没有 Microsoft PowerPoint 的情况下将 PowerPoint 演示文稿保存为 HTML。基本的转换是加载一个单独的 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 并使用 [SaveFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/) 调用 `save`。当需要控制导出布局、字体、图像、备注、批注、SVG 输出或链接资源时，请使用 [HtmlOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmloptions/)。
 
-- 将 PowerPoint 转换为 HTML
-- 将 PPT 转换为 HTML
-- 将 PPTX 转换为 HTML
-- 将 ODP 转换为 HTML
-- 将 PowerPoint 幻灯片转换为 HTML
+本指南侧重于实用的 HTML 导出场景：
 
-## **PowerPoint 转 HTML（PHP）**
+- 导出整个演示文稿或选定的幻灯片。
+- 生成固定布局、响应式或基于 SVG 的 HTML。
+- 包含演讲者备注和批注。
+- 控制图像质量和裁剪的图像数据。
+- 嵌入字体或单独保存字体文件。
+- 选择外部资源和媒体文件的写入方式以及引用方式。
 
-有关将 PowerPoint 转换为 HTML 的 Java 示例代码，请参阅下面的章节，即[Convert PowerPoint to HTML](#convert-powerpoint-to-html)。该代码可以在 Presentation 对象中加载 PPT、PPTX 和 ODP 等多种格式，并将其保存为 HTML 格式。
+默认情况下，HTML 导出会生成一个自包含的 HTML 文档，绝大多数资源都嵌入其中。这对于共享单个文件很方便，但会增加输出大小。进行 Web 发布时，建议使用外部资源、降低图像 DPI，并仅嵌入目标环境中不可靠可用的字体。
 
-## **关于 PowerPoint 转 HTML 转换**
+## **将演示文稿转换为 HTML**
 
-使用[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/)，应用程序和开发者可以将 PowerPoint 演示文稿转换为 HTML：**PPTX 转 HTML** 或 **PPT 转 HTML**。
+要将演示文稿导出为 HTML，请使用 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 加载并使用 [SaveFormat.Html](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/) 保存。
 
-**Aspose.Slides** 提供了许多选项（主要来自[**HtmlOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions)类），用于定义 PowerPoint 到 HTML 的转换过程：
-
-* 将整个 PowerPoint 演示文稿转换为 HTML。
-* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
-* 将演示文稿媒体（图像、视频等）转换为 HTML。
-* 将 PowerPoint 演示文稿转换为响应式 HTML。 
-* 将 PowerPoint 演示文稿转换为包含或不包含备注的 HTML。 
-* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。 
-* 将 PowerPoint 演示文稿转换为使用原始字体或嵌入字体的 HTML。 
-* 将 PowerPoint 演示文稿转换为使用新 CSS 样式的 HTML。 
-
-{{% alert color="primary" %}} 
-
-使用其自身 API，Aspose 开发了免费的[演示文稿转 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)转换器： [PPT 转 HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX 转 HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP 转 HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。 
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-您可能还想查看其他[来自 Aspose 的免费转换器](https://products.aspose.app/slides/conversion)。
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-除了本文所述的转换过程，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作： 
-
-* [HTML 转图片](https://products.aspose.com/slides/php-java/conversion/html-to-image/)
-* [HTML 转 JPG](https://products.aspose.com/slides/php-java/conversion/html-to-jpg/)
-* [HTML 转 XML](https://products.aspose.com/slides/php-java/conversion/html-to-xml/)
-* [HTML 转 TIFF](https://products.aspose.com/slides/php-java/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
-## **将 PowerPoint 转换为 HTML**
-使用 Aspose.Slides，您可以通过以下方式将整个 PowerPoint 演示文稿转换为 HTML：
-
-1. 创建一个[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)类的实例。
-2. 使用[Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)方法将对象保存为 HTML 文件。
-
-下面的代码示例演示了如何将 PowerPoint 转换为 HTML：
 ```php
-// 实例化一个表示演示文稿文件的 Presentation 对象
-  $pres = new Presentation("Convert_HTML.pptx");
-  try {
-    $htmlOpt = new HtmlOptions();
-    $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $htmlOpt->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createDocumentFormatter("", false));
-    # 将演示文稿保存为 HTML
-    $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->save("presentation.html", SaveFormat::Html);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+此示例写入一个 HTML 文件。演示文稿对象在 `finally` 块中被释放，从而在导出后释放文件句柄和渲染资源。
 
+## **使用 HtmlOptions**
 
-## **将 PowerPoint 转换为响应式 HTML**
-Aspose.Slides 提供了[ResponsiveHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/ResponsiveHtmlController)类，允许生成响应式 HTML 文件。下面的代码示例演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
+[HtmlOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmloptions/) 是 HTML 导出的主要配置类。常用设置包括：
+
+- `SlidesLayoutOptions`：添加备注、批注、讲义或其他布局信息。
+- `HtmlFormatter`：更改 HTML 文档结构或将格式化委托给控制器。
+- `SlideImageFormat`：更改幻灯片的呈现方式，例如作为 SVG。
+- `PicturesCompression`：控制图像 DPI 和输出大小。
+- `DeletePicturesCroppedAreas`：保留或删除裁剪的图像数据。
+- `SvgResponsiveLayout`：使导出的 SVG 内容适应其容器。
+- `ShowHiddenSlides`：在需要时包含隐藏的幻灯片。
+
+以下章节分别展示最常用的选项，便于仅组合工作流所需的部分。
+
+## **将选定的幻灯片转换为 HTML**
+
+接受幻灯片编号的 `save` 重载使用基于 1 的幻灯片位置。下面的循环将每张幻灯片保存为单独的 HTML 文件。
+
 ```php
-// 实例化一个表示演示文稿文件的 Presentation 对象
-  $pres = new Presentation("Convert_HTML.pptx");
-  try {
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slideNumber = $slideIndex + 1;
+        $slideNumbers = array($slideNumber);
+        $htmlFileName = "slide-" . $slideNumber . ".html";
+
+        $presentation->save($htmlFileName, $slideNumbers, SaveFormat::Html);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+当网站或应用需要每张幻灯片一个 HTML 页面时使用此模式。如果每张幻灯片应使用相同的布局，创建一个 [HtmlOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmloptions/) 实例并将其传递给每个 `save` 调用。
+
+## **创建响应式 HTML**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/zh/php-java/aspose.slides/responsivehtmlcontroller/) 通过 [HtmlFormatter](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmlformatter/) 提供响应式 HTML 输出。当导出的页面需要更好地适应浏览器宽度时使用它。
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
     $controller = new ResponsiveHtmlController();
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller);
+
     $htmlOptions = new HtmlOptions();
-    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
-    # 将演示文稿保存为 HTML
-    $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, $htmlOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+    $htmlOptions->setHtmlFormatter($formatter);
 
-
-## **将 PowerPoint 转换为带备注的 HTML**
-下面的代码示例演示了如何将 PowerPoint 转换为带备注的 HTML：
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    $opt = new HtmlOptions();
-    $options = $opt->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions::BottomFull);
-    # 保存备注页面
-    $pres->save("Output.html", SaveFormat::Html, $opt);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **将 PowerPoint 转换为带原始字体的 HTML**
-
-Aspose.Slides 提供了[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController)类，允许在将演示文稿转换为 HTML 时嵌入所有字体。
-
-若要防止某些字体被嵌入，可向[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController)的带参数构造函数传递字体名称数组。常用字体（如 Calibri 或 Arial）在演示文稿中使用时无需嵌入，因为大多数系统已预装这些字体。嵌入这些字体会导致生成的 HTML 文档体积不必要地增大。
-
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController)类支持继承并提供[WriteFont](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-)方法，供子类重写。
-```php
-  $pres = new Presentation("input.pptx");
-  try {
-    # 排除默认演示文稿字体
-    $fontNameExcludeList = array("Calibri", "Arial" );
-    $embedFontsController = new EmbedAllFontsHtmlController($fontNameExcludeList);
-    $htmlOptionsEmbed = new HtmlOptions();
-    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($embedFontsController));
-    $pres->save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, $htmlOptionsEmbed);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **将 PowerPoint 转换为高质量图像的 HTML**
-
-默认情况下，将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出的 HTML 较小，图像分辨率为 72 DPI，且裁剪区域被删除。若要获取更高质量图像的 HTML 文件，需要将 `PicturesCompression`（来自 `HtmlOptions` 类）属性设置为 96（即 `PicturesCompression.Dpi96`）或更高的[值](https://reference.aspose.com/slides/php-java/aspose.slides/PicturesCompression)。
-
-下面的 PHP 代码示例演示了如何在将 PowerPoint 演示文稿转换为 HTML 时获取 150 DPI 的高质量图像（即 `PicturesCompression.Dpi150`）：
-```php
-  $pres = new Presentation("InputDoc.pptx");
-  try {
-    $htmlOpts = new HtmlOptions();
-    $htmlOpts->setPicturesCompression(PicturesCompression::Dpi150);
-    $pres->save("OutputDoc-dpi150.html", SaveFormat::Html, $htmlOpts);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-下面的代码示例演示了如何输出包含全质量图像的 HTML：
-```php
-  $pres = new Presentation("InputDoc.pptx");
-  try {
-    $htmlOpts = new HtmlOptions();
-    $htmlOpts->setDeletePicturesCroppedAreas(false);
-    $pres->save("Outputdoc-noCrop.html", SaveFormat::Html, $htmlOpts);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **将幻灯片转换为 HTML**
-要将 PowerPoint 中的特定幻灯片转换为 HTML，需要实例化与转换整个演示文稿相同的[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)类，然后使用[Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)方法将文件保存为 HTML。可以使用[HtmlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions)类来指定其他转换选项：
-
-下面的 PHP 代码示例演示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：
-```php
-use aspose\slides\Presentation;
-use aspose\slides\HtmlOptions;
-use aspose\slides\NotesPositions;
-use aspose\slides\SaveFormat;
-
-
-class CustomFormattingController
-{
-    function writeDocumentStart($generator, $presentation) { }
-
-    function writeDocumentEnd($generator, $presentation) { }
-
-    function writeSlideStart($generator, $slide)
-	{
-        $generator->addHtml(sprintf(self::SlideHeader, $generator->getSlideIndex() + 1));
-    }
-
-    function writeSlideEnd($generator, $slide)
-	{
-        $generator->addHtml(self::SlideFooter);
-    }
-
-    function writeShapeStart($generator, $shape) { }
-
-    function writeShapeEnd($generator, $shape) { }
-
-    const SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-    const SlideFooter = "</div>";
+    $presentation->save("presentation-responsive.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
 }
-  $pres = new Presentation("Individual-Slide.pptx");
-  try {
+```
+
+对于基于 SVG 的响应式布局，在 [HtmlOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmloptions/) 上设置 `SvgResponsiveLayout`。当幻灯片内容以可缩放的 SVG 标记导出时，这非常有用。
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
     $htmlOptions = new HtmlOptions();
-    $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-	$formattingController= java_closure(new CustomFormattingController(), null, java("com.aspose.slides.IHtmlFormattingController"));
-    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($formattingController));
-    # 保存文件
-    for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      $pres->save("Individual Slide" . ($i + 1) . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $htmlOptions->setSvgResponsiveLayout(true);
+
+    $presentation->save("presentation-svg-responsive.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **包含演讲者备注和批注**
 
-## **导出为 HTML 时保存 CSS 和图像**
-使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转 HTML 过程生成的 HTML 文件的样式。
+通过 `HtmlOptions.SlidesLayoutOptions` 使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/notescommentslayoutingoptions/) 可包含演讲者备注或批注。默认情况下备注和批注是隐藏的，除非指定它们的位置。
 
-本示例中的 PHP 代码演示了如何使用可重写的方法创建带有 CSS 文件链接的自定义 HTML 文档：
+假设源演示文稿包含演讲者备注：
+
+![PowerPoint 中带有演讲者备注的幻灯片](slide_with_notes.png)
+
+以下代码将幻灯片内容导出，并在幻灯片下方附加演讲者备注。
+
 ```php
-use aspose\slides\Presentation;
-use aspose\slides\HtmlOptions;
-use aspose\slides\NotesPositions;
-use aspose\slides\SaveFormat;
-use aspose\slides\EmbedAllFontsHtmlController;
+$presentation = new Presentation("presentation.pptx");
+try {
+    $layoutOptions = new NotesCommentsLayoutingOptions();
+    $layoutOptions->setNotesPosition(NotesPositions::BottomFull);
 
-class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
-    const m_basePath = 0;
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setSlidesLayoutOptions($layoutOptions);
 
-    # 自定义标题模板
-    const Header = "<!DOCTYPE html>\n" .
-            "<html>\n" .
-            "<head>\n" .
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" .
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" .
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" .
-            "</head>";
+    $presentation->save("presentation-with-notes.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    public $m_cssFileName;
+导出的 HTML 包含备注区域：
 
-    public function __construct($cssFileName)
-    {
-        parent::__construct();
-		$this->m_cssFileName = $cssFileName;
-	}
+![带有幻灯片和演讲者备注的 HTML 输出](HTML_with_notes.png)
 
-    public function writeDocumentStart($generator, $presentation)
-    {
-        $generator->addHtml(sprintf(self::Header, $m_cssFileName));
-        $this->writeAllFonts($generator, $presentation);
-    }
+若要导出批注，设置 `CommentsPosition`，例如 `CommentsPositions.Right` 或 `CommentsPositions.Bottom`。如果只需要批注，省略 `NotesPosition`。如果需要同时包含备注和批注，则同时设置这两个属性。
 
-    public function writeAllFonts($generator, $presentation)
-    {
-        $generator->addHtml("<!-- Embedded fonts -->");
-        parent::writeAllFonts($generator, $presentation);
-    }
+## **控制图像质量和裁剪区域**
+
+HTML 导出可以压缩幻灯片图像以降低输出大小。当需要更高图像质量时，将 `PicturesCompression` 设置为 [PicturesCompression](https://reference.aspose.com/slides/zh/php-java/aspose.slides/picturescompression/) 中的相应值。
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setPicturesCompression(PicturesCompression::Dpi150);
+
+    $presentation->save("presentation-dpi-150.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+默认情况下，图像的裁剪区域可能会从导出结果中移除。仅在用户必须能够恢复或检查这些隐藏图像部分时保留裁剪数据。保留它会增加 HTML 大小。
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setDeletePicturesCroppedAreas(false);
+
+    $presentation->save("presentation-with-cropped-areas.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **添加 CSS**
+
+对于简单的样式设置，可通过 `createDocumentFormatter` 将 CSS 字符串传递给 [HtmlFormatter](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmlformatter/)。这会更改外围的 HTML 文档，而 Aspose.Slides 仍继续渲染幻灯片内容。
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+    $showSlideTitle = true;
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createDocumentFormatter($cssRules, $showSlideTitle);
+
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setHtmlFormatter($formatter);
+
+    $presentation->save("presentation-styled.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+若需要自定义文档头、链接的 CSS 文件或在幻灯片和形状周围添加自定义标记，请使用自定义格式化控制器并通过 `createCustomFormatter` 将其传递给 [HtmlFormatter](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmlformatter/)。
+
+## **嵌入字体**
+
+如果目标环境可能没有安装演示文稿使用的字体，可使用 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/php-java/aspose.slides/embedallfontshtmlcontroller/) 将字体嵌入 HTML。嵌入可提升视觉保真度，但会增加输出大小。
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $stringClass = new JavaClass("java.lang.String");
+
+    $fontNamesToExclude = $arrayClass->newInstance($stringClass, 1);
+    $arrayClass->set($fontNamesToExclude, 0, new Java("java.lang.String", "Calibri"));
+
+    $fontController = new EmbedAllFontsHtmlController(java_values($fontNamesToExclude));
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($fontController);
+
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setHtmlFormatter($formatter);
+
+    $presentation->save("presentation-embedded-fonts.html", SaveFormat::Html, $htmlOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+仅在确信目标浏览器或系统已提供这些字体时才排除嵌入。对于品牌字体或不常见字体，嵌入通常更安全。
+
+## **链接字体文件而不是嵌入它们**
+
+为降低 HTML 文件大小，可以将字体数据写入独立的 WOFF 文件，并在 HTML 中添加 `@font-face` 规则。在 PHP via Java 中，这种场景通常通过一个继承自 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/php-java/aspose.slides/embedallfontshtmlcontroller/) 的小型 Java 辅助类实现，该类将字体字节写入输出目录，并将 `@font-face` 规则注入生成的 HTML。编译该辅助类、将其加入 PHP Java Bridge 类路径，然后在 PHP 中使用 `new Java(...)` 实例化。
+
+构建此类辅助时，请有意识地选择两个路径：
+
+- 文件系统输出路径，生成的字体文件写入此处。
+- URL 路径，浏览器从 HTML 文档中加载这些字体文件时使用的路径。
+
+## **外部保存资源**
+
+自包含的 HTML 易于移动，但嵌入的 Base64 资源会使文件变大。如果应用需要外部图像文件，请向 [HtmlOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmloptions/) 构造函数提供自定义链接/嵌入控制器。
+
+外部化资源时，同样需要有意识地选择两个路径：
+
+- 文件系统输出路径，应用在此写入生成的图像、字体、音频或视频。
+- URL 路径，浏览器从 HTML 文档中加载这些文件时使用的路径。
+
+确保这些路径与部署布局保持一致，以便生成的 HTML 在迁移到 Web 服务器或其他目录后仍能加载外部资源。
+
+## **导出媒体文件**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/zh/php-java/aspose.slides/videoplayerhtmlcontroller/) 导出视频和音频文件，并生成可在浏览器中播放的 HTML。其构造函数接受：
+
+- `path`：生成的 HTML 和媒体文件使用的输出目录。
+- `fileName`：正在生成的 HTML 文件名。
+- `baseUri`：HTML 中指向媒体文件链接使用的绝对 URI 前缀。
+
+如果 HTML 文件是 `html-output/presentation.html`，则 `path` 应指向 `html-output`，`baseUri` 应指向浏览器视角下的同一目录。针对本地预览，可从输出目录构建 `file:///` URI；针对已部署的应用，则使用已发布输出目录的绝对 URL。
+
+```php
+$outputDirectory = getcwd() . DIRECTORY_SEPARATOR . "html-output";
+
+if (!is_dir($outputDirectory)) {
+    mkdir($outputDirectory, 0777, true);
 }
 
-  $pres = new Presentation("pres.pptx");
-  try {
-    $options = new HtmlOptions();
-    $options->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter(new CustomHeaderAndFontsController("styles.css")));
-    $pres->save("pres.html", SaveFormat::Html, $options);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$htmlFileName = "presentation.html";
+$outputDirectoryPath = realpath($outputDirectory);
+$outputDirectoryPath = str_replace("\\", "/", $outputDirectoryPath);
+$outputBaseUri = "file:///" . ltrim($outputDirectoryPath, "/") . "/";
 
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoFilePath = getcwd() . DIRECTORY_SEPARATOR . "intro.mp4";
+    $videoStream = new Java("java.io.FileInputStream", $videoFilePath);
+    $video = $presentation->getVideos()->addVideo($videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addVideoFrame(20, 20, 480, 270, $video);
 
-## **将演示文稿转换为 HTML 时链接所有字体**
-
-如果不想嵌入字体（以避免增大生成的 HTML 大小），可以通过实现自己的 `LinkAllFontsHtmlController` 版本来链接所有字体。
-
-下面的 PHP 代码示例演示了在链接所有字体且排除 “Calibri” 与 “Arial”（因为系统已存在）的情况下，将 PowerPoint 转换为 HTML：
-```php
-use aspose\slides\Presentation;
-use aspose\slides\HtmlOptions;
-use aspose\slides\NotesPositions;
-use aspose\slides\SaveFormat;
-use aspose\slides\EmbedAllFontsHtmlController;
-
-class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private $m_basePath;
-
-    public function __construct($fontNameExcludeList, $basePath)
-    {
-        parent::__construct($fontNameExcludeList);
-        $this->m_basePath = $basePath;
-    }
-
-    function writeFont
-    (
-            $generator,
-            $originalFont,
-            $substitutedFont,
-            $fontStyle,
-            $fontWeight,
-            $fontData)
-    {
-        try {
-            $fontName = java_is_null($substitutedFont) ? $originalFont->getFontName() : $substitutedFont->getFontName();
-            $path = $fontName . ".woff"; // 某些路径清理可能需要
-			$fstr = new Java("java.io.FileOutputStream", $this->m_basePath . $path);
-			$Array = new java_class("java.lang.reflect.Array");
-			try {
-				$fstr->write($fontData, 0, $Array->getLength($fontData));
-			} finally {
-				$fstr->close();
-			}
-
-            $generator->addHtml("<style>");
-            $generator->addHtml("@font-face { ");
-            $generator->addHtml("font-family: '" . $fontName . "'; ");
-            $generator->addHtml("src: url('" . $path . "')");
-
-            $generator->addHtml(" }");
-            $generator->addHtml("</style>");
-        } catch (JavaException $ex) {
-        }
-    }
-}
-    $pres = new Presentation("pres.pptx");
-  try {
-    # 排除默认演示文稿字体
-	$fontNameExcludeList = array("Calibri", "Arial");
-    $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
-    $htmlOptionsEmbed = new HtmlOptions();
-    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($linkcont));
-    $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **将 PowerPoint 转换为响应式 HTML**
-下面的 PHP 代码示例演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
-```php
-  $pres = new Presentation("SomePresentation.pptx");
-  try {
-    $saveOptions = new HtmlOptions();
-    $saveOptions->setSvgResponsiveLayout(true);
-    $pres->save("SomePresentation-out.html", SaveFormat::Html, $saveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-
-## **导出媒体文件为 HTML**
-使用 Aspose.Slides for PHP via Java，您可以按以下方式导出媒体文件：
-
-1. 创建一个[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)类的实例。
-2. 获取对幻灯片的引用。
-3. 向幻灯片添加视频。
-4. 将演示文稿写入 HTML 文件。
-
-下面的 PHP 代码示例演示了如何向演示文稿添加视频并将其保存为 HTML：
-```php
-// 加载演示文稿
-  $pres = new Presentation();
-  try {
-    $path = "./out/";
-    $fileName = "ExportMediaFiles_out.html";
-    $baseUri = "http://www.example.com/";
-    $file = new Java("java.io.File", "my_video.avi");
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
-    $videoData = $Array->newInstance($Byte, $Array->getLength($file));
-    try {
-        $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
-        $dis->readFully($videoData);
-    } finally {
-        if (!java_is_null($dis)) $dis->close();
-    }
-    $video = $pres->getVideos()->addVideo($videoData);
-    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
-    $controller = new VideoPlayerHtmlController($path, $fileName, $baseUri);
-    # 设置 HTML 选项
-    $htmlOptions = new HtmlOptions($controller);
+    $controller = new VideoPlayerHtmlController($outputDirectory, $htmlFileName, $outputBaseUri);
+    $formatter = java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller);
     $svgOptions = new SVGOptions($controller);
-    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
-    $htmlOptions->setSlideImageFormat(SlideImageFormat::svg($svgOptions));
-    # 保存文件
-    $pres->save($fileName, SaveFormat::Html, $htmlOptions);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $slideImageFormat = SlideImageFormat::svg($svgOptions);
+
+    $htmlOptions = new HtmlOptions($controller);
+    $htmlOptions->setHtmlFormatter($formatter);
+    $htmlOptions->setSlideImageFormat($slideImageFormat);
+
+    $htmlFilePath = $outputDirectory . DIRECTORY_SEPARATOR . $htmlFileName;
+    $presentation->save($htmlFilePath, SaveFormat::Html, $htmlOptions);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
     }
-  }
+
+    $presentation->dispose();
+}
 ```
 
+在服务器应用中，请为每个导出作业使用唯一的输出目录。共享输出路径可能导致不同转换的文件相互覆盖。
+
+## **性能和资源管理**
+
+HTML 转换是一种渲染操作，处理时间和内存使用取决于幻灯片数量、图像分辨率、字体、效果、图表和嵌入的媒体。更高的 `PicturesCompression` DPI 值、嵌入的字体、SVG 输出以及保留的裁剪图像区域可以提升保真度，但通常会增加输出大小。
+
+批量转换时：
+
+- 及时释放每个 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 实例。
+- 为不同的任务使用独立的输出目录。
+- 除非对保真度有要求，否则避免嵌入常用字体。
+- 当 HTML 用于预览或缩略图时降低图像 DPI。
+- 在部署路径确定之前，保持源演示文稿、生成的 HTML 和外部资源在同一位置。
 
 ## **常见问题**
 
-**Aspose.Slides 在将多个演示文稿转换为 HTML 时的性能如何？**
+**HTML 输出中超链接是否被保留？**
 
-性能取决于演示文稿的大小和复杂程度。Aspose.Slides 在批量操作方面高效且可扩展。为在转换大量演示文稿时获得最佳性能，建议尽可能使用多线程或并行处理。
+是的。演示文稿中的超链接会导出到 HTML，并在目标 URL 有效时保持可点击。
 
-**Aspose.Slides 是否支持将超链接导出为 HTML？**
+**我可以并行将演示文稿转换为 HTML 吗？**
 
-是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。将演示文稿转换为 HTML 格式时，超链接会自动保留并保持可点击。
+可以，但不要在多个线程之间共享同一个 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 实例。请使用独立的演示文稿实例、独立的流和独立的输出目录来处理不同的文件。
 
-**将演示文稿转换为 HTML 时，对幻灯片数量有任何限制吗？**
+**Presentation 对象是线程安全的吗？**
 
-使用 Aspose.Slides 时对幻灯片数量没有限制。您可以转换任意大小的演示文稿。但对于包含极大量幻灯片的演示文稿，性能可能受服务器或系统可用资源的影响。
+不是。单个 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 实例应在同一线程上完成加载、修改、保存和释放。进行并行工作时，请为每个线程或进程创建独立的实例。
+
+**生成的 HTML 文件为什么很大？**
+
+默认导出会直接在 HTML 中嵌入资源。嵌入的字体、高 DPI 图像、媒体、SVG 内容以及保留的裁剪图像区域都会增加大小。使用外部资源、排除常用字体的嵌入，并在对输出大小比最高保真度更重要时降低 `PicturesCompression`。
+
+**我应该如何选择媒体导出的 baseUri？**
+
+请从浏览器的视角选择 `baseUri` 并将其作为绝对 URI 传入。对于本地预览，可根据输出目录生成 Java 文件 URI。部署时，请使用已发布媒体目录的绝对 URL。文件系统 `path` 与浏览器 `baseUri` 不必是相同的字符串，但必须描述相同的资源位置。
+
+**我可以包含隐藏的幻灯片吗？**
+
+可以。当必须导出隐藏幻灯片时，在 [HtmlOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/htmloptions/) 上将 `ShowHiddenSlides` 设置为 `true`。

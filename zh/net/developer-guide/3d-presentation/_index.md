@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中创建 3D 演示文稿
+title: 使用 .NET 在演示文稿中创建 3D 效果
 linktitle: 3D 演示文稿
 type: docs
 weight: 232
@@ -9,225 +9,249 @@ keywords:
 - 3D 演示文稿
 - 3D 旋转
 - 3D 深度
-- 3D 拉伸
+- 3D 挤出
 - 3D 渐变
 - 3D 文本
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 .NET 中轻松生成交互式 3D 演示文稿。快速导出为 PowerPoint 和 OpenDocument 格式，实现多种用途。"
+description: "使用 Aspose.Slides 在 .NET 中为 PowerPoint 形状和文本应用并渲染 3D 效果。配置相机、灯光、材质、挤出、填充和 3D 文本。"
 ---
-
 ## **概述**
-您通常如何创建 3D PowerPoint 演示文稿？  
-Microsoft PowerPoint 使您能够创建 3D 演示文稿，例如可以在其中添加 3D 模型、对形状应用 3D 效果、创建 3D 文本、将 3D 图形上传到演示文稿以及创建 PowerPoint 3D 动画。
 
-创建 3D 效果可以显著提升演示文稿的视觉冲击力，并且可能是实现 3D 演示的最简便方式。  
-自 Aspose.Slides 20.9 版起，新增了 **跨平台 3D 引擎**。该引擎支持导出并栅格化带有 3D 效果的形状和文本。在早期版本中，带有 3D 效果的 Slides 形状会被平面渲染，而现在可以 **完整渲染 3D**。  
-此外，现已可以通过 Slides 公共 API 创建带有 3D 效果的形状。
+Aspose.Slides for .NET 可以创建、编辑、保留并渲染 PowerPoint 风格的形状和文本的 3D 格式化。本文章涵盖旋转、挤出、斜面、灯光、材质、渐变或图片填充以及 3D 文本等 3D 效果。
 
-在 Aspose.Slides API 中，要将形状转换为 PowerPoint 3D 形状，请使用 [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) 属性，该属性继承自 [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat) 接口：
-- [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) 和 [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop)：为形状设置倒角，定义倒角类型（例如 Angle、Circle、SoftRound），以及倒角的高度和宽度。
-- [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera)：用于模拟围绕对象的摄像机运动。换句话说，通过设置旋转、缩放等属性，您可以像操作 PowerPoint 中的 3D 模型一样操作形状。
-- [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) 和 [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth)：设置轮廓属性，使形状看起来像 3D PowerPoint 形状。
-- [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth)、[ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) 和 [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight)：用于让形状具备三维效果，即通过设置深度或拉伸将 2D 形状转换为 3D 形状。
-- [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig)：可以在 3D 形状上创建光照效果。该属性的逻辑类似于 Camera，您可以设置光源相对于 3D 形状的旋转角度并选择光源类型。
-- [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material)：设置 3D 形状的材质类型，可为其带来更真实的效果。该属性提供了一组预定义材质，例如 Metal、Plastic、Powder、Matte 等。
+{{% alert color="primary" %}}
+本文讨论的是 PowerPoint 形状和文本的 3D 格式化效果，并不是插入或编辑独立的 3D 模型文件。当您将幻灯片导出为图像、PDF 或 HTML 时，Aspose.Slides 会将这些 3D 效果渲染到导出的 2D 输出中。
+{{% /alert %}}
 
-所有 3D 功能均可应用于形状和文本。下面我们逐步了解如何访问上述属性并详细查看其用法：
-``` csharp 
+## **3D 格式化概念**
+
+使用 [IShape.ThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/properties/threedformat) 属性为形状应用 3D 格式化。该属性公开 [IThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat)，用于控制该形状的 3D 场景。
+
+对于文本，使用 [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframeformat/properties/threedformat) 属性。这会将 3D 格式化应用于文本框，而不是形状主体。
+
+最重要的属性如下：
+
+| 属性 | 控制内容 | 何时使用 |
+|---|---|---|
+| [Camera](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/camera) | 视点、预设相机类型、旋转、缩放和透视。 | 在 3D 空间中旋转对象或匹配 PowerPoint 的 3D 旋转预设。 |
+| [LightRig](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/lightrig) | 灯光预设、方向和灯光旋转。 | 更改 3D 表面上高光和阴影的呈现方式。 |
+| [Material](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/material) | 表面材质，如平面、哑光、塑料或金属。 | 让相同的几何体看起来更平坦、柔和、光亮或金属感。 |
+| [ExtrusionHeight](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/extrusionheight) | 形状从正面向后延伸的距离。 | 将平面形状变为可见的厚实 3D 对象。 |
+| [ExtrusionColor](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/extrusioncolor) | 挤出侧面的颜色。 | 显示深度或使侧面颜色与正面填充保持一致。 |
+| [Depth](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/depth) | PowerPoint 3D 格式化使用的额外深度。 | 在形状或文本上微调深度，尤其与斜面和材质设置配合使用时。 |
+| [BevelTop](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/beveltop) 和 [BevelBottom](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/bevelbottom) | 正面和背面的提升或圆角边缘。 | 为对象添加柔化或模具化的边缘，而不是锐利的平面。 |
+| [ContourColor](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/contourcolor) 和 [ContourWidth](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/contourwidth) | 3D 对象的轮廓线。 | 在渲染输出中强调对象边界。 |
+
+## **创建 3D 形状**
+
+形状在看起来像真的 3D 之前，通常需要四类设置：
+
+- 相机设置，因为默认的正面视图可能会隐藏挤出效果。
+- 灯光设置，因为光照使各面和侧面可读。
+- 材质设置，因为表面影响光的渲染方式。
+- 挤出或深度设置，因为平面形状需要厚度。
+
+下面的示例创建一个矩形，在其正面添加文本，应用 3D 格式化，将演示文稿保存为 PPTX，并将幻灯片渲染为 PNG 图像。
+
+```csharp
 const float imageScale = 2;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
 
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-    shape.TextFrame.Text = "3D";
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.TextFrame.Text = "3D";
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
 
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.Material = MaterialPresetType.Flat;
-    shape.ThreeDFormat.ExtrusionHeight = 100;
-    shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.CornflowerBlue;
 
-    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-    {
-        thumbnail.Save("sample_3d.png");
-    }
-
-    presentation.Save("sandbox_3d.pptx", SaveFormat.Pptx);
-}
-```
-
-
-渲染后的缩略图如下所示：
-
-![todo:image_alt_text](img_01_01.png)
-
-## **3D 旋转**
-可以在 3D 平面上旋转 PowerPoint 3D 形状，从而实现更高的交互性。要在 PowerPoint 中旋转 3D 形状，通常使用以下菜单：
-
-![todo:image_alt_text](img_02_01.png)
-
-在 Aspose.Slides API 中，3D 形状的旋转可通过 [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) 属性进行管理：
-``` csharp
-IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-// ... 设置其他 3D 场景参数
+shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
+shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+shape.ThreeDFormat.Material = MaterialPresetType.Flat;
+shape.ThreeDFormat.ExtrusionHeight = 100;
+shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
 
-using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-{
-    thumbnail.Save("sample_3d.png");
-}
+using var thumbnail = slide.GetImage(imageScale, imageScale);
+thumbnail.Save("shape_3d.png");
+
+presentation.Save("shape_3d.pptx", SaveFormat.Pptx);
 ```
 
+渲染后的幻灯片图像显示矩形为一个厚实的 3D 块：
 
-## **3D 深度和拉伸**
-要为形状添加第三维度并将其转换为 3D 形状，请使用 [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) 和 [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) 属性：
-``` csharp
-IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+![渲染的蓝色 3D 矩形，正面有白色 3D 文本](img_01_01.png)
+
+## **使用相机旋转形状**
+
+在 PowerPoint 中，3D 旋转通过 “3-D 旋转” 面板配置。X、Y、Z 旋转值对应通过相机 API 设置的旋转。
+
+![PowerPoint 3-D 旋转面板，突出显示 X、Y、Z 旋转值](img_02_01.png)
+
+在 Aspose.Slides 中，通过 [IThreeDFormat.Camera](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/camera) 设置相机类型和旋转：
+
+```csharp
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
+```
+
+当需要改变观察者看到对象的方式时使用相机。它不会改变幻灯片上 2D 形状的几何结构，只会改变 PowerPoint 与 Aspose.Slides 在渲染时使用的 3D 视点。
+
+## **添加挤出和深度**
+
+挤出通过在正面后方延伸形状来实现厚度。在 PowerPoint 中，深度控制可见厚度，颜色控制侧面颜色。
+
+![PowerPoint 深度控制映射到挤出颜色和挤出高度属性](img_02_02.png)
+
+使用 [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/extrusionheight) 设置厚度，使用 [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/extrusioncolor) 设置侧面颜色：
+
+```csharp
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
-// ... 设置其他 3D 场景参数
-
-using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-{
-    thumbnail.Save("sample_3d.png");
-}
 ```
 
+当需要直接使用 PowerPoint 的深度值，或将深度与斜面、材质和文本效果组合时，使用 [IThreeDFormat.Depth](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/properties/depth)。在多数形状场景中，`ExtrusionHeight` 更直观，因为它直接表达可见的挤出厚度。
 
-通常，您会在 PowerPoint 中使用 Depth 菜单来设置 3D 形状的深度：
+## **在 3D 效果中使用渐变或图片填充**
 
-![todo:image_alt_text](img_02_02.png)
+3D 格式化与形状填充独立。您可以对正面使用纯色、渐变、图案或图片填充，同时保持相同的相机、灯光、材质和挤出设置。
 
+下面的示例对形状使用渐变填充，并对侧面使用较暗的挤出颜色：
 
-## **3D 渐变**
-渐变可用于填充 PowerPoint 3D 形状的颜色。下面创建一个带有渐变填充颜色的形状并对其应用 3D 效果：
-``` csharp
+```csharp
 const float imageScale = 2;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
 
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.TextFrame.Text = "3D Gradient";
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+shape.TextFrame.Text = "3D Gradient";
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
 
-    shape.FillFormat.FillType = FillType.Gradient;
-    shape.FillFormat.GradientFormat.GradientStops.Add(0, Color.Blue);
-    shape.FillFormat.GradientFormat.GradientStops.Add(100, Color.Orange);
-    
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.ExtrusionHeight = 150;
-    shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
+shape.FillFormat.FillType = FillType.Gradient;
+shape.FillFormat.GradientFormat.GradientStops.Add(0, Color.Blue);
+shape.FillFormat.GradientFormat.GradientStops.Add(100, Color.Orange);
 
-    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-    {
-        thumbnail.Save("sample_3d.png");
-    }
-}
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
+shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
+shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+shape.ThreeDFormat.Material = MaterialPresetType.Flat;
+shape.ThreeDFormat.ExtrusionHeight = 150;
+shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
+
+using var thumbnail = slide.GetImage(imageScale, imageScale);
+thumbnail.Save("gradient_3d.png");
 ```
 
+渲染输出保留了正面的渐变，并单独渲染挤出侧面：
 
-结果如下：
+![渲染的 3D 矩形，正面为蓝到橙的渐变填充，侧面为橙色挤出](img_02_03.png)
 
-![todo:image_alt_text](img_02_03.png)
+要使用图片填充，只需将图像添加到演示文稿并分配给形状填充：
 
-除了渐变填充颜色，还可以使用图像为形状填充：
-
-``` csharp
-byte[] imageData = File.ReadAllBytes("image.jpg");
-IPPImage image = presentation.Images.AddImage(imageData);
+```csharp
+var imageData = File.ReadAllBytes("image.jpg");
+var image = presentation.Images.AddImage(imageData);
 
 shape.FillFormat.FillType = FillType.Picture;
 shape.FillFormat.PictureFillFormat.Picture.Image = image;
 shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-// ... 设置 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* 属性
 
-using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-{
-    thumbnail.Save("sample_3d.png");
-}
+shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
+shape.ThreeDFormat.ExtrusionHeight = 150;
+shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
 ```
 
+图片在正面渲染，挤出作为 3D 侧面表面渲染：
 
-效果如下所示：
+![渲染的 3D 矩形，正面为照片填充，侧面为橙色挤出](img_02_04.png)
 
-![todo:image_alt_text](img_02_04.png)
+## **对文本应用 3D 格式化**
 
-## **3D 文本（WordArt）**
-Aspose.Slides 也支持对文本应用 3D 效果。要创建 3D 文本，可以使用 WordArt 变形效果：
+形状的 3D 格式化影响形状主体，文本的 3D 格式化影响文本框。这在需要对字母本身进行挤出、材质、灯光和相机设置的 WordArt 类效果时非常有用。
 
-``` csharp
+下面的示例创建带图案填充的文本，应用 WordArt 变换，并在 [ITextFrameFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframeformat) 上配置 3D 设置：
+
+```csharp
 const float imageScale = 2;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
 
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.FillFormat.FillType = FillType.NoFill;
-    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
-    shape.TextFrame.Text = "3D Text";
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+shape.TextFrame.Text = "3D Text";
 
-    Portion portion = (Portion)shape.TextFrame.Paragraphs[0].Portions[0];
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.LargeGrid;
+var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.LargeGrid;
 
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
 
-    ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
-    // 设置 "Arch Up" WordArt 变换效果
-    textFrameFormat.Transform = TextShapeType.ArchUp;
+var textFrameFormat = shape.TextFrame.TextFrameFormat;
+textFrameFormat.Transform = TextShapeType.ArchUp;
+textFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
+textFrameFormat.ThreeDFormat.Depth = 3;
+textFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 
-    textFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
-    textFrameFormat.ThreeDFormat.Depth = 3;
-    textFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
-    textFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+using var thumbnail = slide.GetImage(imageScale, imageScale);
+thumbnail.Save("text_3d.png");
 
-    textFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
-
-    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-    {
-        thumbnail.Save("text3d.png");
-    }
-
-    presentation.Save("text3d.pptx", SaveFormat.Pptx);
-}
+presentation.Save("text_3d.pptx", SaveFormat.Pptx);
 ```
 
+文本呈现为弧形、挤出的 3D 字母：
 
-结果如下：
+![渲染的 3D 文本，带有拱形 WordArt 变换、橙色图案填充和深色挤出](img_02_05.png)
 
-![todo:image_alt_text](img_02_05.png)
+## **导出和渲染行为**
+
+Aspose.Slides 在保存为 PPTX 等 PowerPoint 格式时会保留 3D 格式化。渲染或导出为固定布局格式时，3D 场景会被光栅化或绘制为 2D 结果。这适用于将幻灯片渲染为 [PNG](/slides/zh/net/convert-powerpoint-to-png/)、导出为 [PDF](/slides/zh/net/convert-powerpoint-to-pdf/)、导出为 [HTML](/slides/zh/net/convert-powerpoint-to-html/)，或为 [视频转换](/slides/zh/net/convert-powerpoint-to-video/) 生成帧。
+
+需要注意的要点：
+
+- 导出的图像和 PDF 不具备交互性。导出后用户无法旋转对象。
+- 最终外观取决于相机、灯光、材质、挤出、填充以及幻灯片缩放的组合。
+- 若需检查继承或主题驱动的格式化值，请读取 [有效形状属性](/slides/zh/net/shape-effective-properties/)。
+- 某些输出格式无法存储可编辑的 PowerPoint 3D 格式化。在这些格式中，只会渲染出视觉结果，而不是保留可编辑的 3D 设置。
 
 ## **常见问题**
 
-**导出演示文稿为图像/PDF/HTML 时是否会保留 3D 效果？**  
+**Aspose.Slides 能创建交互式 3D 演示文稿吗？**
 
-是的。Slides 3D 引擎在导出为支持的格式（[图像](/slides/zh/net/convert-powerpoint-to-png/)、[PDF](/slides/zh/net/convert-powerpoint-to-pdf/)、[HTML](/slides/zh/net/convert-powerpoint-to-html/) 等）时会渲染 3D 效果。
+Aspose.Slides 创建并渲染 PowerPoint 对形状和文本的 3D 效果。它不会使导出的图像、PDF 或 HTML 页面成为可交互的 3D 场景，供观众旋转。在 PPTX 中，3D 格式化仍可在支持该格式的 PowerPoint 中编辑。
 
-**是否可以获取考虑主题、继承等因素后的“有效” (最终) 3D 参数值？**  
+**3D 模型和 3D 效果有什么区别？**
 
-是的。Slides 提供了读取 **有效值** 的 API（包括 3D 的光照、倒角等），以便查看最终应用的设置：[/slides/net/shape-effective-properties/]。
+3D 模型是插入到演示文稿中的独立 3D 对象。3D 效果是对普通 PowerPoint 形状或文本应用的格式化，如旋转、挤出、斜面、灯光和材质。本文只讨论 3D 效果。
 
-**在将演示文稿转换为视频时，3D 效果是否会生效？**  
+**显示可见 3D 形状需要哪些设置？**
 
-会的。在 [/slides/net/convert-powerpoint-to-video/] 生成视频帧时，3D 效果会像导出图像时一样被渲染。
+至少需要设置相机旋转以及挤出或深度。实际使用中，通常还会设置灯光和材质，以便渲染出的面具有清晰的高光和阴影。
+
+**我可以同时对形状和文本应用 3D 效果吗？**
+
+可以。对形状主体使用 [IShape.ThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/properties/threedformat)，对文本使用 [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframeformat/properties/threedformat)。
+
+**导出为图像、PDF、HTML 或视频帧时会出现 3D 效果吗？**
+
+会。Aspose.Slides 在生成幻灯片图像、PDF、HTML 和用于视频转换的帧时会渲染 3D 效果。导出的输出包含渲染后的外观，而不是可编辑的 3D 对象。
+
+**我可以读取在继承和主题设置后得到的最终 3D 值吗？**
+
+可以。使用在 [形状有效属性](/slides/zh/net/shape-effective-properties/) 中描述的有效格式化 API，读取最终的相机、灯光、斜面及相关 3D 值。

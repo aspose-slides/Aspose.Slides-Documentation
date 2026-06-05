@@ -31,7 +31,7 @@ keywords:
 description: "Convert PowerPoint presentations to TIFF with notes using Aspose.Slides for Android via Java. Learn how to export slides with speaker notes efficiently."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for Android via Java provides a simple solution for converting PowerPoint and OpenDocument presentations (PPT, PPTX, and ODP) with notes to the TIFF format. This format is widely used for high-quality image storage, printing, and document archiving. With Aspose.Slides, you can not only export entire presentations with speaker notes but also generate slide thumbnails in the Notes Slide view. The conversion process is simple and efficient, utilizing the `save` method of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class to transform the entire presentation into a series of TIFF images while preserving the notes and layout.
 

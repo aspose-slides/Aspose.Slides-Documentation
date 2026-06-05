@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint إلى HTML في .NET
+title: تحويل عروض PowerPoint التقديمية إلى HTML في .NET
 linktitle: PowerPoint إلى HTML
 type: docs
 weight: 30
@@ -25,421 +25,162 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل عروض PowerPoint إلى HTML استجابي في .NET. احفظ التخطيط والروابط والصور باستخدام دليل التحويل الخاص بـ Aspose.Slides للحصول على نتائج سريعة وخالية من الأخطاء."
+description: "تحويل عروض PowerPoint التقديمية إلى HTML في .NET. استخدم Aspose.Slides لتصدير ملفات PPT و PPTX، الشرائح المختارة، الملاحظات، الخطوط، الصور، SVG، والوسائط."
 ---
-
 ## **نظرة عامة**
 
-قم بتحسين سير عملك عن طريق تحويل عروض PowerPoint وOpenDocument إلى HTML باستخدام Aspose.Slides لـ .NET. يقدم هذا الدليل تعليمات مفصلة، وأمثلة كود قوية، وطُرُقًا مختبرة لضمان عملية تحويل موثوقة وفعّالة مُحسّنة للعرض على الويب.
+يمكن لـ Aspose.Slides for .NET حفظ العروض التقديمية من PowerPoint كملف HTML دون الحاجة إلى Microsoft PowerPoint. التحويل الأساسي يتم بتحميل [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) واحد واستدعاء [Save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/) مع [SaveFormat](https://reference.aspose.com/slides/ar/net/aspose.slides.export/saveformat/). استخدم [HtmlOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmloptions/) عندما تحتاج إلى التحكم في تخطيط التصدير أو الخطوط أو الصور أو الملاحظات أو التعليقات أو إخراج SVG أو الموارد المرتبطة.
 
-توفر Aspose.Slides العديد من الخيارات—معظمها من فئة [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions)—التي تحدد عملية التحويل من تنسيق PowerPoint (أو OpenDocument) إلى HTML:
+يركز هذا الدليل على سيناريوهات تصدير HTML العملية:
 
-* تحويل عرض PowerPoint كامل إلى HTML.
-* تحويل شريحة محددة في عرض PowerPoint إلى HTML.
-* تحويل وسائط العرض (الصور، الفيديوهات، إلخ) إلى HTML.
-* تحويل عرض PowerPoint إلى HTML استجابي.
-* تحويل عرض PowerPoint إلى HTML مع تضمين ملاحظات المتحدث أو استبعادها.
-* تحويل عرض PowerPoint إلى HTML مع تضمين التعليقات أو استبعادها.
-* تحويل عرض PowerPoint إلى HTML مع الخطوط الأصلية أو الخطوط المدمجة.
-* تحويل عرض PowerPoint إلى HTML باستخدام نمط CSS الجديد.
+- تصدير العرض الكامل أو شرائح مختارة.
+- إنشاء HTML ثابت التخطيط أو مستجيب أو مستند إلى SVG.
+- تضمين ملاحظات المتحدث والتعليقات.
+- التحكم في جودة الصورة وبيانات الصورة المقصوصة.
+- تضمين الخطوط أو حفظ ملفات الخطوف بشكل منفصل.
+- اختيار طريقة كتابة الموارد المتصلة وملفات الوسائط والإشارة إليها.
+
+بشكل افتراضي، ينتج تصدير HTML مستند HTML متكامل يحتوي على معظم الموارد المضمنة. هذا مناسب للمشاركة بملف واحد، لكنه قد يزيد من حجم الناتج. للنشر على الويب، فكر في استخدام موارد خارجية وخفض DPI للصور وتضمين الخطوط فقط عندما لا تكون متوفرة بشكل موثوق في بيئة الهدف.
 
 ## **تحويل عرض تقديمي إلى HTML**
 
-باستخدام Aspose.Slides، يمكنك تحويل عرض PowerPoint أو OpenDocument كامل إلى HTML كما يلي:
+لتصدير عرض تقديمي إلى HTML، حمّله باستخدام [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) واحفظه باستخدام [SaveFormat.Html](https://reference.aspose.com/slides/ar/net/aspose.slides.export/saveformat/).
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. استخدم طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) لحفظ الكائن كملف HTML.
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-يعرض هذا الكود كيفية تحويل عرض PowerPoint إلى HTML في C#:
-```c#
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي (مثل PPT، PPTX، ODP، إلخ).
-using (Presentation presentation = new Presentation("presentation.pptx"))
+presentation.Save("presentation.html", SaveFormat.Html);
+```
+
+تكتب هذه العينة ملف HTML واحد. يتم إتلاف كائن العرض التقديمي عبر بيان `using`، والذي يحرّر مؤشرات الملفات وموارد التصيير بعد التصدير.
+
+## **استخدام HtmlOptions**
+
+[HtmlOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmloptions/) هي الفئة الرئيسية لتكوين تصدير HTML. تشمل الإعدادات الشائعة:
+
+- `SlidesLayoutOptions`: يضيف الملاحظات أو التعليقات أو النشرات أو معلومات تخطيط أخرى.
+- `HtmlFormatter`: يغيّر بنية مستند HTML أو يوجّه التنسيق إلى متحكم.
+- `SlideImageFormat`: يغيّر طريقة تمثيل الشرائح، مثلاً كملف SVG.
+- `PicturesCompression`: يتحكم في DPI الصورة وحجم الناتج.
+- `DeletePicturesCroppedAreas`: يحتفظ أو يزيل بيانات الصورة المقصوصة.
+- `SvgResponsiveLayout`: يجعل محتوى SVG المصدّر يتكيف مع الحاوية.
+- `ShowHiddenSlides`: يتضمن الشرائح المخفية عند الحاجة.
+
+تُظهر الأقسام التالية أكثر الخيارات شيوعًا بشكل منفصل حتى تتمكن من دمج ما تحتاجه فقط في سير عملك.
+
+## **تحويل شرائح مختارة إلى HTML**
+
+يتقبل التحميل الزائد لـ [Presentation.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/) أرقام الشرائح باستخدام مواضع 1‑based. الحلقة أدناه تحفظ كل شريحة في ملف HTML منفصل.
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+
+for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
-    // حفظ العرض التقديمي كـ HTML.
-    presentation.Save("output.html", SaveFormat.Html);
+    var slideNumber = slideIndex + 1;
+    var slideNumbers = new[] { slideNumber };
+    var htmlFileName = $"slide-{slideNumber}.html";
+
+    presentation.Save(htmlFileName, slideNumbers, SaveFormat.Html);
 }
 ```
 
+استخدم هذا النمط عندما تحتاج موقع ويب أو تطبيق إلى صفحة HTML واحدة لكل شريحة. إذا كان يجب أن تكون كل الشريحة ذات تخطيط موحد، أنشئ كائن [HtmlOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmloptions/) واحدًا ومرره إلى كل استدعاء `Save`.
 
-## **تحويل عرض تقديمي إلى HTML استجابي**
+## **إنشاء HTML مستجيب**
 
-توفر Aspose.Slides فئة [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller) التي تمكّنك من إنشاء ملفات HTML استجابية. يوضح هذا الكود كيفية تحويل عرض PowerPoint إلى HTML استجابي في C#:
-```c#
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
-using (Presentation presentation = new Presentation("presentation.pptx"))
+[ResponsiveHtmlController](https://reference.aspose.com/slides/ar/net/aspose.slides.export/responsivehtmlcontroller/) يوفر إخراج HTML مستجيب عبر [HtmlFormatter](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmlformatter/). استخدمه عندما يجب أن يتكيف الصفح المصدّر مع عرض المتصفح بشكل أفضل.
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var controller = new ResponsiveHtmlController();
+var formatter = HtmlFormatter.CreateCustomFormatter(controller);
+
+var htmlOptions = new HtmlOptions
 {
-    ResponsiveHtmlController controller = new ResponsiveHtmlController();
+    HtmlFormatter = formatter
+};
 
-    HtmlOptions htmlOptions = new HtmlOptions 
-    { 
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller) 
-    };
-
-    // حفظ العرض التقديمي كـ HTML.
-    presentation.Save("responsive.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-responsive.html", SaveFormat.Html, htmlOptions);
 ```
 
+للتخطيط المستجيب القائم على SVG، عيّن `SvgResponsiveLayout` على [HtmlOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmloptions/). وهذا مفيد عندما يُصدّر محتوى الشريحة كعلامات SVG قابلة للتوسيع.
 
-## **تحويل عرض تقديمي إلى HTML مع ملاحظات المتحدث**
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-عند تحويل عرض PowerPoint أو OpenDocument إلى HTML مع ملاحظات المتحدث، من الضروري التقاط جوهر المستند الأصلي بالكامل. تضمن هذه العملية أن العناصر البصرية للشرائح ممثلة بدقة، كما يتم الحفاظ على ملاحظات المتحدث المرافقة، مما يضيف سياقًا ورؤى إضافية للمحتوى.
-
-لنفترض أن لدينا عرض PowerPoint يحتوي على الشريحة التالية:
-
-![شريحة عرض مع ملاحظات المتحدث](slide_with_notes.png)
-
-يوضح هذا الكود كيفية تحويل عرض PowerPoint إلى HTML مع ملاحظات المتحدث في C#:
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+var htmlOptions = new HtmlOptions
 {
-    // تعيين خيارات ملاحظات المتحدث.
-    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
-    {
-        NotesPosition = NotesPositions.BottomFull
-    };
+    SvgResponsiveLayout = true
+};
 
-    // تعيين خيارات مستند HTML الناتج.
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        SlidesLayoutOptions = notesOptions
-    };
-
-    // حفظ العرض التقديمي كـ HTML مع ملاحظات المتحدث.
-    presentation.Save("slide_with_notes.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-svg-responsive.html", SaveFormat.Html, htmlOptions);
 ```
 
+## **تضمين ملاحظات المتحدث والتعليقات**
 
-النتيجة:
+استخدم [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/notescommentslayoutingoptions/) عبر `HtmlOptions.SlidesLayoutOptions` لتضمين ملاحظات المتحدث أو التعليقات. تكون الملاحظات والتعليقات مخفية افتراضيًا ما لم تحدد مواضعها.
 
-![وثيقة HTML مع الشريحة وملاحظات المتحدث](HTML_with_notes.png)
+افترض أن العرض التقديمي الأصلي يحتوي على ملاحظات متحدث:
 
-## **تحويل عرض تقديمي إلى HTML مع الخطوط الأصلية**
+![Slide with speaker notes in PowerPoint](slide_with_notes.png)
 
-توفر Aspose.Slides فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) التي تسمح بدمج جميع الخطوط في العرض أثناء تحويله إلى HTML.
+الكود التالي يصدر محتوى الشريحة مع ملاحظات المتحدث أسفل الشريحة.
 
-لمنع دمج بعض الخطوط، يمكنك تمرير مصفوفة من أسماء الخطوط إلى مُنشئ مُعَدل للفئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller). الخطوط الشائعة مثل Calibri أو Arial لا تحتاج إلى دمج لأنها موجودة مسبقًا في معظم الأنظمة. دمجها سيزيد من حجم ملف HTML الناتج دون فائدة.
+```csharp
+using var presentation = new Presentation("presentation.pptx");
 
-تدعم فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) الوراثة وتوفر طريقة [WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont)، والتي يُقصد تجاوزها.
-```c#
-using (Presentation presentation = new Presentation("input.pptx"))
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // استبعد الخطوط الافتراضية للعرض التقديمي.
-    string[] excludeFonts = { "Calibri", "Arial" };
+    NotesPosition = NotesPositions.BottomFull
+};
 
-    EmbedAllFontsHtmlController fontController = new EmbedAllFontsHtmlController(excludeFonts);
+var htmlOptions = new HtmlOptions
+{
+    SlidesLayoutOptions = layoutOptions
+};
 
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(fontController)
-    };
-
-    presentation.Save("embedded_fonts.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-with-notes.html", SaveFormat.Html, htmlOptions);
 ```
 
+يتضمن HTML المصدّر منطقة الملاحظات:
 
-## **تحويل عرض تقديمي إلى HTML مع صور عالية الجودة**
+![HTML output with the slide and speaker notes](HTML_with_notes.png)
 
-بشكل افتراضي، عند تحويل عرض PowerPoint إلى HTML، ينتج عن Aspose.Slides ملف HTML صغير مع صور بدقة 72 DPI وتُحذف المناطق المقتصة. للحصول على ملفات HTML بصور عالية الجودة، يجب ضبط الخاصية `PicturesCompression` (من فئة `HtmlOptions`) إلى 96 (أي `PicturesCompression.Dpi96`) أو قيمة أعلى، كما هو موضح في [هذا المرجع](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression).
+لتصدير التعليقات، عيّن `CommentsPosition`، مثلاً إلى `CommentsPositions.Right` أو `CommentsPositions.Bottom`. إذا كنت بحاجة فقط إلى التعليقات، احذف `NotesPosition`. إذا كنت بحاجة إلى الملاحظات والتعليقات معًا، عيّن الخاصيتين.
 
-يوضح هذا الكود في C# كيفية تحويل عرض PowerPoint إلى HTML مع الحصول على صور عالية الجودة بدقة 150 DPI (أي `PicturesCompression.Dpi150`):
-```c#
-using (Presentation presentation = new Presentation("input.pptx"))
+## **التحكم في جودة الصورة والمساحات المقصوصة**
+
+يمكن لتصدير HTML ضغط صور الشرائح لتقليل حجم الناتج. عيّن `PicturesCompression` إلى قيمة من [PicturesCompression](https://reference.aspose.com/slides/ar/net/aspose.slides.export/picturescompression/) عندما تحتاج إلى جودة صورة أعلى.
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var htmlOptions = new HtmlOptions
 {
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        PicturesCompression = PicturesCompression.Dpi150
-    };
+    PicturesCompression = PicturesCompression.Dpi150
+};
 
-    presentation.Save("output_dpi_150.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-dpi-150.html", SaveFormat.Html, htmlOptions);
 ```
 
+افتراضيًا، قد تُزال المناطق المقصوصة من الصور في الناتج المصدّر. احتفظ بالبيانات المقصوصة فقط عندما يحتاج المستخدمون إلى استعادة أو فحص تلك الأجزاء المخفية من الصورة. الاحتفاظ بها قد يزيد من حجم HTML.
 
-يعرض هذا الكود في C# كيفية تحويل عرض PowerPoint إلى HTML دون حذف المناطق المقتصة:
-```c#
-using (Presentation presentation = new Presentation("input.pptx"))
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var htmlOptions = new HtmlOptions
 {
-    HtmlOptions htmlOptions = new HtmlOptions
-    {
-        DeletePicturesCroppedAreas = false
-    };
+    DeletePicturesCroppedAreas = false
+};
 
-    presentation.Save("output_no_crop.html", SaveFormat.Html, htmlOptions);
-}
+presentation.Save("presentation-with-cropped-areas.html", SaveFormat.Html, htmlOptions);
 ```
 
+## **إضافة CSS**
 
-## **تحويل شريحة عرض تقديمي إلى HTML**
+للتنسيق البسيط، مرّر سلسلة CSS إلى [HtmlFormatter.CreateDocumentFormatter](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmlformatter/createdocumentformatter/). يغيّر هذا المستند HTML المحيط بينما يواصل Aspose.Slides تصيير محتوى الشرائح.
 
-لتحويل شريحة محددة في عرض PowerPoint إلى HTML، تحتاج إلى إنشاء مثال من نفس فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) (المستخدمة لتحويل العروض الكاملة إلى HTML) ثم استخدام طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) لحفظ الملف كـ HTML. يمكن استعمال فئة [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) لتحديد خيارات تحويل إضافية.
-
-يوضح هذا الكود في C# كيفية تحويل شريحة مع ملاحظات المتحدث في عرض PowerPoint إلى HTML:
-```c#
-public static void Run()
-{
-    using (Presentation presentation = new Presentation("sample.pptx"))
-    {
-        NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomFull
-        };
-
-        HtmlOptions htmlOptions = new HtmlOptions
-        {
-            SlidesLayoutOptions = notesOptions,
-            HtmlFormatter = HtmlFormatter.CreateCustomFormatter(new CustomFormattingController())
-        };
-
-        for (int i = 0; i < presentation.Slides.Count; i++)
-        {
-            int slideIndex = i + 1;
-
-            // احفظ الشريحة في ملف HTML.
-            string fileName = $"output_slide_{slideIndex}.html";
-            presentation.Save(fileName, new[] { slideIndex }, SaveFormat.Html, htmlOptions);
-        }
-    }
-}
-
-public class CustomFormattingController : IHtmlFormattingController
-{
-    void IHtmlFormattingController.WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {}
-
-    void IHtmlFormattingController.WriteDocumentEnd(IHtmlGenerator generator, IPresentation presentation)
-    {}
-
-    void IHtmlFormattingController.WriteSlideStart(IHtmlGenerator generator, ISlide slide)
-    {
-        generator.AddHtml(string.Format(SlideHeader, generator.SlideIndex + 1));
-    }
-
-    void IHtmlFormattingController.WriteSlideEnd(IHtmlGenerator generator, ISlide slide)
-    {
-        generator.AddHtml(SlideFooter);
-    }
-
-    void IHtmlFormattingController.WriteShapeStart(IHtmlGenerator generator, IShape shape)
-    {}
-
-    void IHtmlFormattingController.WriteShapeEnd(IHtmlGenerator generator, IShape shape)
-    {}
-
-    private const string SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide{0}\">";
-    private const string SlideFooter = "</div>";
-}
-```
-
-
-## **حفظ CSS والصور عند التصدير إلى HTML**
-
-باستخدام ملفات نمط CSS الجديدة، يمكنك بسهولة تغيير مظهر ملف HTML الناتج من عملية التحويل من PowerPoint إلى HTML.
-
-يوضح الكود في C# في هذا المثال كيفية استخدام طرق قابلة للتجاوز لإنشاء وثيقة HTML مخصصة تتضمن رابطًا إلى ملف CSS:
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-	CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-
-	HtmlOptions options = new HtmlOptions
-	{
-		HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
-	};
-	presentation.Save("pres.html", SaveFormat.Html, options);
-}
-```
-
-```c#
-public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
-{
-    // قالب رأس مخصص.
-    const string Header = "<!DOCTYPE html>\n" +
-                            "<html>\n" +
-                            "<head>\n" +
-                            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-                            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-                            "<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" +
-                            "</head>";
-
-    private readonly string m_cssFileName;
-
-    public CustomHeaderAndFontsController(string cssFileName)
-    {
-        m_cssFileName = cssFileName;
-    }
-
-    public override void WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.AddHtml(string.Format(Header, m_cssFileName));
-        WriteAllFonts(generator, presentation);
-    }
-
-    public override void WriteAllFonts(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.AddHtml("<!-- Embedded fonts -->");
-        base.WriteAllFonts(generator, presentation);
-    }
-}
-```
-
-
-## **ربط جميع الخطوط عند تحويل عرض تقديمي إلى HTML**
-
-إذا كنت لا تريد دمج الخطوط (لتجنب زيادة حجم ملف HTML الناتج)، يمكنك ربط جميع الخطوط بتنفيذ نسخة خاصة بك من `LinkAllFontsHtmlController`.
-
-يوضح هذا الكود في C# كيفية تحويل عرض PowerPoint إلى HTML مع ربط جميع الخطوط واستبعاد "Calibri" و"Arial" (لأنهما مثبتان بالفعل على النظام):
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    // استبعد خطوط العرض التقديمي الافتراضية.
-    string[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");;
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions
-    {
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
-    };
-
-    presentation.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
-}
-```
-
-
-يوضح هذا الكود في C# كيفية تنفيذ `LinkAllFontsHtmlController`:
-```c#
-public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
-{
-    private readonly string m_basePath;
-
-    public LinkAllFontsHtmlController(string[] fontNameExcludeList, string basePath) : base(fontNameExcludeList)
-    {
-        m_basePath = basePath;
-    }
-
-    public override void WriteFont
-    (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            string fontStyle,
-            string fontWeight,
-            byte[] fontData)
-    {
-        try
-        {
-            string fontName = substitutedFont == null ? originalFont.FontName : substitutedFont.FontName;
-            string path = fontName + ".woff"; // قد تكون هناك حاجة إلى تنقية بعض المسارات.
-
-            File.WriteAllBytes(Path.Combine(m_basePath, path), fontData);
-            
-            generator.AddHtml("<style>");
-            generator.AddHtml("@font-face { ");
-            generator.AddHtml("font-family: '" + fontName + "'; ");
-            generator.AddHtml("src: url('" + path + "')");
-
-            generator.AddHtml(" }");
-            generator.AddHtml("</style>");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-}
-```
-
-
-## **تحويل عرض تقديمي يحتوي على صور SVG إلى HTML استجابي**
-
-يوضح هذا الكود في C# كيفية تحويل عرض PowerPoint إلى HTML استجابي:
-```c#
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    HtmlOptions saveOptions = new HtmlOptions
-    {
-        SvgResponsiveLayout = true
-    };
-
-    presentation.Save("SvgResponsiveLayout-out.html", SaveFormat.Html, saveOptions);
-}
-```
-
-
-## **تصدير ملفات الوسائط إلى HTML**
-
-باستخدام Aspose.Slides لـ .NET، يمكنك تصدير ملفات الوسائط كما يلي:
-
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى الشريحة.
-1. إضافة فيديو إلى الشريحة.
-1. كتابة العرض كملف HTML.
-
-يوضح هذا الكود في C# كيفية إضافة فيديو إلى العرض ثم حفظه كـ HTML:
-```c#
-// إنشاء عرض تقديمي جديد.
-using (Presentation presentation = new Presentation())
-{
-    string path = "C:/out/";
-    const string fileName = "ExportMediaFiles_out.html";
-    const string baseUri = "http://www.example.com/";
-
-    using (FileStream fileStream = new FileStream("my_video.avi", FileMode.Open, FileAccess.Read))
-    {
-        IVideo video = presentation.Videos.AddVideo(fileStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        
-        ISlide slide = presentation.Slides[0];
-        slide.Shapes.AddVideoFrame(10, 10, 100, 100, video);
-    }
-        
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
-
-    // تعيين خيارات HTML.
-    HtmlOptions htmlOptions = new HtmlOptions(controller);
-    SVGOptions svgOptions = new SVGOptions(controller);
-
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
-
-    // حفظ العرض التقديمي إلى ملف HTML.
-    presentation.Save(Path.Combine(path, fileName), SaveFormat.Html, htmlOptions);
-}
-```
-
-
-{{% alert color="primary" %}} 
-
-طورت Aspose محولات مجانية لـ [العرض إلى HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT إلى HTML](https://products.aspose.app/slides/conversion/ppt-to-html)، [PPTX إلى HTML](https://products.aspose.app/slides/conversion/pptx-to-html)، [ODP إلى HTML](https://products.aspose.app/slides/conversion/odp-to-html)، إلخ.
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-تحقق من المحولات المجانية الأخرى من Aspose:
-{{% /alert %}}
-
-{{% alert title="ملاحظة" color="warning" %}} 
-
-بالإضافة إلى عمليات التحويل الموضحة هنا، تدعم Aspose.Slides أيضًا عمليات التحويل التالية التي تتعلق بتنسيق HTML:
-
-* [HTML إلى صورة](https://products.aspose.com/slides/net/conversion/html-to-image/)
-* [HTML إلى JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
-* [HTML إلى XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
-* [HTML إلى TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-## **الأسئلة الشائعة**
-
-**ما هو أداء Aspose.Slides عند تحويل عدة عروض تقديمية إلى HTML؟**
-
-يعتمد الأداء على حجم وتعقيد العروض. Aspose.Slides فعال للغاية وقابل للتوسع للعمليات الجماعية. للحصول على أداء مثالي عند تحويل العديد من العروض، يوصى باستخدام البرمجة المتعددة الخيوط أو المعالجة المتوازية كلما كان ذلك ممكنًا.
-
-**هل تدعم Aspose.Slides تصدير الروابط التشعبية إلى HTML؟**
-
-نعم، تدعم Aspose.Slides تصدير الروابط التشعبية المدمجة إلى HTML بالكامل. عند تحويل العروض إلى تنسيق HTML، تُحفظ الروابط التشعبية تلقائيًا وتبقى قابلة للنقر.
-
-**هل يوجد حد لعدد الشرائح عند تحويل العروض إلى HTML؟**
-
-لا يوجد حد لعدد الشرائح عند استخدام Aspose.Slides. يمكنك تحويل عروض بأي حجم. ومع ذلك، بالنسبة للعروض التي تحتوي على عدد كبير جدًا من الشرائح، قد يعتمد الأداء على الموارد المتاحة على الخادم أو النظام الخاص بك.

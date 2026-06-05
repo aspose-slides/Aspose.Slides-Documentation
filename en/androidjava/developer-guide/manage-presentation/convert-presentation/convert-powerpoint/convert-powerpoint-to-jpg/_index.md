@@ -28,7 +28,7 @@ keywords:
 description: "Convert PowerPoint (PPT, PPTX) slides to high-quality JPG images in Java with Aspose.Slides for Android using fast, reliable code examples."
 ---
 
-## **Overview**
+## **Introduction**
 
 Converting PowerPoint and OpenDocument presentations to JPG images helps with sharing slides, optimizing performance, and embedding content into websites or applications. Aspose.Slides for Android via Java allows you to transform PPTX, PPT, and ODP files into high-quality JPEG images. This guide explains different methods for conversion.
 

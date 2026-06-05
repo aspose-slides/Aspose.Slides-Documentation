@@ -1,5 +1,5 @@
 ---
-title: Создание 3D презентаций на C++
+title: Создание 3D эффектов в презентациях с использованием C++
 linktitle: 3D презентация
 type: docs
 weight: 232
@@ -9,158 +9,195 @@ keywords:
 - 3D презентация
 - 3D вращение
 - 3D глубина
-- 3D выдавливание
+- 3D экструзия
 - 3D градиент
 - 3D текст
 - PowerPoint
-- OpenDocument
 - презентация
 - C++
 - Aspose.Slides
-description: "Создавайте интерактивные 3D презентации на C++ с помощью Aspose.Slides без усилий. Быстро экспортируйте в форматы PowerPoint и OpenDocument для универсального использования."
+description: "Применяйте и визуализируйте 3D эффекты для фигур и текста PowerPoint в C++ с помощью Aspose.Slides. Настраивайте камеру, освещение, материал, экструзию, заливки и 3D текст."
 ---
-
 ## **Обзор**
-С версии Aspose.Slides 20.9 стало возможно создавать и изменять 3D‑модели PowerPoint. Это можно выполнить, применив к двумерным фигурам набор 3D‑эффектов. Создав вид камеры на фигуре, вы можете вращать её вокруг оси. Создайте выдавливание или глубину фигуры, что преобразует её из 2D‑фигуры в 3D‑модель. Установка светового эффекта на 3D‑фигуру или изменение материалов делает её более живой. Изменение цветов 3D‑моделей на 3D‑градиент, корректировка контуров фигур, добавление фаски придаёт 3D‑модели объём. Все 3D‑эффекты могут быть применены как к 3D‑моделям PowerPoint, так и к текстам.
 
-Рассмотрим первый пример создания 3D‑моделей, который включает все перечисленные выше функции:
-``` cpp
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
+Aspose.Slides for C++ может создавать, редактировать, сохранять и визуализировать 3D‑форматирование в стиле PowerPoint для фигур и текста. Эта статья охватывает 3D‑эффекты, такие как вращение, экструзия, фаски, освещение, материал, градиентные или растровые заливки и 3D‑текст.
 
-auto imageScale = 2;
+{{% alert color="primary" %}}
+Эта статья о 3D‑форматировании фигур и текста в PowerPoint. Она не про вставку или редактирование отдельных 3D‑модельных файлов. При экспорте слайда в изображение, PDF или HTML Aspose.Slides визуализирует эти 3D‑эффекты в экспортированном 2D‑выводе.
+{{% /alert %}}
+
+## **Концепции 3D‑форматирования**
+
+Используйте метод [get_ThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/get_threedformat/) интерфейса [IShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/) , чтобы применить 3D‑форматирование к фигуре. Метод возвращает [IThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/), который управляет 3D‑сценой этой фигуры.
+
+Для текста используйте метод [get_ThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformat/get_threedformat/) интерфейса [ITextFrameFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformat/) . Он применяет 3D‑форматирование к текстовому фрейму, а не к телу фигуры.
+
+Самыми важными методами являются:
+
+| Метод | Что управляет | Когда использовать |
+|---|---|---|
+| [get_Camera](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/get_camera/) | Точка наблюдения, предустановленный тип камеры, вращение, масштаб и перспектива. | Поворот объекта в 3D‑пространстве или соответствие предустановке 3D‑вращения в PowerPoint. |
+| [get_LightRig](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/get_lightrig/) | Предустановка освещения, направление и вращение света. | Изменить отображение бликов и теней на 3D‑поверхности. |
+| [set_Material](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/set_material/) | Материал поверхности, например плоский, матовый, пластик или металл. | Сделать одинаковую геометрию более плоской, мягкой, блестящей или металлической. |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Насколько глубоко фигура вытягивается назад от своей передней грани. | Превратить плоскую фигуру в заметно толстый 3D‑объект. |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Цвет экструзированных боковых граней. | Сделать глубину видимой или согласовать цвет боков с передней заливкой. |
+| [set_Depth](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/set_depth/) | Дополнительная 3D‑глубина, используемая в 3D‑форматировании PowerPoint. | Точно настроить глубину для фигур или текста, особенно совместно с параметрами фаски и материала. |
+| [get_BevelTop](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/get_beveltop/) и [get_BevelBottom](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Поднятые или закруглённые кромки на передней и задней гранях. | Добавить смягчённый или формованный край вместо острого плоского. |
+| [get_ContourColor](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/get_contourcolor/) и [set_ContourWidth](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Контур вокруг 3D‑объекта. | Подчеркнуть границу объекта в визуализированном выводе. |
+
+## **Создание 3D‑фигуры**
+
+Фигура обычно требует четырёх видов настроек, чтобы выглядеть правдоподобно 3D:
+
+- Настройки камеры, поскольку стандартный вид спереди может скрывать экструзию.
+- Настройки освещения, так как свет делает грани и стороны различимыми.
+- Настройки материала, поскольку поверхность влияет на то, как отображается свет.
+- Настройки экструзии или глубины, так как плоской фигуре нужна толщина.
+
+Следующий пример создаёт прямоугольник, добавляет текст на его переднюю грань, применяет 3D‑форматирование, сохраняет презентацию в формате PPTX и визуализирует слайд в PNG‑изображение.
+
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
 shape->get_TextFrame()->set_Text(u"3D");
-shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
+shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
+auto frontColor = System::Drawing::Color::get_CornflowerBlue();
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(frontColor);
+
+auto extrusionColor = System::Drawing::Color::get_Blue();
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
+shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Matte);
-shape->get_ThreeDFormat()->set_ExtrusionHeight(100);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Blue());
+shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Flat);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
+thumbnail->Save(u"shape_3d.png");
 thumbnail->Dispose();
 
-presentation->Save(u"sandbox_3d.pptx", Export::SaveFormat::Pptx);
+presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Отрендеренный слайд показывает прямоугольник как толстый 3D‑блок:
 
-Получившаяся 3D‑модель PowerPoint:
+![Отрендеренный синий 3D‑прямоугольник с белым 3D‑текстом на передней грани](img_01_01.png)
 
-![todo:image_alt_text](img_01_01.png)
+## **Вращение фигуры с помощью камеры**
 
-## **3D вращение**
-В PowerPoint вращение фигур доступно через:
+В PowerPoint 3D‑вращение настраивается в панели 3‑D Rotation. Значения вращения по осям X, Y и Z соответствуют вращению, задаваемому через API камеры.
 
-![todo:image_alt_text](img_02_01.png)
+![Панель 3‑D Rotation в PowerPoint с выделенными значениями вращения X, Y и Z](img_02_01.png)
 
-Чтобы вращать 3D‑модели PowerPoint, необходимо создать вид камеры на фигуре. Это делается с помощью метода [IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4). Метод вращения вызывается из класса камеры, как если бы вы вращали камеру. Фактически, когда вы вращаете камеру относительно фигуры, вы вращаете фигуру в 3D‑пространстве.
-``` cpp
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+В Aspose.Slides тип камеры и вращение задаются через [IThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/):
+
+```cpp
+shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-// ... установить другие параметры 3D сцены
-
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
 ```
 
+Используйте камеру, когда необходимо изменить способ просмотра объекта. Это не меняет 2D‑геометрию фигуры на слайде. Оно изменяет 3D‑точку наблюдения, используемую PowerPoint и Aspose.Slides при визуализации.
 
-## **3D глубина и выдавливание**
-Чтобы добавить глубину и выдавливание к 3D‑модели PowerPoint, используйте метод [IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295). Для изменения цвета выдавливания используйте метод [IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e):
-``` cpp
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+## **Добавление экструзии и глубины**
+
+Экструзия делает фигуру толстой, вытягивая её за переднюю грань. В PowerPoint управление глубиной задаёт эту видимую толщину, а управление цветом задаёт цвет боковых граней.
+
+![Управление глубиной в PowerPoint, сопоставленное с параметрами цвета экструзии и высоты экструзии](img_02_02.png)
+
+Установите [set_ExtrusionHeight](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/set_extrusionheight/) для толщины и [get_ExtrusionColor](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) для цвета сторон:
+
+```cpp
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Purple());
-// ... установить другие параметры 3D сцены
 
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
+auto extrusionColor = System::Drawing::Color::get_Purple();
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
+Используйте [set_Depth](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/set_depth/), когда нужно работать непосредственно со значением глубины PowerPoint или комбинировать глубину с фаской, материалом и текстовыми эффектами. Во многих сценариях фигур `set_ExtrusionHeight` является более понятным параметром, поскольку он напрямую задаёт видимую экструзию.
 
-Меню глубины в PowerPoint:
+## **Использование градиентных или растровых заливок с 3D‑эффектами**
 
-![todo:image_alt_text](img_02_02.png)
+3D‑форматирование не зависит от заливки фигуры. Вы можете применить сплошной цвет, градиент, узор или растровую заливку к передней грани и при этом использовать те же настройки камеры, света, материала и экструзии.
 
+Этот пример применяет градиентную заливку к фигуре и более тёмный цвет экструзии к бокам:
 
-## **3D градиент**
-Создание 3D‑градиента на 3D‑модели PowerPoint может быть выполнено с помощью метода [Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58):
-``` cpp
-using namespace Aspose::Slides;
-
-auto imageScale = 2;
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_TextFrame()->set_Text(u"3D Gradient");
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
+auto firstGradientColor = System::Drawing::Color::get_Blue();
+auto secondGradientColor = System::Drawing::Color::get_Orange();
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
-shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0, System::Drawing::Color::get_Blue());
-shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, System::Drawing::Color::get_Orange());
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, firstGradientColor);
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, secondGradientColor);
 
+auto extrusionColor = System::Drawing::Color::get_DarkOrange();
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
+shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Flat);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
-shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_DarkOrange());
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
+thumbnail->Save(u"gradient_3d.png");
 thumbnail->Dispose();
+
+presentation->Dispose();
 ```
 
+Отрендеренный вывод сохраняет градиент на передней грани и визуализирует экструзию отдельно:
 
-3D‑модель с 3D‑градиентом:
+![Отрендеренный 3D‑прямоугольник с градиентной заливкой от синего к оранжевому и оранжевой экструзией](img_02_03.png)
 
-![todo:image_alt_text](img_02_03.png)
-  
-Чтобы создать градиент изображения, используйте метод [Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb):
-``` cpp
+Чтобы использовать растровую заливку, добавьте изображение в презентацию и назначьте его заливкой фигуры:
+
+```cpp
 auto imageData = System::IO::File::ReadAllBytes(u"image.jpg");
 auto image = presentation->get_Images()->AddImage(imageData);
 
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-// .. настройка 3D: Camera, LightRig, Extrusion
 
-auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"sample_3d.png");
-thumbnail->Dispose();
+auto extrusionColor = System::Drawing::Color::get_DarkOrange();
+shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
+Изображение визуализируется на передней грани, а экструзия отображается как 3D‑боковая поверхность:
 
-3D‑модель с градиентом изображения:
+![Отрендеренный 3D‑прямоугольник с фотозаливкой на передней грани и оранжевой экструзией](img_02_04.png)
 
-![todo:image_alt_text](img_02_04.png)
+## **Применение 3D‑форматирования к тексту**
 
-## **3D текст (WordArt)**
-Чтобы применить вращение, выдавливание, освещение, градиент к тексту и сделать его 3D‑текстом (WordArt), необходимо обратиться к методу [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30):
-``` cpp
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
+3D‑форматирование фигур влияет на тело фигуры. 3D‑форматирование текста влияет на текстовый фрейм. Это полезно для эффектов, похожих на WordArt, когда сами буквы требуют экструзии, материала, освещения и настроек камеры.
 
-auto imageScale = 2;
+Следующий пример создаёт текст с узорной заливкой, применяет трансформацию WordArt и настраивает 3D‑параметры на [ITextFrameFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformat/):
+
+```cpp
+const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
 
+auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -168,48 +205,68 @@ shape->get_TextFrame()->set_Text(u"3D Text");
 
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(System::Drawing::Color::get_DarkOrange());
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(System::Drawing::Color::get_White());
+
+auto foregroundColor = System::Drawing::Color::get_DarkOrange();
+auto backgroundColor = System::Drawing::Color::get_White();
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(foregroundColor);
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(backgroundColor);
 portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::LargeGrid);
 
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(128.0f);
 
 auto textFrameFormat = shape->get_TextFrame()->get_TextFrameFormat();
-// настройка эффекта трансформации WordArt "Arch Up"
 textFrameFormat->set_Transform(TextShapeType::ArchUp);
-
 textFrameFormat->get_ThreeDFormat()->set_ExtrusionHeight(3.5);
 textFrameFormat->get_ThreeDFormat()->set_Depth(3.0);
 textFrameFormat->get_ThreeDFormat()->set_Material(MaterialPresetType::Plastic);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 textFrameFormat->get_ThreeDFormat()->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
-
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+textFrameFormat->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
-thumbnail->Save(u"text3d.png");
+thumbnail->Save(u"text_3d.png");
 thumbnail->Dispose();
 
-presentation->Save(u"text3d.pptx", SaveFormat::Pptx);
+presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Текст визуализируется как изогнутые, экструзированные 3D‑буквы:
 
-Пример 3D‑текста (WordArt):
+![Отрендеренный 3D‑текст с арочным преобразованием WordArt, оранжевой узорной заливкой и тёмной экструзией](img_02_05.png)
 
-![todo:image_alt_text](img_02_05.png)
+## **Поведение при экспорте и визуализации**
 
-## **Часто задаваемые вопросы**
+Aspose.Slides сохраняет 3D‑форматирование при сохранении в форматы PowerPoint, такие как PPTX. При визуализации или экспорте в форматы фиксированной раскладки 3D‑сцена растеризуется или рисуется в вывод как 2D‑результат. Это относится к визуализации слайдов в [PNG](/slides/ru/cpp/convert-powerpoint-to-png/), экспорту в [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), экспорту в [HTML](/slides/ru/cpp/convert-powerpoint-to-html/) или созданию кадров для [конвертации видео](/slides/ru/cpp/convert-powerpoint-to-video/).
 
-**Будут ли 3D‑эффекты сохранены при экспорте презентации в изображения/PDF/HTML?**
+- Экспортированные изображения и PDF не интерактивны. Объект нельзя вращать после экспорта.
+- Окончательный вид зависит от комбинации камеры, светового комплекта, материала, экструзии, заливки и масштабирования слайда.
+- Если нужно просмотреть унаследованные или основанные на теме значения форматирования, читайте [Эффективные свойства фигуры](/slides/ru/cpp/shape-effective-properties/).
+- Некоторые форматы вывода не могут хранить редактируемое 3D‑форматирование PowerPoint. В этих форматах визуальный результат визуализируется, а не сохраняется как редактируемые 3D‑настройки.
 
-Да. 3D‑движок Slides отображает 3D‑эффекты при экспорте в поддерживаемые форматы ([изображения](/slides/ru/cpp/convert-powerpoint-to-png/), [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), [HTML](/slides/ru/cpp/convert-powerpoint-to-html/), и т.д.).
+## **FAQ**
 
-**Могу ли я получить «эффективные» (окончательные) значения 3D‑параметров, учитывающие темы, наследование и т.п.?**
+**Может ли Aspose.Slides создавать интерактивные 3D‑презентации?**
 
-Да. Slides предоставляет API для [чтения эффективных значений](/slides/ru/cpp/shape-effective-properties/) (в том числе для 3D — освещение, фаски и т.д.), что позволяет увидеть окончательные применённые настройки.
+Aspose.Slides создает и визуализирует 3D‑эффекты PowerPoint для фигур и текста. Он не делает экспортированные изображения, PDF или HTML‑страницы интерактивными 3D‑сценами, которые пользователь может вращать. В PPTX 3D‑форматирование остаётся редактируемым в PowerPoint, если формат поддерживает это.
 
-**Работают ли 3D‑эффекты при конвертации презентации в видео?**
+**В чем разница между 3D‑моделью и 3D‑эффектом?**
 
-Да. При [генерации кадров для видео](/slides/ru/cpp/convert-powerpoint-to-video/) 3D‑эффекты рендерятся так же, как и для [экспортированных изображений](/slides/ru/cpp/convert-powerpoint-to-png/).
+3D‑модель — отдельный 3D‑объект, вставляемый в презентацию. 3D‑эффект — это форматирование, применяемое к обычной фигуре или тексту PowerPoint, такое как вращение, экструзия, фаска, освещение и материал. В этой статье рассматриваются 3D‑эффекты.
+
+**Какие настройки необходимы для видимой 3D‑фигуры?**
+
+Минимум — задать вращение камеры и либо экструзию, либо глубину. На практике также устанавливают световой комплект и материал, чтобы отрисованные грани имели чёткие блики и тени.
+
+**Могу ли я применять 3D‑эффекты к фигурам и тексту?**
+
+Да. Используйте [IShape] для тела фигуры и [ITextFrameFormat] для текста.
+
+**Отобразятся ли 3D‑эффекты при экспорте в изображения, PDF, HTML или видеокадры?**
+
+Да. Aspose.Slides визуализирует 3D‑эффекты при создании изображений слайдов, PDF‑вывода, HTML‑вывода и кадров, используемых для конвертации в видео. Экспортированный файл содержит визуализированный вид, а не редактируемый 3D‑объект.
+
+**Могу ли я прочитать окончательные 3D‑значения после применения наследования и настроек темы?**
+
+Да. Используйте API эффективного форматирования, описанные в [Эффективные свойства фигуры](/slides/ru/cpp/shape-effective-properties/), чтобы прочитать окончательные значения камеры, светового комплекта, фаски и связанных 3D‑параметров.

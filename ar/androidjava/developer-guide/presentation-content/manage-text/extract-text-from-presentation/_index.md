@@ -6,16 +6,16 @@ weight: 90
 url: /ar/androidjava/extract-text-from-presentation/
 keywords:
 - استخراج النص
-- استخراج النص من الشريحة
-- استخراج النص من العرض التقديمي
+- استخراج النص من شريحة
+- استخراج النص من عرض تقديمي
 - استخراج النص من PowerPoint
 - استخراج النص من OpenDocument
 - استخراج النص من PPT
 - استخراج النص من PPTX
 - استخراج النص من ODP
 - استرجاع النص
-- استرجاع النص من الشريحة
-- استرجاع النص من العرض التقديمي
+- استرجاع النص من شريحة
+- استرجاع النص من عرض تقديمي
 - استرجاع النص من PowerPoint
 - استرجاع النص من OpenDocument
 - استرجاع النص من PPT
@@ -27,135 +27,99 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "استخراج النص بسرعة من عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لنظام Android عبر Java. اتبع دليلنا البسيط خطوة بخطوة لتوفير الوقت."
+description: "استخراج النص بسرعة من عروض PowerPoint و OpenDocument باستخدام Aspose.Slides for Android عبر Java. اتبع دليلنا البسيط خطوة بخطوة لتوفير الوقت."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+استخراج النص من العروض التقديمية هو مهمة شائعة ولكنها أساسية للمطورين الذين يتعاملون مع محتوى الشرائح. سواء كنت تعمل مع ملفات Microsoft PowerPoint بصيغة PPT أو PPTX، أو عروض OpenDocument (ODP)، فإن الوصول إلى البيانات النصية واسترجاعها يمكن أن يكون حاسمًا للتحليل، الأتمتة، الفهرسة، أو أغراض ترحيل المحتوى.
 
-ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، يجب استخراج النص من جميع الأشكال في جميع الشرائح في العرض التقديمي. يوضح هذا المقال كيفية استخراج النص من عروض PowerPoint PPTX باستخدام Aspose.Slides. 
+توفر هذه المقالة دليلًا شاملًا حول كيفية استخراج النص بفعالية من صيغ عرض تقديمية مختلفة، بما في ذلك PPT وPPTX وODP، باستخدام Aspose.Slides for Android via Java. ستتعلم كيفية التكرار عبر عناصر العرض لاستخراج محتوى النص الذي تحتاجه بدقة.
 
-{{% /alert %}} 
-## **استخراج النص من الشريحة**
-توفر Aspose.Slides for Android via Java الفئة [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil). تعرض هذه الفئة عددًا من الطرق الساكنة المحملة للمتغيرات لاستخراج النص الكامل من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض PPTX،
-استخدم الطريقة الساكنة المحملة للمتغيرات [getAllTextBoxes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) التي تعرضها الفئة [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil). تقبل هذه الطريقة كائن Slide كمعامل.
-عند التنفيذ، تفحص طريقة Slide النص الكامل من الشريحة التي تم تمريرها كمعامل وتعيد مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame). وهذا يعني أن أي تنسيق نصي مرتبط بالنص متاح. الجزء التالي من الشيفرة يستخرج كل النص في الشريحة الأولى من العرض التقديمي:
+## **استخراج النص من شريحة**
+
+توفر Aspose.Slides for Android via Java الفئة [SlideUtil](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideutil/). هذه الفئة تُظهر عدة طرق ثابتة مُحمَّلة لاستخراج كل النص من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض تقديمي، استخدم طريقة [getAllTextBoxes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-) . هذه الطريقة تقبل كائنًا من النوع [IBaseSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/) كمعامل. عند التنفيذ، تقوم الطريقة بمسح جميع محتويات الشريحة للبحث عن النص وتُعيد مصفوفة من الكائنات من النوع [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/)، مع الحفاظ على أي تنسيق للنص.
+
+المقتطع البرمجي التالي يستخرج كل النص من الشريحة الأولى للعرض التقديمي:
+
 ```java
-//إنشاء كائن Presentation الذي يمثل ملف PPTX
-Presentation pres = new Presentation("demo.pptx");
+int slideIndex = 0;
+
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        //الحصول على مصفوفة من كائنات ITextFrame من جميع الشرائح في ملف PPTX
-        ITextFrame[] textFramesPPTX = SlideUtil.getAllTextBoxes(slide);
+    ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-        //التكرار عبر مصفوفة TextFrames
-        for (int i = 0; i < textFramesPPTX.length; i++) {
-            //التكرار عبر الفقرات في ITextFrame الحالي
-            for (IParagraph para : textFramesPPTX[i].getParagraphs()) {
-                //التكرار عبر المقاطع في IParagraph الحالي
-                for (IPortion port : para.getPortions()) {
-                    //عرض النص في المقطع الحالي
-                    System.out.println(port.getText());
+    ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
 
-                    //عرض ارتفاع الخط للنص
-                    System.out.println(port.getPortionFormat().getFontHeight());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                    //عرض اسم الخط للنص
-                    if (port.getPortionFormat().getLatinFont() != null)
-                        System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
+
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
                 }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **استخراج النص من عرض تقديمي**
 
-## **استخراج النص من العرض التقديمي**
-لمسح النص من كامل العرض التقديمي، استخدم
-الطريقة الساكنة [getAllTextFrames](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) التي تعرضها فئة SlideUtil. تأخذ هذه الطريقة معاملين:
+لمسح النص من كامل العرض التقديمي، استخدم الطريقة الساكنة [getAllTextFrames](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) التي تُظهرها الفئة [SlideUtil](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideutil/). تقبل الطريقة معاملين:
 
-1. أولًا، كائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextExtractionArrangingMode#Unarranged) يمثل العرض التقديمي الذي يتم استخراج النص منه.
-1. ثانيًا، قيمة منطقية تحدد ما إذا كان ينبغي تضمين شريحة القالب الأساسي عند مسح النص من العرض التقديمي.
-   تعيد الطريقة مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) مكتملة بمعلومات تنسيق النص. الشيفرة أدناه تمسح النص ومعلومات التنسيق من عرض تقديمي، بما في ذلك شرائح القالب.
+1. أولاً، كائن [IPresentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/) يمثل عرض PowerPoint أو OpenDocument سيُستخرج منه النص.
+1. ثانياً، قيمة `boolean` تُحدِّد ما إذا كان يجب تضمين الشرائح الرئيسة أثناء مسح النص من العرض.
+
+تُعيد الطريقة مصفوفة من الكائنات من النوع [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/)، بما في ذلك معلومات تنسيق النص. يُظهر الكود أدناه مسح النص وتفاصيل التنسيق من عرض تقديمي، بما في ذلك الشرائح الرئيسة.
+
 ```java
-//إنشاء كائن Presentation الذي يمثل ملف PPTX
-Presentation pres = new Presentation("demo.pptx");
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    //الحصول على مصفوفة من كائنات ITextFrame من جميع الشرائح في ملف PPTX
-    ITextFrame[] textFramesPPTX = SlideUtil.getAllTextFrames(pres, true);
+    boolean includeMasterSlides = true;
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, includeMasterSlides);
 
-    //التكرار عبر مصفوفة TextFrames
-    for (int i = 0; i < textFramesPPTX.length; i++) 
-    {
-        //التكرار عبر الفقرات في ITextFrame الحالي
-        for (IParagraph para : textFramesPPTX[i].getParagraphs())
-        {
-            //التكرار عبر المقاطع في IParagraph الحالي
-            for (IPortion port : para.getPortions())
-            {
-                //عرض النص في المقطع الحالي
-                System.out.println(port.getText());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                //عرض ارتفاع الخط للنص
-                System.out.println(port.getPortionFormat().getFontHeight());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
 
-                //عرض اسم الخط للنص
-                if (port.getPortionFormat().getLatinFont() != null)
-                    System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
+                }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **استخراج نص مصنف وسريع**
 
-## **استخراج النص المصنف والسريع**
-تمت إضافة الطريقة الساكنة الجديدة getPresentationText إلى فئة Presentation. هناك ثلاثة تحميلات لهذه الطريقة:
-```java
-public IPresentationText getPresentationText(String file, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
-``` 
+توفر الفئة [PresentationFactory](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/) أيضًا طرقًا لاستخراج كل النص من العروض التقديمية:
 
-The [TextExtractionArrangingMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:
-- [Unarranged](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextExtractionArrangingMode#Unarranged) - The raw text with no respect to position on the slide
-- [Arranged](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextExtractionArrangingMode#Arranged) - The text is positioned in the same order as on the slide
-
-**Unarranged** mode can be used when speed is critical, it's faster than Arranged mode.
-
-[IPresentationText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText#getSlidesText--) method which returns an array of [ISlideText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideText) objects. Every object represent the text on the corresponding slide. [ISlideText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideText) object have the following methods:
-
-- [ISlideText.getText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideText#getText--) - The text on the slide's shapes
-- [ISlideText.getMasterText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideText#getMasterText--) - The text on the master page's shapes for this slide
-- [ISlideText.getLayoutText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideText#getLayoutText--) - The text on the layout page's shapes for this slide
-- [ISlideText.getNotesText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideText#getNotesText--) - The text on the notes page's shapes for this slide
-
-The new API can be used like this:
-
-```java
-IPresentationText text1 = PresentationFactory.getInstance().getPresentationText("presentation.pptx", TextExtractionArrangingMode.Unarranged);
-System.out.println(text1.getSlidesText()[0].getText());
-System.out.println(text1.getSlidesText()[0].getLayoutText());
-System.out.println(text1.getSlidesText()[0].getMasterText());
-System.out.println(text1.getSlidesText()[0].getNotesText());
+```text
+IPresentationText getPresentationText(String file, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
 ```
 
-
-## **الأسئلة الشائعة**
-
-**ما مدى سرعة معالجة Aspose.Slides للعروض التقديمية الكبيرة أثناء استخراج النص؟**
-
-تم تحسين Aspose.Slides للأداء العالي وتقوم بمعالجة حتى [العروض التقديمية الكبيرة](/slides/ar/androidjava/open-presentation/) بكفاءة، مما يجعلها مناسبة لسيناريوهات المعالجة في الوقت الفعلي أو على نطاق واسع.
-
-**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والرسوم البيانية داخل العروض التقديمية؟**
-
-نعم، يدعم Aspose.Slides استخراج النص بالكامل من الجداول والرسوم البيانية وغيرها من عناصر الشرائح المعقدة، مما يتيح لك الوصول إلى جميع المحتويات النصية بسهولة وتحليلها.
-
-**هل أحتاج إلى ترخيص خاص لـ Aspose.Slides لاستخراج النص من العروض التقديمية؟**
-
-يمكنك استخراج النص باستخدام النسخة التجريبية المجانية من Aspose.Slides، رغم أنها تحتوي على بعض القيود مثل معالجة عدد محدود من الشرائح فقط. للحصول على استخدام غير مقيد ولمعالجة عروض تقديمية أكبر، يوصى بشراء ترخيص كامل.
+معامل تعداد [TextExtractionArrangingMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textextractionarrangingmode/) يحدد وضعية تنظيم نتيجة استخراج النص ويمكن ضبطه على القيم التالية:
+- `Un

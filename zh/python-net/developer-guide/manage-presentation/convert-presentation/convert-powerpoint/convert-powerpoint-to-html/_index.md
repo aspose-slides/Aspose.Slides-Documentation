@@ -5,267 +5,212 @@ type: docs
 weight: 30
 url: /zh/python-net/convert-powerpoint-to-html/
 keywords:
-- 转换 PowerPoint
-- 转换 演示文稿
-- 转换 幻灯片
-- 转换 PPT
-- 转换 PPTX
-- PowerPoint 转 HTML
-- 演示文稿 转 HTML
-- 幻灯片 转 HTML
-- PPT 转 HTML
-- PPTX 转 HTML
-- 将 PowerPoint 保存为 HTML
-- 将 演示文稿 保存为 HTML
-- 将 幻灯片 保存为 HTML
-- 将 PPT 保存为 HTML
-- 将 PPTX 保存为 HTML
-- Python
-- Aspose.Slides
-description: "在 Python 中将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides 转换指南快速、完美地保留布局、链接和图像。"
+  - 转换 PowerPoint
+  - 转换演示文稿
+  - 转换幻灯片
+  - 转换 PPT
+  - 转换 PPTX
+  - PowerPoint 转 HTML
+  - 演示文稿转 HTML
+  - 幻灯片转 HTML
+  - PPT 转 HTML
+  - PPTX 转 HTML
+  - 将 PowerPoint 保存为 HTML
+  - 将演示文稿保存为 HTML
+  - 将幻灯片保存为 HTML
+  - 将 PPT 保存为 HTML
+  - 将 PPTX 保存为 HTML
+  - 导出 PPT 为 HTML
+  - 导出 PPTX 为 HTML
+  - Python
+  - Aspose.Slides
+description: "在 Python 中将 PowerPoint 演示文稿转换为 HTML。使用 Aspose.Slides 导出 PPT 和 PPTX 文件、选定的幻灯片、备注、字体、图像、SVG 和媒体。"
 ---
-
 ## **概述**
 
-本文解释了如何使用 Python 将 PowerPoint 演示文稿转换为 HTML 格式。它涵盖以下主题。
+Aspose.Slides for Python via .NET 可以在没有 Microsoft PowerPoint 的情况下将 PowerPoint 演示文稿保存为 HTML。基本的转换只需加载一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 并使用 [SaveFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/saveformat/) 调用 `save`。当需要控制导出布局、字体、图像、备注、批注、SVG 输出或链接资源时，请使用 [HtmlOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmloptions/)。
 
-- 在 Python 中将 PowerPoint 转换为 HTML
-- 在 Python 中将 PPT 转换为 HTML
-- 在 Python 中将 PPTX 转换为 HTML
-- 在 Python 中将 ODP 转换为 HTML
-- 在 Python 中将 PowerPoint 幻灯片转换为 HTML
+本指南侧重于实用的 HTML 导出场景：
 
-## **Python PowerPoint 转 HTML**
+- 导出整个演示文稿或选定的幻灯片。
+- 生成固定布局、响应式或基于 SVG 的 HTML。
+- 包含演讲者备注和批注。
+- 控制图像质量和裁剪图像数据。
+- 嵌入字体或单独保存字体文件。
+- 选择外部资源和媒体文件的写入方式和引用方式。
 
-有关将 PowerPoint 转换为 HTML 的 Python 示例代码，请参阅下面的部分，即[Convert PowerPoint to HTML](#convert-powerpoint-to-html)。该代码可以在 Presentation 对象中加载 PPT、PPTX 和 ODP 等多种格式，并将其保存为 HTML 格式。
+默认情况下，HTML 导出会生成一个自包含的 HTML 文档，绝大多数资源都嵌入其中。这对于共享单个文件很方便，但会增加输出大小。对于 Web 发布，请考虑使用外部资源、降低图像 DPI，并仅嵌入目标环境中不可靠可用的字体。
 
-## **关于 PowerPoint 转 HTML 转换**
+## **将演示文稿转换为 HTML**
 
-使用[**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/)，应用程序和开发人员可以将 PowerPoint 演示文稿转换为 HTML：**PPTX to HTML** 或 **PPT to HTML**。
+要将演示文稿导出为 HTML，请使用 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 加载，然后使用 [SaveFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/saveformat/) 保存。
 
-**Aspose.Slides** 提供了许多选项（主要来自[**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) 类），用于定义 PowerPoint 转 HTML 的转换过程：
-
-* 将整个 PowerPoint 演示文稿转换为 HTML。
-* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
-* 将演示文稿媒体（图像、视频等）转换为 HTML。
-* 将 PowerPoint 演示文稿转换为响应式 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。
-* 将 PowerPoint 演示文稿转换为使用原始或嵌入字体的 HTML。
-* 在使用新 CSS 样式的情况下将 PowerPoint 演示文稿转换为 HTML。
-
-{{% alert color="primary" %}} 
-
-使用自己的 API，Aspose 开发了免费的[演示文稿转 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)转换器： [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-您可能想查看 Aspose 的其他[免费转换器](https://products.aspose.app/slides/conversion)。
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-除了本文所述的转换流程外，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作：
-
-* [HTML 转图像](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
-* [HTML 转 JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
-* [HTML 转 XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
-* [HTML 转 TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
-## **将 PowerPoint 转换为 HTML**
-
-使用 Aspose.Slides，您可以通过以下方式将整个 PowerPoint 演示文稿转换为 HTML：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例
-1. 使用[Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)方法将对象保存为 HTML 文件。
-
-以下代码演示了如何在 python 中将 PowerPoint 转换为 HTML：
 ```python
 import aspose.slides as slides
 
-# 实例化一个表示演示文稿文件的 Presentation 对象
-pres = slides.Presentation("Convert_HTML.pptx")
-
-options = slides.export.HtmlOptions()
-
-options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
-options.html_formatter = slides.export.HtmlFormatter.create_document_formatter("", False)
-
-# 将演示文稿保存为 HTML
-pres.save("ConvertWholePresentationToHTML_out.html", slides.export.SaveFormat.HTML, options)
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.html", slides.export.SaveFormat.HTML)
 ```
 
+此示例会写入一个 HTML 文件。`with` 语句在导出后会释放演示文稿对象并关闭文件句柄和渲染资源。
 
-## **将 PowerPoint 转换为响应式 HTML**
+## **使用 HtmlOptions**
 
-Aspose.Slides 提供了[ResponsiveHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/responsivehtmlcontroller/) 类，允许您生成响应式 HTML 文件。以下代码演示了如何在 python 中将 PowerPoint 演示文稿转换为响应式 HTML：
-```py
-# 实例化一个表示演示文稿文件的 Presentation 对象
+[HtmlOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmloptions/) 是 HTML 导出的主要配置类。常用设置包括：
+
+- `slides_layout_options`：添加备注、批注、讲义或其他布局信息。
+- `html_formatter`：更改 HTML 文档结构或将格式化委托给控制器。
+- `slide_image_format`：更改幻灯片的表示方式，例如作为 SVG。
+- `pictures_compression`：控制图像 DPI 和输出大小。
+- `delete_pictures_cropped_areas`：保留或删除裁剪的图像数据。
+- `svg_responsive_layout`：使导出的 SVG 内容适应其容器。
+- `show_hidden_slides`：在需要时包含隐藏的幻灯片。
+
+以下章节分别展示最常用的选项，以便您仅组合工作流所需的部分。
+
+## **将选定幻灯片转换为 HTML**
+
+接受幻灯片编号的 `save` 重载使用基于 1 的幻灯片位置。下面的循环将每张幻灯片保存为单独的 HTML 文件。
+
+```python
 import aspose.slides as slides
 
-pres = slides.Presentation("Convert_HTML.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    slide_count = len(presentation.slides)
 
-controller = slides.export.ResponsiveHtmlController()
-htmlOptions = slides.export.HtmlOptions()
-htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
+    for slide_index in range(slide_count):
+        slide_number = slide_index + 1
+        slide_numbers = [slide_number]
+        html_file_name = "slide-{}.html".format(slide_number)
 
-# 将演示文稿保存为 HTML
-pres.save("ConvertPresentationToResponsiveHTML_out.html", slides.export.SaveFormat.HTML, htmlOptions)
+        presentation.save(html_file_name, slide_numbers, slides.export.SaveFormat.HTML)
 ```
 
+当网站或应用程序需要每张幻灯片对应一个 HTML 页面时，请使用此模式。如果每张幻灯片应使用相同的布局，请创建一个 [HtmlOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmloptions/) 实例并将其传递给每个 `save` 调用。
 
-## **将 PowerPoint 转换为带备注的 HTML**
+## **创建响应式 HTML**
 
-以下代码演示了如何在 python 中将 PowerPoint 转换为带备注的 HTML：
-```py
+[ResponsiveHtmlController](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/responsivehtmlcontroller/) 通过 [HtmlFormatter](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmlformatter/) 提供响应式 HTML 输出。当导出页面需要更好地适应浏览器宽度时，请使用它。
+
+```python
 import aspose.slides as slides
 
-pres = slides.Presentation("Presentation.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    controller = slides.export.ResponsiveHtmlController()
+    formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
 
-opt = slides.export.HtmlOptions()
-opt.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+    html_options = slides.export.HtmlOptions()
+    html_options.html_formatter = formatter
 
-pres.save("Output.html", slides.export.SaveFormat.HTML, opt)
+    presentation.save("presentation-responsive.html", slides.export.SaveFormat.HTML, html_options)
 ```
 
+对于基于 SVG 的响应式布局，请在 [HtmlOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmloptions/) 上设置 `svg_responsive_layout`。当幻灯片内容以可缩放的 SVG 标记导出时，这非常有用。
 
-## **将 PowerPoint 转换为带原始字体的 HTML**
-
-Aspose.Slides 提供了[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) 类，允许在将演示文稿转换为 HTML 时嵌入所有字体。
-
-若要防止嵌入某些字体，您可以向[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) 类的参数化构造函数传递字体名称数组。诸如 Calibri 或 Arial 等常用字体在演示文稿中使用时，无需嵌入，因为大多数系统已预装这些字体。嵌入这些字体会导致生成的 HTML 文档体积过大。
-
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) 类支持继承，并提供 `WriteFont` 方法，可供覆写。 
-```py
+```python
 import aspose.slides as slides
 
-pres = slides.Presentation("input.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    html_options = slides.export.HtmlOptions()
+    html_options.svg_responsive_layout = True
 
-# 排除默认演示文稿字体
-fontNameExcludeList = ["Calibri", "Arial"]
-
-htmlOptionsEmbed = slides.export.HtmlOptions()
-htmlOptionsEmbed.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(slides.export.EmbedAllFontsHtmlController(fontNameExcludeList))
-
-pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveFormat.HTML, htmlOptionsEmbed)
+    presentation.save("presentation-svg-responsive.html", slides.export.SaveFormat.HTML, html_options)
 ```
 
+## **包含演讲者备注和批注**
 
-## **将幻灯片转换为 HTML**
+通过 `html_options.slides_layout_options` 使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/notescommentslayoutingoptions/) 可以包含演讲者备注或批注。默认情况下，备注和批注是隐藏的，除非您指定它们的位置。
 
-将单独的演示文稿幻灯片转换为 HTML。为此使用[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类公开的相同[**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 方法，该方法用于将整个 PPT(X) 演示文稿转换为 HTML 文档。[**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) 类也可以用于设置额外的转换选项：
-```py
-# [TODO[not_supported_yet]: python 对 .net 接口的实现]
-```
+假设源演示文稿包含演讲者备注：
 
+![带有演讲者备注的幻灯片](slide_with_notes.png)
 
-## **导出为 HTML 时保存 CSS 和图像**
+下面的代码将幻灯片内容导出，并在幻灯片下方显示演讲者备注。
 
-使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转 HTML 转换过程生成的 HTML 文件的样式。
-
-此示例中的 python 代码演示了如何使用可覆写的方法创建带有 CSS 文件链接的自定义 HTML 文档：
-```py
-# [TODO[not_supported_yet]: python 对 .net 接口的实现]
-```
-
-
-## **在将演示文稿转换为 HTML 时链接所有字体**
-
-如果您不想嵌入字体（以避免增大生成的 HTML 大小），可以通过实现自定义的 `LinkAllFontsHtmlController` 版本来链接所有字体。
-
-以下 python 代码演示了如何在链接所有字体且排除 “Calibri” 与 “Arial”（因为系统中已存在） 的情况下，将 PowerPoint 转换为 HTML：
-```py
-# [TODO[not_supported_yet]: python 实现 .net 接口]
-```
-
-
-## **支持 SVG 响应式属性**
-
-下面的代码示例展示了如何将 PPT(X) 演示文稿导出为具有响应式布局的 HTML：
-```py
-presentation = slides.Presentation("SomePresentation.pptx")
-
-saveOptions = slides.export.HtmlOptions()
-saveOptions.svg_responsive_layout = True
-
-presentation.save("SomePresentation-out.html", slides.export.SaveFormat.HTML, saveOptions)
-```
-
-
-## **导出媒体文件到 HTML 文件**
-
-使用 Aspose.Slides for python，您可以按以下方式导出媒体文件：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 获取该幻灯片的引用。
-3. 向幻灯片添加视频。
-4. 将演示文稿写入为 HTML 文件。
-
-以下 python 代码演示了如何向演示文稿添加视频，然后将其保存为 HTML：
-```py
+```python
 import aspose.slides as slides
 
-# 加载演示文稿
-presentation = slides.Presentation("Media File.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    layout_options = slides.export.NotesCommentsLayoutingOptions()
+    layout_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-path = "C:\\"
-fileName = "ExportMediaFiles_out.html"
-baseUri = "http://www.example.com/"
+    html_options = slides.export.HtmlOptions()
+    html_options.slides_layout_options = layout_options
 
-controller = slides.export.VideoPlayerHtmlController(path, fileName, baseUri)
-
-htmlOptions = slides.export.HtmlOptions(controller)
-svgOptions = slides.export.SVGOptions(controller)
-
-htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
-htmlOptions.slide_image_format = slides.export.SlideImageFormat.svg(svgOptions)
-
-presentation.save(path + "ExportMediaFiles_out.html", slides.export.SaveFormat.HTML, htmlOptions)
+    presentation.save("presentation-with-notes.html", slides.export.SaveFormat.HTML, html_options)
 ```
 
+导出的 HTML 包含备注区域：
 
-## **FAQ**
+![包含幻灯片和演讲者备注的 HTML 输出](HTML_with_notes.png)
 
-**如何使用 Python 将 PowerPoint 演示文稿转换为 HTML？**
+要导出批注，请设置 `comments_position`，例如 `CommentsPositions.RIGHT` 或 `CommentsPositions.BOTTOM`。如果只需要批注，请省略 `notes_position`。如果需要同时显示备注和批注，请同时设置两个属性。
 
-您可以使用 Aspose.Slides for Python via .NET 库加载 PPT、PPTX 或 ODP 文件，并使用 `save()` 方法配合 `SaveFormat.HTML` 将其转换为 HTML。
+## **控制图像质量和裁剪区域**
 
-**Aspose.Slides 是否支持将单个 PowerPoint 幻灯片转换为 HTML？**
+HTML 导出可以压缩幻灯片图像以减小输出大小。当需要更高图像质量时，请将 `pictures_compression` 设置为 [PicturesCompression](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/picturescompression/) 中的某个值。
 
-是的，Aspose.Slides 允许通过相应的 `HtmlOptions` 配置将整个演示文稿或特定幻灯片转换为 HTML。
+```python
+import aspose.slides as slides
 
-**我可以从 PowerPoint 演示文稿生成响应式 HTML 吗？**
+with slides.Presentation("presentation.pptx") as presentation:
+    html_options = slides.export.HtmlOptions()
+    html_options.pictures_compression = slides.export.PicturesCompression.DPI150
 
-可以，使用 `ResponsiveHtmlController` 类即可将演示文稿导出为适配不同屏幕尺寸的响应式 HTML 布局。
+    presentation.save("presentation-dpi-150.html", slides.export.SaveFormat.HTML, html_options)
+```
 
-**导出的 HTML 是否可以包含演讲者备注或批注？**
+默认情况下，图像的裁剪区域可能会从导出输出中移除。仅在用户必须能够恢复或检查这些隐藏图像部分时才保留裁剪数据。保留裁剪数据会增加 HTML 大小。
 
-可以，您可以在 `HtmlOptions` 中设置以包含或排除演讲者备注和批注。
+```python
+import aspose.slides as slides
 
-**在将演示文稿转换为 HTML 时可以嵌入字体吗？**
+with slides.Presentation("presentation.pptx") as presentation:
+    html_options = slides.export.HtmlOptions()
+    html_options.delete_pictures_cropped_areas = False
 
-可以，Aspose.Slides 提供 `EmbedAllFontsHtmlController` 类，可用于嵌入字体或排除特定字体以减小输出文件大小。
+    presentation.save("presentation-with-cropped-areas.html", slides.export.SaveFormat.HTML, html_options)
+```
 
-**PowerPoint 转 HTML 转换是否支持视频和音频等媒体文件？**
+## **添加 CSS**
 
-支持，Aspose.Slides 可使用 `VideoPlayerHtmlController` 等相关类将幻灯片中嵌入的媒体内容导出为 HTML。
+对于简单的样式，向 [HtmlFormatter](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmlformatter/) 传递 CSS 字符串。这样可以更改外围 HTML 文档，而 Aspose.Slides 仍然负责渲染幻灯片内容。
 
-**支持哪些文件格式转换为 HTML？**
+```python
+import aspose.slides as slides
 
-Aspose.Slides 支持将 PPT、PPTX 和 ODP 演示文稿格式转换为 HTML，并且可以将幻灯片内容保存为 SVG 以及导出媒体资源。
+with slides.Presentation("presentation.pptx") as presentation:
+    css_rules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }"
+    formatter = slides.export.HtmlFormatter.create_document_formatter(css_rules, True)
 
-**我能通过链接常用系统字体而不是嵌入它们来减小 HTML 输出大小吗？**
+    html_options = slides.export.HtmlOptions()
+    html_options.html_formatter = formatter
 
-可以，您可以实现自定义的 `HtmlController`，将常见的系统字体（如 Arial、Calibri）以链接方式引用，而不是嵌入。
+    presentation.save("presentation-styled.html", slides.export.SaveFormat.HTML, html_options)
+```
 
-**是否有在线工具可以将 PowerPoint 转换为 HTML？**
+要自定义文档头、链接的 CSS 文件或在幻灯片和形状周围添加自定义标记，请使用自定义格式化控制器，并通过 `create_custom_formatter` 将其传递给 [HtmlFormatter](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmlformatter/)。
 
-有，您可以使用 Aspose 的免费在线工具，例如[PowerPoint 转 HTML](https://products.aspose.app/slides/conversion/ppt-to-html)或[PowerPoint 转 HTML](https://products.aspose.app/slides/conversion/pptx-to-html)直接在浏览器中进行转换，无需编写代码。
+## **嵌入字体**
 
-**我可以在导出的 HTML 文件中使用自定义 CSS 样式吗？**
+如果目标环境可能未安装演示文稿使用的字体，请使用 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/embedallfontshtmlcontroller/) 在 HTML 中嵌入字体。嵌入可以提升视觉保真度，但会增加输出大小。
 
-可以，Aspose.Slides 在转换时支持链接外部 CSS 文件，您可以完全自定义生成的 HTML 内容的外观。
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    font_names_to_exclude = ["Arial"]
+    font_controller = slides.export.EmbedAllFontsHtmlController(font_names_to_exclude)
+    formatter = slides.export.HtmlFormatter.create_custom_formatter(font_controller)
+
+    html_options = slides.export.HtmlOptions()
+    html_options.html_formatter = formatter
+
+    presentation.save("presentation-embedded-fonts.html", slides.export.SaveFormat.HTML, html_options)
+```
+
+仅在确信目标浏览器或系统已经提供该字体时才排除它。对于品牌字体或不常见的字体，嵌入通常更安全。
+
+## **链接字体文件而不是嵌入**
+
+为减小 HTML 文件大小，您可以将字体数据

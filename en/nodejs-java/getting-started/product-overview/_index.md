@@ -24,9 +24,9 @@ keywords:
 description: "Aspose.Slides for Node.js via Java lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
-![todo:image_alt_text](aspose_slides-for-nodejs-via-java.png)
+![Aspose.Slides for Node.js via Java](aspose_slides-for-nodejs-via-java.png)
 
-## **Introduction**
+## **Welcome to Aspose.Slides for Node.js via Java!**
 
 Aspose.Slides is a Microsoft PowerPoint® management API that allows applications to read, write, create, and modify PowerPoint presentations without using Microsoft PowerPoint®. The library supports working with presentations, slides, shapes, tables, text, animations, audio, video, and other presentation elements.
 

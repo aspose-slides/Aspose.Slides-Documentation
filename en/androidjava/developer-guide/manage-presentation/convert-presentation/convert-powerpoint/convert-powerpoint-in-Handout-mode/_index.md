@@ -19,9 +19,11 @@ keywords:
 description: "Convert presentations to handouts in Java. Set slides per page, keep notes, export to PDF or images with Aspose.Slides for Android, with sample code. Try it free."
 ---
 
-## **Handout Mode Export**
+## **Introduction**
 
 Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `setSlidesLayoutOptions` method in the [IPdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihtmloptions/), and [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) interfaces.
+
+## **Handout Mode Export**
 
 To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handoutlayoutingoptions/) object, which determines how many slides are placed on a single page and other display parameters.
 

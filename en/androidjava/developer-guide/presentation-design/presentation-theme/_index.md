@@ -25,6 +25,8 @@ keywords:
 description: "Master presentation themes in Aspose.Slides for Android via Java to create, customize and convert PowerPoint files with consistent branding."
 ---
 
+## **Introduction**
+
 A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
 
 In PowerPoint, a theme comprises colors, [fonts](/slides/androidjava/powerpoint-fonts/), [background styles](/slides/androidjava/presentation-background/), and effects.

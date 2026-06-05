@@ -5,22 +5,14 @@ weight: 10
 url: /sharepoint/product-overview/
 ---
 
-{{% alert color="primary" %}} 
+![Aspose.Slides for SharePoint](product-overview_1.png)
 
-![todo:image_alt_text](product-overview_1)
-
-**Welcome to Aspose.Slides for SharePoint!**
+## **Welcome to Aspose.Slides for SharePoint!**
 
 Aspose.Slides for SharePoint is a flexible solution that makes it possible to convert PowerPoint® documents within Microsoft SharePoint Sites.
 
+## **Product Overview**
 
-
-
-
-
-
-{{% /alert %}} 
-### **Product Overview**
 Aspose.Slides for SharePoint supports a number of PowerPoint document formats:
 
 - PPT – Microsoft PowerPoint presentation 97 - 2003
@@ -42,4 +34,4 @@ There are no other system requirements besides ones, which exist for the product
 
 **Use Aspose.Slides for SharePoint to convert documents from SharePoint's document library** 
 
-![todo:image_alt_text](product-overview_2.png)
+![SharePoint's document library](product-overview_2.png)

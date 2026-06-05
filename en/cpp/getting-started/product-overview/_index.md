@@ -23,18 +23,12 @@ keywords:
 description: "Aspose.Slides for C++ lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
-## **Product Overview**
+![todo:image_alt_text](product-overview_1.png)
 
-
-{{% alert color="primary" %}} 
-
-![todo:image_alt_text](product-overview_1)
-
-**Welcome to the Aspose.Slides for C++**
+## **Welcome to Aspose.Slides for С++!**
 
 Aspose.Slides for C++ is a Microsoft PowerPoint® management API that enables C++ applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. Aspose.Slides for C++ is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for C++ provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 
-{{% /alert %}} 
 ## **Product Description**
 Aspose.Slides for C++ is developed using Native C++. Now it is compiled for Windows x64 environment but it will be compiled for Linux environment too.
 

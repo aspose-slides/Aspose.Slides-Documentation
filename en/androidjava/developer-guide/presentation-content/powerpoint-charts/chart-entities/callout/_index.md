@@ -16,6 +16,10 @@ keywords:
 description: "Create and style callouts in Aspose.Slides for Android with concise Java code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
+## **Overview**
+
+This article explains how to work with callouts for chart data labels in Aspose.Slides. It shows how to use the `setShowLabelAsDataCallout` method to display labels as callouts, how to configure callout-related label settings for a doughnut chart, and notes that callouts and their appearance are preserved when presentations are exported to PDF, HTML5, SVG, and raster image formats.
+
 ## **Using Callouts**
 New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) and [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) have been added to [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) class and [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat) interface. These methods determine either specified chart's data label will be displayed as data callout or as data label.
 

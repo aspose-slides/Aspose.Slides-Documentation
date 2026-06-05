@@ -1,225 +1,292 @@
 ---
-title: 3D презентация
+title: Создание 3D-эффектов в презентациях с использованием Node.js
+linktitle: 3D Презентация
 type: docs
 weight: 232
 url: /ru/nodejs-java/3d-presentation/
+keywords:
+- 3D PowerPoint
+- 3D презентация
+- 3D вращение
+- 3D глубина
+- 3D экструзия
+- 3D градиент
+- 3D текст
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Применяйте и рендерьте 3D-эффекты для фигур и текста PowerPoint в Node.js с помощью Aspose.Slides. Настраивайте камеру, освещение, материал, экструзию, заливки и 3D-текст."
 ---
-
 ## **Обзор**
 
-Начиная с Aspose.Slides for Java 20.9, возможно создавать 3D в презентациях. PowerPoint 3D — это способ оживить презентации. Показать реальные объекты в 3D‑презентации, продемонстрировать 3D‑модель вашего будущего бизнес‑проекта, 3D‑модель здания или его интерьера, 3D‑модель игрового персонажа или просто 3D‑представление ваших данных. 
+Aspose.Slides for Node.js via Java может создавать, редактировать, сохранять и отображать 3D‑форматирование в стиле PowerPoint для фигур и текста. Эта статья охватывает 3D‑эффекты, такие как вращение, экструзия, фаски, освещение, материал, градиентные или картинные заливки и 3D‑текст.
 
-3D‑модели PowerPoint можно создавать из 2D‑форм, применяя к ним такие эффекты: 3D‑поворот, 3D‑глубина и экструдирование, 3D‑градиент, 3D‑текст и т.д. Список 3D‑функций, применяемых к фигурам, можно найти в классе **[ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat)**. Экземпляр класса можно получить с помощью:
+{{% alert color="primary" %}}
+Эта статья посвящена 3D‑эффектам форматирования фигур и текста PowerPoint. Она не касается вставки или редактирования отдельные файлов 3D‑моделей. При экспорте слайда в изображение, PDF или HTML Aspose.Slides рендерит эти 3D‑эффекты в экспортированный 2D‑вывод.
+{{% /alert %}}
 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getThreeDFormat--)** метод для создания 3D‑модели PowerPoint.  
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getThreeDFormat--)** метод для создания 3D‑текста (WordArt).
+## **Концепции 3D‑форматирования**
 
-Все эффекты, реализованные в **[ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat)**, могут использоваться как для фигур, так и для текста. Давайте быстро рассмотрим основные методы класса **[ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat)**. В следующем примере мы создаём прямоугольную 2D‑фигуру с текстом. Получив камеру для фигуры, мы изменяем её поворот, чтобы она выглядела как 3D‑модель. Установка плоского освещения и направление его к верху 3D‑модели добавляют объём модели. Изменённые материалы, высота экструдирования и цвет делают 3D‑модель более живой.  
+Используйте [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/).`getThreeDFormat()` для применения 3D‑форматирования к фигуре. Возвращаемый объект [ThreeDFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/) управляет 3D‑сценой для этой фигуры.
+
+Для текста используйте [TextFrameFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/).`getThreeDFormat()`. Это применяет 3D‑форматирование к текстовому кадру вместо тела фигуры.
+
+Самыми важными членами API являются:
+
+| Элемент API | Что он управляет | Когда использовать |
+|---|---|---|
+| [getCamera](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getCamera) | Точка просмотра, предустановленный тип камеры, вращение, масштаб и перспектива. | Вращение объекта в 3D‑пространстве или соответствие предустановке вращения 3D в PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getLightRig) | Предустановка освещения, направление и вращение света. | Изменить отображение бликов и теней на 3D‑поверхности. |
+| [getMaterial](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getMaterial) и [setMaterial](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#setMaterial) | Материал поверхности, например плоский, матовый, пластик или металл. | Сделать одну и ту же геометрию более плоской, мягкой, блестящей или металлической. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) и [setExtrusionHeight](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Насколько далеко фигура вытягивается назад от её передней грани. | Превратить плоскую фигуру в явно толстый 3D‑объект. |
+| [getExtrusionColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Цвет экструзированных боковых граней. | Сделать глубину видимой или согласовать цвет боковой стороны с заливкой спереди. |
+| [getDepth](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getDepth) и [setDepth](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#setDepth) | Дополнительная 3D‑глубина, используемая 3D‑форматированием PowerPoint. | Точно настроить глубину для фигур или текста, особенно совместно с настройками фаски и материала. |
+| [getBevelTop](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getBevelTop) и [getBevelBottom](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Поднятые или закруглённые края на передней и задней гранях. | Добавить смягчённый или формованный край вместо острого плоского. |
+| [getContourColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#getContourWidth) и [setContourWidth](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Контур вокруг 3D‑объекта. | Подчеркнуть границу объекта в выводе. |
+
+## **Создание 3D‑фигуры**
+
+Фигура обычно требует четырёх типов настроек, чтобы выглядеть убедительно в 3D:
+
+- Настройки камеры, поскольку вид по умолчанию спереди может скрывать экструзию.
+- Настройки освещения, поскольку освещение делает грани и боковые стороны различимыми.
+- Настройки материала, поскольку поверхность влияет на то, как отображается свет.
+- Настройки экструзии или глубины, поскольку плоской фигуре необходима толщина.
+
+В следующем примере создаётся прямоугольник, добавляется текст к его передней грани, применяется 3D‑форматирование, презентация сохраняется как PPTX и слайд рендерится в PNG‑изображение.
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const imageScale = 2;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
     shape.getTextFrame().setText("3D");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
+
+    const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getFillFormat().getSolidFillColor().setColor(blueColor);
+
     shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Flat);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
     shape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Flat);
     shape.getThreeDFormat().setExtrusionHeight(100);
-    shape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    shape.getThreeDFormat().getExtrusionColor().setColor(blueColor);
+
+    const thumbnail = slide.getImage(imageScale, imageScale);
     try {
-        var slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", aspose.slides.ImageFormat.Png);
+        thumbnail.save("shape_3d.png", aspose.slides.ImageFormat.Png);
     } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+        thumbnail.dispose();
     }
-    pres.save("sandbox_3d.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("shape_3d.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Отрендеренный синий 3D‑прямоугольник с белым 3D‑текстом на передней грани:
 
-Вот получившаяся 3D‑модель:
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
 
-![todo:image_alt_text](img_01_01.png)
+## **Вращение фигуры с помощью камеры**
 
-## **3D‑поворот**
+В PowerPoint 3D‑вращение настраивается в панели 3‑D Rotation. Значения вращения по осям X, Y и Z соответствуют вращению, установленному через API камеры.
 
-Поворот 3D‑модели в PowerPoint можно выполнить через меню:
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
-![todo:image_alt_text](img_02_01.png)
+В Aspose.Slides задайте тип камеры и вращение через 3D‑формат, возвращаемый `shape.getThreeDFormat()`:
 
-Чтобы повернуть 3D‑модель с помощью API Aspose.Slides, используйте метод **[ThreeDFormat.getCamera()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getCamera--)**, задающий вращение камеры относительно 3D‑фигуры:
 ```javascript
-var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-// ... задать другие параметры 3D-сцены
-try {
-    var slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-    slideImage.save("sample_3d.png", aspose.slides.ImageFormat.Png);
-} finally {
-    if (slideImage != null) {
-        slideImage.dispose();
-    }
-}
 ```
 
+Используйте камеру, когда нужно изменить то, как зритель видит объект. Это не меняет 2D‑геометрию фигуры на слайде. Меняется только 3D‑точка просмотра, используемая PowerPoint и Aspose.Slides при рендеринге.
 
-## **3D‑глубина и экструдирование**
+## **Добавление экструзии и глубины**
 
-Методы **[ThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)** и **[ThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** используются для создания экструдирования фигуры:
+Экструзия делает фигуру толстой, вытягивая её за переднюю грань. В PowerPoint управление глубиной задаёт эту видимую толщину, а управление цветом задаёт цвет боковых граней.
+
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
+
+Установите высоту экструзии для толщины и цвет экструзии для бокового цвета:
+
 ```javascript
-var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+const extrusionColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
+
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(java.newInstanceSync("java.awt.Color", 128, 0, 128));
-// ... задать другие параметры 3D-сцены
-try {
-    var slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-    slideImage.save("sample_3d.png", aspose.slides.ImageFormat.Png);
-} finally {
-    if (slideImage != null) {
-        slideImage.dispose();
-    }
-}
+shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
 ```
 
+Используйте настройку глубины, когда необходимо работать напрямую со значением глубины PowerPoint или комбинировать глубину с фаской, материалом и текстовыми эффектами. Во многих сценариях фигур высота экструзии – более понятная настройка, поскольку она напрямую задаёт видимую экструзию.
 
-В PowerPoint глубина фигуры задаётся через:
+## **Использование градиентных или картинных заливок с 3D‑эффектами**
 
-![todo:image_alt_text](img_02_02.png)
+3D‑форматирование не зависит от заливки фигуры. Можно применить сплошной цвет, градиент, узор или картинную заливку к передней грани и при этом использовать те же настройки камеры, света, материала и экструзии.
 
-## **3D‑градиент**
+В этом примере к фигуре применяется градиентная заливка, а к боковым сторонам – более тёмный цвет экструзии:
 
-3D‑градиент может добавить объём 3D‑фигуре PowerPoint:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const imageScale = 2;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.getTextFrame().setText("3D");
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
+    shape.getTextFrame().setText("3D Gradient");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
+
+    const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    const orangeColor = java.getStaticFieldValue("java.awt.Color", "ORANGE");
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    shape.getFillFormat().getGradientFormat().getGradientStops().add(0, blueColor);
+    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, orangeColor);
+
+    const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
     shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Flat);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Flat);
     shape.getThreeDFormat().setExtrusionHeight(150);
-    shape.getThreeDFormat().getExtrusionColor().setColor(java.newInstanceSync("java.awt.Color", 255, 140, 0));
+    shape.getThreeDFormat().getExtrusionColor().setColor(darkOrangeColor);
+
+    const thumbnail = slide.getImage(imageScale, imageScale);
     try {
-        var slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", aspose.slides.ImageFormat.Png);
+        thumbnail.save("gradient_3d.png", aspose.slides.ImageFormat.Png);
     } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+        thumbnail.dispose();
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Отрендеренный 3D‑прямоугольник с градиентом от синего к оранжевому и оранжевой экструзией:
 
-Вот как это выглядит:
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
 
-![todo:image_alt_text](img_02_03.png)
-  
-Вы также можете создать градиент изображения:
+Чтобы вместо этого использовать картинную заливку, добавьте изображение в презентацию и назначьте его заливкой фигуры:
+
 ```javascript
-shape.getFillFormat().setFillType(java.newByte(java.newByteaspose.slides.FillType.Picture));
-var picture;
-var image = aspose.slides.Images.fromFile("image.png");
+const sourceImage = aspose.slides.Images.fromFile("image.jpg");
+let presentationImage;
 try {
-    picture = pres.getImages().addImage(image);
+    presentationImage = presentation.getImages().addImage(sourceImage);
 } finally {
-    if (image != null) {
-        image.dispose();
-    }
+    sourceImage.dispose();
 }
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+
+shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+shape.getFillFormat().getPictureFillFormat().getPicture().setImage(presentationImage);
 shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-// .. настройка 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* свойства
-try {
-    var slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-    slideImage.save("sample_3d.png", aspose.slides.ImageFormat.Png);
-} finally {
-    if (slideImage != null) {
-        slideImage.dispose();
-    }
-}
+
+const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+shape.getThreeDFormat().setExtrusionHeight(150);
+shape.getThreeDFormat().getExtrusionColor().setColor(darkOrangeColor);
 ```
 
+Картинка рендерится на передней грани, а экструзия – как 3D‑боковая поверхность:
 
-Вот результат:
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
-![todo:image_alt_text](img_02_04.png)
+## **Применение 3D‑форматирования к тексту**
 
-## **3D‑текст (WordArt)**
+3D‑форматирование фигуры влияет на её тело. 3D‑форматирование текста влияет на текстовый кадр. Это полезно для эффектов типа WordArt, когда сами буквы требуют экструзии, материала, освещения и настроек камеры.
 
-Чтобы создать 3D‑текст (WordArt), выполните следующее:
+В следующем примере создаётся текст с узорной заливкой, применяется трансформация WordArt и настраиваются 3D‑параметры [TextFrameFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/):
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const imageScale = 2;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     shape.getTextFrame().setText("3D Text");
-    var portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.newInstanceSync("java.awt.Color", 255, 140, 0));
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
+    const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrangeColor);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(whiteColor);
     portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.LargeGrid));
+
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
-    var textFrame = shape.getTextFrame();
-    // настройка эффекта трансформации WordArt "Arch Up"
-    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUp));
-    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(3.5);
-    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+
+    const textFrameFormat = shape.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setTransform(java.newByte(aspose.slides.TextShapeType.ArchUp));
+    textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5);
+    textFrameFormat.getThreeDFormat().setDepth(3);
+    textFrameFormat.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+    textFrameFormat.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    textFrameFormat.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    textFrameFormat.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+    textFrameFormat.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+
+    const thumbnail = slide.getImage(imageScale, imageScale);
     try {
-        var slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("text3d.png", aspose.slides.ImageFormat.Png);
+        thumbnail.save("text_3d.png", aspose.slides.ImageFormat.Png);
     } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+        thumbnail.dispose();
     }
-    pres.save("text3d.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("text_3d.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Отрендеренный 3D‑текст с арочной трансформацией WordArt, оранжевой узорной заливкой и тёмной экструзией:
 
-Вот результат:
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
 
-![todo:image_alt_text](img_02_05.png)
+## **Экспорт и поведение при рендеринге**
 
-## **Часто задаваемые вопросы**
+Aspose.Slides сохраняет 3D‑форматирование при сохранении в форматы PowerPoint, такие как PPTX. При рендеринге или экспорте в форматы фиксированной разметки 3D‑сцена растеризуется или рисуется в вывод как 2D‑результат. Это относится к рендерингу слайдов в [PNG](/slides/ru/nodejs-java/convert-powerpoint-to-png/), экспорту в [PDF](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/), экспорту в [HTML](/slides/ru/nodejs-java/convert-powerpoint-to-html/) или генерации кадров для [video conversion](/slides/ru/nodejs-java/convert-powerpoint-to-video/).
 
-**Сохранятся ли 3D‑эффекты при экспорте презентации в изображения/PDF/HTML?**
+Имейте в виду следующие моменты:
 
-Да. Движок Slides 3D рендерит 3D‑эффекты при экспорте в поддерживаемые форматы ([images](/slides/ru/nodejs-java/convert-powerpoint-to-png/), [PDF](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/), [HTML](/slides/ru/nodejs-java/convert-powerpoint-to-html/), и т.п.).
+- Экспортированные изображения и PDF не являются интерактивными. Объект нельзя вращать после экспорта.
+- Окончательный вид зависит от комбинации камеры, освещения, материала, экструзии, заливки и масштабирования слайда.
+- Если нужно просмотреть унаследованные или основанные на теме значения форматирования, читайте [effective shape properties](/slides/ru/nodejs-java/shape-effective-properties/).
+- Некоторые форматы вывода не могут хранить редактируемое 3D‑форматирование PowerPoint. В этих форматах визуальный результат рендерится, а не сохраняется как редактируемые 3D‑настройки.
 
-**Могу ли я получить «эффективные» (окончательные) значения 3D‑параметров, учитывающие темы, наследование и т.д.?**
+## **FAQ**
 
-Да. Slides предоставляет API для [читать эффективные значения](/slides/ru/nodejs-java/shape-effective-properties/) (включая 3D‑освещение, фаски и т.д.), чтобы вы могли увидеть окончательные применённые настройки.
+**Может ли Aspose.Slides создавать интерактивные 3D‑презентации?**
 
-**Работают ли 3D‑эффекты при конвертации презентации в видео?**
+Aspose.Slides создаёт и рендерит 3D‑эффекты PowerPoint для фигур и текста. Он не делает экспортированные изображения, PDF или HTML‑страницы интерактивными 3D‑сценами, которые зритель мог бы вращать. В PPTX 3D‑форматирование остаётся редактируемым в PowerPoint, если формат его поддерживает.
 
-Да. При [генерации кадров для видео](/slides/ru/nodejs-java/convert-powerpoint-to-video/) 3D‑эффекты рендерятся так же, как и для [экспортированных изображений](/slides/ru/nodejs-java/convert-powerpoint-to-png/).
+**В чём разница между 3D‑моделью и 3D‑эффектом?**
+
+3D‑модель — это отдельный 3D‑объект, вставляемый в презентацию. 3D‑эффект — это форматирование, применённое к обычной фигуре или тексту PowerPoint, например вращение, экструзия, фаска, освещение и материал. Эта статья посвящена 3D‑эффектам.
+
+**Какие настройки требуются для видимой 3D‑фигуры?**
+
+Минимум — установить вращение камеры и либо экструзию, либо глубину. На практике также задают освещение и материал, чтобы отрендеренные грани имели чёткие блики и тени.
+
+**Можно ли применять 3D‑эффекты и к фигурам, и к тексту?**
+
+Да. Используйте [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/).`getThreeDFormat()` для тела фигуры и [TextFrameFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/).`getThreeDFormat()` для текста.
+
+**Будут ли 3D‑эффекты видны при экспорте в изображения, PDF, HTML или видеокадры?**
+
+Да. Aspose.Slides рендерит 3D‑эффекты при создании изображений слайдов, PDF‑вывода, HTML‑вывода и кадров, используемых для видеоконвертации. Экспортированный вывод содержит отрисованный вид, а не редактируемый 3D‑объект.
+
+**Можно ли прочитать окончательные 3D‑значения после применения наследования и тем?**
+
+Да. Используйте API эффективного форматирования, описанные в [Shape Effective Properties](/slides/ru/nodejs-java/shape-effective-properties/), чтобы получить финальные значения камеры, освещения, фаски и связанных 3D‑параметров.

@@ -5,12 +5,13 @@ weight: 10
 url: /nodejs-net/product-overview/
 ---
 
-![todo:image_alt_text](aspose_slides-for-nodejs-via-net.png)
+![Aspose.Slides for Node.js via .NET](aspose_slides-for-nodejs-via-net.png)
 
 ## **Product Description**
+
 Aspose.Slides for Node.js via .NET is a cross-platform class library that enables your applications to perform a wide variety of document processing tasks without using Microsoft PowerPoint®.
 
-### Why You Should Use Aspose.Slides for Node.js via .NET
+### **Why You Should Use Aspose.Slides for Node.js via .NET**
 
 - Aspose.Slides for Node.js via .NET is the first and only component that provides the functionalities required to manage PowerPoint® documents. 
 - Aspose.Slides for Node.js via .NET offers a lot of key features such as managing texts, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and other formats, and many more capabilities. 

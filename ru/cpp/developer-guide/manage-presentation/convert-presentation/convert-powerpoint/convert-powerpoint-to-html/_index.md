@@ -1,382 +1,403 @@
 ---
-title: Конвертировать презентации PowerPoint в HTML на C++
-linktitle: PowerPoint в HTML
+title: "Преобразовать презентации PowerPoint в HTML на C++"
+linktitle: "PowerPoint в HTML"
 type: docs
 weight: 30
 url: /ru/cpp/convert-powerpoint-to-html/
 keywords:
-- конвертировать PowerPoint
-- конвертировать презентацию
-- конвертировать слайд
-- конвертировать PPT
-- конвертировать PPTX
-- PowerPoint в HTML
-- презентация в HTML
-- слайд в HTML
-- PPT в HTML
-- PPTX в HTML
-- сохранить PowerPoint как HTML
-- сохранить презентацию как HTML
-- сохранить слайд как HTML
-- сохранить PPT как HTML
-- сохранить PPTX как HTML
-- экспортировать PPT в HTML
-- экспортировать PPTX в HTML
+- "конвертировать PowerPoint"
+- "преобразовать презентацию"
+- "преобразовать слайд"
+- "преобразовать PPT"
+- "преобразовать PPTX"
+- "PowerPoint в HTML"
+- "презентацию в HTML"
+- "слайд в HTML"
+- "PPT в HTML"
+- "PPTX в HTML"
+- "сохранить PowerPoint как HTML"
+- "сохранить презентацию как HTML"
+- "сохранить слайд как HTML"
+- "сохранить PPT как HTML"
+- "сохранить PPTX как HTML"
+- "экспортировать PPT в HTML"
+- "экспортировать PPTX в HTML"
 - C++
 - Aspose.Slides
-description: "Конвертировать презентации PowerPoint в адаптивный HTML на C++. Сохраняйте макет, ссылки и изображения с руководством по конвертации Aspose.Slides для быстрых и безошибочных результатов."
+description: "Преобразовать презентации PowerPoint в HTML на C++. Используйте Aspose.Slides для экспорта файлов PPT и PPTX, выбранных слайдов, заметок, шрифтов, изображений, SVG и медиа."
 ---
+## **Обзор**
 
-## **О конвертации PowerPoint в HTML**
-Используя [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), приложения и разработчики могут преобразовать презентацию PowerPoint в HTML: **PPTX в HTML** или **PPT в HTML**. 
+Aspose.Slides for C++ может сохранять презентации PowerPoint в формате HTML без Microsoft PowerPoint. Основное преобразование состоит из единственной загрузки [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) и вызова `Save` с [SaveFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/saveformat/). Используйте [HtmlOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmloptions/), когда необходимо управлять экспортируемым макетом, шрифтами, изображениями, заметками, комментариями, выводом SVG или связанными ресурсами.
 
-**Aspose.Slides** предоставляет множество параметров (в основном из класса [**HtmlOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) ), которые определяют процесс преобразования PowerPoint в HTML:
+Это руководство сосредоточено на практических сценариях экспорта HTML:
 
-* Преобразовать всю презентацию PowerPoint в HTML.  
-* Преобразовать определённый слайд презентации PowerPoint в HTML.  
-* Преобразовать медиа презентации (изображения, видео и т.д.) в HTML.  
-* Преобразовать презентацию PowerPoint в адаптивный HTML.  
-* Преобразовать презентацию PowerPoint в HTML с включёнными или исключёнными заметками докладчика.  
-* Преобразовать презентацию PowerPoint в HTML с включёнными или исключёнными комментариями.  
-* Преобразовать презентацию PowerPoint в HTML с оригинальными или встроенными шрифтами.  
-* Преобразовать презентацию PowerPoint в HTML с использованием нового стиля CSS.  
+- Экспорт всей презентации или выбранных слайдов.
+- Создание HTML с фиксированным макетом, отзывчивым или основанным на SVG.
+- Включение заметок выступающего и комментариев.
+- Контроль качества изображений и обрезанных данных изображений.
+- Встраивание шрифтов или отдельное сохранение файлов шрифтов.
+- Выбор способа записи и ссылки на внешние ресурсы и медиафайлы.
 
-{{% alert color="primary" %}} 
+По умолчанию экспорт HTML создает автономный HTML‑документ, в котором большинство ресурсов встроено. Это удобно для обмена одним файлом, но может увеличить размер вывода. Для публикации в вебе рассмотрите внешние ресурсы, снижение DPI изображений и встраивание только тех шрифтов, которые недоступны в целевой среде.
 
-Используя собственный API, Aspose разработала бесплатные конвертеры [презентация в HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT в HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX в HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP в HTML](https://products.aspose.app/slides/conversion/odp-to-html), и т.д. 
+## **Преобразование презентации в HTML**
 
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
+Чтобы экспортировать презентацию в HTML, загрузите её с помощью [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) и сохраните с `SaveFormat::Html`.
 
-Возможно, вам будет интересно посмотреть другие [бесплатные конвертеры от Aspose](https://products.aspose.app/slides/conversion).
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-Помимо описанных здесь процессов конвертации, Aspose.Slides также поддерживает следующие операции преобразования, связанные с форматом HTML: 
-
-* [HTML в изображение](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
-* [HTML в JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
-* [HTML в XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
-* [HTML в TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
-## **Преобразование PowerPoint в HTML**
-С помощью Aspose.Slides вы можете преобразовать всю презентацию PowerPoint в HTML следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-   * Загрузите **.ppt** в класс _Presentation_, чтобы **Преобразовать PPT в HTML на C++**
-   * Загрузите **.pptx** в класс _Presentation_, чтобы **Преобразовать PPTX в HTML на C++**
-   * Загрузите **.odp** в класс _Presentation_, чтобы **Преобразовать ODP в HTML на C++**
-3. Вызовите метод [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020), чтобы сохранить объект в виде HTML‑файла.
-
-Этот код показывает, как преобразовать PowerPoint в HTML на C++:
 ```cpp
-// Создать объект Presentation, представляющий файл презентации
-auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
-    
-auto htmlOpt = System::MakeObject<HtmlOptions>();
-htmlOpt->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(u"", false));
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-// Сохранение презентации в HTML
-presentation->Save(u"ConvertWholePresentationToHTML_out.html", SaveFormat::Html, htmlOpt);
+presentation->Save(u"presentation.html", SaveFormat::Html);
+
+presentation->Dispose();
 ```
 
+В этом примере записывается один HTML‑файл. Вызов `Dispose` освобождает файловые дескрипторы и ресурсы рендеринга после экспорта.
 
-## **Преобразование PowerPoint в адаптивный HTML**
-Aspose.Slides предоставляет класс [ResponsiveHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller), который позволяет генерировать адаптивные HTML‑файлы. Этот код показывает, как преобразовать презентацию PowerPoint в адаптивный HTML на C++:
+## **Использование HtmlOptions**
+
+[HtmlOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmloptions/) — основной класс конфигурации экспорта HTML. Распространённые настройки включают:
+
+- `SlidesLayoutOptions`: добавляет заметки, комментарии, раздаточные материалы или другую информацию о макете.
+- `HtmlFormatter`: изменяет структуру HTML‑документа или делегирует форматирование контроллеру.
+- `SlideImageFormat`: изменяет способ представления слайдов, например как SVG.
+- `PicturesCompression`: управляет DPI изображения и размером вывода.
+- `DeletePicturesCroppedAreas`: сохраняет или удаляет данные обрезанных областей изображений.
+- `SvgResponsiveLayout`: делает экспортируемый SVG‑контент адаптивным к своему контейнеру.
+- `ShowHiddenSlides`: включает скрытые слайды при необходимости.
+
+В следующих разделах показаны наиболее часто используемые параметры отдельно, чтобы вы могли комбинировать только те, которые нужны вашему рабочему процессу.
+
+## **Экспорт выбранных слайдов в HTML**
+
+Перегрузка `Presentation::Save`, принимающая номера слайдов, использует 1‑based позиции слайдов. Цикл ниже сохраняет каждый слайд в отдельный HTML‑файл.
+
 ```cpp
-// Создать объект Presentation, представляющий файл презентации
-auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+
+for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    auto slideNumber = slideIndex + 1;
+    auto slideNumbers = System::MakeArray<int>({ slideNumber });
+    auto htmlFileName = System::String::Format(u"slide-{0}.html", slideNumber);
+
+    presentation->Save(htmlFileName, slideNumbers, SaveFormat::Html);
+}
+
+presentation->Dispose();
+```
+
+Используйте эту схему, когда веб‑сайт или приложение требуют одну HTML‑страницу на каждый слайд. Если каждый слайд должен иметь одинаковый макет, создайте один экземпляр [HtmlOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmloptions/) и передайте его каждому вызову `Save`.
+
+## **Создание отзывчивого HTML**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/responsivehtmlcontroller/) обеспечивает отзывчивый HTML‑вывод через [HtmlFormatter](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmlformatter/). Используйте его, когда экспортируемая страница должна лучше адаптироваться к ширине браузера.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto controller = System::MakeObject<ResponsiveHtmlController>();
+auto formatter = HtmlFormatter::CreateCustomFormatter(controller);
+
 auto htmlOptions = System::MakeObject<HtmlOptions>();
-htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller));
+htmlOptions->set_HtmlFormatter(formatter);
 
-// Сохранение презентации в HTML
-presentation->Save(u"ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, htmlOptions);
+presentation->Save(u"presentation-responsive.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
+Для отзывчивого макета на основе SVG установите `SvgResponsiveLayout` в [HtmlOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmloptions/). Это полезно, когда содержимое слайда экспортируется как масштабируемая SVG‑разметка.
 
-## **Преобразование PowerPoint в HTML с заметками**
-Этот код показывает, как преобразовать PowerPoint в HTML с заметками на C++:
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto opt = System::MakeObject<HtmlOptions>();
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_SvgResponsiveLayout(true);
 
-auto options = opt->get_NotesCommentsLayouting();
-options->set_NotesPosition(NotesPositions::BottomFull);
+presentation->Save(u"presentation-svg-responsive.html", SaveFormat::Html, htmlOptions);
 
-// Saving notes pages
-pres->Save(u"Output.html", SaveFormat::Html, opt);
+presentation->Dispose();
 ```
 
+## **Включение заметок выступающего и комментариев**
 
-## **Преобразование PowerPoint в HTML с оригинальными шрифтами**
-Aspose.Slides предоставляет класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) , который позволяет встраивать все шрифты презентации при конвертации её в HTML.
+Используйте [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/notescommentslayoutingoptions/) через `HtmlOptions.SlidesLayoutOptions`, чтобы включить заметки выступающего или комментарии. Заметки и комментарии скрыты по умолчанию, если только не задать их позиции.
 
-Чтобы предотвратить встраивание некоторых шрифтов, вы можете передать массив имён шрифтов в параметризованный конструктор класса [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/). Популярные шрифты, такие как Calibri или Arial, при использовании в презентации не нужно встраивать, поскольку большинство систем уже содержат такие шрифты. Когда эти шрифты встраиваются, получаемый HTML‑документ становится избыточно большим.
+Предположим, что исходная презентация содержит заметки выступающего:
 
-Класс [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/) поддерживает наследование и предоставляет метод [WriteFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedallfontshtmlcontroller/writefont/), предназначенный для переопределения. 
+![Слайд с заметками выступающего в PowerPoint](slide_with_notes.png)
+
+Следующий код экспортирует содержимое слайда вместе с заметками под слайдом.
+
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"input.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-// исключить шрифты по умолчанию презентации
-auto fontNameExcludeList = System::MakeArray<System::String>({ u"Calibri", u"Arial" });
+auto layoutOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomFull);
 
-auto embedFontsController = System::MakeObject<EmbedAllFontsHtmlController>(fontNameExcludeList);
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_SlidesLayoutOptions(layoutOptions);
 
-auto htmlOptionsEmbed = System::MakeObject<HtmlOptions>();
-htmlOptionsEmbed->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(embedFontsController));
+presentation->Save(u"presentation-with-notes.html", SaveFormat::Html, htmlOptions);
 
-pres->Save(u"input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, htmlOptionsEmbed);
+presentation->Dispose();
 ```
 
+Экспортированный HTML включает область заметок:
 
-## **Преобразование PowerPoint в HTML с изображениями высокого качества**
-По умолчанию при конвертации PowerPoint в HTML Aspose.Slides выводит небольшие HTML‑файлы с изображениями 72 DPI и удалёнными обрезанными областями. Чтобы получить HTML‑файлы с изображениями более высокого качества, необходимо установить свойство `PicturesCompression` (из класса `HtmlOptions`) в 96 (т.е. `PicturesCompression::Dpi96`) или более высокие [значения](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8).
+![HTML‑вывод со слайдом и заметками выступающего](HTML_with_notes.png)
 
-Этот C++ код показывает, как преобразовать презентацию PowerPoint в HTML, получая изображения высокого качества 150 DPI (т.е. `PicturesCompression::Dpi150`):
+Чтобы экспортировать комментарии, задайте `CommentsPosition`, например `CommentsPositions::Right` или `CommentsPositions::Bottom`. Если нужны только комментарии, опустите `NotesPosition`. Если нужны и заметки, и комментарии, задайте оба свойства.
+
+## **Контроль качества изображений и обрезанных областей**
+
+Экспорт HTML может сжимать изображения слайдов для уменьшения размера вывода. Установите `PicturesCompression` в значение из [PicturesCompression](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/picturescompression/), когда требуется более высокое качество изображений.
+
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto htmlOpts = System::MakeObject<HtmlOptions>();
-htmlOpts->set_PicturesCompression(PicturesCompression::Dpi150);
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_PicturesCompression(PicturesCompression::Dpi150);
 
-pres->Save(u"OutputDoc-dpi150.html", SaveFormat::Html, htmlOpts);
+presentation->Save(u"presentation-dpi-150.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
+По умолчанию обрезанные области изображений могут быть удалены из экспортируемого вывода. Сохраняйте обрезанные данные только тогда, когда пользователям необходимо восстановить или проанализировать эти скрытые части изображений. Сохранение их может увеличить размер HTML.
 
-Этот код на C++ показывает, как вывести HTML с изображениями полного качества:
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto htmlOpts = System::MakeObject<HtmlOptions>();
-htmlOpts->set_DeletePicturesCroppedAreas(false);
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_DeletePicturesCroppedAreas(false);
 
-pres->Save(u"Outputdoc-noCrop.html", SaveFormat::Html, htmlOpts);
+presentation->Save(u"presentation-with-cropped-areas.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
+## **Добавление CSS**
 
-## **Преобразование слайда в HTML**
-Для преобразования определённого слайда презентации PowerPoint в HTML необходимо создать экземпляр того же класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) (используемого для конвертации целых презентаций) и затем вызвать метод [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020), чтобы сохранить файл в формате HTML. Класс [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) можно использовать для указания дополнительных параметров конвертации:
+Для простого стилизования передайте строку CSS в `HtmlFormatter::CreateDocumentFormatter`. Это изменит окружающий HTML‑документ, в то время как Aspose.Slides продолжит рендерить содержимое слайда.
 
-Этот C++ код показывает, как преобразовать слайд в HTML:
-``` cpp
-class CustomFormattingController : public IHtmlFormattingController
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto cssRules = u"body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+auto formatter = HtmlFormatter::CreateDocumentFormatter(cssRules, true);
+
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_HtmlFormatter(formatter);
+
+presentation->Save(u"presentation-styled.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
+```
+
+Для пользовательского заголовка документа, подключённого CSS‑файла или пользовательской разметки вокруг слайдов и фигур реализуйте [IHtmlFormattingController](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/ihtmlformattingcontroller/) и передайте его в [HtmlFormatter](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmlformatter/) с помощью `CreateCustomFormatter`.
+
+## **Встраивание шрифтов**
+
+Если в целевой среде шрифты презентации могут быть не установлены, встроите шрифты в HTML с помощью [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/embedallfontshtmlcontroller/). Встраивание повышает визуальную точность, но увеличивает размер вывода.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto fontNamesToExclude = System::MakeArray<System::String>({ u"Arial" });
+auto fontController = System::MakeObject<EmbedAllFontsHtmlController>(fontNamesToExclude);
+auto formatter = HtmlFormatter::CreateCustomFormatter(fontController);
+
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_HtmlFormatter(formatter);
+
+presentation->Save(u"presentation-embedded-fonts.html", SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
+```
+
+Исключайте шрифты только тогда, когда уверены, что целевые браузеры или системы уже их предоставляют. Для фирменных или редких шрифтов встраивание обычно безопаснее.
+
+## **Ссылка на файлы шрифтов вместо их встраивания**
+
+Чтобы уменьшить размер HTML‑файла, можно записать данные шрифтов в отдельные WOFF‑файлы и добавить правила `@font-face` в HTML. Ниже приведён помощник, расширяющий [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/embedallfontshtmlcontroller/) и переопределяющий `WriteFont`.
+
+```cpp
+class LinkedFontsHtmlController : public EmbedAllFontsHtmlController
 {
 public:
-    void WriteDocumentStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override{}
-    void WriteDocumentEnd(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override{}
-    void WriteSlideStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<ISlide> slide) override
+    LinkedFontsHtmlController(
+        System::String fontOutputDirectory,
+        System::String fontUrlPrefix)
+        : EmbedAllFontsHtmlController(System::MakeArray<System::String>(0)),
+          m_fontOutputDirectory(fontOutputDirectory),
+          m_fontUrlPrefix(fontUrlPrefix.TrimEnd(u'/') + u"/")
     {
-        generator->AddHtml(String::Format(SlideHeader, generator->get_SlideIndex() + 1));
-    }
-    void WriteSlideEnd(SharedPtr<IHtmlGenerator> generator, SharedPtr<ISlide> slide) override
-    {
-        generator->AddHtml(SlideFooter);
-    }
-    void WriteShapeStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<IShape> shape) override{}
-    void WriteShapeEnd(SharedPtr<IHtmlGenerator> generator, SharedPtr<IShape> shape) override{}
-
-private:
-    static const String SlideHeader;
-    static const String SlideFooter;
-};
-
-const String CustomFormattingController::SlideHeader = u"<div class=\"slide\" name=\"slide\" id=\"slide{0}\">";
-const String CustomFormattingController::SlideFooter = u"</div>";
-```
-
-``` cpp
-void Run()
-{
-    String dataDir = GetDataPath();
-    
-    auto presentation = System::MakeObject<Presentation>(dataDir + u"Individual-Slide.pptx");
-
-    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>();
-    auto htmlOptions = System::MakeObject<HtmlOptions>();
-    htmlOptions->set_HtmlFormatter(formatter);
-
-    // Сохранение файла              
-    for (int32_t i = 0; i < presentation->get_Slides()->get_Count(); i++)
-    {
-        presentation->Save(dataDir + u"Individual Slide" + (i + 1) + u"_out.html", 
-            MakeArray<int32_t>({ i + 1 }), SaveFormat::Html, htmlOptions);
-    }
-}
-```
-
-
-## **Сохранение CSS и изображений при экспорте в HTML**
-Используя новые файлы стилей CSS, вы можете легко изменить стиль HTML‑файла, полученного в результате конвертации PowerPoint в HTML. 
-
-C++ код в этом примере показывает, как использовать переопределяемые методы для создания пользовательского HTML‑документа со ссылкой на файл CSS:
-``` cpp
-class CustomHeaderAndFontsController : public EmbedAllFontsHtmlController
-{
-public:
-    CustomHeaderAndFontsController(String cssFileName)
-        : m_cssFileName(cssFileName)
-    {
+        System::IO::Directory::CreateDirectory_(m_fontOutputDirectory);
     }
 
-    void WriteDocumentStart(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override
+    void WriteFont(
+        System::SharedPtr<IHtmlGenerator> generator,
+        System::SharedPtr<IFontData> originalFont,
+        System::SharedPtr<IFontData> substitutedFont,
+        System::String fontStyle,
+        System::String fontWeight,
+        System::ArrayPtr<uint8_t> fontData) override
     {
-        generator->AddHtml(System::String::Format(Header, m_cssFileName));
-        WriteAllFonts(generator, presentation);
-    }
+        auto font = substitutedFont == nullptr ? originalFont : substitutedFont;
+        auto safeFontName = MakeSafeFileName(font->get_FontName());
+        auto safeFontStyle = System::String::IsNullOrWhiteSpace(fontStyle) ? u"normal" : fontStyle;
+        auto safeFontWeight = System::String::IsNullOrWhiteSpace(fontWeight) ? u"normal" : fontWeight;
+        auto fontFileName = System::String::Format(u"{0}-{1}-{2}.woff", safeFontName, safeFontStyle, safeFontWeight);
+        auto fontFilePath = System::IO::Path::Combine(m_fontOutputDirectory, fontFileName);
 
-    void WriteAllFonts(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override
-    {
-        generator->AddHtml(u"<!-- Embedded fonts -->");
-        EmbedAllFontsHtmlController::WriteAllFonts(generator, presentation);
-    }
+        System::IO::File::WriteAllBytes(fontFilePath, fontData);
 
-private:
-    static const String Header;
-    String m_cssFileName;
-};
-
-const String CustomHeaderAndFontsController::Header = String(u"<!DOCTYPE html>\n") + 
-u"<html>\n" + u"<head>\n" + 
-u"<meta http-equiv=\"Content-Type\" content=\"text/html;charset=UTF-8\">\n" + 
-u"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" + 
-u"<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" + u"</head>";
-```
-
-``` cpp
-void Run()
-{
-    // Путь к каталогу документов.
-    System::String dataDir = GetDataPath();
-
-    auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-    auto htmlController = System::MakeObject<CustomHeaderAndFontsController>(u"styles.css");
-    auto options = System::MakeObject<HtmlOptions>();
-    options->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(htmlController));
-    pres->Save(u"pres.html", SaveFormat::Html, options);
-}
-```
-
-
-## **Связывание всех шрифтов при конвертации презентации в HTML**
-Если вы не хотите встраивать шрифты (чтобы не увеличивать размер получаемого HTML), вы можете связать все шрифты, реализовав собственную версию `LinkAllFontsHtmlController`. 
-
-Этот C++ код показывает, как преобразовать PowerPoint в HTML, связывая все шрифты и исключая «Calibri» и «Arial» (поскольку они уже присутствуют в системе):
-```cpp
-class LinkAllFontsHtmlController : public EmbedAllFontsHtmlController
-{
-public:
-    LinkAllFontsHtmlController(ArrayPtr<String> fontNameExcludeList, String basePath)
-        :   EmbedAllFontsHtmlController(fontNameExcludeList)
-    {
-        m_basePath = basePath;
-    }
-
-    void WriteFont(SharedPtr<IHtmlGenerator> generator, SharedPtr<IFontData> originalFont, SharedPtr<IFontData> substitutedFont,
-        String fontStyle, String fontWeight, ArrayPtr<uint8_t> fontData)
-    {
-        String fontName = substitutedFont == nullptr ? originalFont->get_FontName() : substitutedFont->get_FontName();
-        String path = String::Format(u"{0}.woff", fontName); // может потребоваться очистка пути
-        IO::File::WriteAllBytes(IO::Path::Combine(m_basePath, path), fontData);
+        auto fontUrl = m_fontUrlPrefix + System::Uri::EscapeDataString(fontFileName);
+        auto fontFamily = font->get_FontName().Replace(u"\\", u"\\\\").Replace(u"'", u"\\'");
 
         generator->AddHtml(u"<style>");
-        generator->AddHtml(u"@font-face { ");
-        generator->AddHtml(String::Format(u"font-family: '{0}'; ", fontName));
-        generator->AddHtml(String::Format(u"src: url('{0}')", path));
-
-        generator->AddHtml(u" }");
+        generator->AddHtml(u"@font-face {");
+        generator->AddHtml(System::String::Format(u"font-family: '{0}';", fontFamily));
+        generator->AddHtml(System::String::Format(u"font-style: {0};", safeFontStyle));
+        generator->AddHtml(System::String::Format(u"font-weight: {0};", safeFontWeight));
+        generator->AddHtml(System::String::Format(u"src: url('{0}') format('woff');", fontUrl));
+        generator->AddHtml(u"}");
         generator->AddHtml(u"</style>");
     }
 
 private:
-    String m_basePath;
+    System::String m_fontOutputDirectory;
+    System::String m_fontUrlPrefix;
+
+    System::String MakeSafeFileName(System::String fileName)
+    {
+        auto invalidCharacters = System::IO::Path::GetInvalidFileNameChars();
+        auto safeCharacters = fileName.ToCharArray();
+
+        for (int characterIndex = 0; characterIndex < safeCharacters->get_Length(); characterIndex++)
+        {
+            if (System::Array<int16_t>::IndexOf(invalidCharacters, safeCharacters[characterIndex]) >= 0)
+            {
+                safeCharacters[characterIndex] = u'_';
+            }
+        }
+
+        return System::String(safeCharacters);
+    }
 };
+
+auto outputDirectory = System::IO::Path::Combine(System::Environment::get_CurrentDirectory(), u"html-output");
+auto fontsDirectory = System::IO::Path::Combine(outputDirectory, u"fonts");
+System::IO::Directory::CreateDirectory_(outputDirectory);
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto fontController = System::MakeObject<LinkedFontsHtmlController>(fontsDirectory, u"fonts");
+auto formatter = HtmlFormatter::CreateCustomFormatter(fontController);
+
+auto htmlOptions = System::MakeObject<HtmlOptions>();
+htmlOptions->set_HtmlFormatter(formatter);
+
+auto htmlFilePath = System::IO::Path::Combine(outputDirectory, u"presentation.html");
+presentation->Save(htmlFilePath, SaveFormat::Html, htmlOptions);
+
+presentation->Dispose();
 ```
 
-``` cpp
-void Run()
-{
-    auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+В этом примере файлы шрифтов сохраняются в `html-output/fonts`, а HTML ссылается на них URL‑ами вида `fonts/BrandFont-normal-400.woff`. Если HTML‑файл и шрифты развернуты в другом месте, выберите `fontUrlPrefix`, соответствующий пути URL после развертывания.
 
-    // исключить шрифты по умолчанию презентации
-    auto fontNameExcludeList = System::MakeArray<String>({ u"Calibri", u"Arial" });
-    
-    auto linkcont = System::MakeObject<LinkAllFontsHtmlController>(fontNameExcludeList, u"C://Windows//Fonts//");
+## **Сохранение ресурсов внешне**
 
-    System::SharedPtr<HtmlOptions> htmlOptionsEmbed = System::MakeObject<HtmlOptions>();
-    htmlOptionsEmbed->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(linkcont));
-    
-    pres->Save(u"pres.html", SaveFormat::Html, htmlOptionsEmbed);
-}
-```
+Автономный HTML легко перемещать, но встроенные ресурсы Base64 делают файл большим. Если вашему приложению нужны внешние файлы изображений, реализуйте [ILinkEmbedController](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/ilinkembedcontroller/) и передайте его в конструктор [HtmlOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmloptions/).
 
+При внешнем хранении ресурсов выбирайте два пути осознанно:
 
-## **Преобразование PowerPoint в адаптивный HTML**
-Этот C++ код показывает, как преобразовать презентацию PowerPoint в адаптивный HTML:
+- Путь файловой системы, куда приложение записывает сгенерированные изображения, шрифты, аудио или видео.
+- URL‑путь, который браузер использует из HTML‑документа для загрузки этих файлов.
+
+## **Экспорт медиа‑файлов**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/videoplayerhtmlcontroller/) экспортирует видеo‑ и аудиофайлы и генерирует HTML, способный воспроизводить их в браузере. Его конструктор принимает:
+
+- `path`: каталог, в который будут записаны сгенерированные медиа‑файлы.
+- `fileName`: имя генерируемого HTML‑файла.
+- `baseUri`: абсолютный префикс URI, используемый в HTML‑ссылках на медиа‑файлы.
+
+Если HTML‑файл находится по пути `html-output/presentation.html`, а медиа‑файлы сохраняются в `html-output/media`, `path` должен указывать на каталог медиа на диске, а `baseUri` — на тот же каталог с точки зрения браузера. Для локального предварительного просмотра можно построить URI `file:///` из каталога медиа. Для развернутого приложения используйте абсолютный URL опубликованного каталога медиа.
+
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"SomePresentation.pptx");
-auto saveOptions = System::MakeObject<HtmlOptions>();
-saveOptions->set_SvgResponsiveLayout(true);
-presentation->Save(u"SomePresentation-out.html", SaveFormat::Html, saveOptions);
-```
+auto outputDirectory = System::IO::Path::Combine(System::Environment::get_CurrentDirectory(), u"html-output");
+auto mediaDirectory = System::IO::Path::Combine(outputDirectory, u"media");
+System::IO::Directory::CreateDirectory_(outputDirectory);
+System::IO::Directory::CreateDirectory_(mediaDirectory);
 
+auto htmlFileName = u"presentation.html";
+auto mediaBaseUri = System::MakeObject<System::Uri>(mediaDirectory + System::IO::Path::DirectorySeparatorChar)->get_AbsoluteUri();
 
+auto presentation = System::MakeObject<Presentation>();
+auto videoStream = System::MakeObject<System::IO::FileStream>(u"intro.mp4", System::IO::FileMode::Open, System::IO::FileAccess::Read);
 
-## **Экспорт медиа‑файлов в HTML**
-Используя Aspose.Slides for C++, вы можете экспортировать медиа‑файлы следующим образом:
+auto video = presentation->get_Videos()->AddVideo(videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddVideoFrame(20.0f, 20.0f, 480.0f, 270.0f, video);
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Получите ссылку на слайд.
-1. Добавьте видео на слайд.
-1. Запишите презентацию как HTML‑файл.
-
-Этот C++ код показывает, как добавить видео в презентацию и затем сохранить её в виде HTML: 
-```cpp
- // Загружает презентацию
-auto pres = System::MakeObject<Presentation>();
-
-const System::String path = u"C:/out/";
-const System::String fileName = u"ExportMediaFiles_out.html";
-const System::String baseUri = u"http://www.example.com/";
-
-auto fileStream = System::MakeObject<IO::FileStream>(u"my_video.avi", IO::FileMode::Open, IO::FileAccess::Read);
-
-auto video = pres->get_Videos()->AddVideo(fileStream, Aspose::Slides::LoadingStreamBehavior::ReadStreamAndRelease);
-
-auto slide = pres->get_Slides()->idx_get(0);
-slide->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
-
-auto controller = System::MakeObject<VideoPlayerHtmlController>(path, fileName, baseUri);
-
-// Устанавливает параметры HTML
-auto htmlOptions = System::MakeObject<HtmlOptions>(controller);
+auto controller = System::MakeObject<VideoPlayerHtmlController>(mediaDirectory, htmlFileName, mediaBaseUri);
+auto formatter = HtmlFormatter::CreateCustomFormatter(controller);
 auto svgOptions = System::MakeObject<SVGOptions>(controller);
+auto slideImageFormat = SlideImageFormat::Svg(svgOptions);
 
-htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller));
-htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(svgOptions));
+auto htmlOptions = System::MakeObject<HtmlOptions>(controller);
+htmlOptions->set_HtmlFormatter(formatter);
+htmlOptions->set_SlideImageFormat(slideImageFormat);
 
-// Сохраняет файл
-pres->Save(IO::Path::Combine(path, fileName), SaveFormat::Html, htmlOptions);
+auto htmlFilePath = System::IO::Path::Combine(outputDirectory, htmlFileName);
+presentation->Save(htmlFilePath, SaveFormat::Html, htmlOptions);
+
+videoStream->Dispose();
+presentation->Dispose();
 ```
 
+Используйте каталоги вывода, уникальные для каждой задачи экспорта, особенно в серверных приложениях. Совместные пути вывода могут привести к перезаписи файлов разных конвертаций.
+
+## **Производительность и управление ресурсами**
+
+Конвертация HTML — это операция рендеринга, поэтому время обработки и использование памяти зависят от количества слайдов, разрешения изображений, шрифтов, эффектов, диаграмм и встроенных медиа. Более высокие DPI в `PicturesCompression`, встраивание шрифтов, вывод SVG и сохранённые обрезанные области изображений могут улучшить точность, но обычно увеличивают размер вывода.
+
+Для пакетного конвертирования:
+
+- Своевременно вызывайте `Dispose` для каждого экземпляра [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
+- Используйте отдельные каталоги вывода для отдельных задач.
+- Избегайте встраивания общих шрифтов, если в этом нет необходимости.
+- Уменьшайте DPI изображений, когда HTML нужен только для предварительного просмотра или эскизов.
+- Храните исходную презентацию, сгенерированный HTML и внешние ресурсы вместе, пока не будут окончательно определены пути развертывания.
 
 ## **FAQ**
 
-**Какова производительность Aspose.Slides при конвертации нескольких презентаций в HTML?**
+**Сохраняются ли гиперссылки в HTML‑выводе?**
 
-Производительность зависит от размера и сложности презентаций. Aspose.Slides отличается высокой эффективностью и масштабируемостью для пакетных операций. Чтобы достичь оптимальной производительности при конвертации большого количества презентаций, рекомендуется использовать многопоточность или параллельную обработку, когда это возможно.
+Да. Гиперссылки презентации экспортируются в HTML и остаются кликабельными, если целевой URL действителен.
 
-**Поддерживает ли Aspose.Slides экспорт гиперссылок в HTML?**
+**Можно ли конвертировать презентации в HTML параллельно?**
 
-Да, Aspose.Slides полностью поддерживает экспорт встроенных гиперссылок в HTML. При конвертации презентаций в формат HTML гиперссылки сохраняются автоматически и остаются кликабельными.
+Да, но не следует использовать один экземпляр [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) в нескольких потоках. Обрабатывайте разные файлы отдельными экземплярами презентаций, отдельными потоками и отдельными каталогами вывода. См. руководство по [многопоточности](/slides/ru/cpp/multithreading/).
 
-**Есть ли ограничение на количество слайдов при конвертации презентаций в HTML?**
+**Является ли объект Presentation потокобезопасным?**
 
-Ограничений на количество слайдов при использовании Aspose.Slides нет. Вы можете конвертировать презентации любого размера. Однако для презентаций, содержащих очень большое количество слайдов, производительность может зависеть от доступных ресурсов вашего сервера или системы.
+Нет. Один экземпляр [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) должен быть загружен, изменён, сохранён и освобождён в одном потоке. Для параллельной работы создавайте независимый экземпляр для каждого потока или процесса.
+
+**Почему сгенерированный HTML‑файл большой?**
+
+По умолчанию экспорт может встраивать ресурсы непосредственно в HTML. Встроенные шрифты, изображения с высоким DPI, медиа, SVG‑контент и сохранённые обрезанные области изображений также увеличивают размер. Используйте внешние ресурсы, исключайте из встраивания общие шрифты и уменьшайте `PicturesCompression`, когда важнее меньший размер вывода, чем максимальная точность.
+
+**Как выбрать baseUri для экспорта медиа?**
+
+Выберите `baseUri` с точки зрения браузера и передайте его как абсолютный URI. Для локального предварительного просмотра можно получить его из каталога вывода через `System::MakeObject<System::Uri>(mediaDirectory + System::IO::Path::DirectorySeparatorChar)->get_AbsoluteUri()`. Для развертывания используйте абсолютный URL опубликованного медиа‑каталога. Путь файловой системы (`path`) и URL‑путь браузера (`baseUri`) не обязаны совпадать буквально, но должны указывать на одно и то же место ресурса.
+
+**Можно ли включить скрытые слайды?**
+
+Да. Установите `ShowHiddenSlides` в `true` у [HtmlOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/htmloptions/), когда необходимо экспортировать скрытые слайды.

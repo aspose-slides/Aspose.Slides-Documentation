@@ -24,413 +24,298 @@ keywords:
 - 导出 PPTX 为 HTML
 - Java
 - Aspose.Slides
-description: "在 Java 中将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides 转换指南，快速且完美地保留布局、链接和图像。"
+description: "在 Java 中将 PowerPoint 演示文稿转换为 HTML。使用 Aspose.Slides 导出 PPT 和 PPTX 文件、选定的幻灯片、备注、字体、图像、SVG 和媒体。"
 ---
+## **概述**
 
-## **概览**
+Aspose.Slides for Java 可以在没有 Microsoft PowerPoint 的情况下将 PowerPoint 演示文稿保存为 HTML。基本的转换只需加载一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 并使用 [SaveFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/saveformat/) 调用 `save`。在需要控制导出布局、字体、图像、备注、批注、SVG 输出或链接资源时，请使用 [HtmlOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/htmloptions/)。
 
-本文介绍如何使用 Java 将 PowerPoint 演示文稿转换为 HTML 格式。它涵盖以下主题。
+本指南侧重于实际的 HTML 导出场景：
 
-- 将 PowerPoint 转换为 HTML（Java）
-- 将 PPT 转换为 HTML（Java）
-- 将 PPTX 转换为 HTML（Java）
-- 将 ODP 转换为 HTML（Java）
-- 将 PowerPoint 幻灯片转换为 HTML（Java）
+- 导出整个演示文稿或选定的幻灯片。
+- 生成固定布局、响应式或基于 SVG 的 HTML。
+- 包含演讲者备注和批注。
+- 控制图像质量和裁剪的图像数据。
+- 嵌入字体或单独保存字体文件。
+- 选择外部资源和媒体文件的写入和引用方式。
 
-## **Java PowerPoint 到 HTML**
+默认情况下，HTML 导出生成一个自包含的 HTML 文档，绝大多数资源都会嵌入其中。这对于共享单个文件很方便，但会增加输出大小。针对 Web 发布，请考虑使用外部资源、降低图像 DPI，并仅嵌入在目标环境中不可靠的字体。
 
-有关将 PowerPoint 转换为 HTML 的 Java 示例代码，请参见下列章节，即[转换 PowerPoint 为 HTML](#convert-powerpoint-to-html)。该代码可以在 Presentation 对象中加载 PPT、PPTX 和 ODP 等多种格式并保存为 HTML 格式。
+## **将演示文稿转换为 HTML**
 
-## **关于 PowerPoint 到 HTML 的转换**
+要将演示文稿导出为 HTML，使用 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 加载，并使用 [SaveFormat.Html](https://reference.aspose.com/slides/zh/java/com.aspose.slides/saveformat/) 保存。
 
-使用 [**Aspose.Slides for Java**](https://products.aspose.com/slides/java/)，应用程序和开发人员可以将 PowerPoint 演示文稿转换为 HTML：**PPTX 到 HTML** 或 **PPT 到 HTML**。
-
-Aspose.Slides 提供许多选项（主要来自 [**HtmlOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/HtmlOptions) 类），用于定义 PowerPoint 到 HTML 的转换过程：
-
-* 将整个 PowerPoint 演示文稿转换为 HTML。
-* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
-* 将演示文稿媒体（图像、视频等）转换为 HTML。
-* 将 PowerPoint 演示文稿转换为响应式 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。
-* 将 PowerPoint 演示文稿转换为使用原始或嵌入字体的 HTML。
-* 在使用新 CSS 样式的情况下，将 PowerPoint 演示文稿转换为 HTML。
-
-{{% alert color="primary" %}} 
-
-使用其自己的 API，Aspose 开发了免费的 [演示文稿到 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) 转换器： [PPT 到 HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX 到 HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP 到 HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-您可能想查看其他来自 Aspose 的 [免费转换器](https://products.aspose.app/slides/conversion)。
-
-{{% /alert %}} 
-
-{{% alert title="Note" color="warning" %}} 
-
-除了本文所述的转换过程，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作：
-
-* [HTML 转图片](https://products.aspose.com/slides/java/conversion/html-to-image/)
-* [HTML 转 JPG](https://products.aspose.com/slides/java/conversion/html-to-jpg/)
-* [HTML 转 XML](https://products.aspose.com/slides/java/conversion/html-to-xml/)
-* [HTML 转 TIFF](https://products.aspose.com/slides/java/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
-## **转换 PowerPoint 为 HTML**
-使用 Aspose.Slides，您可以按以下方式将整个 PowerPoint 演示文稿转换为 HTML：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-2. 使用 [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) 方法将对象保存为 HTML 文件。
-
-以下代码演示了如何在 Java 中将 PowerPoint 转换为 HTML：
 ```java
-// 实例化一个表示演示文稿文件的 Presentation 对象
-Presentation pres = new Presentation("Convert_HTML.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    HtmlOptions htmlOpt = new HtmlOptions();
-	
-    htmlOpt.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOpt.setHtmlFormatter(HtmlFormatter.createDocumentFormatter("", false));
-
-    // 将演示文稿保存为 HTML
-    pres.save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
+    presentation.save("presentation.html", SaveFormat.Html);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+此示例会写入一个 HTML 文件。演示文稿对象在 `finally` 块中被释放，从而在导出后释放文件句柄和渲染资源。
 
+## **使用 HtmlOptions**
 
-## **转换 PowerPoint 为响应式 HTML**
-Aspose.Slides 提供了 [ResponsiveHtmlController](https://reference.aspose.com/slides/java/com.aspose.slides/ResponsiveHtmlController) 类，可生成响应式 HTML 文件。以下代码演示了如何在 Java 中将 PowerPoint 演示文稿转换为响应式 HTML：
+[HtmlOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/htmloptions/) 是 HTML 导出的主要配置类。常用设置包括：
+
+- `SlidesLayoutOptions`：添加备注、批注、讲义或其他布局信息。
+- `HtmlFormatter`：更改 HTML 文档结构或将格式化委托给控制器。
+- `SlideImageFormat`：更改幻灯片的表示方式，例如作为 SVG。
+- `PicturesCompression`：控制图像 DPI 和输出大小。
+- `DeletePicturesCroppedAreas`：保留或移除裁剪的图像数据。
+- `SvgResponsiveLayout`：使导出的 SVG 内容适应其容器。
+- `ShowHiddenSlides`：在需要时包含隐藏幻灯片。
+
+以下章节分别展示最常用的选项，便于你仅组合工作流需要的部分。
+
+## **将选定幻灯片转换为 HTML**
+
+接受幻灯片编号的 `Presentation.save` 重载使用基于 1 的幻灯片位置。下面的循环将每张幻灯片保存为单独的 HTML 文件。
+
 ```java
-// 实例化一个表示演示文稿文件的 Presentation 对象
-Presentation pres = new Presentation("Convert_HTML.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        int slideNumber = slideIndex + 1;
+        int[] slideNumbers = { slideNumber };
+        String htmlFileName = "slide-" + slideNumber + ".html";
+
+        presentation.save(htmlFileName, slideNumbers, SaveFormat.Html);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+当网站或应用需要每张幻灯片对应一个 HTML 页面时，请使用此模式。如果每张幻灯片应使用相同的布局，创建一个 [HtmlOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/htmloptions/) 实例并将其传递给每个 `save` 调用。
+
+## **创建响应式 HTML**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/zh/java/com.aspose.slides/responsivehtmlcontroller/) 通过 [HtmlFormatter](https://reference.aspose.com/slides/zh/java/com.aspose.slides/htmlformatter/) 提供响应式 HTML 输出。当导出页面需要更好地适应浏览器宽度时使用它。
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     ResponsiveHtmlController controller = new ResponsiveHtmlController();
+    HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(controller);
+
     HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
+    htmlOptions.setHtmlFormatter(formatter);
 
-    // 将演示文稿保存为 HTML
-    pres.save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
+    presentation.save("presentation-responsive.html", SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+对于基于 SVG 的响应式布局，请在 [HtmlOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/htmloptions/) 上设置 `SvgResponsiveLayout`。当幻灯片内容以可缩放的 SVG 标记导出时，这非常有用。
 
-## **转换 PowerPoint 为 HTML（含备注）**
-以下代码演示了如何在 Java 中将 PowerPoint 转换为包含备注的 HTML：
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    HtmlOptions opt = new HtmlOptions();
-	
-    INotesCommentsLayoutingOptions options = opt.getNotesCommentsLayouting();
-    options.setNotesPosition(NotesPositions.BottomFull);
-
-    // 保存备注页面
-    pres.save("Output.html", SaveFormat.Html, opt);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **转换 PowerPoint 为 HTML（使用原始字体）**
-
-Aspose.Slides 提供了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/java/com.aspose.slides/EmbedAllFontsHtmlController) 类，允许在将演示文稿转换为 HTML 时嵌入所有字体。
-
-为防止嵌入某些字体，您可以向 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/java/com.aspose.slides/EmbedAllFontsHtmlController) 的参数化构造函数传递字体名称数组。常用字体（如 Calibri 或 Arial）在演示文稿中使用时通常不必嵌入，因为大多数系统已预装这些字体。若嵌入这些字体，会导致生成的 HTML 文档体积不必要地增大。
-
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/java/com.aspose.slides/EmbedAllFontsHtmlController) 类支持继承，并提供 [WriteFont](https://reference.aspose.com/slides/java/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) 方法，供子类覆盖实现。 
-```java
-Presentation pres = new Presentation("input.pptx");
-try {
-    // 排除默认演示文稿字体
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter(embedFontsController));
-
-    pres.save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat.Html, htmlOptionsEmbed);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **转换 PowerPoint 为 HTML（高质量图像）**
-
-默认情况下，将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出的 HTML 较小，图像分辨率为 72 DPI，且裁剪区域被删除。若需获取更高质量图像的 HTML 文件，必须将 `PicturesCompression` 属性（来自 `HtmlOptions` 类）设置为 96（即 `PicturesCompression.Dpi96`）或更高的 [值](https://reference.aspose.com/slides/java/com.aspose.slides/PicturesCompression)。
-
-以下 Java 代码演示了如何在将 PowerPoint 演示文稿转换为 HTML 时获取 150 DPI 的高质量图像（即 `PicturesCompression.Dpi150`）：
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setPicturesCompression(PicturesCompression.Dpi150);
-    
-    pres.save("OutputDoc-dpi150.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-以下 Java 代码演示了如何输出包含全质量图像的 HTML：
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setDeletePicturesCroppedAreas(false);
-
-    pres.save("Outputdoc-noCrop.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **转换幻灯片为 HTML**
-若要将 PowerPoint 中的特定幻灯片转换为 HTML，需要实例化用于整体演示文稿转换的同一 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类，然后使用 [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) 方法将文件保存为 HTML。可以使用 [HtmlOptions](https://reference.aspose.com/slides/java/com.aspose.slides/HtmlOptions) 类指定其他转换选项：
-
-以下 Java 代码演示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：
-```java
-Presentation pres = new Presentation("Individual-Slide.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(new CustomFormattingController()));
+    htmlOptions.setSvgResponsiveLayout(true);
 
-    // 保存文件
-    for (int i = 0; i < pres.getSlides().size(); i++)
-        pres.save("Individual Slide" + (i + 1) + "_out.html", new int[]{i + 1},SaveFormat.Html, htmlOptions);
+    presentation.save("presentation-svg-responsive.html", SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **包含演讲者备注和批注**
+
+通过 `HtmlOptions.setSlidesLayoutOptions` 使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/notescommentslayoutingoptions/) 可包含演讲者备注或批注。默认情况下，备注和批注是隐藏的，除非你指定它们的位置。
+
+假设源演示文稿包含演讲者备注：
+
+![Slide with speaker notes in PowerPoint](slide_with_notes.png)
+
+下面的代码会在幻灯片下方导出演讲者备注。
+
 ```java
-public class CustomFormattingController implements IHtmlFormattingController
-{
-    @Override
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeDocumentEnd(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeSlideStart(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(String.format(SlideHeader, generator.getSlideIndex() + 1));
-    }
-
-    @Override
-    public void writeSlideEnd(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(SlideFooter);
-    }
-
-    @Override
-    public void writeShapeStart(IHtmlGenerator generator, IShape shape) { }
-
-    @Override
-    public void writeShapeEnd(IHtmlGenerator generator, IShape shape) { }
-
-    private final String SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-    private final String SlideFooter = "</div>";
-}
-```
-
-
-
-## **导出为 HTML 时保存 CSS 与图像**
-使用新的 CSS 样式文件，可轻松更改 PowerPoint 转 HTML 过程生成的 HTML 文件的样式。
-
-本示例中的 Java 代码展示了如何使用可覆盖的方法创建带有 CSS 文件链接的自定义 HTML 文档：
-```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-    HtmlOptions options = new HtmlOptions();
-    options.setHtmlFormatter(HtmlFormatter.createCustomFormatter(htmlController));
+    NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+    layoutOptions.setNotesPosition(NotesPositions.BottomFull);
 
-    pres.save("pres.html", SaveFormat.Html, options);
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setSlidesLayoutOptions(layoutOptions);
+
+    presentation.save("presentation-with-notes.html", SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+导出的 HTML 包含备注区域：
+
+![HTML output with the slide and speaker notes](HTML_with_notes.png)
+
+要导出批注，请设置 `CommentsPosition`，例如 `CommentsPositions.Right` 或 `CommentsPositions.Bottom`。如果只需要批注，请省略 `NotesPosition`。如果需要同时包含备注和批注，请同时设置这两个属性。
+
+## **控制图像质量和裁剪区域**
+
+HTML 导出可以压缩幻灯片图像以减小输出大小。当需要更高图像质量时，请将 `PicturesCompression` 设置为来自 [PicturesCompression](https://reference.aspose.com/slides/zh/java/com.aspose.slides/picturescompression/) 的值。
+
 ```java
-public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
-{
-    private final int m_basePath = 0;
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setPicturesCompression(PicturesCompression.Dpi150);
 
-    // 自定义页眉模板
-    final static String Header = "<!DOCTYPE html>\n" +
-            "<html>\n" +
-            "<head>\n" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-            "</head>";
-
-    private final String m_cssFileName;
-
-    public CustomHeaderAndFontsController(String cssFileName) 
-    {
-        m_cssFileName = cssFileName;
-    }
-
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml(String.format(Header, m_cssFileName));
-        writeAllFonts(generator, presentation);
-    }
-
-    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml("<!-- Embedded fonts -->");
-        super.writeAllFonts(generator, presentation);
-    }
+    presentation.save("presentation-dpi-150.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
 }
 ```
 
+默认情况下，图像的裁剪区域可能会从导出输出中移除。仅当用户必须能够恢复或检查那些隐藏的图像部分时才保留裁剪数据。保留它会增加 HTML 大小。
 
-## **将所有字体链接到 HTML（而非嵌入）**
-
-如果您不想嵌入字体（以避免增大生成的 HTML 大小），可以通过实现自己的 `LinkAllFontsHtmlController` 来链接所有字体。
-
-以下 Java 代码演示了在链接所有字体并排除 “Calibri” 与 “Arial”（因为系统已存在）时，将 PowerPoint 转换为 HTML 的方式：
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try
-{
-    // 排除默认演示文稿字体
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setDeletePicturesCroppedAreas(false);
 
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList,"C:/Windows/Fonts/");
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter((IHtmlFormattingController) linkcont));
-
-    pres.save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
-}
-finally {
-    if (pres != null) pres.dispose();
+    presentation.save("presentation-with-cropped-areas.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
 }
 ```
 
+## **添加 CSS**
 
-以下 Java 代码展示了 `LinkAllFontsHtmlController` 的实现方式：
+对于简单的样式，可以将 CSS 字符串传递给 `HtmlFormatter.createDocumentFormatter`。这会更改外围 HTML 文档，而 Aspose.Slides 仍然负责渲染幻灯片内容。
+
 ```java
-public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private final String m_basePath;
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    String cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+    HtmlFormatter formatter = HtmlFormatter.createDocumentFormatter(cssRules, true);
 
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
-    {
-        super(fontNameExcludeList);
-        m_basePath = basePath;
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-styled.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+如果需要自定义文档头、链接的 CSS 文件或在幻灯片和形状周围添加自定义标记，请实现 [IHtmlFormattingController](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihtmlformattingcontroller/) 并使用 `createCustomFormatter` 将其传递给 [HtmlFormatter](https://reference.aspose.com/slides/zh/java/com.aspose.slides/htmlformatter/)。
+
+## **嵌入字体**
+
+如果目标环境可能没有安装演示文稿使用的字体，请使用 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/java/com.aspose.slides/embedallfontshtmlcontroller/) 将字体嵌入 HTML。嵌入可提升视觉保真度，但会增加输出大小。
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    String[] fontNamesToExclude = { "Arial" };
+    EmbedAllFontsHtmlController fontController = new EmbedAllFontsHtmlController(fontNamesToExclude);
+    HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(fontController);
+
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-embedded-fonts.html", SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+仅在确信目标浏览器或系统已经提供这些字体时才排除它们。对于品牌字体或不常见的字体，嵌入通常更安全。
+
+## **链接字体文件而非嵌入**
+
+为了减小 HTML 文件大小，你可以将字体数据写入单独的 WOFF 文件，并在 HTML 中添加 `@font-face` 规则。下面的帮助类扩展了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/zh/java/com.aspose.slides/embedallfontshtmlcontroller/) 并重写了 `writeFont`。
+
+```java
+class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
+    private final java.nio.file.Path fontOutputDirectory;
+    private final String fontUrlPrefix;
+
+    LinkedFontsHtmlController(
+            java.nio.file.Path fontOutputDirectory,
+            String fontUrlPrefix) throws java.io.IOException {
+        super(new String[0]);
+        this.fontOutputDirectory = fontOutputDirectory;
+        this.fontUrlPrefix = fontUrlPrefix.endsWith("/") ? fontUrlPrefix : fontUrlPrefix + "/";
+
+        java.nio.file.Files.createDirectories(fontOutputDirectory);
     }
 
-    public void writeFont
-    (
+    @Override
+    public void writeFont(
             IHtmlGenerator generator,
             IFontData originalFont,
             IFontData substitutedFont,
             String fontStyle,
             String fontWeight,
-            byte[] fontData)
-    {
+            byte[] fontData) {
         try {
-            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // 可能需要对路径进行清理
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
+            IFontData font = substitutedFont == null ? originalFont : substitutedFont;
+            String safeFontName = makeSafeFileName(font.getFontName());
+            String safeFontStyle = fontStyle == null || fontStyle.trim().isEmpty() ? "normal" : fontStyle;
+            String safeFontWeight = fontWeight == null || fontWeight.trim().isEmpty() ? "normal" : fontWeight;
+            String fontFileName = safeFontName + "-" + safeFontStyle + "-" + safeFontWeight + ".woff";
+            java.nio.file.Path fontFilePath = fontOutputDirectory.resolve(fontFileName);
+
+            java.nio.file.Files.write(fontFilePath, fontData);
+
+            String encodedFontFileName = java.net.URLEncoder.encode(fontFileName, "UTF-8");
+            String fontUrl = fontUrlPrefix + encodedFontFileName.replace("+", "%20");
+            String escapedBackslashes = font.getFontName().replace("\\", "\\\\");
+            String fontFamily = escapedBackslashes.replace("'", "\\'");
 
             generator.addHtml("<style>");
-            generator.addHtml("@font-face { ");
-            generator.addHtml("font-family: '" + fontName + "'; ");
-            generator.addHtml("src: url('" + path + "')");
-
-            generator.addHtml(" }");
+            generator.addHtml("@font-face {");
+            generator.addHtml("font-family: '" + fontFamily + "';");
+            generator.addHtml("font-style: " + safeFontStyle + ";");
+            generator.addHtml("font-weight: " + safeFontWeight + ";");
+            generator.addHtml("src: url('" + fontUrl + "') format('woff');");
+            generator.addHtml("}");
             generator.addHtml("</style>");
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (java.io.IOException exception) {
+            throw new RuntimeException("Unable to write an exported font.", exception);
         }
     }
+
+    private String makeSafeFileName(String fileName) {
+        String invalidCharacters = "\\/:*?\"<>|";
+        char[] safeCharacters = fileName.toCharArray();
+
+        for (int characterIndex = 0; characterIndex < safeCharacters.length; characterIndex++) {
+            if (invalidCharacters.indexOf(safeCharacters[characterIndex]) >= 0) {
+                safeCharacters[characterIndex] = '_';
+            }
+        }
+
+        return new String(safeCharacters);
+    }
 }
-```
 
+java.nio.file.Path outputDirectory = java.nio.file.Paths.get(System.getProperty("user.dir"), "html-output");
+java.nio.file.Path fontsDirectory = outputDirectory.resolve("fonts");
+java.nio.file.Files.createDirectories(outputDirectory);
 
-## **转换 PowerPoint 为响应式 HTML**
-以下 Java 代码演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
-```java
-Presentation pres = new Presentation("SomePresentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    HtmlOptions saveOptions = new HtmlOptions();
-    saveOptions.setSvgResponsiveLayout(true);
-    pres.save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
+    LinkedFontsHtmlController fontController = new LinkedFontsHtmlController(fontsDirectory, "fonts");
+    HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(fontController);
+
+    HtmlOptions htmlOptions = new HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    java.nio.file.Path htmlFilePath = outputDirectory.resolve("presentation.html");
+    presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-
-## **导出媒体文件为 HTML**
-使用 Aspose.Slides for Java，您可以按以下方式导出媒体文件：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-2. 获取幻灯片的引用。
-3. 向幻灯片添加视频。
-4. 将演示文稿写入为 HTML 文件。
-
-以下 Java 代码演示了如何向演示文稿添加视频并保存为 HTML：
-```java
-// 加载演示文稿
-Presentation pres = new Presentation();
-try {
-    String path = "./out/";
-    final String fileName = "ExportMediaFiles_out.html";
-    final String baseUri = "http://www.example.com/";
-
-    byte[] videoData = Files.readAllBytes(Paths.get("my_video.avi"));
-    IVideo video = pres.getVideos().addVideo(videoData);
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
-
-    // 设置 HTML 选项
-    HtmlOptions htmlOptions = new HtmlOptions(controller);
-    SVGOptions svgOptions = new SVGOptions(controller);
-
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
-    htmlOptions.setSlideImageFormat(SlideImageFormat.svg(svgOptions));
-
-    // 保存文件
-    pres.save(fileName, SaveFormat.Html, htmlOptions);
-} catch(Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **常见问题**
-
-**Aspose.Slides 在将多个演示文稿批量转换为 HTML 时的性能如何？**  
-性能取决于演示文稿的大小和复杂度。Aspose.Slides 在批量操作时具有高效且可扩展的特点。为获得最佳性能，建议在可能的情况下使用多线程或并行处理。
-
-**Aspose.Slides 是否支持将超链接导出为 HTML？**  
-是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。转换为 HTML 格式时，超链接会自动保留并保持可点击。
-
-**在将演示文稿转换为 HTML 时，幻灯片数量有限制吗？**  
-使用 Aspose.Slides 时，对幻灯片数量没有限制。您可以转换任意规模的演示文稿。但对于幻灯片数量极多的文稿，性能可能受到服务器或系统可用资源的影响。
+在此示例中，字体文件被保存到 `html-output/fonts`，HTML 通过诸如 `fonts/BrandFont-normal-400.woff` 的 URL 引用它们。如果 HTML

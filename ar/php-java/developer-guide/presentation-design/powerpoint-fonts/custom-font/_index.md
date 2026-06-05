@@ -16,41 +16,52 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تخصيص الخطوط في شرائح PowerPoint باستخدام Aspose.Slides للـ PHP عبر Java للحفاظ على عروضك التقديمية حادة ومتسقة عبر أي جهاز."
+description: "قم بتخصيص الخطوط في شرائح PowerPoint باستخدام Aspose.Slides للـ PHP عبر Java للحفاظ على عروضك التقديمية حادة ومتسقة عبر أي جهاز."
 ---
+## **نظرة عامة**
+
+Aspose.Slides يسمح لك باستخدام الخطوط المخصصة في العروض التقديمية دون الحاجة لتثبيتها على نظام التشغيل. يمكنك تحميل الخطوط من مجلدات مخصصة، أو توفير خطوط لعروض تقديمية محددة عبر مصادر الخطوط على مستوى المستند، أو تحميل الخطوط الخارجية مباشرةً من بيانات ثنائية.
+
+تُستخدم الخطوط التي تم تحميلها عند عرض أو تصدير العرض التقديمي، على سبيل المثال إلى PDF أو صور أو صيغ أخرى مدعومة. يساعد ذلك في الحفاظ على تناسق مخرجات العرض عبر بيئات مختلفة. توضح المقالة أيضًا كيفية فحص مجلدات الخطوط التي يستخدمها Aspose.Slides وكيفية مسح ذاكرة التخزين المؤقت للخطوط بعد العمل مع الخطوط الخارجية.
+
+تسجيل الخطوط المخصصة للتص Rendering مختلف عن تضمين الخطوط داخل ملف PPTX. إذا كان لابد من تخزين الخط داخل العرض نفسه، استخدم ميزات تضمين الخطوط صراحةً.
 
 {{% alert color="primary" %}} 
+Aspose Slides يسمح لك بتحميل هذه الخطوط باستخدام الطريقة [loadExternalFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
-تسمح Aspose Slides بتحميل هذه الخطوط باستخدام طريقة [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+* خطوط TrueType (.ttf) وTrueType Collection (.ttc). انظر [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* خطوط TrueType (.ttf) ومجموعات TrueType (.ttc). راجع [TrueType](https://en.wikipedia.org/wiki/TrueType).
-
-* خطوط OpenType (.otf). راجع [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
+* خطوط OpenType (.otf). انظر [OpenType](https://en.wikipedia.org/wiki/OpenType).
 {{% /alert %}}
 
 ## **تحميل الخطوط المخصصة**
 
-Aspose.Slides يسمح لك بتحميل الخطوط المستخدمة في عرض تقديمي دون تثبيتها على النظام. يؤثر ذلك على مخرجات التصدير—مثل PDF، الصور، وغيرها من الصيغ المدعومة—بحيث تبدو المستندات الناتجة متسقة عبر البيئات. يتم تحميل الخطوط من مجلدات مخصصة.
+Aspose.Slides يسمح لك بتحميل الخطوط المستخدمة في عرض تقديمي دون تثبيتها على النظام. يؤثر ذلك على مخرجات التصدير—مثل PDF، الصور، والصيغ المدعومة الأخرى—لذلك تبدو المستندات الناتجة متسقة عبر البيئات. يتم تحميل الخطوط من دلائل مخصصة.
 
-1. حدد مجلدًا أو أكثر يحتوي على ملفات الخط.
-2. استدعِ الطريقة الساكنة [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) لتحميل الخطوط من تلك المجلدات.
-3. قم بتحميل وعرض/تصدير العرض التقديمي.
-4. استدعِ [FontsLoader::clearCache](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/clearcache/) لمسح ذاكرة التخزين المؤقت للخطوط.
+1. حدد مجلدًا أو أكثر يحتوي على ملفات الخطوط.
+2. استدعِ الطريقة الساكنة [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) لتحميل الخطوط من تلك المجلدات.
+3. حمِّل وابدأ عرض/تصدير العرض التقديمي.
+4. استدعِ [FontsLoader::clearCache](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/#clearCache--) لمسح ذاكرة التخزين المؤقت للخطوط.
+
+الكود التالي يوضح عملية تحميل الخطوط:
 
 ```php
-// تعريف المجلدات التي تحتوي على ملفات الخطوط المخصصة.
+// حدد المجلدات التي تحتوي على ملفات الخطوط المخصصة.
+$externalFontFolder1 = __DIR__ . "/external-fonts-1";
+$externalFontFolder2 = __DIR__ . "/external-fonts-2";
 $fontFolders = array($externalFontFolder1, $externalFontFolder2);
 
-// تحميل الخطوط المخصصة من المجلدات المحددة.
+// حمل الخطوط المخصصة من المجلدات المحددة.
 FontsLoader::loadExternalFonts($fontFolders);
 
 $presentation = null;
 try {
-    $presentation = new Presentation("sample.pptx");
+    $presentationPath = __DIR__ . "/sample.pptx";
+    $presentation = new Presentation($presentationPath);
     
-    // عرض/تصدير العرض التقديمي (مثلاً إلى PDF أو صور أو صيغ أخرى) باستخدام الخطوط المحملة.
-    $presentation->save("output.pdf", SaveFormat::Pdf);
+    // عرض/تصدير العرض التقديمي (مثلاً إلى PDF أو صور أو صيغ أخرى) باستخدام الخطوط المحمَّلة.
+    $outputPath = __DIR__ . "/output.pdf";
+    $presentation->save($outputPath, SaveFormat::Pdf);
 } finally {
     if ($presentation != null) $presentation->dispose();
 
@@ -59,128 +70,157 @@ try {
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) يضيف مجلدات إضافية إلى مسارات البحث عن الخطوط، لكنه لا يغيّر ترتيب تهيئة الخطوط. يتم تهيئة الخطوط بالترتيب التالي:
 
-{{% alert color="info" title="ملاحظة" %}}
-
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) يضيف مجلدات إضافية إلى مسارات البحث عن الخطوط، لكنه لا يغيّر ترتيب تهيئة الخطوط. يتم تهيئة الخطوط بهذا الترتيب:
-
-1. المسار الافتراضي للخطوط في نظام التشغيل.
-1. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/).
-
+1. مسار الخط الافتراضي لنظام التشغيل.
+1. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/).
 {{%/alert %}}
 
 ## **الحصول على مجلدات الخطوط المخصصة**
-Aspose.Slides توفر الطريقة [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) للسماح لك بالعثور على مجلدات الخطوط. تعيد هذه الطريقة المجلدات التي أضيفت عبر طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
+Aspose.Slides يوفر الطريقة [getFontFolders](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/#getFontFolders--) للسماح لك باكتشاف مجلدات الخطوط. تُعيد هذه الطريقة المجلدات التي أُضيفت عبر طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
+
+هذا الكود PHP يوضح كيفية استعمال [getFontFolders](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/#getFontFolders--):
 
 ```php
-  # هذا السطر يعرض المجلدات التي يتم البحث فيها عن ملفات الخط.
-  # هذه هي المجلدات التي تمت إضافتها عبر طريقة LoadExternalFonts ومجلدات الخطوط النظامية.
-  $fontFolders = FontsLoader->getFontFolders();
-
+# هذا السطر يعرض المجلدات التي يتم البحث فيها عن ملفات الخط.
+# هذه هي المجلدات التي تمت إضافتها عبر طريقة LoadExternalFonts ومجلدات الخطوط النظامية.
+$fontFolders = FontsLoader::getFontFolders();
 ```
-
 
 ## **تحديد الخطوط المخصصة المستخدمة مع عرض تقديمي**
-Aspose.Slides توفر الطريقة [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDocumentLevelFontSources) للسماح لك بتحديد الخطوط الخارجية التي سيتم استخدامها مع العرض التقديمي.
+Aspose.Slides يوفر الطريقة [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) للسماح لك بتحديد الخطوط الخارجية التي ستُستخدم مع العرض التقديمي.
+
+هذا الكود PHP يوضح كيفية استعمال [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 
 ```php
-  $Array = new JavaClass("java.lang.reflect.Array");
-  $Byte = new JavaClass("java.lang.Byte");
-  $file1 = new Java("java.io.File", "customfonts/CustomFont1.ttf");
-  $memoryFont1 = $Array->newInstance($Byte, $Array->getLength($file1));
-  try {
-      $dis1 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file1));
-      $dis1->readFully($memoryFont1);
-  } finally {
-      if (!java_is_null($dis1)) $dis1->close();
-  }
-  $file2 = new Java("java.io.File", "customfonts/CustomFont2.ttf");
-  $memoryFont2 = $Array->newInstance($Byte, $Array->getLength($file2));
-  try {
-        $dis2 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file2));
-        $dis2->readFully($memoryFont2);
-  } finally {
-        if (!java_is_null($dis2)) $dis2->close();
-  }
-  $loadOptions = new LoadOptions();
-  $loadOptions->getDocumentLevelFontSources()->setFontFolders(array("assets/fonts", "global/fonts" ));
-  $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
-  $pres = new Presentation("MyPresentation.pptx", $loadOptions);
-  try {
-    # العمل مع العرض التقديمي
-    # خطوط CustomFont1 و CustomFont2 والخطوط الموجودة في المجلدات assets\fonts و global\fonts ومجلداتهما الفرعية متاحة للعرض التقديمي
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$javaArray = new JavaClass("java.lang.reflect.Array");
+$javaByteType = (new JavaClass("java.lang.Byte"))->TYPE;
 
+$customFontsDirectory = __DIR__ . "/customfonts/";
+$customFont1Path = $customFontsDirectory . "CustomFont1.ttf";
+$customFontFile1 = new Java("java.io.File", $customFont1Path);
+$customFontFile1Length = $customFontFile1->length();
+$memoryFont1 = $javaArray->newInstance($javaByteType, $customFontFile1Length);
+$dataInputStream1 = null;
+try {
+    $fileInputStream1 = new Java("java.io.FileInputStream", $customFontFile1);
+    $dataInputStream1 = new Java("java.io.DataInputStream", $fileInputStream1);
+    $dataInputStream1->readFully($memoryFont1);
+} finally {
+    if (!java_is_null($dataInputStream1)) $dataInputStream1->close();
+}
+
+$customFont2Path = $customFontsDirectory . "CustomFont2.ttf";
+$customFontFile2 = new Java("java.io.File", $customFont2Path);
+$customFontFile2Length = $customFontFile2->length();
+$memoryFont2 = $javaArray->newInstance($javaByteType, $customFontFile2Length);
+$dataInputStream2 = null;
+try {
+    $fileInputStream2 = new Java("java.io.FileInputStream", $customFontFile2);
+    $dataInputStream2 = new Java("java.io.DataInputStream", $fileInputStream2);
+    $dataInputStream2->readFully($memoryFont2);
+} finally {
+    if (!java_is_null($dataInputStream2)) $dataInputStream2->close();
+}
+
+$loadOptions = new LoadOptions();
+$assetFontsFolder = __DIR__ . "/assets/fonts";
+$globalFontsFolder = __DIR__ . "/global/fonts";
+$loadOptions->getDocumentLevelFontSources()->setFontFolders(array($assetFontsFolder, $globalFontsFolder));
+$loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
+
+$presentationPath = __DIR__ . "/MyPresentation.pptx";
+$presentation = new Presentation($presentationPath, $loadOptions);
+try {
+    # العمل مع العرض التقديمي
+    # الخطوط CustomFont1 و CustomFont2 والخطوط من مجلدات assets\fonts و global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
 ## **إدارة الخطوط خارجيًا**
 
-Aspose.Slides توفر الطريقة [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) للسماح لك بتحميل خطوط خارجية من بيانات ثنائية.
+Aspose.Slides يوفر الطريقة [loadExternalFont](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) للسماح لك بتحميل الخطوط الخارجية من بيانات ثنائية.
+
+هذا الكود PHP يوضح عملية تحميل الخط من مصفوفة بايت:
 
 ```php
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$javaArray = new JavaClass("java.lang.reflect.Array");
+$javaByteType = (new JavaClass("java.lang.Byte"))->TYPE;
+$fontDirectory = __DIR__ . "/";
+
+$dataInputStream = null;
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALN.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $fontPath = $fontDirectory . "ARIALN.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
 }
-  FontsLoader->loadExternalFont($bytes);
+FontsLoader::loadExternalFont($fontBytes);
+
+$dataInputStream = null;
+try {
+    $fontPath = $fontDirectory . "ARIALNBI.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
+} finally {
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
+}
+FontsLoader::loadExternalFont($fontBytes);
+
+$dataInputStream = null;
+try {
+    $fontPath = $fontDirectory . "ARIALNI.TTF";
+    $fileInputStream = new Java("java.io.FileInputStream", $fontPath);
+    $dataInputStream = new Java("java.io.DataInputStream", $fileInputStream);
+    $fontBytes = $javaArray->newInstance($javaByteType, $dataInputStream->available());
+    $dataInputStream->readFully($fontBytes);
+} finally {
+    if (!java_is_null($dataInputStream)) $dataInputStream->close();
+}
+FontsLoader::loadExternalFont($fontBytes);
 
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALNBI.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-  FontsLoader->loadExternalFont($bytes);
-
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALNI.TTF"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-  FontsLoader->loadExternalFont($bytes);
-
-  try {
-    $pres = new Presentation("");
+    $presentation = new Presentation();
     try {
-        # تم تحميل الخط الخارجي خلال عمر العرض التقديمي
+        # تم تحميل الخط الخارجي أثناء مدة عرض الشرائح
     } finally {
+        if (!java_is_null($presentation)) {
+            $presentation->dispose();
+        }
     }
-  } finally {
+} finally {
     FontsLoader->clearCache();
-  }
+}
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF, PNG, SVG, HTML)؟**
 
-**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF، PNG، SVG، HTML)؟**
-
-نعم. يتم استخدام الخطوط المتصلة من قبل المحرك عبر جميع صيغ التصدير.
+نعم. الخطوط المتصلة تُستخدم من قبل المُعالج عبر جميع صيغ التصدير.
 
 **هل يتم تضمين الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟**
 
-لا. تسجيل الخط للعرض ليس هو نفسه تضمينه في PPTX. إذا كنت بحاجة إلى تضمين الخط داخل ملف العرض التقديمي، يجب عليك استخدام [ميزات التضمين](/slides/ar/php-java/embedded-font/).
+لا. تسجيل الخط للتص Rendering ليس هو نفسه تضمينه في PPTX. إذا كنت بحاجة إلى أن يُحمل الخط داخل ملف العرض، يجب عليك استخدام ميزات [embedding features](/slides/ar/php-java/embedded-font/).
 
-**هل يمكنني التحكم في سلوك الاحتياطي عندما يفتقر الخط المخصص إلى بعض الحروف؟**
+**هل يمكنني التحكم في سلوك التعويض عندما يفتقد الخط المخصص بعض الرموز؟**
 
-نعم. قم بتهيئة [استبدال الخط](/slides/ar/php-java/font-substitution/)، [قواعد الاستبدال](/slides/ar/php-java/font-replacement/)، و[مجموعات الاحتياطي](/slides/ar/php-java/fallback-font/) لتحديد الخط الذي سيُستَخدم عندما يكون الحرف المطلوب غير موجود.
+نعم. اضبط [font substitution](/slides/ar/php-java/font-substitution/)، [replacement rules](/slides/ar/php-java/font-replacement/)، و[fallback sets](/slides/ar/php-java/fallback-font/) لتحديد الخط الذي يُستخدم عندما يكون الرمز المطلوب غير متوفر.
 
 **هل يمكنني استخدام الخطوط في حاويات Linux/Docker دون تثبيتها على مستوى النظام؟**
 
-نعم. أشر إلى مجلدات الخط الخاصة بك أو حمّل الخطوط من مصفوفات البايت. هذا يلغي أي اعتماد على مجلدات الخط النظامية في صورة الحاوية.
+نعم. أشر إلى مجلدات الخطوط الخاصة بك أو حمِّل الخطوط من مصفوفات بايت. هذا يُزيل أي اعتماد على دلائل الخطوط النظامية داخل صورة الحاوية.
 
 **ماذا عن الترخيص—هل يمكنني تضمين أي خط مخصص دون قيود؟**
 
-أنت مسؤول عن الامتثال لترخيص الخط. تختلف الشروط؛ بعض الترخيصات تمنع التضمين أو الاستخدام التجاري. راجع دائمًا اتفاقية ترخيص المستخدم للخط قبل توزيع المخرجات.
+أنت مسؤول عن الالتزام بترخيص الخط. تختلف الشروط؛ بعض الرخص تحظر التضمين أو الاستخدام التجاري. تحقق دائمًا

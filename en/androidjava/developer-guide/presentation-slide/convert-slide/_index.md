@@ -22,7 +22,7 @@ keywords:
 description: "Convert slides from PPT, PPTX and ODP to images using Aspose.Slides for Android—fast, high-quality rendering with clear Java code examples."
 ---
 
-## **Overview**
+## **Introduction**
 
 Aspose.Slides for Android via Java enables you to easily convert PowerPoint and OpenDocument presentation slides into various image formats, including BMP, PNG, JPG (JPEG), GIF, and others.
 

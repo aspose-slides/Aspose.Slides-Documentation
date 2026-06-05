@@ -1,5 +1,5 @@
 ---
-title: C++でプレゼンテーションのスライドマスターを管理
+title: C++ でプレゼンテーション スライドマスターを管理する
 linktitle: スライドマスター
 type: docs
 weight: 80
@@ -21,314 +21,347 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++でスライドマスターを管理: PPT、PPTX、ODPに対して、レイアウト、テーマ、プレースホルダーを作成、編集、適用する簡潔なC++サンプル付き。"
+description: "Aspose.Slides for C++ でスライドマスターを管理: PowerPoint および OpenDocument プレゼンテーションでマスタースライドのアクセス、編集、クローン、比較、削除を行う"
 ---
+## **概要**
 
-## **PowerPoint のスライドマスターとは**
+**スライドマスター**は、スライドのグループに対して共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキスト スタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスターを編集することが、各スライドで同じ書式設定を繰り返さずにプレゼンテーションの一貫性を保つ標準的な方法です。
 
-**Slide Master** は、プレゼンテーションのスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライドテンプレートです。同じスタイルとテンプレートを会社で使用するプレゼンテーション（または一連のプレゼンテーション）を作成したい場合は、スライドマスターを使用できます。 
+Aspose.Slides for C++ も同じモデルをサポートしています。プレゼンテーションは 1 つ以上のマスタースライドを含めることができ、各マスタースライドは複数のレイアウトスライドを保持できます。通常のスライドはマスタースライドを直接参照することはありません。代わりに、通常のスライドはレイアウトスライドを使用し、そのレイアウトスライドはマスタースライドに所属します。
 
-スライドマスターは、すべてのプレゼンテーションスライドの外観を一度に設定および変更できるため便利です。Aspose.Slides は PowerPoint のスライドマスター機構をサポートしています。 
+階層は次のとおりです。
 
-VBA でもスライドマスターを操作し、PowerPoint でサポートされている同じ操作（背景の変更、図形の追加、レイアウトのカスタマイズなど）を実行できます。Aspose.Slides はスライドマスターを使用し、基本的なタスクを実行するための柔軟なメカニズムを提供します。 
+1. **スライドマスター** – 共有デザインとテーマを定義します。  
+1. **レイアウトスライド** – プレースホルダーとレイアウトレベルの書式設定の特定の配置を定義します。  
+1. **標準スライド** – 実際のプレゼンテーション コンテンツを含み、1 つのレイアウトスライドを使用します。
 
-以下は基本的なスライドマスター操作です：
+![マスター スライド、レイアウト スライド、標準スライドの階層](slide-master_2.jpg)
 
-- スライドマスターを作成する。
-- スライドマスターをプレゼンテーションスライドに適用する。
-- スライドマスターの背景を変更する。 
-- 画像、プレースホルダー、Smart Art などをスライドマスターに追加する。
+Aspose.Slides では、スライドマスターは [IMasterSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslide/) インターフェイスで表されます。プレゼンテーション内のすべてのマスタースライドは、[Presentation::get_Masters](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_masters/) コレクションを通じて取得でき、これは [IMasterSlideCollection](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslidecollection/) を実装しています。
 
-以下はスライドマスターに関する高度な操作です： 
+{{% alert color="info" title="継承" %}}
 
-- スライドマスターを比較する。
-- スライドマスターをマージする。
-- 複数のスライドマスターを適用する。
-- スライドマスター付きのスライドを別のプレゼンテーションにコピーする。
-- プレゼンテーション内の重複するスライドマスターを検出する。
-- スライドマスターをプレゼンテーションのデフォルトビューとして設定する。
-
-{{% alert color="primary" %}} 
-
-ここで説明した主要なプロセスのライブ実装である Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) を確認したいかもしれません。
-
-{{% /alert %}} 
-
-## **スライドマスターはどのように適用されるか**
-
-スライドマスターを使用する前に、プレゼンテーションでどのように使用され、スライドに適用されるかを理解したいでしょう。 
-
-* すべてのプレゼンテーションはデフォルトで少なくとも 1 つのスライドマスターを持ちます。 
-* プレゼンテーションには複数のスライドマスターを含めることができます。複数のスライドマスターを追加し、プレゼンテーションの異なる部分をさまざまな方法でスタイル設定できます。 
-
-**Aspose.Slides** では、スライドマスターは [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) 型で表されます。 
-
-Aspose.Slides の [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) オブジェクトは、[**get_Masters()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) リストを保持しており、これは [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) 型で、プレゼンテーションで定義されたすべてのマスタースライドのリストを含みます。 
-
-CRUD 操作に加えて、[IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) インターフェイスは、[**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) および [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311) メソッドを提供します。これらのメソッドは基本的なスライドクローン機能から継承されていますが、スライドマスターを扱う場合、複雑な設定を実装することができます。 
-
-プレゼンテーションに新しいスライドが追加されると、スライドマスターが自動的に適用されます。デフォルトでは、前のスライドのスライドマスターが選択されます。 
-
-**Note**: プレゼンテーションのスライドは [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) リストに格納され、すべての新しいスライドはデフォルトでコレクションの末尾に追加されます。プレゼンテーションに単一のスライドマスターが含まれている場合、そのスライドマスターがすべての新しいスライドに選択されます。これが、作成するすべての新しいスライドに対してスライドマスターを個別に定義する必要がない理由です。 
-
-PowerPoint と Aspose.Slides の原理は同じです。例えば、PowerPoint では新しいスライドを追加するとき、最後のスライドの下の行をクリックするだけで、（前のプレゼンテーションのスライドマスターを使用した）新しいスライドが作成されます：
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-Aspose.Slides では、[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスの [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) メソッドを使用して同等の操作を実行できます。 
-
-## **スライド階層におけるスライドマスター**
-
-スライドレイアウトとスライドマスターを組み合わせて使用すると、最大の柔軟性が得られます。スライドレイアウトは、スライドマスターと同じスタイル（背景、フォント、図形など）を設定できます。ただし、複数のスライドレイアウトがスライドマスター上に組み合わさると、新しいスタイルが作成されます。スライドレイアウトを単一のスライドに適用すると、スライドマスターで適用されたスタイルから変更できます。 
-
-スライドマスターはすべての設定項目の上位にあります: スライドマスター → スライドレイアウト → スライド: 
-
-![todo:image_alt_text](slide-master_2)
-
-各 [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) オブジェクトは [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) プロパティを持ち、スライドレイアウトのリストを保持します。[Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) 型は [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) プロパティを持ち、スライドに適用されたスライドレイアウトへのリンクを保持します。スライドとスライドマスター間の相互作用はスライドレイアウトを介して行われます。 
-
-{{% alert color="info" title="Note" %}}
-
-* Aspose.Slides では、すべてのスライド設定（スライドマスター、スライドレイアウト、およびスライド自体）は、実際には [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) インターフェイスを実装するスライドオブジェクトです。  
-* したがって、スライドマスターとスライドレイアウトは同じプロパティを実装する可能性があり、それらの値が [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) オブジェクトにどのように適用されるかを理解する必要があります。スライドマスターが最初にスライドに適用され、次にスライドレイアウトが適用されます。例えば、スライドマスターとスライドレイアウトの両方に背景が設定されている場合、最終的なスライドの背景はスライドレイアウトのものになります。
+同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウトスライドの両方が背景を定義している場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[スライドレイアウトの適用または変更](/slides/ja/cpp/slide-layout/) を参照してください。
 
 {{% /alert %}}
 
-## **スライドマスターの構成要素**
+## **スライドマスターへのアクセス**
 
-スライドマスターを変更する方法を理解するには、その構成要素を把握する必要があります。以下は [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) のコアプロパティです。 
+PowerPoint では、**表示** > **スライドマスター** からスライドマスター ビューを開くことができます。
 
-- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - スライドの背景を取得/設定します。  
-- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - スライド本文のテキストスタイルを取得/設定します。  
-- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - スライドマスター上のすべての図形（プレースホルダー、画像フレームなど）を取得/設定します。  
-- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - ActiveX コントロールを取得/設定します。  
-- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - テーママネージャーを取得します。  
-- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - ヘッダーとフッターのマネージャーを取得します。  
+![PowerPoint の「表示」タブにあるスライドマスタ コマンド](slide-master_3.jpg)
 
-スライドマスターのメソッド:  
+Aspose.Slides では、`get_Masters()` コレクションを使用してマスタースライドにアクセスします:
 
-- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - スライドマスターに依存するすべてのスライドを取得します。  
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - 現在のスライドマスターと新しいテーマに基づいて新しいスライドマスターを作成し、すべての依存スライドに適用できます。  
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **スライドマスターの取得**
+auto firstMasterSlide = presentation->get_Master(0);
+auto masterSlideCount = presentation->get_Masters()->get_Count();
+auto firstMasterLayoutSlideCount = firstMasterSlide->get_LayoutSlides()->get_Count();
 
-PowerPoint では、ビュー → スライドマスター メニューからスライドマスターにアクセスできます。 
+System::Console::WriteLine(System::String(u"Master slides: ") + masterSlideCount);
+System::Console::WriteLine(System::String(u"Layouts in the first master: ") + firstMasterLayoutSlideCount);
 
-![todo:image_alt_text](slide-master_3.jpg)
-
-Aspose.Slides を使用すると、以下の方法でスライドマスターにアクセスできます: ```c++
-System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
+presentation->Dispose();
 ```
 
+通常のスライドが使用しているマスタースライドは、そのレイアウトから取得できます:
 
-[IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) インターフェイスはスライドマスターを表します。[get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) プロパティ（[IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) 型に関連）は、プレゼンテーションで定義されたすべてのスライドマスターのリストを含みます。  
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-## **スライドマスターへの画像の追加**
+auto slide = presentation->get_Slide(0);
+auto layoutSlide = slide->get_LayoutSlide();
+auto masterSlide = layoutSlide->get_MasterSlide();
+auto masterSlideName = masterSlide->get_Name();
 
-スライドマスターに画像を追加すると、その画像はそのマスターに依存するすべてのスライドに表示されます。 
+System::Console::WriteLine(masterSlideName);
 
-例えば、会社のロゴやいくつかの画像をスライドマスターに配置し、スライド編集モードに戻すと、すべてのスライドに画像が表示されます。 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Aspose.Slides を使用してスライドマスターに画像を追加できます: ```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png"));
-pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **スライドマスターに含まれるもの**
 
-{{% alert color="primary" title="See also" %}} 
+マスタースライドはスライドに似たオブジェクトです。`[IBaseSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseslide/)` を実装しているため、通常のスライドやレイアウトスライドと同様の多数のスライド プロパティを公開します。マスター固有のメンバーは [IMasterSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslide/) API ページに一覧されています。
 
-スライドへの画像追加に関する詳細は、[Picture Frame](/slides/ja/cpp/picture-frame/#create-picture-frame) 記事をご参照ください。
+一般的に使用されるマスタースライド メンバーは次のとおりです:
 
-{{% /alert %}}
+| メンバー | 目的 |
+| --- | --- |
+| `get_Background()` | マスター レベルのスライド背景を設定します。 |
+| `get_Shapes()` | ロゴ、画像フレーム、共有テキストなど、マスター上に配置された図形を格納します。 |
+| `get_LayoutSlides()` | マスターに属するレイアウトスライドを格納します。 |
+| `get_ThemeManager()` | マスター テーマ API へのアクセスを提供します。 |
+| `get_HeaderFooterManager()` | マスターおよびその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
+| `GetDependingSlides()` | レイアウトを介してマスターに依存する標準スライドを返します。 |
 
-## **スライドマスターへのプレースホルダーの追加**
+## **スライドマスターに画像を追加する**
 
-これらのテキストフィールドはスライドマスター上の標準プレースホルダーです: 
+マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するスライドすべてに表示されます。ロゴ、透かし、装飾バンド、その他繰り返し使用するビジュアル要素に便利です。
 
-* マスタータイトルスタイルを編集するにはクリック  
-* マスターテキストスタイルを編集  
-* 第2レベル  
-* 第3レベル  
+次の例は、最初のマスタースライドにロゴを追加します:
 
-これらはスライドマスターに基づくスライドにも表示されます。スライドマスター上でプレースホルダーを編集すると、変更が自動的にスライドに適用されます。 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-PowerPoint では、スライドマスター → プレースホルダーの挿入 パスを使用してプレースホルダーを追加できます。 
+auto masterSlide = presentation->get_Master(0);
+auto logoBytes = System::IO::File::ReadAllBytes(u"logo.png");
+auto logoImage = presentation->get_Images()->AddImage(logoBytes);
 
-![todo:image_alt_text](slide-master_5.png)
+masterSlide->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle,
+    20.0f,
+    20.0f,
+    80.0f,
+    80.0f,
+    logoImage);
 
-次に、Aspose.Slides を使用したプレースホルダーのより複雑な例を見てみましょう。スライドマスターからテンプレート化されたプレースホルダーを含むスライドです。 
+presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-![todo:image_alt_text](slide-master_6.png)
+画像フレームの詳細については、[Picture Frame](/slides/ja/cpp/picture-frame/) を参照してください。
 
-スライドマスター上でタイトルとサブタイトルの書式を次のように変更したいとします： 
+## **プレースホルダーの操作**
 
-![todo:image_alt_text](slide-master_7.png)
+プレースホルダーは通常、レイアウトスライド上で定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーとその配置を決定します。
 
-まず、スライドマスターオブジェクトからタイトルプレースホルダーの内容を取得し、次に `PlaceHolder.FillFormat` フィールドを使用します: ```c++
-System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> master, PlaceholderType type)
+PowerPoint では、プレースホルダー コマンドはスライドマスター ビューで利用できます。
+
+![PowerPoint スライドマスター ビューの「プレースホルダーの挿入」コマンド](slide-master_5.png)
+
+Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウトスライドを操作します:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto blankLayoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (blankLayoutSlide == nullptr)
 {
-    for (auto& shape : master->get_Shapes())
+    blankLayoutSlide = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::Blank, u"Blank");
+}
+
+blankLayoutSlide->get_PlaceholderManager()->AddTextPlaceholder(
+    60.0f,
+    120.0f,
+    600.0f,
+    80.0f);
+
+presentation->get_Slides()->AddEmptySlide(blankLayoutSlide);
+presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+既にマスタースライド上に存在するプレースホルダー図形の書式設定も可能です。次の例はタイトル プレースホルダーを検索し、線形グラデーション塗りつぶしを適用します:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+System::SharedPtr<IAutoShape> titlePlaceholder;
+
+for (auto&& shape : masterSlide->get_Shapes())
+{
+    auto autoShape = System::AsCast<IAutoShape>(shape);
+
+    if (autoShape != nullptr &&
+        autoShape->get_Placeholder() != nullptr &&
+        autoShape->get_Placeholder()->get_Type() == PlaceholderType::Title)
     {
-        System::SharedPtr<IAutoShape> autoShape = System::AsCast<Aspose::Slides::IAutoShape>(shape);
-        if (autoShape != nullptr)
-        {
-            if (autoShape->get_Placeholder()->get_Type() == type)
-            {
-                return autoShape;
-            }
-        }
+        titlePlaceholder = autoShape;
+        break;
     }
-    return nullptr;
 }
 
-void Main()
+if (titlePlaceholder != nullptr)
 {
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
-    System::SharedPtr<IAutoShape> placeHolder = FindPlaceholder(master, Aspose::Slides::PlaceholderType::Title);
-    auto fillFormat = placeHolder->get_FillFormat();
-    fillFormat->set_FillType(Aspose::Slides::FillType::Gradient);
+    auto fillFormat = titlePlaceholder->get_FillFormat();
+    fillFormat->set_FillType(FillType::Gradient);
+
     auto gradientFormat = fillFormat->get_GradientFormat();
-    gradientFormat->set_GradientShape(Aspose::Slides::GradientShape::Linear);
-    gradientFormat->get_GradientStops()->Add(0.0f, System::Drawing::Color::FromArgb(255, 0, 0));
-    gradientFormat->get_GradientStops()->Add(255.0f, System::Drawing::Color::FromArgb(128, 0, 128));
-    
-    pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    gradientFormat->set_GradientShape(GradientShape::Linear);
+
+    auto gradientStops = gradientFormat->get_GradientStops();
+    auto redGradientColor = System::Drawing::Color::FromArgb(255, 0, 0);
+    auto purpleGradientColor = System::Drawing::Color::FromArgb(128, 0, 128);
+
+    gradientStops->Add(0.0f, redGradientColor);
+    gradientStops->Add(255.0f, purpleGradientColor);
 }
+
+presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+![標準スライドが継承する書式設定済みタイトル プレースホルダー](slide-master_8.png)
 
-タイトルのスタイルと書式は、スライドマスターに基づくすべてのスライドで変更されます。 
-
-{{% alert color="primary" title="See also" %}} 
-
-* [プレースホルダーでプロンプトテキストを設定](https://docs.aspose.com/slides/cpp/manage-placeholder/) 
-* [テキスト書式設定](https://docs.aspose.com/slides/cpp/text-formatting/)
-
-{{% /alert %}}
+プレースホルダーやテキストの書式設定オプションの詳細は、[Set Prompt Text in Placeholder](/slides/ja/cpp/manage-placeholder/) と [Text Formatting](/slides/ja/cpp/text-formatting/) を参照してください。
 
 ## **スライドマスターの背景を変更する**
 
-マスタースライドの背景色を変更すると、プレゼンテーション内のすべての通常スライドが新しい色になります。この C++ コードはその操作を示しています: 
+マスターの背景は、レイアウトやそれを上書きしないスライドに継承されます。次の例は最初のマスタースライドに単色背景色を設定します:
 
-```c++
-auto pres = System::MakeObject<Presentation>();
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto master = pres->get_Masters()->idx_get(0);
-auto background = master->get_Background();
-background->set_Type(Aspose::Slides::BackgroundType::OwnBackground);
-background->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-background->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
-    
-pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+auto masterSlide = presentation->get_Master(0);
+auto masterBackgroundColor = System::Drawing::Color::get_ForestGreen();
+
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(masterBackgroundColor);
+
+presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-
-{{% alert color="primary" title="See also" %}} 
-
-- [プレゼンテーションの背景](https://docs.aspose.com/slides/cpp/presentation-background/) 
-- [プレゼンテーションのテーマ](https://docs.aspose.com/slides/cpp/presentation-theme/) 
-
-{{% /alert %}}
+関連トピックは、[Presentation Background](/slides/ja/cpp/presentation-background/) と [Presentation Theme](/slides/ja/cpp/presentation-theme/) を参照してください。
 
 ## **スライドマスターを別のプレゼンテーションにクローンする**
 
-スライドマスターを別のプレゼンテーションにクローンするには、対象プレゼンテーションの [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) メソッドを呼び出し、スライドマスターを引数として渡します。この C++ コードはスライドマスターを別のプレゼンテーションにクローンする方法を示しています: 
+`[IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslidecollection/addclone/)` を使用して、マスタースライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
 
-```c++
-auto presSource = System::MakeObject<Presentation>();
-auto presTarget = System::MakeObject<Presentation>();
-    
-auto master = presTarget->get_Masters()->AddClone(presSource->get_Masters()->idx_get(0));
+```cpp
+auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
+auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
+
+auto sourceMasterSlide = sourcePresentation->get_Master(0);
+auto clonedMasterSlide = destinationPresentation->get_Masters()->AddClone(sourceMasterSlide);
+
+destinationPresentation->Save(u"destination-with-master.pptx", SaveFormat::Pptx);
+destinationPresentation->Dispose();
+sourcePresentation->Dispose();
 ```
 
+マスターとともに標準スライドをクローンする必要がある場合は、[Clone Slides](/slides/ja/cpp/clone-slides/) を参照してください。
 
-## **プレゼンテーションに複数のスライドマスターを追加する**
+## **複数のスライドマスターを追加する**
 
-Aspose.Slides を使用すると、任意のプレゼンテーションに複数のスライドマスターとスライドレイアウトを追加できます。これにより、プレゼンテーションスライドのスタイル、レイアウト、書式設定オプションを多様な方法で設定できます。 
+プレゼンテーションは複数のマスタースライドを含めることができ、異なるセクションで異なるブランディング、ページ構造、テーマ設定が必要な場合に便利です。
 
-PowerPoint では、[スライドマスター] メニューから新しいスライドマスターとレイアウトを次のように追加できます: 
+![マスタースライドの挿入と管理に関する PowerPoint コマンド](slide-master_9.jpg)
 
-![todo:image_alt_text](slide-master_9.jpg)
+次の例は既定のマスターをクローンし、クローンに別の背景を設定し、そのクローンマスターの下にレイアウトを作成し、最後にそのレイアウトに基づく新しいスライドを追加します:
 
-Aspose.Slides では、[AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) メソッドを呼び出すことで新しいスライドマスターを追加できます: 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-```c++
-pres->get_Masters()->AddClone(pres->get_Masters()->idx_get(0));
+auto defaultMasterSlide = presentation->get_Master(0);
+auto sectionMasterSlide = presentation->get_Masters()->AddClone(defaultMasterSlide);
+auto sectionMasterBackgroundColor = System::Drawing::Color::get_LightSteelBlue();
+
+sectionMasterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+sectionMasterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+sectionMasterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(sectionMasterBackgroundColor);
+
+auto sourceBlankLayout = defaultMasterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+if (sourceBlankLayout == nullptr)
+{
+    sourceBlankLayout = defaultMasterSlide->get_LayoutSlide(0);
+}
+
+auto sectionBlankLayout = sectionMasterSlide->get_LayoutSlides()->AddClone(sourceBlankLayout);
+
+presentation->get_Slides()->AddEmptySlide(sectionBlankLayout);
+presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
-
 
 ## **スライドマスターの比較**
 
-マスタースライドは [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) インターフェイスを実装しており、[**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f) メソッドが使用可能です。このメソッドは、構造と静的コンテンツが同一であるマスタースライドを比較するために使用され、`true` を返します。 
+マスタースライドは `[IBaseSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseslide/)` から継承された `Equals` メソッドで比較できます。比較は構造と静的コンテンツ（図形、テキスト、書式設定、アニメーション、その他スライド設定）をチェックします。スライド ID のような固有識別子や、現在の日付などの動的プレースホルダー値は比較対象になりません。
 
-2 つのマスタースライドは、図形、スタイル、テキスト、アニメーション、その他の設定などがすべて同じであれば等しいとみなされます。比較では、スライド ID などの一意識別子や、日付プレースホルダーの現在の日付などの動的コンテンツは考慮されません。 
+```cpp
+auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
+auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
+auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
+auto secondPresentationMasterCount = secondPresentation->get_Masters()->get_Count();
 
-## **スライドマスターをプレゼンテーションのデフォルトビューに設定する**
+for (int32_t firstMasterIndex = 0;
+     firstMasterIndex < firstPresentationMasterCount;
+     firstMasterIndex++)
+{
+    for (int32_t secondMasterIndex = 0;
+         secondMasterIndex < secondPresentationMasterCount;
+         secondMasterIndex++)
+    {
+        auto firstMasterSlide = firstPresentation->get_Master(firstMasterIndex);
+        auto secondMasterSlide = secondPresentation->get_Master(secondMasterIndex);
+        auto areMasterSlidesEqual = firstMasterSlide->Equals(secondMasterSlide);
 
-Aspose.Slides では、スライドマスターをプレゼンテーションのデフォルトビューとして設定できます。デフォルトビューは、プレゼンテーションを開いたときに最初に表示されるビューです。 
+        if (areMasterSlidesEqual)
+        {
+            System::Console::WriteLine(
+                System::String::Format(
+                    u"first.pptx master #{0} equals second.pptx master #{1}",
+                    firstMasterIndex,
+                    secondMasterIndex));
+        }
+    }
+}
 
-このコードは、C++ でスライドマスターをプレゼンテーションのデフォルトビューに設定する方法を示しています: ```c++
-pres->get_ViewProperties()->set_LastView(Aspose::Slides::ViewType::SlideMasterView);
+secondPresentation->Dispose();
+firstPresentation->Dispose();
 ```
 
+詳細は [Compare Presentation Slides](/slides/ja/cpp/compare-slides/) を参照してください。
 
-## **未使用のマスタースライドの削除**
+## **スライドマスタービューをデフォルトビューに設定する**
 
-Aspose.Slides は、[RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) メソッド（[Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) クラス）を提供し、不要で未使用のマスタースライドを削除できます。この C++ コードは、PowerPoint プレゼンテーションからマスタースライドを削除する方法を示しています: 
+`[ViewProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/viewproperties/)` の `set_LastView` メソッドを使用して、PowerPoint が最初に開くビューを制御できます。次の例はプレゼンテーションをスライドマスタービューで開きます:
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-LowCode::Compress::RemoveUnusedMasterSlides(pres);
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
+presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+その他のビュー設定については、[Save Presentation](/slides/ja/cpp/save-presentation/) を参照してください。
+
+## **未使用のマスタースライドを削除する**
+
+プレゼンテーションには、もはや標準スライドで使用されていないマスタースライドが含まれることがあります。未使用のマスターを削除すると、ファイル サイズが削減され、テンプレートの保守が簡素化されます。
+
+`[MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/ja/cpp/aspose.slides/masterslidecollection/removeunused/)` を使用して、`get_Masters()` コレクションから未使用のマスターを削除します:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+presentation->get_Masters()->RemoveUnused(true);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+低コードの `[Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ja/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/)` メソッドも利用できます:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+LowCode::Compress::RemoveUnusedMasterSlides(presentation);
+presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
 ## **FAQ**
 
-**PowerPoint のスライドマスターとは何ですか？**  
+**スライドマスターとレイアウトスライドの違いは何ですか？**
 
-スライドマスターは、プレゼンテーションのスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライドテンプレートです。すべてのプレゼンテーションスライドの外観を一度に設定および変更できます。  
+スライドマスターはテーマ、背景、共通図形、テキスト スタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。標準スライドはレイアウトスライドを使用するため、レイアウトとマスターの両方から継承します。
 
-**プレゼンテーションでスライドマスターはどのように適用されますか？**  
+**1 つのプレゼンテーションに複数のスライドマスターを含めることはできますか？**
 
-すべてのプレゼンテーションはデフォルトで少なくとも 1 つのスライドマスターを持ちます。新しいスライドが追加されると、スライドマスターが自動的に適用され、通常は前のスライドのマスターが継承されます。プレゼンテーションは複数のスライドマスターを含めて、異なる部分を個別にスタイル設定できます。  
+はい。プレゼンテーションは複数のスライドマスターを含めることができます。異なるセクションで異なるビジュアル体系やブランディングが必要な場合に、複数のマスターを使用してください。
 
-**スライドマスターでカスタマイズできる要素は何ですか？**  
+**プレースホルダーはマスタースライドに追加すべきですか、レイアウトスライドに追加すべきですか？**
 
-スライドマスターは、以下の主要プロパティをカスタマイズできます：  
+ほとんどの場合、プレースホルダーはレイアウトスライドに追加します。共有ビジュアル要素や共有書式はマスタースライドに配置し、コンテンツ用プレースホルダーは標準スライドが使用するレイアウトに置きます。
 
-- **Background**: スライドの背景を設定します。  
-- **BodyStyle**: スライド本文のテキストスタイルを定義します。  
-- **Shapes**: プレースホルダーや画像フレームなど、スライドマスター上のすべての図形を管理します。  
-- **Controls**: ActiveX コントロールを処理します。  
-- **ThemeManager**: テーママネージャーにアクセスします。  
-- **HeaderFooterManager**: ヘッダーとフッターを管理します。  
+**使用中のマスタースライドを削除できますか？**
 
-**スライドマスターに画像を追加するにはどうすればよいですか？**  
-
-スライドマスターに画像を追加すると、その画像はそのマスターに依存するすべてのスライドに表示されます。例えば、会社のロゴをスライドマスターに配置すると、プレゼンテーション内のすべてのスライドにロゴが表示されます。  
-
-**スライドマスターはスライドレイアウトとどのように関係していますか？**  
-
-スライドレイアウトはスライドマスターと連携してスライドデザインの柔軟性を提供します。スライドマスターは全体的なスタイルとテーマを定義し、スライドレイアウトはコンテンツ配置のバリエーションを可能にします。階層は次の通りです：  
-
-- **Slide Master** → 全体的なスタイルを定義。  
-- **Slide Layout** → 異なるコンテンツ配置を提供。  
-- **Slide** → そのスライドレイアウトからデザインを継承。  
-
-**単一のプレゼンテーションに複数のスライドマスターを持つことはできますか？**  
-
-はい、プレゼンテーションには複数のスライドマスターを含めることができます。これにより、プレゼンテーションの異なるセクションをさまざまな方法でスタイル設定でき、デザインの柔軟性が向上します。  
-
-**Aspose.Slides を使用してスライドマスターにアクセスし、変更するにはどうすればよいですか？**  
-
-Aspose.Slides では、スライドマスターは [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/) インターフェイスで表されます。プレゼンテーションオブジェクトの [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) メソッドを使用してスライドマスターにアクセスできます。
+いいえ。依存するスライドがあるマスタースライドは直接削除できません。まず、そのスライドを別のマスターのレイアウトへ移動するか、未使用マスターのみを削除するクリーンアップ手法を使用してください。

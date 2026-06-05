@@ -26,145 +26,134 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Extraiga rápidamente texto de presentaciones PowerPoint y OpenDocument usando Aspose.Slides para C++. Siga nuestra guía simple, paso a paso, para ahorrar tiempo."
+description: "Extrae rápidamente texto de presentaciones PowerPoint y OpenDocument usando Aspose.Slides para C++. Sigue nuestra guía simple, paso a paso, para ahorrar tiempo."
 ---
+## **Descripción general**
 
-{{% alert color="primary" %}} 
+Extraer texto de presentaciones es una tarea común pero esencial para los desarrolladores que trabajan con contenido de diapositivas. Ya sea que estés manejando archivos de Microsoft PowerPoint en formato PPT o PPTX, o presentaciones OpenDocument (ODP), acceder y recuperar datos textuales puede ser crítico para análisis, automatización, indexación o migración de contenido.
 
-No es raro que los desarrolladores necesiten extraer el texto de una presentación. Para ello, es necesario extraer el texto de todas las formas en todas las diapositivas de una presentación. Este artículo explica cómo extraer texto de presentaciones Microsoft PowerPoint PPTX usando Aspose.Slides. El texto puede extraerse de las siguientes maneras:
+Este artículo ofrece una guía completa sobre cómo extraer texto de forma eficiente de varios formatos de presentación, incluidos PPT, PPTX y ODP, utilizando Aspose.Slides for C++. Aprenderás a iterar sistemáticamente a través de los elementos de la presentación para obtener con precisión el contenido textual que necesitas.
 
-- [Extracting text from one slide](/slides/es/cpp/extracting-text-from-the-presentation/)
-- [Extracting text using GetAllTextBoxes method](/slides/es/cpp/extracting-text-from-the-presentation/)
-- [Categorized and fast extraction of text](/slides/es/cpp/extracting-text-from-the-presentation/)
-
-{{% /alert %}} 
 ## **Extraer texto de una diapositiva**
-Aspose.Slides for C++ proporciona el espacio de nombres Aspose.Slides.Util que incluye la clase SlideUtil. Esta clase expone una serie de métodos estáticos sobrecargados para extraer todo el texto de una presentación o diapositiva. Para extraer el texto de una diapositiva en una presentación PPTX, 
-use el método estático sobrecargado [GetAllTextBoxes](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a97da94e3fc5230cdfc0e30b444c127df) expuesto por la clase SlideUtil. Este método acepta el objeto Slide como parámetro.
-Al ejecutarse, el método Slide escanea todo el texto de la diapositiva pasada como parámetro y devuelve una matriz de objetos TextFrame. Esto significa que cualquier formato de texto asociado está disponible. El siguiente fragmento de código extrae todo el texto de la primera diapositiva de la presentación:
-``` cpp
-// La ruta al directorio de documentos.
-System::String dataDir = GetDataPath();
 
-// Instanciar la clase Presentation que representa un archivo PPTX
-auto pptxPresentation = System::MakeObject<Presentation>(dataDir + u"demo.pptx");
+Aspose.Slides for C++ proporciona el espacio de nombres [Aspose.Slides.Util](https://reference.aspose.com/slides/es/cpp/aspose.slides.util/), que incluye la clase [SlideUtil](https://reference.aspose.com/slides/es/cpp/aspose.slides.util/slideutil/). Esta clase expone varios métodos estáticos sobrecargados para extraer todo el texto de una presentación o diapositiva. Para extraer texto de una diapositiva en una presentación, usa el método [GetAllTextBoxes](https://reference.aspose.com/slides/es/cpp/aspose.slides.util/slideutil/getalltextboxes/). Este método acepta un objeto del tipo [IBaseSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibaseslide/) como parámetro. Cuando se ejecuta, el método escanea toda la diapositiva en busca de texto y devuelve una matriz de objetos del tipo [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/), conservando cualquier formato de texto.
 
-// Obtener una matriz de objetos ITextFrame de todas las diapositivas del PPTX
-auto textFramesPPTX = Util::SlideUtil::GetAllTextFrames(pptxPresentation, true);
+El siguiente fragmento de código extrae todo el texto de la primera diapositiva de la presentación:
 
-// Recorrer la matriz de TextFrames
-for (int32_t i = 0; i < textFramesPPTX->get_Length(); i++)
+```cpp
+auto slideIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto textFrames = Util::SlideUtil::GetAllTextBoxes(slide);
+
+for (const auto& textFrame : textFrames)
 {
-	// Recorrer los párrafos en el ITextFrame actual
-	for (const auto& para : textFramesPPTX[i]->get_Paragraphs())
-	{
-		// Recorrer las porciones en el IParagraph actual
-		for (const auto& port : para->get_Portions())
-		{
-			// Mostrar el texto en la porción actual
-			Console::WriteLine(port->get_Text());
+    for (const auto& paragraph : textFrame->get_Paragraphs())
+    {
+        for (const auto& portion : paragraph->get_Portions())
+        {
+            auto portionText = portion->get_Text();
+            Console::WriteLine(portionText);
 
-			// Mostrar la altura de fuente del texto
-			Console::WriteLine(port->get_PortionFormat()->get_FontHeight());
+            auto portionFormat = portion->get_PortionFormat();
+            auto fontHeight = portionFormat->get_FontHeight();
+            Console::WriteLine(fontHeight);
 
-			// Mostrar el nombre de fuente del texto
-			if (port->get_PortionFormat()->get_LatinFont() != nullptr)
-			{
-				Console::WriteLine(port->get_PortionFormat()->get_LatinFont()->get_FontName());
-			}
-		}
-	}
+            auto latinFont = portionFormat->get_LatinFont();
+            if (latinFont != nullptr)
+            {
+                auto fontName = latinFont->get_FontName();
+                Console::WriteLine(fontName);
+            }
+        }
+    }
 }
-```
 
+presentation->Dispose();
+```
 
 ## **Extraer texto de una presentación**
-Para escanear el texto de toda la presentación, use el
-[GetAllTextFrames](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a5a0aebdc520e5258c8a1f665fdb8be12) método estático expuesto por la clase SlideUtil. Toma dos parámetros:
 
-1. Primero, un objeto Presentation que representa la presentación PPTX de la que se extrae el texto.
-2. Segundo, un valor Boolean que determina si la diapositiva maestra debe incluirse cuando se escanea el texto de la presentación.  
-   El método devuelve una matriz de objetos TextFrame, con información completa de formato de texto. El código a continuación escanea el texto y la información de formato de una presentación, incluidas las diapositivas maestras.
-``` cpp
-// La ruta al directorio de documentos.
-System::String dataDir = GetDataPath();
+Para escanear texto de toda la presentación, utiliza el método estático [GetAllTextFrames](https://reference.aspose.com/slides/es/cpp/aspose.slides.util/slideutil/getalltextframes/) expuesto por la clase [SlideUtil](https://reference.aspose.com/slides/es/cpp/aspose.slides.util/slideutil/). Acepta dos parámetros:
 
-// Instanciar la clase Presentation que representa un archivo PPTX
-auto pptxPresentation = System::MakeObject<Presentation>(dataDir + u"demo.pptx");
+1. Primero, un objeto [IPresentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/) que representa una presentación PowerPoint o OpenDocument de la que se extraerá el texto.  
+1. Segundo, un valor `Boolean` que indica si las diapositivas maestras deben incluirse al escanear el texto de la presentación.
 
-// Obtener una matriz de objetos ITextFrame de todas las diapositivas del PPTX
-auto textFramesPPTX = Util::SlideUtil::GetAllTextFrames(pptxPresentation, true);
+El método devuelve una matriz de objetos del tipo [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/), incluyendo información de formato del texto. El código a continuación escanea el texto y los detalles de formato de una presentación, incluidas las diapositivas maestras.
 
-// Recorrer la matriz de TextFrames
-for (int32_t i = 0; i < textFramesPPTX->get_Length(); i++)
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto includeMasterSlides = true;
+auto textFrames = Util::SlideUtil::GetAllTextFrames(presentation, includeMasterSlides);
+
+for (const auto& textFrame : textFrames)
 {
-	// Recorrer los párrafos del ITextFrame actual
-	for (const auto& para : textFramesPPTX[i]->get_Paragraphs())
-	{
-		// Recorrer las porciones del IParagraph actual
-		for (const auto& port : para->get_Portions())
-		{
-			// Mostrar el texto de la porción actual
-			Console::WriteLine(port->get_Text());
+    for (const auto& paragraph : textFrame->get_Paragraphs())
+    {
+        for (const auto& portion : paragraph->get_Portions())
+        {
+            auto portionText = portion->get_Text();
+            Console::WriteLine(portionText);
 
-			// Mostrar la altura de fuente del texto
-			Console::WriteLine(port->get_PortionFormat()->get_FontHeight());
+            auto portionFormat = portion->get_PortionFormat();
+            auto fontHeight = portionFormat->get_FontHeight();
+            Console::WriteLine(fontHeight);
 
-			// Mostrar el nombre de fuente del texto
-			if (port->get_PortionFormat()->get_LatinFont() != nullptr)
-			{
-				Console::WriteLine(port->get_PortionFormat()->get_LatinFont()->get_FontName());
-			}
-		}
-	}
+            auto latinFont = portionFormat->get_LatinFont();
+            if (latinFont != nullptr)
+            {
+                auto fontName = latinFont->get_FontName();
+                Console::WriteLine(fontName);
+            }
+        }
+    }
 }
-```
 
+presentation->Dispose();
+```
 
 ## **Extracción de texto categorizada y rápida**
-Se ha añadido el nuevo método estático GetPresentationText a la clase Presentation. Hay dos sobrecargas para este método:
-``` cpp
-System::SharedPtr<IPresentationText> GetPresentationText(System::String file, TextExtractionArrangingMode mode) override
- 
-System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode) override
+
+La clase [PresentationFactory](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentationfactory/) también proporciona métodos para extraer todo el texto de presentaciones:
+
+```cpp
+System::SharedPtr<IPresentationText> GetPresentationText(System::String file, TextExtractionArrangingMode mode);
+System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode);
+System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode, System::SharedPtr<ILoadOptions> options);
 ```
 
+El argumento enum [TextExtractionArrangingMode](https://reference.aspose.com/slides/es/cpp/aspose.slides/textextractionarrangingmode/) indica el modo para organizar el resultado de la extracción de texto y puede establecerse en los siguientes valores:
+- `Unarranged` - El texto sin procesar sin tener en cuenta su posición en la diapositiva.  
+- `Arranged` - El texto se organiza en el mismo orden que aparece en la diapositiva.
 
-El argumento del enum TextExtractionArrangingMode indica el modo para organizar la salida del resultado de texto y puede establecerse en los siguientes valores:  
-Unarranged - El texto crudo sin respetar la posición en la diapositiva  
-Arranged - El texto se posiciona en el mismo orden que en la diapositiva
+El modo `Unarranged` puede usarse cuando la velocidad es crítica; es más rápido que el modo `Arranged`.
 
-El modo Unarranged puede usarse cuando la velocidad es crítica; es más rápido que el modo Arranged.
+[IPresentationText](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentationtext/) representa el texto sin procesar extraído de la presentación. Su método `get_SlidesText()` devuelve una matriz de objetos del tipo [ISlideText](https://reference.aspose.com/slides/es/cpp/aspose.slides/islidetext/). Cada objeto representa el texto de la diapositiva correspondiente. El objeto del tipo [ISlideText](https://reference.aspose.com/slides/es/cpp/aspose.slides/islidetext/) tiene los siguientes métodos:
 
-PresentationText representa el texto crudo extraído de la presentación. Contiene un método get_SlidesText() del espacio de nombres Aspose.Slides.Util que devuelve una matriz de objetos ISlideText. Cada objeto representa el texto de la diapositiva correspondiente. El objeto ISlideText tiene los siguientes métodos:
+- `get_Text()` - El texto dentro de las formas de la diapositiva.  
+- `get_MasterText()` - El texto dentro de las formas de la diapositiva maestra asociada a esta diapositiva.  
+- `get_LayoutText()` - El texto dentro de las formas de la diapositiva de diseño asociada a esta diapositiva.  
+- `get_NotesText()` - El texto dentro de las formas de la diapositiva de notas asociada a esta diapositiva.  
+- `get_CommentsText()` - El texto dentro de los comentarios asociados a esta diapositiva.
 
-get_Text() - El texto en las formas de la diapositiva.  
-get_MasterText() - El texto en las formas de la página maestra para esta diapositiva.  
-get_LayoutText() - El texto en las formas de la página de diseño para esta diapositiva.  
-get_NotesText() - El texto en las formas de la página de notas para esta diapositiva.
+```cpp
+auto presentationPath = u"presentation.ppt";
+auto arrangingMode = TextExtractionArrangingMode::Unarranged;
+auto presentationText = PresentationFactory::get_Instance()->GetPresentationText(presentationPath, arrangingMode);
+auto firstSlideText = presentationText->get_SlidesText()[0];
 
-También existe una clase SlideText que implementa la interfaz ISlideText.
-
-La nueva API puede usarse así:
-``` cpp
-auto text = System::MakeObject<PresentationFactory>()->GetPresentationText(u"presentation.ppt", TextExtractionArrangingMode::Unarranged);
-Console::WriteLine(text->get_SlidesText()[0]->get_Text());
-Console::WriteLine(text->get_SlidesText()[0]->get_LayoutText());
-Console::WriteLine(text->get_SlidesText()[0]->get_MasterText());
-Console::WriteLine(text->get_SlidesText()[0]->get_NotesText());
+Console::WriteLine(firstSlideText->get_Text());
+Console::WriteLine(firstSlideText->get_LayoutText());
+Console::WriteLine(firstSlideText->get_MasterText());
+Console::WriteLine(firstSlideText->get_NotesText());
+Console::WriteLine(firstSlideText->get_CommentsText());
 ```
-
 
 ## **Preguntas frecuentes**
 
 **¿Qué tan rápido procesa Aspose.Slides presentaciones grandes durante la extracción de texto?**
 
-Aspose.Slides está optimizado para alto rendimiento y procesa eficientemente incluso presentaciones grandes, lo que lo hace adecuado para escenarios de procesamiento en tiempo real o por lotes.
-
-**¿Puede Aspose.Slides extraer texto de tablas y gráficos dentro de presentaciones?**
-
-Sí, Aspose.Slides admite completamente la extracción de texto de tablas, gráficos y otros elementos complejos de diapositivas, lo que le permite acceder y analizar todo el contenido textual con facilidad.
-
-**¿Necesito una licencia especial de Aspose.Slides para extraer texto de presentaciones?**
-
-Puede extraer texto usando la versión de prueba gratuita de Aspose.Slides, aunque tendrá ciertas limitaciones, como procesar solo un número limitado de diapositivas. Para uso sin restricciones y para manejar presentaciones más grandes, se recomienda adquirir una licencia completa.
+Aspose.Slides está optimizado para alto rendimiento y puede procesar incluso [presentaciones grandes](/slides/es/c

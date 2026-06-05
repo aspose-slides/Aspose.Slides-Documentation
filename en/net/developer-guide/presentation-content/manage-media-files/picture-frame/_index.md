@@ -350,7 +350,7 @@ This method converts WMF/EMF metafiles to raster PNG image in the cropping opera
 
 ## **Compress Images**
 
-You can compress a picture in a presentation using the [`IPictureFillFormat.CompressImage`](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/) method. 
+You can compress a picture in a presentation using the [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/) method.
 This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas. 
 
 It adjusts the picture’s size and resolution similarly to PowerPoint’s **Picture Format → Compress Pictures → Resolution** feature.
@@ -361,14 +361,12 @@ The following C# examples demonstrate how to compress an image in a presentation
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     ISlide slide = presentation.Slides[0];
+    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Get the PictureFrame from the slide
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
+    // Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
+    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
 
-    // Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas
-    bool result = picFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
-
-    // Check the result of the compression
+    // Check the result of the compression.
     if (result)
     {
         Console.WriteLine("Image successfully compressed.");
@@ -377,6 +375,8 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     {
         Console.WriteLine("Image compression failed or no changes were necessary.");
     }
+
+    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -386,11 +386,12 @@ Or using a custom DPI value directly:
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     ISlide slide = presentation.Slides[0];
+    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
+    // Compress the image to 150 DPI (web resolution), removing cropped areas.
+    pictureFrame.PictureFormat.CompressImage(true, 150f);
 
-    // Compress the image to 150 DPI (web resolution), removing cropped areas
-    bool result = picFrame.PictureFormat.CompressImage(true, 150f);
+    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
 }
 ```
 

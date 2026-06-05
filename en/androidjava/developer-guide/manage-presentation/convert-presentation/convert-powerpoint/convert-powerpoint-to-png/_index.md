@@ -25,13 +25,11 @@ keywords:
 description: "Convert PowerPoint presentations to high-quality PNG images quickly with Aspose.Slides for Android via Java, ensuring precise, automated results."
 ---
 
-## **About PowerPoint to PNG Conversion**
+## **Overview**
 
-The PNG (Portable Network Graphics) format is not as popular as JPEG (Joint Photographic Experts Group), but it still very popular. 
+This article explains how to convert PowerPoint presentations to PNG images using Aspose.Slides. It shows how to load presentation files in formats such as PPT, PPTX, and ODP, render slides as images, and save the results in PNG format.
 
-**Use case:** When you have a complex image and size is not an issue, PNG is a better image format than JPEG. 
-
-{{% alert title="Tip" color="primary" %}} You may want to check out Aspose free **PowerPoint to PNG Converters**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) and [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). They are a live implementation of the process described on this page. {{% /alert %}}
+The article also demonstrates how to customize the generated PNG images by setting scale values or specifying the desired width and height.
 
 ## **Convert PowerPoint to PNG**
 

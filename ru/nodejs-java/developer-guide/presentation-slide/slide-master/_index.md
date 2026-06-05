@@ -1,19 +1,19 @@
 ---
 title: Управление мастер‑слайдами презентации в JavaScript
-linktitle: Мастер слайда
+linktitle: Мастер‑слайд
 type: docs
 weight: 70
 url: /ru/nodejs-java/slide-master/
 keywords:
-- мастер слайда
-- мастер слайда
-- мастер-слайд PPT
-- несколько мастер‑слайдов
+- мастер‑слайд
+- мастер‑слайд
+- PPT мастер‑слайд
+- множественные мастер‑слайды
 - сравнение мастер‑слайдов
 - фон
 - заполнитель
 - клонировать мастер‑слайд
-- копировать мастер‑слайд
+- скопировать мастер‑слайд
 - дублировать мастер‑слайд
 - неиспользуемый мастер‑слайд
 - PowerPoint
@@ -22,372 +22,362 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Управляйте мастер‑слайдами в Aspose.Slides для Node.js через Java: создавайте, редактируйте и применяйте макеты, темы и заполнители к PPT, PPTX и ODP с лаконичными примерами."
+description: "Управляйте мастер‑слайдами в Aspose.Slides for Node.js via Java: доступ, редактирование, клонирование, сравнение и удаление мастер‑слайдов в презентациях PowerPoint и OpenDocument."
 ---
+## **Обзор**
 
-## **Что такое мастер слайдов в PowerPoint**
+**slide master** определяет общие настройки дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фоны, стили текста, настройки темы и настройки нижнего колонтитула. В PowerPoint редактирование slide master — обычный способ поддерживать презентацию в едином стиле без повторения одинакового форматирования на каждом слайде.
 
-**Мастер слайдов** — это шаблон слайда, который определяет макет, стили, тему, шрифты, фон и другие свойства слайдов в презентации. Если вы хотите создать презентацию (или серию презентаций) с одинаковым стилем и шаблоном для вашей компании, вы можете использовать мастер слайдов. 
+Aspose.Slides for Node.js via Java поддерживает ту же модель. Презентация может содержать один или несколько master slides, и каждый master slide может содержать несколько layout slides. Обычные слайды обычно не ссылаются напрямую на master slide. Вместо этого обычный слайд использует layout slide, который принадлежит master slide.
 
-Мастер слайдов полезен, потому что позволяет задать и изменить внешний вид всех слайдов презентации сразу. Aspose.Slides поддерживает механизм мастера слайдов из PowerPoint. 
+Иерархия выглядит так:
 
-VBA также позволяет манипулировать мастером слайдов и выполнять те же операции, что поддерживаются в PowerPoint: менять фон, добавлять фигуры, настраивать макет и т.д. Aspose.Slides предоставляет гибкие механизмы, позволяющие использовать мастера слайдов и выполнять основные задачи с ними. 
+1. **Slide master** - определяет общий дизайн и тему.  
+1. **Layout slide** - определяет конкретное расположение заполнителей и форматирование уровня макета.  
+1. **Normal slide** - содержит фактическое содержание презентации и использует один layout slide.
 
-Это базовые операции с мастером слайдов:
+![Иерархия master slides, layout slides и normal slides](slide-master_2.jpg)
 
-- Создать или редактировать мастер слайдов.
-- Применить мастер слайдов к слайдам презентации.
-- Изменить фон мастера слайдов. 
-- Добавить изображение, заполнитель, Smart Art и т.п. в мастер слайдов.
+В Aspose.Slides slide master представлен классом [MasterSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) . Все master slides в презентации доступны через коллекцию `Presentation.getMasters()`.
 
-Более продвинутые операции с мастером слайдов:
-
-- Сравнение мастеров слайдов.
-- Объединение мастеров слайдов.
-- Применение нескольких мастеров слайдов.
-- Копирование слайда с мастером в другую презентацию.
-- Поиск дублирующихся мастеров слайдов в презентациях.
-- Установка мастера слайдов как представления по умолчанию презентации.
-
-{{% alert color="primary" %}} 
-
-Возможно, вам будет интересно посмотреть Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer), так как это живой пример некоторых основных процессов, описанных здесь.
-
-{{% /alert %}} 
-
-
-## **Как применяется мастер слайдов**
-
-Прежде чем работать с мастером слайдов, стоит понять, как они используются в презентациях и применяются к слайдам. 
-
-* Каждая презентация имеет как минимум один мастер слайдов по умолчанию. 
-* Презентация может содержать несколько мастеров слайдов. Вы можете добавить несколько мастеров и использовать их для стилизации разных частей презентации по‑разному. 
-
-В **Aspose.Slides** мастер слайдов представлен типом [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/). 
-
-Объект Aspose.Slides [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) содержит список [**getMasters**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--) [**MasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), в котором находятся все мастера слайдов, определённые в презентации.
-
-Помимо CRUD‑операций, класс [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) содержит полезные методы: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) и [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-). Эти методы унаследованы от базовой функции клонирования слайдов, но при работе с мастерами слайдов позволяют реализовать сложные сценарии.
-
-Когда в презентацию добавляется новый слайд, к нему автоматически применяется мастер слайдов. По умолчанию выбирается мастер предыдущего слайда. 
-
-**Примечание**: Слайды презентации хранятся в списке [getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides--), и каждый новый слайд добавляется в конец коллекции. Если презентация содержит один мастер слайдов, этот мастер выбирается для всех новых слайдов. Поэтому вам не нужно задавать мастер слайдов для каждого нового слайда вручную.
-
-Принцип тот же в PowerPoint и Aspose.Slides. Например, в PowerPoint, когда вы добавляете новый слайд, достаточно кликнуть на нижнюю линию под последним слайдом — и будет создан новый слайд (с мастером последнего слайда):
-
-![todo:image_alt_text](slide-master_1.jpg)
-
-В Aspose.Slides то же действие можно выполнить методом [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-
-
-## **Мастер слайдов в иерархии Slides**
-
-Использование макетов слайдов вместе с мастером слайдов обеспечивает максимальную гибкость. Макет слайда позволяет задать те же стили, что и мастер (фон, шрифты, фигуры и т.п.). Однако когда несколько макетов объединяются на мастере, образуется новый стиль. Применяя макет к отдельному слайду, вы можете изменить его стиль относительно того, который задаёт мастер.
-
-Мастер слайдов превосходит все остальные настройки: Мастер слайдов → Макет слайда → Слайд:
-
-![todo:image_alt_text](slide-master_2)
-
-
-
-Каждый объект [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) имеет свойство [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getLayoutSlides--) со списком макетов слайдов. Тип [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) имеет свойство [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getLayoutSlide--) со ссылкой на применённый макет. Взаимодействие между слайдом и мастером происходит через макет.
-
-{{% alert color="info" title="Note" %}}
-
-* В Aspose.Slides все настройки слайда (мастер, макет и сам слайд) являются объектами, реализующими класс [**BaseSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide). 
-* Поэтому мастер и макет могут иметь одинаковые свойства, и важно понимать, как их значения применяются к объекту [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide). Сначала к слайду применяется мастер, затем — макет. Например, если и мастер, и макет задают фон, конечный фон будет взят из макета.
-
+{{% alert color="info" title="Inheritance" %}}
+Когда одно и то же свойство определено на более чем одном уровне, выигрывает более конкретный уровень. Например, если master slide и layout slide оба определяют фон, слайды, основанные на этом layout, используют фон layout. Для получения дополнительной информации о layout slides см. [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
+## **Доступ к Slide Masters**
 
-## **Из чего состоит мастер слайдов**
+В PowerPoint вы можете открыть представление Slide Master через **View** > **Slide Master**.
 
-Чтобы понять, как менять мастер слайдов, нужно знать его составные части. Это основные свойства [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/):
+![Команда Slide Master на вкладке View в PowerPoint](slide-master_3.jpg)
 
-- [getBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getBackground--) — получить/установить фон слайда. 
-- [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getBodyStyle--) — получить/установить стили текста тела слайда. 
-- [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getShapes--) — получить/установить все фигуры мастера (заполнители, рамки изображений и т.п.). 
-- [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getControls--) — получить/установить элементы управления ActiveX. 
-- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getThemeManager) — получить менеджер темы. 
-- [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getHeaderFooterManager--) — получить менеджер колонтитулов.
+В Aspose.Slides используйте коллекцию `getMasters()` для доступа к master slides:
 
-Методы мастера слайдов:
-
-- [getDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#getDependingSlides--) — получить все слайды, зависящие от данного мастера. 
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) — позволяет создать новый мастер на основе текущего и новой темы, после чего новый мастер будет применён ко всем зависимым слайдам.
-
-
-## **Получить мастер слайдов**
-
-В PowerPoint к мастеру слайдов можно обратиться через меню Вид → Мастер слайдов:
-
-![todo:image_alt_text](slide-master_3.jpg)
-
-
-
-В Aspose.Slides это делается так: 
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Позволяет получить доступ к мастер‑слайду презентации
-    var masterSlide = pres.getMasters().get_Item(0);
-} finally {
-    pres.dispose();
-}
-```
+    let firstMasterSlide = presentation.getMasters().get_Item(0);
+    let masterSlideCount = presentation.getMasters().size();
+    let firstMasterLayoutSlideCount = firstMasterSlide.getLayoutSlides().size();
 
-
-Класс [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) представляет мастер слайдов. Свойство [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) (связано с типом [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlideCollection)) содержит список всех мастеров, определённых в презентации. 
-
-
-## **Добавить изображение в мастер слайдов**
-
-Если добавить изображение в мастер, оно появится на всех слайдах, зависящих от этого мастера. 
-
-Например, разместите логотип компании и несколько изображений на мастере, затем вернитесь в режим редактирования слайдов — изображение будет видно на каждом из них. 
-
-![todo:image_alt_text](slide-master_4.png)
-
-Добавить изображения в мастер можно так:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {
-    console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-
-Подробнее о добавлении изображений на слайд см. статью [Picture Frame](/slides/ru/nodejs-java/picture-frame/#create-picture-frame).
-{{% /alert %}}
-
-
-## **Добавить заполнитель в мастер слайдов**
-
-Эти текстовые поля — стандартные заполнители на мастере слайдов: 
-
-* Нажмите, чтобы редактировать стиль заголовка мастера
-* Редактировать стиль текста мастера
-* Второй уровень
-* Третий уровень 
-
-Они также отображаются на слайдах, построенных на основе мастера. Вы можете редактировать эти заполнители в мастере, и изменения автоматически применятся к слайдам. 
-
-В PowerPoint добавить заполнитель можно через путь Мастер слайдов → Вставить заполнитель:
-
-![todo:image_alt_text](slide-master_5.png)
-
-Рассмотрим более сложный пример заполнителей с Aspose.Slides. Предположим, есть слайд с заполнителями, шаблон из мастера:
-
-![todo:image_alt_text](slide-master_6.png)
-
-Изменим форматирование заголовка и подзаголовка мастера так:
-
-![todo:image_alt_text](slide-master_7.png)
-
-Сначала получаем содержимое заполнителя заголовка из объекта мастера, затем используем поле `PlaceHolder.FillFormat`:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    var placeHolder = findPlaceholder(master, aspose.slides.PlaceholderType.Title);
-    placeHolder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
-    placeHolder.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-    var awtColor = java.import('java.awt.Color');
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, java.newInstanceSync('java.awt.Color', 255, 0, 0));
-    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, java.newInstanceSync('java.awt.Color', 128, 0, 128));
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-function findPlaceholder(master, type)
-{    
-    for (var i = 0 ; i < master.getShapes().size(); i++)
-    {
-        var autoShape = master.getShapes().get_Item(i);
-        if (autoShape != null)
-        {
-            if (autoShape.getPlaceholder().getType() == type)
-            {
-                return autoShape;
-            }
-        }
-    }
-
-    return null;
-}
-```
-
-
-Стиль и форматирование заголовка изменятся на всех слайдах, построенных на этом мастере:
-
-![todo:image_alt_text](slide-master_8.png)
-
-{{% alert color="primary" title="See also" %}} 
-
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/nodejs-java/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/nodejs-java/text-formatting/)
-
-{{% /alert %}}
-
-
-## **Изменить фон мастера слайдов**
-
-Если изменить цвет фона мастера, все обычные слайды в презентации получат новый цвет. Этот JavaScript‑код демонстрирует операцию:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var master = pres.getMasters().get_Item(0);
-    master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-{{% alert color="primary" title="See also" %}} 
-
-- [Presentation Background](https://docs.aspose.com/slides/nodejs-java/presentation-background/)
-- [Presentation Theme](https://docs.aspose.com/slides/nodejs-java/presentation-theme/)
-
-{{% /alert %}}
-
-## **Клонировать мастер слайдов в другую презентацию**
-
-Чтобы клонировать мастер в другую презентацию, вызовите метод [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) целевой презентации, передав в него нужный мастер. Этот JavaScript‑пример показывает, как клонировать мастер в другую презентацию:
-```javascript
-var presSource = new aspose.slides.Presentation();
-var presTarget = new aspose.slides.Presentation();
-try {
-    var master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-} finally {
-    if (presSource != null) {
-        presSource.dispose();
-    }
-}
-```
-
-
-
-## **Добавить несколько мастеров слайдов в презентацию**
-
-Aspose.Slides позволяет добавить несколько мастеров и макетов в любую презентацию. Это даёт возможность задавать стили, макеты и параметры форматирования слайдов разнообразными способами. 
-
-В PowerPoint новые мастеры и макеты добавляются так (из меню «Мастер слайдов»):
-
-![todo:image_alt_text](slide-master_9.jpg)
-
-В Aspose.Slides новый мастер добавляется вызовом метода [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-):
-```javascript
-// Добавляет новый мастер‑слайд
-var secondMasterSlide = pres.getMasters().addClone(masterSlide);
-```
-
-
-
-## **Сравнить мастера слайдов**
-
-Мастерный слайд реализует класс [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide) с методом [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#equals-aspose.slides.IBaseSlide-), который можно использовать для сравнения мастеров. Метод возвращает `true`, если мастера идентичны по структуре и статическому содержимому.
-
-Два мастера считаются равными, если их фигуры, стили, тексты, анимация и другие настройки совпадают. При сравнении не учитываются уникальные идентификаторы (например, SlideId) и динамическое содержимое (например, текущая дата в заполняющем плацехолдере).
-
-
-## **Установить мастер слайдов как представление по умолчанию презентации**
-
-Aspose.Slides позволяет задать мастер слайдов как представление по умолчанию. Это то, что пользователь видит первым при открытии презентации. 
-
-Ниже показан код, который устанавливает мастер слайдов как представление по умолчанию в JavaScript:
-```javascript
-// Создаёт экземпляр класса Presentation, представляющего файл презентации
-var presentation = new aspose.slides.Presentation();
-try {
-    // Устанавливает представление по умолчанию как SlideMasterView
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    // Сохраняет презентацию
-    presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
+    console.log("Master slides: " + masterSlideCount);
+    console.log("Layouts in the first master: " + firstMasterLayoutSlideCount);
 } finally {
     presentation.dispose();
 }
 ```
 
+Вы также можете получить master slide, используемый обычным слайдом, через его layout:
 
-## **Удалить неиспользуемый мастер слайдов**
-
-Aspose.Slides предоставляет метод [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) (из класса [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/)) для удаления ненужных мастеров. Этот JavaScript‑пример показывает, как удалить мастер из презентации PowerPoint:
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    aspose.slides.Compress.removeUnusedMasterSlides(pres);
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+    let slide = presentation.getSlides().get_Item(0);
+    let layoutSlide = slide.getLayoutSlide();
+    let masterSlide = layoutSlide.getMasterSlide();
+    let masterSlideName = masterSlide.getName();
+
+    console.log(masterSlideName);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Что содержит Slide Master**
+
+master slide — объект, похожий на слайд. Он наследует общее поведение слайда от [BaseSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseslide/), поэтому имеет многие свойства слайда, используемые обычными и layout слайдами. Специфические для master члены перечислены на странице API [MasterSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) .
+
+Часто используемые члены master slide включают:
+
+| Член | Назначение |
+| --- | --- |
+| `getBackground()` | Устанавливает фон уровня master. |
+| `getShapes()` | Хранит фигуры, размещённые на master, такие как логотипы, рамки изображений и общий текст. |
+| `getLayoutSlides()` | Хранит layout slides, принадлежащие master. |
+| `getThemeManager()` | Предоставляет доступ к API темы master. |
+| `getHeaderFooterManager()` | Управляет колонтитулами, датами и номерами слайдов для master и его дочерних layout. |
+| `getDependingSlides()` | Возвращает обычные слайды, зависящие от master через их layout. |
+
+## **Добавить изображение в Slide Master**
+
+Когда вы добавляете изображение в master slide, оно появляется на слайдах, использующих layout из этого master. Это удобно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
+
+Следующий пример добавляет логотип к первому master slide:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let logo = aspose.slides.Images.fromFile("logo.png");
+
+    try {
+        let logoImage = presentation.getImages().addImage(logo);
+
+        masterSlide.getShapes().addPictureFrame(
+            aspose.slides.ShapeType.Rectangle,
+            20,
+            20,
+            80,
+            80,
+            logoImage);
+    } finally {
+        logo.dispose();
+    }
+
+    presentation.save("presentation-with-logo.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Для получения дополнительной информации о рамках изображений см. [Picture Frame](/nodejs-java/picture-frame/).
+
+## **Работа с заполнителями**
+
+Заполнители обычно определяются на layout slides. master slide обеспечивает общий стиль и тему, которые наследуют эти layout, а каждый layout решает, какие заполнители доступны и где они размещаются.
+
+В PowerPoint команды заполнителей доступны в представлении Slide Master.
+
+![Команда Insert Placeholder в представлении Slide Master PowerPoint](slide-master_5.png)
+
+Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с layout slide, принадлежащим master:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+
+    if (blankLayoutSlide === null) {
+        blankLayoutSlide = masterSlide.getLayoutSlides().add(blankLayoutType, "Blank");
+    }
+
+    blankLayoutSlide.getPlaceholderManager().addTextPlaceholder(60, 120, 600, 80);
+
+    presentation.getSlides().addEmptySlide(blankLayoutSlide);
+    presentation.save("presentation-with-placeholder.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Вы также можете форматировать формы заполнителей, уже существующие на master slide. Следующий пример находит заполнитель заголовка и применяет линейную градиентную заливку:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titlePlaceholder = null;
+    let masterShapes = masterSlide.getShapes();
+    let masterShapeCount = masterShapes.size();
+
+    for (let masterShapeIndex = 0; masterShapeIndex < masterShapeCount; masterShapeIndex++) {
+        let shape = masterShapes.get_Item(masterShapeIndex);
+
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            let placeholder = shape.getPlaceholder();
+
+            if (placeholder !== null && placeholder.getType() === aspose.slides.PlaceholderType.Title) {
+                titlePlaceholder = shape;
+                break;
+            }
+        }
+    }
+
+    if (titlePlaceholder !== null) {
+        let gradientFillType = java.newByte(aspose.slides.FillType.Gradient);
+        let linearGradientShape = java.newByte(aspose.slides.GradientShape.Linear);
+        let redGradientColor = java.newInstanceSync("java.awt.Color", 255, 0, 0);
+        let purpleGradientColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
+
+        titlePlaceholder.getFillFormat().setFillType(gradientFillType);
+        titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+    }
+
+    presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Отформатированный заполнитель заголовка, унаследованный обычными слайдами](slide-master_8.png)
+
+Для дополнительных вариантов форматирования заполнителей и текста см. [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) и [Text Formatting](/nodejs-java/text-formatting/).
+
+## **Изменить фон Slide Master**
+
+Фон master наследуется layout‑ами и слайдами, которые его не переопределяют. Следующий пример задаёт сплошной цвет фона для первого master slide:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let masterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "GREEN");
+
+    masterSlide.getBackground().setType(ownBackgroundType);
+    masterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(masterBackgroundColor);
+
+    presentation.save("presentation-master-background.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Для смежных тем см. [Presentation Background](/nodejs-java/presentation-background/) и [Presentation Theme](/nodejs-java/presentation-theme/).
+
+## **Клонировать Slide Master в другую презентацию**
+
+Используйте `MasterSlideCollection.addClone`, чтобы скопировать master slide в другую презентацию. Скопированный master затем может использоваться layout‑ами и слайдами в целевой презентации.
+
+```javascript
+let sourcePresentation = new aspose.slides.Presentation("source.pptx");
+let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
+try {
+    let sourceMasterSlide = sourcePresentation.getMasters().get_Item(0);
+    let clonedMasterSlide = destinationPresentation.getMasters().addClone(sourceMasterSlide);
+
+    destinationPresentation.save("destination-with-master.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    sourcePresentation.dispose();
+    destinationPresentation.dispose();
+}
+```
+
+Если необходимо клонировать обычные слайды вместе с их master, см. [Clone Slides](/nodejs-java/clone-slides/).
+
+## **Добавить несколько Slide Masters**
+
+Презентация может содержать несколько master slides. Это полезно, когда разные разделы требуют разного брендинга, структуры страниц или настроек темы.
+
+![Команды PowerPoint для вставки и управления master slides](slide-master_9.jpg)
+
+Следующий пример клонирует мастер по умолчанию, задаёт клону иной фон, создаёт layout под этим клонированным master и добавляет новый слайд на основе этого layout:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let defaultMasterSlide = presentation.getMasters().get_Item(0);
+    let sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
+    let ownBackgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let sectionMasterBackgroundColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
+
+    sectionMasterSlide.getBackground().setType(ownBackgroundType);
+    sectionMasterSlide.getBackground().getFillFormat().setFillType(solidFillType);
+    sectionMasterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(sectionMasterBackgroundColor);
+
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let sourceBlankLayout = defaultMasterSlide.getLayoutSlides().getByType(blankLayoutType);
+    if (sourceBlankLayout === null) {
+        sourceBlankLayout = defaultMasterSlide.getLayoutSlides().get_Item(0);
+    }
+
+    let sectionBlankLayout = sectionMasterSlide.getLayoutSlides().addClone(sourceBlankLayout);
+
+    presentation.getSlides().addEmptySlide(sectionBlankLayout);
+    presentation.save("presentation-with-multiple-masters.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Сравнить Slide Masters**
+
+Master slides можно сравнивать методом `equals`, унаследованным от [BaseSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseslide/). Сравнение проверяет структуру и статическое содержимое, такое как фигуры, текст, форматирование, анимацию и другие настройки слайда. Оно не сравнивает уникальные идентификаторы, например slide ID, или динамические значения заполнителей, такие как текущая дата.
+
+```javascript
+let firstPresentation = new aspose.slides.Presentation("first.pptx");
+let secondPresentation = new aspose.slides.Presentation("second.pptx");
+try {
+    let firstPresentationMasterCount = firstPresentation.getMasters().size();
+    let secondPresentationMasterCount = secondPresentation.getMasters().size();
+
+    for (let firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; firstMasterIndex++) {
+        for (let secondMasterIndex = 0; secondMasterIndex < secondPresentationMasterCount; secondMasterIndex++) {
+            let firstMasterSlide = firstPresentation.getMasters().get_Item(firstMasterIndex);
+            let secondMasterSlide = secondPresentation.getMasters().get_Item(secondMasterIndex);
+            let areMasterSlidesEqual = firstMasterSlide.equals(secondMasterSlide);
+
+            if (areMasterSlidesEqual) {
+                console.log(
+                    "first.pptx master #" + firstMasterIndex +
+                    " equals second.pptx master #" + secondMasterIndex);
+            }
+        }
+    }
+} finally {
+    firstPresentation.dispose();
+    secondPresentation.dispose();
+}
+```
+
+Для получения дополнительной информации см. [Compare Presentation Slides](/nodejs-java/compare-slides/).
+
+## **Установить просмотр Slide Master как представление по умолчанию**
+
+Используйте метод `setLastView` на [ViewProperties](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/viewproperties/), чтобы задать представление, которое PowerPoint откроет первым. Следующий пример открывает презентацию в представлении Slide Master:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
+
+    presentation.getViewProperties().setLastView(slideMasterViewType);
+    presentation.save("presentation-master-view.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Для дополнительных настроек представления см. [Save Presentation](/nodejs-java/save-presentation/).
+
+## **Удалить неиспользуемые Master Slides**
+
+Иногда презентации содержат master slides, которые больше не используются ни одним обычным слайдом. Удаление неиспользуемых master может уменьшить размер файла и упростить обслуживание шаблонов.
+
+Используйте `removeUnused`, чтобы удалить неиспользуемые master из коллекции `getMasters()`:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.getMasters().removeUnused(true);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Вы также можете воспользоваться методом низкого кода `Compress.removeUnusedMasterSlides`:
+
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    aspose.slides.Compress.removeUnusedMasterSlides(presentation);
+    presentation.save("presentation-clean.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**Что такое мастер слайдов в PowerPoint?**
+**В чём разница между slide master и layout slide?**
 
-Мастер слайдов — это шаблон, который определяет макет, стили, темы, шрифты, фон и другие свойства слайдов презентации. Он позволяет задать и изменить внешний вид всех слайдов одновременно.  
+slide master определяет общие настройки дизайна, такие как тема, фон, общие фигуры и стили текста. layout slide принадлежит master slide и задаёт конкретное расположение заполнителей. Обычный слайд использует layout slide, поэтому наследует как от layout, так и от master.
 
-**Как применяется мастер слайдов в презентации?**
+**Может ли одна презентация содержать несколько slide masters?**
 
-Каждая презентация имеет как минимум один мастер по умолчанию. При добавлении нового слайда к нему автоматически применяется мастер, обычно наследуемый от мастера предыдущего слайда. Презентация может содержать несколько мастеров для стилизации разных частей по‑разному.  
+Да. Презентация может содержать несколько slide masters. Используйте несколько master, когда разные разделы требуют разных визуальных систем или брендинга.
 
-**Какие элементы можно настраивать в мастере слайдов?**
+**Следует ли добавлять заполнители в master slide или в layout slide?**
 
-Мастер состоит из нескольких основных свойств, которые можно менять:
+В большинстве случаев заполнители добавляют в layout slides. Общие визуальные элементы и общие форматы размещайте на master slide, а места для контента — на layout, которые будут использовать обычные слайды.
 
-- **Background**: задаёт фон слайда. 
-- **BodyStyle**: определяет стили текста тела. 
-- **Shapes**: управляет всеми фигурами мастера, включая заполнители и рамки изображений. 
-- **Controls**: работает с элементами ActiveX. 
-- **ThemeManager**: предоставляет доступ к менеджеру темы. 
-- **HeaderFooterManager**: управляет колонтитулами.  
+**Можно ли удалить master slide, который всё ещё используется?**
 
-**Как добавить изображение в мастер слайдов?**
-
-Добавление изображения в мастер гарантирует его появление на всех слайдах, зависящих от этого мастера. Например, разместив логотип компании на мастере, вы увидите его на каждом слайде презентации.  
-
-**Как мастера слайдов соотносятся с макетами слайдов?**
-
-Макеты работают совместно с мастерами, обеспечивая гибкость дизайна. Мастер задаёт глобальные стили и темы, а макет позволяет варьировать расположение контента. Иерархия выглядит так:
-
-- **Мастер слайдов** → задаёт глобальные стили. 
-- **Макет слайда** → предоставляет различные варианты расположения контента. 
-- **Слайд** → наследует дизайн от своего макета. 
-
-**Можно ли иметь несколько мастеров в одной презентации?**
-
-Да, презентация может содержать несколько мастеров. Это позволяет стилизовать разные разделы по‑разному, повышая гибкость дизайна.  
-
-**Как получить и изменить мастер слайдов с помощью Aspose.Slides?**
-
-В Aspose.Slides мастер представлен классом [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/). К мастеру можно обратиться через метод [getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmasters/) объекта [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+Нет. master slide, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды в layout‑ы под другим master или используйте метод очистки неиспользуемых master, который удаляет только те master, которые не задействованы.

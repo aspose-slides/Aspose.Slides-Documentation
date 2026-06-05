@@ -32,6 +32,12 @@ Aspose.Slides supports two types of document properties: **Built-in** and **Cust
 
 Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) class. An instance of this class is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDocumentProperties) method. The following examples show how to read, modify, and manage these properties.
 
+{{% alert color="primary" %}} 
+
+Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Node.js via Java x.x.x will be displayed against these fields.
+
+{{% /alert %}} 
+
 ## **Manage Presentation Properties**
 
 Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
@@ -44,12 +50,6 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 ## **Document Properties in PowerPoint**
 
 Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007 as shown below:
-
-{{% alert color="primary" %}} 
-
-Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Node.js via Java x.x.x will be displayed against these fields.
-
-{{% /alert %}} 
 
 |**Selecting Advanced Properties menu item**|** |
 | :- | :- |

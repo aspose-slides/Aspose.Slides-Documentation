@@ -1,39 +1,36 @@
----  
-title: 製品概要  
-type: docs  
-weight: 10  
-url: /ja/sharepoint/product-overview/  
----  
+---
+title: 製品概要
+type: docs
+weight: 10
+url: /ja/sharepoint/product-overview/
+---
+![Aspose.Slides for SharePoint](product-overview_1.png)
 
-{{% alert color="primary" %}}  
+## **Aspose.Slides for SharePointへようこそ！**
 
-![todo:image_alt_text](product-overview_1)  
+Aspose.Slides for SharePointは、Microsoft SharePoint サイト内でPowerPoint®ドキュメントを変換できる柔軟なソリューションです。
 
-**Aspose.Slides for SharePointへようこそ！**  
+## **製品概要**
 
-Aspose.Slides for SharePointは、Microsoft SharePointサイト内でPowerPoint®文書を変換する柔軟なソリューションです。  
+Aspose.Slides for SharePointは、以下の多数のPowerPointドキュメント形式をサポートしています：
 
-{{% /alert %}}  
-### **製品概要**  
-Aspose.Slides for SharePointは、いくつかのPowerPoint文書形式をサポートしています：  
+- PPT – Microsoft PowerPoint プレゼンテーション 97-2003
+- PPS – Microsoft PowerPoint スライドショー 97-2003
+- POT – Microsoft PowerPoint テンプレート 97-2003
+- PPTX – Office Open XML プレゼンテーション
+- PPSX – Office Open XML スライドショー
+- POTX – Office Open XML テンプレート
 
-- PPT – Microsoft PowerPoint プレゼンテーション 97 - 2003  
-- PPS – Microsoft PowerPoint スライドショー 97 - 2003  
-- POT – Microsoft PowerPoint テンプレート 97 - 2003  
-- PPTX – Office Open XML プレゼンテーション  
-- PPSX – Office Open XML スライドショー  
-- POTX – Office Open XML テンプレート  
+Aspose.Slides for SharePointは、以下の製品と連携できるよう設計されています：
 
-Aspose.Slides for SharePointは、以下の製品での利用を目的としています：  
+- Windows SharePoint Services 3.0 (WSS)
+- Microsoft Office SharePoint Server 2007 (MOSS) Standard
+- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
+- Microsoft Office SharePoint Server 2013
+- Microsoft Office SharePoint Server 2019
 
-- Windows SharePoint Services 3.0 (WSS)  
-- Microsoft Office SharePoint Server 2007 (MOSS) スタンダード  
-- Microsoft Office SharePoint Server 2007 (MOSS) エンタープライズ  
-- Microsoft Office SharePoint Server 2013  
-- Microsoft Office SharePoint Server 2019  
+上記製品に必要な要件以外に、追加のシステム要件はありません。
 
-上記の製品に関するシステム要件以外には、特に他の要件はありません。  
+**Aspose.Slides for SharePointを使用して、SharePoint のドキュメント ライブラリからドキュメントを変換します**
 
-**SharePointのドキュメントライブラリから文書を変換するためにAspose.Slides for SharePointを使用してください**  
-
-![todo:image_alt_text](product-overview_2.png)  
+![SharePoint のドキュメント ライブラリ](product-overview_2.png)

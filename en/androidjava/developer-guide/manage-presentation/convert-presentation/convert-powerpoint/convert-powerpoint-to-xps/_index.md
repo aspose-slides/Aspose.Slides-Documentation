@@ -27,6 +27,10 @@ keywords:
 description: "Convert PowerPoint PPT/PPTX to high-quality, platform-independent XPS in Java using Aspose.Slides for Android. Get step-by-step guide and sample code."
 ---
 
+## **Overview**
+
+Aspose.Slides allows you to convert PowerPoint presentations to XPS by saving a PPT or PPTX file in the XPS format. This article explains when the XPS format may be useful and shows how to perform the conversion with Aspose.Slides using either default settings or custom [XpsOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions/) settings.
+
 ## **About XPS**
 Microsoft developed [XPS](https://docs.fileformat.com/page-description-language/xps/) as an alternative to [PDF](https://docs.fileformat.com/pdf/).  It allows you to print content by outputting a file very similar to a PDF. The XPS format is based on XML. The layout or structure of an XPS file remains the same on all operating systems and printers. 
 

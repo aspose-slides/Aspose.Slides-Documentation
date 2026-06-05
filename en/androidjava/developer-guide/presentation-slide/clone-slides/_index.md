@@ -17,8 +17,8 @@ keywords:
 description: "Duplicate PowerPoint slides with Aspose.Slides for Android. Follow our clear Java code examples to automate PPT creation in seconds and eliminate manual work."
 ---
 
+## **Introduction**
 
-## **Clone Slides in a Presentation**
 Cloning is the process of making an exact copy or replica of something. Aspose.Slides for Android via Java also makes it possible to make a copy or clone of any slide and then insert that cloned slide to the current or any other opened presentation. The process of slide cloning creates a new slide that can be modified by developers without changing the original slide. There are several possible ways to clone a slide:
 
 - Clone at End within a Presentation.

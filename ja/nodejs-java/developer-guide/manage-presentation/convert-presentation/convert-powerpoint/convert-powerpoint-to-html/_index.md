@@ -1,6 +1,6 @@
 ---
-title: JavaScript で PowerPoint プレゼンテーションを HTML に変換
-linktitle: PowerPoint を HTML に
+title: Node.js で PowerPoint プレゼンテーションを HTML に変換
+linktitle: PowerPoint を HTML に変換
 type: docs
 weight: 30
 url: /ja/nodejs-java/convert-powerpoint-to-html/
@@ -25,391 +25,308 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint プレゼンテーションをレスポンシブ HTML に変換します。Aspose.Slides の変換ガイドを使用して、レイアウト、リンク、画像を保持し、迅速かつ完璧な結果を実現します。"
+description: "Node.js で PowerPoint プレゼンテーションを HTML に変換します。Aspose.Slides for Node.js via Java を使用して、PPT および PPTX ファイル、選択したスライド、ノート、フォント、画像、SVG、メディアをエクスポートします。"
 ---
-
 ## **概要**
 
-この記事では、JavaScript を使用して PowerPoint プレゼンテーションを HTML 形式に変換する方法を説明します。以下のトピックを取り上げます。
+Aspose.Slides for Node.js via Java は Microsoft PowerPoint を使用せずに PowerPoint プレゼンテーションを HTML として保存できます。基本的な変換は単一の [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) の読み込みと、[SaveFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveformat/) を使用した `save` 呼び出しです。エクスポートするレイアウト、フォント、画像、ノート、コメント、SVG 出力、またはリンクされたリソースを制御する必要がある場合は [HtmlOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/htmloptions/) を使用してください。
 
-- JavaScript で PowerPoint を HTML に変換
-- JavaScript で PPT を HTML に変換
-- JavaScript で PPTX を HTML に変換
-- JavaScript で ODP を HTML に変換
-- JavaScript で PowerPoint スライドを HTML に変換
+このガイドは実用的な HTML エクスポートシナリオに焦点を当てます：
 
-## **JavaScript PowerPoint to HTML**
+- プレゼンテーション全体または選択したスライドのエクスポート
+- 固定レイアウト、レスポンシブ、または SVG ベースの HTML の生成
+- スピーカーノートとコメントの含め方
+- 画像品質と切り抜き画像データの制御
+- フォントの埋め込みまたはフォントファイルを別途保存
+- 外部リソースやメディアファイルの書き込み方法と参照方法の選択
 
-JavaScript のサンプルコードについては、以下のセクション、すなわち [Convert PowerPoint to HTML](#convert-powerpoint-to-html) を参照してください。コードは PPT、PPTX、ODP などの形式を Presentation オブジェクトに読み込み、HTML 形式で保存できます。
+デフォルトでは、HTML エクスポートはほとんどのリソースが埋め込まれた自己完結型 HTML ドキュメントを生成します。これは 1 つのファイルで共有できて便利ですが、出力サイズが大きくなる可能性があります。Web 公開の場合は、外部リソースの使用、画像 DPI の低減、ターゲット環境で確実に利用可能でないフォントのみを埋め込むことを検討してください。
 
-## **PowerPoint の HTML 変換について**
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/nodejs-java/) を使用すると、アプリケーションと開発者は PowerPoint プレゼンテーションを HTML に変換できます：**PPTX to HTML** または **PPT to HTML**。
+## **プレゼンテーションをHTMLに変換**
 
-**Aspose.Slides** は多くのオプション（主に [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) クラス）を提供し、PowerPoint の HTML 変換プロセスを定義します：
+プレゼンテーションを HTML にエクスポートするには、[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) で読み込み、[SaveFormat.Html](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveformat/) で保存します。
 
-* PowerPoint プレゼンテーション全体を HTML に変換します。
-* PowerPoint プレゼンテーションの特定のスライドを HTML に変換します。
-* プレゼンテーションのメディア（画像、動画など）を HTML に変換します。
-* PowerPoint プレゼンテーションをレスポンシブ HTML に変換します。
-* PowerPoint プレゼンテーションをスピーカーノートを含むか除外した HTML に変換します。
-* PowerPoint プレゼンテーションをコメントを含むか除外した HTML に変換します。
-* PowerPoint プレゼンテーションをオリジナルまたは埋め込みフォントの HTML に変換します。
-* 新しい CSS スタイルを使用した PowerPoint プレゼンテーションを HTML に変換します。
-
-{{% alert color="primary" %}} 
-
-独自の API を使用して、Aspose は無料の [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) コンバータを開発しました：[PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html) など。
-
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
-
-他の Aspose の無料コンバータもご確認ください。
-
-{{% /alert %}} 
-
-## **PowerPoint を HTML に変換**
-Aspose.Slides を使用して、PowerPoint プレゼンテーション全体を HTML に変換する方法は次のとおりです。
-
-1. Presentation クラスのインスタンスを作成します。
-2. [save] メソッドを使用してオブジェクトを HTML ファイルとして保存します。
-
-このコードは JavaScript で PowerPoint を HTML に変換する方法を示しています:
 ```javascript
-// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化する
-var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var htmlOpt = new aspose.slides.HtmlOptions();
-    htmlOpt.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    htmlOpt.setHtmlFormatter(aspose.slides.HtmlFormatter.createDocumentFormatter("", false));
-    // プレゼンテーションを HTML に保存する
-    pres.save("ConvertWholePresentationToHTML_out.html", aspose.slides.SaveFormat.Html, htmlOpt);
+    presentation.save("presentation.html", aspose.slides.SaveFormat.Html);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+この例は 1 つの HTML ファイルを書き込みます。プレゼンテーションオブジェクトは `finally` ブロックで破棄され、エクスポート後にファイルハンドルとレンダリングリソースが解放されます。
 
-## **PowerPoint をレスポンシブ HTML に変換**
-Aspose.Slides は ResponsiveHtmlController クラスを提供し、レスポンシブ HTML ファイルの生成を可能にします。このコードは JavaScript で PowerPoint プレゼンテーションをレスポンシブ HTML に変換する方法を示しています:
+## **HtmlOptions の使用**
+
+[HtmlOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/htmloptions/) は HTML エクスポート用の主要な構成クラスです。一般的な設定は次のとおりです：
+
+- `SlidesLayoutOptions`: ノート、コメント、配布資料、その他のレイアウト情報を追加
+- `HtmlFormatter`: HTML ドキュメント構造を変更したり、フォーマッタをコントローラに委譲したり
+- `SlideImageFormat`: スライドの表現方法を変更、例として SVG
+- `PicturesCompression`: 画像 DPI と出力サイズを制御
+- `DeletePicturesCroppedAreas`: 切り抜き画像データを保持または削除
+- `SvgResponsiveLayout`: エクスポートされた SVG コンテンツをコンテナに適応させる
+- `ShowHiddenSlides`: 必要に応じて非表示スライドを含める
+
+以下のセクションでは、最も一般的なオプションを個別に示すので、ワークフローに必要なものだけを組み合わせて使用できます。
+
+## **選択したスライドをHTMLに変換**
+
+スライド番号を受け取る `Presentation.save` のオーバーロードは 1 ベースのスライド位置を使用します。以下のループは各スライドを個別の HTML ファイルとして保存します。
+
 ```javascript
-// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化する
-var pres = new aspose.slides.Presentation("Convert_HTML.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var controller = new aspose.slides.ResponsiveHtmlController();
-    var htmlOptions = new aspose.slides.HtmlOptions();
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(controller));
-    // プレゼンテーションを HTML に保存する
-    pres.save("ConvertPresentationToResponsiveHTML_out.html", aspose.slides.SaveFormat.Html, htmlOptions);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    let slideCount = presentation.getSlides().size();
+
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        let slideNumber = slideIndex + 1;
+        let slideNumbers = java.newArray("int", [slideNumber]);
+        let htmlFileName = "slide-" + slideNumber + ".html";
+
+        presentation.save(htmlFileName, slideNumbers, aspose.slides.SaveFormat.Html);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Web サイトやアプリケーションでスライドごとに 1 ページの HTML が必要な場合にこのパターンを使用してください。すべてのスライドで同じレイアウトを使用する場合は、1 つの [HtmlOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/htmloptions/) インスタンスを作成し、各 `save` 呼び出しに渡します。
 
-## **PowerPoint をノート付き HTML に変換**
-このコードは JavaScript でノート付きの PowerPoint を HTML に変換する方法を示しています:
+## **レスポンシブHTMLの作成**
+
+[ResponsiveHtmlController](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/responsivehtmlcontroller/) は [HtmlFormatter](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/htmlformatter/) を通じてレスポンシブ HTML 出力を提供します。エクスポートされたページをブラウザ幅により適切に適応させる必要がある場合に使用してください。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var opt = new aspose.slides.HtmlOptions();
-    var options = opt.getNotesCommentsLayouting();
-    options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    // ノートページを保存
-    pres.save("Output.html", aspose.slides.SaveFormat.Html, opt);
+    let controller = new aspose.slides.ResponsiveHtmlController();
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-responsive.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+SVG ベースのレスポンシブレイアウトを使用する場合は、[HtmlOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/htmloptions/) の `SvgResponsiveLayout` を設定します。これはスライド内容がスケーラブルな SVG マークアップとしてエクスポートされる場合に便利です。
 
-## **PowerPoint をオリジナルフォント付き HTML に変換**
-
-Aspose.Slides は EmbedAllFontsHtmlController クラスを提供し、プレゼンテーションを HTML に変換する際にすべてのフォントを埋め込むことができます。
-
-特定のフォントの埋め込みを防止するには、EmbedAllFontsHtmlController のパラメータ化コンストラクタにフォント名の配列を渡すことができます。Calibri や Arial など、システムに既に存在する一般的なフォントは埋め込む必要はなく、埋め込むと HTML が不必要に大きくなります。
-
-EmbedAllFontsHtmlController クラスは継承をサポートし、WriteFont メソッドを提供します。このメソッドはオーバーライドすることを想定しています。
 ```javascript
-var pres = new aspose.slides.Presentation("input.pptx");
-try {
-    // デフォルトのプレゼンテーション フォントを除外
-    var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
-    var embedFontsController = new aspose.slides.EmbedAllFontsHtmlController(fontNameExcludeList);
-    var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(embedFontsController));
-    pres.save("input-PFDinDisplayPro-Regular-installed.html", aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **PowerPoint を高品質画像付き HTML に変換**
-
-既定では、PowerPoint を HTML に変換すると、Aspose.Slides は 72 DPI の画像と削除された切り取り領域を含む小さな HTML を出力します。高品質画像を含む HTML を取得するには、HtmlOptions クラスの setPicturesCompression メソッドに `96`（例: PicturesCompression.Dpi96）またはそれ以上の値を渡す必要があります。
-
-この JavaScript コードは、150 DPI（`PicturesCompression.Dpi150`）の高品質画像を取得しながら PowerPoint プレゼンテーションを HTML に変換する方法を示しています:
-```javascript
-var pres = new aspose.slides.Presentation("InputDoc.pptx");
-try {
-    var htmlOpts = new aspose.slides.HtmlOptions();
-    htmlOpts.setPicturesCompression(aspose.slides.PicturesCompression.Dpi150);
-    pres.save("OutputDoc-dpi150.html", aspose.slides.SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-このコードは、フルクオリティの画像を含む HTML を出力する方法を示しています:
-```javascript
-var pres = new aspose.slides.Presentation("InputDoc.pptx");
-try {
-    var htmlOpts = new aspose.slides.HtmlOptions();
-    htmlOpts.setDeletePicturesCroppedAreas(false);
-    pres.save("Outputdoc-noCrop.html", aspose.slides.SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **スライドを HTML に変換**
-PowerPoint の特定のスライドを HTML に変換するには、Presentation クラスのインスタンスを作成し（全体変換と同様）、[save] メソッドで HTML として保存します。HtmlOptions クラスを使用して追加の変換オプションを指定できます。
-
-この JavaScript コードは、PowerPoint プレゼンテーションのスライドを HTML に変換する方法を示しています:
-```javascript
-var pres = new aspose.slides.Presentation("Individual-Slide.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let htmlOptions = new aspose.slides.HtmlOptions();
-    htmlOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    
-    const CustomFormattingController = java.newProxy("com.aspose.slides.IHtmlFormattingController", {
-        writeDocumentStart: function(generator, presentation) {
+    htmlOptions.setSvgResponsiveLayout(true);
 
-        },
-
-        writeDocumentEnd: function(generator, presentation) {
-
-        },
-
-        writeSlideStart: function(generator, slide) {
-            const slideIndex = generator.getSlideIndex() + 1;
-            const slideHeaderHtml = `<div class="slide" name="slide" id="slide${slideIndex}">`;
-            generator.addHtml(slideHeaderHtml);
-        },
-
-        writeSlideEnd: function(generator, slide) {
-            const slideFooterHtml = "</div>";
-            generator.addHtml(slideFooterHtml);
-        },
-
-        writeShapeStart: function(generator, shape) {
-        },
-
-        writeShapeEnd: function(generator, shape) {
-        }
-    });
-    
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(CustomFormattingController));
-    // ファイルを保存
-    for (var i = 0; i < pres.getSlides().size(); i++) {
-        pres.save(("Individual Slide" + (i + 1)) + "_out.html", java.newArray("int", [i + 1]), aspose.slides.SaveFormat.Html, htmlOptions);
-    }
+    presentation.save("presentation-svg-responsive.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **スピーカーノートとコメントの含め方**
 
-## **HTML にエクスポートする際の CSS と画像の保存**
-新しい CSS スタイルファイルを使用すると、PowerPoint から HTML への変換結果のスタイルを簡単に変更できます。
+`HtmlOptions.setSlidesLayoutOptions` で [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/notescommentslayoutingoptions/) を使用し、スピーカーノートまたはコメントを含めます。ノートとコメントはデフォルトで非表示で、位置を指定しない限り表示されません。
 
-この例の JavaScript コードは、CSS ファイルへのリンクを含むカスタム HTML ドキュメントを作成するためにオーバーライド可能なメソッドを使用する方法を示しています:
+ソースプレゼンテーションにスピーカーノートが含まれているとします：
+
+![PowerPoint のスピーカーノート付きスライド](slide_with_notes.png)
+
+以下のコードはスライドコンテンツをスライド下部にノートを付けてエクスポートします。
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var htmlController = java.newInstanceSync("CustomHeaderAndFontsController", "styles.css");
-    var options = new aspose.slides.HtmlOptions();
-    options.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(htmlController));
-    pres.save("pres.html", aspose.slides.SaveFormat.Html, options);
+    let layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+    layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setSlidesLayoutOptions(layoutOptions);
+
+    presentation.save("presentation-with-notes.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+エクスポートされた HTML にはノート領域が含まれます：
 
-Java で CustomHeaderAndFontsController を実装し、コンパイルして \aspose.slides.via.java\lib\ に配置する必要があります。この Java コードは CustomHeaderAndFontsController の実装例です:
-```java
-public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
-{
-    private final int m_basePath = 0;
+![HTML 出力（スライドとスピーカーノート）](HTML_with_notes.png)
 
-    // カスタムヘッダー テンプレート
-    final static String Header = "<!DOCTYPE html>\n" +
-            "<html>\n" +
-            "<head>\n" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-            "</head>";
+コメントをエクスポートするには `CommentsPosition` を設定します。例として `CommentsPositions.Right` または `CommentsPositions.Bottom` を使用できます。コメントだけが必要な場合は `NotesPosition` を省略してください。ノートとコメントの両方が必要な場合は両方のプロパティを設定します。
 
-    private final String m_cssFileName;
+## **画像品質と切り抜き領域の制御**
 
-    public CustomHeaderAndFontsController(String cssFileName)
-    {
-        m_cssFileName = cssFileName;
-    }
+HTML エクスポートはスライド画像を圧縮して出力サイズを削減できます。より高い画像品質が必要なときは、[PicturesCompression](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picturescompression/) から適切な値を設定してください。
 
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.addHtml(String.format(Header, m_cssFileName));
-        writeAllFonts(generator, presentation);
-    }
-
-    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.addHtml("<!-- Embedded fonts -->");
-        super.writeAllFonts(generator, presentation);
-    }
-}
-```
-
-
-## **プレゼンテーションを HTML に変換する際にすべてのフォントをリンク**
-フォントを埋め込まずに HTML のサイズ増加を防ぎたい場合は、独自の LinkAllFontsHtmlController を実装してすべてのフォントをリンクできます。
-
-この JavaScript コードは、フォントをリンクし、"Calibri" と "Arial" を除外して PowerPoint を HTML に変換する方法を示しています:
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // デフォルトのプレゼンテーション フォントを除外
-    var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
-    var linkcont = java.newInstanceSync("LinkAllFontsHtmlController", fontNameExcludeList, "C:/Windows/Fonts/");
-    var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(linkcont));
-    pres.save("pres.html", aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setPicturesCompression(aspose.slides.PicturesCompression.Dpi150);
+
+    presentation.save("presentation-dpi-150.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+デフォルトでは、画像の切り抜き領域はエクスポート結果から削除されることがあります。ユーザーが隠れた画像部分を復元または検査できる必要がある場合にのみ切り抜きデータを保持してください。保持すると HTML サイズが増加します。
 
-LinkAllFontsHtmlController を Java で実装し、コンパイルして \aspose.slides.via.java\lib\ に配置する必要があります。この Java コードは LinkAllFontsHtmlController の実装例です:
-```java
-public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private final String m_basePath;
-
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
-    {
-        super(fontNameExcludeList);
-        m_basePath = basePath;
-    }
-
-    public void writeFont
-    (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            String fontStyle,
-            String fontWeight,
-            byte[] fontData)
-    {
-        try {
-            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // パスのサニタイズが必要な場合があります
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
-
-            generator.addHtml("<style>");
-            generator.addHtml("@font-face { ");
-            generator.addHtml("font-family: '" + fontName + "'; ");
-            generator.addHtml("src: url('" + path + "')");
-
-            generator.addHtml(" }");
-            generator.addHtml("</style>");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-}
-```
-
-
-## **PowerPoint をレスポンシブ HTML に変換**
-この JavaScript コードは、PowerPoint プレゼンテーションをレスポンシブ HTML に変換する方法を示しています:
 ```javascript
-var pres = new aspose.slides.Presentation("SomePresentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var saveOptions = new aspose.slides.HtmlOptions();
-    saveOptions.setSvgResponsiveLayout(true);
-    pres.save("SomePresentation-out.html", aspose.slides.SaveFormat.Html, saveOptions);
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setDeletePicturesCroppedAreas(false);
+
+    presentation.save("presentation-with-cropped-areas.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **CSSの追加**
 
-## **メディアファイルを HTML にエクスポート**
-Aspose.Slides for Node.js via Java を使用して、メディアファイルをエクスポートできます：
+シンプルなスタイリングの場合、`HtmlFormatter.createDocumentFormatter` に CSS 文字列を渡します。これにより Aspose.Slides がスライドコンテンツの描画を続行しながら、周囲の HTML ドキュメントを変更できます。
 
-1. Presentation クラスのインスタンスを作成します。
-2. スライドへの参照を取得します。
-3. スライドにビデオを追加します。
-4. プレゼンテーションを HTML ファイルとして書き出します。
-
-この JavaScript コードは、プレゼンテーションにビデオを追加し、HTML として保存する方法を示しています:
 ```javascript
-// プレゼンテーションの読み込み
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var path = "./out/";
-    final var fileName = "ExportMediaFiles_out.html";
-    final var baseUri = "http://www.example.com/";
-    var videoData = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "my_video.avi"));
-    var video = pres.getVideos().addVideo(videoData);
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-    var controller = new aspose.slides.VideoPlayerHtmlController(path, fileName, baseUri);
-    // HTML オプションの設定
-    var htmlOptions = new aspose.slides.HtmlOptions(controller);
-    var svgOptions = new aspose.slides.SVGOptions(controller);
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(controller));
-    htmlOptions.setSlideImageFormat(aspose.slides.SlideImageFormat.svg(svgOptions));
-    // ファイルの保存
-    pres.save(fileName, aspose.slides.SaveFormat.Html, htmlOptions);
-} catch (e) {console.log(e);
+    let cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
+    let formatter = aspose.slides.HtmlFormatter.createDocumentFormatter(cssRules, true);
+
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-styled.html", aspose.slides.SaveFormat.Html, htmlOptions);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+カスタムドキュメントヘッダー、リンクされた CSS ファイル、またはスライドやシェイプの周囲にカスタムマークアップを追加したい場合は、[HtmlFormatter](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/htmlformatter/) とフォーマットコントローラを使用してください。
 
-## **よくある質問**
+## **フォントの埋め込み**
 
-**複数のプレゼンテーションを HTML に変換する際の Aspose.Slides のパフォーマンスはどうですか？**  
-パフォーマンスはプレゼンテーションのサイズと複雑さに依存します。Aspose.Slides はバッチ処理において高い効率性とスケーラビリティを備えています。多数のプレゼンテーションを変換する際は、可能な限りマルチスレッドまたは並列処理を使用することが推奨されます。
+ターゲット環境にプレゼンテーションで使用したフォントがインストールされていない可能性がある場合は、[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/embedallfontshtmlcontroller/) を使用してフォントを HTML に埋め込みます。埋め込みは視覚的忠実度を向上させますが、出力サイズが大きくなります。
 
-**Aspose.Slides はハイパーリンクの HTML へのエクスポートをサポートしていますか？**  
-はい、Aspose.Slides は埋め込まれたハイパーリンクの HTML へのエクスポートを完全にサポートしています。プレゼンテーションを HTML に変換すると、ハイパーリンクは自動的に保持され、クリック可能なままです。
+```javascript
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let fontNamesToExclude = java.newArray("java.lang.String", ["Arial"]);
+    let fontController = new aspose.slides.EmbedAllFontsHtmlController(fontNamesToExclude);
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(fontController);
 
-**プレゼンテーションを HTML に変換する際、スライド数に制限はありますか？**  
-Aspose.Slides にはスライド数の制限はありません。任意のサイズのプレゼンテーションを変換できます。ただし、非常に多くのスライドを含むプレゼンテーションの場合、サーバーやシステムの利用可能なリソースに応じてパフォーマンスが影響を受けることがあります。
+    let htmlOptions = new aspose.slides.HtmlOptions();
+    htmlOptions.setHtmlFormatter(formatter);
+
+    presentation.save("presentation-embedded-fonts.html", aspose.slides.SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+フォントがすでにターゲットのブラウザやシステムに存在すると確信できる場合のみ埋め込みを除外してください。ブランドフォントや一般的でないフォントについては、埋め込みが安全です。
+
+## **フォントファイルをリンクで埋め込まずに使用**
+
+HTML ファイルサイズを削減するために、フォントデータを別個の WOFF ファイルに書き出し、HTML に `@font-face` ルールを追加できます。Node.js via Java では、通常 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/embedallfontshtmlcontroller/) を拡張した小さな Java ヘルパークラスを作成し、フォントバイトを書き出し、生成された HTML に `@font-face` ルールを注入します。そのヘルパーをコンパイルし、Node.js モジュールのクラスパスに追加し、`java.newInstanceSync` で JavaScript からインスタンス化してください。
+
+ヘルパーを構築するときは、次の 2 つのパスを意図的に選択します：
+
+- ファイルシステムの出力パス：生成されたフォントファイルを書き込む場所
+- URL パス：ブラウザが HTML ドキュメントからフォントファイルを取得するために使用するパス
+
+## **リソースを外部に保存**
+
+自己完結型 HTML は移動が簡単ですが、Base64 埋め込みリソースによりファイルが大きくなることがあります。アプリケーションで外部画像、フォント、音声、ビデオファイルが必要な場合は、リソースを書き出しディレクトリに保存し、ブラウザが参照できる URL を生成するエクスポートコントローラを使用してください。ファイルシステムパスと URL パスをデプロイ環境のレイアウトに合わせて整合させます。
+
+## **メディアファイルのエクスポート**
+
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/videoplayerhtmlcontroller/) はビデオおよびオーディオファイルをエクスポートし、ブラウザで再生できる HTML を生成します。そのコンストラクタは次のパラメータを受け取ります：
+
+- `path`: 生成されたメディアファイルを書き出すディレクトリ
+- `fileName`: 生成中の HTML ファイル名
+- `baseUri`: HTML 内のメディアファイルへのリンクに使用する絶対 URI プレフィックス
+
+HTML ファイルが `html-output/presentation.html`、メディアファイルが `html-output/media` に保存される場合、`path` はディスク上のメディアディレクトリを指し、`baseUri` はブラウザ側から同じディレクトリを指す URL である必要があります。ローカルプレビューの場合はメディアディレクトリから `file:///` URI を作成できます。デプロイされたアプリケーションでは、公開メディアディレクトリの絶対 URL を使用してください。
+
+```javascript
+let fs = require("fs");
+let path = require("path");
+
+let outputDirectory = path.join(process.cwd(), "html-output");
+let mediaDirectory = path.join(outputDirectory, "media");
+fs.mkdirSync(mediaDirectory, { recursive: true });
+
+let htmlFileName = "presentation.html";
+let mediaBaseUri = "file:///" + mediaDirectory.replace(/\\/g, "/") + "/";
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let videoFilePath = path.join(process.cwd(), "intro.mp4");
+    let videoBytes = Array.from(fs.readFileSync(videoFilePath));
+    let videoData = java.newArray("byte", videoBytes);
+
+    let video = presentation.getVideos().addVideo(videoData);
+    let slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
+
+    let controller = new aspose.slides.VideoPlayerHtmlController(mediaDirectory, htmlFileName, mediaBaseUri);
+    let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
+    let svgOptions = new aspose.slides.SVGOptions(controller);
+    let slideImageFormat = aspose.slides.SlideImageFormat.svg(svgOptions);
+
+    let htmlOptions = new aspose.slides.HtmlOptions(controller);
+    htmlOptions.setHtmlFormatter(formatter);
+    htmlOptions.setSlideImageFormat(slideImageFormat);
+
+    let htmlFilePath = path.join(outputDirectory, htmlFileName);
+    presentation.save(htmlFilePath, aspose.slides.SaveFormat.Html, htmlOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+特にサーバーアプリケーションでは、エクスポートジョブごとに一意の出力ディレクトリを使用してください。共有出力パスは異なる変換間でファイルが上書きされる原因になります。
+
+## **パフォーマンスとリソース管理**
+
+HTML 変換はレンダリング処理であるため、処理時間とメモリ使用量はスライド数、画像解像度、フォント、エフェクト、チャート、埋め込みメディアに依存します。`PicturesCompression` の DPI 値を上げたり、フォントを埋め込んだり、SVG 出力や切り抜き画像領域を保持したりすると忠実度は向上しますが、通常は出力サイズが大きくなります。
+
+バッチ変換の際は：
+
+- 各 [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスを速やかに破棄する
+- ジョブごとに別々の出力ディレクトリを使用する
+- 必要な場合以外は共通フォントを埋め込まない
+- プレビューやサムネイル用の HTML では画像 DPI を下げる
+- ソースプレゼンテーション、生成された HTML、外部リソースをデプロイパスが確定するまで一緒に保管する
+
+## **FAQ**
+
+**HTML 出力でハイパーリンクは保持されますか？**
+
+はい。プレゼンテーションのハイパーリンクは HTML にエクスポートされ、対象 URL が有効な限りクリック可能です。
+
+**プレゼンテーションを並列に HTML に変換できますか？**
+
+はい、ただし 1 つの [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスをワーカー間で共有しないでください。異なるファイルは別々のプレゼンテーションインスタンス、別々のストリーム、別々の出力ディレクトリで処理します。詳細は [multithreading guidance](/slides/ja/nodejs-java/multithreading/) を参照してください。
+
+**Presentation オブジェクトはスレッドセーフですか？**
+
+いいえ。単一の [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスは 1 つのワーカー内で読み込み、変更、保存、破棄を行うべきです。並列処理を行う場合は、ワーカーごとに独立したインスタンスを作成してください。
+
+**生成された HTML ファイルが大きくなるのはなぜですか？**
+
+デフォルトのエクスポートはリソースを HTML に直接埋め込むためです。埋め込まれたフォント、高 DPI 画像、メディア、SVG コンテンツ、切り抜き画像領域の保持もサイズを増大させます。外部リソースを使用し、共通フォントの埋め込みを除外し、`PicturesCompression` を下げることで、サイズを小さくできます。
+
+**メディアエクスポートの baseUri はどう決めればよいですか？**
+
+ブラウザ側の視点からの URI を absolute に指定してください。ローカルプレビューの場合は出力ディレクトリから `file:///` URI を作成できます。デプロイ時は公開メディアディレクトリの絶対 URL を使用します。ファイルシステムの `path` とブラウザの `baseUri` は文字列が同一である必要はありませんが、同じリソース位置を指す必要があります。
+
+**非表示スライドを含めることはできますか？**
+
+はい。非表示スライドをエクスポートする必要がある場合は、[HtmlOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/htmloptions/) の `ShowHiddenSlides` を `true` に設定してください。

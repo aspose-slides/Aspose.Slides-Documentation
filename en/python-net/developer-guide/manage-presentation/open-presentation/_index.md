@@ -99,14 +99,6 @@ When creating a presentation that contains large objects (video, audio, high-res
 
 {{%/alert %}}
 
-## **Control External Resources**
-
-Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) class that lets you manage external resources. The following Python code shows how to use the `IResourceLoadingCallback` class:
-
-```python
-# [TODO[not_supported_yet]: python implementation of .NET interfaces]
-```
-
 ## **Load Presentations Without Embedded Binary Objects**
 
 A PowerPoint presentation can contain the following types of embedded binary objects:

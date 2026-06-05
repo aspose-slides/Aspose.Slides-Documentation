@@ -17,6 +17,12 @@ keywords:
 description: "Quickly install Aspose.Slides for Android. Step-by-step guide, system requirements, and Java code samples — start working with PowerPoint presentations today!"
 ---
 
+## **Overview**
+
+This article explains how to install Aspose.Slides for Android via Java and add it to an Android project. It describes two installation options: adding the Aspose.Slides JAR file to the project manually and installing the library from the Maven repository.
+
+The article also provides a step-by-step example that shows how to create a new Android application in Android Studio, reference the Aspose.Slides library, create a PowerPoint presentation programmatically, and save it in PPTX format. It also includes notes on versioning and answers common questions about verifying the integration, managing memory usage, and reducing the final JAR size.
+
 ## **Installation**
 Previously, Aspose.Slides for Android via Java was distributed as a single ZIP file containing the JAR file, demos, and the product documentation. 
 

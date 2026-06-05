@@ -1,6 +1,6 @@
 ---
 title: Ajouter des équations mathématiques aux présentations PowerPoint en PHP
-linktitle: Équations mathématiques PowerPoint
+linktitle: Équations Mathématiques PowerPoint
 type: docs
 weight: 80
 url: /fr/php-java/powerpoint-math-equations/
@@ -17,350 +17,471 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Insérez et modifiez des équations mathématiques dans PowerPoint PPT et PPTX avec Aspose.Slides pour PHP via Java, en prenant en charge OMML, les contrôles de mise en forme et des exemples de code clairs."
+description: "Insérer et modifier des équations mathématiques dans PowerPoint PPT et PPTX avec Aspose.Slides pour PHP via Java, prise en charge d'OMML, contrôles de mise en forme et exemples de code PHP clairs."
 ---
-
 ## **Vue d'ensemble**
-Dans PowerPoint, il est possible d’écrire une équation ou une formule mathématique et de l’afficher dans la présentation. Pour cela, divers symboles mathématiques sont représentés dans PowerPoint et peuvent être ajoutés au texte ou à l’équation. Le constructeur d’équations mathématiques de PowerPoint permet de créer des formules complexes telles que :
 
-- Fraction mathématique
-- Radical mathématique
-- Fonction mathématique
-- Limites et fonctions logarithmiques
-- Opérations n‑aires
-- Matrice
-- Opérateurs larges
-- Fonctions sin, cos
+PowerPoint stocke les équations au format Office Math Markup Language (OMML). Avec Aspose.Slides pour PHP via Java, vous pouvez créer le même type de contenu mathématique de manière programmatique : fractions, radicaux, fonctions, limites, opérateurs N‑aires, matrices, tableaux et blocs mathématiques formatés.
 
-Pour ajouter une équation mathématique dans PowerPoint, le menu *Insertion → Équation* est utilisé :
+Dans PowerPoint, les utilisateurs ajoutent généralement des équations via **Insertion > Équation** :
 
-![todo:image_alt_text](powerpoint-math-equations_1.png)
+![Onglet Insertion de PowerPoint avec la commande Équation sélectionnée](powerpoint-math-equations_1.png)
 
-Cela crée un texte mathématique en XML qui peut être affiché dans PowerPoint comme suit :
+Le résultat est un texte mathématique modifiable sur la diapositive :
 
-![todo:image_alt_text](powerpoint-math-equations_2.png)
+![Une diapositive PowerPoint contenant une équation mathématique modifiable](powerpoint-math-equations_2.png)
 
-PowerPoint prend en charge de nombreux symboles mathématiques pour créer des équations. Cependant, créer des équations complexes dans PowerPoint ne donne souvent pas un résultat professionnel. Les utilisateurs qui doivent régulièrement créer des présentations mathématiques ont recours à des solutions tierces pour obtenir des formules esthétiques.
+Aspose.Slides construit ce texte mathématique à l'aide de trois objets principaux :
 
-En utilisant [**Aspose.Slide API**](https://products.aspose.com/slides/php-java/), vous pouvez travailler avec des équations mathématiques dans les présentations PowerPoint de façon programmatique en C#. Créez de nouvelles expressions mathématiques ou modifiez celles existantes. L’exportation des structures mathématiques vers des images est également partiellement prise en charge.
+- Une forme mathématique, créée avec [addMathShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shapecollection/#addMathShape), est la forme qui contient l'équation.
+- [MathPortion](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathportion/) stocke le contenu mathématique à l'intérieur du cadre de texte de la forme.
+- [MathParagraph](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathparagraph/) contient un ou plusieurs objets [MathBlock](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathblock/).
 
+La plupart des exemples ci‑dessous utilisent [MathematicalText](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathematicaltext/) et les méthodes fluides de [MathElementBase](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour garder le code court et lisible.
 
-## **Comment créer une équation mathématique**
-Les éléments mathématiques sont utilisés pour construire des constructions mathématiques avec n’importe quel niveau d’imbrication. Une collection linéaire d’éléments forme un bloc mathématique représenté par la classe [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock). La classe [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock) désigne essentiellement une expression, une formule ou une équation séparée. [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) est une portion mathématique, utilisée pour contenir du texte mathématique (à ne pas confondre avec [**Portion**](https://reference.aspose.com/slides/php-java/aspose.slides/Portion)). [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph) permet de manipuler un ensemble de blocs mathématiques. Les classes susmentionnées sont la clé pour travailler avec les équations mathématiques PowerPoint via l’API Aspose.Slides.
+Pour les scénarios d'exportation MathML, voir [Exporter les équations mathématiques depuis des présentations en PHP via Java](/slides/fr/php-java/exporting-math-equations/).
 
-Voyons comment créer l’équation mathématique suivante via l’API Aspose.Slides :
+## **Créer une équation**
 
-![todo:image_alt_text](powerpoint-math-equations_3.png)
+Cet exemple crée une forme mathématique et ajoute le théorème de Pythagore :
 
-Pour ajouter une expression mathématique sur la diapositive, commencez par ajouter une forme qui contiendra le texte mathématique :
+![L'équation c au carré égale a au carré plus b au carré](powerpoint-math-equations_3.png)
+
 ```php
-  $pres = new Presentation();
-  try {
-    $mathShape = $pres->getSlides()->get_Item(0)->getShapes()->addMathShape(0, 0, 720, 150);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $equation = (new MathematicalText("c"))
+        - >setSuperscript("2")
+        - >join("=")
+        - >join((new MathematicalText("a"))->setSuperscript("2"))
+        - >join("+")
+        - >join((new MathematicalText("b"))->setSuperscript("2"));
+
+    $mathParagraph->add($equation);
+
+    $presentation->save("pythagorean-theorem.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
+{{% alert color="primary" %}}
 
-Après création, la forme contiendra déjà un paragraphe avec une portion mathématique par défaut. La classe [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) représente une portion contenant du texte mathématique. Pour accéder au contenu mathématique à l’intérieur de [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion), référez‑vous à la variable [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph) :
+`addMathShape` crée une forme contenant déjà un paragraphe mathématique. Accédez au premier `MathPortion`, récupérez son `MathParagraph`, et ajoutez des blocs mathématiques ou des éléments mathématiques.
+
+{{% /alert %}}
+
+## **Ajouter des fractions**
+
+Utilisez [`divide`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour créer une fraction. Vous pouvez choisir un style de fraction avec [MathFractionTypes](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathfractiontypes/).
+
+![Une fraction mathématique inclinée montrant un divisé par x](powerpoint-math-equations_4.png)
+
 ```php
-  $mathParagraph = $mathShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $fraction = (new MathematicalText("1"))
+        - >divide("x", MathFractionTypes::Skewed);
+
+    $mathParagraph->add(new MathBlock($fraction));
+
+    $presentation->save("fraction.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
 
-
-## **Types d’éléments mathématiques**
-Les expressions mathématiques sont formées à partir de séquences d’éléments mathématiques. La séquence est représentée par un bloc mathématique, et les arguments des éléments forment une imbrication arborescente.
-
-Il existe de nombreux types d’éléments qui peuvent être utilisés pour construire un bloc mathématique. Chaque élément peut être inclus (agrégé) dans un autre élément, formant ainsi une structure arborescente. Le type le plus simple d’élément ne contient pas d’autres éléments du texte mathématique.
-
-Chaque type d’élément implémente la classe `MathElement`, permettant l’utilisation d’un ensemble commun d’opérations mathématiques sur différents types d’éléments.
-
-### **Classe MathematicalText**
-La classe [**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) représente un texte mathématique – l’élément sous‑jacent de toutes les constructions mathématiques. Le texte mathématique peut représenter des opérandes, des opérateurs, des variables et tout autre texte linéaire.
-
-Exemple : 𝑎=𝑏+𝑐
-
-### **Classe MathFraction**
-La classe [**MathFraction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFraction) spécifie l’objet fraction, composé d’un numérateur et d’un dénominateur séparés par une barre de fraction. La barre peut être horizontale ou diagonale selon les propriétés de la fraction. L’objet fraction sert également à représenter la fonction « stack », qui place un élément au-dessus d’un autre sans barre de fraction.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_4.png)
-
-### **Classe MathRadical**
-La classe [**MathRadical**](https://reference.aspose.com/slides/php-java/aspose.slides/MathRadical) spécifie la fonction radicale (racine mathématique), composée d’une base et d’un degré optionnel.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_5.png)
-
-### **Classe MathFunction**
-La classe [**MathFunction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) spécifie une fonction d’un argument. Elle contient les propriétés : [getName](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction#getName--) – nom de la fonction et [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction#getBase--) – argument de la fonction.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_6.png)
-
-### **Classe MathNaryOperator**
-La classe [**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator) spécifie un objet mathématique n‑aire, tel que la sommation ou l’intégrale. Elle comprend un opérateur, une base (ou opérande) et des limites supérieures et inférieures optionnelles. Les exemples d’opérateurs n‑aires sont la sommation, l’union, l’intersection, l’intégrale.
-
-Cette classe n’inclut pas les opérateurs simples tels que addition ou soustraction ; ceux‑ci sont représentés par un seul élément texte – [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText).
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_7.png)
-
-### **Classe MathLimit**
-La classe [**MathLimit**](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) crée une limite supérieure ou inférieure. Elle spécifie un objet limite composé du texte sur la ligne de base et d’un texte de taille réduite immédiatement au-dessus ou en dessous. Cet élément n’inclut pas le mot « lim », mais permet de placer du texte en haut ou en bas de l’expression. Ainsi, l’expression
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-est créée en combinant les éléments [**MathFunction**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) et [**MathLimit**](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit) de la manière suivante :
+Pour une fraction empilée, utilisez `MathFractionTypes::Bar` :
 
 ```php
-  $funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
-  $mathFunc = new MathFunction($funcName, new MathematicalText("𝑥"));
-``` 
+$stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
+```
 
-### **Classes MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement**
-- [MathSubscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathSubscriptElement)
-- [MathSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathSuperscriptElement)
-- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathRightSubSuperscriptElement)
-- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathLeftSubSuperscriptElement)
+## **Ajouter des radicaux**
 
-Ces classes spécifient un indice inférieur ou supérieur. Vous pouvez définir simultanément un indice et un exposant du côté gauche ou droit d’un argument, mais un indice ou un exposant seul n’est pris en charge que du côté droit. La classe [MathSubscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/MathSubscriptElement) peut également être utilisée pour définir le degré mathématique d’un nombre.
+Utilisez [`radical`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour créer une racine carrée, une racine cubique ou toute autre racine. L'élément courant devient la base, et l'argument devient le degré.
 
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_9.png)
-
-### **Classe MathMatrix**
-La classe [**MathMatrix**](https://reference.aspose.com/slides/php-java/aspose.slides/MathMatrix) spécifie l’objet Matrice, composé d’éléments enfants disposés en une ou plusieurs lignes et colonnes. Notez que les matrices n’ont pas de délimiteurs intégrés. Pour placer la matrice entre crochets, utilisez l’objet délimiteur – [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/). Des arguments nuls peuvent être utilisés pour créer des espaces vides dans les matrices.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_10.png)
-
-### **Classe MathArray**
-La classe [**MathArray**](https://reference.aspose.com/slides/php-java/aspose.slides/MathArray) spécifie un tableau vertical d’équations ou de tout objet mathématique.
-
-Exemple :
-
-![todo:image_alt_text](powerpoint-math-equations_11.png)
-
-### **Mise en forme des éléments mathématiques**
-- Classe [**MathBorderBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBorderBox) : dessine un cadre rectangulaire ou autre autour du `MathElement`.
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_12.png)
-
-- Classe [**MathBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBox) : spécifie l’encapsulation logique de l’élément mathématique. Par exemple, un objet encadré peut servir d’émulateur d’opérateur avec ou sans point d’alignement, servir de point de rupture de ligne ou être groupé afin d’interdire les sauts de ligne à l’intérieur. Ainsi, l’opérateur « == » doit être encadré pour éviter les ruptures de ligne.
-- Classe [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathDelimiter) : spécifie l’objet délimiteur, composé de caractères ouvrants et fermants (parenthèses, accolades, crochets, barres verticales) et d’un ou plusieurs éléments mathématiques à l’intérieur, séparés par un caractère spécifié. Exemples : (𝑥²); [𝑥²|𝑦²].
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_13.png)
-
-- Classe [**MathAccent**](https://reference.aspose.com/slides/php-java/aspose.slides/MathAccent) : spécifie la fonction accent, composée d’une base et d’un signe diacritique combiné.
-
-  Exemple : 𝑎́.
-
-- Classe [**MathBar**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBar) : spécifie la fonction barre, composée d’un argument de base et d’une barre supérieure ou inférieure.
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_14.png)
-
-- Classe [**MathGroupingCharacter**](https://reference.aspose.com/slides/php-java/aspose.slides/MathGroupingCharacter) : spécifie un symbole de regroupement au-dessus ou en dessous d’une expression, généralement pour mettre en relief les relations entre les éléments.
-
-  Exemple : ![todo:image_alt_text](powerpoint-math-equations_15.png)
-
-
-## **Opérations mathématiques**
-Chaque élément et chaque expression (via [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)) hérite de la classe `MathElement`. Elle permet d’appliquer des opérations sur la structure existante et de former des expressions plus complexes. Toutes les opérations acceptent deux jeux de paramètres : soit un `MathElement`, soit une chaîne de caractères. Les instances de la classe [**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) sont créées implicitement à partir des chaînes lorsqu’elles sont utilisées comme arguments. Les opérations disponibles sont listées ci‑dessous.
-
-### **Méthode Join**
-- `join(String)`
-- `join(MathElement)`
-
-Joint un élément mathématique et forme un bloc.
+![Une expression radicale n‑ième avec x sous le signe radical](powerpoint-math-equations_5.png)
 
 ```php
-  $element1 = new MathematicalText("x");
-  $element2 = new MathematicalText("y");
-  $block = $element1->join($element2);
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-### **Méthode Divide**
-- `divide(String)`
-- `divide(MathElement)`
-- `divide(String, MathFractionTypes)`
-- `divide(MathElement, MathFractionTypes)`
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-Crée une fraction du type spécifié avec ce numérateur et le dénominateur indiqué.
+    $radical = (new MathematicalText("x"))
+        - >radical("n");
 
-```php
-  $numerator = new MathematicalText("x");
-  $fraction = $numerator->divide("y", MathFractionTypes->Linear);
-``` 
+    $mathParagraph->add(new MathBlock($radical));
 
-### **Méthode Enclose**
-- `enclose()`
-- `enclose(Char, Char)`
+    $presentation->save("radical.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
-Encadre l’élément avec les caractères spécifiés (parenthèses, etc.).
+## **Ajouter des fonctions et des limites**
 
-```php
+Utilisez [`asArgumentOfFunction`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) ou [`function`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour des fonctions telles que `sin(x)`, `log(x)` ou des noms de fonction personnalisés. Pour les limites, placez `lim` dans un [MathLimit](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathlimit/) ou utilisez [`setLowerLimit`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/).
 
-``` 
-
-Par exemple :
+![La limite de x lorsque x tend vers l'infini](powerpoint-math-equations_8.png)
 
 ```php
-  $delimiter = new MathematicalText("x")->enclose('[', ']');
-  $delimiter2 = new MathematicalText("elem1")->join("elem2")->enclose();
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-### **Méthode Function**
-- `function(String)`
-- `function(MathElement)`
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-Applique une fonction à un argument en utilisant l’objet actuel comme nom de fonction.
+    $limit = (new MathematicalText("lim"))
+        - >setLowerLimit("x\u{2192}\u{221E}")
+        - >function("x");
 
-```php
+    $mathParagraph->add(new MathBlock($limit));
 
-``` 
+    $presentation->save("functions-and-limits.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
-Par exemple :
-
-```php
-  $func = new MathematicalText("sin")->function("x");
-``` 
-
-### **Méthode AsArgumentOfFunction**
-- `asArgumentOfFunction(String)`
-- `asArgumentOfFunction(MathElement)`
-- `asArgumentOfFunction(MathFunctionsOfOneArgument)`
-- `asArgumentOfFunction(MathFunctionsOfTwoArguments, MathElement)`
-- `asArgumentOfFunction(MathFunctionsOfTwoArguments, String)`
-
-Utilise la fonction spécifiée en traitant l’instance actuelle comme argument. Vous pouvez :
-
-- spécifier le nom de fonction sous forme de chaîne, par ex. “cos”.
-- choisir une valeur prédéfinie des énumérations [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument) ou [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfTwoArguments), par ex. [**MathFunctionsOfOneArgument::ArcSin**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument#ArcSin).
-- passer une instance de `MathElement`.
-
-Par exemple :
+Pour un nom de fonction personnalisé, faites du nom de fonction l'élément courant :
 
 ```php
-  $funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
-  $func1 = new MathematicalText("2x")->asArgumentOfFunction($funcName);
-  $func2 = new MathematicalText("x")->asArgumentOfFunction("sin");
-  $func3 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfOneArgument->Sin);
-  $func4 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfTwoArguments->Log, "3");
-``` 
+$customFunction = (new MathematicalText("f"))->function("x + 1");
+```
 
-### **Méthodes SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft**
-- `setSubscript(String)`
-- `setSubscript(MathElement)`
-- `setSuperscript(String)`
-- `setSuperscript(MathElement)`
-- `setSubSuperscriptOnTheRight(String, String)`
-- `setSubSuperscriptOnTheRight(MathElement, MathElement)`
-- `setSubSuperscriptOnTheLeft(String, String)`
-- `setSubSuperscriptOnTheLeft(MathElement, MathElement)`
+## **Ajouter des opérateurs N‑aires et des intégrales**
 
-Définit les indices et exposants. Vous pouvez les définir simultanément à gauche ou à droite de l’argument, mais un seul indice ou exposant seul n’est supporté que du côté droit. Le **Superscript** peut également servir à indiquer le degré d’un nombre.
+Utilisez [`nary`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour les sommes, unions, intersections et autres grands opérateurs. Utilisez [`integral`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour les intégrales. Les deux méthodes vous permettent de définir les limites inférieure et supérieure.
 
-Exemple :
+![Une sommation avec limites inférieure et supérieure](powerpoint-math-equations_7.png)
 
 ```php
-  $script = new MathematicalText("y")->setSubSuperscriptOnTheLeft("2x", "3z");
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-### **Méthode Radical**
-- `radical(String)`
-- `radical(MathElement)`
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
 
-Spécifie la racine mathématique du degré indiqué à partir de l’argument donné.
+    $summationBase = (new MathematicalText("x"))
+        - >setSuperscript("k")
+        - >join((new MathematicalText("a"))->setSuperscript("n-k"));
 
-Exemple :
+    $summation = $summationBase->nary(MathNaryOperatorTypes::Summation, "k=0", "n");
 
-```php
-  $radical = new MathematicalText("x")->radical("3");
-``` 
+    $mathParagraph->add(new MathBlock($summation));
 
-### **Méthodes SetUpperLimit et SetLowerLimit**
-- `setUpperLimit(String)`
-- `setUpperLimit(MathElement)`
-- `setLowerLimit(String)`
-- `setLowerLimit(MathElement)`
+    $presentation->save("nary-operators.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
 
-Définit la limite supérieure ou inférieure. Ici, les termes « upper » et « lower » indiquent simplement la position de l’argument par rapport à la base.
+Les opérateurs N‑aires sont destinés aux grands opérateurs avec limites optionnelles. Les opérateurs simples tels que `+`, `-` et `=` sont généralement ajoutés en tant que `MathematicalText` et intégrés à l'expression.
 
-Considérons l’expression :
-
-![todo:image_alt_text](powerpoint-math-equations_8.png)
-
-Ces expressions peuvent être créées en combinant les classes [MathFunction](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) et [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit), ainsi que les opérations de `MathElement` :
-
-```php
-  $mathExpression = new MathematicalText("lim")->setLowerLimit("x→∞")->function("x");
-``` 
-
-### **Méthodes Nary et Integral**
-- `nary(MathNaryOperatorTypes, MathElement, MathElement`
-- `nary(MathNaryOperatorTypes, String, String)`
-- `integral(MathIntegralTypes)`
-- `integral(MathIntegralTypes, MathElement, MathElement)`
-- `integral(MathIntegralTypes, String, String)`
-- `integral(MathIntegralTypes, MathElement, MathElement, MathLimitLocations)`
-- `integral(MathIntegralTypes, String, String, MathLimitLocations)`
-
-Les deux méthodes créent et renvoient l’opérateur n‑aire représenté par le type [**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator). Dans la méthode nary, l’énumération [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperatorTypes) spécifie le type d’opérateur : sommation, union, etc., sans les intégrales. La méthode Integral utilise l’opération spécialisée intégrale avec l’énumération des types d’intégrale [**MathIntegralTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathIntegralTypes).
-
-Exemple :
+Pour une intégrale, utilisez `integral` :
 
 ```php
-  $baseArg = new MathematicalText("x")->join(new MathematicalText("dx")->toBox());
-  $integral = $baseArg->integral(MathIntegralTypes->Simple, "0", "1");
-``` 
+$integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
+$integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
+```
 
-### **Méthode ToMathArray**
-`MathElement.toMathArray` place les éléments dans un tableau vertical. Si cette opération est appelée sur une instance de [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock), tous les éléments enfants seront placés dans le tableau retourné.
+## **Ajouter des matrices**
 
-Exemple :
+Utilisez [MathMatrix](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathmatrix/) pour les lignes et colonnes. Les matrices n'incluent pas de crochets par défaut, il faut donc les entourer de parenthèses, crochets ou accolades selon le besoin.
 
-```php
-  $arrayFunction = new MathematicalText("x")->join("y")->toMathArray();
-``` 
-
-### **Opérations de mise en forme : Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
-- Méthode **`accent`** : ajoute un signe d’accent (caractère au‑dessus de l’élément).
-- Méthodes **`overbar`** et **`underbar`** : ajoutent une barre au‑dessus ou en dessous.
-- Méthode **`group`** : regroupe en utilisant un caractère de groupement tel qu’une accolade inférieure ou autre.
-- Méthode **`toBorderBox`** : place l’élément dans un cadre.
-- Méthode **`toBox`** : place l’élément dans une boîte logique non visuelle.
-
-Exemples :
+![Une matrice mathématique à deux lignes avec une cellule vide](powerpoint-math-equations_10.png)
 
 ```php
-  $accent = new MathematicalText("x")->accent('̃');
-  $bar = new MathematicalText("x")->overbar();
-  $groupChr = new MathematicalText("x")->join("y")->join("z")->group('⏡', MathTopBotPositions::Bottom, MathTopBotPositions::Top);
-  $borderBox = new MathematicalText("x+y+z")->toBorderBox();
-  $boxedOperator = new MathematicalText(":=")->toBox();
-``` 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $matrix = new MathMatrix(2, 3);
+    $matrix->set_Item(0, 0, new MathematicalText("1"));
+    $matrix->set_Item(0, 1, new MathematicalText("x"));
+    $matrix->set_Item(1, 0, new MathematicalText("x"));
+    $matrix->set_Item(1, 1, new MathematicalText("2"));
+    $matrix->set_Item(1, 2, new MathematicalText("y"));
+
+    $mathParagraph->add(new MathBlock($matrix));
+
+    $presentation->save("matrix.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Ajouter des tableaux d'équations**
+
+Utilisez [`toMathArray`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) lorsque vous avez besoin d'équations alignées ou d'une pile verticale d'expressions.
+
+![Un tableau mathématique vertical avec x au-dessus de y](powerpoint-math-equations_11.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 140);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $equationArray = (new MathematicalText("x"))
+        - >join("y")
+        - >toMathArray();
+
+    $mathParagraph->add(new MathBlock($equationArray));
+
+    $presentation->save("equation-array.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Ajouter des fonctions trigonométriques**
+
+Utilisez [`asArgumentOfFunction`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) lorsque l'argument est l'élément courant et que le nom de la fonction est connu.
+
+![La fonction trigonométrique cos appliquée à 2x](powerpoint-math-equations_6.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $cosine = (new MathematicalText("2x"))
+        - >asArgumentOfFunction(MathFunctionsOfOneArgument::Cos);
+
+    $mathParagraph->add(new MathBlock($cosine));
+
+    $presentation->save("trigonometric-function.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Ajouter des indices et des exposants**
+
+Utilisez les assistants d'indice et d'exposant pour les indices et les puissances. Lorsque les indices doivent apparaître du côté gauche de la base, utilisez [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/).
+
+![Un Y majuscule avec indice gauche 1 et exposant n](powerpoint-math-equations_9.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $scripts = (new MathematicalText("Y"))
+        - >setSubSuperscriptOnTheLeft("1", "n");
+
+    $mathParagraph->add(new MathBlock($scripts));
+
+    $presentation->save("subscript-superscript.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Ajouter des délimiteurs**
+
+Utilisez [`enclose`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour placer une expression entre délimiteurs. Vous pouvez également définir un caractère séparateur pour les expressions délimitées contenant plusieurs éléments.
+
+![Une expression délimitée contenant x, y et z séparés par des barres verticales](powerpoint-math-equations_13.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $delimiter = (new MathematicalText("x"))
+        - >join("y")
+        - >join("z")
+        - >enclose(new Java("java.lang.Character", "<"), new Java("java.lang.Character", ">"));
+    $delimiter->setSeparatorCharacter(new Java("java.lang.Character", "|"));
+
+    $mathParagraph->add(new MathBlock($delimiter));
+
+    $presentation->save("delimiters.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Ajouter une boîte avec bordure**
+
+Utilisez [`toBorderBox`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) lorsque l'équation elle‑même doit être encadrée.
+
+![Une équation encadrée montrant a au carré égal b au carré plus c au carré](powerpoint-math-equations_12.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $boxedEquation = (new MathematicalText("a"))
+        - >setSuperscript("2")
+        - >join("=")
+        - >join((new MathematicalText("b"))->setSuperscript("2"))
+        - >join("+")
+        - >join((new MathematicalText("c"))->setSuperscript("2"))
+        - >toBorderBox();
+
+    $mathParagraph->add(new MathBlock($boxedEquation));
+
+    $presentation->save("border-box.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Grouper des termes**
+
+Utilisez [`group`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) pour placer un caractère de groupement au-dessus ou en dessous d'une expression. Ajoutez une limite pour étiqueter les termes groupés.
+
+![L'expression x plus y groupée avec le libellé n'importe quel texte en dessous](powerpoint-math-equations_15.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 120);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $grouped = (new MathematicalText("x + y"))
+        - >group(new Java("java.lang.Character", "\u{23DF}"), MathTopBotPositions::Bottom, MathTopBotPositions::Top)
+        - >setLowerLimit("any text");
+
+    $mathParagraph->add(new MathBlock($grouped));
+
+    $presentation->save("grouped-terms.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Formater les éléments mathématiques**
+
+Utilisez les assistants de formatage uniquement lorsqu'ils clarifient la formule. Par exemple, [`overbar`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) place une barre au-dessus d'un élément mathématique.
+
+![Une expression mathématique ABC avec une barre au-dessus](powerpoint-math-equations_14.png)
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
+    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
+        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+
+    $overbar = (new MathematicalText("ABC"))->overbar();
+
+    $mathParagraph->add(new MathBlock($overbar));
+
+    $presentation->save("overbar.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Référence rapide**
+
+| Tâche | API principale |
+| --- | --- |
+| Créer du texte mathématique | [MathematicalText](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathematicaltext/) |
+| Combiner des éléments | [join](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Créer des fractions | [divide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter un exposant ou un indice | [setSuperscript](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des fonctions | [function](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des radicaux | [radical](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des limites | [setLowerLimit](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des scripts du côté gauche | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des sommes et des intégrales | [nary](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des matrices | [MathMatrix](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathmatrix/) |
+| Ajouter des tableaux d'équations | [toMathArray](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des délimiteurs | [enclose](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Ajouter des barres et des bordures | [overbar](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
+| Grouper des termes | [group](https://reference.aspose.com/slides/fr/php-java/aspose.slides/mathelementbase/) |
 
 ## **FAQ**
 
-**Comment ajouter une équation mathématique à une diapositive PowerPoint ?**
+**Puis-je modifier une équation PowerPoint existante ?**
 
-Pour ajouter une équation, créez un objet forme mathématique, qui contient automatiquement une portion mathématique. Ensuite, récupérez le [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) depuis la [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) et ajoutez‑y des objets [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/).
+Oui. Ouvrez la présentation, trouvez la forme qui contient un `MathPortion`, récupérez son `MathParagraph` et mettez à jour les blocs mathématiques de ce paragraphe.
 
-**Est‑il possible de créer des expressions mathématiques imbriquées complexes ?**
+**Les équations sont‑elles enregistrées comme mathématiques PowerPoint modifiables ?**
 
-Oui, Aspose.Slides permet de créer des expressions complexes en imbriquant des MathBlocks. Chaque élément mathématique peut être combiné à l’aide d’opérations (Join, Divide, Enclose, etc.) pour former des structures plus élaborées.
+Oui. Lorsque vous enregistrez au format PPTX, Aspose.Slides écrit l'équation sous forme de contenu mathématique Office modifiable.
 
-**Comment mettre à jour ou modifier une équation mathématique existante ?**
+**Puis‑je exporter des équations vers LaTeX ?**
 
-Pour mettre à jour une équation, accédez aux MathBlocks existants via le [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/). Ensuite, en utilisant des méthodes comme Join, Divide, Enclose, etc., modifiez les éléments individuels de l’équation. Après modification, enregistrez la présentation pour appliquer les changements.
+Aspose.Slides exporte les équations mathématiques au format MathML. Si vous avez besoin de LaTeX, exportez d'abord vers MathML puis convertissez le MathML avec un outil qui prend en charge le dialecte LaTeX ciblé.

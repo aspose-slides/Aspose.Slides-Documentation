@@ -12,7 +12,7 @@ keywords:
 - extraire le texte d'OpenDocument
 - extraire le texte de PPT
 - extraire le texte de PPTX
-- extraire le texte d'ODP
+- extraire le texte de ODP
 - récupérer le texte
 - récupérer le texte d'une diapositive
 - récupérer le texte d'une présentation
@@ -20,116 +20,111 @@ keywords:
 - récupérer le texte d'OpenDocument
 - récupérer le texte de PPT
 - récupérer le texte de PPTX
-- récupérer le texte d'ODP
+- récupérer le texte de ODP
 - PowerPoint
 - OpenDocument
 - présentation
 - Android
 - Java
 - Aspose.Slides
-description: "Extrayez rapidement le texte des présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour Android via Java. Suivez notre guide simple, étape par étape, pour gagner du temps."
+description: "Extrayez rapidement le texte des présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides for Android via Java. Suivez notre guide simple, étape par étape, pour gagner du temps."
 ---
+## **Vue d'ensemble**
 
-{{% alert color="primary" %}} 
+L'extraction du texte à partir de présentations est une tâche courante mais essentielle pour les développeurs qui travaillent avec le contenu des diapositives. Que vous manipuliez des fichiers Microsoft PowerPoint au format PPT ou PPTX, ou des présentations OpenDocument (ODP), l'accès et la récupération des données textuelles peuvent être cruciaux pour l'analyse, l'automatisation, l'indexation ou la migration de contenu.
 
-Il n'est pas rare que les développeurs aient besoin d'extraire le texte d'une présentation. Pour ce faire, vous devez extraire le texte de toutes les formes sur toutes les diapositives d'une présentation. Cet article explique comment extraire le texte des présentations Microsoft PowerPoint PPTX à l'aide d'Aspose.Slides. 
+Cet article fournit un guide complet sur la façon d'extraire efficacement le texte de différents formats de présentation, notamment PPT, PPTX et ODP, en utilisant Aspose.Slides for Android via Java. Vous apprendrez à parcourir systématiquement les éléments d'une présentation afin de récupérer avec précision le contenu texte dont vous avez besoin.
 
-{{% /alert %}} 
 ## **Extraire le texte d'une diapositive**
-Aspose.Slides for Android via Java fournit la classe [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil). Cette classe expose un certain nombre de méthodes statiques surchargées pour extraire le texte complet d’une présentation ou d’une diapositive. Pour extraire le texte d’une diapositive dans une présentation PPTX, utilisez la méthode statique surchargée [getAllTextBoxes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) exposée par la classe [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil). Cette méthode accepte l’objet Slide comme paramètre.
-Lors de l'exécution, la méthode Slide analyse le texte complet de la diapositive passée en paramètre et renvoie un tableau d'objets [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame). Cela signifie que tout formatage du texte associé est disponible. Le fragment de code suivant extrait tout le texte de la première diapositive de la présentation :
+
+Aspose.Slides for Android via Java fournit la classe [SlideUtil](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/slideutil/). Cette classe expose plusieurs méthodes statiques surchargées permettant d'extraire tout le texte d'une présentation ou d'une diapositive. Pour extraire le texte d'une diapositive dans une présentation, utilisez la méthode [getAllTextBoxes](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-). Cette méthode accepte un objet de type [IBaseSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ibaseslide/) en paramètre. Lors de son exécution, la méthode parcourt toute la diapositive à la recherche de texte et renvoie un tableau d'objets de type [ITextFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itextframe/), en conservant le formatage du texte.
+
+Le fragment de code suivant extrait tout le texte de la première diapositive de la présentation :
+
 ```java
-//Instancier la classe Presentation qui représente un fichier PPTX
-Presentation pres = new Presentation("demo.pptx");
+int slideIndex = 0;
+
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        //Obtenir un tableau d'objets ITextFrame à partir de toutes les diapositives du PPTX
-        ITextFrame[] textFramesPPTX = SlideUtil.getAllTextBoxes(slide);
+    ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-        //Parcourir le tableau de TextFrames
-        for (int i = 0; i < textFramesPPTX.length; i++) {
-            //Parcourir les paragraphes du ITextFrame actuel
-            for (IParagraph para : textFramesPPTX[i].getParagraphs()) {
-                //Parcourir les portions du IParagraph actuel
-                for (IPortion port : para.getPortions()) {
-                    //Afficher le texte de la portion actuelle
-                    System.out.println(port.getText());
+    ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
 
-                    //Afficher la hauteur de la police du texte
-                    System.out.println(port.getPortionFormat().getFontHeight());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                    //Afficher le nom de la police du texte
-                    if (port.getPortionFormat().getLatinFont() != null)
-                        System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
+
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
                 }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **Extraire le texte d'une présentation**
-Pour analyser le texte de l'ensemble de la présentation, utilisez la méthode statique [getAllTextFrames](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) exposée par la classe SlideUtil. Elle prend deux paramètres :
-1. Tout d'abord, un objet [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextExtractionArrangingMode#Unarranged) qui représente la présentation dont le texte est extrait.
-1. Deuxièmement, une valeur booléenne déterminant si la diapositive maître doit être incluse lors de l'analyse du texte de la présentation.
-La méthode renvoie un tableau d'objets [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame), complet avec les informations de formatage du texte. Le code ci‑dessous analyse le texte et les informations de formatage d'une présentation, y compris les diapositives maîtres.
+
+Pour analyser le texte de l'ensemble de la présentation, utilisez la méthode statique [getAllTextFrames](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) exposée par la classe [SlideUtil](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/slideutil/). Elle accepte deux paramètres :
+
+1. Tout d'abord, un objet [IPresentation](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipresentation/) représentant une présentation PowerPoint ou OpenDocument à partir de laquelle le texte sera extrait.  
+2. Deuxièmement, une valeur `boolean` indiquant si les diapositives maîtres doivent être incluses lors de l'analyse du texte de la présentation.
+
+La méthode renvoie un tableau d'objets de type [ITextFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itextframe/), incluant les informations de formatage du texte. Le code ci‑dessous analyse le texte et les détails de formatage d'une présentation, y compris les diapositives maîtres.
+
 ```java
-//Instancier la classe Presentation qui représente un fichier PPTX
-Presentation pres = new Presentation("demo.pptx");
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    //Obtenir un tableau d'objets ITextFrame à partir de toutes les diapositives du PPTX
-    ITextFrame[] textFramesPPTX = SlideUtil.getAllTextFrames(pres, true);
+    boolean includeMasterSlides = true;
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, includeMasterSlides);
 
-    //Parcourir le tableau de TextFrames
-    for (int i = 0; i < textFramesPPTX.length; i++) 
-    {
-        //Parcourir les paragraphes du ITextFrame actuel
-        for (IParagraph para : textFramesPPTX[i].getParagraphs())
-        {
-            //Parcourir les portions du IParagraph actuel
-            for (IPortion port : para.getPortions())
-            {
-                //Afficher le texte de la portion actuelle
-                System.out.println(port.getText());
+    for (ITextFrame textFrame : textFrames) {
+        for (IParagraph paragraph : textFrame.getParagraphs()) {
+            for (IPortion portion : paragraph.getPortions()) {
+                String portionText = portion.getText();
+                System.out.println(portionText);
 
-                //Afficher la hauteur de la police du texte
-                System.out.println(port.getPortionFormat().getFontHeight());
+                IPortionFormat portionFormat = portion.getPortionFormat();
+                float fontHeight = portionFormat.getFontHeight();
+                System.out.println(fontHeight);
 
-                //Afficher le nom de la police du texte
-                if (port.getPortionFormat().getLatinFont() != null)
-                    System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+                IFontData latinFont = portionFormat.getLatinFont();
+                if (latinFont != null) {
+                    String fontName = latinFont.getFontName();
+                    System.out.println(fontName);
+                }
             }
         }
     }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **Extraction de texte catégorisée et rapide**
-La nouvelle méthode statique getPresentationText a été ajoutée à la classe Presentation. Il existe trois surcharges pour cette méthode :
-```java
-public IPresentationText getPresentationText(String file, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
+
+La classe [PresentationFactory](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/presentationfactory/) propose également des méthodes pour extraire tout le texte des présentations :
+
+```text
+IPresentationText getPresentationText(String file, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
 ```
 
+L'argument d'énumération [TextExtractionArrangingMode](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/textextractionarrangingmode/) indique le mode d'organisation du résultat d'extraction du texte et peut prendre les valeurs suivantes :
+- `Unarranged` - Le texte brut sans tenir compte de sa position sur la diapositive.  
+- `Arranged` - Le texte est organisé dans le même ordre que sur la diapositive.
 
-## **FAQ**
+Le mode non organisé peut être utilisé lorsque la rapidité est primordiale ; il est plus rapide que le mode organisé.
 
-**Quelle rapidité Aspose.Slides offre-t-il pour le traitement de grandes présentations lors de l'extraction de texte ?**
-
-Aspose.Slides est optimisé pour des performances élevées et traite efficacement même les [grandes présentations](/slides/fr/androidjava/open-presentation/), ce qui le rend adapté aux scénarios de traitement en temps réel ou en masse.
-
-**Aspose.Slides peut-il extraire du texte des tableaux et des graphiques au sein des présentations ?**
-
-Oui, Aspose.Slides prend entièrement en charge l'extraction de texte à partir des tableaux, des graphiques et d'autres éléments de diapositive complexes, vous permettant d'accéder facilement à tout le contenu textuel et de l'analyser.
-
-**Ai-je besoin d'une licence spéciale Aspose.Slides pour extraire du texte des présentations ?**
-
-Vous pouvez extraire du texte avec la version d'essai gratuite d'Aspose.Slides, bien qu'elle comporte certaines limitations, comme le traitement d'un nombre limité de diapositives. Pour une utilisation sans restriction et pour gérer des présentations plus volumineuses, l'achat d'une licence complète est recommandé.
+[IPresentationText](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipresentationtext/) représente le texte brut extrait de la présentation. Sa méthode `getSlidesText
