@@ -7,250 +7,301 @@ url: /ar/python-net/shape-effective-properties/
 keywords:
 - خصائص الشكل
 - خصائص الكاميرا
-- نظام إضاءة
-- شكل القطع
+- نظام الإضاءة
+- شكل الحافة
 - إطار النص
 - نمط النص
 - ارتفاع الخط
 - تنسيق التعبئة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "اكتشف كيف تحسب Aspose.Slides for Python عبر .NET وتطبق الخصائص الفعّالة للأشكال لتحقيق عرض دقيق في PowerPoint وOpenDocument."
+description: "اكتشف كيف يحسب Aspose.Slides للـ Python عبر .NET ويطبق خصائص الشكل الفعّالة لتقديم عروض PowerPoint بدقة."
 ---
-
 ## **نظرة عامة**
 
-في هذا الموضوع، ستتعلم مفاهيم الخصائص **الفعّالة** و **المحلية**. عندما يتم تعيين القيم مباشرةً على المستويات التالية:
+تشرح هذه المقالة الفرق بين الخصائص **المحلية** و **الفعّالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً في مستوى تنسيق معين، مثل:
 
-1. في خصائص جزء النص على الشريحة.
-2. في نمط نص الشكل النموذجي على الشريحة النموذجية أو الشريحة الرئيسية (إذا كان لإطار النص واحدًا).
-3. في إعدادات النص العالمية للعرض التقديمي.
+1. خصائص الجزء على الشريحة.
+1. أنماط نص الشكل النموذجية على تخطيط أو شريحة رئيسية، عندما يحتوي شكل إطار نص الجزء على واحدة.
+1. إعدادات النص العامة في العرض التقديمي.
 
-تُسمى تلك القيم **قيمة محلية**. في أي مستوى، يمكن تعريف **القيم المحلية** أو حذفها. عندما تحتاج التطبيق إلى تحديد كيفية ظهور جزء النص، يستخدم القيم **الفعّالة**. يمكنك الحصول على القيم الفعّالة باستدعاء الطريقة `get_effective` على التنسيق المحلي.
+يمكن تعريف القيم المحلية أو حذفها في أي مستوى. عندما تحتاج Aspose.Slides إلى التنسيق النهائي "كما يُعرض"، فإنها تحل سلسلة الوراثة وتعيد القيم **الفعّالة**. يمكنك الحصول عليها عن طريق استدعاء الطريقة `get_effective` على كائن التنسيق المحلي.
 
-المثال التالي يوضح كيفية الحصول على القيم الفعّالة لتنسيق إطار النص وتنسيق جزء النص.
+يوضح المثال التالي كيفية الحصول على القيم الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مع إطار نص وعلى الأقل جزء واحد.
+
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("Presentation1.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
 
     local_text_frame_format = shape.text_frame.text_frame_format
     effective_text_frame_format = local_text_frame_format.get_effective()
 
-    local_portion_format = shape.text_frame.paragraphs[0].portions[0].portion_format
+    paragraph = shape.text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+    local_portion_format = portion.portion_format
     effective_portion_format = local_portion_format.get_effective()
 ```
 
+{{% alert color="primary" %}}
+تمثل بيانات التنسيق الفعّال التنسيق المحسوب الحالي بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعّالة مؤقتًا داخليًا، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iportionformateffectivedata/). قد يؤدي استدعاء `get_effective` مرة أخرى بعد تغيير التنسيق الأصلي أو الموروث إلى تحديث البيانات المؤقتة، وقد لا يمثل الكائن الذي تم الحصول عليه مسبقًا الحالة السابقة. إذا كنت بحاجة إلى الاحتفاظ بالقيم الفعّالة لاستخدامها لاحقًا، انسخ الخصائص المطلوبة مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن البيانات الخاص بك.
+{{% /alert %}}
 
-## **الحصول على خصائص الكاميرا الفعّالة**
+## **الحصول على الخصائص الفعّالة للكاميرا**
 
-تتيح لك Aspose.Slides for Python via .NET استرجاع خصائص الكاميرا الفعّالة. تمثل الفئة [ICameraEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icameraeffectivedata/) كائنًا غير قابل للتغيير يحتوي على هذه الخصائص. يتم توفير نسخة من [ICameraEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icameraeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/)، التي تقدم القيم الفعّالة لفئة [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/).
+تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة للكاميرا. النوع [ICameraEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/icameraeffectivedata/) يمثل كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعّالة. يتم كشف مثيل [ICameraEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/icameraeffectivedata/) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ithreedformateffectivedata/)، الذي يوفر القيم الفعّالة لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/threedformat/).
 
-المثال التالي يوضح كيفية الحصول على خصائص الكاميرا الفعّالة:
+يوضح عينة الشفرة التالية كيفية الحصول على الخصائص الفعّالة للكاميرا. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("Presentation1.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective_data = shape.three_d_format.get_effective()
+    camera = three_d_effective_data.camera
+
+    camera_type = camera.camera_type
+    field_of_view_angle = camera.field_of_view_angle
+    zoom = camera.zoom
+
+    print("= Effective camera properties =")
+    print("Type: " + str(camera_type))
+    print("Field of view: " + str(field_of_view_angle))
+    print("Zoom: " + str(zoom))
+```
+
+## **الحصول على الخصائص الفعّالة لجهاز الإضاءة**
+
+تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لجهاز الإضاءة. النوع [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ilightrigeffectivedata/) يمثل كائنًا غير قابل للتغيير يحتوي على خصائص جهاز الإضاءة الفعّالة. يتم كشف مثيل [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ilightrigeffectivedata/) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ithreedformateffectivedata/)، الذي يوفر القيم الفعّالة لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/threedformat/).
+
+يوضح عينة الشفرة التالية كيفية الحصول على الخصائص الفعّالة لجهاز الإضاءة. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective_data = shape.three_d_format.get_effective()
+    light_rig = three_d_effective_data.light_rig
+
+    light_type = light_rig.light_type
+    direction = light_rig.direction
+
+    print("= Effective light rig properties =")
+    print("Type: " + str(light_type))
+    print("Direction: " + str(direction))
+```
+
+## **الحصول على الخصائص الفعّالة لحافة الشكل**
+
+تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لحافة الشكل. النوع [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishapebeveleffectivedata/) يمثل كائنًا غير قابل للتغيير يحتوي على خصائص الحافة الفعّالة للوجه لشكلٍ ما. يتم كشف مثيل [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishapebeveleffectivedata/) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ithreedformateffectivedata/)، الذي يوفر القيم الفعّالة لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/threedformat/).
+
+يوضح عينة الشفرة التالية كيفية الحصول على الخصائص الفعّالة للحافة العلوية لشكلٍ ما. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective_data = shape.three_d_format.get_effective()
+    top_bevel = three_d_effective_data.bevel_top
+
+    bevel_type = top_bevel.bevel_type
+    bevel_width = top_bevel.width
+    bevel_height = top_bevel.height
+
+    print("= Effective shape's top face relief properties =")
+    print("Type: " + str(bevel_type))
+    print("Width: " + str(bevel_width))
+    print("Height: " + str(bevel_height))
+```
+
+## **الحصول على الخصائص الفعّالة لإطار النص**
+
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لإطار النص. النوع [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/itextframeformateffectivedata/) يحتوي على خصائص تنسيق إطار النص الفعّالة.
+
+يوضح عينة الشفرة التالية كيفية الحصول على خصائص تنسيق إطار النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مع إطار نص.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
 
-	three_d_effective_data = shape.three_d_format.get_effective()
+    text_frame_format = shape.text_frame.text_frame_format
+    effective_text_frame_format = text_frame_format.get_effective()
 
-	print("= Effective camera properties =")
-	print("Type:", str(three_d_effective_data.camera.camera_type))
-	print("Field of view:", str(three_d_effective_data.camera.field_of_view_angle))
-	print("Zoom:", str(three_d_effective_data.camera.zoom))
+    anchoring_type = effective_text_frame_format.anchoring_type
+    autofit_type = effective_text_frame_format.autofit_type
+    text_vertical_type = effective_text_frame_format.text_vertical_type
+    margin_left = effective_text_frame_format.margin_left
+    margin_top = effective_text_frame_format.margin_top
+    margin_right = effective_text_frame_format.margin_right
+    margin_bottom = effective_text_frame_format.margin_bottom
+
+    print("Anchoring type: " + str(anchoring_type))
+    print("Autofit type: " + str(autofit_type))
+    print("Text vertical type: " + str(text_vertical_type))
+    print("Margins")
+    print("   Left: " + str(margin_left))
+    print("   Top: " + str(margin_top))
+    print("   Right: " + str(margin_right))
+    print("   Bottom: " + str(margin_bottom))
 ```
 
+## **الحصول على الخصائص الفعّالة لنمط النص**
 
-## **الحصول على خصائص إضاءة الضوء الفعّالة**
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لنمط النص. النوع [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/itextstyleeffectivedata/) يحتوي على خصائص نمط النص الفعّالة.
 
-تتيح لك Aspose.Slides for Python via .NET استرجاع الخصائص الفعّالة لمدى الإضاءة. تمثل الفئة [ILightRigEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilightrigeffectivedata/) كائنًا غير قابل للتغيير يحتوي على هذه الخصائص. يتم توفير نسخة من [ILightRigEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilightrigeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/)، التي تقدم القيم الفعّالة لفئة [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/).
+يوضح عينة الشفرة التالية كيفية الحصول على خصائص نمط النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مع إطار نص.
 
-المثال التالي يوضح كيفية الحصول على خصائص إضاءة الضوء الفعّالة:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("Presentation1.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    text_frame_format = shape.text_frame.text_frame_format
+    text_style = text_frame_format.text_style
+    effective_text_style = text_style.get_effective()
+    level_count = 9
 
-	three_d_effective_data = shape.three_d_format.get_effective()
+    for level_index in range(level_count):
+        effective_style_level = effective_text_style.get_level(level_index)
+        depth = effective_style_level.depth
+        indent = effective_style_level.indent
+        alignment = effective_style_level.alignment
+        font_alignment = effective_style_level.font_alignment
 
-	print("= Effective light rig properties =")
-	print("Type:", str(three_d_effective_data.light_rig.light_type))
-	print("Direction:", str(three_d_effective_data.light_rig.direction))
+        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
+
+        print("Depth: " + str(depth))
+        print("Indent: " + str(indent))
+        print("Alignment: " + str(alignment))
+        print("Font alignment: " + str(font_alignment))
 ```
 
+## **الحصول على قيمة ارتفاع الخط الفعّال**
 
-## **الحصول على خصائص القطع الشكلية الفعّالة**
+باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعّال. يوضح الشيفرة التالية كيفية تغير ارتفاع الخط الفعّال لجزء بعد تعيين قيم ارتفاع الخط المحلي على مستويات مختلفة من بنية العرض التقديمي.
 
-تتيح لك Aspose.Slides for Python via .NET استرجاع الخصائص الفعّالة للقطع الشكلية. تمثل الفئة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ishapebeveleffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص القطع (الانحدار) للوجه. يتم توفير نسخة من [IShapeBevelEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ishapebeveleffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/)، التي تقدم القيم الفعّالة لفئة [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/).
-
-المثال التالي يوضح كيفية الحصول على الخصائص الفعّالة للقطع الشكلية:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("Presentation1.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-	three_d_effective_data = shape.three_d_format.get_effective()
-
-	print("= Effective shape's top face relief properties =")
-	print("Type:", str(three_d_effective_data.bevel_top.bevel_type))
-	print("Width:", str(three_d_effective_data.bevel_top.width))
-	print("Height:", str(three_d_effective_data.bevel_top.height))
-```
-
-
-## **الحصول على خصائص إطار النص الفعّالة**
-
-باستخدام Aspose.Slides for Python via .NET، يمكنك استرجاع الخصائص الفعّالة لإطار النص. تحتوي الفئة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformateffectivedata/) على خصائص تنسيق إطار النص الفعّالة.
-
-المثال التالي يوضح كيفية الحصول على خصائص تنسيق إطار النص الفعّلة:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("Presentation1.pptx") as presentation:
-	shape = presentation.slides[0].shapes[0]
-
-	text_frame_format_effective_data = shape.text_frame.text_frame_format.get_effective()
-
-	print("Anchoring type:", str(text_frame_format_effective_data.anchoring_type))
-	print("Autofit type:", str(text_frame_format_effective_data.autofit_type))
-	print("Text vertical type:", str(text_frame_format_effective_data.text_vertical_type))
-	print("Margins")
-	print("   Left:", str(text_frame_format_effective_data.margin_left))
-	print("   Top:", str(text_frame_format_effective_data.margin_top))
-	print("   Right:", str(text_frame_format_effective_data.margin_right))
-	print("   Bottom:", str(text_frame_format_effective_data.margin_bottom))
-```
-
-
-## **الحصول على خصائص نمط النص الفعّالة**
-
-باستخدام Aspose.Slides for Python via .NET، يمكنك استرجاع الخصائص الفعّالة لنمط النص. تحتوي الفئة [ITextStyleEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/itextstyleeffectivedata/) على خصائص نمط النص الفعّالة.
-
-المثال التالي يوضح كيفية الحصول على خصائص نمط النص الفعّالة:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("Presentation1.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    effective_text_style = shape.text_frame.text_frame_format.text_style.get_effective()
-
-    for i in range(8):
-        effectiveStyleLevel = effective_text_style.get_level(i)
-        print(f"= Effective paragraph formatting for style level #{str(i)} =")
-
-        print("Depth:", str(effectiveStyleLevel.depth))
-        print("Indent:", str(effectiveStyleLevel.indent))
-        print("Alignment:", str(effectiveStyleLevel.alignment))
-        print("Font alignment:", str(effectiveStyleLevel.font_alignment))
-```
-
-
-## **الحصول على ارتفاع الخط الفعّال**
-
-باستخدام Aspose.Slides for Python via .NET، يمكنك استرجاع ارتفاع الخط الفعّال. يوضح المثال أدناه كيف يتغيّر ارتفاع الخط الفعّال لجزء النص عندما تُعيّن قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي.
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
+    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
+    auto_shape.add_text_frame("")
 
-    shape.add_text_frame("")
-    paragraph = shape.text_frame.paragraphs[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
 
-    portion0 = slides.Portion("Sample text with first portion")
-    portion1 = slides.Portion(" and second portion.")
+    first_portion = slides.Portion("Sample text with first portion")
+    second_portion = slides.Portion(" and second portion.")
 
-    paragraph.portions.add(portion0)
-    paragraph.portions.add(portion1)
+    paragraph.portions.add(first_portion)
+    paragraph.portions.add(second_portion)
 
     print("Effective font height just after creation:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    presentation.default_text_style.get_level(0).default_portion_format.font_height = 24
+    default_text_style_level = presentation.default_text_style.get_level(0)
+    default_text_style_level.default_portion_format.font_height = 24
 
-    print("Effective font height after setting entire presentation default font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    print("Effective font height after setting the presentation default font height:")
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
     paragraph.paragraph_format.default_portion_format.font_height = 40
 
     print("Effective font height after setting paragraph default font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    paragraph.portions[0].portion_format.font_height = 55
+    first_portion.portion_format.font_height = 55
 
     print("Effective font height after setting portion #0 font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    paragraph.portions[1].portion_format.font_height = 18
+    second_portion.portion_format.font_height = 18
 
     print("Effective font height after setting portion #1 font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    presentation.save("SetLocalFontHeightValues.pptx",slides.export.SaveFormat.PPTX)
+    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **الحصول على تنسيق التعبئة الفعّال لجدول**
 
-## **الحصول على تنسيق تعبئة الجدول الفعّال**
+باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. النوع [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ifillformateffectivedata/) يحتوي على خصائص تنسيق التعبئة الفعّالة. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنظيم الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بالكامل.
 
-باستخدام Aspose.Slides for Python via .NET، يمكنك استرجاع تنسيق التعبئة الفعّال لأجزاء منطقية مختلفة من الجدول. تحتوي الفئة [IFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ifillformateffectivedata/) على خصائص تنسيق التعبئة الفعّالة. لاحظ أن تنسيق الخلية له أولوية أعلى دائمًا من تنسيق الصف، والصف له أولوية أعلى من العمود، والعمود له أولوية أعلى من الجدول بأكمله.
+وبالتالي، تُستخدم خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/python-net/aspose.slides/icellformateffectivedata/) لرسم خلية الجدول. يوضح عينة الشفرة التالية كيفية الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول في الشريحة الأولى هو [Table](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/).
 
-لذلك تُستخدم في النهاية خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icellformateffectivedata/) لرسم الجدول. يوضح المثال التالي كيفية الحصول على تنسيق التعبئة الفعّال للمستويات المختلفة للجدول:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-	table = presentation.slides[0].shapes[0]
+with slides.Presentation("sample.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    first_row = table.rows[0]
+    first_column = table.columns[0]
+    first_cell = first_row[0]
 
-	table_format_effective = table.table_format.get_effective()
-	row_format_effective = table.rows[0].row_format.get_effective()
-	column_format_effective = table.columns[0].column_format.get_effective()
-	cell_format_effective = table[0, 0].cell_format.get_effective()
+    table_format_effective = table.table_format.get_effective()
+    row_format_effective = first_row.row_format.get_effective()
+    column_format_effective = first_column.column_format.get_effective()
+    cell_format_effective = first_cell.cell_format.get_effective()
 
-	table_fill_format_effective = table_format_effective.fill_format
-	row_fill_format_effective = row_format_effective.fill_format
-	column_fill_format_effective = column_format_effective.fill_format
-	cell_fill_format_effective = cell_format_effective.fill_format
+    table_fill_format_effective = table_format_effective.fill_format
+    row_fill_format_effective = row_format_effective.fill_format
+    column_fill_format_effective = column_format_effective.fill_format
+    cell_fill_format_effective = cell_format_effective.fill_format
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+**هل تُعيد `get_effective` لقطةً؟**
 
-**كيف يمكنني معرفة أنني حصلت على «لقطة» بدلاً من «كائن حي»، ومتى ينبغي علي قراءة الخصائص الفعّالة مرة أخرى؟**
+ليس دائماً. تمثل البيانات الفعّالة التنسيق المحسوب بعد تطبيق الوراثة، لكن قد يتم تخزين بعض كائنات البيانات الفعّالة مؤقتًا داخليًا. قد يعيد استدعاء `get_effective` لاحقًا حساب التنسيق وتحديث البيانات المخزنة، لذا لا يجب اعتبار الكائن الذي تم الحصول عليه مسبقًا كنسخة ثابتة.
 
-كائنات EffectiveData هي لقطات غير قابلة للتغيير للقيم المحسوبة في وقت الاستدعاء. إذا غيرت الإعدادات المحلية أو الموروثة للشكل، استرجع البيانات الفعّالة مرة أخرى للحصول على القيم المحدثة.
+**متى يجب قراءة الخصائص الفعّالة مرة أخرى؟**
 
-**هل يؤثر تغيير الشريحة النموذجية/الرئيسية على الخصائص الفعّالة التي تم استرجاعها بالفعل؟**
+استدعِ `get_effective` مرة أخرى بعد تغيير التنسيق المحلي أو أنماط الوالد، أو تنسيق التخطيط، أو تنسيق الرئيس، أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيعيد الاستدعاء التالي تقييم شجرة التنسيق ويعيد النتيجة الفعّالة الحالية.
 
-نعم، لكن فقط بعد أن تقرأها مرة أخرى. كائن EffectiveData الذي تم الحصول عليه لا يُحدّث نفسه—اطلبه مرة أخرى بعد تغيير النموذج أو الشريحة الرئيسية.
+**هل يؤثر تعديل أو إزالة شريحة تخطيط/رئيسية على الخصائص الفعّالة التي تم استرجاعها مسبقًا؟**
 
-**هل يمكنني تعديل القيم عبر EffectiveData؟**
+نعم، لكن التغيير يظهر في الاستدعاء التالي لـ `get_effective`. إذا تم تعديل أو إزالة مصدر تنسيق الوالد، قد تصبح البيانات الفعّالة المسترجعة سابقًا قديمة. بمجرد استدعاء `get_effective` مرة أخرى، تعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير الخطوط أو الألوان أو الأحجام أو القيم الأخرى الناتجة.
 
-لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعّالة مرة أخرى.
+**هل يمكن تعديل القيم عبر كائنات البيانات الفعّالة؟**
 
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل، ولا على مستوى النموذج/الرئيسية، ولا في الإعدادات العالمية؟**
+لا. كائنات البيانات الفعّالة تعرض القيم المحسوبة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي، ثم احصل على القيم الفعّالة مرة أخرى.
 
-تُحدّد القيمة الفعّالة عبر آلية الافتراض (الافتراضات الخاصة بـ PowerPoint/Aspose.Slides). تصبح تلك القيمة المحلولة جزءًا من لقطة EffectiveData.
+**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل ولا في التخطيط/الرئيس ولا في الإعدادات العامة؟**
 
-**من قيمة الخط الفعّالة، هل يمكنني معرفة أي مستوى قدم الحجم أو الخط؟**
+يُحدد القيمة الفعّالة عبر الآلية الافتراضية، والتي تشمل الإعدادات الافتراضية لـ PowerPoint وAspose.Slides. تصبح القيمة التي تم حلها جزءًا من البيانات الفعّالة الحالية.
 
-ليس مباشرة. تُعيد EffectiveData القيمة النهائية. لتحديد المصدر، افحص القيم المحلية على الجزء/الفقرة/إطار النص وأنماط النص على النموذج/الرئيسية/العرض التقديمي لتعرف أين تظهر أول تعريف صريح.
+**من قيمة الخط الفعّالية، هل يمكنني معرفة المستوى الذي قدم الحجم أو نوع الخط؟**
 
-**لماذا تبدو قيم EffectiveData أحيانًا مماثلة للقيم المحلية؟**
+ليس مباشرة. تُعيد البيانات الفعّالة القيمة النهائية. لتحديد المصدر، افحص القيم المحلية في الجزء، الفقرة، إطار النص، وأنماط النص على مستويات التخطيط، الرئيس، والعرض التقديمي لترى أين تظهر التعريف الصريح الأول.
 
-لأن القيمة المحلية انتهت لتكون النهائية (لم تكن هناك حاجة إلى وراثة من مستوى أعلى). في هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
+**لماذا تبدو القيم الفعّالة أحيانًا مطابقة للقيم المحلية؟**
 
-**متى يجب استخدام الخصائص الفعّالة، ومتى يجب العمل فقط بالقيم المحلية؟**
+لأن القيمة المحلية انتهت لتكون النهائية (لم يكن هناك حاجة للوراثة من مستوى أعلى). في مثل هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
 
-استخدم EffectiveData عندما تحتاج إلى النتيجة «كما تم عرضها» بعد تطبيق جميع الوراثات (مثلاً لتوافق الألوان، المسافات البادئة، أو الأحجام). إذا أردت تعديل التنسيق على مستوى محدد، غيّر الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.
+**متى يجب استخدام الخصائص الفعّالة، ومتى أكتفي بالخصائص المحلية؟**
+
+استخدم البيانات الفعّالة عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع وراثات التنسيق، مثل مطابقة الألوان أو الهوامش أو الأحجام. إذا كنت تحتاج إلى الاحتفاظ بهذه القيم بغض النظر عن تغييرات التنسيق المستقبلية، انسخ الخصائص المطلوبة إلى كائنك الخاص. إذا كنت تحتاج إلى تعديل التنسيق على مستوى محدد، عدل الخصائص المحلية ثم، إذا لزم الأمر، اقرِئ البيانات الفعّالة مرة أخرى للتحقق من النتيجة.

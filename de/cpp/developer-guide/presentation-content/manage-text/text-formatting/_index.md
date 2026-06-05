@@ -1,465 +1,617 @@
 ---
-title: PowerPoint-Text in C++ formatieren
+title: Text in Präsentationen in C++ formatieren
 linktitle: Textformatierung
 type: docs
 weight: 50
 url: /de/cpp/text-formatting/
 keywords:
 - Text hervorheben
-- regulärer Ausdruck
+- Regulärer Ausdruck
 - Absatz ausrichten
 - Textstil
 - Texthintergrund
 - Texttransparenz
 - Zeichenabstand
-- Schriftarteigenschaften
+- Schrifteigenschaften
 - Schriftfamilie
 - Textrotation
-- Rotationswinkel
+- Drehwinkel
 - Textfeld
 - Zeilenabstand
 - Autofit-Eigenschaft
 - Textfeldverankerung
-- Texttabulatoren
+- Texttabulation
 - Standardsprache
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Formatieren und gestalten Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++. Passen Sie Schriftarten, Farben, Ausrichtungen und mehr an."
+description: "Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++ formatieren und gestalten. Schriftarten, Farben, Ausrichtung und mehr anpassen."
 ---
+## **Übersicht**
+
+Dieser Artikel zeigt, wie man Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++ formatiert. Er behandelt Hervorhebung, Hintergrundfarben, Transparenz, Zeichenabstand, Schrifteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabulatoren und Spracheinstellungen.
+
+In den nachstehenden Beispielen verwenden wir eine Datei mit dem Namen "sample.pptx", die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
+
+![Beispieltext](sample_text.png)
 
 ## **Text hervorheben**
-Die neue **HighlightText**‑Methode wurde zu den Klassen **ITextFrame** und **TextFrame** hinzugefügt. Sie ermöglicht es, einen Textteil mit Hintergrundfarbe zu markieren, indem ein Textbeispiel verwendet wird, ähnlich dem Werkzeug **Text Highlight Color** in PowerPoint 2019.
 
-Der folgende Code‑Schnipsel zeigt, wie diese Funktion verwendet wird:
+Verwenden Sie die Methode [ITextFrame.HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlighttext/), wenn Sie Text hervorheben müssen, der innerhalb eines Textframes einer bestimmten Zeichenfolge entspricht. Die Methode wendet eine Hervorhebungsfarbe auf passende Textfragmente an und kann zusammen mit [ITextSearchOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/) verwendet werden, um zu steuern, wie die Suche durchgeführt wird, zum Beispiel um nur ganze Wörter zu finden.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightText-HighlightText.cpp" >}}
+Das nachstehende Codebeispiel hebt alle Vorkommen der Zeichenfolge **"try"** hervor und anschließend nur das ganze Wort **"to"**.
 
-{{% alert color="primary" %}} 
-Aspose bietet einen einfachen, [kostenlosen Online-PowerPoint‑Bearbeitungsservice](https://products.aspose.app/slides/editor)
-{{% /alert %}} 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+// Erhalte die erste Form von der ersten Folie.
+auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+// Hervorheben des Wortes "try" in der Form.
+shape->get_TextFrame()->HighlightText(u"try", System::Drawing::Color::get_LightBlue());
+
+auto searchOptions = System::MakeObject<TextSearchOptions>();
+searchOptions->set_WholeWordsOnly(true);
+
+// Hervorheben des Wortes "to" in der Form.
+shape->get_TextFrame()->HighlightText(u"to", System::Drawing::Color::get_Violet(), searchOptions, nullptr);
+
+presentation->Save(u"highlighted_text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Der hervorgehobene Text](highlighted_text.png)
 
 ## **Text mit regulären Ausdrücken hervorheben**
-Die neue **HighlightRegex**‑Methode wurde zu den Klassen **ITextFrame** und **TextFrame** hinzugefügt. Sie ermöglicht es, einen Textteil mit Hintergrundfarbe zu markieren, indem ein regulärer Ausdruck verwendet wird, ähnlich dem Werkzeug **Text Highlight Color** in PowerPoint 2019.
 
-Der folgende Code‑Schnipsel zeigt, wie diese Funktion verwendet wird:
+Die Methode [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlightregex/) hebt Textübereinstimmungen hervor, die durch einen regulären Ausdruck gefunden wurden. In C++ wird diese API über [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) bereitgestellt.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightTextUsingRegx-HighlightTextUsingRegx.cpp" >}}
+Das nachstehende Codebeispiel hebt alle Wörter hervor, die **sieben oder mehr Zeichen** enthalten:
 
-## **Text‑Hintergrundfarbe festlegen**
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-Aspose.Slides ermöglicht es, die gewünschte Hintergrundfarbe für Text festzulegen.
+auto regex = System::MakeObject<System::Text::RegularExpressions::Regex>(u"\\b[^\\s]{7,}\\b");
 
-Dieser C++‑Code zeigt, wie man die Hintergrundfarbe für den gesamten Text festlegt:
-```c++
+// Highlight all words with seven or more characters.
+shape->get_TextFrame()->HighlightRegex(regex, System::Drawing::Color::get_Yellow(), nullptr);
+
+presentation->Save(u"highlighted_text_using_regex.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Der hervorgehobene Text mittels regulärem Ausdruck](highlighted_text_using_regex.png)
+
+## **Texthintergrundfarbe festlegen**
+
+Verwenden Sie [IParagraphFormat]`.DefaultPortionFormat`, um die Standard‑Hervorhebungsfarbe für einen Absatz festzulegen, oder verwenden Sie [IPortionFormat]`.HighlightColor` für einzelne Textabschnitte.
+
+Das folgende Codebeispiel zeigt, wie die Hintergrundfarbe für den **gesamten Absatz** festgelegt wird:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
+// Setze die Hervorhebungsfarbe für den gesamten Absatz.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_LightGray());
+
+presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Der graue Absatz](gray_paragraph.png)
+
+Das folgende Codebeispiel demonstriert, wie die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festgelegt wird:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
+
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IAutoShape> autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 200.0f, 100.0f);
-    auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
-    paragraphs->Clear();
-    System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
-    auto portion1 = System::MakeObject<Portion>(u"Black");
-    portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
-
-    auto portion2 = System::MakeObject<Portion>(u" Red ");
-
-    auto portion3 = System::MakeObject<Portion>(u"Black");
-    portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
-
-    auto paragraphPortions = para->get_Portions();
-    paragraphPortions->Add(portion1);
-    paragraphPortions->Add(portion2);
-    paragraphPortions->Add(portion3);
-    paragraphs->Add(para);
-
-    pres->Save(u"text.pptx", SaveFormat::Pptx);
-}
-
-{
-    auto pres = System::MakeObject<Presentation>(u"text.pptx");
-    auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slide(0)->get_Shape(0));
-    auto portions = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portions();
-    for (auto&& portion : portions)
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
     {
-        portion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_Blue());
+        // Setze die Hervorhebungsfarbe für den Textabschnitt.
+        portion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_LightGray());
     }
-    pres->Save(u"text-red.pptx", SaveFormat::Pptx);
 }
+
+presentation->Save(u"gray_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Das Ergebnis:
 
-Dieser C++‑Code zeigt, wie man die Hintergrundfarbe nur für einen Teil des Textes festlegt:
-```c++
-{
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IAutoShape> autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 200.0f, 100.0f);
+![Die grauen Textabschnitte](gray_text_portions.png)
 
-    auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
-    paragraphs->Clear();
-    System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
-    auto portion1 = System::MakeObject<Portion>(u"Black");
-    portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
+## **Absätze ausrichten**
 
-    auto portion2 = System::MakeObject<Portion>(u" Red ");
+Verwenden Sie [IParagraphFormat]`.Alignment`, um die Absatzausrichtung innerhalb eines Textframes festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, blockiert usw. sein.
 
-    auto portion3 = System::MakeObject<Portion>(u"Black");
-    portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
+Das folgende Codebeispiel zeigt, wie der Absatz **zentriert** ausgerichtet wird:
 
-    auto paragraphPortions = para->get_Portions();
-    paragraphPortions->Add(portion1);
-    paragraphPortions->Add(portion2);
-    paragraphPortions->Add(portion3);
-    paragraphs->Add(para);
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-    pres->Save(u"text.pptx", SaveFormat::Pptx);
-}
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-{
-    auto pres = System::MakeObject<Presentation>(u"text.pptx");
-    auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slide(0)->get_Shape(0));
+// Setze die Ausrichtung des Absatzes auf zentriert.
+paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
-	auto predicate = [](System::SharedPtr<IPortion> portion) -> bool {
-        return portion->get_Text().Contains(u"Red");
-	};
-
-	auto portions = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portions();
-    System::SharedPtr<IPortion> redPortion;
-	for (auto&& portion : portions)
-        if (predicate(portion))
-            redPortion = portion;
-
-    redPortion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_Red());
-
-    pres->Save(u"text-red.pptx", SaveFormat::Pptx);
-}
+presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Das Ergebnis:
 
-## **Textabsätze ausrichten**
-Die Textformatierung ist ein zentrales Element beim Erstellen von Dokumenten oder Präsentationen. Aspose.Slides für C++ unterstützt das Hinzufügen von Text zu Folien; in diesem Abschnitt zeigen wir, wie man die Ausrichtung von Textabsätzen in einer Folie steuern kann. Bitte folgen Sie den nachstehenden Schritten, um Textabsätze mit Aspose.Slides für C++ auszurichten:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Klasse.  
-2. Rufen Sie die Referenz einer Folie über deren Index ab.  
-3. Greifen Sie auf die Platzhalter‑Shapes der Folie zu und casten Sie sie zu einem **AutoShape**.  
-4. Holen Sie den **Paragraph** (der ausgerichtet werden soll) aus dem **TextFrame**, das vom **AutoShape** bereitgestellt wird.  
-5. Richten Sie den **Paragraph** aus. Ein Paragraph kann nach **Right**, **Left**, **Center** oder **Justify** ausgerichtet werden.  
-6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
-
-Die Implementierung der oben genannten Schritte finden Sie unten.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ParagraphsAlignment-ParagraphsAlignment.cpp" >}}
+![Der ausgerichtete Absatz](aligned_paragraph.png)
 
 ## **Transparenz für Text festlegen**
-Dieser Artikel demonstriert, wie man die Transparenzeigenschaft für beliebige Text‑Shapes mithilfe von Aspose.Slides festlegt. Um die Transparenz für Text festzulegen, befolgen Sie bitte die folgenden Schritte:
 
-1. Erstellen Sie eine Instanz der **Presentation**‑Klasse.  
-2. Holen Sie die Referenz einer Folie.  
-3. Setzen Sie die Schattenfarbe.  
-4. Schreiben Sie die Präsentation als PPTX‑Datei.
+Die Texttransparenz wird über die Alpha‑Komponente der Farbe gesteuert, die [IPortionFormat]`.FillFormat` zugewiesen ist. In den nachstehenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Kanalwert im Bereich 0‑255 und keine Transparenz‑Prozentangabe.
 
-Die Implementierung der oben genannten Schritte finden Sie unten.
+Das folgende Codebeispiel zeigt, wie Transparenz auf den **gesamten Absatz** angewendet wird:
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTransparencyOfTextInShadow-SetTransparencyOfTextInShadow.cpp" >}}
+```cpp
+int alpha = 50;
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+
+// Setze die Füllfarbe des Textes auf eine transparente Farbe.
+defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+auto transparentColor = System::Drawing::Color::FromArgb(alpha, System::Drawing::Color::get_Black());
+defaultPortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(transparentColor);
+
+presentation->Save(u"transparent_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Der transparente Absatz](transparent_paragraph.png)
+
+Das folgende Codebeispiel zeigt, wie Transparenz auf **Textabschnitte mit fetter Schrift** angewendet wird:
+
+```cpp
+int alpha = 50;
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
+
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+{
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    {
+        // Setze die Transparenz des Textabschnitts.
+        portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+        auto transparentColor = System::Drawing::Color::FromArgb(alpha, System::Drawing::Color::get_Black());
+        portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(transparentColor);
+    }
+}
+
+presentation->Save(u"transparent_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Die transparenten Textabschnitte](transparent_text_portions.png)
 
 ## **Zeichenabstand für Text festlegen**
 
-Aspose.Slides ermöglicht das Festlegen des Abstands zwischen Zeichen in einem Textfeld. Auf diese Weise können Sie die visuelle Dichte einer Zeile oder eines Textblocks durch Vergrößern oder Verkleinern des Zeichenabstands anpassen.
+Verwenden Sie [IBasePortionFormat]`.Spacing`, um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verkleinern.
 
-Dieser C++‑Code zeigt, wie man den Abstand für eine Zeile Text erweitert und für eine andere Zeile verkleinert:
-```c++
-auto presentation = System::MakeObject<Presentation>(u"in.pptx");
+Der folgende C++‑Code zeigt, wie der Zeichenabstand im **gesamten Absatz** vergrößert wird:
 
-auto slide = presentation->get_Slides()->idx_get(0);
-auto textBox1 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(0));
-auto textBox2 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(1));
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // erweitern
-textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(-2.0f); // verdichten
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-presentation->Save(u"out.pptx", SaveFormat::Pptx);
+// Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu komprimieren.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f);
+
+presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Das Ergebnis:
 
-## **Text‑Schriftart‑Eigenschaften verwalten**
+![Der Zeichenabstand im Absatz](character_spacing_in_paragraph.png)
 
-Präsentationen enthalten üblicherweise Text und Bilder. Der Text kann auf verschiedene Weise formatiert werden, etwa zur Hervorhebung bestimmter Abschnitte oder zur Einhaltung von Unternehmensrichtlinien. Die Textformatierung hilft Benutzern, das Aussehen von Präsentationsinhalten zu variieren. Dieser Artikel zeigt, wie man mit Aspose.Slides für C++ die Schriftarteigenschaften von Absätzen auf Folien konfiguriert.
+Das folgende Codebeispiel zeigt, wie der Zeichenabstand in **Textabschnitten mit fetter Schrift** vergrößert wird:
 
-1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.  
-2. Holen Sie die Referenz einer Folie über deren Index.  
-3. Greifen Sie auf die Platzhalter‑Shapes der Folie zu und casten Sie sie zu **AutoShape**.  
-4. Holen Sie den **Paragraph** aus dem **TextFrame**, das vom **AutoShape** bereitgestellt wird.  
-5. Richten Sie den Paragraph aus.  
-6. Greifen Sie auf das **Portion**‑Objekt des Paragraphs zu.  
-7. Definieren Sie die Schriftart über **FontData** und setzen Sie die **Font**‑Eigenschaft des **Portion**‑Objekts entsprechend.  
-   1. Setzen Sie die Schriftart auf **Bold**.  
-   2. Setzen Sie die Schriftart auf **Italic**.  
-8. Setzen Sie die Schriftfarbe über das **FillFormat**, das vom **Portion**‑Objekt bereitgestellt wird.  
-9. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-Die Implementierung der oben genannten Schritte finden Sie unten. Sie nimmt eine schlichte Präsentation und formatiert die Schriftarten einer Folie.
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontProperties-FontProperties.cpp" >}}
-
-## **Schriftfamilie von Text verwalten**
-Ein **Portion** wird verwendet, um Text mit ähnlichem Formatstil in einem Paragraphen zu halten. Dieser Artikel zeigt, wie man mit Aspose.Slides für C++ ein Textfeld mit Text erstellt und dabei eine bestimmte Schriftart sowie weitere Eigenschaften der Schriftfamilie definiert.
-
-1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.  
-2. Holen Sie die Referenz einer Folie über deren Index.  
-3. Fügen Sie der Folie ein **AutoShape** vom Typ **Rectangle** hinzu.  
-4. Entfernen Sie den Füllstil, der dem **AutoShape** zugeordnet ist.  
-5. Greifen Sie auf das **TextFrame** des **AutoShape** zu.  
-6. Fügen Sie dem **TextFrame** Text hinzu.  
-7. Greifen Sie auf das **Portion**‑Objekt im **TextFrame** zu.  
-8. Definieren Sie die Schriftart, die für das **Portion** verwendet werden soll.  
-9. Setzen Sie weitere Schriftarteigenschaften wie **Bold**, **Italic**, **Underline**, **Color** und **Height** über die entsprechenden Eigenschaften des **Portion**‑Objekts.  
-10. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
-
-Die Implementierung der oben genannten Schritte finden Sie unten.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTextFontProperties-SetTextFontProperties.cpp" >}}
-
-## **Schriftgröße für Text festlegen**
-
-Aspose.Slides ermöglicht es, die gewünschte Schriftgröße für bestehenden Text in einem Paragraphen sowie für später hinzugefügten Text festzulegen.
-
-Dieser C++‑Code zeigt, wie man die Schriftgröße für Texte in einem Paragraphen festlegt:
-```c++
-auto presentation = System::MakeObject<Presentation>(u"example.pptx");
-
-// Holt das erste Shape, zum Beispiel.
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-if (System::ObjectExt::Is<IAutoShape>(shape))
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-    // Holt den ersten Absatz, zum Beispiel.
-    auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-    // Setzt die Standardschriftgröße auf 20 pt für alle Textanteile im Absatz.
-    paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20.0f);
-    // Setzt die Schriftgröße auf 20 pt für aktuelle Textanteile im Absatz.
-    for (auto&& portion : paragraph->get_Portions())
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
     {
-        portion->get_PortionFormat()->set_FontHeight(20.0f);
+        // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu komprimieren.
+        portion->get_PortionFormat()->set_Spacing(3.0f);
+    }
+}
+
+presentation->Save(u"character_spacing_in_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Der Zeichenabstand in den Textabschnitten](character_spacing_in_text_portions.png)
+
+### **Kerning für bestimmte Schriftarten deaktivieren**
+
+In einigen Fällen kann der von Aspose.Slides gerenderte Text etwas enger aussehen als derselbe Text in PowerPoint. Das kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriftarten ignorieren kann, selbst wenn die Schriftart gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
+
+Um die gerenderte Ausgabe in solchen Fällen PowerPoint anzunähern, können Sie das Kerning für Textabschnitte, die die betroffene Schriftart verwenden, deaktivieren. Setzen Sie [IPortionFormat]`.KerningMinimalSize` auf einen Wert, der deutlich größer als die tatsächliche Schriftgröße ist:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+System::String targetFont = u"Roboto";
+auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
+int paragraphCount = paragraphs->get_Count();
+
+for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+{
+    auto paragraph = paragraphs->idx_get(paragraphIndex);
+    auto portions = paragraph->get_Portions();
+    int portionCount = portions->get_Count();
+
+    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    {
+        auto portion = portions->idx_get(portionIndex);
+        auto portionFormat = portion->get_PortionFormat();
+        auto latinFont = portionFormat->get_LatinFont();
+        auto eastAsianFont = portionFormat->get_EastAsianFont();
+        auto complexScriptFont = portionFormat->get_ComplexScriptFont();
+
+        bool isLatinFont = latinFont != nullptr && latinFont->get_FontName() == targetFont;
+        bool isEastAsianFont = eastAsianFont != nullptr && eastAsianFont->get_FontName() == targetFont;
+        bool isComplexScriptFont = complexScriptFont != nullptr && complexScriptFont->get_FontName() == targetFont;
+
+        if (isLatinFont || isEastAsianFont || isComplexScriptFont)
+        {
+            portionFormat->set_KerningMinimalSize(100.0f);
+        }
     }
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Diese Einstellung verhindert, dass Kerning auf passende Textabschnitte angewendet wird, und kann dazu beitragen, das Rendering von Aspose.Slides an die visuelle Ausgabe von PowerPoint für von diesem PowerPoint‑spezifischen Verhalten betroffene Schriftarten anzupassen.
+
+## **Schrifteigenschaften für Text verwalten**
+
+Schrifteigenschaften können auf Absatzebene über [IParagraphFormat]`.DefaultPortionFormat` oder auf einzelnen Abschnitten über [IPortionFormat]`.` festgelegt werden.
+
+Der folgende Code legt die Schriftart und den Textstil für den gesamten Absatz fest: Er wendet Schriftgröße, Fett, Kursiv, gepunktete Unterstreichung und die Schriftart Times New Roman auf alle Abschnitte des Absatzes an.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+
+// Setze die Schrifteigenschaften für den Absatz.
+defaultPortionFormat->set_FontHeight(12.0f);
+defaultPortionFormat->set_FontBold(NullableBool::True);
+defaultPortionFormat->set_FontItalic(NullableBool::True);
+defaultPortionFormat->set_FontUnderline(TextUnderlineType::Dotted);
+defaultPortionFormat->set_LatinFont(System::MakeObject<FontData>(u"Times New Roman"));
+
+presentation->Save(u"font_properties_for_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Die Schrifteigenschaften für den Absatz](font_properties_for_paragraph.png)
+
+Das folgende Codebeispiel wendet ähnliche Eigenschaften auf **Textabschnitte mit fetter Schrift** an:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
+
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+{
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    {
+        // Setze die Schrifteigenschaften für den Textabschnitt.
+        portion->get_PortionFormat()->set_FontHeight(13.0f);
+        portion->get_PortionFormat()->set_FontItalic(NullableBool::True);
+        portion->get_PortionFormat()->set_FontUnderline(TextUnderlineType::Dotted);
+        portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"Times New Roman"));
+    }
+}
+
+presentation->Save(u"font_properties_for_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Die Schrifteigenschaften für Textabschnitte](font_properties_for_text_portions.png)
 
 ## **Textrotation festlegen**
 
-Aspose.Slides für C++ erlaubt Entwicklern, Text zu drehen. Der Text kann als **Horizontal**, **Vertical**, **Vertical270**, **WordArtVertical**, **EastAsianVertical**, **MongolianVertical** oder **WordArtVerticalRightToLeft** dargestellt werden. Um den Text eines beliebigen **TextFrame** zu drehen, befolgen Sie bitte die folgenden Schritte:
+Verwenden Sie [ITextFrameFormat]`.TextVerticalType`, um eine vordefinierte Textausrichtung innerhalb einer Form festzulegen.
 
-1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.  
-2. Greifen Sie auf die erste Folie zu.  
-3. Fügen Sie der Folie ein beliebiges **Shape** hinzu.  
-4. Greifen Sie auf das **TextFrame** zu.  
-5. Drehen Sie den Text.  
-6. Speichern Sie die Datei auf dem Datenträger.
+Das folgende Codebeispiel setzt die Textausrichtung in der Form auf `Vertical270`, wodurch der Text **90 Grad gegen den Uhrzeigersinn** gedreht wird:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RotatingText-RotatingText.cpp" >}}
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-## **Tabs und effektive Tabs in einer Präsentation**
-- Die Eigenschaft **EffectiveTabs.ExplicitTabCount** (2 in unserem Beispiel) entspricht **Tabs.Count**.  
-- Die Sammlung **EffectiveTabs** enthält alle Tabs (aus der **Tabs**‑Sammlung und den Standards).  
-- Die Eigenschaft **EffectiveTabs.DefaultTabSize** (294) gibt den Abstand zwischen den Standard‑Tabs an (3 und 4 in unserem Beispiel).  
-- **EffectiveTabs.GetTabByIndex(index)** mit **index = 0** liefert den ersten expliziten Tab (Position = 731), **index = 1** den zweiten Tab (Position = 1241). Bei **index = 2** wird der erste Standard‑Tab (Position = 1470) zurückgegeben usw.  
-- **EffectiveTabs.GetTabAfterPosition(pos)** wird verwendet, um die nächste Tab‑Position nach einem Text zu ermitteln. Beispiel: Sie haben den Text „Helloworld!“. Um diesen Text zu rendern, müssen Sie wissen, wo Sie mit dem Zeichnen von „world!“ beginnen. Zuerst berechnen Sie die Länge von „Hello“ in Pixeln und rufen **GetTabAfterPosition** mit diesem Wert auf. Sie erhalten die nächste Tab‑Position, um „world!“ zu zeichnen.
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-## **Zeilenabstand eines Absatzes**
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_TextVerticalType(TextVerticalType::Vertical270);
 
-Aspose.Slides stellt Eigenschaften unter `ParagraphFormat` – `SpaceAfter`, `SpaceBefore` und `SpaceWithin` – bereit, mit denen Sie den Zeilenabstand eines Absatzes verwalten können. Die drei Eigenschaften werden wie folgt verwendet:
-
-* Um den Zeilenabstand prozentual anzugeben, verwenden Sie einen positiven Wert.  
-* Um den Zeilenabstand in Punkten anzugeben, verwenden Sie einen negativen Wert.
-
-Beispiel: Sie können einen Zeilenabstand von 16 pt für einen Absatz festlegen, indem Sie die Eigenschaft **SpaceBefore** auf **-16** setzen.
-
-So legen Sie den Zeilenabstand für einen bestimmten Absatz fest:
-
-1. Laden Sie eine Präsentation, die ein **AutoShape** mit Text enthält.  
-2. Holen Sie die Referenz einer Folie über deren Index.  
-3. Greifen Sie auf das **TextFrame** zu.  
-4. Greifen Sie auf den **Paragraph** zu.  
-5. Setzen Sie die Paragraph‑Eigenschaften.  
-6. Speichern Sie die Präsentation.
-
-Dieser C++‑Code zeigt, wie man den Zeilenabstand für einen Paragraphen festlegt:
-``` cpp
-// Der Pfad zum Dokumentenverzeichnis.
-System::String dataDir = GetDataPath();
-
-// Erstelle eine Instanz der Presentation-Klasse
-auto presentation = System::MakeObject<Presentation>(dataDir + u"Fonts.pptx");
-
-// Erhalte die Referenz einer Folie über ihren Index
-auto sld = presentation->get_Slides()->idx_get(0);
-
-// Greife auf das TextFrame zu
-auto tf1 = (System::ExplicitCast<IAutoShape>(sld->get_Shapes()->idx_get(0)))->get_TextFrame();
-
-// Greife auf den Absatz zu
-auto para = tf1->get_Paragraphs()->idx_get(0);
-
-// Setze Eigenschaften des Absatzes
-para->get_ParagraphFormat()->set_SpaceWithin(80.0f);
-para->get_ParagraphFormat()->set_SpaceBefore(40.0f);
-para->get_ParagraphFormat()->set_SpaceAfter(40.0f);
-
-// Präsentation speichern
-presentation->Save(dataDir + u"LineSpacing_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"text_rotation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Das Ergebnis:
 
-## **AutofitType‑Eigenschaft eines Textfelds festlegen**
+![Die Textrotation](text_rotation.png)
 
-In diesem Abschnitt untersuchen wir die verschiedenen Formatierungseigenschaften von TextFrames. Dieser Artikel erklärt, wie man die **AutofitType**‑Eigenschaft, die Verankerung und die Drehung von Text in einer Präsentation festlegt. Aspose.Slides für C++ erlaubt das Setzen der **AutofitType**‑Eigenschaft jedes TextFrames. **AutofitType** kann auf **Normal** oder **Shape** gesetzt werden. Bei **Normal** bleibt die Form unverändert, während der Text angepasst wird; bei **Shape** wird die Form so geändert, dass nur der benötigte Text hineinpasst.
+## **Benutzerdefinierte Drehung für Textframes festlegen**
 
-1. Erstellen Sie eine Instanz der **Presentation**‑Klasse.  
-2. Greifen Sie auf die erste Folie zu.  
-3. Fügen Sie der Folie ein beliebiges Shape hinzu.  
-4. Greifen Sie auf das **TextFrame** zu.  
-5. Setzen Sie die **AutofitType** des **TextFrame**.  
-6. Speichern Sie die Datei auf dem Datenträger.
+Verwenden Sie [ITextFrameFormat]`.RotationAngle`, um einen benutzerdefinierten Drehwinkel für ein [ITextFrame] festzulegen.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAutofitOftextframe-SetAutofitOftextframe.cpp" >}}
+Das folgende Codebeispiel dreht den Textframe innerhalb der Form um 3 Grad im Uhrzeigersinn:
 
-## **Verankerung eines Textfelds festlegen**
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-Aspose.Slides für C++ erlaubt das Setzen der Verankerung jedes **TextFrame**. **TextAnchorType** bestimmt, wo der Text innerhalb der Form platziert wird. **TextAnchorType** kann auf **Top**, **Center**, **Bottom**, **Justified** oder **Distributed** gesetzt werden.
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.  
-2. Greifen Sie auf die erste Folie zu.  
-3. Fügen Sie der Folie ein beliebiges Shape hinzu.  
-4. Greifen Sie auf das **TextFrame** zu.  
-5. Setzen Sie **TextAnchorType** des **TextFrame**.  
-6. Speichern Sie die Datei auf dem Datenträger.
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_RotationAngle(3.0f);
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAnchorOfTextFrame-SetAnchorOfTextFrame.cpp" >}}
+presentation->Save(u"custom_text_rotation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-## **Benutzerdefinierten Rotationswinkel für ein Textfeld festlegen**
+Das Ergebnis:
 
-Aspose.Slides für C++ unterstützt nun das Setzen eines benutzerdefinierten Rotationswinkels für TextFrames. In diesem Abschnitt wird anhand eines Beispiels gezeigt, wie die **RotationAngle**‑Eigenschaft in Aspose.Slides gesetzt wird. Die neue Eigenschaft **RotationAngle** wurde zu den Schnittstellen **IChartTextBlockFormat** und **ITextFrameFormat** hinzugefügt und erlaubt das Festlegen eines benutzerdefinierten Rotationswinkels für TextFrames.
+![Die benutzerdefinierte Textrotation](custom_text_rotation.png)
 
-1. Erstellen Sie eine Instanz der **Presentation**‑Klasse.  
-2. Fügen Sie der Folie ein Diagramm hinzu.  
-3. Setzen Sie die **RotationAngle**‑Eigenschaft.  
-4. Schreiben Sie die Präsentation als PPTX‑Datei.
+## **Zeilenabstand für Absätze festlegen**
 
-Im folgenden Beispiel setzen wir die **RotationAngle**‑Eigenschaft:
+Aspose.Slides bietet [IParagraphFormat]`.SpaceAfter`, `IParagraphFormat.SpaceBefore` und `IParagraphFormat.SpaceWithin`, um den Absatzabstand zu steuern. Diese Eigenschaften werden wie folgt verwendet:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomRotationAngleTextframe-CustomRotationAngleTextframe.cpp" >}}
+* Verwenden Sie einen positiven Wert, um den Zeilenabstand als Prozentsatz der Zeilenhöhe anzugeben.
+* Verwenden Sie einen negativen Wert, um den Zeilenabstand in Punkt anzugeben.
+
+Das folgende Codebeispiel zeigt, wie der Zeilenabstand innerhalb des Absatzes festgelegt wird:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
+paragraph->get_ParagraphFormat()->set_SpaceWithin(200.0f);
+
+presentation->Save(u"line_spacing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Der Zeilenabstand im Absatz](line_spacing.png)
+
+## **Autofit‑Typ für Textframes festlegen**
+
+[ITextFrameFormat]`.AutofitType` bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie es, um zu steuern, ob der Text verkleinert, überläuft oder die Form automatisch neu dimensioniert wird.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
+
+presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Verankerung von Textframes festlegen**
+
+[ITextFrameFormat]`.AnchoringType` definiert, wie Text vertikal innerhalb einer Form positioniert wird, zum Beispiel oben, mittig oder unten.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Bottom);
+
+presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Texttabulation festlegen**
+
+Verwenden Sie [IParagraphFormat]`.DefaultTabSize` und `IParagraphFormat.Tabs`, um Tabulatoren in einem Absatz zu konfigurieren.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
+paragraph->get_ParagraphFormat()->set_DefaultTabSize(100.0f);
+paragraph->get_ParagraphFormat()->get_Tabs()->Add(30.0f, TabAlignment::Left);
+
+presentation->Save(u"paragraph_tabs.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Ergebnis:
+
+![Die Absatz‑Tabulatoren](paragraph_tabs.png)
 
 ## **Korrektursprache festlegen**
 
-Aspose.Slides stellt die Eigenschaft **LanguageId** (exponiert von der Klasse **PortionFormat**) bereit, um die Korrektursprache für ein PowerPoint‑Dokument festzulegen. Die Korrektursprache bestimmt, für welche Sprache Rechtschreibung und Grammatik im PowerPoint geprüft werden.
+Aspose.Slides bietet [IPortionFormat]`.LanguageId`, mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
 
-Dieser C++‑Code zeigt, wie man die Korrektursprache für ein PowerPoint festlegt:
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
-System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
+Das folgende Codebeispiel zeigt, wie die Korrektursprache für einen Textabschnitt festgelegt wird:
 
-System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-System::SharedPtr<IPortionCollection> portions = paragraph->get_Portions();
-portions->Clear();
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-System::SharedPtr<Portion> newPortion = System::MakeObject<Portion>();
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-System::SharedPtr<IFontData> font = System::MakeObject<FontData>(u"SimSun");
-System::SharedPtr<IPortionFormat> portionFormat = newPortion->get_PortionFormat();
-portionFormat->set_ComplexScriptFont(font);
-portionFormat->set_EastAsianFont(font);
-portionFormat->set_LatinFont(font);
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+paragraph->get_Portions()->Clear();
 
-portionFormat->set_LanguageId(u"zh-CN");
-// set the Id of a proofing language
+auto font = System::MakeObject<FontData>(u"SimSun");
 
-newPortion->set_Text(u"1。");
-portions->Add(newPortion);
+auto textPortion = System::MakeObject<Portion>();
+textPortion->get_PortionFormat()->set_ComplexScriptFont(font);
+textPortion->get_PortionFormat()->set_EastAsianFont(font);
+textPortion->get_PortionFormat()->set_LatinFont(font);
+
+// Setze die ID einer Korrektursprache.
+textPortion->get_PortionFormat()->set_LanguageId(u"zh-CN");
+
+textPortion->set_Text(u"1.");
+paragraph->get_Portions()->Add(textPortion);
+
+presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **Standardsprache festlegen**
 
-## **Standard‑Sprache festlegen**
+Verwenden Sie [ILoadOptions]`.DefaultTextLanguage`, um die Standardsprache für beim Laden oder Erstellen einer Präsentation erzeugten Text festzulegen.
 
-Dieser C++‑Code zeigt, wie man die Standardsprache für eine gesamte PowerPoint‑Präsentation festlegt:
-```c++
-System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
+```cpp
+auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
+auto presentation = System::MakeObject<Presentation>(loadOptions);
+auto slide = presentation->get_Slide(0);
 
-// Fügt eine neue Rechteckform mit Text hinzu
-System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
-System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"New Text");
+// Add a new rectangle shape with text.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
+shape->get_TextFrame()->set_Text(u"Sample text");
 
-// Überprüft die Sprache des ersten Textanteils
-System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
+// Check the first portion language.
+auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+System::Console::WriteLine(portion->get_PortionFormat()->get_LanguageId());
+
+presentation->Dispose();
 ```
-
 
 ## **Standard‑Textstil festlegen**
 
-Wenn Sie dieselbe Standard‑Textformatierung für alle Textelemente einer Präsentation gleichzeitig anwenden möchten, können Sie die Methode **get_DefaultTextStyle** des Interfaces **IPresentation** verwenden und die gewünschte Formatierung festlegen. Das folgende Beispiel zeigt, wie man die Standardschriftart **Bold** (14 pt) für den Text auf allen Folien einer neuen Präsentation setzt.
-```c++
-auto presentation = MakeObject<Presentation>();
+Um die Standard‑Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [IPresentation]`.DefaultTextStyle`.
+
+Das folgende Codebeispiel zeigt, wie ein standardmäßiger fetter Schriftsatz mit einer Größe von 14 pt für gesamten Text über alle Folien hinweg in einer neuen Präsentation festgelegt wird.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
 
 // Hole das Absatzformat der obersten Ebene.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
-if (paragraphFormat != NULL) {
-    paragraphFormat->get_DefaultPortionFormat()->set_FontHeight(14);
+if (paragraphFormat != nullptr)
+{
+    paragraphFormat->get_DefaultPortionFormat()->set_FontHeight(14.0f);
     paragraphFormat->get_DefaultPortionFormat()->set_FontBold(NullableBool::True);
 }
 
-presentation->Save(u"DefaultTextStyle.pptx", SaveFormat::Pptx);
+presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Text mit dem Großschreiber‑Effekt extrahieren**
 
-## **Text mit dem All‑Caps‑Effekt extrahieren**
+In PowerPoint sorgt die Anwendung des **All Caps**‑Schrifteffekts dafür, dass Text auf der Folie in Großbuchstaben angezeigt wird, selbst wenn er ursprünglich in Kleinbuchstaben eingegeben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides abrufen, gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType] und konvertieren Sie die zurückgegebene Zeichenkette in Großbuchstaben, wenn der Wert `All` ist.
 
-In PowerPoint sorgt die Schriftarteigenschaft **All Caps** dafür, dass Text in Großbuchstaben angezeigt wird, obwohl er ursprünglich klein geschrieben wurde. Beim Auslesen eines solchen Textabschnitts mit Aspose.Slides liefert die Bibliothek den Text exakt so, wie er eingegeben wurde. Um dies zu berücksichtigen, prüfen Sie **TextCapType** – wenn es **All** ist, konvertieren Sie die zurückgegebene Zeichenkette einfach in Großbuchstaben, sodass Ihre Ausgabe dem entspricht, was der Benutzer auf der Folie sieht.
+Angenommen, wir haben das folgende Textfeld auf der ersten Folie der Datei sample2.pptx.
 
-Angenommen, wir haben die folgende Textbox auf der ersten Folie der Datei **sample2.pptx**.
+![Der All‑Caps‑Effekt](all_caps_effect.png)
 
-![The All Caps effect](all_caps_effect.png)
+Das folgende Codebeispiel zeigt, wie der Text mit angewendetem **All Caps**‑Effekt extrahiert wird:
 
-Der folgende Code zeigt, wie man den Text mit dem **All Caps**‑Effekt extrahiert:
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample2.pptx");
-auto autoShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto presentation = System::MakeObject<Presentation>(u"sample2.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 
-Console::WriteLine(u"Original text: " + textPortion->get_Text());
+System::Console::WriteLine(u"Original text: " + textPortion->get_Text());
 
 auto textFormat = textPortion->get_PortionFormat()->GetEffective();
 if (textFormat->get_TextCapType() == TextCapType::All)
 {
     auto text = textPortion->get_Text().ToUpper();
-    Console::WriteLine(u"All-Caps effect: " + text);
+    System::Console::WriteLine(u"All-Caps effect: " + text);
 }
 
 presentation->Dispose();
 ```
 
-
 Ausgabe:
+
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-
 ## **FAQ**
 
 **Wie kann man Text in einer Tabelle auf einer Folie ändern?**
 
-Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie das Objekt **ITable**. Sie können durch alle Zellen der Tabelle iterieren und den Text jeder Zelle ändern, indem Sie deren TextFrame und Paragraph‑Format‑Eigenschaften innerhalb jeder Zelle zugreifen.
+Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie [ITable]. Durchlaufen Sie die Zellen und aktualisieren Sie jede Zelle über [ICell]`.TextFrame` sowie die Absatzformatierung über [IParagraph]`.ParagraphFormat`.
 
-**Wie kann man einen Farbverlauf auf Text in einer PowerPoint‑Folien anwenden?**
+**Wie kann man einem Text in einer PowerPoint‑Folien einen Farbverlauf zuweisen?**
 
-Um einen Farbverlauf auf Text anzuwenden, verwenden Sie die Methode **get_FillFormat** in **PortionFormat**. Setzen Sie das Fill‑Format auf **Gradient** und definieren Sie die Start‑ und Endfarben des Verlaufs sowie weitere Eigenschaften wie Richtung und Transparenz, um den gewünschten Verlaufseffekt auf den Text zu erzielen.
+Um einem Text einen Farbverlauf zuzuweisen, verwenden Sie [IPortionFormat]`.FillFormat`. Setzen Sie [IFillFormat]`.FillType` auf [FillType]`.Gradient` und konfigurieren Sie die Gradient‑Stops, die Richtung und die Transparenz.

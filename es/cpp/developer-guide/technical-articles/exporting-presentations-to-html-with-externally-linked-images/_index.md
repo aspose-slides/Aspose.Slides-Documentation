@@ -1,140 +1,328 @@
 ---
-title: Exportando Presentaciones a HTML con Imágenes Enlazadas Externamente
+title: Exportar presentaciones a HTML con imágenes vinculadas externamente
 type: docs
 weight: 50
 url: /es/cpp/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- exportar PowerPoint
+- exportar OpenDocument
+- exportar presentación
+- exportar diapositiva
+- exportar PPT
+- exportar PPTX
+- exportar ODP
+- PowerPoint a HTML
+- OpenDocument a HTML
+- presentación a HTML
+- diapositiva a HTML
+- PPT a HTML
+- PPTX a HTML
+- ODP a HTML
+- imagen vinculada
+- imagen vinculada externamente
+- recurso vinculado
+- recurso externo
+- C++
+- Aspose.Slides
+description: "Exportar presentaciones de PowerPoint y OpenDocument a HTML en C++ usando Aspose.Slides con imágenes y otros recursos guardados como archivos vinculados externamente."
 ---
+## **Descripción general**
 
-{{% alert color="primary" %}} 
+Por defecto, Aspose.Slides exporta una presentación a un archivo HTML autónomo. Las imágenes y otros recursos se escriben directamente en el HTML, normalmente como datos Base64. Esto es práctico cuando necesita un único archivo portátil, pero no siempre es el mejor formato para un sitio web, un CMS o una canalización de conversión del lado del servidor.
 
-Este artículo describe una técnica avanzada que permite controlar qué recursos se incrustan en el archivo HTML resultante y cuáles se guardan externamente y se referencian desde el archivo HTML.
+Utilice recursos vinculados externamente cuando quiera:
 
-{{% /alert %}} 
-## **Contexto**
-El comportamiento predeterminado de exportación a HTML es incrustar cualquier recurso en el archivo HTML. Este enfoque da como resultado un solo archivo HTML que es fácil de ver y distribuir. Todos los recursos necesarios están codificados en base64 dentro. Pero este enfoque tiene dos desventajas:
+- reducir el tamaño del documento HTML;
+- almacenar en caché imágenes, fuentes, audio o vídeo por separado en un navegador o CDN;
+- inspeccionar, reemplazar, comprimir o post‑procesar los recursos generados después de la exportación;
+- mantener la estructura de salida más cercana a lo que espera una aplicación web.
 
-- El tamaño de salida es significativamente mayor debido a la codificación en base64. Es difícil reemplazar las imágenes contenidas en el archivo.
+Para el flujo de trabajo general de conversión a HTML, consulte [Convert PowerPoint Presentations to HTML](/slides/es/cpp/convert-powerpoint-to-html/). Este artículo se centra en la parte de vinculación de recursos de la exportación.
 
-En este artículo veremos cómo podemos cambiar el comportamiento predeterminado usando **Aspose.Slides para C++** para enlazar las imágenes externamente en lugar de incrustarlas en el archivo HTML. Usaremos la interfaz [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) que contiene tres métodos para controlar el proceso de incrustación y guardado de recursos. Podemos pasar esta interfaz al constructor de la clase [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) al preparar la exportación.
+## **Cómo funciona la exportación con recursos vinculados**
 
-A continuación se muestra el código completo de la clase **LinkController** que implementa la interfaz [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller). Como se mencionó anteriormente, el **LinkController** debe implementar la interfaz [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller). Esta interfaz especifica tres métodos:
+[ILinkEmbedController](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/) permite a su aplicación decidir, recurso a recurso, si el exportador incrusta los datos en el HTML o los guarda externamente y escribe un vínculo.
 
-- **LinkEmbedDecision GetObjectStoringLocation(int32_t id, ArrayPtr<uint8_t> entityData, String semanticName, String contentType, String recomendedExtension)** Se llama cuando el exportador encuentra un recurso y necesita decidir cómo almacenarlo. Los parámetros más importantes son ‘id’ – el identificador único del recurso para toda la operación de exportación y ‘contentType’ – contiene el tipo MIME del recurso. Si decidimos enlazar el recurso, deberíamos retornar LinkEmbedDecision::Link desde este método. De lo contrario, se debe retornar LinkEmbedDecision::Embed para incrustar el recurso.
-- **String GetUrl(int32_t id, int32_t referrer)**
-  Se llama para obtener la URL del recurso en la forma en que se utiliza en el archivo resultante, digamos para una etiqueta ```<img src="%method_result_here%">```. El recurso se identifica por ‘id’.
-- **SaveExternal(int32_t id, ArrayPtr<uint8_t> entityData)** 
-  El método final de la secuencia, se llama cuando se trata de almacenar el recurso externamente. Tenemos el identificador del recurso y el contenido del recurso como un arreglo de bytes. Depende de nosotros qué hacer con los datos del recurso proporcionados.
+La interfaz tiene tres métodos:
 
-``` cpp
-/// <summary>
-/// Esta clase es responsable de tomar decisiones sobre los recursos guardados externamente.
-/// Debe implementar la interfaz Aspose::Slides::Export::ILinkEmbedController.
-/// </summary>
-class LinkController : public ILinkEmbedController
+- [ILinkEmbedController::GetObjectStoringLocation](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) decide si un recurso debe estar vinculado o incrustado.
+- [ILinkEmbedController::GetUrl](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/geturl/) devuelve la URL que se escribirá en el HTML generado o en otro recurso vinculado.
+- [ILinkEmbedController::SaveExternal](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/saveexternal/) escribe los datos del recurso vinculado en disco o en otro destino de almacenamiento.
+
+La ruta del sistema de archivos y la URL del navegador son preocupaciones distintas. Por ejemplo, el ejemplo siguiente escribe los archivos de recursos en `html-output/assets` en disco, mientras que el HTML contiene URLs relativas como `assets/resource-1.svg`. Un navegador resuelve esas URLs en relación con el archivo que contiene el vínculo. Por lo tanto, un vínculo de `presentation.html` a un archivo SVG utiliza `assets/resource-1.svg`, mientras que un vínculo desde ese archivo SVG a una imagen guardada en la misma carpeta `assets` utiliza `resource-4.jpg`.
+
+## **Exportar HTML con recursos vinculados**
+
+El siguiente ejemplo en C++ crea un directorio de salida, guarda el archivo HTML allí y almacena los recursos vinculados en un subdirectorio `assets`. El controlador vincula recursos comunes de imagen, fuente, audio, vídeo y CSS cuando Aspose.Slides los proporciona o puede inferir una extensión de archivo segura. Los recursos que no se reconocen permanecen incrustados.
+
+```cpp
+class ExternalResourceController : public ILinkEmbedController
 {
 public:
-    LinkController()
+    ExternalResourceController(String assetDirectory, String assetUrlPrefix)
     {
-        m_externalImages = System::MakeObject<Dictionary<int32_t, String>>();
-    }
-    LinkController::LinkController(String savePath) : LinkController()
-    {
-        m_savePath = savePath;
-    }
-
-    LinkEmbedDecision GetObjectStoringLocation(int32_t id, ArrayPtr<uint8_t> entityData, 
-        String semanticName, String contentType, String recomendedExtension) override
-    {
-        // Aquí tomamos la decisión sobre almacenar imágenes externamente.
-        // El id es el identificador único de cada objeto durante toda la operación de exportación.
-
-        String template_;
-
-        // El diccionario s_templates contiene tipos de contenido que vamos a almacenar externamente y el correspondiente nombre de archivo plantilla.
-        if (s_templates->TryGetValue(contentType, template_))
+        if (IsNullOrWhiteSpace(assetDirectory))
         {
-            // Almacenando este recurso en la lista de exportación
-            m_externalImages->Add(id, template_);
-            return LinkEmbedDecision::Link;
+            throw Exception(u"The asset output directory must not be empty.");
         }
 
-        // Todos los demás recursos, si los hay, serán incrustados
-        return LinkEmbedDecision::Embed;
+        m_assetDirectory = assetDirectory;
+        m_assetUrlPrefix = NormalizeUrlPrefix(assetUrlPrefix);
+        m_fileNamesByResourceId = MakeObject<Dictionary<int, String>>();
     }
 
-    String GetUrl(int32_t id, int32_t referrer) override
+    LinkEmbedDecision GetObjectStoringLocation(
+        int resourceId,
+        ArrayPtr<uint8_t> entityData,
+        String semanticName,
+        String contentType,
+        String recommendedExtension) override
     {
-        // Aquí construimos la cadena de referencia del recurso para formar la etiqueta: <img src="%result%">
-        // Necesitamos verificar el diccionario para filtrar recursos innecesarios.
-        // Junto con la verificación extraemos el correspondiente nombre de archivo plantilla.
-        String template_;
-        if (m_externalImages->TryGetValue(id, template_))
+        auto extension = ResolveExtension(contentType, recommendedExtension);
+        if (String::IsNullOrEmpty(extension))
         {
-            // Suponiendo que vamos a almacenar archivos de recursos justo cerca del archivo HTML.
-            // La etiqueta de imagen se verá como <img src="image-1.png"> con el Id y la extensión del recurso apropiados.
-            String fileUrl = String::Format(template_, id);
-            return fileUrl;
+            return LinkEmbedDecision::Embed;
         }
 
-        // se debe retornar null para los recursos que siguen incrustados
-        return nullptr;
+        auto fileName = String::Format(u"resource-{0}{1}", resourceId, extension);
+        m_fileNamesByResourceId->Add(resourceId, fileName);
+        return LinkEmbedDecision::Link;
     }
 
-    void SaveExternal(int32_t id, ArrayPtr<uint8_t> entityData) override
+    String GetUrl(int resourceId, int referrer) override
     {
-        // Aquí realmente guardamos los archivos de recursos en disco.
-        // Una vez más, verificando el diccionario. Si el id no se encuentra aquí, es un signo de error en los métodos GetObjectStoringLocation o GetUrl.
-        if (m_externalImages->ContainsKey(id))
+        String fileName;
+        if (!m_fileNamesByResourceId->TryGetValue(resourceId, fileName))
         {
-            // Ahora usamos el nombre de archivo almacenado en el diccionario y lo combinamos con una ruta según sea necesario.
-
-            // Construyendo el nombre de archivo usando la plantilla almacenada y el Id.
-            String fileName = String::Format(m_externalImages->idx_get(id), id);
-            
-            // Combinando con el directorio de ubicación
-            const String savePath = m_savePath != nullptr ? m_savePath : String::Empty;
-            String filePath = Path::Combine(savePath, fileName);
-
-            auto fs = System::MakeObject<FileStream>(filePath, FileMode::Create);
-            fs->Write(entityData, 0, entityData->get_Length());
+            return nullptr;
         }
-        else
+
+        if (m_fileNamesByResourceId->ContainsKey(referrer))
         {
-            throw Exception(u"Algo está mal");
+            return fileName;
         }
+
+        return m_assetUrlPrefix + fileName;
+    }
+
+    void SaveExternal(int resourceId, ArrayPtr<uint8_t> entityData) override
+    {
+        String fileName;
+        if (!m_fileNamesByResourceId->TryGetValue(resourceId, fileName))
+        {
+            auto message = String::Format(u"Resource {0} was not registered for external storage.", resourceId);
+            throw Exception(message);
+        }
+
+        if (entityData == nullptr || entityData->get_Length() == 0)
+        {
+            auto message = String::Format(u"Resource {0} contains no data and cannot be saved.", resourceId);
+            throw Exception(message);
+        }
+
+        Directory::CreateDirectory_(m_assetDirectory);
+
+        auto filePath = Path::Combine(m_assetDirectory, fileName);
+        auto fileStream = MakeObject<FileStream>(filePath, FileMode::Create, FileAccess::Write);
+        fileStream->Write(entityData, 0, entityData->get_Length());
+        fileStream->Close();
     }
 
 private:
-    String m_savePath;
-    SharedPtr<Dictionary<int32_t, String>> m_externalImages;
-    static SharedPtr<Dictionary<String, String>> s_templates;
+    String m_assetDirectory;
+    String m_assetUrlPrefix;
+    SharedPtr<Dictionary<int, String>> m_fileNamesByResourceId;
 
-    static struct __StaticConstructor__
+    static SharedPtr<Dictionary<String, String>> GetExtensionsByContentType()
     {
-        __StaticConstructor__()
+        auto extensionsByContentType = MakeObject<Dictionary<String, String>>();
+        extensionsByContentType->Add(u"image/jpeg", u".jpg");
+        extensionsByContentType->Add(u"image/png", u".png");
+        extensionsByContentType->Add(u"image/gif", u".gif");
+        extensionsByContentType->Add(u"image/bmp", u".bmp");
+        extensionsByContentType->Add(u"image/svg+xml", u".svg");
+        extensionsByContentType->Add(u"image/tiff", u".tiff");
+        extensionsByContentType->Add(u"image/x-emf", u".emf");
+        extensionsByContentType->Add(u"image/x-wmf", u".wmf");
+        extensionsByContentType->Add(u"font/woff", u".woff");
+        extensionsByContentType->Add(u"font/woff2", u".woff2");
+        extensionsByContentType->Add(u"font/ttf", u".ttf");
+        extensionsByContentType->Add(u"application/font-woff", u".woff");
+        extensionsByContentType->Add(u"application/vnd.ms-fontobject", u".eot");
+        extensionsByContentType->Add(u"application/x-font-ttf", u".ttf");
+        extensionsByContentType->Add(u"text/css", u".css");
+        extensionsByContentType->Add(u"audio/mpeg", u".mp3");
+        extensionsByContentType->Add(u"audio/mp4", u".m4a");
+        extensionsByContentType->Add(u"audio/wav", u".wav");
+        extensionsByContentType->Add(u"video/mp4", u".mp4");
+        extensionsByContentType->Add(u"video/webm", u".webm");
+        return extensionsByContentType;
+    }
+
+    static String ResolveExtension(String contentType, String recommendedExtension)
+    {
+        auto normalizedContentType = NormalizeContentType(contentType);
+        auto extensionsByContentType = GetExtensionsByContentType();
+
+        String mappedExtension;
+        if (!String::IsNullOrEmpty(normalizedContentType) &&
+            extensionsByContentType->TryGetValue(normalizedContentType, mappedExtension))
         {
-            s_templates->Add(u"image/jpeg", u"image-{0}.jpg");
-            s_templates->Add(u"image/png", u"image-{0}.png");
+            return mappedExtension;
         }
-    } s_constructor__;
+
+        if (!IsSupportedContentType(normalizedContentType))
+        {
+            return nullptr;
+        }
+
+        return NormalizeExtension(recommendedExtension);
+    }
+
+    static bool IsSupportedContentType(String contentType)
+    {
+        return !String::IsNullOrEmpty(contentType) &&
+            (contentType.StartsWith(u"image/") ||
+                contentType.StartsWith(u"font/") ||
+                contentType.StartsWith(u"audio/") ||
+                contentType.StartsWith(u"video/"));
+    }
+
+    static String NormalizeContentType(String contentType)
+    {
+        if (IsNullOrWhiteSpace(contentType))
+        {
+            return nullptr;
+        }
+
+        return contentType.Trim().ToLowerInvariant();
+    }
+
+    static String NormalizeExtension(String extension)
+    {
+        if (IsNullOrWhiteSpace(extension))
+        {
+            return nullptr;
+        }
+
+        auto extensionCharacters = extension.Trim();
+        if (extensionCharacters.StartsWith(u"."))
+        {
+            extensionCharacters = extensionCharacters.Substring(1);
+        }
+
+        if (String::IsNullOrEmpty(extensionCharacters))
+        {
+            return nullptr;
+        }
+
+        auto extensionLength = extensionCharacters.get_Length();
+        for (int index = 0; index < extensionLength; index++)
+        {
+            auto character = extensionCharacters[index];
+            if (!Char::IsLetterOrDigit(character))
+            {
+                return nullptr;
+            }
+        }
+
+        return u"." + extensionCharacters.ToLowerInvariant();
+    }
+
+    static String NormalizeUrlPrefix(String urlPrefix)
+    {
+        if (String::IsNullOrEmpty(urlPrefix))
+        {
+            return String::Empty;
+        }
+
+        auto normalizedUrlPrefix = urlPrefix.Replace(u"\\", u"/");
+        if (normalizedUrlPrefix.EndsWith(u"/"))
+        {
+            return normalizedUrlPrefix;
+        }
+
+        return normalizedUrlPrefix + u"/";
+    }
+
+    static bool IsNullOrWhiteSpace(String value)
+    {
+        return String::IsNullOrEmpty(value) || String::IsNullOrEmpty(value.Trim());
+    }
 };
 ```
+```cpp
+auto inputFilePath = String(u"presentation.pptx");
+auto outputDirectory = String(u"html-output");
+auto assetDirectoryName = String(u"assets");
+auto assetDirectory = Path::Combine(outputDirectory, assetDirectoryName);
 
-Después de escribir la clase **LinkController**, ahora la usaremos con la clase [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) para exportar la presentación a HTML con imágenes enlazadas externamente utilizando el siguiente código.
+Directory::CreateDirectory_(outputDirectory);
+Directory::CreateDirectory_(assetDirectory);
 
-``` cpp
-const String templatePath = u"../templates/image.pptx";
-auto pres = System::MakeObject<Presentation>(templatePath);
+auto assetUrlPrefix = assetDirectoryName + u"/";
+auto controller = MakeObject<ExternalResourceController>(assetDirectory, assetUrlPrefix);
+auto svgOptions = MakeObject<SVGOptions>(controller);
+auto slideImageFormat = SlideImageFormat::Svg(svgOptions);
 
-auto htmlOptions = System::MakeObject<HtmlOptions>(System::MakeObject<LinkController>(GetOutPath()));
-htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(System::MakeObject<SVGOptions>()));
-// Esta línea es necesaria para eliminar la visualización del título de la diapositiva en HTML.
-// Comente esta línea si prefiere que se muestre el título de la diapositiva.
+auto htmlOptions = MakeObject<HtmlOptions>(controller);
 htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(String::Empty, false));
+htmlOptions->set_SlideImageFormat(slideImageFormat);
 
-pres->Save(GetOutPath() + u"/output.html", SaveFormat::Html, htmlOptions);
+auto presentation = MakeObject<Presentation>(inputFilePath);
+
+auto htmlFilePath = Path::Combine(outputDirectory, u"presentation.html");
+presentation->Save(htmlFilePath, SaveFormat::Html, htmlOptions);
+presentation->Dispose();
 ```
 
-Pasamos **SlideImageFormat::Svg** al método **set_SlideImageFormat**, lo que significa que el archivo HTML resultante contendrá datos SVG dentro para dibujar el contenido de la presentación.
+Después de la exportación, la carpeta de salida tiene esta estructura:
 
-En cuanto a los tipos de contenido, depende de los datos de imagen reales contenidos en la presentación. Si hay mapas de bits rasterizados en la presentación, entonces el código de la clase debe estar listo para procesar tanto ‘image/jpeg’ como ‘image/png’. El tipo de contenido real de los mapas de bits rasterizados exportados puede no coincidir con el tipo de contenido de las imágenes almacenadas en la presentación. Los algoritmos internos de Aspose.Slides para C++ realizan optimización de tamaño y utilizan ya sea el códec JPG o PNG, el que genere un tamaño de datos más pequeño. Las imágenes que contienen canal alfa (transparencia) siempre se codifican a PNG.
+```text
+html-output/
+  presentation.html
+  assets/
+    resource-1.svg
+    resource-2.svg
+    resource-3.svg
+    resource-4.jpg
+    resource-5.png
+```
+
+Los archivos exactos dependen del contenido de la presentación y de las opciones de exportación. Por ejemplo, las imágenes rasterizadas suelen exportarse como JPEG o PNG. Aspose.Slides puede elegir un códec de imagen diferente al utilizado en la presentación original cuando eso produce un archivo más pequeño o más adecuado. Las imágenes con transparencia se exportan como PNG.
+
+## **Elección de URLs para el despliegue**
+
+El ejemplo utiliza un prefijo de URL relativo: `assets/`. Si `presentation.html` se abre desde `html-output/presentation.html`, el navegador carga `html-output/assets/resource-1.svg`.
+
+Cuando un recurso vinculado hace referencia a otro recurso vinculado, el ejemplo usa el parámetro `referrer` en [ILinkEmbedController::GetUrl](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/geturl/) y devuelve solo el nombre del archivo. Por ejemplo, si `resource-1.svg` y `resource-4.jpg` están ambos en la carpeta `assets`, el archivo SVG debe referirse a `resource-4.jpg`, no a `assets/resource-4.jpg`.
+
+Utilice un prefijo de URL diferente cuando los archivos se desplieguen en otro lugar:
+
+- Use `assets/` cuando el directorio de activos esté junto al archivo HTML.
+- Use `../assets/` cuando el directorio de activos esté un nivel por encima del archivo HTML.
+- Use `https://cdn.example.com/presentations/job-123/assets/` cuando los archivos se carguen en un CDN o en un servidor de archivos estático.
+
+La URL devuelta por [ILinkEmbedController::GetUrl](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/geturl/) debe coincidir con la ubicación final donde se despliegue el archivo escrito por [ILinkEmbedController::SaveExternal](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/saveexternal/). En aplicaciones servidoras, use un directorio de salida único o un prefijo de almacenamiento de objetos para cada trabajo de conversión a fin de evitar sobrescribir archivos de otra exportación.
+
+## **Cuándo incrustar en su lugar**
+
+El HTML incrustado en Base64 sigue siendo útil cuando la salida debe ser un único archivo, como un adjunto de correo electrónico, una vista previa offline o un documento que se moverá sin una carpeta de activos de apoyo. Los recursos vinculados son más apropiados cuando el HTML será servido por una aplicación web, almacenado en un CMS, optimizado por una canalización de compilación o almacenado en caché por los navegadores de forma independiente del HTML.
+
+## **FAQ**
+
+**¿Puedo externalizar solo las imágenes y mantener los demás recursos incrustados?**
+
+Sí. En [ILinkEmbedController::GetObjectStoringLocation](https://reference.aspose.com/slides/es/cpp/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/), devuelva `LinkEmbedDecision::Link` solo para los tipos de contenido que desee guardar como archivos separados, y devuelva `LinkEmbedDecision::Embed` para todo lo demás.
+
+**¿Por qué la extensión de la imagen exportada difiere de la presentación original?**
+
+Aspose.Slides puede volver a codificar las imágenes rasterizadas durante la exportación a HTML para mejorar el tamaño o la compatibilidad con los navegadores. Por ejemplo, una imagen del archivo original puede guardarse como JPEG o PNG según el resultado renderizado.
+
+**¿Funcionan las URLs relativas después de mover el archivo HTML?**
+
+Las URLs relativas solo funcionan cuando se conserva la misma estructura de carpetas relativa. Si el HTML hace referencia a `assets/resource-1.png`, la carpeta `assets` debe permanecer junto al archivo HTML a menos que genere un prefijo de URL diferente.
+
+**¿Deben las aplicaciones servidoras reutilizar la misma carpeta de salida?**
+
+No. Use un directorio de salida único o un prefijo de almacenamiento para cada trabajo de conversión. Esto evita colisiones de nombres de archivo y previene que una exportación sobrescriba los recursos generados por otra exportación.

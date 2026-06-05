@@ -1,14 +1,14 @@
 ---
-title: الحصول على الخصائص الفعالة للأشكال من العروض التقديمية في JavaScript
-linktitle: الخصائص الفعالة
+title: الحصول على الخصائص الفعّالة للشكل من العروض التقديمية في JavaScript
+linktitle: الخصائص الفعّالة
 type: docs
 weight: 50
 url: /ar/nodejs-java/shape-effective-properties/
 keywords:
 - خصائص الشكل
 - خصائص الكاميرا
-- إضاءة التجهيز
-- شكل الحافة
+- جهاز إضاءة
+- شكل بحدب
 - إطار النص
 - نمط النص
 - ارتفاع الخط
@@ -18,224 +18,323 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides for Node.js عبر Java بحساب وتطبيق الخصائص الفعالة للأشكال للحصول على عرض PowerPoint دقيق."
+description: "اكتشف كيف يقوم Aspose.Slides لـ Node.js عبر Java بحساب وتطبيق الخصائص الفعّالة للشكل لضمان عرض PowerPoint بدقة."
 ---
+## **نظرة عامة**
 
-في هذا الموضوع، سنناقش الخصائص **الفعالة** و **المحلية**. عندما نقوم بتعيين القيم مباشرةً في هذه المستويات
+تشرح هذه المقالة الفرق بين الخصائص **المحلية** و **الفعّالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً على مستوى تنسيق معين، مثل:
 
-1. في خصائص الجزء على شريحة الجزء؛
-1. في نمط نص الشكل النموذجي على الشريحة التخطيطية أو الشريحة الرئيسية (إذا كان لشكل إطار النص للجزء أحدهما)؛
-1. في إعدادات النص العامة للعرض التقديمي؛
+1. خصائص الجزء على الشريحة.
+2. أنماط نص الشكل النموذجي على تخطيط أو شريحة رئيسية، عندما يحتوي شكل إطار النص للجزء على ذلك.
+3. إعدادات النص العامة في العرض التقديمي.
 
-تُسمى تلك القيم **القيم المحلية**. في أي مستوى، يمكن تعريف **القيم المحلية** أو إهمالها. ولكن عندما يحتاج التطبيق إلى معرفة كيف يجب أن يبدو الجزء، يستخدم **القيم الفعالة**. يمكنك الحصول على القيم الفعالة باستخدام طريقة **getEffective()** من التنسيق المحلي.
+يمكن تعريف القيم المحلية أو إغفالها في أي مستوى. عندما يحتاج Aspose.Slides إلى التنسيق النهائي "كما يظهر"، يقوم بحل سلسلة الوراثة ويُعيد القيم **الفعّالة**. يمكنك الحصول عليها عن طريق استدعاء الطريقة `getEffective` على كائن التنسيق المحلي.
 
-يظهر لك هذا المثال البرمجي كيفية الحصول على القيم الفعالة:
+يوضح المثال التالي كيفية الحصول على القيم الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) يحتوي على إطار نص وعلى الأقل جزء واحد.
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    var effectiveTextFrameFormat = localTextFrameFormat.getEffective();
-    var localPortionFormat = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
-    var effectivePortionFormat = localPortionFormat.getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
+    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+
+    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
+    let effectivePortionFormat = localPortionFormat.getEffective();
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+{{% alert color="primary" %}}
+تمثل بيانات التنسيق الفعّالة التنسيق المحسوب الحالي بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعّالة مؤقتًا داخليًا. استدعاء `getEffective` مرة أخرى بعد تغيير التنسيق الوالدي أو المُورّث يمكن أن يجدد البيانات المخزنة، وقد لا يظل الكائن الذي تم الحصول عليه مسبقًا يمثل الحالة السابقة. إذا كنت بحاجة إلى حفظ القيم الفعّالة لإعادة استخدامها لاحقًا، انسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن البيانات الخاص بك.
+{{% /alert %}}
 
-## **الحصول على الخصائص الفعالة للكاميرا**
-يسمح Aspose.Slides for Node.js عبر Java للمطورين بالحصول على الخصائص الفعالة للكاميرا. لهذا الغرض، أضيفت الفئة **CameraEffectiveData** إلى Aspose.Slides. تمثل الفئة **CameraEffectiveData** كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. يُستخدم كائن من فئة **CameraEffectiveData** كجزء من فئة **ThreeDFormatEffectiveData**، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) للصف [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
+## **الحصول على الخصائص الفعّالة للكاميرا**
 
-يظهر لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة للكاميرا:
+Aspose.Slides يتيح لك الحصول على الخصائص الفعّالة للكاميرا. كائن بيانات الكاميرا الفعّالة يحتوي على خصائص كاميرا غير قابلة للتغيير ويتم إتاحة ذلك من خلال القيم الفعّالة التي تُرجع لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/).
+
+يعرض عينة الكود التالية كيفية الحصول على الخصائص الفعّالة للكاميرا. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    let camera = threeDEffectiveData.getCamera();
+    let cameraType = camera.getCameraType();
+    let fieldOfViewAngle = camera.getFieldOfViewAngle();
+    let zoom = camera.getZoom();
+
     console.log("= Effective camera properties =");
-    console.log("Type: " + threeDEffectiveData.getCamera().getCameraType());
-    console.log("Field of view: " + threeDEffectiveData.getCamera().getFieldOfViewAngle());
-    console.log("Zoom: " + threeDEffectiveData.getCamera().getZoom());
+    console.log("Type: " + cameraType);
+    console.log("Field of view: " + fieldOfViewAngle);
+    console.log("Zoom: " + zoom);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الحصول على الخصائص الفعّالة لجهاز الإضاءة**
 
-## **الحصول على الخصائص الفعالة لـ Light Rig**
-يسمح Aspose.Slides for Node.js عبر Java للمطورين بالحصول على الخصائص الفعالة لـ Light Rig. لهذا الغرض، أضيفت الفئة **LightRigEffectiveData** إلى Aspose.Slides. تمثل الفئة **LightRigEffectiveData** كائنًا غير قابل للتغيير يحتوي على خصائص إضاءة التجهيز الفعالة. يُستخدم كائن من فئة **LightRigEffectiveData** كجزء من فئة **ThreeDFormatEffectiveData**، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) للصف [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
+Aspose.Slides يتيح لك الحصول على الخصائص الفعّالة لجهاز الإضاءة. كائن بيانات جهاز الإضاءة الفعّال يحتوي على خصائص جهاز إضاءة غير قابلة للتغيير ويتم إتاحة ذلك من خلال القيم الفعّالة التي تُرجع لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/).
 
-يظهر لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لـ Light Rig:
+يعرض عينة الكود التالية كيفية الحصول على الخصائص الفعّالة لجهاز الإضاءة. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    let lightRig = threeDEffectiveData.getLightRig();
+    let lightType = lightRig.getLightType();
+    let direction = lightRig.getDirection();
+
     console.log("= Effective light rig properties =");
-    console.log("Type: " + threeDEffectiveData.getLightRig().getLightType());
-    console.log("Direction: " + threeDEffectiveData.getLightRig().getDirection());
+    console.log("Type: " + lightType);
+    console.log("Direction: " + direction);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الحصول على الخصائص الفعّالة للحدب (Bevel) في الشكل**
 
-## **الحصول على الخصائص الفعالة لشكل الحافة**
-يسمح Aspose.Slides for Node.js عبر Java للمطورين بالحصول على الخصائص الفعالة لشكل الحافة. لهذا الغرض، أضيفت الفئة **ShapeBevelEffectiveData** إلى Aspose.Slides. تمثل الفئة **ShapeBevelEffectiveData** كائنًا غير قابل للتغيير يحتوي على خصائص بروز وجه الشكل الفعالة. يُستخدم كائن من فئة **ShapeBevelEffectiveData** كجزء من فئة **ThreeDFormatEffectiveData**، والتي هي زوج [القيم الفعالة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) للصف [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
+Aspose.Slides يتيح لك الحصول على الخصائص الفعّالة لحدب الشكل. كائن بيانات حدب الشكل الفعّال يحتوي على خصائص نقش السطح غير القابلة للتغيير ويتم إتاحة ذلك من خلال القيم الفعّالة التي تُرجع لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/).
 
-يظهر لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لشكل الحافة:
+يعرض عينة الكود التالية كيفية الحصول على الخصائص الفعّالة للحدب العلوي لشكل. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    let bevelTop = threeDEffectiveData.getBevelTop();
+    let bevelType = bevelTop.getBevelType();
+    let bevelWidth = bevelTop.getWidth();
+    let bevelHeight = bevelTop.getHeight();
+
     console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + threeDEffectiveData.getBevelTop().getBevelType());
-    console.log("Width: " + threeDEffectiveData.getBevelTop().getWidth());
-    console.log("Height: " + threeDEffectiveData.getBevelTop().getHeight());
+    console.log("Type: " + bevelType);
+    console.log("Width: " + bevelWidth);
+    console.log("Height: " + bevelHeight);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الحصول على الخصائص الفعّالة لإطار النص**
 
-## **الحصول على الخصائص الفعالة لإطار النص**
-باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على الخصائص الفعالة لإطار النص. لهذا الغرض، أضيفت الفئة **TextFrameFormatEffectiveData** إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص الفعالة.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لإطار النص. كائن البيانات الفعّالية المرجع يحتوي على خصائص تنسيق إطار النص.
 
-يظهر لك هذا المثال البرمجي كيفية الحصول على خصائص تنسيق إطار النص الفعالة:
+يعرض عينة الكود التالية كيفية الحصول على خصائص تنسيق إطار النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) يحتوي على إطار نص.
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
-    console.log("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    console.log("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    console.log("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
+    let effectiveTextFrameFormat = textFrameFormat.getEffective();
+    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
+    let autofitType = effectiveTextFrameFormat.getAutofitType();
+    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
+    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
+    let marginTop = effectiveTextFrameFormat.getMarginTop();
+    let marginRight = effectiveTextFrameFormat.getMarginRight();
+    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
+
+    console.log("Anchoring type: " + anchoringType);
+    console.log("Autofit type: " + autofitType);
+    console.log("Text vertical type: " + textVerticalType);
     console.log("Margins");
-    console.log("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    console.log("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    console.log("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    console.log("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
+    console.log("   Left: " + marginLeft);
+    console.log("   Top: " + marginTop);
+    console.log("   Right: " + marginRight);
+    console.log("   Bottom: " + marginBottom);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الحصول على الخصائص الفعّالة لنمط النص**
 
-## **الحصول على الخصائص الفعالة لنمط النص**
-باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على الخصائص الفعالة لنمط النص. لهذا الغرض، أضيفت الفئة **TextStyleEffectiveData** إلى Aspose.Slides. تحتوي على خصائص نمط النص الفعالة.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لنمط النص. كائن البيانات الفعّالية المرجع يحتوي على خصائص نمط النص.
 
-يظهر لك هذا المثال البرمجي كيفية الحصول على خصائص نمط النص الفعالة:
+يعرض عينة الكود التالية كيفية الحصول على خصائص نمط النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) يحتوي على إطار نص.
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    for (var i = 0; i <= 8; i++) {
-        var effectiveStyleLevel = effectiveTextStyle.getLevel(i);
-        console.log(("= Effective paragraph formatting for style level #" + i) + " =");
-        console.log("Depth: " + effectiveStyleLevel.getDepth());
-        console.log("Indent: " + effectiveStyleLevel.getIndent());
-        console.log("Alignment: " + effectiveStyleLevel.getAlignment());
-        console.log("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
+    let levelCount = 9;
+
+    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
+        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
+        let depth = effectiveStyleLevel.getDepth();
+        let indent = effectiveStyleLevel.getIndent();
+        let alignment = effectiveStyleLevel.getAlignment();
+        let fontAlignment = effectiveStyleLevel.getFontAlignment();
+
+        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
+
+        console.log("Depth: " + depth);
+        console.log("Indent: " + indent);
+        console.log("Alignment: " + alignment);
+        console.log("Font alignment: " + fontAlignment);
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الحصول على قيمة ارتفاع الخط الفعّال**
 
-## **الحصول على قيمة ارتفاع الخط الفعالة**
-باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على الخصائص الفعالة لارتفاع الخط. هنا نوفر مثالًا يُظهر تغيير قيمة ارتفاع الخط الفعالة للجزء بعد ضبط قيم ارتفاع الخط المحلية على مستويات بنية العرض المختلفة:
+باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعّال. يوضح الكود التالي كيف يتغير ارتفاع الخط الفعّال لجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي.
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    var newShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 75, false);
-    newShape.addTextFrame("");
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().clear();
-    var portion0 = new aspose.slides.Portion("Sample text with first portion");
-    var portion1 = new aspose.slides.Portion(" and second portion.");
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion0);
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion1);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shapeType = aspose.slides.ShapeType.Rectangle;
+    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
+    autoShape.addTextFrame("");
+
+    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
+    let secondPortion = new aspose.slides.Portion(" and second portion.");
+
+    paragraph.getPortions().add(firstPortion);
+    paragraph.getPortions().add(secondPortion);
+
+    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    pres.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    console.log("Effective font height after setting entire presentation default font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    newShape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    console.log("Effective font height after setting the presentation default font height:");
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(55);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    firstPortion.getPortionFormat().setFontHeight(55);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(1).getPortionFormat().setFontHeight(18);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    secondPortion.getPortionFormat().setFontHeight(18);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    pres.save("SetLocalFontHeightValues.pptx", aspose.slides.SaveFormat.Pptx);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    let saveFormat = aspose.slides.SaveFormat.Pptx;
+    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الحصول على تنسيق التعبئة الفعّال لجدول**
 
-## **الحصول على تنسيق التعبئة الفعال للجدول**
-باستخدام Aspose.Slides for Node.js عبر Java، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء منطقية مختلفة في الجدول. لهذا الغرض، أضيفت الفئة **CellFormatEffectiveData** إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعالة. يرجى ملاحظة ما يلي: تنسيق الخلية يحصل دائمًا على الأولوية على تنسيق الصف؛ الصف يحصل على الأولوية على العمود؛ والعمود يحصل على الأولوية على الجدول بأكمله.
+باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. كائن البيانات الفعّالية المرجع يحتوي على خصائص تنسيق التعبئة. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنسيق الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بالكامل.
+
+وبالتالي تُستخدم خصائص تنسيق الخلية الفعّالة لرسم خلية الجدول. يعرض عينة الكود التالية كيفية الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول في الشريحة الأولى هو [Table](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/table/).
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var tbl = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var tableFormatEffective = tbl.getTableFormat().getEffective();
-    var rowFormatEffective = tbl.getRows().get_Item(0).getRowFormat().getEffective();
-    var columnFormatEffective = tbl.getColumns().get_Item(0).getColumnFormat().getEffective();
-    var cellFormatEffective = tbl.get_Item(0, 0).getCellFormat().getEffective();
-    var tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    var rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    var columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    var cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    let slide = presentation.getSlides().get_Item(0);
+    let table = slide.getShapes().get_Item(0);
+
+    let tableFormatEffective = table.getTableFormat().getEffective();
+    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
+    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
+    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
+    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **الأسئلة الشائعة**
 
-كيف يمكنني معرفة أنني حصلت على “لقطة” بدلاً من “كائن حي”، ومتى يجب علي قراءة الخصائص الفعالة مرة أخرى؟
-كائنات EffectiveData هي لقطات غير قابلة للتغيير للقيم التي تم حسابها في لحظة الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل، استخرج البيانات الفعالة مرة أخرى للحصول على القيم المحدّثة.
+**هل تُعيد `getEffective` لقطة ثابتة؟**
 
-هل يؤثر تغيير شريحة التخطيط/الرئيسية على الخصائص الفعالة التي تم استرجاعها بالفعل؟
-نعم، ولكن فقط بعد قراءة القيم مرة أخرى. كائن EffectiveData الذي تم الحصول عليه مسبقًا لا يحدث نفسه تلقائيًا—اطلبه مرة أخرى بعد تغيير التخطيط أو الشريحة الرئيسية.
+ليس دائماً. تمثل البيانات الفعّالة التنسيق المحسوب بعد تطبيق الوراثة، ولكن قد يتم تخزين بعض كائنات البيانات الفعّالة مؤقتًا داخليًا. قد يؤدي استدعاء `getEffective` لاحقًا إلى إعادة حساب التنسيق وتحديث البيانات المخزنة، لذا لا ينبغي اعتبار الكائن الذي تم الحصول عليه مسبقًا كلقطة دائمة.
 
-هل يمكنني تعديل القيم عبر EffectiveData؟
-لا. EffectiveData للقراءة فقط. قم بتعديل القيم في كائنات التنسيق المحلية (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعالة مرة أخرى.
+**متى ينبغي قراءة الخصائص الفعّالة مرة أخرى؟**
 
-ماذا يحدث إذا لم يتم تعيين الخاصية على مستوى الشكل، ولا في التخطيط/الرئيسية، ولا في الإعدادات العامة؟
-يتم تحديد القيمة الفعالة بواسطة النظام الافتراضي (القيم الافتراضية لـ PowerPoint/Aspose.Slides). تصبح هذه القيمة المحسومة جزءًا من لقطة EffectiveData.
+استدعِ `getEffective` مرة أخرى بعد تغيير التنسيق المحلي أو الأنماط الوالدية أو تنسيق التخطيط أو تنسيق الشريحة الرئيسة أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيعيد الاستدعاء التالي تقييم شجرة التنسيق ويُعيد النتيجة الفعّالة الحالية.
 
-من قيمة الخط الفعالة، هل يمكنني معرفة المستوى الذي قدم الحجم أو نوع الخط؟
-ليس مباشرة. تُعيد EffectiveData القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية في الجزء/الفقرة/إطار النص والأنماط النصية في التخطيط/الرئيسية/العرض لتحديد أين ظهرت أول تعريف صريح.
+**هل يؤثر تعديل أو إزالة شريحة تخطيط/رئيسية على الخصائص الفعّالة التي تم استرجاعها بالفعل؟**
 
-لماذا تبدو قيم EffectiveData أحيانًا مطابقة للقيم المحلية؟
-لأن القيمة المحلية أصبحت النهائية (لم يتطلب الأمر وراثة من مستوى أعلى). في مثل هذه الحالات، تكون القيمة الفعالة مساوية للقيمة المحلية.
+نعم، لكن التغيير ينعكس في الاستدعاء التالي لـ `getEffective`. إذا تم تعديل أو إزالة مصدر تنسيق الوالد، قد تصبح البيانات الفعّالية المسترجعة سابقًا قديمة. بمجرد استدعاء `getEffective` مرة أخرى، يعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير الخطوط أو الألوان أو الأحجام أو القيم الأخرى.
 
-متى يجب استخدام الخصائص الفعالة، ومتى ينبغي العمل فقط بالقيم المحلية؟
-استخدم EffectiveData عندما تحتاج إلى النتيجة “كما تم عرضها” بعد تطبيق جميع الوراثات (مثلاً لتطابق الألوان أو المسافات البادئة أو الأحجام). إذا كنت تحتاج إلى تعديل التنسيق في مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.
+**هل يمكن تعديل القيم عبر كائنات البيانات الفعّالة؟**
+
+لا. كائنات البيانات الفعّالة تعرض القيم المحسوبة فقط. يجب إجراء التغييرات في كائنات التنسيق المحلية، ثم الحصول على القيم الفعّالة مرة أخرى.
+
+**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل ولا في التخطيط/الرئيسية ولا في الإعدادات العامة؟**
+
+يتم تحديد القيمة الفعّالة عبر آلية القيم الافتراضية، التي تشمل القيم الافتراضية في PowerPoint و Aspose.Slides. تصبح القيمة المحلولة جزءًا من البيانات الفعّالة الحالية.
+
+**من قيمة الخط الفعّال، هل يمكنني معرفة أي مستوى قدم الحجم أو الخط؟**
+
+ليس مباشرة. تُعيد البيانات الفعّالة القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية على مستوى الجزء، الفقرة، إطار النص، وأنماط النص في التخطيط، الرئيسة، والعرض التقديمي لترى أين تظهر التعريف الأول الصريح.
+
+**لماذا تبدو القيم الفعّالية أحيانًا مطابقة للقيم المحلية؟**
+
+لأن القيمة المحلية أصبحت نهائية (لم يتطلب أي وراثة من مستوى أعلى). في مثل هذه الحالات، تتطابق القيمة الفعّالية مع القيمة المحلية.
+
+**متى يجب استخدام الخصائص الفعّالة، ومتى أكتفي بالخصائص المحلية؟**
+
+استخدم البيانات الفعّالة عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع مستويات الوراثة، مثل مطابقة الألوان أو الهوامش أو الأحجام. إذا كنت بحاجة إلى الحفاظ على تلك القيم بغض النظر عن تغييرات التنسيق المستقبلية، انسخ الخصائص المطلوبة إلى كائنك الخاص. إذا كنت بحاجة إلى تعديل التنسيق على مستوى معين، عدل الخصائص المحلية ثم، إذا لزم الأمر، اقرأ البيانات الفعّالة مرة أخرى للتحقق من النتيجة.

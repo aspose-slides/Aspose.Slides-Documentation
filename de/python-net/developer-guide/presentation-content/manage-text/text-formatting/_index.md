@@ -1,650 +1,546 @@
 ---
-title: PowerPoint-Text in Python formatieren
+title: Präsentationstext in Python formatieren
 linktitle: Textformatierung
 type: docs
 weight: 50
 url: /de/python-net/text-formatting/
 keywords:
 - Text hervorheben
-- regulärer Ausdruck
+- Regulärer Ausdruck
 - Absatz ausrichten
 - Textstil
 - Texthintergrund
 - Texttransparenz
 - Zeichenabstand
-- Schrifteigenschaften
+- Schriftarteigenschaften
 - Schriftfamilie
-- Textrotation
-- Rotationswinkel
+- Textdrehung
+- Drehwinkel
 - Textfeld
 - Zeilenabstand
 - Autofit-Eigenschaft
-- Textfeld-Anker
-- Texttabulierung
-- Standardsprache
+- Textfeldverankerung
+- Texttabulatoren
+- Standard-Sprache
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Python via .NET formatieren und gestalten. Passen Sie Schriftarten, Farben, Ausrichtungen und mehr mit leistungsstarken Python-Codebeispielen an."
+description: "Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Python via .NET formatieren und gestalten. Schriftarten, Farben, Ausrichtungen und mehr anpassen."
 ---
+## **Übersicht**
+
+Dieser Artikel zeigt, wie Text in PowerPoint‑ und OpenDocument‑Präsentationen mithilfe von Aspose.Slides für Python via .NET formatiert wird. Es werden Hervorhebung, Hintergrundfarben, Transparenz, Zeichenabstand, Schriftarteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabstopps und Spracheinstellungen behandelt.
+
+In den nachfolgenden Beispielen verwenden wir die Datei **"sample.pptx"**, die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
+
+![Beispieltext](sample_text.png)
 
 ## **Text hervorheben**
 
-Die `highlight_text`‑Methode in der [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)-Klasse ermöglicht es Ihnen, einen Teil des Textes mit einer Hintergrundfarbe zu markieren, indem Sie eine Textprobe verwenden, ähnlich dem Tool „Text Highlight Color“ in PowerPoint 2019.
+Verwenden Sie die [TextFrame.highlight_text](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/highlight_text/)‑Methode, wenn Sie Text hervorheben möchten, der einem bestimmten Muster innerhalb eines Textfelds entspricht. Die Methode wendet eine Hervorhebungsfarbe auf passende Textfragmente an und kann zusammen mit [TextSearchOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides/textsearchoptions/) verwendet werden, um zu steuern, wie die Suche ausgeführt wird, beispielsweise um nur ganze Wörter zu treffen.
 
-Das folgende Code‑Snippet zeigt, wie diese Funktion verwendet wird:
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
+Das nachstehende Codebeispiel hebt alle Vorkommen der Zeichen **"try"** hervor und danach nur das ganze Wort **"to"**.
 
-with slides.Presentation("SomePresentation.pptx") as presentation:
-    presentation.slides[0].shapes[0].text_frame.highlight_text("title", draw.Color.light_blue)
-
-    opts = slides.TextHighlightingOptions()
-    opts.whole_words_only = True
-    presentation.slides[0].shapes[0].text_frame.highlight_text("to", draw.Color.violet, opts)
-
-    presentation.save("SomePresentation-out2.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Text mithilfe regulärer Ausdrücke hervorheben**
-
-Die `highlight_regex`‑Methode der [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)-Klasse lässt Sie einen Textabschnitt mit einer Hintergrundfarbe hervorheben, indem Sie einen regulären Ausdruck verwenden, ähnlich dem Tool „Text Highlight Color“ in PowerPoint 2019.
-
-Das folgende Code‑Snippet zeigt, wie diese Funktion verwendet wird:
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation("SomePresentation.pptx") as presentation:
-    options = slides.TextHighlightingOptions()
-
-    presentation.slides[0].shapes[0].text_frame.highlight_regex("\\b[^\\s]{5,}\\b", draw.Color.blue, options) 
-    presentation.save("SomePresentation-out3.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Text‑Hintergrundfarbe festlegen**
-
-Aspose.Slides ermöglicht es Ihnen, Ihre bevorzugte Hintergrundfarbe für Text anzugeben. Der folgende Python‑Code zeigt, wie Sie die Hintergrundfarbe für den gesamten Text festlegen:
 ```python
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
-    autoShape.text_frame.paragraphs.clear()
+with slides.Presentation("sample.pptx") as presentation:
+    # Das erste Shape von der ersten Folie holen.
+    shape = presentation.slides[0].shapes[0]
 
-    para = slides.Paragraph()
+    # Das Wort "try" im Shape hervorheben.
+    shape.text_frame.highlight_text("try", draw.Color.light_blue)
 
-    portion1 = slides.Portion("Black")
-    portion1.portion_format.font_bold = 1
-    
-    portion2 = slides.Portion(" Red ")
-    
-    portion3 = slides.Portion("Black")
-    portion3.portion_format.font_bold = 1
-    
-    para.portions.add(portion1)
-    para.portions.add(portion2)
-    para.portions.add(portion3)
-    autoShape.text_frame.paragraphs.add(para)
-    
-    pres.save("text.pptx", slides.export.SaveFormat.PPTX)
+    search_options = slides.TextSearchOptions()
+    search_options.whole_words_only = True
 
-with slides.Presentation("text.pptx") as pres:
-    autoShape = pres.slides[0].shapes[0]
+    # Das Wort "to" im Shape hervorheben.
+    shape.text_frame.highlight_text("to", draw.Color.violet, search_options, None)
 
-    for portion in autoShape.text_frame.paragraphs[0].portions:
-        portion.portion_format.highlight_color.color = draw.Color.blue
-
-    pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("highlighted_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Das Ergebnis:
 
-Dieser Python‑Code zeigt, wie Sie die Hintergrundfarbe nur für einen Teil des Textes festlegen:
+![Der hervorgehobene Text](highlighted_text.png)
+
+## **Text mit regulären Ausdrücken hervorheben**
+
+Die [TextFrame.highlight_regex](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/highlight_regex/)‑Methode hebt Textübereinstimmungen hervor, die durch einen regulären Ausdruck gefunden wurden. In Python wird diese API über [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) bereitgestellt.
+
+Das nachstehende Codebeispiel hebt alle Wörter hervor, die **sieben oder mehr Zeichen** enthalten:
+
 ```python
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
-    autoShape.text_frame.paragraphs.clear()
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-    para = slides.Paragraph()
+    regex = r"\b[^\s]{7,}\b"
 
-    portion1 = slides.Portion("Black")
-    portion1.portion_format.font_bold = 1
-    
-    portion2 = slides.Portion(" Red ")
-    
-    portion3 = slides.Portion("Black")
-    portion3.portion_format.font_bold = 1
-    
-    para.portions.add(portion1)
-    para.portions.add(portion2)
-    para.portions.add(portion3)
-    autoShape.text_frame.paragraphs.add(para)
-    
-    pres.save("text.pptx", slides.export.SaveFormat.PPTX)
+    # Alle Wörter mit sieben oder mehr Zeichen hervorheben.
+    shape.text_frame.highlight_regex(regex, draw.Color.yellow, None)
 
-with slides.Presentation("text.pptx") as pres:
-    autoShape = pres.slides[0].shapes[0]
-
-    for portion in autoShape.text_frame.paragraphs[0].portions:
-        print (portion.text)
-
-    redPortion = list(p for p in autoShape.text_frame.paragraphs[0].portions if 'Red' in p.text)[0]
-    redPortion.portion_format.highlight_color.color = draw.Color.blue
-
-    pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("highlighted_text_using_regex.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Das Ergebnis:
+
+![Der hervorgehobene Text mithilfe des regulären Ausdrucks](highlighted_text_using_regex.png)
+
+## **Hintergrundfarbe für Text festlegen**
+
+Verwenden Sie [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/default_portion_format/), um die Standard‑Hervorhebungsfarbe für einen Absatz festzulegen, oder verwenden Sie [PortionFormat.highlight_color](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/highlight_color/) für einzelne Textabschnitte.
+
+Das folgende Codebeispiel zeigt, wie die Hintergrundfarbe für den **gesamten Absatz** gesetzt wird:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    # Die Hervorhebungsfarbe für den gesamten Absatz setzen.
+    paragraph.paragraph_format.default_portion_format.highlight_color.color = draw.Color.light_gray
+
+    presentation.save("gray_paragraph.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Das Ergebnis:
+
+![Der graue Absatz](gray_paragraph.png)
+
+Das nachstehende Codebeispiel demonstriert, wie die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** gesetzt wird:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # Die Hervorhebungsfarbe für den Textabschnitt setzen.
+            portion.portion_format.highlight_color.color = draw.Color.light_gray
+
+    presentation.save("gray_text_portions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Das Ergebnis:
+
+![Die grauen Textabschnitte](gray_text_portions.png)
 
 ## **Textabsätze ausrichten**
 
-Textformatierung ist ein Schlüsselelement beim Erstellen von Dokumenten oder Präsentationen. Aspose.Slides for Python via .NET unterstützt das Hinzufügen von Text zu Folien; in diesem Abschnitt sehen wir, wie man die Absatzausrichtung in einer Folie steuert. Folgen Sie diesen Schritten, um Textabsätze mit Aspose.Slides for Python via .NET auszurichten:
+Verwenden Sie [ParagraphFormat.alignment](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/alignment/), um die Absatzausrichtung innerhalb eines Textfelds festzulegen. Der Wert kann z. B. zentriert, linksbündig, rechtsbündig, im Blocksatz usw. sein.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.  
-3. Greifen Sie auf die Platzhalterformen der Folie zu und casten Sie sie zu [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).  
-4. Aus dem von der [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) bereitgestellten [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) holen Sie sich den Absatz, der ausgerichtet werden soll.  
-5. Richten Sie den Absatz aus. Ein Absatz kann `LEFT`, `RIGHT`, `CENTER`, `JUSTIFY`, `JUSTIFY_LOW` oder `DISTRIBUTED` ausgerichtet werden.  
-6. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Das folgende Codebeispiel zeigt, wie der Absatz **zentriert** ausgerichtet wird:
 
-Die Implementierung dieser Schritte wird unten gezeigt.
-```py
+```python
 import aspose.slides as slides
 
-# Instanziieren Sie ein Presentation-Objekt, das eine PPTX-Datei darstellt
-with slides.Presentation("ParagraphsAlignment.pptx") as presentation:
-    # Zugriff auf die erste Folie
-    slide = presentation.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Zugriff auf den ersten und zweiten Platzhalter in der Folie und Umwandlung in AutoShape
-    tf1 = slide.shapes[0].text_frame
-    tf2 = slide.shapes[1].text_frame
+    # Die Ausrichtung des Absatzes auf Zentriert setzen.
+    paragraph.paragraph_format.alignment = slides.TextAlignment.CENTER
 
-    # Ändern des Textes in beiden Platzhaltern
-    tf1.text = "Center Align by Aspose"
-    tf2.text = "Center Align by Aspose"
-
-    # Abrufen des ersten Absatzes der Platzhalter
-    para1 = tf1.paragraphs[0]
-    para2 = tf2.paragraphs[0]
-
-    # Ausrichten des Textabsatzes zur Mitte
-    para1.paragraph_format.alignment = slides.TextAlignment.CENTER
-    para2.paragraph_format.alignment = slides.TextAlignment.CENTER
-
-    # Schreiben der Präsentation als PPTX-Datei
-    presentation.save("Centeralign_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("aligned_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Das Ergebnis:
 
+![Der ausgerichtete Absatz](aligned_paragraph.png)
 
 ## **Transparenz für Text festlegen**
 
-In diesem Abschnitt wird gezeigt, wie Sie die Transparenzeigenschaft für jede Textform mit Aspose.Slides for Python via .NET festlegen. Gehen Sie dazu wie folgt vor:
+Die Transparenz von Text wird über die Alpha‑Komponente der Farbe gesteuert, die [PortionFormat.fill_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/fill_format/) zugewiesen wird. In den nachstehenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Wert im Bereich 0‑255 und keine prozentuale Angabe.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Holen Sie sich einen Verweis auf eine Folie.  
-3. Setzen Sie die Schattenfarbe.  
-4. Speichern Sie die Präsentation als PPTX‑Datei.
+Das folgende Codebeispiel zeigt, wie Transparenz für den **gesamten Absatz** angewendet wird:
 
-Die Implementierung dieser Schritte finden Sie unten.
-```py
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation("transparency.pptx") as pres:
-    shape = pres.slides[0].shapes[0]
-    effects = shape.text_frame.paragraphs[0].portions[0].portion_format.effect_format
+alpha = 50
 
-    outerShadowEffect = effects.outer_shadow_effect
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    shadowColor = outerShadowEffect.shadow_color.color
-    print("{color} - transparency is: {value}".format(color = shadowColor, value = (shadowColor.a / 255) * 100))
-    # Transparenz auf null Prozent setzen
-    outerShadowEffect.shadow_color.color = draw.Color.from_argb(255, shadowColor)
+    # Die Füllfarbe des Textes auf transparente Farbe setzen.
+    paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
-    pres.save("transparency-2.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("transparent_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Das Ergebnis:
+
+![Der transparente Absatz](transparent_paragraph.png)
+
+Das nachstehende Codebeispiel zeigt, wie Transparenz für **Textabschnitte mit fetter Schrift** angewendet wird:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+alpha = 50
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # Die Transparenz des Textabschnitts setzen.
+            portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+            portion.portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
+
+    presentation.save("transparent_text_portions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Das Ergebnis:
+
+![Die transparenten Textabschnitte](transparent_text_portions.png)
 
 ## **Zeichenabstand für Text festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, den Abstand zwischen Buchstaben in einem Textfeld anzupassen. Dadurch können Sie die visuelle Dichte einer Zeile oder eines Textblocks steuern, indem Sie den Abstand zwischen den Zeichen vergrößern oder verkleinern.
+Verwenden Sie [BasePortionFormat.spacing](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseportionformat/spacing/), um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verkleinern.
 
-Das folgende Python‑Beispiel zeigt, wie Sie den Abstand für eine Zeile Text vergrößern und für eine andere verkleinern:
+Der folgende Python‑Code zeigt, wie der Zeichenabstand im **gesamten Absatz** vergrößert wird:
+
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("in.pptx") as pres:
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    textBox1 = pres.slides[0].shapes[0]
-    textBox2 = pres.slides[0].shapes[1]
+    # Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu reduzieren.
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # Zeichenabstand vergrößern.
 
-    textBox1.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = 20 # erweitern
-    textBox2.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = -2 # verdichten
-
-    pres.save("out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Das Ergebnis:
 
-## **Absatz‑Schrifteigenschaften verwalten**
+![Der Zeichenabstand im Absatz](character_spacing_in_paragraph.png)
 
-Präsentationen enthalten meist sowohl Text als auch Bilder. Der Text kann auf verschiedene Weise formatiert werden – sei es, um bestimmte Abschnitte und Wörter hervorzuheben oder um Unternehmensrichtlinien zu entsprechen. Textformatierung hilft Benutzern, das Aussehen des Präsentationsinhalts zu ändern.
+Das nachstehende Codebeispiel zeigt, wie der Zeichenabstand in **Textabschnitten mit fetter Schrift** vergrößert wird:
 
-In diesem Abschnitt wird gezeigt, wie Sie mit Aspose.Slides for Python via .NET die Schliffeigenschaften von Absätzen im Folientext konfigurieren. So verwalten Sie die Schrifteigenschaften eines Absatzes:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.  
-3. Greifen Sie auf die Platzhalterformen der Folie zu und casten Sie sie zu [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).  
-4. Holen Sie den Absatz aus dem von der [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) bereitgestellten [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).  
-5. Richten Sie den Absatz aus.  
-6. Greifen Sie auf den Text‑Portion des Absatzes zu.  
-7. Definieren Sie die Schrift über [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/) und setzen Sie die Schrift der Portion entsprechend.  
-   1. Setzen Sie die Schrift auf fett.  
-   2. Setzen Sie die Schrift auf kursiv.  
-8. Setzen Sie die Schriftfarbe über das [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/), das vom [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)-Objekt bereitgestellt wird.  
-9. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
-
-Die Implementierung der oben genannten Schritte wird unten gezeigt. Sie nimmt eine einfache Präsentation und wendet Schriftformatierung auf eine der Folien an.
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Instanziieren Sie ein Presentation-Objekt, das eine PPTX-Datei darstellt
-with slides.Presentation("FontProperties.pptx") as pres:
-    # Zugriff auf eine Folie anhand ihrer Position
-    slide = pres.slides[0]
-
-    # Zugriff auf den ersten und zweiten Platzhalter in der Folie und Typumwandlung zu AutoShape
-    tf1 = slide.shapes[0].text_frame
-    tf2 = slide.shapes[1].text_frame
-
-    # Zugriff auf den ersten Absatz
-    para1 = tf1.paragraphs[0]
-    para2 = tf2.paragraphs[0]
-
-    # Zugriff auf die erste Portion
-    port1 = para1.portions[0]
-    port2 = para2.portions[0]
-
-    # Definieren neuer Schriftarten
-    fd1 = slides.FontData("Elephant")
-    fd2 = slides.FontData("Castellar")
-
-    # Zuweisen neuer Schriftarten zur Portion
-    port1.portion_format.latin_font = fd1
-    port2.portion_format.latin_font = fd2
-
-    # Schrift auf Fett setzen
-    port1.portion_format.font_bold = 1
-    port2.portion_format.font_bold = 1
-
-    # Schrift auf Kursiv setzen
-    port1.portion_format.font_italic = 1
-    port2.portion_format.font_italic = 1
-
-    # Schriftfarbe festlegen
-    port1.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    port1.portion_format.fill_format.solid_fill_color.color = draw.Color.purple
-    port2.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    port2.portion_format.fill_format.solid_fill_color.color = draw.Color.peru
-
-    #Write die PPTX auf die Festplatte
-    pres.save("WelcomeFont_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Schriftfamilie des Textes verwalten**
-
-[Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)-Objekte werden verwendet, um Text mit ähnlichem Formatstil innerhalb eines Absatzes zu halten. Dieser Abschnitt zeigt, wie Sie mit Aspose.Slides for Python ein Textfeld erstellen, Text hinzufügen und dann eine bestimmte Schrift sowie weitere Schriftfamilien‑Eigenschaften festlegen.
-
-So erstellen Sie ein Textfeld und setzen die Schrift‑Eigenschaften des darin enthaltenen Textes:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.  
-3. Fügen Sie der Folie eine [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) vom Typ `RECTANGLE` hinzu.  
-4. Entfernen Sie den Füllstil, der mit der [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) verbunden ist.  
-5. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der AutoShape zu.  
-6. Fügen Sie dem [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) Text hinzu.  
-7. Greifen Sie auf das [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)-Objekt zu, das mit dem [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) verknüpft ist.  
-8. Definieren Sie die für das [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)-Objekt zu verwendende Schrift.  
-9. Setzen Sie weitere Schrift‑Eigenschaften wie fett, kursiv, unterstrichen, Farbe und Höhe über die entsprechenden Eigenschaften des [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)-Objekts.  
-10. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
-
-Die Implementierung dieser Schritte wird unten gezeigt.
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Präsentation instanziieren
-with slides.Presentation() as presentation:
-    # Erste Folie holen
-    sld = presentation.slides[0]
-
-    # AutoShape vom Typ Rechteck hinzufügen
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 50)
-
-    # Fill‑Stil des AutoShape entfernen
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # Auf das mit dem AutoShape verbundene TextFrame zugreifen
-    tf = ashp.text_frame
-    tf.text = "Aspose TextBox"
-
-    # Auf die mit dem TextFrame verbundene Portion zugreifen
-    port = tf.paragraphs[0].portions[0]
-
-    # Schriftart für die Portion festlegen
-    port.portion_format.latin_font = slides.FontData("Times New Roman")
-
-    # Fett‑Eigenschaft der Schrift festlegen
-    port.portion_format.font_bold = 1
-
-    # Kursiv‑Eigenschaft der Schrift festlegen
-    port.portion_format.font_italic = 1
-
-    # Unterstreichungs‑Eigenschaft der Schrift festlegen
-    port.portion_format.font_underline = slides.TextUnderlineType.SINGLE
-
-    # Höhe der Schrift festlegen
-    port.portion_format.font_height = 25
-
-    # Farbe der Schrift festlegen
-    port.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    port.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-
-    # PPTX auf die Festplatte schreiben 
-    presentation.save("SetTextFontProperties_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Schriftgröße für Text festlegen**
-
-Aspose.Slides erlaubt es Ihnen, die bevorzugte Schriftgröße für vorhandenen Text in einem Absatz sowie für künftig hinzugefügten Text festzulegen.
-
-Das folgende Python‑Beispiel demonstriert, wie Sie die Schriftgröße für Text in einem Absatz setzen:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Holt das erste Shape, zum Beispiel.
-    shape = presentation.slides[0].shapes[0]
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu reduzieren.
+            portion.portion_format.spacing = 3  # Zeichenabstand vergrößern.
 
-    if type(shape) is slides.AutoShape:
-        # Holt den ersten Absatz, zum Beispiel.
-        paragraph = shape.text_frame.paragraphs[0]
+    presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
+```
 
-        # Setzt die Standardschriftgröße auf 20 pt für alle Textanteile im Absatz. 
-        paragraph.paragraph_format.default_portion_format.font_height = 20
+Das Ergebnis:
 
-        # Setzt die Schriftgröße auf 20 pt für die aktuellen Textanteile im Absatz. 
+![Der Zeichenabstand in den Textabschnitten](character_spacing_in_text_portions.png)
+
+### **Kerning für bestimmte Schriftarten deaktivieren**
+
+In manchen Fällen sieht der von Aspose.Slides gerenderte Text etwas kompakter aus als derselbe Text in PowerPoint. Dies kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriftarten ignoriert, selbst wenn die Schriftart gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
+
+Um die Darstellung in solchen Fällen PowerPoint‑ähnlicher zu machen, können Sie das Kerning für Textabschnitte deaktivieren, die die betroffene Schriftart verwenden. Setzen Sie [PortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) auf einen Wert, der deutlich größer als die tatsächliche Schriftgröße ist:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    target_font = "Roboto"
+
+    for paragraph in auto_shape.text_frame.paragraphs:
         for portion in paragraph.portions:
-            portion.portion_format.font_height = 20
+            latin_font = portion.portion_format.latin_font
+            east_asian_font = portion.portion_format.east_asian_font
+            complex_script_font = portion.portion_format.complex_script_font
+
+            if ((latin_font is not None and latin_font.font_name == target_font) or
+                    (east_asian_font is not None and east_asian_font.font_name == target_font) or
+                    (complex_script_font is not None and complex_script_font.font_name == target_font)):
+                portion.portion_format.kerning_minimal_size = 100
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-
 ```
 
+Diese Einstellung verhindert, dass Kerning auf passende Textabschnitte angewendet wird, und kann helfen, das Rendering von Aspose.Slides an die visuelle Ausgabe von PowerPoint für betroffene Schriftarten anzupassen.
 
-## **Text rotieren**
+## **Schriftarteigenschaften für Text verwalten**
 
-Aspose.Slides for Python via .NET ermöglicht es Entwicklern, Text zu drehen. Text kann als `HORIZONTAL`, `VERTICAL`, `VERTICAL270`, `WORD_ART_VERTICAL`, `EAST_ASIAN_VERTICAL`, `MONGOLIAN_VERTICAL` oder `WORD_ART_VERTICAL_RIGHT_TO_LEFT` dargestellt werden.
+Schriftarteigenschaften können auf Absatzebene über [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/default_portion_format/) oder auf einzelne Abschnitte über [PortionFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/) festgelegt werden.
 
-Um den Text in einem beliebigen [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) zu rotieren, gehen Sie wie folgt vor:
+Der folgende Code setzt Schriftart und Textstil für den gesamten Absatz: Er wendet Schriftgröße, Fett, Kursiv, gepunktete Unterstreichung und die Schriftart Times New Roman auf alle Abschnitte des Absatzes an.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Greifen Sie auf die erste Folie zu.  
-3. Fügen Sie der Folie eine Form hinzu.  
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) zu.  
-5. Wenden Sie die gewünschte Textrotation an.  
-6. Speichern Sie die Datei auf dem Datenträger.
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Erstelle eine Instanz der Presentation-Klasse
-with slides.Presentation() as presentation:
-    # Hole die erste Folie 
-    slide = presentation.slides[0]
-
-    # Füge eine AutoShape vom Typ Rechteck hinzu
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
-
-    # Füge dem Rechteck ein TextFrame hinzu
-    ashp.add_text_frame(" ")
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # Zugriff auf das TextFrame
-    txtFrame = ashp.text_frame
-    txtFrame.text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL270
-
-    # Erstelle das Paragraph-Objekt für das TextFrame
-    para = txtFrame.paragraphs[0]
-
-    # Erstelle ein Portion-Objekt für den Absatz
-    portion = para.portions[0]
-    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-
-    # Präsentation speichern
-    presentation.save("RotateText_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Benutzerdefinierten Rotationswinkel für ein TextFrame festlegen**
-
-Aspose.Slides for Python via .NET unterstützt das Festlegen eines benutzerdefinierten Rotationswinkels für ein [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/). In diesem Abschnitt zeigen wir, wie Sie die Eigenschaft `rotation_angle` in Aspose.Slides verwenden.
-
-Um die Eigenschaft `rotation_angle` zu setzen, gehen Sie wie folgt vor:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Fügen Sie der Folie ein Diagramm hinzu.  
-3. Setzen Sie die Eigenschaft `rotation_angle`.  
-4. Speichern Sie die Präsentation als PPTX‑Datei.
-
-Im folgenden Beispiel setzen wir die Eigenschaft `rotation_angle`.
-```py
+```python
 import aspose.slides as slides
 
-# Instanz der Presentation-Klasse erstellen
-with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    series = chart.chart_data.series[0]
+    # Die Schriftarteigenschaften für den Absatz setzen.
+    paragraph.paragraph_format.default_portion_format.font_height = 12
+    paragraph.paragraph_format.default_portion_format.font_bold = slides.NullableBool.TRUE
+    paragraph.paragraph_format.default_portion_format.font_italic = slides.NullableBool.TRUE
+    paragraph.paragraph_format.default_portion_format.font_underline = slides.TextUnderlineType.DOTTED
+    paragraph.paragraph_format.default_portion_format.latin_font = slides.FontData("Times New Roman")
 
-    series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.text_format.text_block_format.rotation_angle = 65
-
-    chart.has_title = True
-    chart.chart_title.add_text_frame_for_overriding("Custom title").text_frame_format.rotation_angle = -30
-
-    # Präsentation speichern
-    presentation.save("textframe-rotation_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("font_properties_for_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Das Ergebnis:
+
+![Die Schriftarteigenschaften für den Absatz](font_properties_for_paragraph.png)
+
+Das nachstehende Codebeispiel wendet ähnliche Eigenschaften auf **Textabschnitte mit fetter Schrift** an:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # Die Schriftarteigenschaften für den Textabschnitt setzen.
+            portion.portion_format.font_height = 13
+            portion.portion_format.font_italic = slides.NullableBool.TRUE
+            portion.portion_format.font_underline = slides.TextUnderlineType.DOTTED
+            portion.portion_format.latin_font = slides.FontData("Times New Roman")
+
+    presentation.save("font_properties_for_text_portions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Das Ergebnis:
+
+![Die Schriftarteigenschaften für Textabschnitte](font_properties_for_text_portions.png)
+
+## **Textdrehung festlegen**
+
+Verwenden Sie [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframeformat/text_vertical_type/), um eine vordefinierte Textausrichtung innerhalb einer Form festzulegen.
+
+Der folgende Code setzt die Textausrichtung in der Form auf `VERTICAL270`, wodurch der Text **um 90 Grad gegen den Uhrzeigersinn** gedreht wird:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    auto_shape.text_frame.text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL270
+
+    presentation.save("text_rotation.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Das Ergebnis:
+
+![Die Textdrehung](text_rotation.png)
+
+## **Benutzerdefinierte Drehung für Textfelder festlegen**
+
+Verwenden Sie [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframeformat/rotation_angle/), um einen benutzerdefinierten Drehwinkel für ein [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) festzulegen.
+
+Der folgende Code dreht das Textfeld um 3 Grad im Uhrzeigersinn innerhalb der Form:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    auto_shape.text_frame.text_frame_format.rotation_angle = 3
+
+    presentation.save("custom_text_rotation.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Das Ergebnis:
+
+![Die benutzerdefinierte Textdrehung](custom_text_rotation.png)
 
 ## **Zeilenabstand von Absätzen festlegen**
 
-Aspose.Slides stellt die Eigenschaften `space_after`, `space_before` und `space_within` in der [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/)-Klasse bereit, um den Zeilenabstand eines Absatzes zu steuern. Diese Eigenschaften funktionieren wie folgt:
+Aspose.Slides stellt [ParagraphFormat.space_after](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/space_before/) und [ParagraphFormat.space_within](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/space_within/) zur Verfügung, um den Absatzabstand zu steuern. Diese Eigenschaften werden wie folgt verwendet:
 
-* Um den Zeilenabstand als Prozentsatz anzugeben, verwenden Sie einen positiven Wert.  
-* Um den Zeilenabstand in Punkten anzugeben, verwenden Sie einen negativen Wert.
+* Verwenden Sie einen positiven Wert, um den Zeilenabstand als Prozentsatz der Zeilenhöhe anzugeben.
+* Verwenden Sie einen negativen Wert, um den Zeilenabstand in Punkt anzugeben.
 
-Beispiel: Um einen Zeilenabstand von 16 pt vor einem Absatz zu setzen, setzen Sie die Eigenschaft `space_before` auf `-16`.
+Der folgende Code zeigt, wie der Zeilenabstand innerhalb des Absatzes festgelegt wird:
 
-So legen Sie den Zeilenabstand für einen bestimmten Absatz fest:
-
-1. Laden Sie eine Präsentation, die eine [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mit Text enthält.  
-2. Holen Sie sich einen Verweis auf die Folie anhand ihres Index.  
-3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) zu.  
-4. Greifen Sie auf den [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) zu.  
-5. Setzen Sie die gewünschten Absatz‑Eigenschaften.  
-6. Speichern Sie die Präsentation.
-
-Das folgende Python‑Beispiel demonstriert, wie der Zeilenabstand für einen Absatz gesetzt wird:
-```py
+```python
 import aspose.slides as slides
 
-# Instanz der Presentation-Klasse erstellen
-with slides.Presentation("Fonts.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Referenz einer Folie anhand ihres Index erhalten
-    sld = presentation.slides[0]
+    paragraph.paragraph_format.space_within = 200
 
-    # Auf das TextFrame zugreifen
-    tf1 = sld.shapes[0].text_frame
-
-    # Auf den Absatz zugreifen
-    para1 = tf1.paragraphs[0]
-
-    # Eigenschaften des Absatzes festlegen
-    para1.paragraph_format.space_within = 80
-    para1.paragraph_format.space_before = 40
-    para1.paragraph_format.space_after = 40
-    # Präsentation speichern
-    presentation.save("LineSpacing_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("line_spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Das Ergebnis:
 
-## **AutofitType‑Eigenschaft für TextFrame festlegen**
+![Der Zeilenabstand innerhalb des Absatzes](line_spacing.png)
 
-In diesem Abschnitt untersuchen wir verschiedene Formatierungseigenschaften eines [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), einschließlich des Setzens von `autofit_type`, Anpassen des Textankers und Drehen von Text in einer Präsentation.
+## **Autofit‑Typ für Textfelder festlegen**
 
-Aspose.Slides for Python via .NET ermöglicht es Entwicklern, die Eigenschaft `autofit_type` eines beliebigen [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) festzulegen. `autofit_type` kann entweder `NORMAL` oder `SHAPE` sein:
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframeformat/autofit_type/) bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie diese Einstellung, um zu steuern, ob der Text verkleinert, überläuft oder die Form automatisch anpasst.
 
-* Bei `NORMAL` bleibt die Form unverändert, während der Text angepasst wird, damit er hineinpasst.  
-* Bei `SHAPE` wird die Form so skaliert, dass nur der benötigte Text enthalten ist.
-
-So setzen Sie die Eigenschaft `autofit_type` eines [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/):
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Greifen Sie auf die erste Folie zu.  
-3. Fügen Sie der Folie eine Form hinzu.  
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) zu.  
-5. Setzen Sie `autofit_type` für das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).  
-6. Speichern Sie die Datei auf dem Datenträger.
-
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# Instanz der Presentation-Klasse erstellen
-with slides.Presentation() as presentation:
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
 
-    # Auf die erste Folie zugreifen 
+    auto_shape.text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
+
+    presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Verankerung von Textfeldern festlegen**
+
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframeformat/anchoring_type/) definiert, wie Text vertikal innerhalb einer Form positioniert wird, z. B. oben, mittig oder unten.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    auto_shape.text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.BOTTOM
+
+    presentation.save("text_anchor.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Tabulation für Text festlegen**
+
+Verwenden Sie [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/default_tab_size/) und [ParagraphFormat.tabs](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/tabs/), um Tabstopps in einem Absatz zu konfigurieren.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    paragraph.paragraph_format.default_tab_size = 100
+    paragraph.paragraph_format.tabs.add(30, slides.TabAlignment.LEFT)
+
+    presentation.save("paragraph_tabs.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Das Ergebnis:
+
+![Die Absatz‑Tabs](paragraph_tabs.png)
+
+## **Korrektursprache festlegen**
+
+Aspose.Slides bietet [PortionFormat.language_id](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/language_id/), mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
+
+Der folgende Code zeigt, wie die Korrektursprache für einen Textabschnitt festgelegt wird:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    paragraph = auto_shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
+
+    font = slides.FontData("SimSun")
+
+    text_portion = slides.Portion()
+    text_portion.portion_format.complex_script_font = font
+    text_portion.portion_format.east_asian_font = font
+    text_portion.portion_format.latin_font = font
+
+    # Setze die Id einer Korrektursprache.
+    text_portion.portion_format.language_id = "zh-CN"
+
+    text_portion.text = "1."
+    paragraph.portions.add(text_portion)
+
+    presentation.save("proofing_language.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Standard‑Sprache festlegen**
+
+Verwenden Sie [LoadOptions.default_text_language](https://reference.aspose.com/slides/de/python-net/aspose.slides/loadoptions/default_text_language/), um die Standardsprache für während des Ladens oder Erstellens einer Präsentation erzeugten Text festzulegen.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.default_text_language = "en-US"
+
+with slides.Presentation(load_options) as presentation:
     slide = presentation.slides[0]
 
-    # AutoShape vom Typ Rechteck hinzufügen
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
+    # Neues Rechteck-Shape mit Text hinzufügen.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
+    shape.text_frame.text = "Sample text"
 
-    # TextFrame zum Rechteck hinzufügen
-    ashp.add_text_frame(" ")
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # Zugriff auf das TextFrame
-    txtFrame = ashp.text_frame
-    txtFrame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-
-    # Paragraph-Objekt für das TextFrame erstellen
-    para = txtFrame.paragraphs[0]
-
-    # Portion-Objekt für den Absatz erstellen
-    portion = para.portions[0]
-    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-
-    # Präsentation speichern
-    presentation.save("formatText_out.pptx", slides.export.SaveFormat.PPTX) 
+    # Prüfe die Sprache des ersten Textabschnitts.
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    print(portion.portion_format.language_id)
 ```
-
-
-## **Anker eines TextFrame festlegen**
-
-Aspose.Slides for Python via .NET ermöglicht es Entwicklern, die Ankerposition eines beliebigen [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) festzulegen. Die Eigenschaft [TextAnchorType](https://reference.aspose.com/slides/python-net/aspose.slides/textanchortype/) bestimmt, wo der Text innerhalb der Form platziert wird. Sie kann auf `TOP`, `CENTER`, `BOTTOM`, `JUSTIFIED` oder `DISTRIBUTED` gesetzt werden.
-
-So legen Sie den Anker eines [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) fest:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.  
-2. Greifen Sie auf die erste Folie zu.  
-3. Fügen Sie der Folie eine Form hinzu.  
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) zu.  
-5. Setzen Sie das [TextAnchorType](https://reference.aspose.com/slides/python-net/aspose.slides/textanchortype/) für das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).  
-6. Speichern Sie die Datei auf dem Datenträger.
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Instanz der Presentation-Klasse erstellen
-with slides.Presentation() as presentation:
-    # Erste Folie holen 
-    slide = presentation.slides[0]
-
-    # AutoShape vom Typ Rechteck hinzufügen
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
-
-    # TextFrame zum Rechteck hinzufügen
-    ashp.add_text_frame(" ")
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # Zugriff auf das TextFrame
-    txtFrame = ashp.text_frame
-    txtFrame.text_frame_format.anchoring_type = slides.TextAnchorType.BOTTOM
-
-    # Paragraph-Objekt für das TextFrame erstellen
-    para = txtFrame.paragraphs[0]
-
-    # Portion-Objekt für den Absatz erstellen
-    portion = para.portions[0]
-    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-
-    # Präsentation speichern
-    presentation.save("AnchorText_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
 
 ## **Standard‑Textstil festlegen**
 
-Wenn Sie denselben Standard‑Textformatierungsstil auf alle Textelemente einer Präsentation anwenden möchten, können Sie die Eigenschaft `default_text_style` der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse verwenden und das gewünschte Format festlegen.
+Um eine Standard‑Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [Presentation.default_text_style](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/default_text_style/).
 
-Das folgende Beispiel demonstriert, wie Sie die Standardschrift auf fett und Größe 14 pt für allen Text in jeder Folie einer neuen Präsentation setzen.
-```py
+Der folgende Code zeigt, wie ein Standard‑Fettschrift‑Stil mit einer Größe von 14 pt für allen Text in einer neuen Präsentation festgelegt wird.
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
-    # Hole das Absatzformat der obersten Ebene.
-    paragraphFormat = presentation.default_text_style.get_level(0)
+    # Holen Sie das Absatzformat der obersten Ebene.
+    paragraph_format = presentation.default_text_style.get_level(0)
 
-    if paragraphFormat is not None:
-        paragraphFormat.default_portion_format.font_height = 14
-        paragraphFormat.default_portion_format.font_bold = slides.NullableBool.TRUE
+    if paragraph_format is not None:
+        paragraph_format.default_portion_format.font_height = 14
+        paragraph_format.default_portion_format.font_bold = slides.NullableBool.TRUE
 
-    presentation.save("DefaultTextStyle.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Text mit All‑Caps‑Effekt extrahieren**
 
-In PowerPoint bewirkt der Schrift­effekt **All Caps**, dass Text in Großbuchstaben angezeigt wird, obwohl er ursprünglich in Kleinbuchstaben eingegeben wurde. Beim Abrufen eines solchen Textabschnitts mit Aspose.Slides liefert die Bibliothek den ursprünglich eingegebenen Text. Um dies zu handhaben, prüfen Sie [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) – wenn er `ALL` anzeigt, konvertieren Sie die zurückgegebene Zeichenkette einfach in Großbuchstaben, sodass Ihre Ausgabe mit dem übereinstimmt, was im Folien‑Layout zu sehen ist.
+In PowerPoint sorgt der **All Caps**‑Schrifteffekt dafür, dass Text auf der Folie in Großbuchstaben angezeigt wird, obwohl er ursprünglich kleingeschrieben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides auslesen, liefert die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/de/python-net/aspose.slides/textcaptype/) und wandeln Sie die zurückgegebene Zeichenkette in Großbuchstaben um, wenn der Wert `ALL` ist.
 
-Angenommen, wir haben das folgende Textfeld auf der ersten Folie der Datei sample2.pptx.
+Angenommen, wir haben das folgende Textfeld auf der ersten Folie der Datei **sample2.pptx**.
 
-![The All Caps effect](all_caps_effect.png)
+![Der All‑Caps‑Effekt](all_caps_effect.png)
 
-Der nachfolgende Code‑Abschnitt zeigt, wie Sie den Text mit dem **All Caps**‑Effekt extrahieren:
-```py
+Der folgende Code zeigt, wie der Text mit angewendetem **All Caps**‑Effekt extrahiert wird:
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation("sample2.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     text_portion = auto_shape.text_frame.paragraphs[0].portions[0]
@@ -657,28 +553,19 @@ with slides.Presentation("sample2.pptx") as presentation:
         print("All-Caps effect:", text)
 ```
 
-
 Ausgabe:
+
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-
-{{% alert color="primary" %}}
-Aspose bietet einen einfachen, [kostenlosen Online‑PowerPoint‑Bearbeitungsservice](https://products.aspose.app/slides/editor).
-{{% /alert %}}
-
 ## **FAQ**
 
-**Kann ich unterschiedliche Formatierungen auf bestimmte Teile eines Textes innerhalb eines einzelnen Absatzes anwenden (z. B. nur ein paar Wörter fett) und wie wirkt sich das auf von Layouts und Themes geerbte Stile aus?**
+**Wie kann man Text in einer Tabelle auf einer Folie ändern?**
 
-Ja. Die Formatierung wird auf Ebene der „Text‑Portion“ innerhalb eines Absatzes gesetzt und überschreibt den Theme‑/Layout‑Stil nur für die ausgewählten Fragmente. Wenn das Theme geändert wird, aktualisieren sich nur die Bereiche ohne explizite lokale Formatierung.
+Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie [Table](https://reference.aspose.com/slides/de/python-net/aspose.slides/table/). Durchlaufen Sie die Zellen und aktualisieren Sie jede Zelle über [Cell.text_frame](https://reference.aspose.com/slides/de/python-net/aspose.slides/cell/text_frame/) sowie die Absatzformatierung über [Paragraph.paragraph_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/paragraph_format/).
 
-**Wie funktionieren Schriften unter Linux und in Docker‑Containern, in denen keine Systemschriften installiert sind?**
+**Wie kann man einen Farbverlauf auf Text in einer PowerPoint‑Folie anwenden?**
 
-Die Bibliothek verwendet Schrifterkennung/-substitution. Auf Systemen ohne Schriften sollten Sie explizit auf Schriftordner verweisen [/slides/python-net/custom-font/] und/oder eine Substitutionstabelle konfigurieren [/slides/python-net/font-substitution/], um ein Zurückfallen auf ungeeignete Schriftarten und Layout‑Verschiebungen zu vermeiden.
-
-**Wie unterscheidet sich die Textformatierung in Platzhaltern von der in regulären AutoShapes?**
-
-Platzhalter erben Stildefinitionen stärker vom Folienmaster und Layout als reguläre AutoShapes. Lokale Änderungen in Platzhaltern sind möglich, aber bei Layout‑Änderungen werden sie eher wieder auf Theme‑Stile zurückgesetzt, sofern Sie die Formatierung nicht explizit auf Ebene der Text‑Portion überschrieben haben.
+Um einen Farbverlauf auf Text anzuwenden, verwenden Sie [PortionFormat.fill_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/portionformat/fill_format/). Setzen Sie [FillFormat.fill_type](https://reference.aspose.com/slides/de/python-net/aspose.slides/fillformat/fill_type/) auf [FillType.GRADIENT](https://reference.aspose.com/slides/de/python-net/aspose.slides/filltype/) und konfigurieren Sie die Verlaufspunkte, Richtung und Transparenz.

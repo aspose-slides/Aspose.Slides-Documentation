@@ -1,170 +1,293 @@
 ---
-title: 将演示文稿导出为带有外部链接图像的 HTML
+title: 将演示文稿导出为带外部链接图像的HTML
 type: docs
 weight: 100
 url: /zh/net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- 导出 PowerPoint
+- 导出 OpenDocument
+- 导出演示文稿
+- 导出幻灯片
+- 导出 PPT
+- 导出 PPTX
+- 导出 ODP
+- PowerPoint 转 HTML
+- OpenDocument 转 HTML
+- 演示文稿转 HTML
+- 幻灯片转 HTML
+- PPT 转 HTML
+- PPTX 转 HTML
+- ODP 转 HTML
+- 链接图像
+- 外部链接图像
+- 链接资源
+- 外部资源
+- .NET
+- C#
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 .NET 中将 PowerPoint 和 OpenDocument 演示文稿导出为 HTML，图像和其他资源保存为外部链接文件。"
 ---
+## **概述**
 
-{{% alert color="primary" %}} 
+默认情况下，Aspose.Slides 会将演示文稿导出为一个自包含的 HTML 文件。图像和其他资源会直接写入 HTML，通常以 Base64 数据的形式。这在需要单个可移植文件时很方便，但并不总是网站、CMS 或服务器端转换流水线的最佳格式。
 
-此演示文稿导出为 HTML 的过程允许您指定：
+当您希望：
 
-1. 将嵌入到生成的 HTML 文件中的资源
-2. 将外部保存并从 HTML 文件中引用的资源。
+- 减少 HTML 文档的大小；
+- 在浏览器或 CDN 中单独缓存图像、字体、音频或视频；
+- 在导出后检查、替换、压缩或后处理生成的资源；
+- 使输出结构更接近 Web 应用程序的期望；
 
-{{% /alert %}} 
+请使用外部链接资源。
 
-## **背景**
+有关通用的 HTML 转换工作流，请参阅[将 PowerPoint 演示文稿转换为 HTML](/slides/zh/net/convert-powerpoint-to-html/)。本文重点讨论导出过程中的资源链接部分。
 
-默认的 HTML 导出行为是通过 base64 编码将所有资源嵌入到 HTML 文件中。此方法输出一个单一的 HTML 文件，便于查看和分发。默认方法存在以下限制： 
+## **链接资源导出工作原理**
 
-* 输出的文件由于基于 base64 编码，大小显著大于其组成部分。
-* 文件中包含的图像或资源难以替换。
+[ILinkEmbedController](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/) 允许您的应用程序逐资源决定导出器是将数据嵌入 HTML 还是外部保存并写入链接。
 
-### **另一种方法**
+该接口包含三个方法：
 
-一种不同的方法涉及 **[ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/)** 避免了上述限制。  
+- [ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) 决定资源是链接还是嵌入。
+- [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/geturl/) 返回将写入生成的 HTML 或其他链接资源的 URL。
+- [ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/saveexternal/) 将链接资源数据写入磁盘或其他存储目标。
 
-`LinkController` 类实现了 `ILinkEmbedController` 接口。接着该接口被传递给 [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor) 类的构造函数。ILinkEmbedController 接口包含三个方法，控制资源嵌入和保存过程：
+文件系统路径和浏览器 URL 是相互独立的。例如，下面的示例将资源文件写入磁盘上的 `html-output/assets`，而 HTML 中包含的相对 URL 如 `assets/resource-1.svg`。浏览器会相对于包含链接的文件解析这些 URL。因此，`presentation.html` 到 SVG 文件的链接使用 `assets/resource-1.svg`，而该 SVG 文件到同一 `assets` 文件夹中图像的链接使用 `resource-4.jpg`。
 
-**[GetObjectStoringLocation](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation)(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)**：当导出器遇到资源并必须决定如何存储该资源时调用此方法。*id*（导出操作的资源唯一标识符）和 *contentType*（包含资源的 MIME 类型）是该方法下最重要的参数。如果您希望链接该资源，必须从该方法返回 [LinkEmbedDecision.Link](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) 枚举。否则（嵌入该资源），必须返回 [LinkEmbedDecision.Embed](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/)。
+## **导出包含链接资源的 HTML**
 
-**[GetUrl](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/geturl)(int id, int referrer)**：此方法被调用以按照生成文件的相同方式获取资源 URL。资源由 *id* 标识。
+以下 C# 示例创建输出目录，将 HTML 文件保存到该目录，并在 `assets` 子目录中存储链接资源。控制器在 Aspose.Slides 提供或能够推断安全文件扩展名时，会链接常见的图像、字体、音频、视频和 CSS 资源。未识别的资源保持嵌入。
 
-**[SaveExternal](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/saveexternal)(int id, byte[] entityData)**：作为序列中的最后一个方法，当资源需要外部存储时调用它。由于资源标识符和资源内容存在于字节数组中，您可以对资源数据执行各种操作。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-以下是 **LinkController** 类实现 **ILinkEmbedController** 接口的 C# 代码：
+var inputFilePath = "presentation.pptx";
+var outputDirectory = "html-output";
+var assetDirectoryName = "assets";
+var assetDirectory = Path.Combine(outputDirectory, assetDirectoryName);
 
-```c#
-class LinkController : ILinkEmbedController
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(assetDirectory);
+
+var assetUrlPrefix = assetDirectoryName + "/";
+var controller = new ExternalResourceController(assetDirectory, assetUrlPrefix);
+var svgOptions = new SVGOptions(controller);
+var slideImageFormat = SlideImageFormat.Svg(svgOptions);
+
+var htmlOptions = new HtmlOptions(controller)
 {
-    static LinkController()
+    HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(string.Empty, false),
+    SlideImageFormat = slideImageFormat
+};
+
+using var presentation = new Presentation(inputFilePath);
+
+var htmlFilePath = Path.Combine(outputDirectory, "presentation.html");
+presentation.Save(htmlFilePath, SaveFormat.Html, htmlOptions);
+
+public sealed class ExternalResourceController : ILinkEmbedController
+{
+    private static readonly Dictionary<string, string> ExtensionsByContentType = new(StringComparer.OrdinalIgnoreCase)
     {
-        s_templates.Add("image/jpeg", "image-{0}.jpg");
-        s_templates.Add("image/png", "image-{0}.png");
+        ["image/jpeg"] = ".jpg",
+        ["image/png"] = ".png",
+        ["image/gif"] = ".gif",
+        ["image/bmp"] = ".bmp",
+        ["image/svg+xml"] = ".svg",
+        ["image/tiff"] = ".tiff",
+        ["image/x-emf"] = ".emf",
+        ["image/x-wmf"] = ".wmf",
+        ["font/woff"] = ".woff",
+        ["font/woff2"] = ".woff2",
+        ["font/ttf"] = ".ttf",
+        ["application/font-woff"] = ".woff",
+        ["application/vnd.ms-fontobject"] = ".eot",
+        ["application/x-font-ttf"] = ".ttf",
+        ["text/css"] = ".css",
+        ["audio/mpeg"] = ".mp3",
+        ["audio/mp4"] = ".m4a",
+        ["audio/wav"] = ".wav",
+        ["video/mp4"] = ".mp4",
+        ["video/webm"] = ".webm"
+    };
+
+    private readonly string assetDirectory;
+    private readonly string assetUrlPrefix;
+    private readonly Dictionary<int, string> fileNamesByResourceId = new();
+
+    public ExternalResourceController(string assetDirectory, string assetUrlPrefix)
+    {
+        if (string.IsNullOrWhiteSpace(assetDirectory))
+        {
+            throw new ArgumentException("The asset output directory must not be empty.", nameof(assetDirectory));
+        }
+
+        this.assetDirectory = assetDirectory;
+        this.assetUrlPrefix = NormalizeUrlPrefix(assetUrlPrefix);
     }
 
-    /// <summary>
-    /// 默认无参数构造函数
-    /// </summary>
-    public LinkController()
-    {
-        m_externalImages = new Dictionary<int, string>();
-    }
-
-    /// <summary>
-    /// 创建类实例并设置生成的资源文件保存的路径。
-    /// </summary>
-    /// <param name="savePath">生成的资源文件将存储的位置路径。</param>
-    public LinkController(string savePath)
-        : this()
-    {
-        SavePath = savePath;
-    }
-
-    /// <summary>
-    /// A ILinkEmbedController 成员
-    /// </summary>
-    public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName,
+    public LinkEmbedDecision GetObjectStoringLocation(
+        int resourceId,
+        byte[] entityData,
+        string semanticName,
         string contentType,
-        string recomendedExtension)
+        string recommendedExtension)
     {
-        // 在这里我们决定 externals 存储图像。
-        // id 是整个导出操作中每个对象的唯一标识符。
-
-        string template;
-
-        // s_templates 字典包含我们准备外部存储的内容类型及其对应的文件名模板。
-        if (s_templates.TryGetValue(contentType, out template))
+        var extension = ResolveExtension(contentType, recommendedExtension);
+        if (extension == null)
         {
-            // 将该资源存储到导出列表中
-            m_externalImages.Add(id, template);
-            return LinkEmbedDecision.Link;
+            return LinkEmbedDecision.Embed;
         }
 
-        // 所有其他资源（如果有）将被嵌入
-        return LinkEmbedDecision.Embed;
+        fileNamesByResourceId[resourceId] = $"resource-{resourceId}{extension}";
+        return LinkEmbedDecision.Link;
     }
 
-    /// <summary>
-    /// A ILinkEmbedController 成员
-    /// </summary>
-    public string GetUrl(int id, int referrer)
+    public string GetUrl(int resourceId, int referrer)
     {
-        // 在这里我们构建资源引用字符串以形成标记: <img src="%result%">
-        // 我们需要检查字典以过滤掉不必要的资源。
-        // 在检查过程中提取相应的文件名模板。
-        string template;
-        if (m_externalImages.TryGetValue(id, out template))
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
         {
-            // 假设我们将资源文件存储在 HTML 文件旁边。
-            // 图像标记看起来像 <img src="image-1.png">，其中包含适当的资源 Id 和扩展名。
-            var fileUrl = String.Format(template, id);
-            return fileUrl;
+            return null;
         }
 
-        // 对于仍然嵌入的资源，必须返回 null
-        return null;
-    }
-
-    /// <summary>
-    /// A ILinkEmbedController 成员
-    /// </summary>
-    public void SaveExternal(int id, byte[] entityData)
-    {
-        // 在这里我们实际将资源文件保存到磁盘。
-        // 再次检查字典。如果该 id 在这里未找到，则表明 GetObjectStoringLocation 或 GetUrl 方法存在错误。
-        if (m_externalImages.ContainsKey(id))
+        if (fileNamesByResourceId.ContainsKey(referrer))
         {
-            // 现在我们使用存储在字典中的文件名并将其与路径组合。
-
-            // 使用存储的模板和 Id 构造文件名。
-            var fileName = String.Format(m_externalImages[id], id);
-
-            // 与位置目录组合
-            var filePath = Path.Combine(SavePath ?? String.Empty, fileName);
-
-            using (var fs = new FileStream(filePath, FileMode.Create))
-                fs.Write(entityData, 0, entityData.Length);
+            return fileName;
         }
-        else
-            throw new Exception("发生了错误");
+
+        return assetUrlPrefix + fileName;
     }
 
-    /// <summary>
-    /// 获取或设置生成的资源文件将保存的路径。
-    /// </summary>
-    public string SavePath { get; set; }
+    public void SaveExternal(int resourceId, byte[] entityData)
+    {
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} was not registered for external storage.");
+        }
 
-    /// <summary>
-    /// 存储资源 Id 和对应文件名之间关系的字典。
-    /// </summary>
-    private readonly Dictionary<int, string> m_externalImages;
+        if (entityData == null || entityData.Length == 0)
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} contains no data and cannot be saved.");
+        }
 
-    /// <summary>
-    /// 存储我们准备外部存储的资源内容类型
-    /// 和对应文件名模板之间关系的字典。
-    /// </summary>
-    private static readonly Dictionary<string, string> s_templates = new Dictionary<string, string>();
+        Directory.CreateDirectory(assetDirectory);
+
+        var filePath = Path.Combine(assetDirectory, fileName);
+        File.WriteAllBytes(filePath, entityData);
+    }
+
+    private static string ResolveExtension(string contentType, string recommendedExtension)
+    {
+        if (!string.IsNullOrWhiteSpace(contentType) &&
+            ExtensionsByContentType.TryGetValue(contentType, out var mappedExtension))
+        {
+            return mappedExtension;
+        }
+
+        if (!IsSupportedContentType(contentType))
+        {
+            return null;
+        }
+
+        return NormalizeExtension(recommendedExtension);
+    }
+
+    private static bool IsSupportedContentType(string contentType)
+    {
+        return contentType != null &&
+            (contentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("font/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("audio/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("video/", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static string NormalizeExtension(string extension)
+    {
+        if (string.IsNullOrWhiteSpace(extension))
+        {
+            return null;
+        }
+
+        var extensionCharacters = extension.Trim().TrimStart('.');
+        foreach (var character in extensionCharacters)
+        {
+            if (!char.IsLetterOrDigit(character))
+            {
+                return null;
+            }
+        }
+
+        return "." + extensionCharacters.ToLowerInvariant();
+    }
+
+    private static string NormalizeUrlPrefix(string urlPrefix)
+    {
+        if (string.IsNullOrEmpty(urlPrefix))
+        {
+            return string.Empty;
+        }
+
+        var normalizedUrlPrefix = urlPrefix.Replace('\\', '/');
+        return normalizedUrlPrefix.EndsWith("/")
+            ? normalizedUrlPrefix
+            : normalizedUrlPrefix + "/";
+    }
 }
 ```
 
-编写 **LinkController** 类后，我们现在可以与 **HTMLOptions** 类一起使用它以这种方式将演示文稿导出为 HTML，并带有外部链接图像：
+导出完成后，输出文件夹的结构如下：
 
-```c#
-using (var pres = new Presentation(@"C:\data\input.pptx")) {
-
-    var htmlOptions = new HtmlOptions(new LinkController(@"C:\data\out\"));
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(new SVGOptions());
-    // 这行代码需要移除在 HTML 中显示幻灯片标题。
-    // 如果您希望显示幻灯片标题，请注释掉它。
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(String.Empty, false);
-
-    Console.WriteLine("开始导出");
-    pres.Save(@"C:\data\out\output.html", SaveFormat.Html, htmlOptions);
-}
+```text
+html-output/
+  presentation.html
+  assets/
+    resource-1.svg
+    resource-2.svg
+    resource-3.svg
+    resource-4.jpg
+    resource-5.png
 ```
 
-我们将 `SlideImageFormat.Svg` 指定给 `SlideImageFormat` 属性，以便生成的 HTML 文件将包含用于绘制演示文稿内容的 SVG 数据。
+具体文件取决于演示文稿内容和导出选项。例如，光栅图像通常导出为 JPEG 或 PNG。Aspose.Slides 可能会选择与源演示文稿不同的图像编解码器，以获得更小或更合适的文件。带透明度的图像会导出为 PNG。
 
-内容类型：如果演示文稿包含光栅位图，则类代码必须准备处理 'image/jpeg' 和 'image/png' 内容类型。导出位图图像的内容可能与存储在演示文稿中的内容不匹配。Aspose.Slides 内部算法执行大小优化，并使用 JPG 或 PNG 编解码器（具体取决于哪个产生更小的数据大小）。包含 alpha 通道（透明度）的图像始终编码为 PNG。
+## **部署时的 URL 选择**
+
+示例使用相对 URL 前缀：`assets/`。如果 `presentation.html` 位于 `html-output/presentation.html`，浏览器会加载 `html-output/assets/resource-1.svg`。
+
+当一个链接资源引用另一个链接资源时，示例在[ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/geturl/) 中使用 `referrer` 参数，并仅返回文件名。例如，若 `resource-1.svg` 和 `resource-4.jpg` 均位于 `assets` 文件夹，则 SVG 文件应引用 `resource-4.jpg`，而不是 `assets/resource-4.jpg`。
+
+在文件部署到其他位置时使用不同的 URL 前缀：
+
+- 当资源目录与 HTML 文件位于同一目录时，使用 `assets/`；
+- 当资源目录位于 HTML 文件上一级目录时，使用 `../assets/`；
+- 当文件上传到 CDN 或静态文件服务器时，使用 `https://cdn.example.com/presentations/job-123/assets/`。
+
+[ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/geturl/) 返回的 URL 必须匹配[ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/saveexternal/) 写入的文件的最终部署位置。在服务器应用程序中，为每个转换作业使用唯一的输出目录或对象存储前缀，以避免覆盖来自其他导出的文件。
+
+## **何时使用嵌入**
+
+当输出必须是单个文件时（例如电子邮件附件、离线预览或需要在没有支持资源文件夹的情况下移动的文档），仍然可以使用嵌入的 Base64 HTML。HTML 将由 Web 应用程序提供、存储在 CMS 中、经过构建流水线优化或由浏览器独立缓存时，链接资源更为合适。
+
+## **常见问题**
+
+**我可以只将图像外部化，保持其他资源嵌入吗？**
+
+可以。在[ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/zh/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) 中，仅对希望保存为单独文件的内容类型返回 `LinkEmbedDecision.Link`，对其余内容返回 `LinkEmbedDecision.Embed`。
+
+**导出的图像扩展名为何与源演示文稿不同？**
+
+Aspose.Slides 可能在 HTML 导出过程中重新编码光栅图像，以提升体积或浏览器兼容性。例如，源文件中的图像可能根据渲染结果写入为 JPEG 或 PNG。
+
+**移动 HTML 文件后相对 URL 还能工作吗？**
+
+相对 URL 仅在保持相同的相对文件夹结构时有效。如果 HTML 引用 `assets/resource-1.png`，则 `assets` 文件夹必须与 HTML 文件同级，除非您生成了不同的 URL 前缀。
+
+**服务器应用程序是否应复用同一输出文件夹？**
+
+不应。为每个转换作业使用唯一的输出目录或存储前缀。这可避免文件名冲突，防止一次导出覆盖另一种导出生成的资源。
