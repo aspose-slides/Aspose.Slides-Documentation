@@ -1,5 +1,5 @@
 ---
-title: Форматирование текста PowerPoint на C++
+title: Форматирование текста презентации в C++
 linktitle: Форматирование текста
 type: docs
 weight: 50
@@ -13,13 +13,13 @@ keywords:
 - прозрачность текста
 - межсимвольный интервал
 - свойства шрифта
-- семейство шрифтов
+- семейство шрифта
 - вращение текста
 - угол вращения
-- текстовый фрейм
+- текстовая рамка
 - межстрочный интервал
 - свойство автоподгонки
-- привязка текстового фрейма
+- привязка текстовой рамки
 - табуляция текста
 - язык по умолчанию
 - PowerPoint
@@ -27,439 +27,591 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Форматирование и стилизация текста в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Настройка шрифтов, цветов, выравнивания и прочего."
+description: "Форматировать и стилизовать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Настраивайте шрифты, цвета, выравнивание и многое другое."
 ---
+## **Обзор**
+
+В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Рассматриваются выделение, цвета фона, прозрачность, межсимвольный интервал, свойства шрифта, вращение, интервал между абзацами, поведение автоподгонки, привязка текста, табуляция и настройки языка.
+
+В нижеприведенных примерах мы будем использовать файл с именем "sample.pptx", содержащий один текстовый блок на первом слайде со следующим текстом:
+
+![Пример текста](sample_text.png)
 
 ## **Выделение текста**
-Новый метод HighlightText добавлен в классы ITextFrame и TextFrame. Он позволяет выделять часть текста фоном, используя образец текста, аналогично инструменту Text Highlight Color в PowerPoint 2019.
 
-Ниже показан фрагмент кода, демонстрирующий использование этой функции:
+Используйте метод [ITextFrame.HighlightText](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/highlighttext/) когда необходимо выделить текст, соответствующий определённому образцу внутри текстовой рамки. Метод применяет цвет выделения к совпадающим фрагментам текста и может использоваться вместе с [ITextSearchOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextsearchoptions/) для управления способом поиска, например, для совпадения только целых слов.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightText-HighlightText.cpp" >}}
+В приведённом ниже примере кода выделяются все вхождения символов **"try"**, а затем выделяется только полное слово **"to"**.
 
-{{% alert color="primary" %}} 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-Aspose предоставляет простой, [бесплатный онлайн‑сервис редактирования PowerPoint](https://products.aspose.app/slides/editor)
+// Получить первую фигуру с первого слайда.
+auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-{{% /alert %}} 
+// Выделить слово "try" в фигуре.
+shape->get_TextFrame()->HighlightText(u"try", System::Drawing::Color::get_LightBlue());
 
-## **Выделение текста с помощью регулярных выражений**
-Новый метод HighlightRegex добавлен в классы ITextFrame и TextFrame. Он позволяет выделять часть текста фоном, используя регулярное выражение, аналогично инструменту Text Highlight Color в PowerPoint 2019.
+auto searchOptions = System::MakeObject<TextSearchOptions>();
+searchOptions->set_WholeWordsOnly(true);
 
-Ниже показан фрагмент кода, демонстрирующий использование этой функции:
+// Выделить слово "to" в фигуре.
+shape->get_TextFrame()->HighlightText(u"to", System::Drawing::Color::get_Violet(), searchOptions, nullptr);
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightTextUsingRegx-HighlightTextUsingRegx.cpp" >}}
+presentation->Save(u"highlighted_text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Выделенный текст](highlighted_text.png)
+
+## **Выделение текста с использованием регулярных выражений**
+
+Метод [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/highlightregex/) выделяет совпадения текста, найденные регулярным выражением. В C++ этот API доступен через [ITextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/).
+
+В приведённом ниже примере кода выделяются все слова, содержащие **семь и более символов**:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+auto regex = System::MakeObject<System::Text::RegularExpressions::Regex>(u"\\b[^\\s]{7,}\\b");
+
+// Выделить все слова, содержащие семь и более символов.
+shape->get_TextFrame()->HighlightRegex(regex, System::Drawing::Color::get_Yellow(), nullptr);
+
+presentation->Save(u"highlighted_text_using_regex.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Выделенный текст с использованием регулярного выражения](highlighted_text_using_regex.png)
 
 ## **Установка цвета фона текста**
 
-Aspose.Slides позволяет указать предпочитаемый цвет фона текста.
+Используйте [IParagraphFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/)`.DefaultPortionFormat` для установки цвета выделения по умолчанию для абзаца, либо используйте [IPortionFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformat/)`.HighlightColor` для отдельных текстовых фрагментов.
 
-Этот C++ код показывает, как установить цвет фона для всего текста:
-```c++
+Следующий пример кода показывает, как установить цвет фона для **всего абзаца**:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
+// Set the highlight color for the entire paragraph.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_LightGray());
+
+presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Серый абзац](gray_paragraph.png)
+
+Ниже приведён пример кода, демонстрирующий установку цвета фона для **текстовых фрагментов с полужирным шрифтом**:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
+
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IAutoShape> autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 200.0f, 100.0f);
-    auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
-    paragraphs->Clear();
-    System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
-    auto portion1 = System::MakeObject<Portion>(u"Black");
-    portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
-
-    auto portion2 = System::MakeObject<Portion>(u" Red ");
-
-    auto portion3 = System::MakeObject<Portion>(u"Black");
-    portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
-
-    auto paragraphPortions = para->get_Portions();
-    paragraphPortions->Add(portion1);
-    paragraphPortions->Add(portion2);
-    paragraphPortions->Add(portion3);
-    paragraphs->Add(para);
-
-    pres->Save(u"text.pptx", SaveFormat::Pptx);
-}
-
-{
-    auto pres = System::MakeObject<Presentation>(u"text.pptx");
-    auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slide(0)->get_Shape(0));
-    auto portions = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portions();
-    for (auto&& portion : portions)
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
     {
-        portion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_Blue());
+        // Установить цвет выделения для текстового фрагмента.
+        portion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_LightGray());
     }
-    pres->Save(u"text-red.pptx", SaveFormat::Pptx);
 }
+
+presentation->Save(u"gray_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Результат:
 
-Этот C++ код показывает, как установить цвет фона только для части текста:
-```c++
-{
-    auto pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IAutoShape> autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 200.0f, 100.0f);
-
-    auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
-    paragraphs->Clear();
-    System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
-    auto portion1 = System::MakeObject<Portion>(u"Black");
-    portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
-
-    auto portion2 = System::MakeObject<Portion>(u" Red ");
-
-    auto portion3 = System::MakeObject<Portion>(u"Black");
-    portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
-
-    auto paragraphPortions = para->get_Portions();
-    paragraphPortions->Add(portion1);
-    paragraphPortions->Add(portion2);
-    paragraphPortions->Add(portion3);
-    paragraphs->Add(para);
-
-    pres->Save(u"text.pptx", SaveFormat::Pptx);
-}
-
-{
-    auto pres = System::MakeObject<Presentation>(u"text.pptx");
-    auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slide(0)->get_Shape(0));
-
-	auto predicate = [](System::SharedPtr<IPortion> portion) -> bool {
-        return portion->get_Text().Contains(u"Red");
-	};
-
-	auto portions = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portions();
-    System::SharedPtr<IPortion> redPortion;
-	for (auto&& portion : portions)
-        if (predicate(portion))
-            redPortion = portion;
-
-    redPortion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_Red());
-
-    pres->Save(u"text-red.pptx", SaveFormat::Pptx);
-}
-```
-
+![Серые текстовые фрагменты](gray_text_portions.png)
 
 ## **Выравнивание абзацев текста**
-Форматирование текста является одним из ключевых элементов при создании любых документов или презентаций. Мы знаем, что Aspose.Slides for C++ поддерживает добавление текста на слайды, но в этой теме мы посмотрим, как контролировать выравнивание абзацев текста на слайде. Пожалуйста, выполните следующие шаги для выравнивания абзацев текста с помощью Aspose.Slides for C++ :
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
-2. Получите ссылку на слайд, используя его индекс.
-3. Доступ к Placeholder‑формам, присутствующим на слайде, и приведение их к типу AutoShape.
-4. Получите Paragraph (который нужно выровнять) из TextFrame, предоставляемого AutoShape.
-5. Выровняйте Paragraph. Абзац может быть выровнен по правому, левому, центральному и выровненному по ширине (Justify) краю.
-6. Сохраните изменённую презентацию в файл PPTX.
+Используйте [IParagraphFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/)`.Alignment` для установки выравнивания абзаца внутри текстовой рамки. Значение может быть центрировано, выровнено по левому, правому краю, по ширине и т.д.
 
-Реализация вышеописанных шагов приведена ниже.
+Следующий пример кода показывает, как выровнять абзац по **центру**:
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ParagraphsAlignment-ParagraphsAlignment.cpp" >}}
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
+// Установить выравнивание абзаца по центру.
+paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
+
+presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Выравненный абзац](aligned_paragraph.png)
 
 ## **Установка прозрачности для текста**
-В этой статье показано, как задать свойство прозрачности для любой текстовой фигуры с помощью Aspose.Slides. Чтобы установить прозрачность текста, выполните следующие шаги:
 
-1. Создайте экземпляр класса Presentation.
-2. Получите ссылку на слайд.
-3. Установите цвет тени.
-4. Сохраните презентацию в файл PPTX.
+Прозрачность текста контролируется альфа‑компонентой цвета, назначенного [IPortionFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformat/)`.FillFormat`. В примерах ниже `alpha = 50` — значение альфа‑канала ARGB в диапазоне 0‑255, а не процент прозрачности.
 
-Реализация вышеописанных шагов приведена ниже.
+Следующий пример кода показывает, как применить прозрачность к **всему абзацу**:
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTransparencyOfTextInShadow-SetTransparencyOfTextInShadow.cpp" >}}
+```cpp
+int alpha = 50;
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+
+// Set the fill color of the text to transparent color.
+defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+auto transparentColor = System::Drawing::Color::FromArgb(alpha, System::Drawing::Color::get_Black());
+defaultPortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(transparentColor);
+
+presentation->Save(u"transparent_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Прозрачный абзац](transparent_paragraph.png)
+
+Следующий пример кода показывает, как применить прозрачность к **текстовым фрагментам с полужирным шрифтом**:
+
+```cpp
+int alpha = 50;
+
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
+
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+{
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    {
+        // Установить прозрачность текстового фрагмента.
+        portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+        auto transparentColor = System::Drawing::Color::FromArgb(alpha, System::Drawing::Color::get_Black());
+        portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(transparentColor);
+    }
+}
+
+presentation->Save(u"transparent_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Прозрачные текстовые фрагменты](transparent_text_portions.png)
 
 ## **Установка межсимвольного интервала для текста**
 
-Aspose.Slides позволяет задать расстояние между символами в текстовом поле. Таким образом, вы можете регулировать визуальную плотность строки или блока текста, увеличивая или уменьшая интервал между символами.
+Используйте [IBasePortionFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseportionformat/)`.Spacing` для увеличения или уменьшения интервала между символами в текстовом блоке.
 
-Этот C++ код показывает, как расширить интервал для одной строки текста и уменьшить интервал для другой строки:
-```c++
-auto presentation = System::MakeObject<Presentation>(u"in.pptx");
+Следующий код C++ показывает, как увеличить межсимвольный интервал в **всём абзаце**:
 
-auto slide = presentation->get_Slides()->idx_get(0);
-auto textBox1 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(0));
-auto textBox2 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(1));
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // расширить
-textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(-2.0f); // сжать
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-presentation->Save(u"out.pptx", SaveFormat::Pptx);
+// Примечание: используйте отрицательные значения для сжатия межсимвольного интервала.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f);
+
+presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Результат:
 
-## **Управление свойствами шрифта текста**
+![Межсимвольный интервал в абзаце](character_spacing_in_paragraph.png)
 
-Презентации обычно содержат и текст, и изображения. Текст может быть отформатирован различными способами — для выделения определённых разделов и слов или в соответствии с корпоративными стилями. Форматирование текста помогает пользователям изменить внешний вид содержимого презентации. В этой статье показано, как с помощью Aspose.Slides for C++ настроить свойства шрифта абзацев текста на слайдах. Чтобы управлять свойствами шрифта абзаца с помощью Aspose.Slides for C++ :
+Пример кода ниже показывает, как увеличить межсимвольный интервал в **текстовых фрагментах с полужирным шрифтом**:
 
-1. Создайте экземпляр класса `Presentation`.
-1. Получите ссылку на слайд, используя его индекс.
-1. Доступ к Placeholder‑формам на слайде и приведение их к AutoShape.
-1. Получите Paragraph из TextFrame, предоставляемого AutoShape.
-1. Выравнивайте абзац.
-1. Доступ к Portion текста абзаца.
-1. Определите шрифт с помощью FontData и соответственно задайте Font для Portion.
-   1. Установите шрифт полужирным.
-   1. Установите шрифт курсивом.
-1. Установите цвет шрифта с помощью FillFormat, предоставляемого объектом Portion.
-1. Сохраните изменённую презентацию в файл PPTX.
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-Реализация вышеописанных шагов приведена ниже. Она берёт пустую презентацию и форматирует шрифты на одном из слайдов.
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontProperties-FontProperties.cpp" >}}
-
-## **Управление семейством шрифтов текста**
-Portion используется для хранения текста с единым стилем форматирования в абзаце. В этой статье показано, как с помощью Aspose.Slides for C++ создать текстовое поле с некоторым текстом, а затем задать конкретный шрифт и различные свойства семейства шрифтов. Чтобы создать текстовое поле и задать свойства шрифта текста в нём:
-
-1. Создайте экземпляр класса `Presentation`.
-2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте AutoShape типа Rectangle на слайд.
-4. Удалите стиль заливки, связанный с AutoShape.
-5. Доступ к TextFrame AutoShape.
-6. Добавьте некоторый текст в TextFrame.
-7. Доступ к объекту Portion, связанному с TextFrame.
-8. Определите шрифт, который будет использоваться для Portion.
-9. Установите другие свойства шрифта, такие как полужирный, курсив, подчёркивание, цвет и высота, используя соответствующие свойства объекта Portion.
-10. Сохраните изменённую презентацию в файл PPTX.
-
-Реализация вышеописанных шагов приведена ниже.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTextFontProperties-SetTextFontProperties.cpp" >}}
-
-## **Установка размера шрифта для текста**
-
-Aspose.Slides позволяет выбрать предпочитаемый размер шрифта для существующего текста в абзаце и для других текстов, которые могут быть добавлены в абзац позже.
-
-Этот C++ код показывает, как задать размер шрифта для текста, содержащегося в абзаце:
-```c++
-auto presentation = System::MakeObject<Presentation>(u"example.pptx");
-
-// Получает первую форму, например.
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-if (System::ObjectExt::Is<IAutoShape>(shape))
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-    // Получает первый абзац, например.
-    auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-    // Устанавливает размер шрифта по умолчанию 20 pt для всех текстовых фрагментов в абзаце.
-    paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20.0f);
-    // Устанавливает размер шрифта 20 pt для текущих текстовых фрагментов в абзаце.
-    for (auto&& portion : paragraph->get_Portions())
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
     {
-        portion->get_PortionFormat()->set_FontHeight(20.0f);
+        // Примечание: используйте отрицательные значения для сжатия межсимвольного интервала.
+        portion->get_PortionFormat()->set_Spacing(3.0f);
+    }
+}
+
+presentation->Save(u"character_spacing_in_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Межсимвольный интервал в текстовых фрагментах](character_spacing_in_text_portions.png)
+
+### **Отключение кернинга для конкретных шрифтов**
+
+В некоторых случаях текст, отрисованный Aspose.Slides, выглядит немного плотнее, чем тот же текст в PowerPoint. Это может происходить, потому что PowerPoint игнорирует данные кернинга для определённых шрифтов, даже если шрифт содержит корректную информацию о кернинге и кернинг включён в настройках PowerPoint.
+
+Чтобы сделать результат ближе к PowerPoint в таких случаях, можно отключить кернинг для текстовых фрагментов, использующих затронутый шрифт. Установите [IPortionFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformat/)`.KerningMinimalSize` в значение, значительно превышающее фактический размер шрифта:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+System::String targetFont = u"Roboto";
+auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
+int paragraphCount = paragraphs->get_Count();
+
+for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+{
+    auto paragraph = paragraphs->idx_get(paragraphIndex);
+    auto portions = paragraph->get_Portions();
+    int portionCount = portions->get_Count();
+
+    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    {
+        auto portion = portions->idx_get(portionIndex);
+        auto portionFormat = portion->get_PortionFormat();
+        auto latinFont = portionFormat->get_LatinFont();
+        auto eastAsianFont = portionFormat->get_EastAsianFont();
+        auto complexScriptFont = portionFormat->get_ComplexScriptFont();
+
+        bool isLatinFont = latinFont != nullptr && latinFont->get_FontName() == targetFont;
+        bool isEastAsianFont = eastAsianFont != nullptr && eastAsianFont->get_FontName() == targetFont;
+        bool isComplexScriptFont = complexScriptFont != nullptr && complexScriptFont->get_FontName() == targetFont;
+
+        if (isLatinFont || isEastAsianFont || isComplexScriptFont)
+        {
+            portionFormat->set_KerningMinimalSize(100.0f);
+        }
     }
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Эта настройка предотвращает применение кернинга к соответствующим текстовым фрагментам и помогает согласовать визуальный вывод Aspose.Slides с отображением PowerPoint для шрифтов, на которые влияет данное специфическое поведение PowerPoint.
+
+## **Управление свойствами шрифта текста**
+
+Свойства шрифта можно задать на уровне абзаца через [IParagraphFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/)`.DefaultPortionFormat` или на отдельных фрагментах через [IPortionFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformat/)`.
+
+Следующий код задаёт шрифт и стиль текста для **всего абзаца**: применяется размер шрифта, полужирный, курсив, пунктирное подчёркивание и шрифт Times New Roman ко всем фрагментам абзаца.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+
+// Установить свойства шрифта для абзаца.
+defaultPortionFormat->set_FontHeight(12.0f);
+defaultPortionFormat->set_FontBold(NullableBool::True);
+defaultPortionFormat->set_FontItalic(NullableBool::True);
+defaultPortionFormat->set_FontUnderline(TextUnderlineType::Dotted);
+defaultPortionFormat->set_LatinFont(System::MakeObject<FontData>(u"Times New Roman"));
+
+presentation->Save(u"font_properties_for_paragraph.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Свойства шрифта для абзаца](font_properties_for_paragraph.png)
+
+Ниже пример кода, применяющий аналогичные свойства к **текстовым фрагментам с полужирным шрифтом**:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+int portionCount = portions->get_Count();
+
+for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+{
+    auto portion = portions->idx_get(portionIndex);
+    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    {
+        // Установить свойства шрифта для текстового фрагмента.
+        portion->get_PortionFormat()->set_FontHeight(13.0f);
+        portion->get_PortionFormat()->set_FontItalic(NullableBool::True);
+        portion->get_PortionFormat()->set_FontUnderline(TextUnderlineType::Dotted);
+        portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"Times New Roman"));
+    }
+}
+
+presentation->Save(u"font_properties_for_text_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Свойства шрифта для текстовых фрагментов](font_properties_for_text_portions.png)
 
 ## **Установка вращения текста**
 
-Aspose.Slides for C++ позволяет разработчикам вращать текст. Текст может быть установлен как Horizontal, Vertical, Vertical270, WordArtVertical, EastAsianVertical, MongolianVertical или WordArtVerticalRightToLeft. Чтобы вращать текст любого TextFrame, выполните следующие шаги:
+Используйте [ITextFrameFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformat/)`.TextVerticalType` для установки предопределённой ориентации текста внутри фигуры.
 
-1. Создайте экземпляр класса `Presentation`.
-2. Доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Доступ к TextFrame.
-5. Поверните текст.
-6. Сохраните файл на диск.
+Следующий пример кода устанавливает ориентацию текста в фигуре в значение `Vertical270`, что вращает текст **на 90 градусов против часовой стрелки**:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RotatingText-RotatingText.cpp" >}}
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-## **Вкладки и эффективные вкладки в презентации**
-- Свойство EffectiveTabs.ExplicitTabCount (2 в нашем случае) равно Tabs.Count.
-- Коллекция EffectiveTabs включает все вкладки (из коллекции Tabs и вкладки по умолчанию).
-- Свойство EffectiveTabs.ExplicitTabCount (2 в нашем случае) равно Tabs.Count.
-- Свойство EffectiveTabs.DefaultTabSize (294) показывает расстояние между вкладками по умолчанию (3 и 4 в нашем примере).
-- EffectiveTabs.GetTabByIndex(index) с index = 0 вернёт первую явную вкладку (Position = 731), index = 1 — вторую (Position = 1241). При запросе index = 2 будет возвращена первая вкладка по умолчанию (Position = 1470) и т.д.
-- EffectiveTabs.GetTabAfterPosition(pos) используется для получения следующей табуляции после некоторого текста. Например, у вас есть текст: "Helloworld!". Чтобы отрисовать такой текст, нужно знать, где начать рисовать "world!". Сначала вычислите длину "Hello" в пикселях и вызовите GetTabAfterPosition с этим значением. Вы получите позицию следующей табуляции для рисования "world!".
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-## **Межстрочный интервал абзаца**
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_TextVerticalType(TextVerticalType::Vertical270);
 
-Aspose.Slides предоставляет свойства в `ParagraphFormat` — `SpaceAfter`, `SpaceBefore` и `SpaceWithin` — которые позволяют управлять межстрочным интервалом абзаца. Эти три свойства используются так:
-
-* Чтобы задать межстрочный интервал в процентах, укажите положительное значение. 
-* Чтобы задать межстрочный интервал в пунктах, укажите отрицательное значение.
-
-Например, чтобы применить интервал 16 pt к абзацу, установите свойство `SpaceBefore` в -16.
-
-Так задаётся межстрочный интервал для конкретного абзаца:
-
-1. Загрузите презентацию, содержащую AutoShape с некоторым текстом.
-2. Получите ссылку на слайд через его индекс.
-3. Доступ к TextFrame.
-4. Доступ к Paragraph.
-5. Установите свойства Paragraph.
-6. Сохраните презентацию.
-
-Этот C++ код показывает, как задать межстрочный интервал для абзаца:
-``` cpp
-// Путь к каталогу документов.
-System::String dataDir = GetDataPath();
-
-// Создать экземпляр класса Presentation
-auto presentation = System::MakeObject<Presentation>(dataDir + u"Fonts.pptx");
-
-// Получить ссылку на слайд по его индексу
-auto sld = presentation->get_Slides()->idx_get(0);
-
-// Получить доступ к TextFrame
-auto tf1 = (System::ExplicitCast<IAutoShape>(sld->get_Shapes()->idx_get(0)))->get_TextFrame();
-
-// Получить доступ к Paragraph
-auto para = tf1->get_Paragraphs()->idx_get(0);
-
-// Установить свойства Paragraph
-para->get_ParagraphFormat()->set_SpaceWithin(80.0f);
-para->get_ParagraphFormat()->set_SpaceBefore(40.0f);
-para->get_ParagraphFormat()->set_SpaceAfter(40.0f);
-
-// Сохранить презентацию
-presentation->Save(dataDir + u"LineSpacing_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"text_rotation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Результат:
 
-## **Установка свойства AutofitType для текстового фрейма**
-В этой теме мы рассмотрим различные свойства форматирования текстового фрейма. Статья описывает, как установить свойство AutofitType, привязку текста и вращение текста в презентации. Aspose.Slides for C++ позволяет разработчикам задавать свойство AutofitType для любого текстового фрейма. AutofitType может быть установлен в Normal или Shape. При значении Normal форма остаётся прежней, а текст подстраивается без изменения формы, тогда как при значении Shape форма изменяется так, чтобы в неё помещался только необходимый текст. Чтобы установить свойство AutofitType, выполните следующие шаги:
+![Вращение текста](text_rotation.png)
 
-1. Создайте экземпляр класса Presentation.
-2. Доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Доступ к TextFrame.
-5. Установите AutofitType TextFrame.
-6. Сохраните файл на диск.
+## **Установка пользовательского вращения для текстовых рамок**
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAutofitOftextframe-SetAutofitOftextframe.cpp" >}}
+Используйте [ITextFrameFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformat/)`.RotationAngle` для установки пользовательского угла вращения для [ITextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/).
 
-## **Установка привязки (Anchor) текстового фрейма**
-Aspose.Slides for C++ позволяет разработчикам задавать привязку любого TextFrame. TextAnchorType указывает, где располагается текст внутри формы. TextAnchorType может быть установлен в Top, Center, Bottom, Justified или Distributed. Чтобы задать привязку любого TextFrame, выполните следующие шаги:
+Пример кода ниже вращает текстовую рамку на 3 градуса по часовой стрелке внутри фигуры:
 
-1. Создайте экземпляр класса `Presentation` .
-2. Доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Доступ к TextFrame.
-5. Установите TextAnchorType TextFrame.
-6. Сохраните файл на диск.
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAnchorOfTextFrame-SetAnchorOfTextFrame.cpp" >}}
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-## **Установка пользовательского угла вращения для текстового фрейма**
-Aspose.Slides for C++ теперь поддерживает установку пользовательского угла вращения для текстового фрейма. В этой теме мы покажем пример того, как задать свойство RotationAngle в Aspose.Slides. Новое свойство RotationAngle добавлено в интерфейсы IChartTextBlockFormat и ITextFrameFormat и позволяет задавать пользовательский угол вращения для текстового фрейма. Чтобы задать свойство RotationAngle, выполните следующие шаги:
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_RotationAngle(3.0f);
 
-1. Создайте экземпляр класса Presentation.
-2. Добавьте диаграмму на слайд.
-3. Установите свойство RotationAngle.
-4. Запишите презентацию в файл PPTX.
-
-В приведённом ниже примере задаётся свойство RotationAngle.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomRotationAngleTextframe-CustomRotationAngleTextframe.cpp" >}}
-
-## **Установка языка проверки правописания**
-
-Aspose.Slides предоставляет свойство [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) (предоставляемое классом [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)), позволяющее задать язык проверки правописания для документа PowerPoint. Язык проверки правописания — это язык, для которого проверяются орфография и грамматика в PowerPoint.
-
-Этот C++ код показывает, как задать язык проверки правописания для PowerPoint:
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
-System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
-
-System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-System::SharedPtr<IPortionCollection> portions = paragraph->get_Portions();
-portions->Clear();
-
-System::SharedPtr<Portion> newPortion = System::MakeObject<Portion>();
-
-System::SharedPtr<IFontData> font = System::MakeObject<FontData>(u"SimSun");
-System::SharedPtr<IPortionFormat> portionFormat = newPortion->get_PortionFormat();
-portionFormat->set_ComplexScriptFont(font);
-portionFormat->set_EastAsianFont(font);
-portionFormat->set_LatinFont(font);
-
-portionFormat->set_LanguageId(u"zh-CN");
-// set the Id of a proofing language
-
-newPortion->set_Text(u"1。");
-portions->Add(newPortion);
+presentation->Save(u"custom_text_rotation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Результат:
+
+![Пользовательское вращение текста](custom_text_rotation.png)
+
+## **Установка межстрочного интервала абзацев**
+
+Aspose.Slides предоставляет [IParagraphFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/)`.SpaceAfter`, `IParagraphFormat.SpaceBefore` и `IParagraphFormat.SpaceWithin` для управления интервалами абзацев. Эти свойства используются следующим образом:
+
+* Положительное значение — процент от высоты строки.
+* Отрицательное значение — интервал в пунктах.
+
+Следующий пример кода показывает, как задать межстрочный интервал внутри абзаца:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
+paragraph->get_ParagraphFormat()->set_SpaceWithin(200.0f);
+
+presentation->Save(u"line_spacing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Межстрочный интервал в абзаце](line_spacing.png)
+
+## **Установка типа автоподгонки для текстовых рамок**
+
+[ITextFrameFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformat/)`.AutofitType` определяет, как текст будет вести себя, когда превышает границы своего контейнера. Используйте его для контроля того, будет ли текст уменьшаться, вырываться за пределы или автоматически изменять размер фигуры.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
+
+presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Установка привязки текстовых рамок**
+
+[ITextFrameFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformat/)`.AnchoringType` определяет, как текст позиционируется вертикально внутри фигуры, например в верхней, средней или нижней части.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Bottom);
+
+presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Установка табуляции текста**
+
+Используйте [IParagraphFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/)`.DefaultTabSize` и `IParagraphFormat.Tabs` для настройки табуляций в абзаце.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
+paragraph->get_ParagraphFormat()->set_DefaultTabSize(100.0f);
+paragraph->get_ParagraphFormat()->get_Tabs()->Add(30.0f, TabAlignment::Left);
+
+presentation->Save(u"paragraph_tabs.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Результат:
+
+![Табуляция абзаца](paragraph_tabs.png)
+
+## **Установка языка проверки орфографии**
+
+Aspose.Slides предоставляет [IPortionFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformat/)`.LanguageId`, который позволяет задать язык проверки орфографии для текстового фрагмента. Язык проверки определяет, какой язык будет использоваться для проверки правописания и грамматики в PowerPoint.
+
+Следующий пример кода показывает, как задать язык проверки орфографии для текстового фрагмента:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+paragraph->get_Portions()->Clear();
+
+auto font = System::MakeObject<FontData>(u"SimSun");
+
+auto textPortion = System::MakeObject<Portion>();
+textPortion->get_PortionFormat()->set_ComplexScriptFont(font);
+textPortion->get_PortionFormat()->set_EastAsianFont(font);
+textPortion->get_PortionFormat()->set_LatinFont(font);
+
+// Set the Id of a proofing language.
+textPortion->get_PortionFormat()->set_LanguageId(u"zh-CN");
+
+textPortion->set_Text(u"1.");
+paragraph->get_Portions()->Add(textPortion);
+
+presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
 ## **Установка языка по умолчанию**
 
-Этот C++ код показывает, как задать язык по умолчанию для всей презентации PowerPoint:
-```c++
-System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
+Используйте [ILoadOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iloadoptions/)`.DefaultTextLanguage` для определения языка по умолчанию для текста, создаваемого при загрузке или создании презентации.
+
+```cpp
+auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
+auto presentation = System::MakeObject<Presentation>(loadOptions);
+auto slide = presentation->get_Slide(0);
 
-// Добавляет новую прямоугольную форму с текстом
-System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
-System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"New Text");
+// Добавить новую прямоугольную фигуру с текстом.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
+shape->get_TextFrame()->set_Text(u"Sample text");
 
-// Проверяет язык первой части
-System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
+// Проверить язык первого фрагмента.
+auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+System::Console::WriteLine(portion->get_PortionFormat()->get_LanguageId());
+
+presentation->Dispose();
 ```
-
 
 ## **Установка стиля текста по умолчанию**
 
-Если вам нужно применить одинаковое форматирование текста ко всем элементам текста презентации сразу, вы можете использовать метод `get_DefaultTextStyle` интерфейса [IPresentation](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/) и задать предпочтительное форматирование. Пример кода ниже показывает, как задать полужирный шрифт (14 pt) по умолчанию для текста на всех слайдах новой презентации.
-```c++
-auto presentation = MakeObject<Presentation>();
+Чтобы применить форматирование текста по умолчанию на уровне презентации, используйте [IPresentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentation/)`.DefaultTextStyle`.
+
+Следующий пример кода показывает, как задать полужирный шрифт размером 14 pt для всего текста на всех слайдах новой презентации.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
 
 // Получить формат абзаца верхнего уровня.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
-if (paragraphFormat != NULL) {
-    paragraphFormat->get_DefaultPortionFormat()->set_FontHeight(14);
+if (paragraphFormat != nullptr)
+{
+    paragraphFormat->get_DefaultPortionFormat()->set_FontHeight(14.0f);
     paragraphFormat->get_DefaultPortionFormat()->set_FontBold(NullableBool::True);
 }
 
-presentation->Save(u"DefaultTextStyle.pptx", SaveFormat::Pptx);
+presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Извлечение текста с эффектом All-Caps**
 
-## **Извлечение текста с эффектом All Caps**
+В PowerPoint применение эффекта **All Caps** заставляет текст отображаться заглавными буквами на слайде, даже если он был введён строчными. При получении такого текстового фрагмента с помощью Aspose.Slides библиотека возвращает текст точно в том виде, в каком он был введён. Чтобы получить отображаемый вариант, проверьте [TextCapType](https://reference.aspose.com/slides/ru/cpp/aspose.slides/textcaptype/) и преобразуйте возвращённую строку в верхний регистр, когда значение равно `All`.
 
-В PowerPoint применение эффекта **All Caps** делает текст заглавными буквами на слайде, даже если он был введён строчными. При получении такой части текста с помощью Aspose.Slides библиотека возвращает текст точно в том виде, в каком он был введён. Чтобы обработать это, проверьте [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) — если он указывает `All`, просто преобразуйте возвращённую строку в верхний регистр, чтобы ваш вывод совпадал с тем, что видят пользователи на слайде.
-
-Предположим, у нас есть следующий текстовый блок на первом слайде файла sample2.pptx.
+Предположим, что на первом слайде файла sample2.pptx находится следующий текстовый блок.
 
 ![Эффект All Caps](all_caps_effect.png)
 
 Пример кода ниже показывает, как извлечь текст с применённым эффектом **All Caps**:
+
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample2.pptx");
-auto autoShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto presentation = System::MakeObject<Presentation>(u"sample2.pptx");
+
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 
-Console::WriteLine(u"Original text: " + textPortion->get_Text());
+System::Console::WriteLine(u"Original text: " + textPortion->get_Text());
 
 auto textFormat = textPortion->get_PortionFormat()->GetEffective();
 if (textFormat->get_TextCapType() == TextCapType::All)
 {
     auto text = textPortion->get_Text().ToUpper();
-    Console::WriteLine(u"All-Caps effect: " + text);
+    System::Console::WriteLine(u"All-Caps effect: " + text);
 }
 
 presentation->Dispose();
 ```
 
-
 Вывод:
+
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-
 ## **FAQ**
 
 **Как изменить текст в таблице на слайде?**
 
-Чтобы изменить текст в таблице на слайде, необходимо использовать объект [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Можно перебрать все ячейки таблицы и изменить текст в каждой ячейке, получив её текстовый фрейм и свойства формата абзаца внутри каждой ячейки.
+Для изменения текста в таблице на слайде используйте [ITable](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itable/). Пройдите по ячейкам и обновите каждую ячейку через [ICell](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icell/)`.TextFrame` и форматирование абзацев через [IParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraph/)`.ParagraphFormat`.
 
 **Как применить градиентный цвет к тексту в слайде PowerPoint?**
 
-Чтобы применить градиентный цвет к тексту, используйте метод `get_FillFormat` в [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/). Установите тип заполнения в `Gradient`, где можно задать начальный и конечный цвета градиента, а также другие свойства, такие как направление и прозрачность, чтобы создать градиентный эффект для текста.
+Для применения градиентного цвета к тексту используйте [IPortionFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformat/)`.FillFormat`. Установите [IFillFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifillformat/)`.FillType` в значение [FillType](https://reference.aspose.com/slides/ru/cpp/aspose.slides/filltype/)`.Gradient` и настройте градиентные остановки, направление и прозрачность.

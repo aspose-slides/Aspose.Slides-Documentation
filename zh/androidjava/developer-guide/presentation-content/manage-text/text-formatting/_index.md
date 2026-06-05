@@ -1,662 +1,580 @@
 ---
-title: 在 Android 上格式化 PowerPoint 文本
+title: 在 Android 上格式化演示文稿文本
 linktitle: 文本格式化
 type: docs
 weight: 50
 url: /zh/androidjava/text-formatting/
 keywords:
-- 突出显示文本
-- 正则表达式
-- 对齐段落
-- 文本样式
-- 文本背景
-- 文本透明度
-- 字符间距
-- 字体属性
-- 字体族
-- 文本旋转
-- 旋转角度
-- 文本框
-- 行间距
-- 自动适应属性
-- 文本框锚点
-- 文本制表
-- 默认语言
-- PowerPoint
-- OpenDocument
-- 演示文稿
-- Android
-- Java
-- Aspose.Slides
-description: "使用 Aspose.Slides for Android via Java 对 PowerPoint 和 OpenDocument 演示文稿中的文本进行格式化和样式设置。自定义字体、颜色、对齐方式等。"
+  - 高亮文本
+  - 正则表达式
+  - 对齐段落
+  - 文本样式
+  - 文本背景
+  - 文本透明度
+  - 字符间距
+  - 字体属性
+  - 字体族
+  - 文本旋转
+  - 旋转角度
+  - 文本框
+  - 行间距
+  - 自动适应属性
+  - 文本框锚点
+  - 文本制表
+  - 默认语言
+  - PowerPoint
+  - OpenDocument
+  - 演示文稿
+  - Android
+  - Java
+  - Aspose.Slides
+description: "使用 Aspose.Slides for Android via Java 在 PowerPoint 和 OpenDocument 演示文稿中格式化和美化文本。自定义字体、颜色、对齐方式等。"
 ---
+## **概述**
 
-## **突出显示文本**
-Method [highlightText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) class.
+本文介绍如何使用 Aspose.Slides for Android via Java 对 PowerPoint 和 OpenDocument 演示文稿中的文本进行格式化。内容包括高亮显示、背景颜色、透明度、字符间距、字体属性、旋转、段落间距、自动适应行为、文本锚点、制表位以及语言设置。
 
-它允许使用文本示例通过背景颜色高亮文本片段，类似于 PowerPoint 2019 中的“文本突出显示颜色”工具。
+在下面的示例中，我们将使用名为 "sample.pptx" 的文件，该文件在第一页包含一个仅有以下文本的文本框：
 
-下面的代码片段演示了如何使用此功能：
+![示例文本](sample_text.png)
+
+## **高亮文本**
+
+当需要高亮显示文本框中与特定样本匹配的文本时，请使用[ITextFrame.highlightText](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.lang.Integer-) 方法。该方法会为匹配的文本片段应用高亮颜色，并可配合[ITextSearchOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextSearchOptions) 控制搜索方式，例如仅匹配完整单词。
+
+下面的代码示例先高亮所有出现的 **"try"** 字符，然后仅高亮完整单词 **"to"**。
+
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    TextHighlightingOptions textHighlightingOptions = new TextHighlightingOptions();
-    textHighlightingOptions.setWholeWordsOnly(true);
-    
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("title", Color.BLUE); // 突出显示所有单词 'important'
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("to", Color.MAGENTA, textHighlightingOptions);// 突出显示所有单独的 'the' 出现
-    
-    pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
+    // 获取第一张幻灯片中的第一个形状。
+    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    // 在形状中高亮单词 "try"。
+    shape.getTextFrame().highlightText("try", Color.rgb(173, 216, 230));
+
+    TextSearchOptions searchOptions = new TextSearchOptions();
+    searchOptions.setWholeWordsOnly(true);
+
+    // 在形状中高亮单词 "to"。
+    int violetColor = Color.rgb(238, 130, 238);
+    shape.getTextFrame().highlightText("to", violetColor, searchOptions, null);
+
+    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-{{% alert color="primary" %}} 
-
-Aspose 提供了一个简单的[免费在线 PowerPoint 编辑服务](https://products.aspose.app/slides/editor)
-
-{{% /alert %}} 
+![已高亮的文本](highlighted_text.png)
 
 ## **使用正则表达式高亮文本**
-Method [highlightRegex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) has been added to [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) class.
 
-它允许使用正则表达式通过背景颜色高亮文本片段，类似于 PowerPoint 2019 中的“文本突出显示颜色”工具。
+[ITextFrame.highlightRegex](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrame#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) 方法可高亮正则表达式匹配到的文本。
 
-下面的代码片段演示了如何使用此功能：
+下面的代码示例高亮所有包含 **七个或以上字符** 的单词：
+
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    TextHighlightingOptions options = new TextHighlightingOptions();
-    
-    ((AutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.awt.Color.YELLOW, options); // 突出显示所有 10 个符号或更长的单词
-    
-    pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
+    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
+
+    // 高亮所有包含七个或以上字符的单词。
+    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
+
+    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
+
+![使用正则表达式高亮的文本](highlighted_text_using_regex.png)
 
 ## **设置文本背景颜色**
-Aspose.Slides 允许您为文本的背景指定首选颜色。
 
-以下 Java 代码演示了如何为整段文本设置背景颜色：
+使用[IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) 为段落设置默认高亮颜色，或使用[IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IBasePortionFormat#getHighlightColor--) 为单独的文本片段设置。
+
+下面的代码示例演示如何为 **整个段落** 设置背景颜色：
+
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    Paragraph para = new Paragraph();
+    // 为整个段落设置高亮颜色。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
 
-    Portion portion1 = new Portion("Black");
-    portion1.getPortionFormat().setFontBold(NullableBool.True);
-
-    Portion portion2 = new Portion(" Red ");
-
-    Portion portion3 = new Portion("Black");
-    portion3.getPortionFormat().setFontBold(NullableBool.True);
-
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-
-    pres.save("text.pptx", SaveFormat.Pptx);
+    presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-
-Presentation presentation = new Presentation("text.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    StreamSupport.stream(autoShape.getTextFrame().getParagraphs().spliterator(), false)
-            .map(p -> p.getPortions())
-            .forEach(c -> c.forEach(ic -> ic.getPortionFormat().getHighlightColor().setColor(Color.BLUE)));
-
-    presentation.save("text-red.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-以下 Java 代码演示了如何仅为文本的一部分设置背景颜色：
+![灰色段落](gray_paragraph.png)
+
+下面的代码示例演示如何为 **粗体字体的文本片段** 设置背景颜色：
+
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-    
-    Paragraph para = new Paragraph();
-
-    Portion portion1 = new Portion("Black");
-    portion1.getPortionFormat().setFontBold(NullableBool.True);
-
-    Portion portion2 = new Portion(" Red ");
-
-    Portion portion3 = new Portion("Black");
-    portion3.getPortionFormat().setFontBold(NullableBool.True);
-    
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-    
-    pres.save("text.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-Presentation presentation = new Presentation("text.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    Optional<IPortion> redPortion = StreamSupport.stream(autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false)
-            .filter(p -> p.getText().contains("Red"))
-            .findFirst();
-
-    if(redPortion.isPresent())
-        redPortion.get().getPortionFormat().getHighlightColor().setColor(Color.RED);
-
-    presentation.save("text-red.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-
-## **对齐文本段落**
-文本格式是创建任何文档或演示文稿时的关键要素。我们知道 Aspose.Slides for Android via Java 支持向幻灯片添加文本，但在本主题中，我们将了解如何在幻灯片中控制文本段落的对齐方式。请按照以下步骤使用 Aspose.Slides for Android via Java 对齐文本段落：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 使用其索引获取幻灯片的引用。
-3. 访问幻灯片中的占位符形状，并将其类型转换为 [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape)。
-4. 从 [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) 暴露的 [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape#getTextFrame--) 中获取需要对齐的 Paragraph。
-5. 对 Paragraph 进行对齐。段落可以对齐到右、左、居中或两端对齐。
-6. 将修改后的演示文稿写入 PPTX 文件。
-
-以下给出上述步骤的实现代码。
-```java
-// 实例化一个表示 PPTX 文件的 Presentation 对象
-Presentation pres = new Presentation("ParagraphsAlignment.pptx");
-try {
-    // 访问第一张幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 在幻灯片中访问第一个和第二个占位符，并将其强制转换为 AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
-    ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
-
-    // 更改两个占位符中的文本
-    tf1.setText("Center Align by Aspose");
-    tf2.setText("Center Align by Aspose");
-
-    // 获取占位符的第一段落
-    IParagraph para1 = tf1.getParagraphs().get_Item(0);
-    IParagraph para2 = tf2.getParagraphs().get_Item(0);
-
-    // 将文本段落对齐到居中
-    para1.getParagraphFormat().setAlignment(TextAlignment.Center);
-    para2.getParagraphFormat().setAlignment(TextAlignment.Center);
-
-    //Writing 将演示文稿写入为 PPTX 文件
-    pres.save("Centeralign_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **设置文本透明度**
-本文演示了如何使用 Aspose.Slides for Android via Java 为任意文本形状设置透明度属性。请按照以下步骤设置文本透明度：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 获取幻灯片的引用。
-3. 设置阴影颜色。
-4. 将演示文稿写入 PPTX 文件。
-
-以下给出上述步骤的实现代码。
-```java
-Presentation pres = new Presentation("transparency.pptx");
-try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IEffectFormat effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
-
-    IOuterShadow outerShadowEffect = effects.getOuterShadowEffect();
-
-    Color shadowColor = outerShadowEffect.getShadowColor().getColor();
-    System.out.println(shadowColor.toString() + " - transparency is: "+ (shadowColor.getAlpha() / 255f) * 100);
-
-    // 将透明度设置为零百分比
-    outerShadowEffect.getShadowColor().setColor(new Color(shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
-
-    pres.save("transparency-2.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **设置文本字符间距**
-Aspose.Slides 允许您设置文本框中字母之间的间距。通过调整字符间距，您可以改变一行或一块文本的视觉密度。
-
-以下 Java 代码演示了如何为一行文本扩展间距并为另一行文本收紧间距：
-```java
-Presentation presentation = new Presentation("in.pptx");
-
-IAutoShape textBox1 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-IAutoShape textBox2 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(1);
-
-textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20); // 展开
-textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2); // 紧缩
-
-presentation.save("out.pptx", SaveFormat.Pptx);
-```
-
-
-## **管理段落的字体属性**
-演示文稿通常包含文本和图像。文本可以以多种方式进行格式化，以突出显示特定章节和单词，或符合公司样式。文本格式化帮助用户改变演示内容的外观和感受。本文展示了如何使用 Aspose.Slides for Android via Java 配置幻灯片中段落文本的字体属性。使用 Aspose.Slides for Android via Java 管理段落的字体属性的步骤如下：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-1. 使用索引获取幻灯片的引用。
-1. 访问幻灯片中的占位符形状，并将其类型转换为 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)。
-1. 从 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) 暴露的 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) 中获取 [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame)。
-1. 对段落进行两端对齐。
-1. 访问段落的文本 Portion。
-1. 使用 FontData 定义字体，并相应地设置 Portion 的字体。
-   1. 将字体设为粗体。
-   1. 将字体设为斜体。
-1. 使用 [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion) 对象暴露的 [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--) 设置字体颜色。
-1. 将修改后的演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
-
-以下给出上述步骤的实现代码。它接受一个未做任何装饰的演示文稿，并在其中一张幻灯片上格式化字体。
-```java
-// 实例化一个表示 PPTX 文件的 Presentation 对象
-Presentation pres = new Presentation("FontProperties.pptx");
-try {
-    // 使用幻灯片位置访问幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 访问幻灯片中的第一个和第二个占位符，并将其强制转换为 AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
-    ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
-
-    // 访问第一段落
-    IParagraph para1 = tf1.getParagraphs().get_Item(0);
-    IParagraph para2 = tf2.getParagraphs().get_Item(0);
-
-    // 访问第一个文本片段
-    IPortion port1 = para1.getPortions().get_Item(0);
-    IPortion port2 = para2.getPortions().get_Item(0);
-
-    // 定义新字体
-    FontData fd1 = new FontData("Elephant");
-    FontData fd2 = new FontData("Castellar");
-
-    // 为 Portion 分配新字体
-    port1.getPortionFormat().setLatinFont(fd1);
-    port2.getPortionFormat().setLatinFont(fd2);
-
-    // 设置字体为粗体
-    port1.getPortionFormat().setFontBold(NullableBool.True);
-    port2.getPortionFormat().setFontBold(NullableBool.True);
-
-    // 设置字体为斜体
-    port1.getPortionFormat().setFontItalic(NullableBool.True);
-    port2.getPortionFormat().setFontItalic(NullableBool.True);
-
-    // 设置字体颜色
-    port1.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-    port2.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
-
-    // 将 PPTX 写入磁盘
-    pres.save("WelcomeFont_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **管理文本的字体族**
-Portion 用于在段落中保存具有相似格式的文本。本文展示了如何使用 Aspose.Slides for Android via Java 创建包含文本的文本框，然后定义特定的字体以及字体族的其他属性。创建文本框并设置其中文本的字体属性的步骤如下：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 使用索引获取幻灯片的引用。
-3. 向幻灯片添加类型为 [Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType#Rectangle) 的 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)。
-4. 移除与该 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) 关联的填充样式。
-5. 访问 AutoShape 的 TextFrame。
-6. 向 TextFrame 添加一些文本。
-7. 访问与 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) 关联的 Portion 对象。
-8. 为该 [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion) 定义要使用的字体。
-9. 使用 Portion 对象暴露的相关属性设置其他字体属性，如粗体、斜体、下划线、颜色和高度。
-10. 将修改后的演示文稿写入 PPTX 文件。
-
-以下给出上述步骤的实现代码。
-```java
-// 实例化 Presentation 对象
-Presentation pres = new Presentation();
-try {
-
-    // 获取第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 添加一个矩形类型的 AutoShape
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
-
-    // 移除与 AutoShape 关联的任何填充样式
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // 访问与 AutoShape 关联的 TextFrame
-    ITextFrame tf = ashp.getTextFrame();
-    tf.setText("Aspose TextBox");
-
-    // 访问与 TextFrame 关联的 Portion
-    IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-    // 为 Portion 设置字体
-    port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
-
-    // 设置字体的粗体属性
-    port.getPortionFormat().setFontBold(NullableBool.True);
-
-    // 设置字体的斜体属性
-    port.getPortionFormat().setFontItalic(NullableBool.True);
-
-    // 设置字体的下划线属性
-    port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
-
-    // 设置字体的高度
-    port.getPortionFormat().setFontHeight(25);
-
-    // 设置字体的颜色
-    port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-
-    // 将 PPTX 写入磁盘 
-    pres.save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **设置文本的字体大小**
-Aspose.Slides 允许您为段落中已有的文本以及以后可能添加的文本选择首选的字体大小。
-
-以下 Java 代码演示了如何为段落中的文本设置字体大小：
-```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // 获取第一个形状，例如。
-    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    if (shape instanceof IAutoShape )
-    {
-        IAutoShape autoShape = (AutoShape) shape;
-        // 获取第一段落，例如。
-        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-
-        // 将段落中所有文本片段的默认字号设置为 20 磅。
-        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
-
-        // 将段落中当前文本片段的字号设置为 20 磅。
-        for(IPortion portion : paragraph.getPortions())
-        {
-            portion.getPortionFormat().setFontHeight(20);
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // 为文本片段设置高亮颜色。
+            portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
         }
     }
+
+    presentation.save("gray_text_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
+
+![灰色文本片段](gray_text_portions.png)
+
+## **对齐文本段落**
+
+使用[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#setAlignment-byte-) 可设置文本框中段落的对齐方式。可选值包括居中、左对齐、右对齐、两端对齐等。
+
+下面的代码示例演示如何将段落对齐到 **居中**：
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // 将段落的对齐方式设置为居中。
+    paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
+
+    presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![已对齐的段落](aligned_paragraph.png)
+
+## **设置文本透明度**
+
+文本透明度通过分配给[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--) 的颜色的 Alpha 分量来控制。以下示例中的 `alpha = 50` 为 0-255 范围内的 ARGB Alpha 通道值，而非透明度百分比。
+
+下面的代码示例演示如何为 **整个段落** 应用透明度：
+
+```java
+int alpha = 50;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // 将文本的填充颜色设为透明颜色。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
+
+    presentation.save("transparent_paragraph.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![透明段落](transparent_paragraph.png)
+
+下面的代码示例演示如何为 **粗体字体的文本片段** 应用透明度：
+
+```java
+int alpha = 50;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // 设置文本片段的透明度。
+            portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+            portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
+        }
+    }
+
+    presentation.save("transparent_text_portions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![透明文本片段](transparent_text_portions.png)
+
+## **设置文本字符间距**
+
+使用[IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IBasePortionFormat#setSpacing-float-) 可在文本框中扩大或压缩字符之间的间距。
+
+下面的 Java 代码演示如何在 **整个段落** 中扩大字符间距：
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // 注意：使用负值来压缩字符间距。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // 扩大字符间距。
+
+    presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![段落中的字符间距](character_spacing_in_paragraph.png)
+
+下面的代码示例演示如何在 **粗体字体的文本片段** 中扩大字符间距：
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // 注意：使用负值来压缩字符间距。
+            portion.getPortionFormat().setSpacing(3); // 扩大字符间距。
+        }
+    }
+
+    presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![文本片段中的字符间距](character_spacing_in_text_portions.png)
+
+### **为特定字体禁用连字**
+
+在某些情况下，Aspose.Slides 渲染的文本可能会比 PowerPoint 中显示的略紧。这可能是因为 PowerPoint 在某些字体上会忽略连字数据，即使该字体包含有效的连字信息且 PowerPoint 设置中已启用连字。
+
+为使渲染结果更接近 PowerPoint，可以为使用受影响字体的文本片段禁用连字。将[IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IBasePortionFormat#setKerningMinimalSize-float-) 设置为远大于实际字体大小的值：
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    String targetFont = "Roboto";
+
+    for (int paragraphIndex = 0; paragraphIndex < autoShape.getTextFrame().getParagraphs().getCount(); paragraphIndex++) {
+        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+        for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            IFontData latinFont = portion.getPortionFormat().getLatinFont();
+            IFontData eastAsianFont = portion.getPortionFormat().getEastAsianFont();
+            IFontData complexScriptFont = portion.getPortionFormat().getComplexScriptFont();
+
+            boolean usesTargetFont =
+                    latinFont != null && targetFont.equals(latinFont.getFontName()) ||
+                    eastAsianFont != null && targetFont.equals(eastAsianFont.getFontName()) ||
+                    complexScriptFont != null && targetFont.equals(complexScriptFont.getFontName());
+
+            if (usesTargetFont) {
+                portion.getPortionFormat().setKerningMinimalSize(100);
+            }
+        }
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+此设置可阻止对匹配的文本片段应用连字，从而帮助 Aspose.Slides 的渲染效果与 PowerPoint 在受影响字体上的视觉表现保持一致。
+
+## **管理文本字体属性**
+
+字体属性可以通过[IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) 在段落层面设置，也可以通过[IPortionFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPortionFormat) 在单个片段上设置。
+
+下面的代码为整个段落设置字体和文本样式：对段落中的所有片段应用字体大小、粗体、斜体、点状下划线以及 Times New Roman 字体。
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // 设置段落的字体属性。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setLatinFont(new FontData("Times New Roman"));
+
+    presentation.save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![段落的字体属性](font_properties_for_paragraph.png)
+
+下面的代码示例对 **粗体字体的文本片段** 应用类似的属性：
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // 为文本片段设置字体属性。
+            portion.getPortionFormat().setFontHeight(13);
+            portion.getPortionFormat().setFontItalic(NullableBool.True);
+            portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
+            portion.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
+        }
+    }
+
+    presentation.save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![文本片段的字体属性](font_properties_for_text_portions.png)
 
 ## **设置文本旋转**
-Aspose.Slides for Android via Java 允许开发者旋转文本。文本可以设置为 [Horizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Horizontal)、[Vertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Vertical)、[Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Vertical270)、[WordArtVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#WordArtVertical)、[EastAsianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#EastAsianVertical)、[MongolianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#MongolianVertical) 或 [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#WordArtVerticalRightToLeft)。要旋转任意 TextFrame 的文本，请按照以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)。
-5. [旋转文本](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-)。
-6. 将文件保存到磁盘。
+使用[ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-) 可在形状内设置预定义的文本方向。
 
-以下给出实现代码。
+下面的代码示例将形状中文本方向设置为 `Vertical270`，即逆时针旋转 **90 度**：
+
 ```java
-// 创建 Presentation 类的实例
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 获取第一张幻灯片 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // 添加矩形类型的 AutoShape
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-    
-    // 为矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-    
-    // 访问文本框
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // 为文本框创建 Paragraph 对象
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-    
-    // 为段落创建 Portion 对象
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // 保存演示文稿
-    pres.save("RotateText_out.pptx", SaveFormat.Pptx);
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
+
+    presentation.save("text_rotation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **为 TextFrame 设置自定义旋转角度**
-Aspose.Slides for Android via Java 现在支持为 TextFrame 设置自定义旋转角度。在本主题中，我们通过示例展示如何在 Aspose.Slides 中设置 RotationAngle 属性。新方法 [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) 和 [getRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getRotationAngle--) 已添加到 [IChartTextBlockFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartTextBlockFormat) 和 [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) 接口，允许为 TextFrame 设置自定义旋转角度。要设置 RotationAngle，请按照以下步骤操作：
+![文本旋转](text_rotation.png)
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 在幻灯片上添加图表。
-3. [设置 RotationAngle 属性](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-)。
-4. 将演示文稿写入 PPTX 文件。
+## **为文本框设置自定义旋转**
 
-下面的示例演示了如何设置 RotationAngle 属性。
+使用[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) 可为[ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrame) 设置自定义旋转角度。
+
+下面的代码示例将文本框在形状内顺时针旋转 3 度：
+
 ```java
-// 创建 Presentation 类的实例
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 获取第一张幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 添加矩形类型的 AutoShape
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+    autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
-    // 为矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // 访问文本框
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setRotationAngle(25);
-
-    // 为文本框创建 Paragraph 对象
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // 为段落创建 Portion 对象
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Text rotation example.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    // 保存演示文稿
-    pres.save(resourcesOutputPath+"RotateText_out.pptx", SaveFormat.Pptx);
+    presentation.save("custom_text_rotation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **段落的行间距**
-Aspose.Slides 在 [`ParagraphFormat`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraphFormat) 下提供了 `SpaceAfter`、`SpaceBefore` 和 `SpaceWithin` 属性，允许您管理段落的行间距。这三个属性的使用方式如下：
+![自定义文本旋转](custom_text_rotation.png)
 
-* 要以百分比指定段落的行间距，请使用正值。
-* 要以磅值指定段落的行间距，请使用负值。
+## **设置段落的行间距**
 
-例如，您可以通过将 `SpaceBefore` 属性设为 -16 来为段落应用 16pt 的行间距。
+Aspose.Slides 提供[IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#setSpaceAfter-float-)、[IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#setSpaceBefore-float-) 和[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#setSpaceWithin-float-) 来控制段落间距。使用方式如下：
 
-下面是为特定段落指定行间距的步骤：
+* 正值表示按行高的百分比指定行间距。
+* 负值表示以点数指定行间距。
 
-1. 加载包含带有文本的 AutoShape 的演示文稿。
-2. 通过索引获取幻灯片的引用。
-3. 访问 TextFrame。
-4. 访问 Paragraph。
-5. 设置 Paragraph 的属性。
-6. 保存演示文稿。
+下面的代码示例演示如何在段落内部指定行间距：
 
-以下 Java 代码演示了如何为段落指定行间距：
 ```java
-// 创建 Presentation 类的实例
-Presentation pres = new Presentation("Fonts.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 通过索引获取幻灯片的引用
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // 访问 TextFrame
-    ITextFrame tf1 = ((IAutoShape)sld.getShapes().get_Item(0)).getTextFrame();
-    
-    // 访问 Paragraph
-    IParagraph para = tf1.getParagraphs().get_Item(0);
-    
-    // 设置 Paragraph 的属性
-    para.getParagraphFormat().setSpaceWithin(80);
-    para.getParagraphFormat().setSpaceBefore(40);
-    para.getParagraphFormat().setSpaceAfter(40);
-    
-    // 保存演示文稿
-    pres.save("LineSpacing_out.pptx", SaveFormat.Pptx);
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    paragraph.getParagraphFormat().setSpaceWithin(200);
+
+    presentation.save("line_spacing.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **为 TextFrame 设置 AutofitType 属性**
-在本主题中，我们将探讨文本框的不同格式化属性。本文介绍了如何为文本框设置 AutofitType 属性、文本锚点以及在演示文稿中旋转文本。Aspose.Slides for Android via Java 允许开发者为任意文本框设置 AutofitType 属性。AutofitType 可以设置为 [Normal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Normal) 或 [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Shape)。如果设置为 [Normal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Normal)，形状保持不变，文本会自动调整而不改变形状；如果设置为 [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Shape)，则形状会被修改以仅容纳所需的文本。要为文本框设置 AutofitType 属性，请按照以下步骤操作：
+![段落内部的行间距](line_spacing.png)
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)。
-5. [设置 TextFrame 的 AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-)。
-6. 将文件保存到磁盘。
+## **设置文本框的自动适应类型**
+
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) 决定文本在超出容器边界时的行为。可用于控制文本是收缩、溢出还是自动调整形状大小。
 
 ```java
-// 创建 Presentation 类的实例
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 获取第一张幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 添加矩形类型的 AutoShape
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 150);
+    autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
-    // 为矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // 访问文本框
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-
-    // 为文本框创建 Paragraph 对象
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // 为段落创建 Portion 对象
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    // 保存演示文稿
-    pres.save(resourcesOutputPath + "formatText_out.pptx", SaveFormat.Pptx);
+    presentation.save("autofit_type.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **设置文本框的锚点**
 
-## **为 TextFrame 设置锚点**
-Aspose.Slides for Android via Java 允许开发者为任意 TextFrame 设置锚点。TextAnchorType 指定文本在形状中的放置位置。锚点类型可设置为 [Top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Top)、[Center](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Center)、[Bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Bottom)、[Justified](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Justified) 或 [Distributed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Distributed)。要为任意 TextFrame 设置锚点，请按照以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)。
-5. [设置 TextAnchorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-)。
-6. 将文件保存到磁盘。
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) 定义文本在形状内部的垂直位置，例如顶部、居中或底部。
 
 ```java
-// 创建 Presentation 类的实例
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 获取第一张幻灯片 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // 添加矩形类型的 AutoShape
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-    
-    // 为矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-    
-    // 访问文本框
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
-    
-    // 为文本框创建 Paragraph 对象
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-    
-    // 为段落创建 Portion 对象
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // 保存演示文稿
-    pres.save("AnchorText_out.pptx", SaveFormat.Pptx);
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
+
+    presentation.save("text_anchor.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **设置文本制表位**
 
-## **演示文稿中的 Tabs 和 EffectiveTabs**
-所有文本制表位均以像素为单位。
+使用[IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#setDefaultTabSize-float-) 和[IParagraphFormat.getTabs](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraphFormat#getTabs--) 可配置段落中的制表位。
 
-|![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
-| :- |
-|**图：2 个显式制表符和 2 个默认制表符**|
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-- EffectiveTabs.ExplicitTabCount（本例中为 2）属性等于 Tabs.Count。
-- EffectiveTabs 集合包含所有制表位（来自 Tabs 集合和默认制表位）。
-- EffectiveTabs.ExplicitTabCount（本例中为 2）属性等于 Tabs.Count。
-- EffectiveTabs.DefaultTabSize（294）属性显示默认制表位之间的距离（本例中的第 3 和第 4 个）。
-- EffectiveTabs.GetTabByIndex(index)，当 index = 0 时返回第一个显式制表位（Position = 731），index = 1 时返回第二个制表位（Position = 1241）。如果尝试使用 index = 2，则返回第一个默认制表位（Position = 1470），依此类推。
-- EffectiveTabs.GetTabAfterPosition(pos) 用于获取某段文本之后的下一个制表位。例如有文本 “Hello World!”。要渲染该文本，需要先知道从哪里开始绘制 “World!”。首先计算 “Hello” 的像素长度，并将该值传入 GetTabAfterPosition，即可获得绘制 “World!” 的下一个制表位位置。
+    paragraph.getParagraphFormat().setDefaultTabSize(100);
+    paragraph.getParagraphFormat().getTabs().add(30, TabAlignment.Left);
+
+    presentation.save("paragraph_tabs.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果：
+
+![段落制表位](paragraph_tabs.png)
+
+## **设置校对语言**
+
+Aspose.Slides 提供[IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-)，可为文本片段设置校对语言。校对语言决定 PowerPoint 在拼写和语法检查时使用的语言。
+
+下面的代码示例演示如何为文本片段设置校对语言：
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    FontData font = new FontData("SimSun");
+
+    Portion textPortion = new Portion();
+    textPortion.getPortionFormat().setComplexScriptFont(font);
+    textPortion.getPortionFormat().setEastAsianFont(font);
+    textPortion.getPortionFormat().setLatinFont(font);
+
+    // 设置校对语言的 ID。
+    textPortion.getPortionFormat().setLanguageId("zh-CN");
+
+    textPortion.setText("1。");
+    paragraph.getPortions().add(textPortion);
+
+    presentation.save("proofing_language.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **设置默认语言**
+
+使用[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/LoadOptions#setDefaultTextLanguage-java.lang.String-) 可定义在加载或创建演示文稿时创建的文本的默认语言。
+
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setDefaultTextLanguage("en-US");
+
+Presentation presentation = new Presentation(loadOptions);
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // 添加一个带文本的新矩形形状。
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
+    shape.getTextFrame().setText("Sample text");
+
+    // 检查第一个文本片段的语言。
+    IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    System.out.println(portion.getPortionFormat().getLanguageId());
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **设置默认文本样式**
-如果您需要一次性为演示文稿中所有文本元素应用相同的默认文本格式，则可以使用 [IPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/) 接口的 `getDefaultTextStyle` 方法并设置首选的格式。下面的代码示例演示了如何为新演示文稿中所有幻灯片的文本设置默认粗体字体（14 pt）。
+
+要在演示文稿级别应用默认文本格式，请使用[IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPresentation#getDefaultTextStyle--)。
+
+下面的代码示例演示如何在新演示文稿中为所有幻灯片的文本设置 14 磅、粗体的默认字体样式。
+
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -668,28 +586,27 @@ try {
         paragraphFormat.getDefaultPortionFormat().setFontBold(NullableBool.True);
     }
 
-    presentation.save("DefaultTextStyle.pptx", SaveFormat.Pptx);
+    presentation.save("default_text_style.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **提取带全大写效果的文本**
 
-## **提取带有全大写效果的文本**
-在 PowerPoint 中，应用 **All Caps** 字体效果后，即使原始输入为小写，幻灯片上也会以大写形式显示。当使用 Aspose.Slides 检索此类文本时，库会返回原始输入的文本。为处理此情况，请检查 [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/)——如果其值为 `All`，则将返回的字符串转换为大写，以便输出与幻灯片显示一致。
+在 PowerPoint 中，应用 **All Caps** 字体效果会使文本在幻灯片上显示为大写，即使原始输入为小写。当使用 Aspose.Slides 检索此类文本片段时，库会返回原始输入的文本。若要匹配显示的文本，需要检查[TextCapType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/TextCapType) 并在值为 `All` 时将返回的字符串转换为大写。
 
 假设我们在 sample2.pptx 的第一页上有如下文本框。
 
-![The All Caps effect](all_caps_effect.png)
+![全大写效果](all_caps_effect.png)
 
-下面的代码示例演示了如何提取带有 **All Caps** 效果的文本：
+下面的代码示例演示如何提取带 **All Caps** 效果的文本：
+
 ```java
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    IPortion textPortion = paragraph.getPortions().get_Item(0);
+    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
 
@@ -703,20 +620,19 @@ try {
 }
 ```
 
-
 输出：
-```text
-原始文本: Hello, Aspose!
-全大写效果: HELLO, ASPOSE!
-```
 
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
 
 ## **常见问题**
 
 **如何修改幻灯片中表格的文本？**
 
-要修改幻灯片中表格的文本，需要使用 [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) 接口。您可以遍历表格中的所有单元格，访问每个单元格的 `TextFrame` 和 `ParagraphFormat` 属性，从而更改其文本。
+要修改幻灯片中表格的文本，请使用[ITable](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITable)。遍历单元格，并通过[ICell.getTextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ICell#getTextFrame--) 获取每个单元格的文本框，再通过[IParagraph.getParagraphFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IParagraph#getParagraphFormat--) 设置段落格式。
 
-**如何为 PowerPoint 幻灯片中的文本应用渐变色？**
+**如何在 PowerPoint 幻灯片的文本上应用渐变颜色？**
 
-要为文本应用渐变色，请使用 [BasePortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/) 中的 `getFillFormat` 方法。将 `FillFormat` 设置为 `Gradient`，并定义渐变的起始颜色和结束颜色，以及方向、透明度等属性，以在文本上创建渐变效果。
+要为文本应用渐变颜色，请使用[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--)。将[IFillFormat.setFillType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IFillFormat#setFillType-int-) 设置为[FillType.Gradient](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/FillType)，并配置渐变止点、方向和透明度。

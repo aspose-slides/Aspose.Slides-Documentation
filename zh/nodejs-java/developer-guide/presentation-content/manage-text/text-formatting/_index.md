@@ -1,5 +1,5 @@
 ---
-title: 在 JavaScript 中格式化 PowerPoint 文本
+title: 在 JavaScript 中格式化演示文稿文本
 linktitle: 文本格式化
 type: docs
 weight: 50
@@ -20,7 +20,7 @@ keywords:
 - 行间距
 - 自动适应属性
 - 文本框锚点
-- 文本制表符
+- 文本制表位
 - 默认语言
 - PowerPoint
 - OpenDocument
@@ -28,661 +28,619 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 JavaScript 和 Aspose.Slides for Node.js 在 PowerPoint 和 OpenDocument 演示文稿中格式化和美化文本。自定义字体、颜色、对齐方式等。"
+description: "使用 Aspose.Slides for Node.js via Java 在 PowerPoint 和 OpenDocument 演示文稿中格式化和设置文本样式。自定义字体、颜色、对齐方式等。"
 ---
+## **概述**
+
+本文介绍如何使用 Aspose.Slides for Node.js via Java 对 PowerPoint 和 OpenDocument 演示文稿中的文本进行格式化。它涵盖了突出显示、背景颜色、透明度、字符间距、字体属性、旋转、段落间距、自动适应行为、文本锚定、制表位和语言设置。
+
+在下面的示例中，我们将使用名为 "sample.pptx" 的文件，该文件在第一张幻灯片上包含一个带有以下文本的单个文本框：
+
+![示例文本](sample_text.png)
 
 ## **突出显示文本**
 
-Method [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class and [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class.
+当您需要在文本框中突出显示匹配特定样本的文本时，请使用 [TextFrame.highlightText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-) 方法。该方法会对匹配的文本片段应用突出显示颜色，并且可以与 [TextSearchOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textsearchoptions/) 结合使用，以控制搜索方式，例如仅匹配完整单词。
 
-它允许使用文本示例通过背景色突出显示文本部分，类似于 PowerPoint 2019 中的文本突出显示颜色工具。
-
-下面的代码片段演示了如何使用此功能：
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    var textHighlightingOptions = new aspose.slides.TextHighlightingOptions();
-    textHighlightingOptions.setWholeWordsOnly(true);
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// 突出显示所有单词 'important'
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// 突出显示所有单独出现的 'the' 
-    pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-{{% alert color="primary" %}} 
-
-Aspose 提供了一个简单的，[免费在线 PowerPoint 编辑服务](https://products.aspose.app/slides/editor)
-
-{{% /alert %}} 
-
-## **使用正则表达式突出显示文本**
-
-Method [highlightRegex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightRegex-java.lang.String-java.awt.Color-aspose.slides.ITextHighlightingOptions-) has been added to [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class and [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class.
-
-它允许使用正则表达式通过背景色突出显示文本部分，类似于 PowerPoint 2019 中的文本突出显示颜色工具。
-
-下面的代码片段演示了如何使用此功能：
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    var options = new aspose.slides.TextHighlightingOptions();
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// 突出显示所有长度为10个字符或更长的单词
-    pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **设置文本背景颜色**
-
-Aspose.Slides allows you to specify your preferred color for the background of a text.
-
-Aspose.Slides 允许您为文本的背景指定首选颜色。
-
-以下 JavaScript 代码演示如何为整段文本设置背景颜色：
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-    var para = new aspose.slides.Paragraph();
-    var portion1 = new aspose.slides.Portion("Black");
-    portion1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    var portion2 = new aspose.slides.Portion(" Red ");
-    var portion3 = new aspose.slides.Portion("Black");
-    portion3.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-    pres.save("text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-const pres = new aspose.slides.Presentation("text.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    if (autoShape.getTextFrame() != null) {
-        const paragraphs = autoShape.getTextFrame().getParagraphs();
-        const paragraphCount = paragraphs.size();
-        for (let i = 0; i < paragraphCount; i++) {
-            const portions = paragraphs.get_Item(i).getPortions();
-            const portionCount = portions.size();
-            for (let j = 0; j < portionCount; j++) {
-                const portion = portions.get_Item(j);
-                portion.getPortionFormat().getHighlightColor().setColor(Color.BLUE);
-            }
-        }
-    }
-    pres.save("text-red.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-以下 JavaScript 代码演示如何仅为文本的一部分设置背景颜色：
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-    var para = new aspose.slides.Paragraph();
-    var portion1 = new aspose.slides.Portion("Black");
-    portion1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    var portion2 = new aspose.slides.Portion(" Red ");
-    var portion3 = new aspose.slides.Portion("Black");
-    portion3.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-    pres.save("text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-var presentation = new aspose.slides.Presentation("text.pptx");
-try {
-    var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    var redPortion = java.callStaticMethodSync("StreamSupport", "stream", autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false).filter(p -> p.getText().contains("Red")).findFirst();
-    if (redPortion.isPresent()) {
-        redPortion.get().getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    }
-    presentation.save("text-red.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **对齐文本段落**
-
-Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for Node.js via Java supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for Node.js via Java:
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 使用索引获取幻灯片的引用。
-3. 访问幻灯片中存在的占位符形状并将其强制转换为 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape)。
-4. 从 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) 暴露的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getTextFrame--) 中获取需要对齐的 Paragraph。
-5. 对 Paragraph 进行对齐。Paragraph 可以对齐到右、左、居中和两端对齐。
-6. 将修改后的演示文稿写入 PPTX 文件。
-
-下面给出上述步骤的实现示例。
-```javascript
-// 实例化一个表示 PPTX 文件的 Presentation 对象
-var pres = new aspose.slides.Presentation("ParagraphsAlignment.pptx");
-try {
-    // 访问第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 访问幻灯片中的第一个和第二个占位符并将其强制转换为 AutoShape
-    var tf1 = slide.getShapes().get_Item(0).getTextFrame();
-    var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-    // 修改两个占位符中的文本
-    tf1.setText("Center Align by Aspose");
-    tf2.setText("Center Align by Aspose");
-    // 获取占位符的第一个段落
-    var para1 = tf1.getParagraphs().get_Item(0);
-    var para2 = tf2.getParagraphs().get_Item(0);
-    // 将文本段落居中对齐
-    para1.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
-    para2.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
-    // 将演示文稿写入 PPTX 文件
-    pres.save("Centeralign_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **设置文本透明度**
-
-This article demonstrates how to set transparency property to any text shape using Aspose.Slides for Node.js via Java. In order to set the transparency to text. Please follow the steps below:
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 获取幻灯片的引用。
-3. 设置阴影颜色。
-4. 将演示文稿写入 PPTX 文件。
-
-下面给出上述步骤的实现示例。
-```javascript
-var pres = new aspose.slides.Presentation("transparency.pptx");
-try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
-    var outerShadowEffect = effects.getOuterShadowEffect();
-    var shadowColor = outerShadowEffect.getShadowColor().getColor();
-    console.log((shadowColor.toString() + " - transparency is: ") + ((shadowColor.getAlpha() / 255.0) * 100));
-    // 将透明度设置为零百分比
-    outerShadowEffect.getShadowColor().setColor(java.newInstanceSync("java.awt.Color", shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
-    pres.save("transparency-2.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **设置文本字符间距**
-
-Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
-
-以下 JavaScript 代码演示如何为一行文本扩大间距以及为另一行文本压缩间距：
-```javascript
-var presentation = new aspose.slides.Presentation("in.pptx");
-var textBox1 = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var textBox2 = presentation.getSlides().get_Item(0).getShapes().get_Item(1);
-textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20);// 展开
-textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2);// 压缩
-presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-```
-
-
-## **管理段落的字体属性**
-
-Presentations usually contain both text and images. The text can be formatted in a various ways, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for Node.js via Java to configure the font properties of paragraphs of text on slides. To manage font properties of a paragraph using Aspose.Slides for Node.js via Java:
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 使用索引获取幻灯片的引用。
-3. 访问幻灯片中的占位符形状并将其强制转换为 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape)。
-4. 从 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) 暴露的 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) 中获取 [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame)。
-5. 对段落进行两端对齐。
-6. 访问段落的文本 Portion。
-7. 使用 FontData 定义字体并相应地设置文本 Portion 的 Font。
-   - 将字体设为粗体。
-   - 将字体设为斜体。
-8. 使用 [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion) 对象暴露的 [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BasePortionFormat#getFillFormat--) 设置字体颜色。
-9. 将修改后的演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
-
-下面给出上述步骤的实现示例。它采用一个未装饰的演示文稿并格式化其中一张幻灯片上的字体。
-```javascript
-// 实例化一个表示 PPTX 文件的 Presentation 对象
-var pres = new aspose.slides.Presentation("FontProperties.pptx");
-try {
-    // 使用幻灯片位置访问幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 访问幻灯片中的第一个和第二个占位符并将其强制转换为 AutoShape
-    var tf1 = slide.getShapes().get_Item(0).getTextFrame();
-    var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-    // 访问第一个段落
-    var para1 = tf1.getParagraphs().get_Item(0);
-    var para2 = tf2.getParagraphs().get_Item(0);
-    // 访问第一个 Portion
-    var port1 = para1.getPortions().get_Item(0);
-    var port2 = para2.getPortions().get_Item(0);
-    // 定义新字体
-    var fd1 = new aspose.slides.FontData("Elephant");
-    var fd2 = new aspose.slides.FontData("Castellar");
-    // 将新字体分配给 Portion
-    port1.getPortionFormat().setLatinFont(fd1);
-    port2.getPortionFormat().setLatinFont(fd2);
-    // 将字体设置为粗体
-    port1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    port2.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    // 将字体设置为斜体
-    port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // 设置字体颜色
-    port1.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
-    port2.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // 将 PPTX 写入磁盘
-    pres.save("WelcomeFont_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **管理文本的字体系列**
-
-A portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Node.js via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 使用索引获取幻灯片的引用。
-3. 将类型为 [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) 的 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) 添加到幻灯片。
-4. 移除与该 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) 关联的填充样式。
-5. 访问 AutoShape 的 TextFrame。
-6. 向 TextFrame 添加一些文本。
-7. 访问与该 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) 关联的 Portion 对象。
-8. 为该 [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion) 定义要使用的字体。
-9. 使用 Portion 对象暴露的相关属性设置粗体、斜体、下划线、颜色和高度等其他字体属性。
-10. 将修改后的演示文稿写入 PPTX 文件。
-
-下面给出上述步骤的实现示例。
-```javascript
-// 实例化 Presentation 对象
-var pres = new aspose.slides.Presentation();
-try {
-    // 获取第一张幻灯片
-    var sld = pres.getSlides().get_Item(0);
-    // 添加一个矩形类型的 AutoShape
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
-    // 移除与 AutoShape 关联的任何填充样式
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 访问与 AutoShape 关联的 TextFrame
-    var tf = ashp.getTextFrame();
-    tf.setText("Aspose TextBox");
-    // 访问与 TextFrame 关联的 Portion
-    var port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    // 为 Portion 设置字体
-    port.getPortionFormat().setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // 将字体设置为粗体
-    port.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    // 将字体设置为斜体
-    port.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // 将字体设置为下划线
-    port.getPortionFormat().setFontUnderline(aspose.slides.TextUnderlineType.Single);
-    // 设置字体高度
-    port.getPortionFormat().setFontHeight(25);
-    // 设置字体颜色
-    port.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // 将 PPTX 写入磁盘
-    pres.save("SetTextFontProperties_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **设置文本字体大小**
-
-Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
-
-以下 JavaScript 代码演示如何为段落中的文本设置字体大小：
-```javascript
-var presentation = new aspose.slides.Presentation("example.pptx");
-try {
-    // 获取第一个形状，例如。
-    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
-        var autoShape = shape;
-        // 获取第一个段落，例如。
-        var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-        // 为段落中所有文本块设置默认字体大小为20 pt。
-        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
-        // 为段落中当前的文本块设置字体大小为20 pt。
-        for (let i = 0; i < paragraph.getPortions().getCount(); i++) {
-            let portion = paragraph.getPortions().get_Item(i);
-            portion.getPortionFormat().setFontHeight(20);
-        }
-    }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **设置文本旋转**
-
-Aspose.Slides for Node.js via Java allows developers to rotate the text. Text could be set to appear as [Horizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#MongolianVertical) or [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). To rotate the text of any TextFrame, please follow the steps below:
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape)。
-5. [Rotate the text](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setTextVerticalType-byte-)。
-6. 将文件保存到磁盘。
+以下代码示例突出显示所有字符 **"try"** 的出现位置，然后仅突出显示完整单词 **"to"**。
 
 ```javascript
-// 创建 Presentation 类的实例
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // 获取第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加矩形类型的 AutoShape
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 访问 TextFrame
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
-    // 为 TextFrame 创建 Paragraph 对象
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // 为段落创建 Portion 对象
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 保存演示文稿
-    pres.save("RotateText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const textFrame = shape.getTextFrame();
 
+    // 在形状中突出显示单词 "try".
+    textFrame.highlightText("try", java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
-## **设置 TextFrame 的自定义旋转角度**
+    const searchOptions = new aspose.slides.TextSearchOptions();
+    searchOptions.setWholeWordsOnly(true);
 
-Aspose.Slides for Node.js via Java now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new methods [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-) and [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getRotationAngle--) have been added to [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) classs, allows to set the custom rotation angle for textframe. In order to set the RotationAngle, Please follow the steps below:
+    // 在形状中突出显示单词 "to".
+    textFrame.highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), searchOptions, null);
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 在幻灯片上添加图表。
-3. [Set RotationAngle property](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-)。
-4. 将演示文稿写入 PPTX 文件。
-
-下面的示例演示如何设置 RotationAngle 属性。
-```javascript
-// 创建 Presentation 类的实例
-var pres = new aspose.slides.Presentation();
-try {
-    // 获取第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加矩形类型的 AutoShape
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 访问 TextFrame
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setRotationAngle(25);
-    // 为 TextFrame 创建 Paragraph 对象
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // 为段落创建 Portion 对象
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Text rotation example.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 保存演示文稿
-    pres.save(resourcesOutputPath + "RotateText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **段落行间距**
-
-Aspose.Slides provides properties under [`ParagraphFormat`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ParagraphFormat)—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
-
-* 要以百分比指定段落的行间距，请使用正值。 
-* 要以磅指定段落的行间距，请使用负值。
-
-例如，您可以将 `SpaceBefore` 属性设置为 -16，以实现 16pt 的段落行间距。
-
-以下是为特定段落指定行间距的步骤：
-
-1. 加载包含带有文本的 AutoShape 的演示文稿。
-2. 通过索引获取幻灯片的引用。
-3. 访问 TextFrame。
-4. 访问 Paragraph。
-5. 设置 Paragraph 属性。
-6. 保存演示文稿。
-
-以下 JavaScript 代码演示如何为段落指定行间距：
-```javascript
-// 创建 Presentation 类的实例
-var pres = new aspose.slides.Presentation("Fonts.pptx");
-try {
-    // 通过索引获取幻灯片的引用
-    var sld = pres.getSlides().get_Item(0);
-    // 访问 TextFrame
-    var tf1 = sld.getShapes().get_Item(0).getTextFrame();
-    // 访问段落
-    var para = tf1.getParagraphs().get_Item(0);
-    // 设置段落属性
-    para.getParagraphFormat().setSpaceWithin(80);
-    para.getParagraphFormat().setSpaceBefore(40);
-    para.getParagraphFormat().setSpaceAfter(40);
-    // 保存演示文稿
-    pres.save("LineSpacing_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **设置 TextFrame 的 AutofitType 属性**
-
-In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for Node.js via Java allows developers to set AutofitType property of any text frame. AutofitType could be set to [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) or [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape). If set to [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape), then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
-
-1. 创建 [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)class.
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape)。
-5. [Set the AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType-byte-) of the TextFrame。
-6. 将文件保存到磁盘。
-
-```javascript
-// 创建 Presentation 类的实例
-var pres = new aspose.slides.Presentation();
-try {
-    // 访问第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加矩形类型的 AutoShape
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 150);
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 访问 TextFrame
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAutofitType(aspose.slides.TextAutofitType.Shape);
-    // 为 TextFrame 创建 Paragraph 对象
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // 为段落创建 Portion 对象
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 保存演示文稿
-    pres.save(resourcesOutputPath + "formatText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **设置 TextFrame 的锚点**
-
-Aspose.Slides for Node.js via Java allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. AnchorType could be set to [Top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Justified) or [Distributed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Distributed). To set Anchor of any TextFrame, please follow the steps below:
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape)。
-5. [Set TextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAnchoringType-byte-) of the TextFrame。
-6. 将文件保存到磁盘。
-
-```javascript
-// 创建 Presentation 类的实例
-var pres = new aspose.slides.Presentation();
-try {
-    // 获取第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加矩形类型的 AutoShape
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 访问 TextFrame
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAnchoringType(aspose.slides.TextAnchorType.Bottom);
-    // 为 TextFrame 创建 Paragraph 对象
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // 为段落创建 Portion 对象
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 保存演示文稿
-    pres.save("AnchorText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **演示文稿中的制表符和 EffectiveTabs**
-
-所有文本制表位均以像素为单位。
-
-|![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
-| :- |
-|**Figure: 2 Explicit Tabs and 2 Default Tabs**|
-- EffectiveTabs.ExplicitTabCount（本例中为 2）属性等于 Tabs.Count。
-- EffectiveTabs 集合包含所有制表位（来自 Tabs 集合和默认制表位）。
-- EffectiveTabs.ExplicitTabCount（本例中为 2）属性等于 Tabs.Count。
-- EffectiveTabs.DefaultTabSize（294）属性显示默认制表位之间的距离（本例中第 3 与第 4 个）。
-- EffectiveTabs.GetTabByIndex(index) 当 index = 0 时返回第一个显式制表位（Position = 731），index = 1 返回第二个制表位（Position = 1241）。如果尝试使用 index = 2，则返回第一个默认制表位（Position = 1470），依此类推。
-- EffectiveTabs.GetTabAfterPosition(pos) 用于获取某段文本之后的下一个制表位。例如有文本：“Hello World!”。要渲染该文本，需要先计算 “Hello” 的像素宽度，然后调用 GetTabAfterPosition 并传入该值，即可获得绘制 “world!” 的下一个制表位位置。
-
-## **设置默认文本样式**
-
-如果需要一次性为演示文稿的所有文本元素应用相同的默认文本格式，则可以使用 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 类的 `getDefaultTextStyle` 方法并设置首选的格式。下面的代码示例演示如何为新演示文稿中所有幻灯片的文本设置默认的粗体字体（14 pt）。
-```javascript
-var presentation = new aspose.slides.Presentation();
-try {
-    // 获取顶层段落格式。
-    var paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
-    if (paragraphFormat != null) {
-        paragraphFormat.getDefaultPortionFormat().setFontHeight(14);
-        paragraphFormat.getDefaultPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    }
-    presentation.save("DefaultTextStyle.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("highlighted_text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+结果如下：
 
-## **提取带全大写效果的文本**
+![突出显示的文本](highlighted_text.png)
 
-在 PowerPoint 中，应用 **All Caps** 字体效果会使幻灯片上的文本显示为大写，即使原始输入为小写。使用 Aspose.Slides 检索此类文本段时，库会返回原始输入的文本。为处理此情况，请检查 [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/)——如果它指示 `All`，则将返回的字符串转换为大写，以便输出与幻灯片上看到的效果一致。
+## **使用正则表达式突出显示文本**
+
+[TextFrame.highlightRegex](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-aspose.slides.IFindResultCallback-) 方法突出显示正则表达式找到的文本匹配项。在 Node.js via Java 中，此 API 在 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 上公开。
+
+以下代码示例突出显示所有包含 **七个或更多字符** 的单词：
+
+```javascript
+const Pattern = java.import("java.util.regex.Pattern");
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const regex = Pattern.compile("\\b[^\\s]{7,}\\b");
+
+    // 突出显示所有七个或更多字符的单词.
+    shape.getTextFrame().highlightRegex(regex, java.getStaticFieldValue("java.awt.Color", "YELLOW"), null);
+
+    presentation.save("highlighted_text_using_regex.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![使用正则表达式突出显示的文本](highlighted_text_using_regex.png)
+
+## **设置文本背景颜色**
+
+使用 [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) 为段落设置默认的突出显示颜色，或使用 [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getHighlightColor--) 为单个文本片段设置颜色。
+
+以下代码示例显示如何为 **整个段落** 设置背景颜色：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // 为整个段落设置突出显示颜色.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![灰色段落](gray_paragraph.png)
+
+以下代码示例演示如何为 **加粗字体的文本片段** 设置背景颜色：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
+
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // 为文本片段设置突出显示颜色.
+            portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+        }
+    }
+
+    presentation.save("gray_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![灰色文本段](gray_text_portions.png)
+
+## **对齐文本段落**
+
+使用 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#setAlignment-byte-) 在文本框内设置段落对齐方式。该值可以是居中、左对齐、右对齐、两端对齐等。
+
+以下代码示例显示如何将段落对齐到 **居中**：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // 将段落的对齐方式设置为居中.
+    paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
+
+    presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![对齐的段落](aligned_paragraph.png)
+
+## **设置文本透明度**
+
+文本透明度通过分配给 [PortionFormat.getFillFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getFillFormat--) 的颜色的 alpha 分量来控制。在下面的示例中，`alpha = 50` 是 0-255 范围的 ARGB 透明通道值，而不是透明度百分比。
+
+以下代码示例显示如何对 **整个段落** 应用透明度：
+
+```javascript
+const alpha = 50;
+const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+
+    // 将文本的填充颜色设置为透明颜色.
+    fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    fillFormat.getSolidFillColor().setColor(transparentBlack);
+
+    presentation.save("transparent_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![透明段落](transparent_paragraph.png)
+
+以下代码示例显示如何对 **加粗字体的文本片段** 应用透明度：
+
+```javascript
+const alpha = 50;
+const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
+
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            const fillFormat = portion.getPortionFormat().getFillFormat();
+
+            // 设置文本片段的透明度.
+            fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
+            fillFormat.getSolidFillColor().setColor(transparentBlack);
+        }
+    }
+
+    presentation.save("transparent_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![透明的文本段](transparent_text_portions.png)
+
+## **设置字符间距**
+
+使用 [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) 可在文本框内扩大或压缩字符之间的间距。
+
+以下 JavaScript 代码显示如何在 **整个段落** 中扩大字符间距：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // 注意：使用负值来压缩字符间距.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // 扩展字符间距.
+
+    presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![段落中的字符间距](character_spacing_in_paragraph.png)
+
+以下代码示例显示如何在 **加粗字体的文本片段** 中扩大字符间距：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
+
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // 注意：使用负值来压缩字符间距.
+            portion.getPortionFormat().setSpacing(3); // 扩展字符间距.
+        }
+    }
+
+    presentation.save("character_spacing_in_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![文本段中的字符间距](character_spacing_in_text_portions.png)
+
+### **禁用特定字体的字距调整**
+
+在某些情况下，Aspose.Slides 渲染的文本可能比 PowerPoint 中显示的同一文本稍微紧凑。这可能是因为 PowerPoint 在某些字体上会忽略字距调整数据，即使该字体包含有效的字距信息并且在 PowerPoint 设置中已启用字距调整。
+
+为使此类情况下的渲染输出更接近 PowerPoint，您可以为使用受影响字体的文本片段禁用字距调整。将 [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) 设置为显著大于实际字体大小的值：
+
+```javascript
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraphs = autoShape.getTextFrame().getParagraphs();
+    const paragraphCount = paragraphs.getCount();
+    const targetFont = "Roboto";
+
+    for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        const portions = paragraphs.get_Item(paragraphIndex).getPortions();
+        const portionCount = portions.getCount();
+
+        for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            const portion = portions.get_Item(portionIndex);
+            const portionFormat = portion.getPortionFormat();
+            const latinFont = portionFormat.getLatinFont();
+            const eastAsianFont = portionFormat.getEastAsianFont();
+            const complexScriptFont = portionFormat.getComplexScriptFont();
+
+            if ((latinFont !== null && latinFont.getFontName() === targetFont) ||
+                (eastAsianFont !== null && eastAsianFont.getFontName() === targetFont) ||
+                (complexScriptFont !== null && complexScriptFont.getFontName() === targetFont)) {
+                portionFormat.setKerningMinimalSize(100);
+            }
+        }
+    }
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+此设置可防止对匹配的文本片段应用字距调整，并有助于在受 PowerPoint 特定行为影响的字体上，使 Aspose.Slides 的渲染效果与 PowerPoint 的视觉输出保持一致。
+
+## **管理文本字体属性**
+
+字体属性可以通过 [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) 在段落级别设置，或通过 [PortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/) 单独设置。
+
+以下代码为整个段落设置字体和文本样式：它对段落中的所有片段应用字体大小、加粗、斜体、点状下划线以及 Times New Roman 字体。
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
+
+    // 设置段落的字体属性.
+    defaultPortionFormat.setFontHeight(12);
+    defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    defaultPortionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
+    defaultPortionFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    presentation.save("font_properties_for_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![段落的字体属性](font_properties_for_paragraph.png)
+
+以下代码示例为 **加粗字体的文本片段** 应用类似属性：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
+
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            const portionFormat = portion.getPortionFormat();
+
+            // 设置文本片段的字体属性.
+            portionFormat.setFontHeight(13);
+            portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+            portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
+            portionFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+        }
+    }
+
+    presentation.save("font_properties_for_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![文本段的字体属性](font_properties_for_text_portions.png)
+
+## **设置文本旋转**
+
+使用 [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) 在形状内设置预定义的文本方向。
+
+以下代码示例将形状中的文本方向设置为 `Vertical270`，这会将文本 **逆时针旋转 90 度**：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
+
+    presentation.save("text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![文本旋转](text_rotation.png)
+
+## **为文本框设置自定义旋转**
+
+使用 [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) 为 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 设置自定义旋转角度。
+
+以下代码示例在形状内将文本框顺时针旋转 3 度：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
+
+    presentation.save("custom_text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![自定义文本旋转](custom_text_rotation.png)
+
+## **设置段落的行间距**
+
+Aspose.Slides 提供 [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-)、[ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) 和 [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) 来控制段落间距。使用方式如下：
+
+* 使用正值可将行间距指定为行高的百分比。  
+* 使用负值可将行间距指定为点数。
+
+以下代码示例显示如何在段落内部指定行间距：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    paragraph.getParagraphFormat().setSpaceWithin(200);
+
+    presentation.save("line_spacing.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![段落内的行间距](line_spacing.png)
+
+## **设置文本框的自动适配类型**
+
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) 确定当文本超出其容器边界时的行为。使用它可以控制文本是缩小、溢出还是自动调整形状大小。
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
+
+    presentation.save("autofit_type.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **设置文本框的锚点**
+
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) 定义文本在形状内部的垂直位置，例如顶部、居中或底部。
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
+
+    presentation.save("text_anchor.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **设置文本制表位**
+
+使用 [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) 和 [ParagraphFormat.getTabs](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#getTabs--) 配置段落中的制表位。
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    paragraph.getParagraphFormat().setDefaultTabSize(100);
+    paragraph.getParagraphFormat().getTabs().add(30, java.newByte(aspose.slides.TabAlignment.Left));
+
+    presentation.save("paragraph_tabs.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果如下：
+
+![段落制表位](paragraph_tabs.png)
+
+## **设置校对语言**
+
+Aspose.Slides 提供 [PortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)，可为文本片段设置校对语言。校对语言决定 PowerPoint 中拼写和语法检查使用的语言。
+
+以下代码示例显示如何为文本片段设置校对语言：
+
+```javascript
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    const font = new aspose.slides.FontData("SimSun");
+    const textPortion = new aspose.slides.Portion();
+    textPortion.getPortionFormat().setComplexScriptFont(font);
+    textPortion.getPortionFormat().setEastAsianFont(font);
+    textPortion.getPortionFormat().setLatinFont(font);
+
+    // 设置校对语言的 Id.
+    textPortion.getPortionFormat().setLanguageId("zh-CN");
+
+    textPortion.setText("1.");
+    paragraph.getPortions().add(textPortion);
+
+    presentation.save("proofing_language.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **设置默认语言**
+
+使用 [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) 定义在加载或创建演示文稿时创建的文本的默认语言。
+
+```javascript
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setDefaultTextLanguage("en-US");
+
+const presentation = new aspose.slides.Presentation(loadOptions);
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    // 添加一个带文本的矩形形状。
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
+    shape.getTextFrame().setText("Sample text");
+
+    // 检查第一个文本片段的语言。
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    console.log(portion.getPortionFormat().getLanguageId());
+} finally {
+    presentation.dispose();
+}
+```
+
+## **设置默认文本样式**
+
+要在演示文稿级别应用默认文本格式，请使用 [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--)。
+
+以下代码示例显示如何在新演示文稿中为所有幻灯片的所有文本设置默认的加粗字体，大小为 14 磅。
+
+```javascript
+const presentation = new aspose.slides.Presentation();
+try {
+    // 获取顶层段落格式.
+    const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
+
+    if (paragraphFormat !== null) {
+        paragraphFormat.getDefaultPortionFormat().setFontHeight(14);
+        paragraphFormat.getDefaultPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    }
+
+    presentation.save("default_text_style.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **提取全大写效果的文本**
+
+在 PowerPoint 中，应用 **All Caps** 字体效果会使幻灯片上的文本显示为大写，即使原始输入是小写。使用 Aspose.Slides 检索此类文本片段时，库会返回原始输入的文本。要匹配显示的文本，请检查 [TextCapType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textcaptype/) 并在其值为 `All` 时将返回的字符串转换为大写。
 
 假设我们在 sample2.pptx 文件的第一张幻灯片上有如下文本框。
 
 ![全大写效果](all_caps_effect.png)
 
-下面的代码示例演示如何提取带 **All Caps** 效果的文本：
-```js
-var presentation = new aspose.slides.Presentation("sample2.pptx");
+以下代码示例显示如何提取带有 **All Caps** 效果的文本：
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var autoShape = slide.getShapes().get_Item(0);
-    var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    var textPortion = paragraph.getPortions().get_Item(0);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
-    console.log("Original text:", textPortion.getText());
+    console.log("Original text: " + textPortion.getText());
 
-    var textFormat = textPortion.getPortionFormat().getEffective();
-    if (textFormat.getTextCapType() == aspose.slides.TextCapType.All) {
-        var text = textPortion.getText().toUpperCase();
-        console.log("All-Caps effect:", text);
+    const textFormat = textPortion.getPortionFormat().getEffective();
+    if (textFormat.getTextCapType() === aspose.slides.TextCapType.All) {
+        const text = textPortion.getText().toUpperCase();
+        console.log("All-Caps effect: " + text);
     }
 } finally {
     presentation.dispose();
 }
 ```
 
+输出：
 
-Output:
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-
 ## **常见问题**
 
-**如何在幻灯片的表格中修改文本？**
+**如何在幻灯片上的表格中修改文本？**
 
-要在幻灯片的表格中修改文本，需要使用 [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) 对象。可以遍历表格中的所有单元格，通过访问每个单元格的 `TextFrame` 和 `ParagraphFormat` 属性来更改各单元格的文本。
+要在幻灯片上的表格中修改文本，请使用 [Table](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/table/)。遍历单元格，并通过 [Cell.getTextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/cell/#getTextFrame--) 更新每个单元格，通过 [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) 更新段落格式。
 
-**如何在 PowerPoint 幻灯片的文本上应用渐变颜色？**
+**如何在 PowerPoint 幻灯片中的文本上应用渐变颜色？**
 
-要为文本应用渐变颜色，可在 [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) 中使用 Fill Format 属性。将 Fill Format 设置为 `Gradient`，并定义渐变的起始颜色和结束颜色，以及方向、透明度等其他属性，以在文本上创建渐变效果。
+要为文本应用渐变颜色，请使用 [PortionFormat.getFillFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getFillFormat--)。将 [FillFormat.setFillType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) 设置为 [FillType.Gradient](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/filltype/)，并配置渐变止点、方向和透明度。

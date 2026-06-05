@@ -1,6 +1,6 @@
 ---
-title: 从 PHP 中获取演示文稿的形状实际属性
-linktitle: 实际属性
+title: 在 PHP 中获取演示文稿的形状有效属性
+linktitle: 有效属性
 type: docs
 weight: 50
 url: /zh/php-java/shape-effective-properties/
@@ -17,231 +17,333 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "了解 Aspose.Slides for PHP via Java 如何计算并应用实际形状属性，以实现精确的 PowerPoint 渲染。"
+description: "了解 Aspose.Slides for PHP via Java 如何计算并应用形状的有效属性，以实现精确的 PowerPoint 渲染。"
 ---
+## **概览**
 
-在本主题中，我们将讨论 **effective**（实际）和 **local**（本地）属性。当我们在以下层级直接设置值时
+本主题解释 **本地** 与 **有效** 属性之间的区别。本地值是直接在特定格式级别设置的值，例如：
 
-1. 在段落所在幻灯片的段落属性中；
-1. 在布局或母版幻灯片上的原型形状文本样式中（如果段落的文本框形状拥有该样式）；
-1. 在演示文稿的全局文本设置中；
+1. 幻灯片上的段落属性。
+1. 在布局或母版幻灯片上的原型形状文本样式（当段落的文本框形状具有该样式时）。
+1. 演示文稿中的全局文本设置。
 
-这些值称为 **local** 本地值。 在任何层级，**local** 本地值都可以被定义或省略。 但当应用程序需要了解段落的最终外观时，它会使用 **effective** 实际值。 您可以通过本地格式的 **getEffective()** 方法获取实际值。
+本地值可以在任何级别定义或省略。当 Aspose.Slides 需要最终“渲染后”的格式时，它会解析继承链并返回 **有效** 值。您可以通过对本地格式对象调用 `getEffective` 方法来获取它们。
 
-以下示例代码演示如何获取实际值：
+下面的示例演示如何获取有效值。假设第一张幻灯片上的第一个形状是一个带有文本框且至少包含一个段落的 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/)。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
     $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat::getEffective();
-    $localPortionFormat = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat::getEffective();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
+
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
+
+    $localPortionFormat = $portion->getPortionFormat();
+    $effectivePortionFormat = $localPortionFormat->getEffective();
+} finally {
+    $presentation->dispose();
+}
 ```
 
+{{% alert color="primary" %}}
+有效的格式数据表示在应用继承后当前计算得到的格式。在当前实现中，通过诸如 [PortionFormat.getEffective](https://reference.aspose.com/slides/zh/php-java/aspose.slides/portionformat/geteffective/) 等方法返回的某些有效数据对象可能在内部被缓存。在更改父级或继承的格式后再次调用 `getEffective` 可以刷新缓存的数据，先前获取的对象可能不再代表之前的状态。如果需要保留有效值以供后续使用，请将所需的属性（如字体高度、填充颜色、字体样式或对齐方式）复制到您自己的数据对象中。
+{{% /alert %}}
 
-## **获取相机的实际属性**
-Aspose.Slides for PHP via Java 允许开发者获取相机的实际属性。 为此，Aspose.Slides 添加了 `ICameraEffectiveData` 类。 `ICameraEffectiveData` 类表示一个不可变对象，包含实际的相机属性。 `ICameraEffectiveData` 类的实例作为 `IThreeDFormatEffectiveData` 类的一部分使用，该类是 [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) 类的 [effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) 对。
+## **获取相机的有效属性**
 
-以下示例代码展示如何获取相机的实际属性：
+Aspose.Slides 允许您获取相机的有效属性。通过 [ThreeDFormat.getEffective](https://reference.aspose.com/slides/zh/php-java/aspose.slides/threedformat/geteffective/) 返回的有效数据包含了用于 [ThreeDFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/threedformat/) 的最终相机属性。
+
+下面的代码示例演示如何获取相机的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective camera properties =");
-    echo("Type: " . $threeDEffectiveData->getCamera()->getCameraType());
-    echo("Field of view: " . $threeDEffectiveData->getCamera()->getFieldOfViewAngle());
-    echo("Zoom: " . $threeDEffectiveData->getCamera()->getZoom());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $camera = $threeDEffectiveData->getCamera();
+    $cameraType = $camera->getCameraType();
+    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
+    $zoom = $camera->getZoom();
+
+    echo "= Effective camera properties =" . PHP_EOL;
+    echo "Type: " . $cameraType . PHP_EOL;
+    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
+    echo "Zoom: " . $zoom . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **获取灯光装置的有效属性**
 
-## **获取灯光装置的实际属性**
-Aspose.Slides for PHP via Java 允许开发者获取灯光装置的实际属性。 为此，Aspose.Slides 添加了 `ILightRigEffectiveData` 类。 `ILightRigEffectiveData` 类表示一个不可变对象，包含实际的灯光装置属性。 `ILightRigEffectiveData` 类的实例作为 `IThreeDFormatEffectiveData` 类的一部分使用，该类是 [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) 类的 [effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) 对。
+Aspose.Slides 允许您获取灯光装置的有效属性。通过 [ThreeDFormat.getEffective](https://reference.aspose.com/slides/zh/php-java/aspose.slides/threedformat/geteffective/) 返回的有效数据包含了用于 [ThreeDFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/threedformat/) 的最终灯光装置属性。
 
-以下示例代码展示如何获取灯光装置的实际属性：
+下面的代码示例演示如何获取灯光装置的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective light rig properties =");
-    echo("Type: " . $threeDEffectiveData->getLightRig()->getLightType());
-    echo("Direction: " . $threeDEffectiveData->getLightRig()->getDirection());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $lightRig = $threeDEffectiveData->getLightRig();
+    $lightType = $lightRig->getLightType();
+    $direction = $lightRig->getDirection();
+
+    echo "= Effective light rig properties =" . PHP_EOL;
+    echo "Type: " . $lightType . PHP_EOL;
+    echo "Direction: " . $direction . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **获取斜角形状的有效属性**
 
-## **获取斜角形状的实际属性**
-Aspose.Slides for PHP via Java 允许开发者获取斜角形状的实际属性。 为此，Aspose.Slides 添加了 `IShapeBevelEffectiveData` 类。 `IShapeBevelEffectiveData` 类表示一个不可变对象，包含实际的形状面部浮雕属性。 `IShapeBevelEffectiveData` 类的实例作为 `IThreeDFormatEffectiveData` 类的一部分使用，该类是 [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) 类的 [effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) 对。
+Aspose.Slides 允许您获取形状斜角的有效属性。通过 [ThreeDFormat.getEffective](https://reference.aspose.com/slides/zh/php-java/aspose.slides/threedformat/geteffective/) 返回的有效数据包含了用于 [ThreeDFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/threedformat/) 的最终面部浮雕属性。
 
-以下示例代码展示如何获取斜角形状的实际属性：
+下面的代码示例演示如何获取形状顶部斜角的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective shape's top face relief properties =");
-    echo("Type: " . $threeDEffectiveData->getBevelTop()->getBevelType());
-    echo("Width: " . $threeDEffectiveData->getBevelTop()->getWidth());
-    echo("Height: " . $threeDEffectiveData->getBevelTop()->getHeight());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $bevelTop = $threeDEffectiveData->getBevelTop();
+    $bevelType = $bevelTop->getBevelType();
+    $bevelWidth = $bevelTop->getWidth();
+    $bevelHeight = $bevelTop->getHeight();
+
+    echo "= Effective shape's top face relief properties =" . PHP_EOL;
+    echo "Type: " . $bevelType . PHP_EOL;
+    echo "Width: " . $bevelWidth . PHP_EOL;
+    echo "Height: " . $bevelHeight . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **获取文本框的有效属性**
 
-## **获取文本框的实际属性**
-使用 Aspose.Slides for PHP via Java，您可以获取文本框的实际属性。 为此，Aspose.Slides 添加了 `ITextFrameFormatEffectiveData` 类。 它包含实际的文本框格式属性。
+使用 Aspose.Slides，您可以获取文本框的有效属性。通过 [TextFrameFormat.getEffective](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframeformat/geteffective/) 返回的有效数据包含文本框的格式属性。
 
-以下示例代码展示如何获取文本框的实际格式属性：
+下面的代码示例演示如何获取文本框的有效格式属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/)。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
     $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    echo("Anchoring type: " . $effectiveTextFrameFormat::getAnchoringType());
-    echo("Autofit type: " . $effectiveTextFrameFormat::getAutofitType());
-    echo("Text vertical type: " . $effectiveTextFrameFormat::getTextVerticalType());
-    echo("Margins");
-    echo("   Left: " . $effectiveTextFrameFormat::getMarginLeft());
-    echo("   Top: " . $effectiveTextFrameFormat::getMarginTop());
-    echo("   Right: " . $effectiveTextFrameFormat::getMarginRight());
-    echo("   Bottom: " . $effectiveTextFrameFormat::getMarginBottom());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
+    $autofitType = $effectiveTextFrameFormat->getAutofitType();
+    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
+    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
+    $marginTop = $effectiveTextFrameFormat->getMarginTop();
+    $marginRight = $effectiveTextFrameFormat->getMarginRight();
+    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+
+    echo "Anchoring type: " . $anchoringType . PHP_EOL;
+    echo "Autofit type: " . $autofitType . PHP_EOL;
+    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
+    echo "Margins" . PHP_EOL;
+    echo "   Left: " . $marginLeft . PHP_EOL;
+    echo "   Top: " . $marginTop . PHP_EOL;
+    echo "   Right: " . $marginRight . PHP_EOL;
+    echo "   Bottom: " . $marginBottom . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **获取文本样式的有效属性**
 
-## **获取文本样式的实际属性**
-使用 Aspose.Slides for PHP via Java，您可以获取文本样式的实际属性。 为此，Aspose.Slides 添加了 `ITextStyleEffectiveData` 类。 它包含实际的文本样式属性。
+使用 Aspose.Slides，您可以获取文本样式的有效属性。通过 [TextStyle.getEffective](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textstyle/geteffective/) 返回的有效数据包含文本样式属性。
 
-以下示例代码展示如何获取文本样式的实际属性：
+下面的代码示例演示如何获取文本样式的有效属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/)。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $effectiveTextStyle = $shape->getTextFrame()->getTextFrameFormat()->getTextStyle()->getEffective();
-    for($i = 0; $i <= 8; $i++) {
-      $effectiveStyleLevel = $effectiveTextStyle->getLevel($i);
-      echo("= Effective paragraph formatting for style level #" . $i . " =");
-      echo("Depth: " . $effectiveStyleLevel->getDepth());
-      echo("Indent: " . $effectiveStyleLevel->getIndent());
-      echo("Alignment: " . $effectiveStyleLevel->getAlignment());
-      echo("Font alignment: " . $effectiveStyleLevel->getFontAlignment());
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
+    $textStyle = $textFrameFormat->getTextStyle();
+    $effectiveTextStyle = $textStyle->getEffective();
+    $levelCount = 9;
+
+    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
+        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
+        $depth = $effectiveStyleLevel->getDepth();
+        $indent = $effectiveStyleLevel->getIndent();
+        $alignment = $effectiveStyleLevel->getAlignment();
+        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
+
+        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
+
+        echo "Depth: " . $depth . PHP_EOL;
+        echo "Indent: " . $indent . PHP_EOL;
+        echo "Alignment: " . $alignment . PHP_EOL;
+        echo "Font alignment: " . $fontAlignment . PHP_EOL;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **获取有效字体高度值**
 
-## **获取实际的字体高度值**
-使用 Aspose.Slides for PHP via Java，您可以获取字体高度的实际属性。 此处提供的代码展示了在不同演示文稿结构层级上设置本地字体高度后，段落的实际字体高度值如何变化：
+使用 Aspose.Slides，您可以获取有效的字体高度。下面的代码演示在演示文稿结构的不同层级设置本地字体高度后，段落的有效字体高度如何变化。
+
 ```php
-  $pres = new Presentation();
-  try {
-    $newShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $newShape->addTextFrame("");
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->clear();
-    $portion0 = new Portion("Sample text with first portion");
-    $portion1 = new Portion(" and second portion.");
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion0);
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion1);
-    echo("Effective font height just after creation:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(24);
-    echo("Effective font height after setting entire presentation default font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(40);
-    echo("Effective font height after setting paragraph default font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(55);
-    echo("Effective font height after setting portion #0 font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setFontHeight(18);
-    echo("Effective font height after setting portion #1 font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
+    $autoShape->addTextFrame("");
+
+    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getPortions()->clear();
+
+    $firstPortion = new Portion("Sample text with first portion");
+    $secondPortion = new Portion(" and second portion.");
+
+    $paragraph->getPortions()->add($firstPortion);
+    $paragraph->getPortions()->add($secondPortion);
+
+    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
+    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height just after creation:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
+    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
+    $defaultPortionFormat->setFontHeight(24);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $paragraphDefaultPortionFormat->setFontHeight(40);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $firstPortionFormat->setFontHeight(55);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $secondPortionFormat->setFontHeight(18);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **获取表格的有效填充格式**
 
-## **获取表格的实际填充格式**
-使用 Aspose.Slides for PHP via Java，您可以获取不同表格逻辑部分的实际填充格式。 为此，Aspose.Slides 添加了 `ICellFormatEffectiveData` 类。 它包含实际的填充格式属性。 请注意：单元格格式始终优先于行格式；行格式优先于列格式；列格式优先于整个表格。
+使用 Aspose.Slides，您可以获取不同表格部分的有效填充格式。通过格式对象返回的有效数据包含 [FillFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/fillformat/) 属性。单元格格式的优先级高于行格式，行格式高于列格式，列格式高于整表格式。
+
+因此，绘制表格单元格时会使用有效的 [CellFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellformat/) 属性。下面的代码示例演示如何获取不同表格部分的有效填充格式。假设第一张幻灯片上的第一个形状是一个 [Table](https://reference.aspose.com/slides/zh/php-java/aspose.slides/table/)。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $tbl = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $tableFormatEffective = $tbl->getTableFormat()->getEffective();
-    $rowFormatEffective = $tbl->getRows()->get_Item(0)->getRowFormat()->getEffective();
-    $columnFormatEffective = $tbl->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
-    $cellFormatEffective = $tbl->get_Item(0, 0)->getCellFormat()->getEffective();
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $tableFormatEffective = $table->getTableFormat()->getEffective();
+
+    $row = $table->getRows()->get_Item(0);
+    $rowFormatEffective = $row->getRowFormat()->getEffective();
+
+    $column = $table->getColumns()->get_Item(0);
+    $columnFormatEffective = $column->getColumnFormat()->getEffective();
+
+    $cell = $table->get_Item(0, 0);
+    $cellFormatEffective = $cell->getCellFormat()->getEffective();
+
     $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
     $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
     $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
     $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
-
 
 ## **常见问题**
 
-**如何判断我得到的是 “快照” 而不是 “实时对象”，以及何时需要重新读取实际属性？**
+**`getEffective` 会返回快照吗？**
 
-EffectiveData 对象是调用时计算值的不可变快照。 如果您更改了形状的本地或继承设置，请再次获取 EffectiveData 以获得更新后的值。
+并非总是如此。有效数据表示在应用继承后计算得到的格式，但某些有效数据对象可能在内部被缓存。随后调用 `getEffective` 可能会重新计算格式并刷新缓存的数据，因此先前获取的对象不应视为持久的快照。
 
-**更改布局/母版幻灯片会影响已经获取的实际属性吗？**
+**何时需要重新读取有效属性？**
 
-会，但只有在您重新读取后才会生效。 已获得的 EffectiveData 对象不会自动更新——在更改布局或母版后再次请求即可。
+在更改本地格式、父级样式、布局格式、母版格式或演示文稿级默认值后，请再次调用 `getEffective`。下一次调用会重新评估格式层次并返回当前的有效结果。
 
-**我可以通过 EffectiveData 修改值吗？**
+**更改或删除布局/母版幻灯片会影响已经检索到的有效属性吗？**
 
-不能。 EffectiveData 是只读的。 请在本地格式对象（形状/文本/3D 等）中进行更改，然后再次获取实际值。
+会，但变化会在下次调用 `getEffective` 时体现。如果父级格式源被更改或删除，先前获取的有效数据可能已过时。再次调用 `getEffective` 后，Aspose.Slides 会重新评估格式树， resulting fonts, colors, sizes, or other values may change.（此句保持原意，已翻译如下）重新评估后，字体、颜色、尺寸等值可能会改变。
 
-**如果在形状层、布局/母版层以及全局设置中都未设置某属性，会怎样？**
+**我可以通过有效数据对象修改值吗？**
 
-实际值由默认机制（PowerPoint/Aspose.Slides 默认值）决定。 该解析后的值将成为 EffectiveData 快照的一部分。
+不能。有效数据对象只提供计算后的值。请在本地格式对象上进行修改，然后再次获取有效值。
 
-**从实际的字体值中，我能否判断是哪个层级提供了尺寸或字体？**
+**如果属性既未在形状层级设置，也未在布局/母版或全局设置中出现，会怎样？**
 
-不能直接判断。 EffectiveData 返回最终值。 若要查找来源，请检查段落/文本框/段落的本地值以及布局/母版/演示文稿的文本样式，找出首个显式定义的位置。
+有效值将由默认机制决定，其中包括 PowerPoint 和 Aspose.Slides 的默认值。解析后的值会成为当前有效数据的一部分。
 
-**为什么 EffectiveData 值有时看起来与本地值相同？**
+**从有效字体值中，我能判断是哪个层级提供了尺寸或字体吗？**
 
-因为本地值最终成为了最终值（不需要更高层级的继承）。 在这种情况下，实际值与本地值相同。
+不能直接判断。有效数据只返回最终值。若要查找来源，需要检查段落、文本框、布局、母版以及演示文稿层级的本地值，寻找首次出现的显式定义。
 
-**何时应使用实际属性，何时仅使用本地属性？**
+**为什么有效值有时看起来与本地值相同？**
 
-当您需要在所有继承应用后得到“渲染后”的结果时（例如对齐颜色、缩进或尺寸），使用 EffectiveData。 如果您需要在特定层级修改格式，请修改本地属性，然后在需要时重新读取 EffectiveData 以验证结果。
+因为本地值已经是最终值（无需更高层级的继承）。在这种情况下，有效值与本地值相匹配。
+
+**何时使用有效属性，何时仅使用本地属性？**
+
+在需要“渲染后”结果（即所有继承已应用）的情况下使用有效数据，例如对齐颜色、缩进或尺寸。如果您需要在后续格式更改后仍保留这些值，请将所需属性复制到自己的对象中。如果您需在特定层级修改格式，请修改本地属性，然后（如有必要）再次读取有效数据以验证结果。

@@ -14,8 +14,8 @@ keywords:
 - 导出 ODP
 - PowerPoint 转 HTML
 - OpenDocument 转 HTML
-- 演示文稿 转 HTML
-- 幻灯片 转 HTML
+- 演示文稿转 HTML
+- 幻灯片转 HTML
 - PPT 转 HTML
 - PPTX 转 HTML
 - ODP 转 HTML

@@ -1,5 +1,5 @@
 ---
-title: تنسيق نص PowerPoint في JavaScript
+title: تنسيق نص العرض التقديمي في JavaScript
 linktitle: تنسيق النص
 type: docs
 weight: 50
@@ -18,666 +18,629 @@ keywords:
 - زاوية الدوران
 - إطار النص
 - تباعد الأسطر
-- خاصية الملاءمة التلقائية
-- مرساة إطار النص
-- جدولة النص
+- خاصية الملاءمة الذاتية
+- تثبيت إطار النص
+- تبويب النص
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض التقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument التقديمية باستخدام JavaScript وAspose.Slides لـ Node.js. تخصيص الخطوط والألوان والمحاذاة والمزيد."
+description: "تنسيق وأسلوب النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java. تخصيص الخطوط، الألوان، المحاذاة، وأكثر."
 ---
+## **نظرة عامة**
+
+يوضح هذا المقال كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java. يغطي التمييز، ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة الذاتية، تثبيت النص، مسافات التبويب، وإعدادات اللغة.
+
+في الأمثلة أدناه، سنستخدم ملفًا باسم **"sample.pptx"** يحتوي على صندوق نص واحد في الشريحة الأولى بالنص التالي:
+
+![نص العينة](sample_text.png)
 
 ## **تمييز النص**
 
-تمت إضافة الطريقة [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightText-java.lang.String-java.awt.Color-) إلى الفئة [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) و الفئة [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame).
+استخدم طريقة [TextFrame.highlightText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-) عندما تحتاج إلى تمييز النص الذي يطابق عينة معينة داخل إطار النص. تُطبق الطريقة لون تمييز على أجزاء النص المطابقة ويمكن استخدامها مع [TextSearchOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textsearchoptions/) للتحكم في طريقة البحث، على سبيل المثال للتماشي مع الكلمات كاملة فقط.
 
-تتيح هذه الطريقة تمييز جزء من النص بلون الخلفية باستخدام عينة نص، مشابهة لأداة تمييز النص بلون الخلفية في PowerPoint 2019.
+الكود التالي يميز جميع تكرارات الأحرف **"try"** ثم يميز الكلمة الكاملة **"to"** فقط.
 
-يوضح المقتطف البرمجي أدناه كيفية استخدام هذه الميزة:
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var textHighlightingOptions = new aspose.slides.TextHighlightingOptions();
-    textHighlightingOptions.setWholeWordsOnly(true);
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// تمييز جميع الكلمات 'important'
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// تمييز جميع حدوث 'the' المنفصلة
-    pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const textFrame = shape.getTextFrame();
+
+    // تمييز الكلمة "try" في الشكل.
+    textFrame.highlightText("try", java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    const searchOptions = new aspose.slides.TextSearchOptions();
+    searchOptions.setWholeWordsOnly(true);
+
+    // تمييز الكلمة "to" في الشكل.
+    textFrame.highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), searchOptions, null);
+
+    presentation.save("highlighted_text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-{{% alert color="primary" %}} 
+![النص المظلل](highlighted_text.png)
 
-توفر Aspose خدمة بسيطة، [خدمة تحرير PowerPoint مجانية عبر الإنترنت](https://products.aspose.app/slides/editor)
+## **تمييز النص باستخدام التعبيرات النمطية**
 
-{{% /alert %}} 
+طريقة [TextFrame.highlightRegex](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-aspose.slides.IFindResultCallback-) تميز النصوص التي يتم العثور عليها عبر تعبير نمطي. في Node.js عبر Java، يتم إتاحة هذه الواجهة على [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
 
-## **تمييز النص باستخدام التعبير النمطي**
+الكود التالي يميز جميع الكلمات التي تحتوي على **سبعة أحرف أو أكثر**:
 
-تمت إضافة الطريقة [highlightRegex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightRegex-java.lang.String-java.awt.Color-aspose.slides.ITextHighlightingOptions-) إلى الفئة [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) و الفئة [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame).
-
-تتيح هذه الطريقة تمييز جزء من النص بلون الخلفية باستخدام تعبير نمطي، مشابهة لأداة تمييز النص بلون الخلفية في PowerPoint 2019.
-
-يوضح المقتطف البرمجي أدناه كيفية استخدام هذه الميزة:
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const Pattern = java.import("java.util.regex.Pattern");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var options = new aspose.slides.TextHighlightingOptions();
-    pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// تمييز جميع الكلمات التي تتكون من 10 رموز أو أكثر
-    pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const regex = Pattern.compile("\\b[^\\s]{7,}\\b");
+
+    // تمييز جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر.
+    shape.getTextFrame().highlightRegex(regex, java.getStaticFieldValue("java.awt.Color", "YELLOW"), null);
+
+    presentation.save("highlighted_text_using_regex.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
+
+![النص المظلل باستخدام التعبير النمطي](highlighted_text_using_regex.png)
 
 ## **تعيين لون خلفية النص**
 
-Aspose.Slides يتيح لك تحديد اللون المفضل لخلفية النص.
+استخدم [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) لتعيين لون التمييز الافتراضي للفقرة، أو استخدم [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portionformat/#getHighlightColor--) لأجزاء النص الفردية.
 
-يظهر هذا الكود JavaScript كيفية تعيين لون الخلفية لنص كامل:
+الكود التالي يُظهر كيفية تعيين لون الخلفية للـ **فقرة كاملة**:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-    var para = new aspose.slides.Paragraph();
-    var portion1 = new aspose.slides.Portion("Black");
-    portion1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    var portion2 = new aspose.slides.Portion(" Red ");
-    var portion3 = new aspose.slides.Portion("Black");
-    portion3.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-    pres.save("text.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // تعيين لون التمييز للفقرة بأكملها.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
-const pres = new aspose.slides.Presentation("text.pptx");
+```
+
+النتيجة:
+
+![الفقرة الرمادية](gray_paragraph.png)
+
+الكود التالي يوضح كيفية تعيين لون الخلفية لـ **أجزاء النص ذات الخط العريض**:
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const slide = pres.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    if (autoShape.getTextFrame() != null) {
-        const paragraphs = autoShape.getTextFrame().getParagraphs();
-        const paragraphCount = paragraphs.size();
-        for (let i = 0; i < paragraphCount; i++) {
-            const portions = paragraphs.get_Item(i).getPortions();
-            const portionCount = portions.size();
-            for (let j = 0; j < portionCount; j++) {
-                const portion = portions.get_Item(j);
-                portion.getPortionFormat().getHighlightColor().setColor(Color.BLUE);
-            }
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
+
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // تعيين لون التمييز لجزء النص.
+            portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
-    pres.save("text-red.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("gray_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-يظهر هذا الكود JavaScript كيفية تعيين لون الخلفية لجزء فقط من النص:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-    var para = new aspose.slides.Paragraph();
-    var portion1 = new aspose.slides.Portion("Black");
-    portion1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    var portion2 = new aspose.slides.Portion(" Red ");
-    var portion3 = new aspose.slides.Portion("Black");
-    portion3.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-    pres.save("text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-var presentation = new aspose.slides.Presentation("text.pptx");
-try {
-    var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    var redPortion = java.callStaticMethodSync("StreamSupport", "stream", autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false).filter(p -> p.getText().contains("Red")).findFirst();
-    if (redPortion.isPresent()) {
-        redPortion.get().getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    }
-    presentation.save("text-red.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
+![أجزاء النص الرمادية](gray_text_portions.png)
 
 ## **محاذاة فقرات النص**
 
-تنسيق النص هو أحد العناصر الأساسية أثناء إنشاء أي نوع من المستندات أو العروض التقديمية. نعلم أن Aspose.Slides for Node.js via Java يدعم إضافة النص إلى الشرائح، ولكن في هذا الموضوع سنتعرف على كيفية التحكم في محاذاة فقرات النص داخل الشريحة. يرجى اتباع الخطوات أدناه لمحاذاة فقرات النص باستخدام Aspose.Slides for Node.js via Java:
+استخدم [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setAlignment-byte-) لضبط محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزة، محاذاة إلى اليسار، محاذاة إلى اليمين، مبررة، وغيرها.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة باستخدام Index الخاص بها.
-3. الوصول إلى الأشكال Placeholder الموجودة في الشريحة وتحويلها إلى كائن من نوع [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-4. الحصول على الفقرة (التي تحتاج إلى محاذاة) من [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getTextFrame--) المعروضة بواسطة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. محاذاة الفقرة. يمكن محاذاة الفقرة إلى اليمين أو اليسار أو الوسط أو تعديل العرض.
-6. كتابة العرض المعدل كملف PPTX.
+الكود التالي يوضح كيفية محاذاة الفقرة إلى **الوسط**:
 
-التنفيذ العملي للخطوات أعلاه موضح أدناه.
 ```javascript
-// إنشاء كائن Presentation يمثل ملف PPTX
-var pres = new aspose.slides.Presentation("ParagraphsAlignment.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الوصول إلى الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويله إلى AutoShape
-    var tf1 = slide.getShapes().get_Item(0).getTextFrame();
-    var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-    // تغيير النص في كلا العنصرين النائبين
-    tf1.setText("Center Align by Aspose");
-    tf2.setText("Center Align by Aspose");
-    // الحصول على الفقرة الأولى من العنصرين النائبين
-    var para1 = tf1.getParagraphs().get_Item(0);
-    var para2 = tf2.getParagraphs().get_Item(0);
-    // محاذاة فقرة النص إلى الوسط
-    para1.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
-    para2.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
-    // كتابة العرض التقديمي كملف PPTX
-    pres.save("Centeralign_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // تعيين محاذاة الفقرة إلى الوسط.
+    paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
+
+    presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
+
+![الفقرة المحاذاة إلى الوسط](aligned_paragraph.png)
 
 ## **تعيين الشفافية للنص**
 
-يوضح هذا المقال كيفية تعيين خاصية الشفافية لأي شكل نص باستخدام Aspose.Slides for Node.js via Java. لتعيين الشفافية للنص، يرجى اتباع الخطوات أدناه:
+تُتحكم شفافية النص من خلال المكوّن alfa للون المعين إلى [PortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portionformat/#getFillFormat--). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة alfa بنظام ARGB على مقياس 0‑255، وليس نسبة شفافية.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع شريحة.
-3. تعيين لون الظل.
-4. كتابة العرض كملف PPTX.
+الكود التالي يوضح كيفية تطبيق الشفافية على **الفقرة كاملة**:
 
-التنفيذ العملي للخطوات أعلاه موضح أدناه.
 ```javascript
-var pres = new aspose.slides.Presentation("transparency.pptx");
+const alpha = 50;
+const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
-    var outerShadowEffect = effects.getOuterShadowEffect();
-    var shadowColor = outerShadowEffect.getShadowColor().getColor();
-    console.log((shadowColor.toString() + " - transparency is: ") + ((shadowColor.getAlpha() / 255.0) * 100));
-    // تعيين الشفافية إلى صفر بالمئة
-    outerShadowEffect.getShadowColor().setColor(java.newInstanceSync("java.awt.Color", shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
-    pres.save("transparency-2.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+
+    // تعيين لون ملء النص إلى لون شفاف.
+    fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    fillFormat.getSolidFillColor().setColor(transparentBlack);
+
+    presentation.save("transparent_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
+
+![الفقرة الشفافة](transparent_paragraph.png)
+
+الكود التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
+
+```javascript
+const alpha = 50;
+const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
+
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            const fillFormat = portion.getPortionFormat().getFillFormat();
+
+            // تعيين شفافية جزء النص.
+            fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
+            fillFormat.getSolidFillColor().setColor(transparentBlack);
+        }
+    }
+
+    presentation.save("transparent_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+النتيجة:
+
+![أجزاء النص الشفافة](transparent_text_portions.png)
 
 ## **تعيين تباعد الأحرف للنص**
 
-Aspose.Slides يتيح لك ضبط المسافة بين الحروف داخل مربع النص. بهذه الطريقة يمكنك تعديل كثافة عرض سطر أو كتلة نصية بتوسيع أو تقليص المسافات بين الأحرف.
+استخدم [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) لتكبير أو تصغير التباعد بين الأحرف في صندوق النص.
 
-يظهر هذا الكود JavaScript كيفية توسيع التباعد لسطر نص واحد وتضييق التباعد لسطر آخر:
+الكود التالي يُظهر كيفية تكبير تباعد الأحرف في **الفقرة كاملة**:
+
 ```javascript
-var presentation = new aspose.slides.Presentation("in.pptx");
-var textBox1 = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var textBox2 = presentation.getSlides().get_Item(0).getShapes().get_Item(1);
-textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20);// توسيع
-textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2);// تقليل
-presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-```
-
-
-## **إدارة خصائص خط الفقرة**
-
-عادةً ما يحتوي العرض التقديمي على نصوص وصور. يمكن تنسيق النص بطرق متعددة، إما لتسليط الضوء على أقسام وكلمات معينة أو للامتثال للأنماط المؤسسية. يساعد تنسيق النص المستخدمين على تعديل مظهر محتوى العرض. يوضح هذا المقال كيفية استخدام Aspose.Slides for Node.js via Java لتكوين خصائص الخط للفقرة داخل الشرائح. لإدارة خصائص الخط للفقرة باستخدام Aspose.Slides for Node.js via Java:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
-1. الوصول إلى الأشكال Placeholder في الشريحة وتحويلها إلى [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-1. الحصول على [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) من [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) المعروضة بواسطة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-1. تعديل محاذاة الفقرة.
-1. الوصول إلى Portion النص داخل الفقرة.
-1. تعريف الخط باستخدام FontData وتعيين الخط للـ Portion وفقًا لذلك.
-   1. جعل الخط غامقًا.
-   1. جعل الخط مائلًا.
-1. تعيين لون الخط باستخدام [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BasePortionFormat#getFillFormat--) المعروض من كائن [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion).
-1. كتابة العرض المعدل إلى ملف [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-التنفيذ العملي للخطوات أعلاه موضح أدناه. يستخدم عرضًا بسيطًا ويضبط الخطوط على إحدى الشرائح.
-```javascript
-// إنشاء كائن Presentation يمثل ملف PPTX
-var pres = new aspose.slides.Presentation("FontProperties.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الوصول إلى شريحة باستخدام موضعها
-    var slide = pres.getSlides().get_Item(0);
-    // الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويلهما إلى AutoShape
-    var tf1 = slide.getShapes().get_Item(0).getTextFrame();
-    var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-    // الوصول إلى الفقرة الأولى
-    var para1 = tf1.getParagraphs().get_Item(0);
-    var para2 = tf2.getParagraphs().get_Item(0);
-    // الوصول إلى الجزء الأول
-    var port1 = para1.getPortions().get_Item(0);
-    var port2 = para2.getPortions().get_Item(0);
-    // تعريف خطوط جديدة
-    var fd1 = new aspose.slides.FontData("Elephant");
-    var fd2 = new aspose.slides.FontData("Castellar");
-    // تعيين الخطوط الجديدة إلى الجزء
-    port1.getPortionFormat().setLatinFont(fd1);
-    port2.getPortionFormat().setLatinFont(fd2);
-    // ضبط الخط إلى غامق
-    port1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    port2.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    // ضبط الخط إلى مائل
-    port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // ضبط لون الخط
-    port1.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
-    port2.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // كتابة ملف PPTX إلى القرص
-    pres.save("WelcomeFont_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    // ملاحظة: استخدم القيم السلبية لضغط تباعد الأحرف.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // توسيع تباعد الأحرف.
+
+    presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-## **إدارة عائلة الخط للنص**
+![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-يُستخدم Portion لاحتواء نص له نمط تنسيق موحد داخل الفقرة. يوضح هذا المقال كيفية استخدام Aspose.Slides for Node.js via Java لإنشاء مربع نص يحتوي على نص ثم تعريف خط محدد، بالإضافة إلى خصائص أخرى لفئة عائلة الخط. لإنشاء مربع نص وتعيين خصائص الخط للنص الموجود فيه:
+الكود التالي يوضح كيفية تكبير تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) من النوع [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) إلى الشريحة.
-4. إزالة نمط التعبئة المرتبط بـ [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. الوصول إلى TextFrame الخاص بـ AutoShape.
-6. إضافة نص إلى TextFrame.
-7. الوصول إلى كائن Portion المرتبط بـ [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-8. تعريف الخط الذي سيُستخدم للـ [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion).
-9. تعيين خصائص الخط الأخرى مثل الغامق، المائل، التسطير، اللون والارتفاع باستخدام الخصائص المناسبة لكائن Portion.
-10. كتابة العرض المعدل كملف PPTX.
-
-التنفيذ العملي للخطوات أعلاه موضح أدناه.
 ```javascript
-// إنشاء كائن Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الحصول على الشريحة الأولى
-    var sld = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من النوع Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
-    // إزالة أي نمط تعبئة مرتبط بالـ AutoShape
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // الوصول إلى TextFrame المرتبط بالـ AutoShape
-    var tf = ashp.getTextFrame();
-    tf.setText("Aspose TextBox");
-    // الوصول إلى Portion المرتبط بـ TextFrame
-    var port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    // تعيين الخط للـ Portion
-    port.getPortionFormat().setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // تعيين خاصية الغامق للخط
-    port.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    // تعيين خاصية المائل للخط
-    port.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // تعيين خاصية التسطير للخط
-    port.getPortionFormat().setFontUnderline(aspose.slides.TextUnderlineType.Single);
-    // تعيين ارتفاع الخط
-    port.getPortionFormat().setFontHeight(25);
-    // تعيين لون الخط
-    port.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // كتابة ملف PPTX إلى القرص
-    pres.save("SetTextFontProperties_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
 
-
-## **تعيين حجم الخط للنص**
-
-Aspose.Slides يتيح لك اختيار حجم الخط المفضل للنص الموجود بالفعل في الفقرة وأي نص قد يضاف إلى الفقرة لاحقًا.
-
-يظهر هذا الكود JavaScript كيفية تعيين حجم الخط للنصوص الموجودة داخل الفقرة:
-```javascript
-var presentation = new aspose.slides.Presentation("example.pptx");
-try {
-    // الحصول على الشكل الأول، على سبيل المثال.
-    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
-        var autoShape = shape;
-        // الحصول على الفقرة الأولى، على سبيل المثال.
-        var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-        // تعيين حجم الخط الافتراضي إلى 20 نقطة لجميع أجزاء النص في الفقرة.
-        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
-        // تعيين حجم الخط إلى 20 نقطة لأجزاء النص الحالية في الفقرة.
-        for (let i = 0; i < paragraph.getPortions().getCount(); i++) {
-            let portion = paragraph.getPortions().get_Item(i);
-            portion.getPortionFormat().setFontHeight(20);
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            // ملاحظة: استخدم القيم السلبية لضغط تباعد الأحرف.
+            portion.getPortionFormat().setSpacing(3); // توسيع تباعد الأحرف.
         }
     }
+
+    presentation.save("character_spacing_in_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
+
+![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
+
+### **تعطيل التقارب (Kerning) للخطوط المحددة**
+
+في بعض الحالات قد يظهر النص المُنشأ بواسطة Aspose.Slides أكثر ضيقًا قليلًا مقارنة بالنص المعروض في PowerPoint. يُمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات الـ kerning لبعض الخطوط، حتى عندما يحتوي الخط على معلومات kerning صالحة ويتم تمكينها في إعدادات PowerPoint.
+
+لجعل الإخراج المُنشأ أقرب إلى ما يولده PowerPoint في هذه الحالات، يمكنك تعطيل الـ kerning لأجزاء النص التي تستخدم الخط المتأثر. اضبط [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
+
+```javascript
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraphs = autoShape.getTextFrame().getParagraphs();
+    const paragraphCount = paragraphs.getCount();
+    const targetFont = "Roboto";
+
+    for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        const portions = paragraphs.get_Item(paragraphIndex).getPortions();
+        const portionCount = portions.getCount();
+
+        for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            const portion = portions.get_Item(portionIndex);
+            const portionFormat = portion.getPortionFormat();
+            const latinFont = portionFormat.getLatinFont();
+            const eastAsianFont = portionFormat.getEastAsianFont();
+            const complexScriptFont = portionFormat.getComplexScriptFont();
+
+            if ((latinFont !== null && latinFont.getFontName() === targetFont) ||
+                (eastAsianFont !== null && eastAsianFont.getFontName() === targetFont) ||
+                (complexScriptFont !== null && complexScriptFont.getFontName() === targetFont)) {
+                portionFormat.setKerningMinimalSize(100);
+            }
+        }
+    }
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+هذا الإعداد يمنع تطبيق الـ kerning على أجزاء النص المطابقة ويمكن أن يساعد في مطابقة مظهر Aspose.Slides مع مظهر PowerPoint للخطوط المتأثرة بهذا السلوك المحدد لبرنامج PowerPoint.
+
+## **إدارة خصائص خط النص**
+
+يمكن تعيين خصائص الخط على مستوى الفقرة عبر [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) أو على أجزاء منفردة عبر [PortionFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portionformat/).
+
+الكود التالي يعيّن الخط ونمط النص للفقرة بأكملها: يطبق حجم الخط، العريض، المائل، خط سفلي منقط، وخط Times New Roman على جميع الأجزاء في الفقرة.
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
+
+    // تعيين خصائص الخط للفقرة.
+    defaultPortionFormat.setFontHeight(12);
+    defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    defaultPortionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
+    defaultPortionFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    presentation.save("font_properties_for_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+النتيجة:
+
+![خصائص الخط للفقرة](font_properties_for_paragraph.png)
+
+الكود التالي يطبق خصائص مشابهة على **أجزاء النص ذات الخط العريض**:
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    const portions = paragraph.getPortions();
+    const portionCount = portions.getCount();
+
+    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+        const portion = portions.get_Item(portionIndex);
+        if (portion.getPortionFormat().getEffective().getFontBold()) {
+            const portionFormat = portion.getPortionFormat();
+
+            // تعيين خصائص الخط لجزء النص.
+            portionFormat.setFontHeight(13);
+            portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+            portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
+            portionFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+        }
+    }
+
+    presentation.save("font_properties_for_text_portions.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+النتيجة:
+
+![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
 
 ## **تعيين دوران النص**
 
-Aspose.Slides for Node.js via Java يسمح للمطورين بتدوير النص. يمكن تعيين النص ليظهر كـ [Horizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Horizontal)، [Vertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical)، [Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#Vertical270)، [WordArtVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVertical)، [EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#EastAsianVertical)، [MongolianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#MongolianVertical) أو [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). لتدوير نص أي TextFrame، يرجى اتباع الخطوات أدناه:
+استخدم [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) لتعيين اتجاه نص مسبقًا داخل الشكل.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الوصول إلى الشريحة الأولى.
-3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. [دوران النص](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setTextVerticalType-byte-).
-6. حفظ الملف إلى القرص.
+الكود التالي يعيّن اتجاه النص في الشكل إلى `Vertical270`، مما يدور النص **90 درجة عكس عقارب الساعة**:
+
 ```javascript
-// إنشاء كائن من فئة Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الحصول على الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من النوع Rectangle
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
-    // إضافة TextFrame إلى الشكل المستطيل
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // الوصول إلى إطار النص
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
-    // إنشاء كائن Paragraph لإطار النص
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // إنشاء كائن Portion للفقرة
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // حفظ العرض التقديمي
-    pres.save("RotateText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
+
+    presentation.save("text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-## **تعيين زاوية دوران مخصصة لإطار النص**
+![دوران النص](text_rotation.png)
 
-Aspose.Slides for Node.js via Java يدعم الآن تعيين زاوية دوران مخصصة لإطار النص. في هذا الموضوع سنستعرض مثالًا يوضح كيفية تعيين خاصية RotationAngle في Aspose.Slides. تم إضافة الطريقتين الجددتين [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-) و [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getRotationAngle--) إلى الفئة [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) ، مما يتيح تعيين زاوية دوران مخصصة لإطار النص. لتعيين RotationAngle، يرجى اتباع الخطوات أدناه:
+## **تعيين دوران مخصص لإطارات النص**
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. إضافة رسم بياني إلى الشريحة.
-3. [تعيين خاصية RotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-).
-4. كتابة العرض كملف PPTX.
+استخدم [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) لتعيين زاوية دوران مخصصة لـ [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
 
-في المثال أدناه، نقوم بتعيين خاصية RotationAngle.
+الكود التالي يدور إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
+
 ```javascript
-// إنشاء مثيل لفئة Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الحصول على الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من نوع Rectangle
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
-    // إضافة TextFrame إلى المستطيل
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // الوصول إلى إطار النص
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setRotationAngle(25);
-    // إنشاء كائن Paragraph لإطار النص
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // إنشاء كائن Portion للفقرة
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Text rotation example.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // حفظ العرض التقديمي
-    pres.save(resourcesOutputPath + "RotateText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
+
+    presentation.save("custom_text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-## **تباعد الأسطر للفقرة**
+![دوران النص المخصص](custom_text_rotation.png)
 
-Aspose.Slides يوفر خصائص تحت [`ParagraphFormat`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ParagraphFormat)—`SpaceAfter`، `SpaceBefore` و `SpaceWithin`—تسمح لك بإدارة تباعد الأسطر للفقرة. تُستعمل الخصائص الثلاث بهذه الطريقة:
+## **تعيين تباعد الأسطر للفقرات**
 
-* لتحديد تباعد الأسطر للفقرة كنسبة مئوية، استخدم قيمة موجبة. 
-* لتحديد تباعد الأسطر للفقرة بالنقاط، استخدم قيمة سالبة.
+توفر Aspose.Slides الطرق [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-)، و[ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) للتحكم في تباعد الفقرات. تُستعمل هذه الخصائص كما يلي:
 
-على سبيل المثال، يمكنك تطبيق تباعد أسطر 16pt للفقرة عن طريق تعيين خاصية `SpaceBefore` إلى -16.
+* استخدم قيمة موجبة لتحديد تباعد الأسطر كنسبة مئوية من ارتفاع السطر.
+* استخدم قيمة سالبة لتحديد تباعد الأسطر بالنقاط.
 
-إليك طريقة تحديد تباعد الأسطر لفقرة معينة:
+الكود التالي يوضح كيفية تحديد تباعد الأسطر داخل الفقرة:
 
-1. تحميل عرض يحتوي على AutoShape به بعض النص.
-2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها.
-3. الوصول إلى TextFrame.
-4. الوصول إلى Paragraph.
-5. تعيين خصائص الفقرة.
-6. حفظ العرض.
-
-يظهر هذا الكود JavaScript كيفية تحديد تباعد الأسطر للفقرة:
 ```javascript
-// إنشاء مثيل لفئة Presentation
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها
-    var sld = pres.getSlides().get_Item(0);
-    // الوصول إلى TextFrame
-    var tf1 = sld.getShapes().get_Item(0).getTextFrame();
-    // الوصول إلى الفقرة
-    var para = tf1.getParagraphs().get_Item(0);
-    // تعيين خصائص الفقرة
-    para.getParagraphFormat().setSpaceWithin(80);
-    para.getParagraphFormat().setSpaceBefore(40);
-    para.getParagraphFormat().setSpaceAfter(40);
-    // حفظ العرض التقديمي
-    pres.save("LineSpacing_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+    paragraph.getParagraphFormat().setSpaceWithin(200);
+
+    presentation.save("line_spacing.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-## **تعيين خاصية AutofitType لإطار النص**
+![تباعد الأسطر داخل الفقرة](line_spacing.png)
 
-في هذا الموضوع نستكشف خصائص تنسيق مختلفة لإطار النص. يغطي هذا المقال كيفية تعيين خاصية AutofitType لإطار النص، وموقع النص داخل الشكل، وتدوير النص في العرض. Aspose.Slides for Node.js via Java يسمح للمطورين بتعيين خاصية AutofitType لأي إطار نص. يمكن تعيين AutofitType إلى [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) أو [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape). إذا تم تعيينها إلى [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) سيظل الشكل نفسه بينما يتم تعديل النص دون تغيير الشكل، أما إذا تم تعيينها إلى [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape) فسيتم تعديل الشكل بحيث يحتوي فقط على النص المطلوب. لتعيين خاصية AutofitType لإطار نص، يرجى اتباع الخطوات أدناه:
+## **تعيين نوع الملاءمة الذاتية لإطارات النص**
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) .
-2. الوصول إلى الشريحة الأولى.
-3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. [تعيين خاصية AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType-byte-) لإطار النص.
-6. حفظ الملف إلى القرص.
+تحدد الطريقة [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) كيفية تصرف النص عندما يتجاوز حدود حاويته. استخدمها للتحكم فيما إذا كان النص سيصغر، سيتخطى، أو سيعيد تحجيم الشكل تلقائيًا.
+
 ```javascript
-// إنشاء مثيل لفئة Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الوصول إلى الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من النوع Rectangle
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 150);
-    // إضافة TextFrame إلى المستطيل
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // الوصول إلى إطار النص
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAutofitType(aspose.slides.TextAutofitType.Shape);
-    // إنشاء كائن Paragraph لإطار النص
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // إنشاء كائن Portion للفقرة
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // حفظ العرض التقديمي
-    pres.save(resourcesOutputPath + "formatText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
+
+    presentation.save("autofit_type.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **تعيين تثبيت إطارات النص**
 
-## **تعيين مرساة إطار النص**
+تحدد الطريقة [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) كيفية وضع النص عموديًا داخل الشكل، مثلًا في الأعلى، الوسط، أو الأسفل.
 
-Aspose.Slides for Node.js via Java يسمح للمطورين بتعيين مرساة لأي TextFrame. يحدد TextAnchorType مكان وضع النص داخل الشكل. يمكن تعيين AnchorType إلى [Top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Top)، [Center](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Center)، [Bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Bottom)، [Justified](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Justified) أو [Distributed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Distributed). لتعيين مرساة أي TextFrame، يرجى اتباع الخطوات أدناه:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الوصول إلى الشريحة الأولى.
-3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
-5. [تعيين TextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAnchoringType-byte-) لإطار النص.
-6. حفظ الملف إلى القرص.
 ```javascript
-// إنشاء مثيل لفئة Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الحصول على الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من نوع Rectangle
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
-    // إضافة TextFrame إلى المستطيل
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // الوصول إلى إطار النص
-    var txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAnchoringType(aspose.slides.TextAnchorType.Bottom);
-    // إنشاء كائن Paragraph لإطار النص
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // إنشاء كائن Portion للفقرة
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // حفظ العرض التقديمي
-    pres.save("AnchorText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
+
+    presentation.save("text_anchor.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **تعيين تبويب النص**
 
-## **الجدولة وEffectiveTabs في العرض**
+استخدم [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) و[ParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getTabs--) لتكوين مسافات التبويب في الفقرة.
 
-جميع علامات الجدولة للنص تُعطى بوحدات البكسل.
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-|![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
-| :- |
-|**Figure: 2 Explicit Tabs and 2 Default Tabs**|
-- الخاصية EffectiveTabs.ExplicitTabCount (2 في مثالنا) تساوي Tabs.Count.
-- مجموعة EffectiveTabs تشمل جميع علامات الجدولة (من مجموعة Tabs والعلامات الافتراضية).
-- الخاصية EffectiveTabs.ExplicitTabCount (2 في مثالنا) تساوي Tabs.Count.
-- الخاصية EffectiveTabs.DefaultTabSize (294) تُظهر المسافة بين علامات الجدولة الافتراضية (3 و 4 في مثالنا).
-- EffectiveTabs.GetTabByIndex(index) مع index = 0 يُعيد أول علامة صريحة (Position = 731)، index = 1 يُعيد العلامة الثانية (Position = 1241). إذا طلبت العلامة التالية بـ index = 2 سيُعيد أول علامة افتراضية (Position = 1470) وهكذا.
-- EffectiveTabs.GetTabAfterPosition(pos) يُستخدم للحصول على علامة الجدولة التالية بعد نص معين. على سبيل المثال لديك النص: "Hello World!". لتصميم هذا النص تحتاج إلى معرفة مكان بدء رسم "world!". أولًا، احسب طول "Hello" بالبكسل ثم استدعِ GetTabAfterPosition بهذه القيمة. ستحصل على موقع العلامة التالية لرسم "world!".
+    paragraph.getParagraphFormat().setDefaultTabSize(100);
+    paragraph.getParagraphFormat().getTabs().add(30, java.newByte(aspose.slides.TabAlignment.Left));
+
+    presentation.save("paragraph_tabs.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+النتيجة:
+
+![تبويبات الفقرة](paragraph_tabs.png)
+
+## **تعيين لغة التدقيق**
+
+توفر Aspose.Slides الطريقة [PortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) التي تسمح لك بتعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة في فحص الإملاء والقواعد في PowerPoint.
+
+الكود التالي يوضح كيفية تعيين لغة التدقيق لجزء النص:
+
+```javascript
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    const font = new aspose.slides.FontData("SimSun");
+    const textPortion = new aspose.slides.Portion();
+    textPortion.getPortionFormat().setComplexScriptFont(font);
+    textPortion.getPortionFormat().setEastAsianFont(font);
+    textPortion.getPortionFormat().setLatinFont(font);
+
+    // تعيين معرف لغة التدقيق.
+    textPortion.getPortionFormat().setLanguageId("zh-CN");
+
+    textPortion.setText("1.");
+    paragraph.getPortions().add(textPortion);
+
+    presentation.save("proofing_language.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تعيين اللغة الافتراضية**
+
+استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) لتحديد اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
+
+```javascript
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setDefaultTextLanguage("en-US");
+
+const presentation = new aspose.slides.Presentation(loadOptions);
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    // إضافة شكل مستطيل جديد مع نص.
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
+    shape.getTextFrame().setText("Sample text");
+
+    // التحقق من لغة الجزء الأول.
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    console.log(portion.getPortionFormat().getLanguageId());
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **تعيين نمط النص الافتراضي**
 
-إذا كنت بحاجة إلى تطبيق تنسيق نص افتراضي موحد على جميع عناصر النص في عرضٍ تقديمي مرة واحدة، يمكنك استخدام طريقة `getDefaultTextStyle` من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) وتعيين التنسيق المفضل. يوضح المثال البرمجي أدناه كيفية تعيين خط عريض افتراضي (14 pt) للنص على جميع الشرائح في عرض جديد.
+لتطبيق تنسيق نص افتراضي على مستوى العرض، استخدم [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
+
+الكود التالي يوضح كيفية تعيين خط عريض بحجم 14 نقطة كخط افتراضي لكل النصوص عبر الشرائح في عرض تقديمي جديد.
+
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // احصل على تنسيق الفقرة المستوى الأعلى.
-    var paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
-    if (paragraphFormat != null) {
+    // الحصول على تنسيق الفقرة في المستوى الأعلى.
+    const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
+
+    if (paragraphFormat !== null) {
         paragraphFormat.getDefaultPortionFormat().setFontHeight(14);
-        paragraphFormat.getDefaultPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+        paragraphFormat.getDefaultPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
     }
-    presentation.save("DefaultTextStyle.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("default_text_style.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **استخراج النص مع تأثير الحروف الكبيرة كليًا (All‑Caps)**
 
-## **استخراج النص بتأثير الأحرف الكبيرة كلها**
+في PowerPoint، تطبيق تأثير **All Caps** يجعل النص يظهر بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء من النص باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، افحص [TextCapType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textcaptype/) وحول السلسلة المرجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
 
-في PowerPoint، تطبيق تأثير الخط **All Caps** يجعل النص يظهر بأحرف كبيرة على الشريحة حتى لو تم كتابته بحروف صغيرة. عند استخراج مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. للتعامل مع ذلك، تحقق من [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/)—إذا كان يساوي `All`، حوّل السلسلة المُسترجعة إلى أحرف كبيرة حتى يتطابق المخرجات مع ما يراه المستخدمون على الشريحة.
+لنفترض أن لدينا صندوق النص التالي في الشريحة الأولى من ملف **sample2.pptx**.
 
-لنفترض أن لدينا صندوق نص كما هو موضح في الشريحة الأولى من ملف sample2.pptx.
+![تأثير All Caps](all_caps_effect.png)
 
-![The All Caps effect](all_caps_effect.png)
+الكود التالي يوضح كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
-يظهر المثال البرمجي أدناه كيفية استخراج النص مع تطبيق تأثير **All Caps**:
-```js
-var presentation = new aspose.slides.Presentation("sample2.pptx");
+```javascript
+const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    var autoShape = slide.getShapes().get_Item(0);
-    var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    var textPortion = paragraph.getPortions().get_Item(0);
+    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
-    console.log("Original text:", textPortion.getText());
+    console.log("Original text: " + textPortion.getText());
 
-    var textFormat = textPortion.getPortionFormat().getEffective();
-    if (textFormat.getTextCapType() == aspose.slides.TextCapType.All) {
-        var text = textPortion.getText().toUpperCase();
-        console.log("All-Caps effect:", text);
+    const textFormat = textPortion.getPortionFormat().getEffective();
+    if (textFormat.getTextCapType() === aspose.slides.TextCapType.All) {
+        const text = textPortion.getText().toUpperCase();
+        console.log("All-Caps effect: " + text);
     }
 } finally {
     presentation.dispose();
 }
 ```
 
+الإخراج:
 
-الناتج:
 ```text
-النص الأصلي: Hello, Aspose!
-تأثير الأحرف الكبيرة: HELLO, ASPOSE!
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
 ```
-
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكن تعديل النص في جدول داخل شريحة؟**
+**كيف يمكن تعديل النص داخل جدول في شريحة؟**
 
-لتعديل النص في جدول داخل شريحة، تحتاج إلى استخدام كائن [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). يمكنك التنقل عبر جميع الخلايا في الجدول وتغيير النص في كل خلية بالوصول إلى خصائص `TextFrame` و `ParagraphFormat` داخل كل خلية.
+لتعديل النص داخل جدول في شريحة، استخدم [Table](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/table/). قم بالتكرار عبر الخلايا وحدث كل خلية عبر [Cell.getTextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/cell/#getTextFrame--) وتنسيق الفقرات عبر [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**كيف يمكن تطبيق لون تدرجي على النص في شريحة PowerPoint؟**
+**كيف يمكن تطبيق تدرج لوني على النص في شريحة PowerPoint؟**
 
-لتطبيق لون تدرجي على النص، استخدم خاصية Fill Format في [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/). عيّن Fill Format إلى `Gradient`، حيث يمكنك تحديد ألوان البداية والنهاية للتدرج، بالإضافة إلى خصائص أخرى مثل الاتجاه والشفافية لإنشاء تأثير التدرج على النص.
+لتطبيق تدرج لوني على النص، استخدم [PortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portionformat/#getFillFormat--). عيّن [FillFormat.setFillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) وقم بتكوين نقاط التدرج، الاتجاه، والشفافية.

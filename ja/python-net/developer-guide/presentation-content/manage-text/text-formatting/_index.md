@@ -1,5 +1,5 @@
 ---
-title: PythonでPowerPointテキストをフォーマット
+title: Pythonでプレゼンテーションテキストをフォーマット
 linktitle: テキスト書式設定
 type: docs
 weight: 50
@@ -7,639 +7,538 @@ url: /ja/python-net/text-formatting/
 keywords:
 - テキストのハイライト
 - 正規表現
-- 段落の配置
+- 段落の揃え
 - テキストスタイル
 - テキスト背景
-- テキストの透明度
+- テキスト透明度
 - 文字間隔
 - フォントプロパティ
-- フォントファミリ
+- フォントファミリー
 - テキスト回転
 - 回転角度
 - テキストフレーム
-- 行間隔
-- 自動調整プロパティ
+- 行間
+- オートフィットプロパティ
 - テキストフレームアンカー
-- テキストタブ
+- テキストタブ設定
 - デフォルト言語
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定する方法を学びます。フォント、色、配置などを強力な Python コード例でカスタマイズできます。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、カラー、配置などをカスタマイズできます。"
 ---
+## **概要**
+
+この記事では、Aspose.Slides for Python via .NET を使用して PowerPoint および OpenDocument プレゼンテーションのテキスト書式設定方法を示します。ハイライト、背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブストップ、言語設定などを扱います。
+
+以下の例では、最初のスライドに単一のテキスト ボックスがあり、次のテキストが入力された「sample.pptx」というファイルを使用します。
+
+![サンプルテキスト](sample_text.png)
 
 ## **テキストのハイライト**
 
-`highlight_text` メソッドは、[TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) クラスにあり、テキストサンプルを使用して文字列の一部を背景色でハイライトすることができます。これは PowerPoint 2019 の「テキストハイライト カラー」ツールに似ています。
+テキスト フレーム内で特定のサンプルに一致するテキストをハイライトする必要がある場合は、[TextFrame.highlight_text](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/highlight_text/) メソッドを使用します。このメソッドは一致したテキスト フラグメントにハイライト色を適用し、[TextSearchOptions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textsearchoptions/) と組み合わせて検索方法を制御できます。たとえば、完全一致の単語のみを対象にすることができます。
 
-以下のコードスニペットは、この機能の使用方法を示しています：
-```py
-import aspose.slides as slides
+以下のコード例は、文字列 **"try"** のすべての出現箇所をハイライトし、その後、単語 **"to"** のみをハイライトします。
+
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation("SomePresentation.pptx") as presentation:
-    presentation.slides[0].shapes[0].text_frame.highlight_text("title", draw.Color.light_blue)
+with slides.Presentation("sample.pptx") as presentation:
+    # 最初のスライドから最初のシェイプを取得します。
+    shape = presentation.slides[0].shapes[0]
 
-    opts = slides.TextHighlightingOptions()
-    opts.whole_words_only = True
-    presentation.slides[0].shapes[0].text_frame.highlight_text("to", draw.Color.violet, opts)
+    # シェイプ内の単語 "try" をハイライトします。
+    shape.text_frame.highlight_text("try", draw.Color.light_blue)
 
-    presentation.save("SomePresentation-out2.pptx", slides.export.SaveFormat.PPTX)
+    search_options = slides.TextSearchOptions()
+    search_options.whole_words_only = True
+
+    # シェイプ内の単語 "to" をハイライトします。
+    shape.text_frame.highlight_text("to", draw.Color.violet, search_options, None)
+
+    presentation.save("highlighted_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+結果：
+
+![ハイライトされたテキスト](highlighted_text.png)
 
 ## **正規表現を使用したテキストのハイライト**
 
-`highlight_regex` メソッドは、[TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) クラスにあり、正規表現を使用して文字列の一部を背景色でハイライトすることができます。これは PowerPoint 2019 の「テキストハイライト カラー」ツールに似ています。
+テキスト フレーム内で正規表現に一致するテキストをハイライトするには、[TextFrame.highlight_regex](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/highlight_regex/) メソッドを使用します。Python では、この API は [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) 上で提供されています。
 
-以下のコードスニペットは、この機能の使用方法を示しています：
-```py
-import aspose.slides as slides
+以下のコード例は、**7 文字以上** を含むすべての単語をハイライトします。
+
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation("SomePresentation.pptx") as presentation:
-    options = slides.TextHighlightingOptions()
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-    presentation.slides[0].shapes[0].text_frame.highlight_regex("\\b[^\s]{5,}\\b", draw.Color.blue, options) 
-    presentation.save("SomePresentation-out3.pptx", slides.export.SaveFormat.PPTX)
+    regex = r"\b[^\s]{7,}\b"
+
+    # 7 文字以上の単語をすべてハイライトします。
+    shape.text_frame.highlight_regex(regex, draw.Color.yellow, None)
+
+    presentation.save("highlighted_text_using_regex.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+結果：
+
+![正規表現を使用したハイライトテキスト](highlighted_text_using_regex.png)
 
 ## **テキストの背景色の設定**
 
-Aspose.Slides では、テキストの背景色を指定できます。以下の Python コードは、テキスト全体の背景色を設定する方法を示しています：
+段落全体のデフォルトハイライト色を設定するには [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/default_portion_format/) を使用し、個々のテキスト部分に対しては [PortionFormat.highlight_color](https://reference.aspose.com/slides/ja/python-net/aspose.slides/portionformat/highlight_color/) を使用します。
+
+次のコード例は、**段落全体** の背景色を設定する方法を示します。
+
 ```python
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
-    autoShape.text_frame.paragraphs.clear()
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    para = slides.Paragraph()
+    # 段落全体のハイライト色を設定します。
+    paragraph.paragraph_format.default_portion_format.highlight_color.color = draw.Color.light_gray
 
-    portion1 = slides.Portion("Black")
-    portion1.portion_format.font_bold = 1
-    
-    portion2 = slides.Portion(" Red ")
-    
-    portion3 = slides.Portion("Black")
-    portion3.portion_format.font_bold = 1
-    
-    para.portions.add(portion1)
-    para.portions.add(portion2)
-    para.portions.add(portion3)
-    autoShape.text_frame.paragraphs.add(para)
-    
-    pres.save("text.pptx", slides.export.SaveFormat.PPTX)
-
-with slides.Presentation("text.pptx") as pres:
-    autoShape = pres.slides[0].shapes[0]
-
-    for portion in autoShape.text_frame.paragraphs[0].portions:
-        portion.portion_format.highlight_color.color = draw.Color.blue
-
-    pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("gray_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+結果：
 
-この Python コードは、テキストの一部だけの背景色を設定する方法を示しています：
+![灰色の段落](gray_paragraph.png)
+
+以下のコード例は、**太字フォントを使用したテキスト部分** の背景色を設定する方法を示します。
+
 ```python
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
-    autoShape.text_frame.paragraphs.clear()
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    para = slides.Paragraph()
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # テキスト部分のハイライト色を設定します。
+            portion.portion_format.highlight_color.color = draw.Color.light_gray
 
-    portion1 = slides.Portion("Black")
-    portion1.portion_format.font_bold = 1
-    
-    portion2 = slides.Portion(" Red ")
-    
-    portion3 = slides.Portion("Black")
-    portion3.portion_format.font_bold = 1
-    
-    para.portions.add(portion1)
-    para.portions.add(portion2)
-    para.portions.add(portion3)
-    autoShape.text_frame.paragraphs.add(para)
-    
-    pres.save("text.pptx", slides.export.SaveFormat.PPTX)
-
-with slides.Presentation("text.pptx") as pres:
-    autoShape = pres.slides[0].shapes[0]
-
-    for portion in autoShape.text_frame.paragraphs[0].portions:
-        print (portion.text)
-
-    redPortion = list(p for p in autoShape.text_frame.paragraphs[0].portions if 'Red' in p.text)[0]
-    redPortion.portion_format.highlight_color.color = draw.Color.blue
-
-    pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("gray_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+結果：
+
+![灰色のテキスト部分](gray_text_portions.png)
 
 ## **テキスト段落の配置**
 
-テキストの書式設定は、文書やプレゼンテーションを作成する際の重要な要素です。Aspose.Slides for Python via .NET はスライドへのテキスト追加をサポートしており、本セクションではスライド内の段落配置の制御方法を示します。以下の手順で Aspose.Slides for Python via .NET を使用してテキスト段落を配置してください。
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/alignment/) を使用して、テキスト フレーム内の段落配置を設定します。値には中央揃え、左揃え、右揃え、両端揃えなどがあります。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでスライドへの参照を取得します。
-1. スライド上のプレースホルダーシェイプにアクセスし、[AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) にキャストします。
-1. [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) が公開する [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) から、配置する必要がある段落を取得します。
-1. 段落を配置します。段落は `LEFT`、`RIGHT`、`CENTER`、`JUSTIFY`、`JUSTIFY_LOW`、`DISTRIBUTED` のいずれかに配置できます。
-1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+次のコード例は、段落を **中央** に揃える方法を示します。
 
-これらの手順の実装例を以下に示します。
-```py
+```python
 import aspose.slides as slides
 
-# PPTX ファイルを表す Presentation オブジェクトをインスタンス化する
-with slides.Presentation("ParagraphsAlignment.pptx") as presentation:
-    # 最初のスライドにアクセス
-    slide = presentation.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # スライド内の最初と2番目のプレースホルダーにアクセスし、AutoShape に型キャストする
-    tf1 = slide.shapes[0].text_frame
-    tf2 = slide.shapes[1].text_frame
+    # 段落の配置を中央に設定します。
+    paragraph.paragraph_format.alignment = slides.TextAlignment.CENTER
 
-    # 両方のプレースホルダーのテキストを変更
-    tf1.text = "Center Align by Aspose"
-    tf2.text = "Center Align by Aspose"
-
-    # プレースホルダーの最初の段落を取得
-    para1 = tf1.paragraphs[0]
-    para2 = tf2.paragraphs[0]
-
-    # テキスト段落を中央揃えにする
-    para1.paragraph_format.alignment = slides.TextAlignment.CENTER
-    para2.paragraph_format.alignment = slides.TextAlignment.CENTER
-
-    # プレゼンテーションを PPTX ファイルとして保存
-    presentation.save("Centeralign_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("aligned_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+結果：
+
+![揃えられた段落](aligned_paragraph.png)
 
 ## **テキストの透明度の設定**
 
-このセクションでは、Aspose.Slides for Python via .NET を使用して任意のテキストシェイプの透明度プロパティを設定する方法を示します。テキストの透明度を設定するには、以下の手順に従ってください。
+テキストの透明度は、[PortionFormat.fill_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/portionformat/fill_format/) に割り当てられた色のアルファ成分で制御されます。以下の例では、`alpha = 50` は 0〜255 のスケールの ARGB アルファ チャネル値であり、透明度のパーセンテージではありません。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. スライドへの参照を取得します。
-1. 影の色を設定します。
-1. プレゼンテーションを PPTX ファイルとして保存します。
+以下のコード例は、**段落全体** に透明度を適用する方法を示します。
 
-これらの手順の実装例は以下です。
-```py
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation("transparency.pptx") as pres:
-    shape = pres.slides[0].shapes[0]
-    effects = shape.text_frame.paragraphs[0].portions[0].portion_format.effect_format
+alpha = 50
 
-    outerShadowEffect = effects.outer_shadow_effect
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    shadowColor = outerShadowEffect.shadow_color.color
-    print("{color} - transparency is: {value}".format(color = shadowColor, value = (shadowColor.a / 255) * 100))
-    # 透明度をゼロパーセントに設定
-    outerShadowEffect.shadow_color.color = draw.Color.from_argb(255, shadowColor)
+    # テキストの塗りつぶし色を透明色に設定します。
+    paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
-    pres.save("transparency-2.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("transparent_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+結果：
 
-## **テキスト文字間隔の設定**
+![透過段落](transparent_paragraph.png)
 
-Aspose.Slides では、テキストボックス内の文字間隔を調整できます。これにより、文字間の間隔を拡大または縮小して、行やブロックの視覚的な密度を制御できます。
+以下のコード例は、**太字フォントを使用したテキスト部分** に透明度を適用する方法を示します。
 
-以下の Python 例は、1 行の文字間隔を拡大し、別の行を縮小する方法を示しています：
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+alpha = 50
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # テキスト部分の透明度を設定します。
+            portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+            portion.portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
+
+    presentation.save("transparent_text_portions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+結果：
+
+![透過テキスト部分](transparent_text_portions.png)
+
+## **テキストの文字間隔の設定**
+
+[BasePortionFormat.spacing](https://reference.aspose.com/slides/ja/python-net/aspose.slides/baseportionformat/spacing/) を使用して、テキスト ボックス内の文字間の間隔を拡大または縮小できます。
+
+次の Python コードは、**段落全体** の文字間隔を拡大する方法を示します。
+
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("in.pptx") as pres:
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    textBox1 = pres.slides[0].shapes[0]
-    textBox2 = pres.slides[0].shapes[1]
+    # 注意: 文字間隔を縮めるには負の値を使用します。
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # 文字間隔を拡大します。
 
-    textBox1.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = 20 # 拡張
-    textBox2.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = -2 # 縮小
-
-    pres.save("out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+結果：
 
-## **段落フォントプロパティの管理**
+![段落内の文字間隔](character_spacing_in_paragraph.png)
 
-プレゼンテーションは通常、テキストと画像の両方を含みます。テキストはさまざまな方法で書式設定でき、特定のセクションや単語を強調したり、企業のスタイルに合わせたりできます。テキストの書式設定により、プレゼンテーション内容の外観と感覚を変更できます。
+以下のコード例は、**太字フォントを使用したテキスト部分** の文字間隔を拡大する方法を示します。
 
-本セクションでは、Aspose.Slides for Python via .NET を使用してスライドテキスト内の段落のフォントプロパティを構成する方法を示します。段落のフォントプロパティを管理するには、以下の手順に従ってください。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドへの参照を取得します。
-1. スライド上のプレースホルダーシェイプにアクセスし、[AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) にキャストします。
-1. [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) が公開する [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) から段落を取得します。
-1. 段落を均等揃えにします。
-1. 段落のテキスト部分にアクセスします。
-1. [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/) を使用してフォントを定義し、テキスト部分のフォントをそれに合わせて設定します。
-   1. フォントを太字に設定します。
-   1. フォントを斜体に設定します。
-1. [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) オブジェクトが公開する [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) を使用してフォントの色を設定します。
-1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
-
-上記手順の実装例を以下に示します。プレーンなプレゼンテーションを取得し、スライドの 1 つにフォント書式設定を適用します。
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# PPTX ファイルを表す Presentation オブジェクトをインスタンス化する
-with slides.Presentation("FontProperties.pptx") as pres:
-    # スライドの位置を使ってスライドにアクセスする
-    slide = pres.slides[0]
-
-    # スライド内の最初と2番目のプレースホルダーにアクセスし、AutoShape に型キャストする
-    tf1 = slide.shapes[0].text_frame
-    tf2 = slide.shapes[1].text_frame
-
-    # 最初の Paragraph にアクセスする
-    para1 = tf1.paragraphs[0]
-    para2 = tf2.paragraphs[0]
-
-    # 最初の portion にアクセスする
-    port1 = para1.portions[0]
-    port2 = para2.portions[0]
-
-    # 新しいフォントを定義する
-    fd1 = slides.FontData("Elephant")
-    fd2 = slides.FontData("Castellar")
-
-    # portion に新しいフォントを割り当てる
-    port1.portion_format.latin_font = fd1
-    port2.portion_format.latin_font = fd2
-
-    # フォントを太字に設定する
-    port1.portion_format.font_bold = 1
-    port2.portion_format.font_bold = 1
-
-    # フォントを斜体に設定する
-    port1.portion_format.font_italic = 1
-    port2.portion_format.font_italic = 1
-
-    # フォントの色を設定する
-    port1.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    port1.portion_format.fill_format.solid_fill_color.color = draw.Color.purple
-    port2.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    port2.portion_format.fill_format.solid_fill_color.color = draw.Color.peru
-
-    #PPTX をディスクに書き込む
-    pres.save("WelcomeFont_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **テキストのフォント ファミリの管理**
-
-[Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) オブジェクトは、段落内で同じ書式スタイルのテキストを保持するために使用されます。本セクションでは、Aspose.Slides for Python を使用してテキストボックスを作成し、テキストを追加し、特定のフォントとさまざまなフォント ファミリ プロパティを定義する方法を示します。
-
-テキストボックスを作成し、内部テキストのフォントプロパティを設定する手順は次のとおりです。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでスライドへの参照を取得します。
-1. スライドに `RECTANGLE` 種類の [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) を追加します。
-1. [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) に関連付けられた塗りつぶしスタイルを削除します。
-1. AutoShape の [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) にアクセスします。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) にテキストを追加します。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) に関連付けられた [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) オブジェクトにアクセスします。
-1. [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) で使用するフォントを定義します。
-1. [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) が公開する関連プロパティを使用して、太字、斜体、下線、色、高さなどの他のフォントプロパティを設定します。
-1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
-
-上記手順の実装例を以下に示します。
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Presentation をインスタンス化する
-with slides.Presentation() as presentation:
-    # 最初のスライドを取得
-    sld = presentation.slides[0]
-
-    # Rectangle タイプの AutoShape を追加
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 50)
-
-    # AutoShape に関連付けられた塗りつぶしスタイルを削除
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # AutoShape に関連付けられた TextFrame にアクセス
-    tf = ashp.text_frame
-    tf.text = "Aspose TextBox"
-
-    # TextFrame に関連付けられた Portion にアクセス
-    port = tf.paragraphs[0].portions[0]
-
-    # Portion のフォントを設定
-    port.portion_format.latin_font = slides.FontData("Times New Roman")
-
-    # フォントの太字プロパティを設定
-    port.portion_format.font_bold = 1
-
-    # フォントの斜体プロパティを設定
-    port.portion_format.font_italic = 1
-
-    # フォントの下線プロパティを設定
-    port.portion_format.font_underline = slides.TextUnderlineType.SINGLE
-
-    # フォントの高さを設定
-    port.portion_format.font_height = 25
-
-    # フォントの色を設定
-    port.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    port.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-
-    # PPTX をディスクに書き込む 
-    presentation.save("SetTextFontProperties_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **テキストのフォントサイズの設定**
-
-Aspose.Slides では、段落内の既存テキストや、あとで段落に追加される可能性のあるテキストに対して、好みのフォントサイズを設定できます。
-
-以下の Python 例は、段落内のテキストのフォントサイズを設定する方法を示しています：
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # 最初のシェイプを取得します（例）
-    shape = presentation.slides[0].shapes[0]
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # 注意: 文字間隔を縮めるには負の値を使用します。
+            portion.portion_format.spacing = 3  # 文字間隔を拡大します。
 
-    if type(shape) is slides.AutoShape:
-        # 最初の段落を取得します（例）
-        paragraph = shape.text_frame.paragraphs[0]
+    presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
+```
 
-        # 段落内のすべてのテキスト部分のデフォルトフォントサイズを 20 pt に設定します
-        paragraph.paragraph_format.default_portion_format.font_height = 20
+結果：
 
-        # 段落内の現在のテキスト部分のフォントサイズを 20 pt に設定します
+![テキスト部分の文字間隔](character_spacing_in_text_portions.png)
+
+### **特定フォントのカーニング無効化**
+
+場合によっては、Aspose.Slides でレンダリングされたテキストが PowerPoint の同じテキストよりもやや詰まって見えることがあります。これは、PowerPoint が特定のフォントに対してカーニング データを無視するためで、フォントに有効なカーニング情報が含まれていても、PowerPoint の設定でカーニングが有効になっている場合があります。
+
+このような場合にレンダリング結果を PowerPoint に近づけるには、該当フォントを使用するテキスト部分のカーニングを無効にできます。[PortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/ja/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) を実際のフォントサイズよりはるかに大きな値に設定します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    target_font = "Roboto"
+
+    for paragraph in auto_shape.text_frame.paragraphs:
         for portion in paragraph.portions:
-            portion.portion_format.font_height = 20
+            latin_font = portion.portion_format.latin_font
+            east_asian_font = portion.portion_format.east_asian_font
+            complex_script_font = portion.portion_format.complex_script_font
+
+            if ((latin_font is not None and latin_font.font_name == target_font) or
+                    (east_asian_font is not None and east_asian_font.font_name == target_font) or
+                    (complex_script_font is not None and complex_script_font.font_name == target_font)):
+                portion.portion_format.kerning_minimal_size = 100
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **テキストフォントプロパティの管理**
+
+フォント プロパティは、[ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/default_portion_format/) を使用して段落レベルで設定でき、個々の部分については [PortionFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/portionformat/) で設定できます。
+
+次のコードは、段落全体のフォントとテキスト スタイルを設定します。フォントサイズ、太字、斜体、点線の下線、そして Times New Roman フォントを段落内のすべての部分に適用します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    # 段落のフォントプロパティを設定します。
+    paragraph.paragraph_format.default_portion_format.font_height = 12
+    paragraph.paragraph_format.default_portion_format.font_bold = slides.NullableBool.TRUE
+    paragraph.paragraph_format.default_portion_format.font_italic = slides.NullableBool.TRUE
+    paragraph.paragraph_format.default_portion_format.font_underline = slides.TextUnderlineType.DOTTED
+    paragraph.paragraph_format.default_portion_format.latin_font = slides.FontData("Times New Roman")
+
+    presentation.save("font_properties_for_paragraph.pptx", slides.export.SaveFormat.PPTX)
+```
+
+結果：
+
+![段落のフォントプロパティ](font_properties_for_paragraph.png)
+
+以下のコード例は、**太字フォントを使用したテキスト部分** に同様のプロパティを適用します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    for portion in paragraph.portions:
+        if portion.portion_format.get_effective().font_bold:
+            # テキスト部分のフォントプロパティを設定します。
+            portion.portion_format.font_height = 13
+            portion.portion_format.font_italic = slides.NullableBool.TRUE
+            portion.portion_format.font_underline = slides.TextUnderlineType.DOTTED
+            portion.portion_format.latin_font = slides.FontData("Times New Roman")
+
+    presentation.save("font_properties_for_text_portions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+結果：
+
+![テキスト部分のフォントプロパティ](font_properties_for_text_portions.png)
 
 ## **テキスト回転の設定**
 
-Aspose.Slides for Python via .NET は開発者がテキストを回転させることを可能にします。テキストは `HORIZONTAL`、`VERTICAL`、`VERTICAL270`、`WORD_ART_VERTICAL`、`EAST_ASIAN_VERTICAL`、`MONGOLIAN_VERTICAL`、または `WORD_ART_VERTICAL_RIGHT_TO_LEFT` として表示できます。
+[TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/text_vertical_type/) を使用して、シェイプ内のテキスト向きを事前定義されたものに設定します。
 
-任意の [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) のテキストを回転させるには、以下の手順に従ってください。
+次のコード例は、シェイプ内のテキスト向きを `VERTICAL270` に設定し、テキストを **反時計回りに 90 度** 回転させます。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. 最初のスライドにアクセスします。
-1. スライドにシェイプを追加します。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) にアクセスします。
-1. 必要なテキスト回転を適用します。
-1. ファイルをディスクに保存します。
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# Presentation クラスのインスタンスを作成する
-with slides.Presentation() as presentation:
-    # 最初のスライドを取得する
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    auto_shape.text_frame.text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL270
+
+    presentation.save("text_rotation.pptx", slides.export.SaveFormat.PPTX)
+```
+
+結果：
+
+![テキスト回転](text_rotation.png)
+
+## **テキストフレームのカスタム回転設定**
+
+[TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/rotation_angle/) を使用して、[TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) のカスタム回転角度を設定します。
+
+以下のコード例は、シェイプ内でテキスト フレームを時計回りに 3 度回転させます。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    auto_shape.text_frame.text_frame_format.rotation_angle = 3
+
+    presentation.save("custom_text_rotation.pptx", slides.export.SaveFormat.PPTX)
+```
+
+結果：
+
+![カスタムテキスト回転](custom_text_rotation.png)
+
+## **段落の行間設定**
+
+Aspose.Slides は、段落間隔を制御するために [ParagraphFormat.space_after](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/space_after/)、[ParagraphFormat.space_before](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/space_before/)、および [ParagraphFormat.space_within](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/space_within/) を提供します。これらのプロパティは次のように使用します。
+
+* 正の値を使用して、行間を行の高さのパーセンテージで指定します。
+* 負の値を使用して、行間をポイント単位で指定します。
+
+次のコード例は、段落内の行間を指定する方法を示します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    paragraph.paragraph_format.space_within = 200
+
+    presentation.save("line_spacing.pptx", slides.export.SaveFormat.PPTX)
+```
+
+結果：
+
+![段落内の行間](line_spacing.png)
+
+## **テキストフレームのオートフィット タイプの設定**
+
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/autofit_type/) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小、はみ出し、またはシェイプを自動的にリサイズするかを制御するために使用します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    auto_shape.text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
+
+    presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **テキストフレームのアンカー設定**
+
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/anchoring_type/) は、シェイプ内でテキストが垂直方向にどの位置に配置されるか（例：上部、中央、下部）を定義します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    auto_shape.text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.BOTTOM
+
+    presentation.save("text_anchor.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **テキストのタブ設定**
+
+[ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/default_tab_size/) と [ParagraphFormat.tabs](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/tabs/) を使用して、段落のタブストップを構成します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    paragraph.paragraph_format.default_tab_size = 100
+    paragraph.paragraph_format.tabs.add(30, slides.TabAlignment.LEFT)
+
+    presentation.save("paragraph_tabs.pptx", slides.export.SaveFormat.PPTX)
+```
+
+結果：
+
+![段落のタブ](paragraph_tabs.png)
+
+## **校正言語の設定**
+
+Aspose.Slides は、テキスト部分の校正言語を設定できる [PortionFormat.language_id](https://reference.aspose.com/slides/ja/python-net/aspose.slides/portionformat/language_id/) を提供します。校正言語は、PowerPoint のスペルチェックおよび文法チェックに使用される言語を決定します。
+
+以下のコード例は、テキスト部分の校正言語を設定する方法を示します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+
+    paragraph = auto_shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
+
+    font = slides.FontData("SimSun")
+
+    text_portion = slides.Portion()
+    text_portion.portion_format.complex_script_font = font
+    text_portion.portion_format.east_asian_font = font
+    text_portion.portion_format.latin_font = font
+
+    # 校正言語の ID を設定します。
+    text_portion.portion_format.language_id = "zh-CN"
+
+    text_portion.text = "1."
+    paragraph.portions.add(text_portion)
+
+    presentation.save("proofing_language.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **デフォルト言語の設定**
+
+[LoadOptions.default_text_language](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/default_text_language/) を使用して、プレゼンテーションの読み込みまたは作成時に作成されるテキストのデフォルト言語を定義します。
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.default_text_language = "en-US"
+
+with slides.Presentation(load_options) as presentation:
     slide = presentation.slides[0]
 
-    # Rectangle タイプの AutoShape を追加
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
+    # テキスト付きの新しい長方形シェイプを追加します。
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
+    shape.text_frame.text = "Sample text"
 
-    # Rectangle に TextFrame を追加
-    ashp.add_text_frame(" ")
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # テキストフレームにアクセスする
-    txtFrame = ashp.text_frame
-    txtFrame.text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL270
-
-    # テキストフレーム用の Paragraph オブジェクトを作成する
-    para = txtFrame.paragraphs[0]
-
-    # Paragraph 用の Portion オブジェクトを作成する
-    portion = para.portions[0]
-    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-
-    # プレゼンテーションを保存する
-    presentation.save("RotateText_out.pptx", slides.export.SaveFormat.PPTX)
+    # 最初のテキスト部分の言語を確認します。
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    print(portion.portion_format.language_id)
 ```
 
+## **デフォルトテキスト スタイルの設定**
 
-## **TextFrame のカスタム回転角度の設定**
+プレゼンテーション レベルでデフォルトのテキスト書式設定を適用するには、[Presentation.default_text_style](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/default_text_style/) を使用します。
 
-Aspose.Slides for Python via .NET は [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) のカスタム回転角度を設定することをサポートしています。本セクションでは、`rotation_angle` プロパティの使用方法を示します。
+以下のコード例は、新しいプレゼンテーションのすべてのスライドに対して、デフォルトで 14 pt の太字フォントを設定する方法を示します。
 
-`rotation_angle` プロパティを設定するには、以下の手順に従ってください。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. スライドにチャートを追加します。
-1. `rotation_angle` プロパティを設定します。
-1. プレゼンテーションを PPTX ファイルとして保存します。
-
-以下の例では `rotation_angle` プロパティを設定しています。
-```py
+```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成する
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    # 上位レベルの段落書式を取得します。
+    paragraph_format = presentation.default_text_style.get_level(0)
 
-    series = chart.chart_data.series[0]
+    if paragraph_format is not None:
+        paragraph_format.default_portion_format.font_height = 14
+        paragraph_format.default_portion_format.font_bold = slides.NullableBool.TRUE
 
-    series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.text_format.text_block_format.rotation_angle = 65
-
-    chart.has_title = True
-    chart.chart_title.add_text_frame_for_overriding("Custom title").text_frame_format.rotation_angle = -30
-
-    # プレゼンテーションを保存する
-    presentation.save("textframe-rotation_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **全大文字効果でテキストを抽出**
 
-## **段落の行間隔の設定**
+PowerPoint では、**All Caps** フォント効果を適用すると、元が小文字で入力されていてもスライド上で大文字として表示されます。Aspose.Slides でそのようなテキスト部分を取得すると、ライブラリは入力されたままのテキストを返します。表示されたテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textcaptype/) を確認し、値が `ALL` の場合は返された文字列を大文字に変換します。
 
-Aspose.Slides は [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/) クラスの `space_after`、`space_before`、`space_within` プロパティを提供し、段落の行間隔を制御します。これらのプロパティの動作は次のとおりです。
+例として、sample2.pptx ファイルの最初のスライドに次のテキスト ボックスがあるとします。
 
-* 行間隔をパーセンテージで指定する場合は正の値を使用します。
-* 行間隔をポイントで指定する場合は負の値を使用します。
+![All Caps 効果](all_caps_effect.png)
 
-例として、段落の前に 16 pt の行間隔を適用するには、`space_before` プロパティを `-16` に設定します。
+以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示します。
 
-特定の段落の行間隔を設定する手順は次のとおりです。
-
-1. テキストを含む [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) があるプレゼンテーションをロードします。
-1. インデックスでスライドへの参照を取得します。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) にアクセスします。
-1. [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) にアクセスします。
-1. 必要な段落プロパティを設定します。
-1. プレゼンテーションを保存します。
-
-以下の Python 例は、段落の行間隔を設定する方法を示しています：
-```py
+```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成する
-with slides.Presentation("Fonts.pptx") as presentation:
-
-    # インデックスでスライドの参照を取得する
-    sld = presentation.slides[0]
-
-    # TextFrame にアクセスする
-    tf1 = sld.shapes[0].text_frame
-
-    # Paragraph にアクセスする
-    para1 = tf1.paragraphs[0]
-
-    # Paragraph のプロパティを設定する
-    para1.paragraph_format.space_within = 80
-    para1.paragraph_format.space_before = 40
-    para1.paragraph_format.space_after = 40
-    # プレゼンテーションを保存する
-    presentation.save("LineSpacing_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **TextFrame の AutofitType プロパティの設定**
-
-本セクションでは、[TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) のさまざまな書式設定プロパティを調査し、`autofit_type` の設定、テキストアンカーの調整、プレゼンテーション内のテキスト回転を行う方法を紹介します。
-
-Aspose.Slides for Python via .NET は任意の [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) の `autofit_type` プロパティを設定できます。`autofit_type` は `NORMAL` または `SHAPE` のいずれかに設定できます。
-
-* `NORMAL` に設定すると、シェイプは変更されず、テキストがシェイプに合わせて調整されます。
-* `SHAPE` に設定すると、テキストが収まるようにシェイプ自体がリサイズされます。
-
-[TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) の `autofit_type` プロパティを設定する手順は次のとおりです。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. 最初のスライドにアクセスします。
-1. スライドにシェイプを追加します。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) にアクセスします。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) の `autofit_type` を設定します。
-1. ファイルをディスクに保存します。
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Presentation クラスのインスタンスを作成する
-with slides.Presentation() as presentation:
-
-    # 最初のスライドにアクセスする 
-    slide = presentation.slides[0]
-
-    # Rectangle タイプの AutoShape を追加する
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
-
-    # Rectangle に TextFrame を追加する
-    ashp.add_text_frame(" ")
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # テキストフレームにアクセスする
-    txtFrame = ashp.text_frame
-    txtFrame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-
-    # テキストフレーム用の Paragraph オブジェクトを作成する
-    para = txtFrame.paragraphs[0]
-
-    # Paragraph 用の Portion オブジェクトを作成する
-    portion = para.portions[0]
-    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-
-    # プレゼンテーションを保存する
-    presentation.save("formatText_out.pptx", slides.export.SaveFormat.PPTX) 
-```
-
-
-## **TextFrame のアンカー設定**
-
-Aspose.Slides for Python via .NET は任意の [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) のアンカー位置を設定できます。[TextAnchorType](https://reference.aspose.com/slides/python-net/aspose.slides/textanchortype/) プロパティは、テキストがシェイプ内のどこに配置されるかを指定します。`TOP`、`CENTER`、`BOTTOM`、`JUSTIFIED`、または `DISTRIBUTED` のいずれかに設定できます。
-
-[TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) のアンカーを設定する手順は次のとおりです。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. 最初のスライドにアクセスします。
-1. スライドにシェイプを追加します。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) にアクセスします。
-1. [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) のために [TextAnchorType](https://reference.aspose.com/slides/python-net/aspose.slides/textanchortype/) を設定します。
-1. ファイルをディスクに保存します。
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Presentation クラスのインスタンスを作成する
-with slides.Presentation() as presentation:
-    # 最初のスライドを取得する
-    slide = presentation.slides[0]
-
-    # Rectangle タイプの AutoShape を追加する
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
-
-    # Rectangle に TextFrame を追加する
-    ashp.add_text_frame(" ")
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # テキストフレームにアクセスする
-    txtFrame = ashp.text_frame
-    txtFrame.text_frame_format.anchoring_type = slides.TextAnchorType.BOTTOM
-
-    # テキストフレーム用の Paragraph オブジェクトを作成する
-    para = txtFrame.paragraphs[0]
-
-    # Paragraph 用の Portion オブジェクトを作成する
-    portion = para.portions[0]
-    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-
-    # プレゼンテーションを保存する
-    presentation.save("AnchorText_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **デフォルトテキストスタイルの設定**
-
-プレゼンテーション内のすべてのテキスト要素に同じデフォルト書式を適用したい場合は、[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスの `default_text_style` プロパティを使用して、目的の書式を設定できます。
-
-以下の例は、新しいプレゼンテーションのすべてのスライドに対して、デフォルトフォントを太字、サイズ 14 pt に設定する方法を示しています。
-```py
-with slides.Presentation() as presentation:
-    # トップレベルの段落フォーマットを取得します。
-    paragraphFormat = presentation.default_text_style.get_level(0)
-
-    if paragraphFormat is not None:
-        paragraphFormat.default_portion_format.font_height = 14
-        paragraphFormat.default_portion_format.font_bold = slides.NullableBool.TRUE
-
-    presentation.save("DefaultTextStyle.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **全大文字効果でテキストを抽出する**
-
-PowerPoint では、**All Caps** フォント効果を適用すると、スライド上のテキストが大文字で表示されますが、実際に入力されたテキストは小文字のままです。Aspose.Slides でそのテキスト部分を取得すると、入力されたままの文字列が返されます。これを処理するには、[TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) が `ALL` を示すか確認し、返された文字列を大文字に変換すると、スライド上に表示されているものと一致します。
-
-以下の画像はサンプル2.pptx の最初のスライドにあるテキストボックスを示しています。
-
-![全大文字効果](all_caps_effect.png)
-
-以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示しています：
-```py
 with slides.Presentation("sample2.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     text_portion = auto_shape.text_frame.paragraphs[0].portions[0]
@@ -652,28 +551,19 @@ with slides.Presentation("sample2.pptx") as presentation:
         print("All-Caps effect:", text)
 ```
 
+出力：
 
-出力:
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-
-{{% alert color="primary" %}}
-Aspose はシンプルな、[無料のオンライン PowerPoint 編集サービス](https://products.aspose.app/slides/editor) を提供しています。
-{{% /alert %}}
-
 ## **FAQ**
 
-**単一の段落内のテキストの特定部分（例：数単語だけを太字にする）に異なる書式を適用できますか？ また、レイアウトやテーマから継承されたスタイルとどのように相互作用しますか？**
+**スライド上の表のテキストを変更する方法は？**
 
-はい。書式は段落内の「テキスト部分」レベルで設定され、選択したフラグメントだけがテーマ/レイアウトのスタイルを上書きします。テーマが変更された場合、明示的なローカル書式が設定されていない領域だけが更新されます。
+スライド上の表のテキストを変更するには、[Table](https://reference.aspose.com/slides/ja/python-net/aspose.slides/table/) を使用します。セルを反復処理し、各セルを [Cell.text_frame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/cell/text_frame/) を介して更新し、段落書式は [Paragraph.paragraph_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraph/paragraph_format/) で設定します。
 
-**Linux やシステムフォントがインストールされていない Docker コンテナでフォントはどのように機能しますか？**
+**PowerPoint スライドのテキストにグラデーションカラーを適用する方法は？**
 
-ライブラリはフォントの検出・置換を使用します。フォントが存在しないシステムでは、[フォント ディレクトリを指す](/slides/ja/python-net/custom-font/) か、[置換テーブルを設定](/slides/ja/python-net/font-substitution/) して、不適切なフォントへのフォールバックやレイアウトのずれを防ぐ必要があります。
-
-**プレースホルダー内のテキスト書式設定は、通常のオートシェイプ内の書式設定とどのように異なりますか？**
-
-プレースホルダーはスライド マスターとレイアウトからのスタイルを通常のオートシェイプより強く継承します。ローカルで変更は可能ですが、レイアウトが変更されるとテーマ スタイルに戻りやすく、テキスト部分レベルで書式をハードオーバーライドしていない限り元に戻ります。
+テキストにグラデーションカラーを適用するには、[PortionFormat.fill_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/portionformat/fill_format/) を使用します。[FillFormat.fill_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fillformat/fill_type/) を [FillType.GRADIENT](https://reference.aspose.com/slides/ja/python-net/aspose.slides/filltype/) に設定し、グラデーション ストップ、方向、透明度を構成します。

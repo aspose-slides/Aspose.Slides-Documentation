@@ -1,5 +1,5 @@
 ---
-title: Obtenir les propriétés effectives des formes à partir des présentations en JavaScript
+title: Obtenir les propriétés effectives des formes à partir de présentations en JavaScript
 linktitle: Propriétés effectives
 type: docs
 weight: 50

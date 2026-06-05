@@ -1,169 +1,291 @@
 ---
-title: 外部リンクされた画像を使用してプレゼンテーションをHTMLにエクスポートする
+title: 外部リンクされた画像でプレゼンテーションを HTML にエクスポート
 type: docs
 weight: 100
 url: /ja/net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- PowerPoint のエクスポート
+- OpenDocument のエクスポート
+- プレゼンテーションのエクスポート
+- スライドのエクスポート
+- PPT のエクスポート
+- PPTX のエクスポート
+- ODP のエクスポート
+- PowerPoint を HTML に変換
+- OpenDocument を HTML に変換
+- プレゼンテーションを HTML に変換
+- スライドを HTML に変換
+- PPT を HTML に変換
+- PPTX を HTML に変換
+- ODP を HTML に変換
+- リンク画像
+- 外部リンク画像
+- リンクリソース
+- 外部リソース
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides を使用して、PowerPoint および OpenDocument のプレゼンテーションを .NET で HTML にエクスポートし、画像やその他のリソースを外部リンクファイルとして保存します。"
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
+デフォルトでは、Aspose.Slides はプレゼンテーションを単一の HTML ファイルとしてエクスポートします。画像やその他のリソースは HTML に直接埋め込まれ、通常は Base64 データとして記述されます。これは 1 つのポータブル ファイルが必要なときには便利ですが、Web サイト、CMS、またはサーバー側の変換パイプラインにとって常に最適な形式というわけではありません。
 
-ここでのプレゼンテーションからHTMLへのエクスポート手順では、以下を指定できます。
+外部リンクされたリソースを使用したい場合は次のとおりです。
 
-1. 結果として得られるHTMLファイルに埋め込まれるリソース
-2. 外部に保存され、HTMLファイルから参照されるリソース。
+- HTML ドキュメントのサイズを削減したいとき
+- ブラウザや CDN で画像、フォント、音声、動画を別々にキャッシュしたいとき
+- エクスポート後に生成されたリソースを検査、置換、圧縮、または後処理したいとき
+- 出力構造を Web アプリケーションが期待する形に近づけたいとき
 
-{{% /alert %}} 
+一般的な HTML 変換ワークフローについては[PowerPoint プレゼンテーションを HTML に変換](/slides/ja/net/convert-powerpoint-to-html/)をご覧ください。本記事はエクスポート時のリソースリンク部分に焦点を当てています。
 
-## **背景**
+## **リンクされたリソースのエクスポートの仕組み**
 
-デフォルトのHTMLエクスポートの動作は、すべてのリソースをbase64エンコーディングを通じてHTMLファイル内に埋め込むことです。このアプローチは、閲覧や配布が便利な単一のHTMLファイルを出力します。ただし、デフォルトのアプローチには以下の制限があります：
+[ILinkEmbedController](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/) を使用すると、アプリケーションはリソースごとに、エクスポーターが HTML にデータを埋め込むか外部に保存してリンクを書くかを決定できます。
 
-* 出力されるファイルは、base64エンコーディングのためにその構成要素よりも大幅に大きくなります。
-* ファイル内に含まれる画像やリソースは、置き換えるのが難しいです。
+このインターフェイスには 3 つのメソッドがあります。
 
-### **別のアプローチ**
+- [ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) はリソースをリンクするか埋め込むかを決定します。
+- [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/geturl/) は生成された HTML または別のリンクされたリソースに書き込まれる URL を返します。
+- [ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/saveexternal/) はリンクされたリソースのデータをディスクまたは別の保存先に書き込みます。
 
-**[ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/)** を含む別のアプローチは、上記の制限を回避します。  
+ファイルシステム上のパスとブラウザ URL は別々に考える必要があります。たとえば、以下のサンプルはリソースファイルをディスク上の `html-output/assets` に書き込みますが、HTML には `assets/resource-1.svg` のような相対 URL が含まれます。ブラウザはリンクを含むファイルから相対的にこれらの URL を解決します。そのため、`presentation.html` から SVG ファイルへのリンクは `assets/resource-1.svg` を使用し、同じ `assets` フォルダーに保存された画像へのリンクは `resource-4.jpg` となります。
 
-`LinkController`クラスは`ILinkEmbedController`インターフェイスを実装しています。このインターフェイスは、[HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor)クラスのコンストラクタに渡されます。ILinkEmbedControllerインターフェイスには、リソースの埋め込みと保存プロセスを制御する3つのメソッドがあります：
+## **リンクされたリソースで HTML をエクスポート**
 
-**[GetObjectStoringLocation](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation)(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)**: このメソッドは、エクスポータがリソースに遭遇し、リソースをどのように保存するかを決定する必要があるときに呼び出されます。*id*（エクスポート操作のリソース一意識別子）と*contentType*（リソースのMIMEタイプを含む）は、メソッドの中で最も重要なパラメータです。リソースをリンクしたい場合は、メソッドから[LinkEmbedDecision.Link](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/)列挙型を返す必要があります。それ以外の場合（リソースを埋め込むには）、[LinkEmbedDecision.Embed](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/)を返す必要があります。
+以下の C# サンプルは出力ディレクトリを作成し、HTML ファイルをそこに保存し、リンクされたリソースを `assets` サブディレクトリに格納します。コントローラは Aspose.Slides が提供または安全な拡張子を推測できる場合に、一般的な画像、フォント、音声、動画、CSS リソースをリンクします。認識できないリソースは埋め込まれたままです。
 
-**[GetUrl](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/geturl)(int id, int referrer)**: このメソッドは、結果ファイルで使用される形式のリソースURLを取得するために呼び出されます。リソースは*id*で識別されます。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-**[SaveExternal](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/saveexternal)(int id, byte[] entityData)**: シーケンスの最終メソッドとして、リソースを外部に保存する時点で呼び出されます。リソース識別子とリソース内容がバイト配列に存在するため、リソースデータであらゆる種類の操作を実行できます。
+var inputFilePath = "presentation.pptx";
+var outputDirectory = "html-output";
+var assetDirectoryName = "assets";
+var assetDirectory = Path.Combine(outputDirectory, assetDirectoryName);
 
-このC#コードは**LinkController**クラスが**ILinkEmbedController**インターフェイスを実装しています：
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(assetDirectory);
 
-```c#
-class LinkController : ILinkEmbedController
+var assetUrlPrefix = assetDirectoryName + "/";
+var controller = new ExternalResourceController(assetDirectory, assetUrlPrefix);
+var svgOptions = new SVGOptions(controller);
+var slideImageFormat = SlideImageFormat.Svg(svgOptions);
+
+var htmlOptions = new HtmlOptions(controller)
 {
-    static LinkController()
+    HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(string.Empty, false),
+    SlideImageFormat = slideImageFormat
+};
+
+using var presentation = new Presentation(inputFilePath);
+
+var htmlFilePath = Path.Combine(outputDirectory, "presentation.html");
+presentation.Save(htmlFilePath, SaveFormat.Html, htmlOptions);
+
+public sealed class ExternalResourceController : ILinkEmbedController
+{
+    private static readonly Dictionary<string, string> ExtensionsByContentType = new(StringComparer.OrdinalIgnoreCase)
     {
-        s_templates.Add("image/jpeg", "image-{0}.jpg");
-        s_templates.Add("image/png", "image-{0}.png");
+        ["image/jpeg"] = ".jpg",
+        ["image/png"] = ".png",
+        ["image/gif"] = ".gif",
+        ["image/bmp"] = ".bmp",
+        ["image/svg+xml"] = ".svg",
+        ["image/tiff"] = ".tiff",
+        ["image/x-emf"] = ".emf",
+        ["image/x-wmf"] = ".wmf",
+        ["font/woff"] = ".woff",
+        ["font/woff2"] = ".woff2",
+        ["font/ttf"] = ".ttf",
+        ["application/font-woff"] = ".woff",
+        ["application/vnd.ms-fontobject"] = ".eot",
+        ["application/x-font-ttf"] = ".ttf",
+        ["text/css"] = ".css",
+        ["audio/mpeg"] = ".mp3",
+        ["audio/mp4"] = ".m4a",
+        ["audio/wav"] = ".wav",
+        ["video/mp4"] = ".mp4",
+        ["video/webm"] = ".webm"
+    };
+
+    private readonly string assetDirectory;
+    private readonly string assetUrlPrefix;
+    private readonly Dictionary<int, string> fileNamesByResourceId = new();
+
+    public ExternalResourceController(string assetDirectory, string assetUrlPrefix)
+    {
+        if (string.IsNullOrWhiteSpace(assetDirectory))
+        {
+            throw new ArgumentException("The asset output directory must not be empty.", nameof(assetDirectory));
+        }
+
+        this.assetDirectory = assetDirectory;
+        this.assetUrlPrefix = NormalizeUrlPrefix(assetUrlPrefix);
     }
 
-    /// <summary>
-    /// デフォルトのパラメータなしコンストラクタ
-    /// </summary>
-    public LinkController()
-    {
-        m_externalImages = new Dictionary<int, string>();
-    }
-
-    /// <summary>
-    /// クラスのインスタンスを作成し、生成されたリソースファイルが保存されるパスを設定します。
-    /// </summary>
-    /// <param name="savePath">生成されたリソースファイルが保存される場所へのパス。</param>
-    public LinkController(string savePath)
-        : this()
-    {
-        SavePath = savePath;
-    }
-
-    /// <summary>
-    /// A ILinkEmbedControllerメンバー
-    /// </summary>
-    public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName,
+    public LinkEmbedDecision GetObjectStoringLocation(
+        int resourceId,
+        byte[] entityData,
+        string semanticName,
         string contentType,
-        string recomendedExtension)
+        string recommendedExtension)
     {
-        // ここで、画像を外部に保存するかどうかを決定します。
-        // idは、全体のエクスポート操作中の各オブジェクトの一意識別子です。
-
-        string template;
-
-        // s_templates辞書には、外部に保存する予定のコンテンツタイプと、それに対応するファイル名テンプレートが含まれています。
-        if (s_templates.TryGetValue(contentType, out template))
+        var extension = ResolveExtension(contentType, recommendedExtension);
+        if (extension == null)
         {
-            // このリソースをエクスポートリストに保存
-            m_externalImages.Add(id, template);
-            return LinkEmbedDecision.Link;
+            return LinkEmbedDecision.Embed;
         }
 
-        // 他のすべてのリソースは、あれば埋め込まれます
-        return LinkEmbedDecision.Embed;
+        fileNamesByResourceId[resourceId] = $"resource-{resourceId}{extension}";
+        return LinkEmbedDecision.Link;
     }
 
-    /// <summary>
-    /// A ILinkEmbedControllerメンバー
-    /// </summary>
-    public string GetUrl(int id, int referrer)
+    public string GetUrl(int resourceId, int referrer)
     {
-        // ここで、リソース参照文字列を構築してタグを形成します: <img src="%result%">
-        // 不要なリソースをフィルタリングするために辞書をチェックする必要があります。
-        // チェックと同時に、対応するファイル名テンプレートを抽出します。
-        string template;
-        if (m_externalImages.TryGetValue(id, out template))
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
         {
-            // リソースファイルをHTMLファイルの近くに保存すると仮定します。
-            // 画像タグは適切なリソースIDと拡張子を持つ形で<img src="image-1.png">のようになります。
-            var fileUrl = String.Format(template, id);
-            return fileUrl;
+            return null;
         }
 
-        // 埋め込まれたままのリソースのためにnullを返す必要があります
-        return null;
-    }
-
-    /// <summary>
-    /// A ILinkEmbedControllerメンバー
-    /// </summary>
-    public void SaveExternal(int id, byte[] entityData)
-    {
-        // ここで、リソースファイルをディスクに実際に保存します。
-        // 再度、辞書をチェックします。ここにidが見つからない場合は、GetObjectStoringLocationまたはGetUrlメソッドにエラーの兆候があります。
-        if (m_externalImages.ContainsKey(id))
+        if (fileNamesByResourceId.ContainsKey(referrer))
         {
-            // 今、辞書に保存されたファイル名を使用し、必要に応じてパスと結合します。
-
-            // 保存されたテンプレートとIdを使用してファイル名を構築します。
-            var fileName = String.Format(m_externalImages[id], id);
-
-            // 場所のディレクトリと組み合わせます
-            var filePath = Path.Combine(SavePath ?? String.Empty, fileName);
-
-            using (var fs = new FileStream(filePath, FileMode.Create))
-                fs.Write(entityData, 0, entityData.Length);
+            return fileName;
         }
-        else
-            throw new Exception("何かがおかしい");
+
+        return assetUrlPrefix + fileName;
     }
 
-    /// <summary>
-    /// 生成されたリソースファイルが保存されるパスを取得または設定します。
-    /// </summary>
-    public string SavePath { get; set; }
+    public void SaveExternal(int resourceId, byte[] entityData)
+    {
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} was not registered for external storage.");
+        }
 
-    /// <summary>
-    /// リソースIDと対応するファイル名の関連付けを保存する辞書です。
-    /// </summary>
-    private readonly Dictionary<int, string> m_externalImages;
+        if (entityData == null || entityData.Length == 0)
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} contains no data and cannot be saved.");
+        }
 
-    /// <summary>
-    /// 外部に保存する予定のリソースのコンテンツタイプと、それに対応するファイル名テンプレートの関連付けを保存する辞書です。
-    /// </summary>
-    private static readonly Dictionary<string, string> s_templates = new Dictionary<string, string>();
+        Directory.CreateDirectory(assetDirectory);
+
+        var filePath = Path.Combine(assetDirectory, fileName);
+        File.WriteAllBytes(filePath, entityData);
+    }
+
+    private static string ResolveExtension(string contentType, string recommendedExtension)
+    {
+        if (!string.IsNullOrWhiteSpace(contentType) &&
+            ExtensionsByContentType.TryGetValue(contentType, out var mappedExtension))
+        {
+            return mappedExtension;
+        }
+
+        if (!IsSupportedContentType(contentType))
+        {
+            return null;
+        }
+
+        return NormalizeExtension(recommendedExtension);
+    }
+
+    private static bool IsSupportedContentType(string contentType)
+    {
+        return contentType != null &&
+            (contentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("font/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("audio/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("video/", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static string NormalizeExtension(string extension)
+    {
+        if (string.IsNullOrWhiteSpace(extension))
+        {
+            return null;
+        }
+
+        var extensionCharacters = extension.Trim().TrimStart('.');
+        foreach (var character in extensionCharacters)
+        {
+            if (!char.IsLetterOrDigit(character))
+            {
+                return null;
+            }
+        }
+
+        return "." + extensionCharacters.ToLowerInvariant();
+    }
+
+    private static string NormalizeUrlPrefix(string urlPrefix)
+    {
+        if (string.IsNullOrEmpty(urlPrefix))
+        {
+            return string.Empty;
+        }
+
+        var normalizedUrlPrefix = urlPrefix.Replace('\\', '/');
+        return normalizedUrlPrefix.EndsWith("/")
+            ? normalizedUrlPrefix
+            : normalizedUrlPrefix + "/";
+    }
 }
 ```
 
-**LinkController**クラスを書いた後、次のように**HTMLOptions**クラスと組み合わせて、外部リンクされた画像を持つプレゼンテーションをHTMLにエクスポートできます：
+エクスポート後、出力フォルダーは次の構造になります。
 
-```c#
-using (var pres = new Presentation(@"C:\data\input.pptx")) {
-
-    var htmlOptions = new HtmlOptions(new LinkController(@"C:\data\out\"));
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(new SVGOptions());
-    // この行は、HTMLでスライドタイトルを表示しないために必要です。
-    // スライドタイトルの表示を希望する場合は、この行をコメントアウトしてください。
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(String.Empty, false);
-
-    Console.WriteLine("エクスポートを開始します");
-    pres.Save(@"C:\data\out\output.html", SaveFormat.Html, htmlOptions);
-}
+```text
+html-output/
+  presentation.html
+  assets/
+    resource-1.svg
+    resource-2.svg
+    resource-3.svg
+    resource-4.jpg
+    resource-5.png
 ```
 
-`SlideImageFormat.Svg`を`SlideImageFormat`プロパティに割り当てることにより、結果として得られるHTMLファイルにはプレゼンテーションの内容を描画するためのSVGデータが含まれます。
+正確なファイルはプレゼンテーションの内容とエクスポートオプションに依存します。たとえば、ラスタ画像は一般的に JPEG または PNG としてエクスポートされます。Aspose.Slides は、サイズが小さくなる、またはより適切なファイルになる場合、元のプレゼンテーションで使用されたものとは異なる画像コーデックを選択することがあります。透明度を持つ画像は PNG としてエクスポートされます。
 
-コンテンツタイプ：プレゼンテーションにラスタビットマップが含まれている場合、クラスコードは'image/jpeg'および'image/png'コンテンツタイプの両方を処理できるように準備されている必要があります。エクスポートされたビットマップ画像の内容は、プレゼンテーションに保存されていたものと一致しない場合があります。Aspose.Slidesの内部アルゴリズムはサイズ最適化を行い、どちらが小さいデータサイズを生成するかに応じてJPGまたはPNGコーデックを使用します。アルファチャネル（透過）を含む画像は常にPNGにエンコードされます。
+## **デプロイ時の URL 選択**
+
+サンプルは相対 URL プレフィックス `assets/` を使用しています。`presentation.html` が `html-output/presentation.html` から開かれる場合、ブラウザは `html-output/assets/resource-1.svg` を読み込みます。
+
+1 つのリンクされたリソースが別のリンクされたリソースを参照する場合、サンプルは [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/geturl/) の `referrer` パラメーターを使用し、ファイル名だけを返します。たとえば、`resource-1.svg` と `resource-4.jpg` が同じ `assets` フォルダーにある場合、SVG ファイルは `resource-4.jpg` を参照すべきであり、`assets/resource-4.jpg` ではありません。
+
+ファイルが別の場所にデプロイされる場合は、異なる URL プレフィックスを使用してください。
+
+- HTML ファイルと同じディレクトリにアセットディレクトリがある場合は `assets/` を使用
+- HTML ファイルの 1 レベル上にアセットディレクトリがある場合は `../assets/` を使用
+- ファイルが CDN や静的ファイルサーバーにアップロードされる場合は `https://cdn.example.com/presentations/job-123/assets/` を使用
+
+[ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/geturl/) が返す URL は、[ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/saveexternal/) が書き込むファイルの最終デプロイ先と一致しなければなりません。サーバー アプリケーションでは、変換ジョブごとに一意の出力ディレクトリまたはオブジェクトストレージプレフィックスを使用して、別のエクスポートがファイルを上書きしないようにしてください。
+
+## **埋め込みにすべきケース**
+
+埋め込み Base64 HTML は、出力が単一ファイルである必要がある場合（メール添付、オフラインプレビュー、資産フォルダーなしで移動されるドキュメントなど）に依然として有用です。リンクされたリソースは、HTML が Web アプリケーションで配信されたり、CMS に保存されたり、ビルドパイプラインで最適化されたり、ブラウザが HTML とは別にキャッシュしたりするシナリオに適しています。
+
+## **よくある質問**
+
+**画像だけを外部化し、他のリソースは埋め込んだままにできますか？**
+
+はい。[ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) で、別ファイルとして保存したいコンテンツタイプに対してのみ `LinkEmbedDecision.Link` を返し、その他は `LinkEmbedDecision.Embed` を返します。
+
+**エクスポートされた画像の拡張子が元のプレゼンテーションと異なるのはなぜですか？**
+
+Aspose.Slides は HTML エクスポート時にラスタ画像を再エンコードし、サイズやブラウザ互換性を向上させることがあります。たとえば、元ファイルの画像が JPEG または PNG として書き出されるかは、レンダリング結果に応じて決まります。
+
+**HTML ファイルを移動した後でも相対 URL は機能しますか？**
+
+相対 URL は、同じ相対フォルダー構造が維持された場合にのみ機能します。HTML が `assets/resource-1.png` を参照している場合、`assets` フォルダーは HTML ファイルの隣に残っている必要があります。別の URL プレフィックスを生成しない限りは同様です。
+
+**サーバー アプリケーションで同じ出力フォルダーを再利用すべきですか？**
+
+いいえ。変換ジョブごとに一意の出力ディレクトリまたは保存プレフィックスを使用してください。これによりファイル名の衝突を防ぎ、別のエクスポートが生成したリソースを上書きすることを防げます。
