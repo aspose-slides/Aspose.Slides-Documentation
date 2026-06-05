@@ -167,13 +167,7 @@ try {
     $textFrame->getParagraphs()->clear();
 
     $image = Images::fromFile("image.png");
-    try {
-        $bulletImage = $presentation->getImages()->addImage($image);
-    } finally {
-        if (!java_is_null($image)) {
-            $image->dispose();
-        }
-    }
+    $bulletImage = $presentation->getImages()->addImage($image);
 
     $paragraph1 = createParagraph("The first paragraph", $bulletImage);
     $textFrame->getParagraphs()->add($paragraph1);

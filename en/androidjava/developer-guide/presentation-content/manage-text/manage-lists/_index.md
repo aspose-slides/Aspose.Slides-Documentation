@@ -152,13 +152,7 @@ try {
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.getParagraphs().clear();
 
-    IPPImage bulletImage;
-    FileInputStream imageStream = new FileInputStream("image.png");
-    try {
-        bulletImage = presentation.getImages().addImage(imageStream);
-    } finally {
-        imageStream.close();
-    }
+    IPPImage bulletImage = presentation.getImages().addImage(Images.fromFile("image.png"));
 
     Paragraph paragraph1 = new Paragraph();
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Picture);
