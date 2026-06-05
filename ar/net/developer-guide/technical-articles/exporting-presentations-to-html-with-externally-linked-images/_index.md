@@ -1,170 +1,291 @@
 ---
-title: تصدير العروض التقديمية إلى HTML مع الصور المرتبطة خارجيًا
+title: تصدير العروض التقديمية إلى HTML مع صور مرتبطة خارجيًا
 type: docs
 weight: 100
 url: /ar/net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- تصدير PowerPoint
+- تصدير OpenDocument
+- تصدير العرض التقديمي
+- تصدير الشريحة
+- تصدير PPT
+- تصدير PPTX
+- تصدير ODP
+- PowerPoint إلى HTML
+- OpenDocument إلى HTML
+- العرض التقديمي إلى HTML
+- الشريحة إلى HTML
+- PPT إلى HTML
+- PPTX إلى HTML
+- ODP إلى HTML
+- صورة مرتبطة
+- صورة مرتبطة خارجيًا
+- مورد مرتبط
+- مورد خارجي
+- .NET
+- C#
+- Aspose.Slides
+description: "تصدير عروض PowerPoint و OpenDocument إلى HTML في .NET باستخدام Aspose.Slides مع حفظ الصور والموارد الأخرى كملفات مرتبطة خارجياً."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+بشكل افتراضي، يقوم Aspose.Slides بتصدير العرض التقديمي إلى ملف HTML مستقل. تُكتب الصور والموارد الأخرى مباشرةً في ملف HTML، عادةً كبيانات Base64. هذا ملائم عندما تحتاج إلى ملف واحد محمول، لكنه ليس دائمًا أفضل تنسيق لموقع ويب أو نظام إدارة محتوى أو خط أنابيب تحويل على الخادم.
 
-إجراءات تصدير العروض التقديمية إلى HTML هنا تتيح لك تحديد
+استخدم الموارد المرتبطة خارجيًا عندما تريد:
 
-1. الموارد التي سيتم تضمينها في ملف HTML الناتج
-2. الموارد التي سيتم حفظها خارجيًا والإشارة إليها من ملف HTML.
+- تقليل حجم مستند HTML؛
+- تخزين الصور أو الخطوط أو الصوت أو الفيديو في المتصفح أو شبكة CDN بشكل منفصل؛
+- فحص، استبدال، ضغط أو معالجة الموارد المُولَّدة بعد التصدير؛
+- الحفاظ على بنية الإخراج أقرب إلى ما تتوقعه تطبيقات الويب.
 
-{{% /alert %}} 
+للتعرف على سير عمل التحويل العام إلى HTML، راجع [تحويل عروض PowerPoint إلى HTML](/slides/ar/net/convert-powerpoint-to-html/). يركز هذا المقال على جزء ربط الموارد أثناء التصدير.
 
-## **الخلفية**
+## **كيفية عمل تصدير الموارد المرتبطة**
 
-السلوك الافتراضي لتصدير HTML هو تضمين جميع الموارد داخل ملف HTML من خلال الترميز base64. مثل هذا النهج ينتج ملف HTML واحد، وهو مناسب للمشاهدة والتوزيع. يعاني النهج الافتراضي من هذه القيود:
+[ILinkEmbedController](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/) يتيح لتطبيقك اتخاذ القرار، لكل مورد على حدة، ما إذا كان المصدِّر سيضمن البيانات داخل HTML أو سيحفظها خارجيًا ويكتب رابطًا.
 
-* الملف الناتج أكبر بكثير من مكوناته بسبب ترميز base64.
-* من الصعب استبدال الصور أو الموارد الموجودة في الملف.
+الواجهة تحتوي على ثلاث طرق:
 
-### **نهج مختلف**
+- [ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) يحدد ما إذا كان يجب ربط المورد أو تضمينه.
+- [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/geturl/) يُعيد عنوان URL الذي سيُكتب إلى HTML المُولَّد أو إلى مورد مرتبط آخر.
+- [ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/saveexternal/) يكتب بيانات المورد المرتبط إلى القرص أو إلى هدف تخزين آخر.
 
-نهج مختلف يتضمن **[ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/)** يتجنب القيود المذكورة.
+مسار نظام الملفات وعنوان URL الخاص بالمتصفح هما مسألتان منفصلتان. على سبيل المثال، يكتب المثال أدناه ملفات الموارد إلى `html-output/assets` على القرص، بينما يحتوي HTML على عناوين URL نسبية مثل `assets/resource-1.svg`. المتصفح يحل هذه العناوين نسبة إلى الملف الذي يحتوي على الرابط. لذلك، يستخدم الرابط من `presentation.html` إلى ملف SVG العنوان `assets/resource-1.svg`، بينما يستخدم الرابط من ملف SVG نفسه إلى صورة محفوظة في نفس مجلد `assets` العنوان `resource-4.jpg`.
 
-تقوم فئة `LinkController` بتنفيذ واجهة `ILinkEmbedController`. ثم يتم تمرير الواجهة إلى منشئ فئة [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor). تحتوي واجهة ILinkEmbedController على ثلاث طرق تتحكم في عملية تضمين الموارد وحفظها:
+## **تصدير HTML مع موارد مرتبطة**
 
-**[GetObjectStoringLocation](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation)(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)**: يتم استدعاء هذه الطريقة عندما يواجه المصدر موردًا ويجب عليه تحديد كيفية تخزين المورد. *id* (معرف مورد فريد لعملية التصدير) و *contentType* (الذي يحتوي على نوع MIME للمورد) هما المعاملان الأكثر أهمية تحت هذه الطريقة. إذا كنت تريد ربط المورد، يجب عليك إرجاع قيمة [LinkEmbedDecision.Link](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) من الطريقة. خلاف ذلك (لتضمين المورد)، يجب عليك إرجاع [LinkEmbedDecision.Embed](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/).
+المثال التالي بلغة C# ينشئ دليل إخراج، يحفظ ملف HTML هناك، ويخزن الموارد المرتبطة في مجلد فرعي باسم `assets`. يتحكم المتحكم في ربط الصور الشائعة، الخطوط، الصوت، الفيديو، وموارد CSS عندما يوفر Aspose.Slides أو يستطيع استنتاج امتداد ملف آمن. الموارد التي لا يتم التعرف عليها تظل مُضمَّنة.
 
-**[GetUrl](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/geturl)(int id, int referrer)**: يتم استدعاء هذه الطريقة للحصول على عنوان URL للمورد بالشكل نفسه الذي تم استخدامه في الملف الناتج. يتم التعرف على المورد بواسطة *id*.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-**[SaveExternal](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/saveexternal)(int id, byte[] entityData)**: كطريقة نهائية في التسلسل، يتم استدعاؤها عندما يحين الوقت لتخزين المورد خارجيًا. نظرًا لأن معرف المورد ومحتويات المورد موجودة في مصفوفة بايت، يمكنك تنفيذ جميع أنواع المهام مع بيانات المورد.
+var inputFilePath = "presentation.pptx";
+var outputDirectory = "html-output";
+var assetDirectoryName = "assets";
+var assetDirectory = Path.Combine(outputDirectory, assetDirectoryName);
 
-هذا الكود C# لفئة **LinkController** ينفذ واجهة **ILinkEmbedController**:
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(assetDirectory);
 
-```c#
-class LinkController : ILinkEmbedController
+var assetUrlPrefix = assetDirectoryName + "/";
+var controller = new ExternalResourceController(assetDirectory, assetUrlPrefix);
+var svgOptions = new SVGOptions(controller);
+var slideImageFormat = SlideImageFormat.Svg(svgOptions);
+
+var htmlOptions = new HtmlOptions(controller)
 {
-    static LinkController()
+    HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(string.Empty, false),
+    SlideImageFormat = slideImageFormat
+};
+
+using var presentation = new Presentation(inputFilePath);
+
+var htmlFilePath = Path.Combine(outputDirectory, "presentation.html");
+presentation.Save(htmlFilePath, SaveFormat.Html, htmlOptions);
+
+public sealed class ExternalResourceController : ILinkEmbedController
+{
+    private static readonly Dictionary<string, string> ExtensionsByContentType = new(StringComparer.OrdinalIgnoreCase)
     {
-        s_templates.Add("image/jpeg", "image-{0}.jpg");
-        s_templates.Add("image/png", "image-{0}.png");
+        ["image/jpeg"] = ".jpg",
+        ["image/png"] = ".png",
+        ["image/gif"] = ".gif",
+        ["image/bmp"] = ".bmp",
+        ["image/svg+xml"] = ".svg",
+        ["image/tiff"] = ".tiff",
+        ["image/x-emf"] = ".emf",
+        ["image/x-wmf"] = ".wmf",
+        ["font/woff"] = ".woff",
+        ["font/woff2"] = ".woff2",
+        ["font/ttf"] = ".ttf",
+        ["application/font-woff"] = ".woff",
+        ["application/vnd.ms-fontobject"] = ".eot",
+        ["application/x-font-ttf"] = ".ttf",
+        ["text/css"] = ".css",
+        ["audio/mpeg"] = ".mp3",
+        ["audio/mp4"] = ".m4a",
+        ["audio/wav"] = ".wav",
+        ["video/mp4"] = ".mp4",
+        ["video/webm"] = ".webm"
+    };
+
+    private readonly string assetDirectory;
+    private readonly string assetUrlPrefix;
+    private readonly Dictionary<int, string> fileNamesByResourceId = new();
+
+    public ExternalResourceController(string assetDirectory, string assetUrlPrefix)
+    {
+        if (string.IsNullOrWhiteSpace(assetDirectory))
+        {
+            throw new ArgumentException("The asset output directory must not be empty.", nameof(assetDirectory));
+        }
+
+        this.assetDirectory = assetDirectory;
+        this.assetUrlPrefix = NormalizeUrlPrefix(assetUrlPrefix);
     }
 
-    /// <summary>
-    /// الباني الافتراضي بدون معايير
-    /// </summary>
-    public LinkController()
-    {
-        m_externalImages = new Dictionary<int, string>();
-    }
-
-    /// <summary>
-    /// ينشئ مثيلًا للفئة ويحدد المسار حيث سيتم حفظ ملفات الموارد المولدة.
-    /// </summary>
-    /// <param name="savePath">المسار إلى الموقع حيث سيتم تخزين ملفات الموارد المولدة.</param>
-    public LinkController(string savePath)
-        : this()
-    {
-        SavePath = savePath;
-    }
-
-    /// <summary>
-    /// عضو في واجهة ILinkEmbedController
-    /// </summary>
-    public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName,
+    public LinkEmbedDecision GetObjectStoringLocation(
+        int resourceId,
+        byte[] entityData,
+        string semanticName,
         string contentType,
-        string recomendedExtension)
+        string recommendedExtension)
     {
-        // هنا نتخذ القرار بشأن تخزين الصور خارجيًا.
-        // id هو معرف فريد لكل كائن خلال عملية التصدير.
-
-        string template;
-
-        // يحتوي قاموس s_templates على أنواع المحتوى التي نعتزم تخزينها خارجيًا وقالب الاسم الملف المقابل.
-        if (s_templates.TryGetValue(contentType, out template))
+        var extension = ResolveExtension(contentType, recommendedExtension);
+        if (extension == null)
         {
-            // تخزين هذا المورد في قائمة التصدير
-            m_externalImages.Add(id, template);
-            return LinkEmbedDecision.Link;
+            return LinkEmbedDecision.Embed;
         }
 
-        // سيتم تضمين جميع الموارد الأخرى، إن وجدت
-        return LinkEmbedDecision.Embed;
+        fileNamesByResourceId[resourceId] = $"resource-{resourceId}{extension}";
+        return LinkEmbedDecision.Link;
     }
 
-    /// <summary>
-    /// عضو في واجهة ILinkEmbedController
-    /// </summary>
-    public string GetUrl(int id, int referrer)
+    public string GetUrl(int resourceId, int referrer)
     {
-        // هنا نقوم بإنشاء سلسلة مرجعية المورد لتشكيل العلامة: <img src="%result%">
-        // نحتاج إلى التحقق من القاموس لتصفية الموارد غير الضرورية.
-        // جنبًا إلى جنب مع التحقق نستخرج القالب المقابل لاسم الملف.
-        string template;
-        if (m_externalImages.TryGetValue(id, out template))
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
         {
-            // نفترض أننا سنقوم بتخزين ملفات الموارد قريبًا من ملف HTML.
-            // سيبدو علامة الصورة مثل <img src="image-1.png"> مع معرف المورد المناسب والامتداد.
-            var fileUrl = String.Format(template, id);
-            return fileUrl;
+            return null;
         }
 
-        // يجب إرجاع null بالنسبة للموارد المتبقية مضمنة
-        return null;
-    }
-
-    /// <summary>
-    /// عضو في واجهة ILinkEmbedController
-    /// </summary>
-    public void SaveExternal(int id, byte[] entityData)
-    {
-        // هنا نقوم فعليًا بحفظ ملفات المورد على القرص.
-        // مرة أخرى، نتفقد القاموس. إذا لم يتم العثور على id هنا، فهذه علامة على وجود خطأ في طرق GetObjectStoringLocation أو GetUrl.
-        if (m_externalImages.ContainsKey(id))
+        if (fileNamesByResourceId.ContainsKey(referrer))
         {
-            // الآن نستخدم اسم الملف المخزن في القاموس ونجمعه مع المسار حسب الحاجة.
-
-            // إنشاء اسم الملف باستخدام القالب المخزن وId.
-            var fileName = String.Format(m_externalImages[id], id);
-
-            // الجمع مع الدليل المحلي
-            var filePath = Path.Combine(SavePath ?? String.Empty, fileName);
-
-            using (var fs = new FileStream(filePath, FileMode.Create))
-                fs.Write(entityData, 0, entityData.Length);
+            return fileName;
         }
-        else
-            throw new Exception("هناك خطأ ما");
+
+        return assetUrlPrefix + fileName;
     }
 
-    /// <summary>
-    /// الحصول على أو تعيين المسار حيث سيتم حفظ ملفات الموارد المولدة.
-    /// </summary>
-    public string SavePath { get; set; }
+    public void SaveExternal(int resourceId, byte[] entityData)
+    {
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} was not registered for external storage.");
+        }
 
-    /// <summary>
-    /// قاموس لتخزين العلاقات بين معرفات الموارد وأسماء الملفات المقابلة.
-    /// </summary>
-    private readonly Dictionary<int, string> m_externalImages;
+        if (entityData == null || entityData.Length == 0)
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} contains no data and cannot be saved.");
+        }
 
-    /// <summary>
-    /// قاموس لتخزين العلاقات بين أنواع المحتوى للموارد التي نعتزم تخزينها خارجيًا
-    /// وقوالب أسماء الملفات المقابلة.
-    /// </summary>
-    private static readonly Dictionary<string, string> s_templates = new Dictionary<string, string>();
+        Directory.CreateDirectory(assetDirectory);
+
+        var filePath = Path.Combine(assetDirectory, fileName);
+        File.WriteAllBytes(filePath, entityData);
+    }
+
+    private static string ResolveExtension(string contentType, string recommendedExtension)
+    {
+        if (!string.IsNullOrWhiteSpace(contentType) &&
+            ExtensionsByContentType.TryGetValue(contentType, out var mappedExtension))
+        {
+            return mappedExtension;
+        }
+
+        if (!IsSupportedContentType(contentType))
+        {
+            return null;
+        }
+
+        return NormalizeExtension(recommendedExtension);
+    }
+
+    private static bool IsSupportedContentType(string contentType)
+    {
+        return contentType != null &&
+            (contentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("font/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("audio/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("video/", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static string NormalizeExtension(string extension)
+    {
+        if (string.IsNullOrWhiteSpace(extension))
+        {
+            return null;
+        }
+
+        var extensionCharacters = extension.Trim().TrimStart('.');
+        foreach (var character in extensionCharacters)
+        {
+            if (!char.IsLetterOrDigit(character))
+            {
+                return null;
+            }
+        }
+
+        return "." + extensionCharacters.ToLowerInvariant();
+    }
+
+    private static string NormalizeUrlPrefix(string urlPrefix)
+    {
+        if (string.IsNullOrEmpty(urlPrefix))
+        {
+            return string.Empty;
+        }
+
+        var normalizedUrlPrefix = urlPrefix.Replace('\\', '/');
+        return normalizedUrlPrefix.EndsWith("/")
+            ? normalizedUrlPrefix
+            : normalizedUrlPrefix + "/";
+    }
 }
 ```
 
-بعد كتابة فئة **LinkController**، يمكننا الآن استخدامها جنبًا إلى جنب مع فئة **HtmlOptions** لتصدير العرض التقديمي إلى HTML مع صور مرتبطة خارجيًا بهذه الطريقة:
+بعد التصدير، يحتوي مجلد الإخراج على البنية التالية:
 
-```c#
-using (var pres = new Presentation(@"C:\data\input.pptx")) {
-
-    var htmlOptions = new HtmlOptions(new LinkController(@"C:\data\out\"));
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(new SVGOptions());
-    // هذه السطر مطلوب لإزالة عرض عنوان الشريحة في HTML.
-    // قم بتعليقها إذا كنت تفضل عرض عنوان الشريحة.
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(String.Empty, false);
-
-    Console.WriteLine("بدء التصدير");
-    pres.Save(@"C:\data\out\output.html", SaveFormat.Html, htmlOptions);
-}
+```text
+html-output/
+  presentation.html
+  assets/
+    resource-1.svg
+    resource-2.svg
+    resource-3.svg
+    resource-4.jpg
+    resource-5.png
 ```
 
-تم تعيين `SlideImageFormat.Svg` إلى خاصية `SlideImageFormat` بحيث يحتوي ملف HTML الناتج على بيانات SVG لعرض محتويات العرض التقديمي.
+الملفات الدقيقة تعتمد على محتوى العرض التقديمي وخيارات التصدير. على سبيل المثال، عادةً ما تُصدَّر الصور النقطية كـ JPEG أو PNG. قد يختار Aspose.Slides ترميز صورة مختلف عن الموجود في العرض الأصلي إذا كان ينتج ملفًا أصغر أو أكثر ملاءمة. تُصدَّر الصور ذات الشفافية كـ PNG.
 
-أنواع المحتوى: إذا كان العرض التقديمي يحتوي على صور نقطية، يجب أن يكون كود الفئة مستعدًا لمعالجة كل من نوعي المحتوى 'image/jpeg' و 'image/png'. قد لا يتطابق محتوى صور النقاط المصدر مع ما تم تخزينه في العرض التقديمي. تقوم خوارزميات Aspose.Slides الداخلية بأداء تحسين الحجم وتستخدم إما ترميز JPG أو PNG (اعتمادًا على أيهما ينتج حجم بيانات أصغر). الصور التي تحتوي على قناة ألفا (الشفافية) يتم ترميزها دائمًا إلى PNG.
+## **اختيار عناوين URL للنشر**
+
+يستخدم المثال بادئة عنوان URL نسبية: `assets/`. إذا تم فتح `presentation.html` من `html-output/presentation.html`، سيقوم المتصفح بتحميل `html-output/assets/resource-1.svg`.
+
+عندما يشير مورد مرتبط إلى مورد مرتبط آخر، يستخدم المثال المعامل `referrer` في [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/geturl/) ويُعيد فقط اسم الملف. على سبيل المثال، إذا كان كل من `resource-1.svg` و `resource-4.jpg` موجودين في مجلد `assets`، يجب أن يشير ملف SVG إلى `resource-4.jpg` وليس إلى `assets/resource-4.jpg`.
+
+استخدم بادئة عنوان URL مختلفة عندما تُنشر الملفات في مكان آخر:
+
+- استخدم `assets/` عندما يكون دليل الأصول بجوار ملف HTML.
+- استخدم `../assets/` عندما يكون دليل الأصول مستوى واحد فوق ملف HTML.
+- استخدم `https://cdn.example.com/presentations/job-123/assets/` عندما تُرفع الملفات إلى CDN أو خادم ملفات ثابت.
+
+يجب أن يتطابق عنوان URL الذي تُرجعه [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/geturl/) مع الموقع النهائي للملف الذي يكتبه [ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/saveexternal/). في تطبيقات الخادم، استخدم دليل إخراج فريد أو بادئة تخزين كائن لكل مهمة تحويل لتجنب الكتابة فوق ملفات تصدير أخرى.
+
+## **متى يجب تضمين الموارد بدلاً من ربطها**
+
+يظل HTML المضمَّن كـ Base64 مفيدًا عندما يجب أن يكون الإخراج ملفًا واحدًا، مثل مرفق بريد إلكتروني، معاينة دون اتصال، أو مستند سيُنقل بدون مجلد أصول داعم. تكون الموارد المرتبطة خيارًا أفضل عندما يُقدَّم HTML بواسطة تطبيق ويب، أو يُخزن في نظام إدارة محتوى، أو يُحسَّن عبر خطوط بناء، أو يُخبَّأ من قبل المتصفحات بشكل مستقل عن HTML.
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني استخراج الصور فقط وترك الموارد الأخرى مُضمَّنة؟**
+
+نعم. في [ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/ar/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/)، أعِد `LinkEmbedDecision.Link` فقط لأنواع المحتوى التي تريد حفظها كملفات منفصلة، وأَعِد `LinkEmbedDecision.Embed` لكل ما باقي.
+
+**لماذا يختلف امتداد الصورة المُصدَّرة عن العرض الأصلي؟**
+
+قد يعيد Aspose.Slides ترميز الصور النقطية أثناء تصدير HTML لتحسين الحجم أو توافق المتصفح. على سبيل المثال، قد تُكتب صورة من الملف الأصلي كـ JPEG أو PNG بناءً على النتيجة المُظهرَة.
+
+**هل تعمل عناوين URL النسبية بعد نقل ملف HTML؟**
+
+تعمل عناوين URL النسبية فقط عندما يتم الحفاظ على نفس بنية المجلدات النسبية. إذا كان HTML يشير إلى `assets/resource-1.png`، يجب أن يبقى مجلد `assets` بجوار ملف HTML ما لم تُولِّد بادئة عنوان URL مختلفة.
+
+**هل ينبغي لتطبيقات الخادم إعادة استخدام نفس مجلد الإخراج؟**
+
+لا. استخدم دليل إخراج فريد أو بادئة تخزين لكل مهمة تحويل. ذلك يمنع تصادم أسماء الملفات ويمنع كتابة موارد تصدير واحدة فوق الأخرى.

@@ -1,6 +1,6 @@
 ---
-title: Exportar presentaciones a HTML con imágenes vinculadas externamente en Python
-linktitle: Exportar presentaciones a HTML con imágenes vinculadas externamente
+title: Exportar presentaciones a HTML con imágenes enlazadas externamente en Python
+linktitle: Exportar presentaciones a HTML con imágenes enlazadas externamente
 type: docs
 weight: 100
 url: /es/python-net/exporting-presentations-to-html-with-externally-linked-images/
@@ -19,53 +19,180 @@ keywords:
 - PPT a HTML
 - PPTX a HTML
 - ODP a HTML
-- imagen vinculada
-- imagen vinculada externamente
+- imagen enlazada
+- imagen enlazada externamente
+- recurso enlazado
+- recurso externo
 - Python
 - Aspose.Slides
-description: "Aprenda cómo exportar presentaciones a HTML con imágenes vinculadas externamente en Aspose.Slides para Python a través de .NET, cubriendo los formatos PowerPoint y OpenDocument."
+description: "Exportar presentaciones de PowerPoint y OpenDocument a HTML en Python usando Aspose.Slides con imágenes guardadas como archivos externos enlazados."
 ---
+## **Resumen**
 
-{{% alert color="primary" %}} 
+Por defecto, Aspose.Slides exporta una presentación a un archivo HTML autocontenible. Las imágenes y otros recursos se escriben directamente en el HTML, normalmente como datos Base64. Esto resulta práctico cuando necesita un único archivo portable, pero no siempre es el formato más adecuado para un sitio web, un CMS o una canalización de conversión del lado del servidor.
 
-El proceso de exportación de presentación a HTML permite especificar:
+Utilice imágenes enlazadas externamente cuando quiera:
 
-1. qué recursos se incrustan en el archivo HTML resultante, y
-1. qué recursos se guardan externamente y se referencian desde el archivo HTML.
+- reducir el tamaño del documento HTML;
+- almacenar en caché las imágenes por separado en un navegador o CDN;
+- inspeccionar, reemplazar, comprimir o post‑procesar las imágenes generadas después de la exportación;
+- mantener la estructura de salida más cercana a lo que una aplicación web espera.
 
-{{% /alert %}} 
+Para el flujo de trabajo general de conversión a HTML, consulte [Convertir presentaciones de PowerPoint a HTML](/slides/es/python-net/convert-powerpoint-to-html/). Este artículo se centra en la parte de enlace de imágenes de la exportación.
 
-## **Antecedentes**
+## **Cómo funciona la exportación de imágenes enlazadas**
 
-Por defecto, la exportación a HTML incrusta todos los recursos directamente en el HTML usando codificación Base64. Esto produce un único archivo HTML autocontenible que resulta cómodo para visualizar y distribuir. Sin embargo, este enfoque tiene inconvenientes:
+En .NET y Java, [ILinkEmbedController](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/ilinkembedcontroller/) representa la interfaz de devolución de llamada que usa el exportador para decidir si un recurso debe incrustarse o enlazarse. En Python mediante .NET, las clases de Python no pueden implementar directamente esta interfaz de devolución de llamada de .NET, por lo que el flujo de trabajo práctico es:
 
-* El archivo resultante es significativamente más grande que los recursos originales debido al sobrecoste de Base64.
-* Las imágenes incrustadas y otros activos son difíciles de actualizar o reemplazar.
+1. Exportar la presentación a HTML con [HtmlOptions](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/htmloptions/).
+1. Usar [SlideImageFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/slideimageformat/) con [SVGOptions](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/svgoptions/) para que las diapositivas se representen como SVG en el HTML.
+1. Mover los datos de imagen Base64 de las URL `data:` del HTML a archivos independientes.
+1. Reemplazar las URL `data:` originales por enlaces relativos como `assets/resource-1.jpg`.
 
-## **Enfoque alternativo**
+La ruta del sistema de archivos y la URL del navegador son preocupaciones distintas. Por ejemplo, el fragmento siguiente escribe los archivos de imagen en `html-output/assets` en el disco, mientras que el HTML contiene URLs relativas como `assets/resource-1.jpg`. Un navegador resuelve esas URLs en relación con el archivo HTML que contiene el enlace.
 
-Un enfoque alternativo usando [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) elimina estas limitaciones.
+## **Exportar HTML con imágenes enlazadas**
 
-La clase `LinkController` que se muestra a continuación implementa [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) y se pasa al constructor de [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/__init__/#ilinkembedcontroller). La clase expone tres métodos que controlan cómo se incrustan o enlazan los recursos durante la exportación a HTML:
+El siguiente ejemplo en Python crea un directorio de salida, guarda el archivo HTML allí, almacena las imágenes extraídas en un subdirectorio `assets` y reescribe las URL de imágenes Base64 a enlaces relativos. El ejemplo extrae los formatos de imagen Base64 más comunes cuando Aspose.Slides proporciona una extensión de archivo segura. Las URL de datos que no se reconocen permanecen incrustadas.
 
-[get_object_storing_location(id, entity_data, semantic_name, content_type, recommended_extension)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_object_storing_location/#int-bytes-str-str-str): Se llama cuando el exportador encuentra un recurso y debe decidir dónde almacenarlo. Los parámetros más importantes son `id` (el identificador único del recurso para esta ejecución de exportación) y `content_type` (el tipo MIME del recurso). Devuelve [LinkEmbedDecision.LINK](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) para enlazar el recurso, o [LinkEmbedDecision.EMBED](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) para incrustarlo.
+```python
+import base64
+import os
+import re
 
-[get_url(id, referrer)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_url/#int-int): Devuelve la URL que aparecerá en el HTML resultante para el recurso identificado por `id` (opcionalmente considerando el objeto referenciador).
+import aspose.slides as slides
+import aspose.slides.export as slides_export
 
-[save_external(id, entity_data)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/save_external/#int-bytes): Se llama cuando un recurso seleccionado para enlazarse necesita escribirse externamente. Como se proporcionan el identificador y el contenido (como matriz de bytes), puede persistir el recurso como desee.
 
-A continuación se muestra la implementación en Python del `LinkController` de [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/).
-```py
-# [TODO[not_supported_yet]: implementación en Python de interfaces .NET]
+EXTENSIONS_BY_CONTENT_TYPE = {
+    "image/jpeg": ".jpg",
+    "image/png": ".png",
+    "image/gif": ".gif",
+    "image/bmp": ".bmp",
+    "image/svg+xml": ".svg",
+    "image/tiff": ".tiff",
+    "image/x-emf": ".emf",
+    "image/x-wmf": ".wmf",
+}
+
+DATA_URI_PATTERN = re.compile(
+    r"data:(?P<content_type>[-\w.+]+/[-\w.+]+);base64,(?P<data>[A-Za-z0-9+/=\r\n]+)"
+)
+
+
+def export_presentation_to_html_with_linked_images(
+    input_file_path,
+    output_directory,
+    asset_directory_name="assets",
+):
+    asset_directory = os.path.join(output_directory, asset_directory_name)
+
+    os.makedirs(output_directory, exist_ok=True)
+    os.makedirs(asset_directory, exist_ok=True)
+
+    html_options = slides_export.HtmlOptions()
+    html_options.html_formatter = slides_export.HtmlFormatter.create_document_formatter("", False)
+    html_options.slide_image_format = slides_export.SlideImageFormat.svg(
+        slides_export.SVGOptions()
+    )
+
+    html_file_path = os.path.join(output_directory, "presentation.html")
+
+    with slides.Presentation(input_file_path) as presentation:
+        presentation.save(html_file_path, slides_export.SaveFormat.HTML, html_options)
+
+    externalize_base64_images(html_file_path, asset_directory, asset_directory_name)
+
+
+def externalize_base64_images(html_file_path, asset_directory, asset_directory_name):
+    with open(html_file_path, "r", encoding="utf-8-sig") as html_file:
+        html_content = html_file.read()
+
+    saved_resource_names = {}
+    resource_index = 1
+
+    def replace_data_uri(match):
+        nonlocal resource_index
+
+        data_uri = match.group(0)
+        if data_uri in saved_resource_names:
+            return saved_resource_names[data_uri]
+
+        content_type = match.group("content_type").lower()
+        extension = EXTENSIONS_BY_CONTENT_TYPE.get(content_type)
+        if extension is None:
+            return data_uri
+
+        encoded_data = match.group("data")
+        image_data = base64.b64decode(encoded_data)
+        if len(image_data) == 0:
+            return data_uri
+
+        file_name = f"resource-{resource_index}{extension}"
+        resource_index += 1
+
+        file_path = os.path.join(asset_directory, file_name)
+        with open(file_path, "wb") as image_file:
+            image_file.write(image_data)
+
+        linked_url = f"{asset_directory_name}/{file_name}"
+        saved_resource_names[data_uri] = linked_url
+        return linked_url
+
+    updated_html_content = DATA_URI_PATTERN.sub(replace_data_uri, html_content)
+
+    with open(html_file_path, "w", encoding="utf-8", newline="\n") as html_file:
+        html_file.write(updated_html_content)
+
+
+input_file_path = "presentation.pptx"
+output_directory = "html-output"
+
+export_presentation_to_html_with_linked_images(input_file_path, output_directory)
 ```
 
+Después de la exportación, la carpeta de salida puede tener esta estructura:
 
-Después de implementar la clase `LinkController`, puede utilizarla con la clase [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) para exportar la presentación a HTML con imágenes enlazadas externamente, como se muestra a continuación:
-```py
-# [TODO[not_supported_yet]: implementación en Python de interfaces .NET]
+```text
+html-output/
+  presentation.html
+  assets/
+    resource-1.jpg
+    resource-2.png
 ```
 
+Los archivos exactos dependen del contenido de la presentación y de las opciones de exportación. Por ejemplo, las imágenes raster suelen exportarse como JPEG o PNG. Aspose.Slides puede elegir un códec de imagen diferente al usado en la presentación original cuando eso produce un archivo más pequeño o más adecuado. Las imágenes con transparencia se exportan como PNG.
 
-Asignamos `SlideImageFormat.SVG` a la propiedad `slide_image_format` para que el archivo HTML resultante contenga datos SVG que representen el contenido de la presentación.
+## **Elección de URLs para la implementación**
 
-Tipos de contenido: Si la presentación contiene mapas de bits rasterizados, entonces el código de la clase debe estar preparado para procesar tanto los tipos de contenido `image/jpeg` como `image/png`. El contenido de los mapas de bits exportados puede no coincidir con lo que estaba almacenado en la presentación. Los algoritmos internos de Aspose.Slides realizan optimización de tamaño y utilizan el códec JPEG o PNG (según cuál produzca un archivo más pequeño). Las imágenes que contienen un canal alfa (transparencia) siempre se codifican como PNG.
+El ejemplo usa un prefijo de URL relativo: `assets/`. Si `presentation.html` se abre desde `html-output/presentation.html`, el navegador cargará `html-output/assets/resource-1.jpg`.
+
+Utilice un nombre de directorio de activos diferente o reescriba los enlaces generados cuando los archivos se implementen en otro lugar:
+
+- Use `assets/` cuando el directorio de activos se encuentre junto al archivo HTML.
+- Use `../assets/` cuando el directorio de activos esté un nivel por encima del archivo HTML.
+- Use `https://cdn.example.com/presentations/job-123/assets/` cuando los archivos se suban a un CDN o a un servidor de archivos estáticos.
+
+En aplicaciones de servidor, use un directorio de salida único o un prefijo de almacenamiento de objetos para cada trabajo de conversión para evitar sobrescribir archivos de otra exportación.
+
+## **Cuándo incrustar en su lugar**
+
+El HTML con Base64 incrustado sigue siendo útil cuando la salida debe ser un único archivo, como un adjunto de correo electrónico, una vista previa sin conexión o un documento que se moverá sin una carpeta de activos de soporte. Las imágenes enlazadas son más apropiadas cuando el HTML será servido por una aplicación web, almacenado en un CMS, optimizado por una canalización de compilación o almacenado en caché por los navegadores de forma independiente del HTML.
+
+## **Preguntas frecuentes**
+
+**¿Puedo externalizar solo las imágenes y mantener los demás recursos incrustados?**
+
+Sí. El ejemplo extrae solo las URL de datos Base64 `image/*` cuyos tipos de contenido aparecen en `EXTENSIONS_BY_CONTENT_TYPE`. Otras URL de datos permanecen incrustadas.
+
+**¿Por qué la extensión de la imagen exportada difiere de la presentación original?**
+
+Aspose.Slides puede volver a codificar las imágenes raster durante la exportación a HTML para mejorar el tamaño o la compatibilidad con los navegadores. Por ejemplo, una imagen del archivo original puede escribirse como JPEG o PNG según el resultado renderizado.
+
+**¿Funcionan las URLs relativas después de mover el archivo HTML?**
+
+Las URLs relativas solo funcionan cuando se conserva la misma estructura de carpetas relativa. Si el HTML hace referencia a `assets/resource-1.png`, la carpeta `assets` debe permanecer junto al archivo HTML a menos que genere un prefijo de URL diferente.
+
+**¿Deben las aplicaciones de servidor reutilizar la misma carpeta de salida?**
+
+No. Use un directorio de salida único o un prefijo de almacenamiento para cada trabajo de conversión. Esto evita colisiones de nombres de archivo y evita que una exportación sobrescriba los recursos generados por otra.

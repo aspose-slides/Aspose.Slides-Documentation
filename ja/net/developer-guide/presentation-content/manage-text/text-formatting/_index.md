@@ -1,59 +1,49 @@
 ---
-title: ".NET でプレゼンテーションテキストをフォーマット"
+title: ".NET でプレゼンテーションテキストをフォーマットする"
 linktitle: "テキスト書式設定"
 type: docs
 weight: 50
 url: /ja/net/text-formatting/
 keywords:
-- テキストのハイライト
-- 正規表現
-- 段落の配置
-- テキストスタイル
-- テキストの背景
-- テキストの透明度
-- 文字間隔
-- フォントプロパティ
-- フォントファミリ
-- テキストの回転
-- 回転角度
-- テキストフレーム
-- 行間隔
-- AutoFit プロパティ
-- テキストフレームアンカー
-- テキストタブ設定
-- デフォルト言語
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET を使用して PowerPoint および OpenDocument のプレゼンテーション内のテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
+- "テキストのハイライト"
+- "正規表現"
+- "段落の配置"
+- "テキストスタイル"
+- "テキストの背景"
+- "テキストの透明度"
+- "文字間隔"
+- "フォントプロパティ"
+- "フォントファミリー"
+- "テキスト回転"
+- "回転角度"
+- "テキストフレーム"
+- "行間"
+- "オートフィットプロパティ"
+- "テキストフレームアンカー"
+- "テキストタブ設定"
+- "デフォルト言語"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を使用して PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
 ---
-
 ## **概要**
 
-この記事では、Aspose.Slides for .NET を使用して PowerPoint および OpenDocument プレゼンテーションのテキストを管理および書式設定する方法を紹介します。フォントの選択、サイズ、色、ハイライト、背景色、間隔、配置などのテキスト書式設定機能の適用方法を学びます。また、テキストフレーム、段落、書式設定、カスタム回転や自動調整動作などの高度なレイアウトオプションの使用方法も取り上げます。
+このドキュメントでは、Aspose.Slides for .NET を使用して PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットする方法を示します。ハイライト、背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブストップ、言語設定について説明します。
 
-プログラムからプレゼンテーションを生成する場合でも、既存のコンテンツをカスタマイズする場合でも、これらのサンプルはスライドを明確でプロフェッショナルに見せ、可読性を向上させるテキストレイアウトの作成に役立ちます。
-
-以下の例では、最初のスライドに単一のテキストボックスが含まれる「sample.pptx」ファイルを使用します。
+以下の例では、最初のスライドに単一のテキストボックスがあり、次のテキストが含まれる "sample.pptx" というファイルを使用します。
 
 ![サンプルテキスト](sample_text.png)
 
 ## **テキストのハイライト**
 
-[ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) メソッドを使用すると、マッチするテキストサンプルに基づいてテキストの一部分を背景色でハイライトできます。
+テキストフレーム内で特定のサンプルに一致するテキストをハイライトする必要がある場合は、[ITextFrame.HighlightText](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/highlighttext/) メソッドを使用します。このメソッドは一致したテキスト片にハイライト色を適用し、[TextSearchOptions](https://reference.aspose.com/slides/ja/net/aspose.slides/textsearchoptions/) と組み合わせて検索方法を制御できます。例えば、完全一致単語のみを対象にするなどです。
 
-このメソッドを使用する手順は次のとおりです。
+以下のコード例は、文字列 **"try"** のすべての出現箇所をハイライトし、続いて単語全体 **"to"** のみをハイライトします。
 
-1. 入力ファイル（PPT、PPTX、ODP など）で [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスをインスタンス化します。
-1. [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) コレクションから目的のスライドにアクセスします。
-1. [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) コレクションから対象のシェイプを取得し、[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) にキャストします。
-1. サンプルテキストとカラーを指定して [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) メソッドで目的のテキストをハイライトします。
-1. 任意の出力形式（例: PPT、PPTX、ODP）でプレゼンテーションを保存します。
-
-以下のコード例は、文字列 **"try"** のすべての出現と完全単語 **"to"** をハイライトします。
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -75,42 +65,40 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![ハイライトされたテキスト](highlighted_text.png)
 
-{{% alert color="primary"%}} 
-Aspose はシンプルな[無料オンライン PowerPoint エディター](https://products.aspose.app/slides/editor) を提供しています。
-{{% /alert %}} 
-
 ## **正規表現を使用したテキストのハイライト**
 
-Aspose.Slides for .NET では、正規表現を使用して PowerPoint スライド内の特定のテキスト部分を検索およびハイライトできます。この機能は、キーワード、パターン、またはデータ駆動型コンテンツを動的に強調表示したい場合に特に便利です。[ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/) メソッドを使用すると、正規表現で一致したテキスト部分を背景色でハイライトできます。
+[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/highlightregex/) メソッドは、正規表現で見つかったテキストの一致部分をハイライトします。.NET では、この API は [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) で提供されています。
 
-以下のコード例は、**7 文字以上** の単語すべてをハイライトします。
+以下のコード例は、**7 文字以上** を含むすべての単語をハイライトします。
+
 ```cs
-using (var presentation = new Presentation("sample.pptx"))
+using (var presentation = new Presentation(folderPath + "sample.pptx"))
 {
     var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-    // 7文字以上の単語すべてをハイライトします。
-    shape.TextFrame.HighlightRegex(@"\b[^\s]{7,}\b", Color.Yellow, null);
+    var regex = new Regex(@"\b[^\s]{7,}\b");
 
-    presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
+    // 7 文字以上の単語すべてをハイライトします。
+    shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
+
+    presentation.Save(folderPath + "highlighted_text_using_regex.pptx", SaveFormat.Pptx);
 }
 ```
 
-
 結果:
 
-![正規表現でハイライトされたテキスト](highlighted_text_using_regex.png)
+![正規表現を使用したハイライトテキスト](highlighted_text_using_regex.png)
 
-## **テキストの背景色を設定する**
+## **テキストの背景色の設定**
 
-Aspose.Slides for .NET は、PowerPoint スライド内の段落全体または個々のテキスト部分に背景色を適用できます。この機能は、特定の単語やフレーズを強調したり、重要メッセージに注意を引いたり、プレゼンテーションの視覚的魅力を高めたりする際に便利です。
+段落のデフォルトハイライト色を設定するには [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/defaultportionformat/) を使用し、個々のテキスト部分には [IPortionFormat.HighlightColor](https://reference.aspose.com/slides/ja/net/aspose.slides/iportionformat/highlightcolor/) を使用します。
 
-以下のコード例は、**段落全体** の背景色を設定する方法を示しています。 
+以下のコード例は、**段落全体** の背景色を設定する方法を示します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -124,12 +112,12 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
-![グレーの段落](gray_paragraph.png)
+![グレイ段落](gray_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分** の背景色を設定する方法を示しています。
+以下のコード例は、**太字フォントのテキスト部分** の背景色を設定する方法を示します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -149,16 +137,16 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
-![グレーのテキスト部分](gray_text_portions.png)
+![グレイテキスト部分](gray_text_portions.png)
 
 ## **テキスト段落の配置**
 
-テキストの配置は、スライドの可読性と視覚的魅力に影響する重要な要素です。Aspose.Slides for .NET では、テキストフレーム内の段落配置を正確に制御でき、中央、左揃え、右揃え、両端揃えのいずれでも一貫した表示が可能です。このセクションでは、PowerPoint プレゼンテーションでのテキスト配置の適用とカスタマイズ方法を説明します。
+テキストフレーム内の段落配置を設定するには [IParagraphFormat.Alignment](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/alignment/) を使用します。値は中央揃え、左揃え、右揃え、両端揃えなどが可能です。
 
-以下のコード例は、段落を **中央揃え** にする方法を示しています。
+以下のコード例は、段落を **中央** に揃える方法を示します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -172,16 +160,16 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
-![配置された段落](aligned_paragraph.png)
+![揃えられた段落](aligned_paragraph.png)
 
-## **テキストの透明度を設定する**
+## **テキストの透明度の設定**
 
-テキストの透明度を調整すると、微妙な視覚効果を作り出し、スライドの美観を向上させることができます。Aspose.Slides for .NET は、段落やテキスト部分の透明度レベルを設定でき、背景とテキストを自然にブレンドしたり、特定の要素を目立たせたりするのが簡単です。このセクションでは、プレゼンテーションのテキストに透明度設定を適用する方法を示します。
+テキストの透明度は、[IPortionFormat.FillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iportionformat/fillformat/) に割り当てられた色のアルファ成分で制御します。以下の例では、`alpha = 50` は 0〜255 のスケールの ARGB アルファチャンネル値であり、透明度のパーセンテージではありません。
 
-以下のコード例は、**段落全体** に透明度を適用する方法を示しています。
+以下のコード例は、**段落全体** に透明度を適用する方法を示します。
+
 ```cs
 int alpha = 50;
 
@@ -190,7 +178,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // テキストの塗りつぶし色を透明に設定します。
+    // テキストの塗りつぶし色を透過色に設定します。
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -198,12 +186,12 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![透明な段落](transparent_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分** に透明度を適用する方法を示しています。
+以下のコード例は、**太字フォントのテキスト部分** に透明度を適用する方法を示します。
+
 ```cs
 int alpha = 50;
 
@@ -226,35 +214,35 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![透明なテキスト部分](transparent_text_portions.png)
 
-## **テキストの文字間隔を設定する**
+## **テキストの文字間隔の設定**
 
-Aspose.Slides は、テキストボックス内の文字間隔を設定できます。これにより、文字間のスペースを拡大または縮小して、行またはブロック全体の視覚的密度を調整できます。
+テキストボックス内の文字間隔を拡大または縮小するには、[IBasePortionFormat.Spacing](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/spacing/) を使用します。
 
-以下の C# コードは、**段落全体** の文字間隔を拡大する方法を示しています。
+以下の C# コードは、**段落全体** の文字間隔を拡大する方法を示します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // 注: 文字間隔を圧縮するには負の値を使用します。
+    // 注: 文字間隔を縮めるには負の値を使用します。
     paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // 文字間隔を拡張します。
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
 
-
 結果:
 
 ![段落の文字間隔](character_spacing_in_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分** の文字間隔を拡大する方法を示しています。
+以下のコード例は、**太字フォントのテキスト部分** の文字間隔を拡大する方法を示します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -265,7 +253,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // 注: 文字間隔を圧縮するには負の値を使用します。
+            // 注: 文字間隔を縮めるには負の値を使用します。
             portion.PortionFormat.Spacing = 3;  // 文字間隔を拡張します。
         }
     }
@@ -274,16 +262,50 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![テキスト部分の文字間隔](character_spacing_in_text_portions.png)
 
+### **特定フォントのカーニングを無効にする**
+
+場合によっては、Aspose.Slides がレンダリングしたテキストが PowerPoint の同じテキストよりもやや狭く見えることがあります。これは、PowerPoint が特定のフォントのカーニングデータを無視するためで、フォントに有効なカーニング情報が含まれていても、PowerPoint の設定でカーニングが有効になっている場合でも起こります。
+
+このようなケースでレンダリング結果を PowerPoint に近づけるには、影響を受けるフォントを使用するテキスト部分のカーニングを無効にできます。[IPortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/kerningminimalsize/) を実際のフォントサイズよりはるかに大きい値に設定します。
+
+```cs
+using (var presentation = new Presentation("presentation.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var targetFont = "Roboto";
+
+    foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+    {
+        foreach (var portion in paragraph.Portions)
+        {
+            if ((portion.PortionFormat.LatinFont != null &&
+                 portion.PortionFormat.LatinFont.FontName == targetFont) ||
+                (portion.PortionFormat.EastAsianFont != null &&
+                 portion.PortionFormat.EastAsianFont.FontName == targetFont) ||
+                (portion.PortionFormat.ComplexScriptFont != null &&
+                 portion.PortionFormat.ComplexScriptFont.FontName == targetFont))
+            {
+                portion.PortionFormat.KerningMinimalSize = 100;
+            }
+        }
+    }
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
+この設定により、該当するテキスト部分へのカーニング適用が防止され、PowerPoint 固有の動作で影響を受けるフォントの視覚的出力を Aspose.Slides のレンダリングと合わせるのに役立ちます。
+
 ## **テキストフォントプロパティの管理**
 
-Aspose.Slides for .NET は、段落レベルと個々のテキスト部分の両方でフォント設定を細かく調整でき、視覚的一貫性とプレゼンテーションデザイン要件を満たすことができます。フォントスタイル、サイズ、その他の書式オプションを段落全体に適用でき、テキストの外観をより自由にコントロールできます。このセクションでは、スライド内のテキスト段落のフォントプロパティを管理する方法を示します。
+フォントプロパティは、段落レベルでは [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/defaultportionformat/) を、個々の部分では [IPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iportionformat/) を通じて設定できます。
 
-以下のコードは、段落全体にフォントサイズ、太字、斜体、点線下線、Times New Roman フォントを適用する例です。
+以下のコードは、段落全体のフォントとテキストスタイルを設定します。フォントサイズ、太字、斜体、点線下線、そして Times New Roman フォントを段落内のすべての部分に適用します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -301,12 +323,12 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![段落のフォントプロパティ](font_properties_for_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分** に同様のプロパティを適用する方法を示しています。
+以下のコード例は、**太字フォントのテキスト部分** に同様のプロパティを適用します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -329,16 +351,16 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![テキスト部分のフォントプロパティ](font_properties_for_text_portions.png)
 
-## **テキストの回転を設定する**
+## **テキストの回転設定**
 
-テキストを回転させることでスライドのレイアウトを強化し、特定のコンテンツを強調できます。Aspose.Slides for .NET を使用すれば、シェイプ内のテキストに回転を簡単に適用でき、デザインに合わせて角度を調整できます。このセクションでは、目的の視覚効果を得るためのテキスト回転の設定と制御方法を示します。
+シェイプ内で事前定義されたテキスト方向を設定するには、[ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/textverticaltype/) を使用します。
 
-以下のコード例は、シェイプ内のテキスト方向を `Vertical270` に設定し、**90 度反時計回り** に回転させます。
+以下のコード例は、シェイプ内のテキスト方向を `Vertical270` に設定し、テキストを **反時計回りに 90 度** 回転させます。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -350,16 +372,16 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![テキストの回転](text_rotation.png)
 
-## **テキストフレームのカスタム回転を設定する**
+## **テキストフレームのカスタム回転設定**
 
-`TextFrame` にカスタム回転角度を設定すると、テキストを正確な角度で配置でき、より創造的で柔軟なスライドデザインが可能になります。Aspose.Slides for .NET はテキストフレームの回転を完全に制御でき、他のスライド要素とテキストを整列させやすくします。このセクションでは、`TextFrame` に特定の回転角度を適用する手順を案内します。
+[ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/rotationangle/) を使用して、[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) のカスタム回転角度を設定します。
 
-以下のコード例は、シェイプ内のテキストフレームを時計回りに 3 度回転させます。
+以下のコード例は、シェイプ内でテキストフレームを時計回りに 3 度回転させます。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -371,19 +393,19 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
 ![カスタムテキスト回転](custom_text_rotation.png)
 
-## **段落の行間隔を設定する**
+## **段落の行間設定**
 
-Aspose.Slides は、[ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) クラスの `SpaceAfter`、`SpaceBefore`、`SpaceWithin` プロパティを提供し、段落の行間隔を管理できます。これらのプロパティの使用方法は次のとおりです。
+Aspose.Slides は、段落間隔を制御するために [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/spaceafter/)、[IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/spacebefore/)、[IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/spacewithin/) を提供します。これらのプロパティは次のように使用します。
 
-* 正の値を使用すると、行高さのパーセンテージとして行間隔を指定します。
-* 負の値を使用すると、ポイント単位で行間隔を指定します。
+* 正の値を使用して、行間を行の高さのパーセンテージで指定します。
+* 負の値を使用して、行間をポイント単位で指定します。
 
-以下のコード例は、段落内の行間隔を指定する方法を示しています。
+以下のコード例は、段落内の行間を指定する方法を示します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -396,14 +418,14 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
-![段落内の行間隔](line_spacing.png)
+![段落内の行間](line_spacing.png)
 
-## **テキストフレームの AutoFit タイプを設定する**
+## **テキストフレームのオートフィットタイプ設定**
 
-`AutofitType` プロパティは、テキストがコンテナの境界を超えたときの動作を決定します。Aspose.Slides for .NET では、テキストを縮小してフィットさせるか、はみ出すか、シェイプを自動的にリサイズするかを制御できます。このセクションでは、シェイプ内のテキストレイアウトを効果的に管理するために `TextFrame` の `AutofitType` を設定する方法を示します。
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/autofittype/) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストが縮小、はみ出し、またはシェイプを自動的にリサイズするかを制御するために使用します。
+
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -415,10 +437,10 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **テキストフレームのアンカー設定**
 
-## **テキストフレームのアンカーを設定する**
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/anchoringtype/) は、シェイプ内でテキストが垂直方向にどの位置に配置されるか（上部、中央、下部など）を定義します。
 
-アンカーは、シェイプ内でテキストが垂直方向に配置される方法を定義します。Aspose.Slides for .NET を使用すると、`TextFrame` のアンカータイプを設定して、テキストをシェイプの上部、中央、下部に揃えることができます。このセクションでは、テキストコンテンツの垂直配置を調整するアンカー設定の方法を示します。
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -430,10 +452,10 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **テキストのタブ設定**
 
-## **テキストのタブ設定を行う**
+段落内のタブストップを設定するには、[IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/defaulttabsize/) と [IParagraphFormat.Tabs](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/tabs/) を使用します。
 
-タブは、コンテンツ要素間に一貫した間隔を追加して、テキストを整然としたレイアウトに整理するのに役立ちます。Aspose.Slides for .NET は、テキスト段落内にカスタムタブストップを設定でき、テキストの位置を正確に制御できます。このセクションでは、整列と書式設定を改善するためのテキストタブ設定方法を示します。
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -447,16 +469,16 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 結果:
 
-![段落タブ](paragraph_tabs.png)
+![段落のタブ](paragraph_tabs.png)
 
-## **校正言語を設定する**
+## **校正言語の設定**
 
-Aspose.Slides は、[PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) クラスの `LanguageId` プロパティを提供し、PowerPoint 文書の校正言語を設定できます。校正言語は、PowerPoint のスペルチェックや文法チェックに使用される言語を決定します。
+Aspose.Slides は、テキスト部分の校正言語を設定できる [IPortionFormat.LanguageId](https://reference.aspose.com/slides/ja/net/aspose.slides/iportionformat/languageid/) を提供します。校正言語は、PowerPoint でのスペルチェックと文法チェックに使用される言語を決定します。
 
-以下のコード例は、テキスト部分の校正言語を設定する方法を示しています。
+以下のコード例は、テキスト部分の校正言語を設定する方法を示します。
+
 ```cs
 using (var presentation = new Presentation("presentation.pptx"))
 {
@@ -472,7 +494,7 @@ using (var presentation = new Presentation("presentation.pptx"))
     textPortion.PortionFormat.EastAsianFont = font;
     textPortion.PortionFormat.LatinFont = font;
 
-    // 校正言語の ID を設定します。
+    // 校正言語の Id を設定します。
     textPortion.PortionFormat.LanguageId = "zh-CN";
 
     textPortion.Text = "1。";
@@ -482,10 +504,10 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
+## **デフォルト言語の設定**
 
-## **デフォルト言語を設定する**
+プレゼンテーションの読み込みまたは作成時に生成されるテキストのデフォルト言語を定義するには、[LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/defaulttextlanguage/) を使用します。
 
-テキストのデフォルト言語を指定すると、PowerPoint での正しいスペルチェック、ハイフン分割、音声読み上げが保証されます。Aspose.Slides for .NET では、テキスト部分または段落レベルで言語を設定できます。このセクションでは、プレゼンテーションテキストのデフォルト言語を定義する方法を示します。
 ```cs
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
@@ -494,7 +516,7 @@ using (var presentation = new Presentation(loadOptions))
 {
     var slide = presentation.Slides[0];
 
-    // テキスト付きの新しい矩形シェイプを追加します。
+    // テキスト付きの新しい長方形シェイプを追加します。
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
@@ -504,12 +526,12 @@ using (var presentation = new Presentation(loadOptions))
 }
 ```
 
+## **デフォルトテキストスタイルの設定**
 
-## **デフォルトテキストスタイルを設定する**
+プレゼンテーションレベルでデフォルトのテキスト書式設定を適用するには、[IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentation/defaulttextstyle/) を使用します。
 
-プレゼンテーション全体のすべてのテキスト要素に同じデフォルト書式を一括で適用したい場合は、[IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) インターフェイスの `DefaultTextStyle` プロパティを使用して、好みの書式を定義できます。
+以下のコード例は、新しいプレゼンテーションのすべてのスライドのテキストに対して、デフォルトで太字フォント、サイズ 14 pt を設定する方法を示します。
 
-以下のコード例は、新しいプレゼンテーションのすべてのスライドに対して、サイズ 14pt の太字フォントをデフォルトとして設定する方法を示しています。
 ```cs
 using (var presentation = new Presentation())
 {
@@ -526,16 +548,16 @@ using (var presentation = new Presentation())
 }
 ```
 
+## **All-Caps 効果でテキストを抽出する**
 
-## **全角効果付きテキストの抽出**
+PowerPoint では、**All Caps** フォント効果を適用すると、元が小文字で入力されていてもスライド上でテキストが大文字で表示されます。Aspose.Slides でそのテキスト部分を取得すると、ライブラリは入力されたままのテキストを返します。表示されているテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/net/aspose.slides/textcaptype/) を確認し、値が `All` の場合は返された文字列を大文字に変換します。
 
-PowerPoint では、**All Caps** フォント効果を適用すると、スライド上では大文字で表示されますが、元のテキストは小文字のままです。Aspose.Slides でそのテキスト部分を取得すると、入力されたままの文字列が返されます。これを処理するには、[TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) を確認し、`All` が返された場合は文字列を大文字に変換して、出力がスライド上の表示と一致するようにします。
-
-サンプル2.pptx の最初のスライドに次のテキストボックスがあるとします。
+例として、sample2.pptx ファイルの最初のスライドに次のテキストボックスがあるとします。
 
 ![All Caps 効果](all_caps_effect.png)
 
-以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示しています。
+以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示します。
+
 ```cs
 using (var presentation = new Presentation("sample2.pptx"))
 {
@@ -553,20 +575,19 @@ using (var presentation = new Presentation("sample2.pptx"))
 }
 ```
 
+Output:
 
-出力:
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-
 ## **FAQ**
 
 **スライド上のテーブルのテキストを変更する方法は？**
 
-テーブル上のテキストを変更するには、[ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) オブジェクトを使用します。テーブル内のすべてのセルを反復処理し、各セルの `TextFrame` と `ParagraphFormat` プロパティにアクセスしてテキストを変更できます。
+スライド上のテーブルのテキストを変更するには、[ITable](https://reference.aspose.com/slides/ja/net/aspose.slides/itable/) を使用します。セルを反復処理し、各セルを [ICell.TextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/icell/textframe/) で更新し、段落書式は [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/paragraphformat/) を通じて設定します。
 
-**PowerPoint スライドのテキストにグラデーション色を適用する方法は？**
+**PowerPoint スライドのテキストにグラデーションカラーを適用する方法は？**
 
-テキストにグラデーション色を適用するには、[PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) の `FillFormat` プロパティを使用します。`FillFormat` を `Gradient` に設定し、開始色と終了色、方向、透明度などのプロパティを定義してテキストにグラデーション効果を作成します。
+テキストにグラデーションカラーを適用するには、[IPortionFormat.FillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iportionformat/fillformat/) を使用します。[IFillFormat.FillType](https://reference.aspose.com/slides/ja/net/aspose.slides/ifillformat/filltype/) を [FillType.Gradient](https://reference.aspose.com/slides/ja/net/aspose.slides/filltype/) に設定し、グラデーションストップ、方向、透明度を構成します。

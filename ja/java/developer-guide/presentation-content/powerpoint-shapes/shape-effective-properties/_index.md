@@ -1,5 +1,5 @@
 ---
-title: Java のプレゼンテーションからシェイプの実効プロパティを取得
+title: Java でプレゼンテーションからシェイプの実効プロパティを取得する
 linktitle: 実効プロパティ
 type: docs
 weight: 50
@@ -8,242 +8,320 @@ keywords:
 - シェイプ プロパティ
 - カメラ プロパティ
 - ライトリグ
-- ベベル シェイプ
-- テキスト フレーム
-- テキスト スタイル
-- フォント 高さ
-- 塗りつぶし 書式
+- ベベルシェイプ
+- テキストフレーム
+- テキストスタイル
+- フォント高さ
+- 塗りつぶし書式
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java が正確な PowerPoint のレンダリングのために実効シェイププロパティを計算し適用する方法をご紹介します。"
+description: "Aspose.Slides for Java が、正確な PowerPoint 表示のためにシェイプの実効プロパティを計算および適用する方法を紹介します。"
 ---
+## **概要**
 
-このトピックでは、**effective** と **local** プロパティについて説明します。これらのレベルで直接値を設定する場合
+このトピックでは、**ローカル** プロパティと **実効** プロパティの違いについて説明します。ローカル値は、特定の書式設定レベルで直接設定された値で、例えば以下のようなものです：
 
-1. 部分のスライド上の部分プロパティで;
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプのテキストスタイルで（部分のテキストフレームシェイプにある場合）;
-1. プレゼンテーションのグローバルテキスト設定で;
+1. スライド上の部分（ポーション）プロパティ。
+1. レイアウトまたはマスタースライド上のプロトタイプ形状テキストスタイル（該当部分のテキストフレーム形状にある場合）。
+1. プレゼンテーション全体のグローバルテキスト設定。
 
-これらの値は **local** 値と呼ばれます。任意のレベルで **local** 値は定義されてもされなくても構いません。しかし、アプリケーションが部分の表示結果を知る必要がある場合は **effective** 値を使用します。**local** フォーマットから **getEffective()** メソッドを呼び出すことで **effective** 値を取得できます。
+ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「レンダリング後」の書式設定を必要とする場合、継承チェーンを解決して **実効** 値を返します。ローカル書式オブジェクトで `getEffective` メソッドを呼び出すことで取得できます。
 
-このサンプルコードは **effective** 値の取得方法を示しています:
+以下の例は、実効値の取得方法を示しています。最初のスライドの最初のシェイプがテキストフレームと少なくとも 1 つのポーションを持つ [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IAutoShape) であることを想定しています。
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
 
     ITextFrameFormat localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
     ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.getEffective();
 
-    IPortionFormat localPortionFormat = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    IPortion portion = paragraph.getPortions().get_Item(0);
+    IPortionFormat localPortionFormat = portion.getPortionFormat();
     IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.getEffective();
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="primary" %}}
+実効書式データは、継承が適用された後の現在計算された書式を表します。現在の実装では、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPortionFormatEffectiveData) のような一部の実効データオブジェクトが内部でキャッシュされる場合があります。親または継承された書式を変更した後に `getEffective` を再度呼び出すとキャッシュされたデータが更新され、以前取得したオブジェクトは以前の状態を表さなくなることがあります。実効値を後で再利用する必要がある場合は、フォント高さ、塗りつぶし色、フォントスタイル、配置など必要なプロパティを独自のデータオブジェクトにコピーしてください。
+{{% /alert %}}
 
 ## **カメラの実効プロパティを取得**
-Aspose.Slides for Java は開発者がカメラの実効プロパティを取得できるようにします。この目的のために、[**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスが Aspose.Slides に追加されました。[ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスは、実効カメラ プロパティを含む不変オブジェクトを表します。[**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
 
-このサンプルコードはカメラの実効プロパティの取得方法を示しています:
+Aspose.Slides を使用すると、カメラの実効プロパティを取得できます。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ICameraEffectiveData) インターフェイスは、実効カメラプロパティを含む不変オブジェクトを表します。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ICameraEffectiveData) のインスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IThreeDFormatEffectiveData) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IThreeDFormat) の実効値を提供します。
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IThreeDFormatEffectiveData threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    
+    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
+    int cameraType = cameraEffectiveData.getCameraType();
+    double fieldOfViewAngle = cameraEffectiveData.getFieldOfViewAngle();
+    double zoom = cameraEffectiveData.getZoom();
 
     System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + threeDEffectiveData.getCamera().getCameraType());
-    System.out.println("Field of view: " + threeDEffectiveData.getCamera().getFieldOfViewAngle());
-    System.out.println("Zoom: " + threeDEffectiveData.getCamera().getZoom());
+    System.out.println("Type: " + cameraType);
+    System.out.println("Field of view: " + fieldOfViewAngle);
+    System.out.println("Zoom: " + zoom);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **ライトリグの実効プロパティを取得**
-Aspose.Slides for Java は開発者がライトリグの実効プロパティを取得できるようにします。この目的のために、[**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスが Aspose.Slides に追加されました。[ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスは、実効ライトリグ プロパティを含む不変オブジェクトを表します。[**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
 
-このサンプルコードはライトリグの実効プロパティの取得方法を示しています:
+Aspose.Slides を使用すると、ライトリグの実効プロパティを取得できます。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ILightRigEffectiveData) インターフェイスは、実効ライトリグプロパティを含む不変オブジェクトを表します。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ILightRigEffectiveData) のインスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IThreeDFormatEffectiveData) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IThreeDFormat) の実効値を提供します。
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IThreeDFormatEffectiveData threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    
+    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
+    int lightType = lightRigEffectiveData.getLightType();
+    int direction = lightRigEffectiveData.getDirection();
 
     System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + threeDEffectiveData.getLightRig().getLightType());
-    System.out.println("Direction: " + threeDEffectiveData.getLightRig().getDirection());
+    System.out.println("Type: " + lightType);
+    System.out.println("Direction: " + direction);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **ベベルシェイプの実効プロパティを取得**
 
-## **ベベル形状の実効プロパティを取得**
-Aspose.Slides for Java は開発者がベベル形状の実効プロパティを取得できるようにします。この目的のために、[**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスが Aspose.Slides に追加されました。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスは、実効形状の面リリーフ プロパティを含む不変オブジェクトを表します。[**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスのインスタンスは、[**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) インターフェイスの一部として使用され、これは [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) クラスの [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) ペアです。
+Aspose.Slides を使用すると、シェイプベベルの実効プロパティを取得できます。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IShapeBevelEffectiveData) インターフェイスは、シェイプの実効フェイスリリーフプロパティを含む不変オブジェクトを表します。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IShapeBevelEffectiveData) のインスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IThreeDFormatEffectiveData) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IThreeDFormat) の実効値を提供します。
 
-このサンプルコードはベベル形状の実効プロパティの取得方法を示しています:
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IThreeDFormatEffectiveData threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    
+    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    IShapeBevelEffectiveData bevelTop = threeDEffectiveData.getBevelTop();
+    int bevelType = bevelTop.getBevelType();
+    double bevelWidth = bevelTop.getWidth();
+    double bevelHeight = bevelTop.getHeight();
 
     System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + threeDEffectiveData.getBevelTop().getBevelType());
-    System.out.println("Width: " + threeDEffectiveData.getBevelTop().getWidth());
-    System.out.println("Height: " + threeDEffectiveData.getBevelTop().getHeight());
+    System.out.println("Type: " + bevelType);
+    System.out.println("Width: " + bevelWidth);
+    System.out.println("Height: " + bevelHeight);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **テキストフレームの実効プロパティを取得**
-Aspose.Slides for Java を使用すると、テキストフレームの実効プロパティを取得できます。この目的のために、[**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData) インターフェイスが Aspose.Slides に追加されました。これには実効テキストフレーム書式プロパティが含まれます。
 
-このサンプルコードはテキストフレームの実効書式プロパティの取得方法を示しています:
+Aspose.Slides を使用すると、テキストフレームの実効プロパティを取得できます。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ITextFrameFormatEffectiveData) インターフェイスは、実効テキストフレーム書式プロパティを含みます。
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
 
-    System.out.println("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    System.out.println("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    System.out.println("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
+    ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
+    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.getEffective();
+    int anchoringType = effectiveTextFrameFormat.getAnchoringType();
+    int autofitType = effectiveTextFrameFormat.getAutofitType();
+    int textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
+    double marginLeft = effectiveTextFrameFormat.getMarginLeft();
+    double marginTop = effectiveTextFrameFormat.getMarginTop();
+    double marginRight = effectiveTextFrameFormat.getMarginRight();
+    double marginBottom = effectiveTextFrameFormat.getMarginBottom();
+
+    System.out.println("Anchoring type: " + anchoringType);
+    System.out.println("Autofit type: " + autofitType);
+    System.out.println("Text vertical type: " + textVerticalType);
     System.out.println("Margins");
-    System.out.println("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    System.out.println("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    System.out.println("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    System.out.println("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
+    System.out.println("   Left: " + marginLeft);
+    System.out.println("   Top: " + marginTop);
+    System.out.println("   Right: " + marginRight);
+    System.out.println("   Bottom: " + marginBottom);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **テキストスタイルの実効プロパティを取得**
-Aspose.Slides for Java を使用すると、テキストスタイルの実効プロパティを取得できます。この目的のために、[**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData) インターフェイスが Aspose.Slides に追加されました。これには実効テキストスタイル プロパティが含まれます。
 
-このサンプルコードはテキストスタイルの実効プロパティの取得方法を示しています:
+Aspose.Slides を使用すると、テキストスタイルの実効プロパティを取得できます。[ITextStyleEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ITextStyleEffectiveData) インターフェイスは、実効テキストスタイルプロパティを含みます。
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+    
     ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
+    int levelCount = 9;
 
-    for (int i = 0; i <= 8; i++)
+    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
     {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(i);
-        System.out.println("= Effective paragraph formatting for style level #" + i + " =");
+        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
+        int depth = effectiveStyleLevel.getDepth();
+        double indent = effectiveStyleLevel.getIndent();
+        int alignment = effectiveStyleLevel.getAlignment();
+        int fontAlignment = effectiveStyleLevel.getFontAlignment();
+        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
 
-        System.out.println("Depth: " + effectiveStyleLevel.getDepth());
-        System.out.println("Indent: " + effectiveStyleLevel.getIndent());
-        System.out.println("Alignment: " + effectiveStyleLevel.getAlignment());
-        System.out.println("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+        System.out.println("Depth: " + depth);
+        System.out.println("Indent: " + indent);
+        System.out.println("Alignment: " + alignment);
+        System.out.println("Font alignment: " + fontAlignment);
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **実効フォント高さの取得**
-Aspose.Slides for Java を使用すると、フォント高さの実効プロパティを取得できます。ここでは、プレゼンテーション構造の異なるレベルでローカルフォント高さが設定された後に、部分の実効フォント高さが変化するコードを示します:
+
+Aspose.Slides を使用すると、実効フォント高さを取得できます。以下のコードは、プレゼンテーション構造の異なるレベルでローカルのフォント高さが設定された後に、ポーションの実効フォント高さがどのように変化するかを示しています。
+
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape newShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    newShape.addTextFrame("");
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().clear();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
+    autoShape.addTextFrame("");
 
-    IPortion portion0 = new Portion("Sample text with first portion");
-    IPortion portion1 = new Portion(" and second portion.");
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion0);
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion1);
+    IPortion firstPortion = new Portion("Sample text with first portion");
+    IPortion secondPortion = new Portion(" and second portion.");
 
+    paragraph.getPortions().add(firstPortion);
+    paragraph.getPortions().add(secondPortion);
+
+    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    
     System.out.println("Effective font height just after creation:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    pres.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    System.out.println("Effective font height after setting entire presentation default font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    System.out.println("Effective font height after setting the presentation default font height:");
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
+
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
     System.out.println("Effective font height after setting paragraph default font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(55);
+    firstPortion.getPortionFormat().setFontHeight(55);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
     System.out.println("Effective font height after setting portion #0 font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(1).getPortionFormat().setFontHeight(18);
+    secondPortion.getPortionFormat().setFontHeight(18);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    
     System.out.println("Effective font height after setting portion #1 font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    pres.save("SetLocalFontHeightValues.pptx",SaveFormat.Pptx);
+    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **テーブルの実効塗りつぶし書式の取得**
 
-## **テーブルの実効塗りつぶし書式を取得**
-Aspose.Slides for Java を使用すると、テーブルのさまざまな論理部位に対して実効塗りつぶし書式を取得できます。この目的のために、[**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData) インターフェイスが Aspose.Slides に追加されました。これには実効塗りつぶし書式プロパティが含まれます。注意点として、セルの書式は常に行の書式より優先され、行は列の書式より優先され、列はテーブル全体の書式より優先されます。
+Aspose.Slides を使用すると、テーブルのさまざまな部分の実効塗りつぶし書式を取得できます。[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IFillFormatEffectiveData) インターフェイスは、実効塗りつぶし書式プロパティを含みます。セルの書式は行の書式より優先度が高く、行の書式は列の書式より優先度が高く、列の書式はテーブル全体の書式より優先度が高くなります。
+
+その結果、[ICellFormatEffectiveData](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ICellFormatEffectiveData) のプロパティがテーブルセルの描画に使用されます。以下のコードサンプルは、テーブルのさまざまな部分の実効塗りつぶし書式を取得する方法を示しています。最初のスライドの最初のシェイプが [ITable](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ITable) であることを想定しています。
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ITable tbl = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ITableFormatEffectiveData tableFormatEffective = tbl.getTableFormat().getEffective();
-    IRowFormatEffectiveData rowFormatEffective = tbl.getRows().get_Item(0).getRowFormat().getEffective();
-    IColumnFormatEffectiveData columnFormatEffective = tbl.getColumns().get_Item(0).getColumnFormat().getEffective();
-    ICellFormatEffectiveData cellFormatEffective = tbl.get_Item(0, 0).getCellFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    
+    ITableFormatEffectiveData tableFormatEffective = table.getTableFormat().getEffective();
+    IRowFormatEffectiveData rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    IColumnFormatEffectiveData columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    ICellFormatEffectiveData cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
 
     IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.getFillFormat();
     IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.getFillFormat();
     IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.getFillFormat();
     IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.getFillFormat();
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**「スナップショット」と「ライブオブジェクト」の違いはどう判断し、実効プロパティはいつ再取得すべきですか？**
+**`getEffective` はスナップショットを返しますか？**
 
-EffectiveData オブジェクトは呼び出し時点の計算値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合は、再度 EffectiveData を取得して更新された値を取得してください。
+必ずしもそうではありません。実効データは継承が適用された後の計算された書式を表しますが、一部の実効データオブジェクトは内部でキャッシュされることがあります。`getEffective` を再度呼び出すと書式が再計算されキャッシュが更新される可能性があるため、以前取得したオブジェクトを永続的なスナップショットとして扱うべきではありません。
 
-**レイアウト/マスタースライドを変更すると、既に取得した実効プロパティは影響を受けますか？**
+**実効プロパティを再度取得すべきタイミングは？**
 
-はい、ただし再取得したときにのみ反映されます。既に取得した EffectiveData オブジェクトは自動更新されません。レイアウトまたはマスターを変更した後に再取得してください。
+`getEffective` は、ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーションレベルの既定値を変更した後に再度呼び出してください。次の呼び出しで書式階層が再評価され、現在の実効結果が返されます。
 
-**EffectiveData を介して値を変更できますか？**
+**レイアウト/マスタースライドを変更または削除すると、既に取得した実効プロパティに影響しますか？**
 
-できません。EffectiveData は読み取り専用です。ローカルの書式オブジェクト（シェイプ/テキスト/3D など）を変更し、必要に応じて再度 EffectiveData を取得して結果を確認してください。
+はい。ただし、変更は次の `getEffective` 呼び出しで反映されます。親書式ソースが変更または削除された場合、以前取得した実効データは古くなる可能性があります。`getEffective` を再度呼び出すと、Aspose.Slides は書式ツリーを再評価し、フォント、色、サイズ、その他の値が変わることがあります。
 
-**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
+**実効データオブジェクトを介して値を変更できますか？**
 
-実効値はデフォルトのメカニズム（PowerPoint/Aspose.Slides のデフォルト）により決定されます。その解決された値が EffectiveData のスナップショットに含まれます。
+いいえ。実効データオブジェクトは計算済みの値を提供するだけです。ローカルの書式オブジェクトで変更を行い、再度実効値を取得してください。
 
-**実効フォント値から、どのレベルがサイズまたは書体を提供したか判断できますか？**
+**シェイプレベル、レイアウト/マスター、グローバル設定のいずれにもプロパティが設定されていない場合はどうなりますか？**
 
-直接はできません。EffectiveData は最終的な値を返します。ソースを特定したい場合は、部分/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを確認し、最初に明示的に定義された場所を探してください。
+実効値は、PowerPoint と Aspose.Slides の既定値を含むデフォルトメカニズムによって決定されます。その解決された値が現在の実効データの一部となります。
 
-**実効データの値がローカル値と同じに見えることがありますが、なぜですか？**
+**実効フォント値から、どのレベルがサイズまたはフォントを提供したか判断できますか？**
 
-ローカル値が最終的な値となり、上位レベルの継承が不要だったためです。この場合、実効値はローカル値と一致します。
+直接的にはできません。実効データは最終値を返すだけです。どのレベルが提供したかを知りたい場合は、ポーション、段落、テキストフレーム、レイアウト、マスター、プレゼンテーションレベルのテキストスタイルのローカル値を確認し、最初に明示的に定義されている場所を特定してください。
 
-**実効プロパティはいつ使用し、ローカルプロパティだけを使うべき場面は？**
+**実効値がローカル値と同じに見えるのはなぜですか？**
 
-すべての継承が適用された「実際に表示される」結果が必要なときは EffectiveData を使用します（例: 色、インデント、サイズの整合）。特定のレベルで書式を変更したいときはローカルプロパティを操作し、必要なら EffectiveData を再取得して結果を検証します。
+ローカル値が最終的な値となった（上位レベルの継承が必要なかった）ためです。その場合、実効値はローカル値と一致します。
+
+**実効プロパティを使用すべきタイミングと、ローカルプロパティだけで作業すべきタイミングは？**
+
+すべての継承が適用された「レンダリング後」の結果が必要な場合（例：色、インデント、サイズを合わせる）には実効データを使用してください。後の書式変更に関係なくその値を保持したい場合は、必要なプロパティを自分のオブジェクトにコピーします。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて実効データを再取得して結果を確認してください。

@@ -1,240 +1,349 @@
 ---
-title: "PHP でプレゼンテーションからシェイプの有効プロパティを取得する"
-linktitle: "有効プロパティ"
+title: PHP でプレゼンテーションからシェイプの Effective プロパティを取得する
+linktitle: Effective プロパティ
 type: docs
 weight: 50
 url: /ja/php-java/shape-effective-properties/
 keywords:
-  - シェイプ プロパティ
-  - カメラ プロパティ
-  - ライト リグ
-  - ベベル シェイプ
-  - テキスト フレーム
-  - テキスト スタイル
-  - フォント 高さ
-  - 塗りつぶし 形式
-  - PowerPoint
-  - プレゼンテーション
-  - PHP
-  - Aspose.Slides
-description: "Aspose.Slides for PHP via Java が PowerPoint の正確なレンダリングのためにシェイプの有効プロパティを計算し適用する方法を紹介します。"
+- シェイプ プロパティ
+- カメラ プロパティ
+- ライト リグ
+- ベベル シェイプ
+- テキスト フレーム
+- テキスト スタイル
+- フォント 高さ
+- 塗り 書式
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Java 経由で PHP 用 Aspose.Slides が、正確な PowerPoint 表示のためにシェイプの Effective プロパティを計算し適用する方法を紹介します。"
 ---
+## **概要**
 
-このトピックでは、**effective** と **local** のプロパティについて説明します。これらのレベルで値を直接設定すると
+このトピックでは **local** と **effective** プロパティの違いについて説明します。ローカル値は、次のような特定の書式設定レベルで直接設定される値です。
 
-1. スライド上の該当部分のプロパティで;
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプのテキストスタイルで（該当部分のテキストフレームシェイプがある場合）;
-1. プレゼンテーション全体のグローバルテキスト設定で;
+1. スライド上の Portion プロパティ。
+1. レイアウトまたはマスタースライド上のプロトタイプシェイプのテキストスタイル（Portion のテキストフレームシェイプがある場合）。
+1. プレゼンテーション内のグローバルテキスト設定。
 
-それらの値は **local** 値と呼ばれます。任意のレベルで **local** 値は定義されても、定義されなくても構いません。しかし、アプリケーションが部分の見た目を知る必要がある場合は **effective** 値を使用します。**local** フォーマットから **getEffective()** メソッドを使用することで **effective** 値を取得できます。
+ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「レンダリング後」の書式設定を必要とする場合、継承チェーンを解決して **effective** 値を返します。ローカル書式オブジェクトで `getEffective` メソッドを呼び出すことで取得できます。
 
-このサンプルコードは **effective** 値の取得方法を示します:
+次の例は、effective 値の取得方法を示しています。最初のスライドの最初のシェイプがテキストフレームと少なくとも 1 つの Portion を持つ [AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) であることを前提としています。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
     $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat::getEffective();
-    $localPortionFormat = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat::getEffective();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
+
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
+
+    $localPortionFormat = $portion->getPortionFormat();
+    $effectivePortionFormat = $localPortionFormat->getEffective();
+} finally {
+    $presentation->dispose();
+}
 ```
 
+{{% alert color="primary" %}}
+Effective 書式データは、継承が適用された後に計算された現在の書式設定を表します。現在の実装では、[PortionFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/portionformat/geteffective/) などのメソッドが返す一部の effective データオブジェクトが内部でキャッシュされる場合があります。親または継承された書式設定を変更した後に `getEffective` を再度呼び出すとキャッシュがリフレッシュされ、以前取得したオブジェクトは以前の状態を表さなくなる可能性があります。後で再利用するために effective 値を保持する必要がある場合は、フォントの高さ、塗りの色、フォントスタイル、配置など必要なプロパティを独自のデータオブジェクトにコピーしてください。
+{{% /alert %}}
 
-## **カメラの有効プロパティを取得**
-Aspose.Slides for PHP via Java は、開発者がカメラの **effective** プロパティを取得できるようにします。この目的のために、`ICameraEffectiveData` クラスが Aspose.Slides に追加されました。`ICameraEffectiveData` クラスは、カメラの有効プロパティを保持する不変オブジェクトを表します。`ICameraEffectiveData` クラスのインスタンスは、`IThreeDFormatEffectiveData` クラスの一部として使用され、これは[effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) のペアであり、[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) クラスに対応します。
+## **カメラの Effective プロパティの取得**
 
-このサンプルコードはカメラの有効プロパティを取得する方法を示します:
+Aspose.Slides を使用すると、カメラの effective プロパティを取得できます。[ThreeDFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/threedformat/geteffective/) が返す effective データには、[ThreeDFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/threedformat/) の最終的なカメラプロパティが含まれます。
+
+次のコードサンプルは、カメラの effective プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていることを前提としています。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective camera properties =");
-    echo("Type: " . $threeDEffectiveData->getCamera()->getCameraType());
-    echo("Field of view: " . $threeDEffectiveData->getCamera()->getFieldOfViewAngle());
-    echo("Zoom: " . $threeDEffectiveData->getCamera()->getZoom());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $camera = $threeDEffectiveData->getCamera();
+    $cameraType = $camera->getCameraType();
+    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
+    $zoom = $camera->getZoom();
+
+    echo "= Effective camera properties =" . PHP_EOL;
+    echo "Type: " . $cameraType . PHP_EOL;
+    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
+    echo "Zoom: " . $zoom . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **ライトリグの Effective プロパティの取得**
 
-## **ライトリグの有効プロパティを取得**
-Aspose.Slides for PHP via Java は、開発者がライトリグの **effective** プロパティを取得できるようにします。この目的のために、`ILightRigEffectiveData` クラスが Aspose.Slides に追加されました。`ILightRigEffectiveData` クラスは、ライトリグの有効プロパティを保持する不変オブジェクトを表します。`ILightRigEffectiveData` クラスのインスタンスは、`IThreeDFormatEffectiveData` クラスの一部として使用され、これは[effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) のペアであり、[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) クラスに対応します。
+Aspose.Slides を使用すると、ライトリグの effective プロパティを取得できます。[ThreeDFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/threedformat/geteffective/) が返す effective データには、[ThreeDFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/threedformat/) の最終的なライトリグプロパティが含まれます。
 
-このサンプルコードはライトリグの有効プロパティを取得する方法を示します:
+次のコードサンプルは、ライトリグの effective プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていることを前提としています。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective light rig properties =");
-    echo("Type: " . $threeDEffectiveData->getLightRig()->getLightType());
-    echo("Direction: " . $threeDEffectiveData->getLightRig()->getDirection());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $lightRig = $threeDEffectiveData->getLightRig();
+    $lightType = $lightRig->getLightType();
+    $direction = $lightRig->getDirection();
+
+    echo "= Effective light rig properties =" . PHP_EOL;
+    echo "Type: " . $lightType . PHP_EOL;
+    echo "Direction: " . $direction . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **シェイプベベルの Effective プロパティの取得**
 
-## **ベベルシェイプの有効プロパティを取得**
-Aspose.Slides for PHP via Java は、開発者がベベルシェイプの **effective** プロパティを取得できるようにします。この目的のために、`IShapeBevelEffectiveData` クラスが Aspose.Slides に追加されました。`IShapeBevelEffectiveData` クラスは、シェイプの面のリリーフプロパティを保持する不変オブジェクトを表します。`IShapeBevelEffectiveData` クラスのインスタンスは、`IThreeDFormatEffectiveData` クラスの一部として使用され、これは[effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) のペアであり、[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) クラスに対応します。
+Aspose.Slides を使用すると、シェイプベベルの effective プロパティを取得できます。[ThreeDFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/threedformat/geteffective/) が返す effective データには、[ThreeDFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/threedformat/) の最終的なフェイスリリーフプロパティが含まれます。
 
-このサンプルコードはベベルシェイプの有効プロパティを取得する方法を示します:
+次のコードサンプルは、シェイプの上部ベベルの effective プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていることを前提としています。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective shape's top face relief properties =");
-    echo("Type: " . $threeDEffectiveData->getBevelTop()->getBevelType());
-    echo("Width: " . $threeDEffectiveData->getBevelTop()->getWidth());
-    echo("Height: " . $threeDEffectiveData->getBevelTop()->getHeight());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $bevelTop = $threeDEffectiveData->getBevelTop();
+    $bevelType = $bevelTop->getBevelType();
+    $bevelWidth = $bevelTop->getWidth();
+    $bevelHeight = $bevelTop->getHeight();
+
+    echo "= Effective shape's top face relief properties =" . PHP_EOL;
+    echo "Type: " . $bevelType . PHP_EOL;
+    echo "Width: " . $bevelWidth . PHP_EOL;
+    echo "Height: " . $bevelHeight . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **テキストフレームの Effective プロパティの取得**
 
-## **テキストフレームの有効プロパティを取得**
-Aspose.Slides for PHP via Java を使用すると、テキストフレームの **effective** プロパティを取得できます。この目的のために、`ITextFrameFormatEffectiveData` クラスが Aspose.Slides に追加されました。これはテキストフレームの有効な書式設定プロパティを含みます。
+Aspose.Slides を使用すると、テキストフレームの effective プロパティを取得できます。[TextFrameFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/geteffective/) が返す effective データには、テキストフレームの書式設定プロパティが含まれます。
 
-このサンプルコードはテキストフレームの有効書式設定プロパティを取得する方法を示します:
+次のコードサンプルは、テキストフレームの effective 書式設定プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) であることを前提としています。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
     $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    echo("Anchoring type: " . $effectiveTextFrameFormat::getAnchoringType());
-    echo("Autofit type: " . $effectiveTextFrameFormat::getAutofitType());
-    echo("Text vertical type: " . $effectiveTextFrameFormat::getTextVerticalType());
-    echo("Margins");
-    echo("   Left: " . $effectiveTextFrameFormat::getMarginLeft());
-    echo("   Top: " . $effectiveTextFrameFormat::getMarginTop());
-    echo("   Right: " . $effectiveTextFrameFormat::getMarginRight());
-    echo("   Bottom: " . $effectiveTextFrameFormat::getMarginBottom());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
+    $autofitType = $effectiveTextFrameFormat->getAutofitType();
+    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
+    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
+    $marginTop = $effectiveTextFrameFormat->getMarginTop();
+    $marginRight = $effectiveTextFrameFormat->getMarginRight();
+    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+
+    echo "Anchoring type: " . $anchoringType . PHP_EOL;
+    echo "Autofit type: " . $autofitType . PHP_EOL;
+    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
+    echo "Margins" . PHP_EOL;
+    echo "   Left: " . $marginLeft . PHP_EOL;
+    echo "   Top: " . $marginTop . PHP_EOL;
+    echo "   Right: " . $marginRight . PHP_EOL;
+    echo "   Bottom: " . $marginBottom . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **テキストスタイルの Effective プロパティの取得**
 
-## **テキストスタイルの有効プロパティを取得**
-Aspose.Slides for PHP via Java を使用すると、テキストスタイルの **effective** プロパティを取得できます。この目的のために、`ITextStyleEffectiveData` クラスが Aspose.Slides に追加されました。これは有効なテキストスタイルプロパティを含みます。
+Aspose.Slides を使用すると、テキストスタイルの effective プロパティを取得できます。[TextStyle.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textstyle/geteffective/) が返す effective データには、テキストスタイルのプロパティが含まれます。
 
-このサンプルコードはテキストスタイルの有効プロパティを取得する方法を示します:
+次のコードサンプルは、テキストスタイルの effective プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) であることを前提としています。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $effectiveTextStyle = $shape->getTextFrame()->getTextFrameFormat()->getTextStyle()->getEffective();
-    for($i = 0; $i <= 8; $i++) {
-      $effectiveStyleLevel = $effectiveTextStyle->getLevel($i);
-      echo("= Effective paragraph formatting for style level #" . $i . " =");
-      echo("Depth: " . $effectiveStyleLevel->getDepth());
-      echo("Indent: " . $effectiveStyleLevel->getIndent());
-      echo("Alignment: " . $effectiveStyleLevel->getAlignment());
-      echo("Font alignment: " . $effectiveStyleLevel->getFontAlignment());
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
+    $textStyle = $textFrameFormat->getTextStyle();
+    $effectiveTextStyle = $textStyle->getEffective();
+    $levelCount = 9;
+
+    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
+        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
+        $depth = $effectiveStyleLevel->getDepth();
+        $indent = $effectiveStyleLevel->getIndent();
+        $alignment = $effectiveStyleLevel->getAlignment();
+        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
+
+        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
+
+        echo "Depth: " . $depth . PHP_EOL;
+        echo "Indent: " . $indent . PHP_EOL;
+        echo "Alignment: " . $alignment . PHP_EOL;
+        echo "Font alignment: " . $fontAlignment . PHP_EOL;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Effective フォント高さ値の取得**
 
-## **フォント高さの有効値を取得**
-Aspose.Slides for PHP via Java を使用すると、フォント高さの **effective** プロパティを取得できます。ここでは、プレゼンテーションのさまざまな構造レベルでローカルのフォント高さが設定された後に、部分の有効フォント高さがどのように変化するかを示すコードを提供しています:
+Aspose.Slides を使用すると、effective フォント高さを取得できます。次のコードは、プレゼンテーション構造の異なるレベルでローカルフォント高さが設定された後、Portion の effective フォント高さがどのように変化するかを示しています。
+
 ```php
-  $pres = new Presentation();
-  try {
-    $newShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $newShape->addTextFrame("");
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->clear();
-    $portion0 = new Portion("Sample text with first portion");
-    $portion1 = new Portion(" and second portion.");
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion0);
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion1);
-    echo("Effective font height just after creation:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(24);
-    echo("Effective font height after setting entire presentation default font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(40);
-    echo("Effective font height after setting paragraph default font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(55);
-    echo("Effective font height after setting portion #0 font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setFontHeight(18);
-    echo("Effective font height after setting portion #1 font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
+    $autoShape->addTextFrame("");
+
+    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getPortions()->clear();
+
+    $firstPortion = new Portion("Sample text with first portion");
+    $secondPortion = new Portion(" and second portion.");
+
+    $paragraph->getPortions()->add($firstPortion);
+    $paragraph->getPortions()->add($secondPortion);
+
+    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
+    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height just after creation:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
+    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
+    $defaultPortionFormat->setFontHeight(24);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $paragraphDefaultPortionFormat->setFontHeight(40);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $firstPortionFormat->setFontHeight(55);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $secondPortionFormat->setFontHeight(18);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **テーブルの Effective 塗り設定の取得**
 
-## **テーブルの有効な塗りつぶし形式を取得**
-Aspose.Slides for PHP via Java を使用すると、テーブルのさまざまな論理部分の有効な塗りつぶし書式設定を取得できます。この目的のために、`ICellFormatEffectiveData` クラスが Aspose.Slides に追加されました。これは有効な塗りつぶし書式設定プロパティを含みます。注意点として、セルの書式設定は常に行の書式設定より優先され、行は列より優先され、列はテーブル全体より優先されます。
+Aspose.Slides を使用すると、テーブルのさまざまな部分に対する effective 塗り書式設定を取得できます。フォーマットオブジェクトが返す effective データには [FillFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fillformat/) のプロパティが含まれます。セルの書式設定は行の書式設定より優先され、行の書式設定は列の書式設定より、列の書式設定はテーブル全体の書式設定より優先されます。
+
+その結果、effective な [CellFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cellformat/) プロパティがテーブルセルの描画に使用されます。次のコードサンプルは、テーブルのさまざまな部分に対する effective 塗り書式設定を取得する方法を示しています。最初のスライドの最初のシェイプが [Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/table/) であることを前提としています。
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $tbl = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $tableFormatEffective = $tbl->getTableFormat()->getEffective();
-    $rowFormatEffective = $tbl->getRows()->get_Item(0)->getRowFormat()->getEffective();
-    $columnFormatEffective = $tbl->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
-    $cellFormatEffective = $tbl->get_Item(0, 0)->getCellFormat()->getEffective();
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $tableFormatEffective = $table->getTableFormat()->getEffective();
+
+    $row = $table->getRows()->get_Item(0);
+    $rowFormatEffective = $row->getRowFormat()->getEffective();
+
+    $column = $table->getColumns()->get_Item(0);
+    $columnFormatEffective = $column->getColumnFormat()->getEffective();
+
+    $cell = $table->get_Item(0, 0);
+    $cellFormatEffective = $cell->getCellFormat()->getEffective();
+
     $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
     $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
     $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
     $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **FAQ**
 
-## **よくある質問**
+**`getEffective` はスナップショットを返しますか？**
 
-**スナップショットを取得したのか、ライブオブジェクトを取得したのかをどのように判断し、いつ再度 effective プロパティを読み取るべきですか？**  
-EffectiveData オブジェクトは呼び出し時点で計算された値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合は、更新された値を取得するために EffectiveData を再取得してください。
+常にではありません。Effective データは継承が適用された後に計算された書式設定を表しますが、一部の effective データオブジェクトは内部でキャッシュされる可能性があります。`getEffective` を再度呼び出すと書式設定が再計算されキャッシュが更新されるため、以前取得したオブジェクトを永続的なスナップショットとして扱うべきではありません。
 
-**レイアウト/マスタースライドを変更すると、すでに取得した effective プロパティに影響しますか？**  
-はい、ただし再度読み取ったときにのみ反映されます。取得済みの EffectiveData オブジェクトは自動的に更新されないため、レイアウトやマスターを変更した後に再度要求してください。
+**Effective プロパティを再度取得すべきタイミングは？**
 
-**EffectiveData を介して値を変更できますか？**  
-できません。EffectiveData は読み取り専用です。ローカルの書式設定オブジェクト（シェイプ/テキスト/3D など）を変更し、必要に応じて再度 EffectiveData を取得して結果を確認してください。
+ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーションレベルのデフォルトを変更した後に `getEffective` を再度呼び出します。次の呼び出しで書式階層が再評価され、現在の effective 結果が返されます。
 
-**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**  
-そのプロパティはデフォルトのメカニズム（PowerPoint / Aspose.Slides の既定値）に従って決定されます。決定された値が EffectiveData のスナップショットに含まれます。
+**レイアウト／マスタースライドを変更または削除すると、すでに取得した effective プロパティに影響しますか？**
 
-**有効なフォント値から、どのレベルがサイズやフォント名を提供したか判断できますか？**  
-直接は判断できません。EffectiveData は最終的な値だけを返します。元の定義元を知りたい場合は、部分/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを調べて、最初に明示的に設定された場所を特定してください。
+はい。ただし変更は次の `getEffective` 呼び出し時に反映されます。親書式ソースが変更または削除された場合、以前取得した effective データは古くなる可能性があります。`getEffective` を再度実行すると Aspose.Slides が書式ツリーを再評価し、フォントや色、サイズなどの値が変わることがあります。
 
-**EffectiveData の値がローカル値と同一に見えることがあるのはなぜですか？**  
-ローカル値が最終的な値となり、上位レベルからの継承が不要だった場合です。そのようなケースでは effective 値がローカル値と一致します。
+**effective データオブジェクトを通じて値を変更できますか？**
 
-**いつ effective プロパティを使用し、いつローカルプロパティだけを操作すべきですか？**  
-すべての継承が適用された「実際に表示される」結果が必要なときは EffectiveData を使用してください（例: 色やインデント、サイズの整合性を取る場合）。特定のレベルで書式設定を変更したいときはローカルプロパティを操作し、必要に応じて再度 EffectiveData を取得して結果を検証してください。
+できません。effective データオブジェクトは計算された値を公開するだけです。ローカル書式オブジェクトで変更し、再度 effective 値を取得してください。
+
+**シェイプレベルでもレイアウト／マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
+
+effective 値はデフォルトメカニズムに基づいて決定されます。これは PowerPoint と Aspose.Slides のデフォルト設定を含みます。解決された値が現在の effective データの一部となります。
+
+**effective フォント値から、どのレベルがサイズまたはフォント名を提供したか判断できますか？**
+
+直接は判断できません。effective データは最終的な値を返すだけです。ソースを特定するには、Portion、Paragraph、TextFrame、そしてレイアウト、マスター、プレゼンテーションレベルのテキストスタイルのローカル値を確認し、最初に明示的に定義された場所を探します。
+
+**effective 値がローカル値と同じに見えるのはなぜですか？**
+
+ローカル値が最終的な値となった（上位レベルからの継承が不要だった）ためです。このような場合、effective 値はローカル値と一致します。
+
+**effective プロパティを使用すべきタイミングと、ローカルプロパティだけで作業すべきタイミングは？**
+
+すべての継承が適用された「レンダリング後」の結果が必要な場合は effective データを使用します。例えば、色やインデント、サイズを揃える際などです。後の書式変更に関係なくその値を保持したい場合は、必要なプロパティを独自のオブジェクトにコピーしてください。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて effective データを再取得して結果を確認します。

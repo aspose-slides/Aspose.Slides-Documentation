@@ -1,15 +1,15 @@
 ---
-title: Ermitteln von Shape-Effektiven Eigenschaften aus Präsentationen mit Python
+title: Effektive Formeigenschaften aus Präsentationen mit Python abrufen
 linktitle: Effektive Eigenschaften
 type: docs
 weight: 50
 url: /de/python-net/shape-effective-properties/
 keywords:
-- Shape-Eigenschaften
+- Formeigenschaften
 - Kameraeigenschaften
 - Lichtanlage
-- Bevel-Form
-- Textrahmen
+- Abgeschrägte Form
+- Textfeld
 - Textstil
 - Schriftgröße
 - Füllformat
@@ -17,240 +17,281 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Aspose.Slides für Python via .NET effektive Shape-Eigenschaften berechnet und anwendet, um eine präzise PowerPoint- und OpenDocument-Darstellung zu ermöglichen."
+description: "Entdecken Sie, wie Aspose.Slides für Python via .NET effektive Formeigenschaften berechnet und anwendet, um eine präzise PowerPoint‑Darstellung zu gewährleisten."
 ---
-
 ## **Übersicht**
 
-In diesem Thema lernen Sie die Konzepte der **effective** und **local** Eigenschaften kennen. Wenn Werte direkt auf den folgenden Ebenen festgelegt werden:
+Dieses Thema erklärt den Unterschied zwischen **lokalen** und **effektiven** Eigenschaften. Lokale Werte sind Werte, die direkt auf einer bestimmten Formatierungsebene festgelegt werden, z. B.:
 
-1. In den Eigenschaften des Textabschnitts auf der Folie.
-2. Im Textstil der Prototypform im Layout oder in der Masterfolie (falls der Textrahmen einen hat).
-3. In den globalen Texteinstellungen der Präsentation.
+1. Abschnittseigenschaften auf einer Folie.
+1. Textstile von Prototypformen auf einem Layout‑ oder Master‑Folie, wenn die Form des Textfelds des Abschnitts einen hat.
+1. Globale Texteinstellungen in einer Präsentation.
 
-Diese Werte werden **local** Werte genannt. Auf jeder Ebene können **local** Werte definiert oder weggelassen werden. Wenn die Anwendung bestimmen muss, wie der Textabschnitt angezeigt werden soll, verwendet sie die **effective** Werte. Sie können die **effective** Werte erhalten, indem Sie die Methode `get_effective` im lokalen Format aufrufen.
+Lokale Werte können auf jeder Ebene definiert oder weggelassen werden. Wenn Aspose.Slides die endgültige „wie gerenderte“ Formatierung benötigt, löst es die Vererbungskette auf und gibt **effektive** Werte zurück. Sie können diese erhalten, indem Sie die Methode `get_effective` auf dem lokalen Formatobjekt aufrufen.
 
-Das folgende Beispiel zeigt, wie Sie die **effective** Werte für ein Textfeldformat und ein Textabschnittsformat erhalten.
+Das folgende Beispiel zeigt, wie man effektive Werte erhält. Es wird angenommen, dass die erste Form auf der ersten Folie ein [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) mit einem Textfeld und mindestens einem Abschnitt ist.
+
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("Presentation1.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
 
     local_text_frame_format = shape.text_frame.text_frame_format
     effective_text_frame_format = local_text_frame_format.get_effective()
 
-    local_portion_format = shape.text_frame.paragraphs[0].portions[0].portion_format
+    paragraph = shape.text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+    local_portion_format = portion.portion_format
     effective_portion_format = local_portion_format.get_effective()
 ```
 
+{{% alert color="primary" %}}
+Effektive Formatierungsdaten stellen die aktuell berechnete Formatierung dar, nachdem die Vererbung angewendet wurde. In der aktuellen Implementierung können einige effektive Datenobjekte, wie z. B. [IPortionFormatEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/iportionformateffectivedata/), intern zwischengespeichert werden. Ein erneuter Aufruf von `get_effective` nach einer Änderung der übergeordneten oder vererbten Formatierung kann die zwischengespeicherten Daten aktualisieren, und ein zuvor erhaltenes Objekt stellt möglicherweise nicht mehr den früheren Zustand dar. Wenn Sie effektive Werte für spätere Verwendung behalten müssen, kopieren Sie die erforderlichen Eigenschaften, wie Schriftgröße, Füllfarbe, Schriftstil oder Ausrichtung, in Ihr eigenes Datenobjekt.
+{{% /alert %}}
 
-## **Effective Kameraeigenschaften abrufen**
+## **Effektive Eigenschaften einer Kamera abrufen**
 
-Aspose.Slides für Python via .NET ermöglicht das Abrufen der **effective** Kameraeigenschaften. Die Klasse [ICameraEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icameraeffectivedata/) stellt ein unveränderliches Objekt dar, das diese Eigenschaften enthält. Eine Instanz von [ICameraEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icameraeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, die die **effective** Werte für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) liefert.
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Kamera. Der Typ [ICameraEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/icameraeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine [ICameraEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/icameraeffectivedata/)‑Instanz wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [ThreeDFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/threedformat/) liefert.
 
-Das folgende Beispiel zeigt, wie Sie die **effective** Kameraeigenschaften abrufen:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("Presentation1.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective_data = shape.three_d_format.get_effective()
+    camera = three_d_effective_data.camera
+
+    camera_type = camera.camera_type
+    field_of_view_angle = camera.field_of_view_angle
+    zoom = camera.zoom
+
+    print("= Effective camera properties =")
+    print("Type: " + str(camera_type))
+    print("Field of view: " + str(field_of_view_angle))
+    print("Zoom: " + str(zoom))
+```
+
+## **Effektive Eigenschaften einer Lichtanlage abrufen**
+
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Lichtanlage. Der Typ [ILightRigEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ilightrigeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Eigenschaften der Lichtanlage enthält. Eine [ILightRigEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ilightrigeffectivedata/)‑Instanz wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [ThreeDFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/threedformat/) liefert.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective_data = shape.three_d_format.get_effective()
+    light_rig = three_d_effective_data.light_rig
+
+    light_type = light_rig.light_type
+    direction = light_rig.direction
+
+    print("= Effective light rig properties =")
+    print("Type: " + str(light_type))
+    print("Direction: " + str(direction))
+```
+
+## **Effektive Eigenschaften einer Abschrägung einer Form**
+
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Formabschrägung. Der Typ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ishapebeveleffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Flächenrelief‑Eigenschaften für eine Form enthält. Eine [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ishapebeveleffectivedata/)‑Instanz wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [ThreeDFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/threedformat/) liefert.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective_data = shape.three_d_format.get_effective()
+    top_bevel = three_d_effective_data.bevel_top
+
+    bevel_type = top_bevel.bevel_type
+    bevel_width = top_bevel.width
+    bevel_height = top_bevel.height
+
+    print("= Effective shape's top face relief properties =")
+    print("Type: " + str(bevel_type))
+    print("Width: " + str(bevel_width))
+    print("Height: " + str(bevel_height))
+```
+
+## **Effektive Eigenschaften eines Textfelds abrufen**
+
+Mit Aspose.Slides können Sie effektive Eigenschaften eines Textfelds erhalten. Der Typ [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/itextframeformateffectivedata/) enthält effektive Formatierungseigenschaften des Textfelds.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
 
-	three_d_effective_data = shape.three_d_format.get_effective()
+    text_frame_format = shape.text_frame.text_frame_format
+    effective_text_frame_format = text_frame_format.get_effective()
 
-	print("= Effective camera properties =")
-	print("Type:", str(three_d_effective_data.camera.camera_type))
-	print("Field of view:", str(three_d_effective_data.camera.field_of_view_angle))
-	print("Zoom:", str(three_d_effective_data.camera.zoom))
+    anchoring_type = effective_text_frame_format.anchoring_type
+    autofit_type = effective_text_frame_format.autofit_type
+    text_vertical_type = effective_text_frame_format.text_vertical_type
+    margin_left = effective_text_frame_format.margin_left
+    margin_top = effective_text_frame_format.margin_top
+    margin_right = effective_text_frame_format.margin_right
+    margin_bottom = effective_text_frame_format.margin_bottom
+
+    print("Anchoring type: " + str(anchoring_type))
+    print("Autofit type: " + str(autofit_type))
+    print("Text vertical type: " + str(text_vertical_type))
+    print("Margins")
+    print("   Left: " + str(margin_left))
+    print("   Top: " + str(margin_top))
+    print("   Right: " + str(margin_right))
+    print("   Bottom: " + str(margin_bottom))
 ```
 
+## **Effektive Eigenschaften eines Textstils abrufen**
 
-## **Effective Lichtriggeigenschaften abrufen**
+Mit Aspose.Slides können Sie effektive Eigenschaften eines Textstils erhalten. Der Typ [ITextStyleEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/itextstyleeffectivedata/) enthält effektive Eigenschaften des Textstils.
 
-Aspose.Slides für Python via .NET ermöglicht das Abrufen der **effective** Eigenschaften eines Lichtriggs. Die Klasse [ILightRigEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilightrigeffectivedata/) stellt ein unveränderliches Objekt dar, das diese Eigenschaften enthält. Eine Instanz von [ILightRigEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilightrigeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, die die **effective** Werte für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) liefert.
-
-Das folgende Beispiel zeigt, wie Sie die **effective** Lichtriggeigenschaften abrufen:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("Presentation1.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    text_frame_format = shape.text_frame.text_frame_format
+    text_style = text_frame_format.text_style
+    effective_text_style = text_style.get_effective()
+    level_count = 9
 
-	three_d_effective_data = shape.three_d_format.get_effective()
+    for level_index in range(level_count):
+        effective_style_level = effective_text_style.get_level(level_index)
+        depth = effective_style_level.depth
+        indent = effective_style_level.indent
+        alignment = effective_style_level.alignment
+        font_alignment = effective_style_level.font_alignment
 
-	print("= Effective light rig properties =")
-	print("Type:", str(three_d_effective_data.light_rig.light_type))
-	print("Direction:", str(three_d_effective_data.light_rig.direction))
+        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
+
+        print("Depth: " + str(depth))
+        print("Indent: " + str(indent))
+        print("Alignment: " + str(alignment))
+        print("Font alignment: " + str(font_alignment))
 ```
 
+## **Den effektiven Schriftgrößenwert abrufen**
 
-## **Effective Forminhaltseigenschaften abrufen**
+Mit Aspose.Slides können Sie die effektive Schriftgröße ermitteln. Der folgende Code zeigt, wie sich die effektive Schriftgröße eines Abschnitts ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Präsentations‑Strukturebenen festgelegt wurden.
 
-Aspose.Slides für Python via .NET ermöglicht das Abrufen der **effective** Eigenschaften einer Forminhalt (Bevel). Die Klasse [IShapeBevelEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ishapebeveleffectivedata/) stellt ein unveränderliches Objekt dar, das die Face-Relief‑(Bevel‑)Eigenschaften einer Form enthält. Eine Instanz von [IShapeBevelEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ishapebeveleffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, die die **effective** Werte für die Klasse [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) liefert.
-
-Das folgende Beispiel zeigt, wie Sie die **effective** Eigenschaften eines Forminhalt (Bevel) abrufen:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("Presentation1.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-	three_d_effective_data = shape.three_d_format.get_effective()
-
-	print("= Effective shape's top face relief properties =")
-	print("Type:", str(three_d_effective_data.bevel_top.bevel_type))
-	print("Width:", str(three_d_effective_data.bevel_top.width))
-	print("Height:", str(three_d_effective_data.bevel_top.height))
-```
-
-
-## **Effective Textrahmeneigenschaften abrufen**
-
-Mit Aspose.Slides für Python via .NET können Sie die **effective** Eigenschaften eines Textrahmens abrufen. Die Klasse [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformateffectivedata/) enthält die **effective** Formatierungseigenschaften des Textrahmens.
-
-Das folgende Beispiel zeigt, wie Sie die **effective** Textrahmenformatierungseigenschaften abrufen:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("Presentation1.pptx") as presentation:
-	shape = presentation.slides[0].shapes[0]
-
-	text_frame_format_effective_data = shape.text_frame.text_frame_format.get_effective()
-
-	print("Anchoring type:", str(text_frame_format_effective_data.anchoring_type))
-	print("Autofit type:", str(text_frame_format_effective_data.autofit_type))
-	print("Text vertical type:", str(text_frame_format_effective_data.text_vertical_type))
-	print("Margins")
-	print("   Left:", str(text_frame_format_effective_data.margin_left))
-	print("   Top:", str(text_frame_format_effective_data.margin_top))
-	print("   Right:", str(text_frame_format_effective_data.margin_right))
-	print("   Bottom:", str(text_frame_format_effective_data.margin_bottom))
-```
-
-
-## **Effective Textstileigenschaften abrufen**
-
-Mit Aspose.Slides für Python via .NET können Sie die **effective** Eigenschaften eines Textstils abrufen. Die Klasse [ITextStyleEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/itextstyleeffectivedata/) enthält die **effective** Textstileigenschaften.
-
-Das folgende Beispiel zeigt, wie Sie die **effective** Textstileigenschaften abrufen:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("Presentation1.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    effective_text_style = shape.text_frame.text_frame_format.text_style.get_effective()
-
-    for i in range(8):
-        effectiveStyleLevel = effective_text_style.get_level(i)
-        print(f"= Effective paragraph formatting for style level #{str(i)} =")
-
-        print("Depth:", str(effectiveStyleLevel.depth))
-        print("Indent:", str(effectiveStyleLevel.indent))
-        print("Alignment:", str(effectiveStyleLevel.alignment))
-        print("Font alignment:", str(effectiveStyleLevel.font_alignment))
-```
-
-
-## **Effective Schriftgradhöhe abrufen**
-
-Mit Aspose.Slides für Python via .NET können Sie die **effective** Schriftgradhöhe abrufen. Das folgende Beispiel demonstriert, wie sich die **effective** Schriftgradhöhe eines Textabschnitts ändert, wenn Sie lokale Schriftgradhöhenwerte auf verschiedenen Ebenen der Präsentationsstruktur festlegen.
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
+    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
+    auto_shape.add_text_frame("")
 
-    shape.add_text_frame("")
-    paragraph = shape.text_frame.paragraphs[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
 
-    portion0 = slides.Portion("Sample text with first portion")
-    portion1 = slides.Portion(" and second portion.")
+    first_portion = slides.Portion("Sample text with first portion")
+    second_portion = slides.Portion(" and second portion.")
 
-    paragraph.portions.add(portion0)
-    paragraph.portions.add(portion1)
+    paragraph.portions.add(first_portion)
+    paragraph.portions.add(second_portion)
 
     print("Effective font height just after creation:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    presentation.default_text_style.get_level(0).default_portion_format.font_height = 24
+    default_text_style_level = presentation.default_text_style.get_level(0)
+    default_text_style_level.default_portion_format.font_height = 24
 
-    print("Effective font height after setting entire presentation default font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    print("Effective font height after setting the presentation default font height:")
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
     paragraph.paragraph_format.default_portion_format.font_height = 40
 
     print("Effective font height after setting paragraph default font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    paragraph.portions[0].portion_format.font_height = 55
+    first_portion.portion_format.font_height = 55
 
     print("Effective font height after setting portion #0 font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    paragraph.portions[1].portion_format.font_height = 18
+    second_portion.portion_format.font_height = 18
 
     print("Effective font height after setting portion #1 font height:")
-    print("Portion #0:", portion0.portion_format.get_effective().font_height)
-    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+    first_portion_font_height = first_portion.portion_format.get_effective().font_height
+    second_portion_font_height = second_portion.portion_format.get_effective().font_height
+    print("Portion #0: " + str(first_portion_font_height))
+    print("Portion #1: " + str(second_portion_font_height))
 
-    presentation.save("SetLocalFontHeightValues.pptx",slides.export.SaveFormat.PPTX)
+    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Effektives Füllformat für eine Tabelle abrufen**
 
-## **Effective Tabellenfüllformat abrufen**
+Mit Aspose.Slides können Sie effektive Füllformatierungen für verschiedene Tabellenteile erhalten. Der Typ [IFillFormatEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/ifillformateffectivedata/) enthält effektive Füllformatierungs‑Eigenschaften. Zellenformatierung hat höhere Priorität als Zeilenformatierung, Zeilenformatierung hat höhere Priorität als Spaltenformatierung, und Spaltenformatierung hat höhere Priorität als die Gesamttabelle.
 
-Mit Aspose.Slides für Python via .NET können Sie das **effective** Füllformat für verschiedene logische Teile einer Tabelle abrufen. Die Klasse [IFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ifillformateffectivedata/) enthält die **effective** Füllformatierungs‑Eigenschaften. Beachten Sie, dass die Zellenformatierung stets höhere Priorität hat als die Zeilenformatierung, eine Zeile höhere Priorität als eine Spalte und eine Spalte höhere Priorität als die gesamte Tabelle.
+Infolgedessen werden die Eigenschaften von [ICellFormatEffectiveData](https://reference.aspose.com/slides/de/python-net/aspose.slides/icellformateffectivedata/) verwendet, um die Tabellenzelle zu zeichnen. Der folgende Code zeigt, wie man effektive Füllformatierung für verschiedene Tabellenteile erhalten kann. Es wird angenommen, dass die erste Form auf der ersten Folie eine [Table](https://reference.aspose.com/slides/de/python-net/aspose.slides/table/) ist.
 
-Daher werden letztlich die Eigenschaften von [ICellFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icellformateffectivedata/) verwendet, um die Tabelle zu zeichnen. Das folgende Beispiel zeigt, wie Sie das **effective** Füllformat für die verschiedenen Tabellenniveaus abrufen:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-	table = presentation.slides[0].shapes[0]
+with slides.Presentation("sample.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    first_row = table.rows[0]
+    first_column = table.columns[0]
+    first_cell = first_row[0]
 
-	table_format_effective = table.table_format.get_effective()
-	row_format_effective = table.rows[0].row_format.get_effective()
-	column_format_effective = table.columns[0].column_format.get_effective()
-	cell_format_effective = table[0, 0].cell_format.get_effective()
+    table_format_effective = table.table_format.get_effective()
+    row_format_effective = first_row.row_format.get_effective()
+    column_format_effective = first_column.column_format.get_effective()
+    cell_format_effective = first_cell.cell_format.get_effective()
 
-	table_fill_format_effective = table_format_effective.fill_format
-	row_fill_format_effective = row_format_effective.fill_format
-	column_fill_format_effective = column_format_effective.fill_format
-	cell_fill_format_effective = cell_format_effective.fill_format
+    table_fill_format_effective = table_format_effective.fill_format
+    row_fill_format_effective = row_format_effective.fill_format
+    column_fill_format_effective = column_format_effective.fill_format
+    cell_fill_format_effective = cell_format_effective.fill_format
 ```
-
 
 ## **FAQ**
 
-**Wie kann ich erkennen, ob ich einen „Snapshot“ statt eines „Live‑Objekts“ erhalten habe, und wann sollte ich die **effective** Eigenschaften erneut auslesen?**
+**Gibt `get_effective` einen Schnappschuss zurück?**
 
-**EffectiveData**‑Objekte sind unveränderliche Schnappschüsse von berechneten Werten zum Zeitpunkt des Aufrufs. Wenn Sie lokale oder geerbte Einstellungen der Form ändern, lesen Sie die **effective** Daten erneut, um die aktualisierten Werte zu erhalten.
+Nicht immer. Effektive Daten stellen die berechnete Formatierung nach Anwendung der Vererbung dar, jedoch können einige effektive Datenobjekte intern zwischengespeichert werden. Ein nachfolgender Aufruf von `get_effective` kann die Formatierung neu berechnen und die zwischengespeicherten Daten aktualisieren, sodass ein zuvor erhaltenes Objekt nicht als dauerhafter Schnappschuss angesehen werden sollte.
 
-**Wirkt sich das Ändern des Layouts/der Masterfolie auf bereits abgerufene **effective** Eigenschaften aus?**
+**Wann sollte ich effektive Eigenschaften erneut auslesen?**
 
-Ja, jedoch erst, nachdem Sie sie erneut gelesen haben. Ein bereits erhaltenes **EffectiveData**‑Objekt aktualisiert sich nicht selbst – fordern Sie es nach einer Änderung des Layouts oder Masters erneut an.
+Rufen Sie `get_effective` erneut auf, nachdem Sie lokale Formatierungen, übergeordnete Stile, Layout‑Formatierungen, Master‑Formatierungen oder Präsentations‑Standardeinstellungen geändert haben. Der nächste Aufruf wertet die Formatierungshierarchie neu aus und gibt das aktuelle effektive Ergebnis zurück.
 
-**Kann ich Werte über **EffectiveData** verändern?**
+**Wirkt sich das Ändern oder Entfernen einer Layout‑/Master‑Folie auf bereits abgerufene effektive Eigenschaften aus?**
 
-Nein. **EffectiveData** ist schreibgeschützt. Nehmen Sie Änderungen in den lokalen Formatierungsobjekten (Form/Text/3D usw.) vor und holen Sie sich anschließend ggf. erneut die **effective** Werte.
+Ja, jedoch wird die Änderung erst beim nächsten Aufruf von `get_effective` berücksichtigt. Wenn eine übergeordnete Formatierungsquelle geändert oder entfernt wird, können zuvor erhaltene effektive Daten veraltet sein. Sobald `get_effective` erneut aufgerufen wird, bewertet Aspose.Slides den Formatierungsbaum neu und die resultierenden Schriftarten, Farben, Größen oder andere Werte können sich ändern.
+
+**Kann ich Werte über effektive Datenobjekte ändern?**
+
+Nein. Effektive Datenobjekte geben nur berechnete Werte wieder. Änderungen sollten an den lokalen Formatierungsobjekten vorgenommen werden, danach können die effektiven Werte erneut abgefragt werden.
 
 **Was passiert, wenn ein Property weder auf Form‑Ebene, noch im Layout/Master, noch in den globalen Einstellungen gesetzt ist?**
 
-Der **effective** Wert wird durch den Standard‑Mechanismus (PowerPoint/Aspose.Slides‑Standardwerte) bestimmt. Dieser aufgelöste Wert wird Teil des **EffectiveData**‑Snapshots.
+Der effektive Wert wird durch den Standard‑Mechanismus bestimmt, der die Vorgaben von PowerPoint und Aspose.Slides umfasst. Dieser ermittelte Wert wird Teil der aktuellen effektiven Daten.
 
-**Kann ich aus einem **effective** Schriftwert ableiten, welche Ebene die Größe bzw. die Schriftart bereitgestellt hat?**
+**Kann ich aus einem effektiven Schriftwert erkennen, welche Ebene Größe oder Schriftart bereitgestellt hat?**
 
-Nicht direkt. **EffectiveData** liefert den endgültigen Wert. Um die Quelle zu finden, prüfen Sie die lokalen Werte auf Abschnitt/Absatz/Textrahmen‑Ebene und die Textstile im Layout/Master/Präsentation, um zu sehen, wo die erste explizite Definition vorkommt.
+Nicht direkt. Effektive Daten geben nur den endgültigen Wert zurück. Um die Quelle zu ermitteln, prüfen Sie die lokalen Werte im Abschnitt, Absatz, Textfeld und den Textstilen auf Layout‑, Master‑ und Präsentationsebene, um zu sehen, wo die erste explizite Definition vorkommt.
 
-**Warum sehen **EffectiveData**‑Werte manchmal identisch mit den lokalen aus?**
+**Warum sehen effektive Werte manchmal identisch mit den lokalen aus?**
 
-Weil der lokale Wert letztlich final ist (keine höhere Ebene musste vererbt werden). In solchen Fällen stimmt der **effective** Wert mit dem lokalen überein.
+Weil der lokale Wert letztlich endgültig war (keine höhere Vererbung erforderlich war). In solchen Fällen entspricht der effektive Wert dem lokalen.
 
-**Wann sollte ich **effective** Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
+**Wann sollte ich effektive Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
 
-Verwenden Sie **EffectiveData**, wenn Sie das „wie gerenderte“ Ergebnis nach vollständiger Vererbung benötigen (z. B. zum Ausrichten von Farben, Einzügen oder Größen). Wenn Sie die Formatierung auf einer bestimmten Ebene ändern wollen, bearbeiten Sie die lokalen Eigenschaften und lesen Sie ggf. anschließend **EffectiveData** erneut, um das Ergebnis zu prüfen.
+Verwenden Sie effektive Daten, wenn Sie das „wie gerenderte“ Ergebnis nach Anwendung aller Vererbungen benötigen, z. B. zum Abstimmen von Farben, Einzügen oder Größen. Wenn Sie diese Werte unabhängig von späteren Formatierungsänderungen bewahren müssen, kopieren Sie die erforderlichen Eigenschaften in ein eigenes Objekt. Wenn Sie die Formatierung auf einer bestimmten Ebene ändern möchten, passen Sie die lokalen Eigenschaften an und lesen Sie ggf. die effektiven Daten erneut aus, um das Ergebnis zu überprüfen.

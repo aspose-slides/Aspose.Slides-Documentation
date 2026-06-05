@@ -1,0 +1,306 @@
+---
+title: 外部リンク画像付きでプレゼンテーションを HTML にエクスポート
+type: docs
+weight: 100
+url: /ja/nodejs-java/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- PowerPoint をエクスポート
+- OpenDocument をエクスポート
+- プレゼンテーションをエクスポート
+- スライドをエクスポート
+- PPT をエクスポート
+- PPTX をエクスポート
+- ODP をエクスポート
+- PowerPoint を HTML に変換
+- OpenDocument を HTML に変換
+- プレゼンテーションを HTML に変換
+- スライドを HTML に変換
+- PPT を HTML に変換
+- PPTX を HTML に変換
+- ODP を HTML に変換
+- リンク画像
+- 外部リンク画像
+- リンクリソース
+- 外部リソース
+- JavaScript
+- Node.js
+- Aspose.Slides
+description: "Java を介して Aspose.Slides for Node.js を使用し、画像やその他のリソースを外部リンクファイルとして保存しながら、PowerPoint および OpenDocument のプレゼンテーションを JavaScript で HTML にエクスポートします。"
+---
+## **概要**
+
+既定では、Aspose.Slides はプレゼンテーションを自己完結型の HTML ファイルとしてエクスポートします。画像やその他のリソースは通常 Base64 データとして HTML に直接書き込まれます。これは 1 つのポータブルなファイルが欲しいときには便利ですが、Web サイトや CMS、サーバー側の変換パイプラインにとって最適な形式とは限りません。
+
+外部リンクリソースを使用したい場合:
+
+- HTML ドキュメントのサイズを削減したいとき
+- 画像、フォント、音声、動画をブラウザーや CDN で個別にキャッシュしたいとき
+- エクスポート後に生成されたリソースを検査、置換、圧縮、または後処理したいとき
+- 出力構造を Web アプリケーションが期待する形に近づけたいとき
+
+一般的な HTML 変換フローについては、[PowerPoint プレゼンテーションを HTML に変換](/slides/ja/nodejs-java/convert-powerpoint-to-html/) を参照してください。本記事はエクスポート時のリソースリンク付け部分に焦点を当てています。
+
+## **リンクリソースエクスポートの仕組み**
+
+[ILinkEmbedController](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) の Java プロキシを使用すると、アプリケーションはリソースごとに HTML にデータを埋め込むか外部に保存してリンクを書くかを決定できます。
+
+コントローラには 3 つのメソッドがあります:
+
+- [ILinkEmbedController.getObjectStoringLocation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) はリソースをリンクするか埋め込むかを決定します。
+- [ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は生成された HTML または他のリンクリソースに書き込まれる URL を返します。
+- [ILinkEmbedController.saveExternal](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) はリンクリソースデータをディスクまたは別のストレージ先に書き込みます。
+
+ファイルシステム上のパスとブラウザー URL は別々に考慮されます。例えば、以下のサンプルはリソースファイルをディスク上の `html-output/assets` に書き込み、HTML には `assets/resource-1.svg` のような相対 URL が含まれます。ブラウザーはリンクを含むファイルを基準に URL を解決します。そのため、`presentation.html` から SVG ファイルへのリンクは `assets/resource-1.svg` となり、同じ `assets` フォルダーに保存された画像へのリンクは `resource-4.jpg` になります。
+
+## **リンクリソース付きで HTML をエクスポートする**
+
+以下の JavaScript サンプルは出力ディレクトリを作成し、HTML ファイルをその中に保存し、リンクリソースを `assets` サブディレクトリに格納します。コントローラは Aspose.Slides が提供または推測できる安全な拡張子がある場合に、共通の画像、フォント、音声、動画、CSS リソースをリンクします。認識されないリソースは埋め込まれたままです。
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+const path = require("path");
+
+class ExternalResourceController {
+    constructor(assetDirectory, assetUrlPrefix) {
+        if (assetDirectory == null || assetDirectory.trim().length === 0) {
+            throw new Error("The asset output directory must not be empty.");
+        }
+
+        this.assetDirectory = assetDirectory;
+        this.assetUrlPrefix = normalizeUrlPrefix(assetUrlPrefix);
+        this.fileNamesByResourceId = new Map();
+    }
+
+    createProxy() {
+        const linkEmbedControllerInterfaceName = "com.aspose.slides.ILinkEmbedController";
+        let controller = this;
+        return java.newProxy(linkEmbedControllerInterfaceName, {
+            getObjectStoringLocation: function(resourceId, entityData, semanticName, contentType, recommendedExtension) {
+                return controller.getObjectStoringLocation(
+                    resourceId,
+                    entityData,
+                    semanticName,
+                    contentType,
+                    recommendedExtension);
+            },
+            getUrl: function(resourceId, referrer) {
+                return controller.getUrl(resourceId, referrer);
+            },
+            saveExternal: function(resourceId, entityData) {
+                controller.saveExternal(resourceId, entityData);
+            }
+        });
+    }
+
+    getObjectStoringLocation(resourceId, entityData, semanticName, contentType, recommendedExtension) {
+        let extension = resolveExtension(contentType, recommendedExtension);
+        if (extension == null) {
+            return aspose.slides.LinkEmbedDecision.Embed;
+        }
+
+        this.fileNamesByResourceId.set(resourceId, "resource-" + resourceId + extension);
+        return aspose.slides.LinkEmbedDecision.Link;
+    }
+
+    getUrl(resourceId, referrer) {
+        let fileName = this.fileNamesByResourceId.get(resourceId);
+        if (fileName == null) {
+            return null;
+        }
+
+        if (this.fileNamesByResourceId.has(referrer)) {
+            return fileName;
+        }
+
+        return this.assetUrlPrefix + fileName;
+    }
+
+    saveExternal(resourceId, entityData) {
+        let fileName = this.fileNamesByResourceId.get(resourceId);
+        if (fileName == null) {
+            throw new Error("Resource " + resourceId + " was not registered for external storage.");
+        }
+
+        if (entityData == null || entityData.length === 0) {
+            throw new Error("Resource " + resourceId + " contains no data and cannot be saved.");
+        }
+
+        fs.mkdirSync(this.assetDirectory, { recursive: true });
+
+        let filePath = path.join(this.assetDirectory, fileName);
+        let fileData = Buffer.from(entityData);
+        fs.writeFileSync(filePath, fileData);
+    }
+}
+
+function createExtensionsByContentType() {
+    let extensionsByContentType = new Map();
+    extensionsByContentType.set("image/jpeg", ".jpg");
+    extensionsByContentType.set("image/png", ".png");
+    extensionsByContentType.set("image/gif", ".gif");
+    extensionsByContentType.set("image/bmp", ".bmp");
+    extensionsByContentType.set("image/svg+xml", ".svg");
+    extensionsByContentType.set("image/tiff", ".tiff");
+    extensionsByContentType.set("image/x-emf", ".emf");
+    extensionsByContentType.set("image/x-wmf", ".wmf");
+    extensionsByContentType.set("font/woff", ".woff");
+    extensionsByContentType.set("font/woff2", ".woff2");
+    extensionsByContentType.set("font/ttf", ".ttf");
+    extensionsByContentType.set("application/font-woff", ".woff");
+    extensionsByContentType.set("application/vnd.ms-fontobject", ".eot");
+    extensionsByContentType.set("application/x-font-ttf", ".ttf");
+    extensionsByContentType.set("text/css", ".css");
+    extensionsByContentType.set("audio/mpeg", ".mp3");
+    extensionsByContentType.set("audio/mp4", ".m4a");
+    extensionsByContentType.set("audio/wav", ".wav");
+    extensionsByContentType.set("video/mp4", ".mp4");
+    extensionsByContentType.set("video/webm", ".webm");
+    return extensionsByContentType;
+}
+
+let extensionsByContentType = createExtensionsByContentType();
+
+function resolveExtension(contentType, recommendedExtension) {
+    if (contentType != null && contentType.trim().length > 0) {
+        let mappedExtension = extensionsByContentType.get(contentType);
+        if (mappedExtension != null) {
+            return mappedExtension;
+        }
+    }
+
+    if (!isSupportedContentType(contentType)) {
+        return null;
+    }
+
+    return normalizeExtension(recommendedExtension);
+}
+
+function isSupportedContentType(contentType) {
+    if (contentType == null) {
+        return false;
+    }
+
+    let normalizedContentType = contentType.toLowerCase();
+    return normalizedContentType.startsWith("image/") ||
+        normalizedContentType.startsWith("font/") ||
+        normalizedContentType.startsWith("audio/") ||
+        normalizedContentType.startsWith("video/");
+}
+
+function normalizeExtension(extension) {
+    if (extension == null || extension.trim().length === 0) {
+        return null;
+    }
+
+    let extensionCharacters = extension.trim();
+    while (extensionCharacters.startsWith(".")) {
+        extensionCharacters = extensionCharacters.substring(1);
+    }
+
+    if (extensionCharacters.length === 0) {
+        return null;
+    }
+
+    for (let index = 0; index < extensionCharacters.length; index++) {
+        let character = extensionCharacters[index];
+        if (!/[A-Za-z0-9]/.test(character)) {
+            return null;
+        }
+    }
+
+    return "." + extensionCharacters.toLowerCase();
+}
+
+function normalizeUrlPrefix(urlPrefix) {
+    if (urlPrefix == null || urlPrefix.length === 0) {
+        return "";
+    }
+
+    let normalizedUrlPrefix = urlPrefix.replace(/\\/g, "/");
+    return normalizedUrlPrefix.endsWith("/")
+        ? normalizedUrlPrefix
+        : normalizedUrlPrefix + "/";
+}
+
+let inputFilePath = "presentation.pptx";
+let outputDirectory = "html-output";
+let assetDirectoryName = "assets";
+let assetDirectory = path.join(outputDirectory, assetDirectoryName);
+
+fs.mkdirSync(outputDirectory, { recursive: true });
+fs.mkdirSync(assetDirectory, { recursive: true });
+
+let assetUrlPrefix = assetDirectoryName + "/";
+let controllerWrapper = new ExternalResourceController(assetDirectory, assetUrlPrefix);
+let controller = controllerWrapper.createProxy();
+let svgOptions = new aspose.slides.SVGOptions(controller);
+let slideImageFormat = aspose.slides.SlideImageFormat.svg(svgOptions);
+
+let htmlOptions = new aspose.slides.HtmlOptions(controller);
+htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createDocumentFormatter("", false));
+htmlOptions.setSlideImageFormat(slideImageFormat);
+
+let presentation = new aspose.slides.Presentation(inputFilePath);
+try {
+    let htmlFilePath = path.join(outputDirectory, "presentation.html");
+    presentation.save(htmlFilePath, aspose.slides.SaveFormat.Html, htmlOptions);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
+    }
+}
+```
+
+エクスポート後、出力フォルダーは次のような構成になります:
+
+```text
+html-output/
+  presentation.html
+  assets/
+    resource-1.svg
+    resource-2.svg
+    resource-3.svg
+    resource-4.jpg
+    resource-5.png
+```
+
+正確なファイルはプレゼンテーションの内容とエクスポートオプションによって異なります。たとえば、ラスター画像は一般的に JPEG または PNG としてエクスポートされます。Aspose.Slides は、サイズが小さくなる、またはより適したファイルになる場合に、元のプレゼンテーションで使用されていたものとは異なる画像コーデックを選択することがあります。透過を含む画像は PNG としてエクスポートされます。
+
+## **デプロイ用 URL の選択**
+
+サンプルは相対 URL プレフィックス `assets/` を使用しています。`presentation.html` が `html-output/presentation.html` から開かれると、ブラウザーは `html-output/assets/resource-1.svg` を読み込みます。
+
+あるリンクリソースが別のリンクリソースを参照する場合、サンプルは [ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) の `referrer` パラメーターを使用し、ファイル名だけを返します。たとえば、`resource-1.svg` と `resource-4.jpg` が同じ `assets` フォルダーにある場合、SVG ファイルは `resource-4.jpg` を参照すべきであり、`assets/resource-4.jpg` ではありません。
+
+ファイルを別の場所にデプロイする場合は、異なる URL プレフィックスを使用してください:
+
+- HTML ファイルの横にアセットディレクトリがある場合は `assets/` を使用
+- アセットディレクトリが HTML ファイルの 1 レベル上にある場合は `../assets/` を使用
+- CDN や静的ファイルサーバーにアップロードする場合は `https://cdn.example.com/presentations/job-123/assets/` を使用
+
+[ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) が返す URL は、[ILinkEmbedController.saveExternal](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) が書き込むファイルの最終デプロイ先と一致する必要があります。サーバーアプリケーションでは、変換ジョブごとに一意の出力ディレクトリまたはオブジェクトストレージプレフィックスを使用し、別のエクスポートからのファイル上書きを防止してください。
+
+## **埋め込みに切り替えるべきケース**
+
+埋め込み Base64 HTML は、出力が単一ファイルである必要がある場合（メール添付、オフラインプレビュー、資産フォルダーを伴わずに移動されるドキュメントなど）に依然有用です。リンクリソースは、HTML が Web アプリケーションで配信される、CMS に保存される、ビルドパイプラインで最適化される、またはブラウザーが HTML とは独立してキャッシュする場合に適しています。
+
+## **FAQ**
+
+**画像だけを外部化し、他のリソースは埋め込みのままにできますか？**
+
+はい。[ILinkEmbedController.getObjectStoringLocation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) で、別ファイルとして保存したいコンテンツタイプに対して `LinkEmbedDecision.Link` を返し、その他は `LinkEmbedDecision.Embed` を返すようにしてください。
+
+**エクスポートされた画像の拡張子が元のプレゼンテーションと異なるのはなぜですか？**
+
+Aspose.Slides は HTML エクスポート時にサイズやブラウザー互換性を向上させるため、ラスター画像を再エンコードすることがあります。たとえば、元ファイルの画像が JPEG または PNG のいずれかで書き出されることがあります。
+
+**HTML ファイルを移動した後でも相対 URL は機能しますか？**
+
+相対 URL は同じ相対フォルダー構造が保たれる場合にのみ機能します。HTML が `assets/resource-1.png` を参照している場合、`assets` フォルダーは HTML ファイルの隣に残すか、別の URL プレフィックスを生成する必要があります。
+
+**サーバーアプリケーションは同じ出力フォルダーを再利用すべきですか？**
+
+いいえ。変換ジョブごとに一意の出力ディレクトリまたはストレージプレフィックスを使用してください。これによりファイル名の衝突を防ぎ、あるエクスポートが別のエクスポートで生成されたリソースを上書きすることを防止できます。

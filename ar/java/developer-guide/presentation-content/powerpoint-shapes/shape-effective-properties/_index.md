@@ -1,242 +1,337 @@
 ---
-title: الحصول على خصائص الشكل الفعالة من العروض التقديمية في جافا
-linktitle: الخصائص الفعالة
+title: "الحصول على خصائص الشكل الفعالة من العروض التقديمية في Java"
+linktitle: "الخصائص الفعالة"
 type: docs
 weight: 50
 url: /ar/java/shape-effective-properties/
 keywords:
-  - خصائص الشكل
-  - خصائص الكاميرا
-  - مجموعة الإضاءة
-  - الشكل المائل
-  - إطار النص
-  - نمط النص
-  - ارتفاع الخط
-  - تنسيق التعبئة
-  - PowerPoint
-  - العرض التقديمي
-  - Java
-  - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides for Java بحساب وتطبيق خصائص الشكل الفعالة للحصول على عرض PowerPoint دقيق."
+- "خصائص الشكل"
+- "خصائص الكاميرا"
+- "إعداد الإضاءة"
+- "شكل الحافة"
+- "إطار النص"
+- "نمط النص"
+- "ارتفاع الخط"
+- "تنسيق التعبئة"
+- PowerPoint
+- "عرض تقديمي"
+- Java
+- Aspose.Slides
+description: "اكتشف كيفية حساب وتطبيق Aspose.Slides for Java لخصائص الشكل الفعالة لضمان عرض PowerPoint بدقة."
 ---
+## **نظرة عامة**
 
-في هذا الموضوع، سنناقش الخصائص **الفعالة** و **المحلية**. عندما نحدد القيم مباشرةً في هذه المستويات
+هذه المقالة تشرح الفرق بين الخصائص **المحلية** و **الفعالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً على مستوى تنسيق معين، مثل:
 
-1. في خصائص الجزء على شريحة الجزء؛
-1. في نمط نص الشكل النموذجي على الشريحة التخطيطية أو الشريحة الرئيسية (إذا كان لشكل إطار النص للجزء واحد);
-1. في إعدادات النص العامة للعرض التقديمي؛
+1. خصائص الجزء على شريحة.
+1. أنماط نص الشكل النموذجي على تخطيط أو شريحة أساسية، عندما يكون للشكل إطار نص للجزء.
+1. إعدادات النص العامة في عرض تقديمي.
 
-تُسمى تلك القيم **القيم المحلية**. في أي مستوى، يمكن تعريف **القيم المحلية** أو حذفها. ولكن عندما يحتاج التطبيق إلى معرفة شكل الجزء، يستخدم **القيم الفعالة**. يمكنك الحصول على القيم الفعالة باستخدام الطريقة **getEffective()** من التنسيق المحلي.
+يمكن تعريف القيم المحلية أو إغفالها على أي مستوى. عندما تحتاج Aspose.Slides إلى تنسيق "كما يُعرض" النهائي، تقوم بحل سلسلة الوراثة وتعيد القيم **الفعالة**. يمكن الحصول عليها باستدعاء طريقة `getEffective` على كائن التنسيق المحلي.
 
-يعرض لك هذا الكود النموذجي كيفية الحصول على القيم الفعالة:
+المثال التالي يوضح كيفية الحصول على القيم الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص وعلى الأقل جزء واحد.
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
 
     ITextFrameFormat localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
     ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.getEffective();
 
-    IPortionFormat localPortionFormat = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    IPortion portion = paragraph.getPortions().get_Item(0);
+    IPortionFormat localPortionFormat = portion.getPortionFormat();
     IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.getEffective();
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="primary" %}}
+تمثل بيانات التنسيق الفعالة التنسيق المُحسب الحالي بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعالة مؤقتًا، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPortionFormatEffectiveData)، داخليًا. استدعاء `getEffective` مرة أخرى بعد تغيير التنسيق الأب أو الموروث يمكنه تحديث البيانات المخزنة مؤقتًا، وقد لا يُمثل الكائن المسترجع مسبقًا الحالة السابقة. إذا كنت بحاجة إلى حفظ القيم الفعالة للاستخدام لاحقًا، انسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن البيانات الخاص بك.
+{{% /alert %}}
 
-## **الحصول على الخصائص الفعالة للكاميرا**
-تسمح Aspose.Slides for Java للمطورين بالحصول على الخصائص الفعالة للكاميرا. لهذا الغرض، تمت إضافة الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) إلى Aspose.Slides. تمثل واجهة [ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. يُستخدم كائن من الواجهة [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData)، والتي تُعد زوجًا من [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) للفئة [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
+## **الحصول على خصائص الكاميرا الفعالة**
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة للكاميرا:
+Aspose.Slides يتيح لك الحصول على الخصائص الفعالة للكاميرا. تمثل الواجهة [ICameraEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. يتم الكشف عن مثال [ICameraEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICameraEffectiveData) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
+
+يعرض المثال البرمجي التالي كيفية الحصول على الخصائص الفعالة للكاميرا. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IThreeDFormatEffectiveData threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    
+    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
+    int cameraType = cameraEffectiveData.getCameraType();
+    double fieldOfViewAngle = cameraEffectiveData.getFieldOfViewAngle();
+    double zoom = cameraEffectiveData.getZoom();
 
     System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + threeDEffectiveData.getCamera().getCameraType());
-    System.out.println("Field of view: " + threeDEffectiveData.getCamera().getFieldOfViewAngle());
-    System.out.println("Zoom: " + threeDEffectiveData.getCamera().getZoom());
+    System.out.println("Type: " + cameraType);
+    System.out.println("Field of view: " + fieldOfViewAngle);
+    System.out.println("Zoom: " + zoom);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على خصائص إعداد الإضاءة الفعالة**
 
-## **الحصول على الخصائص الفعالة لمجموعة الإضاءة**
-تسمح Aspose.Slides for Java للمطورين بالحصول على الخصائص الفعالة لمجموعة الإضاءة. لهذا الغرض، تمت إضافة الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) إلى Aspose.Slides. تمثل واجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص مجموعة الإضاءة الفعالة. يُستخدم كائن من الواجهة [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) ، والتي تُعد زوجًا من [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) للفئة [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
+Aspose.Slides يتيح لك الحصول على الخصائص الفعالة لإعداد الإضاءة. تمثل الواجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص إعداد الإضاءة الفعالة. يتم الكشف عن مثال [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ILightRigEffectiveData) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لمجموعة الإضاءة:
+يعرض المثال البرمجي التالي كيفية الحصول على الخصائص الفعالة لإعداد الإضاءة. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IThreeDFormatEffectiveData threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    
+    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
+    int lightType = lightRigEffectiveData.getLightType();
+    int direction = lightRigEffectiveData.getDirection();
 
     System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + threeDEffectiveData.getLightRig().getLightType());
-    System.out.println("Direction: " + threeDEffectiveData.getLightRig().getDirection());
+    System.out.println("Type: " + lightType);
+    System.out.println("Direction: " + direction);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على خصائص الحافة الشكلية الفعالة**
 
-## **الحصول على الخصائص الفعالة للشكل المائل**
-تسمح Aspose.Slides for Java للمطورين بالحصول على الخصائص الفعالة للشكل المائل. لهذا الغرض، تمت إضافة الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) إلى Aspose.Slides. تمثل واجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص إطلالة شكل الوجه الفعالة. يُستخدم كائن من الواجهة [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) كجزء من واجهة [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) ، والتي تُعد زوجًا من [القيم الفعالة](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) للفئة [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat).
+Aspose.Slides يتيح لك الحصول على الخصائص الفعالة لحافة الشكل. تمثل الواجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الاحتراف الفعالة للشكل. يتم الكشف عن مثال [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeBevelEffectiveData) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على الخصائص الفعالة لشكل الإقلام:
+يعرض المثال البرمجي التالي كيفية الحصول على الخصائص الفعالة للحافة العليا للشكل. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IThreeDFormatEffectiveData threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    
+    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    IShapeBevelEffectiveData bevelTop = threeDEffectiveData.getBevelTop();
+    int bevelType = bevelTop.getBevelType();
+    double bevelWidth = bevelTop.getWidth();
+    double bevelHeight = bevelTop.getHeight();
 
     System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + threeDEffectiveData.getBevelTop().getBevelType());
-    System.out.println("Width: " + threeDEffectiveData.getBevelTop().getWidth());
-    System.out.println("Height: " + threeDEffectiveData.getBevelTop().getHeight());
+    System.out.println("Type: " + bevelType);
+    System.out.println("Width: " + bevelWidth);
+    System.out.println("Height: " + bevelHeight);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على خصائص إطار النص الفعالة**
 
-## **الحصول على الخصائص الفعالة لإطار النص**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على الخصائص الفعالة لإطار النص. لهذا الغرض، تمت إضافة الواجهة [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص الفعالة.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعالة لإطار النص. الواجهة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITextFrameFormatEffectiveData) تحتوي على خصائص تنسيق إطار النص الفعالة.
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على خصائص تنسيق إطار النص الفعالة:
+يعرض المثال البرمجي التالي كيفية الحصول على خصائص تنسيق إطار النص الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص.
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
 
-    System.out.println("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    System.out.println("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    System.out.println("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
+    ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
+    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.getEffective();
+    int anchoringType = effectiveTextFrameFormat.getAnchoringType();
+    int autofitType = effectiveTextFrameFormat.getAutofitType();
+    int textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
+    double marginLeft = effectiveTextFrameFormat.getMarginLeft();
+    double marginTop = effectiveTextFrameFormat.getMarginTop();
+    double marginRight = effectiveTextFrameFormat.getMarginRight();
+    double marginBottom = effectiveTextFrameFormat.getMarginBottom();
+
+    System.out.println("Anchoring type: " + anchoringType);
+    System.out.println("Autofit type: " + autofitType);
+    System.out.println("Text vertical type: " + textVerticalType);
     System.out.println("Margins");
-    System.out.println("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    System.out.println("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    System.out.println("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    System.out.println("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
+    System.out.println("   Left: " + marginLeft);
+    System.out.println("   Top: " + marginTop);
+    System.out.println("   Right: " + marginRight);
+    System.out.println("   Bottom: " + marginBottom);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على خصائص نمط النص الفعالة**
 
-## **الحصول على الخصائص الفعالة لنمط النص**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على الخصائص الفعالة لنمط النص. لهذا الغرض، تمت إضافة الواجهة [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData) إلى Aspose.Slides. تحتوي على خصائص نمط النص الفعالية.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعالة لنمط النص. الواجهة [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITextStyleEffectiveData) تحتوي على خصائص نمط النص الفعالة.
 
-يعرض لك هذا المثال البرمجي كيفية الحصول على خصائص نمط النص الفعالة:
+يعرض المثال البرمجي التالي كيفية الحصول على خصائص نمط النص الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص.
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+    
     ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
+    int levelCount = 9;
 
-    for (int i = 0; i <= 8; i++)
+    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
     {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(i);
-        System.out.println("= Effective paragraph formatting for style level #" + i + " =");
+        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
+        int depth = effectiveStyleLevel.getDepth();
+        double indent = effectiveStyleLevel.getIndent();
+        int alignment = effectiveStyleLevel.getAlignment();
+        int fontAlignment = effectiveStyleLevel.getFontAlignment();
+        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
 
-        System.out.println("Depth: " + effectiveStyleLevel.getDepth());
-        System.out.println("Indent: " + effectiveStyleLevel.getIndent());
-        System.out.println("Alignment: " + effectiveStyleLevel.getAlignment());
-        System.out.println("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+        System.out.println("Depth: " + depth);
+        System.out.println("Indent: " + indent);
+        System.out.println("Alignment: " + alignment);
+        System.out.println("Font alignment: " + fontAlignment);
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على قيمة ارتفاع الخط الفعالة**
 
-## **الحصول على قيمة ارتفاع الخط الفعال**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على الخصائص الفعالة لارتفاع الخط. هنا، نقدم كودًا يُظهر قيمة ارتفاع الخط الفعالة للجزء تتغير بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي:
+باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعال. يوضح الكود التالي كيف يتغير ارتفاع الخط الفعال للجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة في بنية العرض.
+
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape newShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    newShape.addTextFrame("");
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().clear();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
+    autoShape.addTextFrame("");
 
-    IPortion portion0 = new Portion("Sample text with first portion");
-    IPortion portion1 = new Portion(" and second portion.");
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion0);
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion1);
+    IPortion firstPortion = new Portion("Sample text with first portion");
+    IPortion secondPortion = new Portion(" and second portion.");
 
+    paragraph.getPortions().add(firstPortion);
+    paragraph.getPortions().add(secondPortion);
+
+    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    
     System.out.println("Effective font height just after creation:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    pres.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    System.out.println("Effective font height after setting entire presentation default font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    System.out.println("Effective font height after setting the presentation default font height:");
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
+
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
     System.out.println("Effective font height after setting paragraph default font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(55);
+    firstPortion.getPortionFormat().setFontHeight(55);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
     System.out.println("Effective font height after setting portion #0 font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(1).getPortionFormat().setFontHeight(18);
+    secondPortion.getPortionFormat().setFontHeight(18);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    
     System.out.println("Effective font height after setting portion #1 font height:");
-    System.out.println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    System.out.println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    System.out.println("Portion #0: " + firstPortionFontHeight);
+    System.out.println("Portion #1: " + secondPortionFontHeight);
 
-    pres.save("SetLocalFontHeightValues.pptx",SaveFormat.Pptx);
+    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **الحصول على تنسيق التعبئة الفعال للجدول**
 
-## **الحصول على تنسيق التعبئة الفعال لجدول**
-باستخدام Aspose.Slides for Java، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. لهذا الغرض، تمت إضافة الواجهة [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData) إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعالة. يرجى ملاحظة ما يلي: تنسيق الخلية يحصل دائمًا على الأولوية على تنسيق الصف؛ والصف يحصل على الأولوية على العمود؛ والعمود يحصل على الأولوية على الجدول بأكمله.
+باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. الواجهة [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IFillFormatEffectiveData) تحتوي على خصائص تنسيق التعبئة الفعالة. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنسيق الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بالكامل.
+
+نتيجة لذلك، تُستخدم خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICellFormatEffectiveData) لرسم خلية الجدول. يعرض المثال البرمجي التالي كيفية الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول على الشريحة الأولى هو [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable).
+
 ```java
-Presentation pres = new Presentation("Presentation1.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ITable tbl = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ITableFormatEffectiveData tableFormatEffective = tbl.getTableFormat().getEffective();
-    IRowFormatEffectiveData rowFormatEffective = tbl.getRows().get_Item(0).getRowFormat().getEffective();
-    IColumnFormatEffectiveData columnFormatEffective = tbl.getColumns().get_Item(0).getColumnFormat().getEffective();
-    ICellFormatEffectiveData cellFormatEffective = tbl.get_Item(0, 0).getCellFormat().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    
+    ITableFormatEffectiveData tableFormatEffective = table.getTableFormat().getEffective();
+    IRowFormatEffectiveData rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    IColumnFormatEffectiveData columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    ICellFormatEffectiveData cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
 
     IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.getFillFormat();
     IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.getFillFormat();
     IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.getFillFormat();
     IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.getFillFormat();
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني معرفة أنني حصلت على "لقطة" بدلاً من "كائن حي"، ومتى يجب علي قراءة الخصائص الفعالة مرة أخرى؟**
-كائنات EffectiveData هي لقطات غير قابلة للتغيير للقيم المحسوبة في وقت الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل، استرجع البيانات الفعالة مرة أخرى للحصول على القيم المحدثة.
+**هل تُعيد `getEffective` لقطة؟**
 
-**هل يؤثر تغيير شريحة التخطيط/الرئيسية على الخصائص الفعالة التي تم استرجاعها مسبقًا؟**
-نعم، ولكن فقط بعد أن تقرأها مرة أخرى. كائن EffectiveData الذي تم الحصول عليه مسبقًا لا يتم تحديثه تلقائيًا—اطلبه مرة أخرى بعد تغيير التخطيط أو الشريحة الرئيسية.
+ليس دائماً. تمثل البيانات الفعالة التنسيق المُحسب بعد تطبيق الوراثة، لكن قد يتم تخزين بعض كائنات البيانات الفعالة داخليًا. قد يؤدي استدعاء `getEffective` لاحقًا إلى إعادة حساب التنسيق وتحديث البيانات المخزنة، لذا لا ينبغي اعتبار الكائن المسترجع مسبقًا لقطة ثابتة.
 
-**هل يمكنني تعديل القيم عبر EffectiveData؟**
-لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلية (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعالة مرة أخرى.
+**متى يجب علي قراءة الخصائص الفعالة مرة أخرى؟**
 
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل، ولا في التخطيط/الرئيسية، ولا في الإعدادات العامة؟**
-يتم تحديد القيمة الفعالة بواسطة آلية الافتراضي (إعدادات PowerPoint/Aspose.Slides الافتراضية). تصبح تلك القيمة المحسومة جزءًا من لقطة EffectiveData.
+استدعِ `getEffective` مرة أخرى بعد تعديل التنسيق المحلي أو أنماط الأب أو تنسيق التخطيط أو تنسيق الشريحة الأساسية أو الإعدادات الافتراضية على مستوى العرض. الإستدعاء التالي يعيد تقييم شجرة التنسيق ويعيد النتيجة الفعالة الحالية.
 
-**من قيمة الخط الفعالة، هل يمكنني معرفة أي مستوى قدّم الحجم أو نوع الخط؟**
-ليس مباشرة. تُعيد EffectiveData القيمة النهائية. للعثور على المصدر، تحقق من القيم المحلية في الجزء/الفقرة/إطار النص وأنماط النص في التخطيط/الرئيسية/العرض لمعرفة أين يظهر التعريف الصريح الأول.
+**هل يؤدي تعديل أو إزالة شريحة تخطيط/أساسية إلى تأثير على الخصائص الفعالة التي تم استرجاعها مسبقًا؟**
 
-**لماذا تبدو قيم EffectiveData أحيانًا مطابقة للقيم المحلية؟**
-لأن القيمة المحلية أصبحت النهائية (لم يُحتاج إلى وراثة من مستوى أعلى). في مثل هذه الحالات، تكون القيمة الفعالة مطابقة للقيمة المحلية.
+نعم، لكن التغيير ينعكس في الاستدعاء التالي لـ `getEffective`. إذا تم تعديل أو إزالة مصدر تنسيق أب، قد تصبح البيانات الفعالة التي تم الحصول عليها مسبقًا قديمة. بمجرد استدعاء `getEffective` مرة أخرى، يقوم Aspose.Slides بإعادة تقييم شجرة التنسيق وقد تتغير الخطوط أو الألوان أو الأحجام أو القيم الأخرى.
 
-**متى يجب علي استخدام الخصائص الفعالة، ومتى يجب أن أعمل فقط بالقيم المحلية؟**
-استخدم EffectiveData عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع الوراثات (مثال: لتطابق الألوان أو الهوامش أو الأحجام). إذا كنت بحاجة إلى تغيير التنسيق على مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.
+**هل يمكنني تعديل القيم عبر كائنات البيانات الفعالة؟**
+
+لا. كائنات البيانات الفعالة تُظهر القيم المحسوبة فقط. يجب إجراء التعديلات في كائنات التنسيق المحلية، ثم استرجاع القيم الفعالة مرة أخرى.
+
+**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل، ولا في التخطيط/الأساسي، ولا في الإعدادات العامة؟**
+
+يتم تحديد القيمة الفعالة عبر آلية القيم الافتراضية، التي تشمل الإعدادات الافتراضية لـ PowerPoint و Aspose.Slides. تصبح تلك القيمة المحسومة جزءًا من البيانات الفعالة الحالية.
+
+**من قيمة الخط الفعالة، هل يمكنني معرفة أي مستوى قدم الحجم أو الخط؟**
+
+ليس مباشرة. تُرجع البيانات الفعالة القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية في الجزء، الفقرة، إطار النص، وأنماط النص على مستوى التخطيط، الشريحة الأساسية، والعرض لتحديد أين تظهر التعريف الأول.
+
+**لماذا تبدو القيم الفعالة أحيانًا مماثلة للقيم المحلية؟**
+
+لأن القيمة المحلية أصبحت نهائية (لم يُستَخدم وراثة من مستوى أعلى). في هذه الحالة، تكون القيمة الفعالة مطابقة للقيمة المحلية.
+
+**متى يجب استخدام الخصائص الفعالة، ومتى يجب العمل فقط مع الخصائص المحلية؟**
+
+استخدم البيانات الفعالة عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق جميع وراثات التنسيق، مثل مطابقة الألوان أو الهوامش أو الأحجام. إذا كنت بحاجة إلى حفظ تلك القيم بغض النظر عن التغييرات المستقبلية، انسخ الخصائص المطلوبة إلى كائنك الخاص. إذا كنت تحتاج إلى تعديل التنسيق على مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، اقرأ البيانات الفعالة مرة أخرى للتحقق من النتيجة.

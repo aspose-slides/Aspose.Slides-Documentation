@@ -1,5 +1,5 @@
 ---
-title: 在 C++ 中从演示文稿获取形状的有效属性
+title: 从演示文稿中获取形状的有效属性（C++）
 linktitle: 有效属性
 type: docs
 weight: 50
@@ -17,97 +17,299 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "了解 Aspose.Slides for C++ 如何计算并应用形状有效属性，以实现精确的 PowerPoint 渲染。"
+description: "了解 Aspose.Slides for C++ 如何计算并应用有效的形状属性，以实现精确的 PowerPoint 渲染。"
 ---
+## **概述**
 
-在本主题中，我们将讨论 **effective**（有效）和 **local**（本地）属性。当我们在以下层级直接设置值时
+本主题解释了 **本地** 与 **有效** 属性之间的区别。本地值是直接在特定格式级别设置的值，例如：
 
-1. 在部分所在幻灯片上的部分属性。
-1. 在布局或母版幻灯片上的原型形状文本样式（如果该部分的文本框形状拥有）。
-1. 在演示文稿的全局文本设置中。
+1. 幻灯片上的段属性。
+1. 当段落的文本框形状具有段落样式时，布局或母版幻灯片上的原型形状文本样式。
+1. 演示文稿中的全局文本设置。
 
-这些值称为 **local**（本地）值。 在任何层级，都可以定义或省略 **local** 值。 但最终当程序需要知道该部分应呈现的外观时，会使用 **effective**（有效）值。 可以通过从本地格式调用 **GetEffective()** 方法来获取有效值。
+本地值可以在任何级别定义或省略。当 Aspose.Slides 需要最终的“呈现后”格式时，它会解析继承链并返回 **有效** 值。您可以通过在本地格式对象上调用 `GetEffective` 方法来获取它们。
 
-下面的示例展示了如何获取有效值。
+下面的示例演示如何获取有效值。假设第一张幻灯片上的第一个形状是一个带有文本框且至少包含一个段落的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
+auto slide = presentation->get_Slide(0);
+auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetEffectiveValues-GetEffectiveValues.cpp" >}}
+auto textFrame = shape->get_TextFrame();
+auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
 
+auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
+auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+
+presentation->Dispose();
+```
+
+{{% alert color="primary" %}}
+有效格式数据表示在应用继承后当前计算得到的格式。在当前实现中，某些有效数据对象（例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iportionformateffectivedata/)）可能会在内部被缓存。更改父级或继承的格式后再次调用 `GetEffective` 可以刷新缓存的数据，先前获取的对象可能不再表示之前的状态。如果需要保留有效值以供后续重用，请将所需的属性（例如字体高度、填充颜色、字体样式或对齐方式）复制到您自己的数据对象中。
+{{% /alert %}}
 
 ## **获取相机的有效属性**
-Aspose.Slides for C++ 允许开发人员获取相机的有效属性。 为此，在 Aspose.Slides 中添加了 **CameraEffectiveData** 类。CameraEffectiveData 类表示一个不可变对象，包含有效的相机属性。**CameraEffectiveData** 类的实例作为 **ThreeDFormatEffectiveData** 类的一部分使用，后者是 ThreeDFormat 类的有效值对。
 
-下面的代码示例展示了如何获取相机的有效属性。
+Aspose.Slides 允许您获取相机的有效属性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icameraeffectivedata/) 接口表示一个不可变对象，包含有效的相机属性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icameraeffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露，该接口为 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 提供有效值。
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetCameraEffectiveData-GetCameraEffectiveData.cpp" >}}
+以下代码示例展示如何获取相机的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
+
+auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
+auto camera = threeDEffectiveData->get_Camera();
+
+System::Console::WriteLine(u"= Effective camera properties =");
+auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
+System::Console::WriteLine(System::String(u"Type: ") + cameraType);
+
+auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
+System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
+
+auto cameraZoom = camera->get_Zoom();
+System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
+
+presentation->Dispose();
+```
 
 ## **获取灯光装置的有效属性**
-Aspose.Slides for C++ 允许开发人员获取灯光装置（Light Rig）的有效属性。 为此，在 Aspose.Slides 中添加了 **LightRigEffectiveData** 类。LightRigEffectiveData 类表示一个不可变对象，包含有效的灯光装置属性。**LightRigEffectiveData** 类的实例作为 **ThreeDFormatEffectiveData** 类的一部分使用，后者是 ThreeDFormat 类的有效值对。
 
-下面的代码示例展示了如何获取灯光装置的有效属性。
+Aspose.Slides 允许您获取灯光装置的有效属性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ilightrigeffectivedata/) 接口表示一个不可变对象，包含有效的灯光装置属性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ilightrigeffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露，该接口为 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 提供有效值。
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetLightRigEffectiveData-GetLightRigEffectiveData.cpp" >}}
+以下代码示例展示如何获取灯光装置的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
 
-## **获取斜面形状的有效属性**
-Aspose.Slides for C++ 允许开发人员获取斜面形状（Bevel Shape）的有效属性。 为此，在 Aspose.Slides 中添加了 **ShapeBevelEffectiveData** 类。ShapeBevelEffectiveData 类表示一个不可变对象，包含有效的形状面部浮雕属性。**ShapeBevelEffectiveData** 类的实例作为 **ThreeDFormatEffectiveData** 类的一部分使用，后者是 ThreeDFormat 类的有效值对。
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
 
-下面的代码示例展示了如何获取斜面形状的有效属性。
+auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
+auto lightRig = threeDEffectiveData->get_LightRig();
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetShapeBevelEffectiveData-GetShapeBevelEffectiveData.cpp" >}}
+System::Console::WriteLine(u"= Effective light rig properties =");
+auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
+System::Console::WriteLine(System::String(u"Type: ") + lightType);
+
+auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
+System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
+
+presentation->Dispose();
+```
+
+## **获取形状斜面（Bevel）的有效属性**
+
+Aspose.Slides 允许您获取形状斜面的有效属性。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapebeveleffectivedata/) 接口表示一个不可变对象，包含形状的有效面部凸起属性。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapebeveleffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露，该接口为 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 提供有效值。
+
+以下代码示例展示如何获取形状顶部斜面的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+
+auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
+auto bevelTop = threeDEffectiveData->get_BevelTop();
+
+System::Console::WriteLine(u"= Effective shape's top face relief properties =");
+auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
+System::Console::WriteLine(System::String(u"Type: ") + bevelType);
+
+auto bevelWidth = bevelTop->get_Width();
+System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
+
+auto bevelHeight = bevelTop->get_Height();
+System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
+
+presentation->Dispose();
+```
 
 ## **获取文本框的有效属性**
-使用 Aspose.Slides for C++，您可以获取文本框的有效属性。 为此，在 Aspose.Slides 中添加了 **TextFrameFormatEffectiveData** 类，其中包含有效的文本框格式属性。
 
-下面的代码示例展示了如何获取文本框的有效格式属性。
+使用 Aspose.Slides，您可以获取文本框的有效属性。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformateffectivedata/) 接口包含有效的文本框格式属性。
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetTextFrameFormatEffectiveData-GetTextFrameFormatEffectiveData.cpp" >}}
+以下代码示例展示如何获取有效的文本框格式属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+
+auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
+
+auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
+System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
+
+auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
+System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
+
+auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
+System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
+
+System::Console::WriteLine(u"Margins");
+auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
+System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
+
+auto marginTop = effectiveTextFrameFormat->get_MarginTop();
+System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
+
+auto marginRight = effectiveTextFrameFormat->get_MarginRight();
+System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
+
+auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
+System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
+
+presentation->Dispose();
+```
 
 ## **获取文本样式的有效属性**
-使用 Aspose.Slides for C++，您可以获取文本样式的有效属性。 为此，在 Aspose.Slides 中添加了 **TextStyleEffectiveData** 类，其中包含有效的文本样式属性。
 
-下面的代码示例展示了如何获取文本样式的有效属性。
+使用 Aspose.Slides，您可以获取文本样式的有效属性。[ITextStyleEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextstyleeffectivedata/) 接口包含有效的文本样式属性。
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetTextStyleEffectiveData-GetTextStyleEffectiveData.cpp" >}}
+以下代码示例展示如何获取有效的文本样式属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
 
-## **获取有效的字体高度值**
-使用 Aspose.Slides for C++，您可以获取字体高度的有效属性。 以下代码演示了在不同演示文稿结构层级上设置本地字体高度后，部分的有效字体高度值如何变化。
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetLocalFontHeightValues-SetLocalFontHeightValues.cpp" >}}
+auto slide = presentation->get_Slide(0);
+auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+int levelCount = 9;
+
+for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+{
+    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
+
+    auto depth = effectiveStyleLevel->get_Depth();
+    auto indent = effectiveStyleLevel->get_Indent();
+    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
+    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
+
+    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
+    System::Console::WriteLine(System::String(u"Depth: ") + depth);
+    System::Console::WriteLine(System::String(u"Indent: ") + indent);
+    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
+    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+}
+
+presentation->Dispose();
+```
+
+## **获取有效字体高度值**
+
+使用 Aspose.Slides，您可以获取有效的字体高度。以下代码演示在演示文稿结构的不同级别设置本地字体高度后，段落的有效字体高度如何变化。
+
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
+autoShape->AddTextFrame(u"");
+
+auto textFrame = autoShape->get_TextFrame();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
+auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
+
+portions->Add(firstPortion);
+portions->Add(secondPortion);
+
+System::Console::WriteLine(u"Effective font height just after creation:");
+auto firstPortionFormat = firstPortion->get_PortionFormat();
+auto secondPortionFormat = secondPortion->get_PortionFormat();
+
+auto printEffectiveFontHeights = [&]()
+{
+    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
+    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
+    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
+};
+
+printEffectiveFontHeights();
+
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+
+System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
+printEffectiveFontHeights();
+
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
+
+System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
+printEffectiveFontHeights();
+
+firstPortionFormat->set_FontHeight(55.0f);
+
+System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
+printEffectiveFontHeights();
+
+secondPortionFormat->set_FontHeight(18.0f);
+
+System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
+printEffectiveFontHeights();
+
+presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
 ## **获取表格的有效填充格式**
-使用 Aspose.Slides for C++，您可以获取不同表格逻辑部分的有效填充格式。 为此，在 Aspose.Slides 中添加了 **IFillFormatEffectiveData** 接口，包含有效的填充格式属性。请注意，单元格格式始终优先于行格式，行格式优先于列格式，列格式又优先于整个表格。
 
-因此最终始终使用 **CellFormatEffectiveData** 属性来绘制表格。下面的代码示例展示了如何获取不同表格逻辑部分的有效填充格式。
+使用 Aspose.Slides，您可以获取表格不同部分的有效填充格式。[IFillFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ifillformateffectivedata/) 接口包含有效的填充格式属性。单元格格式的优先级高于行格式，行格式高于列格式，列格式高于整表格式。
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetEffectiveValuesOfTable-GetEffectiveValuesOfTable.cpp" >}}
+因此，绘制表格单元格时使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icellformateffectivedata/) 的属性。以下代码示例展示如何获取表格不同部分的有效填充格式。假设第一张幻灯片上的第一个形状是一个 [ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/)。
 
-## **FAQ**
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-**我如何判断得到的是“快照”而不是“实时对象”，以及何时需要再次读取有效属性？**
+auto slide = presentation->get_Slide(0);
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-EffectiveData 对象是计算值在调用时刻的不可变快照。如果您更改了形状的本地或继承设置，需要再次检索 EffectiveData 以获取更新后的值。
+auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
+auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
+auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
+auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
 
-**更改布局/母版幻灯片会影响已经获取的有效属性吗？**
+presentation->Dispose();
+```
 
-会，但只有在您再次读取它们后才会生效。已经获得的 EffectiveData 对象不会自行更新——在更改布局或母版后请重新请求。
+## **常见问题**
 
-**我可以通过 EffectiveData 修改值吗？**
+**`GetEffective` 会返回快照吗？**
 
-不能。EffectiveData 是只读的。请在本地格式对象（形状/文本/3D 等）中进行更改，然后再次获取有效值。
+并非总是如此。有效数据表示在应用继承后计算得到的格式，但某些有效数据对象可能在内部被缓存。随后调用 `GetEffective` 可能会重新计算格式并刷新缓存的数据，因此先前获取的对象不应被视为持久的快照。
 
-**如果在形状层级、布局/母版以及全局设置中都未设置某属性，会怎样？**
+**何时应再次读取有效属性？**
 
-有效值将由默认机制（PowerPoint/Aspose.Slides 默认值）决定。该解析后的值会成为 EffectiveData 快照的一部分。
+在更改本地格式、父样式、布局格式、母版格式或演示文稿级别的默认设置后再次调用 `GetEffective`。下次调用会重新评估格式层次结构并返回当前的有效结果。
 
-**从有效的字体值，我能判断是哪一级提供了大小或字体吗？**
+**更改或删除布局/母版幻灯片会影响已获取的有效属性吗？**
 
-不能直接判断。EffectiveData 返回最终值。若需查找来源，请检查部分/段落/文本框的本地值以及布局/母版/演示文稿的文本样式，找出首次出现显式定义的层级。
+会，但更改会在下次调用 `GetEffective` 时体现。如果父级格式源被更改或删除，先前获取的有效数据可能已过时。再次调用 `GetEffective` 后，Aspose.Slides 会重新评估格式树， resulting fonts, colors, sizes, or other values may change.
 
-**为什么 EffectiveData 值有时看起来与本地值相同？**
+**我可以通过有效数据对象修改值吗？**
 
-因为本地值最终成为了最终值（没有更高层级的继承参与）。在这种情况下，有效值与本地值相同。
+不能。有效数据对象只暴露计算后的值。请在本地格式对象上进行更改，然后再次获取有效值。
 
-**何时应使用有效属性，何时只使用本地属性？**
+**如果属性在形状层级、布局/母版或全局设置中都未设置，会发生什么？**
 
-当您需要在所有继承应用后得到“渲染后”的结果（例如对齐颜色、缩进或尺寸）时，请使用 EffectiveData。如果您只需在特定层级修改格式，请修改本地属性，然后在需要时重新读取 EffectiveData 以验证结果。
+有效值将由默认机制决定，包括 PowerPoint 和 Aspose.Slides 的默认值。解析后的值会成为当前有效数据的一部分。
+
+**从有效的字体值，我能判断是哪个层级提供的大小或字体吗？**
+
+不能直接判断。有效数据只返回最终值。若要查找来源，需要检查段落、段、文本框以及布局、母版和演示文稿级别的本地值，观察第一个出现的显式定义位置。
+
+**为什么有效值有时看起来与本地值相同？**
+
+因为本地值最终成为了最终值（不需要更高层级的继承）。在这种情况下，有效值与本地值相匹配。
+
+**何时应使用有效属性，何时仅使用本地属性？**
+
+当您需要在所有继承应用后得到“呈现后”的结果时（例如对齐颜色、缩进或大小），使用有效数据。如果需要在后续格式更改后仍保留这些值，请将所需属性复制到自己的对象中。如果要在特定层级修改格式，则修改本地属性，并在需要时再次读取有效数据以验证结果。

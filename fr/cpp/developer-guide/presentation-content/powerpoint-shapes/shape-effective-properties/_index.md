@@ -6,8 +6,8 @@ weight: 50
 url: /fr/cpp/shape-effective-properties/
 keywords:
 - propriétés de forme
-- propriétés de la caméra
-- rig d'éclairage
+- propriétés de caméra
+- dispositif d'éclairage
 - forme biseautée
 - cadre de texte
 - style de texte
@@ -17,90 +17,299 @@ keywords:
 - présentation
 - C++
 - Aspose.Slides
-description: "Découvrez comment Aspose.Slides pour C++ calcule et applique les propriétés effectives des formes pour un rendu précis de PowerPoint."
+description: "Découvrez comment Aspose.Slides for C++ calcule et applique les propriétés effectives des formes pour un rendu précis de PowerPoint."
 ---
+## **Vue d'ensemble**
 
-Dans ce sujet, nous aborderons les propriétés **effectives** et **locales**. Lorsque nous définissons des valeurs directement à ces niveaux
+Ce sujet explique la différence entre les propriétés **locales** et **effectives**. Les valeurs locales sont des valeurs définies directement à un niveau de mise en forme spécifique, tel que :
 
-1. Dans les propriétés de portion sur la diapositive de la portion.
-1. Dans le style de texte de forme prototype sur la diapositive de mise en page ou maître (si la forme de cadre de texte de la portion en possède une).
-1. Dans les paramètres de texte globaux de la présentation.
+1. Propriétés de portion sur une diapositive.
+1. Styles de texte de forme prototype sur une diapositive de mise en page ou maîtresse, lorsque la forme du cadre de texte de la portion en possède un.
+1. Paramètres de texte globaux dans une présentation.
 
-alors ces valeurs sont appelées valeurs **locales**. À chaque niveau, les valeurs **locales** peuvent être définies ou omises. Mais finalement, quand l'application doit savoir à quoi doit ressembler la portion, elle utilise les valeurs **effectives**. Vous pouvez obtenir les valeurs effectives en utilisant la méthode **GetEffective()** du format local.
+Les valeurs locales peuvent être définies ou omises à tout niveau. Lorsque Aspose.Slides a besoin du formatage final « tel qu’il est rendu », il résout la chaîne d’héritage et renvoie les valeurs **effectives**. Vous pouvez les obtenir en appelant la méthode `GetEffective` sur l’objet de format local.
 
-L'exemple suivant montre comment obtenir les valeurs effectives.
+L’exemple suivant montre comment obtenir les valeurs effectives. Il suppose que la première forme de la première diapositive est un [IAutoShape](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iautoshape/) avec un cadre de texte et au moins une portion.
 
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
+auto slide = presentation->get_Slide(0);
+auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetEffectiveValues-GetEffectiveValues.cpp" >}}
+auto textFrame = shape->get_TextFrame();
+auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
 
+auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
+auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 
-## **Obtenir les propriétés effectives d'une caméra**
-Aspose.Slides for C++ permet aux développeurs d'obtenir les propriétés effectives de la caméra. À cet effet, la classe **CameraEffectiveData** a été ajoutée à Aspose.Slides. La classe CameraEffectiveData représente un objet immuable qui contient les propriétés effectives de la caméra. Une instance de la classe **CameraEffectiveData** est utilisée dans le cadre de la classe **ThreeDFormatEffectiveData**, qui constitue une paire de valeurs effectives pour la classe ThreeDFormat.
+presentation->Dispose();
+```
 
-L'exemple de code suivant montre comment obtenir les propriétés effectives pour la caméra.
+{{% alert color="primary" %}}
+Les données de formatage effectif représentent le formatage calculé actuel après l’application de l’héritage. Dans l’implémentation actuelle, certains objets de données effectives, tels que [IPortionFormatEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iportionformateffectivedata/), peuvent être mis en cache en interne. Appeler `GetEffective` à nouveau après avoir modifié le formatage parent ou hérité peut rafraîchir les données mises en cache, et un objet précédemment obtenu peut ne plus représenter l’état antérieur. Si vous devez conserver les valeurs effectives pour une réutilisation ultérieure, copiez les propriétés requises, comme la hauteur de police, la couleur de remplissage, le style de police ou l’alignement, dans votre propre objet de données.
+{{% /alert %}}
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetCameraEffectiveData-GetCameraEffectiveData.cpp" >}}
+## **Obtenir les propriétés effectives d’une caméra**
 
-## **Obtenir les propriétés effectives d'un Light Rig**
-Aspose.Slides for C++ permet aux développeurs d'obtenir les propriétés effectives d'un Light Rig. À cet effet, la classe **LightRigEffectiveData** a été ajoutée à Aspose.Slides. La classe LightRigEffectiveData représente un objet immuable qui contient les propriétés effectives du Light Rig. Une instance de la classe **LightRigEffectiveData** est utilisée dans le cadre de la classe **ThreeDFormatEffectiveData**, qui constitue une paire de valeurs effectives pour la classe ThreeDFormat.
+Aspose.Slides vous permet d’obtenir les propriétés effectives d’une caméra. L’interface [ICameraEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/icameraeffectivedata/) représente un objet immuable contenant les propriétés effectives de la caméra. Une instance de [ICameraEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/icameraeffectivedata/) est exposée via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ithreedformateffectivedata/), qui fournit les valeurs effectives pour [IThreeDFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ithreedformat/).
 
-L'exemple de code suivant montre comment obtenir les propriétés effectives pour le Light Rig.
+L’exemple de code suivant montre comment obtenir les propriétés effectives pour la caméra. Il suppose que la première forme de la première diapositive possède un formatage 3D.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetLightRigEffectiveData-GetLightRigEffectiveData.cpp" >}}
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-## **Obtenir les propriétés effectives d'une forme biseautée**
-Aspose.Slides for C++ permet aux développeurs d'obtenir les propriétés effectives d'une forme biseautée. À cet effet, la classe **ShapeBevelEffectiveData** a été ajoutée à Aspose.Slides. La classe ShapeBevelEffectiveData représente un objet immuable qui contient les propriétés de relief de face de la forme. Une instance de la classe **ShapeBevelEffectiveData** est utilisée dans le cadre de la classe **ThreeDFormatEffectiveData**, qui constitue une paire de valeurs effectives pour la classe ThreeDFormat.
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-L'exemple de code suivant montre comment obtenir les propriétés effectives pour la forme biseautée.
+auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
+auto camera = threeDEffectiveData->get_Camera();
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetShapeBevelEffectiveData-GetShapeBevelEffectiveData.cpp" >}}
+System::Console::WriteLine(u"= Effective camera properties =");
+auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
+System::Console::WriteLine(System::String(u"Type: ") + cameraType);
 
-## **Obtenir les propriétés effectives d'un cadre de texte**
-Aspose.Slides for C++ vous permet d'obtenir les propriétés effectives d'un cadre de texte. À cet effet, la classe **TextFrameFormatEffectiveData** a été ajoutée à Aspose.Slides et contient les propriétés de formatage effectif du cadre de texte.
+auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
+System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
 
-L'exemple de code suivant montre comment obtenir les propriétés de formatage effectif du cadre de texte.
+auto cameraZoom = camera->get_Zoom();
+System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetTextFrameFormatEffectiveData-GetTextFrameFormatEffectiveData.cpp" >}}
+presentation->Dispose();
+```
 
-## **Obtenir les propriétés effectives d'un style de texte**
-Aspose.Slides for C++ vous permet d'obtenir les propriétés effectives d'un style de texte. À cet effet, la classe **TextStyleEffectiveData** a été ajoutée à Aspose.Slides et contient les propriétés effectives du style de texte.
+## **Obtenir les propriétés effectives d’un dispositif d’éclairage**
 
-L'exemple de code suivant montre comment obtenir les propriétés effectives du style de texte.
+Aspose.Slides vous permet d’obtenir les propriétés effectives d’un dispositif d’éclairage. L’interface [ILightRigEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ilightrigeffectivedata/) représente un objet immuable contenant les propriétés effectives du dispositif d’éclairage. Une instance de [ILightRigEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ilightrigeffectivedata/) est exposée via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ithreedformateffectivedata/), qui fournit les valeurs effectives pour [IThreeDFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ithreedformat/).
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetTextStyleEffectiveData-GetTextStyleEffectiveData.cpp" >}}
+L’exemple de code suivant montre comment obtenir les propriétés effectives pour le dispositif d’éclairage. Il suppose que la première forme de la première diapositive possède un formatage 3D.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+
+auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
+auto lightRig = threeDEffectiveData->get_LightRig();
+
+System::Console::WriteLine(u"= Effective light rig properties =");
+auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
+System::Console::WriteLine(System::String(u"Type: ") + lightType);
+
+auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
+System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
+
+presentation->Dispose();
+```
+
+## **Obtenir les propriétés effectives d’une forme biseautée**
+
+Aspose.Slides vous permet d’obtenir les propriétés effectives d’un biseau de forme. L’interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ishapebeveleffectivedata/) représente un objet immuable contenant les propriétés effectives du relief de face pour une forme. Une instance de [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ishapebeveleffectivedata/) est exposée via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ithreedformateffectivedata/), qui fournit les valeurs effectives pour [IThreeDFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ithreedformat/).
+
+L’exemple de code suivant montre comment obtenir les propriétés effectives du biseau supérieur d’une forme. Il suppose que la première forme de la première diapositive possède un formatage 3D.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+
+auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
+auto bevelTop = threeDEffectiveData->get_BevelTop();
+
+System::Console::WriteLine(u"= Effective shape's top face relief properties =");
+auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
+System::Console::WriteLine(System::String(u"Type: ") + bevelType);
+
+auto bevelWidth = bevelTop->get_Width();
+System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
+
+auto bevelHeight = bevelTop->get_Height();
+System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
+
+presentation->Dispose();
+```
+
+## **Obtenir les propriétés effectives d’un cadre de texte**
+
+Avec Aspose.Slides, vous pouvez obtenir les propriétés effectives d’un cadre de texte. L’interface [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/itextframeformateffectivedata/) contient les propriétés de formatage effectif du cadre de texte.
+
+L’exemple de code suivant montre comment obtenir les propriétés de formatage effectif du cadre de texte. Il suppose que la première forme de la première diapositive est un [IAutoShape](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iautoshape/) avec un cadre de texte.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+
+auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
+
+auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
+System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
+
+auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
+System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
+
+auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
+System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
+
+System::Console::WriteLine(u"Margins");
+auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
+System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
+
+auto marginTop = effectiveTextFrameFormat->get_MarginTop();
+System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
+
+auto marginRight = effectiveTextFrameFormat->get_MarginRight();
+System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
+
+auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
+System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
+
+presentation->Dispose();
+```
+
+## **Obtenir les propriétés effectives d’un style de texte**
+
+Avec Aspose.Slides, vous pouvez obtenir les propriétés effectives d’un style de texte. L’interface [ITextStyleEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/itextstyleeffectivedata/) contient les propriétés effectives du style de texte.
+
+L’exemple de code suivant montre comment obtenir les propriétés effectives du style de texte. Il suppose que la première forme de la première diapositive est un [IAutoShape](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iautoshape/) avec un cadre de texte.
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+int levelCount = 9;
+
+for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+{
+    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
+
+    auto depth = effectiveStyleLevel->get_Depth();
+    auto indent = effectiveStyleLevel->get_Indent();
+    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
+    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
+
+    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
+    System::Console::WriteLine(System::String(u"Depth: ") + depth);
+    System::Console::WriteLine(System::String(u"Indent: ") + indent);
+    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
+    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+}
+
+presentation->Dispose();
+```
 
 ## **Obtenir la valeur effective de la hauteur de police**
-Aspose.Slides for C++ vous permet d'obtenir les propriétés effectives de la hauteur de police. Voici le code illustrant la modification de la valeur effective de la hauteur de police d'une portion après avoir défini des valeurs locales de hauteur de police à différents niveaux de la structure de la présentation.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetLocalFontHeightValues-SetLocalFontHeightValues.cpp" >}}
+Avec Aspose.Slides, vous pouvez obtenir la hauteur de police effective. Le code suivant montre comment la hauteur de police effective d’une portion change après que des valeurs locales de hauteur de police aient été définies à différents niveaux de la structure de la présentation.
 
-## **Obtenir le format de remplissage effectif d'un tableau**
-Aspose.Slides for C++ vous permet d'obtenir le format de remplissage effectif pour différentes parties logiques d'un tableau. À cet effet, l'interface **IFillFormatEffectiveData** a été ajoutée à Aspose.Slides et contient les propriétés de remplissage effectif. Veuillez noter que le format de cellule a toujours une priorité supérieure à celui de ligne, une ligne a une priorité supérieure à celle de colonne et la colonne a une priorité supérieure à celle du tableau entier.
+```cpp
+auto presentation = System::MakeObject<Presentation>();
 
-Ainsi, les propriétés **CellFormatEffectiveData** sont finalement toujours utilisées pour dessiner le tableau. L'exemple de code suivant montre comment obtenir le format de remplissage effectif pour différentes parties logiques d'un tableau.
+auto slide = presentation->get_Slide(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
+autoShape->AddTextFrame(u"");
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetEffectiveValuesOfTable-GetEffectiveValuesOfTable.cpp" >}}
+auto textFrame = autoShape->get_TextFrame();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
+auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
+
+portions->Add(firstPortion);
+portions->Add(secondPortion);
+
+System::Console::WriteLine(u"Effective font height just after creation:");
+auto firstPortionFormat = firstPortion->get_PortionFormat();
+auto secondPortionFormat = secondPortion->get_PortionFormat();
+
+auto printEffectiveFontHeights = [&]()
+{
+    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
+    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
+    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
+};
+
+printEffectiveFontHeights();
+
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+
+System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
+printEffectiveFontHeights();
+
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
+
+System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
+printEffectiveFontHeights();
+
+firstPortionFormat->set_FontHeight(55.0f);
+
+System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
+printEffectiveFontHeights();
+
+secondPortionFormat->set_FontHeight(18.0f);
+
+System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
+printEffectiveFontHeights();
+
+presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Obtenir le format de remplissage effectif d’un tableau**
+
+Avec Aspose.Slides, vous pouvez obtenir le format de remplissage effectif pour différentes parties d’un tableau. L’interface [IFillFormatEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ifillformateffectivedata/) contient les propriétés de formatage de remplissage effectif. Le formatage de cellule a une priorité supérieure à celui de la ligne, le formatage de ligne a une priorité supérieure à celui de la colonne, et le formatage de colonne a une priorité supérieure à celui du tableau complet.
+
+En conséquence, les propriétés de [ICellFormatEffectiveData](https://reference.aspose.com/slides/fr/cpp/aspose.slides/icellformateffectivedata/) sont utilisées pour dessiner la cellule du tableau. L’exemple de code suivant montre comment obtenir le format de remplissage effectif pour différentes parties du tableau. Il suppose que la première forme de la première diapositive est un [ITable](https://reference.aspose.com/slides/fr/cpp/aspose.slides/itable/).
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
+auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
+auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
+auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+
+presentation->Dispose();
+```
 
 ## **FAQ**
 
-**Comment savoir si j'ai obtenu un "instantané" plutôt qu'un "objet vivant", et quand dois-je relire les propriétés effectives ?**  
-Les objets EffectiveData sont des instantanés immuables des valeurs calculées au moment de l'appel. Si vous modifiez les paramètres locaux ou hérités de la forme, récupérez à nouveau les données effectives pour obtenir les valeurs mises à jour.
+**`GetEffective` renvoie-t-il un instantané ?**
 
-**Le fait de modifier la diapositive de mise en page/maître affecte-t-il les propriétés effectives déjà récupérées ?**  
-Oui, mais uniquement après les avoir relues. Un objet EffectiveData déjà obtenu ne se met pas à jour automatiquement ; il faut le demander de nouveau après avoir modifié la mise en page ou le maître.
+Pas toujours. Les données effectives représentent le formatage calculé après l’application de l’héritage, mais certains objets de données effectives peuvent être mis en cache en interne. Un appel ultérieur à `GetEffective` peut recalculer le formatage et rafraîchir les données mises en cache, de sorte qu’un objet obtenu précédemment ne doit pas être considéré comme un instantané durable.
 
-**Puis-je modifier des valeurs via EffectiveData ?**  
-Non. EffectiveData est en lecture seule. Effectuez les changements dans les objets de formatage locaux (forme/texte/3D, etc.), puis récupérez à nouveau les valeurs effectives.
+**Quand devrais-je relire les propriétés effectives ?**
 
-**Que se passe-t-il si une propriété n'est pas définie au niveau de la forme, ni dans la mise en page/maître, ni dans les paramètres globaux ?**  
-La valeur effective est déterminée par le mécanisme par défaut (valeurs par défaut de PowerPoint/Aspose.Slides). Cette valeur résolue fait partie de l'instantané EffectiveData.
+Appelez à nouveau `GetEffective` après avoir modifié le formatage local, les styles parents, le formatage de mise en page, le formatage maître ou les valeurs par défaut au niveau de la présentation. L’appel suivant réévalue la hiérarchie de formatage et renvoie le résultat effectif actuel.
 
-**À partir d'une valeur de police effective, puis-je déterminer quel niveau a fourni la taille ou la police de caractères ?**  
-Pas directement. EffectiveData renvoie la valeur finale. Pour en trouver la source, examinez les valeurs locales au niveau de la portion/paragraphes/cadre de texte et les styles de texte au niveau de la mise en page/maître/präsentation pour voir où la première définition explicite apparaît.
+**La modification ou la suppression d’une diapositive de mise en page/maîtresse affecte-t-elle les propriétés effectives déjà récupérées ?**
 
-**Pourquoi les valeurs EffectiveData ressemblent parfois identiquement aux valeurs locales ?**  
-Parce que la valeur locale s'est avérée être la valeur finale (aucune héritage de niveau supérieur n'a été nécessaire). Dans ce cas, la valeur effective correspond à la valeur locale.
+Oui, mais la modification ne se reflète qu’à l’appel suivant de `GetEffective`. Si une source de formatage parent est modifiée ou supprimée, les données effectives précédemment obtenues peuvent devenir obsolètes. Une fois `GetEffective` appelé de nouveau, Aspose.Slides réévalue l’arbre de formatage et les polices, couleurs, tailles ou autres valeurs résultantes peuvent changer.
 
-**Quand devrais-je utiliser les propriétés effectives, et quand devrais-je travailler uniquement avec les locales ?**  
-Utilisez EffectiveData lorsque vous avez besoin du résultat « tel qu'affiché » après l'application de tous les héritages (par ex., pour aligner les couleurs, les retraits ou les tailles). Si vous devez modifier le formatage à un niveau spécifique, modifiez les propriétés locales puis, si nécessaire, relisez EffectiveData pour vérifier le résultat.
+**Puis-je modifier les valeurs via les objets de données effectives ?**
+
+Non. Les objets de données effectives exposent uniquement les valeurs calculées. Apportez les modifications dans les objets de formatage locaux, puis obtenez de nouveau les valeurs effectives.
+
+**Que se passe-t-il si une propriété n’est définie ni au niveau de la forme, ni dans la mise en page/maîtresse, ni dans les paramètres globaux ?**
+
+La valeur effective est déterminée par le mécanisme de valeurs par défaut, qui comprend les paramètres par défaut de PowerPoint et d’Aspose.Slides. Cette valeur résolue fait partie des données effectives actuelles.
+
+**À partir d’une valeur de police effective, puis-je identifier le niveau qui a fourni la taille ou la police ?**
+
+Pas directement. Les données effectives renvoient la valeur finale. Pour identifier la source, examinez les valeurs locales au niveau de la portion, du paragraphe, du cadre de texte et des styles de texte dans la mise en page, la maître et la présentation afin de voir où apparaît la première définition explicite.
+
+**Pourquoi les valeurs effectives sont parfois identiques aux valeurs locales ?**
+
+Parce que la valeur locale s’avère finale (aucune héritage à un niveau supérieur n’est nécessaire). Dans ces cas, la valeur effective correspond à la valeur locale.
+
+**Quand devrais-je utiliser les propriétés effectives et quand travailler uniquement avec les propriétés locales ?**
+
+Utilisez les données effectives lorsque vous avez besoin du résultat « tel qu’il est rendu » après l’application de tout l’héritage, par exemple pour aligner les couleurs, les retraits ou les tailles. Si vous devez conserver ces valeurs indépendamment des modifications ultérieures de formatage, copiez les propriétés requises dans votre propre objet. Si vous devez modifier le formatage à un niveau spécifique, modifiez les propriétés locales et, si nécessaire, relisez les données effectives pour vérifier le résultat.

@@ -1,170 +1,291 @@
 ---
-title: Exportieren von Präsentationen nach HTML mit extern verlinkten Bildern
+title: Präsentationen nach HTML mit extern verknüpften Bildern exportieren
 type: docs
 weight: 100
 url: /de/net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- PowerPoint exportieren
+- OpenDocument exportieren
+- Präsentation exportieren
+- Folie exportieren
+- PPT exportieren
+- PPTX exportieren
+- ODP exportieren
+- PowerPoint nach HTML
+- OpenDocument nach HTML
+- Präsentation nach HTML
+- Folie nach HTML
+- PPT nach HTML
+- PPTX nach HTML
+- ODP nach HTML
+- verknüpftes Bild
+- extern verknüpftes Bild
+- verknüpfte Ressource
+- externe Ressource
+- .NET
+- C#
+- Aspose.Slides
+description: "Exportieren Sie PowerPoint- und OpenDocument-Präsentationen nach HTML in .NET mit Aspose.Slides, wobei Bilder und andere Ressourcen als extern verknüpfte Dateien gespeichert werden."
 ---
+## **Übersicht**
 
-{{% alert color="primary" %}} 
+Standardmäßig exportiert Aspose.Slides eine Präsentation in eine eigenständige HTML‑Datei. Bilder und andere Ressourcen werden direkt in das HTML geschrieben, meist als Base64‑Daten. Das ist praktisch, wenn Sie eine portable Datei benötigen, aber es ist nicht immer das beste Format für eine Website, ein CMS oder eine serverseitige Konvertierungspipeline.
 
-Der Exportprozess von Präsentationen nach HTML ermöglicht es Ihnen, die
+Verwenden Sie extern verknüpfte Ressourcen, wenn Sie:
 
-1. Ressourcen zu bestimmen, die in die resultierende HTML-Datei eingebettet werden
-2. die Ressourcen, die extern gespeichert und aus der HTML-Datei referenziert werden.
+- die Größe des HTML‑Dokuments reduzieren;
+- Bilder, Schriften, Audio oder Video separat in einem Browser oder CDN zwischenspeichern;
+- generierte Ressourcen nach dem Export prüfen, ersetzen, komprimieren oder nachbearbeiten;
+- die Ausgabestruktur näher an das halten, was eine Webanwendung erwartet.
 
-{{% /alert %}} 
+Für den allgemeinen HTML-Konvertierungs‑Workflow siehe [Convert PowerPoint Presentations to HTML](/slides/de/net/convert-powerpoint-to-html/). Dieser Artikel konzentriert sich auf den Teil des Exports, der das Verknüpfen von Ressourcen behandelt.
 
-## **Hintergrund**
+## **Wie der Export verknüpfter Ressourcen funktioniert**
 
-Das Standardverhalten des HTML-Exports besteht darin, alle Ressourcen durch Base64-Codierung in die HTML-Datei einzubetten. Ein solches Vorgehen erzeugt eine einzelne HTML-Datei, was für die Anzeige und Verteilung praktisch ist. Der Standardansatz hat die folgenden Einschränkungen:
+[ILinkEmbedController](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/) lässt Ihre Anwendung entscheiden, Ressource für Ressource, ob der Exporteur die Daten in das HTML einbettet oder extern speichert und einen Link schreibt.
 
-* Die ausgegebene Datei ist aufgrund der Base64-Codierung erheblich größer als ihre Bestandteile.
-* Die in der Datei enthaltenen Bilder oder Ressourcen sind schwierig zu ersetzen.
+Die Schnittstelle verfügt über drei Methoden:
 
-### **Ein anderer Ansatz**
+- [ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) entscheidet, ob eine Ressource verlinkt oder eingebettet werden soll.
+- [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/geturl/) gibt die URL zurück, die in das erzeugte HTML oder in eine andere verknüpfte Ressource geschrieben wird.
+- [ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/saveexternal/) schreibt die Daten der verknüpften Ressource auf die Festplatte oder an ein anderes Speicherziel.
 
-Ein anderer Ansatz, der **[ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/)** einbezieht, vermeidet die genannten Einschränkungen.  
+Der Dateisystempfad und die Browser‑URL sind getrennte Aspekte. Zum Beispiel schreibt das untenstehende Beispiel Ressourcen‑Dateien nach `html-output/assets` auf die Festplatte, während das HTML relative URLs wie `assets/resource-1.svg` enthält. Ein Browser löst diese URLs relativ zur Datei auf, die den Link enthält. Daher verwendet ein Link von `presentation.html` zu einer SVG‑Datei `assets/resource-1.svg`, während ein Link von dieser SVG‑Datei zu einem im selben `assets`‑Ordner gespeicherten Bild `resource-4.jpg` verwendet.
 
-Die Klasse `LinkController` implementiert das Interface `ILinkEmbedController`. Das Interface wird dann dem Konstruktor der Klasse [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor) übergeben. Das ILinkEmbedController-Interface enthält drei Methoden, die den Prozess der Ressourceneinbettung und -speicherung steuern:
+## **HTML mit verknüpften Ressourcen exportieren**
 
-**[GetObjectStoringLocation](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation)(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)**: Diese Methode wird aufgerufen, wenn der Exporteur auf eine Ressource stößt und entscheiden muss, wie die Ressource gespeichert werden soll. *id* (eindeutiger Bezeichner der Ressource für den Exportvorgang) und *contentType* (enthält den MIME-Typ der Ressource) sind die wichtigsten Parameter der Methode. Wenn Sie die Ressource verlinken möchten, müssen Sie den Enum [LinkEmbedDecision.Link](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) aus der Methode zurückgeben. Andernfalls (um die Ressource einzubetten) müssen Sie [LinkEmbedDecision.Embed](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) zurückgeben.
+Das folgende C#‑Beispiel erstellt ein Ausgabeverzeichnis, speichert die HTML‑Datei dort und legt verknüpfte Ressourcen in einem Unterverzeichnis `assets` ab. Der Controller verknüpft gängige Bild‑, Schrift‑, Audio‑, Video‑ und CSS‑Ressourcen, wenn Aspose.Slides eine sichere Dateierweiterung bereitstellt oder ableiten kann. Nicht erkannte Ressourcen bleiben eingebettet.
 
-**[GetUrl](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/geturl)(int id, int referrer)**: Diese Methode wird aufgerufen, um die Ressourcensyntax für die URL in der gleichen Form zu erhalten, wie sie in der resultierenden Datei verwendet wird. Die Ressource wird durch *id* identifiziert.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-**[SaveExternal](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/saveexternal)(int id, byte[] entityData)**: Als letzte Methode in der Sequenz wird sie aufgerufen, wenn es an der Zeit ist, die Ressource extern zu speichern. Da der Ressourcenbezeichner und die Ressourceninhalte in einem Byte-Array existieren, können Sie alle Arten von Aufgaben mit den Ressourcendaten ausführen.
+var inputFilePath = "presentation.pptx";
+var outputDirectory = "html-output";
+var assetDirectoryName = "assets";
+var assetDirectory = Path.Combine(outputDirectory, assetDirectoryName);
 
-Dieser C#-Code für die **LinkController**-Klasse implementiert das **ILinkEmbedController**-Interface:
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(assetDirectory);
 
-```c#
-class LinkController : ILinkEmbedController
+var assetUrlPrefix = assetDirectoryName + "/";
+var controller = new ExternalResourceController(assetDirectory, assetUrlPrefix);
+var svgOptions = new SVGOptions(controller);
+var slideImageFormat = SlideImageFormat.Svg(svgOptions);
+
+var htmlOptions = new HtmlOptions(controller)
 {
-    static LinkController()
+    HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(string.Empty, false),
+    SlideImageFormat = slideImageFormat
+};
+
+using var presentation = new Presentation(inputFilePath);
+
+var htmlFilePath = Path.Combine(outputDirectory, "presentation.html");
+presentation.Save(htmlFilePath, SaveFormat.Html, htmlOptions);
+
+public sealed class ExternalResourceController : ILinkEmbedController
+{
+    private static readonly Dictionary<string, string> ExtensionsByContentType = new(StringComparer.OrdinalIgnoreCase)
     {
-        s_templates.Add("image/jpeg", "image-{0}.jpg");
-        s_templates.Add("image/png", "image-{0}.png");
+        ["image/jpeg"] = ".jpg",
+        ["image/png"] = ".png",
+        ["image/gif"] = ".gif",
+        ["image/bmp"] = ".bmp",
+        ["image/svg+xml"] = ".svg",
+        ["image/tiff"] = ".tiff",
+        ["image/x-emf"] = ".emf",
+        ["image/x-wmf"] = ".wmf",
+        ["font/woff"] = ".woff",
+        ["font/woff2"] = ".woff2",
+        ["font/ttf"] = ".ttf",
+        ["application/font-woff"] = ".woff",
+        ["application/vnd.ms-fontobject"] = ".eot",
+        ["application/x-font-ttf"] = ".ttf",
+        ["text/css"] = ".css",
+        ["audio/mpeg"] = ".mp3",
+        ["audio/mp4"] = ".m4a",
+        ["audio/wav"] = ".wav",
+        ["video/mp4"] = ".mp4",
+        ["video/webm"] = ".webm"
+    };
+
+    private readonly string assetDirectory;
+    private readonly string assetUrlPrefix;
+    private readonly Dictionary<int, string> fileNamesByResourceId = new();
+
+    public ExternalResourceController(string assetDirectory, string assetUrlPrefix)
+    {
+        if (string.IsNullOrWhiteSpace(assetDirectory))
+        {
+            throw new ArgumentException("The asset output directory must not be empty.", nameof(assetDirectory));
+        }
+
+        this.assetDirectory = assetDirectory;
+        this.assetUrlPrefix = NormalizeUrlPrefix(assetUrlPrefix);
     }
 
-    /// <summary>
-    /// Standardparameterloser Konstruktor
-    /// </summary>
-    public LinkController()
-    {
-        m_externalImages = new Dictionary<int, string>();
-    }
-
-    /// <summary>
-    /// Erstellt eine Klasseninstanz und legt den Pfad fest, an dem die generierten Ressourcen-Dateien gespeichert werden.
-    /// </summary>
-    /// <param name="savePath">Pfad zum Speicherort, an dem die generierten Ressourcen-Dateien gespeichert werden.</param>
-    public LinkController(string savePath)
-        : this()
-    {
-        SavePath = savePath;
-    }
-
-    /// <summary>
-    /// Ein ILinkEmbedController-Mitglied
-    /// </summary>
-    public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName,
+    public LinkEmbedDecision GetObjectStoringLocation(
+        int resourceId,
+        byte[] entityData,
+        string semanticName,
         string contentType,
-        string recomendedExtension)
+        string recommendedExtension)
     {
-        // Hier treffen wir die Entscheidung über das externe Speichern von Bildern.
-        // Die id ist der eindeutige Bezeichner jedes Objekts während des gesamten Exportvorgangs.
-
-        string template;
-
-        // Das s_templates-Dictionary enthält Inhaltstypen, die wir extern speichern werden, und das entsprechende Dateinamenmuster.
-        if (s_templates.TryGetValue(contentType, out template))
+        var extension = ResolveExtension(contentType, recommendedExtension);
+        if (extension == null)
         {
-            // Speichern dieser Ressource in der Exportliste
-            m_externalImages.Add(id, template);
-            return LinkEmbedDecision.Link;
+            return LinkEmbedDecision.Embed;
         }
 
-        // Alle anderen Ressourcen, falls vorhanden, werden eingebettet
-        return LinkEmbedDecision.Embed;
+        fileNamesByResourceId[resourceId] = $"resource-{resourceId}{extension}";
+        return LinkEmbedDecision.Link;
     }
 
-    /// <summary>
-    /// Ein ILinkEmbedController-Mitglied
-    /// </summary>
-    public string GetUrl(int id, int referrer)
+    public string GetUrl(int resourceId, int referrer)
     {
-        // Hier konstruieren wir die Ressourcereferenzzeichenfolge, um das Tag <img src="%result%"> zu bilden.
-        // Wir müssen das Dictionary überprüfen, um unnötige Ressourcen herauszufiltern.
-        // Neben der Überprüfung extrahieren wir das entsprechende Dateinamenmuster.
-        string template;
-        if (m_externalImages.TryGetValue(id, out template))
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
         {
-            // Angenommen, wir speichern die Ressourcen-Dateien direkt neben der HTML-Datei.
-            // Das Bild-Tag sieht dann so aus: <img src="image-1.png"> mit dem entsprechenden Ressourcen-ID und der Erweiterung.
-            var fileUrl = String.Format(template, id);
-            return fileUrl;
+            return null;
         }
 
-        // null muss für die Ressourcen zurückgegeben werden, die weiterhin eingebettet bleiben
-        return null;
-    }
-
-    /// <summary>
-    /// Ein ILinkEmbedController-Mitglied
-    /// </summary>
-    public void SaveExternal(int id, byte[] entityData)
-    {
-        // Hier speichern wir tatsächlich die Ressourcen-Dateien auf der Festplatte.
-        // Nochmals das Dictionary überprüfen. Wenn die ID hier nicht gefunden wird, ist das ein Zeichen für einen Fehler in den Methoden GetObjectStoringLocation oder GetUrl.
-        if (m_externalImages.ContainsKey(id))
+        if (fileNamesByResourceId.ContainsKey(referrer))
         {
-            // Jetzt verwenden wir den Dateinamen, der im Dictionary gespeichert ist, und kombinieren ihn mit einem Pfad nach Bedarf.
-
-            // Konstruktion des Dateinamens mit dem gespeicherten Template und der ID.
-            var fileName = String.Format(m_externalImages[id], id);
-
-            // Kombination mit dem Verzeichnis des Speicherorts
-            var filePath = Path.Combine(SavePath ?? String.Empty, fileName);
-
-            using (var fs = new FileStream(filePath, FileMode.Create))
-                fs.Write(entityData, 0, entityData.Length);
+            return fileName;
         }
-        else
-            throw new Exception("Etwas ist falsch");
+
+        return assetUrlPrefix + fileName;
     }
 
-    /// <summary>
-    /// Liest oder setzt den Pfad, an dem die generierten Ressourcen-Dateien gespeichert werden.
-    /// </summary>
-    public string SavePath { get; set; }
+    public void SaveExternal(int resourceId, byte[] entityData)
+    {
+        if (!fileNamesByResourceId.TryGetValue(resourceId, out var fileName))
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} was not registered for external storage.");
+        }
 
-    /// <summary>
-    /// Ein Dictionary zur Speicherung von Zuordnungen zwischen Ressourcen-IDs und den entsprechenden Dateinamen.
-    /// </summary>
-    private readonly Dictionary<int, string> m_externalImages;
+        if (entityData == null || entityData.Length == 0)
+        {
+            throw new InvalidOperationException(
+                $"Resource {resourceId} contains no data and cannot be saved.");
+        }
 
-    /// <summary>
-    /// Ein Dictionary zur Speicherung von Zuordnungen zwischen den Inhaltstypen von Ressourcen, die wir extern speichern werden,
-    /// und den entsprechenden Dateinamenmustern.
-    /// </summary>
-    private static readonly Dictionary<string, string> s_templates = new Dictionary<string, string>();
+        Directory.CreateDirectory(assetDirectory);
+
+        var filePath = Path.Combine(assetDirectory, fileName);
+        File.WriteAllBytes(filePath, entityData);
+    }
+
+    private static string ResolveExtension(string contentType, string recommendedExtension)
+    {
+        if (!string.IsNullOrWhiteSpace(contentType) &&
+            ExtensionsByContentType.TryGetValue(contentType, out var mappedExtension))
+        {
+            return mappedExtension;
+        }
+
+        if (!IsSupportedContentType(contentType))
+        {
+            return null;
+        }
+
+        return NormalizeExtension(recommendedExtension);
+    }
+
+    private static bool IsSupportedContentType(string contentType)
+    {
+        return contentType != null &&
+            (contentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("font/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("audio/", StringComparison.OrdinalIgnoreCase) ||
+             contentType.StartsWith("video/", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static string NormalizeExtension(string extension)
+    {
+        if (string.IsNullOrWhiteSpace(extension))
+        {
+            return null;
+        }
+
+        var extensionCharacters = extension.Trim().TrimStart('.');
+        foreach (var character in extensionCharacters)
+        {
+            if (!char.IsLetterOrDigit(character))
+            {
+                return null;
+            }
+        }
+
+        return "." + extensionCharacters.ToLowerInvariant();
+    }
+
+    private static string NormalizeUrlPrefix(string urlPrefix)
+    {
+        if (string.IsNullOrEmpty(urlPrefix))
+        {
+            return string.Empty;
+        }
+
+        var normalizedUrlPrefix = urlPrefix.Replace('\\', '/');
+        return normalizedUrlPrefix.EndsWith("/")
+            ? normalizedUrlPrefix
+            : normalizedUrlPrefix + "/";
+    }
 }
 ```
 
-Nachdem wir die **LinkController**-Klasse geschrieben haben, können wir sie nun zusammen mit der **HTMLOptions**-Klasse verwenden, um die Präsentation auf folgende Weise nach HTML mit extern verlinkten Bildern zu exportieren:
+Nach dem Export hat der Ausgabordner diese Struktur:
 
-```c#
-using (var pres = new Presentation(@"C:\data\input.pptx")) {
-
-    var htmlOptions = new HtmlOptions(new LinkController(@"C:\data\out\"));
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(new SVGOptions());
-    // Diese Zeile ist notwendig, um die Anzeige des Folientitels in HTML zu entfernen.
-    // Kommentieren Sie sie aus, wenn Sie möchten, dass der Folientitel angezeigt wird.
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(String.Empty, false);
-
-    Console.WriteLine("Export gestartet");
-    pres.Save(@"C:\data\out\output.html", SaveFormat.Html, htmlOptions);
-}
+```text
+html-output/
+  presentation.html
+  assets/
+    resource-1.svg
+    resource-2.svg
+    resource-3.svg
+    resource-4.jpg
+    resource-5.png
 ```
 
-Wir haben `SlideImageFormat.Svg` der `SlideImageFormat`-Eigenschaft zugewiesen, sodass die resultierende HTML-Datei SVG-Daten enthält, um den Inhalt der Präsentation zu zeichnen.
+Die genauen Dateien hängen vom Inhalt der Präsentation und den Exporteinstellungen ab. Rasterbilder werden beispielsweise häufig als JPEG oder PNG exportiert. Aspose.Slides kann einen anderen Bild‑Codec wählen als im Quell‑Präsentations‑Datei verwendet, wenn dadurch eine kleinere oder besser geeignete Datei entsteht. Bilder mit Transparenz werden als PNG exportiert.
 
-Inhaltstypen: Wenn die Präsentation Rasterbilder enthält, muss der Klassencode zur Verarbeitung sowohl der Inhaltstypen 'image/jpeg' als auch 'image/png' vorbereitet sein. Der Inhalt der exportierten Bitmapbilder stimmt möglicherweise nicht mit dem überein, was in der Präsentation gespeichert wurde. Die internen Algorithmen von Aspose.Slides führen eine Größenoptimierung durch und verwenden entweder den JPG- oder PNG-Codec (je nachdem, welcher eine kleinere Datenmenge erzeugt). Bilder, die einen Alphakanal (Transparenz) enthalten, werden immer in PNG codiert.
+## **Auswahl von URLs für die Bereitstellung**
+
+Das Beispiel verwendet einen relativen URL‑Präfix: `assets/`. Wenn `presentation.html` aus `html-output/presentation.html` geöffnet wird, lädt der Browser `html-output/assets/resource-1.svg`.
+
+Wenn eine verknüpfte Ressource auf eine andere verknüpfte Ressource verweist, verwendet das Beispiel den Parameter `referrer` in [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/geturl/) und gibt nur den Dateinamen zurück. Beispiel: Befinden sich `resource-1.svg` und `resource-4.jpg` beide im Ordner `assets`, sollte die SVG‑Datei auf `resource-4.jpg` verweisen, nicht auf `assets/resource-4.jpg`.
+
+Verwenden Sie einen anderen URL‑Präfix, wenn die Dateien woanders bereitgestellt werden:
+
+- Verwenden Sie `assets/`, wenn das Asset‑Verzeichnis neben der HTML‑Datei liegt.
+- Verwenden Sie `../assets/`, wenn das Asset‑Verzeichnis eine Ebene über der HTML‑Datei liegt.
+- Verwenden Sie `https://cdn.example.com/presentations/job-123/assets/`, wenn die Dateien in ein CDN oder einen statischen Dateiserver hochgeladen werden.
+
+Die von [ILinkEmbedController.GetUrl](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/geturl/) zurückgegebene URL muss mit dem endgültigen bereitgestellten Speicherort der von [ILinkEmbedController.SaveExternal](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/saveexternal/) geschriebenen Datei übereinstimmen. In Server‑Anwendungen verwenden Sie für jeden Konvertierungsauftrag ein eindeutiges Ausgabeverzeichnis oder einen eindeutigen Objekt‑Speicher‑Präfix, um ein Überschreiben von Dateien aus einem anderen Export zu vermeiden.
+
+## **Wann stattdessen einbetten**
+
+Eingebettetes Base64‑HTML ist weiterhin nützlich, wenn die Ausgabe eine einzelne Datei sein muss, etwa als E‑Mail‑Anhang, Offline‑Vorschau oder Dokument, das ohne zugehörigen Asset‑Ordner verschoben wird. Verknüpfte Ressourcen sind besser geeignet, wenn das HTML von einer Webanwendung bereitgestellt, in einem CMS gespeichert, durch eine Build‑Pipeline optimiert oder von Browsern unabhängig vom HTML zwischengespeichert wird.
+
+## **FAQ**
+
+**Kann ich nur Bilder externalisieren und andere Ressourcen eingebettet lassen?**
+
+Ja. In [ILinkEmbedController.GetObjectStoringLocation](https://reference.aspose.com/slides/de/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation/) geben Sie `LinkEmbedDecision.Link` nur für die Inhaltstypen zurück, die Sie als separate Dateien speichern möchten, und geben `LinkEmbedDecision.Embed` für alles andere zurück.
+
+**Warum weicht die exportierte Bilddateierweiterung von der Quell‑Präsentation ab?**
+
+Aspose.Slides kann Rasterbilder während des HTML‑Exports neu codieren, um Größe oder Browser‑Kompatibilität zu verbessern. Beispielsweise kann ein Bild aus der Quelldatei je nach Ergebnis als JPEG oder PNG geschrieben werden.
+
+**Funktionieren relative URLs, nachdem ich die HTML‑Datei verschoben habe?**
+
+Relative URLs funktionieren nur, wenn dieselbe relative Ordnerstruktur erhalten bleibt. Verweist das HTML auf `assets/resource-1.png`, muss der Ordner `assets` neben der HTML‑Datei bleiben, es sei denn, Sie erzeugen ein anderes URL‑Präfix.
+
+**Sollten Server‑Anwendungen denselben Ausgabordner wiederverwenden?**
+
+Nein. Verwenden Sie für jeden Konvertierungsauftrag ein eindeutiges Ausgabeverzeichnis oder einen eindeutigen Speicher‑Präfix. Dadurch werden Dateinamenkollisionen vermieden und ein Export überschreibt nicht die von einem anderen Export erzeugten Ressourcen.

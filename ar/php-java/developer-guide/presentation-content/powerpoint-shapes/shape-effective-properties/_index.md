@@ -1,5 +1,5 @@
 ---
-title: الحصول على الخصائص الفعّالة للشكل من العروض التقديمية في PHP
+title: الحصول على الخصائص الفعّالة للأشكال من العروض التقديمية في PHP
 linktitle: الخصائص الفعّالة
 type: docs
 weight: 50
@@ -7,234 +7,343 @@ url: /ar/php-java/shape-effective-properties/
 keywords:
 - خصائص الشكل
 - خصائص الكاميرا
-- تجهيز الإضاءة
-- شكل الحافة
+- جهاز الإضاءة
+- شكل التقويس
 - إطار النص
 - نمط النص
 - ارتفاع الخط
 - تنسيق التعبئة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides للـ PHP عبر Java بحساب وتطبيق الخصائص الفعّالة للشكل لتقديم عرض PowerPoint بدقة."
+description: اكتشف كيف تقوم Aspose.Slides لـ PHP عبر Java بحساب وتطبيق الخصائص الفعّالة للأشكال لتحقيق عرض PowerPoint بدقة.
 ---
+## **نظرة عامة**
 
-في هذا الموضوع، سنناقش الخصائص **الفعّالة** و**المحلية**. عندما نقوم بتعيين القيم مباشرةً على هذه المستويات
+يشرح هذا الموضوع الفرق بين الخصائص **المحلية** والخصائص **الفعّالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً على مستوى تنسيق معين، مثل:
 
-1. في خصائص الجزء على شريحة الجزء؛
-1. في نمط نص الشكل النموذجي على شريحة التخطيط أو الشريحة الرئيسية (إذا كان لشكل إطار النص للجزء واحد)؛
-1. في إعدادات النص العالمية للعرض التقديمي؛
+1. خصائص الجزء في الشريحة.
+1. أنماط نص الشكل النموذجي في تخطيط أو شريحة أساسية، عندما يحتوي شكل إطار نص الجزء على أحدها.
+1. إعدادات النص العالمية في العرض التقديمي.
 
-تُسمى تلك القيم **القيم المحلية**. على أي مستوى، يمكن تعريف أو حذف **القيم المحلية**. ولكن عندما يحتاج التطبيق إلى معرفة كيف يجب أن يبدو الجزء، يستخدم **القيم الفعّالة**. يمكنك الحصول على القيم الفعّالة باستخدام طريقة **getEffective()** من التنسيق المحلي.
+يمكن تعريف القيم المحلية أو حذفها على أي مستوى. عندما تحتاج Aspose.Slides إلى التنسيق النهائي "كما تم عرضه"، تقوم بحل سلسلة الوراثة وتعيد القيم **الفعّالة**. يمكنك الحصول عليها عن طريق استدعاء الطريقة `getEffective` على كائن التنسيق المحلي.
 
-هذا المثال البرمجي يوضح لك كيفية الحصول على القيم الفعّالة:
+المثال التالي يوضح كيفية الحصول على القيم الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) مع إطار نص وعلى الأقل جزء واحد.
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
     $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat::getEffective();
-    $localPortionFormat = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat::getEffective();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
+
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
+
+    $localPortionFormat = $portion->getPortionFormat();
+    $effectivePortionFormat = $localPortionFormat->getEffective();
+} finally {
+    $presentation->dispose();
+}
 ```
 
+{{% alert color="primary" %}}
+تمثل بيانات التنسيق الفعّال التنسيق المحسوب الحالي بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعّالة التي تُعيدها طرق مثل [PortionFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portionformat/geteffective/) داخلياً. استدعاء `getEffective` مرة أخرى بعد تغيير التنسيق الأب أو الموروث يمكن أن يجدد البيانات المخزنة، وقد لا يمثل الكائن الذي تم الحصول عليه مسبقاً الحالة السابقة. إذا كنت بحاجة إلى الحفاظ على القيم الفعّالة لإعادة استخدامها لاحقاً، انسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن بيانات خاص بك.
+{{% /alert %}}
 
 ## **الحصول على الخصائص الفعّالة للكاميرا**
-تتيح Aspose.Slides for PHP عبر Java للمطورين الحصول على خصائص الكاميرا الفعّالة. لهذا الغرض، تمت إضافة الفئة `ICameraEffectiveData` إلى Aspose.Slides. تمثّل فئة `ICameraEffectiveData` كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعّالة. تُستخدم نسخة من فئة `ICameraEffectiveData` كجزء من فئة `IThreeDFormatEffectiveData`، والتي تُعد زوجًا من [القيم الفعّالة](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) لفئة [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
 
-هذا مثال الشيفرة يوضح لك كيفية الحصول على الخصائص الفعّالة للكاميرا:
+تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة للكاميرا. البيانات الفعّالة التي تُعيدها الطريقة [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/threedformat/geteffective/) تحتوي على الخصائص النهائية للكاميرا لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/threedformat/).
+
+المثال البرمجي التالي يوضح كيفية الحصول على الخصائص الفعّالة للكاميرا. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective camera properties =");
-    echo("Type: " . $threeDEffectiveData->getCamera()->getCameraType());
-    echo("Field of view: " . $threeDEffectiveData->getCamera()->getFieldOfViewAngle());
-    echo("Zoom: " . $threeDEffectiveData->getCamera()->getZoom());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $camera = $threeDEffectiveData->getCamera();
+    $cameraType = $camera->getCameraType();
+    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
+    $zoom = $camera->getZoom();
+
+    echo "= Effective camera properties =" . PHP_EOL;
+    echo "Type: " . $cameraType . PHP_EOL;
+    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
+    echo "Zoom: " . $zoom . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **الحصول على الخصائص الفعّالة لجهاز إضاءة**
 
-## **الحصول على الخصائص الفعّالة لتجهيز الإضاءة**
-تتيح Aspose.Slides for PHP عبر Java للمطورين الحصول على خصائص تجهيز الإضاءة الفعّالة. لهذا الغرض، تمت إضافة الفئة `ILightRigEffectiveData` إلى Aspose.Slides. تمثّل فئة `ILightRigEffectiveData` كائنًا غير قابل للتغيير يحتوي على خصائص تجهيز الإضاءة الفعّالة. تُستخدم نسخة من فئة `ILightRigEffectiveData` كجزء من فئة `IThreeDFormatEffectiveData`، والتي تُعد زوجًا من [القيم الفعّالة](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) لفئة [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
+تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لجهاز الإضاءة. البيانات الفعّالة التي تُعيدها الطريقة [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/threedformat/geteffective/) تحتوي على الخصائص النهائية لجهاز الإضاءة لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/threedformat/).
 
-هذا مثال الشيفرة يوضح لك كيفية الحصول على الخصائص الفعّالة لتجهيز الإضاءة:
+المثال البرمجي التالي يوضح كيفية الحصول على الخصائص الفعّالة لجهاز الإضاءة. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective light rig properties =");
-    echo("Type: " . $threeDEffectiveData->getLightRig()->getLightType());
-    echo("Direction: " . $threeDEffectiveData->getLightRig()->getDirection());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $lightRig = $threeDEffectiveData->getLightRig();
+    $lightType = $lightRig->getLightType();
+    $direction = $lightRig->getDirection();
+
+    echo "= Effective light rig properties =" . PHP_EOL;
+    echo "Type: " . $lightType . PHP_EOL;
+    echo "Direction: " . $direction . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **الحصول على الخصائص الفعّالة لتقويس الشكل**
 
-## **الحصول على الخصائص الفعّالة لشكل الحافة**
-تتيح Aspose.Slides for PHP عبر Java للمطورين الحصول على الخصائص الفعّالة لشكل الحافة. لهذا الغرض، تمت إضافة الفئة `IShapeBevelEffectiveData` إلى Aspose.Slides. تمثّل فئة `IShapeBevelEffectiveData` كائنًا غير قابل للتغيير يحتوي على خصائص النقوش الوجهية الفعّالة للشكل. تُستخدم نسخة من فئة `IShapeBevelEffectiveData` كجزء من فئة `IThreeDFormatEffectiveData`، والتي تُعد زوجًا من [القيم الفعّالة](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) لفئة [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
+تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لتقويس الشكل. البيانات الفعّالة التي تُعيدها الطريقة [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/threedformat/geteffective/) تحتوي على الخصائص النهائية لتقويس الوجه لـ [ThreeDFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/threedformat/).
 
-هذا مثال الشيفرة يوضح لك كيفية الحصول على الخصائص الفعّالة لشكل الحافة:
+المثال البرمجي التالي يوضح كيفية الحصول على الخصائص الفعّالة لتقويس الجزء العلوي من الشكل. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo("= Effective shape's top face relief properties =");
-    echo("Type: " . $threeDEffectiveData->getBevelTop()->getBevelType());
-    echo("Width: " . $threeDEffectiveData->getBevelTop()->getWidth());
-    echo("Height: " . $threeDEffectiveData->getBevelTop()->getHeight());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
 
+    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
+    $bevelTop = $threeDEffectiveData->getBevelTop();
+    $bevelType = $bevelTop->getBevelType();
+    $bevelWidth = $bevelTop->getWidth();
+    $bevelHeight = $bevelTop->getHeight();
+
+    echo "= Effective shape's top face relief properties =" . PHP_EOL;
+    echo "Type: " . $bevelType . PHP_EOL;
+    echo "Width: " . $bevelWidth . PHP_EOL;
+    echo "Height: " . $bevelHeight . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **الحصول على الخصائص الفعّالة لإطار النص**
-باستخدام Aspose.Slides for PHP عبر Java، يمكنك الحصول على الخصائص الفعّالة لإطار النص. لهذا الغرض، تم إضافة الفئة `ITextFrameFormatEffectiveData` إلى Aspose.Slides. تحتوي على خصائص تنسيق إطار النص الفعّالة.
 
-هذا مثال الشيفرة يوضح لك كيفية الحصول على خصائص تنسيق إطار النص الفعّالة:
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لإطار النص. البيانات الفعّالة التي تُعيدها الطريقة [TextFrameFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/geteffective/) تحتوي على خصائص تنسيق إطار النص.
+
+المثال البرمجي التالي يوضح كيفية الحصول على خصائص تنسيق إطار النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) مع إطار نص.
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    echo("Anchoring type: " . $effectiveTextFrameFormat::getAnchoringType());
-    echo("Autofit type: " . $effectiveTextFrameFormat::getAutofitType());
-    echo("Text vertical type: " . $effectiveTextFrameFormat::getTextVerticalType());
-    echo("Margins");
-    echo("   Left: " . $effectiveTextFrameFormat::getMarginLeft());
-    echo("   Top: " . $effectiveTextFrameFormat::getMarginTop());
-    echo("   Right: " . $effectiveTextFrameFormat::getMarginRight());
-    echo("   Bottom: " . $effectiveTextFrameFormat::getMarginBottom());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
 
+    $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
+    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
+    $autofitType = $effectiveTextFrameFormat->getAutofitType();
+    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
+    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
+    $marginTop = $effectiveTextFrameFormat->getMarginTop();
+    $marginRight = $effectiveTextFrameFormat->getMarginRight();
+    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+
+    echo "Anchoring type: " . $anchoringType . PHP_EOL;
+    echo "Autofit type: " . $autofitType . PHP_EOL;
+    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
+    echo "Margins" . PHP_EOL;
+    echo "   Left: " . $marginLeft . PHP_EOL;
+    echo "   Top: " . $marginTop . PHP_EOL;
+    echo "   Right: " . $marginRight . PHP_EOL;
+    echo "   Bottom: " . $marginBottom . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **الحصول على الخصائص الفعّالة لنمط النص**
-باستخدام Aspose.Slides for PHP عبر Java، يمكنك الحصول على الخصائص الفعّالة لنمط النص. لهذا الغرض، تمت إضافة الفئة `ITextStyleEffectiveData` إلى Aspose.Slides. تحتوي على خصائص نمط النص الفعّالة.
 
-هذا مثال الشيفرة يوضح لك كيفية الحصول على خصائص نمط النص الفعّالة:
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لنمط النص. البيانات الفعّالة التي تُعيدها الطريقة [TextStyle.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textstyle/geteffective/) تحتوي على خصائص نمط النص.
+
+المثال البرمجي التالي يوضح كيفية الحصول على خصائص نمط النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) مع إطار نص.
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $effectiveTextStyle = $shape->getTextFrame()->getTextFrameFormat()->getTextStyle()->getEffective();
-    for($i = 0; $i <= 8; $i++) {
-      $effectiveStyleLevel = $effectiveTextStyle->getLevel($i);
-      echo("= Effective paragraph formatting for style level #" . $i . " =");
-      echo("Depth: " . $effectiveStyleLevel->getDepth());
-      echo("Indent: " . $effectiveStyleLevel->getIndent());
-      echo("Alignment: " . $effectiveStyleLevel->getAlignment());
-      echo("Font alignment: " . $effectiveStyleLevel->getFontAlignment());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
 
+    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
+    $textStyle = $textFrameFormat->getTextStyle();
+    $effectiveTextStyle = $textStyle->getEffective();
+    $levelCount = 9;
+
+    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
+        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
+        $depth = $effectiveStyleLevel->getDepth();
+        $indent = $effectiveStyleLevel->getIndent();
+        $alignment = $effectiveStyleLevel->getAlignment();
+        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
+
+        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
+
+        echo "Depth: " . $depth . PHP_EOL;
+        echo "Indent: " . $indent . PHP_EOL;
+        echo "Alignment: " . $alignment . PHP_EOL;
+        echo "Font alignment: " . $fontAlignment . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **الحصول على قيمة ارتفاع الخط الفعّالة**
-باستخدام Aspose.Slides for PHP عبر Java، يمكنك الحصول على الخصائص الفعّالة لارتفاع الخط. هنا نقدم شيفرة توضح تغيير قيمة ارتفاع الخط الفعّالة للجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي:
+
+باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعّال. يوضح الكود التالي كيف يتغير ارتفاع الخط الفعّال للجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة في بنية العرض التقديمي.
+
 ```php
-  $pres = new Presentation();
-  try {
-    $newShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $newShape->addTextFrame("");
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->clear();
-    $portion0 = new Portion("Sample text with first portion");
-    $portion1 = new Portion(" and second portion.");
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion0);
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion1);
-    echo("Effective font height just after creation:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(24);
-    echo("Effective font height after setting entire presentation default font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(40);
-    echo("Effective font height after setting paragraph default font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(55);
-    echo("Effective font height after setting portion #0 font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setFontHeight(18);
-    echo("Effective font height after setting portion #1 font height:");
-    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
+    $autoShape->addTextFrame("");
+
+    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getPortions()->clear();
+
+    $firstPortion = new Portion("Sample text with first portion");
+    $secondPortion = new Portion(" and second portion.");
+
+    $paragraph->getPortions()->add($firstPortion);
+    $paragraph->getPortions()->add($secondPortion);
+
+    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
+    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height just after creation:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
+    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
+    $defaultPortionFormat->setFontHeight(24);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $paragraphDefaultPortionFormat->setFontHeight(40);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $firstPortionFormat->setFontHeight(55);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $secondPortionFormat->setFontHeight(18);
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
+
+    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
+    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
+    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
+    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
+    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
+
+    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
 ## **الحصول على تنسيق التعبئة الفعّال لجدول**
-باستخدام Aspose.Slides for PHP عبر Java، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء منطقية مختلفة من الجدول. لهذا الغرض، تمت إضافة الفئة `ICellFormatEffectiveData` إلى Aspose.Slides. تحتوي على خصائص تنسيق التعبئة الفعّالة. يرجى ملاحظة ما يلي: تنسيق الخلية يحصل دائمًا على الأولوية على تنسيق الصف؛ الصف يحصل على الأولوية على العمود؛ والعمود يحصل على الأولوية على كامل الجدول.
+
+باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. البيانات الفعّالة التي تُعيدها كائنات التنسيق تحتوي على خصائص [FillFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fillformat/). تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنسيق الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بأكمله.
+
+وبالتالي، تُستخدم خصائص [CellFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellformat/) الفعّالة لرسم خلية الجدول. يوضح المثال البرمجي التالي كيفية الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول في الشريحة الأولى هو [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/table/).
+
 ```php
-  $pres = new Presentation("Presentation1.pptx");
-  try {
-    $tbl = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $tableFormatEffective = $tbl->getTableFormat()->getEffective();
-    $rowFormatEffective = $tbl->getRows()->get_Item(0)->getRowFormat()->getEffective();
-    $columnFormatEffective = $tbl->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
-    $cellFormatEffective = $tbl->get_Item(0, 0)->getCellFormat()->getEffective();
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $tableFormatEffective = $table->getTableFormat()->getEffective();
+
+    $row = $table->getRows()->get_Item(0);
+    $rowFormatEffective = $row->getRowFormat()->getEffective();
+
+    $column = $table->getColumns()->get_Item(0);
+    $columnFormatEffective = $column->getColumnFormat()->getEffective();
+
+    $cell = $table->get_Item(0, 0);
+    $cellFormatEffective = $cell->getCellFormat()->getEffective();
+
     $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
     $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
     $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
     $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+**هل تُعيد `getEffective` لقطة ثابتة؟**
 
-**كيف يمكنني معرفة أنني حصلت على "لقطة" بدلاً من "كائن مباشر"، ومتى ينبغي أن أقرأ الخصائص الفعّالة مرة أخرى؟**
-كائنات EffectiveData هي لقطات غير قابلة للتغيير للقيم المحسوبة في وقت الاستدعاء. إذا قمت بتغيير الإعدادات المحلية أو الموروثة للشكل, استرجع البيانات الفعّالة مرة أخرى للحصول على القيم المحدثة.
+ليس دائمًا. تمثل البيانات الفعّالة التنسيق المحسوب بعد تطبيق الوراثة، لكن بعض كائنات البيانات الفعّالة قد تُخزن داخليًا. قد يُعيد استدعاء `getEffective` لاحقًا إعادة حساب التنسيق وتحديث البيانات المخزنة، لذا لا ينبغي اعتبار الكائن الذي تم الحصول عليه مسبقًا كلقطة دائمة.
 
-**هل يؤثر تغيير شريحة التخطيط/الرئيسية على الخصائص الفعّالة التي تم استرجاعها مسبقًا؟**
-نعم، ولكن فقط بعد قراءتها مرة أخرى. الكائن EffectiveData الذي تم الحصول عليه مسبقًا لا يتم تحديثه تلقائيًا—اطلبه مرة أخرى بعد تغيير التخطيط أو الشريحة الرئيسية.
+**متى يجب قراءة الخصائص الفعّالة مرة أخرى؟**
 
-**هل يمكنني تعديل القيم عبر EffectiveData؟**
-لا. EffectiveData للقراءة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلية (الشكل/النص/3D، إلخ)، ثم احصل على القيم الفعّالة مرة أخرى.
+استدعِ `getEffective` مرة أخرى بعد تغيير التنسيق المحلي، أو أنماط الوالد، أو تنسيق التخطيط، أو تنسيق القالب الأساسي، أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيعيد الاستدعاء التالي تقييم شجرة التنسيق ويُعيد النتيجة الفعّالة الحالية.
 
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل، ولا في التخطيط/الرئيسية، ولا في الإعدادات العالمية؟**
-تُحدد القيمة الفعّالة بواسطة آلية الافتراضي (القيم الافتراضية لـ PowerPoint/Aspose.Slides). تلك القيمة المُستخرجة تصبح جزءًا من لقطة EffectiveData.
+**هل يؤثر تعديل أو إزالة شريحة تخطيط/قالب أساسي على الخصائص الفعّالة التي تم استرجاعها بالفعل؟**
 
-**من قيمة الخط الفعّالة، هل يمكنني تحديد أي مستوى قدم الحجم أو نوع الخط؟**
-ليس مباشرة. تُعيد EffectiveData القيمة النهائية. لتحديد المصدر، راجع القيم المحلية في الجزء/الفقرة/إطار النص وأنماط النص في التخطيط/الرئيسية/العرض التقديمي لتحديد المكان الذي ظهر فيه التعريف الصريح أولًا.
+نعم، لكن التغيير ينعكس في الاستدعاء التالي لـ `getEffective`. إذا تغير مصدر تنسيق الوالد أو أُزيل، قد تصبح البيانات الفعّالة المسترجعة مسبقًا قديمة. بمجرد استدعاء `getEffective` مرة أخرى، تعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير القيم النهائية للخطوط أو الألوان أو الأحجام أو القيم الأخرى.
 
-**لماذا تبدو قيم EffectiveData أحيانًا متطابقة مع القيم المحلية؟**
-لأن القيمة المحلية أصبحت هي النهائية (لم يُحتاج إلى وراثة من مستوى أعلى). في هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
+**هل يمكنني تعديل القيم عبر كائنات البيانات الفعّالة؟**
 
-**متى يجب عليّ استخدام الخصائص الفعّالة، ومتى يجب أن أعمل فقط بالقيم المحلية؟**
-استخدم EffectiveData عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق كل الوراثة (مثل توافق الألوان أو المسافات أو الأحجام). إذا كنت بحاجة لتغيير التنسيق على مستوى محدد، عدّل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة EffectiveData للتحقق من النتيجة.
+لا. تُظهر كائنات البيانات الفعّالة القيم المحسوبة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي، ثم احصل على القيم الفعّالة مرة أخرى.
+
+**ماذا يحدث إذا لم تُحدد خاصية ما على مستوى الشكل ولا في التخطيط/القالب ولا في الإعدادات العامة؟**
+
+يتم تحديد القيمة الفعّالة عبر آلية القيم الافتراضية، التي تشمل القيم الافتراضية لـ PowerPoint وAspose.Slides. تصبح القيمة التي تم حلها جزءًا من البيانات الفعّالة الحالية.
+
+**من قيمة الخط الفعّالة، هل يمكنني معرفة أي مستوى قدم الحجم أو نوع الخط؟**
+
+ليس مباشرة. تُعيد البيانات الفعّالة القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية على مستوى الجزء، الفقرة، إطار النص، وأنماط النص في التخطيط، القالب، ومستوى العرض التقديمي لمعرفة أول تعريف صريح يظهر.
+
+**لماذا تبدو القيم الفعّالة أحيانًا مطابقة للقيم المحلية؟**
+
+لأن القيمة المحلية انتهت بها المطاف إلى أن تكون النهائية (لم تُستدعِ وراثة مستوى أعلى). في هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
+
+**متى يجب استخدام الخصائص الفعّالة، ومتى أكتفي بالخصائص المحلية؟**
+
+استخدم البيانات الفعّالة عندما تحتاج إلى النتيجة "كما تم عرضها" بعد تطبيق جميع مستويات الوراثة، مثل محاذاة الألوان أو الهوامش أو الأحجام. إذا أردت الحفاظ على هذه القيم بغض النظر عن تغييرات التنسيق المستقبلية، انسخ الخصائص المطلوبة إلى كائن خاص بك. إذا كنت تحتاج لتغيير التنسيق على مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، اقرأ البيانات الفعّالة مرة أخرى للتحقق من النتيجة.

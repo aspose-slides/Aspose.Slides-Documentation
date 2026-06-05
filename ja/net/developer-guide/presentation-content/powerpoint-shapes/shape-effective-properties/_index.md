@@ -1,244 +1,281 @@
 ---
-title: ".NET のプレゼンテーションからシェイプの実効プロパティを取得する"
-linktitle: "実効プロパティ"
+title: .NET でプレゼンテーションからシェイプの効果的プロパティを取得する
+linktitle: 効果的プロパティ
 type: docs
 weight: 50
 url: /ja/net/shape-effective-properties/
 keywords:
-- "シェイプ プロパティ"
-- "カメラ プロパティ"
-- "ライトリグ"
-- "ベベル シェイプ"
-- "テキスト フレーム"
-- "テキスト スタイル"
-- "フォント 高さ"
-- "塗りつぶし 書式"
-- "PowerPoint"
-- "プレゼンテーション"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET が正確な PowerPoint 表示のために実効シェイプ プロパティを計算し適用する方法を紹介します。"
+- シェイプ プロパティ
+- カメラ プロパティ
+- ライト リグ
+- ベベル シェイプ
+- テキスト フレーム
+- テキスト スタイル
+- フォント 高さ
+- 塗りつぶし 書式
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET が、正確な PowerPoint 表示のためにシェイプの効果的プロパティをどのように計算し適用するかを学びます。"
 ---
+## **概要**
 
-このトピックでは、**effective** と **local** のプロパティについて説明します。これらのレベルで直接値を設定した場合
+このトピックでは **ローカル** と **効果的** なプロパティの違いについて説明します。ローカル値は、特定の書式設定レベルで直接設定された値で、例えば以下のようなものです。
 
-1. 部分スライド上の部分プロパティ。
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプテキストスタイル（部分のテキストフレームシェイプにある場合）。
-1. プレゼンテーション全体のテキスト設定。
+1. スライド上のポーション プロパティ。
+1. レイアウトまたはマスタースライド上のプロトタイプ シェイプのテキストスタイル（対象のポーションのテキストフレーム シェイプにスタイルが設定されている場合）。
+1. プレゼンテーション全体のグローバルテキスト設定。
 
-これらの値は **local** 値と呼ばれます。任意のレベルで **local** 値は定義されても、されなくても構いません。しかし、アプリケーションが部分の表示を判断する必要がある瞬間には **effective** 値が使用されます。**effective** 値は、ローカルフォーマットから **getEffective()** メソッドを使用して取得できます。
+ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「レンダリング後」の書式設定を必要とするとき、継承チェーンを解決し **効果的** な値を返します。ローカル書式オブジェクトで `GetEffective` メソッドを呼び出すことで取得できます。
 
-以下の例は、effective 値の取得方法を示しています。
-```c#
-using (Presentation pres = new Presentation("Presentation1.pptx"))
+以下の例は、効果的な値を取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持ち、少なくとも 1 つのポーションがある [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) であると想定しています。
+
+```csharp
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = (IAutoShape)slide.Shapes[0];
+
+var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
+var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
+
+var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+var localPortionFormat = portion.PortionFormat;
+var effectivePortionFormat = localPortionFormat.GetEffective();
+```
+
+{{% alert color="primary" %}}
+効果的な書式データは、継承が適用された後に計算された現在の書式を表します。現在の実装では、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/iportionformateffectivedata/) などの一部の効果的データオブジェクトが内部的にキャッシュされることがあります。親または継承された書式を変更した後に `GetEffective` を再度呼び出すとキャッシュが更新され、以前取得したオブジェクトは以前の状態を表さなくなる可能性があります。効果的な値を後で再利用する必要がある場合は、フォント高さ、塗りつぶし色、フォントスタイル、配置などの必要なプロパティを独自のデータオブジェクトにコピーしてください。
+{{% /alert %}}
+
+## **カメラの効果的プロパティの取得**
+
+Aspose.Slides はカメラの効果的プロパティを取得できます。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/icameraeffectivedata/) インターフェイスは、効果的なカメラプロパティを含む不変オブジェクトを表します。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/icameraeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ithreedformat/) の効果的な値を提供します。
+
+以下のコードサンプルは、カメラの効果的プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定がされていると想定しています。
+
+```csharp
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes[0];
+
+var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
+
+Console.WriteLine("= Effective camera properties =");
+Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
+Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
+Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
+```
+
+## **ライトリグの効果的プロパティの取得**
+
+Aspose.Slides はライトリグの効果的プロパティを取得できます。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ilightrigeffectivedata/) インターフェイスは、効果的なライトリグプロパティを含む不変オブジェクトを表します。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ilightrigeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ithreedformat/) の効果的な値を提供します。
+
+以下のコードサンプルは、ライトリグの効果的プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定がされていると想定しています。
+
+```csharp
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes[0];
+
+var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
+
+Console.WriteLine("= Effective light rig properties =");
+Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
+Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
+```
+
+## **シェイプベベルの効果的プロパティの取得**
+
+Aspose.Slides はシェイプベベルの効果的プロパティを取得できます。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapebeveleffectivedata/) インターフェイスは、シェイプの効果的な面リリーフプロパティを含む不変オブジェクトを表します。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapebeveleffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ithreedformat/) の効果的な値を提供します。
+
+以下のコードサンプルは、シェイプの上部ベベルの効果的プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定がされていると想定しています。
+
+```csharp
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes[0];
+
+var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
+
+Console.WriteLine("= Effective shape's top face relief properties =");
+Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
+Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
+Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
+```
+
+## **テキストフレームの効果的プロパティの取得**
+
+Aspose.Slides を使用すると、テキストフレームの効果的プロパティを取得できます。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformateffectivedata/) インターフェイスは、効果的なテキストフレーム書式プロパティを含みます。
+
+以下のコードサンプルは、テキストフレームの効果的な書式プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) であると想定しています。
+
+```csharp
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = (IAutoShape)slide.Shapes[0];
+
+var textFrameFormat = shape.TextFrame.TextFrameFormat;
+var effectiveTextFrameFormat = textFrameFormat.GetEffective();
+
+Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
+Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
+Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
+Console.WriteLine("Margins");
+Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
+Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
+Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
+Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
+```
+
+## **テキストスタイルの効果的プロパティの取得**
+
+Aspose.Slides を使用すると、テキストスタイルの効果的プロパティを取得できます。[ITextStyleEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/itextstyleeffectivedata/) インターフェイスは、効果的なテキストスタイルプロパティを含みます。
+
+以下のコードサンプルは、テキストスタイルの効果的プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) であると想定しています。
+
+```csharp
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = (IAutoShape)slide.Shapes[0];
+
+var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
+var levelCount = 9;
+
+for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 {
-    IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
+    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
+    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
 
-    ITextFrameFormat localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-    IPortionFormat localPortionFormat = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
-    IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.GetEffective();
+    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
+    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
+    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
+    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
 }
 ```
 
+## **効果的なフォント高さの取得**
 
-## **Get Effective Properties of a Camera**
-Aspose.Slides for .NET は開発者がカメラの effective プロパティを取得できるようにします。そのために、Aspose.Slides に **CameraEffectiveData** クラスが追加されました。CameraEffectiveData クラスは、effective なカメラプロパティを保持する不変オブジェクトを表します。**CameraEffectiveData** クラスのインスタンスは、ThreeDFormat クラスの effective 値ペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
+Aspose.Slides を使用すると、効果的なフォント高さを取得できます。以下のコードは、プレゼンテーション構造の異なるレベルでローカルのフォント高さが設定された後に、ポーションの効果的フォント高さがどのように変化するかを示しています。
 
-以下のコードサンプルは、カメラの effective プロパティを取得する方法を示しています。
-```c#
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+```csharp
+using var presentation = new Presentation();
 
-	Console.WriteLine("= Effective camera properties =");
-	Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-	Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-	Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-}
+var slide = presentation.Slides[0];
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
+autoShape.AddTextFrame("");
+
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+paragraph.Portions.Clear();
+
+var firstPortion = new Portion("Sample text with first portion");
+var secondPortion = new Portion(" and second portion.");
+
+paragraph.Portions.Add(firstPortion);
+paragraph.Portions.Add(secondPortion);
+
+var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
+var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+
+Console.WriteLine("Effective font height just after creation:");
+Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
+Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
+firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
+secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+
+Console.WriteLine("Effective font height after setting the presentation default font height:");
+Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
+Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
+firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
+secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+
+Console.WriteLine("Effective font height after setting paragraph default font height:");
+Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
+Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+
+firstPortion.PortionFormat.FontHeight = 55;
+firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
+secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+
+Console.WriteLine("Effective font height after setting portion #0 font height:");
+Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
+Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+
+secondPortion.PortionFormat.FontHeight = 18;
+firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
+secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+
+Console.WriteLine("Effective font height after setting portion #1 font height:");
+Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
+Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+
+presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 ```
 
+## **テーブルの効果的な塗りつぶし書式の取得**
 
-## **Get Effective Properties of a Light Rig**
-Aspose.Slides for .NET は開発者が Light Rig の effective プロパティを取得できるようにします。そのために、Aspose.Slides に **LightRigEffectiveData** クラスが追加されました。LightRigEffectiveData クラスは、effective なライトリグプロパティを保持する不変オブジェクトを表します。**LightRigEffectiveData** クラスのインスタンスは、ThreeDFormat クラスの effective 値ペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
+Aspose.Slides を使用すると、テーブルの各部分に対する効果的な塗りつぶし書式を取得できます。[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/ifillformateffectivedata/) インターフェイスは、効果的な塗りつぶし書式プロパティを含みます。セルの書式は行の書式より優先度が高く、行の書式は列の書式より、列の書式はテーブル全体の書式より優先されます。
 
-以下のコードサンプルは、Light Rig の effective プロパティを取得する方法を示しています。
-```c#
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+その結果、[ICellFormatEffectiveData](https://reference.aspose.com/slides/ja/net/aspose.slides/icellformateffectivedata/) のプロパティがテーブルセルの描画に使用されます。以下のコードサンプルは、テーブルの各部分に対する効果的な塗りつぶし書式を取得する方法を示しています。最初のスライドの最初のシェイプが [ITable](https://reference.aspose.com/slides/ja/net/aspose.slides/itable/) であると想定しています。
 
-	Console.WriteLine("= Effective light rig properties =");
-	Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-	Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-}
+```csharp
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var table = (ITable)presentation.Slides[0].Shapes[0];
+
+var tableFormatEffective = table.TableFormat.GetEffective();
+var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
+var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+
+var tableFillFormatEffective = tableFormatEffective.FillFormat;
+var rowFillFormatEffective = rowFormatEffective.FillFormat;
+var columnFillFormatEffective = columnFormatEffective.FillFormat;
+var cellFillFormatEffective = cellFormatEffective.FillFormat;
 ```
-
-
-## **Get Effective Properties of a Bevel Shape**
-Aspose.Slides for .NET は開発者がベベルシェイプの effective プロパティを取得できるようにします。そのために、Aspose.Slides に **ShapeBevelEffectiveData** クラスが追加されました。ShapeBevelEffectiveData クラスは、シェイプのフェイスリリーフプロパティを保持する不変オブジェクトを表します。**ShapeBevelEffectiveData** クラスのインスタンスは、ThreeDFormat クラスの effective 値ペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
-
-以下のコードサンプルは、ベベルシェイプの effective プロパティを取得する方法を示しています。
-```c#
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
-
-	Console.WriteLine("= Effective shape's top face relief properties =");
-	Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-	Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-	Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-}
-```
-
-
-## **Get Effective Properties of a Text Frame**
-Aspose.Slides for .NET を使用すると、テキストフレームの effective プロパティを取得できます。そのために、Aspose.Slides に **TextFrameFormatEffectiveData** クラスが追加され、effective なテキストフレームの書式設定プロパティが含まれます。
-
-以下のコードサンプルは、テキストフレームの effective 書式設定プロパティを取得する方法を示しています。
-```c#
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
-
-	ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
-	ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-
-	Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-	Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-	Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-	Console.WriteLine("Margins");
-	Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-	Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-	Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-	Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-}
-```
-
-
-## **Get Effective Properties of a Text Style**
-Aspose.Slides for .NET を使用すると、テキストスタイルの effective プロパティを取得できます。そのために、Aspose.Slides に **TextStyleEffectiveData** クラスが追加され、effective なテキストスタイルプロパティが含まれます。
-
-以下のコードサンプルは、テキストスタイルの effective プロパティを取得する方法を示しています。
-```c#
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-    IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
-
-    ITextStyleEffectiveData effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-
-    for (int i = 0; i <= 8; i++)
-    {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.GetLevel(i);
-        Console.WriteLine("= Effective paragraph formatting for style level #" + i + " =");
-
-        Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-        Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-        Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-        Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-    }
-}
-```
-
-
-## **Get the Effective Font Height Value**
-Aspose.Slides for .NET を使用すると、フォント高さの effective プロパティを取得できます。以下は、異なるプレゼンテーション構造レベルでローカルフォント高さを設定した後に、部分の effective フォント高さが変化するコードです。
-```c#
-using (Presentation pres = new Presentation())
-{
-    IAutoShape newShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    newShape.AddTextFrame("");
-    newShape.TextFrame.Paragraphs[0].Portions.Clear();
-
-    IPortion portion0 = new Portion("Sample text with first portion");
-    IPortion portion1 = new Portion(" and second portion.");
-
-    newShape.TextFrame.Paragraphs[0].Portions.Add(portion0);
-    newShape.TextFrame.Paragraphs[0].Portions.Add(portion1);
-
-    Console.WriteLine("Effective font height just after creation:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
-
-    pres.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-
-    Console.WriteLine("Effective font height after setting entire presentation default font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
-
-    newShape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-
-    Console.WriteLine("Effective font height after setting paragraph default font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
-
-    newShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 55;
-
-    Console.WriteLine("Effective font height after setting portion #0 font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
-
-    newShape.TextFrame.Paragraphs[0].Portions[1].PortionFormat.FontHeight = 18;
-
-    Console.WriteLine("Effective font height after setting portion #1 font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
-
-    pres.Save("SetLocalFontHeightValues.pptx",SaveFormat.Pptx);
-}
-```
-
-
-## **Get the Effective Fill Format for a Table**
-Aspose.Slides for .NET を使用すると、テーブルのさまざまな論理パーツの effective 塗りつぶし書式を取得できます。そのために、Aspose.Slides に **IFillFormatEffectiveData** インターフェイスが追加され、effective な塗りつぶし書式プロパティが含まれます。セルの書式設定は常に行の書式設定より優先され、行は列より、列はテーブル全体より優先されることに注意してください。
-
-したがって、最終的に **CellFormatEffectiveData** プロパティがテーブル描画に使用されます。以下のコードサンプルは、テーブルのさまざまな論理パーツの effective 塗りつぶし書式を取得する方法を示しています。
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-	ITable tbl = pres.Slides[0].Shapes[0] as ITable;
-	ITableFormatEffectiveData tableFormatEffective = tbl.TableFormat.GetEffective();
-	IRowFormatEffectiveData rowFormatEffective = tbl.Rows[0].RowFormat.GetEffective();
-	IColumnFormatEffectiveData columnFormatEffective = tbl.Columns[0].ColumnFormat.GetEffective();
-	ICellFormatEffectiveData cellFormatEffective = tbl[0, 0].CellFormat.GetEffective();
-
-	IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.FillFormat;
-	IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.FillFormat;
-	IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.FillFormat;
-	IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.FillFormat;
-}
-```
-
 
 ## **FAQ**
 
-**How can I tell that I got a "snapshot" rather than a "live object," and when should I read effective properties again?**
+**`GetEffective` はスナップショットを返しますか？**
 
-EffectiveData オブジェクトは呼び出し時点の計算値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合、再度 effective データを取得して更新された値を取得してください。
+必ずしもありません。効果的データは継承が適用された後に計算された書式を表しますが、一部の効果的データオブジェクトは内部でキャッシュされることがあります。`GetEffective` を再度呼び出すと書式が再計算されキャッシュが更新されるため、以前取得したオブジェクトを永続的なスナップショットとして扱うべきではありません。
 
-**Does changing the layout/master slide affect effective properties that have already been retrieved?**
+**効果的プロパティはいつ再取得すべきですか？**
 
-はい、ただし再度取得したときのみ反映されます。既に取得した EffectiveData オブジェクトは自動的に更新されません—レイアウトやマスタースライドを変更した後、再度要求してください。
+ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーション全体の既定を変更した後に `GetEffective` を再度呼び出します。次回の呼び出しで書式階層が再評価され、現在の効果的結果が返されます。
 
-**Can I modify values through EffectiveData?**
+**レイアウト/マスタースライドを変更または削除すると、すでに取得した効果的プロパティに影響しますか？**
 
-いいえ。EffectiveData は読み取り専用です。ローカル書式オブジェクト（シェイプ/テキスト/3D など）を変更し、必要に応じて再度 effective 値を取得してください。
+はい。ただし、変更は次回の `GetEffective` 呼び出し時に反映されます。親書式ソースが変更または削除された場合、以前取得した効果的データは古くなる可能性があります。`GetEffective` を再度呼び出すと、Aspose.Slides が書式ツリーを再評価し、フォント、色、サイズ、その他の値が変わることがあります。
 
-**What happens if a property is not set at the shape level, nor in the layout/master, nor in global settings?**
+**効果的データオブジェクトを介して値を変更できますか？**
 
-effective 値はデフォルトメカニズム（PowerPoint/Aspose.Slides の既定値）によって決定されます。その解決された値が EffectiveData スナップショットの一部となります。
+できません。効果的データオブジェクトは計算済みの値を公開するだけです。変更はローカルの書式オブジェクトで行い、再度 `GetEffective` で効果的な値を取得してください。
 
-**From an effective font value, can I tell which level provided the size or typeface?**
+**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
 
-直接は分かりません。EffectiveData は最終的な値を返します。ソースを特定するには、部分/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを確認し、最初に明示的に定義された場所を探してください。
+効果的値はデフォルト機構により決定されます。デフォルトは PowerPoint と Aspose.Slides の規定値を含み、解決された値が現在の効果的データの一部となります。
 
-**Why do EffectiveData values sometimes look identical to the local ones?**
+**効果的なフォント値から、どのレベルがサイズやフォントファミリを提供したか判断できますか？**
 
-ローカル値が最終的な値となったためです（上位レベルからの継承が不要だった）。この場合、effective 値はローカル値と同一になります。
+直接は判断できません。効果的データは最終的な値を返すだけです。どのレベルで最初に明示的に定義されたかを知りたい場合は、ポーション、段落、テキストフレーム、レイアウト、マスター、プレゼンテーション各レベルのローカル値を順に確認してください。
 
-**When should I use effective properties, and when should I work only with local ones?**
+**なぜ効果的値がローカル値と同じに見えることがあるのですか？**
 
-すべての継承が適用された「実際に表示される」結果が必要な場合は EffectiveData を使用してください（例：色、インデント、サイズの調整）。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて EffectiveData を再読み取りして結果を確認してください。
+ローカル値がそのまま最終値となり、上位レベルの継承が不要だったためです。このような場合、効果的値はローカル値と一致します。
+
+**効果的プロパティを使用すべき時と、ローカルプロパティだけを使用すべき時の違いは何ですか？**
+
+すべての継承が適用された後の「実際にレンダリングされる」結果が必要な場合は効果的データを使用します。たとえば、色・インデント・サイズを揃えるときなどです。後で書式が変更されても値を保持したい場合は、必要なプロパティを自分のオブジェクトにコピーしてください。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて再度効果的データを取得して結果を確認します。

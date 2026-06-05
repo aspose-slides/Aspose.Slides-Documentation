@@ -1,5 +1,5 @@
 ---
-title: JavaScript でプレゼンテーションからシェイプの有効プロパティを取得
+title: JavaScript でプレゼンテーションからシェイプの有効プロパティを取得する
 linktitle: 有効プロパティ
 type: docs
 weight: 50
@@ -7,235 +7,334 @@ url: /ja/nodejs-java/shape-effective-properties/
 keywords:
 - シェイプ プロパティ
 - カメラ プロパティ
-- ライトリグ
+- ライト リグ
 - ベベル シェイプ
 - テキスト フレーム
 - テキスト スタイル
 - フォント 高さ
-- 塗りつぶし 書式
+- 塗りつぶし 形式
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java が、正確な PowerPoint 表示のためにシェイプの有効なプロパティを計算し適用する方法を紹介します。"
+description: "Aspose.Slides for Node.js (Java) が、正確な PowerPoint のレンダリングのためにシェイプの有効プロパティを計算し適用する方法をご紹介します。"
 ---
+## **概要**
 
-このトピックでは、**effective** と **local** プロパティについて説明します。これらのレベルで値を直接設定する場合
+このトピックでは、**ローカル** と **有効** プロパティの違いについて説明します。ローカル値は、特定の書式設定レベルで直接設定された値で、例えば次のようなものです:
 
-1. パーツのスライド上のプロパティで;
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプテキストスタイルで（パーツのテキストフレームシェイプにある場合）;
-1. プレゼンテーション全体のテキスト設定で;
+1. スライド上の部分（ポーション）プロパティ。
+1. レイアウトやマスタースライド上のプロトタイプシェイプのテキストスタイル（その部分のテキストフレームシェイプが存在する場合）。
+1. プレゼンテーション全体のグローバルテキスト設定。
 
-これらの値は **local** 値と呼ばれます。任意のレベルで、**local** 値は定義されても、されなくてもかまいません。但し、アプリケーションがパーツの外観を知る必要があるときは、**effective** 値を使用します。**getEffective()** メソッドをローカルフォーマットから呼び出すことで、effective 値を取得できます。
+ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「描画結果」としての書式設定を必要とする場合、継承チェーンを解決して **有効** な値を返します。ローカル書式オブジェクトの `getEffective` メソッドを呼び出すことで取得できます。
 
-このサンプルコードは、effective 値の取得方法を示しています。
+以下の例は、有効な値を取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持ち、少なくとも1つの部分がある [AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) であることを前提としています。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    var effectiveTextFrameFormat = localTextFrameFormat.getEffective();
-    var localPortionFormat = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
-    var effectivePortionFormat = localPortionFormat.getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
+    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+
+    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
+    let effectivePortionFormat = localPortionFormat.getEffective();
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+{{% alert color="primary" %}}
+有効な書式データは、継承が適用された後に計算された現在の書式を表します。現在の実装では、一部の有効データオブジェクトが内部でキャッシュされることがあります。親や継承された書式を変更した後に `getEffective` を再度呼び出すと、キャッシュされたデータが更新され、以前取得したオブジェクトは以前の状態を表さなくなる可能性があります。後で再利用するために有効な値を保持する必要がある場合は、フォント高さ、塗りつぶしカラー、フォントスタイル、配置などの必要なプロパティを自分のデータオブジェクトにコピーしてください。
+{{% /alert %}}
 
-## **カメラのEffectiveプロパティの取得**
-Aspose.Slides for Node.js via Java を使用すると、開発者はカメラの effective プロパティを取得できます。この目的のために、Aspose.Slides に **CameraEffectiveData** クラスが追加されました。**CameraEffectiveData** クラスは、effective カメラ プロパティを保持する不変オブジェクトを表します。**CameraEffectiveData** クラスのインスタンスは **ThreeDFormatEffectiveData** クラスの一部として使用され、これは [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) のペアである [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスに対応します。
+## **カメラの有効プロパティの取得**
 
-このサンプルコードは、カメラの effective プロパティを取得する方法を示しています。
+Aspose.Slides を使用すると、カメラの有効プロパティを取得できます。有効なカメラデータオブジェクトは不変のカメラプロパティを含み、[ThreeDFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/threedformat/) の有効値として返されます。
+
+以下のコードサンプルは、カメラの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていることを前提としています。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    let camera = threeDEffectiveData.getCamera();
+    let cameraType = camera.getCameraType();
+    let fieldOfViewAngle = camera.getFieldOfViewAngle();
+    let zoom = camera.getZoom();
+
     console.log("= Effective camera properties =");
-    console.log("Type: " + threeDEffectiveData.getCamera().getCameraType());
-    console.log("Field of view: " + threeDEffectiveData.getCamera().getFieldOfViewAngle());
-    console.log("Zoom: " + threeDEffectiveData.getCamera().getZoom());
+    console.log("Type: " + cameraType);
+    console.log("Field of view: " + fieldOfViewAngle);
+    console.log("Zoom: " + zoom);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **ライトリグの有効プロパティの取得**
 
-## **Light Rig のEffectiveプロパティの取得**
-Aspose.Slides for Node.js via Java を使用すると、開発者は Light Rig の effective プロパティを取得できます。この目的のために、Aspose.Slides に **LightRigEffectiveData** クラスが追加されました。**LightRigEffectiveData** クラスは、effective ライトリグ プロパティを保持する不変オブジェクトを表します。**LightRigEffectiveData** クラスのインスタンスは **ThreeDFormatEffectiveData** クラスの一部として使用され、これは [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) のペアである [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスに対応します。
+Aspose.Slides を使用すると、ライトリグの有効プロパティを取得できます。有効なライトリグデータオブジェクトは不変のライトリグプロパティを含み、[ThreeDFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/threedformat/) の有効値として返されます。
 
-このサンプルコードは、Light Rig の effective プロパティを取得する方法を示しています。
+以下のコードサンプルは、ライトリグの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていることを前提としています。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    let lightRig = threeDEffectiveData.getLightRig();
+    let lightType = lightRig.getLightType();
+    let direction = lightRig.getDirection();
+
     console.log("= Effective light rig properties =");
-    console.log("Type: " + threeDEffectiveData.getLightRig().getLightType());
-    console.log("Direction: " + threeDEffectiveData.getLightRig().getDirection());
+    console.log("Type: " + lightType);
+    console.log("Direction: " + direction);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **ベベルシェイプの有効プロパティの取得**
 
-## **ベベルシェイプの Effective プロパティの取得**
-Aspose.Slides for Node.js via Java を使用すると、開発者はベベルシェイプの effective プロパティを取得できます。この目的のために、Aspose.Slides に **ShapeBevelEffectiveData** クラスが追加されました。**ShapeBevelEffectiveData** クラスは、effective なシェイプの面リリーフ プロパティを保持する不変オブジェクトを表します。**ShapeBevelEffectiveData** クラスのインスタンスは **ThreeDFormatEffectiveData** クラスの一部として使用され、これは [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) のペアである [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) クラスに対応します。
+Aspose.Slides を使用すると、シェイプベベルの有効プロパティを取得できます。有効なシェイプベベルデータオブジェクトはシェイプの不変の面（フェイス）リリーフプロパティを含み、[ThreeDFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/threedformat/) の有効値として返されます。
 
-このサンプルコードは、ベベルシェイプの effective プロパティを取得する方法を示しています。
+以下のコードサンプルは、シェイプの上部ベベルの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていることを前提としています。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
+    let bevelTop = threeDEffectiveData.getBevelTop();
+    let bevelType = bevelTop.getBevelType();
+    let bevelWidth = bevelTop.getWidth();
+    let bevelHeight = bevelTop.getHeight();
+
     console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + threeDEffectiveData.getBevelTop().getBevelType());
-    console.log("Width: " + threeDEffectiveData.getBevelTop().getWidth());
-    console.log("Height: " + threeDEffectiveData.getBevelTop().getHeight());
+    console.log("Type: " + bevelType);
+    console.log("Width: " + bevelWidth);
+    console.log("Height: " + bevelHeight);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **テキストフレームの有効プロパティの取得**
 
-## **テキストフレームの Effective プロパティの取得**
-Aspose.Slides for Node.js via Java を使用すると、テキストフレームの effective プロパティを取得できます。この目的のために、Aspose.Slides に **TextFrameFormatEffectiveData** クラスが追加されました。これは effective なテキストフレームの書式設定プロパティを含みます。
+Aspose.Slides を使用すると、テキストフレームの有効プロパティを取得できます。返される有効データオブジェクトはテキストフレームの書式設定プロパティを含みます。
 
-このサンプルコードは、effective なテキストフレーム書式設定プロパティを取得する方法を示しています。
+以下のコードサンプルは、テキストフレームの有効な書式設定プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) であることを前提としています。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
-    console.log("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    console.log("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    console.log("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+
+    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
+    let effectiveTextFrameFormat = textFrameFormat.getEffective();
+    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
+    let autofitType = effectiveTextFrameFormat.getAutofitType();
+    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
+    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
+    let marginTop = effectiveTextFrameFormat.getMarginTop();
+    let marginRight = effectiveTextFrameFormat.getMarginRight();
+    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
+
+    console.log("Anchoring type: " + anchoringType);
+    console.log("Autofit type: " + autofitType);
+    console.log("Text vertical type: " + textVerticalType);
     console.log("Margins");
-    console.log("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    console.log("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    console.log("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    console.log("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
+    console.log("   Left: " + marginLeft);
+    console.log("   Top: " + marginTop);
+    console.log("   Right: " + marginRight);
+    console.log("   Bottom: " + marginBottom);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **テキストスタイルの有効プロパティの取得**
 
-## **テキストスタイルの Effective プロパティの取得**
-Aspose.Slides for Node.js via Java を使用すると、テキストスタイルの effective プロパティを取得できます。この目的のために、Aspose.Slides に **TextStyleEffectiveData** クラスが追加されました。これは effective なテキストスタイル プロパティを含みます。
+Aspose.Slides を使用すると、テキストスタイルの有効プロパティを取得できます。返される有効データオブジェクトはテキストスタイルのプロパティを含みます。
 
-このサンプルコードは、effective なテキストスタイル プロパティを取得する方法を示しています。
+以下のコードサンプルは、テキストスタイルの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) であることを前提としています。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    for (var i = 0; i <= 8; i++) {
-        var effectiveStyleLevel = effectiveTextStyle.getLevel(i);
-        console.log(("= Effective paragraph formatting for style level #" + i) + " =");
-        console.log("Depth: " + effectiveStyleLevel.getDepth());
-        console.log("Indent: " + effectiveStyleLevel.getIndent());
-        console.log("Alignment: " + effectiveStyleLevel.getAlignment());
-        console.log("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().get_Item(0);
+    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
+    let levelCount = 9;
+
+    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
+        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
+        let depth = effectiveStyleLevel.getDepth();
+        let indent = effectiveStyleLevel.getIndent();
+        let alignment = effectiveStyleLevel.getAlignment();
+        let fontAlignment = effectiveStyleLevel.getFontAlignment();
+
+        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
+
+        console.log("Depth: " + depth);
+        console.log("Indent: " + indent);
+        console.log("Alignment: " + alignment);
+        console.log("Font alignment: " + fontAlignment);
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **有効なフォント高さ値の取得**
 
-## **Effective フォント高さ値の取得**
-Aspose.Slides for Node.js via Java を使用すると、フォント高さの effective プロパティを取得できます。ここでは、プレゼンテーションの各レベルでローカルフォント高さが設定された後に、パーツの effective フォント高さ値が変化する様子を示すコードを提供します。
+Aspose.Slides を使用すると、有効なフォント高さを取得できます。以下のコードは、プレゼンテーションのさまざまな階層でローカルのフォント高さが設定された後、部分の有効フォント高さがどのように変化するかを示しています。
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    var newShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 75, false);
-    newShape.addTextFrame("");
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().clear();
-    var portion0 = new aspose.slides.Portion("Sample text with first portion");
-    var portion1 = new aspose.slides.Portion(" and second portion.");
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion0);
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion1);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shapeType = aspose.slides.ShapeType.Rectangle;
+    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
+    autoShape.addTextFrame("");
+
+    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
+    let secondPortion = new aspose.slides.Portion(" and second portion.");
+
+    paragraph.getPortions().add(firstPortion);
+    paragraph.getPortions().add(secondPortion);
+
+    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    pres.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    console.log("Effective font height after setting entire presentation default font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    newShape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
+    console.log("Effective font height after setting the presentation default font height:");
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(55);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    firstPortion.getPortionFormat().setFontHeight(55);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(1).getPortionFormat().setFontHeight(18);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    secondPortion.getPortionFormat().setFontHeight(18);
+    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
+    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+
+    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
+    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
     console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-    console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-    pres.save("SetLocalFontHeightValues.pptx", aspose.slides.SaveFormat.Pptx);
+    console.log("Portion #0: " + firstPortionFontHeight);
+    console.log("Portion #1: " + secondPortionFontHeight);
+
+    let saveFormat = aspose.slides.SaveFormat.Pptx;
+    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **テーブルの有効な塗りつぶし形式の取得**
 
-## **テーブルの Effective 塗りつぶし書式の取得**
-Aspose.Slides for Node.js via Java を使用すると、テーブルのさまざまな論理部分の effective 塗りつぶし書式を取得できます。この目的のために、Aspose.Slides に **CellFormatEffectiveData** クラスが追加されました。これは effective な塗りつぶし書式プロパティを含みます。次の点に注意してください：セルの書式設定は常に行の書式設定より優先され、行は列の書式設定より優先され、列はテーブル全体の書式設定より優先されます。
+Aspose.Slides を使用すると、テーブルのさまざまなパーツに対する有効な塗りつぶし書式設定を取得できます。返される有効データオブジェクトは塗りつぶし書式設定プロパティを含みます。セルの書式設定は行の書式設定よりも優先度が高く、行の書式設定は列の書式設定よりも優先度が高く、列の書式設定はテーブル全体の書式設定よりも優先度が高いです。
+
+結果として、テーブルセルの描画には有効なセル書式設定プロパティが使用されます。以下のコードサンプルは、テーブルのさまざまなパーツに対する有効な塗りつぶし書式設定を取得する方法を示しています。最初のスライドの最初のシェイプが [Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/table/) であることを前提としています。
+
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation1.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var tbl = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var tableFormatEffective = tbl.getTableFormat().getEffective();
-    var rowFormatEffective = tbl.getRows().get_Item(0).getRowFormat().getEffective();
-    var columnFormatEffective = tbl.getColumns().get_Item(0).getColumnFormat().getEffective();
-    var cellFormatEffective = tbl.get_Item(0, 0).getCellFormat().getEffective();
-    var tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    var rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    var columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    var cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    let slide = presentation.getSlides().get_Item(0);
+    let table = slide.getShapes().get_Item(0);
+
+    let tableFormatEffective = table.getTableFormat().getEffective();
+    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
+    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
+    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
+    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
-**取得したオブジェクトが「スナップショット」か「ライブオブジェクト」かをどのように判断し、いつ effective プロパティを再取得すべきですか？**
-EffectiveData オブジェクトは、呼び出し時点で計算された値の不変スナップショットです。シェイプのローカルまたは継承設定を変更した場合、更新された値を取得するために effective データを再取得してください。
+**`getEffective` はスナップショットを返しますか？**
 
-**レイアウト/マスタースライドを変更すると、すでに取得した effective プロパティに影響しますか？**
-はい、ただし再度読み取ったときにのみ反映されます。すでに取得した EffectiveData オブジェクトは自動で更新されません—レイアウトまたはマスターを変更した後に再度取得してください。
+必ずしもそうではありません。有効データは継承が適用された後に計算された書式を表しますが、一部の有効データオブジェクトは内部でキャッシュされることがあります。その後の `getEffective` 呼び出しでは書式が再計算され、キャッシュデータが更新される可能性があるため、以前取得したオブジェクトを永続的なスナップショットとして扱うべきではありません。
 
-**EffectiveData を通じて値を変更できますか？**
-いいえ。EffectiveData は読み取り専用です。ローカルの書式設定オブジェクト（シェイプ/テキスト/3D など）を変更し、必要に応じて再度 effective 値を取得してください。
+**有効プロパティを再度取得すべきタイミングは？**
 
-**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
-effective 値はデフォルトのメカニズム（PowerPoint/Aspose.Slides の既定値）により決定されます。その解決された値が EffectiveData のスナップショットに含まれます。
+ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーションレベルのデフォルトを変更した後に `getEffective` を再度呼び出してください。次の呼び出しで書式階層が再評価され、現在の有効結果が返されます。
 
-**effective フォント値から、どのレベルがサイズまたはフォント名を提供したか判断できますか？**
-直接はできません。EffectiveData は最終的な値を返すだけです。元を調べるには、パーツ/段落/テキストフレームのローカル値や、レイアウト/マスター/プレゼンテーションのテキストスタイルを確認し、最初の明示的な定義がどこにあるかを見つけます。
+**レイアウト／マスタースライドの変更や削除は、すでに取得した有効プロパティに影響しますか？**
 
-**EffectiveData の値がローカル値と同じに見えることがあるのはなぜですか？**
-ローカル値が最終的な値となったため（上位レベルからの継承が不要）です。その場合、effective 値はローカル値と同一になります。
+はい。ただし、変更は次回の `getEffective` 呼び出し時に反映されます。親の書式設定ソースが変更または削除されると、以前取得した有効データは古くなる可能性があります。`getEffective` を再度呼び出すと、Aspose.Slides は書式ツリーを再評価し、フォント、色、サイズ、その他の値が変わることがあります。
 
-**effective プロパティを使用すべき時と、ローカルプロパティだけで作業すべき時はいつですか？**
-すべての継承が適用された「実際に表示される」結果が必要なときは EffectiveData を使用します（例：色、インデント、サイズを合わせる場合）。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて EffectiveData を再取得して結果を確認してください。
+**有効データオブジェクトを通じて値を変更できますか？**
+
+いいえ。有効データオブジェクトは計算された値を提供するだけです。ローカルの書式設定オブジェクトで変更を行い、再度有効な値を取得してください。
+
+**シェイプレベル、レイアウト／マスター、グローバル設定のいずれにもプロパティが設定されていない場合はどうなりますか？**
+
+有効値はデフォルト機構により決定されます。この機構は PowerPoint と Aspose.Slides のデフォルトを含みます。解決された値が現在の有効データの一部となります。
+
+**有効なフォント値から、どの階層がサイズやフォント名を提供したか判別できますか？**
+
+直接的には判別できません。有効データは最終的な値を返すだけです。どの階層が元となったかを確認するには、部分、段落、テキストフレーム、そしてレイアウト、マスター、プレゼンテーションレベルのテキストスタイルのローカル値を調べ、最初に明示的に定義されている箇所を探してください。
+
+**なぜ有効値がローカル値と同じに見えることがあるのですか？**
+
+ローカル値が最終的な値となった（上位レベルの継承が必要なかった）ためです。このような場合、有効値はローカル値と一致します。
+
+**有効プロパティを使用すべきタイミングと、ローカルプロパティだけで作業すべきタイミングは？**
+
+すべての継承が適用された「描画結果」が必要な場合（色やインデント、サイズを合わせるなど）は、有効データを使用してください。後の書式変更に関係なくそれらの値を保持したい場合は、必要なプロパティを自分のオブジェクトにコピーします。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて有効データを再度取得して結果を確認してください。
