@@ -1,5 +1,5 @@
 ---
-title: 外部リンク画像でプレゼンテーションをHTMLにエクスポート
+title: 外部リンクされた画像でプレゼンテーションをHTMLにエクスポート
 type: docs
 weight: 100
 url: /ja/java/exporting-presentations-to-html-with-externally-linked-images/
@@ -11,49 +11,49 @@ keywords:
 - PPT をエクスポート
 - PPTX をエクスポート
 - ODP をエクスポート
-- PowerPoint から HTML へ
-- OpenDocument から HTML へ
-- プレゼンテーションを HTML に
-- スライドを HTML に
-- PPT を HTML に
-- PPTX を HTML に
-- ODP を HTML に
-- リンク画像
-- 外部リンク画像
-- リンクリソース
+- PowerPoint を HTML に変換
+- OpenDocument を HTML に変換
+- プレゼンテーションを HTML に変換
+- スライドを HTML に変換
+- PPT を HTML に変換
+- PPTX を HTML に変換
+- ODP を HTML に変換
+- リンクされた画像
+- 外部リンクされた画像
+- リンクされたリソース
 - 外部リソース
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して、Java で PowerPoint および OpenDocument のプレゼンテーションを HTML にエクスポートし、画像やその他のリソースを外部リンクファイルとして保存します。"
+description: "JavaでAspose.Slidesを使用し、画像やその他のリソースを外部リンクファイルとして保存して、PowerPoint および OpenDocument プレゼンテーションを HTML にエクスポートします。"
 ---
 ## **概要**
 
-デフォルトでは、Aspose.Slides はプレゼンテーションを自己完結型 HTML ファイルとしてエクスポートします。画像やその他のリソースは通常 Base64 データとして HTML に直接埋め込まれます。これは 1 つのポータブルファイルが必要な場合に便利ですが、Web サイトや CMS、サーバー側の変換パイプラインにとって必ずしも最適な形式とは限りません。
+デフォルトでは、Aspose.Slides はプレゼンテーションを単一の HTML ファイルにエクスポートします。画像やその他のリソースは通常 Base64 データとして HTML に直接書き込まれます。1 つのポータブルファイルが必要な場合には便利ですが、Web サイトや CMS、サーバーサイドの変換パイプラインにとって常に最適な形式とは限りません。
 
-以下のような目的で外部リンクリソースを使用してください。
+外部リソースへのリンクを使用したい場合は次のとおりです。
 
-- HTML ドキュメントのサイズを削減する  
-- 画像、フォント、音声、動画をブラウザーまたは CDN に個別にキャッシュする  
-- エクスポート後に生成されたリソースを検査、置換、圧縮、または後処理する  
-- 出力構造を Web アプリケーションが期待する形に近づける  
+- HTML ドキュメントのサイズを削減したいとき
+- 画像、フォント、音声、動画をブラウザーや CDN で個別にキャッシュしたいとき
+- エクスポート後に生成されたリソースを検査、置換、圧縮、または後処理したいとき
+- Web アプリケーションが期待する出力構造に近づけたいとき
 
-一般的な HTML 変換ワークフローについては、[PowerPointプレゼンテーションをHTMLに変換](/slides/ja/java/convert-powerpoint-to-html/) を参照してください。本稿はエクスポート時のリソースリンク付け部分に焦点を当てます。
+一般的な HTML 変換ワークフローについては、[PowerPointプレゼンテーションをHTMLに変換](/slides/ja/java/convert-powerpoint-to-html/) を参照してください。本記事はエクスポート時のリソースリンク付けに焦点を当てています。
 
-## **リンクリソースエクスポートの仕組み**
+## **リンクされたリソースのエクスポートの仕組み**
 
-[ILinkEmbedController](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は、リソース単位でデータを HTML に埋め込むか外部に保存してリンクを書くかをアプリケーションに判断させます。
+[ILinkEmbedController](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) を使用すると、アプリケーションはリソース単位で、エクスポーターがデータを HTML に埋め込むか外部に保存してリンクを書くかを決定できます。
 
-インターフェイスには次の 3 つのメソッドがあります。
+このインターフェイスには 3 つのメソッドがあります。
 
-- [ILinkEmbedController.getObjectStoringLocation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は、リソースをリンクするか埋め込むかを決定します。  
-- [ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は、生成された HTML または別のリンクリソースに書き込まれる URL を返します。  
-- [ILinkEmbedController.saveExternal](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は、リンクリソースのデータをディスクまたは別の保存先に書き込みます。
+- [ILinkEmbedController.getObjectStoringLocation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は、リソースをリンクするか埋め込むかを決めます。
+- [ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は、生成された HTML または別のリンク済みリソースに書き込まれる URL を返します。
+- [ILinkEmbedController.saveExternal](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) は、リンクされたリソースのデータをディスクまたは別のストレージ先に書き込みます。
 
-ファイルシステム上のパスとブラウザー URL は別々に考慮します。例えば、以下のサンプルはリソースファイルをディスク上の `html-output/assets` に書き出し、HTML には `assets/resource-1.svg` のような相対 URL が記述されます。ブラウザーはリンクを含むファイルを基準に URL を解決するため、`presentation.html` から SVG ファイルへのリンクは `assets/resource-1.svg` となり、同じ `assets` フォルダーに保存された画像へのリンクは `resource-4.jpg` となります。
+ファイルシステム上のパスとブラウザー URL は別個の概念です。たとえば、以下のサンプルはリソースファイルをディスク上の `html-output/assets` に書き込み、HTML には `assets/resource-1.svg` のような相対 URL が含まれます。ブラウザーはリンクを含むファイルを基準にこれらの URL を解決します。そのため、`presentation.html` から SVG ファイルへのリンクは `assets/resource-1.svg` を使用し、同じ `assets` フォルダーに保存された画像へのリンクは `resource-4.jpg` となります。
 
-## **リンクリソース付きで HTML をエクスポートする**
+## **リンクされたリソース付きで HTML をエクスポート**
 
-以下の Java サンプルは出力ディレクトリを作成し、HTML ファイルをその中に保存し、リンクリソースを `assets` サブディレクトリに格納します。コントローラーは、Aspose.Slides が提供または推測できる安全な拡張子がある場合に、一般的な画像、フォント、音声、動画、CSS リソースをリンクします。認識されないリソースは埋め込まれたままです。
+次の Java サンプルは出力ディレクトリを作成し、HTML ファイルをそこに保存し、リンクされたリソースを `assets` サブディレクトリに格納します。コントローラーは、Aspose.Slides が提供するか安全な拡張子を推測できる一般的な画像、フォント、音声、動画、CSS リソースをリンクします。認識されないリソースは埋め込まれたままです。
 
 ```java
 import com.aspose.slides.HtmlFormatter;
@@ -255,7 +255,7 @@ public class ExportToHtmlWithLinkedResources {
 }
 ```
 
-エクスポート後、出力フォルダーは次のような構成になります。
+エクスポート後、出力フォルダーは次のような構造になります。
 
 ```text
 html-output/
@@ -268,40 +268,14 @@ html-output/
     resource-5.png
 ```
 
-正確なファイルはプレゼンテーションの内容とエクスポートオプションによります。例えば、ラスター画像は通常 JPEG または PNG としてエクスポートされます。Aspose.Slides は、サイズが小さくなる、あるいはより適切になる場合に、元のプレゼンテーションで使用されていたものとは異なる画像コーデックを選択することがあります。透過情報を含む画像は PNG としてエクスポートされます。
+正確なファイルはプレゼンテーションの内容やエクスポートオプションに依存します。たとえば、ラスタ画像は一般的に JPEG または PNG としてエクスポートされます。Aspose.Slides は、サイズが小さくなる、または適切になる場合に、元のプレゼンテーションで使用されていたものとは異なる画像コーデックを選択することがあります。透明度を含む画像は PNG としてエクスポートされます。
 
-## **デプロイ用 URL の選択**
+## **デプロイ時の URL の選択**
 
-サンプルは相対 URL プレフィックス `assets/` を使用しています。`presentation.html` が `html-output/presentation.html` から開かれた場合、ブラウザーは `html-output/assets/resource-1.svg` を読み込みます。
+サンプルは相対 URL プレフィックス `assets/` を使用しています。`presentation.html` が `html-output/presentation.html` から開かれると、ブラウザーは `html-output/assets/resource-1.svg` をロードします。
 
-あるリンクリソースが別のリンクリソースを参照する場合、サンプルは [ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) の `referrer` パラメーターを利用し、ファイル名だけを返します。例えば、`resource-1.svg` と `resource-4.jpg` が同じ `assets` フォルダーにある場合、SVG ファイルは `resource-4.jpg` を参照すべきであり、`assets/resource-4.jpg` ではありません。
+1 つのリンクされたリソースが別のリンクされたリソースを参照する場合、サンプルは [ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) の `referrer` パラメーターを使用し、ファイル名だけを返します。たとえば、`resource-1.svg` と `resource-4.jpg` が同じ `assets` フォルダーにある場合、SVG ファイルは `resource-4.jpg` を参照すべきであり、`assets/resource-4.jpg` ではありません。
 
 ファイルを別の場所にデプロイする場合は、URL プレフィックスを変更してください。
 
-- HTML ファイルと同じディレクトリにアセットディレクトリがある場合は `assets/` を使用  
-- アセットディレクトリが HTML ファイルの 1 つ上の階層にある場合は `../assets/` を使用  
-- CDN や静的ファイルサーバーにアップロードする場合は `https://cdn.example.com/presentations/job-123/assets/` を使用  
-
-[ILinkEmbedController.getUrl](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) が返す URL は、[ILinkEmbedController.saveExternal](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) が書き込むファイルの最終的な配置先と一致しなければなりません。サーバーアプリケーションでは、変換ジョブごとに一意の出力ディレクトリまたはオブジェクトストレージプレフィックスを使用し、別のエクスポートによる上書きを防止してください。
-
-## **埋め込みを選択すべきケース**
-
-埋め込み Base64 HTML は、出力が単一ファイルである必要がある場合（メール添付、オフラインプレビュー、アセットフォルダーを伴わないドキュメントの移動など）に依然有用です。HTML が Web アプリケーションで配信される、CMS に保存される、ビルドパイプラインで最適化される、あるいはブラウザーが HTML とは別にキャッシュするようなシナリオでは、リンクリソースの方が適しています。
-
-## **FAQ**
-
-**画像だけを外部化し、他のリソースは埋め込んだままにできますか？**
-
-はい。[ILinkEmbedController.getObjectStoringLocation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilinkembedcontroller/) で、別ファイルとして保存したいコンテンツタイプに対して `LinkEmbedDecision.Link` を返し、その他は `LinkEmbedDecision.Embed` を返すようにしてください。
-
-**エクスポートされた画像の拡張子が元のプレゼンテーションと異なるのはなぜですか？**
-
-Aspose.Slides は HTML エクスポート時にサイズやブラウザー互換性を向上させるため、ラスター画像を再エンコードすることがあります。例えば、元ファイルの画像が JPEG または PNG のいずれかに変換される場合があります。
-
-**HTML ファイルを移動した後でも相対 URL は機能しますか？**
-
-相対 URL は同じ相対フォルダー構造が保持されている場合にのみ機能します。`assets/resource-1.png` を参照している HTML を別の場所に移す場合は、`assets` フォルダーも同じ位置に置くか、別の URL プレフィックスを生成してください。
-
-**サーバーアプリケーションで同じ出力フォルダーを再利用すべきですか？**
-
-いいえ。変換ジョブごとに一意の出力ディレクトリまたはストレージプレフィックスを使用してください。これによりファイル名衝突を防ぎ、あるエクスポートが別のエクスポートのリソースを上書きすることを防止できます。
+- HTML ファイルと同じディレクトリにアセットディレクトリがある場合は `assets/`

@@ -6,15 +6,15 @@ url: /ar/php-java/exporting-presentations-to-html-with-externally-linked-images/
 keywords:
 - تصدير PowerPoint
 - تصدير OpenDocument
-- تصدير عرض تقديمي
-- تصدير شريحة
+- تصدير العرض التقديمي
+- تصدير الشريحة
 - تصدير PPT
 - تصدير PPTX
 - تصدير ODP
 - PowerPoint إلى HTML
 - OpenDocument إلى HTML
-- عرض تقديمي إلى HTML
-- شريحة إلى HTML
+- العرض التقديمي إلى HTML
+- الشريحة إلى HTML
 - PPT إلى HTML
 - PPTX إلى HTML
 - ODP إلى HTML
@@ -28,34 +28,34 @@ description: "تصدير عروض PowerPoint و OpenDocument إلى HTML في PH
 ---
 ## **نظرة عامة**
 
-بشكل افتراضي، يقوم Aspose.Slides بتصدير العرض التقديمي إلى ملف HTML مستقل. تُكتب الصور والموارد الأخرى مباشرةً داخل HTML، عادةً كبيانات Base64. هذا مفيد عندما تحتاج إلى ملف واحد محمول، لكنه ليس دائمًا الأفضل لموقع ويب أو نظام إدارة محتوى أو خط أنابيب تحويل من جانب الخادم.
+بشكل افتراضي، يقوم Aspose.Slides بتصدير العرض التقديمي إلى ملف HTML مستقل. تُكتب الصور والموارد الأخرى مباشرةً داخل HTML، عادةً كبيانات Base64. هذا مفيد عندما تحتاج إلى ملف واحد قابل للنقل، لكنه ليس دائمًا أفضل تنسيق لموقع ويب أو نظام إدارة محتوى أو خط أنابيب تحويل على الخادم.
 
 استخدم الموارد المرتبطة خارجيًا عندما تريد:
 
 - تقليل حجم مستند HTML؛
-- تخزين الصور أو الخطوط أو الصوت أو الفيديو في المتصفح أو شبكة CDN بشكل منفصل؛
+- تخزين الصور أو الخطوط أو الصوت أو الفيديو في المتصفح أو CDN بشكل منفصل؛
 - فحص الموارد المستخرجة أو استبدالها أو ضغطها أو معالجتها لاحقًا بعد التصدير؛
-- جعل بنية المخرجات أقرب إلى ما تتوقعه تطبيقات الويب.
+- الحفاظ على بنية الإخراج أقرب إلى ما تتوقعه تطبيقات الويب.
 
-للتعرف على سير عمل التحويل العام إلى HTML، راجع [Convert PowerPoint Presentations to HTML](/slides/ar/php-java/convert-powerpoint-to-html/). تركّز هذه المقالة على جزء ربط الموارد في عملية التصدير.
+للتعرف على سير عمل تحويل HTML العام، راجع [Convert PowerPoint Presentations to HTML](/slides/ar/php-java/convert-powerpoint-to-html/). يركز هذا المقال على جزء ربط الموارد في عملية التصدير.
 
 ## **كيف يعمل تصدير الموارد المرتبطة**
 
-يمكن لـ [HtmlOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/htmloptions/) استخدام وحدة تحكم مخصصة للربط/التضمين عندما يقوم Aspose.Slides بتصدير العرض إلى HTML. في PHP عبر Java، يُنفّذ هذا السيناريو عادةً باستخدام فئة مساعدة صغيرة بلغة Java. قم بتجميع تلك الفئة، أضفها إلى مسار فئة PHP Java Bridge، وأنشئ كائنًا منها في PHP باستخدام `new Java(...)`.
+يمكن لـ [HtmlOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/htmloptions/) استخدام وحدة تحكم مخصصة للربط/التضمين عندما يقوم Aspose.Slides بتصدير عرض تقديمي إلى HTML. في PHP عبر Java، يتم عادةً تنفيذ هذا السيناريو باستخدام فئة مساعدة صغيرة مكتوبة بجافا. قم بتجميع تلك الفئة، أضفها إلى مسار فئة جسر PHP Java، وأنشئ مثيلًا لها من PHP باستخدام `new Java(...)`.
 
-تقرر الفئة المساعدة، لكل مورد على حدة، ما إذا كان المصدّر سيضمّن البيانات داخل HTML أو سيحفظها خارجيًا ويكتب رابطًا. تحتاج إلى ثلاث طرق استرداد (callback):
+تحدد الفئة المساعدة، لكل مورد على حدة، ما إذا كان المصدر سيضمّن البيانات في HTML أو سيحفظها خارجيًا ويكتب رابطًا. تحتاج إلى ثلاث طرق رد نداء:
 
 - `ExternalResourceController.getObjectStoringLocation` يحدد ما إذا كان يجب ربط المورد أو تضمينه.
-- `ExternalResourceController.getUrl` يرجع عنوان URL الذي سيكتب في HTML المُولد أو إلى مورد مرتبط آخر.
+- `ExternalResourceController.getUrl` يعيد عنوان URL الذي سيُكتب في HTML المُولَّد أو في مورد مرتبط آخر.
 - `ExternalResourceController.saveExternal` يكتب بيانات المورد المرتبط إلى القرص أو إلى هدف تخزين آخر.
 
-مسار نظام الملفات وعنوان URL في المتصفح هما اعتباران منفصلان. على سبيل المثال، يكتب المثال أدناه ملفات الموارد إلى `html-output/assets` على القرص، بينما يحتوي HTML على عناوين URL نسبية مثل `assets/resource-1.svg`. يقوم المتصفح بحل هذه العناوين نسبةً إلى الملف الذي يحتوي على الرابط. وبالتالي، يستخدم الرابط من `presentation.html` إلى ملف SVG العنوان `assets/resource-1.svg`، بينما يستخدم الرابط من ملف SVG إلى صورة محفوظة في نفس مجلد `assets` العنوان `resource-4.jpg`.
+مسار نظام الملفات وعنوان URL للمتصفح عبارة عن مفهومين منفصلين. على سبيل المثال، يكتب المثال أدناه ملفات الموارد إلى `html-output/assets` على القرص، بينما يحتوي HTML على عناوين URL نسبية مثل `assets/resource-1.svg`. يقوم المتصفح بحل تلك العناوين بالنسبة للملف الذي يحتوي على الرابط. لذلك، يستخدم الرابط من `presentation.html` إلى ملف SVG العنوان `assets/resource-1.svg`، بينما يستخدم الرابط من ملف SVG إلى صورة محفوظة في نفس مجلد `assets` العنوان `resource-4.jpg`.
 
-## **إنشاء فئة المساعد Java**
+## **إنشاء فئة المساعدة بجافا**
 
-أنشئ فئة Java مثل `com.example.slides.ExternalResourceController`، وقم بتجميعها مع Aspose.Slides for Java في مسار الفئة، وتأكد من إتاحة الفئة أو JAR المُجمّع لجسر PHP Java.
+أنشئ فئة جافا مثل `com.example.slides.ExternalResourceController`، اجمعها مع Aspose.Slides for Java على مسار الفئة، واجعل الفئة أو JAR المجمع متاحًا لجسر PHP Java.
 
-تقوم الفئة المساعدة أدناه بربط موارد الصور، الخطوط، الصوت، الفيديو، وCSS الشائعة عندما يوفر Aspose.Slides أو يمكنه استنتاج امتداد ملف آمن. تبقى الموارد غير المعترف بها مضمّنة.
+الفئة المساعدة أدناه ترتبط بالموارد الشائعة من صور، خطوط، صوت، فيديو، وCSS عندما يقدم Aspose.Slides امتداد ملف آمن أو يمكن استنتاجه. الموارد غير المعروفة تظل مضمّنة.
 
 ```java
 package com.example.slides;
@@ -222,7 +222,7 @@ public final class ExternalResourceController implements ILinkEmbedController {
 
 ## **تصدير HTML مع موارد مرتبطة**
 
-الكود PHP التالي ينشئ دليل إخراج، يحفظ ملف HTML هناك، ويخزن الموارد المرتبطة في مجلد فرعي `assets`. يجمع بين [HtmlOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/htmloptions/)، [SVGOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/svgoptions/)، [SlideImageFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideimageformat/)، و[SaveFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/saveformat/) لعملية التصدير.
+الكود PHP التالي ينشئ دليلًا للإخراج، يحفظ ملف HTML هناك، ويخزن الموارد المرتبطة في مجلد فرعي `assets`. يجمع بين [HtmlOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/htmloptions/)، [SVGOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/svgoptions/)، [SlideImageFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideimageformat/)، و[SaveFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/saveformat/) لعملية التصدير.
 
 ```php
 $inputFilePath = "presentation.pptx";
@@ -257,7 +257,7 @@ try {
 }
 ```
 
-بعد التصدير، سيشكل مجلد الإخراج البنية التالية:
+بعد التصدير، يحتوي مجلد الإخراج على الهيكل التالي:
 
 ```text
 html-output/
@@ -270,40 +270,22 @@ html-output/
     resource-5.png
 ```
 
-تعتمد الملفات الدقيقة على محتوى العرض وخيارات التصدير. على سبيل المثال، تُصدّر الصور النقطية عادةً كـ JPEG أو PNG. قد يختار Aspose.Slides ترميز صورة مختلفًا عن الموجود في العرض الأصلي إذا أدى ذلك إلى ملف أصغر أو أكثر ملاءمة. تُصدّر الصور ذات الشفافية كـ PNG.
+الملفات الدقيقة تعتمد على محتوى العرض التقديمي وخيارات التصدير. على سبيل المثال، تُصدر الصور النقطية عادةً كـ JPEG أو PNG. قد يختار Aspose.Slides ترميز صورة مختلف عن الموجود في العرض الأصلي عندما ينتج ملفًا أصغر أو أكثر ملاءمة. تُصدر الصور ذات الشفافية كـ PNG.
 
 ## **اختيار عناوين URL للنشر**
 
-يستخدم المثال بادئة URL نسبية: `assets/`. إذا تم فتح `presentation.html` من `html-output/presentation.html`، يقوم المتصفح بتحميل `html-output/assets/resource-1.svg`.
+يستخدم المثال بادئة عنوان URL نسبية: `assets/`. إذا تم فتح `presentation.html` من `html-output/presentation.html`، يقوم المتصفح بتحميل `html-output/assets/resource-1.svg`.
 
-عندما يشير مورد مرتبط إلى مورد مرتبط آخر، يستخدم المثال معامل `referrer` في `ExternalResourceController.getUrl` ويعيد فقط اسم الملف. على سبيل المثال، إذا كان كل من `resource-1.svg` و `resource-4.jpg` موجودين في مجلد `assets`، يجب أن يشير ملف SVG إلى `resource-4.jpg` وليس إلى `assets/resource-4.jpg`.
+عند إشارة مورد مرتبط إلى مورد مرتبط آخر، يستخدم المثال معامل `referrer` في `ExternalResourceController.getUrl` ويعيد اسم الملف فقط. على سبيل المثال، إذا كان كل من `resource-1.svg` و `resource-4.jpg` موجودين في مجلد `assets`، يجب أن يشير ملف SVG إلى `resource-4.jpg` وليس إلى `assets/resource-4.jpg`.
 
-استخدم بادئة URL مختلفة عندما تُنشر الملفات في مكان آخر:
+استخدم بادئة عنوان URL مختلفة عندما تُنشر الملفات في مكان آخر:
 
-- استخدم `assets/` عندما يكون دليل الأصول بجوار ملف HTML.
+- استخدم `assets/` عندما يكون دليل الأصول بجانب ملف HTML.
 - استخدم `../assets/` عندما يكون دليل الأصول مستوىً واحدًا فوق ملف HTML.
-- استخدم `https://cdn.example.com/presentations/job-123/assets/` عندما تُحمَّل الملفات إلى CDN أو خادم ملفات ثابت.
+- استخدم `https://cdn.example.com/presentations/job-123/assets/` عندما تُرفع الملفات إلى CDN أو خادم ملفات ثابت.
 
-يجب أن يتطابق عنوان URL الذي تُعيده `ExternalResourceController.getUrl` مع الموقع النهائي للملف الذي تكتبه `ExternalResourceController.saveExternal`. في تطبيقات الخادم، استخدم دليل إخراج فريد أو بادئة تخزين كائن لكل مهمة تحويل لتجنب الكتابة فوق ملفات تصدير أخرى.
+يجب أن يتطابق عنوان URL الذي تُعيده `ExternalResourceController.getUrl` مع الموقع النهائي للملف الذي تكتبه `ExternalResourceController.saveExternal`. في تطبيقات الخادم، استخدم دليل إخراج فريد أو بادئة تخزين كائنية لكل مهمة تحويل لتجنب كتابة ملفات تصدير أخرى فوقها.
 
-## **متى يُفضَّل التضمين بدلًا من الربط**
+## **متى يجب التضمين بدلاً من ذلك**
 
-يبقى HTML المشفر بـ Base64 مفيدًا عندما يجب أن يكون الناتج ملفًا واحدًا، مثل مرفق بريد إلكتروني، معاينة غير متصلة، أو مستند يُنقل دون مجلد أصول داعم. تكون الموارد المرتبطة أكثر ملاءمة عندما يُستضاف HTML بواسطة تطبيق ويب، يُخزّن في نظام إدارة محتوى، يُحسّن عبر خط أنابيب بناء، أو يُخزن مؤقتًا في المتصفحات بشكل مستقل عن HTML.
-
-## **الأسئلة المتكررة**
-
-**هل يمكنني إسناد الصور فقط إلى ملفات خارجية مع إبقاء الموارد الأخرى مضمّنة؟**
-
-نعم. في `ExternalResourceController.getObjectStoringLocation`، أعد قيمة `Link` من [LinkEmbedDecision](https://reference.aspose.com/slides/ar/php-java/aspose.slides/linkembeddecision/) فقط لأنواع المحتوى التي تريد حفظها كملفات منفصلة، وأعد قيمة `Embed` لكل شيء آخر.
-
-**لماذا يختلف امتداد الصورة المصدَّرة عن عرض الشريحة الأصلي؟**
-
-قد يُعيد Aspose.Slides ترميز الصور النقطية أثناء تصدير HTML لتحسين الحجم أو توافق المتصفح. على سبيل المثال، قد تُكتب صورة من الملف الأصلي كـ JPEG أو PNG حسب النتيجة المتوقعة.
-
-**هل تعمل عناوين URL النسبية بعد نقل ملف HTML؟**
-
-تعمل عناوين URL النسبية فقط عندما يُحافظ على هيكل المجلدات النسبي نفسه. إذا أشار HTML إلى `assets/resource-1.png`، يجب أن يبقى مجلد `assets` بجوار ملف HTML ما لم تُولِّد بادئة URL مختلفة.
-
-**هل يجب على تطبيقات الخادم إعادة استخدام نفس مجلد الإخراج؟**
-
-لا. استخدم دليل إخراج فريد أو بادئة تخزين لكل مهمة تحويل. هذا يمنع تصادم أسماء الملفات ويجنب كتابة مورد من تصدير فوق موارد تم توليدها بواسطة تصدير آخر.
+يظل HTML المضمّن بصيغة Base64 مفيدًا عندما يجب أن يكون الإخراج ملفًا واحدًا، مثل مرفق بريد إلكتروني، معاينة دون اتصال، أو مستند سيُنقل دون مجلد أصول داعم. الموارد المرتبطة تكون أنسب عندما يُقدَّم HTML عبر تطبيق ويب، يُخزن في نظام إدارة محتوى، يُحسّن عبر خط أنابيب بناء، أو يُخزَّن مؤقتًا في المتصفحات

@@ -1,6 +1,6 @@
 ---
-title: 在 Python 中使用外部链接图像将演示文稿导出为 HTML
-linktitle: 使用外部链接图像将演示文稿导出为 HTML
+title: 使用 Python 将演示文稿导出为带外部链接图像的 HTML
+linktitle: 将演示文稿导出为带外部链接图像的 HTML
 type: docs
 weight: 100
 url: /zh/python-net/exporting-presentations-to-html-with-externally-linked-images/
@@ -8,7 +8,7 @@ keywords:
 - 导出 PowerPoint
 - 导出 OpenDocument
 - 导出演示文稿
-- 导出幻灯片
+- 导出演示幻灯片
 - 导出 PPT
 - 导出 PPTX
 - 导出 ODP
@@ -25,34 +25,37 @@ keywords:
 - 外部资源
 - Python
 - Aspose.Slides
-description: 在 Python 中使用 Aspose.Slides 将 PowerPoint 和 OpenDocument 演示文稿导出为 HTML，图像保存为外部链接文件。
+description: "使用 Aspose.Slides 在 Python 中将 PowerPoint 和 OpenDocument 演示文稿导出为 HTML，图像保存为外部链接文件。"
 ---
 ## **概述**
 
-默认情况下，Aspose.Slides 会将演示文稿导出为一个自包含的 HTML 文件。图像和其他资源直接写入 HTML，通常以 Base64 数据的形式。这在需要单个可移植文件时很方便，但并不总是网站、CMS 或服务器端转换流水线的最佳格式。
+默认情况下，Aspose.Slides 将演示文稿导出为一个自包含的 HTML 文件。图像和其他资源直接写入 HTML，通常以 Base64 数据的形式存在。这在需要单个便携文件时很方便，但并不总是网站、CMS 或服务器端转换流水线的最佳格式。
 
-当您希望实现以下目标时，请使用外部链接的图像：
+当您想要：
+
 - 减小 HTML 文档的大小；
 - 在浏览器或 CDN 中单独缓存图像；
 - 在导出后检查、替换、压缩或后处理生成的图像；
-- 使输出结构更符合 Web 应用程序的预期。
+- 使输出结构更接近 Web 应用程序的预期
 
-关于一般的 HTML 转换工作流，请参见[将 PowerPoint 演示文稿转换为 HTML](/slides/zh/python-net/convert-powerpoint-to-html/)。本文重点介绍导出过程中的图像链接部分。
+时，请使用外部链接的图像。
+
+对于通用的 HTML 转换工作流，请参阅[Convert PowerPoint Presentations to HTML](/slides/zh/python-net/convert-powerpoint-to-html/)。本文聚焦于导出过程中的图像链接部分。
 
 ## **链接图像导出工作原理**
 
-在 .NET 和 Java 中，[ILinkEmbedController](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/ilinkembedcontroller/) 表示导出器用来决定资源是嵌入还是链接的回调接口。在通过 .NET 使用 Python 时，Python 类目前无法直接实现此 .NET 回调接口，因此实际工作流如下：
+在 .NET 和 Java 中，[ILinkEmbedController](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/ilinkembedcontroller/) 表示导出器用于决定资源是嵌入还是链接的回调接口。在通过 .NET 的 Python 中，Python 类目前不能直接实现此 .NET 回调接口，因此实际工作流如下：
 
-1. 使用 [HtmlOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmloptions/) 将演示文稿导出为 HTML。
-2. 使用 [SlideImageFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/slideimageformat/) 与 [SVGOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/) 使幻灯片在 HTML 中以 SVG 形式呈现。
-3. 将 HTML 中的 `data:` URL 所包含的 Base64 图像数据移动到独立的文件中。
-4. 将原始的 `data:` URL 替换为相对链接，例如 `assets/resource-1.jpg`。
+1. 使用[HtmlOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/htmloptions/)将演示文稿导出为 HTML；
+2. 使用[SlideImageFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/slideimageformat/)结合[SVGOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/)，使幻灯片在 HTML 中以 SVG 形式呈现；
+3. 将 HTML 中 `data:` URL 的 Base64 图像数据移动到独立的文件；
+4. 将原始的 `data:` URL 替换为相对链接，如 `assets/resource-1.jpg`。
 
-文件系统路径和浏览器 URL 是相互独立的概念。例如，下面的示例将图像文件写入磁盘上的 `html-output/assets`，而 HTML 中包含的相对 URL 如 `assets/resource-1.jpg`。浏览器会根据包含链接的 HTML 文件相对解析这些 URL。
+文件系统路径和浏览器 URL 是不同的概念。例如，下面示例将图像文件写入磁盘上的 `html-output/assets`，而 HTML 中包含的相对 URL 如 `assets/resource-1.jpg`。浏览器会相对于包含链接的 HTML 文件解析这些 URL。
 
-## **导出带链接图像的 HTML**
+## **使用链接图像导出HTML**
 
-下面的 Python 示例会创建输出目录，将 HTML 文件保存到该目录，将提取的图像存放在 `assets` 子目录中，并将 Base64 图像 URL 重写为相对链接。当 Aspose.Slides 提供安全的文件扩展名时，示例会提取常见的 Base64 图像格式。未识别的 Data URL 将保持嵌入。
+以下 Python 示例创建输出目录，将 HTML 文件保存到该目录，在 `assets` 子目录中存储提取的图像，并将 Base64 图像 URL 重写为相对链接。示例在 Aspose.Slides 提供安全文件扩展名时，提取常见的 Base64 图像格式。未识别的 Data URL 将保持嵌入状态。
 
 ```python
 import base64
@@ -160,37 +163,38 @@ html-output/
     resource-2.png
 ```
 
-具体文件取决于演示文稿的内容和导出选项。例如，光栅图像通常导出为 JPEG 或 PNG。当使用不同的图像编解码器可以生成更小或更合适的文件时，Aspose.Slides 可能会选择与源演示文稿不同的编解码器。具有透明度的图像会导出为 PNG。
+具体的文件取决于演示文稿的内容和导出选项。例如，光栅图像通常导出为 JPEG 或 PNG。Aspose.Slides 可能会选择与源演示文稿不同的图像编解码器，以获得更小或更合适的文件。具有透明度的图像会导出为 PNG。
 
-## **部署时选择 URL**
+## **选择部署用的URL**
 
-示例使用相对 URL 前缀：`assets/`。如果从 `html-output/presentation.html` 打开 `presentation.html`，浏览器会加载 `html-output/assets/resource-1.jpg`。
+示例使用相对 URL 前缀：`assets/`。如果 `presentation.html` 位于 `html-output/presentation.html`，浏览器会加载 `html-output/assets/resource-1.jpg`。
 
-当文件部署到其他位置时，请使用不同的资源目录名称或重写生成的链接：
-- 当资源目录与 HTML 文件位于同一目录时使用 `assets/`。
-- 当资源目录位于 HTML 文件的上一级目录时使用 `../assets/`。
-- 当文件上传到 CDN 或静态文件服务器时使用 `https://cdn.example.com/presentations/job-123/assets/`。
+在文件部署到其他位置时，可使用不同的资产目录名称或重写生成的链接：
+
+- 当资产目录与 HTML 文件位于同一目录时使用 `assets/`；
+- 当资产目录位于 HTML 文件的上一级目录时使用 `../assets/`；
+- 当文件上传至 CDN 或静态文件服务器时使用 `https://cdn.example.com/presentations/job-123/assets/`。
 
 在服务器应用程序中，为每个转换任务使用唯一的输出目录或对象存储前缀，以避免覆盖其他导出的文件。
 
 ## **何时使用嵌入而非链接**
 
-当输出必须是单个文件时（例如电子邮件附件、离线预览或在没有配套资源文件夹的情况下移动的文档），嵌入的 Base64 HTML 仍然有用。若 HTML 将由 Web 应用程序提供、存放在 CMS 中、通过构建流水线进行优化，或由浏览器独立于 HTML 缓存，则使用链接图像更为合适。
+当输出必须是单个文件时（例如电子邮件附件、离线预览或需要在不带资产文件夹的情况下移动的文档），嵌入的 Base64 HTML 仍然有用。HTML 将由 Web 应用服务、存储在 CMS 中、通过构建流水线优化或由浏览器独立缓存时，链接图像是更合适的选择。
 
 ## **常见问题**
 
-**我可以仅外部化图像而保持其他资源嵌入吗？**
+**我可以只外部化图像而保持其他资源嵌入吗？**
 
-可以。示例仅提取在 `EXTENSIONS_BY_CONTENT_TYPE` 列表中的 `image/*` Base64 数据 URL。其他数据 URL 将保持嵌入。
+可以。示例仅提取 `image/*` 类型的 Base64 数据 URL，这些类型列在 `EXTENSIONS_BY_CONTENT_TYPE` 中。其他数据 URL 将保持嵌入。
 
-**导出图像的扩展名为何与源演示文稿不同？**
+**为什么导出图像的扩展名与源演示文稿不同？**
 
-Aspose.Slides 可能在 HTML 导出时重新编码光栅图像，以优化大小或兼容浏览器。例如，源文件中的图像可能根据渲染结果被写为 JPEG 或 PNG。
+Aspose.Slides 可能在 HTML 导出过程中重新编码光栅图像，以优化文件大小或浏览器兼容性。例如，源文件中的图像可能会根据渲染结果被写入为 JPEG 或 PNG。
 
 **移动 HTML 文件后相对 URL 还能工作吗？**
 
-只有在保持相同的相对文件夹结构时，相对 URL 才能工作。如果 HTML 引用了 `assets/resource-1.png`，则 `assets` 文件夹必须与 HTML 文件位于同一目录，除非您生成了不同的 URL 前缀。
+相对 URL 只在保持相同的相对文件夹结构时有效。如果 HTML 引用了 `assets/resource-1.png`，则 `assets` 文件夹必须与 HTML 文件位于同一目录，除非您生成了不同的 URL 前缀。
 
-**服务器应用程序是否应重复使用相同的输出文件夹？**
+**服务器应用程序应该复用同一输出文件夹吗？**
 
-不应。为每个转换任务使用唯一的输出目录或存储前缀。这可避免文件名冲突，并防止一次导出覆盖另一导出的资源。
+不应该。为每个转换任务使用唯一的输出目录或存储前缀。这样可以避免文件名冲突，并防止一次导出覆盖另一项导出生成的资源。

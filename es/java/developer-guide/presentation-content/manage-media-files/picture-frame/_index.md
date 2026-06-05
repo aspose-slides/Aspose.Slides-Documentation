@@ -29,10 +29,3 @@ keywords:
 - Aspose.Slides
 description: "Añade marcos de imagen a presentaciones PowerPoint y OpenDocument con Aspose.Slides para Java. Optimiza tu flujo de trabajo y mejora el diseño de las diapositivas."
 ---
-## **Introducción**
-
-Un marco de imagen es una forma que contiene una imagen—es como una foto dentro de un marco. 
-
-Puedes añadir una imagen a una diapositiva mediante un marco de imagen. De este modo, formateas la imagen formateando el marco de imagen.
-
-{{%
