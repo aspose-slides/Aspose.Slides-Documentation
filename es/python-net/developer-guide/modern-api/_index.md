@@ -1,6 +1,6 @@
 ---
-title: Mejorar el procesamiento de imágenes con la API moderna
-linktitle: API moderna
+title: Mejorar el procesamiento de imágenes con la API Moderna
+linktitle: API Moderna
 type: docs
 weight: 280
 url: /es/python-net/modern-api/
@@ -13,13 +13,12 @@ keywords:
 - forma a imagen
 - miniatura de presentación
 - presentación a imágenes
-- agregar imagen
-- agregar foto
+- añadir imagen
+- añadir foto
 - Python
 - Aspose.Slides
-description: "Moderniza el procesamiento de imágenes de diapositivas reemplazando las APIs de imágenes obsoletas con la API Moderna de Python para una automatización fluida de PowerPoint y OpenDocument."
+description: "Moderniza el procesamiento de imágenes de diapositivas sustituyendo las API de imágenes obsoletas por la API Moderna de Python para una automatización fluida de PowerPoint y OpenDocument."
 ---
-
 ## **Introducción**
 
 La API pública de Aspose.Slides para Python depende actualmente de los siguientes tipos `aspose.pydrawing`:
@@ -28,21 +27,24 @@ La API pública de Aspose.Slides para Python depende actualmente de los siguient
 - `aspose.pydrawing.Bitmap`
 - `aspose.pydrawing.printing.PrinterSettings`
 
-A partir de la versión 24.4, esta API pública está **obsoleta** debido a [cambios](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) en la API pública de Aspose.Slides para Python.
+A partir de la versión 24.4, esta API pública está **obsoleta** debido a [cambios](https://releases.aspose.com/slides/es/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) en la API pública de Aspose.Slides para Python.
 
-Para eliminar `aspose.pydrawing` de la API pública, introdujimos la **API Moderna**. Los métodos que utilizan `aspose.pydrawing.Image` y `aspose.pydrawing.Bitmap` están obsoletos y serán reemplazados por sus equivalentes de la API Moderna. Los métodos que utilizan `aspose.pydrawing.Graphics` están obsoletos y su soporte será eliminado de la API pública.
+Para eliminar `aspose.pydrawing` de la API pública, introdujimos la **API Moderna**. Los métodos que utilizan `aspose.pydrawing.Image` y `aspose.pydrawing.Bitmap` están obsoletos y deben reemplazarse por sus equivalentes de la API Moderna. Los métodos que utilizan `aspose.pydrawing.Graphics` están obsoletos y no tienen un reemplazo directo en la API Moderna.
 
-La eliminación de la API obsoleta que depende de `aspose.pydrawing` está prevista para la versión **24.8**.
+En las versiones actuales, considere la API pública que depende de `aspose.pydrawing` como heredada/obsoleta. Use la API Moderna para código nuevo y al migrar flujos de trabajo de procesamiento de imágenes existentes.
 
 ## **API Moderna**
 
 Se han añadido las siguientes clases y enumeraciones a la API pública:
 
-- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — representa una imagen raster o vectorial.
-- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — representa un formato de archivo de imagen.
-- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — proporciona métodos para crear y trabajar con `IImage`.
+- [aspose.slides.IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) - representa una imagen raster o vectorial.
+- [aspose.slides.ImageFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/imageformat/) - representa un formato de archivo de imagen.
+- [aspose.slides.Images](https://reference.aspose.com/slides/es/python-net/aspose.slides/images/) - proporciona métodos para crear y trabajar con [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/).
+
+Utilice `get_image` para renderizar una sola diapositiva o forma. Utilice `get_images` para renderizar varias diapositivas de la presentación. Utilice los métodos de [Images](https://reference.aspose.com/slides/es/python-net/aspose.slides/images/) para cargar imágenes, `add_image` con [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) para añadirlas a una presentación, y `replace_image` con [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) para actualizar una imagen existente de la presentación.
 
 Un escenario típico de uso de la nueva API se ve así:
+
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -59,14 +61,14 @@ with slides.Presentation() as presentation:
         slide_image.save("slide1.jpeg", slides.ImageFormat.JPEG)
 ```
 
+## **Reemplazar el código antiguo con la API Moderna**
 
-## **Reemplazar el Código Antiguo con la API Moderna**
+Para una transición más fácil, la nueva clase [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) refleja las APIs separadas de las clases `aspose.pydrawing.Image` y `aspose.pydrawing.Bitmap`. En la mayoría de los casos, solo necesita reemplazar las llamadas a los métodos que utilizan `aspose.pydrawing` por sus equivalentes de la API Moderna.
 
-Para una transición más sencilla, la nueva clase `IImage` replica las API separadas de las clases `Image` y `Bitmap`. En la mayoría de los casos, solo es necesario reemplazar las llamadas a los métodos que utilizan `aspose.pydrawing` por sus equivalentes de la API Moderna.
-
-### **Obtener una Miniatura de Diapositiva**
+### **Obtener una miniatura de diapositiva**
 
 **API obsoleta:**
+
 ```python
 import aspose.slides as slides
 
@@ -76,8 +78,8 @@ with slides.Presentation("sample.pptx") as presentation:
     slide.get_thumbnail().save("slide1.png")
 ```
 
-
 **API Moderna:**
+
 ```python
 import aspose.slides as slides
 
@@ -88,10 +90,10 @@ with slides.Presentation("sample.pptx") as presentation:
         image.save("slide1.png")
 ```
 
-
-### **Obtener una Miniatura de Forma**
+### **Obtener una miniatura de forma**
 
 **API obsoleta:**
+
 ```python
 import aspose.slides as slides
 
@@ -101,8 +103,8 @@ with slides.Presentation("sample.pptx") as presentation:
     shape.get_thumbnail().save("shape.png")
 ```
 
-
 **API Moderna:**
+
 ```python
 import aspose.slides as slides
 
@@ -113,10 +115,10 @@ with slides.Presentation("sample.pptx") as presentation:
         image.save("shape.png")
 ```
 
-
-### **Obtener una Miniatura de Presentación**
+### **Obtener una miniatura de presentación**
 
 **API obsoleta:**
+
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -128,8 +130,8 @@ with slides.Presentation("sample.pptx") as presentation:
         thumbnail.save(f"slide_{index}.png", drawing.imaging.ImageFormat.png)
 ```
 
-
 **API Moderna:**
+
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -141,10 +143,10 @@ with slides.Presentation("sample.pptx") as presentation:
         thumbnail.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-
-### **Añadir una Imagen a una Presentación**
+### **Agregar una imagen a una presentación**
 
 **API obsoleta:**
+
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -157,8 +159,8 @@ with slides.Presentation() as presentation:
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
 ```
 
-
 **API Moderna:**
+
 ```python
 import aspose.slides as slides
 
@@ -171,105 +173,104 @@ with slides.Presentation() as presentation:
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
 ```
 
-
-## **Métodos y Propiedades que se Eliminarán y sus Reemplazos Modernos**
+## **Métodos y propiedades que se eliminarán y sus reemplazos Modernos**
 
 ### **Clase Presentation**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|get_thumbnails(options)|[get_images(options)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions)|
-|get_thumbnails(options, slides)|[get_images(options, slides)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint)|
-|get_thumbnails(options, scale_x, scale_y)|[get_images(options, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-float-float)|
-|get_thumbnails(options, slides, scale_x, scale_y)|[get_images(options, slides, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-float-float)|
-|get_thumbnails(options, image_size)|[get_images(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
-|get_thumbnails(options, slides, image_size)|[get_images(options, slides, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-asposepydrawingsize)|
-|save(fname, format, response, show_inline)|Se eliminará completamente|
-|save(fname, format, options, response, show_inline)|Se eliminará completamente|
-|print()|Se eliminará completamente|
-|print(printer_settings)|Se eliminará completamente|
-|print(printer_name)|Se eliminará completamente|
-|print(printer_settings, pres_name)|Se eliminará completamente|
+|get_thumbnails(options)|[get_images(options)](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions)|
+|get_thumbnails(options, slides)|[get_images(options, slides)](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint)|
+|get_thumbnails(options, scale_x, scale_y)|[get_images(options, scale_x, scale_y)](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-float-float)|
+|get_thumbnails(options, slides, scale_x, scale_y)|[get_images(options, slides, scale_x, scale_y)](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-float-float)|
+|get_thumbnails(options, image_size)|[get_images(options, image_size)](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
+|get_thumbnails(options, slides, image_size)|[get_images(options, slides, image_size)](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-asposepydrawingsize)|
+|save(fname, format, response, show_inline)|No Modern API replacement|
+|save(fname, format, options, response, show_inline)|No Modern API replacement|
+|print()|No Modern API replacement|
+|print(printer_settings)|No Modern API replacement|
+|print(printer_name)|No Modern API replacement|
+|print(printer_settings, pres_name)|No Modern API replacement|
 
 ### **Clase Slide**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#)|
-|get_thumbnail(scale_x, scale_y)|[get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float)|
-|get_thumbnail(image_size)|[get_image(image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize)|
-|get_thumbnail(options)|[get_image(options: ITiffOotions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportitiffoptions)|
-|get_thumbnail(options)|[get_image(options: IRenderingOptions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions)|
-|get_thumbnail(options, scale_x, scale_y)|[get_image(options, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-float-float)|
-|get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
-|render_to_graphics(options, graphics)|Se eliminará completamente|
-|render_to_graphics(options, graphics, scale_x, scale_y)|Se eliminará completamente|
-|render_to_graphics(options, graphics, rendering_size)|Se eliminará completamente|
+|get_thumbnail()|[get_image()](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/#)|
+|get_thumbnail(scale_x, scale_y)|[get_image(scale_x, scale_y)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/#float-float)|
+|get_thumbnail(image_size)|[get_image(image_size)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/#asposepydrawingsize)|
+|get_thumbnail(options)|[get_image(options: ITiffOptions)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/#asposeslidesexportitiffoptions)|
+|get_thumbnail(options)|[get_image(options: IRenderingOptions)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions)|
+|get_thumbnail(options, scale_x, scale_y)|[get_image(options, scale_x, scale_y)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-float-float)|
+|get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingssize)|
+|render_to_graphics(options, graphics)|No Modern API replacement|
+|render_to_graphics(options, graphics, scale_x, scale_y)|No Modern API replacement|
+|render_to_graphics(options, graphics, rendering_size)|No Modern API replacement|
 
 ### **Clase Shape**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#)|
-|get_thumbnail(bounds, scale_x, scale_y)|[get_image(bounds, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#shapethumbnailbounds-float-float)|
+|get_thumbnail()|[get_image()](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_image/#)|
+|get_thumbnail(bounds, scale_x, scale_y)|[get_image(bounds, scale_x, scale_y)](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_image/#shapethumbnailbounds-float-float)|
 
 ### **Clase ImageCollection**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|add_image(image: aspose.pydrawing.Image)|[add_image(image)](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/#iimage)|
+|add_image(image: aspose.pydrawing.Image)|[add_image(image)](https://reference.aspose.com/slides/es/python-net/aspose.slides/imagecollection/add_image/#iimage)|
 
 ### **Clase PPImage**
 
 |Firma del método/propiedad|Firma del método/propiedad de reemplazo|
 | :- | :- |
-|replace_image(new_image: aspose.pydrawing.Image)|[replace_image(new_image)](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/replace_image/#iimage)|
-|system_image|[image](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/image/)|
+|replace_image(new_image: aspose.pydrawing.Image)|[replace_image(new_image)](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/replace_image/#iimage)|
+|system_image|[image](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/image/)|
 
 ### **Clase ImageWrapperFactory**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|create_image_wrapper(image: aspose.pydrawing.Image)|[create_image_wrapper(image)](https://reference.aspose.com/slides/python-net/aspose.slides/iimagewrapperfactory/create_image_wrapper/#iimage)|
+|create_image_wrapper(image: aspose.pydrawing.Image)|[create_image_wrapper(image)](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimagewrapperfactory/create_image_wrapper/#iimage)|
 
 ### **Clase PatternFormat**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|get_tile_image(background, foreground)|[get_tile(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor-asposepydrawingcolor)|
-|get_tile_image(style_color)|[get_tile(style_color)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor)|
+|get_tile_image(background, foreground)|[get_tile(background, foreground)](https://reference.aspose.com/slides/es/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor-asposepydrawingcolor)|
+|get_tile_image(style_color)|[get_tile(style_color)](https://reference.aspose.com/slides/es/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor)|
 
 ### **Clase IPatternFormatEffectiveData**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|get_tile_image(background, foreground)|[get_tile_i_image(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/ipatternformateffectivedata/get_tile_i_image/#asposepydrawingcolor-asposepydrawingcolor)|
+|get_tile_image(background, foreground)|[get_tile_i_image(background, foreground)](https://reference.aspose.com/slides/es/python-net/aspose.slides/ipatternformateffectivedata/get_tile_i_image/#asposepydrawingcolor-asposepydrawingcolor)|
 
 ### **Clase Output**
 
 |Firma del método|Firma del método de reemplazo|
 | :- | :- |
-|add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
+|add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/es/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## **El Soporte de API para aspose.pydrawing.Graphics Será Descontinuado**
+## **Compatibilidad de la API con aspose.pydrawing.Graphics**
 
-Los métodos que utilizan `aspose.pydrawing.Graphics` están obsoletos; su soporte será eliminado de la API pública.
+Los métodos que utilizan `aspose.pydrawing.Graphics` están obsoletos y no tienen un reemplazo directo en la API Moderna.
 
-Los miembros de la API que dependen de `aspose.pydrawing.Graphics` y se eliminarán incluyen:
+Utilice los métodos de renderizado de imágenes de la API Moderna en lugar de la API que renderiza a `aspose.pydrawing.Graphics`:
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
 
 # **Preguntas frecuentes**
 
-**¿Por qué se eliminó aspose.pydrawing.Graphics?**
+**¿Por qué se eliminó `aspose.pydrawing.Graphics`?**
 
-El soporte de Graphics se elimina de la API pública para unificar el trabajo con renderizado e imágenes, eliminar dependencias específicas de la plataforma y pasar a un enfoque multiplataforma con [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). Todos los métodos de renderizado a Graphics serán eliminados.
+El soporte para `aspose.pydrawing.Graphics` está obsoleto en la API pública para unificar el trabajo con renderizado e imágenes, eliminar dependencias específicas de plataforma y pasar a un enfoque multiplataforma con [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/). Utilice `get_image` o `get_images` en lugar de renderizar a `aspose.pydrawing.Graphics`.
 
-**¿Cuál es el beneficio práctico de IImage comparado con Image/Bitmap?**
+**¿Cuál es el beneficio práctico de [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) comparado con `aspose.pydrawing.Image`/`aspose.pydrawing.Bitmap`?**
 
-[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) unifica el trabajo con imágenes raster y vectoriales, simplifica el guardado en varios formatos mediante [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), reduce la dependencia de pydrawing y hace que el código sea más portátil entre entornos.
+[IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) unifica el trabajo con imágenes raster y vectoriales, simplifica el guardado en varios formatos mediante [ImageFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/imageformat/), reduce la dependencia de pydrawing y hace que el código sea más portable entre entornos.
 
 **¿Afectará la API Moderna al rendimiento de la generación de miniaturas?**
 
-Cambiar de `get_thumbnail` a `get_image` no empeora los escenarios: los nuevos métodos ofrecen las mismas capacidades para producir imágenes con opciones y tamaños, manteniendo el soporte para opciones de renderizado. La ganancia o pérdida específica depende del escenario, pero funcionalmente los reemplazos son equivalentes.
+Cambiar de `get_thumbnail` a `get_image` no empeora los escenarios: los nuevos métodos ofrecen las mismas capacidades para producir imágenes con opciones y tamaños, manteniendo el soporte para las opciones de renderizado. La ganancia o pérdida específica depende del caso, pero funcionalmente los reemplazos son equivalentes.

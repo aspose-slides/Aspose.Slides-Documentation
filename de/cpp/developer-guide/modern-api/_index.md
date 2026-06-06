@@ -7,105 +7,107 @@ url: /de/cpp/modern-api/
 keywords:
 - System.Drawing
 - moderne API
-- Zeichnung
-- Folien-Vorschaubild
-- Folien zu Bild
-- Form-Vorschaubild
+- Zeichnen
+- Folienvorschau
+- Folie zu Bild
+- Formvorschau
 - Form zu Bild
-- Präsentations-Vorschaubild
+- Präsentationsvorschau
 - Präsentation zu Bildern
 - Bild hinzufügen
-- Bild einfügen
+- Grafik hinzufügen
 - C++
 - Aspose.Slides
-description: "Modernisieren Sie die Folien‑Bildverarbeitung, indem Sie veraltete Bild‑APIs durch die C++ Modern API für nahtlose PowerPoint‑ und OpenDocument‑Automatisierung ersetzen."
+description: "Modernisieren Sie die Folienbildverarbeitung, indem Sie veraltete Bild-APIs durch die C++ Moderne API ersetzen, um nahtlose PowerPoint- und OpenDocument-Automatisierung zu ermöglichen."
 ---
+## **Einleitung**
 
-## **Einführung**
+Derzeit hat die Aspose.Slides für C++-Bibliothek Abhängigkeiten in ihrer öffentlichen API von den folgenden Klassen aus System::Drawing:
+- [System::Drawing::Graphics](https://reference.aspose.com/slides/de/cpp/system.drawing/graphics/)
+- [System::Drawing::Image](https://reference.aspose.com/slides/de/cpp/system.drawing/image/)
+- [System::Drawing::Bitmap](https://reference.aspose.com/slides/de/cpp/system.drawing/bitmap/)
 
-Derzeit besitzt die Aspose.Slides for C++‑Bibliothek öffentliche API‑Abhängigkeiten von den folgenden Klassen aus System::Drawing:
-- [System::Drawing::Graphics](https://reference.aspose.com/slides/cpp/system.drawing/graphics/)
-- [System::Drawing::Image](https://reference.aspose.com/slides/cpp/system.drawing/image/)
-- [System::Drawing::Bitmap](https://reference.aspose.com/slides/cpp/system.drawing/bitmap/)
+Ab Version 24.4 ist diese öffentliche API als veraltet markiert.
 
-Ab Version 24.4 wird diese öffentliche API als veraltet markiert.
+Um die Abhängigkeiten von System::Drawing in der öffentlichen API zu entfernen, haben wir die so genannte „Modern API“ hinzugefügt. Methoden mit [System::Drawing::Image](https://reference.aspose.com/slides/de/cpp/system.drawing/image/) und [System::Drawing::Bitmap](https://reference.aspose.com/slides/de/cpp/system.drawing/bitmap/) sind als veraltet gekennzeichnet und sollten durch die entsprechenden Methoden der Modern API ersetzt werden. Methoden mit [System::Drawing::Graphics](https://reference.aspose.com/slides/de/cpp/system.drawing/graphics/) sind ebenfalls veraltet und haben keinen direkten Ersatz in der Modern API.
 
-Um die Abhängigkeiten von System::Drawing in der öffentlichen API zu entfernen, haben wir die sogenannte „Modern API“ eingeführt. Methoden mit System::Drawing::Image und System::Drawing::Bitmap werden als veraltet gekennzeichnet und durch die entsprechenden Methoden der Modern API ersetzt. Methoden mit System::Graphics werden als veraltet markiert und ihr Support wird aus der öffentlichen API entfernt.
+In aktuellen Versionen sollte die öffentliche API, die von System::Drawing‑Typen abhängt, als Legacy/veraltet behandelt werden. Verwenden Sie die Modern API für neuen Code und beim Migrieren bestehender Bildverarbeitungs‑Workflows.
 
-Die Entfernung der veralteten öffentlichen API mit Abhängigkeiten zu System::Drawing erfolgt in Release 24.8.
-
-## **Modern API**
+## **Moderne API**
 
 Folgende Klassen und Aufzählungen wurden zur öffentlichen API hinzugefügt:
 
-- Aspose::Slides::IImage – repräsentiert das Raster‑ oder Vektorbild.
-- Aspose::Slides::ImageFormat – repräsentiert das Dateiformat des Bildes.
-- Aspose::Slides::Images – Methoden zum Instanziieren und Arbeiten mit dem IImage‑Interface.
+- [Aspose::Slides::IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) – repräsentiert das Raster- oder Vektorbild.
+- [Aspose::Slides::ImageFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/imageformat/) – repräsentiert das Dateiformat des Bildes.
+- [Aspose::Slides::Images](https://reference.aspose.com/slides/de/cpp/aspose.slides/images/) – Methoden zum Instanziieren und Arbeiten mit der [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/)-Schnittstelle.
 
-Ein typisches Anwendungsszenario der neuen API könnte wie folgt aussehen:
+Verwenden Sie `GetImage`, um eine einzelne Folie oder ein Shape zu rendern. Verwenden Sie `GetImages`, um mehrere Folien einer Präsentation zu rendern. Nutzen Sie die Methoden von [Images](https://reference.aspose.com/slides/de/cpp/aspose.slides/images/), um Bilder zu laden, `AddImage` mit [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/), um sie zu einer Präsentation hinzuzufügen, und `ReplaceImage` mit [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/), um ein vorhandenes Präsentationsbild zu aktualisieren.
+
+Ein typisches Szenario für die Verwendung der neuen API könnte wie folgt aussehen:
+
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
         
-// Instanziieren einer verwertbaren Instanz von IImage aus der Datei auf dem Datenträger.  
+// Instanziieren Sie eine verwertbare Instanz von IImage aus der Datei auf der Festplatte.  
 System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
             
-// Erstellen eines PowerPoint-Bildes, indem eine IImage-Instanz zu den Bildern der Präsentation hinzugefügt wird.
+// Erstellen Sie ein PowerPoint‑Bild, indem Sie eine IImage‑Instanz zu den Bildern der Präsentation hinzufügen.
 System::SharedPtr<IPPImage> ppImage = pres->get_Images()->AddImage(image);
         
-// Bildform auf Folie #1 hinzufügen
+// Fügen Sie ein Bild‑Shape auf Folie #1 hinzu
 pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, ppImage);
         
-// Eine Instanz von IImage erhalten, die Folie #1 darstellt.
+// Holen Sie eine IImage‑Instanz, die Folie #1 darstellt.
 auto slideImage = pres->get_Slide(0)->GetImage(System::Drawing::Size(1920, 1080));
 
-// Das Bild auf dem Datenträger speichern.
+// Speichern Sie das Bild auf der Festplatte.
 slideImage->Save(u"slide1.jpeg", Aspose::Slides::ImageFormat::Jpeg);
 ```
 
+## **Alten Code durch Moderne API ersetzen**
 
-## **Ersetzen alten Codes durch die Modern API**
+Damit der Umstieg erleichtert wird, wiederholt die Schnittstelle des neuen [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) die separaten Signaturen der Klassen [System::Drawing::Image](https://reference.aspose.com/slides/de/cpp/system.drawing/image/) und [System::Drawing::Bitmap](https://reference.aspose.com/slides/de/cpp/system.drawing/bitmap/). Im Allgemeinen müssen Sie nur den Aufruf der alten Methode, die System::Drawing verwendet, durch den neuen ersetzen.
 
-Zur Erleichterung der Migration wiederholt das Interface des neuen IImage die separaten Signaturen der Klassen Image und Bitmap. Im Allgemeinen müssen Sie lediglich den Aufruf der alten Methode, die System::Drawing verwendet, durch den neuen ersetzen.
+### **Vorschaubild einer Folie**
 
-### **Erzeugen einer Folien‑Thumbnail**
+Legacy-/veraltete API:
 
-Code mit veralteter API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->GetThumbnail()->Save(u"slide1.png");
 ```
 
+Moderne API:
 
-Modern API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->GetImage()->Save(u"slide1.png");
 ```
 
+### **Vorschaubild eines Shapes**
 
-### **Erzeugen einer Form‑Thumbnail**
+Legacy-/veraltete API:
 
-Code mit veralteter API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->get_Shape(0)->GetThumbnail()->Save(u"shape.png");
 ```
 
+Moderne API:
 
-Modern API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->get_Shape(0)->GetImage()->Save(u"shape.png");
 ```
 
+### **Vorschaubild einer Präsentation**
 
-### **Erzeugen einer Präsentations‑Thumbnail**
+Legacy-/veraltete API:
 
-Code mit veralteter API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -118,8 +120,8 @@ for (int32_t index = 0; index < bitmaps->get_Length(); index++)
 }
 ```
 
+Moderne API:
 
-Modern API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -132,10 +134,10 @@ for (int32_t index = 0; index < images->get_Length(); index++)
 }
 ```
 
+### **Ein Bild zu einer Präsentation hinzufügen**
 
-### **Hinzufügen eines Bildes zu einer Präsentation**
+Legacy-/veraltete API:
 
-Code mit veralteter API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -146,8 +148,8 @@ System::SharedPtr<IPPImage> ppImage = pres->get_Images()->AddImage(image);
 pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, ppImage);
 ```
 
+Moderne API:
 
-Modern API:
 ``` cpp
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -158,11 +160,10 @@ System::SharedPtr<IPPImage> ppImage = pres->get_Images()->AddImage(image);
 pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, ppImage);
 ```
 
+## **Veraltete Methoden/Eigenschaften und deren Ersatz in der Modernen API**
 
-## **Entfernte Methoden/Eigenschaften und deren Ersatz in der Modern API**
-
-### **Präsentationsklasse**
-|Methodensignatur|Ersetzungsmethodensignatur|
+### **Presentation-Klasse**
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|
 |GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides)|
@@ -170,11 +171,11 @@ pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rec
 |GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, float scaleX, float scaleY)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, float scaleX, float scaleY)|
 |GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|
 |GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, System::Drawing::Size imageSize)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, System::Drawing::Size imageSize)|
-|Save(System::String fname, System::ArrayPtr&lt;int32_t&gt; slides, Export::SaveFormat format)|Wird vollständig entfernt|
-|Save(System::String fname, System::ArrayPtr&lt;int32_t&gt; slides, Export::SaveFormat format, System::SharedPtr&lt;Export::ISaveOptions&gt; options)|Wird vollständig entfernt|
+|Save(System::String fname, System::ArrayPtr&lt;int32_t&gt; slides, Export::SaveFormat format)|No Modern API replacement|
+|Save(System::String fname, System::ArrayPtr&lt;int32_t&gt; slides, Export::SaveFormat format, System::SharedPtr&lt;Export::ISaveOptions&gt; options)|No Modern API replacement|
 
-### **Foliaklasse**
-|Methodensignatur|Ersetzungsmethodensignatur|
+### **Slide-Klasse**
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |GetThumbnail()|GetImage()|
 |GetThumbnail(float scaleX, float scaleY)|GetImage(float scaleX, float scaleY)|
@@ -183,57 +184,57 @@ pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rec
 |GetThumbnail(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|GetImage(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|
 |GetThumbnail(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, float scaleX, float scaleY)|GetImage(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, float scaleX, float scaleY)|
 |GetThumbnail(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|GetImage(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|
-|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics)|Wird vollständig entfernt|
-|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics, float scaleX, float scaleY)|Wird vollständig entfernt|
-|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics, System::Drawing::Size renderingSize)|Wird vollständig entfernt|
+|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics)|No Modern API replacement|
+|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics, float scaleX, float scaleY)|No Modern API replacement|
+|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics, System::Drawing::Size renderingSize)|No Modern API replacement|
 
-### **Formklasse**
-|Methodensignatur|Ersetzungsmethodensignatur|
+### **Shape-Klasse**
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |GetThumbnail()|GetImage()|
 |GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY)|GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY)|
 
-### **ImageCollection‑Klasse**
-|Methodensignatur|Ersetzungsmethodensignatur|
+### **ImageCollection-Klasse**
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |AddImage(System::SharedPtr&lt;System::Drawing::Image&gt; image)|AddImage(System::SharedPtr&lt;IImage&gt; image)|
 
-### **PPImage‑Klasse**
-|Methodensignatur|Ersetzungsmethodensignatur|
+### **PPImage-Klasse**
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |ReplaceImage(System::SharedPtr&lt;System::Drawing::Image&gt; newImage)|ReplaceImage(System::SharedPtr&lt;Aspose::Slides::IImage&gt; newImage)|
 |get_SystemImage()|get_Image()|
 
-### **PatternFormat‑Klasse**
-|Methodensignatur|Ersetzungsmethodensignatur|
+### **PatternFormat-Klasse**
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |GetTileImage(System::Drawing::Color background, System::Drawing::Color foreground)|GetTile(System::Drawing::Color background, System::Drawing::Color foreground)|
 |GetTileImage(System::Drawing::Color styleColor)|GetTile(System::Drawing::Color styleColor)|
 
-### **IPatternFormatEffectiveData‑Klasse**
-|Methodensignatur|Ersetzungsmethodensignatur|
+### **IPatternFormatEffectiveData-Klasse**
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |GetTileImage(System::Drawing::Color background, System::Drawing::Color foreground)|GetTileIImage(System::Drawing::Color background, System::Drawing::Color foreground)|
 
-## **Unterstützung für System::Drawing::Graphics wird eingestellt**
+## **API‑Unterstützung für System::Drawing::Graphics**
 
-Methoden mit [System::Drawing::Graphics](https://reference.aspose.com/slides/cpp/system.drawing/graphics/) sind als veraltet markiert und ihr Support wird aus der öffentlichen API entfernt.
+Methoden mit [System::Drawing::Graphics](https://reference.aspose.com/slides/de/cpp/system.drawing/graphics/) sind als veraltet gekennzeichnet und haben keinen direkten Ersatz in der Modern API.
 
-Der betreffende API‑Teil wird entfernt:
-- [Slide::RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt;, System::SharedPtr&lt;System::Drawing::Graphics&gt;)](https://reference.aspose.com/slides/cpp/aspose.slides/slide/rendertographics/#sliderendertographicssystemsharedptrexportirenderingoptions-systemsharedptrsystemdrawinggraphics-method)
-- [Slide::RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt;, System::SharedPtr&lt;System::Drawing::Graphics&gt;, float, float)](https://reference.aspose.com/slides/cpp/aspose.slides/slide/rendertographics/#sliderendertographicssystemsharedptrexportirenderingoptions-systemsharedptrsystemdrawinggraphics-float-float-method)
-- [Slide::RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt;, System::SharedPtr&lt;System::Drawing::Graphics&gt;, System::Drawing::Size)](https://reference.aspose.com/slides/cpp/aspose.slides/slide/rendertographics/#sliderendertographicssystemsharedptrexportirenderingoptions-systemsharedptrsystemdrawinggraphics-systemdrawingsize-method)
+Verwenden Sie stattdessen die Bild‑Render‑Methoden der Modern API statt der API, die nach [System::Drawing::Graphics](https://reference.aspose.com/slides/de/cpp/system.drawing/graphics/) rendert:
+- [Slide::RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt;, System::SharedPtr&lt;System::Drawing::Graphics&gt;)](https://reference.aspose.com/slides/de/cpp/aspose.slides/slide/rendertographics/#sliderendertographicssystemsharedptrexportirenderingoptions-systemsharedptrsystemdrawinggraphics-method)
+- [Slide::RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt;, System::SharedPtr&lt;System::Drawing::Graphics&gt;, float, float)](https://reference.aspose.com/slides/de/cpp/aspose.slides/slide/rendertographics/#sliderendertographicssystemsharedptrexportirenderingoptions-systemsharedptrsystemdrawinggraphics-float-float-method)
+- [Slide::RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt;, System::SharedPtr&lt;System::Drawing::Graphics&gt;, System::Drawing::Size)](https://reference.aspose.com/slides/de/cpp/aspose.slides/slide/rendertographics/#sliderendertographicssystemsharedptrexportirenderingoptions-systemsharedptrsystemdrawinggraphics-systemdrawingsize-method)
 
 ## **FAQ**
 
-**Warum wurde System::Drawing::Graphics entfernt?**
+**Warum wurde [System::Drawing::Graphics](https://reference.aspose.com/slides/de/cpp/system.drawing/graphics/) entfernt?**
 
-Der Support für `Graphics` wird aus der öffentlichen API entfernt, um die Arbeit mit Rendering und Bildern zu vereinheitlichen, plattformspezifische Abhängigkeiten zu eliminieren und auf einen plattformübergreifenden Ansatz mit [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) umzusteigen. Alle Rendering‑Methoden für `Graphics` werden entfernt.
+Die Unterstützung für [System::Drawing::Graphics](https://reference.aspose.com/slides/de/cpp/system.drawing/graphics/) ist in der öffentlichen API veraltet, um die Arbeit mit Rendering und Bildern zu vereinheitlichen, plattformspezifische Abhängigkeiten zu eliminieren und auf einen plattformübergreifenden Ansatz mit [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) umzusteigen. Verwenden Sie `GetImage` oder `GetImages` anstelle des Renderns nach [System::Drawing::Graphics](https://reference.aspose.com/slides/de/cpp/system.drawing/graphics/).
 
-**Welchen praktischen Nutzen bietet IImage gegenüber Image/Bitmap?**
+**Welchen praktischen Nutzen bietet [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) im Vergleich zu [System::Drawing::Image](https://reference.aspose.com/slides/de/cpp/system.drawing/image/)/[System::Drawing::Bitmap](https://reference.aspose.com/slides/de/cpp/system.drawing/bitmap/)?**
 
-[IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) vereinheitlicht die Arbeit mit Raster‑ und Vektorbildern, vereinfacht das Speichern in verschiedene Formate über [ImageFormat](https://reference.aspose.com/slides/cpp/aspose.slides/imageformat/), reduziert die Abhängigkeit von `System::Drawing` und macht den Code in unterschiedlichen Umgebungen portabler.
+[IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) vereinheitlicht die Arbeit mit Raster‑ und Vektor‑Bildern, vereinfacht das Speichern in verschiedene Formate über [ImageFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/imageformat/), reduziert die Abhängigkeit von `System::Drawing` und macht den Code portabler über verschiedene Umgebungen hinweg.
 
-**Beeinflusst die Modern API die Performance bei der Erstellung von Thumbnails?**
+**Wird die Moderne API die Performance bei der Erstellung von Thumbnails beeinflussen?**
 
-Der Wechsel von `GetThumbnail` zu `GetImage` verschlechtert die Szenarien nicht: Die neuen Methoden bieten dieselben Möglichkeiten zur Bildgenerierung mit Optionen und Größen und behalten die Unterstützung von Rendering‑Optionen bei. Der konkrete Gewinn oder Verlust hängt vom Einzelfall ab, funktional sind die Ersatzmethoden jedoch gleichwertig.
+Der Wechsel von `GetThumbnail` zu `GetImage` verschlechtert die Szenarien nicht: Die neuen Methoden bieten dieselben Möglichkeiten zur Erzeugung von Bildern mit Optionen und Größen, während sie weiterhin Rendering‑Optionen unterstützen. Der konkrete Gewinn oder Verlust hängt vom jeweiligen Szenario ab, funktional sind die Ersatzmethoden jedoch äquivalent.

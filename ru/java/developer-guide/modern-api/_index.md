@@ -1,6 +1,6 @@
 ---
-title: Улучшить обработку изображений с помощью современного API
-linktitle: Современный API
+title: Улучшите обработку изображений с помощью Modern API
+linktitle: Modern API
 type: docs
 weight: 237
 url: /ru/java/modern-api/
@@ -17,37 +17,39 @@ keywords:
 - добавить картинку
 - Java
 - Aspose.Slides
-description: "Модернизируйте обработку изображений слайдов, заменив устаревшие API обработки изображений на современный Java API для бесшовной автоматизации PowerPoint и OpenDocument."
+description: "Модернизируйте обработку изображений слайдов, заменив устаревшие API обработки изображений на Java Modern API для бесшовной автоматизации PowerPoint и OpenDocument."
 ---
-
 ## **Введение**
 
-Исторически Aspose Slides зависит от java.awt и в публичном API содержит следующие классы из этой библиотеки:
+Исторически Aspose Slides имеет зависимость от java.awt и в публичном API содержит следующие классы из неё:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
 Начиная с версии 24.4, этот публичный API объявлен устаревшим.
 
-Для устранения зависимости от этих классов мы добавили так называемый «Современный API» — то есть API, который следует использовать вместо устаревшего, сигнатуры которого содержат зависимости от BufferedImage. Graphics2D объявлен устаревшим, а его поддержка удалена из публичного API Slides.
+Чтобы избавиться от зависимостей от этих классов, мы добавили так называемый «Современный API» — то есть API, который следует использовать вместо устаревшего, подписи которого содержат зависимости от [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html). [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) объявлен устаревшим, и его поддержка удалена из публичного API Slides.
 
-Удаление устаревшего публичного API с зависимостями от System.Drawing будет в выпуске 24.8.
+В текущих версиях рассматривайте публичный API, зависящий от типов java.awt, как наследуемый/устаревший. Используйте Современный API для нового кода и при миграции существующих процессов обработки изображений.
 
 ## **Современный API**
 
-В публичный API добавлены следующие классы и перечисления:
+Добавлены следующие классы и перечисления в публичный API:
 
-- IImage — представляет растровое или векторное изображение.  
-- ImageFormat — представляет формат файла изображения.  
-- Images — методы для создания и работы с интерфейсом IImage.
+- [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/) — представляет растровое или векторное изображение.  
+- [ImageFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imageformat/) — представляет формат файла изображения.  
+- [Images](https://reference.aspose.com/slides/ru/java/com.aspose.slides/images/) — методы для создания экземпляров и работы с интерфейсом [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/).
 
-Обратите внимание, что IImage является disposable (он реализует интерфейс IDisposable, и его следует использовать в блоке using или освобождать другим удобным способом).
+Обратите внимание, что [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/) является disposable, и после его использования следует вызвать `dispose()` или использовать любой другой удобный шаблон высвобождения.
+
+Используйте `getImage` для рендеринга одного слайда или фигуры. Используйте `getImages` для рендеринга нескольких слайдов презентации. Используйте методы из [Images](https://reference.aspose.com/slides/ru/java/com.aspose.slides/images/) для загрузки изображений, `addImage` с [IImage] — для добавления их в презентацию, и `replaceImage` с [IImage] — для обновления существующего изображения в презентации.
 
 Типичный сценарий использования нового API может выглядеть следующим образом:
+
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // создать утилизируемый экземпляр IImage из файла на диске.
+    // создать disposable‑экземпляр IImage из файла на диске.
     IImage image = Images.fromFile("image.png");
     try {
         // создать изображение PowerPoint, добавив экземпляр IImage в коллекцию изображений презентации.
@@ -56,13 +58,13 @@ try {
         if (image != null) image.dispose();
     }
 
-    // добавить форму изображения на слайд №1
+    // добавить форму изображения на слайд #1
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // получить экземпляр IImage, представляющий слайд №1.
+    // получить экземпляр IImage, представляющий слайд #1.
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
     try {
-        // сохранить изображение на диск.
+        // сохранить изображение на диске.
         slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
     } finally {
         if (slideImage != null) slideImage.dispose();
@@ -72,12 +74,11 @@ try {
 }
 ```
 
-
 ## **Замена старого кода на Современный API**
 
-Как правило, вам потребуется заменить вызов старого метода, использующего ImageIO, на новый.
+Как правило, вам потребуется заменить вызовы, использующие [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) и ImageIO, на новые методы, использующие [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/).
 
-Старый:
+Legacy/deprecated API:
 ``` java
 BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1920, 1080));
 try {
@@ -86,8 +87,7 @@ try {
     e.printStackTrace();
 }
 ```
-
-Новый:
+Modern API:
 ``` java
 IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
 try {
@@ -97,10 +97,10 @@ try {
 }
 ```
 
-
 ### **Получение миниатюры слайда**
 
-Код с использованием устаревшего API:
+Legacy/deprecated API:
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -115,8 +115,8 @@ try {
 }
 ```
 
+Modern API:
 
-Современный API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -131,10 +131,10 @@ try {
 }
 ```
 
+### **Получение миниатюры формы**
 
-### **Получение миниатюры фигуры**
+Legacy/deprecated API:
 
-Код с использованием устаревшего API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -149,8 +149,8 @@ try {
 }
 ```
 
+Modern API:
 
-Современный API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -165,10 +165,10 @@ try {
 }
 ```
 
-
 ### **Получение миниатюры презентации**
 
-Код с использованием устаревшего API:
+Legacy/deprecated API:
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -178,7 +178,7 @@ try {
         try 
         {
             BufferedImage thumbnail = bitmaps[index];
-            ImageIO.write(thumbnail, "PNG", new File("slide"+ index+ ".png"));
+            ImageIO.write(thumbnail, "PNG", new File("slide" + index + ".png"));
         } 
         catch (IOException e) 
         {
@@ -190,8 +190,8 @@ try {
 }
 ```
 
+Modern API:
 
-Современный API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -216,10 +216,10 @@ try {
 }
 ```
 
-
 ### **Добавление изображения в презентацию**
 
-Код с использованием устаревшего API:
+Legacy/deprecated API:
+
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -237,8 +237,8 @@ try {
 }
 ```
 
+Modern API:
 
-Современный API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -256,12 +256,11 @@ try {
 }
 ```
 
+## **Устаревшие методы и их замены в Современном API**
 
-## **Методы, подлежащие удалению, и их замена в Современном API**
-
-### **Presentation**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+### **Презентация**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
@@ -269,15 +268,15 @@ try {
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
-### **Shape**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+### **Форма**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### **Slide**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+### **Слайд**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
@@ -285,58 +284,60 @@ try {
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | No Modern API replacement |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | No Modern API replacement |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | No Modern API replacement |
 
 ### **Output**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
 ### **ImageCollection**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
 
 ### **PPImage**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
 ### **PatternFormat**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
 | public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
 ### **PatternFormatEffectiveData**
-| Сигнатура метода | Сигнатура метода‑замены |
-|------------------|--------------------------|
+| Сигнатура метода | Сигнатура заменяющего метода |
+|------------------|------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
-## **Поддержка Graphics2D будет прекращена**
+## **Поддержка Graphics2D в API**
 
-Методы с [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) объявлены устаревшими и их поддержка будет удалена из публичного API.
+Методы с [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) объявлены устаревшими и не имеют прямой замены в Современном API.
 
-Часть API, использующая его, будет удалена:
+Используйте методы рендеринга изображений Современного API вместо API, который рендерит в [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html):
 
-[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
+- [Слайд](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
 
-## **FAQ**
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
 
-**Почему был удалён java.awt.Graphics2D?**
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
-Поддержка `Graphics2D` удаляется из публичного API для унификации работы с рендерингом и изображениями, устранения привязки к платформенно‑зависимым компонентам и перехода к кроссплатформенному подходу с использованием [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Все методы рендеринга в `Graphics2D` будут удалены.
+## **Вопросы и ответы**
 
-**В чём практическая выгода IImage по сравнению с BufferedImage?**
+**Почему был удалён [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)?**
 
-[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) объединяет работу как с растровыми, так и с векторными изображениями и упрощает сохранение в различные форматы через [ImageFormat](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/).
+Поддержка [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) объявлена устаревшей в публичном API, чтобы унифицировать работу с рендерингом и изображениями, избавиться от привязки к платформенно‑специфическим зависимостям и перейти к кроссплатформенному подходу с использованием [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/). Вместо рендеринга в [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) используйте `getImage` или `getImages`.
+
+**Какова практическая выгода от [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/) по сравнению с [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)?**
+
+[IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/) объединяет работу как с растровыми, так и с векторными изображениями и упрощает сохранение в различные форматы через [ImageFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imageformat/).
 
 **Повлияет ли Современный API на производительность генерации миниатюр?**
 
-Переход от `getThumbnail` к `getImage` не ухудшает сценарии: новые методы предоставляют те же возможности по созданию изображений с параметрами и размерами, сохраняя поддержку опций рендеринга. Конкретный прирост или падение зависят от сценария, но функционально замены эквивалентны.
+Переход от `getThumbnail` к `getImage` не ухудшает ситуацию: новые методы предоставляют те же возможности по созданию изображений с различными параметрами и размерами, при этом сохраняют поддержку параметров рендеринга. Конкретный прирост или падение производительности зависит от сценария, но функционально замены эквивалентны.
