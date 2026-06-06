@@ -1,35 +1,51 @@
 ---
-title: モダン API
+title: モダン API で画像処理を強化する
+linktitle: モダン API
 type: docs
 weight: 237
 url: /ja/nodejs-java/modern-api/
-keywords: "クロスプラットフォーム モダン API"
-description: "モダン API"
+keywords:
+- モダン API
+- 描画
+- スライドサムネイル
+- スライドから画像へ
+- シェイプサムネイル
+- シェイプから画像へ
+- プレゼンテーションサムネイル
+- プレゼンテーションから画像へ
+- 画像を追加
+- 画像を挿入
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "非推奨の画像 API を JavaScript のモダン API に置き換えて、スライド画像処理を最新化し、PowerPoint および OpenDocument の自動化をシームレスに実現します。"
 ---
+## **導入**
 
-## **はじめに**
-
-歴史的に、Aspose Slides は java.awt に依存しており、公開 API には以下のクラスが含まれています：
+歴史的に、Aspose Slides は java.awt に依存しており、公開APIには以下のクラスが含まれています:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-バージョン 24.4 から、この公開 API は非推奨と宣言されています。
+バージョン 24.4 以降、この公開APIは非推奨と宣言されています。
 
-これらのクラスへの依存を排除するために、「Modern API」と呼ばれる API を追加しました。すなわち、非推奨の API の代わりに使用すべき API で、シグネチャに BufferedImage への依存が含まれています。Graphics2D は非推奨と宣言され、公開 Slides API からのサポートは削除されました。
+これらのクラスへの依存関係を解消するため、いわゆる「Modern API」を追加しました。つまり、非推奨となった API の代わりに使用すべき API で、シグネチャに [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) への依存が含まれます。[Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) は非推奨と宣言され、公開 Slides API からのサポートが削除されました。
 
-System.Drawing への依存を持つ非推奨の公開 API の削除は、リリース 24.8 で行われます。
+現在のバージョンでは、java.awt 型に依存する公開APIはレガシー/非推奨として扱ってください。新しいコードや既存の画像処理ワークフローの移行時には Modern API を使用します。
 
-## **Modern API**
+## **モダン API**
 
-公開 API に以下のクラスと列挙体を追加しました：
+以下のクラスと列挙型が公開APIに追加されました：
 
-- IImage – ラスタまたはベクタ画像を表します。
-- ImageFormat – 画像のファイル形式を表します。
-- Images – IImage クラスを生成し操作するメソッド群。
+- [IImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/iimage/) - ラスタまたはベクタ画像を表します。
+- [ImageFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imageformat/) - 画像のファイル形式を表します。
+- [Images](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/images/) - [IImage] クラスのインスタンス化および操作用メソッドです。
 
-IImage は disposable です（IDisposable を実装しており、using でラップするか、別の便利な方法で dispose してください）。
+※ [IImage] は破棄可能であり、使用後は `dispose()` 呼び出しまたはその他の適切な破棄パターンを実行してください。
 
-新しい API の典型的な使用シナリオは次のようになります：
+単一のスライドまたはシェイプをレンダリングするには `getImage` を使用します。複数のプレゼンテーションスライドをレンダリングするには `getImages` を使用します。画像をロードするには [Images] メソッドを使用し、`addImage` と [IImage] でプレゼンテーションに画像を追加し、`replaceImage` と [IImage] で既存のプレゼンテーション画像を更新します。
+
+新しい API の典型的な使用シナリオは以下のようになります：
+
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -37,13 +53,13 @@ try {
     // ディスク上のファイルから IImage の破棄可能なインスタンスを作成します。
     var image = aspose.slides.Images.fromFile("image.png");
     try {
-        // IImage のインスタンスをプレゼンテーションの画像に追加して PowerPoint 画像を作成します。
+        // プレゼンテーションの画像に IImage のインスタンスを追加して PowerPoint 画像を作成します。
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // スライド #1 に画像形状を追加します。
+    // スライド #1 に画像シェイプを追加します。
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
     var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
@@ -60,12 +76,11 @@ try {
 }
 ```
 
-
 ## **古いコードを Modern API に置き換える**
 
-一般的に、ImageIO を使用した古いメソッド呼び出しを新しいものに置き換える必要があります。
+一般的に、[BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) と [ImageIO](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html) を使用する呼び出しを、[IImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/iimage/) を使用する新しいメソッドに置き換える必要があります。
 
-古い：
+レガシー/非推奨 API:
 ``` javascript
 var imageio = java.import("javax.imageio.ImageIO");
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
@@ -73,8 +88,7 @@ var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
 var file = java.newInstanceSync("java.io.File", "image.png");
 imageio.write(slideImage, "PNG", file);
 ```
-
-新しい：
+Modern API:
 ``` javascript
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
 var slideImage = pres.getSlides().get_Item(0).getImage(size);
@@ -82,10 +96,10 @@ slideImage.save("image.png", aspose.slides.ImageFormat.Png);
 slideImage.dispose();
 ```
 
-
 ### **スライドサムネイルの取得**
 
-非推奨 API を使用したコード：
+レガシー/非推奨 API:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -98,8 +112,8 @@ try {
 }
 ```
 
+Modern API:
 
-Modern API：
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -111,10 +125,10 @@ try {
 }
 ```
 
-
 ### **シェイプサムネイルの取得**
 
-非推奨 API を使用したコード：
+レガシー/非推奨 API:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -127,8 +141,8 @@ try {
 }
 ```
 
+Modern API:
 
-Modern API：
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -140,10 +154,10 @@ try {
 }
 ```
 
-
 ### **プレゼンテーションサムネイルの取得**
 
-非推奨 API を使用したコード：
+レガシー/非推奨 API:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -161,8 +175,8 @@ try {
 }
 ```
 
+Modern API:
 
-Modern API：
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -185,10 +199,10 @@ try {
 }
 ```
 
+### **プレゼンテーションに画像を追加する**
 
-### **プレゼンテーションへの画像追加**
+レガシー/非推奨 API:
 
-非推奨 API を使用したコード：
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -203,8 +217,8 @@ try {
 }
 ```
 
+Modern API:
 
-Modern API：
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -218,12 +232,11 @@ try {
 }
 ```
 
-
-## **削除されるメソッドと Modern API における置換**
+## **非推奨メソッドと Modern API における置換**
 
 ### **Presentation**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|-----------------------------------------------|---------------------------------------------------------|
 | public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
@@ -232,14 +245,14 @@ try {
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
 ### **Shape**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|----------------------------------------------------------------------|-------------------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
 ### **Slide**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|----------------------------------------------------------------------|-------------------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
@@ -247,54 +260,54 @@ try {
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | 完全に削除されます |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | 完全に削除されます |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | 完全に削除されます |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Modern API の置換なし |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Modern API の置換なし |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Modern API の置換なし |
 
 ### **Output**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
 ### **ImageCollection**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|-------------------------------------------|--------------------------------------------|
 | public final PPImage addImage(BufferedImage image) | public final PPImage addImage(IImage image) |
 
 ### **PPImage**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|--------------------------------------|-----------------------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
 ### **PatternFormat**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|-----------------------------------------------------------|-----------------------------------------------------|
 | public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
 | public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
 ### **PatternFormatEffectiveData**
-| メソッド シグネチャ | 置換 メソッド シグネチャ |
-|---|---|
+| メソッドシグネチャ | 置換メソッドシグネチャ |
+|-----------------------------------------------------------|-----------------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
-## **Graphics2D 用 API サポートの中止**
+## **Graphics2D の API サポート**
 
-[Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) を使用したメソッドは非推奨と宣言され、公開 API からのサポートが削除されます。
+Graphics2D を使用するメソッドは非推奨と宣言され、直接的な Modern API の置換はありません。
 
-Graphics2D を使用する API 部分は削除されます：
+Graphics2D にレンダリングする API の代わりに Modern API の画像レンダリングメソッドを使用してください：
 
-[Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
-# **よくある質問**
+# **FAQ**
 
-**IImage は Image/Bitmap と比べて実用的な利点は何ですか？**
+**[IImage] と [BufferedImage] の実用的な利点は何ですか？**
 
-[IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) はラスタ画像とベクタ画像の両方の操作を統一し、[ImageFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/) を通じてさまざまな形式への保存を簡素化します。
+[IImage] はラスタ画像とベクタ画像の両方の操作を統合し、[ImageFormat] を介してさまざまな形式への保存を簡素化します。
 
 **Modern API はサムネイル生成のパフォーマンスに影響しますか？**
 
-`getThumbnail` から `getImage` への切り替えはシナリオを劣化させません。新メソッドはオプションやサイズ指定で画像を生成する同等の機能を提供し、レンダリングオプションのサポートも保持しています。性能の向上または低下はシナリオ次第ですが、機能的には置換は等価です。
+`getThumbnail` から `getImage` への切り替えはシナリオを悪化させません。新しいメソッドはオプションやサイズ指定で画像を生成する同等の機能を提供し、レンダリングオプションのサポートも保持しています。具体的な性能向上または低下はシナリオに依存しますが、機能的には置換は等価です。

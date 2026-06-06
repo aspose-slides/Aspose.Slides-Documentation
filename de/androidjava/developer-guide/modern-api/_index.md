@@ -1,70 +1,72 @@
 ---
-title: Verbesserte Bildverarbeitung mit der Modernen API
-linktitle: Moderne API
+title: "Verbessern Sie die Bildverarbeitung mit der Modernen API"
+linktitle: "Moderne API"
 type: docs
 weight: 237
 url: /de/androidjava/modern-api/
 keywords:
-- System.Drawing
-- Moderne API
-- Grafik
-- Folien-Miniaturbild
+- android.graphics
+- "Moderne API"
+- Zeichnen
+- Folien-Miniaturansicht
 - Folie zu Bild
-- Form-Miniaturbild
+- Form-Miniaturansicht
 - Form zu Bild
-- Präsentations-Miniaturbild
+- Präsentations-Miniaturansicht
 - Präsentation zu Bildern
 - Bild hinzufügen
-- Grafik hinzufügen
+- Bild hinzufügen
 - Android
 - Java
 - Aspose.Slides
-description: "Modernisieren Sie die Bildverarbeitung von Folien, indem Sie veraltete Bild‑APIs durch die Java Moderne API ersetzen, um eine nahtlose PowerPoint‑ und OpenDocument‑Automatisierung zu ermöglichen."
+description: "Modernisieren Sie die Folien-Bildverarbeitung, indem Sie veraltete Bild-APIs durch die Java Moderne API für nahtlose PowerPoint- und OpenDocument-Automatisierung ersetzen."
 ---
-
 ## **Einleitung**
 
-Historisch hängt Aspose Slides von java.awt ab und hat in der öffentlichen API die folgenden Klassen daraus:
+Historisch hat Aspose Slides eine Abhängigkeit von android.graphics und stellt in der öffentlichen API die folgenden Klassen davon bereit:
 - [Canvas](https://developer.android.com/reference/android/graphics/Canvas)
 - [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)
 
-Ab Version 24.4 ist diese öffentliche API als veraltet gekennzeichnet.
+Ab Version 24.4 wird diese öffentliche API als veraltet deklariert.
 
-Um die Abhängigkeiten von diesen Klassen zu entfernen, haben wir die sogenannte „Modern API“ hinzugefügt – also die API, die anstelle der veralteten verwendet werden sollte und deren Signaturen Abhängigkeiten von Bitmap enthalten. Canvas ist als veraltet gekennzeichnet und seine Unterstützung wurde aus der öffentlichen Slides‑API entfernt.
+Um die Abhängigkeiten von diesen Klassen zu entfernen, haben wir die sogenannte „Moderne API“ hinzugefügt – d. h. die API, die anstelle der veralteten verwendet werden soll und deren Signaturen keine Abhängigkeiten von [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap) mehr enthalten. [Canvas](https://developer.android.com/reference/android/graphics/Canvas) ist als veraltet gekennzeichnet und seine Unterstützung wurde aus der öffentlichen Slides‑API entfernt.
 
-Die Entfernung der veralteten öffentlichen API mit Abhängigkeiten von System.Drawing erfolgt in Version 24.8.
+In den aktuellen Versionen sollte die öffentliche API, die von android.graphics‑Typen abhängt, als Legacy/veraltet behandelt werden. Verwenden Sie die Moderne API für neuen Code und beim Migrieren bestehender Bildverarbeitungs‑Workflows.
 
 ## **Moderne API**
 
-Folgende Klassen und Aufzählungen wurden zur öffentlichen API hinzugefügt:
+Folgende Klassen und Enumerationen wurden zur öffentlichen API hinzugefügt:
 
-- IImage – stellt das Raster‑ oder Vektorbild dar.
-- ImageFormat – stellt das Dateiformat des Bildes dar.
-- Images – Methoden zum Instanziieren und Arbeiten mit dem IImage‑Interface.
+- [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) – stellt das Raster‑ oder Vektorbild dar.
+- [ImageFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imageformat/) – stellt das Dateiformat des Bildes dar.
+- [Images](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/images/) – Methoden zum Instanziieren und Arbeiten mit dem [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/)-Interface.
 
-Bitte beachten Sie, dass IImage disposable ist (es implementiert das IDisposable‑Interface und seine Verwendung sollte in einem using‑Block oder auf andere geeignete Weise entsorgt werden).
+Bitte beachten Sie, dass [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) disposable ist und seine Verwendung von einem Aufruf von `dispose()` oder einem anderen geeigneten Entsorgungsmuster gefolgt werden sollte.
 
-Ein typisches Szenario für die Verwendung der neuen API könnte wie folgt aussehen:
+Verwenden Sie `getImage`, um eine einzelne Folie oder Form zu rendern. Verwenden Sie `getImages`, um mehrere Präsentationsfolien zu rendern. Verwenden Sie die Methoden von [Images](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/images/), um Bilder zu laden, `addImage` mit [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/), um sie einer Präsentation hinzuzufügen, und `replaceImage` mit [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/), um ein bestehendes Präsentationsbild zu aktualisieren.
+
+Ein typisches Anwendungsszenario der neuen API kann wie folgt aussehen:
+
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // Eine disposable Instanz von IImage aus der Datei auf der Festplatte instanziieren.
+    // instanziieren Sie eine disposable Instanz von IImage aus der Datei auf dem Datenträger.
     IImage image = Images.fromFile("image.png");
     try {
-        // Ein PowerPoint-Bild erstellen, indem eine Instanz von IImage zu den Bildern der Präsentation hinzugefügt wird.
+        // erstellen Sie ein PowerPoint‑Bild, indem Sie eine IImage‑Instanz zu den Bildern der Präsentation hinzufügen.
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // Ein Bild-Shape auf Folie #1 hinzufügen.
+    // ein Bild‑Shape auf Folie #1 hinzufügen
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // Eine Instanz von IImage erhalten, die Folie #1 repräsentiert.
+    // erhalten Sie eine IImage‑Instanz, die Folie #1 darstellt.
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Size(1920, 1080));
     try {
-        // Bild auf der Festplatte speichern.
+        // das Bild auf dem Datenträger speichern.
         slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
     } finally {
         if (slideImage != null) slideImage.dispose();
@@ -74,12 +76,11 @@ try {
 }
 ```
 
+## **Ersetzen des alten Codes durch die Moderne API**
 
-## **Ersetzen von altem Code mit der Modernen API**
+Im Allgemeinen müssen Sie Aufrufe, die [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap) verwenden, durch die neuen Methoden ersetzen, die [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) nutzen.
 
-Im Allgemeinen müssen Sie den Aufruf der alten Methode, die ImageIO verwendet, durch die neue ersetzen.
-
-Old:
+Legacy/veraltete API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -103,8 +104,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-
-New:
+Moderne API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -119,10 +119,10 @@ try {
 }
 ```
 
+### **Abrufen einer Folien‑Miniaturansicht**
 
-### **Erhalten eines Folien-Thumbnails**
+Legacy/veraltete API:
 
-Code, der eine veraltete API verwendet:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -147,8 +147,8 @@ try {
 }
 ```
 
+Moderne API:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -163,10 +163,10 @@ try {
 }
 ```
 
+### **Abrufen einer Form‑Miniaturansicht**
 
-### **Erhalten eines Form-Thumbnails**
+Legacy/veraltete API:
 
-Code, der eine veraltete API verwendet:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -191,8 +191,8 @@ try {
 }
 ```
 
+Moderne API:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -207,10 +207,10 @@ try {
 }
 ```
 
+### **Abrufen einer Präsentations‑Miniaturansicht**
 
-### **Erhalten eines Präsentations-Thumbnails**
+Legacy/veraltete API:
 
-Code, der eine veraltete API verwendet:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -239,8 +239,8 @@ try {
 }
 ```
 
+Moderne API:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -265,10 +265,10 @@ try {
 }
 ```
 
+### **Ein Bild zu einer Präsentation hinzufügen**
 
-### **Hinzufügen eines Bildes zu einer Präsentation**
+Legacy/veraltete API:
 
-Code, der eine veraltete API verwendet:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -283,8 +283,8 @@ try {
 }
 ```
 
+Moderne API:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -302,12 +302,11 @@ try {
 }
 ```
 
-
-## **Methoden, die entfernt werden und ihre Ersatzmethoden in der Modernen API**
+## **Veraltete Methoden und ihre Ersetzungen in der Modernen API**
 
 ### **Presentation**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final Bitmap[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, Size imageSize) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
@@ -316,14 +315,14 @@ try {
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 
 ### **Shape**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
 ### **Slide**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(Size imageSize) | public final IImage getImage(Size imageSize) |
 | public final Bitmap getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
@@ -331,58 +330,58 @@ try {
 | public final Bitmap getThumbnail(IRenderingOptions options, Size imageSize) | public final IImage getImage(IRenderingOptions options, Size imageSize) |
 | public final Bitmap getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final Bitmap getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | No Modern API replacement |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | No Modern API replacement |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | No Modern API replacement |
 
 ### **Output**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final IOutputFile add(String path, Bitmap image) | public final IOutputFile add(String path, IImage image) |
 
 ### **ImageCollection**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final IPPImage addImage(Bitmap image) | public final IPPImage addImage(IImage image) |
 
 ### **PPImage**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final Bitmap getSystemImage() | public final IImage getImage() |
 
 ### **PatternFormat**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final Bitmap getTileImage(Integer styleColor) | public final IImage getTile(Integer styleColor) |
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTile(Integer background, Integer foreground) |
 
 ### **PatternFormatEffectiveData**
-| Methodensignatur | Ersatzmethodensignatur |
-|------------------|------------------------|
+| Methodensignatur | Ersetzungsmethodensignatur |
+|------------------|----------------------------|
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTileIImage(Integer background, Integer foreground) |
 
-## **API‑Unterstützung für Canvas wird eingestellt**
+## **API‑Unterstützung für Canvas**
 
-Methoden mit [Canvas](https://developer.android.com/reference/android/graphics/Canvas) sind als veraltet gekennzeichnet und ihre Unterstützung wird aus der öffentlichen API entfernt.
+Methoden mit [Canvas](https://developer.android.com/reference/android/graphics/Canvas) sind als veraltet gekennzeichnet und haben keinen direkten Ersatz in der Modernen API.
 
-Der Teil der API, der sie verwendet, wird entfernt:
+Verwenden Sie die Bild‑Rendering‑Methoden der Modernen API anstelle der API, die zu [Canvas](https://developer.android.com/reference/android/graphics/Canvas) rendert:
 
-[Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-)
-- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
+- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics)](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-)
+- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
 
 ## **FAQ**
 
 **Warum wurde android.graphics.Canvas entfernt?**
 
-Die Unterstützung für `Canvas` wird aus der öffentlichen API entfernt, um die Arbeit mit Rendering und Bildern zu vereinheitlichen, plattformspezifische Abhängigkeiten zu eliminieren und zu einem plattformübergreifenden Ansatz mit [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) zu wechseln. Alle Rendering‑Methoden für `Canvas` werden entfernt.
+Die Unterstützung für [Canvas](https://developer.android.com/reference/android/graphics/Canvas) ist in der öffentlichen API veraltet, um die Arbeit mit Rendering und Bildern zu vereinheitlichen, plattformspezifische Abhängigkeiten zu beseitigen und zu einem plattformübergreifenden Ansatz mit [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) zu wechseln. Verwenden Sie `getImage` oder `getImages` anstelle des Renderns zu [Canvas](https://developer.android.com/reference/android/graphics/Canvas).
 
-**Welchen praktischen Nutzen bietet IImage im Vergleich zu BufferedImage?**
+**Welchen praktischen Nutzen bietet [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) im Vergleich zu [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)?**
 
-[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) vereinheitlicht die Arbeit mit Raster‑ und Vektorbildern und vereinfacht das Speichern in verschiedene Formate über [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/).
+[IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) vereinheitlicht die Arbeit mit Raster‑ und Vektorbildern und vereinfacht das Speichern in verschiedenen Formaten über [ImageFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imageformat/).
 
-**Beeinflusst die Moderne API die Leistung bei der Erstellung von Thumbnails?**
+**Wirkt sich die Moderne API auf die Leistung der Thumbnail‑Erstellung aus?**
 
-Der Wechsel von `getThumbnail` zu `getImage` verschlechtert die Szenarien nicht: Die neuen Methoden bieten dieselben Möglichkeiten zur Bildgenerierung mit Optionen und Größen, während die Unterstützung für Rendering‑Optionen erhalten bleibt. Der konkrete Gewinn oder Verlust hängt vom jeweiligen Szenario ab, funktional sind die Ersatzmethoden jedoch äquivalent.
+Der Wechsel von `getThumbnail` zu `getImage` verschlechtert keine Szenarien: Die neuen Methoden bieten dieselben Möglichkeiten zur Bildproduktion mit Optionen und Größen, während sie die Unterstützung für Rendering‑Optionen beibehalten. Der konkrete Gewinn oder Verlust hängt vom Einzelfall ab, funktional sind die Ersetzungen jedoch äquivalent.

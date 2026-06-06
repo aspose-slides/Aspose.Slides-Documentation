@@ -1,5 +1,5 @@
 ---
-title: 使用现代 API 增强图像处理
+title: 使用现代 API 强化图像处理
 linktitle: 现代 API
 type: docs
 weight: 237
@@ -17,40 +17,42 @@ keywords:
 - 添加图片
 - Java
 - Aspose.Slides
-description: "通过使用 Java 现代 API 替换已弃用的图像 API，实现幻灯片图像处理的现代化，以便无缝进行 PowerPoint 和 OpenDocument 自动化。"
+description: "通过使用 Java 现代 API 替换已弃用的成像 API，实现无缝的 PowerPoint 和 OpenDocument 自动化，现代化幻灯片图像处理。"
 ---
+## **简介**
 
-## **介绍**
-
-历史上，Aspose Slides 依赖于 java.awt，并且在公共 API 中包含以下来自该库的类：
+在历史上，Aspose Slides 依赖于 `java.awt`，并在公共 API 中包含以下来自该包的类：
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-从 24.4 版开始，此公共 API 被标记为已弃用。
+自 24.4 版起，此公共 API 已标记为已弃用。
 
-为了去除对这些类的依赖，我们添加了所谓的“现代 API”——即应当替代已弃用 API 使用的 API，其签名不再依赖于 BufferedImage。Graphics2D 已被标记为已弃用，并从公共 Slides API 中移除其支持。
+为了摆脱对这些类的依赖，我们新增了所谓的 **“现代 API”**——即应当取代已弃用 API 使用的 API，其签名中仍可能包含对 [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) 的依赖。 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) 已被标记为已弃用，并且在公共 Slides API 中已移除其支持。
 
-在 24.8 版中，将移除依赖于 System.Drawing 的已弃用公共 API。
+在当前版本中，请将依赖于 `java.awt` 类型的公共 API 视为遗留/已弃用。对新代码以及迁移现有图像处理工作流时，请使用现代 API。
 
 ## **现代 API**
 
 向公共 API 添加了以下类和枚举：
 
-- IImage – 表示光栅或矢量图像。
-- ImageFormat – 表示图像的文件格式。
-- Images – 用于实例化和操作 IImage 接口的方法。
+- [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) - 表示光栅或矢量图像。
+- [ImageFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imageformat/) - 表示图像的文件格式。
+- [Images](https://reference.aspose.com/slides/zh/java/com.aspose.slides/images/) - 用于实例化和操作 [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 接口的方法。
 
-请注意，IImage 可释放（实现了 IDisposable 接口，使用时应放在 using 块中或以其他合适方式释放）。
+请注意，[IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 是可释放的，其使用后应调用 `dispose()` 或采用其他便利的释放模式。
+
+使用 `getImage` 渲染单个幻灯片或形状。使用 `getImages` 渲染多个演示文稿幻灯片。使用 [Images](https://reference.aspose.com/slides/zh/java/com.aspose.slides/images/) 方法加载图像，使用 `addImage` 搭配 [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 将其添加到演示文稿，使用 `replaceImage` 搭配 [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 更新已有的演示文稿图像。
 
 使用新 API 的典型场景可能如下所示：
+
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // 从磁盘上的文件实例化一个可释放的 IImage 实例。
+    // 实例化一个可释放的 IImage 实例，来源于磁盘上的文件。
     IImage image = Images.fromFile("image.png");
     try {
-        // 通过将 IImage 实例添加到演示文稿的图像集合中来创建 PowerPoint 图像。
+        // 通过将 IImage 实例添加到演示文稿的图像集合中，创建 PowerPoint 图像。
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
@@ -62,7 +64,7 @@ try {
     // 获取表示第 1 张幻灯片的 IImage 实例。
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
     try {
-        // 保存图像到磁盘。
+        // 将图像保存到磁盘上。
         slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
     } finally {
         if (slideImage != null) slideImage.dispose();
@@ -72,12 +74,11 @@ try {
 }
 ```
 
-
 ## **使用现代 API 替换旧代码**
 
-一般情况下，您需要将使用 ImageIO 的旧方法调用替换为新的调用。
+一般来说，您需要将使用 [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) 和 ImageIO 的调用替换为使用 [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 的新方法。
 
-旧代码：
+### **旧的/已弃用的 API**
 ``` java
 BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1920, 1080));
 try {
@@ -86,8 +87,7 @@ try {
     e.printStackTrace();
 }
 ```
-
-新代码：
+### **现代 API**
 ``` java
 IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
 try {
@@ -97,10 +97,10 @@ try {
 }
 ```
 
-
 ### **获取幻灯片缩略图**
 
-使用已弃用 API 的代码：
+旧的/已弃用的 API：
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -115,8 +115,8 @@ try {
 }
 ```
 
-
 现代 API：
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -131,10 +131,10 @@ try {
 }
 ```
 
-
 ### **获取形状缩略图**
 
-使用已弃用 API 的代码：
+旧的/已弃用的 API：
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -149,8 +149,8 @@ try {
 }
 ```
 
-
 现代 API：
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -165,10 +165,10 @@ try {
 }
 ```
 
-
 ### **获取演示文稿缩略图**
 
-使用已弃用 API 的代码：
+旧的/已弃用的 API：
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -190,8 +190,8 @@ try {
 }
 ```
 
-
 现代 API：
+
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -216,10 +216,10 @@ try {
 }
 ```
 
+### **向演示文稿添加图片**
 
-### **向演示文稿中添加图片**
+旧的/已弃用的 API：
 
-使用已弃用 API 的代码：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -237,8 +237,8 @@ try {
 }
 ```
 
-
 现代 API：
+
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -256,8 +256,7 @@ try {
 }
 ```
 
-
-## **将被移除的方法及其在现代 API 中的替代方案**
+## **已弃用的方法及其在现代 API 中的替代方案**
 
 ### **Presentation**
 | 方法签名 | 替代方法签名 |
@@ -277,7 +276,7 @@ try {
 
 ### **Slide**
 | 方法签名 | 替代方法签名 |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
+|----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
@@ -285,9 +284,9 @@ try {
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | 将被完全删除 |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | 将被完全删除 |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | 将被完全删除 |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | No Modern API replacement |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | No Modern API replacement |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | No Modern API replacement |
 
 ### **Output**
 | 方法签名 | 替代方法签名 |
@@ -315,28 +314,28 @@ try {
 |-----------------------------------------------------------|-----------------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
-## **Graphics2D 的 API 支持将被取消**
+## **Graphics2D 的 API 支持**
 
-带有 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) 的方法已被标记为已弃用，其支持将从公共 API 中移除。
+带有 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) 的方法已标记为已弃用，且没有直接的现代 API 替代。
 
-使用它的 API 部分将被移除：
+请改用现代 API 的图像渲染方法，而不是渲染至 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)：
 
-[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/zh/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/zh/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/zh/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
 ## **常见问题**
 
-**为什么放弃了 java.awt.Graphics2D？**
+**为什么会移除 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)？**
 
-为了统一渲染和图像的工作方式，消除与平台特定依赖的关联，并转向使用跨平台的 [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) 的方法，`Graphics2D` 的支持被从公共 API 中移除。所有针对 `Graphics2D` 的渲染方法都将被删除。
+在公共 API 中弃用对 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) 的支持，以统一渲染和图像的工作方式，消除对平台特定依赖的绑定，并转向使用跨平台的 [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 的方式。请改用 `getImage` 或 `getImages`，而不是渲染至 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)。
 
-**IImage 相比 BufferedImage 的实际好处是什么？**
+**相较于 [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)，[IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 的实际优势是什么？**
 
-[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) 将光栅图像和矢量图像的操作统一起来，并通过 [ImageFormat](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/) 简化了保存为多种格式的过程。
+[IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/) 将光栅图像和矢量图像的处理统一起来，并通过 [ImageFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imageformat/) 简化了保存为多种格式的过程。
 
-**现代 API 会影响生成缩略图的性能吗？**
+**使用现代 API 会影响生成缩略图的性能吗？**
 
-从 `getThumbnail` 切换到 `getImage` 不会导致性能下降：新方法在提供相同的选项和尺寸生成图像的能力的同时，仍然保留对渲染选项的支持。具体的提升或下降取决于使用场景，但功能上两者是等价的。
+从 `getThumbnail` 切换到 `getImage` 并不会导致性能下降：新方法在提供相同的选项和尺寸生成图像的能力的同时，仍然支持渲染选项。具体的提升或下降取决于使用场景，但功能上两者是等价的。

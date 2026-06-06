@@ -1,40 +1,56 @@
 ---
-title: API moderna
+title: Mejorar el procesamiento de imágenes con la API moderna
+linktitle: API moderna
 type: docs
 weight: 237
 url: /es/nodejs-java/modern-api/
-keywords: "API moderna multiplataforma"
-description: "API moderna"
+keywords:
+- API moderna
+- dibujo
+- miniatura de diapositiva
+- diapositiva a imagen
+- miniatura de forma
+- forma a imagen
+- miniatura de presentación
+- presentación a imágenes
+- añadir imagen
+- añadir foto
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Moderniza el procesamiento de imágenes de diapositivas sustituyendo las APIs de imágenes obsoletas por la API Moderna de JavaScript para una automatización fluida de PowerPoint y OpenDocument."
 ---
-
 ## **Introducción**
 
-Históricamente, Aspose Slides tiene una dependencia de java.awt y en la API pública tiene las siguientes clases de allí:
+Históricamente, Aspose Slides ha dependido de java.awt y tiene en la API pública las siguientes clases de allí:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-A partir de la versión 24.4, esta API pública está declarada como obsoleta.
+A partir de la versión 24.4, esta API pública se declara obsoleta.
 
-Para eliminar las dependencias de estas clases, añadimos la llamada “API moderna”, es decir, la API que debe usarse en lugar de la obsoleta, cuyas firmas contienen dependencias de BufferedImage. Graphics2D está declarada obsoleta y su soporte se eliminó de la API pública de Slides.
+Para eliminar las dependencias de estas clases, añadimos la llamada "API moderna" — es decir, la API que debe usarse en lugar de la obsoleta, cuyas firmas contienen dependencias de [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html). [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) se declara obsoleta y su soporte se elimina de la API pública de Slides.
 
-La eliminación de la API pública obsoleta con dependencias en System.Drawing será en la versión 24.8.
+En las versiones actuales, trate la API pública que depende de tipos java.awt como heredada/obsoleta. Use la API moderna para nuevo código y cuando migre flujos de trabajo de procesamiento de imágenes existentes.
 
 ## **API moderna**
 
 Se añadieron las siguientes clases y enumeraciones a la API pública:
 
-- IImage - representa la imagen raster o vectorial.
-- ImageFormat - representa el formato de archivo de la imagen.
-- Images - métodos para instanciar y trabajar con la clase IImage.
+- [IImage](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/iimage/) – representa la imagen raster o vectorial.  
+- [ImageFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/imageformat/) – representa el formato de archivo de la imagen.  
+- [Images](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/images/) – métodos para instanciar y trabajar con la clase [IImage](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/iimage/).
 
-Tenga en cuenta que IImage es desechable (implementa la clase IDisposable y su uso debe envolver en using o descartarse de otra manera conveniente).
+Tenga en cuenta que [IImage] es desechable y su uso debe ir seguido de una llamada a `dispose()` o de otro patrón de eliminación conveniente.
 
-Un escenario típico de uso de la nueva API puede verse como sigue:
+Use `getImage` para renderizar una sola diapositiva o forma. Use `getImages` para renderizar varias diapositivas de la presentación. Use los métodos de [Images](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/images/) para cargar imágenes, `addImage` con [IImage] para añadirlas a una presentación, y `replaceImage` con [IImage] para actualizar una imagen de presentación existente.
+
+Un escenario típico de uso de la nueva API puede verse así:
+
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
     var ppImage;
-    // instanciar una instancia desechable de IImage desde el archivo en el disco.
+    // instanciar una instancia desechable de IImage desde el archivo en disco.
     var image = aspose.slides.Images.fromFile("image.png");
     try {
         // crear una imagen de PowerPoint añadiendo una instancia de IImage a las imágenes de la presentación.
@@ -60,12 +76,11 @@ try {
 }
 ```
 
+## **Reemplazar el código antiguo con la API moderna**
 
-## **Reemplazar código antiguo con la API moderna**
+En general, necesitará sustituir las llamadas que usan [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) y [ImageIO](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html) por los nuevos métodos que usan [IImage](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/iimage/).
 
-En general, necesitará reemplazar la llamada al método antiguo que usa ImageIO por el nuevo.
-
-Antiguo:
+API heredada/obsoleta:
 ``` javascript
 var imageio = java.import("javax.imageio.ImageIO");
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
@@ -73,8 +88,7 @@ var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
 var file = java.newInstanceSync("java.io.File", "image.png");
 imageio.write(slideImage, "PNG", file);
 ```
-
-Nuevo:
+API moderna:
 ``` javascript
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
 var slideImage = pres.getSlides().get_Item(0).getImage(size);
@@ -82,10 +96,10 @@ slideImage.save("image.png", aspose.slides.ImageFormat.Png);
 slideImage.dispose();
 ```
 
-
 ### **Obtener una miniatura de diapositiva**
 
-Código que usa una API obsoleta:
+API heredada/obsoleta:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -98,8 +112,8 @@ try {
 }
 ```
 
-
 API moderna:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -111,10 +125,10 @@ try {
 }
 ```
 
-
 ### **Obtener una miniatura de forma**
 
-Código que usa una API obsoleta:
+API heredada/obsoleta:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -127,8 +141,8 @@ try {
 }
 ```
 
-
 API moderna:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -140,10 +154,10 @@ try {
 }
 ```
 
-
 ### **Obtener una miniatura de presentación**
 
-Código que usa una API obsoleta:
+API heredada/obsoleta:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -161,8 +175,8 @@ try {
 }
 ```
 
-
 API moderna:
+
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -185,10 +199,10 @@ try {
 }
 ```
 
+### **Añadir una imagen a una presentación**
 
-### **Agregar una imagen a una presentación**
+API heredada/obsoleta:
 
-Código que usa una API obsoleta:
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -203,8 +217,8 @@ try {
 }
 ```
 
-
 API moderna:
+
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -218,12 +232,11 @@ try {
 }
 ```
 
+## **Métodos obsoletos y su reemplazo en la API moderna**
 
-## **Métodos que se eliminarán y su reemplazo en la API moderna**
-
-### **Presentation**
+### **Presentación**
 | Firma del método | Firma del método de reemplazo |
-|-----------------------------------------------|---------------------------------------------------------|
+|------------------|-------------------------------|
 | public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
@@ -231,15 +244,15 @@ try {
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
-### **Shape**
+### **Forma**
 | Firma del método | Firma del método de reemplazo |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
+|------------------|-------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### **Slide**
+### **Diapositiva**
 | Firma del método | Firma del método de reemplazo |
-|----------------------------------------------------------------------|-----------------------------------------------------------------------|
+|------------------|-------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
@@ -247,54 +260,54 @@ try {
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Se eliminará por completo |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Se eliminará por completo |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Se eliminará por completo |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | No hay reemplazo en la API moderna |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | No hay reemplazo en la API moderna |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | No hay reemplazo en la API moderna |
 
-### **Output**
+### **Salida**
 | Firma del método | Firma del método de reemplazo |
-|-----------------------------------------------------------------|-------------------------------------------------------------|
+|------------------|-------------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
 ### **ImageCollection**
 | Firma del método | Firma del método de reemplazo |
-|-------------------------------------------|--------------------------------------------|
+|------------------|-------------------------------|
 | public final PPImage addImage(BufferedImage image) | public final PPImage addImage(IImage image) |
 
 ### **PPImage**
 | Firma del método | Firma del método de reemplazo |
-|--------------------------------------|-----------------------------------------|
+|------------------|-------------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
 ### **PatternFormat**
 | Firma del método | Firma del método de reemplazo |
-|-----------------------------------------------------------|-----------------------------------------------------|
+|------------------|-------------------------------|
 | public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
 | public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
 ### **PatternFormatEffectiveData**
 | Firma del método | Firma del método de reemplazo |
-|-----------------------------------------------------------|-----------------------------------------------------|
+|------------------|-------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
-## **El soporte de la API para Graphics2D será descontinuado**
+## **Compatibilidad de la API con Graphics2D**
 
-Los métodos con [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) están declarados como obsoletos y su soporte se eliminará de la API pública.
+Los métodos con [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) se declaran obsoletos y no tienen un reemplazo directo en la API moderna.
 
-La parte de la API que lo usa se eliminará:
+Utilice los métodos de renderizado de imágenes de la API moderna en lugar de la API que renderiza a [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html):
 
-[Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
-# **FAQ**
+# **Preguntas frecuentes**
 
-**¿Cuál es el beneficio práctico de IImage en comparación con Image/Bitmap?**
+**¿Cuál es el beneficio práctico de [IImage](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/iimage/) frente a [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)?**
 
-[IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) unifica el trabajo con imágenes raster y vectoriales y simplifica el guardado en varios formatos mediante [ImageFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/).
+[IImage](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/iimage/) unifica el trabajo con imágenes raster y vectoriales y simplifica el guardado en varios formatos mediante [ImageFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/imageformat/).
 
 **¿Afectará la API moderna al rendimiento de la generación de miniaturas?**
 
-Cambiar de `getThumbnail` a `getImage` no empeora los escenarios: los nuevos métodos ofrecen las mismas capacidades para producir imágenes con opciones y tamaños, conservando el soporte para opciones de renderizado. La ganancia o pérdida específica depende del escenario, pero funcionalmente los reemplazos son equivalentes.
+Cambiar de `getThumbnail` a `getImage` no empeora los escenarios: los nuevos métodos proporcionan las mismas capacidades para producir imágenes con opciones y tamaños, manteniendo el soporte para opciones de renderizado. La ganancia o pérdida específica depende del caso, pero funcionalmente los reemplazos son equivalentes.

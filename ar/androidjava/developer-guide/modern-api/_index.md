@@ -1,66 +1,69 @@
 ---
-title: "تعزيز معالجة الصور باستخدام الواجهة الحديثة"
-linktitle: "الواجهة الحديثة"
+title: تعزيز معالجة الصور باستخدام API الحديثة
+linktitle: API الحديثة
 type: docs
 weight: 237
 url: /ar/androidjava/modern-api/
 keywords:
-- System.Drawing
-- الواجهة الحديثة
-- الرسم
-- صورة مصغرة للشرائح
+- android.graphics
+- API الحديثة
+- رسم
+- مصغّر الشريحة
 - تحويل الشريحة إلى صورة
-- صورة مصغرة للشكل
+- مصغّر الشكل
 - تحويل الشكل إلى صورة
-- صورة مصغرة للعرض التقديمي
-- تحويل العرض التقديمي إلى صور
+- مصغّر العرض
+- تحويل العرض إلى صور
 - إضافة صورة
 - إضافة صورة
 - Android
 - Java
 - Aspose.Slides
-description: "قم بتحديث معالجة صور الشرائح عن طريق استبدال واجهات برمجة التطبيقات القديمة للصور بـ API الحديثة لجافا لتوفير أتمتة سلسة لعروض PowerPoint ومستندات OpenDocument."
+description: "تحديث معالجة صور الشرائح عبر استبدال واجهات برمجة التطبيقات التصويرية المتقعدة بـ API الحديثة لجافا لتحقيق أتمتة سلسة لعروض PowerPoint ووثائق OpenDocument."
 ---
-
 ## **المقدمة**
 
-تاريخيًا، Aspose Slides لديها اعتماد على java.awt وتحتوي واجهة برمجة التطبيقات العامة على الفئات التالية منها:
+تاريخياً، تعتمد Aspose Slides على android.graphics وتحتوي الواجهة البرمجية العامة على الفئات التالية منها:
 - [Canvas](https://developer.android.com/reference/android/graphics/Canvas)
 - [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)
 
-اعتبارًا من الإصدار 24.4، تم إعلان أن واجهة برمجة التطبيقات العامة هذه مهجورة.
+اعتباراً من الإصدار 24.4، تم إعلان أن هذه الواجهة البرمجية العامة قد عُتقِدت.
 
-للتخلص من الاعتماد على هذه الفئات، أضفنا ما يُسمى بـ "الواجهة الحديثة" - أي واجهة برمجة التطبيقات التي يجب استخدامها بدلاً من القديمة المهجورة، والتي تحتوي توقيعاتها على اعتماد على Bitmap. تم إعلان Canvas مهجورًا وتم إزالة دعمه من واجهة برمجة تطبيقات Slides العامة.
+للتخلص من الاعتماد على هذه الفئات، أضفنا ما يسمى بـ "API الحديثة" – أي الواجهة التي يجب استخدامها بدلاً من القديمة، والتي لا تحتوي توقيعاتها على اعتمادات على [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap). تم إعلان أن [Canvas](https://developer.android.com/reference/android/graphics/Canvas) قد عُتقِد وتم إزالة دعمه من الواجهة العامة لـ Slides.
 
-ستتم إزالة واجهة برمجة التطبيقات العامة المهجورة التي تعتمد على System.Drawing في الإصدار 24.8.
+في الإصدارات الحالية، اعتبار الواجهة العامة التي تعتمد على أنواع android.graphics قديمة/معتقَدة. استخدم الـ API الحديثة للشفرة الجديدة وعند نقل سير عمل معالجة الصور الحالي.
 
-## **الواجهة الحديثة**
+## **API الحديثة**
 
-تمت إضافة الفئات والعدادات التالية إلى واجهة برمجة التطبيقات العامة:
-- IImage - تمثل الصورة النقطية أو المتجهية.
-- ImageFormat - تمثل تنسيق ملف الصورة.
-- Images - طرق لإنشاء والعمل مع واجهة IImage.
+تم إضافة الفئات والعدادات التالية إلى الواجهة العامة:
 
-يرجى ملاحظة أن IImage قابل للتصرف (يطبق واجهة IDisposable ويجب أن يتم استخدامه داخل using أو إغلاقه بطريقة ملائمة أخرى).
+- [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/) – تمثّل الصورة النقطية أو المتجهة.
+- [ImageFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imageformat/) – تمثّل تنسيق ملف الصورة.
+- [Images](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/images/) – طرق لإنشاء والعمل مع واجهة [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/).
 
-قد يبدو سيناريو نمطي لاستخدام الواجهة الحديثة كما يلي:
+يرجى ملاحظة أن [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/) قابل للتصرف ويجب إتباع استخدامه بنداء `dispose()` أو نمط تصرف مناسب آخر.
+
+استخدم `getImage` لتصوير شريحة أو شكل واحد. استخدم `getImages` لتصوير عدة شرائح عرض. استخدم طرق [Images](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/images/) لتحميل الصور، `addImage` مع [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/) لإضافتها إلى عرض، و `replaceImage` مع [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/) لتحديث صورة موجودة في العرض.
+
+يمكن أن يبدو سيناريو الاستخدام النموذجي للواجهة الجديدة كما يلي:
+
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // إنشاء نسخة قابلة للتصرف من IImage من الملف على القرص.
+    // إنشاء كائن IImage قابل للتصرف من الملف على القرص.
     IImage image = Images.fromFile("image.png");
     try {
-        // إنشاء صورة PowerPoint بإضافة نسخة من IImage إلى صور العرض التقديمي.
+        // إنشاء صورة PowerPoint بإضافة كائن IImage إلى صور العرض.
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // إضافة شكل صورة إلى الشريحة #1
+    // إضافة شكل صورة إلى الشريحة رقم 1
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // الحصول على نسخة من IImage تمثل الشريحة #1.
+    // الحصول على كائن IImage الذي يمثل الشريحة رقم 1.
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Size(1920, 1080));
     try {
         // حفظ الصورة على القرص.
@@ -73,12 +76,11 @@ try {
 }
 ```
 
+## **استبدال الشيفرة القديمة بالـ API الحديثة**
 
-## **استبدال الكود القديم بالواجهة الحديثة**
+بشكل عام، ستحتاج إلى استبدال الاستدعاءات التي تستخدم [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap) بالطرق الجديدة التي تستخدم [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/).
 
-بشكل عام، ستحتاج إلى استبدال استدعاء الطريقة القديمة التي تستخدم ImageIO بالطريقة الجديدة.
-
-Old:
+الـ API القديمة/المعتقَدة:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -102,8 +104,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-
-New:
+الـ API الحديثة:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -118,10 +119,10 @@ try {
 }
 ```
 
+### **إنشاء صورة مصغرة لشريحة**
 
-### **الحصول على صورة مصغرة للشرائح**
+الـ API القديمة/المعتقَدة:
 
-Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -146,8 +147,8 @@ try {
 }
 ```
 
+الـ API الحديثة:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -162,10 +163,10 @@ try {
 }
 ```
 
+### **إنشاء صورة مصغرة لشكل**
 
-### **الحصول على صورة مصغرة للشكل**
+الـ API القديمة/المعتقَدة:
 
-Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -190,8 +191,8 @@ try {
 }
 ```
 
+الـ API الحديثة:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -206,10 +207,10 @@ try {
 }
 ```
 
+### **إنشاء صورة مصغرة للعرض**
 
-### **الحصول على صورة مصغرة للعرض التقديمي**
+الـ API القديمة/المعتقَدة:
 
-Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -238,8 +239,8 @@ try {
 }
 ```
 
+الـ API الحديثة:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -264,10 +265,10 @@ try {
 }
 ```
 
+### **إضافة صورة إلى عرض**
 
-### **إضافة صورة إلى العرض التقديمي**
+الـ API القديمة/المعتقَدة:
 
-Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -282,8 +283,8 @@ try {
 }
 ```
 
+الـ API الحديثة:
 
-Modern API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -301,12 +302,11 @@ try {
 }
 ```
 
-
-## **الطرق التي سيتم إزالتها واستبدالها في الواجهة الحديثة**
+## **الطرق المعتقَدة واستبدالها في الـ API الحديثة**
 
 ### **Presentation**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final Bitmap[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, Size imageSize) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
@@ -316,13 +316,13 @@ try {
 
 ### **Shape**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|----------------------------------------------------------------------|-------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
 ### **Slide**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(Size imageSize) | public final IImage getImage(Size imageSize) |
 | public final Bitmap getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
@@ -330,58 +330,58 @@ try {
 | public final Bitmap getThumbnail(IRenderingOptions options, Size imageSize) | public final IImage getImage(IRenderingOptions options, Size imageSize) |
 | public final Bitmap getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final Bitmap getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | لا يوجد بديل في الـ API الحديثة |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | لا يوجد بديل في الـ API الحديثة |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | لا يوجد بديل في الـ API الحديثة |
 
 ### **Output**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, Bitmap image) | public final IOutputFile add(String path, IImage image) |
 
 ### **ImageCollection**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|-------------------------------------------|--------------------------------------------|
 | public final IPPImage addImage(Bitmap image) | public final IPPImage addImage(IImage image) |
 
 ### **PPImage**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|--------------------------------------|-----------------------------------------|
 | public final Bitmap getSystemImage() | public final IImage getImage() |
 
 ### **PatternFormat**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|-----------------------------------------------------------|-----------------------------------------------------|
 | public final Bitmap getTileImage(Integer styleColor) | public final IImage getTile(Integer styleColor) |
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTile(Integer background, Integer foreground) |
 
 ### **PatternFormatEffectiveData**
 | توقيع الطريقة | توقيع الطريقة البديلة |
-|---|---|
+|-----------------------------------------------------------|-----------------------------------------------------|
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTileIImage(Integer background, Integer foreground) |
 
-## **ستتوقف دعم API لـ Canvas**
+## **دعم الـ API للـ Canvas**
 
-الطرق التي تستخدم [Canvas](https://developer.android.com/reference/android/graphics/Canvas) تم الإعلان عنها كمهجورة وسيتم إزالة دعمها من واجهة برمجة التطبيقات العامة.
+الطرق التي تحتوي على [Canvas](https://developer.android.com/reference/android/graphics/Canvas) معلنة بأنها مُعتقَدة ولا يوجد لها بديل مباشر في الـ API الحديثة.
 
-الجزء من API الذي يستخدمه سيتم إزالته:
+استخدم طرق تصوير الصور في الـ API الحديثة بدلاً من تلك التي تُصوّر إلى [Canvas](https://developer.android.com/reference/android/graphics/Canvas):
 
-[Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-)
-- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
+- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-)
+- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
 
 ## **الأسئلة الشائعة**
 
-**لماذا تم إلغاء android.graphics.Canvas؟**
+**لماذا تم حذف android.graphics.Canvas؟**
 
-تمت إزالة دعم `Canvas` من واجهة برمجة التطبيقات العامة لتوحيد العمل مع العرض والصور، وإزالة الروابط إلى الاعتمادات الخاصة بالمنصة، والانتقال إلى نهج متعدد المنصات باستخدام [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). سيتم إزالة جميع طرق العرض إلى `Canvas`.
+تم اعتقاد دعم [Canvas](https://developer.android.com/reference/android/graphics/Canvas) في الواجهة العامة لتوحيد العمل مع التصوير والصور، وإزالة الروابط إلى الاعتماديات الخاصة بالمنصة، والانتقال إلى نهج متعدد المنصات باستخدام [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/). استخدم `getImage` أو `getImages` بدلاً من التصوير إلى [Canvas](https://developer.android.com/reference/android/graphics/Canvas).
 
-**ما الفائدة العملية من IImage مقارنةً بـ BufferedImage؟**
+**ما الفائدة العملية من [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/) مقارنةً بـ [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)؟**
 
-[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) يوحد العمل مع الصور النقطية والمتجهية ويبسّط الحفظ إلى صيغ مختلفة عبر [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/).
+[IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/) يوحد العمل مع الصور النقطية والمتجهة ويُبسّط الحفظ إلى صيغ مختلفة عبر [ImageFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imageformat/).
 
-**هل ستؤثر الواجهة الحديثة على أداء إنشاء الصور المصغرة؟**
+**هل سيؤثر الـ API الحديثة على أداء إنشاء الصور المصغرة؟**
 
-التحويل من `getThumbnail` إلى `getImage` لا يسبب تدهورًا في السيناريوهات: الطرق الجديدة توفر نفس القدرات لإنتاج الصور مع الخيارات والأحجام، مع الحفاظ على دعم خيارات العرض. يعتمد المكسب أو الفقدان المحدد على السيناريو، ولكن من الناحية الوظيفية البدائل متكافئة.
+التحويل من `getThumbnail` إلى `getImage` لا يضيّق السيناريوهات: الطرق الجديدة توفر نفس الإمكانات لإنتاج الصور مع الخيارات والأحجام، مع الحفاظ على دعم خيارات التصوير. الكسب أو الفقدان المحدد يعتمد على السيناريو، لكن استبدالات الوظيفة متكافئة.
