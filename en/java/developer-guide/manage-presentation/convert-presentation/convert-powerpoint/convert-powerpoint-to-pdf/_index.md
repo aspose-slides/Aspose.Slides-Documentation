@@ -85,6 +85,8 @@ Aspose offers a free online [**PowerPoint to PDF converter**](https://products.a
 
 {{% /alert %}}
 
+> **Note:** In Aspose.Slides for Java versions 25.8 and 26.4, the text on the first slide may shift when converting a PPTX to PDF. This issue was resolved in Aspose.Slides for Java 26.6.
+
 ## **Convert PowerPoint to PDF with Options**
 
 Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) class—that allow you to customize the resulting PDF, lock the PDF with a password, or specify how the conversion process should proceed.
