@@ -1,0 +1,34 @@
+---
+title: Περιορισμοί API
+type: docs
+weight: 320
+url: /el/php-java/api-limitations/
+keywords:
+- Περιορισμοί API
+- μορφή εξαγωγής
+- εφαρμογή
+- παραγωγός
+- ιδιότητες εγγράφου
+- μεταδεδομένα
+- PowerPoint
+- OpenDocument
+- παρουσίαση
+- PHP
+- Aspose.Slides
+description: "Μάθετε τους περιορισμούς του Aspose.Slides for PHP: οι εξαγωγές ορίζουν σταθερά μεταδεδομένα Application/Producer στα PPT, PPTX, ODP και PDF—σας βοηθά να σχεδιάσετε ενσωματώσεις χωρίς εκπλήξεις."
+---
+## **Επισκόπηση**
+
+Όταν οι παρουσιάσεις δημιουργούνται ή εξάγονται με Aspose.Slides, ορισμένα τεχνικά μεταδεδομένα γράφονται στο αρχείο εξόδου. Αυτό το άρθρο εξηγεί τους περιορισμούς που σχετίζονται με τα πεδία μεταδεδομένων `Application`, `Creator` και `Producer` σε αρχεία PPTX και PDF.
+
+## **Application και Producer**
+
+Όταν δημιουργείτε ή εξάγετε παρουσιάσεις με Aspose.Slides for PHP via Java, ορισμένα τεχνικά μεταδεδομένα γράφονται στο αρχείο. Δύο πεδία συχνά προκαλούν ερωτήματα:
+
+**Application** προσδιορίζει το πρόγραμμα που δημιούργησε ή αποθήκευσε τελευταία μια παρουσίαση **PPTX**. Στο Aspose.Slides for PHP via Java, αυτή η τιμή είναι σταθερή και εμφανίζει τον πωλητή της βιβλιοθήκης αντί για το όνομα της εφαρμογής σας, ακόμη και αν χρησιμοποιήσετε [DocumentProperties::setNameOfApplication](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties/setnameofapplication/).
+
+**Producer** προσδιορίζει τη μηχανή απόδοσης που δημιούργησε το τελικό αρχείο κατά την εξαγωγή. Στις εξαγωγές **PDF**, τα μεταδεδομένα χρησιμοποιούν τα πεδία **Creator** και **Producer**. Με το Aspose.Slides for PHP via Java, και τα δύο είναι σταθερά και αντανακλούν τη βιβλιοθήκη και την έκδοσή της.
+
+**Τι είναι περιορισμένο**
+
+Δεν μπορείτε να παρακάμψετε αυτά τα πεδία μέσω του API για τις παραπάνω μορφές. Για **PPTX**, η ιδιότητα Application γράφεται ως "Aspose.Slides for PHP via Java". Για **PDF**, οι ιδιότητες Creator και Producer γράφονται ως "Aspose.Slides for PHP via Java x.x.x." Αυτή η συμπεριφορά είναι σχεδιασμένη εκ των προτέρων και ισχύει ανεξαρτήτως του τρόπου φόρτωσης ή αποθήκευσης του αρχείου, και ανεξαρτήτως των τιμών που έχουν οριστεί με χρήση [DocumentProperties::setNameOfApplication](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties/setnameofapplication/).
