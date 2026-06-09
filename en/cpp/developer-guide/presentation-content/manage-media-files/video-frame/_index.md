@@ -247,3 +247,7 @@ Yes. You can swap the [video content](https://reference.aspose.com/slides/cpp/as
 **Can the content type (MIME) of an embedded video be determined?**
 
 Yes. An embedded video has a [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) that you can read and use, for example when saving it to disk.
+
+**How can I retrieve the video volume setting?**
+
+The `IVideoFrame` interface provides `get_Volume()` which returns the raw volume value stored in the presentation (the `vol` attribute of `p:cMediaNode`). The API does not convert this value to a percentage; you must interpret the raw value yourself according to the presentation markup.
