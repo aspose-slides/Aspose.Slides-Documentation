@@ -246,6 +246,20 @@ using (var presentation = new Presentation())
 }
 ```
 
+### Saving to ODP
+
+When a presentation is saved in the Open Document Presentation (**.odp**) format, comments and notes are preserved only in Aspose.Slides for .NET versions **16.4** and later. In earlier versions (for example, 23.11.0.0), comments and notes may be lost after `Presentation.Save(..., SaveFormat.Odp)`.
+
+```c#
+using (Presentation pres = new Presentation("input.pptx"))
+{
+    // add or modify comments / notes here
+    pres.Save("output.odp", SaveFormat.Odp);
+}
+```
+
+If you encounter missing comments or notes after exporting to ODP, upgrade the Aspose.Slides library to version 16.4 or newer.
+
 ## **FAQ**
 
 **Does Aspose.Slides support a status like 'resolved' for modern comments?**
