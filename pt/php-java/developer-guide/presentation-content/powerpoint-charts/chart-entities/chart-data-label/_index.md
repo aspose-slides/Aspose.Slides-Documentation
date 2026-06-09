@@ -1,0 +1,207 @@
+---
+title: Gerenciar rótulos de dados de gráfico em apresentações usando PHP
+linktitle: Rótulo de Dados
+type: docs
+url: /pt/php-java/chart-data-label/
+keywords:
+- gráfico
+- rótulo de dados
+- precisão dos dados
+- percentual
+- distância do rótulo
+- localização do rótulo
+- PowerPoint
+- apresentação
+- PHP
+- Aspose.Slides
+description: "Aprenda a adicionar e formatar rótulos de dados de gráfico em apresentações PowerPoint usando Aspose.Slides for PHP via Java para slides mais envolventes."
+---
+## **Introdução**
+
+Os rótulos de dados em um gráfico mostram detalhes sobre a série de dados do gráfico ou pontos de dados individuais. Eles permitem que os leitores identifiquem rapidamente as séries de dados e também tornam os gráficos mais fáceis de entender.
+
+## **Definir precisão dos dados nos rótulos do gráfico**
+
+Este código PHP mostra como definir a precisão dos dados em um rótulo de dados do gráfico:
+
+```php
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
+    $chart->setDataTable(true);
+    $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
+    $pres->save("output.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
+```
+
+## **Exibir percentual como rótulos**
+Aspose.Slides for PHP via Java permite definir rótulos de percentual em gráficos exibidos. Este código PHP demonstra a operação:
+
+```php
+  # Cria uma instância da classe Presentation
+  $pres = new Presentation();
+  try {
+    # Obtém o primeiro slide
+    $slide = $pres->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
+    $series;
+    $total_for_Cat = new double[$chart->getChartData()->getCategories()->size()];
+    for($k = 0; $k < java_values($chart->getChartData()->getCategories()->size()) ; $k++) {
+      $cat = $chart->getChartData()->getCategories()->get_Item($k);
+      for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
+        $total_for_Cat[$k] = $total_for_Cat[$k] + $chart->getChartData()->getSeries()->get_Item($i)->getDataPoints()->get_Item($k)->getValue()->getData();
+      }
+    }
+    $dataPontPercent = 0.0;
+    for($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()) ; $x++) {
+      $series = $chart->getChartData()->getSeries()->get_Item($x);
+      $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
+      for($j = 0; $j < java_values($series->getDataPoints()->size()) ; $j++) {
+        $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
+        $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
+        $port = new Portion();
+        $port->setText(sprintf("{0:F2} %.2f", $dataPontPercent));
+        $port->getPortionFormat()->setFontHeight(8.0);
+        $lbl->getTextFrameForOverriding()->setText("");
+        $para = $lbl->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+        $para->getPortions()->add($port);
+        $lbl->getDataLabelFormat()->setShowSeriesName(false);
+        $lbl->getDataLabelFormat()->setShowPercentage(false);
+        $lbl->getDataLabelFormat()->setShowLegendKey(false);
+        $lbl->getDataLabelFormat()->setShowCategoryName(false);
+        $lbl->getDataLabelFormat()->setShowBubbleSize(false);
+      }
+    }
+    # Salva a apresentação contendo o gráfico
+    $pres->save("output.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
+```
+
+## **Definir o sinal de percentual nos rótulos de dados do gráfico**
+Este código PHP mostra como definir o sinal de percentual para um rótulo de dados do gráfico:
+
+```php
+  # Cria uma instância da classe Presentation
+  $pres = new Presentation();
+  try {
+    # Obtém a referência de um slide através de seu índice
+    $slide = $pres->getSlides()->get_Item(0);
+    # Cria o gráfico PercentsStackedColumn em um slide
+    $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
+    # Define NumberFormatLinkedToSource como false
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
+    $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
+    $chart->getChartData()->getSeries()->clear();
+    $defaultWorksheetIndex = 0;
+    # Obtém a planilha de dados do gráfico
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    # Adiciona nova série
+    $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
+    # Define a cor de preenchimento da série
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    # Define as propriedades do LabelFormat
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
+    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
+    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
+    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    # Adiciona nova série
+    $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
+    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
+    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
+    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
+    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
+    # Define o tipo de preenchimento e a cor
+    $series2->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
+    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
+    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
+    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
+    # Grava a apresentação no disco
+    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
+```
+
+## **Definir distância do rótulo a partir de um eixo**
+Este código PHP mostra como definir a distância do rótulo a partir de um eixo de categoria ao trabalhar com um gráfico plotado a partir de eixos:
+
+```php
+  # Cria uma instância da classe Presentation
+  $pres = new Presentation();
+  try {
+    # Obtém a referência de um slide
+    $sld = $pres->getSlides()->get_Item(0);
+    # Cria um gráfico no slide
+    $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    # Define a distância do rótulo a partir de um eixo
+    $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+    # Grava a apresentação no disco
+    $pres->save("output.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
+```
+
+## **Ajustar localização do rótulo**
+
+Quando você cria um gráfico que não depende de nenhum eixo, como um gráfico de pizza, os rótulos de dados do gráfico podem ficar muito próximos da borda. Nesse caso, é necessário ajustar a localização do rótulo de modo que as linhas de guia sejam exibidas claramente.
+
+Este código PHP mostra como ajustar a localização do rótulo em um gráfico de pizza:
+
+```php
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
+    $series = $chart->getChartData()->getSeries();
+    $label = $series->get_Item(0)->getLabels()->get_Item(0);
+    $label->getDataLabelFormat()->setShowValue(true);
+    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition->OutsideEnd);
+    $label->setX(0.71);
+    $label->setY(0.04);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
+```
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **Perguntas frequentes**
+
+**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
+
+Combine a colocação automática de rótulos, linhas de guia e tamanho de fonte reduzido; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para pontos extremos/chave.
+
+**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**
+
+Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
+
+**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
+
+Defina explicitamente fontes (família, tamanho) e verifique se a fonte está disponível no lado de renderização para evitar fallback.
