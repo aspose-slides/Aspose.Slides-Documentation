@@ -1,0 +1,92 @@
+---
+title: Java kullanarak Sunumlarda 3D Grafikleri Özelleştirme
+linktitle: 3D Grafik
+type: docs
+url: /tr/java/3d-chart/
+keywords:
+- 3D grafik
+- döndürme
+- derinlik
+- PowerPoint
+- sunum
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java'da PPT ve PPTX dosyalarını destekleyen 3D grafikler oluşturmayı ve özelleştirmeyi öğrenin—sunumlarınızı bugün güçlendirin."
+---
+## **Overview**
+
+Bu makale, Aspose.Slides'ta `Rotation3D` ayarları olan `RotationX`, `RotationY`, `DepthPercents` ve `RightAngleAxes` yapılandırarak 3D grafiğin nasıl özelleştirileceğini açıklar. Bir sunum oluşturmayı, varsayılan verilerle 3D grafik eklemeyi, gerekli 3D görünüm ayarlarını uygulamayı ve değiştirilen sunumu PPTX dosyası olarak kaydetmeyi adım adım gösterir.
+
+## **Set RotationX, RotationY and DepthPercents Properties of a 3D Chart**
+Aspose.Slides for Java, bu özellikleri ayarlamak için basit bir API sağlar. Aşağıdaki makale, **X,Y Rotasyonu, DepthPercents** vb. gibi farklı özelliklerin nasıl ayarlanacağını gösterir. Örnek kod, yukarıda belirtilen özelliklerin ayarlanmasını uygular.
+
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İlk slayta erişin.
+1. Varsayılan verilerle bir grafik ekleyin.
+1. Rotation3D özelliklerini ayarlayın.
+1. Değiştirilen sunumu bir PPTX dosyasına yazın.
+
+```java
+Presentation pres = new Presentation();
+try {
+    // İlk slayta eriş
+    ISlide slide = pres.getSlides().get_Item(0);
+    
+    // Varsayılan veriyle grafik ekle
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn3D, 0, 0, 500, 500);
+    
+    // Grafik veri sayfasının indeksini ayarlama
+    int defaultWorksheetIndex = 0;
+    
+    // Grafik veri çalışma sayfasını alma
+    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
+    
+    // Seri ekle
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
+    
+    // Kategorileri ekle
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    
+    // Rotation3D özelliklerini ayarla
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setRotationX((byte)40);
+    chart.getRotation3D().setRotationY(270);
+    chart.getRotation3D().setDepthPercents(150);
+    
+    // İkinci grafik serisini al
+    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
+    
+    // Şimdi seri verilerini doldur
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
+    
+    // Overlap değerini ayarla
+    series.getParentSeriesGroup().setOverlap((byte)100);
+    
+    // Sunumu diske yaz
+    pres.save("Rotation3D_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **FAQ**
+
+**Aspose.Slides'ta hangi grafik türleri 3D modunu destekler?**
+
+Aspose.Slides, Kolon grafiklerinin 3D varyantlarını; Column 3D, Clustered Column 3D, Stacked Column 3D ve %100 Stacked Column 3D dahil, ayrıca [ChartType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/) sınıfı aracılığıyla sunulan ilgili 3D tipleri destekler. Güncel ve eksiksiz bir liste için yüklü sürümünüzün API referansındaki [ChartType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/) üyelerine bakın.
+
+**Bir rapor veya web için 3D grafiğin raster görüntüsünü alabilir miyim?**
+
+Evet. Grafiği [chart API](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#getImage-int-float-float-) aracılığıyla bir görüntüye dışa aktarabilir veya tüm slaytı [render the entire slide](/slides/tr/java/convert-powerpoint-to-png/) gibi PNG veya JPEG formatlarına dönüştürebilirsiniz. Bu, piksel bazında tam bir ön izleme gerektiğinde veya grafiği belge, gösterge panelleri veya web sayfalarına PowerPoint gerektirmeden gömmek istediğinizde yararlıdır.
+
+**Büyük 3D grafikler oluşturma ve render etme performansı nasıldır?**
+
+Performans, veri hacmi ve görsel karmaşıklığa bağlıdır. En iyi sonuçlar için 3D efektlerini minimumda tutun, duvar ve çizim alanlarında ağır doku kullanımından kaçının, mümkün olduğunca serilerdeki veri noktası sayısını sınırlayın ve hedef ekran ya da baskı gereksinimlerine uygun çözünürlük ve boyutlarda çıktı renderleyin.
