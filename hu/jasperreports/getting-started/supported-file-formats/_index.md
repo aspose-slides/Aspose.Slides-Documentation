@@ -1,0 +1,30 @@
+---
+title: Támogatott fájlformátumok
+type: docs
+weight: 20
+url: /hu/jasperreports/supported-file-formats/
+---
+## **Támogatott Microsoft PowerPoint verziók**
+- Microsoft PowerPoint 97
+- Microsoft PowerPoint 2000
+- Microsoft PowerPoint XP
+- Microsoft PowerPoint 2003
+- Microsoft PowerPoint 2007
+- Microsoft PowerPoint 2010
+- Microsoft PowerPoint 2013
+- Microsoft PowerPoint 2016
+- Microsoft PowerPoint 2019
+- Microsoft PowerPoint Mac-hez
+- Office 365
+
+## **Támogatott fájlformátumok**
+Az alábbi táblázat mutatja az Aspose.Slides for JasperReports által betölthető és menthető fájlformátumokat.
+
+|**Formátum**|**Leírás**|**Betöltés**|**Mentés**|**Megjegyzés**|
+| :- | :- | :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint prezentáció 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint diavetítés 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint prezentáció 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint diavetítés 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Formátum||{{< emoticons/tick >}}||
+|[HTML](https://docs.fileformat.com/web/html/)|HTML formátum||{{< emoticons/tick >}}||
