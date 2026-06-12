@@ -1,0 +1,94 @@
+---
+title: Commento
+type: docs
+weight: 230
+url: /it/net/examples/elements/comment/
+keywords:
+- commento
+- commento moderno
+- aggiungi commento
+- accedi commento
+- rimuovi commento
+- rispondi al commento
+- esempio di codice
+- PowerPoint
+- OpenDocument
+- presentazione
+- .NET
+- C#
+- Aspose.Slides
+description: "Lavora con i commenti delle diapositive in Aspose.Slides per .NET: aggiungi, rispondi, modifica, risolvi ed esporta i commenti in presentazioni PPT, PPTX e ODP con esempi di codice C#."
+---
+Questo articolo dimostra come aggiungere, leggere, rimuovere e rispondere ai commenti moderni utilizzando **Aspose.Slides for .NET**.
+
+## **Aggiungi un commento moderno**
+
+Crea un commento scritto da un utente e salva la presentazione.
+
+```csharp
+static void AddModernComment()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var author = presentation.CommentAuthors.AddAuthor("User", "U1");
+    author.Comments.AddModernComment("This is a modern comment", slide, null, new PointF(100, 100), DateTime.Now);
+
+    presentation.Save("modern_comment.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Accedi a un commento moderno**
+
+Leggi un commento moderno da una presentazione esistente.
+
+```csharp
+static void AccessModernComment()
+{
+    using var presentation = new Presentation("modern_comment.pptx");
+    var author = presentation.CommentAuthors[0];
+
+    var comment = (IModernComment)author.Comments[0];
+    Console.WriteLine($"Author: {author.Name}, Comment: {comment.Text}, Position: {comment.Position}");
+}
+```
+
+## **Rimuovi un commento moderno**
+
+Rimuovi un commento e salva il file aggiornato.
+
+```csharp
+static void RemoveModernComment()
+{
+    using var presentation = new Presentation("modern_comment.pptx");
+    var author = presentation.CommentAuthors[0];
+
+    var comment = author.Comments[0];
+    comment.Remove();
+
+    presentation.Save("modern_comment_removed.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Rispondi a un commento moderno**
+
+Aggiungi risposte a un commento moderno padre.
+
+```csharp
+static void ReplyToModernComment()
+{
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
+    var author = presentation.CommentAuthors.AddAuthor("User", "U1");
+
+    var parentComment = author.Comments.AddModernComment("Parent comment", slide, null, new PointF(100, 100), DateTime.Now);
+    var reply1 = author.Comments.AddModernComment("Reply 1", slide, null, new PointF(110, 100), DateTime.Now);
+    var reply2 = author.Comments.AddModernComment("Reply 2", slide, null, new PointF(120, 100), DateTime.Now);
+
+    reply1.ParentComment = parentComment;
+    reply2.ParentComment = parentComment;
+
+    presentation.Save("modern_comment_replies.pptx", SaveFormat.Pptx);
+}
+```
