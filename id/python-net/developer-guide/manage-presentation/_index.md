@@ -1,0 +1,22 @@
+---
+title: Kelola Presentasi di Python
+linktitle: Kelola Presentasi
+type: docs
+weight: 10
+url: /id/python-net/manage-presentation/
+keywords:
+- kelola presentasi
+- kelola PPT
+- kelola PPTX
+- kelola ODP
+- buat presentasi
+- buka presentasi
+- periksa presentasi
+- gabungkan presentasi
+- konversi presentasi
+- simpan presentasi
+- kelola slide show
+- Python
+- Aspose.Slides
+description: "Kelola presentasi PowerPoint PPT, PPTX, dan ODP di Python dengan Aspose.Slides: buat, muat, edit, gandakan slide, dan kendalikan konten secara programatis."
+---
