@@ -1,0 +1,52 @@
+---
+title: हेडर फुटर
+type: docs
+weight: 220
+url: /hi/androidjava/examples/elements/header-footer/
+keywords:
+- कोड उदाहरण
+- हेडर
+- फुटर
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android के साथ स्लाइड हेडर और फुटर नियंत्रित करें: PPT, PPTX और ODP में तिथियाँ, स्लाइड नंबर, और कस्टम टेक्स्ट जोड़ें, Java उदाहरणों के साथ।"
+---
+यह लेख **Aspose.Slides for Android via Java** का उपयोग करके फुटर जोड़ने और तिथि व समय प्लेसहोल्डर को अपडेट करने का प्रदर्शन करता है।
+
+## **एक फुटर जोड़ें**
+स्लाइड के फुटर क्षेत्र में टेक्स्ट जोड़ें और इसे दृश्यमान बनाएं।
+
+```java
+static void addHeaderFooter() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        slide.getHeaderFooterManager().setFooterText("My footer");
+        slide.getHeaderFooterManager().setFooterVisibility(true);
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+## **तिथि और समय अपडेट करें**
+स्लाइड पर तिथि और समय प्लेसहोल्डर को संशोधित करें।
+
+```java
+static void updateDateTime() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        slide.getHeaderFooterManager().setDateTimeText("01/01/2024");
+        slide.getHeaderFooterManager().setDateTimeVisibility(true);
+    } finally {
+        presentation.dispose();
+    }
+}
+```

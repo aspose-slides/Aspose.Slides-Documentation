@@ -1,0 +1,101 @@
+---
+title: वीडियो
+type: docs
+weight: 80
+url: /hi/androidjava/examples/elements/video/
+keywords:
+- कोड उदाहरण
+- वीडियो
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android के साथ वीडियो जोड़ें और नियंत्रित करें: इन्सर्ट करें, चलाएँ, ट्रिम करें, पोस्टर फ्रेम सेट करें, और PPT, PPTX, और ODP प्रस्तुतियों के लिए जावा उदाहरणों के साथ निर्यात करें।"
+---
+यह लेख दर्शाता है कि कैसे वीडियो फ्रेम को सम्मिलित किया जाए और प्लेबैक विकल्प सेट किए जाएँ **Aspose.Slides for Android via Java** का उपयोग करके।
+
+## **वीडियो फ्रेम जोड़ें**
+
+एक स्लाइड पर खाली वीडियो फ्रेम डालें।
+
+```java
+static void addVideo() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // एक वीडियो जोड़ें।
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 320, 240, "video.mp4");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+## **वीडियो फ्रेम तक पहुँचें**
+
+स्लाइड पर जोड़ा गया पहला वीडियो फ्रेम प्राप्त करें।
+
+```java
+static void accessVideo() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 320, 240, "video.mp4");
+
+        // स्लाइड पर पहला वीडियो फ्रेम पहुँचें।
+        IVideoFrame firstVideo = null;
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                firstVideo = (IVideoFrame) shape;
+                break;
+            }
+        }
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+## **वीडियो फ्रेम हटाएँ**
+
+स्लाइड से वीडियो फ्रेम को हटाएँ।
+
+```java
+static void removeVideo() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 320, 240, "video.mp4");
+
+        // वीडियो फ्रेम हटाएँ।
+        slide.getShapes().remove(videoFrame);
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+## **वीडियो प्लेबैक सेट करें**
+
+स्लाइड प्रदर्शित होने पर वीडियो को स्वचालित रूप से चलाने के लिए कॉन्फ़िगर करें।
+
+```java
+static void setVideoPlayback() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 320, 240, "video.mp4");
+
+        // वीडियो को स्वचालित रूप से चलाने के लिए कॉन्फ़िगर करें।
+        videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+    } finally {
+        presentation.dispose();
+    }
+}
+```
