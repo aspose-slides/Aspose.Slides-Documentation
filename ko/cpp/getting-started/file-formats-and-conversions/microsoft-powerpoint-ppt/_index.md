@@ -1,0 +1,35 @@
+---
+title: Microsoft PowerPoint (PPT)
+type: docs
+weight: 10
+url: /ko/cpp/microsoft-powerpoint-ppt/
+---
+## **PPT 소개**
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint)은 Microsoft PowerPoint의 다양한 버전에서 생성, 읽기, 편집 및 저장할 수 있는 프레젠테이션 문서 파일 형식입니다. 이는 Microsoft에서 개발한 프레젠테이션 문서용 바이너리 형식입니다.
+
+## **Aspose.Slides for C++의 PPT**
+Aspose.Slides for C++는 아래에 나열된 소프트웨어에서 만든 PPT 파일을 읽을 수 있습니다.
+
+- Microsoft PowerPoint 97
+- Microsoft PowerPoint 2000
+- Microsoft PowerPoint XP
+- Microsoft PowerPoint 2003
+
+마찬가지로, Aspose.Slides for C++에서 만든 PPT 파일도 위에 언급된 소프트웨어에서 읽을 수 있습니다.
+
+## **PPT에 대한 포괄적인 지원**
+Aspose.Slides for C++는 PPT 문서 파일 형식과 관련된 거의 모든 기능을 지원합니다. 이는 다양한 Microsoft PowerPoint 버전에서 제공하는 기본/고급 기능을 포함할 뿐만 아니라 Microsoft PowerPoint 자체에서도 지원하지 않는 일부 기능까지 포함합니다. Aspose.Slides for C++ API 라이브러리를 사용하는 주요 장점은 이러한 기능을 손쉽게 활용할 수 있다는 점입니다.
+
+PPT 문서 파일의 생성, 읽기 및 쓰기와 같은 기본 작업 외에도 Aspose.Slides for C++가 제공하는 여러 기능이 있습니다:
+
+- 다른 MS Office 파일 형식을 PPT 문서의 OLE 객체로 가져오기
+- PPT 문서를 PDF, TIFF, XPS 형식으로 내보내기
+- PPT 문서의 슬라이드를 SVG 형식으로 내보내기
+- C++ 프레임워크에서 지원하는 모든 이미지 형식으로 슬라이드 렌더링
+- PPT 문서에서 슬라이드 크기 설정
+- 도형의 애니메이션 관리
+- 슬라이드 쇼 관리
+- 슬라이드의 텍스트 서식 지정
+- PPT 문서에서 텍스트 스캔
+- 슬라이드의 표 처리
+- 클론 기능을 사용한 마스터 자동 복사

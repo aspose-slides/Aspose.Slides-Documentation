@@ -1,0 +1,59 @@
+---
+title: Java에서 프레젠테이션의 Flash 객체 추출
+linktitle: 플래시
+type: docs
+weight: 10
+url: /ko/java/flash/
+keywords:
+- Flash 추출
+- Flash 객체
+- PowerPoint
+- OpenDocument
+- 프레젠테이션
+- Java
+- Aspose.Slides
+description: "Aspose.Slides와 함께 Java에서 PowerPoint 및 OpenDocument 슬라이드의 Flash 객체를 추출하는 방법을 배우고, 완전한 코드 샘플과 모범 사례를 확인하세요."
+---
+## **개요**
+
+이 문서에서는 Aspose.Slides를 사용하여 프레젠테이션에서 Flash 객체를 추출하는 방법을 설명합니다. 슬라이드의 컨트롤 컬렉션에서 이름으로 Flash 컨트롤을 찾고 포함된 SWF 객체 데이터를 처리하는 방법을 보여줍니다.
+
+## **프레젠테이션에서 Flash 객체 추출**
+
+Aspose.Slides for Java는 프레젠테이션에서 Flash 객체를 추출하는 기능을 제공합니다. 이름으로 Flash 컨트롤에 접근하고 프레젠테이션에서 추출하여 SWF 객체 데이터를 저장할 수 있습니다.
+
+```java
+// PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
+Presentation pres = new Presentation();
+try {
+    IControlCollection controls = pres.getSlides().get_Item(0).getControls();
+    Control flashControl = null;
+    for (IControl control : controls)
+    {
+        if (control.getName() == "ShockwaveFlash1")
+        {
+            flashControl = (Control)control;
+        }
+    }
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **FAQ**
+
+**Flash 콘텐츠를 추출할 때 지원되는 프레젠테이션 형식은 무엇인가요?**
+
+[Aspose.Slides는 지원합니다](/slides/ko/java/supported-file-formats/) PPT 및 PPTX와 같은 주요 PowerPoint 형식을 지원합니다. 이러한 컨테이너를 로드하고 컨트롤에 접근할 수 있으며, Flash 관련 ActiveX 요소도 포함됩니다.
+
+**Flash가 포함된 프레젠테이션을 HTML5로 변환하면서 Flash 인터랙티브 기능을 유지할 수 있나요?**
+
+아니요. Aspose.Slides는 SWF 콘텐츠를 실행하거나 인터랙티브 기능을 변환하지 않습니다. [HTML](/slides/ko/java/convert-powerpoint-to-html/)/[HTML5](/slides/ko/java/export-to-html5/) 로의 내보내기는 지원되지만, 최신 브라우저에서는 지원 종료로 인해 Flash가 재생되지 않습니다. 권장 방법은 내보내기 전에 Flash를 비디오 또는 HTML5 애니메이션과 같은 대체 요소로 교체하는 것입니다.
+
+**보안 관점에서 Aspose.Slides가 프레젠테이션을 읽는 동안 SWF 파일을 실행합니까?**
+
+아니요. Aspose.Slides는 Flash를 파일에 포함된 바이너리 데이터로 취급하며 처리 중에 SWF 콘텐츠를 실행하지 않습니다.
+
+**OLE를 통해 포함된 다른 파일과 함께 Flash가 포함된 프레젠테이션을 어떻게 처리해야 하나요?**
+
+Aspose.Slides는 [내장 OLE 객체 추출](/slides/ko/java/manage-ole/)을 지원하므로 Flash 컨트롤과 다른 OLE 포함 문서를 한 번에 처리하여 모든 관련 포함 콘텐츠를 한 번에 처리할 수 있습니다.
