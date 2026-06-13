@@ -1,0 +1,87 @@
+---
+title: जावास्क्रिप्ट में XAML में प्रस्तुतियों को निर्यात करें
+linktitle: प्रस्तुति से XAML
+type: docs
+weight: 30
+url: /hi/nodejs-java/export-to-xaml/
+keywords:
+- PowerPoint निर्यात करें
+- OpenDocument निर्यात करें
+- प्रस्तुति निर्यात करें
+- PowerPoint परिवर्तित करें
+- OpenDocument परिवर्तित करें
+- प्रस्तुति परिवर्तित करें
+- PowerPoint से XAML
+- OpenDocument से XAML
+- प्रस्तुति से XAML
+- PPT से XAML
+- PPTX से XAML
+- ODP से XAML
+- PPT को XAML के रूप में सहेजें
+- PPTX को XAML के रूप में सहेजें
+- ODP को XAML के रूप में सहेजें
+- PPT को XAML में निर्यात करें
+- PPTX को XAML में निर्यात करें
+- ODP को XAML में निर्यात करें
+- Node.js
+- जावास्क्रिप्ट
+- Aspose.Slides
+description: "Aspose.Slides for Node.js का उपयोग करके जावास्क्रिप्ट में PowerPoint और OpenDocument स्लाइड्स को XAML में बदलें—तेज़, Office-रहित समाधान जो आपका लेआउट बना रखता है।"
+---
+## **समीक्षा**
+
+यह लेख बताता है कि Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों को XAML में कैसे निर्यात किया जाए। इसमें XAML का संक्षिप्त परिचय, डिफ़ॉल्ट सेटिंग्स के साथ प्रस्तुति को XAML में सहेजने का तरीका, और [XamlOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/xamloptions/) के माध्यम से निर्यात को अनुकूलित करने के उपाय, जिसमें छिपी स्लाइड्स का निर्यात शामिल है, दर्शाए गए हैं। लेख में फॉलबैक फ़ॉन्ट, XAML स्टैक संगतता, और छिपी स्लाइड निर्यात व्यवहार से संबंधित कुछ सामान्य प्रश्नों के उत्तर भी शामिल हैं।
+
+## **XAML के बारे में**
+
+XAML एक वर्णनात्मक प्रोग्रामिंग भाषा है जो आपको एप्लिकेशन के लिए उपयोगकर्ता क्लासेस बनाने या लिखने की अनुमति देती है, विशेषकर उन एप्लिकेशनों के लिए जो WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), और Xamarin Forms का उपयोग करते हैं।
+
+XAML, जो कि XML-आधारित भाषा है, माइक्रोसॉफ्ट का GUI वर्णन करने वाला वैरिएंट है। आप अधिकांश समय XAML फ़ाइलों पर काम करने के लिए एक डिज़ाइनर का उपयोग करेंगे, लेकिन आप अभी भी अपना GUI लिख और संपादित कर सकते हैं।
+
+## **डिफ़ॉल्ट विकल्पों के साथ XAML में प्रस्तुतियों को निर्यात करना**
+
+यह JavaScript कोड दर्शाता है कि डिफ़ॉल्ट सेटिंग्स के साथ प्रस्तुति को XAML में कैसे निर्यात किया जाए:
+
+```javascript
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    pres.save(new aspose.slides.XamlOptions());
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
+```
+
+## **कस्टम विकल्पों के साथ XAML में प्रस्तुतियों को निर्यात करना**
+
+आप [XamlOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/XamlOptions) क्लास से विकल्प चुन सकते हैं जो निर्यात प्रक्रिया को नियंत्रित करते हैं और निर्धारित करते हैं कि Aspose.Slides आपकी प्रस्तुति को XAML में कैसे निर्यात करता है।
+
+उदाहरण के लिए, यदि आप निर्यात के दौरान अपनी प्रस्तुति से छिपी स्लाइड्स को जोड़ना चाहते हैं, तो आप [setExportHiddenSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/XamlOptions#setExportHiddenSlides-boolean-) मेथड को true पर सेट कर सकते हैं। इस उदाहरण JavaScript कोड को देखें:
+
+```javascript
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var xamlOptions = new aspose.slides.XamlOptions();
+    xamlOptions.setExportHiddenSlides(true);
+    pres.save(xamlOptions);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
+```
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**यदि मूल फ़ॉन्ट मशीन पर उपलब्ध नहीं है तो मैं पूर्वानुमानित फ़ॉन्ट कैसे सुनिश्चित करूं?**
+
+[XamlOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/xamloptions/) में **setDefaultRegularFont** का उपयोग करें — यह मूल फ़ॉन्ट के अनुपलब्ध होने पर फॉलबैक फ़ॉन्ट के रूप में उपयोग किया जाता है। इससे अप्रत्याशित प्रतिस्थापन से बचा जा सकता है।
+
+**क्या निर्यात किया गया XAML केवल WPF के लिए ही है, या इसे अन्य XAML स्टैक में भी उपयोग किया जा सकता है?**
+
+XAML एक सामान्य UI मार्कअप भाषा है जो WPF, UWP, और Xamarin.Forms में उपयोग होती है। निर्यात Microsoft XAML स्टैक के साथ संगतता को लक्षित करता है; विशिष्ट व्यवहार और समर्थन लक्ष्य प्लेटफ़ॉर्म पर निर्भर करता है। अपने पर्यावरण में मार्कअप का परीक्षण करें।
+
+**क्या छिपी स्लाइड्स समर्थित हैं, और उन्हें डिफ़ॉल्ट रूप से निर्यात होने से कैसे रोकें?**
+
+डिफ़ॉल्ट रूप से छिपी स्लाइड्स शामिल नहीं होतीं। आप इसे **setExportHiddenSlides** मेथड के माध्यम से [XamlOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/xamloptions/) में अक्षम रखकर नियंत्रित कर सकते हैं यदि आपको इन्हें निर्यात करने की आवश्यकता नहीं है।
