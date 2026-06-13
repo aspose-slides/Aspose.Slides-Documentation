@@ -1,0 +1,150 @@
+---
+title: ลบความคิดเห็นทั้งหมดโดยผู้เขียน
+type: docs
+weight: 70
+url: /th/net/delete-all-the-comments-by-an-author/
+---
+## **OpenXML SDK**
+``` csharp
+
+ string FilePath = @"..\..\..\..\Sample Files\";
+
+string FileName = FilePath + "Delete all the comments by an author.pptx";
+
+string author = "Zeeshan Shafqat";
+
+DeleteCommentsByAuthorInPresentation(FileName, author);
+
+// ลบความคิดเห็นทั้งหมดในสไลด์โดยผู้เขียนคนหนึ่ง.
+
+public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
+
+{
+
+if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
+
+    throw new ArgumentNullException("File name or author name is NULL!");
+
+using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
+
+{
+
+    // ดึงผู้เขียนความคิดเห็นที่ระบุ.
+
+    IEnumerable<CommentAuthor> commentAuthors =
+
+        doc.PresentationPart.CommentAuthorsPart.CommentAuthorList.Elements<CommentAuthor>()
+
+        .Where(e => e.Name.Value.Equals(author));
+
+    // วนซ้ำผ่านผู้เขียนที่ตรงกันทั้งหมด.
+
+    foreach (CommentAuthor commentAuthor in commentAuthors)
+
+    {
+
+        UInt32Value authorId = commentAuthor.Id;
+
+        // วนซ้ำผ่านสไลด์ทั้งหมดและดึงส่วนของสไลด์.
+
+        foreach (SlidePart slide in doc.PresentationPart.SlideParts)
+
+        {
+
+            SlideCommentsPart slideCommentsPart = slide.SlideCommentsPart;
+
+            // ดึงรายการความคิดเห็น.
+
+            if (slideCommentsPart != null && slide.SlideCommentsPart.CommentList != null)
+
+            {
+
+                IEnumerable<Comment> commentList =
+
+                    slideCommentsPart.CommentList.Elements<Comment>().Where(e => e.AuthorId == authorId.Value);
+
+                List<Comment> comments = new List<Comment>();
+
+                comments = commentList.ToList<Comment>();
+
+                foreach (Comment comm in comments)
+
+                {
+
+                    // ลบความคิดเห็นทั้งหมดโดยผู้เขียนที่ระบุ.
+
+                    slideCommentsPart.CommentList.RemoveChild<Comment>(comm);
+
+                }
+
+                // หาก commentPart ไม่มีความคิดเห็นใดอยู่.
+
+                if (slideCommentsPart.CommentList.ChildElements.Count == 0)
+
+                    // ลบส่วนนี้.
+
+                    slide.DeletePart(slideCommentsPart);
+
+            }
+
+        }
+
+        // ลบผู้เขียนความคิดเห็นจากส่วนผู้เขียนความคิดเห็น.
+
+        doc.PresentationPart.CommentAuthorsPart.CommentAuthorList.RemoveChild<CommentAuthor>(commentAuthor);
+
+    }
+
+}
+
+}
+
+``` 
+## **Aspose.Slides**
+``` csharp
+
+ string FilePath = @"..\..\..\..\Sample Files\";
+
+string FileName = FilePath + "Delete all the comments by an author.pptx";
+
+string author = "MZ";
+
+DeleteCommentsByAuthorInPresentation(FileName, author);
+
+// ลบความคิดเห็นทั้งหมดในสไลด์โดยผู้เขียนคนหนึ่ง.
+
+public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
+
+{
+
+    if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
+
+        throw new ArgumentNullException("File name or author name is NULL!");
+
+    //สร้างอ็อบเจกต์ PresentationEx ที่แทนไฟล์ PPTX
+    using (Presentation pres = new Presentation(fileName))
+
+    {
+
+      ICommentAuthor[] authors=  pres.CommentAuthors.FindByName(author);
+
+      ICommentAuthor thisAuthor = authors[0];
+
+      for (int i = thisAuthor.Comments.Count - 1; i >= 0;i-- )
+
+      {
+
+          thisAuthor.Comments.RemoveAt(i);
+
+      }
+
+      pres.Save(fileName, Aspose.Slides.Export.SaveFormat.Pptx);  
+
+    }
+
+}    
+``` 
+## **ดาวน์โหลดโค้ดตัวอย่าง**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author/)
