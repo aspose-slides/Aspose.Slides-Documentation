@@ -1,0 +1,107 @@
+---
+title: PHP에서 애니메이션으로 PowerPoint 프레젠테이션 강화
+linktitle: PowerPoint 애니메이션
+type: docs
+weight: 150
+url: /ko/php-java/powerpoint-animation/
+keywords:
+- 애니메이션 추가
+- 애니메이션 업데이트
+- 애니메이션 변경
+- 애니메이션 제거
+- 애니메이션 관리
+- 애니메이션 제어
+- 애니메이션 효과
+- PowerPoint 애니메이션
+- 애니메이션 타임라인
+- 인터랙티브 애니메이션
+- 사용자 지정 애니메이션
+- 도형 애니메이션
+- 애니메이션 차트
+- 애니메이션 텍스트
+- 애니메이션 도형
+- 애니메이션 OLE 객체
+- 애니메이션 이미지
+- 애니메이션 테이블
+- PowerPoint
+- 프레젠테이션
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java가 PowerPoint 애니메이션을 처리하는 기능을 살펴보세요. 프레젠테이션을 향상시키는 주요 기능과 인사이트를 제공합니다."
+---
+## **소개**
+
+프레젠테이션은 무언가를 보여주기 위해 만들어지므로, 시각적 모습과 인터랙티브한 동작이 항상 고려됩니다.
+
+**PowerPoint 애니메이션**은 프레젠테이션을 시각적으로 매력적이고 눈에 띄게 만들기 위해 중요한 역할을 합니다. Aspose.Slides for PHP via Java는 PowerPoint 프레젠테이션에 애니메이션을 추가할 수 있는 다양한 옵션을 제공합니다:
+
+- shapes, charts, tables, OLE Objects 및 기타 프레젠테이션 요소에 다양한 유형의 PowerPoint 애니메이션 효과를 적용합니다.
+- 하나의 shape에 여러 PowerPoint 애니메이션 효과를 사용합니다.
+- 애니메이션 타임라인을 사용하여 애니메이션 효과를 제어합니다.
+- 사용자 지정 애니메이션을 생성합니다.
+
+Aspose.Slides for PHP via Java에서는 다양한 애니메이션 효과를 shape에 적용할 수 있습니다. 텍스트, 그림, OLE Object, 표 등 슬라이드의 모든 요소가 shape로 간주되므로 슬라이드의 모든 요소에 애니메이션 효과를 적용할 수 있습니다.
+
+## **애니메이션 효과**
+Aspose.Slides는 **150개 이상의 애니메이션 효과**를 지원하며, Bounce, PathFootball, Zoom 효과와 같은 기본 애니메이션 효과와 OLEObjectShow, OLEObjectOpen과 같은 특정 애니메이션 효과를 포함합니다. 전체 애니메이션 효과 목록은 [**EffectType**](https://reference.aspose.com/slides/ko/php-java/aspose.slides/effecttype/) 열거형에서 확인할 수 있습니다.
+
+또한, 이러한 애니메이션 효과를 다음과 조합하여 사용할 수 있습니다:
+
+- [ColorEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SetEffect)
+
+## **사용자 지정 애니메이션**
+Aspose.Slides에서 **사용자 지정 애니메이션**을 만들 수 있습니다. 여러 동작을 결합하여 새로운 사용자 지정 애니메이션을 만들면 됩니다.
+
+[**Behavior**](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Behavior)는 모든 PowerPoint 애니메이션 효과의 구성 요소입니다. 모든 애니메이션 효과는 실제로 하나의 전략으로 구성된 동작 집합입니다. 동작을 한 번 사용자 지정 애니메이션으로 결합하면 다른 프레젠테이션에서 재사용할 수 있습니다. 표준 PowerPoint 애니메이션 효과에 새로운 동작을 추가하면 또 다른 사용자 지정 애니메이션이 됩니다. 예를 들어, 애니메이션에 반복 동작을 추가하여 몇 번 반복하도록 할 수 있습니다.
+
+[**Animation Point**](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Point)는 동작이 적용되어야 하는 지점을 의미합니다.
+
+## **애니메이션 타임라인**
+[**Sequence**](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Sequence)는 특정 shape에 적용되는 애니메이션 효과들의 컬렉션입니다.
+
+[**Timeline**](https://reference.aspose.com/slides/ko/php-java/aspose.slides/AnimationTimeLine)는 특정 슬라이드에서 사용되는 Sequence 집합입니다. PowerPoint 2002부터 제공되는 애니메이션 엔진입니다. 이전 PowerPoint 버전에서는 애니메이션 효과를 프레젠테이션에 추가하는 것이 어려웠으며 다양한 우회 방법을 사용해야 했습니다. Timeline은 이전의 AnimationSettings 클래스를 대체하고 PowerPoint 애니메이션을 위한 보다 명확한 객체 모델을 제공합니다. 하나의 슬라이드에는 **하나의** 애니메이션 타임라인만 있을 수 있습니다.
+
+## **인터랙티브 애니메이션**
+[**Trigger**](https://reference.aspose.com/slides/ko/php-java/aspose.slides/EffectTriggerType)는 사용자 동작(예: 버튼 클릭)을 정의하여 특정 애니메이션을 시작하도록 합니다. 트리거는 최신 PowerPoint 버전에만 추가되었습니다.
+
+## **Shape 애니메이션**
+Aspose.Slides는 텍스트, 사각형, 선, 프레임, OLE Object 등 실제 shape에 애니메이션을 적용할 수 있도록 지원합니다.
+
+{{% alert color="primary" %}} 
+자세히 읽기 [**About Shape Animation**](/slides/ko/php-java/shape-animation/).
+{{% /alert %}}
+
+## **애니메이션 차트**
+애니메이션 차트를 만들려면 shape에 사용하는 것과 동일한 클래스를 사용해야 합니다. 다만 PowerPoint 애니메이션을 차트의 카테고리 또는 차트 시리즈에만 적용할 수 있습니다. 카테고리 요소나 시리즈 요소에 애니메이션 효과를 적용할 수도 있습니다.
+
+{{% alert color="primary" %}} 
+자세히 읽기 [**About Animated Charts**](/slides/ko/php-java/animated-charts/).
+{{% /alert %}}
+
+## **애니메이션 텍스트**
+애니메이션 텍스트 외에도 단락에 애니메이션을 적용할 수 있습니다.
+
+{{% alert color="primary" %}} 
+자세히 읽기 [**About Animated Text**](/slides/ko/php-java/animated-text/).
+{{% /alert %}}
+
+## **FAQ**
+
+**PDF로 내보낼 때 애니메이션이 유지됩니까?**
+
+아니요. PDF는 정적 포맷이므로 애니메이션 및 [slide transitions](/slides/ko/php-java/slide-transition/)이 재생되지 않습니다. 움직임이 필요하면 대신 [HTML5](/slides/ko/php-java/export-to-html5/), [animated GIF](/slides/ko/php-java/convert-powerpoint-to-animated-gif/), 또는 [video](/slides/ko/php-java/convert-powerpoint-to-video/)로 내보내세요.
+
+**애니메이션이 포함된 프레젠테이션을 비디오로 변환하고 프레임 레이트와 프레임 크기를 제어할 수 있나요?**
+
+예. 프레젠테이션을 프레임으로 [render the presentation as frames](/slides/ko/php-java/convert-powerpoint-to-video/)하고 ffmpeg 등으로 비디오로 인코딩하면서 FPS와 해상도를 선택할 수 있습니다. 렌더링 중에 애니메이션과 슬라이드 전환이 재생됩니다.
+
+**ODP(단순히 PPTX가 아니라)와 작업할 때 애니메이션이 그대로 유지됩니까?**
+
+PPT, PPTX 및 ODP는 [reading](/slides/ko/php-java/open-presentation/) 및 [writing](/slides/ko/php-java/save-presentation/)을 지원하지만 포맷 차이로 인해 특정 효과가 약간 다르게 보이거나 동작할 수 있습니다. 중요한 경우 실제 샘플로 검증하십시오.
