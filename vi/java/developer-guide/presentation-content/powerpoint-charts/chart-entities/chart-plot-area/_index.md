@@ -1,0 +1,95 @@
+---
+title: Tùy chỉnh vùng vẽ biểu đồ trong bài thuyết trình bằng Java
+linktitle: Vùng vẽ
+type: docs
+url: /vi/java/chart-plot-area/
+keywords:
+- biểu đồ
+- vùng vẽ
+- chiều rộng vùng vẽ
+- chiều cao vùng vẽ
+- kích thước vùng vẽ
+- chế độ bố cục
+- PowerPoint
+- bài thuyết trình
+- Java
+- Aspose.Slides
+description: "Khám phá cách tùy chỉnh vùng vẽ biểu đồ trong các bài thuyết trình PowerPoint với Aspose.Slides cho Java. Nâng cao hình ảnh slide của bạn một cách dễ dàng."
+---
+## **Tổng quan**
+
+Bài viết này cho thấy cách làm việc với vùng vẽ của biểu đồ trong Aspose.Slides. Nó giải thích cách lấy vị trí và kích thước thực tế của vùng vẽ bằng cách xác thực bố cục biểu đồ và sau đó đọc các giá trị X, Y, chiều rộng và chiều cao của nó.
+
+Nó cũng minh họa cách cấu hình chế độ bố cục của vùng vẽ khi bố cục được thiết lập thủ công, sử dụng `LayoutTargetType` để xác định vùng vẽ được tính dựa trên khu vực bên trong hay khu vực bên ngoài cùng với trục và nhãn trục.
+
+## **Lấy Chiều rộng và Chiều cao của Vùng vẽ Biểu đồ**
+Aspose.Slides for Java cung cấp một API đơn giản cho . 
+
+1. Tạo một thể hiện của lớp[Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
+2. Truy cập slide đầu tiên.
+3. Thêm biểu đồ với dữ liệu mặc định.
+4. Gọi phương thức[IChart.validateChartLayout()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChart#validateChartLayout--) trước khi lấy các giá trị thực tế.
+5. Lấy vị trí X thực tế (bên trái) của phần tử biểu đồ so với góc trên bên trái của biểu đồ.
+6. Lấy vị trí trên thực tế của phần tử biểu đồ so với góc trên bên trái của biểu đồ.
+7. Lấy chiều rộng thực tế của phần tử biểu đồ.
+8. Lấy chiều cao thực tế của phần tử biểu đồ.
+
+```java
+// Tạo một thể hiện của lớp Presentation
+Presentation pres = new Presentation();
+try {
+    Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
+    chart.validateChartLayout();
+
+    double x = chart.getPlotArea().getActualX();
+    double y = chart.getPlotArea().getActualY();
+    double w = chart.getPlotArea().getActualWidth();
+    double h = chart.getPlotArea().getActualHeight();
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Đặt Chế độ Bố cục của Vùng vẽ Biểu đồ**
+Aspose.Slides for Java cung cấp một API đơn giản để đặt chế độ bố cục của vùng vẽ biểu đồ. Các phương thức[**setLayoutTargetType**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartPlotArea#setLayoutTargetType-int-) và[**getLayoutTargetType**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartPlotArea#getLayoutTargetType--) đã được thêm vào lớp[**ChartPlotArea**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartPlotArea) và giao diện[**IChartPlotArea**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChartPlotArea). Nếu bố cục của vùng vẽ được định nghĩa thủ công, thuộc tính này xác định việc bố cục vùng vẽ theo bên trong (không bao gồm trục và nhãn trục) hay bên ngoài (bao gồm trục và nhãn trục). Có hai giá trị khả dụng được định nghĩa trong enum[**LayoutTargetType**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/LayoutTargetType).
+
+- [**LayoutTargetType.Inner**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/LayoutTargetType#Inner) - chỉ định rằng kích thước vùng vẽ sẽ xác định kích thước của vùng vẽ, không bao gồm các dấu tick và nhãn trục.
+- [**LayoutTargetType.Outer**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/LayoutTargetType#Outer) - chỉ định rằng kích thước vùng vẽ sẽ xác định kích thước của vùng vẽ, các dấu tick và nhãn trục.
+
+Mã mẫu được đưa ra bên dưới.
+
+```java
+// Tạo một thể hiện của lớp Presentation
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+    chart.getPlotArea().setX(0.2f);
+    chart.getPlotArea().setY(0.2f);
+    chart.getPlotArea().setWidth(0.7f);
+    chart.getPlotArea().setHeight(0.7f);
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+
+    pres.save("SetLayoutMode_outer.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Câu hỏi thường gặp**
+
+**Đơn vị nào được sử dụng cho x thực tế, y thực tế, chiều rộng thực tế và chiều cao thực tế?**
+
+Bằng điểm; 1 inch = 72 điểm. Đây là đơn vị tọa độ của Aspose.Slides.
+
+**Vùng vẽ khác với Vùng biểu đồ như thế nào về nội dung?**
+
+Vùng vẽ là khu vực vẽ dữ liệu (dòng dữ liệu, lưới, đường xu hướng, v.v.); Vùng biểu đồ bao gồm các yếu tố xung quanh (tiêu đề, chú giải, v.v.). Trong các biểu đồ 3D, Vùng vẽ còn bao gồm các tường/sàn và các trục.
+
+**Khi bố cục được thiết lập thủ công, các giá trị x, y, chiều rộng và chiều cao của Vùng vẽ được hiểu như thế nào?**
+
+Chúng là các tỷ lệ (0–1) của tổng kích thước biểu đồ; trong chế độ này, việc tự động định vị bị tắt và các tỷ lệ bạn thiết lập sẽ được sử dụng.
+
+**Tại sao vị trí Vùng vẽ thay đổi sau khi thêm/chuyển vị trí chú giải?**
+
+Chú giải nằm trong vùng biểu đồ bên ngoài Vùng vẽ nhưng ảnh hưởng đến bố cục và không gian khả dụng, do đó Vùng vẽ có thể dịch chuyển khi tự động định vị đang hoạt động. (Đây là hành vi tiêu chuẩn của các biểu đồ PowerPoint.)
