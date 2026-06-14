@@ -1,0 +1,267 @@
+---
+title: 在 PHP 中套用或變更投影片版面配置
+linktitle: 投影片版面配置
+type: docs
+weight: 60
+url: /zh-hant/php-java/slide-layout/
+keywords:
+- 投影片版面配置
+- 內容版面配置
+- 佔位符
+- 簡報設計
+- 投影片設計
+- 未使用版面配置
+- 頁腳可見性
+- 標題投影片
+- 標題與內容
+- 章節標題
+- 雙內容
+- 比較
+- 僅標題
+- 空白版面配置
+- 內容加說明文字
+- 圖片加說明文字
+- 標題與垂直文字
+- 垂直標題與文字
+- PowerPoint
+- OpenDocument
+- 簡報
+- PHP
+- Aspose.Slides
+description: "透過 Java 在 Aspose.Slides for PHP 中管理與自訂投影片版面配置。透過程式碼示例探索版面類型、佔位符控制與頁腳可見性。"
+---
+## **簡介**
+
+投影片版面配置定義了投影片上佔位盒的排列方式與內容的格式設定。它控制哪些佔位符可用以及它們出現的位置。投影片版面配置可協助您快速且一致地設計簡報，無論是簡單還是較為複雜的內容。PowerPoint 中最常見的投影片版面配置包括：
+
+**標題投影片版面** – 包含兩個文字佔位符：一個用於標題，另一個用於副標題。
+
+**標題與內容版面** – 於上方顯示較小的標題佔位符，下方則有較大的主要內容佔位符（例如文字、項目符號、圖表、圖片等）。
+
+**空白版面** – 不包含任何佔位符，讓您能從頭自行設計投影片。
+
+投影片版面配置是投影片母片 (slide master) 的一部份，投影片母片是定義簡報版面樣式的最高層投影片。您可以透過投影片母片依類型、名稱或唯一 ID 取得並修改版面投影片；或者直接在簡報中編輯特定的版面投影片。
+
+在 Aspose.Slides for PHP 中使用投影片版面配置時，您可以使用：
+
+- 如 [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getLayoutSlides) 與 [getMasters](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getMasters) 等方法，位於 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別下
+- 如 [LayoutSlide](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/layoutslide/)、[MasterLayoutSlideCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/masterlayoutslidecollection/)、[LayoutPlaceholderManager](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/layoutplaceholdermanager/)、以及 [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/layoutslideheaderfootermanager/) 等型別
+
+{{% alert title="Info" color="info" %}}
+若要深入了解母片投影片的使用方式，請參閱 [Slide Master](/slides/zh-hant/php-java/slide-master/) 文章。
+{{% /alert %}}
+
+## **將版面投影片新增至簡報**
+
+若要自訂投影片的外觀與結構，您可能需要在簡報中新增版面投影片。Aspose.Slides for PHP 讓您能檢查特定版面是否已存在，若需要則新增，並以該版面插入投影片。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。  
+1. 取得 [MasterLayoutSlideCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/masterlayoutslidecollection/)。  
+1. 檢查所需的版面投影片是否已存在於集合中。若不存在，新增所需的版面投影片。  
+1. 依據新版面投影片新增空白投影片。  
+1. 儲存簡報。
+
+以下 PHP 程式碼示範如何將版面投影片新增至 PowerPoint 簡報：
+
+```php
+// 實例化代表 PowerPoint 檔案的 Presentation 類別。
+$presentation = new Presentation("Sample.pptx");
+try {
+    // 遍歷版面投影片類型以選取版面投影片。
+    $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
+    $layoutSlide = null;
+    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
+        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+    } else {
+        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    }
+
+    if (java_is_null($layoutSlide)) {
+        // 簡報未包含所有版面類型的情況。
+        // 簡報檔案僅包含空白和自訂版面類型。
+        // 然而，具有自訂類型的版面投影片可能具有可辨識的名稱，
+        // 例如「Title」、「Title and Content」等，可用於版面投影片的選取。
+        // 您也可以依賴一組佔位形狀類型。
+        // 例如，標題投影片應僅包含 Title 佔位符類型，依此類推。
+        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
+            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
+                $layoutSlide = $titleAndObjectLayoutSlide;
+                break;
+            }
+        }
+
+        if (java_is_null($layoutSlide)) {
+            foreach($layoutSlides as $titleLayoutSlide) {
+                if (java_values($titleLayoutSlide->getName()) == "Title") {
+                    $layoutSlide = $titleLayoutSlide;
+                    break;
+                }
+            }
+
+            if (java_is_null($layoutSlide)) {
+                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
+                if (java_is_null($layoutSlide)) {
+                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
+                }
+            }
+        }
+    }
+
+    // 使用新增的版面投影片插入一張空白投影片。
+    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
+
+    // 將簡報儲存至磁碟。
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **移除未使用的版面投影片**
+
+Aspose.Slides 提供 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) 方法（屬於 [Compress](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/compress/) 類別），讓您刪除不需要且未被使用的版面投影片。
+
+以下 PHP 程式碼示範如何從 PowerPoint 簡報中移除版面投影片：
+
+```php
+$presentation = new Presentation("Presentation.pptx");
+try {
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **在版面投影片中新增佔位符**
+
+Aspose.Slides 提供 [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/layoutslide/#getPlaceholderManager) 方法，讓您能在版面投影片中新增佔位符。
+
+此管理器提供以下佔位符類型的方法：
+
+| PowerPoint 佔位符               | LayoutPlaceholderManager 方法 |
+| -------------------------------- | -------------------------------- |
+| ![內容](content.png)             | addContentPlaceholder(float x,float y,float width,float height) |
+| ![內容 (垂直)](contentV.png)     | addVerticalContentPlaceholder(float x,float y,float width,float height) |
+| ![文字](text.png)                | addTextPlaceholder(float x,float y,float width,float height) |
+| ![文字 (垂直)](textV.png)        | addVerticalTextPlaceholder(float x,float y,float width,float height) |
+| ![圖片](picture.png)             | addPicturePlaceholder(float x,float y,float width,float height) |
+| ![圖表](chart.png)               | addChartPlaceholder(float x,float y,float width,float height) |
+| ![表格](table.png)               | addTablePlaceholder(float x,float y,float width,float height) |
+| ![SmartArt](smartart.png)        | addSmartArtPlaceholder(float x,float y,float width,float height) |
+| ![媒體](media.png)               | addMediaPlaceholder(float x,float y,float width,float height) |
+| ![線上圖片](onlineimage.png)    | addOnlineImagePlaceholder(float x,float y,float width,float height) |
+
+以下 PHP 程式碼示範如何在「空白」版面投影片中新增佔位形狀：
+
+```php
+$presentation = new Presentation();
+try {
+    // 取得空白版面投影片。
+    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+
+    // 取得版面投影片的佔位符管理器。
+    $placeholderManager = $layout->getPlaceholderManager();
+
+    // 為空白版面投影片新增不同的佔位符。
+    $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
+    $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
+    $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
+    $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
+
+    // 使用空白版面新增一張投影片。
+    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
+
+    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+結果：
+
+![版面投影片上的佔位符](add_placeholders.png)
+
+## **設定版面投影片的頁腳可見性**
+
+在 PowerPoint 簡報中，日期、投影片編號與自訂文字等頁腳元素可依版面決定是否顯示。Aspose.Slides for PHP 讓您能控制這些頁腳佔位符的可見性，適用於想讓某些版面顯示頁腳資訊、而其他版面保持簡潔的情境。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。  
+1. 依索引取得版面投影片參考。  
+1. 設定頁腳佔位符為可見。  
+1. 設定投影片編號佔位符為可見。  
+1. 設定日期時間佔位符為可見。  
+1. 儲存簡報。
+
+以下 PHP 程式碼示範如何設定版面投影片的頁腳可見性及相關操作：
+
+```php
+$presentation = new Presentation("Presentation.ppt");
+try {
+    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+
+    if (!$headerFooterManager->isFooterVisible()) {
+        $headerFooterManager->setFooterVisibility(true);
+    }
+
+    if (!$headerFooterManager->isSlideNumberVisible()) {
+        $headerFooterManager->setSlideNumberVisibility(true);
+    }
+
+    if (!$headerFooterManager->isDateTimeVisible()) {
+        $headerFooterManager->setDateTimeVisibility(true);
+    }
+
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
+
+    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **設定子版面的頁腳可見性**
+
+在 PowerPoint 簡報中，日期、投影片編號與自訂文字等頁腳元素可於母片層級進行控制，以確保所有版面投影片的資訊一致。Aspose.Slides for PHP 允許您在母片上設定這些頁腳佔位符的可見性與內容，並將設定傳遞至所有子版面投影片，確保簡報內的頁腳資訊統一。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。  
+1. 依索引取得母片投影片參考。  
+1. 設定母片與所有子版面的頁腳佔位符為可見。  
+1. 設定母片與所有子版面的投影片編號佔位符為可見。  
+1. 設定母片與所有子版面的日期時間佔位符為可見。  
+1. 儲存簡報。
+
+以下 PHP 程式碼示範此操作：
+
+```php
+$presentation = new Presentation("presentation.ppt");
+try {
+    $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
+
+    $headerFooterManager->setFooterAndChildFootersVisibility(true);
+    $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
+    $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
+
+    $headerFooterManager->setFooterAndChildFootersText("Footer text");
+    $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
+
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **常見問題**
+
+**母片投影片與版面投影片有何不同？**
+
+母片投影片定義整體主題與預設格式；版面投影片則為不同內容類型定義特定的佔位符排列。
+
+**我可以將版面投影片從一個簡報複製到另一個嗎？**
+
+可以，您可以透過 [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getLayoutSlides) 方法存取來源簡報的版面投影片集合，使用 `addClone` 方法將其插入至另一個簡報。
+
+**如果刪除仍被投影片使用的版面投影片會發生什麼？**
+
+若嘗試刪除仍被至少一張投影片參考的版面投影片，Aspose.Slides 會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/pptxeditexception/)。為避免此情況，請使用 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) 只安全移除未被使用的版面投影片。
