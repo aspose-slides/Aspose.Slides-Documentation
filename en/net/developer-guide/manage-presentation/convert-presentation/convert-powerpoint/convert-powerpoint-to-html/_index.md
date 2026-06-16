@@ -69,6 +69,75 @@ This example writes one HTML file. The presentation object is disposed by the `u
 
 The following sections show the most common options separately so you can combine only the ones your workflow needs.
 
+## Remove Visual Gaps Between Shapes
+
+If you notice white gaps or seams between adjacent shapes (e.g., rows of a think-cell table) in the exported HTML, you can post-process the generated SVG to force sharp edge rendering. Setting the `shape-rendering="crispEdges"` attribute on filled shape elements removes the seams.
+
+```csharp
+using System;
+using System.IO;
+using System.Xml.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var htmlOptions = new HtmlOptions
+{
+    JpegQuality = 100,
+    PicturesCompression = PicturesCompression.Dpi330,
+    SvgResponsiveLayout = true,
+};
+
+var inputPath = Path.Combine(folderPath, "table-layout.pptx");
+var outputPath = Path.Combine(folderPath, "output.html");
+
+using (var presentation = new Presentation(inputPath))
+{
+    presentation.Save(outputPath, SaveFormat.Html, htmlOptions);
+}
+
+PostProcessSvg(outputPath);
+
+static void PostProcessSvg(string htmlPath)
+{
+    var svg = (XNamespace)"http://www.w3.org/2000/svg";
+    var document = XDocument.Load(htmlPath, LoadOptions.PreserveWhitespace);
+
+    foreach (var svgRoot in document.Descendants(svg + "svg"))
+    {
+        foreach (var element in svgRoot.Descendants())
+        {
+            if (!IsFilledRectLikeShape(element, svg))
+                continue;
+
+            element.SetAttributeValue("shape-rendering", "crispEdges");
+        }
+    }
+
+    document.Save(htmlPath);
+}
+
+static bool IsFilledRectLikeShape(XElement element, XNamespace svg)
+{
+    if (element.Name == svg + "rect")
+        return false;
+
+    if (element.Name != svg + "path")
+        return false;
+
+    var fill = (string)element.Attribute("fill");
+    var d = (string)element.Attribute("d");
+
+    return !string.IsNullOrEmpty(fill)
+        && !string.Equals(fill, "none", StringComparison.OrdinalIgnoreCase)
+        && !string.IsNullOrWhiteSpace(d)
+        && d.StartsWith("M", StringComparison.Ordinal)
+        && d.EndsWith("z", StringComparison.OrdinalIgnoreCase)
+        && !d.Contains("C")
+        && !d.Contains("Q")
+        && !d.Contains("A");
+}
+```
+
 ## **Convert Selected Slides to HTML**
 
 The [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) overload that accepts slide numbers uses 1-based slide positions. The loop below saves every slide to a separate HTML file.
