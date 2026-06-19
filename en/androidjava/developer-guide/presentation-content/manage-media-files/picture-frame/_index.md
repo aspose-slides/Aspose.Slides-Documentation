@@ -187,6 +187,36 @@ for (var effect : imageTransform) {
 }
 ```
 
+## **Get Brightness and Contrast of an Image**
+
+Aspose.Slides allows you to get the brightness and contrast effect applied to an image. The [ILuminance](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iluminance/) interface represents this image transform effect.
+
+This Java code demonstrates how to get the brightness and contrast settings from a picture frame:
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame) shape;
+
+    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (IImageTransformOperation effect : imageTransform) {
+        if (effect instanceof ILuminance) {
+            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
+            float brightness = luminance.getBrightness();
+            float contrast = luminance.getContrast();
+
+            System.out.println("Brightness: " + brightness);
+            System.out.println("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Picture Frame Formatting**
 
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.

@@ -165,6 +165,31 @@ with slides.Presentation("sample.pptx") as presentation:
 All effects applied to images can be found in [aspose.slides.effects](https://reference.aspose.com/slides/python-net/aspose.slides.effects/).
 {{% /alert %}}
 
+## **Get Brightness and Contrast of an Image**
+
+Aspose.Slides lets you retrieve the brightness and contrast effect applied to an image. The [Luminance](https://reference.aspose.com/slides/python-net/aspose.slides.effects/luminance/) class represents this image transform effect.
+
+This Python code demonstrates how to get the brightness and contrast settings from a picture frame:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    picture_frame = shape
+
+    image_transform = picture_frame.picture_format.picture.image_transform
+    for effect in image_transform:
+        if isinstance(effect, slides.effects.Luminance):
+            luminance = effect.get_effective()
+            brightness = luminance.brightness
+            contrast = luminance.contrast
+
+            print("Brightness: " + str(brightness))
+            print("Contrast: " + str(contrast))
+```
+
 ## **Picture Frame Formatting**
 
 Aspose.Slides provides many formatting options you can apply to a picture frame. With these options, you can adjust a picture frame to meet specific requirements.
