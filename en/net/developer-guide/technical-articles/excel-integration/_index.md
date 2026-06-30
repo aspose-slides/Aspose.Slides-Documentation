@@ -43,6 +43,10 @@ Each call to [GetCell](https://reference.aspose.com/slides/net/aspose.slides.exc
 
 The next step to extend functionality is the [ExcelWorkbookImporter](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/) class. This utility class provides functionality for importing content from an Excel workbook into a presentation. It contains several overloads of the [AddChartFromWorkbook](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) method, which help you to retrieve the selected chart from the specified Excel workbook and add it to the end of the given shape collection at the specified coordinates.
 
+#### **Import an Excel Table**
+
+The [ExcelWorkbookImporter](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/) class also contains several overloads of the [AddTableFromWorkbook](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/) method. These methods allow you to import a selected cell range from a specified worksheet and add it as a table to the end of the given shape collection at the specified coordinates.
+
 In short, it's a lightweight and straightforward API for reading Excel data — exactly what many developers need without the overhead of a full spreadsheet processing library.
 
 ## **Let's Code**
@@ -199,6 +203,30 @@ foreach (var name in worksheetNames)
 // Save the resulting presentation to a file.
 presentation.Save("Charts.pptx", SaveFormat.Pptx);
 ```
+
+### **Import an Excel Table Example**
+
+In this example, we import a formatted table from an Excel worksheet directly into a PowerPoint presentation.
+
+The source Excel worksheet contains a formatted table with employee data:
+
+![Excel Table example](example4_image0.png)
+
+```csharp
+// Create a new PowerPoint presentation.
+using Presentation presentation = new Presentation();
+
+// Get the shapes collection of the first slide.
+IShapeCollection shapes = presentation.Slides[0].Shapes;
+
+// Import the table from the first sheet of the workbook and add it to the shapes collection.
+ExcelWorkbookImporter.AddTableFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "A1:C5");
+
+// Save the resulting presentation to a file.
+presentation.Save("FormattedTable.pptx", SaveFormat.Pptx);
+```
+
+![Result](example4_image1.png)
 
 
 ## **Summary**
