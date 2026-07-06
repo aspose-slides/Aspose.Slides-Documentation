@@ -1,17 +1,17 @@
 ---
-title: Sunumları .NET'te Kaydet
+title: .NET'te Sunumları Kaydet
 linktitle: Sunumu Kaydet
 type: docs
 weight: 80
 url: /tr/net/save-presentation/
 keywords:
-- PowerPoint'i kaydet
-- OpenDocument'i kaydet
+- PowerPoint kaydet
+- OpenDocument kaydet
 - sunumu kaydet
 - slaytı kaydet
-- PPT'yi kaydet
-- PPTX'i kaydet
-- ODP'yi kaydet
+- PPT kaydet
+- PPTX kaydet
+- ODP kaydet
 - sunumu dosyaya
 - sunumu akışa
 - önceden tanımlı görünüm türü
@@ -22,21 +22,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides kullanarak .NET'te sunumları nasıl kaydedeceğinizi keşfedin—düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint ya da OpenDocument olarak dışa aktarın."
+description: "Aspose.Slides kullanarak .NET'te sunumları nasıl kaydedeceğinizi keşfedin—düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint veya OpenDocument formatına dışa aktarın."
 ---
 ## **Genel Bakış**
 
-[C# ile Açık Sunumlar](/slides/tr/net/open-presentation/) bir sunumu açmak için [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıklar. Bu makale, sunumların nasıl oluşturulup kaydedileceğini gösterir. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı bir sunumun içeriğini barındırır. Sıfırdan bir sunum oluşturuyor ya da mevcut bir sunumu değiştiriyor olun, işiniz bittiğinde onu kaydetmek isteyeceksiniz. Aspose.Slides for .NET ile bir **dosyaya** ya da **akışa** kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
+[C#'da Sunum Açma](/slides/tr/net/open-presentation/) bir sunumu açmak için [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıklamıştır. Bu makale, sunumların nasıl oluşturulacağını ve kaydedileceğini anlatır. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı bir sunumun içeriğini tutar. Sıfırdan bir sunum oluşturuyorsanız ya da mevcut bir sunumu değiştiriyorsanız, işi tamamladığınızda onu kaydetmek isteyeceksiniz. Aspose.Slides for .NET ile **file** veya **stream** olarak kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
 
 ## **Sunumları Dosyalara Kaydet**
 
-Bir sunumu dosyaya kaydetmek için [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının `Save` yöntemini çağırın. Yönteme dosya adını ve kaydetme biçimini iletin. Aşağıdaki örnek, Aspose.Slides kullanarak bir sunumu nasıl kaydedeceğinizi gösterir.
+[Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının `Save` yöntemini çağırarak bir sunumu dosyaya kaydedin. Yönteme dosya adını ve kaydetme biçimini iletin. Aşağıdaki örnek, Aspose.Slides ile bir sunumu nasıl kaydedeceğinizi gösterir.
 
 ```cs
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfını oluşturun.
 using (Presentation presentation = new Presentation())
 {
-    // Burada bazı işlemler yapın...
+    // Burada bazı işlemleri yapın...
 
     // Sunumu bir dosyaya kaydedin.
     presentation.Save("Output.pptx", SaveFormat.Pptx);
@@ -45,10 +45,10 @@ using (Presentation presentation = new Presentation())
 
 ## **Sunumları Akışlara Kaydet**
 
-[Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının `Save` yöntemine bir çıktı akışı geçirerek bir sunumu akışa kaydedebilirsiniz. Bir sunum birçok akış türüne yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturup onu bir dosya akışına kaydediyoruz.
+[Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının `Save` yöntemine bir çıktı akışı geçerek bir sunumu akışa kaydedebilirsiniz. Sunum birçok akış türüne yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturup bir dosya akışına kaydediyoruz.
 
 ```cs
-// Presentation dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfını başlat.
 using (Presentation presentation = new Presentation())
 {
     using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
@@ -61,7 +61,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Önceden Tanımlı Görünüm Türü ile Sunumları Kaydet**
 
-Aspose.Slides, oluşturulan sunum açıldığında PowerPoint'in kullandığı ilk görünümü [ViewProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/viewproperties/) sınıfı üzerinden ayarlamanıza izin verir. [ViewProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/viewproperties/) sınıfındaki `LastView` özelliğine, [ViewType](https://reference.aspose.com/slides/tr/net/aspose.slides/viewtype/) enum'undan bir değer atayın.
+Aspose.Slides, oluşturulan sunum açıldığında PowerPoint'in kullandığı ilk görünümü [ViewProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/viewproperties/) sınıfı aracılığıyla ayarlamanıza izin verir. [ViewProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/viewproperties/) sınıfındaki `LastView` özelliğini [ViewType](https://reference.aspose.com/slides/tr/net/aspose.slides/viewtype/) enum'ından bir değere ayarlayın.
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -73,7 +73,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Sunumları Katı Office Open XML Biçiminde Kaydet**
 
-Aspose.Slides, bir sunumu Katı Office Open XML biçiminde kaydetmenizi sağlar. Kaydederken [PptxOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/pptxoptions/) sınıfını kullanın ve `Conformance` özelliğini ayarlayın. `Conformance.Iso29500_2008_Strict` olarak ayarlandığında, çıkış dosyası Katı Office Open XML biçiminde kaydedilir.
+Aspose.Slides, bir sunumu Katı Office Open XML biçiminde kaydetmenize olanak tanır. Kaydederken [PptxOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/pptxoptions/) sınıfını kullanıp onun `Conformance` özelliğini ayarlayın. `Conformance.Iso29500_2008_Strict` olarak ayarlandığında çıkış dosyası Katı Office Open XML biçiminde kaydedilir.
 
 Aşağıdaki örnek bir sunum oluşturur ve Katı Office Open XML biçiminde kaydeder.
 
@@ -83,27 +83,27 @@ PptxOptions options = new PptxOptions()
     Conformance = Conformance.Iso29500_2008_Strict
 };
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfını başlat.
 using (Presentation presentation = new Presentation())
 {
-    // Sunumu Katı Office Open XML formatında kaydedin.
+    // Sunumu Katı Office Open XML biçiminde kaydedin.
     presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 }
 ```
 
-## **Sunumları Zip64 Modunda Office Open XML Biçiminde Kaydet**
+## **Sunumları Office Open XML Biçiminde Zip64 Modunda Kaydet**
 
-Office Open XML dosyası, sıkıştırılmış herhangi bir dosyanın, sıkıştırılmamış dosyanın ve arşivin toplam boyutu için 4 GB (2^32 bayt) sınırı koyan bir ZIP arşividir ve aynı zamanda arşivi 65 535 (2^16‑1) dosyayla sınırlar. ZIP64 format uzantıları bu sınırları 2^64’e yükseltir.
+Office Open XML dosyası, sıkıştırılmamış dosya boyutu, sıkıştırılmış dosya boyutu ve arşiv toplam boyutu için 4 GB (2^32 bayt) sınırı koyan bir ZIP arşividir; ayrıca arşivde en fazla 65 535 (2^16‑1) dosya bulunabilir. ZIP64 biçim uzantıları bu sınırlamaları 2^64’e çıkarır.
 
-[IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipptxoptions/zip64mode/) özelliği, bir Office Open XML dosyası kaydedilirken ZIP64 uzantılarının ne zaman kullanılacağını seçmenizi sağlar.
+[IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipptxoptions/zip64mode/) özelliği, bir Office Open XML dosyası kaydedilirken ZIP64 biçim uzantılarının ne zaman kullanılacağını seçmenizi sağlar.
 
-Bu özellik aşağıdaki modları sağlar:
+Bu özellik aşağıdaki modları sunar:
 
-- `IfNecessary` sunum yukarıdaki sınırlamaları aşıyorsa ZIP64 uzantılarını kullanır. Bu varsayılan moddur.
-- `Never` ZIP64 uzantılarını asla kullanmaz.
+- `IfNecessary` sunum yukarıdaki sınırlamaları aştığında yalnızca ZIP64 uzantılarını kullanır. Bu varsayılan moddur.
+- `Never` ZIP64 uzantılarını hiçbir zaman kullanmaz.
 - `Always` her zaman ZIP64 uzantılarını kullanır.
 
-Aşağıdaki kod, ZIP64 uzantıları etkinleştirilmiş bir PPTX olarak bir sunumu nasıl kaydedeceğinizi gösterir:
+Aşağıdaki kod, ZIP64 biçim uzantıları etkinleştirilmiş bir PPTX dosyası olarak bir sunumu nasıl kaydedeceğinizi gösterir:
 
 ```cs
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -115,18 +115,59 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 }
 ```
 
-{{% alert title="NOT" color="warning" %}}
-`Zip64Mode.Never` ile kaydettiğinizde, sunum ZIP32 biçiminde kaydedilemezse bir [PptxException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxexception/) istisnası atılır.
+{{% alert title="NOTE" color="warning" %}}
+`Zip64Mode.Never` ile kaydettiğinizde, sunum ZIP32 biçiminde kaydedilemezse bir [PptxException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxexception/) istisnası fırlatılır.
 {{% /alert %}}
 
-## **Sunumları Küçük Resmi Yenilemeden Kaydet**
+## **Sunumları Office Open XML Biçiminde Sıkıştırma Düzeyleriyle Kaydet**
 
-[PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) özelliği, bir sunumu PPTX olarak kaydederken küçük resim oluşturulmasını kontrol eder:
+Büyük sunumlarla çalışırken dosya boyutu ile işleme süresini dengelemek için sıkıştırma düzeyini ayarlayabilirsiniz. Gereksinimlerinize bağlı olarak daha hızlı işleme ya da daha küçük çıktı dosyalarını tercih edebilirsiniz.
 
-- `true` ise kaydetme sırasında küçük resim yenilenir. Bu varsayılandır.
-- `false` ise mevcut küçük resim korunur. Sunumun küçük resmi yoksa hiç oluşturulmaz.
+Aspose.Slides, Office Open XML biçiminde bir sunumu kaydederken kullanılan sıkıştırma düzeyini belirlemenizi sağlayan [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipptxoptions/compressionlevel/) özelliğini sunar.
 
-Aşağıdaki kod, sunumu küçük resmi yenilenmeden PPTX olarak kaydeder.
+Mevcut sıkıştırma düzeyleri şunlardır:
+
+- **None**: Hiç sıkıştırma uygulanmaz. Dosyalar olduğu gibi saklanır.
+- **Level1**: En düşük sıkıştırma oranı ile en hızlı sıkıştırma.
+- **Level2**: **Level1**'e göre biraz daha iyi sıkıştırma oranı ile daha hızlı sıkıştırma.
+- **Level3**: **Level2**'den daha iyi sıkıştırma sağlar, işleme süresi orta seviyededir.
+- **Level4**: **Level3**'ten daha iyi sıkıştırma sağlar.
+- **Level5**: **Level4**'ten iyileştirilmiş sıkıştırma, ek işleme süresi gerektirir.
+- **Level6**: İşleme hızı ve dosya boyutu arasında iyi bir denge sunan standart sıkıştırma. Bu *varsayılan sıkıştırma seviyesidir*.
+- **Level7**: **Level6**'dan daha iyi sıkıştırma, ancak daha yavaş işleme.
+- **Level8**: **Level7**'den daha iyi sıkıştırma.
+- **Level9**: En yüksek sıkıştırma. En uzun işleme süresi karşılığında en küçük dosya boyutunu üretir.
+
+Aşağıdaki örnek, *sıkıştırma olmadan* bir PPTX dosyası olarak bir sunumu nasıl kaydedeceğinizi gösterir:
+```cs
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
+    {
+        CompressionLevel = CompressionLevel.None
+    });
+}
+```
+
+Bu örnek, *en yüksek sıkıştırma* ile bir PPTX dosyası olarak bir sunumu nasıl kaydedeceğinizi gösterir:
+```cs
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
+    {
+        CompressionLevel = CompressionLevel.Level9
+    });
+}
+```
+
+## **Küçük Resmi Yenilemeden Sunumları Kaydet**
+
+[PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) özelliği, bir sunumu PPTX olarak kaydederken küçük resim oluşturulmasını denetler:
+
+- `true` olarak ayarlandığında kaydetme sırasında küçük resim yenilenir. Bu varsayılandır.
+- `false` olarak ayarlandığında mevcut küçük resim korunur. Sunumun küçük resmi yoksa hiç oluşturulmaz.
+
+Aşağıdaki kod, sunumu küçük resmi yenilemeden PPTX olarak kaydeder.
 
 ```cs
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -138,15 +179,15 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 }
 ```
 
-{{% alert title="Bilgi" color="info" %}}
-Bu seçenek, PPTX biçiminde bir sunumu kaydetme süresini kısaltmaya yardımcı olur.
+{{% alert title="Info" color="info" %}}
+Bu seçenek, PPTX biçiminde bir sunumu kaydetme süresini azaltmaya yardımcı olur.
 {{% /alert %}}
 
-## **Kaydetme İlerleme Güncellemelerini Yüzde Olarak Al**
+## **İlerleme Güncellemelerini Yüzde Olarak Kaydet**
 
-[IProgressCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/iprogresscallback/) arayüzü, [ISaveOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/isaveoptions/) arayüzü üzerinden açığa çıkan `ProgressCallback` özelliği ve soyut [SaveOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveoptions/) sınıfı ile kullanılır. `ProgressCallback` özelliğine bir [IProgressCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/iprogresscallback/) uygulaması atayarak, kaydetme ilerlemesini yüzde olarak alabilirsiniz.
+[IProgressCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/iprogresscallback/) arayüzü, [ISaveOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/isaveoptions/) arayüzü tarafından açığa çıkarılan `ProgressCallback` özelliği ve soyut [SaveOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveoptions/) sınıfı aracılığıyla kullanılır. `ProgressCallback` özelliğine bir [IProgressCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/iprogresscallback/) uygulaması atayarak kaydetme ilerlemesini yüzde olarak alabilirsiniz.
 
-Aşağıdaki kod bölümleri, `IProgressCallback` kullanımını gösterir.
+Aşağıdaki kod parçacıkları `IProgressCallback` kullanımını gösterir.
 
 ```cs
 ISaveOptions saveOptions = new PdfOptions();
@@ -171,24 +212,24 @@ class ExportProgressHandler : IProgressCallback
 }
 ```
 
-{{% alert title="Bilgi" color="info" %}}
-Aspose, kendi API’siyle geliştirilmiş bir [ücretsiz PowerPoint Bölücü uygulaması](https://products.aspose.app/slides/tr/splitter) sunar. Uygulama, seçilen slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden fazla dosyaya bölmenizi sağlar.
+{{% alert title="Info" color="info" %}}
+Aspose, kendi API'sini kullanan ücretsiz bir **PowerPoint Splitter** uygulaması geliştirmiştir. Uygulama, seçilen slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden çok dosyaya bölmenizi sağlar.
 {{% /alert %}}
 
 ## **SSS**
 
-**“Hızlı kaydet” (artımlı kaydet) destekleniyor mu, sadece değişiklikler mi yazılıyor?**
+**“Hızlı kaydet” (artımlı kaydet) sadece değişiklikleri yazarak destekleniyor mu?**
 
-Hayır. Kaydetme her seferinde tam hedef dosyasını oluşturur; artımlı “hızlı kaydetme” desteklenmez.
+Hayır. Kaydetme her seferinde tam hedef dosyayı oluşturur; artımlı “hızlı kaydet” desteklenmez.
 
-**Aynı Presentation örneğini birden çok iş parçacığından kaydetmek güvenli mi?**
+**Aynı Presentation örneğini birden çok thread'den kaydetmek thread‑safe mi?**
 
-Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneği **thread‑safe** değildir; kaydetme işlemini tek bir iş parçacığından yapın.
+Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneği [thread‑safe değildir](/slides/tr/net/multithreading/); tek bir thread'den kaydedin.
 
-**Kaydederken köprüler ve harici olarak bağlanan dosyalar ne oluyor?**
+**Kaydetme sırasında köprüler ve harici bağlantılı dosyalar ne oluyor?**
 
-[Hyperlink](/slides/tr/net/manage-hyperlinks/)ler korunur. Harici bağlanan dosyalar (ör. görece yollarla eklenen videolar) otomatik olarak kopyalanmaz—referans verilen yolların erişilebilir olduğundan emin olun.
+[Hyperlinks](/slides/tr/net/manage-hyperlinks/) korunur. Harici bağlantılı dosyalar (ör. göreceli yollarla eklenen videolar) otomatik olarak kopyalanmaz; başvurulan yolların erişilebilir olduğundan emin olun.
 
-**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp/kaydedebilir miyim?**
+**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp kaydedebilir miyim?**
 
-Evet. Standart [belge özellikleri](/slides/tr/net/presentation-properties/) desteklenir ve kaydedilirken dosyaya yazılır.
+Evet. Standart [document properties](/slides/tr/net/presentation-properties/) desteklenir ve kaydetme sırasında dosyaya yazılır.

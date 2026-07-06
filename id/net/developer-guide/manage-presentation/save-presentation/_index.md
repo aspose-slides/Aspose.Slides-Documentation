@@ -1,5 +1,5 @@
 ---
-title: Menyimpan Presentasi di .NET
+title: Simpan Presentasi di .NET
 linktitle: Simpan Presentasi
 type: docs
 weight: 80
@@ -18,7 +18,7 @@ keywords:
 - Format Strict Office Open XML
 - mode Zip64
 - menyegarkan thumbnail
-- progres penyimpanan
+- kemajuan penyimpanan
 - .NET
 - C#
 - Aspose.Slides
@@ -26,11 +26,11 @@ description: "Temukan cara menyimpan presentasi di .NET menggunakan Aspose.Slide
 ---
 ## **Gambaran Umum**
 
-[Open Presentations in C#](/slides/id/net/open-presentation/) menjelaskan cara menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) untuk membuka sebuah presentasi. Artikel ini menjelaskan cara membuat dan menyimpan presentasi. Kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) berisi konten sebuah presentasi. Baik Anda membuat presentasi dari nol maupun memodifikasi yang sudah ada, Anda akan ingin menyimpannya setelah selesai. Dengan Aspose.Slides untuk .NET, Anda dapat menyimpan ke **file** atau **stream**. Artikel ini menjelaskan berbagai cara menyimpan sebuah presentasi.
+[Buka Presentasi di C#](/slides/id/net/open-presentation/) menjelaskan cara menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) untuk membuka presentasi. Artikel ini menjelaskan cara membuat dan menyimpan presentasi. Kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) berisi konten presentasi. Apakah Anda membuat presentasi dari awal atau memodifikasi yang sudah ada, Anda akan ingin menyimpannya setelah selesai. Dengan Aspose.Slides untuk .NET, Anda dapat menyimpan ke **file** atau **stream**. Artikel ini menjelaskan berbagai cara untuk menyimpan presentasi.
 
-## **Menyimpan Presentasi ke File**
+## **Simpan Presentasi ke File**
 
-Simpan sebuah presentasi ke file dengan memanggil metode `Save` pada kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). Berikan nama file dan format penyimpanan ke metode tersebut. Contoh berikut menunjukkan cara menyimpan sebuah presentasi dengan Aspose.Slides.
+Simpan presentasi ke file dengan memanggil metode `Save` pada kelas Presentation. Berikan nama file dan format penyimpanan ke metode tersebut. Contoh berikut menunjukkan cara menyimpan presentasi dengan Aspose.Slides.
 
 ```cs
 // Membuat instance kelas Presentation yang mewakili file presentasi.
@@ -43,12 +43,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Menyimpan Presentasi ke Stream**
+## **Simpan Presentasi ke Stream**
 
-Anda dapat menyimpan sebuah presentasi ke stream dengan memberikan output stream ke metode `Save` pada kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). Sebuah presentasi dapat ditulis ke banyak tipe stream. Pada contoh di bawah, kami membuat presentasi baru dan menyimpannya ke file stream.
+Anda dapat menyimpan presentasi ke stream dengan memberikan output stream ke metode `Save` pada kelas Presentation. Sebuah presentasi dapat ditulis ke berbagai jenis stream. Pada contoh di bawah, kami membuat presentasi baru dan menyimpannya ke file stream.
 
 ```cs
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 using (Presentation presentation = new Presentation())
 {
     using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
@@ -59,9 +59,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Menyimpan Presentasi dengan Tipe Tampilan yang Telah Ditetapkan**
+## **Simpan Presentasi dengan Tipe Tampilan yang Ditentukan**
 
-Aspose.Slides memungkinkan Anda mengatur tampilan awal yang digunakan PowerPoint ketika presentasi yang dihasilkan dibuka melalui kelas [ViewProperties](https://reference.aspose.com/slides/id/net/aspose.slides/viewproperties/). Atur properti [LastView](https://reference.aspose.com/slides/id/net/aspose.slides/viewproperties/lastview/) ke nilai dari enumerasi [ViewType](https://reference.aspose.com/slides/id/net/aspose.slides/viewtype/).
+Aspose.Slides memungkinkan Anda mengatur tampilan awal yang digunakan PowerPoint saat presentasi yang dihasilkan dibuka melalui kelas [ViewProperties](https://reference.aspose.com/slides/id/net/aspose.slides/viewproperties/). Atur properti [LastView](https://reference.aspose.com/slides/id/net/aspose.slides/viewproperties/lastview/) ke nilai dari enumerasi [ViewType](https://reference.aspose.com/slides/id/net/aspose.slides/viewtype/).
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -71,11 +71,11 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Menyimpan Presentasi dalam Format Strict Office Open XML**
+## **Simpan Presentasi dalam Format Strict Office Open XML**
 
-Aspose.Slides memungkinkan Anda menyimpan sebuah presentasi dalam format Strict Office Open XML. Gunakan kelas [PptxOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/pptxoptions/) dan atur properti conformance-nya saat menyimpan. Jika Anda mengatur `Conformance.Iso29500_2008_Strict`, file output disimpan dalam format Strict Office Open XML.
+Aspose.Slides memungkinkan Anda menyimpan presentasi dalam format Strict Office Open XML. Gunakan kelas [PptxOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/pptxoptions/) dan atur properti conformance‑nya saat menyimpan. Jika Anda mengatur `Conformance.Iso29500_2008_Strict`, file output akan disimpan dalam format Strict Office Open XML.
 
-Contoh di bawah membuat sebuah presentasi dan menyimpannya dalam format Strict Office Open XML.
+Contoh di bawah membuat presentasi dan menyimpannya dalam format Strict Office Open XML.
 
 ```cs
 PptxOptions options = new PptxOptions()
@@ -83,7 +83,7 @@ PptxOptions options = new PptxOptions()
     Conformance = Conformance.Iso29500_2008_Strict
 };
 
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 using (Presentation presentation = new Presentation())
 {
     // Simpan presentasi dalam format Strict Office Open XML.
@@ -91,19 +91,19 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Menyimpan Presentasi dalam Format Office Open XML dengan Mode Zip64**
+## **Simpan Presentasi dalam Format Office Open XML dalam Mode Zip64**
 
-File Office Open XML adalah arsip ZIP yang membatasi ukuran tidak terkompresi setiap file menjadi 4 GB (2^32 byte), ukuran terkompresi setiap file, serta total ukuran arsip, dan juga membatasi jumlah file dalam arsip menjadi 65 535 (2^16‑1). Ekstensi format ZIP64 meningkatkan batasan ini menjadi 2^64.
+File Office Open XML adalah arsip ZIP yang memberlakukan batas 4 GB (2^32 byte) pada ukuran tidak terkompresi setiap file, ukuran terkompresi setiap file, dan total ukuran arsip, serta membatasi arsip hingga 65 535 (2^16‑1) file. Ekstensi format ZIP64 meningkatkan batas tersebut menjadi 2^64.
 
 Properti [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipptxoptions/zip64mode/) memungkinkan Anda memilih kapan menggunakan ekstensi format ZIP64 saat menyimpan file Office Open XML.
 
 Properti ini menyediakan mode berikut:
 
-- `IfNecessary` menggunakan ekstensi format ZIP64 hanya jika presentasi melebihi batasan di atas. Ini adalah mode default.
+- `IfNecessary` menggunakan ekstensi format ZIP64 hanya jika presentasi melebihi batas di atas. Ini adalah mode default.
 - `Never` tidak pernah menggunakan ekstensi format ZIP64.
 - `Always` selalu menggunakan ekstensi format ZIP64.
 
-Kode berikut mendemonstrasikan cara menyimpan sebuah presentasi sebagai PPTX dengan ekstensi format ZIP64 diaktifkan:
+Kode berikut menunjukkan cara menyimpan presentasi sebagai file PPTX dengan ekstensi format ZIP64 diaktifkan:
 
 ```cs
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -116,17 +116,58 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Saat Anda menyimpan dengan `Zip64Mode.Never`, sebuah [PptxException](https://reference.aspose.com/slides/id/net/aspose.slides/pptxexception/) dilemparkan jika presentasi tidak dapat disimpan dalam format ZIP32.
+Saat Anda menyimpan dengan `Zip64Mode.Never`, sebuah [PptxException](https://reference.aspose.com/slides/id/net/aspose.slides/pptxexception/) akan dilemparkan jika presentasi tidak dapat disimpan dalam format ZIP32.
 {{% /alert %}}
 
-## **Menyimpan Presentasi tanpa Menyegarkan Thumbnail**
+## **Simpan Presentasi dalam Format Office Open XML dengan Tingkat Kompresi**
 
-Properti [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) mengontrol pembuatan thumbnail saat menyimpan sebuah presentasi ke PPTX:
+Saat bekerja dengan presentasi besar, Anda dapat menyesuaikan tingkat kompresi untuk menyeimbangkan ukuran file dan waktu proses. Bergantung pada kebutuhan Anda, Anda mungkin lebih memilih proses yang lebih cepat atau file output yang lebih kecil.
 
-- Jika diatur ke `true`, thumbnail disegarkan selama penyimpanan. Ini adalah nilai default.
-- Jika diatur ke `false`, thumbnail saat ini dipertahankan. Jika presentasi tidak memiliki thumbnail, tidak ada yang dibuat.
+Aspose.Slides menyediakan properti [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipptxoptions/compressionlevel/) yang memungkinkan Anda menentukan tingkat kompresi yang digunakan saat menyimpan presentasi dalam format Office Open XML.
 
-Pada kode di bawah, presentasi disimpan ke PPTX tanpa menyegarkan thumbnail-nya.
+Tingkat kompresi berikut tersedia:
+
+- **None**: Tidak ada kompresi yang diterapkan. File disimpan apa adanya.
+- **Level1**: Kompresi tercepat dengan rasio kompresi terendah.
+- **Level2**: Kompresi lebih cepat dengan rasio kompresi sedikit lebih baik dibanding **Level1**.
+- **Level3**: Memberikan kompresi yang lebih baik daripada **Level2** dengan dampak sedang pada waktu proses.
+- **Level4**: Memberikan kompresi yang lebih baik daripada **Level3**.
+- **Level5**: Memberikan kompresi yang lebih baik daripada **Level4** dengan tambahan waktu proses.
+- **Level6**: Kompresi standar yang menawarkan keseimbangan baik antara kecepatan proses dan ukuran file. Ini adalah *tingkat kompresi default*.
+- **Level7**: Memberikan kompresi yang lebih baik daripada **Level6** dengan proses yang lebih lambat.
+- **Level8**: Memberikan kompresi yang lebih baik daripada **Level7**.
+- **Level9**: Kompresi maksimal. Menghasilkan ukuran file terkecil dengan biaya waktu proses terpanjang.
+
+Contoh berikut menunjukkan cara menyimpan presentasi sebagai file PPTX *tanpa kompresi*:
+```cs
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
+    {
+        CompressionLevel = CompressionLevel.None
+    });
+}
+```
+
+Contoh ini menunjukkan cara menyimpan presentasi sebagai file PPTX dengan *kompresi maksimal*:
+```cs
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
+    {
+        CompressionLevel = CompressionLevel.Level9
+    });
+}
+```
+
+## **Simpan Presentasi tanpa Memperbarui Thumbnail**
+
+Properti [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) mengontrol pembuatan thumbnail saat menyimpan presentasi ke PPTX:
+
+- Jika diatur ke `true`, thumbnail diperbarui selama penyimpanan. Ini adalah default.
+- Jika diatur ke `false`, thumbnail saat ini dipertahankan. Jika presentasi tidak memiliki thumbnail, tidak ada yang dihasilkan.
+
+Dalam kode di bawah, presentasi disimpan ke PPTX tanpa memperbarui thumbnail‑nya.
 
 ```cs
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -139,12 +180,12 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 {{% alert title="Info" color="info" %}}
-Opsi ini membantu mengurangi waktu yang diperlukan untuk menyimpan sebuah presentasi dalam format PPTX.
+Opsi ini membantu mengurangi waktu yang diperlukan untuk menyimpan presentasi dalam format PPTX.
 {{% /alert %}}
 
-## **Memperbarui Progres Penyimpanan dalam Persentase**
+## **Simpan Pembaruan Progres dalam Persentase**
 
-Antarmuka [IProgressCallback](https://reference.aspose.com/slides/id/net/aspose.slides/iprogresscallback/) digunakan melalui properti `ProgressCallback` yang disediakan oleh antarmuka [ISaveOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/isaveoptions/) dan kelas abstrak [SaveOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveoptions/). Tetapkan implementasi [IProgressCallback](https://reference.aspose.com/slides/id/net/aspose.slides/iprogresscallback/) ke `ProgressCallback` untuk menerima pembaruan progres penyimpanan dalam persentase.
+Antarmuka [IProgressCallback](https://reference.aspose.com/slides/id/net/aspose.slides/iprogresscallback/) digunakan melalui properti `ProgressCallback` yang diekspos oleh antarmuka [ISaveOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/isaveoptions/) dan kelas abstrak [SaveOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveoptions/). Tetapkan implementasi [IProgressCallback](https://reference.aspose.com/slides/id/net/aspose.slides/iprogresscallback/) ke `ProgressCallback` untuk menerima pembaruan progres penyimpanan dalam persentase.
 
 Potongan kode berikut menunjukkan cara menggunakan `IProgressCallback`.
 
@@ -163,7 +204,7 @@ class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // Gunakan nilai persentase kemajuan di sini.
+        // Gunakan nilai persentase progres di sini.
         int progress = Convert.ToInt32(progressValue);
 
         Console.WriteLine(progress + "% of the file has been converted.");
@@ -172,23 +213,23 @@ class ExportProgressHandler : IProgressCallback
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose telah mengembangkan sebuah [aplikasi PowerPoint Splitter gratis](https://products.aspose.app/slides/id/splitter) menggunakan API mereka sendiri. Aplikasi ini memungkinkan Anda memisahkan sebuah presentasi menjadi beberapa file dengan menyimpan slide yang dipilih sebagai file PPTX atau PPT baru.
+Aspose telah mengembangkan aplikasi *PowerPoint Splitter* gratis menggunakan API‑nya sendiri. Aplikasi ini memungkinkan Anda membagi presentasi menjadi beberapa file dengan menyimpan slide terpilih sebagai file PPTX atau PPT baru. [free PowerPoint Splitter app](https://products.aspose.app/slides/id/splitter)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah “fast save” (penyimpanan inkremental) didukung sehingga hanya perubahan yang ditulis?**
+**Apakah "fast save" (penyimpanan inkremental) didukung sehingga hanya perubahan yang ditulis?**
 
-Tidak. Setiap penyimpanan membuat file target secara lengkap; “fast save” inkremental tidak didukung.
+Tidak. Setiap kali menyimpan, file target lengkap dibuat; “fast save” inkremental tidak didukung.
 
-**Apakah aman secara thread untuk menyimpan instance Presentation yang sama dari beberapa thread?**
+**Apakah aman untuk menyimpan instance Presentation yang sama dari banyak thread?**
 
-Tidak. Sebuah instance [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) **tidak thread‑safe**; simpanlah dari satu thread saja.
+Tidak. Instance Presentation tidak thread‑safe; simpanlah dari satu thread saja.
 
-**Apa yang terjadi pada hyperlink dan file yang ditautkan secara eksternal saat menyimpan?**
+**Apa yang terjadi pada hyperlink dan file yang terhubung secara eksternal saat menyimpan?**
 
-[Hyperlink](/slides/id/net/manage-hyperlinks/) dipertahankan. File yang ditautkan secara eksternal (misalnya video dengan jalur relatif) tidak disalin secara otomatis—pastikan jalur yang dirujuk tetap dapat diakses.
+Hyperlink dipertahankan. File yang terhubung secara eksternal (misalnya video dengan jalur relatif) tidak disalin secara otomatis—pastikan jalur yang dirujuk tetap dapat diakses.
 
-**Dapatkah saya mengatur/menyimpan metadata dokumen (Penulis, Judul, Perusahaan, Tanggal)?**
+**Bisakah saya mengatur/menyimpan metadata dokumen (Penulis, Judul, Perusahaan, Tanggal)?**
 
-Ya. Properti dokumen standar [/slides/id/net/presentation-properties/] didukung dan akan dituliskan ke file saat disimpan.
+Ya. Properti dokumen standar didukung dan akan ditulis ke file saat disimpan.
