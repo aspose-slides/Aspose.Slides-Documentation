@@ -1,6 +1,6 @@
 ---
-title: "Excel adatok integrálása PowerPoint prezentációkba"
-linktitle: "Excel integráció"
+title: Excel adatok integrálása PowerPoint prezentációkba
+linktitle: Excel integráció
 type: docs
 weight: 330
 url: /hu/net/excel-integration/
@@ -10,79 +10,83 @@ keywords:
 - Excel olvasása
 - Excel integrálása
 - adatforrás
-- körlevél
-- tábla importálása
+- levelezési összevonás
+- táblázat importálása
 - Excel PowerPointba
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Olvassa be az adatokat Excel munkafüzetekből az Aspose.Slides-ben az ExcelDataWorkbook API használatával. Töltsön be munkalapokat és cellákat, és használja az értékeket adatvezérelt PowerPoint prezentációk létrehozásához."
+description: "Olvassa be az adatokat Excel munkafüzetekből az Aspose.Slides-ben az ExcelDataWorkbook API segítségével. Töltsön be munkalapokat és cellákat, és használja az értékeket adatvezérelt PowerPoint prezentációk generálásához."
 ---
 ## **Bevezetés**
 
-A PowerPoint‑prezentációk hatékony módot nyújtanak az információk megjelenítésére és kommunikálására. Gyakran használják őket Excel‑munkafüzetekkel együtt, ahol az Excel kiváló forrása a strukturált adatoknak, a PowerPoint pedig nagyszerűen visualizálja ezeket a közönség számára.
+A PowerPoint‑prezentációk hatékony módot nyújtanak az információ megjelenítésére és kommunikálására. Gyakran használják őket Excel‑munkafüzetekkel együtt, ahol az Excel kiváló forrása a strukturált adatoknak, a PowerPoint pedig kiemelkedő a közönség számára történő adatvizualizálásban.
 
-Számos gyakorlati esetben elengedhetetlen az Excel és a PowerPoint összekapcsolása: levelezésküldés, adat táblák feltöltése, egy diát generálni adatrekordonként (csoportos dia‑generálás), képzési anyagok létrehozása, és több Excel‑riport egyetlen prezentációba való összevonása, csak néhány példát említve.
+Számos gyakorlati esetben elengedhetetlen az Excel és a PowerPoint kombinálása: levelezési összevonás, adat‑táblák feltöltése, egy diát generálás minden adatbejegyzéshez (csoportos dia generálás), képzési anyagok készítése, valamint több Excel‑jelentés egyetlen prezentációba való egyesítése, és még sok más.
 
-Eddig az ilyen funkciók megvalósítása az Aspose.Slides API‑val harmadik‑fél megoldásokra, például az Aspose.Cells‑re volt támaszkodva. Bár ezek az eszközök robusztusak, túl bonyolultak és költségesek lehetnek azok számára, akiknek csak alapvető adat‑integrációs funkcióra van szükségük.
+Eddig az ilyen funkciók megvalósítása az Aspose.Slides API‑val harmadik‑féltől származó megoldások, például az Aspose.Cells használatát igényelte. Bár ezek az eszközök megbízhatóak, túl bonyolultak és költségesek lehetnek azok számára, akik csak alapvető adat‑integrációs funkciókat igényelnek.
 
 ## **Hogyan működik**
 
-Az Excel‑adatokkal való munka megkönnyítése és áramvonalasabbá tétele érdekében az Aspose.Slides új osztályokat vezetett be az Excel‑munkafüzetek olvasásához és a tartalom prezentációba való importálásához. Ez a funkció erőteljes új lehetőségeket nyit meg az API‑felhasználók számára, akik az Excelt adatforrásként kívánják használni a prezentációs munkafolyamatokban.
+Az Excel‑adatokkal való munka egyszerűbbé és hatékonyabbá tétele érdekében az Aspose.Slides új osztályokat vezetett be az Excel‑munkafüzetek adatainak olvasásához és a tartalom prezentációba történő importálásához. Ez a funkció erőteljes új lehetőségeket nyit meg az API‑felhasználók számára, akik az Excelt adatforrásként szeretnék felhasználni a prezentációs munkafolyamatokban.
 
-Az új funkcionalitás általános célú adat‑hozzáférésre lett tervezve, és nincs beépítve a Presentation Document Object Model‑ba (DOM). Ez azt jelenti, hogy *nem teszi lehetővé az Excel‑fájlok szerkesztését vagy mentését* – kizárólag munkafüzetek megnyitására és tartalmukban való navigálásra, valamint cellaadatok lekérésére szolgál.
+Az új funkció általános célú adat-hozzáférésre lett tervezve, és nem integrálódik a Presentation Document Object Model (DOM)-ba. Ez azt jelenti, hogy *nem teszi lehetővé az Excel‑fájlok szerkesztését vagy mentését* – egyetlen célja, hogy megnyissa a munkafüzeteket, navigáljon azok tartalmán, és lekérje a cellaadatokat.
 
-Ennek a funkciónak a középpontjában az új [ExcelDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldataworkbook/) osztály áll. Ez az osztály lehetővé teszi egy Excel‑munkafüzet betöltését helyi fájlból vagy adatfolyamból. Betöltés után több overload‑ot kínál a [GetCell](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldataworkbook/getcell/) metódushoz, amelyet a cellák pozíció (például sor‑ és oszlop‑index vagy név‑tartomány) alapján történő lekérésére használhat.
+A funkció központjában az új [ExcelDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldataworkbook/) osztály áll. Ez az osztály lehetővé teszi egy Excel‑munkafüzet betöltését helyi fájlból vagy adatfolyamból. Betöltés után több overloadot kínál a [GetCell](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldataworkbook/getcell/) metódusra, amelyet a cellák pozíciója (pl. sor‑ és oszlop‑index vagy névvel ellátott tartomány) alapján történő lekérdezésére használhat.
 
-Minden [GetCell](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldataworkbook/getcell/) hívás egy [ExcelDataCell](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldatacell/) példányt ad vissza. Ez az objektum egyetlen cellát képvisel az Excel‑munkafüzetben, és egyszerű, intuitív módon biztosítja a cella értékének elérését.
+Minden [GetCell](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldataworkbook/getcell/) hívás egy [ExcelDataCell](https://reference.aspose.com/slides/hu/net/aspose.slides.excel/exceldatacell/) osztálypéldányt ad vissza. Ez az objektum egyetlen cellát képvisel az Excel‑munkafüzetben, és egyszerű, intuitív módon biztosít hozzáférést annak értékéhez.
 
-#### **Excel‑diagram importálása**
+#### **Excel diagram importálása**
 
-A következő lépés a funkcionalitás kiterjesztéséhez a [ExcelWorkbookImporter](https://reference.aspose.com/slides/hu/net/aspose.slides.import/excelworkbookimporter/) osztály. Ez a segédosztály az Excel‑munkafüzet tartalmának prezentációba való importálásához nyújt funkciókat. Több overload‑ot tartalmaz a [AddChartFromWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) metódushoz, amelyek segítenek a megadott Excel‑munkafüzetből a kiválasztott diagram lekérésében és a megadott koordinátákon a megadott alakzat‑gyűjtemény végére történő hozzáadásában.
+A funkció bővítésének következő lépése a [ExcelWorkbookImporter](https://reference.aspose.com/slides/hu/net/aspose.slides.import/excelworkbookimporter/) osztály. Ez a segédosztály lehetővé teszi tartalom importálását egy Excel‑munkafüzettől egy prezentációba. Több overloadot tartalmaz a [AddChartFromWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) metódusra, amely segít a megadott Excel‑munkafüzetből a kiválasztott diagram lekérdezésében és a megadott koordinátákon a megadott alakzatgyűjtemény végéhez való hozzáadásában.
 
-Röviden, ez egy könnyű és egyszerű API az Excel‑adatok olvasásához – pontosan azt, amire sok fejlesztőnek szüksége van anélkül, hogy egy teljes táblázatkezelő könyvtár terhelésével kellene számolni.
+#### **Excel táblázat importálása**
+
+Az [ExcelWorkbookImporter](https://reference.aspose.com/slides/hu/net/aspose.slides.import/excelworkbookimporter/) osztály továbbá több overloadot kínál a [AddTableFromWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/) metódusra. Ezek a metódusok lehetővé teszik egy megadott cellatartomány importálását egy meghatározott munkalapról, és táblázatként a megadott koordinátákon a megadott alakzatgyűjtemény végéhez való hozzáadását.
+
+Röviden, ez egy könnyű és egyszerű API az Excel‑adatok olvasásához – pontosan azt, amire sok fejlesztőnek szüksége van egy teljes táblázatkezelő könyvtár terhe nélkül.
 
 ## **Kódoljunk**
 
-### **Mail Merge forgatókönyv példája**
+### **Levelezési összevonás példája**
 
-Az alábbi példában egy egyszerű Mail Merge forgatókönyvet valósítunk meg, több prezentáció generálásával egy Excel‑munkafüzetben tárolt adatok alapján.
+A következő példában egy egyszerű levelezési összevonási forgatókönyvet valósítunk meg, több prezentáció generálásával az Excel‑munkafüzetben tárolt adatok alapján.
 
-Az induláshoz két dologra van szükség:
-1. Egy Excel‑munkafüzet az adatokkal
+A kezdéshez két dologra van szükségünk:
+1. Az adatokat tartalmazó Excel‑munkafüzet
 
-![Excel adatok példája](example1_image0.png)
+![Excel adat példa](example1_image0.png)
 
-2. PowerPoint‑prezentáció sablon
+2. PowerPoint prezentációs sablon
 
-![PowerPoint sablon példája](example1_image1.png)
+![PowerPoint sablon példa](example1_image1.png)
 
 ```csharp
-// Töltsd be az alkalmazott adatokat tartalmazó Excel munkafüzetet.
+// Az alkalmazotti adatokkal rendelkező Excel munkafüzet betöltése.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Töltsd be a prezentáció sablont.
+// A prezentációs sablon betöltése.
 using Presentation templatePresentation = new Presentation("PresentationTemplate.pptx");
 
-// Iteráld végig az Excel sorokat (az 0. sor fejléc kizárásával).
+// Az Excel sorokon iterálás (0. sor fejlécre kizárva).
 for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 {
-    // Hozz létre egy új prezentációt minden egyes alkalmazotti rekordhoz.
+    // Új prezentáció létrehozása minden alkalmazotti rekordhoz.
     using Presentation employeePresentation = new Presentation();
 
-    // Távolítsd el az alapértelmezett üres diát.
+    // Az alapértelmezett üres dia eltávolítása.
     employeePresentation.Slides.RemoveAt(0);
 
-    // Klónozd a sablon diát az új prezentációba.
+    // A sablon dia klónozása az új prezentációba.
     ISlide slide = employeePresentation.Slides.AddClone(templatePresentation.Slides[0]);
 
-    // Szerezd meg a bekezdéseket a cél alakzatról (feltételezve, hogy az 1-es indexű alakzat van használatban).
+    // Bekérjük a bekezdéseket a cél alakzatból (feltételezve, hogy az 1. indexű alakzatot használják).
     IParagraphCollection paragraphs = (slide.Shapes[1] as IAutoShape).TextFrame.Paragraphs;
 
-    // Cseréld le a helyőrzőket az Excel adatainak megfelelően.
+    // A helyőrzők cseréje az Excel adataival.
     string employeeName = workbook.GetCell(worksheetIndex, rowIndex, 0).Value.ToString();
     IPortion namePortion = paragraphs[0].Portions[0];
     namePortion.Text = namePortion.Text.Replace("{{EmployeeName}}", employeeName);
@@ -95,35 +99,35 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
     IPortion yearsPortion = paragraphs[2].Portions[0];
     yearsPortion.Text = yearsPortion.Text.Replace("{{YearsOfService}}", yearsOfService);
 
-    // Mentsd el a személyre szabott prezentációt egy külön fájlba.
+    // A személyre szabott prezentáció mentése külön fájlba.
     employeePresentation.Save($"{employeeName} Report.pptx", SaveFormat.Pptx);
 }
 ```
 
 ![Eredmény](example1_image2.png)
 
-### **Excel‑tábla példája**
+### **Excel táblázat példája**
 
-A második példában egyszerűen egy Excel‑táblából másolunk adatot, és egy PowerPoint‑dián jelenítjük meg vizuálisan vonzóbb formátumban.
+A második példában egyszerűen másoljuk az adatokat egy Excel‑táblázatból, és egy PowerPoint‑dián jelenítjük meg vizuálisan vonzóbb formában.
 
-Ebben a példában az első példában használt ugyanazt az Excel‑munkafüzetet használjuk, amely egy egyszerű alkalmazott‑táblát tartalmaz.
+Ebben a példában ugyanazt az Excel‑munkafüzetet használjuk újra, amely az első példában szerepelt, és egy egyszerű alkalmazotti táblázatot tartalmaz.
 
 ```csharp
-// Töltsd be az alkalmazott adatokat tartalmazó Excel munkafüzetet.
+// Az alkalmazotti adatokat tartalmazó Excel munkafüzet betöltése.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Hozz létre egy új PowerPoint prezentációt.
+// Új PowerPoint prezentáció létrehozása.
 using Presentation presentation = new Presentation();
 
-// Adj hozzá egy táblázat alakzatot az első diához.
+// Táblázat alakzat hozzáadása az első diára.
 ITable table = presentation.Slides[0].Shapes.AddTable(
     50, 200,
     new double[] { 200, 200, 200 },
     new double[] { 30, 30, 30, 30, 30 }
 );
 
-// Töltsd fel a PowerPoint táblázatot az Excel munkafüzet adatával.
+// A PowerPoint táblázat feltöltése az Excel munkafüzettel.
 for (int rowIndex = 0; rowIndex < 5; rowIndex++)
 {
     for (int columnIndex = 0; columnIndex < 3; columnIndex++)
@@ -133,72 +137,95 @@ for (int rowIndex = 0; rowIndex < 5; rowIndex++)
     }
 }
 
-// Mentsd el a keletkezett prezentációt egy fájlba.
+// A létrehozott prezentáció mentése fájlba.
 presentation.Save("Table.pptx", SaveFormat.Pptx);
 ```
 
 ![Eredmény](example2_image0.png)
 
-### **Excel‑diagram importálása példa**
+### **Excel diagram importálásának példája**
 
-Ebben a példában egy diagramot importálunk az előző példában használt Excel‑munkafüzet első munkalapjáról. A diagram a kész prezentációban a külső munkafüzetre fog hivatkozni.
+Ebben a példában importálunk egy diagramot az előző példában használt Excel‑munkafüzet első munkalapjáról. A diagram a végső prezentációban egy külső munkafüzethez lesz kapcsolva.
 
-Először egy kördiagramot adunk hozzá az Excel‑munkafüzethez az alkalmazottak táblája alapján.
+Először egy kördiagramot adunk hozzá az Excel‑munkafüzethez az alkalmazotti táblázat alapján.
 
 ![Excel diagram példa](example3_image0.png)
 
 ```csharp
-// Hozz létre egy új PowerPoint prezentációt.
+// Új PowerPoint prezentáció létrehozása.
 using Presentation presentation = new Presentation();
 
-// Szerezd meg az első dia alakzatgyűjteményét.
+// Az első dia alakzatgyűjteményének lekérése.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Importáld a "Chart 1" nevű diagramot a munkafüzet első lapjáról, és add hozzá az alakzatgyűjteményhez.
+// Importálja a "Chart 1" nevű diagramot a munkafüzet első lapjáról, és hozzáadja az alakzatgyűjteményhez.
 ExcelWorkbookImporter.AddChartFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "Chart 1", false);
 
-// Mentsd el a keletkezett prezentációt egy fájlba.
+// A létrehozott prezentáció mentése fájlba.
 presentation.Save("Chart.pptx", SaveFormat.Pptx);
 ```
 ![Eredmény](example3_image1.png)
 
-### **Minden Excel‑diagram importálása példa**
+### **Minden Excel diagram importálásának példája**
 
-Képzeljük el, hogy van egy Excel‑munkafüzet tele diagramokkal, és mindet be kell importálni egy prezentációba. Minden diagramot egy új diára kell helyezni.
+Képzeljünk el egy olyan Excel‑munkafüzetet, amely tele van diagramokkal, és mindet importálni kell egy prezentációba. Minden diagramot egy új diára kell helyezni.
 
-Az alábbi kód végigiterál a forrás‑Excel‑fájl összes munkalapján, kibontja a diagramokat minden munkalapról, és minden diagramot egy külön diára helyez egy üres dia‑elrendezéssel. A kész prezentációban csak a diagramadatok lesznek beágyazva, nem a teljes munkafüzet.
+Az alábbi kód végigiterál a forrás‑Excel‑fájl összes munkalapján, kinyeri a diagramokat minden munkalapról, és egy üres diaterv használatával külön diára helyezi őket. A végeredményben csak a diagram adatai lesznek beágyazva, nem az egész munkafüzet.
 
 ```csharp
-// Töltsd be az alkalmazott adatokat tartalmazó Excel munkafüzetet.
+// Az alkalmazotti adatokat tartalmazó Excel munkafüzet betöltése.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 
-// Hozz létre egy új PowerPoint prezentációt.
+// Új PowerPoint prezentáció létrehozása.
 using Presentation presentation = new Presentation();
 
-// Szerezd meg az üres diaelrendezést.
+// Az üres dia elrendezés lekérése.
 ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-// Szerezd meg az Excel munkafüzetben található összes munkalap nevét.
+// Az Excel munkafüzetben található összes munkalap nevét lekéri.
 IList<string> worksheetNames = workbook.GetWorksheetNames();
 
 foreach (var name in worksheetNames)
 {
-    // Szerezd meg a szótárat, amely a diagram indexeket a munkalap diagramneveire térképezi.
+    // Lekér egy szótárat, amely a diagramindexeket a diagramnevekre térképezi a munkalaphoz.
     IDictionary<int, string> worksheetCharts = workbook.GetChartsFromWorksheet(name);
     foreach (var chart in worksheetCharts)
     {
-        // Adj hozzá egy új diát az üres elrendezés használatával.
+        // Új dia hozzáadása az üres elrendezés használatával.
         ISlide slide = presentation.Slides.AddEmptySlide(blankLayout);
 
-        // Importáld a megadott diagramot az Excel munkafüzetből a dia alakzatgyűjteményébe.
+        // A megadott diagram importálása az Excel munkafüzetről a dia alakzatgyűjteményébe.
         ExcelWorkbookImporter.AddChartFromWorkbook(slide.Shapes, 10, 10, workbook, name, chart.Key, false);
     }
 }
 
-// Mentsd el a keletkezett prezentációt egy fájlba.
+// A létrehozott prezentáció mentése fájlba.
 presentation.Save("Charts.pptx", SaveFormat.Pptx);
 ```
 
-## **Összegzés**
+### **Excel táblázat importálásának példája**
 
-Ez a mechanizmus, amely közvetlenül az Aspose.Slides‑ban érhető el, egy helyen ötvözi az Excel‑adatok és a prezentációk kezelését. Lehetővé teszi, hogy diákon vizuális diagramokkal és Excel‑táblákkal jelenítsük meg az adatokat – további könyvtárak vagy összetett integrációk nélkül.
+Ebben a példában egy formázott táblázatot importálunk egy Excel‑munkalapról közvetlenül egy PowerPoint‑prezentációba.
+
+A forrás Excel‑munkalap egy formázott táblázatot tartalmaz alkalmazotti adatokkal:
+
+![Excel táblázat példa](example4_image0.png)
+
+```csharp
+// Új PowerPoint prezentáció létrehozása.
+using Presentation presentation = new Presentation();
+
+// Az első dia alakzatgyűjteményének lekérése.
+IShapeCollection shapes = presentation.Slides[0].Shapes;
+
+// Táblázat importálása a munkafüzet első lapjáról és hozzáadása az alakzatgyűjteményhez.
+ExcelWorkbookImporter.AddTableFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "A1:C5");
+
+// A létrehozott prezentáció mentése fájlba.
+presentation.Save("FormattedTable.pptx", SaveFormat.Pptx);
+```
+![Eredmény](example4_image1.png)
+
+## **Összefoglalás**
+
+Ez a mechanizmus, amely közvetlenül az Aspose.Slides‑ban érhető el, egy helyen egyesíti az Excel‑adatok és a prezentációk kezelését. Lehetővé teszi vizuális diagramokkal és Excel‑táblázatokként megjelenített adatokkal ellátott diák létrehozását – további könyvtárak vagy összetett integrációk nélkül.

@@ -1,6 +1,6 @@
 ---
-title: Integreer Excel-gegevens in PowerPoint-presentaties
-linktitle: Excel-integratie
+title: "Excel-gegevens integreren in PowerPoint‑presentaties"
+linktitle: "Excel‑integratie"
 type: docs
 weight: 330
 url: /nl/net/excel-integration/
@@ -10,7 +10,7 @@ keywords:
 - Excel lezen
 - Excel integreren
 - gegevensbron
-- mail-merge
+- mailmerge
 - tabel importeren
 - Excel naar PowerPoint
 - PowerPoint
@@ -18,59 +18,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Lees gegevens uit Excel-werkmappen in Aspose.Slides met de ExcelDataWorkbook-API. Laad bladen en cellen en gebruik waarden om gegevens-gedreven PowerPoint-presentaties te genereren."
+description: "Lees gegevens uit Excel‑werkmappen in Aspose.Slides met behulp van de ExcelDataWorkbook‑API. Laad werkbladen en cellen en gebruik de waarden om data‑gedreven PowerPoint‑presentaties te genereren."
 ---
 ## **Inleiding**
 
-PowerPoint‑presentaties zijn een krachtig middel om informatie weer te geven en te communiceren. Ze worden vaak in combinatie met Excel‑werkmappen gebruikt, waarbij Excel een uitstekende bron van gestructureerde gegevens biedt en PowerPoint uitblinkt in het visualiseren van die gegevens voor een publiek.
+PowerPoint‑presentaties zijn een krachtige manier om informatie weer te geven en te communiceren. Ze worden vaak samen met Excel‑werkmappen gebruikt, waarbij Excel een uitstekende bron van gestructureerde gegevens vormt en PowerPoint uitblinkt in het visualiseren van die gegevens voor een publiek.
 
-Er zijn veel praktische scenario’s waarbij het combineren van Excel en PowerPoint essentieel is: mail‑merge, het vullen van datatabellen, het genereren van één dia per gegevensrecord (batch‑dia‑generatie), het maken van trainingsmateriaal en het consolideren van meerdere Excel‑rapporten tot één presentatie, om er maar een paar te noemen.
+Er zijn tal van praktische scenario’s waarbij het combineren van Excel en PowerPoint essentieel is: mail merges, het vullen van gegevenstabellen, het genereren van één dia per gegevensrecord (batch‑dia‑generatie), het maken van trainingsmateriaal en het consolideren van meerdere Excel‑rapporten tot één presentatie, om er maar een paar te noemen.
 
-Tot nu toe vereiste de implementatie van dergelijke functies met de Aspose.Slides‑API dat men afhankelijk was van third‑party‑oplossingen zoals Aspose.Cells. Hoewel deze tools robuust zijn, kunnen ze te complex en kostbaar zijn voor gebruikers die alleen basis‑gegevensintegratie nodig hebben.
+Tot nu toe vereiste het implementeren van dergelijke functies met de Aspose.Slides‑API het vertrouwen op oplossingen van derden zoals Aspose.Cells. Hoewel deze tools robuust zijn, kunnen ze te complex en kostbaar zijn voor gebruikers die alleen basisfunctionaliteit voor gegevensintegratie nodig hebben.
 
 ## **Hoe het werkt**
 
-Om het werken met Excel‑gegevens makkelijker en efficiënter te maken, heeft Aspose.Slides nieuwe klassen geïntroduceerd voor het lezen van gegevens uit Excel‑werkmappen en het importeren van inhoud in een presentatie. Deze functie opent krachtige nieuwe mogelijkheden voor API‑gebruikers die Excel willen gebruiken als gegevensbron binnen hun presentatieworkflows.
+Om het werken met Excel‑gegevens makkelijker en efficiënter te maken, heeft Aspose.Slides nieuwe klassen geïntroduceerd voor het lezen van gegevens uit Excel‑werkmappen en het importeren van inhoud in een presentatie. Deze functie opent krachtige nieuwe mogelijkheden voor API‑gebruikers die Excel willen benutten als gegevensbron binnen hun presentatieworkflows.
 
-De nieuwe functionaliteit is bedoeld voor algemeen gebruik bij gegevens‑toegang en is niet geïntegreerd in het Presentation Document Object Model (DOM). Dat betekent dat *het geen bewerken of opslaan van Excel‑bestanden toestaat* — het enige doel is werkmappen te openen en door hun inhoud te navigeren om cel‑gegevens op te halen.
+De nieuwe functionaliteit is ontworpen voor algemeen gebruik van gegevens en is niet geïntegreerd in het Presentation Document Object Model (DOM). Dat betekent dat *het bewerken of opslaan van Excel‑bestanden niet mogelijk is* — het enige doel is om werkmappen te openen en door hun inhoud te navigeren om celgegevens op te halen.
 
-In het hart van deze functie staat de nieuwe [ExcelDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldataworkbook/)‑klasse. Deze klasse stelt je in staat een Excel‑werkmap te laden vanuit een lokaal bestand of een stream. Eenmaal geladen biedt ze verschillende overloads van de [GetCell](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldataworkbook/getcell/)‑methode, die je kunt gebruiken om specifieke cellen op te halen op basis van hun positie (bijv. rij‑ en kolom‑indexen of benoemde bereiken).
+De kern van deze functie is de nieuwe [ExcelDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldataworkbook/)‑klasse. Deze klasse stelt u in staat een Excel‑werkmap te laden vanuit een lokaal bestand of een stream. Na het laden biedt ze verschillende overloads van de [GetCell](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldataworkbook/getcell/)‑methode, die u kunt gebruiken om specifieke cellen op te halen op basis van hun positie (bijv. rijen‑ en kolomindexen of benoemde bereiken).
 
-Elke oproep naar [GetCell](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldataworkbook/getcell/) retourneert een instantie van de [ExcelDataCell](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldatacell/)‑klasse. Dit object vertegenwoordigt een enkele cel in de Excel‑werkmap en geeft je toegang tot de waarde op een eenvoudige en intuïtieve manier.
+Elke oproep van [GetCell](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldataworkbook/getcell/) retourneert een instantie van de [ExcelDataCell](https://reference.aspose.com/slides/nl/net/aspose.slides.excel/exceldatacell/)‑klasse. Dit object vertegenwoordigt een enkele cel in de Excel‑werkmap en geeft u toegang tot de waarde ervan op een eenvoudige en intuïtieve manier.
 
-#### **Een Excel‑grafiek importeren**
+#### **Importeer een Excel‑grafiek**
 
-De volgende stap om de functionaliteit uit te breiden is de [ExcelWorkbookImporter](https://reference.aspose.com/slides/nl/net/aspose.slides.import/excelworkbookimporter/)‑klasse. Deze hulpprogrammaklasse biedt functionaliteit voor het importeren van inhoud vanuit een Excel‑werkmap in een presentatie. Ze bevat verschillende overloads van de [AddChartFromWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/)‑methode, die je helpt de geselecteerde grafiek uit de opgegeven Excel‑werkmap op te halen en deze aan het einde van de opgegeven vormverzameling toe te voegen op de opgegeven coördinaten.
+De volgende stap om de functionaliteit uit te breiden is de [ExcelWorkbookImporter](https://reference.aspose.com/slides/nl/net/aspose.slides.import/excelworkbookimporter/)‑klasse. Deze hulpprogrammaklasse biedt functionaliteit voor het importeren van inhoud uit een Excel‑werkmap naar een presentatie. Ze bevat verschillende overloads van de [AddChartFromWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/)‑methode, die u helpt de geselecteerde grafiek uit de opgegeven Excel‑werkmap op te halen en toe te voegen aan het einde van de opgegeven vormverzameling op de opgegeven coördinaten.
 
-Kortom, het is een lichte en eenvoudige API voor het lezen van Excel‑gegevens — precies wat veel ontwikkelaars nodig hebben zonder de overhead van een volledige spreadsheet‑verwerkingsbibliotheek.
+#### **Importeer een Excel‑tabel**
+
+De [ExcelWorkbookImporter](https://reference.aspose.com/slides/nl/net/aspose.slides.import/excelworkbookimporter/)‑klasse bevat ook verschillende overloads van de [AddTableFromWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/)‑methode. Deze methoden stellen u in staat een opgegeven celbereik van een opgegeven werkblad te importeren en het als tabel toe te voegen aan het einde van de opgegeven vormverzameling op de opgegeven coördinaten.
+
+In het kort is het een lichte en eenvoudige API voor het lezen van Excel‑gegevens — precies wat veel ontwikkelaars nodig hebben zonder de overhead van een volledige spreadsheet‑verwerkingsbibliotheek.
 
 ## **Laten we coderen**
 
-### **Voorbeeld van een mail‑merge‑scenario**
+### **Voorbeeld van mail‑merge scenario**
 
-In het volgende voorbeeld implementeren we een eenvoudig mail‑merge‑scenario door meerdere presentaties te genereren op basis van gegevens die opgeslagen zijn in een Excel‑werkmap.
+In het volgende voorbeeld implementeren we een eenvoudig mail‑merge scenario door meerdere presentaties te genereren op basis van gegevens die zijn opgeslagen in een Excel‑werkmap.
 
 Om te beginnen hebben we twee dingen nodig:
 1. Een Excel‑werkmap met de gegevens
 
-![Voorbeeld van Excel‑gegevens](example1_image0.png)
+![Excel data example](example1_image0.png)
 
 2. PowerPoint‑presentatiesjabloon
 
-![Voorbeeld van PowerPoint‑sjabloon](example1_image1.png)
+![PowerPoint template example](example1_image1.png)
 
 ```csharp
-// Laad de Excel-werkmap met personeelsgegevens.
+// Laad de Excel-werkmap met werknemergegevens.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Laad de presentatie-sjabloon.
+// Laad de presentatiesjabloon.
 using Presentation templatePresentation = new Presentation("PresentationTemplate.pptx");
 
-// Loop door de Excel-rijen (exclusief de koprij op rij 0).
+// Doorloop de Excel‑rijen (exclusief de koprij op rij 0).
 for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 {
-    // Maak een nieuwe presentatie voor elke personeelsrecord.
+    // Maak een nieuwe presentatie voor elk werknemerrecord.
     using Presentation employeePresentation = new Presentation();
 
     // Verwijder de standaard lege dia.
@@ -79,10 +83,10 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
     // Kloon de sjabloondia naar de nieuwe presentatie.
     ISlide slide = employeePresentation.Slides.AddClone(templatePresentation.Slides[0]);
 
-    // Haal de alinea's op uit de doelvorm (ervan uitgaande dat vorm-index 1 wordt gebruikt).
+    // Haal de alinea's op van de doelvorm (aangenomen dat vorm‑index 1 wordt gebruikt).
     IParagraphCollection paragraphs = (slide.Shapes[1] as IAutoShape).TextFrame.Paragraphs;
 
-    // Vervang de tijdelijke aanduidingen door gegevens uit Excel.
+    // Vervang de tijdelijke aanduidingen met gegevens uit Excel.
     string employeeName = workbook.GetCell(worksheetIndex, rowIndex, 0).Value.ToString();
     IPortion namePortion = paragraphs[0].Portions[0];
     namePortion.Text = namePortion.Text.Replace("{{EmployeeName}}", employeeName);
@@ -100,20 +104,20 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 }
 ```
 
-![Resultaat](example1_image2.png)
+![Result](example1_image2.png)
 
-### **Voorbeeld van een Excel‑tabel**
+### **Voorbeeld van Excel‑tabel**
 
-In het tweede voorbeeld kopiëren we simpelweg gegevens uit een Excel‑tabel en tonen we deze op een PowerPoint‑dia in een visueel aantrekkelijker formaat.
+In het tweede voorbeeld kopiëren we eenvoudig gegevens uit een Excel‑tabel en tonen ze op een PowerPoint‑dia in een visueel aantrekkelijker formaat.
 
-In dit voorbeeld hergebruiken we dezelfde Excel‑werkmap als in het eerste voorbeeld, die een eenvoudige medewerkers‑tabel bevat.
+In dit voorbeeld hergebruiken we dezelfde Excel‑werkmap als in het eerste voorbeeld, die een eenvoudige werknemers‑tabel bevat.
 
 ```csharp
-// Laad de Excel-werkmap met de personeelsgegevens.
+// Laad de Excel-werkmap met de werknemergegevens.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Maak een nieuwe PowerPoint-presentatie.
+// Maak een nieuwe PowerPoint‑presentatie.
 using Presentation presentation = new Presentation();
 
 // Voeg een tabelvorm toe aan de eerste dia.
@@ -123,7 +127,7 @@ ITable table = presentation.Slides[0].Shapes.AddTable(
     new double[] { 30, 30, 30, 30, 30 }
 );
 
-// Vul de PowerPoint-tabel met gegevens uit de Excel-werkmap.
+// Vul de PowerPoint‑tabel met gegevens uit de Excel‑werkmap.
 for (int rowIndex = 0; rowIndex < 5; rowIndex++)
 {
     for (int columnIndex = 0; columnIndex < 3; columnIndex++)
@@ -133,43 +137,43 @@ for (int rowIndex = 0; rowIndex < 5; rowIndex++)
     }
 }
 
-// Sla de resulterende presentatie op in een bestand.
+// Sla de resulterende presentatie op naar een bestand.
 presentation.Save("Table.pptx", SaveFormat.Pptx);
 ```
 
-![Resultaat](example2_image0.png)
+![Result](example2_image0.png)
 
-### **Voorbeeld van het importeren van een Excel‑grafiek**
+### **Voorbeeld van importeren van een Excel‑grafiek**
 
-In dit voorbeeld importeren we een grafiek uit het eerste werkblad van de Excel‑werkmap die in het vorige voorbeeld werd gebruikt. De grafiek zal in de resulterende presentatie linken naar de externe werkmap.
+In dit voorbeeld importeren we een grafiek uit het eerste werkblad van de Excel‑werkmap die in het vorige voorbeeld werd gebruikt. De grafiek zal in de resulterende presentatie gelinkt worden aan de externe werkmap.
 
-Eerst voegen we een cirkeldiagram toe aan de Excel‑werkmap op basis van de medewerkers‑tabel.
+Eerst voegen we een cirkeldiagram toe aan de Excel‑werkmap op basis van de werknemers‑tabel.
 
-![Voorbeeld van Excel‑grafiek](example3_image0.png)
+![Excel Chart example](example3_image0.png)
 
 ```csharp
-// Maak een nieuwe PowerPoint-presentatie.
+// Maak een nieuwe PowerPoint‑presentatie.
 using Presentation presentation = new Presentation();
 
-// Haal de vormverzameling van de eerste dia op.
+// Haal de vormverzameling op van de eerste dia.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Importeer de grafiek met de naam "Chart 1" van het eerste blad van de werkmap en voeg deze toe aan de vormverzameling.
+// Importeer de grafiek met de naam "Chart 1" van het eerste werkblad van de werkmap en voeg deze toe aan de vormverzameling.
 ExcelWorkbookImporter.AddChartFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "Chart 1", false);
 
-// Sla de resulterende presentatie op in een bestand.
+// Sla de resulterende presentatie op naar een bestand.
 presentation.Save("Chart.pptx", SaveFormat.Pptx);
 ```
-![Resultaat](example3_image1.png)
+![Result](example3_image1.png)
 
-### **Voorbeeld van het importeren van alle Excel‑grafieken**
+### **Voorbeeld van importeren van alle Excel‑grafieken**
 
-Stel je voor dat je een Excel‑werkmap vol met grafieken hebt en je moet ze allemaal importeren in een presentatie. Elke grafiek moet op een nieuwe dia worden geplaatst.
+Stel je voor dat je een Excel‑werkmap vol grafieken hebt en je moet ze allemaal importeren in een presentatie. Elke grafiek moet op een nieuwe dia geplaatst worden.
 
-De volgende code doorloopt alle werkbladen in het bron‑Excel‑bestand, haalt de grafieken uit elk werkblad op en voegt elke grafiek toe aan een aparte dia met een lege dia‑lay‑out. In de resulterende presentatie zal alleen de grafiek‑data worden ingebed, niet de volledige werkmap.
+De onderstaande code doorloopt alle werkbladen in het bron‑Excel‑bestand, haalt de grafieken uit elk werkblad op en voegt elke grafiek toe aan een aparte dia met een lege dia‑lay‑out. In de resulterende presentatie wordt alleen de grafiekdata ingebed, niet de volledige werkmap.
 
 ```csharp
-// Laad de Excel-werkmap met de personeelsgegevens.
+// Laad de Excel-werkmap met de werknemergegevens.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 
 // Maak een nieuwe PowerPoint-presentatie.
@@ -178,27 +182,52 @@ using Presentation presentation = new Presentation();
 // Haal de lege dia‑lay‑out op.
 ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-// Haalt de namen op van alle werkbladen die zich in de Excel-werkmap bevinden.
+// Haal de namen op van alle werkbladen in de Excel-werkmap.
 IList<string> worksheetNames = workbook.GetWorksheetNames();
 
 foreach (var name in worksheetNames)
 {
-    // Haal een woordenboek op dat diagram‑indexen naar diagram‑namen voor het werkblad afbeeldt.
+    // Haal een woordenboek op dat de grafiek‑indexen koppelt aan grafieknamen voor het werkblad.
     IDictionary<int, string> worksheetCharts = workbook.GetChartsFromWorksheet(name);
     foreach (var chart in worksheetCharts)
     {
-        // Voeg een nieuwe dia toe met de lege lay‑out.
+        // Voeg een nieuwe dia toe met gebruik van de lege lay‑out.
         ISlide slide = presentation.Slides.AddEmptySlide(blankLayout);
 
-        // Importeer het opgegeven diagram uit de Excel-werkmap in de vormverzameling van de dia.
+        // Importeer de gespecificeerde grafiek uit de Excel-werkmap in de vormverzameling van de dia.
         ExcelWorkbookImporter.AddChartFromWorkbook(slide.Shapes, 10, 10, workbook, name, chart.Key, false);
     }
 }
 
-// Sla de resulterende presentatie op in een bestand.
+// Sla de resulterende presentatie op naar een bestand.
 presentation.Save("Charts.pptx", SaveFormat.Pptx);
 ```
 
+### **Voorbeeld van importeren van een Excel‑tabel**
+
+In dit voorbeeld importeren we een opgemaakte tabel vanuit een Excel‑werkblad direct in een PowerPoint‑presentatie.
+
+Het bron‑Excel‑werkblad bevat een opgemaakte tabel met werknemersgegevens:
+
+![Excel Table example](example4_image0.png)
+
+```csharp
+// Maak een nieuwe PowerPoint-presentatie.
+using Presentation presentation = new Presentation();
+
+// Haal de vormverzameling op van de eerste dia.
+IShapeCollection shapes = presentation.Slides[0].Shapes;
+
+// Importeer de tabel van het eerste werkblad van de werkmap en voeg deze toe aan de vormverzameling.
+ExcelWorkbookImporter.AddTableFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "A1:C5");
+
+// Sla de resulterende presentatie op naar een bestand.
+presentation.Save("FormattedTable.pptx", SaveFormat.Pptx);
+```
+
+![Result](example4_image1.png)
+
+
 ## **Samenvatting**
 
-Dit mechanisme, direct beschikbaar in Aspose.Slides, combineert het werken met Excel‑gegevens en presentaties op één plek. Het stelt je in staat om dia’s te maken met visuele grafieken en gegevens gepresenteerd als Excel‑tabellen — zonder extra bibliotheken of complexe integraties.
+Dit mechanisme, direct beschikbaar in Aspose.Slides, combineert het werken met Excel‑gegevens en presentaties op één plek. Het stelt u in staat dia’s te maken met visuele grafieken en gegevens gepresenteerd als Excel‑tabellen — zonder extra bibliotheken of complexe integraties.
