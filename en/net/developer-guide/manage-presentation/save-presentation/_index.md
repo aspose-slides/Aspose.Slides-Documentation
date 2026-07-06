@@ -104,7 +104,7 @@ This property provides the following modes:
 - `Never` never uses ZIP64 format extensions.
 - `Always` always uses ZIP64 format extensions.
 
-The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
+The following code demonstrates how to save a presentation as a PPTX file with ZIP64 format extensions enabled:
 
 ```cs
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -141,7 +141,7 @@ The following compression levels are available:
 - **Level8:** Provides better compression than **Level7**.
 - **Level9:** Maximum compression. Produces the smallest file size at the cost of the longest processing time.
 
-The following example demonstrates how to save a presentation as PPTX *without compression*:
+The following example demonstrates how to save a presentation as a PPTX file *without compression*:
 ```cs
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
@@ -152,7 +152,7 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 }
 ```
 
-This example shows how to save a presentation as PPTX with *maximum compression*:
+This example shows how to save a presentation as a PPTX file with *maximum compression*:
 ```cs
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
