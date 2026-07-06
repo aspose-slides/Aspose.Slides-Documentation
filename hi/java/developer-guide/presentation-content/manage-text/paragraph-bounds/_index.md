@@ -1,0 +1,97 @@
+---
+title: Java में प्रस्तुतियों से पैराग्राफ सीमाएँ प्राप्त करें
+linktitle: पैराग्राफ सीमाएँ
+type: docs
+weight: 43
+url: /hi/java/paragraph-bounds/
+keywords:
+- पैराग्राफ सीमाएँ
+- पैराग्राफ निर्देशांक
+- पैराग्राफ आकार
+- टेक्स्ट फ्रेम
+- PowerPoint
+- प्रस्तुति
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java में पैराग्राफ सीमाएँ प्राप्त करने के तरीके सीखें ताकि PowerPoint प्रस्तुतियों में टेक्स्ट पोजिशनिंग का अनुकूलन किया जा सके।"
+---
+## **अवलोकन**
+
+यह लेख बताता है कि Aspose.Slides में पैराग्राफ की सीमाएँ, आकार, तथा निर्देशांक कैसे प्राप्त करें। यह दर्शाता है कि कैसे [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) से [IParagraph.getRect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IParagraph#getRect--) का उपयोग करके पैराग्राफ आयत प्राप्त करें, तालिका सेल टेक्स्ट फ्रेम के अंदर पैराग्राफ के निर्देशांक कैसे प्राप्त करें, और मापन इकाइयाँ, टेक्स्ट रैपिंग का सीमाओं पर प्रभाव, पिक्सेल रूपांतरण, और प्रभावी पैराग्राफ फ़ॉर्मेटिंग मान जैसे महत्वपूर्ण विवरणों को उजागर करता है।
+
+## **पैराग्राफ के आयताकार निर्देशांक प्राप्त करें**
+
+[IParagraph.getRect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IParagraph#getRect--) का उपयोग करके पैराग्राफ का बाउंडिंग आयत प्राप्त करें।
+
+```java
+Presentation presentation = new Presentation("Shapes.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = (IAutoShape) slide.getShapes().get_Item(0);
+    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    java.awt.geom.Rectangle2D.Float rectangle = paragraph.getRect();
+} finally {
+    presentation.dispose();
+}
+```
+
+## **तालिका सेल टेक्स्टफ़्रेम के भीतर पैराग्राफ का आकार प्राप्त करें**
+
+एक तालिका सेल टेक्स्ट फ्रेम में [IParagraph](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraph/) का आकार और निर्देशांक प्राप्त करने के लिए, [IParagraph.getRect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IParagraph#getRect--) का उपयोग करें। लौटाया गया आयत तालिका सेल टेक्स्ट फ्रेम के सापेक्ष होता है, इसलिए स्लाइड-स्तर के निर्देशांक चाहिए तो तालिका की स्थिति और सेल ऑफ़सेट जोड़ें।
+
+निम्न उदाहरण तालिका सेल के अंदर पैराग्राफ की सीमाएँ प्राप्त करता है और उन सीमाओं को विज़ुअलाइज़ करने के लिए स्लाइड पर आयतें बनाता है:
+
+```java
+Presentation presentation = new Presentation("source.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+    ICell cell = table.getRows().get_Item(1).get_Item(1);
+
+    double cellX = table.getX() + cell.getOffsetX();
+    double cellY = table.getY() + cell.getOffsetY();
+
+    for (IParagraph paragraph : cell.getTextFrame().getParagraphs())
+    {
+        if (paragraph.getText().isEmpty())
+            continue;
+
+        java.awt.geom.Rectangle2D.Float paragraphRectangle = paragraph.getRect();
+        float paragraphRectangleX = paragraphRectangle.x + (float) cellX;
+        float paragraphRectangleY = paragraphRectangle.y + (float) cellY;
+
+        IAutoShape paragraphBoundsShape = slide.getShapes().addAutoShape(
+                ShapeType.Rectangle,
+                paragraphRectangleX,
+                paragraphRectangleY,
+                paragraphRectangle.width,
+                paragraphRectangle.height);
+
+        paragraphBoundsShape.getFillFormat().setFillType(FillType.NoFill);
+        paragraphBoundsShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
+        paragraphBoundsShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **FAQ**
+
+**पैराग्राफ निर्देशांक किस इकाई में मापे जाते हैं?**
+
+ये पॉइंट्स में मापे जाते हैं, जहाँ 1 इंच बराबर 72 पॉइंट्स होता है। यह स्लाइड पर सभी निर्देशांक और आयामों पर लागू होता है।
+
+**क्या शब्द रैपिंग पैराग्राफ की सीमाओं को प्रभावित करती है?**
+
+हां। यदि [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) को [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) के लिए सक्षम किया गया है, तो टेक्स्ट क्षेत्र की चौड़ाई में फिट होने के लिए टूटता है, जिससे पैराग्राफ की वास्तविक सीमाएँ बदल जाती हैं।
+
+**क्या पैराग्राफ निर्देशांक को निर्यातित छवि में पिक्सेल में विश्वसनीय रूप से मैप किया जा सकता है?**
+
+हां। पॉइंट्स को पिक्सेल में इस सूत्र से बदलें: pixels = points × (DPI / 72)। परिणाम रेंडरिंग या निर्यात के लिए चुने गए DPI पर निर्भर करता है।
+
+**स्टाइल इनहेरिटेंस को ध्यान में रखते हुए "प्रभावी" पैराग्राफ फ़ॉर्मेटिंग पैरामीटर कैसे प्राप्त करूँ?**
+
+उपयोग करें [effective paragraph formatting data structure](/slides/hi/java/shape-effective-properties/); यह इंडेंट्स, स्पेसिंग, रैपिंग, RTL और अन्य के लिए अंतिम समेकित मान लौटाता है।
