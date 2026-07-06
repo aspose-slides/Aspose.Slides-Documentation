@@ -58,6 +58,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+{{% alert title="Note" color="warning" %}} 
+When exporting to HTML5 using `Html5Options`, image compression is not supported. The `PicturesCompression` property is available only on `HtmlOptions`. To obtain compressed images, use `HtmlOptions` with `SaveFormat.Html` or compress the images after export.
+{{% /alert %}}
+
 ## **Export PowerPoint to HTML**
 
 This C# demonstrates the standard PowerPoint to HTML process:
