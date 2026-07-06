@@ -18,71 +18,75 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Lesen Sie Daten aus Excel-Arbeitsmappen in Aspose.Slides mithilfe der ExcelDataWorkbook-API. Laden Sie Arbeitsblätter und Zellen und verwenden Sie die Werte, um datengetriebene PowerPoint-Präsentationen zu erstellen."
+description: "Daten aus Excel-Arbeitsmappen in Aspose.Slides mit der ExcelDataWorkbook-API lesen. Arbeitsblätter und Zellen laden und Werte verwenden, um datengetriebene PowerPoint-Präsentationen zu erzeugen."
 ---
-
 ## **Einleitung**
 
-PowerPoint‑Präsentationen sind ein leistungsstarkes Mittel, um Informationen darzustellen und zu vermitteln. Sie werden häufig zusammen mit Excel‑Arbeitsmappen verwendet, wobei Excel eine hervorragende Quelle für strukturierte Daten liefert und PowerPoint diese Daten für ein Publikum visualisiert.
+PowerPoint‑Präsentationen sind ein leistungsstarkes Mittel, um Informationen darzustellen und zu kommunizieren. Sie werden häufig in Verbindung mit Excel‑Arbeitsmappen verwendet, wobei Excel eine hervorragende Quelle für strukturierte Daten darstellt und PowerPoint sich darauf spezialisiert, diese Daten für ein Publikum zu visualisieren.
 
-Es gibt viele praxisnahe Szenarien, in denen die Kombination von Excel und PowerPoint unverzichtbar ist: Seriendrucke, Befüllung von Datentabellen, Erzeugen einer Folie pro Datensatz (Batch‑Foliengenerierung), Erstellung von Schulungsunterlagen und Konsolidierung mehrerer Excel‑Berichte zu einer einzigen Präsentation, um nur einige zu nennen.
+Es gibt viele praktische Szenarien, in denen die Kombination von Excel und PowerPoint unerlässlich ist: Seriendrucke, Befüllen von Datentabellen, Erstellung einer Folie pro Datensatz (Batch‑Foliengenerierung), Erstellung von Schulungsmaterialien und Konsolidierung mehrerer Excel‑Berichte zu einer einzigen Präsentation, um nur einige zu nennen.
 
-Bisher erforderte die Implementierung solcher Funktionen mit der Aspose.Slides‑API die Nutzung von Drittanbieter‑Lösungen wie Aspose.Cells. Obwohl diese Werkzeuge robust sind, können sie für Anwender, die nur grundlegende Datenintegrations‑Funktionalität benötigen, übermäßig komplex und kostspielig sein.
+Bisher erforderte die Implementierung solcher Funktionen mit der Aspose.Slides‑API die Nutzung von Drittanbieterlösungen wie Aspose.Cells. Obwohl diese Werkzeuge robust sind, können sie für Benutzer, die nur grundlegende Datenintegrationsfunktionen benötigen, übermäßig komplex und kostspielig sein.
 
-## **Wie es funktioniert**
+## **So funktioniert es**
 
-Um die Arbeit mit Excel‑Daten einfacher und effizienter zu gestalten, hat Aspose.Slides neue Klassen eingeführt, die Daten aus Excel‑Arbeitsmappen lesen und Inhalte in eine Präsentation importieren können. Diese Funktion eröffnet API‑Nutzern leistungsstarke neue Möglichkeiten, Excel als Datenquelle in ihren Präsentations‑Workflows zu nutzen.
+Um die Arbeit mit Excel‑Daten zu erleichtern und zu vereinfachen, hat Aspose.Slides neue Klassen eingeführt, um Daten aus Excel‑Arbeitsmappen zu lesen und Inhalte in eine Präsentation zu importieren. Diese Funktion eröffnet API‑Benutzern leistungsstarke neue Möglichkeiten, Excel als Datenquelle in ihren Präsentations‑Workflows zu nutzen.
 
-Die neue Funktionalität ist für den allgemeinen Datenzugriff konzipiert und ist nicht in das Presentation Document Object Model (DOM) integriert. Das bedeutet, *sie erlaubt weder das Bearbeiten noch das Speichern von Excel‑Dateien* – ihr einziger Zweck besteht darin, Arbeitsmappen zu öffnen und deren Inhalt zu durchsuchen, um Zellenwerte abzurufen.
+Die neue Funktionalität ist für den allgemeinen Datenzugriff konzipiert und nicht in das Presentation Document Object Model (DOM) integriert. Das bedeutet, *dass sie das Bearbeiten oder Speichern von Excel‑Dateien nicht erlaubt* – ihr einziger Zweck besteht darin, Arbeitsmappen zu öffnen und deren Inhalt zu durchlaufen, um Zellenwerte abzurufen.
 
-Im Kern dieser Funktion steht die neue [ExcelDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/)‑Klasse. Mit dieser Klasse können Sie eine Excel‑Arbeitsmappe aus einer lokalen Datei oder einem Stream laden. Nach dem Laden bietet sie mehrere Überladungen der [GetCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/getcell/)‑Methode, mit denen Sie bestimmte Zellen anhand ihrer Position (z. B. Zeilen‑ und Spaltenindizes oder benannte Bereiche) abrufen können.
+Im Kern dieser Funktion steht die neue Klasse [ExcelDataWorkbook](https://reference.aspose.com/slides/de/net/aspose.slides.excel/exceldataworkbook/). Diese Klasse ermöglicht das Laden einer Excel‑Arbeitsmappe aus einer lokalen Datei oder einem Stream. Nach dem Laden stellt sie mehrere Überladungen der Methode [GetCell](https://reference.aspose.com/slides/de/net/aspose.slides.excel/exceldataworkbook/getcell/) bereit, mit denen Sie bestimmte Zellen anhand ihrer Position (z. B. Zeilen‑ und Spaltenindizes oder benannte Bereiche) abrufen können.
 
-Jeder Aufruf von [GetCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/getcell/) liefert eine Instanz der [ExcelDataCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldatacell/)‑Klasse. Dieses Objekt stellt eine einzelne Zelle in der Excel‑Arbeitsmappe dar und ermöglicht Ihnen den Zugriff auf ihren Wert auf einfache und intuitive Weise.
+Jeder Aufruf von [GetCell](https://reference.aspose.com/slides/de/net/aspose.slides.excel/exceldataworkbook/getcell/) gibt eine Instanz der Klasse [ExcelDataCell](https://reference.aspose.com/slides/de/net/aspose.slides.excel/exceldatacell/) zurück. Dieses Objekt repräsentiert eine einzelne Zelle in der Excel‑Arbeitsmappe und bietet Ihnen einen einfachen und intuitiven Zugriff auf deren Wert.
 
 #### **Excel‑Diagramm importieren**
 
-Der nächste Schritt zur Erweiterung der Funktionalität ist die [ExcelWorkbookImporter](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/)‑Klasse. Diese Hilfsklasse bietet Funktionen zum Importieren von Inhalten aus einer Excel‑Arbeitsmappe in eine Präsentation. Sie enthält mehrere Überladungen der [AddChartFromWorkbook](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/)‑Methode, die Ihnen hilft, das ausgewählte Diagramm aus der angegebenen Excel‑Arbeitsmappe zu holen und es am Ende der angegebenen Shape‑Collection an den gewünschten Koordinaten einzufügen.
+Der nächste Schritt zur Erweiterung der Funktionalität ist die Klasse [ExcelWorkbookImporter](https://reference.aspose.com/slides/de/net/aspose.slides.import/excelworkbookimporter/). Diese Hilfsklasse bietet Funktionen zum Importieren von Inhalten aus einer Excel‑Arbeitsmappe in eine Präsentation. Sie enthält mehrere Überladungen der Methode [AddChartFromWorkbook](https://reference.aspose.com/slides/de/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/), die es Ihnen ermöglichen, das ausgewählte Diagramm aus der angegebenen Excel‑Arbeitsmappe abzurufen und am Ende der angegebenen Formensammlung an den angegebenen Koordinaten hinzuzufügen.
 
-Kurz gesagt, es handelt sich um eine leichte und unkomplizierte API zum Lesen von Excel‑Daten – genau das, was viele Entwickler benötigen, ohne den Aufwand einer kompletten Tabellenkalkulations‑Verarbeitungsbibliothek.
+#### **Excel‑Tabelle importieren**
 
-## **Lass uns coden**
+Die Klasse [ExcelWorkbookImporter](https://reference.aspose.com/slides/de/net/aspose.slides.import/excelworkbookimporter/) enthält außerdem mehrere Überladungen der Methode [AddTableFromWorkbook](https://reference.aspose.com/slides/de/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/). Mit diesen Methoden können Sie einen angegebenen Zellbereich aus einem angegebenen Arbeitsblatt importieren und als Tabelle am Ende der angegebenen Formensammlung an den angegebenen Koordinaten hinzufügen.
 
-### **Beispiel für Mail‑Merge‑Szenario**
+Kurz gesagt, es ist eine leichte und unkomplizierte API zum Lesen von Excel‑Daten – genau das, was viele Entwickler benötigen, ohne den Overhead einer vollständigen Tabellenkalkulations‑Verarbeitungsbibliothek.
 
-Im folgenden Beispiel implementieren wir ein einfaches Mail‑Merge‑Szenario, indem wir mehrere Präsentationen basierend auf den in einer Excel‑Arbeitsmappe gespeicherten Daten erzeugen.
+## **Lass uns programmieren**
+
+### **Beispiel für Seriendruck‑Szenario**
+
+Im folgenden Beispiel implementieren wir ein einfaches Seriendruck‑Szenario, indem wir mehrere Präsentationen basierend auf Daten aus einer Excel‑Arbeitsmappe erzeugen.
 
 Um zu beginnen, benötigen wir zwei Dinge:
-1. Eine Excel‑Arbeitsmappe mit den Daten
+1. Eine Excel‑Arbeitsmappe, die die Daten enthält
 
 ![Beispiel für Excel‑Daten](example1_image0.png)
 
-2. PowerPoint‑Vorlagendatei
+2. PowerPoint‑Präsentationsvorlage
 
 ![Beispiel für PowerPoint‑Vorlage](example1_image1.png)
+
 ```csharp
-// Laden Sie die Excel-Arbeitsmappe mit den Mitarbeiterdaten.
+// Lade die Excel-Arbeitsmappe mit Mitarbeiterdaten.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Laden Sie die Präsentationsvorlage.
+// Lade die Präsentationsvorlage.
 using Presentation templatePresentation = new Presentation("PresentationTemplate.pptx");
 
-// Durchlaufen Sie die Excel-Zeilen (ohne die Kopfzeile in Zeile 0).
+// Durchlaufe die Excel‑Zeilen (ohne die Kopfzeile in Zeile 0).
 for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 {
-    // Erstellen Sie für jeden Mitarbeitereintrag eine neue Präsentation.
+    // Erstelle für jeden Mitarbeitereintrag eine neue Präsentation.
     using Presentation employeePresentation = new Presentation();
 
-    // Entfernen Sie die standardmäßige leere Folie.
+    // Entferne die standardmäßige leere Folie.
     employeePresentation.Slides.RemoveAt(0);
 
-    // Klonen Sie die Vorlagefolie in die neue Präsentation.
+    // Kopiere die Vorlagenfolie in die neue Präsentation.
     ISlide slide = employeePresentation.Slides.AddClone(templatePresentation.Slides[0]);
 
-    // Holen Sie die Absätze aus der Zielform (es wird angenommen, dass Shape-Index 1 verwendet wird).
+    // Hole Absätze aus der Zielform (es wird angenommen, dass Formindex 1 verwendet wird).
     IParagraphCollection paragraphs = (slide.Shapes[1] as IAutoShape).TextFrame.Paragraphs;
 
-    // Ersetzen Sie die Platzhalter durch Daten aus Excel.
+    // Ersetze die Platzhalter durch Daten aus Excel.
     string employeeName = workbook.GetCell(worksheetIndex, rowIndex, 0).Value.ToString();
     IPortion namePortion = paragraphs[0].Portions[0];
     namePortion.Text = namePortion.Text.Replace("{{EmployeeName}}", employeeName);
@@ -95,35 +99,35 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
     IPortion yearsPortion = paragraphs[2].Portions[0];
     yearsPortion.Text = yearsPortion.Text.Replace("{{YearsOfService}}", yearsOfService);
 
-    // Speichern Sie die personalisierte Präsentation in einer separaten Datei.
+    // Speichere die personalisierte Präsentation in einer separaten Datei.
     employeePresentation.Save($"{employeeName} Report.pptx", SaveFormat.Pptx);
 }
 ```
-
 
 ![Ergebnis](example1_image2.png)
 
 ### **Beispiel für Excel‑Tabelle**
 
-Im zweiten Beispiel kopieren wir einfach Daten aus einer Excel‑Tabelle und zeigen sie auf einer PowerPoint‑Folie in einem ansprechenderen Format an.
+Im zweiten Beispiel kopieren wir einfach Daten aus einer Excel‑Tabelle und zeigen sie auf einer PowerPoint‑Folien in einem ansprechenderen visuellen Format an.
 
-In diesem Beispiel verwenden wir wieder dieselbe Excel‑Arbeitsmappe aus dem ersten Beispiel, die eine einfache Mitarbeitertabelle enthält.
+In diesem Beispiel verwenden wir erneut dieselbe Excel‑Arbeitsmappe wie im ersten Beispiel, die eine einfache Mitarbeitertabelle enthält.
+
 ```csharp
-// Laden Sie die Excel-Arbeitsmappe mit den Mitarbeiterdaten.
+// Lade die Excel-Arbeitsmappe, die die Mitarbeiterdaten enthält.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Erstellen Sie eine neue PowerPoint-Präsentation.
+// Erstelle eine neue PowerPoint-Präsentation.
 using Presentation presentation = new Presentation();
 
-// Fügen Sie der ersten Folie ein Tabellenelement hinzu.
+// Füge der ersten Folie eine Tabellenform hinzu.
 ITable table = presentation.Slides[0].Shapes.AddTable(
     50, 200,
     new double[] { 200, 200, 200 },
     new double[] { 30, 30, 30, 30, 30 }
 );
 
-// Füllen Sie die PowerPoint-Tabelle mit Daten aus der Excel-Arbeitsmappe.
+// Befülle die PowerPoint-Tabelle mit Daten aus der Excel-Arbeitsmappe.
 for (int rowIndex = 0; rowIndex < 5; rowIndex++)
 {
     for (int columnIndex = 0; columnIndex < 3; columnIndex++)
@@ -133,71 +137,95 @@ for (int rowIndex = 0; rowIndex < 5; rowIndex++)
     }
 }
 
-// Speichern Sie die resultierende Präsentation in einer Datei.
+// Speichere die resultierende Präsentation in einer Datei.
 presentation.Save("Table.pptx", SaveFormat.Pptx);
 ```
-
 
 ![Ergebnis](example2_image0.png)
 
 ### **Beispiel für das Importieren eines Excel‑Diagramms**
 
-In diesem Beispiel importieren wir ein Diagramm aus dem ersten Arbeitsblatt der Excel‑Arbeitsmappe, die im vorherigen Beispiel verwendet wurde. Das Diagramm wird in der resultierenden Präsentation mit der externen Arbeitsmappe verknüpft.
+In diesem Beispiel importieren wir ein Diagramm aus dem ersten Arbeitsblatt der Excel‑Arbeitsmappe, die im vorherigen Beispiel verwendet wurde. Das Diagramm wird in der resultierenden Präsentation mit der externen Arbeitsmappe verlinkt.
 
 Zuerst fügen wir der Excel‑Arbeitsmappe basierend auf der Mitarbeitertabelle ein Kreisdiagramm hinzu.
 
 ![Beispiel für Excel‑Diagramm](example3_image0.png)
+
 ```csharp
-// Erstellen Sie eine neue PowerPoint-Präsentation.
+// Erstelle eine neue PowerPoint-Präsentation.
 using Presentation presentation = new Presentation();
 
-// Rufen Sie die Formensammlung der ersten Folie ab.
+// Hole die Formen-Sammlung der ersten Folie.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Importieren Sie das Diagramm mit dem Namen "Chart 1" aus dem ersten Blatt der Arbeitsmappe und fügen Sie es der Formensammlung hinzu.
+// Importiere das Diagramm mit dem Namen "Chart 1" aus dem ersten Blatt der Arbeitsmappe und füge es der Formen-Sammlung hinzu.
 ExcelWorkbookImporter.AddChartFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "Chart 1", false);
 
-// Speichern Sie die resultierende Präsentation in einer Datei.
+// Speichere die resultierende Präsentation in einer Datei.
 presentation.Save("Chart.pptx", SaveFormat.Pptx);
 ```
-
 ![Ergebnis](example3_image1.png)
 
 ### **Beispiel für das Importieren aller Excel‑Diagramme**
 
-Stellen Sie sich vor, Sie besitzen eine Excel‑Arbeitsmappe voller Diagramme und müssen alle in eine Präsentation importieren. Jedes Diagramm soll auf einer neuen Folie platziert werden.
+Stellen Sie sich vor, Sie haben eine Excel‑Arbeitsmappe voller Diagramme und müssen sie alle in eine Präsentation importieren. Jedes Diagramm soll auf einer neuen Folie platziert werden.
 
-Der folgende Code iteriert über alle Arbeitsblätter in der Quell‑Excel‑Datei, extrahiert die Diagramme jedes Arbeitsblatts und fügt jedes Diagramm einer separaten Folie mit einem leeren Folienlayout hinzu. In der resultierenden Präsentation werden nur die Diagrammdaten eingebettet, nicht die gesamte Arbeitsmappe.
+Der folgende Code iteriert über alle Arbeitsblätter in der Quell‑Excel‑Datei, extrahiert die Diagramme aus jedem Arbeitsblatt und fügt jedes Diagramm mittels eines leeren Folienlayouts einer separaten Folie hinzu. In der resultierenden Präsentation werden nur die Diagrammdaten eingebettet, nicht die gesamte Arbeitsmappe.
+
 ```csharp
-// Laden Sie die Excel-Arbeitsmappe mit den Mitarbeiterdaten.
+// Lade die Excel-Arbeitsmappe, die die Mitarbeiterdaten enthält.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 
-// Erstellen Sie eine neue PowerPoint-Präsentation.
+// Erstelle eine neue PowerPoint-Präsentation.
 using Presentation presentation = new Presentation();
 
-// Rufen Sie das leere Folienlayout ab.
+// Rufe das leere Folienlayout ab.
 ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-// Holen Sie die Namen aller im Excel-Arbeitsbuch enthaltenen Arbeitsblätter.
+// Hole die Namen aller Arbeitsblätter, die in der Excel-Arbeitsmappe enthalten sind.
 IList<string> worksheetNames = workbook.GetWorksheetNames();
+
 foreach (var name in worksheetNames)
 {
-    // Rufen Sie ein Wörterbuch ab, das Diagramm-Indizes den Diagramm‑Namen im Arbeitsblatt zuordnet.
+    // Rufe ein Wörterbuch ab, das Diagramm-Indizes den Diagrammnamen des Arbeitsblatts zuordnet.
     IDictionary<int, string> worksheetCharts = workbook.GetChartsFromWorksheet(name);
     foreach (var chart in worksheetCharts)
     {
-        // Fügen Sie eine neue Folie mit dem leeren Layout hinzu.
+        // Füge eine neue Folie mit dem leeren Layout hinzu.
         ISlide slide = presentation.Slides.AddEmptySlide(blankLayout);
 
-        // Importieren Sie das angegebene Diagramm aus der Excel-Arbeitsmappe in die Formensammlung der Folie.
+        // Importiere das angegebene Diagramm aus der Excel-Arbeitsmappe in die Formen-Sammlung der Folie.
         ExcelWorkbookImporter.AddChartFromWorkbook(slide.Shapes, 10, 10, workbook, name, chart.Key, false);
     }
 }
 
-// Speichern Sie die resultierende Präsentation in einer Datei.
+// Speichere die resultierende Präsentation in einer Datei.
 presentation.Save("Charts.pptx", SaveFormat.Pptx);
 ```
 
+### **Beispiel für das Importieren einer Excel‑Tabelle**
+
+In diesem Beispiel importieren wir eine formatierte Tabelle aus einem Excel‑Arbeitsblatt direkt in eine PowerPoint‑Präsentation.
+
+Das Quell‑Excel‑Arbeitsblatt enthält eine formatierte Tabelle mit Mitarbeiterdaten:
+
+![Beispiel für Excel‑Tabelle](example4_image0.png)
+
+```csharp
+// Erstelle eine neue PowerPoint-Präsentation.
+using Presentation presentation = new Presentation();
+
+// Hole die Formen-Sammlung der ersten Folie.
+IShapeCollection shapes = presentation.Slides[0].Shapes;
+
+// Importiere die Tabelle aus dem ersten Blatt der Arbeitsmappe und füge sie der Formen-Sammlung hinzu.
+ExcelWorkbookImporter.AddTableFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "A1:C5");
+
+// Speichere die resultierende Präsentation in einer Datei.
+presentation.Save("FormattedTable.pptx", SaveFormat.Pptx);
+```
+
+![Ergebnis](example4_image1.png)
 
 ## **Zusammenfassung**
 
