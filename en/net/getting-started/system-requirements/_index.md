@@ -148,6 +148,15 @@ RUN apk add --no-cache \
 
 Use this option only when the presentations being processed require Microsoft fonts. For most scenarios, installing `ttf-dejavu` is simpler and more reliable.
 
+**Additional requirements for globalization**
+
+To enable proper globalization support on Alpine, install the `icu-libs` package and disable invariant mode:
+
+```dockerfile
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+RUN apk --no-cache add icu-libs
+```
+
 ### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
 
 This is the version of Aspose.Slides using a custom cross-platform graphics engine developed by the Aspose.Slides team.  
