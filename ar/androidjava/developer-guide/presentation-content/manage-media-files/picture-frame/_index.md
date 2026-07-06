@@ -1,6 +1,6 @@
 ---
 title: إدارة إطارات الصور في العروض التقديمية على Android
-linktitle: إطار صورة
+linktitle: إطار الصورة
 type: docs
 weight: 10
 url: /ar/androidjava/picture-frame/
@@ -18,9 +18,9 @@ keywords:
 - خاصية StretchOff
 - تنسيق إطار صورة
 - خصائص إطار صورة
-- المقياس النسبي
+- مقياس نسبي
 - تأثير الصورة
-- نسبة العرض إلى الارتفاع
+- نسبة الأبعاد
 - شفافية الصورة
 - PowerPoint
 - OpenDocument
@@ -28,44 +28,44 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "أضف إطارات صور إلى عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لنظام Android عبر Java. سهل سير عملك وعزز تصاميم الشرائح."
+description: "أضف إطارات الصور إلى عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لنظام Android عبر Java. سهل سير عملك وحسّن تصاميم الشرائح."
 ---
+## **مقدمة**
 
-إطار الصورة هو شكل يحتوي على صورة — إنه مثل صورة داخل إطار. 
+إطار الصورة هو شكل يحتوي على صورة—إنه مثل صورة داخل إطار.
 
-يمكنك إضافة صورة إلى شريحة عبر إطار صورة. بهذه الطريقة، يمكنك تنسيق الصورة عن طريق تنسيق إطار الصورة.
+يمكنك إضافة صورة إلى شريحة عبر إطار صورة. بهذه الطريقة، يمكنك تنسيق الصورة من خلال تنسيق إطار الصورة.
 
-{{% alert  title="نصيحة" color="primary" %}} 
+{{% alert  title="Tip" color="primary" %}} 
 
-توفر Aspose محولات مجانية — [JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — تتيح للناس إنشاء عروض تقديمية بسرعة من الصور. 
+توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/ar/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/ar/import/png-to-ppt)—تتيح للناس إنشاء عروض تقديمية بسرعة من الصور. 
 
 {{% /alert %}} 
 
 ## **إنشاء إطار صورة**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. إنشاء كائن [IPPImage]() عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImageCollection) المرتبطة بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
-4. تحديد عرض وارتفاع الصورة.
-5. إنشاء إطار صورة [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PictureFrame) بناءً على عرض وارتفاع الصورة من خلال طريقة `AddPictureFrame` التي يوفرها كائن الشكل المرتبط بالشريحة المشار إليها.
-6. إضافة إطار صورة (يحتوي على الصورة) إلى الشريحة.
-7. كتابة العرض التقديمي المعدل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation).
+2. احصل على مرجع الشريحة من خلال فهرستها. 
+3. إنشاء كائن [IPPImage]() عن طريق إضافة صورة إلى مجموعة [IImagescollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IImageCollection) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
+4. حدد عرض وارتفاع الصورة.
+5. إنشاء إطار [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/PictureFrame) استنادًا إلى عرض وارتفاع الصورة عبر طريقة `AddPictureFrame` المعروضة من قبل كائن الشكل المرتبط بالشريحة المرجعية.
+6. أضف إطار صورة (يحتوي على الصورة) إلى الشريحة.
+7. احفظ العرض التقديمي المعدل كملف PPTX.
 
-يظهر لك هذا الرمز Java كيفية إنشاء إطار صورة:
 ```java
-// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
+// تنشئ كلاس Presentation الذي يمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // يحصل على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // ينشئ كائن من فئة Image
+    // تنشئ كلاس Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // يضيف إطار صورة بارتفاع وعرض الصورة المتساويين
+    // يضيف إطار صورة بارتفاع وعرض الصورة المكافئين
     sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // يكتب ملف PPTX إلى القرص
+    // يحفظ ملف PPTX إلى القرص
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -73,38 +73,36 @@ try {
 }
 ```
 
+## **إنشاء إطار صورة بمقياس نسبي**
 
-## **إنشاء إطار صورة مع المقياس النسبي**
+من خلال تعديل مقياس الصورة النسبي، يمكنك إنشاء إطار صورة أكثر تعقيدًا.
 
-من خلال تعديل مقياس الصورة النسبي، يمكنك إنشاء إطار صورة أكثر تعقيدًا. 
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation).
+2. احصل على مرجع الشريحة من خلال فهرستها. 
+3. إضافة صورة إلى مجموعة صور العرض.
+4. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى مجموعة [IImagescollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IImageCollection) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
+5. تحديد العرض والارتفاع النسبيين للصورة في إطار الصورة.
+6. احفظ العرض التقديمي المعدل كملف PPTX.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. إضافة صورة إلى مجموعة صور العرض التقديمي.
-4. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImageCollection) المرتبطة بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
-5. تحديد عرض وارتفاع الصورة النسبيين في إطار الصورة.
-6. كتابة العرض التقديمي المعدل كملف PPTX.
-
-يوضح هذا الرمز Java كيفية إنشاء إطار صورة مع المقياس النسبي:
 ```java
-// إنشاء فئة Presentation التي تمثل ملف PPTX
+// إنشاء كلاس Presentation الذي يمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // الحصول على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // إنشاء فئة Image
+    // إنشاء كلاس Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
-    // إضافة إطار صورة بارتفاع وعرض مطابقين للصورة
+    // إضافة إطار صورة بارتفاع وعرض مساويين للصورة
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // ضبط نسبة التدرج النسبي للعرض والارتفاع
+    // ضبط مقياس العرض والارتفاع النسبي
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
-    // كتابة ملف PPTX إلى القرص
+    // حفظ ملف PPTX إلى القرص
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -112,10 +110,10 @@ try {
 }
 ```
 
+## **استخراج الصور النقطية من إطارات الصورة**
 
-## **استخراج الصور النقطية من إطارات الصور**
+يمكنك استخراج الصور النقطية من كائنات [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/PictureFrame) وحفظها بتنسيقات PNG وJPG وغيرها. يوضح المثال البرمجي أدناه كيفية استخراج صورة من المستند "sample.pptx" وحفظها بتنسيق PNG.
 
-يمكنك استخراج الصور النقطية من كائنات [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PictureFrame) وحفظها بصيغ PNG وJPG وغيرها. يوضح مثال الشيفرة أدناه كيفية استخراج صورة من المستند "sample.pptx" وحفظها بصيغة PNG.
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -138,12 +136,12 @@ try {
 }
 ```
 
+## **استخراج صور SVG من إطارات الصورة**
 
-## **استخراج صور SVG من إطارات الصور**
+عندما يحتوي عرض تقديمي على رسومات SVG موضوعة داخل أشكال [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/)، يتيح Aspose.Slides for Android عبر Java استرجاع الصور المتجهة الأصلية بجودة كاملة. من خلال استعراض مجموعة أشكال الشريحة، يمكنك تحديد كل [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/)، والتحقق مما إذا كان كائن [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) يحمل محتوى SVG، ثم حفظ تلك الصورة إلى القرص أو تدفق بتنسيق SVG الأصلي.
 
-عندما يحتوي عرض تقديمي على رسومات SVG موضوعة داخل أشكال [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) ، تتيح Aspose.Slides لنظام Android عبر Java استرجاع الصور المتجهة الأصلية بجودة كاملة. عن طريق استعراض مجموعة أشكال الشريحة، يمكنك تحديد كل [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/)، والتحقق مما إذا كانت [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) تحمل محتوى SVG، ثم حفظ تلك الصورة إلى القرص أو إلى تدفق بصيغة SVG الأصلية.
+الكود التالي يوضح كيفية استخراج صورة SVG من إطار صورة:
 
-يوضح مثال الشيفرة التالي كيفية استخراج صورة SVG من إطار صورة:
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -166,10 +164,10 @@ try {
 }
 ```
 
-
 ## **الحصول على شفافية الصورة**
 
-تتيح لك Aspose.Slides الحصول على تأثير الشفافية المطبق على الصورة. يوضح هذا الرمز Java العملية:
+يتيح Aspose.Slides الحصول على تأثير الشفافية المطبق على صورة. يوضح الكود الجافا التالي العملية:
+
 ```java
 Presentation presentation = new Presentation("Test.pptx");
 
@@ -184,34 +182,62 @@ for (var effect : imageTransform) {
 }
 ```
 
+## **الحصول على السطوع والتباين للصورة**
+
+يتيح Aspose.Slides الحصول على تأثير السطوع والتباين المطبق على صورة. تمثل واجهة [ILuminance](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iluminance/) هذا التحويل.
+
+يوضح الكود الجافا التالي كيفية الحصول على إعدادات السطوع والتباين من إطار صورة:
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame) shape;
+
+    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (IImageTransformOperation effect : imageTransform) {
+        if (effect instanceof ILuminance) {
+            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
+            float brightness = luminance.getBrightness();
+            float contrast = luminance.getContrast();
+
+            System.out.println("Brightness: " + brightness);
+            System.out.println("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **تنسيق إطار الصورة**
 
-توفر Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار الصورة. باستخدام هذه الخيارات، يمكنك تعديل إطار الصورة لجعله يتوافق مع المتطلبات المحددة.
+توفر Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار صورة. باستخدام هذه الخيارات، يمكنك تعديل إطار صورة ليتوافق مع متطلبات محددة.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImageCollection) المرتبطة بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
-4. تحديد عرض وارتفاع الصورة.
-5. إنشاء إطار صورة `PictureFrame` بناءً على عرض وارتفاع الصورة من خلال طريقة [AddPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) التي يوفرها كائن [IShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) المرتبط بالشريحة المشار إليها.
-6. إضافة إطار صورة (يحتوي على الصورة) إلى الشريحة.
-7. ضبط لون خط إطار الصورة.
-8. ضبط عرض خط إطار الصورة.
-9. تدوير إطار الصورة بإعطائه قيمة إما موجبة أو سالبة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation).
+2. احصل على مرجع الشريحة من خلال فهرستها. 
+3. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى مجموعة [IImagescollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IImageCollection) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
+4. حدد عرض وارتفاع الصورة.
+5. إنشاء `PictureFrame` استنادًا إلى عرض وارتفاع الصورة عبر طريقة [AddPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) المعروضة من قبل كائن [IShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IShapeCollection) المرتبط بالشريحة المرجعية.
+6. أضف إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
+7. تعيين لون خط إطار الصورة.
+8. تعيين عرض خط إطار الصورة.
+9. تدوير إطار الصورة بإعطائه قيمة موجبة أو سالبة.
    * القيمة الموجبة تدور الصورة باتجاه عقارب الساعة. 
    * القيمة السالبة تدور الصورة عكس اتجاه عقارب الساعة.
-10. إضافة إطار صورة (يحتوي على الصورة) إلى الشريحة.
-11. كتابة العرض التقديمي المعدل كملف PPTX.
+10. أضف إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
+11. احفظ العرض التقديمي المعدل كملف PPTX.
 
-يظهر لك هذا الرمز Java عملية تنسيق إطار الصورة:
 ```java
-// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كلاس Presentation الذي يمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // يحصل على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // ينشئ كائن من فئة Image
+    // ينشئ كلاس Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     // يضيف إطار صورة بارتفاع وعرض مساويين للصورة
@@ -223,7 +249,7 @@ try {
     pf.getLineFormat().setWidth(20);
     pf.setRotation(45);
     
-    // يكتب ملف PPTX إلى القرص
+    // يحفظ ملف PPTX إلى القرص
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -231,16 +257,16 @@ try {
 }
 ```
 
+{{% alert title="Tip" color="primary" %}}
 
-{{% alert title="نصيحة" color="primary" %}}
-
-طوّرت Aspose مؤخرًا أداة [صانع كولاج مجاني](https://products.aspose.app/slides/collage). إذا احتجت أبدًا إلى [دمج صور JPG/JPEG](https://products.aspose.app/slides/collage/jpg) أو PNG، أو [إنشاء شبكات من الصور](https://products.aspose.app/slides/collage/photo-grid)، يمكنك استخدام هذه الخدمة. 
+قامت Aspose مؤخرًا بتطوير [صانع كولاج مجاني](https://products.aspose.app/slides/ar/collage). إذا احتجت إلى دمج صور JPG/JPEG أو PNG، أو إنشاء شبكات من الصور، يمكنك استخدام هذه الخدمة. 
 
 {{% /alert %}}
 
 ## **إضافة صورة كرابط**
 
-لتجنب أحجام عروض تقديمية كبيرة، يمكنك إضافة صور (أو فيديوهات) عبر روابط بدلاً من تضمين الملفات مباشرة في العروض. يوضح هذا الرمز Java كيفية إضافة صورة وفيديو إلى عنصر نائب:
+لتقليل حجم العروض التقديمية الكبيرة، يمكنك إضافة الصور (أو مقاطع الفيديو) عبر روابط بدلاً من تضمين الملفات مباشرةً في العروض. يوضح الكود الجافا التالي كيفية إضافة صورة وفيديو إلى عنصر نائب:
+
 ```java
 Presentation presentation = new Presentation("input.pptx");
 try {
@@ -293,13 +319,14 @@ try {
 }
 ```
 
-
 ## **قص الصور**
 
-يظهر لك هذا الرمز Java كيفية قص صورة موجودة على شريحة:
+يوضح الكود الجافا التالي كيفية قص صورة موجودة على شريحة:
+
 ```java
 Presentation pres = new Presentation();
-// ينشئ كائن صورة جديد
+// Creates new image object
+// إنشاء كائن صورة جديد
 try {
     IPPImage picture;
     IImage image = Images.fromFile(imagePath);
@@ -309,17 +336,20 @@ try {
         if (image != null) image.dispose();
     }
 
-    // يضيف إطار صورة إلى الشريحة
+    // Adds a PictureFrame to a Slide
+    // إضافة إطار صورة إلى شريحة
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
-    // يقص الصورة (قيم النسب المئوية)
+    // Crops the image (percentage values)
+    // قص الصورة (قيم النسبة المئوية)
     picFrame.getPictureFormat().setCropLeft(23.6f);
     picFrame.getPictureFormat().setCropRight(21.5f);
     picFrame.getPictureFormat().setCropTop(3);
     picFrame.getPictureFormat().setCropBottom(31);
 
-    // يحفظ النتيجة
+    // Saves the result
+    // حفظ النتيجة
     pres.save(outPptxFile, SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -327,12 +357,12 @@ try {
 }
 ```
 
-
 ## **حذف المناطق المقصوصة من صورة**
 
-إذا رغبت في حذف المناطق المقصوصة من صورة موجودة داخل إطار، يمكنك استخدام طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . تُعيد هذه الطريقة الصورة المقصوصة أو الصورة الأصلية إذا لم يكن القص ضروريًا.
+إذا رغبت في حذف المناطق المقصوصة من صورة موجودة في إطار، يمكنك استخدام طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . تُعيد هذه الطريقة الصورة المقطوعة أو الصورة الأصلية إذا لم يكن القَط مطلوبًا.
 
-يظهر هذا الرمز Java العملية:
+يوضح الكود الجافا التالي العملية:
+
 ```java
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
@@ -351,20 +381,74 @@ try {
 }
 ```
 
+{{% alert title="NOTE" color="warning" %}} 
 
-{{% alert title="ملاحظة" color="warning" %}} 
-
-تضيف طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) الصورة المقصوصة إلى مجموعة صور العرض التقديمي. إذا كانت الصورة مستخدمة فقط في [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) المعالجة، فإن هذا الإعداد يمكنه تقليل حجم العرض التقديمي. وإلا سيزداد عدد الصور في العرض الناتج.
+طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) تضيف الصورة المقطوعة إلى مجموعة صور العرض. إذا كانت الصورة تُستخدم فقط في [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/) الذي تم معالجته، يمكن لهذا الإعداد تقليل حجم العرض. وإلا، سيزيد عدد الصور في العرض الناتج.
 
 تحول هذه الطريقة ملفات WMF/EMF إلى صورة PNG نقطية أثناء عملية القص. 
 
 {{% /alert %}}
 
-## **قفل نسبة العرض إلى الارتفاع**
+## **ضغط الصور**
 
-إذا رغبت في أن يحتفظ الشكل الذي يحتوي على صورة بنسبة عرضه إلى ارتفاعه حتى بعد تغيير أبعاد الصورة، يمكنك استخدام طريقة [setAspectRatioLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) لتعيين إعداد *قفل نسبة العرض إلى الارتفاع*.
+يمكنك ضغط صورة في عرض تقديمي باستخدام طريقة [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . تقوم هذه الطريقة بضغط الصورة عن طريق تقليل حجمها وفقًا لحجم الشكل والدقة المحددة، مع خيار حذف المناطق المقصوصة.
 
-يظهر لك هذا الرمز Java كيفية قفل نسبة عرض الشكل:
+إنها تعدل حجم الصورة ودقتها مماثلة لميزة **Picture Format > Compress Pictures > Resolution** في PowerPoint.
+
+توضح الأمثلة الجافا التالية كيفية ضغط صورة في عرض تقديمي عبر تحديد دقة مستهدفة وحذف المناطق المقصوصة اختياريًا:
+
+```java
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+
+    // ضغط الصورة بدقة مستهدف 150 DPI (دقة الويب) وإزالة المناطق المقصوصة.
+    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+
+    // تحقق من نتيجة الضغط.
+    if (result) {
+        System.out.println("Image successfully compressed.");
+    } else {
+        System.out.println("Image compression failed or no changes were necessary.");
+    }
+
+    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+أو باستخدام قيمة DPI مخصصة مباشرة:
+
+```java
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+
+    // ضغط الصورة إلى 150 DPI (دقة الويب)، وإزالة المناطق المقصوصة.
+    pictureFrame.getPictureFormat().compressImage(true, 150f);
+
+    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+تحول الطريقة الصورة إلى دقة أقل بناءً على حجم الشكل وDPI المقدم. يمكن أيضًا حذف المناطق المقصوصة لتحسين حجم الملف.  
+إذا كانت الصورة ملف تعريف (WMF/EMF) أو SVG، لا يتم تطبيق الضغط. كما تُحافظ جودة JPEG أو تُقلل قليلًا بناءً على الدقة، كما يفعل PowerPoint مع JPEG عالي الدقة.
+
+{{% /alert %}}
+
+## **قفل نسبة الأبعاد**
+
+إذا رغبت في أن يحتفظ الشكل الذي يحتوي على صورة بنسبة أبعاده حتى بعد تغيير أبعاد الصورة، يمكنك استخدام طريقة [setAspectRatioLocked](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) لضبط إعداد *قفل نسبة الأبعاد*.
+
+يوضح الكود الجافا التالي كيفية قفل نسبة أبعاد الشكل:
+
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -380,46 +464,43 @@ try {
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
             ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
 
-    // ضبط الشكل للحفاظ على نسبة العرض إلى الارتفاع عند إعادة التحجيم
-    pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
+    // ضبط الشكل للحفاظ على نسبة الأبعاد عند تغيير الحجم
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+{{% alert title="NOTE" color="warning" %}} 
 
-{{% alert title="ملاحظة" color="warning" %}} 
-
-يحافظ إعداد *قفل نسبة العرض إلى الارتفاع* فقط على نسبة الشكل ولا يحافظ على الصورة التي يحتويها.
+إعداد *قفل نسبة الأبعاد* يحافظ فقط على نسبة أبعاد الشكل وليس على الصورة التي يحتويها.
 
 {{% /alert %}}
 
 ## **استخدام خاصية StretchOff**
 
-باستخدام خصائص [StretchOffsetLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-)، [StretchOffsetTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--)، [StretchOffsetRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) و[StretchOffsetBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat) وفئة [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat)، يمكنك تحديد مستطيل ملء.
+باستخدام خصائص [StretchOffsetLeft](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) و[StretchOffsetBottom](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPictureFillFormat) وفئة [PictureFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPictureFillFormat)، يمكنك تحديد مستطيل ملء.
 
-عند تحديد تمديد لصورة، يتم تحجيم المستطيل المصدر ليتوافق مع مستطيل الملء المحدد. كل حافة من حواف مستطيل الملء تُعرف بنسبة إزاحة من الحافة المقابلة لصندوق حد الشكل. النسبة الموجبة تشير إلى إدخال داخلي بينما النسبة السالبة تشير إلى إخراج خارجي.
+عند تحديد التمدد لصورة، يتم تحجيم مستطيل المصدر ليتناسب مع مستطيل الملء المحدد. كل حافة من حواف مستطيل الملء تُعرَّف بنسبة إزاحة من الحافة المقابلة لمربع الحد للشكل. النسبة الموجبة تحدد تقليصًا بينما النسبة السالبة تحدد توسيعًا.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation).
+2. احصل على مرجع الشريحة من خلال فهرستها.
 3. إضافة مستطيل `AutoShape`. 
 4. إنشاء صورة.
-5. ضبط نوع تعبئة الشكل.
-6. ضبط وضع تعبئة الصورة للشكل.
-7. إضافة صورة محددة لملء الشكل.
-8. تحديد إزاحات الصورة من الحافة المقابلة لصندوق حد الشكل.
-9. كتابة العرض التقديمي المعدل كملف PPTX.
+5. تعيين نوع ملء الشكل.
+6. تعيين وضع ملء الصورة للشكل.
+7. إضافة صورة للملء إلى الشكل.
+8. تحديد إزاحات الصورة من الحافة المقابلة لمربع الحد الخاص بالشكل.
+9. احفظ العرض التقديمي المعدل كملف PPTX.
 
-يوضح هذا الرمز Java عملية استخدام خاصية StretchOff:
 ```java
-// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كلاس Presentation الذي يمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // يحصل على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // ينشئ كائن من فئة ImageEx
+    // ينشئ كلاس ImageEx
     IPPImage picture;
     IImage image = Images.fromFile("aspose-logo.jpg");
     try {
@@ -437,7 +518,7 @@ try {
     // يضبط وضع تعبئة الصورة للشكل
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-    // يحدد الصورة لتعبئة الشكل
+    // يضبط الصورة لتملئ الشكل
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
     // يحدد إزاحات الصورة من الحافة المقابلة لمربع حدود الشكل
@@ -446,7 +527,7 @@ try {
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
     
-    // يكتب ملف PPTX إلى القرص
+    // يحفظ ملف PPTX إلى القرص
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -454,21 +535,20 @@ try {
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+**كيف يمكنني معرفة تنسيقات الصور المدعومة لإطار صورة؟**
 
-**كيف يمكنني معرفة تنسيقات الصور المدعومة لإطار الصورة؟**
-
-يدعم Aspose.Slides كل من الصور النقطية (PNG، JPEG، BMP، GIF، إلخ) والصور المتجهة (مثل SVG) عبر كائن الصورة المخصص لــ [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/). تتقاطع قائمة الصيغ المدعومة عمومًا مع قدرات محرك تحويل الشرائح والصور.
+يدعم Aspose.Slides كلًا من الصور النقطية (PNG، JPEG، BMP، GIF، إلخ) والصور المتجهة (مثل SVG) عبر كائن الصورة المخصص لـ[PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/). تتقاطع قائمة التنسيقات المدعومة عادةً مع قدرات محرك تحويل الشرائح والصور.
 
 **كيف سيؤثر إضافة العشرات من الصور الكبيرة على حجم PPTX والأداء؟**
 
-يؤدي تضمين صور كبيرة إلى زيادة حجم الملف واستهلاك الذاكرة؛ يساعد ربط الصور في الحفاظ على صغر حجم العرض لكن يتطلب بقاء الملفات الخارجية متاحة. يوفّر Aspose.Slides إمكانية إضافة الصور عبر روابط لتقليل حجم الملف.
+تزيد الصور المضمّنة الكبيرة من حجم الملف واستهلاك الذاكرة؛ ربط الصور يساعد في تقليل حجم العرض لكنه يتطلب بقاء الملفات الخارجية متاحة. يوفر Aspose.Slides إمكانية إضافة الصور عبر روابط لتقليل حجم الملف.
 
-**كيف يمكنني قفل كائن الصورة لمنع تحريكه/تغييره غير المقصود؟**
+**كيف يمكنني قفل كائن الصورة من التحرك أو تغيير حجمه بطريق الخطأ؟**
 
-استخدم [قفل الأشكال](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) لـ [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) (مثلاً لتعطيل التحريك أو إعادة التحجيم). يدعم آلية القفل أنواعًا مختلفة من الأشكال، بما فيها [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/).
+استخدم [قفل الأشكال](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) لـ[PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/) (مثل تعطيل التحرك أو تغيير الحجم). تدعم آلية القفل أنواعًا مختلفة من الأشكال، بما في ذلك [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/).
 
-**هل يتم الحفاظ على دقة متجه SVG عند تصدير العرض التقديمي إلى PDF/الصور؟**
+**هل يتم الحفاظ على دقة المتجهات SVG عند تصدير العرض إلى PDF/صور؟**
 
-تتيح Aspose.Slides استخراج SVG من [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) كمتجه أصلي. عند [التصدير إلى PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/) أو إلى [صيغ نقطية](/slides/ar/androidjava/convert-powerpoint-to-png/)، قد يتم تحويل النتيجة إلى نقطية وفقًا لإعدادات التصدير؛ يبقى الاحتفاظ بـ SVG كمتجه واضحًا من سلوك الاستخراج.
+يسمح Aspose.Slides باستخراج SVG من [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe/) كمتجه أصلي. عند [التصدير إلى PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/) أو [التنسيقات النقطية](/slides/ar/androidjava/convert-powerpoint-to-png/)، قد يتم تحويله إلى نقطي اعتمادًا على إعدادات التصدير؛ سلوك الاستخراج يؤكد أن SVG الأصلي يبقى متجهًا.

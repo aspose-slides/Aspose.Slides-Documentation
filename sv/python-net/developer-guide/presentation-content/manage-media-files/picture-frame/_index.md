@@ -31,25 +31,23 @@ description: "Lägg till bildramar i PowerPoint- och OpenDocument-presentationer
 ---
 ## **Introduktion**
 
-Bildelement i Aspose.Slides för Python låter dig placera och hantera raster- och vektorbilder som inbyggda bildformer. Du kan infoga bilder från filer eller strömmar, positionera och ändra storlek med exakta koordinater, applicera rotation, sätta transparens och kontrollera z-ordning tillsammans med andra former. API:et stödjer också beskärning, bevarande av bildförhållanden, inställning av kantlinjer och effekter samt ersättning av den underliggande bilden utan att bygga om layouten. Eftersom bildramar beter sig som vanliga former kan du lägga till animationer, hyperlänkar och alternativ text, vilket gör det enkelt att skapa visuellt rika, tillgängliga presentationer.
+Bildramar i Aspose.Slides för Python låter dig placera och hantera raster- och vektorbilder som inbyggda bildobjekt på bilden. Du kan infoga bilder från filer eller strömmar, positionera och ändra storlek med exakta koordinater, applicera rotation, ange transparens och kontrollera z‑ordning tillsammans med andra former. API:et stödjer också beskärning, bevarande av bildförhållanden, inställning av kanter och effekter samt ersättning av den underliggande bilden utan att bygga om layouten. Eftersom bildramar beter sig som vanliga former kan du lägga till animationer, hyperlänkar och alternativ text, vilket gör det enkelt att skapa visuellt rika, tillgängliga presentationer.
 
 ## **Skapa bildramar**
 
-Detta avsnitt visar hur du infogar en bild i en bildruta genom att skapa en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) med Aspose.Slides för Python. Du får lära dig hur du laddar bilden, placerar den exakt på bilden och kontrollerar dess storlek och formatering.
+Detta avsnitt visar hur du infogar en bild i en bild genom att skapa en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) med Aspose.Slides för Python. Du får lära dig hur du laddar bilden, placerar den exakt på bilden och styr dess storlek och formatering.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-2. Hämta en bild genom dess index.
-3. Skapa en [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) genom att lägga till bilden i presentationens [ImageCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/imagecollection/). Denna bild kommer att användas för att fylla formen.
-4. Ange bildramens bredd och höjd.
-5. Skapa en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) av den storleken med hjälp av metoden [add_picture_frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_picture_frame/).
+2. Hämta en bild efter dess index.
+3. Skapa en [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) genom att lägga till bilden i presentationens [ImageCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/imagecollection/). Denna bild används för att fylla formen.
+4. Ange ramens bredd och höjd.
+5. Skapa en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) av den storleken med metoden [add_picture_frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_picture_frame/).
 6. Spara presentationen som en PPTX‑fil.
-
-Följande Python‑kod visar hur du skapar en bildram:
 
 ```py
 import aspose.slides as slides
 
-# Skapa ett Presentation‑objekt för att representera en PPTX‑fil.
+# Skapa en instans av Presentation-klassen för att representera en PPTX-fil.
 with slides.Presentation() as presentation:
     # Hämta den första bilden.
     slide = presentation.slides[0]
@@ -58,7 +56,7 @@ with slides.Presentation() as presentation:
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-        # Lägg till en bildram i bildens storlek.
+        # Lägg till en bildram med storlek anpassad till bilden.
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
         # Spara presentationen som PPTX.
@@ -71,21 +69,19 @@ Bildramar låter dig snabbt skapa presentationsbilder från bilder. När du komb
 
 ## **Skapa bildramar med relativ skala**
 
-Detta avsnitt demonstrerar hur du placerar en bild med en fast storlek och sedan tillämpar procentbaserad skalning oberoende på bredd och höjd. Eftersom procentsatserna kan skilja sig kan bildförhållandet förändras. Skalning utförs relativt bildens ursprungliga dimensioner.
+Detta avsnitt demonstrerar hur du placerar en bild med fast storlek och sedan tillämpar procentuell skalning oberoende på bredd och höjd. Eftersom procentandelarna kan skilja sig kan bildförhållandet förändras. Skalning utförs relativt bildens ursprungliga dimensioner.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-2. Hämta en bild genom dess index.
+2. Hämta en bild efter dess index.
 3. Skapa en [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) genom att lägga till bilden i presentationens [ImageCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/imagecollection/).
 4. Lägg till en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) på bilden.
-5. Ställ in bildramens relativa bredd och höjd.
+5. Ange bildramens relativa bredd och höjd.
 6. Spara presentationen som en PPTX‑fil.
-
-Följande Python‑kod visar hur du skapar en bildram med relativ skalning:
 
 ```py
 import aspose.slides as slides
 
-# Skapa ett Presentation‑objekt för att representera en PPTX‑fil.
+# Skapa en instans av Presentation-klassen för att representera en PPTX-fil.
 with slides.Presentation() as presentation:
     # Hämta den första bilden.
     slide = presentation.slides[0]
@@ -97,7 +93,7 @@ with slides.Presentation() as presentation:
         # Lägg till en bildram på bilden.
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
 
-        # Ställ in relativ skalningsbredd och -höjd.
+        # Ange relativ skalning för bredd och höjd.
         picture_frame.relative_scale_height = 0.8
         picture_frame.relative_scale_width = 1.35
 
@@ -107,7 +103,7 @@ with slides.Presentation() as presentation:
 
 ## **Extrahera rasterbilder från bildramar**
 
-Du kan extrahera rasterbilder från [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/)‑objekt och spara dem i PNG, JPG och andra format. Kodexemplet nedan visar hur du extraherar en bild från dokumentet "sample.pptx" och sparar den i PNG‑format.
+Du kan extrahera rasterbilder från [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/)‑objekt och spara dem som PNG, JPG och andra format. Koden nedan visar hur du extraherar en bild från dokumentet "sample.pptx" och sparar den i PNG‑format.
 
 ```python
 import aspose.slides as slides
@@ -123,9 +119,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Extrahera SVG‑bilder från bildramar**
 
-Om en presentation innehåller SVG‑grafik placerad inuti [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/)‑former, låter Aspose.Slides för Python via .NET dig hämta de ursprungliga vektor‑bilderna med fullständig noggrannhet. Genom att gå igenom bildens form‑samling kan du identifiera varje [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/), kontrollera om den underliggande [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) innehåller SVG‑innehåll och sedan spara den bilden på disk eller i en ström i dess ursprungliga SVG‑format.
+När en presentation innehåller SVG‑grafik placerad i [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/)-former låter Aspose.Slides för Python via .NET dig hämta de ursprungliga vektorbilderna med fullständig noggrannhet. Genom att gå igenom bildens formsamling kan du identifiera varje [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/), kontrollera om den underliggande [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) innehåller SVG‑innehåll och sedan spara bilden till disk eller en ström i dess ursprungliga SVG‑format.
 
-Följande kodexempel demonstrerar hur du extraherar en SVG‑bild från en bildram:
+Koden nedan demonstrerar hur du extraherar en SVG‑bild från en bildram:
 
 ```py
 import aspose.slides as slides
@@ -144,7 +140,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Hämta bildtransparens**
 
-Aspose.Slides låter dig hämta transparenseffekten som tillämpats på en bild. Denna Python‑kod demonstrerar operationen:
+Aspose.Slides låter dig hämta transparenseffekten som applicerats på en bild. Denna Python‑kod demonstrerar operationen:
 
 ```python
 import aspose.slides as slides
@@ -159,30 +155,53 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert color="primary" %}}
-Alla effekter som tillämpas på bilder finns i [aspose.slides.effects](https://reference.aspose.com/slides/sv/python-net/aspose.slides.effects/).
+Alla effekter som applicerats på bilder finns i [aspose.slides.effects](https://reference.aspose.com/slides/sv/python-net/aspose.slides.effects/).
 {{% /alert %}}
+
+## **Hämta ljusstyrka och kontrast för en bild**
+
+Aspose.Slides låter dig hämta ljusstyrke‑ och kontrasteffekten som applicerats på en bild. Klassen [Luminance](https://reference.aspose.com/slides/sv/python-net/aspose.slides.effects/luminance/) representerar denna bildtransformations­effekt.
+
+Denna Python‑kod visar hur du får ljusstyrke‑ och kontrastinställningarna från en bildram:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    picture_frame = shape
+
+    image_transform = picture_frame.picture_format.picture.image_transform
+    for effect in image_transform:
+        if isinstance(effect, slides.effects.Luminance):
+            luminance = effect.get_effective()
+            brightness = luminance.brightness
+            contrast = luminance.contrast
+
+            print("Brightness: " + str(brightness))
+            print("Contrast: " + str(contrast))
+```
 
 ## **Formatering av bildramar**
 
-Aspose.Slides erbjuder många formateringsalternativ som du kan tillämpa på en bildram. Med dessa alternativ kan du justera en bildram för att uppfylla specifika krav.
+Aspose.Slides erbjuder många formateringsalternativ som du kan applicera på en bildram. Med dessa alternativ kan du justera en bildram för att möta specifika krav.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-2. Hämta en bild genom dess index.
-3. Skapa en [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) genom att lägga till bilden i presentationens [ImageCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/imagecollection/). Denna bild kommer att användas för att fylla formen.
-4. Ange bildramens bredd och höjd.
-5. Skapa en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) av den storleken med hjälp av slide‑metoden [add_picture_frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Ställ in bildramens linjefärg.
-7. Ställ in bildramens linjebredd.
+2. Hämta en bild efter dess index.
+3. Skapa en [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) genom att lägga till bilden i presentationens [ImageCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/imagecollection/). Denna bild används för att fylla formen.
+4. Ange ramens bredd och höjd.
+5. Skapa en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) av den storleken med bildens [add_picture_frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_picture_frame/)-metod.
+6. Ange bildramens linjefärg.
+7. Ange bildramens linjebredd.
 8. Rotera bildramen genom att ange ett positivt (medurs) eller negativt (moturs) värde.
 9. Spara den ändrade presentationen som en PPTX‑fil.
-
-Följande Python‑kod demonstrerar processen för formatering av bildramar:
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Skapa ett Presentation-objekt för att representera en PPTX-fil.
+# Skapa en instans av Presentation-klassen för att representera en PPTX-fil.
 with slides.Presentation() as presentation:
     # Hämta den första bilden.
     slide = presentation.slides[0]
@@ -191,10 +210,10 @@ with slides.Presentation() as presentation:
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-        # Lägg till en bildram i bildens storlek.
+        # Lägg till en bildram med storlek anpassad till bilden.
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
-        # Tillämpa formatering på bildramen.
+        # Applicera formatering på bildramen.
         picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
         picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
         picture_frame.line_format.width = 20
@@ -205,7 +224,7 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert title="Tip" color="primary" %}}
-Aspose har utvecklat ett gratis [Collage Maker](https://products.aspose.app/slides/sv/collage). Om du behöver [sammanfoga JPG/JPEG](https://products.aspose.app/slides/sv/collage/jpg) eller PNG‑bilder, eller [skapa fotogrider](https://products.aspose.app/slides/sv/collage/photo-grid), kan du använda denna tjänst.
+Aspose har utvecklat en gratis [Collage Maker](https://products.aspose.app/slides/sv/collage). Om du behöver [sammanfoga JPG/JPEG](https://products.aspose.app/slides/sv/collage/jpg) eller PNG‑bilder, eller [skapa fotogriddern](https://products.aspose.app/slides/sv/collage/photo-grid), kan du använda denna tjänst.
 {{% /alert %}}
 
 ## **Lägg till bilder som länkar**
@@ -250,7 +269,7 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **Beskär bilder**
 
-I detta avsnitt lär du dig hur du beskär den synliga delen av en bild i en bildram utan att ändra källfilen. Du får också lära dig den grundläggande metoden för att tillämpa beskärningsmarginaler för att skapa en ren, fokuserad komposition direkt på bilden.
+I det här avsnittet lär du dig hur du beskär den synliga delen av en bild i en bildram utan att ändra källfilen. Du får också lära dig den grundläggande metoden för att applicera beskärningsmarginaler för att skapa en ren, fokuserad komposition direkt på bilden.
 
 Följande Python‑kod visar hur du beskär en bild på en bild:
 
@@ -277,9 +296,9 @@ with slides.Presentation() as presentation:
     presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ta bort beskurna områden i bilder**
+## **Ta bort beskurna områden av bilder**
 
-Om du vill ta bort de beskurna områdena i en bild i en ram, använd metoden [delete_picture_cropped_areas](https://reference.aspose.com/slides/sv/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Denna metod returnerar den beskurna bilden, eller originalbilden om ingen beskärning behövs.
+Om du vill ta bort de beskurna områdena av en bild i en ram, använd metoden [delete_picture_cropped_areas](https://reference.aspose.com/slides/sv/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Metoden returnerar den beskurna bilden, eller originalbilden om ingen beskärning behövs.
 
 Följande Python‑kod demonstrerar operationen:
 
@@ -289,10 +308,10 @@ import aspose.slides as slides
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Hämta bildramen från den första bilden.
+    # Hämta PictureFrame från den första bilden.
     picture_frame = slides.shape[0]
 
-    # Hämta bildramen från den första bilden.
+    # Hämta PictureFrame från den första bilden.
     cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
 
     # Spara resultatet.
@@ -300,16 +319,18 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Metoden [delete_picture_cropped_areas](https://reference.aspose.com/slides/sv/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) lägger till den beskurna bilden i presentationens bildsamling. Om bilden endast används i den bearbetade [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/), kan detta minska presentationens storlek; annars kan antalet bilder i den resulterande presentationen öka. Under beskärning konverterar denna metod WMF/EMF‑metafiler till en raster‑PNG‑bild.
+Metoden [delete_picture_cropped_areas](https://reference.aspose.com/slides/sv/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) lägger till den beskurna bilden i presentationens bildsamling. Om bilden endast används i den bearbetade [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) kan detta minska presentationsstorleken; annars kan antalet bilder i den resulterande presentationen öka.
+
+Under beskärning konverterar metoden WMF/EMF‑metafiler till en raster‑PNG‑bild.
 {{% /alert %}}
 
 ## **Komprimera bilder**
 
-Du kan komprimera en bild i en presentation med hjälp av metoden [PictureFillFormat.compress_image](https://reference.aspose.com/slides/sv/python-net/aspose.slides/picturefillformat/compress_image/). Denna metod komprimerar en bild genom att minska dess storlek baserat på formens storlek och angiven upplösning, med möjlighet att ta bort beskurna områden.
+Du kan komprimera en bild i en presentation med metoden [PictureFillFormat.compress_image](https://reference.aspose.com/slides/sv/python-net/aspose.slides/picturefillformat/compress_image/). Denna metod komprimerar en bild genom att minska dess storlek baserat på formens storlek och angiven upplösning, med möjlighet att ta bort beskurna områden.
 
-Den justerar bildens storlek och upplösning på liknande sätt som PowerPoints funktion **Picture Format -> Compress Pictures -> Resolution**.
+Den justerar bildens storlek och upplösning på liknande sätt som PowerPoints **Picture Format → Compress Pictures → Resolution**‑funktion.
 
-Följande Python‑exempel demonstrerar hur du komprimerar en bild i en presentation genom att ange en målupplösning och eventuellt ta bort beskurna områden:
+Följande Python‑exempel visar hur du komprimerar en bild i en presentation genom att ange en målupplösning och eventuellt ta bort beskurna områden:
 
 ```python
 import aspose.slides as slides
@@ -330,7 +351,7 @@ with slides.Presentation("demo.pptx") as presentation:
     presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Eller genom att använda ett anpassat DPI‑värde direkt:
+Eller genom att ange ett eget DPI‑värde direkt:
 
 ```python
 import aspose.slides as slides
@@ -346,12 +367,13 @@ with slides.Presentation("demo.pptx") as presentation:
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Metoden konverterar bilden till en lägre upplösning baserat på formens storlek och angivet DPI. Beskurna områden kan också tas bort för att optimera filstorleken. Om bilden är en metafil (WMF/EMF) eller SVG tillämpas ingen kompression. Dessutom bevaras JPEG‑kvaliteten eller minskas något beroende på upplösning, på samma sätt som PowerPoint hanterar högupplösta JPEG‑bilder.
+Metoden konverterar bilden till en lägre upplösning baserat på formens storlek och angivet DPI. Beskurna regioner kan också raderas för att optimera filstorleken.
+Om bilden är en metafil (WMF/EMF) eller SVG kommer komprimering inte att tillämpas. JPEG‑kvaliteten bevaras eller minskas något beroende på upplösning, på samma sätt som PowerPoint hanterar högupplösta JPEG‑filer.
 {{% /alert %}}
 
-## **Låsa bildförhållandet**
+## **Lås bildförhållandet**
 
-Om du vill att en form som innehåller en bild ska behålla sitt bildförhållande efter att du ändrar bildens dimensioner, sätt egenskapen [aspect_ratio_locked](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) till `True`.
+Om du vill att en form som innehåller en bild ska behålla sitt bildförhållande efter att du ändrat bildens dimensioner, sätt egenskapen [aspect_ratio_locked](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) till `True`.
 
 Följande Python‑kod visar hur du låser en forms bildförhållande:
 
@@ -374,23 +396,23 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Denna *Lock Aspect Ratio*-inställning bevarar endast formens bildförhållande, inte bildens bildförhållande inuti den.
+Denna *Lock Aspect Ratio*-inställning bevarar endast formens bildförhållande, inte bildens förhållande inuti den.
 {{% /alert %}}
 
 ## **Använd stretch‑offset‑egenskaper**
 
 Genom att använda egenskaperna `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` och `stretch_offset_bottom` i klassen [PictureFillFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/picturefillformat/) kan du definiera en fyllningsrektangel.
 
-När stretchning anges för en bild skalas källrektangeln för att passa fyllningsrektangeln. Varje kant på fyllningsrektangeln definieras av en procentuell offset från motsvarande kant på formens omgivningslåda. En positiv procentsats anger en infogning, medan en negativ procentsats anger en utskjutning.
+När stretchning anges för en bild skalas källrektangeln för att passa fyllningsrektangeln. Varje kant av fyllningsrektangeln definieras av en procentuell offset från motsvarande kant av formens omgivningsruta. En positiv procent anger ett inskjut, medan en negativ procent anger ett utskjut.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-2. Hämta en referens till en bild genom dess index.
+2. Hämta en referens till en bild efter dess index.
 3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/).
-4. Ställ in formens fyllningstyp.
-5. Ställ in formens bildfyllningsläge.
-6. Läs in en bild.
+4. Ange formens fyllningstyp.
+5. Ange formens bildfyllningsläge.
+6. Ladda en bild.
 7. Tilldela bilden för att fylla formen.
-8. Specificera bildens offset från motsvarande kanter på formens omgivningslåda.
+8. Ange bildens offset från motsvarande kanter av formens omgivningsruta.
 9. Spara presentationen som en PPTX‑fil.
 
 Följande Python‑kod demonstrerar hur du använder stretch‑offset‑egenskaperna:
@@ -398,18 +420,18 @@ Följande Python‑kod demonstrerar hur du använder stretch‑offset‑egenskap
 ```py
 import aspose.slides as slides
 
-# Instansiera Presentation‑klassen som representerar en PPTX‑fil.
+# Skapa en instans av Presentation-klassen som representerar en PPTX-fil.
 with slides.Presentation() as presentation:
     # Hämta den första bilden.
     slide = presentation.slides[0]
 
-    # Lägg till en rektangel‑AutoShape.
+    # Lägg till en rektangulär AutoShape.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
 
-    # Ställ in formens fyllningstyp.
+    # Ange formens fyllningstyp.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Ställ in formens bildfyllningsläge.
+    # Ange formens bildfyllningsläge.
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
     # Läs in bilden och lägg till den i presentationen.
@@ -419,34 +441,34 @@ with slides.Presentation() as presentation:
     # Tilldela bilden för att fylla formen.
     shape.fill_format.picture_fill_format.picture.image = image
 
-    # Specificera bildens offset från motsvarande kanter på formens omgivningsruta.
+    # Ange bildens offset från motsvarande kanter av formens omgivningsruta.
     shape.fill_format.picture_fill_format.stretch_offset_left = 25
     shape.fill_format.picture_fill_format.stretch_offset_right = 25
     shape.fill_format.picture_fill_format.stretch_offset_top = -20
     shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
 
-    # Spara PPTX‑filen till disk.
+    # Spara PPTX-filen till disk.
     presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert  title="Tip" color="primary" %}}
-Aspose erbjuder gratis konverterare—[JPEG to PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG to PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som låter dig snabbt skapa presentationer från bilder.
+Aspose tillhandahåller gratis konverterare—[JPEG till PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG till PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som låter dig snabbt skapa presentationer från bilder.
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Hur kan jag ta reda på vilka bildformat som stöds för PictureFrame?**
 
-Aspose.Slides stödjer både rasterbilder (PNG, JPEG, BMP, GIF osv.) och vektorbilder (till exempel SVG) via bildobjektet som tilldelas en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/). Listan över stödda format överlappar generellt med funktionerna hos bild‑ och konverteringsmotorn.
+Aspose.Slides stödjer både rasterbilder (PNG, JPEG, BMP, GIF osv.) och vektorbilder (till exempel SVG) via bildobjektet som tilldelas en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/). Listan över stödjade format överlappar i allmänhet med funktionerna i bild‑ och konverteringsmotorn.
 
-**Hur påverkar det PPTX‑storleken och prestandan att lägga till dussintals stora bilder?**
+**Hur påverkar att lägga till dussintals stora bilder PPTX‑storlek och prestanda?**
 
-Att bädda in stora bilder ökar filstorlek och minnesanvändning; att länka bilder hjälper till att hålla presentationsstorleken nere men kräver att de externa filerna förblir tillgängliga. Aspose.Slides erbjuder möjligheten att lägga till bilder via länk för att minska filstorleken.
+Att bädda in stora bilder ökar filstorlek och minnesanvändning; att länka bilder hjälper hålla presentationsstorleken nere men kräver att de externa filerna förblir åtkomliga. Aspose.Slides erbjuder möjlighet att lägga till bilder via länk för att minska filstorleken.
 
-**Hur kan jag låsa ett bildobjekt så att det inte flyttas/skalas av misstag?**
+**Hur kan jag låsa ett bildobjekt så att det inte av misstag flyttas eller skalas?**
 
-Använd [shape locks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/picture_frame_lock/) för en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) (till exempel inaktivera flyttning eller skalning). Låsningsmekanismen beskrivs för former i en separat [skyddsartikel](/slides/sv/python-net/applying-protection-to-presentation/) och stöds för olika formtyper, inklusive [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/).
+Använd [shape locks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/picture_frame_lock/) för en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) (till exempel inaktivera flyttning eller skalning). Låsningsmekanismen beskrivs för former i en separat [protection article](/slides/sv/python-net/applying-protection-to-presentation/) och stöds för olika formtyper, inklusive [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/).
 
-**Behålls SVG‑vektorkvaliteten vid export av en presentation till PDF/bilder?**
+**Bevaras SVG‑vektorfidelitet när en presentation exporteras till PDF/bilder?**
 
-Aspose.Slides tillåter att extrahera en SVG från en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) som den ursprungliga vektorn. När [exporteras till PDF](/slides/sv/python-net/convert-powerpoint-to-pdf/) eller [rasterformat](/slides/sv/python-net/convert-powerpoint-to-png/), kan resultatet rasteriseras beroende på exportinställningarna; att den ursprungliga SVG‑filen lagras som en vektor bekräftas av extraheringsbeteendet.
+Aspose.Slides låter dig extrahera en SVG från en [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/) som den ursprungliga vektorn. När du [exporterar till PDF](/slides/sv/python-net/convert-powerpoint-to-pdf/) eller [rasterformat](/slides/sv/python-net/convert-powerpoint-to-png/) kan resultatet rasteriseras beroende på exportinställningarna; faktumet att den ursprungliga SVG:n lagras som en vektor bekräftas av extraktionsbeteendet.

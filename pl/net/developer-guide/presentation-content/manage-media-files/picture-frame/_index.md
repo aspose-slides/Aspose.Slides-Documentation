@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie ramkami obrazu w prezentacjach w .NET
+title: Zarządzanie ramkami obrazów w prezentacjach w .NET
 linktitle: Ramka obrazu
 type: docs
 weight: 10
@@ -18,7 +18,7 @@ keywords:
 - właściwość StretchOff
 - formatowanie ramki obrazu
 - właściwości ramki obrazu
-- skala względna
+- skalowanie względne
 - efekt obrazu
 - proporcje obrazu
 - przezroczystość obrazu
@@ -28,29 +28,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dodawaj ramki obrazu do prezentacji PowerPoint i OpenDocument za pomocą Aspose.Slides dla .NET. Usprawnij przepływ pracy i ulepsz projekty slajdów."
+description: "Dodaj ramki obrazu do prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Usprawnij swój proces pracy i ulepsz projekty slajdów."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-Rama obrazu jest kształtem, który zawiera obraz — jest jak obraz w ramce. 
+Ramka obrazu to kształt, który zawiera obraz — jest to jak obraz w ramce. 
 
 Możesz dodać obraz do slajdu za pomocą ramki obrazu. W ten sposób możesz formatować obraz, formatując ramkę obrazu.
 
 {{% alert  title="Tip" color="primary" %}} 
-Aspose udostępnia darmowe konwertery —[JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt)—które umożliwiają szybkie tworzenie prezentacji z obrazów. 
+Aspose udostępnia bezpłatne konwertery — [JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt) — które umożliwiają szybkie tworzenie prezentacji z obrazów. 
 {{% /alert %}} 
 
 ## **Utwórz ramkę obrazu**
 
-1. Utwórz instancję klasy [Presentation ](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation)class. 
-2. Pobierz referencję slajdu za pomocą jego indeksu. 
-3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage) przez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/net/aspose.slides/iimagecollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
+1. Utwórz instancję klasy [Presentation ](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu. 
+3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage), dodając obraz do [IImagescollection](https://reference.aspose.com/slides/pl/net/aspose.slides/iimagecollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
 4. Określ szerokość i wysokość obrazu.
-5. Utwórz [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe) oparty na szerokości i wysokości obrazu, używając metody `AddPictureFrame` udostępnionej przez obiekt kształtu powiązany z referencyjnym slajdem.
+5. Utwórz [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe) na podstawie szerokości i wysokości obrazu, korzystając z metody `AddPictureFrame` udostępnionej przez obiekt kształtu powiązany z referencyjnym slajdem.
 6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.
 7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod C# pokazuje, jak utworzyć ramkę obrazu:
 
 ```c#
 // Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
@@ -64,10 +62,10 @@ using (Presentation pres = new Presentation())
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Dodaje ramkę obrazu o tej samej wysokości i szerokości
+    // Dodaje ramkę obrazu o takiej samej wysokości i szerokości
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Zastosowuje formatowanie do ramki obrazu
+    // Stosuje pewne formatowanie do ramki obrazu
     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pictureFrame.LineFormat.Width = 20;
@@ -79,19 +77,19 @@ using (Presentation pres = new Presentation())
 ```
 
 {{% alert color="warning" %}} 
-Ramki obrazu pozwalają szybko tworzyć slajdy prezentacji na podstawie obrazów. Gdy połączysz ramkę obrazu z opcjami zapisu Aspose.Slides, możesz manipulować operacjami wejścia/wyjścia, aby konwertować obrazy z jednego formatu na inny. Być może będziesz chciał zobaczyć te strony: konwertuj [obraz do JPG](https://products.aspose.com/slides/pl/net/conversion/image-to-jpg/); konwertuj [JPG do obrazu](https://products.aspose.com/slides/pl/net/conversion/jpg-to-image/); konwertuj [JPG do PNG](https://products.aspose.com/slides/pl/net/conversion/jpg-to-png/), konwertuj [PNG do JPG](https://products.aspose.com/slides/pl/net/conversion/png-to-jpg/); konwertuj [PNG do SVG](https://products.aspose.com/slides/pl/net/conversion/png-to-svg/), konwertuj [SVG do PNG](https://products.aspose.com/slides/pl/net/conversion/svg-to-png/).
+Ramki obrazu pozwalają szybko tworzyć slajdy prezentacji na podstawie obrazów. Łącząc ramkę obrazu z opcjami zapisu Aspose.Slides, możesz manipulować operacjami wejścia/wyjścia, aby konwertować obrazy z jednego formatu na inny. Możesz zainteresować się następującymi stronami: konwersja [image to JPG](https://products.aspose.com/slides/pl/net/conversion/image-to-jpg/); konwersja [JPG to image](https://products.aspose.com/slides/pl/net/conversion/jpg-to-image/); konwersja [JPG to PNG](https://products.aspose.com/slides/pl/net/conversion/jpg-to-png/), konwersja [PNG to JPG](https://products.aspose.com/slides/pl/net/conversion/png-to-jpg/); konwersja [PNG to SVG](https://products.aspose.com/slides/pl/net/conversion/png-to-svg/), konwersja [SVG to PNG](https://products.aspose.com/slides/pl/net/conversion/svg-to-png/).
 {{% /alert %}}
 
 ## **Utwórz ramkę obrazu ze skalowaniem względnym**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) class.
-2. Pobierz referencję slajdu za pomocą jego indeksu. 
+Poprzez zmianę względnego skalowania obrazu możesz utworzyć bardziej zaawansowaną ramkę obrazu. 
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu. 
 3. Dodaj obraz do kolekcji obrazów prezentacji.
-4. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage) przez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/net/aspose.slides/iimagecollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
+4. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage), dodając obraz do [IImagescollection](https://reference.aspose.com/slides/pl/net/aspose.slides/iimagecollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
 5. Określ względną szerokość i wysokość obrazu w ramce obrazu.
 6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod C# pokazuje, jak utworzyć ramkę obrazu ze skalowaniem względnym:
 
 ```c#
 // Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
@@ -116,7 +114,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Wyodrębnij obrazy rastrowe z ramek obrazu**
 
-Możesz wyodrębnić obrazy rastrowe z obiektów [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe) i zapisać je w formacie PNG, JPG i innych. Poniższy przykład kodu pokazuje, jak wyodrębnić obraz z dokumentu "sample.pptx" i zapisać go w formacie PNG.
+Możesz wyodrębnić obrazy rastrowe z obiektów [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe) i zapisać je w formatach PNG, JPG i innych. Poniższy przykład kodu pokazuje, jak wyodrębnić obraz z dokumentu "sample.pptx" i zapisać go w formacie PNG.
 
 ```c#
 using (var presentation = new Presentation("sample.pptx"))
@@ -134,9 +132,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ## **Wyodrębnij obrazy SVG z ramek obrazu**
 
-Jeśli prezentacja zawiera grafikę SVG umieszczoną wewnątrz kształtów [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/) , Aspose.Slides dla .NET umożliwia pobranie oryginalnych obrazów wektorowych w pełnej jakości. Przeglądając kolekcję kształtów slajdu, możesz zidentyfikować każdy [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/), sprawdzić, czy powiązany [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) zawiera zawartość SVG, a następnie zapisać ten obraz na dysk lub strumień w natywnym formacie SVG.
+Kiedy prezentacja zawiera grafikę SVG umieszczoną wewnątrz kształtów [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/), Aspose.Slides dla .NET umożliwia pobranie oryginalnych obrazów wektorowych z pełną wiernością. Przeglądając kolekcję kształtów slajdu, możesz zidentyfikować każdy [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/), sprawdzić, czy leżący pod nim [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) zawiera treść SVG, a następnie zapisać ten obraz na dysku lub do strumienia w natywnym formacie SVG.
 
-Poniższy przykład kodu demonstruje, jak wyodrębnić obraz SVG z ramki obrazu:
+Poniższy przykład kodu pokazuje, jak wyodrębnić obraz SVG z ramki obrazu:
 
 ```cs
 using var presentation = new Presentation("sample.pptx");
@@ -156,7 +154,7 @@ if (shape is IPictureFrame pictureFrame)
 
 ## **Pobierz przezroczystość obrazu**
 
-Aspose.Slides umożliwia pobranie efektu przezroczystości zastosowanego do obrazu. Ten kod C# demonstruje operację:
+Aspose.Slides umożliwia pobranie efektu przezroczystości zastosowanego do obrazu. Ten kod C# demonstruje tę operację:
 
 ```c#
 using (var presentation = new Presentation("Test.pptx"))
@@ -174,29 +172,56 @@ using (var presentation = new Presentation("Test.pptx"))
 }
 ```
 
+## **Pobierz jasność i kontrast obrazu**
+
+Aspose.Slides umożliwia pobranie efektu jasności i kontrastu zastosowanego do obrazu. Interfejs [ILuminance](https://reference.aspose.com/slides/pl/net/aspose.slides.effects/iluminance/) reprezentuje tę transformację obrazu.
+
+Ten kod C# pokazuje, jak pobrać ustawienia jasności i kontrastu z ramki obrazu:
+
+```csharp
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var slide = presentation.Slides[0];
+    var shape = slide.Shapes[0];
+    var pictureFrame = (IPictureFrame)shape;
+
+    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
+    foreach (var effect in imageTransform)
+    {
+        if (effect is ILuminance luminanceEffect)
+        {
+            var luminance = luminanceEffect.GetEffective();
+            var brightness = luminance.Brightness;
+            var contrast = luminance.Contrast;
+
+            Console.WriteLine("Brightness: " + brightness);
+            Console.WriteLine("Contrast: " + contrast);
+        }
+    }
+}
+```
+
 {{% alert color="primary" %}} 
-Wszystkie efekty zastosowane do obrazów można znaleźć w [Aspose.Slides.Effects](https://reference.aspose.com/slides/pl/net/aspose.slides.effects/).
+Wszystkie efekty stosowane do obrazów można znaleźć w [Aspose.Slides.Effects](https://reference.aspose.com/slides/pl/net/aspose.slides.effects/).
 {{% /alert %}}
 
 ## **Formatowanie ramki obrazu**
 
-Aspose.Slides oferuje wiele opcji formatowania, które można zastosować do ramki obrazu. Korzystając z tych opcji, możesz zmodyfikować ramkę obrazu, aby spełniała określone wymagania.
+Aspose.Slides udostępnia wiele opcji formatowania, które można zastosować do ramki obrazu. Korzystając z tych opcji, możesz dostosować ramkę obrazu do konkretnych wymagań.
 
-1. Utwórz instancję klasy [Presentation](http://www.aspose.com/api/net/slides/pl/aspose.slides/) class.
-2. Pobierz referencję slajdu za pomocą jego indeksu. 
-3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage) przez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/net/aspose.slides/iimagecollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
+1. Utwórz instancję klasy [Presentation](http://www.aspose.com/api/net/slides/pl/aspose.slides/) .
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu. 
+3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/net/aspose.slides/iimagecollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
 4. Określ szerokość i wysokość obrazu.
-5. Utwórz `PictureFrame` oparty na szerokości i wysokości obrazu, używając metody [AddPictureFrame](http://www.aspose.com/api/net/slides/pl/aspose.slides/ishapecollection/methods/addpictureframe) udostępnionej przez obiekt [IShapes](http://www.aspose.com/api/net/slides/pl/aspose.slides/ishapecollection) powiązany z referencyjnym slajdem.
+5. Utwórz `PictureFrame` na podstawie szerokości i wysokości obrazu, korzystając z metody [AddPictureFrame](http://www.aspose.com/api/net/slides/pl/aspose.slides/ishapecollection/methods/addpictureframe) udostępnionej przez obiekt [IShapes](http://www.aspose.com/api/net/slides/pl/aspose.slides/ishapecollection) powiązany z referencyjnym slajdem.
 6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.
 7. Ustaw kolor linii ramki obrazu.
 8. Ustaw szerokość linii ramki obrazu.
-9. Obróć ramkę obrazu, podając wartość dodatnią lub ujemną.
-   * Wartość dodatnia obraca obraz zgodnie z ruchem wskazówek zegara. 
-   * Wartość ujemna obraca obraz przeciwnie do ruchu wskazówek zegara.
+9. Obróć ramkę obrazu, podając wartość dodatnią lub ujemną.  
+   * Dodatnia wartość obraca obraz zgodnie z ruchem wskazówek zegara.  
+   * Ujemna wartość obraca obraz przeciwnie do ruchu wskazówek zegara.
 10. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.
 11. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod C# demonstruje proces formatowania ramki obrazu:
 
 ```c#
 // Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
@@ -210,10 +235,10 @@ using (Presentation presentation = new Presentation())
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Dodaje ramkę obrazu o tej samej wysokości i szerokości co obraz
+    // Dodaje ramkę obrazu o takiej samej wysokości i szerokości jak obraz
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Stosuje formatowanie do ramki obrazu
+    // Stosuje pewne formatowanie do ramki obrazu
     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pictureFrame.LineFormat.Width = 20;
@@ -226,13 +251,12 @@ using (Presentation presentation = new Presentation())
 
 {{% alert color="primary" %}}
 
-Aspose niedawno opracowało [darmowy Collage Maker](https://products.aspose.app/slides/pl/collage). Jeśli kiedykolwiek potrzebujesz [połączyć obrazy JPG/JPEG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG, [tworzyć siatki ze zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid), możesz użyć tej usługi. 
-
+Aspose niedawno opracował [bezpłatny Collage Maker](https://products.aspose.app/slides/pl/collage). Jeśli kiedykolwiek będziesz potrzebować [scalić JPG/JPEG](https://products.aspose.app/slides/pl/collage/jpg) lub obrazy PNG, [tworzyć siatki ze zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid), możesz skorzystać z tej usługi. 
 {{% /alert %}}
 
-## **Dodaj obraz jako link**
+## **Dodaj obraz jako odnośnik**
 
-Aby uniknąć dużych rozmiarów prezentacji, możesz dodawać obrazy (lub wideo) przy użyciu linków zamiast osadzania plików bezpośrednio w prezentacjach. Ten kod C# pokazuje, jak dodać obraz i wideo do elementu zastępczego:
+Aby uniknąć dużych rozmiarów prezentacji, możesz dodawać obrazy (lub filmy) za pomocą odnośników zamiast osadzania plików bezpośrednio w prezentacjach. Ten kod C# pokazuje, jak dodać obraz i film do zastępnika:
 
 ```c#
 using (var presentation = new Presentation("input.pptx"))
@@ -313,7 +337,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Usuń przycięte obszary obrazu**
 
-Jeśli chcesz usunąć przycięte obszary obrazu zawartego w ramce, możesz użyć metody [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metoda ta zwraca przycięty obraz lub oryginalny obraz, jeśli przycinanie nie jest konieczne.
+Jeśli chcesz usunąć przycięte obszary obrazu zawartego w ramce, możesz użyć metody [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metoda ta zwraca przycięty obraz lub oryginalny obraz, jeśli przycinanie nie jest potrzebne.
 
 Ten kod C# demonstruje tę operację:
 
@@ -334,18 +358,18 @@ using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Metoda [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) dodaje przycięty obraz do kolekcji obrazów prezentacji. Jeśli obraz jest używany wyłącznie w przetwarzanym [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/), takie ustawienie może zmniejszyć rozmiar prezentacji. W przeciwnym razie liczba obrazów w wynikowej prezentacji wzrośnie.
+Metoda [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) dodaje przycięty obraz do kolekcji obrazów prezentacji. Jeśli obraz jest używany wyłącznie w przetwarzanej [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/), to rozwiązanie może zmniejszyć rozmiar prezentacji. W przeciwnym razie liczba obrazów w wynikowej prezentacji wzrośnie.
 
-Metoda ta konwertuje pliki metafile WMF/EMF na rastrowy obraz PNG podczas operacji przycinania. 
+Metoda konwertuje metapliki WMF/EMF na rastrowe obrazy PNG w trakcie przycinania. 
 {{% /alert %}}
 
 ## **Kompresuj obrazy**
 
-Możesz skompresować obraz w prezentacji przy użyciu metody [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/compressimage/). Metoda ta kompresuje obraz, zmniejszając jego rozmiar w oparciu o rozmiar kształtu i określoną rozdzielczość, z opcją usunięcia przyciętych obszarów.
+Możesz skompresować obraz w prezentacji, używając metody [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/compressimage/). Metoda ta kompresuje obraz, zmniejszając jego rozmiar w zależności od rozmiaru kształtu i określonej rozdzielczości, z opcją usunięcia przyciętych obszarów. 
 
-Dostosowuje rozmiar i rozdzielczość obrazu podobnie jak funkcja PowerPoint **Picture Format → Compress Pictures → Resolution**.
+Działa podobnie jak funkcja PowerPoint **Picture Format → Compress Pictures → Resolution**.
 
-Poniższe przykłady C# demonstrują, jak skompresować obraz w prezentacji, określając docelową rozdzielczość i opcjonalnie usuwając przycięte obszary:
+Poniższe przykłady C# pokazują, jak skompresować obraz w prezentacji, podając docelową rozdzielczość i opcjonalnie usuwając przycięte obszary:
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
@@ -353,10 +377,10 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Skompresuj obraz z docelową rozdzielczością 150 DPI (rozdzielczość sieciowa) i usuń przycięte obszary.
+    // Kompresuje obraz z docelową rozdzielczością 150 DPI (rozdzielczość sieciowa) i usuwa przycięte obszary.
     bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
 
-    // Sprawdź wynik kompresji.
+    // Sprawdza wynik kompresji.
     if (result)
     {
         Console.WriteLine("Image successfully compressed.");
@@ -370,7 +394,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 }
 ```
 
-Lub bezpośrednio używając własnej wartości DPI:
+Albo bezpośrednio używając własnej wartości DPI:
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
@@ -378,7 +402,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Skompresuj obraz do 150 DPI (rozdzielczość internetowa), usuwając przycięte obszary.
+    // Kompresuje obraz do 150 DPI (rozdzielczość internetowa), usuwając przycięte obszary.
     pictureFrame.PictureFormat.CompressImage(true, 150f);
 
     presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -386,13 +410,13 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Metoda konwertuje obraz do niższej rozdzielczości w zależności od rozmiaru kształtu i podanego DPI. Przycięte regiony mogą być również usunięte w celu optymalizacji rozmiaru pliku.  
-Jeśli obraz jest metafilem (WMF/EMF) lub SVG, kompresja nie zostanie zastosowana. Ponadto jakość JPEG jest zachowywana lub nieznacznie obniżana w zależności od rozdzielczości, podobnie jak PowerPoint obsługuje obrazy JPEG wysokiej rozdzielczości.
+Metoda konwertuje obraz do niższej rozdzielczości w zależności od rozmiaru kształtu i podanego DPI. Przycięte fragmenty mogą być również usuwane w celu optymalizacji rozmiaru pliku.  
+Jeśli obraz jest metafilem (WMF/EMF) lub SVG, kompresja nie zostanie zastosowana. Jakość JPEG jest zachowywana lub nieznacznie obniżana w zależności od rozdzielczości, podobnie jak w PowerPoint przy obsłudze wysokiej rozdzielczości JPEG.
 {{% /alert %}}
 
 ## **Zablokuj proporcje**
 
-Jeśli chcesz, aby kształt zawierający obraz zachował proporcje nawet po zmianie wymiarów obrazu, możesz użyć własności [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/pl/net/aspose.slides/ipictureframelock/aspectratiolocked/) aby ustawić opcję *Lock Aspect Ratio*. 
+Jeśli chcesz, aby kształt zawierający obraz zachował proporcje nawet po zmianie wymiarów obrazu, możesz użyć właściwości [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/pl/net/aspose.slides/ipictureframelock/aspectratiolocked/) do ustawienia opcji *Lock Aspect Ratio*. 
 
 Ten kod C# pokazuje, jak zablokować proporcje kształtu:
 
@@ -408,32 +432,30 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
     IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
 
-    // Ustawia kształt, aby zachował proporcje przy zmianie rozmiaru
+    // Ustawia kształt tak, aby zachować proporcje przy zmianie rozmiaru
     pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 }
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Ustawienie *Lock Aspect Ratio* zachowuje tylko proporcje kształtu, a nie obrazu, który on zawiera.
+Ustawienie *Lock Aspect Ratio* zachowuje wyłącznie proporcje kształtu, a nie obrazu, który zawiera.
 {{% /alert %}}
 
 ## **Użyj właściwości StretchOff**
 
-Używając właściwości [StretchOffsetLeft](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsetright) i [StretchOffsetBottom](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) z interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat) oraz klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat), możesz określić prostokąt wypełnienia. 
+Korzystając z właściwości [StretchOffsetLeft](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsetright) i [StretchOffsetBottom](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat) oraz klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat), możesz określić prostokąt wypełnienia. 
 
-Kiedy dla obrazu określono rozciąganie, prostokąt źródłowy jest skalowany, aby pasował do określonego prostokąta wypełnienia. Każda krawędź prostokąta wypełnienia jest określona przez procentowy offset od odpowiedniej krawędzi ramki ograniczającej kształt. Procent dodatni określa wcięcie, a procent ujemny określa wystawienie.
+Gdy określone jest rozciąganie obrazu, prostokąt źródłowy jest skalowany, aby pasował do określonego prostokąta wypełnienia. Każda krawędź prostokąta wypełnienia jest definiowana jako procentowy offset od odpowiedniej krawędzi obwiedni kształtu. Pozytywny procent oznacza wcięcie, natomiast ujemny procent oznacza wyjście poza obwiednię.
 
-1. Utwórz instancję klasy [Presentation](http://www.aspose.com/api/net/slides/pl/aspose.slides/) class.
-2. Pobierz referencję slajdu za pomocą jego indeksu.
+1. Utwórz instancję klasy [Presentation](http://www.aspose.com/api/net/slides/pl/aspose.slides/) .
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu.
 3. Dodaj prostokąt `AutoShape`. 
-4. Utwórz obraz. 
+4. Utwórz obraz.
 5. Ustaw typ wypełnienia kształtu.
 6. Ustaw tryb wypełnienia obrazu kształtu.
-7. Dodaj ustawiony obraz, aby wypełnić kształt.
-8. Określ offsety obrazu względem odpowiedniej krawędzi ramki ograniczającej kształt
+7. Dodaj obraz do wypełnienia kształtu.
+8. Określ offsety obrazu względem odpowiedniej krawędzi obwiedni kształtu.
 9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod C# demonstruje proces użycia właściwości StretchOff:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -457,18 +479,18 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Jak mogę sprawdzić, które formaty obrazów są obsługiwane przez PictureFrame?**
+**Jak mogę dowiedzieć się, które formaty obrazów są obsługiwane przez PictureFrame?**
 
-Aspose.Slides obsługuje zarówno obrazy rastrowe (PNG, JPEG, BMP, GIF itp.), jak i obrazy wektorowe (np. SVG) poprzez obiekt obrazu przypisany do [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/). Lista obsługiwanych formatów zazwyczaj pokrywa się z możliwościami silnika konwersji slajdów i obrazów.
+Aspose.Slides obsługuje zarówno obrazy rastrowe (PNG, JPEG, BMP, GIF itp.), jak i obrazy wektorowe (na przykład SVG) poprzez obiekt obrazu przypisany do [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/). Lista obsługiwanych formatów zazwyczaj pokrywa się z możliwościami silnika konwersji slajdów i obrazów.
 
 **Jak dodanie dziesiątek dużych obrazów wpłynie na rozmiar i wydajność pliku PPTX?**
 
-Osadzanie dużych obrazów zwiększa rozmiar pliku i zużycie pamięci; linkowanie obrazów pomaga utrzymać mały rozmiar prezentacji, ale wymaga, aby pliki zewnętrzne pozostały dostępne. Aspose.Slides umożliwia dodawanie obrazów jako linków, aby zmniejszyć rozmiar pliku.
+Osadzanie dużych obrazów zwiększa rozmiar pliku i zużycie pamięci; łączenie obrazów za pomocą odnośników pomaga utrzymać mały rozmiar prezentacji, ale wymaga, aby pliki zewnętrzne pozostały dostępne. Aspose.Slides umożliwia dodawanie obrazów jako odnośników w celu zmniejszenia rozmiaru pliku.
 
 **Jak mogę zablokować obiekt obrazu przed przypadkowym przemieszczaniem/skalowaniem?**
 
-Użyj [blokad kształtu](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/pictureframelock/) dla [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/) (np. wyłącz przenoszenie lub skalowanie). Mechanizm blokowania opisano w osobnym [artykule o ochronie](/slides/pl/net/applying-protection-to-presentation/), jest on obsługiwany dla różnych typów kształtów, w tym [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/).
+Użyj [shape locks](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/pictureframelock/) dla [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/) (np. wyłącz przesuwanie lub skalowanie). Mechanizm blokowania opisano w osobnym [artykule o ochronie](/slides/pl/net/applying-protection-to-presentation/) i jest obsługiwany dla różnych typów kształtów, w tym [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/).
 
-**Czy jakość wektora SVG jest zachowywana przy eksportowaniu prezentacji do PDF/obrazów?**
+**Czy wierność wektorowa SVG jest zachowywana przy eksporcie prezentacji do PDF/obrazów?**
 
-Aspose.Slides umożliwia wyodrębnienie SVG z [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/) jako oryginalnego wektora. Przy [eksportowaniu do PDF](/slides/pl/net/convert-powerpoint-to-pdf/) lub [formatów rastrowych](/slides/pl/net/convert-powerpoint-to-png/), wynik może być rastrowany w zależności od ustawień eksportu; fakt, że oryginalny SVG jest przechowywany jako wektor, jest potwierdzony przez zachowanie wyodrębniania.
+Aspose.Slides pozwala wyodrębnić SVG z [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/) jako oryginalny wektor. Przy [eksportowaniu do PDF](/slides/pl/net/convert-powerpoint-to-pdf/) lub [formatów rastrowych](/slides/pl/net/convert-powerpoint-to-png/), wynik może być rasteryzowany w zależności od ustawień eksportu; fakt, że oryginalny SVG jest przechowywany jako wektor, jest potwierdzony przez zachowanie wyodrębniania.

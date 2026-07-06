@@ -18,51 +18,53 @@ keywords:
 - właściwość StretchOff
 - formatowanie ramki obrazu
 - właściwości ramki obrazu
-- skala względna
+- skalowanie względne
 - efekt obrazu
-- proporcje
+- proporcje obrazu
 - przezroczystość obrazu
 - PowerPoint
 - OpenDocument
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dodaj ramki obrazu do prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides dla C++. Usprawnij przepływ pracy i ulepsz projekty slajdów."
+description: "Dodaj ramki obrazu do prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides dla C++. Usprawnij swój proces pracy i ulepsz projekty slajdów."
 ---
-## **Wprowadzenie**
+## **Introduction**
 
-Ramka obrazu jest kształtem zawierającym obraz — jest jak obraz w ramce. 
+Ramka obrazu to kształt, który zawiera obraz – jest jak obraz w ramce.  
 
-Możesz dodać obraz do slajdu przez ramkę obrazu. W ten sposób możesz formatować obraz, formatując ramkę obrazu.
+Możesz dodać obraz do slajdu za pomocą ramki obrazu. Dzięki temu możesz formatować obraz, formatując ramkę obrazu.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose udostępnia darmowe konwertery — [JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt) — które umożliwiają szybkie tworzenie prezentacji z obrazów. 
+{{% alert title="Wskazówka" color="primary" %}} 
+
+Aspose udostępnia darmowe konwertery—[JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt)—które pozwalają szybko tworzyć prezentacje z obrazów. 
+
 {{% /alert %}} 
 
-## **Utworzenie ramki obrazu**
+## **Create a Picture Frame**
 
-1. Utwórz instancję [Presentation class](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-2. Pobierz referencję slajdu za pomocą jego indeksu. 
-3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_p_p_image) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_image_collection) powiązanej z obiektem prezentacji, który będzie użyty do wypełnienia kształtu.
-4. Określ szerokość i wysokość obrazu.
-5. Utwórz [PictureFrame](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_frame) na podstawie szerokości i wysokości obrazu za pomocą metody `AddPictureFrame` udostępnionej przez obiekt shape powiązany z odwołanym slajdem.
-6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation class](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).  
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.  
+3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_p_p_image) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_image_collection) powiązanej z obiektem prezentacji, który będzie użyty do wypełnienia kształtu.  
+4. Określ szerokość i wysokość obrazu.  
+5. Utwórz [PictureFrame](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_frame) na podstawie szerokości i wysokości obrazu przy użyciu metody `AddPictureFrame` udostępnionej przez obiekt kształtu powiązany z odniesionym slajdem.  
+6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.  
+7. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
 
-Ten kod w C++ pokazuje, jak utworzyć ramkę obrazu:
+Ten kod C++ pokazuje, jak utworzyć ramkę obrazu:
 
 ```c++
 // Ścieżka do katalogu dokumentów.
 const String outPath = u"../out/PictureFrameFormatting_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// Wczytaj żądaną prezentację
+// Załaduj żądaną prezentację
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Dostęp do pierwszego slajdu
+// Uzyskaj dostęp do pierwszego slajdu
 SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Wczytuje obraz, który zostanie dodany do kolekcji obrazów prezentacji
+// Ładuje obraz, który zostanie dodany do kolekcji obrazów prezentacji
 // Pobiera obraz
 auto image = Images::FromFile(filePath);
 
@@ -72,48 +74,50 @@ SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 // Dodaje ramkę obrazu do slajdu
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Ustawia względną skalę szerokości i wysokości
+// Ustawia względne skalowanie szerokości i wysokości
 pf->set_RelativeScaleHeight(0.8);
 pf->set_RelativeScaleWidth(1.35);
-// Stosuje formatowanie do ramki obrazu
+// Zastosowuje niektóre formatowanie do ramki obrazu
 pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 pf->get_LineFormat()->set_Width ( 20);
 pf->set_Rotation( 45);
 
-// Zapisuje plik PPTX na dysk
+// Zapisuje plik PPTX na dysku
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" %}} 
-Ramki obrazu pozwalają szybko tworzyć slajdy prezentacji na podstawie obrazów. Gdy połączysz ramkę obrazu z opcjami zapisu Aspose.Slides, możesz manipulować operacjami wejścia/wyjścia, aby konwertować obrazy z jednego formatu na inny. Możesz chcieć zobaczyć te strony: konwertuj [obraz do JPG](https://products.aspose.com/slides/pl/cpp/conversion/image-to-jpg/); konwertuj [JPG do obrazu](https://products.aspose.com/slides/pl/cpp/conversion/jpg-to-image/); konwertuj [JPG do PNG](https://products.aspose.com/slides/pl/cpp/conversion/jpg-to-png/), konwertuj [PNG do JPG](https://products.aspose.com/slides/pl/cpp/conversion/png-to-jpg/); konwertuj [PNG do SVG](https://products.aspose.com/slides/pl/cpp/conversion/png-to-svg/), konwertuj [SVG do PNG](https://products.aspose.com/slides/pl/cpp/conversion/svg-to-png/).
+
+Ramki obrazu pozwalają szybko tworzyć slajdy prezentacji na podstawie obrazów. Łącząc ramkę obrazu z opcjami zapisu Aspose.Slides, możesz manipulować operacjami wejścia/wyjścia, aby konwertować obrazy z jednego formatu na inny. Możesz zobaczyć następujące strony: konwertuj [obraz na JPG](https://products.aspose.com/slides/pl/cpp/conversion/image-to-jpg/); konwertuj [JPG na obraz](https://products.aspose.com/slides/pl/cpp/conversion/jpg-to-image/); konwertuj [JPG na PNG](https://products.aspose.com/slides/pl/cpp/conversion/jpg-to-png/), konwertuj [PNG na JPG](https://products.aspose.com/slides/pl/cpp/conversion/png-to-jpg/); konwertuj [PNG na SVG](https://products.aspose.com/slides/pl/cpp/conversion/png-to-svg/), konwertuj [SVG na PNG](https://products.aspose.com/slides/pl/cpp/conversion/svg-to-png/). 
+
 {{% /alert %}}
 
-## **Utworzenie ramki obrazu ze skalowaniem względnym**
+## **Create a Picture Frame with Relative Scale**
 
-Modyfikując względne skalowanie obrazu, możesz utworzyć bardziej złożoną ramkę obrazu. 
+Modyfikując względne skalowanie obrazu, możesz utworzyć bardziej złożoną ramkę obrazu.  
 
-1. Utwórz instancję [Presentation class](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-2. Pobierz referencję slajdu za pomocą jego indeksu. 
-3. Dodaj obraz do kolekcji obrazów prezentacji.
-4. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_p_p_image) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_image_collection) powiązanej z obiektem prezentacji, który będzie użyty do wypełnienia kształtu.
-5. Określ względną szerokość i wysokość obrazu w ramce obrazu.
-6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation class](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).  
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.  
+3. Dodaj obraz do kolekcji obrazów prezentacji.  
+4. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_p_p_image) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_image_collection) powiązanej z obiektem prezentacji, który będzie użyty do wypełnienia kształtu.  
+5. Określ względną szerokość i wysokość obrazu w ramce obrazu.  
+6. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
 
-Ten kod w C++ pokazuje, jak utworzyć ramkę obrazu ze skalowaniem względnym:
+Ten kod C++ pokazuje, jak utworzyć ramkę obrazu ze skalowaniem względnym:
 
 ```c++
 // Ścieżka do katalogu dokumentów.
 const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// Wczytuje żądaną prezentację
+// Ładuje żądaną prezentację
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Dostęp do pierwszego slajdu
+// Uzyskuje dostęp do pierwszego slajdu
 SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Wczytuje obraz, który zostanie dodany do kolekcji obrazów prezentacji
+// Ładuje obraz, który zostanie dodany do kolekcji obrazów prezentacji
 // Pobiera obraz
 auto image = Images::FromFile(filePath);
 
@@ -123,15 +127,15 @@ SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 // Dodaje ramkę obrazu do slajdu
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Ustawia względną skalę szerokości i wysokości
+// Ustawia względne skalowanie szerokości i wysokości
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-//Zapisuje plik PPTX na dysk
+// Zapisuje plik PPTX na dysku
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Wyodrębnianie obrazów rastrowych z ramek obrazu**
+## **Extract Raster Images from Picture Frames**
 
 Możesz wyodrębnić obrazy rastrowe z obiektów [PictureFrame](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_frame) i zapisać je w formatach PNG, JPG i innych. Poniższy przykład kodu demonstruje, jak wyodrębnić obraz z dokumentu „sample.pptx” i zapisać go w formacie PNG.
 
@@ -151,9 +155,9 @@ if (ObjectExt::Is<IPictureFrame>(firstShape))
 presentation->Dispose();
 ```
 
-## **Wyodrębnianie obrazów SVG z ramek obrazu**
+## **Extract SVG Images from Picture Frames**
 
-Gdy prezentacja zawiera grafikę SVG umieszczoną wewnątrz kształtów [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/), Aspose.Slides dla C++ umożliwia pobranie oryginalnych obrazów wektorowych w pełnej jakości. Przeglądając kolekcję kształtów slajdu, możesz zidentyfikować każdy [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/), sprawdzić, czy leżący pod nim [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/) zawiera treść SVG, a następnie zapisać ten obraz na dysku lub w strumieniu w jego natywnym formacie SVG.
+Kiedy prezentacja zawiera grafikę SVG umieszczoną wewnątrz kształtów [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/), Aspose.Slides dla C++ umożliwia pobranie oryginalnych obrazów wektorowych w pełnej jakości. Przeglądając kolekcję kształtów slajdu, możesz zidentyfikować każdy [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/), sprawdzić, czy leżący pod nim [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/) zawiera treść SVG, a następnie zapisać ten obraz na dysku lub w strumieniu w jego natywnym formacie SVG.
 
 Poniższy przykład kodu demonstruje, jak wyodrębnić obraz SVG z ramki obrazu:
 
@@ -176,9 +180,9 @@ if (ObjectExt::Is<IPictureFrame>(shape))
 presentation->Dispose();
 ```
 
-## **Pobranie przezroczystości obrazu**
+## **Get Transparency of an Image**
 
-Aspose.Slides pozwala pobrać efekt przezroczystości zastosowany do obrazu. Ten kod w C++ demonstruje tę operację:
+Aspose.Slides pozwala uzyskać efekt przezroczystości zastosowany do obrazu. Ten kod C++ demonstruje tę operację:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
@@ -194,42 +198,72 @@ for (auto&& effect : imageTransform)
 }
 ```
 
-{{% alert color="primary" %}} 
-Wszystkie efekty stosowane do obrazów można znaleźć w [Aspose::Slides::Effects](https://reference.aspose.com/slides/pl/cpp/aspose.slides.effects/).
+{{% alert title="UWAGA" color="primary" %}} 
+Wszystkie efekty stosowane do obrazów można znaleźć w [Aspose::Slides::Effects](https://reference.aspose.com/slides/pl/cpp/aspose.slides.effects/). 
 {{% /alert %}}
 
-## **Formatowanie ramki obrazu**
+## **Get Brightness and Contrast of an Image**
 
-Aspose.Slides udostępnia wiele opcji formatowania, które można zastosować do ramki obrazu. Korzystając z tych opcji, możesz zmienić ramkę obrazu, aby spełniała określone wymagania.
+Aspose.Slides pozwala uzyskać efekt jasności i kontrastu zastosowany do obrazu. Interfejs [ILuminance](https://reference.aspose.com/slides/pl/cpp/aspose.slides.effects/iluminance/) reprezentuje tę transformację obrazu.
 
-1. Utwórz instancję [Presentation class](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-2. Pobierz referencję slajdu za pomocą jego indeksu. 
-3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_p_p_image) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_image_collection) powiązanej z obiektem prezentacji, który będzie użyty do wypełnienia kształtu.
-4. Określ szerokość i wysokość obrazu.
-5. Utwórz `PictureFrame` na podstawie szerokości i wysokości obrazu za pomocą metody [AddPictureFrame](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) udostępnionej przez obiekt [IShapes](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection) powiązany z odwołanym slajdem.
-6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.
-7. Ustaw kolor linii ramki obrazu.
-8. Ustaw szerokość linii ramki obrazu.
-9. Obróć ramkę obrazu, podając jej wartość dodatnią lub ujemną.
-   * Wartość dodatnia obraca obraz zgodnie z ruchem wskazówek zegara. 
-   * Wartość ujemna obraca obraz przeciwnie do ruchu wskazówek zegara.
-10. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.
-11. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten kod C++ demonstruje, jak pobrać ustawienia jasności i kontrastu z ramki obrazu:
 
-Ten kod w C++ demonstruje proces formatowania ramki obrazu:
+```c++
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shape(0);
+auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
+
+auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+for (auto&& effect : imageTransform)
+{
+    if (System::ObjectExt::Is<ILuminance>(effect))
+    {
+        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
+        auto brightness = luminance->get_Brightness();
+        auto contrast = luminance->get_Contrast();
+
+        Console::WriteLine(System::String(u"Brightness: ") + brightness);
+        Console::WriteLine(System::String(u"Contrast: ") + contrast);
+    }
+}
+
+presentation->Dispose();
+```
+
+## **Picture Frame Formatting**
+
+Aspose.Slides oferuje wiele opcji formatowania, które można zastosować do ramki obrazu. Korzystając z tych opcji, możesz zmodyfikować ramkę obrazu, aby spełniała określone wymagania.  
+
+1. Utwórz instancję klasy [Presentation class](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).  
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.  
+3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_p_p_image) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_image_collection) powiązanej z obiektem prezentacji, który będzie użyty do wypełnienia kształtu.  
+4. Określ szerokość i wysokość obrazu.  
+5. Utwórz `PictureFrame` na podstawie szerokości i wysokości obrazu przy użyciu metody [AddPictureFrame](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) udostępnionej przez obiekt [IShapes](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection) powiązany z odniesionym slajdem.  
+6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.  
+7. Ustaw kolor linii ramki obrazu.  
+8. Ustaw szerokość linii ramki obrazu.  
+9. Obróć ramkę obrazu, podając wartość dodatnią lub ujemną.  
+   * Wartość dodatnia obraca obraz zgodnie z ruchem wskazówek zegara.  
+   * Wartość ujemna obraca obraz przeciwnie do ruchu wskazówek zegara.  
+10. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.  
+11. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
+
+Ten kod C++ demonstruje proces formatowania ramki obrazu:
 
 ```c++
 // Ścieżka do katalogu dokumentów.
 const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// Wczytuje żądaną prezentację
+// Ładuje żądaną prezentację
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Dostęp do pierwszego slajdu
+// Uzyskuje dostęp do pierwszego slajdu
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// Wczytuje obraz, który zostanie dodany do kolekcji obrazów prezentacji
+// Ładuje obraz, który zostanie dodany do kolekcji obrazów prezentacji
 // Pobiera obraz
 auto image = Images::FromFile(filePath);
 
@@ -239,21 +273,23 @@ SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 // Dodaje ramkę obrazu do slajdu
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Ustawia względną skalę szerokości i wysokości
+// Ustawia względne skalowanie szerokości i wysokości
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-//Zapisuje plik PPTX na dysk
+//Zapisuje plik PPTX na dysku
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose niedawno opracował [darmowy Collage Maker](https://products.aspose.app/slides/pl/collage). Jeśli kiedykolwiek będziesz potrzebować [scalić obrazy JPG/JPEG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG, [tworzyć siatki ze zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid), możesz skorzystać z tej usługi. 
+{{% alert title="Wskazówka" color="primary" %}}
+
+Aspose niedawno opracował [darmowy Collage Maker](https://products.aspose.app/slides/pl/collage). Jeśli potrzebujesz [połączyć obrazy JPG/JPEG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG, [tworzyć siatki ze zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid), możesz skorzystać z tej usługi. 
+
 {{% /alert %}}
 
-## **Dodanie obrazu jako linku**
+## **Add an Image as a Link**
 
-Aby zmniejszyć rozmiar prezentacji, możesz dodawać obrazy (lub filmy) za pomocą linków zamiast osadzania plików bezpośrednio w prezentacji. Ten kod w C++ pokazuje, jak dodać obraz i wideo do wstawki:
+Aby uniknąć dużych rozmiarów prezentacji, możesz dodawać obrazy (lub filmy) za pomocą odnośników zamiast osadzania plików bezpośrednio w prezentacji. Ten kod C++ pokazuje, jak dodać obraz i wideo do elementu zastępczego:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
@@ -294,9 +330,9 @@ for (auto& shape : shapesToRemove)
 presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Kadrowanie obrazów**
+## **Crop Images**
 
-Ten kod w C++ pokazuje, jak przyciąć istniejący obraz na slajdzie: 
+Ten kod C++ pokazuje, jak przyciąć istniejący obraz na slajdzie: 
 
 ``` CPP
 using namespace Aspose::Slides;
@@ -307,7 +343,7 @@ auto presentation = System::MakeObject<Presentation>();
 // Tworzy nowy obiekt obrazu
 auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
-// Dodaje PictureFrame do slajdu
+// Dodaje ramkę obrazu do slajdu
 auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
 
 // Przycina obraz (wartości procentowe)
@@ -321,46 +357,46 @@ presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
-## **Usuwanie przyciętych obszarów obrazu**
+## **Delete Cropped Areas of a Picture**
 
-Jeśli chcesz usunąć przycięte obszary obrazu zawartego w ramce, możesz użyć metody [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metoda ta zwraca przycięty obraz lub obraz wyjściowy, jeśli przycinanie nie jest konieczne.
-
-Ten kod w C++ demonstruje operację: 
+Jeśli chcesz usunąć przycięte fragmenty obrazu znajdującego się w ramce, możesz użyć metody [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metoda ta zwraca przycięty obraz lub pierwotny obraz, jeśli przycinanie nie jest potrzebne.
 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
 System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
-// Gets the PictureFrame from the first slide
+// Pobiera ramkę obrazu z pierwszego slajdu
 System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Deletes cropped areas of the PictureFrame image and returns the cropped image
+// Usuwa przycięte obszary obrazu w ramce i zwraca przycięty obraz
 System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
 
-// Saves the result
+// Zapisuje wynik
 presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Metoda [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) dodaje przycięty obraz do kolekcji obrazów prezentacji. Jeśli obraz jest używany wyłącznie w przetwarzanej [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/), to ustawienie może zmniejszyć rozmiar prezentacji. W przeciwnym razie liczba obrazów w wynikowej prezentacji się zwiększy.
+{{% alert title="UWAGA" color="warning" %}} 
 
-Metoda konwertuje pliki metafile WMF/EMF na rastrowy obraz PNG podczas operacji przycinania. 
+Metoda [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) dodaje przycięty obraz do kolekcji obrazów prezentacji. Jeśli obraz jest używany wyłącznie w przetwarzanym [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/), takie ustawienie może zmniejszyć rozmiar prezentacji. W przeciwnym razie liczba obrazów w wynikowej prezentacji wzrośnie.  
+
+Metoda konwertuje pliki metafile WMF/EMF na rastrowe obrazy PNG w trakcie operacji przycinania. 
+
 {{% /alert %}}
 
-## **Kompresja obrazów**
+## **Compress Images**
 
-Możesz skompresować obraz w prezentacji, używając metody [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/compressimage/). Metoda ta zmniejsza rozmiar obrazu w zależności od rozmiaru kształtu i określonej rozdzielczości, z opcją usunięcia przyciętych obszarów.
+Możesz skompresować obraz w prezentacji przy użyciu metody [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/compressimage/). Metoda ta kompresuje obraz, zmniejszając jego rozmiar w zależności od rozmiaru kształtu i określonej rozdzielczości, z opcją usunięcia przyciętych obszarów.  
 
-Dostosowuje rozmiar i rozdzielczość obrazu podobnie jak funkcja **Picture Format -> Compress Pictures -> Resolution** w programie PowerPoint.
+Dostosowuje rozmiar i rozdzielczość obrazu podobnie jak funkcja PowerPoint **Format obrazu → Kompresuj obrazy → Rozdzielczość**.  
 
-Poniższe przykłady w C++ pokazują, jak skompresować obraz w prezentacji, podając docelową rozdzielczość i opcjonalnie usuwając przycięte obszary:
+Poniższe przykłady C++ pokazują, jak skompresować obraz w prezentacji, określając docelową rozdzielczość i opcjonalnie usuwając przycięte obszary:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = presentation->get_Slide(0);
 auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Skompresuj obraz do docelowej rozdzielczości 150 DPI (rozdzielczość internetowa) i usuń przycięte obszary.
+// Kompresuj obraz z docelową rozdzielczością 150 DPI (rozdzielczość sieciowa) i usuń przycięte obszary.
 bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
 
 // Sprawdź wynik kompresji.
@@ -377,30 +413,31 @@ presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Lub bezpośrednio używając własnej wartości DPI:
+Lub używając bezpośrednio własnej wartości DPI:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = presentation->get_Slide(0);
 auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Skompresuj obraz do 150 DPI (rozdzielczość internetowa), usuwając przycięte obszary.
+// Kompresuj obraz do 150 DPI (rozdzielczość sieciowa), usuwając przycięte obszary.
 pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
 
 presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Metoda konwertuje obraz do niższej rozdzielczości w oparciu o rozmiar kształtu i podane DPI. Przycięte fragmenty można także usunąć, aby zoptymalizować rozmiar pliku.
-Jeśli obraz jest metafilem (WMF/EMF) lub SVG, kompresja nie zostanie zastosowana. Ponadto jakość JPEG jest zachowywana lub nieznacznie obniżana w zależności od rozdzielczości, podobnie jak w PowerPoint przy obsłudze wysokiej rozdzielczości JPEG.
+{{% alert title="UWAGA" color="warning" %}}
+
+Metoda konwertuje obraz do niższej rozdzielczości w oparciu o rozmiar kształtu i podane DPI. Przycięte fragmenty mogą również zostać usunięte w celu optymalizacji rozmiaru pliku. Jeśli obraz jest plikiem metafile (WMF/EMF) lub SVG, kompresja nie zostanie zastosowana. Jakość JPEG jest zachowywana lub nieco obniżana w zależności od rozdzielczości, podobnie jak w PowerPoint przy obsłudze wysokiej rozdzielczości JPEG. 
+
 {{% /alert %}}
 
-## **Zablokowanie proporcji**
+## **Lock Aspect Ratio**
 
-Jeśli chcesz, aby kształt zawierający obraz zachował proporcje nawet po zmianie wymiarów obrazu, możesz użyć metody [set_AspectRatioLocked()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/), aby ustawić opcję *Lock Aspect Ratio*. 
+Jeśli chcesz, aby kształt zawierający obraz zachował proporcje nawet po zmianie wymiarów obrazu, możesz użyć metody [set_AspectRatioLocked()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) w celu ustawienia opcji *Zablokuj proporcje*.  
 
-Ten kod w C++ pokazuje, jak zablokować proporcje kształtu:
+Ten kod C++ pokazuje, jak zablokować proporcje kształtu:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -413,31 +450,33 @@ System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
 
 System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
 
-// ustawić kształt, aby zachować proporcje przy zmianie rozmiaru
+// set shape to have to preserve aspect ratio on resizing
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Ustawienie *Lock Aspect Ratio* zachowuje tylko proporcje kształtu, a nie obrazu, który on zawiera.
+{{% alert title="UWAGA" color="warning" %}} 
+
+Ustawienie *Zablokuj proporcje* zachowuje jedynie proporcje samego kształtu, a nie obrazu, który w nim się znajduje. 
+
 {{% /alert %}}
 
-## **Użycie właściwości StretchOff**
+## **Use the StretchOff Property**
 
-Korzystając z właściwości [StretchOffsetLeft](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) i [StretchOffsetBottom](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) z interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_picture_fill_format) oraz klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format) możesz określić prostokąt wypełnienia. 
+Korzystając z właściwości [StretchOffsetLeft](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) i [StretchOffsetBottom](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_picture_fill_format) oraz klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.picture_fill_format) możesz określić prostokąt wypełnienia.  
 
-Gdy określone jest rozciąganie obrazu, prostokąt źródłowy jest skalowany, aby dopasować się do podanego prostokąta wypełnienia. Każda krawędź prostokąta wypełnienia jest definiowana jako procentowy offset od odpowiedniej krawędzi ramki ograniczającej kształt. Pozytywny procent oznacza wcięcie, a negatywny procent oznacza wystawienie poza ramkę.
+Gdy określono rozciąganie obrazu, prostokąt źródłowy jest skalowany tak, aby pasował do określonego prostokąta wypełnienia. Każda krawędź prostokąta wypełnienia jest definiowana jako procentowy offset od odpowiedniej krawędzi ramki ograniczającej kształt. Dodatni procent oznacza wcięcie, ujemny – występ.  
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-2. Pobierz referencję slajdu za pomocą jego indeksu.
-3. Dodaj prostokąt `AutoShape`. 
-4. Utwórz obraz.
-5. Ustaw typ wypełnienia kształtu.
-6. Ustaw tryb wypełnienia obrazu kształtu.
-7. Dodaj obraz ustawiony jako wypełnienie kształtu.
-8. Określ offsety obrazu względem odpowiedniej krawędzi ramki kształtu
-9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).  
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.  
+3. Dodaj prostokąt `AutoShape`.  
+4. Utwórz obraz.  
+5. Ustaw typ wypełnienia kształtu.  
+6. Ustaw tryb wypełnienia obrazu kształtu.  
+7. Dodaj obraz jako wypełnienie kształtu.  
+8. Określ offsety obrazu względem odpowiednich krawędzi ramki ograniczającej kształt.  
+9. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
 
-Ten kod w C++ demonstruje proces, w którym używana jest właściwość StretchOff:
+Ten kod C++ demonstruje proces, w którym używany jest parametr StretchOff:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -445,7 +484,7 @@ auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 auto slide = pres->get_Slide(0);
 auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
 
-// Ustawia obraz rozciągnięty od każdej strony w ciele kształtu
+// Ustawia rozciąganie obrazu od każdego boku w ciele kształtu
 auto pictureFormat = pictureFrame->get_PictureFormat();
 pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
 pictureFormat->set_StretchOffsetLeft(24.0f);
@@ -458,18 +497,18 @@ pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Jak mogę sprawdzić, które formaty obrazów są obsługiwane dla PictureFrame?**
+**Jak mogę dowiedzieć się, które formaty obrazów są obsługiwane dla PictureFrame?**
 
-Aspose.Slides obsługuje zarówno obrazy rastrowe (PNG, JPEG, BMP, GIF itp.), jak i obrazy wektorowe (np. SVG) za pośrednictwem obiektu obrazu przypisanego do [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/). Lista obsługiwanych formatów zazwyczaj pokrywa się z możliwościami silnika konwersji slajdów i obrazów.
+Aspose.Slides obsługuje zarówno obrazy rastrowe (PNG, JPEG, BMP, GIF itp.), jak i obrazy wektorowe (na przykład SVG) poprzez obiekt obrazu przypisany do [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/). Lista wspieranych formatów zazwyczaj pokrywa się z możliwościami silnika konwersji slajdów i obrazów.  
 
 **Jak dodanie dziesiątek dużych obrazów wpłynie na rozmiar i wydajność pliku PPTX?**
 
-Osadzanie dużych obrazów zwiększa rozmiar pliku i zużycie pamięci; linkowanie obrazów pomaga utrzymać rozmiar prezentacji w ryzach, ale wymaga, aby pliki zewnętrzne pozostały dostępne. Aspose.Slides umożliwia dodawanie obrazów za pomocą linku, aby zmniejszyć rozmiar pliku.
+Osadzanie dużych obrazów zwiększa rozmiar pliku i zużycie pamięci; łączenie obrazów pomaga utrzymać mały rozmiar prezentacji, ale wymaga, aby zewnętrzne pliki pozostawały dostępne. Aspose.Slides umożliwia dodawanie obrazów jako linków w celu zmniejszenia rozmiaru pliku.  
 
-**Jak mogę zablokować obiekt obrazu przed przypadkowym przesuwaniem/skalowaniem?**
+**Jak mogę zablokować obiekt obrazu przed przypadkowym przesunięciem lub zmianą rozmiaru?**
 
-Użyj [blokad kształtu](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/get_pictureframelock/) dla [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/) (np. wyłączając przesuwanie lub skalowanie). Mechanizm blokowania jest opisany w oddzielnym [artykule o ochronie](/slides/pl/cpp/applying-protection-to-presentation/) i jest wspierany dla różnych typów kształtów, w tym [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/).
+Użyj blokad kształtu ([shape locks](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/get_pictureframelock/)) dla [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/) (np. wyłącz przesuwanie lub zmianę rozmiaru). Mechanizm blokowania jest opisany w osobnym artykule o ochronie kształtów ([protection article](/slides/pl/cpp/applying-protection-to-presentation/)) i jest obsługiwany dla różnych typów kształtów, w tym [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/).  
 
-**Czy wierność wektorowa SVG jest zachowana przy eksportowaniu prezentacji do PDF/obrazów?**
+**Czy wierność wektorowa SVG jest zachowywana przy eksportowaniu prezentacji do PDF/obrazów?**
 
-Aspose.Slides pozwala wyodrębnić SVG z [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/) jako oryginalny wektor. Przy [eksportowaniu do PDF](/slides/pl/cpp/convert-powerpoint-to-pdf/) lub [formatów rastrowych](/slides/pl/cpp/convert-powerpoint-to-png/), wynik może być rasteryzowany w zależności od ustawień eksportu; fakt, że oryginalny SVG jest przechowywany jako wektor, potwierdza zachowanie przy wyodrębnianiu.
+Aspose.Slides umożliwia wyodrębnienie SVG z [PictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pictureframe/) jako oryginalnego wektora. Przy [eksportowaniu do PDF](/slides/pl/cpp/convert-powerpoint-to-pdf/) lub [formatów rastrowych](/slides/pl/cpp/convert-powerpoint-to-png/), wynik może zostać zrastrowany w zależności od ustawień eksportu; fakt, że oryginalny SVG pozostaje wektorem, jest potwierdzony przez zachowanie wyodrębniania.

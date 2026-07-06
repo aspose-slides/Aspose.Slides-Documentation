@@ -1,13 +1,13 @@
 ---
-title: Správa rámů obrázků v prezentacích pomocí JavaScriptu
-linktitle: Rám obrázku
+title: Spravujte rámečky obrázků v prezentacích pomocí JavaScriptu
+linktitle: Rámeček obrázku
 type: docs
 weight: 10
 url: /cs/nodejs-java/picture-frame/
 keywords:
-- rám obrázku
-- přidat rám obrázku
-- vytvořit rám obrázku
+- rámeček obrázku
+- přidat rámeček obrázku
+- vytvořit rámeček obrázku
 - přidat obrázek
 - vytvořit obrázek
 - extrahovat obrázek
@@ -16,8 +16,8 @@ keywords:
 - oříznout obrázek
 - oříznutá oblast
 - vlastnost StretchOff
-- formátování rámu obrázku
-- vlastnosti rámu obrázku
+- formátování rámečku obrázku
+- vlastnosti rámečku obrázku
 - relativní měřítko
 - efekt obrázku
 - poměr stran
@@ -28,29 +28,29 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Přidejte rámy obrázků do prezentací PowerPoint a OpenDocument pomocí Aspose.Slides pro Node.js přes Java. Zefektivněte svůj pracovní postup a vylepšete návrhy snímků."
+description: "Přidejte rámečky obrázků do prezentací PowerPoint a OpenDocument pomocí Aspose.Slides pro Node.js via Java. Zjednodušte svůj pracovní postup a vylepšete design snímků."
 ---
 ## **Úvod**
 
-Rám obrázku je tvar, který obsahuje obrázek – je to jako obrázek v rámečku.  
+Rámeček obrázku je tvar, který obsahuje obrázek – je to jako obrázek v rámu.  
 
-Obrázek můžete do snímku přidat prostřednictvím rámu obrázku. Tímto způsobem můžete formátovat obrázek úpravou rámu obrázku.
+Můžete přidat obrázek na snímek pomocí rámečku obrázku. Tímto způsobem můžete formátovat obrázek formátováním rámečku obrázku.
 
 {{% alert  title="Tip" color="primary" %}} 
-Aspose poskytuje zdarma konvertory —[JPEG do PowerPointu](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG do PowerPointu](https://products.aspose.app/slides/cs/import/png-to-ppt) —které umožňují rychle vytvořit prezentace z obrázků. 
+Aspose poskytuje zdarma převodníky – [JPEG do PowerPointu](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG do PowerPointu](https://products.aspose.app/slides/cs/import/png-to-ppt) – které umožňují rychle vytvářet prezentace z obrázků. 
 {{% /alert %}} 
 
-## **Vytvoření rámu obrázku**
+## **Vytvořit rámeček obrázku**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Získejte referenci na snímek pomocí jeho indexu. 
-3. Vytvořte objekt `PPImage` přidáním obrázku do [ImagesCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ImageCollection), která je součástí objektu prezentace a bude použita k vyplnění tvaru.
+2. Získejte odkaz na snímek pomocí jeho indexu. 
+3. Vytvořte objekt `PPImage` přidáním obrázku do [ImagesCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ImageCollection) spojené s objektem prezentace, který bude použit k vyplnění tvaru.
 4. Zadejte šířku a výšku obrázku.
-5. Vytvořte [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFrame) založený na šířce a výšce obrázku, pomocí metody `addPictureFrame`, která je dostupná u objektu tvaru přiřazeného k referencovanému snímku.
-6. Přidejte rámy obrázku (obsahující obrázek) na snímek.
+5. Vytvořte [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFrame) na základě šířky a výšky obrázku pomocí metody `addPictureFrame` vystavené objektem tvaru přidruženého k odkazovanému snímku.
+6. Přidejte rámeček obrázku (obsahující obrázek) na snímek.
 7. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScriptový kód ukazuje, jak vytvořit rám obrázku:
+Tento JavaScriptový kód ukazuje, jak vytvořit rámeček obrázku:
 
 ```javascript
 // Vytvoří instanci třídy Presentation, která představuje soubor PPTX
@@ -60,7 +60,7 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Vytvoří instanci třídy Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Přidá rámy obrázku se stejnou výškou a šířkou jako obrázek
+    // Přidá rámeček obrázku se stejnou výškou a šířkou jako obrázek
     sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // Zapíše soubor PPTX na disk
     pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
@@ -72,30 +72,32 @@ try {
 }
 ```
 
-Rámky obrázku vám umožňují rychle vytvářet snímky prezentací založené na obrázcích. Když kombinujete rám obrázku s možnostmi uložení Aspose.Slides, můžete manipulovat s operacemi vstupu/výstupu a konvertovat obrázky z jednoho formátu do druhého.
+Rámečky obrázku vám umožňují rychle vytvářet snímky prezentace na základě obrázků. Když kombinujete rámeček obrázku s možnostmi ukládání Aspose.Slides, můžete manipulovat s operacemi vstupu/výstupu pro převod obrázků z jednoho formátu do druhého.
 
-## **Vytvoření rámu obrázku s relativním měřítkem**
+## **Vytvořit rámeček obrázku s relativním měřítkem**
+
+Úpravou relativního měřítka obrázku můžete vytvořit složitější rámeček obrázku. 
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Získejte referenci na snímek pomocí jeho indexu. 
+2. Získejte odkaz na snímek pomocí jeho indexu. 
 3. Přidejte obrázek do kolekce obrázků prezentace.
-4. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PPImage) přidáním obrázku do [ImagesCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ImageCollection), která je součástí objektu prezentace a bude použita k vyplnění tvaru.
-5. Zadejte relativní šířku a výšku obrázku v rámci obrázku.
+4. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PPImage) přidáním obrázku do [ImagesCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ImageCollection) spojené s objektem prezentace, který bude použit k vyplnění tvaru.
+5. Zadejte relativní šířku a výšku obrázku v rámečku obrázku.
 6. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScriptový kód ukazuje, jak vytvořit rám obrázku s relativním měřítkem:
+Tento JavaScriptový kód ukazuje, jak vytvořit rámeček obrázku s relativním měřítkem:
 
 ```javascript
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
+// Vytvoří instanci třídy Presentation, která představuje PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Získá první snímek
     var sld = pres.getSlides().get_Item(0);
     // Vytvoří instanci třídy Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Přidá rámy obrázku s výškou a šířkou odpovídající obrázku
+    // Přidá rámeček obrázku s výškou a šířkou ekvivalentní obrázku
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Nastavení relativního měřítka šířky a výšky
+    // Nastavuje relativní míru výšky a šířky
     pf.setRelativeScaleHeight(0.8);
     pf.setRelativeScaleWidth(1.35);
     // Zapíše soubor PPTX na disk
@@ -108,9 +110,9 @@ try {
 }
 ```
 
-## **Extrahování rastrových obrázků z rámů obrázku**
+## **Extrahovat rastrové obrázky z rámečků obrázku**
 
-Můžete extrahovat rastrové obrázky z objektů [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFrame) a uložit je ve formátech PNG, JPG a dalších. Níže uvedený příklad kódu ukazuje, jak extrahovat obrázek z dokumentu „sample.pptx“ a uložit jej ve formátu PNG.
+Můžete extrahovat rastrové obrázky z objektů [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFrame) a uložit je ve formátech PNG, JPG a dalších. Níže uvedený příklad kódu ukazuje, jak extrahovat obrázek z dokumentu "sample.pptx" a uložit jej ve formátu PNG.
 
 ```javascript
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -134,12 +136,11 @@ try {
 }
 ```
 
-## **Extrahování SVG obrázků z rámů obrázku**
+## **Extrahovat SVG obrázky z rámečků obrázku**
 
-Když prezentace obsahuje SVG grafiku umístěnou uvnitř tvarů [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides pro Node.js přes Java vám umožní načíst původní vektorové obrázky v plné věrnosti.  
-Procházením kolekce tvarů snímku můžete identifikovat každý [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), ověřit, zda podkladový [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/) obsahuje SVG obsah, a poté uložit tento obrázek na disk nebo do proudu v jeho nativním SVG formátu.
+Když prezentace obsahuje SVG grafiku umístěnou uvnitř tvarů [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides pro Node.js via Java vám umožňuje získat původní vektorové obrázky s plnou věrností. Procházením kolekce tvarů snímku můžete identifikovat každý [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), zkontrolovat, zda podkladový [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/) obsahuje SVG data, a poté tento obrázek uložit na disk nebo do proudu v jeho nativním SVG formátu.
 
-Následující příklad kódu ukazuje, jak extrahovat SVG obrázek z rámu obrázku:
+Následující příklad kódu ukazuje, jak extrahovat SVG obrázek z rámečku obrázku:
 
 ```js
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -162,9 +163,9 @@ try {
 }
 ```
 
-## **Získání průhlednosti obrázku**
+## **Získat průhlednost obrázku**
 
-Aspose.Slides vám umožňuje získat efekt průhlednosti aplikovaný na obrázek. Tento JavaScriptový kód demonstruje operaci:
+Aspose.Slides vám umožňuje získat efekt průhlednosti aplikovaný na obrázek. Tento JavaScriptový kód ukazuje operaci:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("Test.pptx");
@@ -180,25 +181,56 @@ for (var i = 0; i < imageTransform.size(); i++) {
 }
 ```
 
-## **Formátování rámu obrázku**
+## **Získat jas a kontrast obrázku**
 
-Aspose.Slides poskytuje mnoho možností formátování, které lze použít na rám obrázku. Pomocí těchto možností můžete upravit rám obrázku tak, aby vyhovoval konkrétním požadavkům.
+Aspose.Slides vám umožňuje získat efekt jasu a kontrastu aplikovaný na obrázek. Třída [Luminance](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/luminance/) představuje tento transformace obrázku.
+
+Tento JavaScriptový kód ukazuje, jak získat nastavení jasu a kontrastu z rámečku obrázku:
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
+    const pictureFrame = shape;
+
+    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (let i = 0; i < imageTransform.size(); i++) {
+        const effect = imageTransform.get_Item(i);
+        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
+            const luminance = effect.getEffective();
+            const brightness = luminance.getBrightness();
+            const contrast = luminance.getContrast();
+
+            console.log("Brightness: " + brightness);
+            console.log("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Formátování rámečku obrázku**
+
+Aspose.Slides poskytuje mnoho možností formátování, které lze použít na rámeček obrázku. Pomocí těchto možností můžete upravit rámeček obrázku tak, aby splňoval specifické požadavky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Získejte referenci na snímek pomocí jeho indexu. 
-3. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PPImage) přidáním obrázku do [ImagesCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ImageCollection), která je součástí objektu prezentace a bude použita k vyplnění tvaru.
+2. Získejte odkaz na snímek pomocí jeho indexu. 
+3. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PPImage) přidáním obrázku do [ImagesCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ImageCollection) spojené s objektem prezentace, který bude použit k vyplnění tvaru.
 4. Zadejte šířku a výšku obrázku.
-5. Vytvořte `PictureFrame` založený na šířce a výšce obrázku, pomocí metody [addPictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) vystavené objektem [Shapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection) přiřazeným k referencovanému snímku.
-6. Přidejte rám obrázku (obsahující obrázek) na snímek.
-7. Nastavte barvu čáry rámu obrázku.
-8. Nastavte šířku čáry rámu obrázku.
-9. Otočte rám obrázku zadáním kladné nebo záporné hodnoty.  
-   * Kladná hodnota otáčí obrázek ve směru hodinových ručiček.  
+5. Vytvořte `PictureFrame` na základě šířky a výšky obrázku pomocí metody [addPictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) vystavené objektu [Shapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection) přidruženému k odkazovanému snímku.
+6. Přidejte rámeček obrázku (obsahující obrázek) na snímek.
+7. Nastavte barvu čáry rámečku obrázku.
+8. Nastavte šířku čáry rámečku obrázku.
+9. Otočte rámeček obrázku zadáním kladné nebo záporné hodnoty.
+   * Kladná hodnota otáčí obrázek po směru hodinových ručiček. 
    * Záporná hodnota otáčí obrázek proti směru hodinových ručiček.
-10. Přidejte rám obrázku (obsahující obrázek) na snímek.
+10. Přidejte rámeček obrázku (obsahující obrázek) na snímek.
 11. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScriptový kód demonstruje proces formátování rámu obrázku:
+Tento JavaScriptový kód ukazuje proces formátování rámečku obrázku:
 
 ```javascript
 // Vytvoří instanci třídy Presentation, která představuje PPTX
@@ -208,7 +240,7 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Vytvoří instanci třídy Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Přidá rámy obrázku s výškou a šířkou odpovídající obrázku
+    // Přidá rámeček obrázku s výškou a šířkou ekvivalentní obrázku
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // Aplikuje určité formátování na PictureFrameEx
     pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -226,12 +258,12 @@ try {
 ```
 
 {{% alert title="Tip" color="primary" %}}
-Aspose nedávno vyvinul [zdarma nástroj Collage Maker](https://products.aspose.app/slides/cs/collage). Pokud potřebujete [sloučit JPG/JPEG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG obrázky, [vytvořit mřížky z fotografií](https://products.aspose.app/slides/cs/collage/photo-grid), můžete použít tuto službu. 
+Aspose nedávno vyvinul [bezplatný Collage Maker](https://products.aspose.app/slides/cs/collage). Pokud potřebujete [sloučit JPG/JPEG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG obrázky, [vytvořit mřížky z fotografií](https://products.aspose.app/slides/cs/collage/photo-grid), můžete tento servis použít. 
 {{% /alert %}}
 
-## **Přidání obrázku jako odkazu**
+## **Přidat obrázek jako odkaz**
 
-Aby se předešlo velké velikosti prezentace, můžete přidávat obrázky (nebo videa) prostřednictvím odkazů místo jejich vložení přímo do prezentace. Tento JavaScriptový kód ukazuje, jak přidat obrázek a video do zástupného symbolu:
+Aby se předešlo velkým velikostem prezentace, můžete přidávat obrázky (nebo videa) pomocí odkazů místo přímého vložení souborů do prezentace. Tento JavaScriptový kód ukazuje, jak přidat obrázek a video do zástupce:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("input.pptx");
@@ -269,7 +301,7 @@ try {
 }
 ```
 
-## **Oříznutí obrázku**
+## **Oříznout obrázek**
 
 Tento JavaScriptový kód ukazuje, jak oříznout existující obrázek na snímku:
 
@@ -286,9 +318,9 @@ try {
             image.dispose();
         }
     }
-    // Přidá PictureFrame na snímek
+    // Přidá rámeček obrázku na snímek
     var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Ořízne obrázek (procentuální hodnoty)
+    // Ořízne obrázek (hodnoty v procentech)
     picFrame.getPictureFormat().setCropLeft(23.6);
     picFrame.getPictureFormat().setCropRight(21.5);
     picFrame.getPictureFormat().setCropTop(3);
@@ -303,19 +335,19 @@ try {
 }
 ```
 
-## **Odstranění oříznutých oblastí obrázku**
+## **Smazat oříznuté oblasti obrázku**
 
-Pokud chcete odstranit oříznuté oblasti obrázku obsaženého v rámečku, můžete použít metodu [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--). Tato metoda vrátí oříznutý obrázek nebo původní obrázek, pokud ořez není potřebný.
+Pokud chcete smazat oříznuté oblasti obrázku obsaženého v rámečku, můžete použít metodu [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . Tato metoda vrací oříznutý obrázek nebo původní obrázek, pokud ořez není potřeba.
 
-Tento JavaScriptový kód demonstruje operaci:
+Tento JavaScriptový kód ukazuje operaci:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    // Získá PictureFrame z prvního snímku
+    // Získá rámeček obrázku z prvního snímku
     var picFrame = slide.getShapes().get_Item(0);
-    // Odstraní oříznuté oblasti obrázku v PictureFrame a vrátí oříznutý obrázek
+    // Smaže oříznuté oblasti obrázku v rámečku obrázku a vrátí oříznutý obrázek
     var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
     // Uloží výsledek
     presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
@@ -327,19 +359,18 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Metoda [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) přidává oříznutý obrázek do kolekce obrázků prezentace. Pokud je obrázek použit pouze v zpracovaném [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), může toto nastavení snížit velikost prezentace. V opačném případě se počet obrázků v výsledné prezentaci zvýší.  
+Metoda [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) přidává oříznutý obrázek do kolekce obrázků prezentace. Pokud je obrázek používán pouze v zpracovaném [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), může tato úprava snížit velikost prezentace. V opačném případě se počet obrázků v výsledné prezentaci zvýší.
 
-Metoda při operaci ořezávání převádí WMF/EMF metafily na rastrový PNG obrázek. 
+Metoda převádí metafily WMF/EMF na rastrový PNG obrázek během operace ořezávání. 
 {{% /alert %}}
 
-## **Komprese obrázků**
+## **Komprimovat obrázky**
 
-Můžete komprimovat obrázek v prezentaci pomocí metody [PictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-).  
-Tato metoda komprimuje obrázek snížením jeho velikosti na základě velikosti tvaru a zadaného rozlišení, s možností odstranit oříznuté oblasti.  
+Obrázek v prezentaci můžete komprimovat pomocí metody [PictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) . Tato metoda komprimuje obrázek snížením jeho velikosti na základě velikosti tvaru a zadaného rozlišení, s volbou smazat oříznuté oblasti.
 
-Upravuje velikost a rozlišení obrázku podobně jako funkce PowerPointu **Formát obrázku → Komprimovat obrázky → Rozlišení**.  
+Upravuje velikost a rozlišení obrázku podobně jako funkce PowerPointu **Picture Format → Compress Pictures → Resolution**.
 
-Následující JavaScriptové ukázky demonstrují, jak komprimovat obrázek v prezentaci zadáním cílového rozlišení a volitelným odstraněním oříznutých oblastí:
+Následující příklady v JavaScriptu ukazují, jak komprimovat obrázek v prezentaci zadáním cílového rozlišení a volitelným odstraněním oříznutých oblastí:
 
 ```javascript
 const presentation = new aspose.slides.Presentation("demo.pptx");
@@ -363,7 +394,7 @@ try {
 }
 ```
 
-Nebo pomocí jiného předdefinovaného DPI:
+Nebo použitím jiné předdefinované hodnoty DPI:
 
 ```javascript
 const presentation = new aspose.slides.Presentation("demo.pptx");
@@ -371,7 +402,7 @@ try {
     const slide = presentation.getSlides().get_Item(0);
     const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Komprimuje obrázek na 96 DPI (rozlišení pro e-mail), odstraňuje oříznuté oblasti.
+    // Komprimuje obrázek na 96 DPI (rozlišení pro e‑mail), odstraněním oříznutých oblastí.
     pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
 
     presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
@@ -381,13 +412,12 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Metoda převádí obrázek na nižší rozlišení na základě velikosti tvaru a zadaného DPI. Oříznuté oblasti lze také odstranit pro optimalizaci velikosti souboru.  
-Pokud je obrázek metafilem (WMF/EMF) nebo SVG, komprese se neuplatní. Kvalita JPEG je zachována nebo mírně snížena podle rozlišení, podobně jako PowerPoint zachází s vysoké rozlišení JPEG obrázky. 
+Metoda převádí obrázek na nižší rozlišení na základě velikosti tvaru a zadaného DPI. Oříznuté oblasti lze také smazat pro optimalizaci velikosti souboru. Pokud je obrázek metafile (WMF/EMF) nebo SVG, komprese se nepoužije. Kvalita JPEG se zachová nebo mírně sníží podle rozlišení, podobně jako PowerPoint zachází s vysokým rozlišením JPEGu. 
 {{% /alert %}}
 
-## **Uzamčení poměru stran**
+## **Uzamknout poměr stran**
 
-Pokud chcete, aby tvar obsahující obrázek zachoval svůj poměr stran i po změně rozměrů obrázku, můžete použít metodu [setAspectRatioLocked](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) k nastavení volby *Lock Aspect Ratio*.
+Pokud chcete, aby tvar obsahující obrázek zachoval svůj poměr stran i po změně rozměrů obrázku, můžete použít metodu [setAspectRatioLocked](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) pro nastavení volby *Lock Aspect Ratio*.
 
 Tento JavaScriptový kód ukazuje, jak uzamknout poměr stran tvaru:
 
@@ -417,26 +447,26 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Nastavení *Lock Aspect Ratio* zachovává pouze poměr stran tvaru, nikoli obrázek, který obsahuje. 
+Nastavení *Lock Aspect Ratio* zachovává pouze poměr stran tvaru, nikoli obrázek, který tvar obsahuje. 
 {{% /alert %}}
 
-## **Použití vlastnosti StretchOff**
+## **Použít vlastnost StretchOff**
 
-Pomocí metod [setStretchOffsetLeft](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) a [setStretchOffsetBottom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat) můžete určit výplňový obdélník.  
+Pomocí metod [setStretchOffsetLeft](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) a [setStretchOffsetBottom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) ze třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PictureFillFormat) můžete určit výplňový obdélník.
 
-Když je pro obrázek zadáno roztažení, zdrojový obdélník se škáluje tak, aby zaplnil určený výplňový obdélník. Každý okraj výplňového obdélníku je definován procentuálním posunem od odpovídajícího okraje ohraničujícího rámečku tvaru. Kladné procento určuje vnitřní posun, záporné procento vnější posun.  
+Když je pro obrázek zadáno natažení, zdrojový obdélník se škáluje tak, aby odpovídal zadanému výplňovému obdélníku. Každý okraj výplňového obdélníku je definován procentuálním posunem od odpovídajícího okraje ohraničujícího rámečku tvaru. Kladné procento určuje vnitřní odsazení, záporné procento pak vnější výstupek.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).  
-2. Získejte referenci na snímek pomocí jeho indexu.  
-3. Přidejte obdélník `AutoShape`.  
-4. Vytvořte obrázek.  
-5. Nastavte typ výplně tvaru.  
-6. Nastavte režim výplně obrázkem tvaru.  
-7. Přidejte obrázek pro výplň tvaru.  
-8. Zadejte posuny obrázku od odpovídajícího okraje ohraničujícího rámečku tvaru.  
-9. Uložte upravenou prezentaci jako soubor PPTX.  
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte obdélník `AutoShape`. 
+4. Vytvořte obrázek.
+5. Nastavte typ výplně tvaru.
+6. Nastavte režim výplně obrázkem tvaru.
+7. Přidejte nastavený obrázek pro výplň tvaru.
+8. Zadejte posuny obrázku od odpovídajícího okraje ohraničujícího rámečku tvaru
+9. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento JavaScriptový kód demonstruje proces, ve kterém je použita vlastnost StretchOff:
+Tento JavaScriptový kód ukazuje proces, ve kterém je použita vlastnost StretchOff:
 
 ```javascript
 // Vytvoří instanci třídy Presentation, která představuje soubor PPTX
@@ -460,7 +490,7 @@ try {
     aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
     // Nastaví režim výplně obrázkem tvaru
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Nastaví obrázek pro výplň tvaru
+    // Nastaví obrázek k vyplnění tvaru
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
     // Určuje posuny obrázku od odpovídajícího okraje ohraničujícího rámečku tvaru
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
@@ -477,20 +507,20 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Jak zjistit, které formáty obrázků jsou podporovány pro PictureFrame?**  
+**Jak zjistit, které formáty obrázků jsou podporovány pro PictureFrame?**
 
-Aspose.Slides podporuje jak rastrové obrázky (PNG, JPEG, BMP, GIF atd.), tak vektorové obrázky (např. SVG) prostřednictvím objektu obrázku přiřazeného k [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/). Seznam podporovaných formátů obecně překrývá možnosti enginu pro snímky a konverzi obrázků.
+Aspose.Slides podporuje jak rastrové obrázky (PNG, JPEG, BMP, GIF, atd.), tak vektorové obrázky (například SVG) prostřednictvím objektu obrázku přiřazeného k [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/). Seznam podporovaných formátů se obecně překrývá s možnostmi enginu pro konverzi snímků a obrázků.
 
-**Jak ovlivní přidání desítek velkých obrázků velikost a výkon PPTX?**  
+**Jak ovlivní přidání desítek velkých obrázků velikost a výkon souboru PPTX?**
 
-Vkládání velkých obrázků zvyšuje velikost souboru a využití paměti; prolinkování obrázků pomáhá udržet velikost prezentace nízkou, ale vyžaduje, aby externí soubory zůstaly dostupné. Aspose.Slides poskytuje možnost přidávat obrázky jako odkazy ke snížení velikosti souboru.
+Vkládání velkých obrázků zvyšuje velikost souboru a využití paměti; propojení obrázků pomáhá udržet velikost prezentace nízkou, ale vyžaduje, aby externí soubory zůstaly dostupné. Aspose.Slides poskytuje možnost přidávat obrázky pomocí odkazu, čímž snižuje velikost souboru.
 
-**Jak mohu uzamknout objekt obrázku před neúmyslným přesouváním/změnou velikosti?**  
+**Jak mohu uzamknout objekt obrázku před nechtěným přesouváním/změnou velikosti?**
 
-Použijte [uzamčení tvarů](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) pro [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/) (např. zakázat přesouvání nebo změnu velikosti). Mechanismus uzamčení je podporován pro různé typy tvarů, včetně [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/).
+Použijte [zámky tvarů](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) pro [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/) (například zakázání přesunu nebo změny velikosti). Mechanismus zamykání je podporován pro různé typy tvarů, včetně [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/).
 
-**Zůstane vektorová věrnost SVG při exportu prezentace do PDF/obrázků?**  
+**Je zachována vektorová věrnost SVG při exportu prezentace do PDF/obrázků?**
 
-Aspose.Slides umožňuje extrahovat SVG z [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/) jako původní vektor. Při [exportu do PDF](/slides/cs/nodejs-java/convert-powerpoint-to-pdf/) nebo [rastrových formátů](/slides/cs/nodejs-java/convert-powerpoint-to-png/) může být výsledek rasterizován v závislosti na nastavení exportu; fakt, že původní SVG je uložen jako vektor, je potvrzen chováním extrakce.
+Aspose.Slides umožňuje extrahovat SVG z [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/) jako původní vektor. Při [exportu do PDF](/slides/cs/nodejs-java/convert-powerpoint-to-pdf/) nebo [rasterových formátů](/slides/cs/nodejs-java/convert-powerpoint-to-png/) může být výsledek rastrován v závislosti na nastaveních exportu; fakt, že původní SVG je uložen jako vektor, je potvrzen chováním extrakce.

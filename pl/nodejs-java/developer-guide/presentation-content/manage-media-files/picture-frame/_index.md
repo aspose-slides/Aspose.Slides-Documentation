@@ -1,5 +1,5 @@
 ---
-title: Zarządzaj ramkami obrazów w prezentacjach przy użyciu JavaScript
+title: Zarządzanie ramkami obrazów w prezentacjach przy użyciu JavaScript
 linktitle: Ramka obrazu
 type: docs
 weight: 10
@@ -14,13 +14,13 @@ keywords:
 - obraz rastrowy
 - obraz wektorowy
 - przytnij obraz
-- obszar przycięty
+- przycięty obszar
 - właściwość StretchOff
 - formatowanie ramki obrazu
 - właściwości ramki obrazu
 - skala względna
 - efekt obrazu
-- proporcje obrazu
+- proporcje
 - przezroczystość obrazu
 - PowerPoint
 - OpenDocument
@@ -28,27 +28,27 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dodaj ramki obrazu do prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides for Node.js via Java. Usprawnij swój przepływ pracy i ulepsz projekty slajdów."
+description: "Dodaj ramki obrazu do prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Node.js via Java. Usprawnij swój proces pracy i ulepsz projektowanie slajdów."
 ---
 ## **Wprowadzenie**
 
-Obramowanie obrazu jest kształtem, który zawiera obraz — jest to jak zdjęcie w ramce.  
+Ramka obrazu jest kształtem, który zawiera obraz — jest jak zdjęcie w ramce. 
 
-Możesz dodać obraz do slajdu poprzez ramkę obrazu. W ten sposób formatowanie obrazu odbywa się poprzez formatowanie ramki obrazu.
+Możesz dodać obraz do slajdu za pomocą ramki obrazu. W ten sposób możesz formatować obraz, formatując ramkę obrazu.
 
-{{% alert  title="Wskazówka" color="primary" %}} 
+{{% alert  title="Tip" color="primary" %}} 
 
 Aspose udostępnia darmowe konwertery — [JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt) — które pozwalają szybko tworzyć prezentacje z obrazów. 
 
 {{% /alert %}} 
 
-## **Utwórz ramkę obrazu**
+## **Utworzenie ramki obrazu**
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).  
-2. Pobierz odwołanie do slajdu przy użyciu jego indeksu.  
-3. Utwórz obiekt `PPImage`, dodając obraz do [ImagesCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ImageCollection) powiązanej z obiektem prezentacji, który zostanie użyty do wypełnienia kształtu.  
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu.  
+3. Utwórz obiekt `PPImage`, dodając obraz do [ImagesCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ImageCollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.  
 4. Określ szerokość i wysokość obrazu.  
-5. Utwórz [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFrame) na podstawie szerokości i wysokości obrazu przy użyciu metody `addPictureFrame` udostępnionej przez obiekt shape powiązany z wybranym slajdem.  
+5. Utwórz [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFrame) na podstawie szerokości i wysokości obrazu, korzystając z metody `addPictureFrame` udostępnionej przez obiekt kształtu powiązany z odwołanym slajdem.  
 6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.  
 7. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
 
@@ -62,7 +62,7 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Tworzy instancję klasy Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Dodaje ramkę obrazu o wysokości i szerokości odpowiadającej obrazowi
+    // Dodaje ramkę obrazu o takiej samej wysokości i szerokości jak obraz
     sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // Zapisuje plik PPTX na dysku
     pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
@@ -74,35 +74,35 @@ try {
 }
 ```
 
-Ramki obrazu umożliwiają szybkie tworzenie slajdów prezentacji na podstawie obrazów. Łącząc ramkę obrazu z opcjami zapisu Aspose.Slides, możesz manipulować operacjami wejścia/wyjścia, aby konwertować obrazy z jednego formatu na inny.
+Ramki obrazu umożliwiają szybkie tworzenie slajdów prezentacji na podstawie obrazów. Gdy połączysz ramkę obrazu z opcjami zapisu Aspose.Slides, możesz manipulować operacjami wejścia/wyjścia, aby konwertować obrazy z jednego formatu na inny.
 
-## **Utwórz ramkę obrazu z skalowaniem względnym**
+## **Utworzenie ramki obrazu ze skalą względną**
 
-Zmieniając skalowanie względne obrazu, możesz stworzyć bardziej złożoną ramkę obrazu.  
+Poprzez zmianę skalowania względnego obrazu możesz utworzyć bardziej złożoną ramkę obrazu. 
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).  
-2. Pobierz odwołanie do slajdu przy użyciu jego indeksu.  
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu.  
 3. Dodaj obraz do kolekcji obrazów prezentacji.  
-4. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PPImage), dodając obraz do [ImagesCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ImageCollection) powiązanej z obiektem prezentacji, który zostanie użyty do wypełnienia kształtu.  
+4. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PPImage), dodając obraz do [ImagesCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ImageCollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.  
 5. Określ względną szerokość i wysokość obrazu w ramce obrazu.  
 6. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
 
-Ten kod JavaScript pokazuje, jak utworzyć ramkę obrazu ze skalowaniem względnym:
+Ten kod JavaScript pokazuje, jak utworzyć ramkę obrazu ze skalą względną:
 
 ```javascript
-// Utwórz instancję klasy Presentation, która reprezentuje plik PPTX
+// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 var pres = new aspose.slides.Presentation();
 try {
-    // Pobierz pierwszy slajd
+    // Pobiera pierwszy slajd
     var sld = pres.getSlides().get_Item(0);
-    // Utwórz instancję klasy Image
+    // Tworzy instancję klasy Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Dodaj ramkę obrazu o wysokości i szerokości równych obrazowi
+    // Dodaje ramkę obrazu o wysokości i szerokości równych obrazowi
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Ustawianie względnej skali szerokości i wysokości
+    // Ustawia względną skalę wysokości i szerokości
     pf.setRelativeScaleHeight(0.8);
     pf.setRelativeScaleWidth(1.35);
-    // Zapisz plik PPTX na dysku
+    // Zapisuje plik PPTX na dysku
     pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
@@ -112,7 +112,7 @@ try {
 }
 ```
 
-## **Wyodrębnij obrazy rastrowe z ramek obrazu**
+## **Wyodrębnianie obrazów rastrowych z ramek obrazu**
 
 Możesz wyodrębnić obrazy rastrowe z obiektów [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFrame) i zapisać je w formatach PNG, JPG i innych. Poniższy przykład kodu demonstruje, jak wyodrębnić obraz z dokumentu „sample.pptx” i zapisać go w formacie PNG.
 
@@ -138,9 +138,9 @@ try {
 }
 ```
 
-## **Wyodrębnij obrazy SVG z ramek obrazu**
+## **Wyodrębnianie obrazów SVG z ramek obrazu**
 
-Gdy prezentacja zawiera grafikę SVG umieszczoną wewnątrz kształtów [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides for Node.js via Java umożliwia pobranie oryginalnych obrazów wektorowych w pełnej jakości. Przeglądając kolekcję kształtów slajdu, możesz zidentyfikować każdy [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), sprawdzić, czy leżący pod spodem [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/) zawiera treść SVG, a następnie zapisać ten obraz na dysku lub w strumieniu w natywnym formacie SVG.
+Kiedy prezentacja zawiera grafikę SVG umieszczoną wewnątrz kształtów [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides for Node.js via Java pozwala pobrać oryginalne obrazy wektorowe w pełnej jakości. Przeglądając kolekcję kształtów slajdu, możesz zidentyfikować każdy [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), sprawdzić, czy podlegający mu [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/) zawiera treść SVG, a następnie zapisać ten obraz na dysk lub do strumienia w natywnym formacie SVG.
 
 Poniższy przykład kodu demonstruje, jak wyodrębnić obraz SVG z ramki obrazu:
 
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-## **Uzyskaj przezroczystość obrazu**
+## **Uzyskanie przezroczystości obrazu**
 
-Aspose.Slides pozwala odczytać efekt przezroczystości zastosowany do obrazu. Ten kod JavaScript prezentuje tę operację:
+Aspose.Slides umożliwia uzyskanie efektu przezroczystości zastosowanego do obrazu. Ten kod JavaScript demonstruje operację:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("Test.pptx");
@@ -183,21 +183,52 @@ for (var i = 0; i < imageTransform.size(); i++) {
 }
 ```
 
+## **Uzyskanie jasności i kontrastu obrazu**
+
+Aspose.Slides umożliwia uzyskanie efektu jasności i kontrastu zastosowanego do obrazu. Klasa [Luminance](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/luminance/) reprezentuje tę transformację obrazu.
+
+Ten kod JavaScript demonstruje, jak uzyskać ustawienia jasności i kontrastu z ramki obrazu:
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
+    const pictureFrame = shape;
+
+    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (let i = 0; i < imageTransform.size(); i++) {
+        const effect = imageTransform.get_Item(i);
+        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
+            const luminance = effect.getEffective();
+            const brightness = luminance.getBrightness();
+            const contrast = luminance.getContrast();
+
+            console.log("Brightness: " + brightness);
+            console.log("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Formatowanie ramki obrazu**
 
-Aspose.Slides oferuje wiele opcji formatowania, które można zastosować do ramki obrazu. Korzystając z tych opcji, możesz zmodyfikować ramkę obrazu, aby spełniała konkretne wymagania.
+Aspose.Slides oferuje wiele opcji formatowania, które można zastosować do ramki obrazu. Korzystając z tych opcji, możesz dostosować ramkę obrazu do konkretnych wymagań.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).  
-2. Pobierz odwołanie do slajdu przy użyciu jego indeksu.  
-3. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PPImage), dodając obraz do [ImagesCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ImageCollection) powiązanej z obiektem prezentacji, który zostanie użyty do wypełnienia kształtu.  
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu.  
+3. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PPImage), dodając obraz do [ImagesCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ImageCollection) powiązanej z obiektem prezentacji, który będzie używany do wypełnienia kształtu.  
 4. Określ szerokość i wysokość obrazu.  
-5. Utwórz `PictureFrame` na podstawie szerokości i wysokości obrazu przy użyciu metody [addPictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) udostępnionej przez obiekt [Shapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ShapeCollection) powiązany ze wskazanym slajdem.  
+5. Utwórz `PictureFrame` na podstawie szerokości i wysokości obrazu, korzystając z metody [addPictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) udostępnionej przez obiekt [Shapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ShapeCollection) powiązany z odwołanym slajdem.  
 6. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.  
 7. Ustaw kolor linii ramki obrazu.  
 8. Ustaw szerokość linii ramki obrazu.  
 9. Obróć ramkę obrazu, podając wartość dodatnią lub ujemną.  
-   * Dodatnia wartość obraca obraz zgodnie z ruchem wskazówek zegara.  
-   * Ujemna wartość obraca obraz przeciwnie do ruchu wskazówek zegara.  
+   * Wartość dodatnia obraca obraz zgodnie z ruchem wskazówek zegara.  
+   * Wartość ujemna obraca obraz przeciwnie do ruchu wskazówek zegara.  
 10. Dodaj ramkę obrazu (zawierającą obraz) do slajdu.  
 11. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
 
@@ -213,7 +244,7 @@ try {
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
     // Dodaje ramkę obrazu o wysokości i szerokości równych obrazowi
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Stosuje pewne formatowanie do PictureFrameEx
+    // Zastosowuje formatowanie do PictureFrameEx
     pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     pf.getLineFormat().setWidth(20);
@@ -228,15 +259,15 @@ try {
 }
 ```
 
-{{% alert title="Wskazówka" color="primary" %}}
+{{% alert title="Tip" color="primary" %}}
 
-Aspose niedawno opracowało darmowy [Collage Maker](https://products.aspose.app/slides/pl/collage). Jeśli potrzebujesz [scalić obrazy JPG/JPEG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG, [tworzyć siatki ze zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid), możesz skorzystać z tej usługi. 
+Aspose niedawno opracował [darmowy Collage Maker](https://products.aspose.app/slides/pl/collage). Jeśli potrzebujesz [połączyć obrazy JPG/JPEG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG, [tworzyć siatki ze zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid), możesz skorzystać z tej usługi. 
 
 {{% /alert %}}
 
-## **Dodaj obraz jako odnośnik**
+## **Dodawanie obrazu jako linku**
 
-Aby uniknąć dużych rozmiarów prezentacji, możesz dodać obrazy (lub wideo) poprzez odnośniki zamiast osadzania plików bezpośrednio w prezentacji. Ten kod JavaScript pokazuje, jak dodać obraz i wideo do placeholdera:
+Aby zmniejszyć rozmiar prezentacji, możesz dodawać obrazy (lub filmy) za pomocą linków zamiast osadzać pliki bezpośrednio w prezentacji. Ten kod JavaScript pokazuje, jak dodać obraz i wideo do miejsca wstawiania:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("input.pptx");
@@ -274,7 +305,7 @@ try {
 }
 ```
 
-## **Przytnij obraz**
+## **Kadrowanie obrazu**
 
 Ten kod JavaScript pokazuje, jak przyciąć istniejący obraz na slajdzie:
 
@@ -308,11 +339,11 @@ try {
 }
 ```
 
-## **Usuń przycięte obszary obrazu**
+## **Usuwanie przyciętych obszarów obrazu w ramce**
 
-Jeśli chcesz usunąć przycięte obszary obrazu zawartego w ramce, możesz użyć metody [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . Metoda zwraca przycięty obraz lub pierwotny obraz, jeśli przycinanie nie jest potrzebne.
+Jeśli chcesz usunąć przycięte obszary obrazu zawartego w ramce, możesz użyć metody [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--). Metoda ta zwraca przycięty obraz lub oryginalny obraz, jeśli przycinanie nie jest konieczne.
 
-Ten kod JavaScript demonstruje tę operację:
+Ten kod JavaScript demonstruje operację:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
@@ -331,21 +362,21 @@ try {
 }
 ```
 
-{{% alert title="UWAGA" color="warning" %}} 
+{{% alert title="NOTE" color="warning" %}} 
 
-Metoda [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) dodaje przycięty obraz do kolekcji obrazów prezentacji. Jeśli obraz jest używany wyłącznie w przetwarzanej [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), takie rozwiązanie może zmniejszyć rozmiar prezentacji. W przeciwnym razie liczba obrazów w ostatecznej prezentacji wzrośnie.
+Metoda [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) dodaje przycięty obraz do kolekcji obrazów prezentacji. Jeśli obraz jest używany wyłącznie w przetwarzanym [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), takie rozwiązanie może zmniejszyć rozmiar prezentacji. W przeciwnym razie liczba obrazów w wynikowej prezentacji się zwiększy.
 
-Metoda konwertuje pliki metafile WMF/EMF na rastrowy obraz PNG w trakcie przycinania. 
+Metoda konwertuje pliki metafile WMF/EMF na rastrowe obrazy PNG w trakcie przycinania. 
 
 {{% /alert %}}
 
-## **Kompresuj obrazy**
+## **Kompresja obrazów**
 
-Możesz skompresować obraz w prezentacji, używając metody [PictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) . Metoda ta zmniejsza rozmiar obrazu w oparciu o rozmiar kształtu i określoną rozdzielczość, z opcją usunięcia przyciętych obszarów.
+Możesz skompresować obraz w prezentacji, używając metody [PictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-). Metoda ta zmniejsza rozmiar obrazu w oparciu o rozmiar kształtu i podaną rozdzielczość, z opcją usunięcia przyciętych obszarów.
 
-Działa analogicznie do funkcji PowerPoint **Format obrazu → Kompresuj obrazy → Rozdzielczość**.
+Działa podobnie jak funkcja PowerPoint **Format obrazu → Kompresuj obrazy → Rozdzielczość**.
 
-Poniższe przykłady JavaScript pokazują, jak skompresować obraz w prezentacji, podając docelową rozdzielczość i opcjonalnie usuwając przycięte obszary:
+Poniższe przykłady JavaScript demonstrują, jak skompresować obraz w prezentacji, określając docelową rozdzielczość i opcjonalnie usuwając przycięte obszary:
 
 ```javascript
 const presentation = new aspose.slides.Presentation("demo.pptx");
@@ -353,10 +384,10 @@ try {
     const slide = presentation.getSlides().get_Item(0);
     const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Skompresuj obraz z docelową rozdzielczością 150 DPI (rozdzielczość sieciowa) i usuń przycięte obszary.
+    // Kompresuje obraz z docelową rozdzielczością 150 DPI (rozwiązanie internetowe) i usuwa przycięte obszary.
     const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
 
-    // Sprawdź wynik kompresji.
+    // Sprawdza wynik kompresji.
     if (result) {
         console.log("Image successfully compressed.");
     } else {
@@ -377,7 +408,7 @@ try {
     const slide = presentation.getSlides().get_Item(0);
     const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Skompresuj obraz do 96 DPI (rozdzielczość e-mail), usuwając przycięte obszary.
+    // Kompresuje obraz do 96 DPI (rozdzielczość e‑mail), usuwając przycięte obszary.
     pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
 
     presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
@@ -386,16 +417,16 @@ try {
 }
 ```
 
-{{% alert title="UWAGA" color="warning" %}} 
+{{% alert title="NOTE" color="warning" %}} 
 
-Metoda konwertuje obraz do niższej rozdzielczości w oparciu o rozmiar kształtu i podane DPI. Przycięte regiony mogą być także usunięte w celu optymalizacji wielkości pliku.  
-Jeśli obraz jest metafilem (WMF/EMF) lub SVG, kompresja nie zostanie zastosowana. Dla JPEG jakość jest zachowywana lub nieco obniżana w zależności od rozdzielczości, podobnie jak w PowerPoint.
+Metoda konwertuje obraz do niższej rozdzielczości w zależności od rozmiaru kształtu i podanego DPI. Przycięte regiony mogą być również usuwane w celu optymalizacji rozmiaru pliku.  
+Jeśli obraz jest metafilem (WMF/EMF) lub SVG, kompresja nie zostanie zastosowana. Jakość JPEG jest zachowywana lub nieco zmniejszana w zależności od rozdzielczości, podobnie jak w PowerPoint przy obsłudze wysokiej rozdzielczości JPEG.
 
 {{% /alert %}}
 
-## **Zablokuj proporcje obrazu**
+## **Zablokowanie proporcji**
 
-Jeśli chcesz, aby kształt zawierający obraz zachował swój stosunek proporcji po zmianie wymiarów obrazu, możesz użyć metody [setAspectRatioLocked](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) do ustawienia opcji *Lock Aspect Ratio*.
+Jeśli chcesz, aby kształt zawierający obraz zachował proporcje po zmianie wymiarów obrazu, możesz użyć metody [setAspectRatioLocked](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) do ustawienia opcji *Lock Aspect Ratio*.
 
 Ten kod JavaScript pokazuje, jak zablokować proporcje kształtu:
 
@@ -414,7 +445,7 @@ try {
         }
     }
     var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // ustaw kształt, aby zachować proporcje podczas zmiany rozmiaru
+    // ustaw kształt tak, aby zachować proporcje przy zmianie rozmiaru
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch (e) {console.log(e);
 } finally {
@@ -424,29 +455,29 @@ try {
 }
 ```
 
-{{% alert title="UWAGA" color="warning" %}} 
+{{% alert title="NOTE" color="warning" %}} 
 
-Ustawienie *Lock Aspect Ratio* zachowuje tylko proporcje samego kształtu, a nie obrazu, który w nim się znajduje.
+Ustawienie *Lock Aspect Ratio* zachowuje tylko proporcje kształtu, a nie obrazu, który on zawiera.
 
 {{% /alert %}}
 
-## **Użyj właściwości StretchOff**
+## **Użycie właściwości StretchOff**
 
-Korzystając z metod [setStretchOffsetLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) i [setStretchOffsetBottom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) z klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat), możesz określić prostokąt wypełnienia.
+Korzystając z metod [setStretchOffsetLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) i [setStretchOffsetBottom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PictureFillFormat), możesz określić prostokąt wypełnienia.
 
-Gdy rozciąganie jest określone dla obrazu, prostokąt źródłowy jest skalowany, aby pasował do zdefiniowanego prostokąta wypełnienia. Każda krawędź prostokąta wypełnienia jest definiowana jako procentowy offset od odpowiadającej krawędzi ramki ograniczającej kształt. Dodatni procent oznacza wcięcie, natomiast ujemny procent oznacza wystawienie na zewnątrz.
+Gdy rozciąganie jest określone dla obrazu, źródłowy prostokąt jest skalowany, aby pasował do podanego prostokąta wypełnienia. Każda krawędź prostokąta wypełnienia jest definiowana przez procentowy offset od odpowiadającej krawędzi ramki ograniczającej kształt. Dodatni procent określa wcięcie, a ujemny – wystawienie.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).  
-2. Pobierz odwołanie do slajdu przy użyciu jego indeksu.  
+2. Uzyskaj referencję do slajdu za pomocą jego indeksu.  
 3. Dodaj prostokąt `AutoShape`.  
 4. Utwórz obraz.  
 5. Ustaw typ wypełnienia kształtu.  
 6. Ustaw tryb wypełnienia obrazu kształtu.  
 7. Dodaj ustawiony obraz do wypełnienia kształtu.  
-8. Określ offsety obrazu względem odpowiedniej krawędzi ramki kształtu.  
+8. Określ offsety obrazu względem odpowiadających krawędzi ramki ograniczającej kształt.  
 9. Zapisz zmodyfikowaną prezentację jako plik PPTX.  
 
-Ten kod JavaScript demonstruje proces użycia właściwości StretchOff:
+Ten kod JavaScript demonstruje proces, w którym używana jest właściwość StretchOff:
 
 ```javascript
 // Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
@@ -464,15 +495,15 @@ try {
             image.dispose();
         }
     }
-    // Dodaje AutoShape ustawioną na prostokąt
+    // Dodaje AutoShape ustawiony na prostokąt
     var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
     // Ustawia typ wypełnienia kształtu
     aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
     // Ustawia tryb wypełnienia obrazu kształtu
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Ustawia obraz jako wypełnienie kształtu
+    // Ustawia obraz wypełniający kształt
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Określa przesunięcia obrazu względem odpowiedniej krawędzi ramki kształtu
+    // Określa offsety obrazu względem odpowiedniej krawędzi ramki ograniczającej kształt
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
@@ -489,18 +520,18 @@ try {
 
 ## **FAQ**
 
-**Jak mogę dowiedzieć się, które formaty obrazów są obsługiwane dla PictureFrame?**
+**Jak mogę sprawdzić, które formaty obrazów są obsługiwane dla PictureFrame?**
 
-Aspose.Slides obsługuje zarówno obrazy rastrowe (PNG, JPEG, BMP, GIF itp.), jak i wektorowe (np. SVG) poprzez obiekt obrazu przypisany do [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/). Lista wspieranych formatów zazwyczaj pokrywa się z możliwościami silnika konwersji slajdów i obrazów.
+Aspose.Slides obsługuje zarówno obrazy rastrowe (PNG, JPEG, BMP, GIF itp.), jak i obrazy wektorowe (np. SVG) poprzez obiekt obrazu przypisany do [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/). Lista obsługiwanych formatów zazwyczaj pokrywa się z możliwościami silnika konwersji slajdów i obrazów.
 
-**Jak dodanie dziesiątek dużych obrazów wpłynie na rozmiar i wydajność pliku PPTX?**
+**Jak dodawanie dziesiątek dużych obrazów wpływa na rozmiar i wydajność pliku PPTX?**
 
-Osadzanie dużych obrazów zwiększa rozmiar pliku i zużycie pamięci; linkowanie obrazów pomaga utrzymać niewielki rozmiar prezentacji, ale wymaga dostępności plików zewnętrznych. Aspose.Slides umożliwia dodawanie obrazów jako linków, aby zmniejszyć rozmiar pliku.
+Osadzanie dużych obrazów zwiększa rozmiar pliku i zużycie pamięci; łączenie obrazów pomaga utrzymać mniejszy rozmiar prezentacji, ale wymaga, aby pliki zewnętrzne pozostały dostępne. Aspose.Slides umożliwia dodawanie obrazów jako linków, aby zmniejszyć rozmiar pliku.
 
 **Jak mogę zablokować obiekt obrazu przed przypadkowym przemieszczaniem lub zmianą rozmiaru?**
 
-Użyj [shape locks](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) dla [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) (np. wyłącz ruch lub zmianę rozmiaru). Mechanizm blokady jest obsługiwany dla różnych typów kształtów, w tym [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/).
+Użyj [shape locks](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) dla [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) (np. wyłączając możliwość przemieszczania lub zmiany rozmiaru). Mechanizm blokady jest wspierany dla różnych typów kształtów, w tym [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/).
 
-**Czy integralność wektora SVG jest zachowywana przy eksportowaniu prezentacji do PDF/obrazów?**
+**Czy wierność wektora SVG jest zachowywana przy eksportowaniu prezentacji do PDF/obrazów?**
 
-Aspose.Slides umożliwia wyodrębnienie SVG z [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) jako oryginalnego wektora. Przy [eksportowaniu do PDF](/slides/pl/nodejs-java/convert-powerpoint-to-pdf/) lub [formatów rastrowych](/slides/pl/nodejs-java/convert-powerpoint-to-png/), wynik może być rasteryzowany w zależności od ustawień eksportu; fakt, że oryginalny SVG jest przechowywany jako wektor, potwierdzany jest zachowaniem funkcji wyodrębniania.
+Aspose.Slides pozwala wyodrębnić SVG z [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) jako oryginalny wektor. Przy [eksportowaniu do PDF](/slides/pl/nodejs-java/convert-powerpoint-to-pdf/) lub [formatów rastrowych](/slides/pl/nodejs-java/convert-powerpoint-to-png/), wynik może być rasteryzowany w zależności od ustawień eksportu; fakt, że oryginalny SVG jest przechowywany jako wektor, potwierdza zachowanie po wyodrębnieniu.

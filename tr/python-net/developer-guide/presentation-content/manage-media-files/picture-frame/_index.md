@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlara Resim Çerçeveleri Ekleme
+title: Python ile Sunumlara Resim Çerçeveleri Ekle
 linktitle: Resim Çerçevesi
 type: docs
 weight: 10
@@ -11,15 +11,15 @@ keywords:
 - görsel ekle
 - görsel oluştur
 - görsel çıkar
-- raster görsel
-- vektör görsel
-- görsel kırp
+- raster görüntü
+- vektör görüntü
+- görüntüyü kırp
 - kırpılmış alan
 - StretchOff özelliği
 - resim çerçevesi biçimlendirme
 - resim çerçevesi özellikleri
-- göreceli ölçek
-- görsel efekti
+- göreli ölçek
+- görsel efekt
 - en-boy oranı
 - görsel şeffaflığı
 - PowerPoint
@@ -27,29 +27,29 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument sunumlarına resim çerçeveleri ekleyin. İş akışınızı kolaylaştırın ve slayt tasarımlarını geliştirin.
+description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument sunumlarına resim çerçeveleri ekleyin. İş akışınızı kolaylaştırın ve slayt tasarımlarını geliştirin."
 ---
 ## **Giriş**
 
-Aspose.Slides for Python içindeki resim çerçeveleri, raster ve vektör görüntüleri yerel slayt şekilleri olarak yerleştirmenizi ve yönetmenizi sağlar. Dosyalardan veya akışlardan resimler ekleyebilir, kesin koordinatlarla konumlandırıp yeniden boyutlandırabilir, döndürme uygulayabilir, şeffaflık ayarlayabilir ve diğer şekillerle birlikte z-sırasını kontrol edebilirsiniz. API ayrıca kırpma, en-boy oranını koruma, kenarlık ve efekt ayarlama ve düzeni yeniden oluşturmak zorunda kalmadan temel görüntüyü değiştirme desteği sunar. Resim çerçeveleri normal şekiller gibi davrandığı için animasyonlar, köprüler ve alt metin ekleyebilir, görsel açıdan zengin ve erişilebilir sunumlar oluşturmayı kolaylaştırır.
+Aspose.Slides for Python'daki resim çerçeveleri, raster ve vektör görüntüleri yerel slayt şekilleri olarak yerleştirmenize ve yönetmenize olanak tanır. Dosyalardan veya akışlardan resimleri ekleyebilir, kesin koordinatlarla konumlandırıp yeniden boyutlandırabilir, döndürme uygulayabilir, şeffaflığı ayarlayabilir ve diğer şekillerle birlikte z‑sırasını kontrol edebilirsiniz. API ayrıca kırpma, en‑boy oranını koruma, kenarlık ve efekt ayarlama ve yerleşimi yeniden oluşturmayarak temel görüntüyü değiştirme özelliklerini destekler. Resim çerçeveleri normal şekiller gibi davrandığından animasyonlar, köprüler ve alt metin ekleyebilir, görsel olarak zengin, erişilebilir sunumlar oluşturmayı kolaylaştırır.
 
 ## **Resim Çerçeveleri Oluşturma**
 
-Bu bölüm, Aspose.Slides for Python kullanarak bir slayta görüntü eklemek için bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) oluşturmayı gösterir. Görüntüyü nasıl yükleyeceğinizi, slaytta tam olarak nasıl konumlandıracağınızı ve boyutunu ve biçimlendirmesini nasıl kontrol edeceğinizi öğreneceksiniz.
+Bu bölüm, Aspose.Slides for Python ile bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) oluşturarak bir kaydı slayta nasıl ekleyeceğinizi gösterir. Görüntüyü nasıl yükleyeceğinizi, slayta tam olarak nasıl yerleştireceğinizi ve boyut ve biçimlendirmesini nasıl kontrol edeceğinizi öğreneceksiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İndeksine göre bir slayt alın.
-3. Görüntüyü sunumun [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) öğesine ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) oluşturun. Bu görüntü şekli doldurmak için kullanılacaktır.
-4. Çerçevenin genişliğini ve yüksekliğini belirtin.
-5. [add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) yöntemini kullanarak o boyutta bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) oluşturun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İndeksine göre bir slayt alın.  
+3. Sunumun [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) öğesine görüntüyü ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) oluşturun. Bu görüntü şekli doldurmak için kullanılacaktır.  
+4. Çerçevenin genişliğini ve yüksekliğini belirtin.  
+5. Bu boyutta bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) oluşturmak için [add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) metodunu kullanın.  
 6. Sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Python kodu bir resim çerçevesi oluşturmayı gösterir:
+Bu sonraki Python kodu, bir resim çerçevesinin nasıl oluşturulacağını gösterir:
 
 ```py
 import aspose.slides as slides
 
-# PPTX dosyasını temsil etmek için Presentation sınıfını örnekleyin.
+# PPTX dosyasını temsil edecek Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
     # İlk slaytı alın.
     slide = presentation.slides[0]
@@ -58,7 +58,7 @@ with slides.Presentation() as presentation:
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-        # Görüntünün boyutunda bir resim çerçevesi ekleyin.
+        # Görüntü boyutunda bir resim çerçevesi ekleyin.
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
         # Sunumu PPTX olarak kaydedin.
@@ -66,26 +66,26 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" %}}
-Resim çerçeveleri, görüntülerden hızlı bir şekilde sunum slaytları oluşturmanıza olanak tanır. Resim çerçevelerini Aspose.Slides kaydetme seçenekleriyle birleştirerek, görüntüleri bir biçimden başka bir biçime dönüştürmek için I/O işlemlerini kontrol edebilirsiniz. Şu sayfalara da göz atmak isteyebilirsiniz: [image to JPG](https://products.aspose.com/slides/tr/python-net/conversion/image-to-jpg/) dönüştür; [JPG to image](https://products.aspose.com/slides/tr/python-net/conversion/jpg-to-image/) dönüştür; [JPG to PNG](https://products.aspose.com/slides/tr/python-net/conversion/jpg-to-png/) dönüştür; [PNG to JPG](https://products.aspose.com/slides/tr/python-net/conversion/png-to-jpg/) dönüştür; [PNG to SVG](https://products.aspose.com/slides/tr/python-net/conversion/png-to-svg/) dönüştür; [SVG to PNG](https://products.aspose.com/slides/tr/python-net/conversion/svg-to-png/) dönüştür.
+Resim çerçeveleri, görüntülerden sunum slaytları oluşturmayı hızlı bir şekilde sağlar. Resim çerçevelerini Aspose.Slides kaydetme seçenekleriyle birleştirdiğinizde, görüntüleri bir biçimden başka bir biçime dönüştürmek için I/O operasyonlarını kontrol edebilirsiniz. Aşağıdaki sayfalara bakmak isteyebilirsiniz: [görüntüyü JPG'ye dönüştür](https://products.aspose.com/slides/tr/python-net/conversion/image-to-jpg/); [JPG'yi görüntüye dönüştür](https://products.aspose.com/slides/tr/python-net/conversion/jpg-to-image/); [JPG'yi PNG'ye dönüştür](https://products.aspose.com/slides/tr/python-net/conversion/jpg-to-png/); [PNG'yi JPG'ye dönüştür](https://products.aspose.com/slides/tr/python-net/conversion/png-to-jpg/); [PNG'yi SVG'ye dönüştür](https://products.aspose.com/slides/tr/python-net/conversion/png-to-svg/); [SVG'yi PNG'ye dönüştür](https://products.aspose.com/slides/tr/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
-## **Göreceli Ölçekle Resim Çerçeveleri Oluşturma**
+## **Göreli Ölçekli Resim Çerçeveleri Oluşturma**
 
-Bu bölüm, bir görüntüyü sabit bir boyutta yerleştirip ardından genişlik ve yükseklik için yüzde bazlı ölçeklemeyi bağımsız olarak uygulamayı gösterir. Yüzdeler farklı olduğundan en-boy oranı değişebilir. Ölçekleme, görüntünün orijinal boyutlarına göre yapılır.
+Bu bölüm, bir görüntünün sabit bir boyutta yerleştirilmesini ve ardından genişliği ile yüksekliğine bağımsız olarak yüzde bazlı ölçekleme uygulanmasını gösterir. Yüzdeler farklı olabileceği için en‑boy oranı değişebilir. Ölçekleme, görüntünün özgün boyutlarına göre yapılır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İndeksine göre bir slayt alın.
-3. Görüntüyü sunumun [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) öğesine ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) oluşturun.
-4. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) ekleyin.
-5. Resim çerçevesinin göreceli genişliğini ve yüksekliğini ayarlayın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İndeksine göre bir slayt alın.  
+3. Sunumun [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) öğesine görüntüyü ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) oluşturun.  
+4. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) ekleyin.  
+5. Resim çerçevesinin göreli genişliğini ve yüksekliğini ayarlayın.  
 6. Sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Python kodu, göreceli ölçekleme ile bir resim çerçevesi oluşturmayı gösterir:
+Bu sonraki Python kodu, göreli ölçekleme ile bir resim çerçevesinin nasıl oluşturulacağını gösterir:
 
 ```py
 import aspose.slides as slides
 
-# PPTX dosyasını temsil etmek için Presentation sınıfını örnekleyin.
+# PPTX dosyasını temsil edecek Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
     # İlk slaytı alın.
     slide = presentation.slides[0]
@@ -97,7 +97,7 @@ with slides.Presentation() as presentation:
         # Slayta bir resim çerçevesi ekleyin.
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
 
-        # Göreceli ölçek genişliğini ve yüksekliğini ayarlayın.
+        # Göreli ölçek genişliğini ve yüksekliğini ayarlayın.
         picture_frame.relative_scale_height = 0.8
         picture_frame.relative_scale_width = 1.35
 
@@ -105,9 +105,9 @@ with slides.Presentation() as presentation:
         presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Resim Çerçevelerinden Raster Görüntü Çıkarma**
+## **Resim Çerçevelerinden Raster Görüntüleri Çıkarma**
 
-[PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) nesnelerinden raster görüntüler çıkarabilir ve PNG, JPG ve diğer biçimlerde kaydedebilirsiniz. Aşağıdaki kod örneği, “sample.pptx” belgesinden bir görüntüyü çıkarıp PNG formatında kaydetmeyi gösterir.
+Raster görüntüleri, [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) nesnelerinden çıkarabilir ve PNG, JPG ve diğer biçimlerde kaydedebilirsiniz. Aşağıdaki kod örneği, "sample.pptx" belgesinden bir görüntüyü nasıl çıkarıp PNG biçiminde kaydedeceğinizi gösterir:
 
 ```python
 import aspose.slides as slides
@@ -121,11 +121,9 @@ with slides.Presentation("sample.pptx") as presentation:
         image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
 ```
 
-## **Resim Çerçevelerinden SVG Görüntü Çıkarma**
+## **Resim Çerçevelerinden SVG Görüntüleri Çıkarma**
 
-Bir sunum, [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) şekilleri içinde SVG grafikler içerdiğinde, Aspose.Slides for Python via .NET, orijinal vektör görüntülerini tam sadakatle almanıza olanak tanır. Slaytın şekil koleksiyonunu dolaşarak her bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) öğesini tanımlayabilir, temel [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) nesnesinin SVG içeriği taşıyıp taşımadığını kontrol edebilir ve ardından bu görüntüyü yerel SVG biçiminde diske veya akışa kaydedebilirsiniz.
-
-Aşağıdaki kod örneği, bir resim çerçevesinden SVG görüntüsü çıkarmayı gösterir:
+Bir sunum, [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) şekilleri içinde yer alan SVG grafikler içerdiğinde, Aspose.Slides for Python via .NET, orijinal vektör görüntüleri tam bütünlüğüyle almanızı sağlar. Slaytın şekil koleksiyonunu dolaşarak her bir [PictureFrame]'i tanımlayabilir, altında bulunan [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/)'in SVG içeriği taşıyıp taşımadığını kontrol edebilir ve ardından bu görüntüyü yerel SVG biçiminde diske veya akışa kaydedebilirsiniz.
 
 ```py
 import aspose.slides as slides
@@ -142,9 +140,9 @@ with slides.Presentation("sample.pptx") as presentation:
                 svg_stream.write(svg_image.svg_content)
 ```
 
-## **Görüntü Şeffaflığını Alma**
+## **Görsel Şeffaflığını Almak**
 
-Aspose.Slides, bir görüntüye uygulanan şeffaflık etkisini almanızı sağlar. Bu Python kodu işlemi gösterir:
+Aspose.Slides, bir görüntüye uygulanan şeffaflık etkisini almanıza olanak tanır. Bu Python kodu işlemi gösterir:
 
 ```python
 import aspose.slides as slides
@@ -159,30 +157,55 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert color="primary" %}}
-Görüntülere uygulanan tüm efektler [aspose.slides.effects](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/) içinde bulunabilir.
+Tüm görüntülere uygulanan efektler [aspose.slides.effects](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/) içinde bulunabilir.
 {{% /alert %}}
+
+## **Bir Görüntünün Parlaklık ve Kontrastını Almak**
+
+Aspose.Slides, bir görüntüye uygulanan parlaklık ve kontrast etkisini almanıza olanak tanır. [Luminance](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/luminance/) sınıfı bu görüntü dönüşüm etkisini temsil eder.
+
+Bu Python kodu, bir resim çerçevesinden parlaklık ve kontrast ayarlarını nasıl alacağınızı gösterir:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    picture_frame = shape
+
+    image_transform = picture_frame.picture_format.picture.image_transform
+    for effect in image_transform:
+        if isinstance(effect, slides.effects.Luminance):
+            luminance = effect.get_effective()
+            brightness = luminance.brightness
+            contrast = luminance.contrast
+
+            print("Brightness: " + str(brightness))
+            print("Contrast: " + str(contrast))
+```
 
 ## **Resim Çerçevesi Biçimlendirme**
 
-Aspose.Slides, bir resim çerçevesine uygulayabileceğiniz birçok biçimlendirme seçeneği sunar. Bu seçeneklerle bir resim çerçevesini belirli gereksinimlere göre ayarlayabilirsiniz.
+Aspose.Slides, bir resim çerçevesine uygulayabileceğiniz çok sayıda biçimlendirme seçeneği sunar. Bu seçeneklerle bir resim çerçevesini belirli gereksinimlere göre ayarlayabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İndeksine göre bir slayt alın.
-3. Görüntüyü sunumun [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) öğesine ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) oluşturun. Bu görüntü şekli doldurmak için kullanılacaktır.
-4. Çerçevenin genişliğini ve yüksekliğini belirtin.
-5. Slaytın [add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) yöntemini kullanarak o boyutta bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) oluşturun.
-6. Resim çerçevesinin kenar rengini ayarlayın.
-7. Resim çerçevesinin kenar genişliğini ayarlayın.
-8. Pozitif (saat yönünde) veya negatif (saat yönünün tersinde) bir değer sağlayarak resim çerçevesini döndürün.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İndeksine göre bir slayt alın.  
+3. Sunumun [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) öğesine görüntüyü ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) oluşturun. Bu görüntü şekli doldurmak için kullanılacaktır.  
+4. Çerçevenin genişliğini ve yüksekliğini belirtin.  
+5. Bu boyutta bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) oluşturmak için slaytın [add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) metodunu kullanın.  
+6. Resim çerçevesinin çizgi rengini ayarlayın.  
+7. Resim çerçevesinin çizgi kalınlığını ayarlayın.  
+8. Resim çerçevesini pozitif (saat yönünde) ya da negatif (saat yönünün tersinde) bir değer vererek döndürün.  
 9. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Python kodu resim çerçevesi biçimlendirme sürecini gösterir:
+Aşağıdaki Python kodu, resim çerçevesi biçimlendirme sürecini gösterir:
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# PPTX dosyasını temsil etmek için Presentation sınıfını örnekleyin.
+# PPTX dosyasını temsil edecek Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
     # İlk slaytı alın.
     slide = presentation.slides[0]
@@ -191,7 +214,7 @@ with slides.Presentation() as presentation:
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-        # Görüntünün boyutunda bir resim çerçevesi ekleyin.
+        # Görüntü boyutunda bir resim çerçevesi ekleyin.
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
         # Resim çerçevesine biçimlendirme uygulayın.
@@ -205,12 +228,12 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert title="Tip" color="primary" %}}
-Aspose, ücretsiz bir [Collage Maker](https://products.aspose.app/slides/tr/collage) geliştirmiştir. JPG/JPEG veya PNG görüntüleri birleştirmeniz, fotoğraf ızgaraları oluşturmanız gerektiğinde bu hizmeti kullanabilirsiniz.
+Aspose, ücretsiz bir [Collage Maker](https://products.aspose.app/slides/tr/collage) geliştirdi. JPG/JPEG veya PNG görüntülerini birleştirmeniz veya fotoğraf ızgaraları oluşturmanız gerektiğinde bu hizmeti kullanabilirsiniz.
 {{% /alert %}}
 
-## **Resimleri Bağlantı Olarak Ekleme**
+## **Görselleri Bağlantı Olarak Ekle**
 
-Sunum dosyalarının boyutunu düşük tutmak için, dosyaları doğrudan sunuma gömmek yerine, resimleri veya videoları bağlantılar aracılığıyla ekleyebilirsiniz. Aşağıdaki Python kodu, bir yer tutucuya bir resim ve bir video nasıl eklenir gösterir:
+Sunum dosyalarını küçük tutmak için, dosyaları doğrudan gömmek yerine görselleri veya videoları bağlantı olarak ekleyebilirsiniz. Aşağıdaki Python kodu, bir yer tutucuya bir görsel ve bir video nasıl eklenir gösterir:
 
 ```python
 import aspose.slides as slides
@@ -248,11 +271,11 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Görüntüleri Kırpma**
+## **Görselleri Kırpma**
 
-Bu bölümde, bir resim çerçevesindeki görüntünün görünür alanını, kaynak dosyayı değiştirmeden nasıl kırpacağınızı öğreneceksiniz. Ayrıca, kaydırma kenar boşlukları uygulayarak slaytta temiz ve odaklanmış bir kompozisyon oluşturmanın temel yöntemini öğreneceksiniz.
+Bu bölümde, bir resim çerçevesindeki görüntünün görünür alanını kaynak dosyayı değiştirmeden nasıl kırpacağınızı öğreneceksiniz. Ayrıca, kırpma kenar boşluklarını uygulayarak slaytta temiz, odaklanmış bir kompozisyon oluşturmanın temel yöntemini de öğreneceksiniz.
 
-Aşağıdaki Python kodu bir slayttaki görüntüyü kırpmayı gösterir:
+Aşağıdaki Python kodu, bir slaytta bir görüntüyü nasıl kırpacağınızı gösterir:
 
 ```py
 import aspose.slides as slides
@@ -277,11 +300,9 @@ with slides.Presentation() as presentation:
     presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kırpılmış Görüntü Alanlarını Silme**
+## **Görsellerin Kırpılmış Alanlarını Silme**
 
-Bir çerçevedeki görüntünün kırpılmış alanlarını silmek istiyorsanız, [delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) yöntemini kullanın. Bu yöntem, kırpılmış görüntüyü döndürür; kırpma gerekmezse orijinal görüntüyü döndürür.
-
-Aşağıdaki Python kodu işlemi gösterir:
+Bir çerçevedeki bir görüntünün kırpılmış alanlarını silmek istiyorsanız, [delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) metodunu kullanın. Bu metod, kırpılmış görüntüyü ya da kırpma gerekmezse orijinal görüntüyü döndürür.
 
 ```python
 import aspose.slides as slides
@@ -289,10 +310,10 @@ import aspose.slides as slides
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # İlk slayttan PictureFrame'i alın.
+    # İlk slayttan PictureFrame alın.
     picture_frame = slides.shape[0]
 
-    # İlk slayttan PictureFrame'i alın.
+    # İlk slayttan PictureFrame alın.
     cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
 
     # Sonucu kaydedin.
@@ -300,19 +321,19 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-[delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) yöntemi, kırpılmış görüntüyü sunumun görüntü koleksiyonuna ekler. Görüntü yalnızca işlenen [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) içinde kullanılıyorsa, bu sunum boyutunu azaltabilir; aksi takdirde sonuç sunumdaki görüntü sayısı artabilir.
+[delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) metodu, kırpılmış görüntüyü sunumun image collection'ına ekler. Görüntü yalnızca işlenen [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) içinde kullanılıyorsa, bu sunum boyutunu azaltabilir; aksi takdirde, sonuçtaki sunumdaki görüntü sayısı artabilir.
 
-Kırpma sırasında bu yöntem, WMF/EMF metafile'lerini raster PNG görüntüsüne dönüştürür.
+Kırpma sırasında, bu metod WMF/EMF metafilelerini raster PNG görüntüsüne dönüştürür.
 {{% /alert %}}
 
-## **Görüntüleri Sıkıştırma**
+## **Görselleri Sıkıştırma**
 
-Bir sunumdaki resmi, [PictureFillFormat.compress_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/compress_image/) yöntemiyle sıkıştırabilirsiniz.
-Bu yöntem, şekil boyutu ve belirtilen çözünürlüğe göre görüntüyü küçülterek sıkıştırır; kırpılmış alanları silme seçeneği de vardır.
+Bir sunumda bir resmi, [PictureFillFormat.compress_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/compress_image/) metodunu kullanarak sıkıştırabilirsiniz.  
+Bu metod, görüntüyü şekil boyutu ve belirtilen çözünürlüğe göre boyutunu azaltarak sıkıştırır ve kırpılmış alanları silme seçeneği sunar.
 
-PowerPoint'in **Picture Format -> Compress Pictures -> Resolution** özelliğine benzer şekilde resmin boyut ve çözünürlüğünü ayarlar.
+Resmin boyut ve çözünürlüğünü, PowerPoint'teki **Picture Format -> Compress Pictures -> Resolution** özelliğine benzer şekilde ayarlar.
 
-Aşağıdaki Python örnekleri, hedef çözünürlük belirleyerek ve isteğe bağlı olarak kırpılmış alanları kaldırarak bir sunumdaki görüntüyü nasıl sıkıştıracağınızı gösterir:
+Aşağıdaki Python örnekleri, hedef bir çözünürlük belirleyerek ve isteğe bağlı olarak kırpılmış alanları kaldırarak bir sunumdaki görüntüyü nasıl sıkıştıracağınızı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -342,20 +363,20 @@ with slides.Presentation("demo.pptx") as presentation:
     slide = presentation.slides[0]
     picture_frame = slide.shapes[0]
 
-    # Görüntüyü 150 DPI'ye (web çözünürlüğü) sıkıştırın, kırpılmış alanları kaldırarak.
+    # Görüntüyü 150 DPI'ye (web çözünürlüğü) sıkıştırın ve kırpılmış alanları kaldırın.
     picture_frame.picture_format.compress_image(True, 150)
 
     presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Yöntem, şeklin boyutu ve sağlanan DPI temelinde görüntüyü daha düşük bir çözünürlüğe dönüştürür. Kırpılmış bölgeler, dosya boyutunu optimize etmek için silinebilir.
-Görüntü bir metafile (WMF/EMF) veya SVG ise sıkıştırma uygulanmaz. Ayrıca JPEG kalitesi, çözünürlüğe bağlı olarak aynı PowerPoint davranışıyla hafifçe azaltılabilir.
+Metod, görüntüyü şeklin boyutu ve verilen DPI'ye göre daha düşük bir çözünürlüğe dönüştürür. Kırpılmış bölgeler dosya boyutunu optimize etmek için silinebilir.  
+Görüntü bir metafile (WMF/EMF) veya SVG ise sıkıştırma uygulanmaz. Ayrıca, JPEG kalitesi çözünürlüğe göre korunur veya hafifçe azaltılır; bu, PowerPoint'in yüksek çözünürlüklü JPEG'leri işlemesiyle benzer şekildedir.
 {{% /alert %}}
 
-## **En-Boy Oranını Kilitleme**
+## **En‑Boy Oranını Kilitle**
 
-Bir şeklin içinde bulunan görüntünün boyutlarını değiştirdiğinizde en-boy oranının korunmasını istiyorsanız, [aspect_ratio_locked](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) özelliğini `True` olarak ayarlayın.
+Bir şeklin içinde bulunan görüntünün boyutlarını değiştirdikten sonra en‑boy oranını korumasını istiyorsanız, [aspect_ratio_locked](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) özelliğini `True` olarak ayarlayın.
 
 Aşağıdaki Python kodu, bir şeklin en‑boy oranını nasıl kilitleyeceğinizi gösterir:
 
@@ -371,33 +392,33 @@ with slides.Presentation("sample.pptx") as presentation:
 
     picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
-    # Yeniden boyutlandırırken en‑boy oranını kilitle.
+    # Yeniden boyutlandırırken en-boy oranını kilitle.
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
     presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Bu *Lock Aspect Ratio* ayarı yalnızca şeklin en‑boy oranını korur; içinde bulunan görüntünün oranını korumaz.
+Bu *Lock Aspect Ratio* ayarı yalnızca şeklin en‑boy oranını korur, içindeki görüntünün en‑boy oranını değil.
 {{% /alert %}}
 
 ## **Stretch Offset Özelliklerini Kullanma**
 
 [PictureFillFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/) sınıfının `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` ve `stretch_offset_bottom` özelliklerini kullanarak bir doldurma dikdörtgeni tanımlayabilirsiniz.
 
-Bir görüntü için stretching belirtildiğinde, kaynak dikdörtgen doldurma dikdörtgenine sığacak şekilde ölçeklenir. Doldurma dikdörtgeninin her kenarı, şeklin sınırlayıcı kutusunun ilgili kenarından yüzde offset ile tanımlanır. Pozitif yüzde bir içeri çekme, negatif yüzde bir dışarı çıkarma belirtir.
+Bir görüntü için stretching belirtildiğinde, kaynak dikdörtgen doldurma dikdörtgenine sığacak şekilde ölçeklenir. Doldurma dikdörtgeninin her kenarı, şeklin sınırlayıcı kutusunun ilgili kenarından yüzde olarak bir offset ile tanımlanır. Pozitif yüzde bir içeri çekme, negatif yüzde ise dışarı itme anlamına gelir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İndeksine göre bir slayta referans alın.
-3. Dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-4. Şeklin doldurma türünü ayarlayın.
-5. Şeklin resim doldurma kipini ayarlayın.
-6. Bir görüntü yükleyin.
-7. Görüntüyü şekli doldurmak için atayın.
-8. Görüntü offset'lerini şeklin sınırlayıcı kutusunun ilgili kenarlarından belirtin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İndeksine göre bir slayta referans alın.  
+3. Dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
+4. Şeklin doldurma tipini ayarlayın.  
+5. Şeklin resim doldurma modunu ayarlayın.  
+6. Bir görüntü yükleyin.  
+7. Görüntüyü şekli doldurmak için atayın.  
+8. Görüntünün, şeklin sınırlayıcı kutusunun ilgili kenarlarından offsetlerini belirtin.  
 9. Sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Python kodu Stretch Offset özelliklerini nasıl kullanacağınızı gösterir:
+Aşağıdaki Python kodu, Stretch Offset özelliklerini nasıl kullanacağınızı gösterir:
 
 ```py
 import aspose.slides as slides
@@ -410,20 +431,20 @@ with slides.Presentation() as presentation:
     # Bir dikdörtgen AutoShape ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
 
-    # Şeklin doldurma türünü ayarlayın.
+    # Şeklin doldurma tipini ayarlayın.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Şeklin resim doldurma kipini ayarlayın.
+    # Şeklin resim doldurma modunu ayarlayın.
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
     # Görüntüyü yükleyin ve sunuma ekleyin.
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-    # Görüntüyü şekli doldurmak için atayın.
+    # Görüntüyü şekli doldurması için atayın.
     shape.fill_format.picture_fill_format.picture.image = image
 
-    # Görüntünün, şeklin sınırlayıcı kutusunun ilgili kenarlarından olan offsetlerini belirtin.
+    # Görüntünün, şeklin sınırlayıcı kutusunun ilgili kenarlarından offsetlerini belirtin.
     shape.fill_format.picture_fill_format.stretch_offset_left = 25
     shape.fill_format.picture_fill_format.stretch_offset_right = 25
     shape.fill_format.picture_fill_format.stretch_offset_top = -20
@@ -434,23 +455,23 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert  title="Tip" color="primary" %}}
-Aspose, ücretsiz dönüştürücüler sunar—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—bu sayede görüntülerden hızlıca sunumlar oluşturabilirsiniz.
+Aspose, ücretsiz dönüştürücüler—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—sağlayarak görüntülerden hızlı bir şekilde sunum oluşturmanıza imkan tanır.
 {{% /alert %}}
 
-## **SSS**
+## **FAQ**
 
 **PictureFrame için hangi görüntü formatlarının desteklendiğini nasıl öğrenebilirim?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) öğesine atanan görüntü nesnesi üzerinden raster görüntüler (PNG, JPEG, BMP, GIF vb.) ve vektör görüntüler (örneğin SVG) destekler. Desteklenen formatların listesi genellikle slayt ve görüntü dönüştürme motorunun yetenekleriyle örtüşür.
+Aspose.Slides, bir [PictureFrame]'e atanan görüntü nesnesi aracılığıyla raster görüntüleri (PNG, JPEG, BMP, GIF vb.) ve vektör görüntüleri (örneğin SVG) destekler. Desteklenen formatların listesi genellikle slayt ve görüntü dönüşüm motorunun yetenekleriyle örtüşür.
 
-**Yüzlerce büyük görüntü eklemek PPTX boyutu ve performansını nasıl etkiler?**
+**Yüzlerce büyük görüntü eklemek PPTX boyutunu ve performansını nasıl etkiler?**
 
-Büyük görüntüleri gömmek dosya boyutunu ve bellek kullanımını artırır; görüntülere bağlamak sunum boyutunu düşük tutar ancak dış dosyaların erişilebilir olmasını gerektirir. Aspose.Slides, dosya boyutunu azaltmak için görüntüleri bağlantı olarak ekleme olanağı sağlar.
+Büyük görüntülerin gömülmesi dosya boyutunu ve bellek kullanımını artırır; görüntüleri bağlamak sunum boyutunu düşük tutmaya yardımcı olur ancak dış dosyaların erişilebilir olmasını gerektirir. Aspose.Slides, dosya boyutunu azaltmak için görüntüleri bağlantı olarak ekleme imkanı sunar.
 
-**Bir görüntü nesnesinin yanlışlıkla taşınmasını/yeniden boyutlandırılmasını nasıl kilitlebilirim?**
+**Bir görüntü nesnesinin yanlışlıkla taşınmasını/yeniden boyutlandırılmasını nasıl kilitleyebilirim?**
 
-Bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) için [shape locks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/picture_frame_lock/) (örneğin taşıma veya yeniden boyutlandırmayı devre dışı bırakma) kullanın. Kilitleme mekanizması, ayrı bir [protection article](/slides/tr/python-net/applying-protection-to-presentation/) içinde açıklanmıştır ve [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) dahil çeşitli şekil tipleri için desteklenir.
+[shape locks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/picture_frame_lock/) özelliğini bir [PictureFrame] için kullanın (örneğin, taşıma veya yeniden boyutlandırmayı devre dışı bırakın). Kilitleme mekanizması, şekiller için ayrı bir [koruma makalesinde](/slides/tr/python-net/applying-protection-to-presentation/) açıklanmıştır ve [PictureFrame] dahil çeşitli şekil türleri için desteklenir.
 
-**SVG vektör doğruluğu, sunumu PDF/görüntülere dışa aktarırken korunur mu?**
+**Bir sunumu PDF/görüntülere dışa aktarırken SVG vektör doğruluğu korunur mu?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) içinden SVG'yi orijinal vektör olarak çıkarabilir. PDF'ye [/slides/tr/python-net/convert-powerpoint-to-pdf/] veya raster formatlara [/slides/tr/python-net/convert-powerpoint-to-png/] dışa aktarırken, sonuç ihracat ayarlarına bağlı olarak rasterleştirilebilir; ancak orijinal SVG'nin vektör olarak saklandığı, çıkarma davranışıyla doğrulanır.
+Aspose.Slides, bir [PictureFrame]'den orijinal vektör olarak SVG çıkartılmasına izin verir. PDF'e ya da raster formatlara dışa aktarırken, ayarlara bağlı olarak sonuç rasterleştirilebilir; orijinal SVG'nin bir vektör olarak saklandığı, çıkarma davranışıyla doğrulanır.

@@ -1,51 +1,51 @@
 ---
-title: Pythonでプレゼンテーションに画像フレームを追加する
-linktitle: 画像フレーム
+title: Python でプレゼンテーションにピクチャーフレームを追加する
+linktitle: ピクチャーフレーム
 type: docs
 weight: 10
 url: /ja/python-net/picture-frame/
 keywords:
-- 画像フレーム
-- 画像フレームを追加
-- 画像フレームを作成
+- ピクチャーフレーム
+- ピクチャーフレームを追加
+- ピクチャーフレームを作成
 - 画像を追加
 - 画像を作成
 - 画像を抽出
-- ラスタ画像
-- ベクタ画像
-- 画像をトリミング
-- トリミング領域
+- ラスター画像
+- ベクター画像
+- 画像をクロップ
+- クロップ領域
 - StretchOff プロパティ
-- 画像フレームの書式設定
-- 画像フレームのプロパティ
+- ピクチャーフレームの書式設定
+- ピクチャーフレームのプロパティ
 - 相対スケール
-- 画像エフェクト
+- 画像効果
 - アスペクト比
-- 画像の透明度
+- 画像の透過性
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションに画像フレームを追加します。ワークフローを効率化し、スライドデザインを向上させましょう。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションにピクチャーフレームを追加します。ワークフローを効率化し、スライドデザインを強化します。"
 ---
+## **はじめに**
 
-## **概要**
+Aspose.Slides for Python のピクチャーフレームは、ラスター画像とベクター画像をネイティブなスライド形状として配置および管理できます。ファイルまたはストリームから画像を挿入し、正確な座標で位置やサイズを変更し、回転を適用し、透過性を設定し、他の形状と同様に Z オーダーを制御できます。API はクロッピング、アスペクト比の維持、枠線や効果の設定、レイアウトを再構築せずに基になる画像を置き換えることもサポートします。ピクチャーフレームは通常の形状と同様に動作するため、アニメーション、ハイパーリンク、代替テキストを追加でき、視覚的に豊かでアクセシブルなプレゼンテーションの作成が容易になります。
 
-Aspose.Slides for Python の画像フレームを使用すると、ラスタ画像とベクタ画像をネイティブ スライド シェイプとして配置および管理できます。ファイルまたはストリームから画像を挿入し、正確な座標で位置合わせとサイズ変更を行い、回転を適用し、透明度を設定し、他のシェイプと同様に Z オーダーを制御できます。API は画像のトリミング、アスペクト比の維持、枠線や効果の設定、レイアウトを再構築せずに基になる画像を置き換えることもサポートします。画像フレームは通常のシェイプと同様に動作するため、アニメーション、ハイパーリンク、代替テキストを追加でき、視覚的にリッチでアクセシブルなプレゼンテーションを簡単に作成できます。
+## **ピクチャーフレームの作成**
 
-## **画像フレームの作成**
+このセクションでは、Aspose.Slides for Python を使用して [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) を作成し、スライドに画像を挿入する方法を示します。画像の読み込み、スライド上への正確な配置、サイズと書式の制御方法を学びます。
 
-このセクションでは、Aspose.Slides for Python で [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) を作成してスライドに画像を挿入する方法を示します。画像の読み込み、スライド上への正確な配置、サイズと書式の制御を学びます。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスでスライドを取得します。  
-3. プレゼンテーションの [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) に画像を追加して [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) を作成します。この画像がシェイプのフィルに使用されます。  
-4. フレームの幅と高さを指定します。  
-5. [add_picture_frame](httpshttps://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) メソッドを使用してそのサイズの [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) を作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドを取得します。
+3. プレゼンテーションの [ImageCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imagecollection/) に画像を追加して [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) を作成します。この画像が形状の塗りに使用されます。
+4. フレームの幅と高さを指定します。
+5. [add_picture_frame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shapecollection/add_picture_frame/) メソッドを使用して、指定したサイズの [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) を作成します。
 6. プレゼンテーションを PPTX ファイルとして保存します。
 
-以下の Python コードは画像フレームの作成方法を示しています:
+以下の Python コードはピクチャーフレームの作成方法を示しています:
+
 ```py
 import aspose.slides as slides
 
@@ -54,34 +54,34 @@ with slides.Presentation() as presentation:
     # 最初のスライドを取得します。
     slide = presentation.slides[0]
 
-    # 画像をプレゼンテーションに追加します。
+    # プレゼンテーションに画像を追加します。
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-        # 画像と同サイズの画像フレームを追加します。
+        # 画像サイズのピクチャーフレームを追加します。
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
         # プレゼンテーションを PPTX として保存します。
         presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 {{% alert color="warning" %}}
-画像フレームを使用すると、画像からプレゼンテーション スライドをすばやく作成できます。画像フレームと Aspose.Slides の保存オプションを組み合わせると、画像の形式変換の I/O 操作を制御できます。次のページも参考にしてください: 画像を JPG に変換([image to JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/)); JPG を画像に変換([JPG to image](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/)); JPG を PNG に変換([JPG to PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/)); PNG を JPG に変換([PNG to JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/)); PNG を SVG に変換([PNG to SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/)); SVG を PNG に変換([SVG to PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/)).
+ピクチャーフレームを使用すると、画像からプレゼンテーションスライドを素早く作成できます。ピクチャーフレームと Aspose.Slides の保存オプションを組み合わせることで、画像を別フォーマットに変換する I/O 操作を制御できます。次のページも参照してください: 変換 [image to JPG](https://products.aspose.com/slides/ja/python-net/conversion/image-to-jpg/); 変換 [JPG to image](https://products.aspose.com/slides/ja/python-net/conversion/jpg-to-image/); 変換 [JPG to PNG](https://products.aspose.com/slides/ja/python-net/conversion/jpg-to-png/); 変換 [PNG to JPG](https://products.aspose.com/slides/ja/python-net/conversion/png-to-jpg/); 変換 [PNG to SVG](https://products.aspose.com/slides/ja/python-net/conversion/png-to-svg/); 変換 [SVG to PNG](https://products.aspose.com/slides/ja/python-net/conversion/svg-to-png/)。
 {{% /alert %}}
 
-## **相対スケールで画像フレームを作成する**
+## **相対スケールを使用したピクチャーフレームの作成**
 
-このセクションでは、固定サイズで画像を配置し、幅と高さに対してパーセンテージ ベースのスケーリングを個別に適用する方法を示します。パーセンテージが異なる場合、アスペクト比が変化します。スケーリングは画像の元の寸法に対して相対的に行われます。
+このセクションでは、固定サイズで画像を配置し、幅と高さに対して独立したパーセンテージベースのスケーリングを適用する方法を示します。パーセンテージが異なる場合、アスペクト比が変化する可能性があります。スケーリングは画像の元のサイズに対して相対的に行われます。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスでスライドを取得します。  
-3. プレゼンテーションの [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) に画像を追加して [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) を作成します。  
-4. スライドに [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) を追加します。  
-5. 画像フレームの相対的な幅と高さを設定します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドを取得します。
+3. プレゼンテーションの [ImageCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imagecollection/) に画像を追加して [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) を作成します。
+4. スライドに [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) を追加します。
+5. ピクチャーフレームの相対幅と相対高さを設定します。
 6. プレゼンテーションを PPTX ファイルとして保存します。
 
-以下の Python コードは相対スケーリング付き画像フレームの作成方法を示しています:
+以下の Python コードは相対スケーリング付きピクチャーフレームの作成方法を示しています:
+
 ```py
 import aspose.slides as slides
 
@@ -90,11 +90,11 @@ with slides.Presentation() as presentation:
     # 最初のスライドを取得します。
     slide = presentation.slides[0]
 
-    # 画像をプレゼンテーションの画像コレクションに追加します。
+    # プレゼンテーションの画像コレクションに画像を追加します。
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-        # スライドに画像フレームを追加します。
+        # スライドにピクチャーフレームを追加します。
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
 
         # 相対スケールの幅と高さを設定します。
@@ -105,10 +105,10 @@ with slides.Presentation() as presentation:
         presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **ピクチャーフレームからラスター画像を抽出する**
 
-## **画像フレームからラスタ画像を抽出する**
+[PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) オブジェクトからラスター画像を抽出し、PNG、JPG などの形式で保存できます。以下のコード例は、ドキュメント「sample.pptx」から画像を抽出し、PNG 形式で保存する方法を示しています。
 
-[PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) オブジェクトからラスタ画像を抽出し、PNG、JPG などの形式で保存できます。以下のコード例は、ドキュメント「sample.pptx」から画像を抽出し、PNG 形式で保存する方法を示しています。
 ```python
 import aspose.slides as slides
 
@@ -121,12 +121,12 @@ with slides.Presentation("sample.pptx") as presentation:
         image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
 ```
 
+## **ピクチャーフレームから SVG 画像を抽出する**
 
-## **画像フレームから SVG 画像を抽出する**
+プレゼンテーションに SVG グラフィックが [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) 内に配置されている場合、Aspose.Slides for Python via .NET を使用して、元のベクター画像を完全な忠実度で取得できます。スライドのシェイプコレクションを走査し、各 [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) を特定し、基になる [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) が SVG コンテンツを保持しているか確認し、必要に応じて SVG 形式でディスクまたはストリームに保存します。
 
-プレゼンテーションに SVG グラフィックが [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) シェイプ内に配置されている場合、Aspose.Slides for Python via .NET を使用して元のベクタ画像をフル フィデリティで取得できます。スライドのシェイプコレクションを走査し、各 [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) を特定し、基になる [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) が SVG コンテンツを保持しているか確認し、ネイティブ SVG 形式でディスクまたはストリームに保存します。
+以下のコード例は、ピクチャーフレームから SVG 画像を抽出する方法を示しています:
 
-以下のコード例は画像フレームから SVG 画像を抽出する方法を示しています:
 ```py
 import aspose.slides as slides
 
@@ -142,10 +142,10 @@ with slides.Presentation("sample.pptx") as presentation:
                 svg_stream.write(svg_image.svg_content)
 ```
 
-
 ## **画像の透明度を取得する**
 
-Aspose.Slides は画像に適用された透明度エフェクトを取得できます。この Python コードはその操作を示しています:
+Aspose.Slides では、画像に適用された透明度効果を取得できます。以下の Python コードはその操作を示しています:
+
 ```python
 import aspose.slides as slides
 
@@ -158,26 +158,51 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Picture transparency: " + str(transparency_value))
 ```
 
-
 {{% alert color="primary" %}}
-画像に適用されたすべてのエフェクトは [aspose.slides.effects](https://reference.aspose.com/slides/python-net/aspose.slides.effects/) で確認できます。
+画像に適用されたすべての効果は [aspose.slides.effects](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/) で確認できます。
 {{% /alert %}}
 
-## **画像フレームの書式設定**
+## **画像の明るさとコントラストを取得する**
 
-Aspose.Slides は画像フレームに適用できる多数の書式設定オプションを提供します。これらのオプションを使用して、特定の要件に合わせて画像フレームを調整できます。
+Aspose.Slides では、画像に適用された明るさとコントラストの効果を取得できます。[Luminance](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/luminance/) クラスがこの画像変換効果を表します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスでスライドを取得します。  
-3. プレゼンテーションの [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) に画像を追加して [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) を作成します。この画像がシェイプのフィルに使用されます。  
-4. フレームの幅と高さを指定します。  
-5. スライドの [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) メソッドを使用してそのサイズの [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) を作成します。  
-6. 画像フレームの線色を設定します。  
-7. 画像フレームの線幅を設定します。  
-8. 正の値（時計回り）または負の値（反時計回り）を指定して画像フレームを回転させます。  
+以下の Python コードはピクチャーフレームから明るさとコントラストの設定を取得する方法を示しています:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    picture_frame = shape
+
+    image_transform = picture_frame.picture_format.picture.image_transform
+    for effect in image_transform:
+        if isinstance(effect, slides.effects.Luminance):
+            luminance = effect.get_effective()
+            brightness = luminance.brightness
+            contrast = luminance.contrast
+
+            print("Brightness: " + str(brightness))
+            print("Contrast: " + str(contrast))
+```
+
+## **ピクチャーフレームの書式設定**
+
+Aspose.Slides はピクチャーフレームに適用できる多数の書式設定オプションを提供しています。これらのオプションを使用すると、特定の要件を満たすようにピクチャーフレームを調整できます。
+
+1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドを取得します。
+3. プレゼンテーションの [ImageCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imagecollection/) に画像を追加して [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) を作成します。この画像が形状の塗りに使用されます。
+4. フレームの幅と高さを指定します。
+5. スライドの [add_picture_frame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shapecollection/add_picture_frame/) メソッドを使用して、指定したサイズの [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) を作成します。
+6. ピクチャーフレームの線の色を設定します。
+7. ピクチャーフレームの線の幅を設定します。
+8. 正の値（時計回り）または負の値（反時計回り）を指定してピクチャーフレームを回転させます。
 9. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の Python コードは画像フレームの書式設定プロセスを示しています:
+以下の Python コードはピクチャーフレームの書式設定プロセスを示しています:
+
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -187,14 +212,14 @@ with slides.Presentation() as presentation:
     # 最初のスライドを取得します。
     slide = presentation.slides[0]
 
-    # 画像をプレゼンテーションの画像コレクションに追加します。
+    # プレゼンテーションの画像コレクションに画像を追加します。
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-        # 画像と同サイズの画像フレームを追加します。
+        # 画像サイズのピクチャーフレームを追加します。
         picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
-        # 画像フレームに書式設定を適用します。
+        # ピクチャーフレームに書式設定を適用します。
         picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
         picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
         picture_frame.line_format.width = 20
@@ -204,14 +229,14 @@ with slides.Presentation() as presentation:
     presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 {{% alert title="Tip" color="primary" %}}
-Aspose は無料の [Collage Maker](https://products.aspose.app/slides/collage) を提供しています。JPG/JPEG または PNG 画像を結合したり、フォトグリッドを作成したりする場合はこのサービスをご利用ください。
+Aspose が提供する無料の [Collage Maker](https://products.aspose.app/slides/ja/collage) を利用できます。JPG/JPEG または PNG 画像を [結合](https://products.aspose.app/slides/ja/collage/jpg) したり、[フォトグリッドを作成](https://products.aspose.app/slides/ja/collage/photo-grid) したりする場合に便利です。
 {{% /alert %}}
 
-## **リンクとして画像を追加する**
+## **画像をリンクとして追加する**
 
-プレゼンテーション ファイルのサイズを小さく保つために、画像やビデオを埋め込む代わりにリンクとして追加できます。以下の Python コードはプレースホルダーに画像とビデオを挿入する方法を示しています:
+プレゼンテーションファイルのサイズを小さく保つために、画像や動画を埋め込むのではなくリンクとして追加できます。以下の Python コードはプレースホルダーに画像と動画を挿入する方法を示しています:
+
 ```python
 import aspose.slides as slides
 
@@ -248,26 +273,26 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **画像をクロップする**
 
-## **画像のトリミング**
+このセクションでは、元のファイルを変更せずにピクチャーフレーム内の画像の表示領域をクロップする方法を学びます。また、クロップマージンを適用してスライド上でクリーンで焦点の合った構図を作成する基本的な手順も紹介します。
 
-このセクションでは、画像フレーム内の画像の表示領域をソース ファイルを変更せずにトリミングする方法を学びます。また、トリミング マージンを適用してスライド上でクリーンでフォーカスされた構図を作成する基本的な方法も学びます。
+以下の Python コードはスライド上の画像をクロップする方法を示しています:
 
-以下の Python コードはスライド上の画像をトリミングする方法を示しています:
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 画像をプレゼンテーションの画像コレクションに追加します。
+    # プレゼンテーションの画像コレクションに画像を追加します。
     with slides.Images.from_file("image.png") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # スライドに画像フレームを追加します。
+    # スライドにピクチャーフレームを追加します。
     picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
 
-    # 画像をトリミングします（パーセンテージ値）。
+    # 画像をクロップします（パーセンテージ値）。
     picture_frame.picture_format.crop_left = 23.6
     picture_frame.picture_format.crop_right = 21.5
     picture_frame.picture_format.crop_top = 3
@@ -277,12 +302,12 @@ with slides.Presentation() as presentation:
     presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **クロップされた画像領域を削除する**
 
-## **トリミング領域を削除する**
-
-フレーム内の画像のトリミング領域を削除したい場合は、[delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) メソッドを使用します。このメソッドはトリミングされた画像を返すか、トリミングが不要な場合は元の画像を返します。
+フレーム内の画像のクロップ領域を削除したい場合は、[delete_picture_cropped_areas](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) メソッドを使用します。このメソッドはクロップされた画像を返し、クロップが不要な場合は元の画像を返します。
 
 以下の Python コードはその操作を示しています:
+
 ```python
 import aspose.slides as slides
 
@@ -299,18 +324,64 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+{{% alert title="NOTE" color="warning" %}}
+[delete_picture_cropped_areas](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) メソッドはクロップされた画像をプレゼンテーションの画像コレクションに追加します。画像が処理された [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) のみで使用されている場合、プレゼンテーションサイズが削減される可能性がありますが、そうでない場合は結果のプレゼンテーション内の画像数が増加することがあります。
+
+クロップ処理中に、このメソッドは WMF/EMF メタファイルをラスター PNG 画像に変換します。
+{{% /alert %}}
+
+## **画像を圧縮する**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/compress_image/) メソッドを使用して、プレゼンテーション内の画像を圧縮できます。このメソッドは形状のサイズと指定した解像度に基づいて画像サイズを縮小し、必要に応じてクロップ領域を削除するオプションを提供します。
+
+PowerPoint の **Picture Format → Compress Pictures → Resolution** 機能と同様に、画像のサイズと解像度を調整します。
+
+以下の Python 例は、対象解像度を指定し、オプションでクロップ領域を削除して画像を圧縮する方法を示しています:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = slide.shapes[0]
+
+    # 画像を目標解像度 150 DPI（Web 解像度）で圧縮し、クロップされた領域を削除します。
+    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+
+    # 圧縮の結果を確認します。
+    if result:
+        print("Image successfully compressed.")
+    else:
+        print("Image compression failed or no changes were necessary.")
+
+    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+またはカスタム DPI 値を直接指定する方法:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = slide.shapes[0]
+
+    # 画像を 150 DPI（ウェブ解像度）に圧縮し、クロップされた領域を削除します。
+    picture_frame.picture_format.compress_image(True, 150)
+
+    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
+```
 
 {{% alert title="NOTE" color="warning" %}}
-[delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) メソッドはトリミングされた画像をプレゼンテーションの画像コレクションに追加します。画像が処理された [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) のみで使用されている場合、プレゼンテーションのサイズを削減できますが、複数の場所で使用されている場合は画像数が増える可能性があります。
-
-トリミング中に、このメソッドは WMF/EMF メタファイルをラスタ PNG 画像に変換します。
+このメソッドは、形状のサイズと指定された DPI に基づいて画像を低解像度に変換します。クロップ領域も削除でき、ファイルサイズの最適化が可能です。画像がメタファイル（WMF/EMF）または SVG の場合、圧縮は適用されません。また、JPEG の品質は解像度に応じて維持またはわずかに低下します（PowerPoint の高解像度 JPEG 処理と同様）。
 {{% /alert %}}
 
 ## **アスペクト比をロックする**
 
-画像のサイズを変更した後も形状のアスペクト比を保持したい場合は、[aspect_ratio_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) プロパティを `True` に設定します。
+画像のサイズを変更した後でも、画像を含む形状がアスペクト比を保持するようにするには、[aspect_ratio_locked](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) プロパティを `True` に設定します。
 
 以下の Python コードは形状のアスペクト比をロックする方法を示しています:
+
 ```python
 import aspose.slides as slides
 
@@ -323,34 +394,34 @@ with slides.Presentation("sample.pptx") as presentation:
 
     picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
-    # リサイズ時にアスペクト比をロックします。
+    # サイズ変更時にアスペクト比をロックします。
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
     presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 {{% alert title="NOTE" color="warning" %}}
-この *Lock Aspect Ratio* 設定はシェイプ自体のアスペクト比だけを保持し、内部の画像のアスペクト比は保持しません。
+この *Lock Aspect Ratio* 設定は形状自体のアスペクト比のみを保持し、内部の画像のアスペクト比は保持しません。
 {{% /alert %}}
 
-## **ストレッチオフセット プロパティを使用する**
+## **Stretch Offset プロパティを使用する**
 
-[PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) クラスの `stretch_offset_left`、`stretch_offset_top`、`stretch_offset_right`、`stretch_offset_bottom` プロパティを使用すると、フィル矩形を定義できます。
+[PictureFillFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/) クラスの `stretch_offset_left`、`stretch_offset_top`、`stretch_offset_right`、`stretch_offset_bottom` プロパティを使用して、塗り矩形を定義できます。
 
-画像に対してストレッチが指定されると、ソース矩形はフィル矩形に合わせて拡大縮小されます。フィル矩形の各辺はシェイプのバウンディング ボックスの対応する辺からのパーセンテージ オフセットで定義されます。正のパーセンテージはインセット、負のパーセンテージはアウトセットを表します。
+画像のストレッチが指定されると、ソース矩形は塗り矩形に合わせて拡大縮小されます。塗り矩形の各辺は、形状のバウンディングボックスの対応する辺からのパーセンテージオフセットで定義されます。正のパーセンテージはインセット、負のパーセンテージはアウトセットを示します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスでスライドへの参照を取得します。  
-3. 長方形の [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) を追加します。  
-4. シェイプの塗りつぶしタイプを設定します。  
-5. シェイプの画像塗りつぶしモードを設定します。  
-6. 画像をロードします。  
-7. 画像をシェイプのフィルとして割り当てます。  
-8. シェイプのバウンディング ボックスの対応する辺からの画像オフセットを指定します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. 矩形の [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
+4. 形状の塗りタイプを設定します。
+5. 形状の画像塗りモードを設定します。
+6. 画像をロードします。
+7. 画像を形状の塗りに割り当てます。
+8. 形状のバウンディングボックスの対応する辺からの画像オフセットを指定します。
 9. プレゼンテーションを PPTX ファイルとして保存します。
 
 以下の Python コードは Stretch Offset プロパティの使用方法を示しています:
+
 ```py
 import aspose.slides as slides
 
@@ -362,20 +433,20 @@ with slides.Presentation() as presentation:
     # 四角形の AutoShape を追加します。
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
 
-    # シェイプの塗りつぶしタイプを設定します。
+    # 形状の塗りタイプを設定します。
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # シェイプの画像塗りつぶしモードを設定します。
+    # 形状の画像塗りモードを設定します。
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
     # 画像を読み込み、プレゼンテーションに追加します。
     with open("image.jpeg", "rb") as image_stream:
         image = presentation.images.add_image(image_stream)
 
-    # シェイプの塗りつぶしに画像を割り当てます。
+    # 画像を形状の塗りに割り当てます。
     shape.fill_format.picture_fill_format.picture.image = image
 
-    # シェイプのバウンディングボックスの対応する辺からの画像オフセットを指定します。
+    # 形状のバウンディングボックスの対応する辺からの画像オフセットを指定します。
     shape.fill_format.picture_fill_format.stretch_offset_left = 25
     shape.fill_format.picture_fill_format.stretch_offset_right = 25
     shape.fill_format.picture_fill_format.stretch_offset_top = -20
@@ -385,25 +456,24 @@ with slides.Presentation() as presentation:
     presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-{{% alert  title="Tip" color="primary" %}}
-Aspose は無料のコンバータ―を提供しています—[JPEG を PowerPoint に変換](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG を PowerPoint に変換](https://products.aspose.app/slides/import/png-to-ppt) —これにより画像からプレゼンテーションをすばやく作成できます。
+{{% alert title="Tip" color="primary" %}}
+Aspose は無料のコンバータを提供しています — [JPEG to PowerPoint](https://products.aspose.app/slides/ja/import/jpg-to-ppt) および [PNG to PowerPoint](https://products.aspose.app/slides/ja/import/png-to-ppt) — これらを使用すれば画像から迅速にプレゼンテーションを作成できます。
 {{% /alert %}}
 
 ## **FAQ**
 
-**画像フレームでサポートされている画像形式はどのように確認できますか？**
+**PictureFrame でサポートされている画像形式はどれですか？**
 
-Aspose.Slides はラスタ画像 (PNG、JPEG、BMP、GIF など) とベクタ画像 (例: SVG) の両方を、[PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) に割り当てられた画像オブジェクトを通じてサポートします。サポートされている形式の一覧は、スライドおよび画像変換エンジンの機能と概ね重なります。
+Aspose.Slides は、ラスター画像 (PNG、JPEG、BMP、GIF など) とベクター画像 (例: SVG) の両方を、[PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) に割り当てられる画像オブジェクトを通じてサポートします。サポートされる形式の一覧は、スライドおよび画像変換エンジンの機能と概ね一致します。
 
 **多数の大きな画像を追加すると PPTX のサイズとパフォーマンスにどのような影響がありますか？**
 
-大きな画像を埋め込むとファイル サイズとメモリ使用量が増加します。画像をリンクとして追加するとプレゼンテーションのサイズを抑えられますが、外部ファイルが利用可能である必要があります。Aspose.Slides はリンクによる画像追加機能を提供してファイル サイズ削減を支援します。
+大きな画像を埋め込むとファイルサイズとメモリ使用量が増加します。画像をリンクとして追加すればプレゼンテーションのサイズは抑えられますが、外部ファイルへのアクセスが必要です。Aspose.Slides はリンクによる画像追加機能を提供し、ファイルサイズ削減を支援します。
 
-**画像オブジェクトが誤って移動/サイズ変更されないようにロックするには？**
+**画像オブジェクトを誤って移動・サイズ変更しないようにロックするには？**
 
-[PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) 用の [shape locks](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/picture_frame_lock/) を使用します (例: 移動やサイズ変更を無効化)。ロック機構は別記事の [protection article](/slides/ja/python-net/applying-protection-to-presentation/) に記載されており、さまざまなシェイプタイプでサポートされています。
+[PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) 用の [shape locks](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/picture_frame_lock/) を使用します (例: 移動やサイズ変更を無効化)。ロック機構は別の記事 **[protection article](/slides/ja/python-net/applying-protection-to-presentation/)** で説明されており、[PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) を含むさまざまな形状タイプでサポートされています。
 
-**SVG ベクタの忠実度は PDF/画像へのエクスポート時に保持されますか？**
+**SVG ベクターの忠実度は PDF/画像へのエクスポート時に保持されますか？**
 
-Aspose.Slides は [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) から元のベクタとして SVG を抽出できます。[PDF にエクスポート](/slides/ja/python-net/convert-powerpoint-to-pdf/) や [ラスタ形式にエクスポート](/slides/ja/python-net/convert-powerpoint-to-png/) する際、エクスポート設定によりラスタ化されることがありますが、抽出時にベクタとして保持されていることが確認できます。
+Aspose.Slides は [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) から SVG を元のベクターとして抽出できます。[PDF にエクスポート](/slides/ja/python-net/convert-powerpoint-to-pdf/) や [ラスター形式にエクスポート](/slides/ja/python-net/convert-powerpoint-to-png/) する際、エクスポート設定に応じてラスタライズされる可能性がありますが、抽出動作により元の SVG がベクターとして保持されていることが確認できます。

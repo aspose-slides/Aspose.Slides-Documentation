@@ -1,26 +1,26 @@
 ---
-title: مدیریت فریم‌های تصویر در ارائه‌ها با .NET
-linktitle: فریم تصویر
+title: مدیریت چارچوب‌های تصویر در ارائه‌ها در .NET
+linktitle: چارچوب تصویر
 type: docs
 weight: 10
 url: /fa/net/picture-frame/
 keywords:
-- فریم تصویر
-- افزودن فریم تصویر
-- ایجاد فریم تصویر
-- افزودن تصویر
+- چارچوب تصویر
+- اضافه‌کردن چارچوب تصویر
+- ایجاد چارچوب تصویر
+- اضافه‌کردن تصویر
 - ایجاد تصویر
 - استخراج تصویر
-- تصویر رستری
+- تصویر رستر
 - تصویر برداری
 - برش تصویر
 - ناحیه برش‌خورده
 - ویژگی StretchOff
-- قالب‌بندی فریم تصویر
-- ویژگی‌های فریم تصویر
+- قالب‌بندی چارچوب تصویر
+- خصوصیات چارچوب تصویر
 - مقیاس نسبی
 - اثر تصویر
-- نسبت ابعاد
+- نسبت عرض به ارتفاع
 - شفافیت تصویر
 - PowerPoint
 - OpenDocument
@@ -28,81 +28,87 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "فریم‌های تصویر را به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای .NET اضافه کنید. جریان کاری خود را بهینه‌سازی کنید و طراحی اسلایدها را بهبود بخشید."
+description: "اضافه کردن چارچوب‌های تصویر به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای .NET. جریان کاری خود را ساده کنید و طراحی اسلایدها را بهبود ببخشید."
 ---
-## **مقدمه**
+## **معرفی**
 
-فریم تصویر یک شکل است که شامل یک تصویر می‌شود—شبیه یک تصویر داخل قاب است.  
+یک چارچوب تصویر شکل است که حاوی یک تصویر می‌باشد—مانند یک تصویر در چارچوب.  
 
-می‌توانید یک تصویر را از طریق فریم تصویر به اسلاید اضافه کنید. به این ترتیب، می‌توانید تصویر را با قالب‌بندی فریم تصویر فرمت کنید.
+می‌توانید یک تصویر را از طریق یک چارچوب تصویر به اسلاید اضافه کنید. به این ترتیب می‌توانید تصویر را با قالب‌بندی چارچوب تصویر فرمت کنید.
 
 {{% alert  title="Tip" color="primary" %}} 
 
-Aspose مبدل‌های رایگانی ارائه می‌دهد—[JPEG to PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG to PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—که به افراد اجازه می‌دهد به سرعت از تصاویر ارائه‌ها را بسازند. 
+Aspose مبدل‌های رایگان—[JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—را ارائه می‌دهد که به افراد امکان می‌دهد به سرعت از تصاویر ارائه‌ها را ایجاد کنند. 
 
 {{% /alert %}} 
 
-## **ایجاد فریم تصویر**
+## **ایجاد یک چارچوب تصویر**
 
-1. یک نمونه از کلاس [Presentation ](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation)class ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) با افزودن تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده می‌شود، ایجاد کنید.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
-5. یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe) بر اساس عرض و ارتفاع تصویر از طریق متد `AddPictureFrame` که توسط شی shape مرتبط با اسلاید مرجع نمایش داده می‌شود، ایجاد کنید.  
-6. یک فریم تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-7. ارائهٔ تغییر یافته را به صورت فایل PPTX بنویسید.  
+1. یک نمونه از کلاس [Presentation ](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید. 
+2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
+3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) را با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء presentation که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید. 
+4. عرض و ارتفاع تصویر را مشخص کنید. 
+5. یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe) بر اساس عرض و ارتفاع تصویر از طریق متد `AddPictureFrame` که توسط شیء shape مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید. 
+6. یک چارچوب تصویر (حاوی تصویر) را به اسلاید اضافه کنید. 
+7. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
+
+این کد C# نشان می‌دهد چگونه یک چارچوب تصویر ایجاد کنید:
 
 ```c#
-// یک شیء از کلاس Presentation که نمایانگر فایل PPTX است ایجاد می‌کند
+// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 using (Presentation pres = new Presentation())
 {
-    // اولین اسلاید را دریافت می‌کند
+    // اسلاید اول را دریافت می‌کند
     ISlide slide = pres.Slides[0];
 
-    // یک تصویر را بارگذاری می‌کند و به مجموعهٔ تصاویر ارائه اضافه می‌کند
+    // یک تصویر را بارگذاری می‌کند و آن را به مجموعه تصاویر ارائه اضافه می‌نماید
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // یک فریم تصویر با ارتفاع و عرض یکسان اضافه می‌کند
+    // یک چارچوب تصویر با همان ارتفاع و عرض اضافه می‌کند
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // برخی قالب‌بندی‌ها را بر روی فریم تصویر اعمال می‌کند
+    // برخی قالب‌بندی‌ها را بر روی چارچوب تصویر اعمال می‌کند
     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pictureFrame.LineFormat.Width = 20;
     pictureFrame.Rotation = 45;
 
-    // ارائه را به فایل PPTX می‌نویسد
+    // ارائه را به یک فایل PPTX می‌نویسد
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 {{% alert color="warning" %}} 
 
-فریم‌های تصویر به شما اجازه می‌دهند به سرعت اسلایدهای ارائه بر پایهٔ تصاویر ایجاد کنید. وقتی فریم تصویر را با گزینه‌های ذخیرهٔ Aspose.Slides ترکیب می‌کنید، می‌توانید عملیات ورودی/خروجی را برای تبدیل تصاویر از یک قالب به قالب دیگر مدیریت کنید. ممکن است بخواهید این صفحات را ببینید: تبدیل [image to JPG](https://products.aspose.com/slides/fa/net/conversion/image-to-jpg/); تبدیل [JPG to image](https://products.aspose.com/slides/fa/net/conversion/jpg-to-image/); تبدیل [JPG to PNG](https://products.aspose.com/slides/fa/net/conversion/jpg-to-png/)، تبدیل [PNG to JPG](https://products.aspose.com/slides/fa/net/conversion/png-to-jpg/); تبدیل [PNG to SVG](https://products.aspose.com/slides/fa/net/conversion/png-to-svg/)، تبدیل [SVG to PNG](https://products.aspose.com/slides/fa/net/conversion/svg-to-png/). 
+چارچوب‌های تصویر به شما اجازه می‌دهند به سرعت اسلایدهای ارائه مبتنی بر تصاویر ایجاد کنید. وقتی چارچوب تصویر را با گزینه‌های ذخیره Aspose.Slides ترکیب می‌کنید، می‌توانید عملیات ورودی/خروجی را برای تبدیل تصاویر از یک فرمت به فرمت دیگر دستکاری کنید. ممکن است این صفحات برای شما مفید باشند: تبدیل [تصویر به JPG](https://products.aspose.com/slides/fa/net/conversion/image-to-jpg/); تبدیل [JPG به تصویر](https://products.aspose.com/slides/fa/net/conversion/jpg-to-image/); تبدیل [JPG به PNG](https://products.aspose.com/slides/fa/net/conversion/jpg-to-png/), تبدیل [PNG به JPG](https://products.aspose.com/slides/fa/net/conversion/png-to-jpg/); تبدیل [PNG به SVG](https://products.aspose.com/slides/fa/net/conversion/png-to-svg/), تبدیل [SVG به PNG](https://products.aspose.com/slides/fa/net/conversion/svg-to-png/). 
 
 {{% /alert %}}
 
-## **ایجاد فریم تصویر با مقیاس نسبی**
+## **ایجاد یک چارچوب تصویر با مقیاس نسبی**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. تصویری را به مجموعهٔ تصاویر ارائه اضافه کنید.  
-4. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) با افزودن تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده می‌شود، ایجاد کنید.  
-5. عرض و ارتفاع نسبی تصویر را در فریم تصویر مشخص کنید.  
-6. ارائهٔ تغییر یافته را به صورت فایل PPTX بنویسید.  
+با تغییر مقیاس نسبی تصویر، می‌توانید یک چارچوب تصویر پیچیده‌تر ایجاد کنید. 
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید. 
+2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
+3. یک تصویر را به مجموعه تصاویر ارائه اضافه کنید. 
+4. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) را با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء presentation که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید. 
+5. عرض و ارتفاع نسبی تصویر را در چارچوب تصویر مشخص کنید. 
+6. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
+
+این کد C# نشان می‌دهد چگونه یک چارچوب تصویر با مقیاس نسبی ایجاد کنید:
 
 ```c#
-// یک شیء از کلاس Presentation که نمایانگر یک فایل PPTX است ایجاد می‌کند
+// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 using (Presentation presentation = new Presentation())
 {
-    // یک تصویر را بارگذاری می‌کند و به مجموعهٔ تصاویر ارائه اضافه می‌نماید
+    // یک تصویر را بارگذاری می‌کند و آن را به مجموعه تصاویر ارائه اضافه می‌نماید
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // یک فریم تصویر را به اسلاید اضافه می‌کند
+    // یک چارچوب تصویر را به اسلاید اضافه می‌کند
     IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
     // عرض و ارتفاع مقیاس نسبی را تنظیم می‌کند
@@ -114,9 +120,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **استخراج تصاویر رستری از فریم‌های تصویر**
+## **استخراج تصاویر رستر از چارچوب‌های تصویر**
 
-می‌توانید تصاویر رستری را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe) استخراج کنید و در قالب‌های PNG، JPG و دیگر فرمت‌ها ذخیره کنید. مثال کد زیر نشان می‌دهد چگونه تصویری را از سند «sample.pptx» استخراج و در قالب PNG ذخیره کنید.
+می‌توانید تصاویر رستر را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe) استخراج کنید و در فرمت‌های PNG، JPG و سایر فرمت‌ها ذخیره نمایید. مثال کد زیر نشان می‌دهد چگونه تصویری را از سند «sample.pptx» استخراج کرده و در فرمت PNG ذخیره کنید.
 
 ```c#
 using (var presentation = new Presentation("sample.pptx"))
@@ -132,11 +138,11 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **استخراج تصاویر SVG از فریم‌های تصویر**
+## **استخراج تصاویر SVG از چارچوب‌های تصویر**
 
-وقتی یک ارائه حاوی گرافیک‌های SVG باشد که داخل اشکال [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) قرار گرفته‌اند، Aspose.Slides برای .NET به شما امکان می‌دهد تصاویر برداری اصلی را با تمام جزئیات دریافت کنید. با عبور از مجموعهٔ اشکال اسلاید، می‌توانید هر [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) را شناسایی کنید، بررسی کنید آیا [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) زیرساختی محتوای SVG دارد یا نه، و سپس آن تصویر را به صورت فایل SVG بومی یا به یک جریان ذخیره کنید.  
+هنگامی که یک ارائه شامل گرافیک‌های SVG قرار گرفته در شکل‌های [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) باشد، Aspose.Slides برای .NET به شما امکان می‌دهد تا تصاویر برداری اصلی را با تمام دقت استخراج کنید. با پیمایش مجموعه شکل‌های اسلاید، می‌توانید هر [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) را شناسایی کنید، بررسی کنید آیا [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) زیرین محتویات SVG دارد یا نه، و سپس آن تصویر را به صورت فایل SVG بومی روی دیسک یا به‌صورت جریان ذخیره کنید.
 
-کد نمونهٔ زیر نشان می‌دهد چگونه یک تصویر SVG را از فریم تصویر استخراج کنید:
+کد نمونه زیر نشان می‌دهد چگونه یک تصویر SVG را از یک چارچوب تصویر استخراج کنید:
 
 ```cs
 using var presentation = new Presentation("sample.pptx");
@@ -156,7 +162,7 @@ if (shape is IPictureFrame pictureFrame)
 
 ## **دریافت شفافیت تصویر**
 
-Aspose.Slides به شما امکان می‌دهد شفافیت اعمال‌شده به یک تصویر را دریافت کنید. این کد C# عملیات را نشان می‌دهد:
+Aspose.Slides به شما امکان می‌دهد اثر شفافیت اعمال‌شده بر یک تصویر را دریافت کنید. این کد C# عملیات را نشان می‌دهد:
 
 ```c#
 using (var presentation = new Presentation("Test.pptx"))
@@ -174,62 +180,94 @@ using (var presentation = new Presentation("Test.pptx"))
 }
 ```
 
+## **دریافت روشنایی و کنتراست تصویر**
+
+Aspose.Slides به شما امکان می‌دهد روشنایی و کنتراست اثر اعمال‌شده بر یک تصویر را دریافت کنید. رابط [ILuminance](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iluminance/) این اثر تبدیل تصویر را نشان می‌دهد.
+
+این کد C# نشان می‌دهد چگونه تنظیمات روشنایی و کنتراست را از یک چارچوب تصویر دریافت کنید:
+
+```csharp
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var slide = presentation.Slides[0];
+    var shape = slide.Shapes[0];
+    var pictureFrame = (IPictureFrame)shape;
+
+    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
+    foreach (var effect in imageTransform)
+    {
+        if (effect is ILuminance luminanceEffect)
+        {
+            var luminance = luminanceEffect.GetEffective();
+            var brightness = luminance.Brightness;
+            var contrast = luminance.Contrast;
+
+            Console.WriteLine("Brightness: " + brightness);
+            Console.WriteLine("Contrast: " + contrast);
+        }
+    }
+}
+```
+
 {{% alert color="primary" %}} 
-تمام اثرات اعمال‌شده به تصاویر را می‌توان در [Aspose.Slides.Effects](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/) یافت. 
+تمام اثرات اعمال‌شده بر تصاویر را می‌توانید در [Aspose.Slides.Effects](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/) پیدا کنید. 
 {{% /alert %}}
 
-## **قالب‌بندی فریم تصویر**
+## **قالب‌بندی چارچوب تصویر**
 
-Aspose.Slides گزینه‌های قالب‌بندی متنوعی ارائه می‌دهد که می‌توان بر روی فریم تصویر اعمال کرد. با استفاده از این گزینه‌ها می‌توانید فریم تصویر را طوری تغییر دهید که با نیازهای خاص مطابقت داشته باشد.
+Aspose.Slides گزینه‌های قالب‌بندی متعددی را که می‌توان به یک چارچوب تصویر اعمال کرد، ارائه می‌دهد. با استفاده از این گزینه‌ها می‌توانید چارچوب تصویر را به‌گونه‌ای تغییر دهید که با نیازهای خاص شما منطبق شود.
 
-1. یک نمونه از کلاس [Presentation](http://www.aspose.com/api/net/slides/fa/aspose.slides/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) با افزودن تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده می‌شود، ایجاد کنید.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
-5. یک `PictureFrame` بر اساس عرض و ارتفاع تصویر از طریق متد [AddPictureFrame](http://www.aspose.com/api/net/slides/fa/aspose.slides/ishapecollection/methods/addpictureframe) که توسط شیء [IShapes](http://www.aspose.com/api/net/slides/fa/aspose.slides/ishapecollection) مرتبط با اسلاید مرجع فراهم شده، ایجاد کنید.  
-6. فریم تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-7. رنگ خط فریم تصویر را تنظیم کنید.  
-8. ضخامت خط فریم تصویر را تنظیم کنید.  
-9. فریم تصویر را با مقدار مثبت یا منفی چرخش دهید.  
-   * مقدار مثبت تصویر را ساعت‌گرد می‌چرخاند.  
-   * مقدار منفی تصویر را پادساعت‌گرد می‌چرخاند.  
-10. فریم تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-11. ارائهٔ تغییر یافته را به صورت فایل PPTX بنویسید.  
+1. یک نمونه از کلاس [Presentation](http://www.aspose.com/api/net/slides/fa/aspose.slides/) ایجاد کنید. 
+2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
+3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) را با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء presentation که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید. 
+4. عرض و ارتفاع تصویر را مشخص کنید. 
+5. یک `PictureFrame` بر اساس عرض و ارتفاع تصویر از طریق متد [AddPictureFrame](http://www.aspose.com/api/net/slides/fa/aspose.slides/ishapecollection/methods/addpictureframe) که توسط شیء [IShapes](http://www.aspose.com/api/net/slides/fa/aspose.slides/ishapecollection) مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید. 
+6. چارچوب تصویر (حاوی تصویر) را به اسلاید اضافه کنید. 
+7. رنگ خط چارچوب تصویر را تنظیم کنید. 
+8. ضخامت خط چارچوب تصویر را تنظیم کنید. 
+9. چارچوب تصویر را با مقدار مثبت یا منفی چرخانید. 
+   * مقدار مثبت تصویر را ساعت‌گرد می‌چرخاند. 
+   * مقدار منفی تصویر را پادساعت‌گرد می‌چرخاند. 
+10. چارچوب تصویر (حاوی تصویر) را به اسلاید اضافه کنید. 
+11. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
+
+این کد C# فرآیند قالب‌بندی چارچوب تصویر را نشان می‌دهد:
 
 ```c#
-// یک شیء از کلاس Presentation که نمایانگر یک فایل PPTX است ایجاد می‌کند
+ // یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت می‌کند
     ISlide slide = presentation.Slides[0];
 
-    // یک تصویر را بارگذاری می‌کند و به مجموعهٔ تصاویر ارائه اضافه می‌نماید
+    // یک تصویر را بارگذاری می‌کند و آن را به مجموعه تصاویر ارائه اضافه می‌نماید
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // یک فریم تصویر با ارتفاع و عرض معادل تصویر اضافه می‌کند
+    // یک چارچوب تصویر با همان ارتفاع و عرض تصویر اضافه می‌کند
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // برخی قالب‌بندی‌ها را بر روی فریم تصویر اعمال می‌کند
+    // برخی قالب‌بندی‌ها را بر روی چارچوب تصویر اعمال می‌کند
     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pictureFrame.LineFormat.Width = 20;
     pictureFrame.Rotation = 45;
 
-    // ارائه را در یک فایل PPTX می‌نویسد
+    // ارائه را به یک فایل PPTX می‌نویسد
     presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 {{% alert color="primary" %}}
 
-Aspose اخیراً یک [free Collage Maker](https://products.aspose.app/slides/fa/collage) توسعه داده است. اگر نیاز به [ادغام JPG/JPEG](https://products.aspose.app/slides/fa/collage/jpg) یا تصاویر PNG، یا [ایجاد شبکه‌های تصویری از عکس‌ها](https://products.aspose.app/slides/fa/collage/photo-grid) داشته باشید، می‌توانید از این سرویس استفاده کنید. 
+Aspose اخیراً یک [Collage Maker رایگان](https://products.aspose.app/slides/fa/collage) توسعه داده است. اگر ever نیاز به [ادغام JPG/JPEG](https://products.aspose.app/slides/fa/collage/jpg) یا تصاویر PNG داشته باشید، یا [ایجاد شبکه‌های تصویری](https://products.aspose.app/slides/fa/collage/photo-grid)، می‌توانید از این سرویس استفاده کنید. 
+
 {{% /alert %}}
 
 ## **افزودن تصویر به عنوان لینک**
 
-برای جلوگیری از بزرگ شدن حجم ارائه، می‌توانید تصاویر (یا ویدیوها) را از طریق لینک اضافه کنید به‌جای این‌که فایل‌ها را مستقیم در ارائه جاسازی کنید. این کد C# نشان می‌دهد چگونه تصویر و ویدیو را به یک placeholder اضافه کنید:
+برای جلوگیری از بزرگ شدن اندازه ارائه‌ها، می‌توانید تصاویر (یا ویدیوها) را از طریق لینک‌ها اضافه کنید به‌جای اینکه فایل‌ها را مستقیماً در ارائه‌ها جاسازی کنید. این کد C# نشان می‌دهد چگونه یک تصویر و ویدیو را به یک جایگذاشتن اضافه کنید:
 
 ```c#
 using (var presentation = new Presentation("input.pptx"))
@@ -281,9 +319,9 @@ using (var presentation = new Presentation("input.pptx"))
 }
 ```
 
-## **برش تصاویر**
+## **قاب‌بندی تصاویر**
 
-این کد C# نشان می‌دهد چگونه یک تصویر موجود بر روی اسلاید را برش دهید:
+این کد C# نشان می‌دهد چگونه یک تصویر موجود در اسلاید را برش دهید:
 
 ```c#
 using (Presentation presentation = new Presentation())
@@ -310,17 +348,19 @@ using (Presentation presentation = new Presentation())
 
 ## **حذف نواحی برش‌خورده تصویر**
 
-اگر می‌خواهید نواحی برش‌خوردهٔ یک تصویر موجود در فریم را حذف کنید، می‌توانید از متد [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) استفاده کنید. این متد تصویر برش‌خورده یا تصویر اصلی را برمی‌گرداند اگر برش لازم نباشد.  
+اگر می‌خواهید نواحی برش‌خورده یک تصویر موجود در یک چارچوب را حذف کنید، می‌توانید از متد [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) استفاده کنید. این متد تصویر برش‌خورده یا تصویر اصلی را برمی‌گرداند اگر برش ضروری نباشد.
+
+این کد C# عملیات را نشان می‌دهد:
 
 ```c#
 using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // فریم تصویر را از اولین اسلاید دریافت می‌کند
+    // چارچوب تصویر را از اسلاید اول دریافت می‌کند
     IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
 
-    // ناحیه‌های برش‌خوردهٔ تصویر فریم تصویر را حذف می‌کند و تصویر برش‌خورده را برمی‌گرداند
+    // نواحی برش‌خورده تصویر چارچوب تصویر را حذف کرده و تصویر برش‌خورده را برمی‌گرداند
     IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
 
     // نتیجه را ذخیره می‌کند
@@ -330,18 +370,19 @@ using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 
 {{% alert title="NOTE" color="warning" %}} 
 
-متد [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) تصویر برش‌خورده را به مجموعهٔ تصاویر ارائه اضافه می‌کند. اگر تصویر فقط در [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) پردازش‌شده استفاده شود، این تنظیم می‌تواند حجم ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائهٔ نهایی افزایش می‌یابد.  
+متد [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) تصویر برش‌خورده را به مجموعه تصاویر ارائه اضافه می‌کند. اگر تصویر فقط در [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) پردازش‌شده استفاده شود، این تنظیم می‌تواند اندازه ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائه‌ی نهایی افزایش خواهد یافت. 
 
-این متد در عملیات برش، فایل‌های متا‌فایل WMF/EMF را به تصویر PNG رستر تبدیل می‌کند. 
+این متد در عملیات برش، فایل‌های متا‌فایل WMF/EMF را به تصویر رستر PNG تبدیل می‌کند. 
+
 {{% /alert %}}
 
 ## **فشرده‌سازی تصاویر**
 
-می‌توانید یک تصویر در ارائه را با استفاده از متد [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/compressimage/) فشرده کنید. این متد تصویر را با کاهش اندازه بر اساس ابعاد شکل و وضوح‌سنجی تعیین‌شده فشرده می‌کند و گزینهٔ حذف نواحی برش‌خورده را دارد.  
+می‌توانید یک تصویر را در ارائه با استفاده از متد [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/compressimage/) فشرده کنید. این متد تصویر را با کاهش اندازه بر اساس اندازه شکل و وضوح مشخص‌شده، و با گزینه حذف نواحی برش‌خورده، فشرده می‌کند. 
 
-این کار اندازه و وضوح تصویر را مشابه ویژگی **Picture Format → Compress Pictures → Resolution** در PowerPoint تنظیم می‌کند.  
+این روش اندازه و وضوح تصویر را مشابه ویژگی **Picture Format → Compress Pictures → Resolution** در PowerPoint تنظیم می‌کند. 
 
-مثال‌های C# زیر نشان می‌دهند چگونه با تعیین وضوح هدف و حذف اختیاری نواحی برش‌خورده، یک تصویر را در ارائه فشرده کنید:
+کدهای C# زیر نشان می‌دهند چگونه با تعیین وضوح هدف و به‌صورت اختیاری حذف نواحی برش‌خورده، یک تصویر را در ارائه فشرده کنید:
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
@@ -349,10 +390,10 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // تصویر را با وضوح هدف 150 DPI (وضوح وب) فشرده می‌کند و نواحی برش‌خورده را حذف می‌کند.
+    // تصویر را با وضوح هدف 150 DPI (وضوح وب) فشرده می‌کند و نواحی برش‌خورده را حذف می‌نماید.
     bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
 
-    // نتیجه فشرده‌سازی را بررسی می‌کند.
+    // نتیجه فشرده‌سازی را بررسی کنید.
     if (result)
     {
         Console.WriteLine("Image successfully compressed.");
@@ -366,7 +407,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 }
 ```
 
-یا به‌صورت مستقیم از مقدار DPI سفارشی استفاده کنید:
+یا با استفاده مستقیم از مقدار DPI دلخواه:
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
@@ -374,7 +415,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // تصویر را به 150 DPI (وضوح وب) فشرده می‌کند و نواحی برش‌خورده را حذف می‌کند.
+    // تصویر را به 150 DPI (وضوح وب) فشرده می‌کند و نواحی برش‌خورده را حذف می‌نماید.
     pictureFrame.PictureFormat.CompressImage(true, 150f);
 
     presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -383,15 +424,15 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 
 {{% alert title="NOTE" color="warning" %}} 
 
-این متد تصویر را به وضوح پایین‌تری بر اساس اندازهٔ شکل و DPI ارائه‌شده تبدیل می‌کند. نواحی برش‌خورده نیز می‌توانند برای بهینه‌سازی حجم فایل حذف شوند.  
-اگر تصویر یک متا‌فایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نخواهد شد. همچنین کیفیت JPEG بر اساس وضوح حفظ یا به‌صورت جزئی کاهش می‌یابد، مشابه نحوهٔ پردازش PowerPoint برای JPEGهای با وضوح بالا. 
+این متد تصویر را بر اساس اندازه شکل و DPI ارائه‌شده به وضوح پایین‌تر تبدیل می‌کند. نواحی برش‌خورده نیز می‌توانند حذف شوند تا اندازه فایل بهینه شود. اگر تصویر یک متا‌فایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نخواهد شد. همچنین کیفیت JPEG بسته به وضوح حفظ یا کمی کاهش می‌یابد، مشابه رفتار PowerPoint برای JPEGهای با وضوح بالا. 
+
 {{% /alert %}}
 
-## **قفل‌کردن نسبت ابعاد**
+## **قفل کردن نسبت عرض به ارتفاع**
 
-اگر می‌خواهید شکلی که شامل یک تصویر است حتی پس از تغییر ابعاد تصویر، نسبت ابعاد خود را حفظ کند، می‌توانید از ویژگی [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframelock/aspectratiolocked/) برای تنظیم گزینهٔ *Lock Aspect Ratio* استفاده کنید.  
+اگر می‌خواهید شکلی که شامل یک تصویر است حتی پس از تغییر ابعاد تصویر، نسبت عرض به ارتفاع خود را حفظ کند، می‌توانید از ویژگی [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframelock/aspectratiolocked/) برای تنظیم ویژگی *Lock Aspect Ratio* استفاده کنید. 
 
-این کد C# نشان می‌دهد چگونه نسبت ابعاد یک شکل را قفل کنید:
+این کد C# نشان می‌دهد چگونه نسبت عرض به ارتفاع یک شکل را قفل کنید:
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -405,33 +446,34 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
     IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
 
-    // شکل را تنظیم می‌کند تا نسبت ابعاد را هنگام تغییر اندازه حفظ کند
+    // شکل را برای حفظ نسبت عرض به ارتفاع هنگام تغییر اندازه تنظیم می‌کند
     pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 }
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
 
-این تنظیم *قفل‌کردن نسبت ابعاد* فقط نسبت ابعاد شکل را حفظ می‌کند و نه تصویر داخل آن. 
+این تنظیم *Lock Aspect Ratio* تنها نسبت عرض به ارتفاع شکل را حفظ می‌کند و تصویر داخل آن را تحت تأثیر قرار نمی‌دهد. 
+
 {{% /alert %}}
 
 ## **استفاده از ویژگی StretchOff**
 
-با استفاده از ویژگی‌های [StretchOffsetLeft](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetleft)، [StretchOffsetTop](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsettop)، [StretchOffsetRight](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetright) و [StretchOffsetBottom](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) از رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat) می‌توانید یک مستطیل پر‌کننده تعیین کنید.  
+با استفاده از ویژگی‌های [StretchOffsetLeft](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetleft)، [StretchOffsetTop](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsettop)، [StretchOffsetRight](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetright) و [StretchOffsetBottom](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) از رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat) می‌توانید یک مستطیل پرکننده را مشخص کنید. 
 
-هنگامی که کشش برای یک تصویر مشخص می‌شود، یک مستطیل منبع مقیاس‌بندی می‌شود تا مستطیل پر‌کنندهٔ مشخص‌شده را پر کند. هر لبهٔ مستطیل پر‌کننده توسط یک درصد جابجایی نسبت به لبهٔ متناظر جعبهٔ محدودهٔ شکل تعریف می‌شود. درصد مثبت یک تو رفتگی و درصد منفی یک بیرون‌زدگی را نشان می‌دهد.
+زمانی که کشش برای یک تصویر مشخص می‌شود، یک مستطیل منبع به اندازه مستطیل پرکننده مقیاس می‌شود. هر لبهٔ مستطیل پرکننده توسط درصدی نسبت به لبهٔ مربوطهٔ جعبه محدودهٔ شکل تعریف می‌شود. درصد مثبت یک حذف داخلی و درصد منفی یک گسترش خارجی را مشخص می‌کند.
 
-1. یک نمونه از کلاس [Presentation](http://www.aspose.com/api/net/slides/fa/aspose.slides/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک مستطیل `AutoShape` اضافه کنید.  
-4. یک تصویر ایجاد کنید.  
-5. نوع پر کردن شکل را تنظیم کنید.  
-6. حالت پر کردن تصویر شکل را تنظیم کنید.  
-7. یک تصویر تنظیم‌شده برای پر کردن شکل اضافه کنید.  
-8. جابجایی‌های تصویر را نسبت به لبهٔ متناظر جعبهٔ محدودهٔ شکل مشخص کنید.  
-9. ارائهٔ تغییر یافته را به صورت فایل PPTX بنویسید.  
+1. یک نمونه از کلاس [Presentation](http://www.aspose.com/api/net/slides/fa/aspose.slides/) ایجاد کنید. 
+2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
+3. یک مستطیل `AutoShape` اضافه کنید. 
+4. یک تصویر ایجاد کنید. 
+5. نوع پر کردن شکل را تنظیم کنید. 
+6. حالت پر کردن تصویر شکل را تنظیم کنید. 
+7. یک تصویر تنظیم‌شده برای پر کردن شکل اضافه کنید. 
+8. افست‌های تصویر را از لبهٔ مربوطهٔ جعبه محدودهٔ شکل مشخص کنید. 
+9. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
 
-این کد C# فرآیندی را نشان می‌دهد که در آن ویژگی StretchOff استفاده می‌شود:
+این کد C# فرآیندی را نشان می‌دهد که در آن از ویژگی StretchOff استفاده می‌شود:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -442,7 +484,7 @@ using (Presentation pres = new Presentation())
 
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
 
-    // تصویر را از هر طرف در بدنهٔ شکل کشیده می‌کند
+    // تصویر را از هر طرف در بدنه شکل کشیده تنظیم می‌کند
     pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
     pictureFrame.PictureFormat.StretchOffsetLeft = 24;
     pictureFrame.PictureFormat.StretchOffsetRight = 24;
@@ -455,18 +497,18 @@ using (Presentation pres = new Presentation())
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بفهمم چه قالب‌های تصویری برای PictureFrame پشتیبانی می‌شوند؟**  
+**چگونه می‌توانم بفهمم کدام فرمت‌های تصویر برای PictureFrame پشتیبانی می‌شوند؟**
 
-Aspose.Slides هم تصاویر رستری (PNG، JPEG، BMP، GIF و غیره) و هم تصاویر برداری (مثلاً SVG) را از طریق شیء تصویری که به یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست قالب‌های پشتیبانی‌شده عموماً با قابلیت‌های موتور تبدیل اسلاید و تصویر همپوشانی دارد.  
+Aspose.Slides هم تصاویر رستر (PNG، JPEG، BMP، GIF و غیره) و هم تصاویر برداری (مثلاً SVG) را از طریق شیء تصویری که به یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست فرمت‌های پشتیبانی‌شده معمولاً با توانمندی‌های موتور اسلاید و تبدیل تصویر همپوشانی دارد.
 
-**افزودن ده‌ها تصویر بزرگ چه تاثیری بر حجم و کارایی PPTX دارد؟**  
+**اضافه کردن ده‌ها تصویر بزرگ چه تأثیری بر اندازه و عملکرد PPTX دارد؟**
 
-جاسازی مستقیم تصاویر بزرگ حجم فایل و مصرف حافظه را افزایش می‌دهد؛ لینک‌کردن تصاویر به حفظ حجم ارائه کمک می‌کند اما فایل‌های خارجی باید در دسترس باقی بمانند. Aspose.Slides امکان افزودن تصاویر به‌صورت لینک را برای کاهش حجم فایل فراهم می‌کند.  
+جاسازی تصاویر بزرگ حجم فایل و مصرف حافظه را افزایش می‌دهد؛ لینک کردن تصاویر به کاهش حجم ارائه کمک می‌کند اما نیاز دارد فایل‌های خارجی در دسترس باقی بمانند. Aspose.Slides قابلیت افزودن تصاویر به‌صورت لینک برای کاهش حجم فایل را فراهم می‌کند.
 
-**چگونه می‌توانم شیء تصویر را از جابجایی/تغییر اندازهٔ تصادفی محافظت کنم؟**  
+**چگونه می‌توانم یک شیء تصویر را از جابجایی/تغییر اندازه ناخواسته قفل کنم؟**
 
-از [قفل‌های شکل](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/pictureframelock/) برای یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) استفاده کنید (مثلاً غیرفعال کردن جابجایی یا تغییر اندازه). مکانیزم قفل‌گذاری برای اشکال در مقالهٔ جداگانهٔ [حفاظت](/slides/fa/net/applying-protection-to-presentation/) توضیح داده شده و برای انواع مختلف اشکال شامل [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) پشتیبانی می‌شود.  
+برای یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) می‌توانید از [قفل‌های شکل](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/pictureframelock/) استفاده کنید (مثلاً غیر فعال کردن جابجایی یا تغییر اندازه). مکانیسم قفل‌گذاری برای اشکال در مقالهٔ جداگانهٔ [محافظت](/slides/fa/net/applying-protection-to-presentation/) شرح داده شده و برای انواع مختلف اشکال از جمله [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) پشتیبانی می‌شود.
 
-**آیا صحت برداری SVG در هنگام خروجی‌گیری ارائه به PDF/تصاویر حفظ می‌شود؟**  
+**آیا صحت برداری SVG هنگام خروجی به PDF/تصاویر حفظ می‌شود؟**
 
-Aspose.Slides امکان استخراج SVG از یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) را به‌صورت بردار اصلی فراهم می‌کند. هنگام [خروجی‌گیری به PDF](/slides/fa/net/convert-powerpoint-to-pdf/) یا [قالب‌های رستری](/slides/fa/net/convert-powerpoint-to-png/)، بسته به تنظیمات خروجی ممکن است نتیجه رستر شود؛ اما رفتار استخراج نشان می‌دهد SVG اصلی به‌عنوان بردار ذخیره می‌شود.
+Aspose.Slides امکان استخراج یک SVG از یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) به‌صورت بردار اصلی را فراهم می‌کند. هنگام خروجی به [PDF](/slides/fa/net/convert-powerpoint-to-pdf/) یا [فرمت‌های رستر](/slides/fa/net/convert-powerpoint-to-png/)، نتیجه ممکن است بسته به تنظیمات خروجی رستر شود؛ این که SVG اصلی به‌صورت بردار ذخیره شده است توسط رفتار استخراج تأیید می‌شود.

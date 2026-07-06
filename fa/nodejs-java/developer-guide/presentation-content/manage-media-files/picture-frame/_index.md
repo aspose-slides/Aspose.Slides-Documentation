@@ -14,13 +14,13 @@ keywords:
 - تصویر رستر
 - تصویر برداری
 - برش تصویر
-- منطقه برش‌خورده
+- ناحیه برش‌خورده
 - ویژگی StretchOff
 - قالب‌بندی قاب تصویر
 - ویژگی‌های قاب تصویر
 - مقیاس نسبی
 - اثر تصویر
-- نسبت ابعاد
+- نسبت عرض به ارتفاع
 - شفافیت تصویر
 - PowerPoint
 - OpenDocument
@@ -28,39 +28,41 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "قاب‌های تصویر را به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Node.js از طریق Java اضافه کنید. روند کار خود را بهینه‌سازی کنید و طراحی اسلایدها را ارتقا دهید."
+description: "قاب‌های تصویر را به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Node.js از طریق Java اضافه کنید. جریان کار خود را بهینه‌سازی کنید و طراحی اسلایدها را ارتقا دهید."
 ---
 ## **مقدمه**
 
-قاب تصویر یک شکل است که حاوی تصویر است—مانند تصویری در یک قاب.  
+یک قاب تصویر شکلی است که حاوی یک تصویر می‌باشد — مشابه یک عکس در یک قاب.
 
-می‌توانید یک تصویر را از طریق یک قاب تصویر به اسلاید اضافه کنید. به این ترتیب می‌توانید تصویر را با قالب‌بندی قاب تصویر فرمت‌بندی کنید.
+می‌توانید از طریق یک قاب تصویر، تصویری را به اسلاید اضافه کنید. به این ترتیب می‌توانید تصویر را با قالب‌بندی قاب تصویر فرمت کنید.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose مبدل‌های رایگان—[JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—را فراهم می‌کند که به افراد امکان می‌دهد ارائه‌ها را به‌سرعت از تصاویر ایجاد کنند. 
+{{% alert  title="نکته" color="primary" %}} 
+
+Aspose مبدل‌های رایگانی ارائه می‌دهد — [JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt) — که به افراد امکان می‌دهد به سرعت ارائه‌هایی را از تصاویر ایجاد کنند. 
+
 {{% /alert %}} 
 
 ## **ایجاد قاب تصویر**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء `PPImage` را با اضافه کردن یک تصویر به [ImagesCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
-5. یک [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFrame) بر اساس عرض و ارتفاع تصویر از طریق متد `addPictureFrame` که توسط شیء شکل مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید.  
-6. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-7. ارائه‌ی تغییر یافته را به عنوان یک فایل PPTX بنویسید.  
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید. 
+3. یک شیء `PPImage` را با اضافه کردن یک تصویر به [ImagesCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید.
+4. عرض و ارتفاع تصویر را مشخص کنید.
+5. یک [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFrame) بر اساس عرض و ارتفاع تصویر از طریق متد `addPictureFrame` که توسط شیء شکل مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید.
+6. یک قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.
+7. ارائه تغییر یافته را به عنوان فایل PPTX بنویسید.
 
-این کد JavaScript نشان می‌دهد که چگونه یک قاب تصویر ایجاد کنید:
+این کد JavaScript نشان می‌دهد چگونه یک قاب تصویر ایجاد کنید:
 
 ```javascript
-// یک نمونه از کلاس Presentation که فایل PPTX را نشان می‌دهد را ایجاد می‌کند
+// یک شیء از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
 var pres = new aspose.slides.Presentation();
 try {
     // اسلاید اول را دریافت می‌کند
     var sld = pres.getSlides().get_Item(0);
-    // یک نمونه از کلاس Image را ایجاد می‌کند
+    // یک شیء از کلاس Image ایجاد می‌کند
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // قاب تصویری را با ارتفاع و عرض معادل تصویر اضافه می‌کند
+    // قاب تصویر را با ارتفاع و عرض معادل تصویر اضافه می‌کند
     sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // فایل PPTX را روی دیسک می‌نویسد
     pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
@@ -72,33 +74,35 @@ try {
 }
 ```
 
-قاب‌های تصویر به شما امکان می‌دهند که به‌سرعت اسلایدهای ارائه را بر پایه تصاویر ایجاد کنید. وقتی قاب تصویر را با گزینه‌های ذخیره Aspose.Slides ترکیب می‌کنید، می‌توانید عملیات ورودی/خروجی را برای تبدیل تصاویر از یک قالب به قالب دیگر مدیریت کنید.
+قاب‌های تصویر به شما اجازه می‌دهند به سرعت اسلایدهای ارائه را بر پایه تصاویر ایجاد کنید. وقتی قاب تصویر را با گزینه‌های ذخیره Aspose.Slides ترکیب می‌کنید، می‌توانید عملیات ورودی/خروجی را برای تبدیل تصاویر از یک فرمت به فرمت دیگر دستکاری کنید.
 
 ## **ایجاد قاب تصویر با مقیاس نسبی**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک تصویر را به مجموعه تصاویر ارائه اضافه کنید.  
-4. یک شیء [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PPImage) را با اضافه کردن یک تصویر به [ImagesCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید.  
-5. عرض و ارتفاع نسبی تصویر را در قاب تصویر مشخص کنید.  
-6. ارائه‌ی تغییر یافته را به عنوان یک فایل PPTX بنویسید.  
+با تغییر مقیاس نسبی تصویر، می‌توانید یک قاب تصویر پیچیده‌تر بسازید. 
 
-این کد JavaScript نشان می‌دهد که چگونه یک قاب تصویر با مقیاس نسبی ایجاد کنید:
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید. 
+3. یک تصویر را به مجموعه تصاویر ارائه اضافه کنید.
+4. یک شیء [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PPImage) را با اضافه کردن یک تصویر به [ImagesCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید.
+5. عرض و ارتفاع نسبی تصویر را در قاب تصویر مشخص کنید.
+6. ارائه تغییر یافته را به عنوان فایل PPTX بنویسید.
+
+این کد JavaScript نشان می‌دهد چگونه یک قاب تصویر با مقیاس نسبی ایجاد کنید:
 
 ```javascript
-// نمونه‌سازی کلاس Presentation که نشان‌دهنده PPTX است
+// یک شیء از کلاس Presentation که نمایانگر PPTX است را ایجاد می‌کند
 var pres = new aspose.slides.Presentation();
 try {
     // اسلاید اول را دریافت می‌کند
     var sld = pres.getSlides().get_Item(0);
-    // نمونه‌سازی کلاس Image
+    // یک شیء از کلاس Image ایجاد می‌کند
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // افزودن Picture Frame با ارتفاع و عرض معادل تصویر
+    // قاب تصویر را با ارتفاع و عرض معادل تصویر اضافه می‌کند
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // تنظیم مقیاس نسبی عرض و ارتفاع
     pf.setRelativeScaleHeight(0.8);
     pf.setRelativeScaleWidth(1.35);
-    // نوشتن فایل PPTX بر روی دیسک
+    // فایل PPTX را روی دیسک می‌نویسد
     pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
@@ -110,7 +114,7 @@ try {
 
 ## **استخراج تصاویر رستر از قاب‌های تصویر**
 
-می‌توانید تصاویر رستر را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFrame) استخراج کرده و در قالب‌های PNG، JPG و سایر فرمت‌ها ذخیره کنید. مثال کد زیر نشان می‌دهد چگونه یک تصویر را از سند «sample.pptx» استخراج و به قالب PNG ذخیره کنید.
+می‌توانید تصاویر رستر را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFrame) استخراج کنید و در قالب‌های PNG، JPG و سایر فرمت‌ها ذخیره نمایید. مثال کد زیر نشان می‌دهد چگونه یک تصویر را از سند «sample.pptx» استخراج و در قالب PNG ذخیره کنید.
 
 ```javascript
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -136,7 +140,7 @@ try {
 
 ## **استخراج تصاویر SVG از قاب‌های تصویر**
 
-زمانی که یک ارائه شامل گرافیک‌های SVG قرار گرفته در اشکال [PictureFrame] باشد، Aspose.Slides برای Node.js از طریق Java به شما امکان می‌دهد که تصاویر برداری اصلی را با تمام وضوح بازیابی کنید. با مرور مجموعه اشکال اسلاید می‌توانید هر [PictureFrame] را شناسایی کنید، بررسی کنید آیا [PPImage] زیرین محتویات SVG دارد یا نه، و سپس آن تصویر را به‌صورت بومی در فرمت SVG بر روی دیسک یا جریان ذخیره کنید.  
+زمانی که یک ارائه شامل گرافیک‌های SVG است که داخل اشکال [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) قرار دارند، Aspose.Slides برای Node.js از طریق Java به شما اجازه می‌دهد تصاویر برداری اصلی را با کامل‌ترین دقت بازیابی کنید. با پیمایش مجموعه اشکال اسلاید، می‌توانید هر [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) را شناسایی کنید، بررسی کنید آیا شیء زیرین [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ppimage/) محتوی SVG دارد یا نه، و سپس آن تصویر را به صورت فایل یا جریان در فرمت SVG بومی ذخیره کنید.
 
 مثال کد زیر نشان می‌دهد چگونه یک تصویر SVG را از یک قاب تصویر استخراج کنید:
 
@@ -161,9 +165,9 @@ try {
 }
 ```
 
-## **دریافت شفافیت تصویر**
+## **به‌دست آوردن شفافیت تصویر**
 
-Aspose.Slides به شما امکان می‌دهد اثر شفافیت اعمال‌شده به یک تصویر را دریافت کنید. این کد JavaScript عملیات را نشان می‌دهد:
+Aspose.Slides به شما اجازه می‌دهد اثر شفافیت اعمال شده به یک تصویر را دریافت کنید. این کد JavaScript عملیات را نشان می‌دهد:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("Test.pptx");
@@ -179,37 +183,68 @@ for (var i = 0; i < imageTransform.size(); i++) {
 }
 ```
 
-## **قالب‌بندی قاب تصویر**
+## **به‌دست آوردن روشنایی و کنتراست تصویر**
 
-Aspose.Slides گزینه‌های قالب‌بندی متعددی ارائه می‌دهد که می‌توان بر روی یک قاب تصویر اعمال کرد. با استفاده از این گزینه‌ها می‌توانید قاب تصویر را به‌گونه‌ای تغییر دهید که با نیازمندی‌های خاص مطابقت داشته باشد.
+Aspose.Slides به شما اجازه می‌دهد روشنایی و کنتراست اثر اعمال شده به یک تصویر را دریافت کنید. کلاس [Luminance](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/luminance/) این تحول تصویر را نمایش می‌دهد.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PPImage) را با اضافه کردن یک تصویر به [ImagesCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
-5. یک `PictureFrame` بر اساس عرض و ارتفاع تصویر از طریق متد [addPictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) ارائه‌شده توسط شیء [Shapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ShapeCollection) مرتبط با اسلاید مرجع ایجاد کنید.  
-6. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-7. رنگ خط قاب تصویر را تنظیم کنید.  
-8. عرض خط قاب تصویر را تنظیم کنید.  
-9. قاب تصویر را با مقدار مثبت یا منفی چرخش دهید.  
-   * مقدار مثبت تصویر را به‌صورت ساعت‌گرد می‌چرخاند.  
-   * مقدار منفی تصویر را به‌صورت پادساعت‌گرد می‌چرخاند.  
-10. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-11. ارائه‌ی تغییر یافته را به عنوان یک فایل PPTX بنویسید.  
-
-این کد JavaScript نشان‌دهنده‌ی فرآیند قالب‌بندی قاب تصویر است:
+این کد JavaScript نشان می‌دهد چگونه تنظیمات روشنایی و کنتراست را از یک قاب تصویر دریافت کنید:
 
 ```javascript
-// یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
+const presentation = new aspose.slides.Presentation("sample.pptx");
+
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
+    const pictureFrame = shape;
+
+    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (let i = 0; i < imageTransform.size(); i++) {
+        const effect = imageTransform.get_Item(i);
+        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
+            const luminance = effect.getEffective();
+            const brightness = luminance.getBrightness();
+            const contrast = luminance.getContrast();
+
+            console.log("Brightness: " + brightness);
+            console.log("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **قالب‌بندی قاب تصویر**
+
+Aspose.Slides گزینه‌های قالب‌بندی متعددی را برای قاب تصویر فراهم می‌کند. با استفاده از این گزینه‌ها می‌توانید قاب تصویر را طوری تغییر دهید که با نیازمندی‌های خاص مطابقت داشته باشد.
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید. 
+3. یک شیء [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PPImage) را با اضافه کردن یک تصویر به [ImagesCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید.
+4. عرض و ارتفاع تصویر را مشخص کنید.
+5. یک `PictureFrame` بر اساس عرض و ارتفاع تصویر از طریق متد [addPictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) که توسط شیء [Shapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ShapeCollection) مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید.
+6. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.
+7. رنگ خط قاب تصویر را تنظیم کنید.
+8. عرض خط قاب تصویر را تنظیم کنید.
+9. قاب تصویر را با دادن مقدار مثبت یا منفی چرخش دهید.
+   * مقدار مثبت تصویر را ساعتگرد می‌چرخاند. 
+   * مقدار منفی تصویر را پادساعتگرد می‌چرخاند.
+10. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.
+11. ارائه تغییر یافته را به عنوان فایل PPTX بنویسید.
+
+این کد JavaScript فرایند قالب‌بندی قاب تصویر را نشان می‌دهد:
+
+```javascript
+// یک شیء از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
 var pres = new aspose.slides.Presentation();
 try {
     // اسلاید اول را دریافت می‌کند
     var sld = pres.getSlides().get_Item(0);
-    // یک نمونه از کلاس Image را ایجاد می‌کند
+    // یک شیء از کلاس Image ایجاد می‌کند
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // قاب تصویری را با ارتفاع و عرض معادل تصویر اضافه می‌کند
+    // قاب تصویر را با ارتفاع و عرض معادل تصویر اضافه می‌کند
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // برخی قالب‌بندی‌ها را بر روی PictureFrameEx اعمال می‌کند
+    // اعمال برخی قالب‌بندی‌ها به PictureFrameEx
     pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     pf.getLineFormat().setWidth(20);
@@ -224,13 +259,15 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}} 
-Aspose به‌تازگی یک [Collage Maker رایگان](https://products.aspose.app/slides/fa/collage) توسعه داد. اگر نیاز به [ادغام JPG/JPEG](https://products.aspose.app/slides/fa/collage/jpg) یا تصاویر PNG، یا [ایجاد شبکه‌ها از عکس‌ها](https://products.aspose.app/slides/fa/collage/photo-grid) دارید، می‌توانید از این سرویس استفاده کنید. 
+{{% alert title="نکته" color="primary" %}}
+
+Aspose به‌تازگی یک [ساختارگر کلاژ رایگان](https://products.aspose.app/slides/fa/collage) توسعه داده است. اگر ever نیاز به [ادغام JPG/JPEG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG داشته باشید، یا [ایجاد شبکه از عکس‌ها](https://products.aspose.app/slides/fa/collage/photo-grid)، می‌توانید از این سرویس استفاده کنید. 
+
 {{% /alert %}}
 
-## **اضافه کردن تصویر به‌عنوان لینک**
+## **افزودن تصویر به‌عنوان لینک**
 
-برای جلوگیری از بزرگ شدن اندازه ارائه، می‌توانید تصاویر (یا ویدیوها) را از طریق لینک‌ها اضافه کنید به‌جای اینکه فایل‌ها را مستقیماً در ارائه جاسازی کنید. این کد JavaScript نشان می‌دهد چگونه یک تصویر و ویدیو را به یک مکان‌نگهدار اضافه کنید:
+برای جلوگیری از حجم بزرگ ارائه، می‌توانید به‌جای جاسازی مستقیم فایل‌ها، تصاویر (یا ویدیوها) را از طریق لینک‌ها اضافه کنید. این کد JavaScript نشان می‌دهد چگونه یک تصویر و ویدیو را در یک محل‌نگه‌دار (placeholder) اضافه کنید:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("input.pptx");
@@ -268,13 +305,13 @@ try {
 }
 ```
 
-## **برش تصویر**
+## **قاب‌بُری تصویر**
 
-این کد JavaScript نشان می‌دهد چگونه یک تصویر موجود در یک اسلاید را برش دهید:
+این کد JavaScript نشان می‌دهد چگونه یک تصویر موجود را در اسلاید قاب‌بُری کنید:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
-// یک شیء تصویر جدید ایجاد می‌کند
+// ایجاد شیء تصویر جدید
 try {
     var picture;
     var image = aspose.slides.Images.fromFile(imagePath);
@@ -285,14 +322,14 @@ try {
             image.dispose();
         }
     }
-    // یک PictureFrame به اسلاید اضافه می‌کند
+    // اضافه کردن PictureFrame به یک اسلاید
     var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // تصویر را برش می‌دهد (مقادیر درصدی)
+    // برش تصویر (مقدارهای درصدی)
     picFrame.getPictureFormat().setCropLeft(23.6);
     picFrame.getPictureFormat().setCropRight(21.5);
     picFrame.getPictureFormat().setCropTop(3);
     picFrame.getPictureFormat().setCropBottom(31);
-    // نتیجه را ذخیره می‌کند
+    // ذخیرهٔ نتیجه
     pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
@@ -302,9 +339,9 @@ try {
 }
 ```
 
-## **حذف نواحی برش‌خورده تصویر**
+## **حذف نواحی قاب‌گذاری شده تصویر**
 
-اگر می‌خواهید نواحی برش‌خورده‌ی تصویر موجود در یک قاب را حذف کنید، می‌توانید از متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) استفاده کنید. این متد تصویر برش‌خورده یا تصویر اصلی را برمی‌گرداند اگر برش لازم نباشد.  
+اگر می‌خواهید نواحی قاب‌گذاری شده یک تصویر موجود در قاب را حذف کنید، می‌توانید از متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) استفاده کنید. این متد تصویر قاب‌گذاری‌شده یا تصویر اصلی را در صورتی که قاب‌گذاری ضروری نباشد، بازمی‌گرداند.
 
 این کد JavaScript عملیات را نشان می‌دهد:
 
@@ -314,7 +351,7 @@ try {
     var slide = presentation.getSlides().get_Item(0);
     // قاب تصویر را از اسلاید اول دریافت می‌کند
     var picFrame = slide.getShapes().get_Item(0);
-    // نواحی برش‌خورده تصویر قاب تصویر را حذف می‌کند و تصویر برش‌خورده را برمی‌گرداند
+    // نواحی برش‌خورده تصویر قاب تصویر را حذف می‌کند و تصویر برش‌خورده را بازمی‌گرداند
     var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
     // نتیجه را ذخیره می‌کند
     presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
@@ -325,19 +362,22 @@ try {
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) تصویر برش‌خورده را به مجموعه تصاویر ارائه اضافه می‌کند. اگر تصویر فقط در [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) پردازش‌شده استفاده شود، این تنظیم می‌تواند اندازه ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائه‌ی نهایی افزایش خواهد یافت.  
+{{% alert title="یادداشت" color="warning" %}} 
 
-این متد در عملیات برش، فایل‌های متا‌فایل WMF/EMF را به تصویر PNG رستر تبدیل می‌کند. 
+متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) تصویر قاب‌گذاری‌شده را به مجموعه تصاویر ارائه اضافه می‌کند. اگر تصویر فقط در [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) پردازش‌شده استفاده شود، این تنظیم می‌تواند حجم ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائه نهایی افزایش می‌یابد.
+
+این متد در عملیات قاب‌گذاری، فایل‌های متافایل WMF/EMF را به تصویر PNG رستر تبدیل می‌کند. 
+
 {{% /alert %}}
 
 ## **فشرده‌سازی تصاویر**
 
-می‌توانید با استفاده از متد [PictureFillFormat.compressImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) یک تصویر را در یک ارائه فشرده کنید. این متد تصویر را با کاهش اندازه‌اش بر اساس اندازه شکل و وضوح مشخص‌شده فشرده می‌کند، با گزینه حذف نواحی برش‌خورده.  
+می‌توانید با استفاده از متد [PictureFillFormat.compressImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) یک تصویر در ارائه را فشرده کنید.
+این متد تصویر را با کاهش اندازه‌اش بر اساس اندازه شکل و وضوح مشخص‌شده، و با گزینه حذف نواحی قاب‌گذاری‌شده فشرده می‌کند.
 
-این کار اندازه و وضوح تصویر را مشابه ویژگی **Picture Format → Compress Pictures → Resolution** در PowerPoint تنظیم می‌کند.  
+این تنظیم مشابه ویژگی **Picture Format → Compress Pictures → Resolution** در PowerPoint عمل می‌کند.
 
-مثال‌های JavaScript زیر نشان می‌دهند چگونه یک تصویر را در یک ارائه با تعیین وضوح هدف فشرده کنید و به‌صورت اختیاری نواحی برش‌خورده را حذف کنید:
+مثال‌های JavaScript زیر نشان می‌دهند چگونه با تعیین وضوح هدف و حذف اختیاری نواحی قاب‌گذاری‌شده، یک تصویر در ارائه را فشرده کنید:
 
 ```javascript
 const presentation = new aspose.slides.Presentation("demo.pptx");
@@ -369,7 +409,7 @@ try {
     const slide = presentation.getSlides().get_Item(0);
     const pictureFrame = slide.getShapes().get_Item(0);
 
-    // تصویر را به 96 DPI (وضوح ایمیل) فشرده کنید، نواحی برش‌خورده را حذف کنید.
+    // فشرده‌سازی تصویر به 96 DPI (وضوح ایمیل)، حذف نواحی برش‌خورده.
     pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
 
     presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
@@ -378,15 +418,18 @@ try {
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-متد تصویر را بر اساس اندازه شکل و DPI ارائه‌شده به وضوح پایین‌تری تبدیل می‌کند. نواحی برش‌خورده نیز می‌توانند برای بهینه‌سازی حجم فایل حذف شوند. اگر تصویر یک متا‌فایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نمی‌شود. همچنین کیفیت JPEG بسته به وضوح حفظ یا کمی کاهش می‌یابد، مشابه نحوه‌ی پردازش PowerPoint برای JPEGهای با وضوح بالا. 
+{{% alert title="یادداشت" color="warning" %}} 
+
+این متد تصویر را به وضوح پایین‌تری بر اساس اندازه شکل و DPI ارائه‌شده تبدیل می‌کند. نواحی قاب‌گذاری‌شده نیز می‌توانند برای بهینه‌سازی حجم فایل حذف شوند.
+اگر تصویر یک متافایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نمی‌شود. همچنین کیفیت JPEG بسته به وضوح حفظ یا کمی کاهش می‌یابد، مشابه رفتار PowerPoint با JPEGهای با وضوح بالا.
+
 {{% /alert %}}
 
-## **قفل کردن نسبت تصویر**
+## **قفل کردن نسبت عرض به ارتفاع**
 
-اگر می‌خواهید یک شکل حاوی تصویر حتی پس از تغییر ابعاد تصویر، نسبت تصویر خود را حفظ کند، می‌توانید از متد [setAspectRatioLocked](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) برای تنظیم گزینه *Lock Aspect Ratio* استفاده کنید.  
+اگر می‌خواهید یک شکل حاوی تصویر حتی پس از تغییر ابعاد تصویر، نسبت عرض به ارتفاع خود را حفظ کند، می‌توانید از متد [setAspectRatioLocked](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) برای تنظیم گزینه *Lock Aspect Ratio* استفاده کنید.
 
-این کد JavaScript نشان می‌دهد چگونه نسبت تصویر یک شکل را قفل کنید:
+این کد JavaScript نشان می‌دهد چگونه نسبت عرض به ارتفاع یک شکل را قفل کنید:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -403,7 +446,7 @@ try {
         }
     }
     var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // تنظیم شکل برای حفظ نسبت ابعاد هنگام تغییر اندازه
+    // تنظیم شکل برای حفظ نسبت عرض به ارتفاع هنگام تغییر اندازه
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch (e) {console.log(e);
 } finally {
@@ -413,35 +456,37 @@ try {
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-این تنظیم *Lock Aspect Ratio* فقط نسبت شکل را حفظ می‌کند و نه تصویر موجود در آن. 
+{{% alert title="یادداشت" color="warning" %}} 
+
+این تنظیم *Lock Aspect Ratio* فقط نسبت عرض به ارتفاع شکل را حفظ می‌کند و نه تصویر داخل آن.
+
 {{% /alert %}}
 
 ## **استفاده از ویژگی StretchOff**
 
-با استفاده از متدهای [setStretchOffsetLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-)، [setStretchOffsetTop](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) و [setStretchOffsetBottom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) از کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat) می‌توانید یک مستطیل پرکننده مشخص کنید.  
+با استفاده از متدهای [setStretchOffsetLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-)، [setStretchOffsetTop](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--)، [setStretchOffsetRight](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) و [setStretchOffsetBottom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) از کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PictureFillFormat) می‌توانید یک مستطیل پر را تعیین کنید.
 
-هنگامی که برای یک تصویر کشیده شدن تعریف می‌شود، یک مستطیل منبع به‌طور مقیاس‌دار برای پر کردن مستطیل پرکننده‌ی مشخص‌شده تنظیم می‌شود. هر لبه‌ی مستطیل پرکننده توسط درصدی نسبت به لبه‌ی متناظر جعبه‌حدود شکل تعریف می‌شود. درصد مثبت یک تو رفتگی داخلی و درصد منفی یک برآمدگی خارجی را مشخص می‌کند.  
+زمانی که کشش برای یک تصویر مشخص شود، یک مستطیل منبع مقیاس‌بندی می‌شود تا در مستطیل پر مشخص شده جا بگیرد. هر لبهٔ مستطیل پر توسط درصدی نسبت به لبهٔ متناظر جعبه مرزی شکل تعریف می‌شود. درصد مثبت یک تو رفتگی و درصد منفی یک برآمدگی را مشخص می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک `AutoShape` به شکل مستطیل اضافه کنید.  
-4. یک تصویر ایجاد کنید.  
-5. نوع پر کردن شکل را تنظیم کنید.  
-6. حالت پر کردن تصویر شکل را تنظیم کنید.  
-7. تصویری تنظیم کنید تا شکل را پر کند.  
-8. افست‌های تصویر را نسبت به لبه‌های متناظر جعبه‌حدود شکل مشخص کنید.  
-9. ارائه‌ی تغییر یافته را به عنوان یک فایل PPTX بنویسید.  
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
+3. یک `AutoShape` مستطیل اضافه کنید. 
+4. یک تصویر ایجاد کنید.
+5. نوع پر کردن شکل را تنظیم کنید.
+6. حالت پر کردن تصویر شکل را تنظیم کنید.
+7. یک تصویر تنظیم‌شده برای پر کردن شکل اضافه کنید.
+8. افست‌های تصویر را از لبهٔ متناظر جعبه مرزی شکل مشخص کنید
+9. ارائه تغییر یافته را به عنوان فایل PPTX بنویسید.
 
-این کد JavaScript فرآیندی را نشان می‌دهد که در آن از ویژگی StretchOff استفاده می‌شود:
+این کد JavaScript فرایندی را نشان می‌دهد که در آن ویژگی StretchOff مورد استفاده قرار می‌گیرد:
 
 ```javascript
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
+// یک شیء از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
 var pres = new aspose.slides.Presentation();
 try {
     // اسلاید اول را دریافت می‌کند
     var slide = pres.getSlides().get_Item(0);
-    // یک نمونه از کلاس ImageEx را ایجاد می‌کند
+    // یک شیء از کلاس ImageEx ایجاد می‌کند
     var picture;
     var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
     try {
@@ -451,11 +496,11 @@ try {
             image.dispose();
         }
     }
-    // یک AutoShape به شکل Rectangle اضافه می‌کند
+    // یک AutoShape مستطیلی به اسلاید اضافه می‌کند
     var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // نوع پر شدن شکل را تنظیم می‌کند
+    // نوع پر کردن شکل را تنظیم می‌کند
     aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // حالت پر شدن تصویر برای شکل را تنظیم می‌کند
+    // حالت پر کردن تصویر شکل را تنظیم می‌کند
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
     // تصویر را برای پر کردن شکل تنظیم می‌کند
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
@@ -474,16 +519,20 @@ try {
 }
 ```
 
-## **سؤالات متداول**
+## **سئوالات متداول**
 
-**چگونه می‌توانم بفهمم چه فرمت‌های تصویری برای PictureFrame پشتیبانی می‌شود؟**  
-Aspose.Slides هر دو نوع تصویر رستر (PNG، JPEG، BMP، GIF و غیره) و تصاویر برداری (به عنوان مثال SVG) را از طریق شیء تصویری که به یک [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست فرمت‌های پشتیبانی‌شده معمولاً با قابلیت‌های موتور تبدیل اسلاید و تصویر همپوشانی دارد.  
+**چگونه می‌توانم متوجه شوم چه فرمت‌های تصویری برای PictureFrame پشتیبانی می‌شوند؟**
 
-**افزودن ده‌ها تصویر بزرگ چه تاثیری بر اندازه و کارایی PPTX دارد؟**  
-جاسازی تصاویر بزرگ حجم فایل و مصرف حافظه را افزایش می‌دهد؛ استفاده از لینک برای تصاویر باعث کم‌حجم‌تر شدن ارائه می‌شود اما نیاز دارد فایل‌های خارجی در دسترس باقی بمانند. Aspose.Slides امکان افزودن تصاویر به‌صورت لینک‌دار برای کاهش حجم فایل را فراهم می‌کند.  
+Aspose.Slides هم تصاویر رستر (PNG، JPEG، BMP، GIF و غیره) و هم تصاویر برداری (مثلاً SVG) را از طریق شیء تصویری که به یک [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست فرمت‌های پشتیبانی‌شده عموماً با قابلیت‌های موتور تبدیل اسلاید و تصویر همپوشانی دارد.
 
-**چگونه می‌توانم یک شیء تصویر را از جابه‌جایی یا تغییر اندازه ناخواسته قفل کنم؟**  
-از [قفل‌های شکل](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) برای یک [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) استفاده کنید (به عنوان مثال، غیرفعال کردن جابه‌جایی یا تغییر اندازه). مکانیزم قفل‌گذاری برای انواع مختلف شکل‌ها، از جمله [PictureFrame] پشتیبانی می‌شود.  
+**اضافه کردن ده‌ها تصویر بزرگ چگونه بر حجم و عملکرد PPTX تأثیر می‌گذارد؟**
 
-**آیا صحت بردار SVG هنگام خروجی به PDF/تصاویر حفظ می‌شود؟**  
-Aspose.Slides امکان استخراج یک SVG از یک [PictureFrame] را به‌صورت بردار اصلی فراهم می‌کند. هنگام خروجی به PDF یا فرمت‌های رستر، نتیجه ممکن است بسته به تنظیمات خروجی به‌صورت رستر باشد؛ اما این که SVG اصلی به‌صورت بردار ذخیره شده است، توسط رفتار استخراج تأیید می‌شود.
+جاسازی تصاویر بزرگ حجم فایل و مصرف حافظه را افزایش می‌دهد؛ لینک کردن تصاویر به کاهش حجم ارائه کمک می‌کند اما نیاز دارد فایل‌های خارجی در دسترس باقی بمانند. Aspose.Slides امکان افزودن تصاویر به‌صورت لینک را برای کاهش حجم فایل فراهم می‌کند.
+
+**چگونه می‌توانم یک شیء تصویر را از جابجایی/تغییر اندازهٔ تصادفی قفل کنم؟**
+
+از [قفل‌های شکل](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) برای یک [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) استفاده کنید (مثلاً غیرفعال کردن جابجایی یا تغییر اندازه). مکانیزم قفل‌کردن برای انواع مختلف شکل‌ها، از جمله [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/)، پشتیبانی می‌شود.
+
+**آیا دقت برداری SVG هنگام صادر کردن ارائه به PDF/تصاویر حفظ می‌شود؟**
+
+Aspose.Slides امکان استخراج SVG از یک [PictureFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pictureframe/) را به عنوان بردار اصلی فراهم می‌کند. هنگام [صادرات به PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) یا [فرمت‌های رستر](/slides/fa/nodejs-java/convert-powerpoint-to-png/)، نتیجه ممکن است بسته به تنظیمات خروجی رستر شود؛ اما این حقیقت که SVG اصلی به عنوان بردار ذخیره شده است از رفتار استخراج تأیید می‌شود.
