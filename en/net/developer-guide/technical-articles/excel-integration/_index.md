@@ -45,7 +45,7 @@ The next step to extend functionality is the [ExcelWorkbookImporter](https://ref
 
 #### **Import an Excel Table**
 
-The [ExcelWorkbookImporter](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/) class also contains several overloads of the [AddTableFromWorkbook](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/) method. These methods allow you to import a selected cell range from a specified worksheet and add it as a table to the end of the given shape collection at the specified coordinates.
+The [ExcelWorkbookImporter](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/) class also contains several overloads of the [AddTableFromWorkbook](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/) method. These methods allow you to import a specified cell range from a specified worksheet and add it as a table to the end of the given shape collection at the specified coordinates.
 
 In short, it's a lightweight and straightforward API for reading Excel data — exactly what many developers need without the overhead of a full spreadsheet processing library.
 
