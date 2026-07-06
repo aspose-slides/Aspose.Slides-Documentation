@@ -184,6 +184,37 @@ for (var i = 0; i < imageTransform.size(); i++) {
 }
 ```
 
+## **Get Brightness and Contrast of an Image**
+
+Aspose.Slides allows you to get the brightness and contrast effect applied to an image. The [Luminance](https://reference.aspose.com/slides/nodejs-java/aspose.slides/luminance/) class represents this image transform effect.
+
+This JavaScript code demonstrates how to get the brightness and contrast settings from a picture frame:
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
+    const pictureFrame = shape;
+
+    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (let i = 0; i < imageTransform.size(); i++) {
+        const effect = imageTransform.get_Item(i);
+        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
+            const luminance = effect.getEffective();
+            const brightness = luminance.getBrightness();
+            const contrast = luminance.getContrast();
+
+            console.log("Brightness: " + brightness);
+            console.log("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Picture Frame Formatting**
 
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.

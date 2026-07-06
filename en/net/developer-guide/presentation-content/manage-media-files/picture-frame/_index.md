@@ -181,6 +181,35 @@ using (var presentation = new Presentation("Test.pptx"))
 }
 ```
 
+## **Get Brightness and Contrast of an Image**
+
+Aspose.Slides allows you to get the brightness and contrast effect applied to an image. The [ILuminance](https://reference.aspose.com/slides/net/aspose.slides.effects/iluminance/) interface represents this image transform effect.
+
+This C# code demonstrates how to get the brightness and contrast settings from a picture frame:
+
+```csharp
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var slide = presentation.Slides[0];
+    var shape = slide.Shapes[0];
+    var pictureFrame = (IPictureFrame)shape;
+
+    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
+    foreach (var effect in imageTransform)
+    {
+        if (effect is ILuminance luminanceEffect)
+        {
+            var luminance = luminanceEffect.GetEffective();
+            var brightness = luminance.Brightness;
+            var contrast = luminance.Contrast;
+
+            Console.WriteLine("Brightness: " + brightness);
+            Console.WriteLine("Contrast: " + contrast);
+        }
+    }
+}
+```
+
 {{% alert color="primary" %}} 
 All effects applied to images can be found in [Aspose.Slides.Effects](https://reference.aspose.com/slides/net/aspose.slides.effects/).
 {{% /alert %}}

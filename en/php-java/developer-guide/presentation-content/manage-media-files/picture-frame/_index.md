@@ -184,6 +184,38 @@ Aspose.Slides allows you to get the transparency effect applied to an image. Thi
   }
 ```
 
+## **Get Brightness and Contrast of an Image**
+
+Aspose.Slides allows you to get the brightness and contrast effect applied to an image. The [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/) class represents this image transform effect.
+
+This PHP code demonstrates how to get the brightness and contrast settings from a picture frame:
+
+```php
+  $presentation = new Presentation("sample.pptx");
+
+  try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    $pictureFrame = $shape;
+
+    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
+    $imageTransformCount = java_values($imageTransform->size());
+    for ($index = 0; $index < $imageTransformCount; $index++) {
+      $effect = $imageTransform->get_Item($index);
+      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
+        $luminance = $effect->getEffective();
+        $brightness = java_values($luminance->getBrightness());
+        $contrast = java_values($luminance->getContrast());
+
+        echo("Brightness: " . $brightness . PHP_EOL);
+        echo("Contrast: " . $contrast . PHP_EOL);
+      }
+    }
+  } finally {
+    $presentation->dispose();
+  }
+```
+
 ## **Picture Frame Formatting**
 
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.

@@ -203,6 +203,36 @@ for (auto&& effect : imageTransform)
 All effects applied to images can be found in [Aspose::Slides::Effects](https://reference.aspose.com/slides/cpp/aspose.slides.effects/).
 {{% /alert %}}
 
+## **Get Brightness and Contrast of an Image**
+
+Aspose.Slides allows you to get the brightness and contrast effect applied to an image. The [ILuminance](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iluminance/) interface represents this image transform effect.
+
+This C++ code demonstrates how to get the brightness and contrast settings from a picture frame:
+
+```c++
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shape(0);
+auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
+
+auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+for (auto&& effect : imageTransform)
+{
+    if (System::ObjectExt::Is<ILuminance>(effect))
+    {
+        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
+        auto brightness = luminance->get_Brightness();
+        auto contrast = luminance->get_Contrast();
+
+        Console::WriteLine(System::String(u"Brightness: ") + brightness);
+        Console::WriteLine(System::String(u"Contrast: ") + contrast);
+    }
+}
+
+presentation->Dispose();
+```
+
 ## **Picture Frame Formatting**
 
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
