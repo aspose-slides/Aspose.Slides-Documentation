@@ -104,7 +104,7 @@ This property provides the following modes:
 - `Never` never uses ZIP64 format extensions.
 - `Always` always uses ZIP64 format extensions.
 
-The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
+The following code demonstrates how to save a presentation as a PPTX file with ZIP64 format extensions enabled:
 
 ```cs
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -121,6 +121,47 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 When you save with `Zip64Mode.Never`, a [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 
 {{% /alert %}}
+
+## **Save Presentations in Office Open XML Format with Compression Levels**
+
+When working with large presentations, you can adjust the compression level to balance file size and processing time. Depending on your requirements, you may prefer faster processing or smaller output files.
+
+Aspose.Slides provides the [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/compressionlevel/) property, which allows you to specify the compression level used when saving a presentation in Office Open XML format.
+
+The following compression levels are available:
+
+- **None**: No compression is applied. Files are stored as-is.
+- **Level1:** The fastest compression with the lowest compression ratio.
+- **Level2:** Faster compression with a slightly better compression ratio than **Level1**.
+- **Level3:** Provides better compression than **Level2** with a moderate impact on processing time.
+- **Level4:** Provides better compression than **Level3**.
+- **Level5:** Provides improved compression over **Level4** with additional processing time.
+- **Level6:** Standard compression that offers a good balance between processing speed and file size. This is the *default compression level*.
+- **Level7:** Provides better compression than **Level6** with slower processing.
+- **Level8:** Provides better compression than **Level7**.
+- **Level9:** Maximum compression. Produces the smallest file size at the cost of the longest processing time.
+
+The following example demonstrates how to save a presentation as a PPTX file *without compression*:
+```cs
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
+    {
+        CompressionLevel = CompressionLevel.None
+    });
+}
+```
+
+This example shows how to save a presentation as a PPTX file with *maximum compression*:
+```cs
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
+    {
+        CompressionLevel = CompressionLevel.Level9
+    });
+}
+```
 
 ## **Save Presentations without Refreshing the Thumbnail**
 
