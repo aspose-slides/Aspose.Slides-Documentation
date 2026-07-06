@@ -1,5 +1,5 @@
 ---
-title: Képkeretek kezelése prezentációkban C++ használatával
+title: Képkeretek kezelése prezentációkban C++ segítségével
 linktitle: Képkeret
 type: docs
 weight: 10
@@ -13,14 +13,14 @@ keywords:
 - kép kinyerése
 - raszteres kép
 - vektorkép
-- kép levágása
+- kép vágása
 - vágott terület
 - StretchOff tulajdonság
 - képkeret formázása
-- képkeret tulajdonságai
+- képkeret tulajdonságok
 - relatív méretezés
 - kép effektus
-- méretarány
+- oldalarány
 - kép átlátszóság
 - PowerPoint
 - OpenDocument
@@ -31,109 +31,105 @@ description: "Képkeretek hozzáadása PowerPoint és OpenDocument prezentáció
 ---
 ## **Bevezetés**
 
-A képkeret egy olyan alakzat, amely egy képet tartalmaz—olyan, mint egy kép a keretben.
+A képkeret egy olyan alakzat, amely képet tartalmaz – ez olyan, mint egy kép egy keretben.  
 
-Képet egy diára egy képkereten keresztül adhat hozzá. Így a képet a képkeret formázásával formázhatja.
+Képet adhat hozzá egy diára egy képkereten keresztül. Így a képet a képkeret formázásával formázhatja.  
 
-{{% alert title="Tipp" color="primary" %}} 
-Az Aspose ingyenes átalakítókat biztosít — [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyek lehetővé teszik a felhasználók számára, hogy gyorsan prezentációkat hozzanak létre képekből. 
+{{% alert  title="Tip" color="primary" %}} 
+Az Aspose ingyenes konvertereket biztosít – [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) –, amelyek lehetővé teszik, hogy gyorsan prezentációkat hozzanak létre képekből.  
 {{% /alert %}} 
 
 ## **Képkeret létrehozása**
 
 1. Hozzon létre egy példányt a [Presentation class](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
-2. Szerezzen be egy diára mutató referenciát az indexe alapján.  
-3. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_p_p_image) objektumot úgy, hogy képet ad hozzá a prezentáció objektumhoz kapcsolódó [IImagescollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_image_collection) gyűjteményhez, amelyet az alakzat kitöltéséhez használnak.  
+2. Szerezze meg a dia hivatkozását az indexe alapján.  
+3. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_p_p_image) objektumot úgy, hogy képet ad hozzá a [IImagescollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_image_collection) gyűjteményhez, amely a prezentáció objektumhoz kapcsolódik, és a forma kitöltésére lesz használva.  
 4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy [PictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_frame) objektumot a kép szélessége és magassága alapján a `AddPictureFrame` metódussal, amely a hivatkozott diához tartozó alakzatobjektumon keresztül érhető el.  
-6. Adjon egy képkeretet (a képet tartalmazó) a diához.  
-7. Mentse a módosított prezentációt PPTX fájlként.  
-
-Ez a C++ kód bemutatja, hogyan hozhat létre képkeretet:
+5. Hozzon létre egy [PictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_frame) objektumot a kép szélessége és magassága alapján az `AddPictureFrame` metódus használatával, amely a hivatkozott diához kapcsolódó alakzat objektumnál érhető el.  
+6. Adjon hozzá egy képkeretet (amely a képet tartalmazza) a diához.  
+7. Írja ki a módosított prezentációt PPTX fájlként.  
 
 ```c++
-// A dokumentumok könyvtárának útvonala.
+// A dokumentumok könyvtárának elérési útja.
 const String outPath = u"../out/PictureFrameFormatting_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// A kívánt prezentáció betöltése
+// Betölti a kívánt prezentációt.
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Első dia elérése
+// Az első diát eléri.
 SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Betölti a képet, amely a prezentáció képgyűjteményéhez lesz hozzáadva
-// Lekéri a képet
+// Betölti a képet, amely a prezentáció képgyűjteményéhez lesz hozzáadva.
+// Lekéri a képet.
 auto image = Images::FromFile(filePath);
 
-// Képet ad a prezentáció képgyűjteményéhez
+// Képet ad a prezentáció képgyűjteményéhez.
 SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
-// Képkeretet ad a diára
+// Képkeretet ad a diához.
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Relatív méretezés szélességét és magasságát állítja be
+// Beállítja a relatív méretezés szélességét és magasságát.
 pf->set_RelativeScaleHeight(0.8);
 pf->set_RelativeScaleWidth(1.35);
-// Formázás alkalmazása a képkeretre
+// Formáz néhány beállítást a képkeretre.
 pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 pf->get_LineFormat()->set_Width ( 20);
 pf->set_Rotation( 45);
 
-// PPTX fájl mentése lemezre
+// A PPTX fájlt lemezre írja.
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" %}} 
-A képkeretek lehetővé teszik, hogy gyorsan prezentációs diák készüljenek képek alapján. Ha a képkeretet kombinálja az Aspose.Slides mentési beállításaival, kezelheti a bemeneti/kimeneti műveleteket a képek egyik formátumból a másikba történő átalakításához. Érdemes lehet megnézni ezeket az oldalakat: convert [kép JPG-re](https://products.aspose.com/slides/hu/cpp/conversion/image-to-jpg/); convert [JPG képre](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-image/); convert [JPG PNG-re](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-png/), convert [PNG JPG-re](https://products.aspose.com/slides/hu/cpp/conversion/png-to-jpg/); convert [PNG SVG-re](https://products.aspose.com/slides/hu/cpp/conversion/png-to-svg/), convert [SVG PNG-re](https://products.aspose.com/slides/hu/cpp/conversion/svg-to-png/). 
+A képkeretek lehetővé teszik, hogy gyorsan előállítsunk prezentációs diákat képek alapján. Ha a képkeretet kombinálja az Aspose.Slides mentési beállításaival, kezelheti a bemeneti/kimeneti műveleteket a képek formátumok közötti átalakításához. Érdemes megnézni ezeket az oldalakat: konvertálás [image to JPG](https://products.aspose.com/slides/hu/cpp/conversion/image-to-jpg/); konvertálás [JPG to image](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-image/); konvertálás [JPG to PNG](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-png/), konvertálás [PNG to JPG](https://products.aspose.com/slides/hu/cpp/conversion/png-to-jpg/); konvertálás [PNG to SVG](https://products.aspose.com/slides/hu/cpp/conversion/png-to-svg/), konvertálás [SVG to PNG](https://products.aspose.com/slides/hu/cpp/conversion/svg-to-png/).  
 {{% /alert %}}
 
 ## **Képkeret létrehozása relatív méretezéssel**
 
-A kép relatív méretezésének módosításával összetettebb képkeretet hozhat létre. 
+A kép relatív méretezésének módosításával összetettebb képkeretet hozhat létre.  
 
 1. Hozzon létre egy példányt a [Presentation class](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
-2. Szerezzen be egy diára mutató referenciát az indexe alapján.  
-3. Adjon egy képet a prezentáció képgyűjteményéhez.  
-4. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_p_p_image) objektumot úgy, hogy képet ad hozzá a prezentáció objektumhoz kapcsolódó [IImagescollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_image_collection) gyűjteményhez, amelyet az alakzat kitöltéséhez használnak.  
+2. Szerezze meg a dia hivatkozását az indexe alapján.  
+3. Adjon hozzá egy képet a prezentáció képgyűjteményéhez.  
+4. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_p_p_image) objektumot úgy, hogy képet ad hozzá a [IImagescollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_image_collection) gyűjteményhez, amely a prezentáció objektumhoz kapcsolódik, és a forma kitöltésére lesz használva.  
 5. Adja meg a kép relatív szélességét és magasságát a képkeretben.  
-6. Mentse a módosított prezentációt PPTX fájlként.  
-
-Ez a C++ kód bemutatja, hogyan hozhat létre képkeretet relatív méretezéssel:
+6. Írja ki a módosított prezentációt PPTX fájlként.  
 
 ```c++
-// A dokumentumok könyvtárának útvonala.
+// A dokumentumok könyvtárának elérési útja.
 const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// A kívánt prezentáció betöltése
+// Betölti a kívánt prezentációt.
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Az első dia elérése
+// Eléri az első diát.
 SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Betölti a képet, amely a prezentáció képgyűjteményéhez lesz hozzáadva
-// Lekéri a képet
+// Betölti a képet, amely a prezentáció képgyűjteményéhez lesz hozzáadva.
+// Lekéri a képet.
 auto image = Images::FromFile(filePath);
 
-// Képet ad a prezentáció képgyűjteményéhez
+// Képet ad a prezentáció képgyűjteményéhez.
 SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
-// Képkeretet ad a diára
+// Képkeretet ad a diához.
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Relatív méretezés szélességét és magasságát állítja be
+// Beállítja a relatív méretezés szélességét és magasságát.
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-//PPTX fájlt ment a lemezre
+// A PPTX fájlt lemezre írja.
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Rasterképek kinyerése képkeretekből**
+## **Raszteres képek kinyerése képkeretekből**
 
-Rasterképeket nyerhet ki a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_frame) objektumokból, és PNG, JPG vagy más formátumokban mentheti el. Az alábbi kódrészlet bemutatja, hogyan nyerhet ki egy képet a "sample.pptx" dokumentumból, és mentheti PNG formátumban.
+Raszteres képeket nyerhet ki a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_frame) objektumokból, és elmentheti őket PNG, JPG és más formátumokban. Az alábbi kódrészlet bemutatja, hogyan nyerhet ki egy képet a "sample.pptx" dokumentumból, és mentheti PNG formátumban.  
 
 ```c++
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -153,9 +149,7 @@ presentation->Dispose();
 
 ## **SVG képek kinyerése képkeretekből**
 
-Amikor egy prezentáció SVG grafikákat tartalmaz, melyek [PictureFrame] alakzatokba vannak helyezve, az Aspose.Slides for C++ lehetővé teszi az eredeti vektorképek teljes pontosságú lekérdezését. A dia alakzatgyűjteményének bejárásával azonosíthatja az egyes [PictureFrame] objektumokat, ellenőrizheti, hogy a kapcsolódó [IPPImage] SVG tartalmat tartalmaz-e, majd elmentheti azt a lemezre vagy egy adatfolyamra a natív SVG formátumban.
-
-A következő kódrészlet bemutatja, hogyan nyerhet ki egy SVG képet egy képkeretből:
+Amikor egy prezentáció SVG grafikákat tartalmaz, amelyek a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/) alakzatokban vannak elhelyezve, az Aspose.Slides for C++ lehetővé teszi, hogy a teljes pontossággal visszanyerje az eredeti vektorképeket. A dia alakzatgyűjteményének bejárásával azonosíthatja minden egyes [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/), ellenőrizheti, hogy az alá tartozó [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) tartalmaz-e SVG tartalmat, majd mentheti a képet a lemezre vagy egy adatfolyamra natív SVG formátumban.  
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -176,9 +170,9 @@ if (ObjectExt::Is<IPictureFrame>(shape))
 presentation->Dispose();
 ```
 
-## **Kép átlátszóságának lekérdezése**
+## **Kép átlátszóságának lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy lekérdezze a képre alkalmazott átlátszósági effektet. Ez a C++ kód bemutatja a műveletet:
+Az Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott átlátszósági effektust. Ez a C++ kód bemutatja a műveletet:  
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
@@ -195,65 +189,93 @@ for (auto&& effect : imageTransform)
 ```
 
 {{% alert color="primary" %}} 
-Az összes képre alkalmazott effektus megtalálható a [Aspose::Slides::Effects](https://reference.aspose.com/slides/hu/cpp/aspose.slides.effects/) oldalon. 
+Minden képre alkalmazott effektus megtalálható a [Aspose::Slides::Effects](https://reference.aspose.com/slides/hu/cpp/aspose.slides.effects/) címen.  
 {{% /alert %}}
+
+## **Kép fényerősségének és kontrasztjának lekérése**
+
+Az Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott fényerő és kontraszt effektust. A [ILuminance](https://reference.aspose.com/slides/hu/cpp/aspose.slides.effects/iluminance/) interfész képzi ezt a képtranszformációs effektust.  
+
+Ez a C++ kód bemutatja, hogyan lehet lekérni a fényerő és kontraszt beállításait egy képkeretből:  
+
+```c++
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shape(0);
+auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
+
+auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+for (auto&& effect : imageTransform)
+{
+    if (System::ObjectExt::Is<ILuminance>(effect))
+    {
+        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
+        auto brightness = luminance->get_Brightness();
+        auto contrast = luminance->get_Contrast();
+
+        Console::WriteLine(System::String(u"Brightness: ") + brightness);
+        Console::WriteLine(System::String(u"Contrast: ") + contrast);
+    }
+}
+
+presentation->Dispose();
+```
 
 ## **Képkeret formázása**
 
-Az Aspose.Slides számos formázási lehetőséget kínál, amelyeket egy képkeretre lehet alkalmazni. Ezekkel a beállításokkal módosíthatja a képkeretet, hogy megfeleljen a specifikus követelményeknek.
+Az Aspose.Slides számos formázási lehetőséget kínál, amelyeket egy képkeretre lehet alkalmazni. Ezekkel a beállításokkal a képkeretet a specifikus követelményekhez igazíthatja.  
 
 1. Hozzon létre egy példányt a [Presentation class](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
-2. Szerezzen be egy diára mutató referenciát az indexe alapján.  
-3. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_p_p_image) objektumot úgy, hogy képet ad hozzá a prezentáció objektumhoz kapcsolódó [IImagescollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_image_collection) gyűjteményhez, amelyet az alakzat kitöltéséhez használnak.  
+2. Szerezze meg a dia hivatkozását az indexe alapján.  
+3. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_p_p_image) objektumot úgy, hogy képet ad hozzá a [IImagescollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_image_collection) gyűjteményhez, amely a prezentáció objektumhoz kapcsolódik, és a forma kitöltésére lesz használva.  
 4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy `PictureFrame`-et a kép szélessége és magassága alapján a [AddPictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) metódussal, amely a hivatkozott diához tartozó [IShapes](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection) objektumon keresztül érhető el.  
-6. Adja hozzá a képkeretet (a képet tartalmazó) a diához.  
+5. Hozzon létre egy `PictureFrame`-et a kép szélessége és magassága alapján a [AddPictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) metódus használatával, amely a hivatkozott diához kapcsolódó [IShapes](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection) objektumnál érhető el.  
+6. Adjon hozzá a képkeretet (amely a képet tartalmazza) a diához.  
 7. Állítsa be a képkeret vonalszínét.  
-8. Állítsa be a képkeret vonalszélességét.  
+8. Állítsa be a képkeret vonalvastagságát.  
 9. Forgassa el a képkeretet pozitív vagy negatív érték megadásával.  
-   * A pozitív érték az képet óramutató járásával megegyező irányban forgatja.  
-   * A negatív érték az képet óramutató járásával ellentétes irányban forgatja.  
-10. Adja hozzá a képkeretet (a képet tartalmazó) a diához.  
-11. Mentse a módosított prezentációt PPTX fájlként.  
-
-Ez a C++ kód bemutatja a képkeret formázási folyamatát:
+   * A pozitív érték az óramutató járásával megegyező irányban forgatja a képet.  
+   * A negatív érték az óramutató járásával ellentétes irányban forgatja a képet.  
+10. Adjon hozzá a képkeretet (amely a képet tartalmazza) a diához.  
+11. Írja ki a módosított prezentációt PPTX fájlként.  
 
 ```c++
-// A dokumentumok könyvtárának útvonala.
+// A dokumentumok könyvtárának elérési útja.
 const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// A kívánt prezentáció betöltése
+// Betölti a kívánt prezentációt.
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Az első dia elérése
+// Az első diát eléri.
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// Betölti a képet, amely a prezentáció képgyűjteményéhez lesz hozzáadva
-// Lekéri a képet
+// Betölti a képet, amely a prezentáció képgyűjteményéhez lesz hozzáadva.
+// Lekéri a képet.
 auto image = Images::FromFile(filePath);
 
-// Képet ad a prezentáció képgyűjteményéhez
+// Képet ad a prezentáció képgyűjteményéhez.
 SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
-// Képkeretet ad a diára
+// Képkeretet ad a diához.
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Relatív méretezés szélességét és magasságát állítja be
+// Beállítja a relatív méretezés szélességét és magasságát.
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-// PPTX fájlt ment a lemezre
+// A PPTX fájlt lemezre írja.
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{% alert title="Tipp" color="primary" %}} 
-Az Aspose nemrég fejlesztett egy [Ingyenes Kollázskészítő](https://products.aspose.app/slides/hu/collage) szolgáltatást. Ha JPG/JPEG vagy PNG képeket szeretne egyesíteni, vagy fotókból rácsokat létrehozni, használhatja ezt a szolgáltatást. 
+{{% alert title="Tip" color="primary" %}} 
+Az Aspose nemrég fejlesztett egy [ingyenes Collage Maker](https://products.aspose.app/slides/hu/collage) szolgáltatást. Ha valaha meg kellene [összevonni JPG/JPEG](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG képeket, vagy [rácsokat kellene készíteni fényképekből](https://products.aspose.app/slides/hu/collage/photo-grid), használhatja ezt a szolgáltatást.  
 {{% /alert %}}
 
 ## **Kép hozzáadása linkként**
 
-Az nagy méretű prezentációk elkerülése érdekében képeket (vagy videókat) linkeken keresztül adhat hozzá ahelyett, hogy a fájlokat közvetlenül a prezentációba ágyazzák. Ez a C++ kód bemutatja, hogyan adhat képet és videót egy helyőrzőbe:
+A nagy méretű prezentációk elkerülése érdekében képeket (vagy videókat) is hozzáadhat linkeken keresztül, ahelyett, hogy a fájlokat közvetlenül beágyazná a prezentációba. Ez a C++ kód bemutatja, hogyan adjon hozzá egy képet és videót egy helyőrzőhöz:  
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
@@ -294,38 +316,38 @@ for (auto& shape : shapesToRemove)
 presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Képek levágása**
+## **Képek vágása**
 
-Ez a C++ kód bemutatja, hogyan vághat le egy meglévő képet egy dián: 
+Ez a C++ kód bemutatja, hogyan vághat le egy meglévő képet egy dián:  
 
-```CPP
+``` CPP
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
     
 auto presentation = System::MakeObject<Presentation>();
-// Új képobjektum létrehozása
+// Új képobjektumot hoz létre
 auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
-// Képkeret hozzáadása egy diához
+// Képkeretet ad egy diához
 auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
 
-// A kép levágása (százalékos értékek)
+// Levágja a képet (százalékos értékek)
 picFrame->get_PictureFormat()->set_CropLeft(23.6f);
 picFrame->get_PictureFormat()->set_CropRight(21.5f);
 picFrame->get_PictureFormat()->set_CropTop(3.0f);
 picFrame->get_PictureFormat()->set_CropBottom(31.0f);
 
-// Az eredmény mentése
+// Elmenti az eredményt
 presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
-## **Kép vágott részeinek törlése**
+## **Kép vágott területeinek törlése**
 
-Ha törölni szeretné egy keretben lévő kép vágott részeit, használhatja az [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metódust. Ez a metódus visszaadja a levágott képet, vagy az eredeti képet, ha a vágás nem szükséges.
+Ha törölni szeretné egy keretben lévő kép vágott területeit, használhatja az [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metódust. Ez a metódus visszaadja a vágott képet, vagy az eredeti képet, ha a vágás nem szükséges.  
 
-Ez a C++ kód bemutatja a műveletet: 
+Ez a C++ kód bemutatja a műveletet:  
 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
@@ -341,31 +363,30 @@ System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->Delete
 presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
-[IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metódus hozzáadja a vágott képet a prezentáció képgyűjteményéhez. Ha a kép csak a feldolgozott [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/) objektumban van használva, ez a beállítás csökkentheti a prezentáció méretét. Ellenkező esetben a létrehozott prezentációban lévő képek száma növekedni fog.  
+{{% alert title="NOTE" color="warning" %}} 
+Az [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metódus a vágott képet hozzáadja a prezentáció képgyűjteményéhez. Ha a képet csak a feldolgozott [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/) használja, ez a beállítás csökkentheti a prezentáció méretét. Ellenkező esetben a keletkező prezentációban lévő képek száma nő.  
 
-Ez a metódus a vágási művelet során WMF/EMF metafájlokat raster PNG képpé konvertál. 
+Ez a metódus a vágási művelet során WMF/EMF metafájlokat raszteres PNG képpé konvertál.  
 {{% /alert %}}
 
 ## **Képek tömörítése**
 
-A prezentációban lévő képet az [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/compressimage/) metódus használatával tömörítheti.  
+A prezentációban lévő képet a [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/compressimage/) metódussal lehet tömöríteni.  
+Ez a metódus a képet a forma mérete és a megadott felbontás alapján csökkenti, lehetőséget adva a vágott területek törlésére is.  
 
-Ez a metódus a kép méretét a alakzat mérete és a megadott felbontás alapján csökkentve tömöríti a képet, a vágott területek törlésének lehetőségével.  
+A kép méretét és felbontását úgy állítja be, mint a PowerPoint **Picture Format -> Compress Pictures -> Resolution** funkciója.  
 
-A kép méretét és felbontását a PowerPoint **Picture Format -> Compress Pictures -> Resolution** funkciójához hasonlóan állítja be.  
-
-Az alábbi C++ példák bemutatják, hogyan lehet egy képet tömöríteni a prezentációban egy célfelbontás megadásával, és opcionálisan a vágott területek eltávolításával:
+Az alábbi C++ példák bemutatják, hogyan lehet tömöríteni egy képet a prezentációban célfelbontás megadásával és opcionálisan a vágott területek eltávolításával:  
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = presentation->get_Slide(0);
 auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
+// Tömöríti a képet 150 DPI (web felbontás) célfelbontással, és eltávolítja a vágott területeket.
 bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
 
-// Check the result of the compression.
+// Ellenőrzi a tömörítés eredményét.
 if (result)
 {
     System::Console::WriteLine(u"Image successfully compressed.");
@@ -379,30 +400,30 @@ presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Vagy közvetlenül egy egyedi DPI érték használatával:
+Vagy közvetlenül egy egyéni DPI érték használatával:  
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = presentation->get_Slide(0);
 auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// A kép tömörítése 150 DPI-re (web felbontás), a levágott területek eltávolításával.
+// A képet 150 DPI-re (web felbontás) tömöríti, a vágott területeket eltávolítva.
 pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
 
 presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
-A metódus az alakzat mérete és a megadott DPI alapján alacsonyabb felbontásra konvertálja a képet. A vágott területek törlése is elvégezhető a fájlméret optimalizálása érdekében.  
-Ha a kép metafájl (WMF/EMF) vagy SVG, a tömörítés nem lesz alkalmazva. Ezenkívül a JPEG minőség megmarad vagy enyhén csökken a felbontástól függően, hasonlóan ahhoz, ahogy a PowerPoint kezeli a nagy felbontású JPEG-eket. 
+{{% alert title="NOTE" color="warning" %}} 
+A metódus a képet alacsonyabb felbontásra konvertálja a forma mérete és a megadott DPI alapján. A vágott területek is törölhetők a fájlméret optimalizálása érdekében.  
+Ha a kép metafájl (WMF/EMF) vagy SVG, a tömörítés nem lesz alkalmazva. Emellett a JPEG minőség megmarad vagy enyhén csökken a felbontás függvényében, hasonlóan ahhoz, ahogyan a PowerPoint kezeli a magas felbontású JPEG-eket.  
 {{% /alert %}}
 
-## **Arány zárolása**
+## **Oldalarány zárolása**
 
-Ha azt szeretné, hogy egy képet tartalmazó alakzat megtartsa az arányát még a kép méretének megváltoztatása után is, használhatja a [set_AspectRatioLocked()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) metódust az *Arány zárolása* beállítás beállításához.  
+Ha egy képet tartalmazó alakzatot szeretne megtartani az oldalarányát a kép méretének módosítása után is, használhatja a [set_AspectRatioLocked()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) metódust a *Lock Aspect Ratio* beállítás aktiválásához.  
 
-Ez a C++ kód bemutatja, hogyan zárolhatja egy alakzat arányát:
+Ez a C++ kód bemutatja, hogyan zárolható egy alakzat oldalaránya:  
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -415,31 +436,29 @@ System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
 
 System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
 
-// Állítsa be, hogy az alakzat a méretezéskor megőrizze az arányt
+// Állítsa be az alakzatot, hogy átméretezéskor megőrizze az oldalarányt
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
 ```
 
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
-Ez az *Arány zárolása* beállítás csak az alakzat arányát őrzi meg, nem a benne lévő képet. 
+{{% alert title="NOTE" color="warning" %}} 
+Ez a *Lock Aspect Ratio* beállítás csak az alakzat oldalarányát őrzi meg, nem a benne lévő képét.  
 {{% /alert %}}
 
-## **A StretchOff tulajdonság használata**
+## **StretchOff tulajdonság használata**
 
-A [StretchOffsetLeft](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) és [StretchOffsetBottom](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) tulajdonságok használatával a [IPictureFillFormat](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_picture_fill_format) interfészből és a [PictureFillFormat](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format) osztályból megadhat egy kitöltési téglalapot.  
+A [StretchOffsetLeft](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) és [StretchOffsetBottom](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) tulajdonságok használatával az [IPictureFillFormat](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_picture_fill_format) interfészből és a [PictureFillFormat](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.picture_fill_format) osztályból megadhat egy kitöltő téglalapot.  
 
-Ha egy kép nyújtását adjuk meg, egy forrás téglalap a megadott kitöltési téglalaphoz lesz skálázva. A kitöltési téglalap minden éle egy százalékos eltolással van definiálva az alakzat határoló dobozának megfelelő élétől. A pozitív százalék egy belső eltolást jelöl. A negatív százalék egy külső eltolást jelöl.
+Ha a kép nyújtása meg van adva, a forrástéglalapot a megadott kitöltő téglalaphoz méretezi át. A kitöltő téglalap minden éle egy százalékos eltolással van meghatározva az alakzat határoló dobozának megfelelő élétől. A pozitív százalék egy behúzást jelent, a negatív százalék pedig egy kitágulást.  
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
-2. Szerezzen be egy diára mutató referenciát az indexe alapján.  
+2. Szerezze meg a dia hivatkozását az indexe alapján.  
 3. Adjon hozzá egy `AutoShape` téglalapot.  
 4. Hozzon létre egy képet.  
-5. Állítsa be az alakzat kitöltésének típusát.  
+5. Állítsa be az alakzat kitöltéstípusát.  
 6. Állítsa be az alakzat képkitöltési módját.  
 7. Adjon hozzá egy beállított képet az alakzat kitöltéséhez.  
-8. Adja meg a kép eltolásait a alakzat határoló dobozának megfelelő élétől  
-9. Mentse a módosított prezentációt PPTX fájlként.  
-
-Ez a C++ kód bemutatja, hogyan használható a StretchOff tulajdonság:
+8. Adja meg a kép eltolásait a alakzat határoló dobozának megfelelő élétől.  
+9. Írja ki a módosított prezentációt PPTX fájlként.  
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -460,18 +479,14 @@ pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
 
 ## **GYIK**
 
-**Hogyan deríthetem ki, hogy mely képformátumok támogatottak a PictureFrame számára?**
+**Hogyan tudom megtudni, hogy mely képformátumok támogatottak a PictureFrame esetén?**  
+Az Aspose.Slides támogatja mind a raszteres képeket (PNG, JPEG, BMP, GIF stb.), mind a vektorképeket (például SVG) a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/)‑hez rendelt képobjektumon keresztül. A támogatott formátumok listája általában átfedésben van a dia és a képkonverziós motor képességeivel.  
 
-Aspose.Slides támogatja mind a raszteres képeket (PNG, JPEG, BMP, GIF stb.), mind a vektorképeket (például SVG) a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/) objektumhoz rendelt képtárgyon keresztül. A támogatott formátumok listája általában átfedi a dia- és képátalakító motor képességeit.
+**Hogyan befolyásolja a PPTX méretét és teljesítményét a tucatnyi nagy kép hozzáadása?**  
+A nagy képek beágyazása növeli a fájlméretet és a memóriahasználatot; a képek linkként való hozzáadása segít csökkenteni a prezentáció méretét, de az külső fájloknak elérhetőnek kell maradniuk. Az Aspose.Slides lehetőséget biztosít a képek linkkel történő hozzáadására a fájlméret csökkentése érdekében.  
 
-**Hogyan befolyásolja a PPTX méretét és a teljesítményt több tucat nagy kép hozzáadása?**
+**Hogyan tudom zárolni egy képobjektumot a véletlen mozgatás/átméretezés ellen?**  
+Használjon [shape locks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/get_pictureframelock/) egy [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/) esetén (például a mozgatás vagy átméretezés letiltásával). A zárolási mechanizmus a formákra vonatkozóan egy külön [protection article](/slides/hu/cpp/applying-protection-to-presentation/) leírásban található, és különféle forma típusok, köztük a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/) számára támogatott.  
 
-A nagy képek beágyazása növeli a fájlméretet és a memóriahasználatot; a képek linkeléssel segíthet kisebb méretű prezentációt tartani, de a külső fájloknak elérhetőnek kell maradniuk. Az Aspose.Slides lehetőséget biztosít a képek linkként való hozzáadására a fájlméret csökkentése érdekében.
-
-**Hogyan zárolhatom a képobjektumot a véletlen mozgatás/átméretezés ellen?**
-
-Használja a [shape locks] (alakzat-zárolások) funkciót egy [PictureFrame] esetén (például a mozgatás vagy átméretezés letiltása). A zárolási mechanizmus a formákra vonatkozó külön [protection article](/slides/hu/cpp/applying-protection-to-presentation/) részben van leírva, és különböző alakzat típusoknál támogatott, beleértve a [PictureFrame]‑t is.
-
-**Megmarad-e az SVG vektor pontossága, amikor a prezentációt PDF/ képek formátumba exportáljuk?**
-
-Az Aspose.Slides lehetővé teszi az SVG kinyerését egy [PictureFrame]‑ből eredeti vektorként. Amikor [PDF‑re exportálás](/slides/hu/cpp/convert-powerpoint-to-pdf/) vagy [raszteres formátumok](/slides/hu/cpp/convert-powerpoint-to-png/) célra exportál, az eredmény a export beállításaitól függően rasterizálódhat; a kinyerési viselkedés megerősíti, hogy az eredeti SVG vektor formátumban van tárolva.
+**Megmarad-e az SVG vektor pontossága, amikor egy prezentációt PDF-re/képre exportálunk?**  
+Az Aspose.Slides lehetővé teszi az SVG kinyerését egy [PictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pictureframe/)‑ből eredeti vektorként. Amikor [PDF-re exportálunk](/slides/hu/cpp/convert-powerpoint-to-pdf/) vagy [raszteres formátumokra](/slides/hu/cpp/convert-powerpoint-to-png/), az eredmény a export beállításaitól függően rasterizálódhat; a kinyerési viselkedés megerősíti, hogy az eredeti SVG vektor formában van tárolva.

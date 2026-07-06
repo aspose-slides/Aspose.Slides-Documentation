@@ -6,19 +6,19 @@ weight: 10
 url: /sv/java/picture-frame/
 keywords:
 - bildram
-- lägg till bildram
+- lägga till bildram
 - skapa bildram
-- lägg till bild
+- lägga till bild
 - skapa bild
 - extrahera bild
 - rasterbild
 - vektorbild
-- beskär bild
+- beskära bild
 - beskuret område
 - StretchOff-egenskap
-- formatering av bildram
-- egenskaper för bildram
-- relativ skala
+- bildramformatering
+- bildramegenskaper
+- relativ skalning
 - bildeffekt
 - bildförhållande
 - bildtransparens
@@ -31,27 +31,27 @@ description: "Lägg till bildramar i PowerPoint- och OpenDocument-presentationer
 ---
 ## **Introduktion**
 
-En bildram är en form som innehåller en bild – den är som en bild i en ram. 
+En bildram är en form som innehåller en bild—det är som en bild i en ram. 
 
-Du kan lägga till en bild på en bildspelssida via en bildram. På så sätt kan du formatera bilden genom att formatera bildramen.
+Du kan lägga till en bild på en bild‑slide genom en bildram. På så sätt kan du formatera bilden genom att formatera bildramen.
 
 {{% alert  title="Tips" color="primary" %}} 
 
-Aspose tillhandahåller gratiskonverterare—[JPEG till PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG till PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som gör det möjligt för användare att snabbt skapa presentationer från bilder. 
+Aspose erbjuder gratis konverterare—[JPEG till PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG till PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som gör det möjligt för användare att snabbt skapa presentationer från bilder. 
 
 {{% /alert %}} 
 
 ## **Skapa en bildram**
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
-2. Hämta en bildslides referens via dess index. 
-3. Skapa ett [IPPImage]()‑objekt genom att lägga till en bild i [IImagescollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IImageCollection) som är associerad med presentationsobjektet och som kommer att användas för att fylla formen.
+2. Hämta en bilds referens via dess index. 
+3. Skapa ett [IPPImage]()‑objekt genom att lägga till en bild i [IImagescollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IImageCollection) som är kopplad till presentationsobjektet och som ska användas för att fylla formen.
 4. Ange bildens bredd och höjd.
-5. Skapa en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/PictureFrame) baserat på bildens bredd och höjd via metoden `AddPictureFrame` som exponeras av formobjektet som är associerat med den refererade bilden.
+5. Skapa en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/PictureFrame) baserat på bildens bredd och höjd via metoden `AddPictureFrame` som exponeras av formobjektet kopplat till den refererade bilden.
 6. Lägg till en bildram (som innehåller bilden) på bilden.
-7. Skriv den ändrade presentationen som en PPTX‑fil.
+7. Skriv den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur du skapar en bildram:
+Den här Java‑koden visar hur du skapar en bildram:
 
 ```java
 // Skapar en instans av Presentation-klassen som representerar en PPTX-fil
@@ -66,7 +66,7 @@ try {
     // Lägger till en bildram med bildens motsvarande höjd och bredd
     sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Skriver PPTX-filen till skivan
+    // Skriver PPTX-filen till disk
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -76,7 +76,7 @@ try {
 
 {{% alert color="warning" %}} 
 
-Bildramar gör det möjligt att snabbt skapa presentationsbilder baserade på bilder. När du kombinerar bildram med sparalternativen i Aspose.Slides kan du manipulera in‑ och utdataoperationer för att konvertera bilder från ett format till ett annat. Du kan vilja se dessa sidor: konvertera [image to JPG](https://products.aspose.com/slides/sv/java/conversion/image-to-jpg/); konvertera [JPG to image](https://products.aspose.com/slides/sv/java/conversion/jpg-to-image/); konvertera [JPG to PNG](https://products.aspose.com/slides/sv/java/conversion/jpg-to-png/), konvertera [PNG to JPG](https://products.aspose.com/slides/sv/java/conversion/png-to-jpg/); konvertera [PNG to SVG](https://products.aspose.com/slides/sv/java/conversion/png-to-svg/), konvertera [SVG to PNG](https://products.aspose.com/slides/sv/java/conversion/svg-to-png/).
+Bildramar låter dig snabbt skapa presentationsbilder baserade på bilder. När du kombinerar bildramen med sparalternativen i Aspose.Slides kan du manipulera in‑/ut‑operationer för att konvertera bilder från ett format till ett annat. Du kanske vill se dessa sidor: konvertera [bild till JPG](https://products.aspose.com/slides/sv/java/conversion/image-to-jpg/); konvertera [JPG till bild](https://products.aspose.com/slides/sv/java/conversion/jpg-to-image/); konvertera [JPG till PNG](https://products.aspose.com/slides/sv/java/conversion/jpg-to-png/), konvertera [PNG till JPG](https://products.aspose.com/slides/sv/java/conversion/png-to-jpg/); konvertera [PNG till SVG](https://products.aspose.com/slides/sv/java/conversion/png-to-svg/), konvertera [SVG till PNG](https://products.aspose.com/slides/sv/java/conversion/svg-to-png/).
 
 {{% /alert %}}
 
@@ -85,13 +85,13 @@ Bildramar gör det möjligt att snabbt skapa presentationsbilder baserade på bi
 Genom att ändra en bilds relativa skalning kan du skapa en mer avancerad bildram. 
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
-2. Hämta en bildslides referens via dess index. 
+2. Hämta en bilds referens via dess index. 
 3. Lägg till en bild i presentationens bildsamling.
-4. Skapa ett [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPPImage)‑objekt genom att lägga till en bild i [IImagescollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IImageCollection) som är associerad med presentationsobjektet och som kommer att användas för att fylla formen.
+4. Skapa ett [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPPImage)‑objekt genom att lägga till en bild i [IImagescollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IImageCollection) som är kopplad till presentationsobjektet och som ska användas för att fylla formen.
 5. Ange bildens relativa bredd och höjd i bildramen.
-6. Skriv den ändrade presentationen som en PPTX‑fil.
+6. Skriv den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod visar hur du skapar en bildram med relativ skalning:
+Den här Java‑koden visar hur du skapar en bildram med relativ skalning:
 
 ```java
 // Instansiera Presentation-klassen som representerar PPTX
@@ -104,14 +104,14 @@ try {
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
-    // Lägg till bildram med bildens motsvarande höjd och bredd
+    // Lägg till en bildram med bildens motsvarande höjd och bredd
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Ställer in relativ skala för bredd och höjd
+    // Ställer in relativ skalning för bredd och höjd
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
-    // Skriver PPTX-filen till disk
+    // Skriv PPTX-filen till disk
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -121,7 +121,7 @@ try {
 
 ## **Extrahera rasterbilder från bildramar**
 
-Du kan extrahera rasterbilder från [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/PictureFrame)-objekt och spara dem i PNG, JPG och andra format. Kodexemplet nedan demonstrerar hur du extraherar en bild från dokumentet "sample.pptx" och sparar den i PNG‑format.
+Du kan extrahera rasterbilder från [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/PictureFrame)‑objekt och spara dem i PNG, JPG och andra format. Kodexemplet nedan visar hur du extraherar en bild från dokumentet "sample.pptx" och sparar den i PNG‑format.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -147,7 +147,7 @@ try {
 
 ## **Extrahera SVG‑bilder från bildramar**
 
-När en presentation innehåller SVG‑grafik placerad i [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/)-former låter Aspose.Slides for Java dig hämta de ursprungliga vektorbilderna med fullständig trohet. Genom att gå igenom bildens formsamling kan du identifiera varje [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/), kontrollera om den underliggande [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ippimage/) innehåller SVG‑innehåll, och sedan spara den bilden till disk eller en ström i dess ursprungliga SVG‑format.
+När en presentation innehåller SVG‑grafik placerad i [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/)‑former låter Aspose.Slides för Java dig hämta de ursprungliga vektorbilderna med fullständig kvalitet. Genom att traversera bildens formsamling kan du identifiera varje [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/), kontrollera om den underliggande [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ippimage/) innehåller SVG‑innehåll, och sedan spara den bilden till disk eller ett flöde i dess ursprungliga SVG‑format.
 
 Följande kodexempel visar hur du extraherar en SVG‑bild från en bildram:
 
@@ -175,7 +175,7 @@ try {
 
 ## **Hämta transparens för en bild**
 
-Aspose.Slides låter dig hämta den transparenseffekt som har applicerats på en bild. Denna Java‑kod demonstrerar operationen:
+Aspose.Slides låter dig hämta transparenseffekten som applicerats på en bild. Den här Java‑koden demonstrerar operationen:
 
 ```java
 Presentation presentation = new Presentation("Test.pptx");
@@ -191,40 +191,70 @@ for (var effect : imageTransform) {
 }
 ```
 
+## **Hämta ljusstyrka och kontrast för en bild**
+
+Aspose.Slides låter dig hämta ljusstyrke‑ och kontrasteffekten som applicerats på en bild. Interfacet [ILuminance](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iluminance/) representerar denna bildtransformering.
+
+Den här Java‑koden visar hur du hämtar ljusstyrke‑ och kontrastinställningarna från en bildram:
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame) shape;
+
+    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (IImageTransformOperation effect : imageTransform) {
+        if (effect instanceof ILuminance) {
+            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
+            float brightness = luminance.getBrightness();
+            float contrast = luminance.getContrast();
+
+            System.out.println("Brightness: " + brightness);
+            System.out.println("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Formatering av bildram**
 
-Aspose.Slides erbjuder många formateringsalternativ som kan appliceras på en bildram. Med dessa alternativ kan du ändra en bildram så att den matchar specifika krav.
+Aspose.Slides erbjuder många formateringsalternativ som kan tillämpas på en bildram. Med dessa alternativ kan du ändra en bildram så att den uppfyller specifika krav.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
-2. Hämta en bildslides referens via dess index. 
-3. Skapa ett [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPPImage)-objekt genom att lägga till en bild i [IImagescollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IImageCollection) som är associerad med presentationsobjektet och som kommer att användas för att fylla formen.
+2. Hämta en bilds referens via dess index. 
+3. Skapa ett [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPPImage)‑objekt genom att lägga till en bild i [IImagescollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IImageCollection) som är kopplad till presentationsobjektet och som ska användas för att fylla formen.
 4. Ange bildens bredd och höjd.
-5. Skapa en `PictureFrame` baserat på bildens bredd och höjd via [AddPictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-)‑metoden som exponeras av [IShapes](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeCollection)-objektet som är associerat med den refererade bilden.
+5. Skapa ett `PictureFrame` baserat på bildens bredd och höjd via metoden [AddPictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) som exponeras av [IShapes](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeCollection)-objektet kopplat till den refererade bilden.
 6. Lägg till bildramen (som innehåller bilden) på bilden.
-7. Ställ in bildramens linjefärg.
-8. Ställ in bildramens linjebredd.
-9. Rotera bildramen genom att ange ett positivt eller negativt värde.
+7. Ange bildramens linjefärg.
+8. Ange bildramens linjebredd.
+9. Rotera bildramen genom att ge den ett positivt eller negativt värde.
    * Ett positivt värde roterar bilden medurs. 
    * Ett negativt värde roterar bilden moturs.
 10. Lägg till bildramen (som innehåller bilden) på bilden.
-11. Skriv den ändrade presentationen som en PPTX‑fil.
+11. Skriv den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod demonstrerar processen för formatering av bildram:
+Den här Java‑koden demonstrerar formateringsprocessen för bildramen:
 
 ```java
-// Skapar en instans av Presentation-klassen som representerar PPTX
+// Instansierar Presentation-klassen som representerar PPTX
 Presentation pres = new Presentation();
 try {
     // Hämtar den första bilden
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Skapar en instans av Image-klassen
+    // Instansierar Image-klassen
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // Lägger till en bildram med bildens motsvarande höjd och bredd
+    // Lägger till bildram med bildens motsvarande höjd och bredd
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Applicerar någon formatering på PictureFrameEx
+    // Tillämpar viss formatering på PictureFrameEx
     pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     pf.getLineFormat().setWidth(20);
@@ -240,13 +270,13 @@ try {
 
 {{% alert title="Tips" color="primary" %}}
 
-Aspose har nyligen utvecklat en [gratis Collage Maker](https://products.aspose.app/slides/sv/collage). Om du någon gång behöver [sammanfoga JPG/JPEG](https://products.aspose.app/slides/sv/collage/jpg) eller PNG‑bilder, [skapa rutnät från foton](https://products.aspose.app/slides/sv/collage/photo-grid), kan du använda den här tjänsten. 
+Aspose har nyligen utvecklat en [gratis Collage Maker](https://products.aspose.app/slides/sv/collage). Om du någonsin behöver [sammanfoga JPG/JPEG](https://products.aspose.app/slides/sv/collage/jpg) eller PNG‑bilder, [skapa rutnät från foton](https://products.aspose.app/slides/sv/collage/photo-grid), kan du använda denna tjänst. 
 
 {{% /alert %}}
 
 ## **Lägg till en bild som en länk**
 
-För att undvika stora presentationsfilstorlekar kan du lägga till bilder (eller videor) via länkar istället för att bädda in filerna direkt i presentationerna. Denna Java‑kod visar hur du lägger till en bild och video i en platshållare:
+För att undvika stora presentationsstorlekar kan du lägga till bilder (eller videor) via länkar istället för att bädda in filerna direkt i presentationerna. Den här Java‑koden visar hur du lägger till en bild och en video i en platshållare:
 
 ```java
 Presentation presentation = new Presentation("input.pptx");
@@ -302,7 +332,7 @@ try {
 
 ## **Beskär bilder**
 
-Denna Java‑kod visar hur du beskär en befintlig bild på en bildslide:
+Den här Java‑koden visar hur du beskär en befintlig bild på en bild:
 
 ```java
 Presentation pres = new Presentation();
@@ -316,7 +346,7 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Lägger till en bildram på en bildslide
+    // Lägger till en bildram på en bild
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
@@ -334,11 +364,11 @@ try {
 }
 ```
 
-## **Ta bort beskurna områden i en bild**
+## **Radera beskurna områden i en bild**
 
-Om du vill ta bort de beskurna områdena av en bild som finns i en ram kan du använda metoden [deletePictureCroppedAreas()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Denna metod returnerar den beskurna bilden eller originalbilden om beskärning är onödig.
+Om du vill radera de beskurna områdena i en bild som finns i en ram kan du använda metoden [deletePictureCroppedAreas()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Metoden returnerar den beskurna bilden eller originalbilden om beskärning är onödig.
 
-Denna Java‑kod demonstrerar operationen:
+Den här Java‑koden demonstrerar operationen:
 
 ```java
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
@@ -360,7 +390,7 @@ try {
 
 {{% alert title="OBS" color="warning" %}} 
 
-Metoden [deletePictureCroppedAreas()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) lägger till den beskurna bilden i presentationens bildsamling. Om bilden endast används i den bearbetade [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/), kan denna inställning minska presentationsstorleken. Annars ökar antalet bilder i den resulterande presentationen.
+Metoden [deletePictureCroppedAreas()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) lägger till den beskurna bilden i presentationens bildsamling. Om bilden endast används i den bearbetade [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/), kan detta minska presentationsstorleken. Annars ökar antalet bilder i den resulterande presentationen.
 
 Metoden konverterar WMF/EMF‑metafiler till raster‑PNG‑bilder i beskärningsoperationen. 
 
@@ -368,9 +398,9 @@ Metoden konverterar WMF/EMF‑metafiler till raster‑PNG‑bilder i beskärning
 
 ## **Komprimera bilder**
 
-Du kan komprimera en bild i en presentation med hjälp av metoden [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . Denna metod komprimerar en bild genom att reducera dess storlek baserat på formens storlek och angiven upplösning, med möjlighet att ta bort beskurna områden.
+Du kan komprimera en bild i en presentation med hjälp av metoden [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . Metoden komprimerar en bild genom att minska dess storlek baserat på formens storlek och angiven upplösning, med möjlighet att radera beskurna områden.
 
-Den justerar bildens storlek och upplösning på samma sätt som PowerPoints **Picture Format → Compress Pictures → Resolution**‑funktion.
+Den justerar bildens storlek och upplösning på liknande sätt som PowerPoints **Picture Format -> Compress Pictures -> Resolution**‑funktion.
 
 Följande Java‑exempel visar hur du komprimerar en bild i en presentation genom att ange en målupplösning och eventuellt ta bort beskurna områden:
 
@@ -396,7 +426,7 @@ try {
 }
 ```
 
-Eller genom att använda ett eget DPI‑värde direkt:
+Eller genom att ange ett eget DPI‑värde direkt:
 
 ```java
 Presentation presentation = new Presentation("demo.pptx");
@@ -416,15 +446,15 @@ try {
 {{% alert title="OBS" color="warning" %}} 
 
 Metoden konverterar bilden till en lägre upplösning baserat på formens storlek och angivet DPI. Beskurna regioner kan också tas bort för att optimera filstorleken.  
-Om bilden är en metafil (WMF/EMF) eller SVG appliceras ingen kompression. JPEG‑kvaliteten bevaras eller reduceras något beroende på upplösning, på samma sätt som PowerPoint hanterar högupplösta JPEG‑bilder.
+Om bilden är en metafil (WMF/EMF) eller SVG kommer komprimering inte att tillämpas. JPEG‑kvaliteten bevaras eller minskas något beroende på upplösning, på liknande sätt som PowerPoint hanterar högupplösta JPEG‑filer.
 
 {{% /alert %}}
 
-## **Lås bildförhållande**
+## **Låsa bildförhållande**
 
-Om du vill att en form som innehåller en bild ska behålla sitt bildförhållande även efter att du ändrat bildens dimensioner kan du använda metoden [setAspectRatioLocked](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) för att ställa in *Lock Aspect Ratio*-inställningen. 
+Om du vill att en form som innehåller en bild behåller sitt bildförhållande även efter att du ändrat bildens dimensioner kan du använda metoden [setAspectRatioLocked](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) för att ställa in *Lock Aspect Ratio*-inställningen. 
 
-Denna Java‑kod visar hur du låser en forms bildförhållande:
+Den här Java‑koden visar hur du låser en forms bildförhållande:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -441,7 +471,7 @@ try {
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
             ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
 
-    // sätt formen så att bildförhållandet bevaras vid storleksändring
+    // sätt formen så att den bevarar bildförhållandet vid storleksändring
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch(IOException e) {
 } finally {
@@ -451,7 +481,7 @@ try {
 
 {{% alert title="OBS" color="warning" %}} 
 
-Denna *Lock Aspect Ratio*-inställning bevarar endast formens bildförhållande och inte bilden den innehåller.
+Denna *Lock Aspect Ratio*-inställning bevarar endast formens bildförhållande och inte bilden som den innehåller.
 
 {{% /alert %}}
 
@@ -459,19 +489,19 @@ Denna *Lock Aspect Ratio*-inställning bevarar endast formens bildförhållande 
 
 Genom att använda egenskaperna [StretchOffsetLeft](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) och [StretchOffsetBottom](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) från gränssnittet [IPictureFillFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPictureFillFormat) och klassen [PictureFillFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPictureFillFormat) kan du ange en fyllningsrektangel. 
 
-När stretchen är specificerad för en bild skalas en källrektangel för att passa den angivna fyllningsrektangeln. Varje kant på fyllningsrektangeln definieras av en procentuell offset från motsvarande kant på formens omgivningsruta. En positiv procentsats anger ett inset medan en negativ procentsats anger ett outset.
+När en stretchning specificeras för en bild skalas en källrektangel för att passa den angivna fyllningsrektangeln. Varje kant på fyllningsrektangeln definieras av en procentuell offset från motsvarande kant på formens omgivningsruta. En positiv procentsats anger en inskjutning medan en negativ procentsats anger en utskjutning.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
-2. Hämta en bildslides referens via dess index.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
+2. Hämta en bilds referens via dess index.
 3. Lägg till en rektangel `AutoShape`. 
 4. Skapa en bild.
-5. Ställ in formens fyllningstyp.
-6. Ställ in formens bildfyllningsläge.
+5. Ange formens fyllningstyp.
+6. Ange formens bildfyllningsläge.
 7. Lägg till en bild för att fylla formen.
-8. Ange bildoffsets från motsvarande kant på formens omgivningsruta
-9. Skriv den ändrade presentationen som en PPTX‑fil.
+8. Ange bildens offset från motsvarande kant på formens omgivningsruta
+9. Skriv den modifierade presentationen som en PPTX‑fil.
 
-Denna Java‑kod demonstrerar en process där StretchOff‑egenskapen används:
+Den här Java‑koden demonstrerar en process där StretchOff‑egenskapen används:
 
 ```java
 // Instansierar Presentation-klassen som representerar en PPTX-fil
@@ -489,16 +519,16 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Lägger till en AutoShape som är inställd på rektangel
+    // Lägger till en AutoShape av typen Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Anger formens fyllningstyp
+    // Ställer in formens fyllningstyp
     aShape.getFillFormat().setFillType(FillType.Picture);
 
-    // Anger formens bildfyllningsläge
+    // Ställer in formens bildfyllningsläge
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-    // Anger bilden för att fylla formen
+    // Ställer in bilden för att fylla formen
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
     // Anger bildens offset från motsvarande kant på formens omgivningsruta
@@ -515,20 +545,20 @@ try {
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Hur kan jag ta reda på vilka bildformat som stöds för PictureFrame?**
 
-Aspose.Slides stöder både rasterbilder (PNG, JPEG, BMP, GIF, etc.) och vektorbilder (t.ex. SVG) via bildobjektet som tilldelas en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/). Listan över stödda format överlappar i allmänhet med funktionerna i bild‑ och konverteringsmotorn för slides.
+Aspose.Slides stödjer både rasterbilder (PNG, JPEG, BMP, GIF o.s.v.) och vektorbilder (t.ex. SVG) via bildobjektet som tilldelas en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/). Listan över stödda format överlappar vanligtvis med funktionerna i bild‑ och bildkonverteringsmotorn.
 
-**Hur påverkar det PPTX‑filens storlek och prestanda att lägga till dussintals stora bilder?**
+**Hur påverkar tillägg av dussintals stora bilder PPTX‑filens storlek och prestanda?**
 
-Inbäddning av stora bilder ökar filstorlek och minnesanvändning; att länka bilder hjälper hålla presentationsstorleken nere men kräver att de externa filerna förblir åtkomliga. Aspose.Slides erbjuder möjlighet att lägga till bilder via länk för att minska filstorleken.
+Att bädda in stora bilder ökar filstorlek och minnesanvändning; att länka bilder hjälper till att hålla presentationsstorleken nere men kräver att de externa filerna förblir tillgängliga. Aspose.Slides erbjuder möjligheten att lägga till bilder via länkar för att minska filstorleken.
 
-**Hur kan jag låsa ett bildobjekt så att det inte av misstag flyttas/ändras i storlek?**
+**Hur kan jag låsa ett bildobjekt så att det inte av misstag flyttas eller skalas?**
 
-Använd [shape locks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) för en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/) (t.ex. inaktivera flyttning eller storleksändring). Låsningsmekanismen beskrivs för former i en separat [skyddsartikel](/slides/sv/java/applying-protection-to-presentation/) och stöds för olika formtyper, inklusive [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/).
+Använd [shape locks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) för en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/) (t.ex. inaktivera flyttning eller skalning). Låsningsmekanismen beskrivs för former i en separat [skyddsartikel](/slides/sv/java/applying-protection-to-presentation/) och stöds för olika formtyper, inklusive [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/).
 
-**Behålls SVG‑vektorfideliteten när en presentation exporteras till PDF/bilder?**
+**Behålls SVG‑vektorkvaliteten vid export av en presentation till PDF/bilder?**
 
-Aspose.Slides tillåter att extrahera en SVG från en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/) som den ursprungliga vektorn. Vid [export till PDF](/slides/sv/java/convert-powerpoint-to-pdf/) eller [rasterformat](/slides/sv/java/convert-powerpoint-to-png/) kan resultatet rasteriseras beroende på exportinställningarna; att den ursprungliga SVG:n lagras som en vektor bekräftas av extraheringsbeteendet.
+Aspose.Slides låter dig extrahera en SVG från en [PictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pictureframe/) som den ursprungliga vektorn. När du [exporterar till PDF](/slides/sv/java/convert-powerpoint-to-pdf/) eller [rasterformat](/slides/sv/java/convert-powerpoint-to-png/) kan resultatet rasteriseras beroende på exportinställningarna; att den ursprungliga SVG‑filen lagras som en vektor bekräftas av extraktionsbeteendet.

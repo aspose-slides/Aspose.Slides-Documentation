@@ -16,7 +16,7 @@ keywords:
 - potong gambar
 - area terpotong
 - properti StretchOff
-- formatasi bingkai gambar
+- pemformatan bingkai gambar
 - properti bingkai gambar
 - skala relatif
 - efek gambar
@@ -32,25 +32,25 @@ description: "Tambahkan bingkai gambar ke presentasi PowerPoint dan OpenDocument
 ---
 ## **Pendahuluan**
 
-Bingkai gambar adalah bentuk yang berisi gambar—seperti gambar dalam sebuah bingkai.
+Bingkai gambar adalah bentuk yang berisi gambar—mirip dengan gambar dalam sebuah bingkai. 
 
 Anda dapat menambahkan gambar ke slide melalui bingkai gambar. Dengan cara ini, Anda dapat memformat gambar dengan memformat bingkai gambar.
 
 {{% alert  title="Tip" color="primary" %}} 
+
 Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan orang membuat presentasi dengan cepat dari gambar. 
+
 {{% /alert %}} 
 
-## **Membuat Bingkai Gambar**
+## **Buat Bingkai Gambar**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Buat objek `PPImage` dengan menambahkan gambar ke [ImagesCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ImageCollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
 4. Tentukan lebar dan tinggi gambar.
 5. Buat [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFrame) berdasarkan lebar dan tinggi gambar melalui metode `addPictureFrame` yang disediakan oleh objek shape yang terkait dengan slide yang direferensikan.
 6. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
-7. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode JavaScript ini menunjukkan cara membuat bingkai gambar:
+7. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 ```javascript
 // Membuat instance kelas Presentation yang mewakili file PPTX
@@ -72,26 +72,22 @@ try {
 }
 ```
 
-Bingkai gambar memungkinkan Anda dengan cepat membuat slide presentasi berdasarkan gambar. Ketika Anda menggabungkan bingkai gambar dengan opsi penyimpanan Aspose.Slides, Anda dapat memanipulasi operasi input/output untuk mengonversi gambar dari satu format ke format lain.
+Bingkai gambar memungkinkan Anda dengan cepat membuat slide presentasi berdasarkan gambar. Ketika Anda menggabungkan bingkai gambar dengan opsi penyimpanan Aspose.Slides, Anda dapat mengelola operasi input/output untuk mengonversi gambar dari satu format ke format lain.
 
-## **Membuat Bingkai Gambar dengan Skala Relatif**
+## **Buat Bingkai Gambar dengan Skala Relatif**
 
-Dengan mengubah skala relatif gambar, Anda dapat membuat bingkai gambar yang lebih kompleks. 
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Tambahkan gambar ke koleksi gambar presentasi.
 4. Buat objek [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PPImage) dengan menambahkan gambar ke [ImagesCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ImageCollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
 5. Tentukan lebar dan tinggi relatif gambar dalam bingkai gambar.
-6. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode JavaScript ini menunjukkan cara membuat bingkai gambar dengan skala relatif:
+6. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 ```javascript
 // Membuat instance kelas Presentation yang mewakili PPTX
 var pres = new aspose.slides.Presentation();
 try {
-    // Mendapatkan slide pertama
+    // Dapatkan slide pertama
     var sld = pres.getSlides().get_Item(0);
     // Membuat instance kelas Image
     var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
@@ -110,9 +106,9 @@ try {
 }
 ```
 
-## **Mengekstrak Gambar Raster dari Bingkai Gambar**
+## **Ekstrak Gambar Raster dari Bingkai Gambar**
 
-Anda dapat mengekstrak gambar raster dari objek [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFrame) dan menyimpannya dalam format PNG, JPG, dan format lainnya. Contoh kode di bawah ini menunjukkan cara mengekstrak gambar dari dokumen “sample.pptx” dan menyimpannya dalam format PNG.
+Anda dapat mengekstrak gambar raster dari objek [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFrame) dan menyimpannya dalam format PNG, JPG, dan format lainnya. Contoh kode di bawah menunjukkan cara mengekstrak gambar dari dokumen "sample.pptx" dan menyimpannya dalam format PNG.
 
 ```javascript
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -136,11 +132,11 @@ try {
 }
 ```
 
-## **Mengekstrak Gambar SVG dari Bingkai Gambar**
+## **Ekstrak Gambar SVG dari Bingkai Gambar**
 
-Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides untuk Node.js via Java memungkinkan Anda mengambil gambar vektor asli dengan fidelitas penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/), memeriksa apakah [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau stream dalam format SVG aslinya.
+Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides untuk Node.js via Java memungkinkan Anda mengambil gambar vektor asli dengan keakuratan penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/), memeriksa apakah [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau aliran dalam format SVG aslinya.
 
-Contoh kode berikut memperlihatkan cara mengekstrak gambar SVG dari bingkai gambar:
+Contoh kode berikut menunjukkan cara mengekstrak gambar SVG dari sebuah bingkai gambar:
 
 ```js
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -163,9 +159,9 @@ try {
 }
 ```
 
-## **Mendapatkan Transparansi Gambar**
+## **Dapatkan Transparansi Gambar**
 
-Aspose.Slides memungkinkan Anda mendapatkan efek transparansi yang diterapkan pada gambar. Kode JavaScript ini menunjukkan operasinya:
+Aspose.Slides memungkinkan Anda mendapatkan efek transparansi yang diterapkan pada gambar. Kode JavaScript ini menunjukkan operasi tersebut:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("Test.pptx");
@@ -181,11 +177,42 @@ for (var i = 0; i < imageTransform.size(); i++) {
 }
 ```
 
+## **Dapatkan Kecerahan dan Kontras Gambar**
+
+Aspose.Slides memungkinkan Anda mendapatkan efek kecerahan dan kontras yang diterapkan pada gambar. Kelas [Luminance](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/luminance/) mewakili efek transformasi gambar ini.
+
+Kode JavaScript ini menunjukkan cara mendapatkan pengaturan kecerahan dan kontras dari sebuah bingkai gambar:
+
+```javascript
+const presentation = new aspose.slides.Presentation("sample.pptx");
+
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
+    const pictureFrame = shape;
+
+    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (let i = 0; i < imageTransform.size(); i++) {
+        const effect = imageTransform.get_Item(i);
+        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
+            const luminance = effect.getEffective();
+            const brightness = luminance.getBrightness();
+            const contrast = luminance.getContrast();
+
+            console.log("Brightness: " + brightness);
+            console.log("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Pemformatan Bingkai Gambar**
 
-Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bingkai gambar. Menggunakan opsi-opsi tersebut, Anda dapat mengubah bingkai gambar agar sesuai dengan persyaratan spesifik.
+Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bingkai gambar. Dengan menggunakan opsi tersebut, Anda dapat mengubah bingkai gambar agar sesuai dengan persyaratan tertentu.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Buat objek [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PPImage) dengan menambahkan gambar ke [ImagesCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ImageCollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
 4. Tentukan lebar dan tinggi gambar.
@@ -193,13 +220,11 @@ Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bin
 6. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
 7. Atur warna garis bingkai gambar.
 8. Atur lebar garis bingkai gambar.
-9. Putar bingkai gambar dengan memberi nilai positif atau negatif.
-   * Nilai positif memutar gambar searah jarum jam. 
+9. Putar bingkai gambar dengan memberikan nilai positif atau negatif.  
+   * Nilai positif memutar gambar searah jarum jam.  
    * Nilai negatif memutar gambar berlawanan arah jarum jam.
 10. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
-11. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode JavaScript ini mendemonstrasikan proses pemformatan bingkai gambar:
+11. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 ```javascript
 // Membuat instance kelas Presentation yang mewakili PPTX
@@ -227,12 +252,14 @@ try {
 ```
 
 {{% alert title="Tip" color="primary" %}}
-Aspose baru-baru ini mengembangkan [Collage Maker gratis](https://products.aspose.app/slides/id/collage). Jika Anda perlu [menggabungkan gambar JPG/JPEG](https://products.aspose.app/slides/id/collage/jpg) atau PNG, [membuat grid dari foto](https://products.aspose.app/slides/id/collage/photo-grid), Anda dapat menggunakan layanan ini. 
+
+Baru-baru ini Aspose mengembangkan [Collage Maker gratis](https://products.aspose.app/slides/id/collage). Jika Anda perlu [menggabungkan gambar JPG/JPEG](https://products.aspose.app/slides/id/collage/jpg) atau PNG, [membuat grid dari foto](https://products.aspose.app/slides/id/collage/photo-grid), Anda dapat menggunakan layanan ini. 
+
 {{% /alert %}}
 
-## **Menambahkan Gambar sebagai Tautan**
+## **Tambahkan Gambar sebagai Tautan**
 
-Untuk menghindari ukuran presentasi yang besar, Anda dapat menambahkan gambar (atau video) melalui tautan alih-alih menyematkan file secara langsung ke dalam presentasi. Kode JavaScript ini menunjukkan cara menambahkan gambar dan video ke placeholder:
+Untuk menghindari ukuran presentasi yang besar, Anda dapat menambahkan gambar (atau video) melalui tautan alih-alih menyisipkan berkas secara langsung ke dalam presentasi. Kode JavaScript ini memperlihatkan cara menambahkan gambar dan video ke placeholder:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("input.pptx");
@@ -270,9 +297,9 @@ try {
 }
 ```
 
-## **Memangkas Gambar**
+## **Pangkas Gambar**
 
-Kode JavaScript ini menunjukkan cara memangkas gambar yang sudah ada pada slide:
+Kode JavaScript ini memperlihatkan cara memotong gambar yang ada pada slide:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -304,11 +331,11 @@ try {
 }
 ```
 
-## **Menghapus Area yang Dipangkas pada Bingkai Gambar**
+## **Hapus Area yang Dipotong dari Gambar**
 
-Jika Anda ingin menghapus area yang dipangkas dari gambar yang terdapat dalam bingkai, Anda dapat menggunakan metode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . Metode ini mengembalikan gambar yang dipangkas atau gambar asli jika pemangkasan tidak diperlukan.
+Jika Anda ingin menghapus area yang dipotong dari gambar yang terdapat dalam sebuah bingkai, Anda dapat menggunakan metode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . Metode ini mengembalikan gambar yang dipotong atau gambar asli jika pemotongan tidak diperlukan.
 
-Kode JavaScript ini mendemonstrasikan operasinya:
+Kode JavaScript ini mendemonstrasikan operasi tersebut:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
@@ -316,7 +343,7 @@ try {
     var slide = presentation.getSlides().get_Item(0);
     // Mendapatkan PictureFrame dari slide pertama
     var picFrame = slide.getShapes().get_Item(0);
-    // Menghapus area yang dipotong dari gambar PictureFrame dan mengembalikan gambar yang dipotong
+    // Menghapus area terpotong dari gambar PictureFrame dan mengembalikan gambar terpotong
     var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
     // Menyimpan hasil
     presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
@@ -328,19 +355,20 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Metode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) menambahkan gambar yang dipangkas ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) yang diproses, pengaturan ini dapat mengurangi ukuran presentasi. Jika tidak, jumlah gambar dalam presentasi yang dihasilkan akan meningkat.
 
-Metode ini mengonversi metafile WMF/EMF ke gambar PNG raster dalam operasi pemangkasan. 
+Metode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) menambahkan gambar yang dipotong ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) yang diproses, pengaturan ini dapat mengurangi ukuran presentasi. Jika tidak, jumlah gambar dalam presentasi yang dihasilkan akan meningkat.
+
+Metode ini mengonversi file metafile WMF/EMF menjadi gambar PNG raster dalam operasi pemotongan. 
+
 {{% /alert %}}
 
-## **Mengompres Gambar**
+## **Kompres Gambar**
 
-Anda dapat mengompres gambar dalam presentasi menggunakan metode [PictureFillFormat.compressImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) .
-Metode ini mengompres gambar dengan mengurangi ukuran berdasarkan ukuran bentuk dan resolusi yang ditentukan, dengan opsi menghapus area yang dipangkas.
+Anda dapat mengompres gambar dalam sebuah presentasi menggunakan metode [PictureFillFormat.compressImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-). Metode ini mengompres gambar dengan mengurangi ukurannya berdasarkan ukuran shape dan resolusi yang ditentukan, dengan opsi menghapus area yang dipotong.
 
-Ini menyesuaikan ukuran dan resolusi gambar serupa dengan fitur **Picture Format → Compress Pictures → Resolution** di PowerPoint.
+Ia menyesuaikan ukuran dan resolusi gambar serupa dengan fitur PowerPoint **Picture Format → Compress Pictures → Resolution**.
 
-Contoh JavaScript berikut memperlihatkan cara mengompres gambar dalam presentasi dengan menentukan resolusi target dan secara opsional menghapus area yang dipangkas:
+Contoh JavaScript berikut menunjukkan cara mengompres gambar dalam presentasi dengan menentukan resolusi target dan secara opsional menghapus area yang dipotong:
 
 ```javascript
 const presentation = new aspose.slides.Presentation("demo.pptx");
@@ -348,7 +376,7 @@ try {
     const slide = presentation.getSlides().get_Item(0);
     const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Kompress gambar dengan resolusi target 150 DPI (resolusi Web) dan hapus area yang dipotong.
+    // Kompres gambar dengan resolusi target 150 DPI (resolusi Web) dan hapus area terpotong.
     const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
 
     // Periksa hasil kompresi.
@@ -364,7 +392,7 @@ try {
 }
 ```
 
-Atau menggunakan nilai DPI yang telah ditentukan sebelumnya:
+Atau menggunakan nilai DPI yang telah ditentukan lainnya:
 
 ```javascript
 const presentation = new aspose.slides.Presentation("demo.pptx");
@@ -372,7 +400,7 @@ try {
     const slide = presentation.getSlides().get_Item(0);
     const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Kompres gambar ke 96 DPI (resolusi email), menghapus area yang dipotong.
+    // Kompres gambar ke 96 DPI (resolusi email), menghapus area terpotong.
     pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
 
     presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
@@ -382,15 +410,16 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Metode ini mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran bentuk dan DPI yang diberikan. Region yang dipangkas juga dapat dihapus untuk mengoptimalkan ukuran file.
-Jika gambar adalah metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit dikurangi berdasarkan resolusi, serupa dengan cara PowerPoint menangani JPEG beresolusi tinggi.
+
+Metode mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran shape dan DPI yang diberikan. Area yang dipotong juga dapat dihapus untuk mengoptimalkan ukuran berkas. Jika gambar berupa metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit dikurangi berdasarkan resolusi, serupa dengan cara PowerPoint menangani JPEG beresolusi tinggi.
+
 {{% /alert %}}
 
 ## **Kunci Rasio Aspek**
 
-Jika Anda ingin bentuk yang berisi gambar mempertahankan rasio aspeknya bahkan setelah mengubah dimensi gambar, Anda dapat menggunakan metode [setAspectRatioLocked](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) untuk mengatur pengaturan *Lock Aspect Ratio*.
+Jika Anda ingin sebuah shape yang berisi gambar mempertahankan rasio aspeknya bahkan setelah mengubah dimensi gambar, Anda dapat menggunakan metode [setAspectRatioLocked](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) untuk mengatur pengaturan *Lock Aspect Ratio*.
 
-Kode JavaScript ini menunjukkan cara mengunci rasio aspek bentuk:
+Kode JavaScript ini menunjukkan cara mengunci rasio aspek shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -407,7 +436,7 @@ try {
         }
     }
     var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // atur bentuk agar mempertahankan rasio aspek saat mengubah ukuran
+    // atur shape agar mempertahankan rasio aspek saat diubah ukuran
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch (e) {console.log(e);
 } finally {
@@ -418,26 +447,28 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-Pengaturan *Lock Aspect Ratio* ini hanya mempertahankan rasio aspek bentuk dan bukan gambar yang dikandungnya.
+
+Pengaturan *Lock Aspect Ratio* ini hanya mempertahankan rasio aspek shape dan tidak mempertahankan gambar yang terdapat di dalamnya.
+
 {{% /alert %}}
 
 ## **Gunakan Properti StretchOff**
 
-Dengan menggunakan metode [setStretchOffsetLeft](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) dan [setStretchOffsetBottom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) dari kelas [PictureFillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat), Anda dapat menentukan persegi panjang isi.
+Dengan menggunakan metode [setStretchOffsetLeft](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) , dan [setStretchOffsetBottom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) dari kelas [PictureFillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PictureFillFormat), Anda dapat menentukan sebuah persegi isi.
 
-Ketika peregangan ditentukan untuk gambar, persegi panjang sumber diskalakan agar sesuai dengan persegi panjang isi yang ditentukan. Setiap sisi persegi panjang isi didefinisikan oleh offset persentase dari sisi yang bersesuaian dari kotak pembatas bentuk. Persentase positif menentukan inset sementara persentase negatif menentukan outset.
+Saat stretching ditentukan untuk sebuah gambar, persegi sumber akan diskalakan agar sesuai dengan persegi isi yang ditentukan. Setiap sisi persegi isi didefinisikan oleh offset persentase dari sisi yang bersesuaian pada kotak pembatas shape. Persentase positif menunjukkan inset sementara persentase negatif menunjukkan outset.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
 2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan persegi panjang `AutoShape`. 
-4. Buat gambar.
-5. Atur tipe isi bentuk.
-6. Atur mode isi gambar bentuk.
-7. Tambahkan gambar yang akan mengisi bentuk.
-8. Tentukan offset gambar dari sisi kotak pembatas bentuk yang bersesuaian.
-9. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
+3. Tambahkan sebuah persegi `AutoShape`. 
+4. Buat sebuah gambar.
+5. Atur jenis isi shape.
+6. Atur mode isi gambar shape.
+7. Tambahkan gambar yang diatur untuk mengisi shape.
+8. Tentukan offset gambar dari sisi yang bersesuaian pada kotak pembatas shape
+9. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript ini mendemonstrasikan proses penggunaan properti StretchOff:
+Kode JavaScript ini mendemonstrasikan proses di mana properti StretchOff digunakan:
 
 ```javascript
 // Membuat instance kelas Presentation yang mewakili file PPTX
@@ -455,15 +486,15 @@ try {
             image.dispose();
         }
     }
-    // Menambahkan AutoShape yang diatur ke Rectangle
+    // Menambahkan AutoShape dengan tipe Rectangle
     var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Mengatur tipe isi bentuk
+    // Mengatur tipe isi shape
     aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Mengatur mode isi gambar bentuk
+    // Mengatur mode isi gambar shape
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Mengatur gambar untuk mengisi bentuk
+    // Mengatur gambar untuk mengisi shape
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Menentukan offset gambar dari sisi yang bersesuaian dari kotak pembatas bentuk
+    // Menentukan offset gambar dari tepi yang bersesuaian pada kotak pembatas shape
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
@@ -480,18 +511,18 @@ try {
 
 ## **FAQ**
 
-**Bagaimana cara mengetahui format gambar apa yang didukung untuk PictureFrame?**
+**Bagaimana cara mengetahui format gambar apa saja yang didukung untuk PictureFrame?**
 
-Aspose.Slides mendukung baik gambar raster (PNG, JPEG, BMP, GIF, dll.) maupun gambar vektor (misalnya SVG) melalui objek gambar yang ditetapkan ke [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
+Aspose.Slides mendukung gambar raster (PNG, JPEG, BMP, GIF, dll.) dan gambar vektor (misalnya SVG) melalui objek gambar yang ditetapkan ke sebuah [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
 
 **Bagaimana penambahan puluhan gambar besar memengaruhi ukuran dan kinerja PPTX?**
 
-Menyematkan gambar besar meningkatkan ukuran file dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil namun memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar melalui tautan untuk mengurangi ukuran file.
+Menyisipkan gambar besar meningkatkan ukuran berkas dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil tetapi memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar melalui tautan untuk mengurangi ukuran berkas.
 
-**Bagaimana cara mengunci objek gambar agar tidak tergerak/diubah ukuran secara tidak sengaja?**
+**Bagaimana saya dapat mengunci objek gambar agar tidak secara tidak sengaja dipindahkan/diubah ukurannya?**
 
-Gunakan [shape locks](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) untuk sebuah [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) (misalnya menonaktifkan pemindahan atau pengubahan ukuran). Mekanisme penguncian didukung untuk berbagai tipe bentuk, termasuk [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/).
+Gunakan [shape locks](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) untuk sebuah [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) (misalnya, nonaktifkan pemindahan atau perubahan ukuran). Mekanisme penguncian didukung untuk berbagai tipe shape, termasuk [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/).
 
-**Apakah fidelitas vektor SVG tetap terjaga saat mengekspor presentasi ke PDF/gambar?**
+**Apakah keakuratan vektor SVG tetap terjaga saat mengekspor presentasi ke PDF/gambar?**
 
-Aspose.Slides memungkinkan mengekstrak SVG dari sebuah [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/nodejs-java/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/nodejs-java/convert-powerpoint-to-png/), hasilnya dapat dirasterisasi tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.
+Aspose.Slides memungkinkan mengekstrak SVG dari sebuah [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/nodejs-java/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/nodejs-java/convert-powerpoint-to-png/), hasilnya mungkin dirasterisasi tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.

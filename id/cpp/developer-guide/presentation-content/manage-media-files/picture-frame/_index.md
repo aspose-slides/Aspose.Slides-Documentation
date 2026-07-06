@@ -6,9 +6,9 @@ weight: 10
 url: /id/cpp/picture-frame/
 keywords:
 - bingkai gambar
-- tambahkan bingkai gambar
+- menambahkan bingkai gambar
 - buat bingkai gambar
-- tambahkan gambar
+- menambahkan gambar
 - buat gambar
 - ekstrak gambar
 - gambar raster
@@ -27,18 +27,16 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: Tambahkan bingkai gambar ke presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk C++. Permudah alur kerja Anda dan tingkatkan desain slide.
+description: "Tambahkan bingkai gambar ke presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk C++. Permudah alur kerja Anda dan tingkatkan desain slide."
 ---
 ## **Pendahuluan**
 
-Bingkai gambar adalah bentuk yang berisi sebuah gambar—seperti gambar dalam sebuah bingkai. 
+Bingkai gambar adalah bentuk yang berisi sebuah gambar—itu seperti gambar dalam sebuah bingkai.  
 
 Anda dapat menambahkan gambar ke slide melalui bingkai gambar. Dengan cara ini, Anda dapat memformat gambar dengan memformat bingkai gambar.
 
 {{% alert  title="Tip" color="primary" %}} 
-
 Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan orang membuat presentasi dengan cepat dari gambar. 
-
 {{% /alert %}} 
 
 ## **Buat Bingkai Gambar**
@@ -47,9 +45,9 @@ Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspo
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Buat objek [IPPImage](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_p_p_image) dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_image_collection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
 4. Tentukan lebar dan tinggi gambar.
-5. Buat [PictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_frame) berdasarkan lebar dan tinggi gambar melalui metode `AddPictureFrame` yang tersedia pada objek shape yang terkait dengan slide yang direferensikan.
+5. Buat [PictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_frame) berdasarkan lebar dan tinggi gambar melalui metode `AddPictureFrame` yang disediakan oleh objek shape yang terkait dengan slide yang direferensikan.
 6. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
-7. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+7. Tulis presentasi yang dimodifikasi sebagai file PPTX.
 
 Kode C++ berikut menunjukkan cara membuat bingkai gambar:
 
@@ -65,7 +63,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 SharedPtr<ISlide> slide = pres->get_Slide(0);
 
 // Muat gambar yang akan ditambahkan ke koleksi gambar presentasi
-// Dapatkan gambar
+// Mendapatkan gambar
 auto image = Images::FromFile(filePath);
 
 // Menambahkan gambar ke koleksi gambar presentasi
@@ -74,10 +72,10 @@ SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 // Menambahkan bingkai gambar ke slide
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Mengatur lebar dan tinggi skala relatif
+// Mengatur skala relatif lebar dan tinggi
 pf->set_RelativeScaleHeight(0.8);
 pf->set_RelativeScaleWidth(1.35);
-// Menerapkan beberapa pemformatan ke PictureFrame
+// Menerapkan beberapa pemformatan ke Bingkai Gambar
 pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 pf->get_LineFormat()->set_Width ( 20);
@@ -88,9 +86,7 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" %}} 
-
-Bingkai gambar memungkinkan Anda membuat slide presentasi dengan cepat berdasarkan gambar. Ketika Anda menggabungkan bingkai gambar dengan opsi penyimpanan Aspose.Slides, Anda dapat memanipulasi operasi input/output untuk mengonversi gambar dari satu format ke format lain. Anda mungkin ingin melihat halaman berikut: konversi [image to JPG](https://products.aspose.com/slides/id/cpp/conversion/image-to-jpg/); konversi [JPG to image](https://products.aspose.com/slides/id/cpp/conversion/jpg-to-image/); konversi [JPG to PNG](https://products.aspose.com/slides/id/cpp/conversion/jpg-to-png/), konversi [PNG to JPG](https://products.aspose.com/slides/id/cpp/conversion/png-to-jpg/); konversi [PNG to SVG](https://products.aspose.com/slides/id/cpp/conversion/png-to-svg/), konversi [SVG to PNG](https://products.aspose.com/slides/id/cpp/conversion/svg-to-png/).
-
+Bingkai gambar memungkinkan Anda dengan cepat membuat slide presentasi berdasarkan gambar. Saat Anda menggabungkan bingkai gambar dengan opsi penyimpanan Aspose.Slides, Anda dapat memanipulasi operasi input/output untuk mengonversi gambar dari satu format ke format lain. Anda mungkin ingin melihat halaman berikut: konversi [gambar ke JPG](https://products.aspose.com/slides/id/cpp/conversion/image-to-jpg/); konversi [JPG ke gambar](https://products.aspose.com/slides/id/cpp/conversion/jpg-to-image/); konversi [JPG ke PNG](https://products.aspose.com/slides/id/cpp/conversion/jpg-to-png/), konversi [PNG ke JPG](https://products.aspose.com/slides/id/cpp/conversion/png-to-jpg/); konversi [PNG ke SVG](https://products.aspose.com/slides/id/cpp/conversion/png-to-svg/), konversi [SVG ke PNG](https://products.aspose.com/slides/id/cpp/conversion/svg-to-png/).
 {{% /alert %}}
 
 ## **Buat Bingkai Gambar dengan Skala Relatif**
@@ -102,7 +98,7 @@ Dengan mengubah skala relatif gambar, Anda dapat membuat bingkai gambar yang leb
 3. Tambahkan gambar ke koleksi gambar presentasi.
 4. Buat objek [IPPImage](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_p_p_image) dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_image_collection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
 5. Tentukan lebar dan tinggi relatif gambar dalam bingkai gambar.
-6. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+6. Tulis presentasi yang dimodifikasi sebagai file PPTX.
 
 Kode C++ berikut menunjukkan cara membuat bingkai gambar dengan skala relatif:
 
@@ -127,17 +123,17 @@ SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 // Menambahkan bingkai gambar ke slide
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Mengatur lebar dan tinggi skala relatif
+// Mengatur skala relatif lebar dan tinggi
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-//Writes file PPTX ke disk
+//Menulis file PPTX ke disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Ekstrak Gambar Raster dari Bingkai Gambar**
 
-Anda dapat mengekstrak gambar raster dari [PictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_frame) dan menyimpannya dalam format PNG, JPG, dan format lainnya. Contoh kode di bawah ini mendemonstrasikan cara mengekstrak gambar dari dokumen "sample.pptx" dan menyimpannya dalam format PNG.
+Anda dapat mengekstrak gambar raster dari objek [PictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_frame) dan menyimpannya dalam format PNG, JPG, dan format lainnya. Contoh kode di bawah ini menunjukkan cara mengekstrak gambar dari dokumen "sample.pptx" dan menyimpannya dalam format PNG.
 
 ```c++
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -157,9 +153,9 @@ presentation->Dispose();
 
 ## **Ekstrak Gambar SVG dari Bingkai Gambar**
 
-Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/) , Aspose.Slides untuk C++ memungkinkan Anda mengambil gambar vektor asli dengan fidelitas penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/), memeriksa apakah [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau stream dalam format SVG aslinya.
+Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/), Aspose.Slides untuk C++ memungkinkan Anda mengambil gambar vektor asli dengan fidelitas penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/), memeriksa apakah [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau aliran dalam format SVG aslinya.
 
-Contoh kode berikut mendemonstrasikan cara mengekstrak gambar SVG dari sebuah bingkai gambar:
+Contoh kode berikut menunjukkan cara mengekstrak gambar SVG dari bingkai gambar:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -182,7 +178,7 @@ presentation->Dispose();
 
 ## **Dapatkan Transparansi Gambar**
 
-Aspose.Slides memungkinkan Anda mendapatkan efek transparansi yang diterapkan pada sebuah gambar. Kode C++ ini mendemonstrasikan operasinya:
+Aspose.Slides memungkinkan Anda mendapatkan efek transparansi yang diterapkan pada gambar. Kode C++ berikut mendemonstrasikan operasi tersebut:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
@@ -202,23 +198,53 @@ for (auto&& effect : imageTransform)
 Semua efek yang diterapkan pada gambar dapat ditemukan di [Aspose::Slides::Effects](https://reference.aspose.com/slides/id/cpp/aspose.slides.effects/).
 {{% /alert %}}
 
+## **Dapatkan Kecerahan dan Kontras Gambar**
+
+Aspose.Slides memungkinkan Anda mendapatkan efek kecerahan dan kontras yang diterapkan pada gambar. Antarmuka [ILuminance](https://reference.aspose.com/slides/id/cpp/aspose.slides.effects/iluminance/) mewakili efek transformasi gambar ini.
+
+Kode C++ berikut menunjukkan cara mendapatkan pengaturan kecerahan dan kontras dari sebuah bingkai gambar:
+
+```c++
+auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shape(0);
+auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
+
+auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+for (auto&& effect : imageTransform)
+{
+    if (System::ObjectExt::Is<ILuminance>(effect))
+    {
+        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
+        auto brightness = luminance->get_Brightness();
+        auto contrast = luminance->get_Contrast();
+
+        Console::WriteLine(System::String(u"Brightness: ") + brightness);
+        Console::WriteLine(System::String(u"Contrast: ") + contrast);
+    }
+}
+
+presentation->Dispose();
+```
+
 ## **Pemformatan Bingkai Gambar**
 
-Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bingkai gambar. Menggunakan opsi-opsi tersebut, Anda dapat mengubah bingkai gambar agar sesuai dengan persyaratan tertentu.
+Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bingkai gambar. Dengan menggunakan opsi tersebut, Anda dapat mengubah bingkai gambar agar sesuai dengan kebutuhan spesifik.
 
 1. Buat instance dari [Presentation class](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Buat objek [IPPImage](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_p_p_image) dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_image_collection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
 4. Tentukan lebar dan tinggi gambar.
-5. Buat `PictureFrame` berdasarkan lebar dan tinggi gambar melalui metode [AddPictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) yang tersedia pada objek [IShapes](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection) yang terkait dengan slide yang direferensikan.
+5. Buat `PictureFrame` berdasarkan lebar dan tinggi gambar melalui metode [AddPictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) yang disediakan oleh objek [IShapes](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection) yang terkait dengan slide yang direferensikan.
 6. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
 7. Atur warna garis bingkai gambar.
 8. Atur lebar garis bingkai gambar.
-9. Putar bingkai gambar dengan memberikan nilai positif atau negatif.  
-   * Nilai positif memutar gambar searah jarum jam.  
-   * Nilai negatif memutar gambar berlawanan arah jarum jam.  
+9. Putar bingkai gambar dengan memberikannya nilai positif atau negatif.
+   * Nilai positif memutar gambar searah jarum jam. 
+   * Nilai negatif memutar gambar berlawanan arah jarum jam.
 10. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
-11. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+11. Tulis presentasi yang dimodifikasi sebagai file PPTX.
 
 Kode C++ berikut mendemonstrasikan proses pemformatan bingkai gambar:
 
@@ -243,23 +269,21 @@ SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 // Menambahkan bingkai gambar ke slide
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Mengatur lebar dan tinggi skala relatif
+// Mengatur skala relatif lebar dan tinggi
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-// Menulis file PPTX ke disk
+//Menulis file PPTX ke disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 {{% alert title="Tip" color="primary" %}}
-
-Aspose baru-baru ini mengembangkan [free Collage Maker](https://products.aspose.app/slides/id/collage). Jika Anda pernah perlu [menggabungkan JPG/JPEG](https://products.aspose.app/slides/id/collage/jpg) atau gambar PNG, [membuat grid dari foto](https://products.aspose.app/slides/id/collage/photo-grid), Anda dapat menggunakan layanan ini. 
-
+Aspose baru-baru ini mengembangkan [Collage Maker gratis](https://products.aspose.app/slides/id/collage). Jika Anda pernah perlu [menggabungkan JPG/JPEG] atau gambar PNG, [membuat grid dari foto], Anda dapat menggunakan layanan ini. 
 {{% /alert %}}
 
 ## **Tambahkan Gambar sebagai Tautan**
 
-Untuk menghindari ukuran presentasi yang besar, Anda dapat menambahkan gambar (atau video) melalui tautan alih-alih menyematkan file langsung ke dalam presentasi. Kode C++ ini menunjukkan cara menambahkan gambar dan video ke placeholder:
+Untuk menghindari ukuran presentasi yang besar, Anda dapat menambahkan gambar (atau video) melalui tautan alih-alih menyematkan file secara langsung ke dalam presentasi. Kode C++ berikut menunjukkan cara menambahkan gambar dan video ke placeholder:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
@@ -302,9 +326,9 @@ presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 
 ## **Potong Gambar**
 
-Kode C++ ini menunjukkan cara memotong gambar yang sudah ada pada slide: 
+Kode C++ berikut menunjukkan cara memotong gambar yang ada pada slide: 
 
-``` CPP
+```CPP
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
@@ -324,43 +348,40 @@ picFrame->get_PictureFormat()->set_CropBottom(31.0f);
 
 // Menyimpan hasil
 presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
-## **Hapus Area Terpotong dari Gambar**
+## **Hapus Area yang Dipotong dari Gambar**
 
-Jika Anda ingin menghapus area yang terpotong dari gambar yang terdapat dalam bingkai, Anda dapat menggunakan metode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metode ini mengembalikan gambar yang dipotong atau gambar asli jika pemotongan tidak diperlukan.
+Jika Anda ingin menghapus area yang dipotong dari gambar yang terdapat dalam sebuah bingkai, Anda dapat menggunakan metode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metode ini mengembalikan gambar yang dipotong atau gambar asli jika pemotongan tidak diperlukan.
 
-Kode C++ ini mendemonstrasikan operasinya: 
+Kode C++ berikut mendemonstrasikan operasi tersebut: 
 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
 System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
-// Gets the PictureFrame from the first slide
+// Mendapatkan PictureFrame dari slide pertama
 System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Deletes cropped areas of the PictureFrame image and returns the cropped image
+// Menghapus area yang dipotong dari gambar PictureFrame dan mengembalikan gambar yang dipotong
 System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
 
-// Saves the result
+// Menyimpan hasil
 presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
+Metode [IPictureFillFormat::DeletePictureCroppedAreas()] menambahkan gambar yang dipotong ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame] yang diproses, pengaturan ini dapat mengurangi ukuran presentasi. Jika tidak, jumlah gambar dalam presentasi yang dihasilkan akan meningkat.
 
-Metode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) menambahkan gambar yang dipotong ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/) yang diproses, pengaturan ini dapat mengurangi ukuran presentasi. Jika tidak, jumlah gambar dalam presentasi yang dihasilkan akan meningkat.
-
-Metode ini mengonversi file metafile WMF/EMF menjadi gambar PNG raster dalam proses pemotongan. 
-
+Metode ini mengonversi file metafile WMF/EMF menjadi gambar PNG raster dalam operasi pemotongan. 
 {{% /alert %}}
 
 ## **Kompres Gambar**
 
 Anda dapat mengompres gambar dalam presentasi menggunakan metode [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/compressimage/).
-Metode ini mengompres gambar dengan mengurangi ukurannya berdasarkan ukuran bentuk dan resolusi yang ditentukan, dengan opsi menghapus area yang dipotong.
+Metode ini mengompres gambar dengan mengurangi ukurannya berdasarkan ukuran bentuk dan resolusi yang ditentukan, dengan opsi untuk menghapus area yang dipotong.
 
-Ini menyesuaikan ukuran dan resolusi gambar serupa dengan fitur **Picture Format -> Compress Pictures -> Resolution** di PowerPoint.
+Ini menyesuaikan ukuran dan resolusi gambar serupa dengan fitur PowerPoint **Picture Format -> Compress Pictures -> Resolution**.
 
 Contoh C++ berikut menunjukkan cara mengompres gambar dalam presentasi dengan menentukan resolusi target dan secara opsional menghapus area yang dipotong:
 
@@ -386,7 +407,7 @@ presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Atau dengan menggunakan nilai DPI khusus secara langsung:
+Atau menggunakan nilai DPI khusus secara langsung:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
@@ -401,17 +422,15 @@ presentation->Dispose();
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-
-Metode ini mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran bentuk dan DPI yang diberikan. Area yang dipotong juga dapat dihapus untuk mengoptimalkan ukuran file.
-Jika gambar berupa metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit berkurang berdasarkan resolusi, serupa dengan cara PowerPoint menangani JPEG beresolusi tinggi.
-
+Metode ini mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran bentuk dan DPI yang diberikan. Region yang dipotong juga dapat dihapus untuk mengoptimalkan ukuran file.
+Jika gambar merupakan metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit berkurang berdasarkan resolusi, serupa dengan cara PowerPoint menangani JPEG beresolusi tinggi.
 {{% /alert %}}
 
 ## **Kunci Rasio Aspek**
 
-Jika Anda ingin sebuah bentuk yang berisi gambar tetap mempertahankan rasio aspeknya meskipun Anda mengubah dimensi gambar, Anda dapat menggunakan metode [set_AspectRatioLocked()](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) untuk mengatur pengaturan *Lock Aspect Ratio*. 
+Jika Anda ingin bentuk yang berisi gambar mempertahankan rasio aspeknya bahkan setelah Anda mengubah dimensi gambar, Anda dapat menggunakan metode [set_AspectRatioLocked()](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) untuk mengatur pengaturan *Lock Aspect Ratio*. 
 
-Kode C++ ini menunjukkan cara mengunci rasio aspek sebuah bentuk:
+Kode C++ berikut menunjukkan cara mengunci rasio aspek sebuah bentuk:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -429,36 +448,34 @@ pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
-Pengaturan *Lock Aspect Ratio* ini mempertahankan hanya rasio aspek bentuk dan bukan gambar yang dikandungnya.
-
+Pengaturan *Lock Aspect Ratio* ini hanya mempertahankan rasio aspek bentuk dan bukan gambar yang dikandungnya.
 {{% /alert %}}
 
 ## **Gunakan Properti StretchOff**
 
-Dengan menggunakan properti [StretchOffsetLeft](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) dan [StretchOffsetBottom](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_picture_fill_format) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format), Anda dapat menentukan persegi isi.
+Dengan menggunakan properti [StretchOffsetLeft](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) dan [StretchOffsetBottom](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_picture_fill_format) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.picture_fill_format), Anda dapat menentukan segi empat pengisian. 
 
-Ketika peregangan gambar ditentukan, persegi sumber diskalakan untuk menyesuaikan dengan persegi isi yang ditentukan. Setiap tepi persegi isi didefinisikan oleh offset persentase dari tepi yang bersesuaian pada kotak pembatas bentuk. Persentase positif menunjukkan inset. Persentase negatif menunjukkan outset.
+Ketika peregangan gambar ditentukan, segi empat sumber diskalakan untuk mengisi segi empat pengisian yang ditentukan. Setiap sisi segi empat pengisian didefinisikan oleh offset persentase dari sisi yang bersesuaian pada kotak pembatas bentuk. Persentase positif menunjukkan inset. Persentase negatif menunjukkan outset.
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
 2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan sebuah persegi panjang `AutoShape`. 
-4. Buat sebuah gambar.
-5. Atur tipe isi shape.
-6. Atur mode isi gambar shape.
-7. Tambahkan gambar set untuk mengisi shape.
-8. Tentukan offset gambar dari tepi yang bersesuaian pada kotak pembatas shape
-9. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+3. Tambahkan sebuah segi empat `AutoShape`. 
+4. Buat gambar. 
+5. Atur jenis isi bentuk. 
+6. Atur mode isi gambar bentuk. 
+7. Tambahkan gambar yang diatur untuk mengisi bentuk. 
+8. Tentukan offset gambar dari sisi yang bersesuaian pada kotak pembatas bentuk
+9. Tulis presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode C++ ini mendemonstrasikan proses dimana properti StretchOff digunakan:
+Kode C++ berikut mendemonstrasikan proses penggunaan properti StretchOff:
 
-``` cpp
+```cpp
 auto pres = System::MakeObject<Presentation>();
 auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 auto slide = pres->get_Slide(0);
 auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
 
-// Mengatur gambar agar terentang dari setiap sisi dalam badan shape
+// Mengatur gambar agar meregang dari setiap sisi dalam badan bentuk
 auto pictureFormat = pictureFrame->get_PictureFormat();
 pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
 pictureFormat->set_StretchOffsetLeft(24.0f);
@@ -473,16 +490,16 @@ pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
 
 **Bagaimana saya dapat mengetahui format gambar apa yang didukung untuk PictureFrame?**
 
-Aspose.Slides mendukung baik gambar raster (PNG, JPEG, BMP, GIF, dll.) maupun gambar vektor (misalnya SVG) melalui objek gambar yang ditetapkan ke [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
+Aspose.Slides mendukung baik gambar raster (PNG, JPEG, BMP, GIF, dll.) maupun gambar vektor (misalnya, SVG) melalui objek gambar yang ditetapkan ke [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
 
 **Bagaimana penambahan puluhan gambar besar memengaruhi ukuran dan kinerja PPTX?**
 
-Menyematkan gambar besar meningkatkan ukuran file dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil tetapi memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar melalui tautan untuk mengurangi ukuran file.
+Menyematkan gambar besar meningkatkan ukuran file dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil namun memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar melalui tautan untuk mengurangi ukuran file.
 
 **Bagaimana saya dapat mengunci objek gambar agar tidak secara tidak sengaja dipindahkan/diperbesar?**
 
-Gunakan [shape locks](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/get_pictureframelock/) untuk sebuah [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/) (misalnya, menonaktifkan pemindahan atau perubahan ukuran). Mekanisme penguncian dijelaskan untuk bentuk dalam artikel [perlindungan terpisah](/slides/id/cpp/applying-protection-to-presentation/) dan didukung untuk berbagai tipe bentuk, termasuk [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/).
+Gunakan [shape locks] untuk sebuah [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/) (misalnya, menonaktifkan pemindahan atau perubahan ukuran). Mekanisme penguncian dijelaskan untuk bentuk pada artikel [protection](/slides/id/cpp/applying-protection-to-presentation/) terpisah dan didukung untuk berbagai tipe bentuk, termasuk [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/).
 
-**Apakah kesetiaan vektor SVG dipertahankan saat mengekspor presentasi ke PDF/gambar?**
+**Apakah fidelitas vektor SVG terjaga saat mengekspor presentasi ke PDF/gambar?**
 
-Aspose.Slides memungkinkan mengekstrak SVG dari sebuah [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/cpp/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/cpp/convert-powerpoint-to-png/), hasilnya mungkin rasterisasi tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.
+Aspose.Slides memungkinkan mengekstrak SVG dari sebuah [PictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/cpp/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/cpp/convert-powerpoint-to-png/), hasilnya dapat menjadi raster tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.

@@ -1,58 +1,59 @@
 ---
-title: จัดการกรอบภาพในงานนำเสนอบน Android
-linktitle: กรอบภาพ
+title: "จัดการกรอบภาพในงานนำเสนอบน Android"
+linktitle: "กรอบภาพ"
 type: docs
 weight: 10
 url: /th/androidjava/picture-frame/
 keywords:
-- กรอบภาพ
-- เพิ่มกรอบภาพ
-- สร้างกรอบภาพ
-- เพิ่มภาพ
-- สร้างภาพ
-- สกัดภาพ
-- ภาพเรสเตอร์
-- ภาพเวคเตอร์
-- ครอบภาพ
-- พื้นที่ที่ถูกครอบ
-- คุณสมบัติ StretchOff
-- การจัดรูปแบบกรอบภาพ
-- คุณสมบัติของกรอบภาพ
-- สเกลสัมพัทธ์
-- เอฟเฟกต์ภาพ
-- อัตราส่วน
-- ความโปร่งใสของภาพ
-- PowerPoint
-- OpenDocument
-- การนำเสนอ
-- Android
-- Java
-- Aspose.Slides
-description: "เพิ่มกรอบภาพลงในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Android ผ่าน Java เพื่อทำให้กระบวนการทำงานของคุณเป็นระเบียบและปรับปรุงการออกแบบสไลด์."
+- "กรอบภาพ"
+- "เพิ่มกรอบภาพ"
+- "สร้างกรอบภาพ"
+- "เพิ่มภาพ"
+- "สร้างภาพ"
+- "ดึงภาพ"
+- "ภาพเรสเตอร์"
+- "ภาพเวกเตอร์"
+- "ตัดภาพ"
+- "พื้นที่ที่ตัด"
+- "คุณสมบัติ StretchOff"
+- "การจัดรูปแบบกรอบภาพ"
+- "คุณสมบัติกรอบภาพ"
+- "สเกลสัมพัทธ์"
+- "เอฟเฟกต์ภาพ"
+- "อัตราส่วนภาพ"
+- "ความโปร่งใสของภาพ"
+- "PowerPoint"
+- "OpenDocument"
+- "งานนำเสนอ"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "เพิ่มกรอบภาพลงในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Android ผ่าน Java. ทำให้กระบวนการทำงานของคุณสะดวกขึ้นและพัฒนาการออกแบบสไลด์."
 ---
 ## **บทนำ**
 
-รูปแบบภาพเป็นรูปร่างที่บรรจุภาพ—มันเหมือนภาพที่อยู่ในกรอบ  
+กรอบภาพเป็นรูปทรงที่บรรจุภาพ—คล้ายกับรูปภาพในกรอบ  
 
-คุณสามารถเพิ่มภาพลงในสไลด์ผ่านรูปแบบภาพได้ วิธีนี้ทำให้คุณสามารถจัดรูปแบบภาพโดยการจัดรูปแบบรูปแบบภาพ  
+คุณสามารถเพิ่มภาพลงในสไลด์ผ่านกรอบภาพได้ วิธีนี้ทำให้คุณสามารถจัดรูปแบบภาพโดยการจัดรูปแบบกรอบภาพ  
 
 {{% alert  title="Tip" color="primary" %}} 
-Aspose ให้บริการแปลงฟรี—[JPEG to PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG to PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ซึ่งช่วยให้ผู้ใช้สร้างงานนำเสนอจากภาพได้อย่างรวดเร็ว. 
+Aspose มีเครื่องแปลงฟรี—[JPEG เป็น PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG เป็น PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ซึ่งช่วยให้ผู้ใช้สร้างงานนำเสนออย่างรวดเร็วจากภาพ  
 {{% /alert %}} 
 
-## **Create a Picture Frame**
+## **สร้างกรอบภาพ**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation).  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน.  
-3. สร้างอ็อบเจกต์ [IPPImage]() ด้วยการเพิ่มภาพลงใน [IImagescollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IImageCollection) ที่เชื่อมกับอ็อบเจกต์ Presentation ซึ่งจะใช้เพื่อเติมรูปร่าง.  
-4. ระบุความกว้างและความสูงของภาพ.  
-5. สร้าง [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PictureFrame) ตามความกว้างและความสูงของภาพโดยใช้เมธอด `AddPictureFrame` ที่เปิดเผยโดยอ็อบเจกต์ shape ที่เชื่อมกับสไลด์ที่อ้างอิง.  
-6. เพิ่ม Picture Frame (ที่บรรจุภาพ) ลงในสไลด์.  
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX.  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. สร้างอ็อบเจ็กต์ [IPPImage]() โดยการเพิ่มภาพไปยัง [IImagescollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IImageCollection) ที่เชื่อมโยงกับอ็อบเจ็กต์ Presentation ที่จะใช้เติมรูปทรง  
+4. ระบุความกว้างและความสูงของภาพ  
+5. สร้าง [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PictureFrame) ตามความกว้างและความสูงของภาพโดยใช้เมธอด `AddPictureFrame` ที่เปิดให้ใช้งานจากอ็อบเจ็กต์ shape ที่เชื่อมโยงกับสไลด์ที่อ้างอิง  
+6. เพิ่มกรอบภาพ (ที่บรรจุภาพ) ไปยังสไลด์  
+7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
-โค้ด Java นี้แสดงวิธีการสร้าง Picture Frame:  
+โค้ด Java นี้แสดงวิธีสร้างกรอบภาพ:
+
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 Presentation pres = new Presentation();
 try {
     // ดึงสไลด์แรก
@@ -61,10 +62,10 @@ try {
     // สร้างอินสแตนซ์ของคลาส Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // เพิ่มกรอบภาพด้วยความสูงและความกว้างที่เท่ากับภาพ
+    // เพิ่มกรอบภาพโดยใช้ความสูงและความกว้างเท่ากับของภาพ
     sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // บันทึกไฟล์ PPTX ลงดิสก์
+    // เขียนไฟล์ PPTX ไปยังดิสก์
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -72,20 +73,19 @@ try {
 }
 ```
 
-## **Create a Picture Frame with Relative Scale**
+## **สร้างกรอบภาพพร้อมสเกลสัมพัทธ์**
 
-โดยการปรับสเกลสัมพันธ์ของภาพ คุณสามารถสร้าง Picture Frame ที่ซับซ้อนได้มากขึ้น.  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. เพิ่มภาพไปยังคอลเลกชันภาพของงานนำเสนอ  
+4. สร้างอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPPImage) โดยการเพิ่มภาพไปยัง [IImagescollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IImageCollection) ที่เชื่อมโยงกับอ็อบเจ็กต์ Presentation ที่จะใช้เติมรูปทรง  
+5. ระบุความกว้างและความสูงสัมพัทธ์ของภาพในกรอบภาพ  
+6. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation).  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน.  
-3. เพิ่มภาพลงในคอลเลกชันภาพของงานนำเสนอ.  
-4. สร้างอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPPImage) ด้วยการเพิ่มภาพลงใน [IImagescollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IImageCollection) ที่เชื่อมกับอ็อบเจกต์ Presentation ซึ่งจะใช้เพื่อเติมรูปร่าง.  
-5. ระบุความกว้างและความสูงเชิงสัมพันธ์ของภาพใน Picture Frame.  
-6. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX.  
+โค้ด Java นี้แสดงวิธีสร้างกรอบภาพพร้อมสเกลสัมพัทธ์:
 
-โค้ด Java นี้แสดงวิธีการสร้าง Picture Frame ด้วยสเกลสัมพันธ์:  
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 Presentation pres = new Presentation();
 try {
     // ดึงสไลด์แรก
@@ -95,14 +95,14 @@ try {
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
-    // เพิ่มกรอบภาพด้วยความสูงและความกว้างที่เท่ากับภาพ
+    // เพิ่มกรอบภาพโดยใช้ความสูงและความกว้างเท่ากับของภาพ
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // ตั้งค่าความกว้างและความสูงของสเกลสัมพัทธ์
+    // ตั้งค่าสเกลสัมพัทธ์ของความกว้างและความสูง
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
-    // บันทึกไฟล์ PPTX ลงดิสก์
+    // เขียนไฟล์ PPTX ไปยังดิสก์
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -110,10 +110,10 @@ try {
 }
 ```
 
-## **Extract Raster Images from Picture Frames**
+## **ดึงภาพเรสเตอร์จากกรอบภาพ**
 
-คุณสามารถสกัดภาพเรสเตอร์จากอ็อบเจกต์ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PictureFrame) แล้วบันทึกเป็นรูปแบบ PNG, JPG และรูปแบบอื่น ๆ  
-ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดภาพจากเอกสาร "sample.pptx" แล้วบันทึกเป็นรูปแบบ PNG.  
+คุณสามารถดึงภาพเรสเตอร์จากอ็อบเจ็กต์ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PictureFrame) และบันทึกเป็นรูปแบบ PNG, JPG และอื่น ๆ ตัวอย่างโค้ดด้านล่างแสดงวิธีดึงภาพจากเอกสาร “sample.pptx” และบันทึกเป็นรูปแบบ PNG  
+
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -136,11 +136,12 @@ try {
 }
 ```
 
-## **Extract SVG Images from Picture Frames**
+## **ดึงภาพ SVG จากกรอบภาพ**
 
-เมื่อการนำเสนอมีกราฟิก SVG ที่วางอยู่ภายในรูปแบบ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) Aspose.Slides สำหรับ Android ผ่าน Java จะช่วยให้คุณดึงภาพเวกเตอร์ดั้งเดิมโดยคงความละเอียดเต็ม สามารถวนรอบคอลเลกชันรูปร่างของสไลด์เพื่อระบุแต่ละ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/), ตรวจสอบว่า [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) ด้านล่างมีเนื้อหา SVG หรือไม่ แล้วบันทึกภาพนั้นลงดิสก์หรือสตรีมในรูปแบบ SVG ดั้งเดิม.  
+เมื่อการนำเสนอมีกราฟิก SVG ใส่ภายในรูปทรง [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) Aspose.Slides สำหรับ Android ผ่าน Java ให้คุณดึงภาพเวกเตอร์ต้นฉบับออกมาด้วยความแม่นยำเต็มรูปแบบ โดยการวนผ่านคอลเลกชันรูปทรงของสไลด์ คุณสามารถระบุแต่ละ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) ตรวจสอบว่า [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) ทำงานในรูปแบบ SVG หรือไม่ แล้วบันทึกภาพนั้นไปยังดิสก์หรือสตรีมในรูปแบบ SVG ดั้งเดิม  
 
-โค้ดต่อไปนี้แสดงวิธีสกัดภาพ SVG จาก Picture Frame:  
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีดึงภาพ SVG จากกรอบภาพ:
+
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -163,9 +164,10 @@ try {
 }
 ```
 
-## **Get Transparency of an Image**
+## **รับค่าความโปร่งใสของภาพ**
 
-Aspose.Slides ให้คุณรับเอ็ฟเฟ็กต์ความโปร่งใสที่ใช้กับภาพได้ โค้ด Java นี้แสดงการทำงาน:  
+Aspose.Slides อนุญาตให้คุณรับค่าผลลัพธ์ความโปร่งใสที่ใช้กับภาพ โค้ด Java นี้แสดงการทำงาน:
+
 ```java
 Presentation presentation = new Presentation("Test.pptx");
 
@@ -180,27 +182,58 @@ for (var effect : imageTransform) {
 }
 ```
 
-## **Picture Frame Formatting**
+## **รับค่าความสว่างและคอนทราสต์ของภาพ**
 
-Aspose.Slides มีตัวเลือกการจัดรูปแบบหลายอย่างที่สามารถใช้กับ Picture Frame ได้ โดยใช้ตัวเลือกเหล่านั้นคุณสามารถปรับ Picture Frame ให้ตรงตามข้อกำหนดเฉพาะ.  
+Aspose.Slides อนุญาตให้คุณรับค่าผลลัพธ์ความสว่างและคอนทราสต์ที่ใช้กับภาพ อินเทอร์เฟซ [ILuminance](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iluminance/) แสดงถึงการแปลงภาพนี้  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation).  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน.  
-3. สร้างอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPPImage) ด้วยการเพิ่มภาพลงใน [IImagescollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IImageCollection) ที่เชื่อมกับอ็อบเจกต์ Presentation ซึ่งจะใช้เพื่อเติมรูปร่าง.  
-4. ระบุความกว้างและความสูงของภาพ.  
-5. สร้าง `PictureFrame` ตามความกว้างและความสูงของภาพโดยใช้เมธอด [AddPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) ที่เปิดเผยโดยอ็อบเจกต์ [IShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShapeCollection) ที่เชื่อมกับสไลด์ที่อ้างอิง.  
-6. เพิ่ม Picture Frame (ที่บรรจุภาพ) ลงในสไลด์.  
-7. ตั้งค่าสีเส้นของ Picture Frame.  
-8. ตั้งค่าความกว้างของเส้น Picture Frame.  
-9. หมุน Picture Frame โดยใส่ค่าเป็นบวกหรือเป็นลบ  
-   * ค่าเป็นบวกจะหมุนภาพตามเข็มนาฬิกา.  
-   * ค่าเป็นลบจะหมุนภาพทวนเข็มนาฬิกา.  
-10. เพิ่ม Picture Frame (ที่บรรจุภาพ) ลงในสไลด์.  
-11. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX.  
+โค้ด Java นี้แสดงวิธีรับการตั้งค่าความสว่างและคอนทราสต์จากกรอบภาพ:
 
-โค้ด Java นี้แสดงกระบวนการจัดรูปแบบ Picture Frame:  
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
+Presentation presentation = new Presentation("sample.pptx");
+
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = (IPictureFrame) shape;
+
+    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+    for (IImageTransformOperation effect : imageTransform) {
+        if (effect instanceof ILuminance) {
+            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
+            float brightness = luminance.getBrightness();
+            float contrast = luminance.getContrast();
+
+            System.out.println("Brightness: " + brightness);
+            System.out.println("Contrast: " + contrast);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **การจัดรูปแบบกรอบภาพ**
+
+Aspose.Slides ให้ตัวเลือกการจัดรูปแบบหลายแบบที่สามารถใช้กับกรอบภาพได้ โดยใช้ตัวเลือกเหล่านั้น คุณสามารถปรับกรอบภาพให้ตรงกับข้อกำหนดเฉพาะได้  
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. สร้างอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPPImage) โดยการเพิ่มภาพไปยัง [IImagescollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IImageCollection) ที่เชื่อมโยงกับอ็อบเจ็กต์ Presentation ที่จะใช้เติมรูปทรง  
+4. ระบุความกว้างและความสูงของภาพ  
+5. สร้าง `PictureFrame` ตามความกว้างและความสูงของภาพโดยใช้เมธอด [AddPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) ที่เปิดให้ใช้งานจากอ็อบเจ็กต์ [IShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShapeCollection) ที่เชื่อมโยงกับสไลด์ที่อ้างอิง  
+6. เพิ่มกรอบภาพ (ที่บรรจุภาพ) ไปยังสไลด์  
+7. ตั้งค่าสีเส้นของกรอบภาพ  
+8. ตั้งค่าความกว้างของเส้นกรอบภาพ  
+9. หมุนกรอบภาพโดยให้ค่าบวกหรือค่าลบ  
+   * ค่าบวกจะหมุนภาพตามเข็มนาฬิกา  
+   * ค่าลบจะหมุนภาพทวนเข็มนาฬิกา  
+10. เพิ่มกรอบภาพ (ที่บรรจุภาพ) ไปยังสไลด์  
+11. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+
+โค้ด Java นี้แสดงกระบวนการจัดรูปแบบกรอบภาพ:
+
+```java
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 Presentation pres = new Presentation();
 try {
     // ดึงสไลด์แรก
@@ -209,16 +242,16 @@ try {
     // สร้างอินสแตนซ์ของคลาส Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // เพิ่มกรอบภาพด้วยความสูงและความกว้างที่เท่ากับภาพ
+    // เพิ่มกรอบภาพโดยใช้ความสูงและความกว้างเท่ากับของภาพ
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // ใช้รูปแบบบางอย่างกับ PictureFrameEx
+    // ใช้การจัดรูปแบบบางอย่างกับ PictureFrameEx
     pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     pf.getLineFormat().setWidth(20);
     pf.setRotation(45);
     
-    // บันทึกไฟล์ PPTX ลงดิสก์
+    // เขียนไฟล์ PPTX ไปยังดิสก์
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -226,13 +259,14 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}} 
-Aspose เพิ่งพัฒนา [free Collage Maker](https://products.aspose.app/slides/th/collage). หากคุณต้องการ [merge JPG/JPEG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG images, [create grids from photos](https://products.aspose.app/slides/th/collage/photo-grid) คุณสามารถใช้บริการนี้ได้. 
-{{% /alert %}} 
+{{% alert title="Tip" color="primary" %}}
+Aspose เพิ่งพัฒนา [free Collage Maker](https://products.aspose.app/slides/th/collage) หากคุณต้องการ [merge JPG/JPEG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG images, [create grids from photos](https://products.aspose.app/slides/th/collage/photo-grid) สามารถใช้บริการนี้ได้  
+{{% /alert %}}
 
-## **Add an Image as a Link**
+## **เพิ่มภาพเป็นลิงก์**
 
-เพื่อหลีกเลี่ยงขนาดไฟล์งานนำเสนอที่ใหญ่ คุณสามารถเพิ่มภาพ (หรือวิดีโอ) ผ่านลิงก์แทนการฝังไฟล์ลงในงานนำเสนอโดยตรง โค้ด Java นี้แสดงวิธีเพิ่มภาพและวิดีโอลงใน placeholder:  
+เพื่อหลีกเลี่ยงขนาดงานนำเสนอที่ใหญ่ คุณสามารถเพิ่มภาพ (หรือวิดีโอ) ผ่านลิงก์แทนการฝังไฟล์ลงในงานนำเสนอโดยตรง โค้ด Java นี้แสดงวิธีเพิ่มภาพและวิดีโอลงใน placeholder:
+
 ```java
 Presentation presentation = new Presentation("input.pptx");
 try {
@@ -285,12 +319,13 @@ try {
 }
 ```
 
-## **Crop Images**
+## **ตัดภาพ**
 
-โค้ด Java นี้แสดงวิธีการครอบภาพที่มีอยู่บนสไลด์:  
+โค้ด Java นี้แสดงวิธีตัดภาพที่มีอยู่บนสไลด์:
+
 ```java
 Presentation pres = new Presentation();
-// สร้างอ็อบเจกต์รูปภาพใหม่
+// สร้างอ็อบเจ็กต์ภาพใหม่
 try {
     IPPImage picture;
     IImage image = Images.fromFile(imagePath);
@@ -304,7 +339,7 @@ try {
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
-    // ครอบภาพ (ค่าเป็นเปอร์เซ็นต์)
+    // ทำการครอปภาพ (ค่าร้อยละ)
     picFrame.getPictureFormat().setCropLeft(23.6f);
     picFrame.getPictureFormat().setCropRight(21.5f);
     picFrame.getPictureFormat().setCropTop(3);
@@ -318,11 +353,12 @@ try {
 }
 ```
 
-## **Delete Cropped Areas of a Picture**
+## **ลบส่วนที่ถูกตัดของภาพ**
 
-หากคุณต้องการลบพื้นที่ที่ถูกตัดของภาพที่อยู่ในกรอบ คุณสามารถใช้เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) ได้ เมธอดนี้จะคืนค่าภาพที่ถูกตัดหรือภาพต้นฉบับหากไม่จำเป็นต้องครอบ.  
+หากต้องการลบส่วนที่ถูกตัดของภาพที่อยู่ในกรอบ คุณสามารถใช้เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) เมธอดนี้จะคืนค่าภาพที่ถูกตัดหรือภาพต้นฉบับหากไม่จำเป็นต้องตัด  
 
-โค้ด Java นี้แสดงการทำงาน:  
+โค้ด Java นี้แสดงการทำงาน:
+
 ```java
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
@@ -331,7 +367,7 @@ try {
     // ดึง PictureFrame จากสไลด์แรก
     IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // ลบพื้นที่ที่ถูกครอบของภาพใน PictureFrame และคืนค่าภาพที่ถูกครอบ
+    // ลบส่วนที่ถูกครอปของภาพ PictureFrame และคืนค่าภาพที่ถูกครอป
     IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
 
     // บันทึกผลลัพธ์
@@ -342,25 +378,27 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) จะเพิ่มภาพที่ถูกตัดลงในคอลเลกชันภาพของงานนำเสนอ หากภาพนั้นใช้เฉพาะใน [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) ที่ประมวลผลแล้ว การตั้งค่านี้สามารถลดขนาดไฟล์งานนำเสนอได้ มิฉะนั้นจำนวนภาพในงานนำเสนอที่ได้จะเพิ่มขึ้น.  
+เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) จะเพิ่มภาพที่ถูกตัดลงในคอลเลกชันภาพของงานนำเสนอ หากภาพนั้นใช้เพียงใน [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) ที่ประมวลผล วิธีนี้สามารถลดขนาดงานนำเสนอได้ หากไม่เช่นนั้น จำนวนภาพในงานนำเสนอที่ได้จะเพิ่มขึ้น  
 
-เมธอดนี้แปลงไฟล์เมต้าไฟล์ WMF/EMF ให้เป็นภาพ PNG เรสเตอร์ในกระบวนการครอบ. 
-{{% /alert %}} 
+เมธอดนี้แปลงไฟล์เมต้าไฟล์ WMF/EMF เป็นภาพ PNG เรสเตอร์ในขั้นตอนการตัดภาพ  
+{{% /alert %}}
 
-## **Compress Images**
+## **บีบอัดภาพ**
 
-คุณสามารถบีบอัดรูปภาพในงานนำเสนอโดยใช้เมธอด [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) นี้บีบอัดภาพโดยลดขนาดตามขนาดของรูปร่างและความละเอียดที่ระบุ พร้อมตัวเลือกการลบพื้นที่ที่ถูกตัด.  
+คุณสามารถบีบอัดรูปในงานนำเสนอโดยใช้เมธอด [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-)  
+เมธอดนี้บีบอัดภาพโดยลดขนาดตามขนาดรูปทรงและความละเอียดที่กำหนด พร้อมตัวเลือกการลบส่วนที่ถูกตัด  
 
-มันปรับขนาดและความละเอียดของรูปภาพคล้ายกับฟีเจอร์ **Picture Format > Compress Pictures > Resolution** ของ PowerPoint.  
+เมธอดนี้ปรับขนาดและความละเอียดของภาพคล้ายคุณลักษณะ **Picture Format > Compress Pictures > Resolution** ของ PowerPoint  
 
-ตัวอย่าง Java ด้านล่างแสดงวิธีบีบอัดภาพในงานนำเสนอโดยระบุความละเอียดเป้าหมายและอาจลบพื้นที่ที่ถูกตัด:  
+ตัวอย่าง Java ด้านล่างแสดงวิธีบีบอัดภาพในงานนำเสนอโดยระบุความละเอียดเป้าหมายและอาจลบส่วนที่ถูกตัด:
+
 ```java
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // บีบอัดภาพด้วยความละเอียดเป้าหมาย 150 DPI (ความละเอียดเว็บ) และลบพื้นที่ที่ถูกครอบ
+    // บีบอัดภาพด้วยความละเอียดเป้าหมาย 150 DPI (ความละเอียดเว็บ) และลบส่วนที่ถูกครอป
     boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
 
     // ตรวจสอบผลลัพธ์ของการบีบอัด
@@ -376,14 +414,15 @@ try {
 }
 ```
 
-หรือใช้ค่ DPI ที่กำหนดเองโดยตรง:  
+หรือตั้งค่า DPI เองโดยตรง:
+
 ```java
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // บีบอัดภาพเป็น 150 DPI (ความละเอียดเว็บ) และลบพื้นที่ที่ถูกครอบ.
+    // บีบอัดภาพเป็น 150 DPI (ความละเอียดเว็บ) โดยลบส่วนที่ถูกครอป.
     pictureFrame.getPictureFormat().compressImage(true, 150f);
 
     presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -393,15 +432,16 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-เมธอดนี้แปลงภาพเป็นความละเอียดต่ำกว่าโดยอิงจากขนาดของรูปร่างและ DPI ที่ให้ไว้ พื้นที่ที่ถูกตัดก็สามารถลบได้เพื่อเพิ่มประสิทธิภาพขนาดไฟล์.  
-หากภาพเป็นเมต้าไฟล์ (WMF/EMF) หรือ SVG การบีบอัดจะไม่ถูกนำมาใช้ อีกทั้งคุณภาพ JPEG จะถูกคงไว้หรือถูกลดเล็กน้อยตามความละเอียด เหมือนกับที่ PowerPoint จัดการกับ JPEG ความละเอียดสูง. 
-{{% /alert %}} 
+เมธอดนี้แปลงภาพเป็นความละเอียดต่ำกว่าโดยอิงจากขนาดรูปทรงและ DPI ที่กำหนด สามารถลบส่วนที่ถูกตัดเพื่อเพิ่มประสิทธิภาพขนาดไฟล์  
+หากภาพเป็นเมต้าไฟล์ (WMF/EMF) หรือ SVG การบีบอัดจะไม่ถูกนำมาใช้ นอกจากนี้คุณภาพ JPEG จะคงไว้หรือถูกลดลงเล็กน้อยตามความละเอียด คล้ายกับการจัดการภาพ JPEG ความละเอียดสูงของ PowerPoint  
+{{% /alert %}}
 
-## **Lock Aspect Ratio**
+## **ล็อคอัตราส่วนภาพ**
 
-หากต้องการให้รูปร่างที่บรรจุภาพคงอัตราส่วนแม้เปลี่ยนขนาดภาพ คุณสามารถใช้เมธอด [setAspectRatioLocked](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) เพื่อตั้งค่า *Lock Aspect Ratio*.  
+หากต้องการให้รูปทรงที่บรรจุภาพรักษาอัตราส่วนภาพแม้จะเปลี่ยนขนาดภาพแล้ว คุณสามารถใช้เมธอด [setAspectRatioLocked](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) เพื่อกำหนดการตั้งค่า *Lock Aspect Ratio*  
 
-โค้ด Java นี้แสดงวิธีล็อกอัตราส่วนของรูปร่าง:  
+โค้ด Java นี้แสดงวิธีล็อคอัตราส่วนของรูปทรง:
+
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -417,7 +457,7 @@ try {
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
             ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
 
-    // ตั้งค่าให้รูปร่างคงอัตราส่วนเมื่อปรับขนาด
+    // ตั้งค่าให้รูปทรงรักษาอัตราส่วนเมื่อปรับขนาด
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch(IOException e) {
 } finally {
@@ -426,28 +466,29 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-การตั้งค่า *Lock Aspect Ratio* นี้จะคงอัตราส่วนของรูปร่างเท่านั้น ไม่ใช่ของภาพที่บรรจุอยู่. 
-{{% /alert %}} 
+การตั้งค่า *Lock Aspect Ratio* นี้จะรักษาอัตราส่วนของรูปทรงเท่านั้น ไม่ได้รักษาภาพที่อยู่ภายในรูปทรง  
+{{% /alert %}}
 
-## **Use the StretchOff Property**
+## **ใช้คุณสมบัติ StretchOff**
 
-โดยใช้คุณสมบัติ [StretchOffsetLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) และ [StretchOffsetBottom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) จากอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat) คุณสามารถกำหนดสี่เหลี่ยมเติมได้.  
+โดยใช้คุณสมบัติ [StretchOffsetLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) และ [StretchOffsetBottom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) จากอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPictureFillFormat) คุณสามารถระบุสี่เหล็บเติม  
 
-เมื่อกำหนดการยืดสำหรับภาพ สี่เหลี่ยมต้นฉบับจะถูกสเกลให้พอดีกับสี่เหลี่ยมเติมที่ระบุ แต่ละขอบของสี่เหลี่ยมเติมถูกกำหนดโดยออฟเซ็ตเปอร์เซ็นต์จากขอบของกล่องล้อมรอบของรูปร่าง ค่าเปอร์เซ็นต์บวกหมายถึงการย่อลด ส่วนค่าเปอร์เซ็นต์ลบหมายถึงการขยายออก.  
+เมื่อกำหนดการยืดสำหรับภาพ สี่เหล็บต้นฉบับจะถูกปรับขนาดให้พอดีกับสี่เหล็บเติมที่ระบุ แต่ละด้านของสี่เหล็บเติมถูกกำหนดโดยออฟเซ็ตเปอร์เซ็นต์จากด้านที่สอดคล้องของกล่องขอบรูปทรง ค่าบวกหมายถึงการซ่อนภายใน ส่วนค่าลบหมายถึงการขยายออก  
 
-1. สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation).  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน.  
-3. เพิ่มสี่เหลี่ยม `AutoShape`.  
-4. สร้างภาพ.  
-5. ตั้งค่าชนิดการเติมของรูปร่าง.  
-6. ตั้งค่าโหมดเติมภาพของรูปร่าง.  
-7. เพิ่มภาพเพื่อเติมรูปร่าง.  
-8. ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องล้อมรอบของรูปร่าง.  
-9. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX.  
+1. สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. เพิ่มสี่เหล็บ `AutoShape`  
+4. สร้างภาพ  
+5. ตั้งค่าแบบเติมของรูปทรง  
+6. ตั้งค่าโหมดเติมภาพของรูปทรง  
+7. เพิ่มภาพที่ตั้งค่าเพื่อเติมรูปทรง  
+8. ระบุออฟเซ็ตของภาพจากด้านที่สอดคล้องของกล่องขอบรูปทรง  
+9. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
-โค้ด Java นี้แสดงกระบวนการที่ใช้คุณสมบัติ StretchOff:  
+โค้ด Java นี้แสดงกระบวนการที่ใช้คุณสมบัติ StretchOff:
+
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 Presentation pres = new Presentation();
 try {
     // ดึงสไลด์แรก
@@ -465,22 +506,22 @@ try {
     // เพิ่ม AutoShape ตั้งค่าเป็น Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // ตั้งค่าชนิดการเติมของรูปร่าง
+    // ตั้งค่าประเภทการเติมของรูปทรง
     aShape.getFillFormat().setFillType(FillType.Picture);
 
-    // ตั้งค่าโหมดเติมภาพของรูปร่าง
+    // ตั้งค่าโหมดการเติมรูปภาพของรูปทรง
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-    // ตั้งค่าภาพเพื่อเติมรูปร่าง
+    // ตั้งค่าภาพเพื่อเติมรูปทรง
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // กำหนดออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องล้อมรอบของรูปร่าง
+    // ระบุตำแหน่งออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบรูปทรง
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
     
-    // บันทึกไฟล์ PPTX ลงดิสก์
+    // เขียนไฟล์ PPTX ไปยังดิสก์
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -488,16 +529,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
 **How can I find out which image formats are supported for PictureFrame?**  
-Aspose.Slides รองรับทั้งภาพเรสเตอร์ (PNG, JPEG, BMP, GIF ฯลฯ) และภาพเวกเตอร์ (เช่น SVG) ผ่านอ็อบเจกต์ภาพที่กำหนดให้กับ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/). รายการฟอร์แมตที่รองรับโดยทั่วไปสอดคล้องกับความสามารถของเอนจินแปลงสไลด์และภาพ.
+Aspose.Slides รองรับทั้งภาพเรสเตอร์ (PNG, JPEG, BMP, GIF, ฯลฯ) และภาพเวกเตอร์ (เช่น SVG) ผ่านอ็อบเจ็กต์ภาพที่กำหนดให้กับ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) รายการฟอร์แมตที่สนับสนุนมักจะสอดคล้องกับความสามารถของเอนจินการแปลงสไลด์และภาพ  
 
 **How will adding dozens of large images affect PPTX size and performance?**  
-การฝังภาพขนาดใหญ่เพิ่มขนาดไฟล์และการใช้หน่วยความจำ; การลิงก์ภาพช่วยให้ขนาดงานนำเสนอเล็กลงแต่ไฟล์ภายนอกต้องเข้าถึงได้เสมอ. Aspose.Slides มีคุณสมบัติการเพิ่มภาพโดยลิงก์เพื่อช่วยลดขนาดไฟล์.
+การฝังภาพขนาดใหญ่จะทำให้ไฟล์และการใช้หน่วยความจำเพิ่มขึ้น; การลิงก์ภาพช่วยลดขนาดงานนำเสนอแต่ต้องให้ไฟล์ภายนอกยังคงเข้าถึงได้ Aspose.Slides มีความสามารถในการเพิ่มภาพโดยลิงก์เพื่อช่วยลดขนาดไฟล์  
 
 **How can I lock an image object from accidental moving/resizing?**  
-ใช้ [shape locks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) สำหรับ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) (เช่น ปิดการย้ายหรือการปรับขนาด). กลไกการล็อกนี้รองรับรูปแบบรูปร่างหลายประเภทรวมถึง [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/).
+ใช้ [shape locks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) กับ [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) (เช่น ปิดการย้ายหรือการปรับขนาด) กลไกการล็อคนี้รองรับรูปทรงหลายประเภทรวมถึง [PictureFrame] ด้วย  
 
 **Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**  
-Aspose.Slides สามารถสกัด SVG ออกจาก [PictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pictureframe/) เป็นเวกเตอร์ดั้งเดิมได้อย่างเต็มที่ เมื่อ[exporting to PDF](/slides/th/androidjava/convert-powerpoint-to-pdf/) หรือ [raster formats](/slides/th/androidjava/convert-powerpoint-to-png/) ผลลัพธ์อาจถูกเรสเตอร์ขึ้นอยู่กับการตั้งค่าการส่งออก; ความจริงที่ว่า SVG ดั้งเดิมยังคงเป็นเวกเตอร์ได้รับการยืนยันโดยพฤติกรรมการสกัด.
+Aspose.Slides สามารถดึง SVG จาก [PictureFrame] เป็นเวกเตอร์ต้นฉบับได้ เมื่อ [exporting to PDF](/slides/th/androidjava/convert-powerpoint-to-pdf/) หรือ [raster formats](/slides/th/androidjava/convert-powerpoint-to-png/) ผลลัพธ์อาจถูกแรสเตอร์ขึ้นอยู่กับการตั้งค่าการส่งออก; การที่ SVG ดั้งเดิมยังคงเป็นเวกเตอร์จะได้รับการยืนยันจากพฤติกรรมการดึงออก  

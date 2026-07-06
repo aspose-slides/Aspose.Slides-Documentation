@@ -13,9 +13,9 @@ keywords:
 - ekstrak gambar
 - gambar raster
 - gambar vektor
-- pangkas gambar
-- area yang dipangkas
-- Properti StretchOff
+- potong gambar
+- area terpotong
+- properti StretchOff
 - pemformatan bingkai gambar
 - properti bingkai gambar
 - skala relatif
@@ -32,7 +32,7 @@ description: "Tambahkan bingkai gambar ke presentasi PowerPoint dan OpenDocument
 ---
 ## **Pendahuluan**
 
-Bingkai gambar adalah bentuk yang berisi sebuah gambar—mirip dengan gambar dalam sebuah bingkai. 
+Bingkai gambar adalah bentuk yang berisi sebuah gambar—seperti sebuah foto dalam bingkai. 
 
 Anda dapat menambahkan gambar ke slide melalui bingkai gambar. Dengan cara ini, Anda dapat memformat gambar dengan memformat bingkai gambar.
 
@@ -44,21 +44,21 @@ Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspo
 
 ## **Buat Bingkai Gambar**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation). 
+1. Buat instance dari [Presentation ](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) class. 
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Buat objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage) dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/net/aspose.slides/iimagecollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk. 
 4. Tentukan lebar dan tinggi gambar. 
-5. Buat [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe) berdasarkan lebar dan tinggi gambar melalui metode `AddPictureFrame` yang disediakan oleh objek shape yang terkait dengan slide yang direferensikan. 
+5. Buat [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe) berdasarkan lebar dan tinggi gambar melalui metode `AddPictureFrame` yang disediakan oleh objek bentuk yang terkait dengan slide yang direferensikan. 
 6. Tambahkan bingkai gambar (yang berisi gambar) ke slide. 
-7. Tulis presentasi yang telah dimodifikasi sebagai file PPTX. 
+7. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX. 
 
-Kode C# berikut menunjukkan cara membuat bingkai gambar:
+Kode C# ini menunjukkan cara membuat bingkai gambar:
 
 ```c#
-// Membuat instance kelas Presentation yang mewakili file PPTX
+// Menginstansiasi kelas Presentation yang mewakili file PPTX
 using (Presentation pres = new Presentation())
 {
-    // Mengambil slide pertama
+    // Mendapatkan slide pertama
     ISlide slide = pres.Slides[0];
 
     // Memuat gambar dan menambahkannya ke koleksi gambar presentasi
@@ -82,25 +82,23 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="warning" %}} 
 
-Bingkai gambar memungkinkan Anda dengan cepat membuat slide presentasi berdasarkan gambar. Ketika Anda menggabungkan bingkai gambar dengan opsi penyimpanan Aspose.Slides, Anda dapat memanipulasi operasi input/output untuk mengonversi gambar dari satu format ke format lain. Anda mungkin ingin melihat halaman ini: konversi [gambar ke JPG](https://products.aspose.com/slides/id/net/conversion/image-to-jpg/); konversi [JPG ke gambar](https://products.aspose.com/slides/id/net/conversion/jpg-to-image/); konversi [JPG ke PNG](https://products.aspose.com/slides/id/net/conversion/jpg-to-png/), konversi [PNG ke JPG](https://products.aspose.com/slides/id/net/conversion/png-to-jpg/); konversi [PNG ke SVG](https://products.aspose.com/slides/id/net/conversion/png-to-svg/), konversi [SVG ke PNG](https://products.aspose.com/slides/id/net/conversion/svg-to-png/). 
+Bingkai gambar memungkinkan Anda membuat slide presentasi dengan cepat berdasarkan gambar. Ketika Anda menggabungkan bingkai gambar dengan opsi penyimpanan Aspose.Slides, Anda dapat memanipulasi operasi masuk/keluar untuk mengonversi gambar dari satu format ke format lain. Anda mungkin ingin melihat halaman berikut: konversi [gambar ke JPG](https://products.aspose.com/slides/id/net/conversion/image-to-jpg/); konversi [JPG ke gambar](https://products.aspose.com/slides/id/net/conversion/jpg-to-image/); konversi [JPG ke PNG](https://products.aspose.com/slides/id/net/conversion/jpg-to-png/), konversi [PNG ke JPG](https://products.aspose.com/slides/id/net/conversion/png-to-jpg/); konversi [PNG ke SVG](https://products.aspose.com/slides/id/net/conversion/png-to-svg/), konversi [SVG ke PNG](https://products.aspose.com/slides/id/net/conversion/svg-to-png/). 
 
 {{% /alert %}}
 
 ## **Buat Bingkai Gambar dengan Skala Relatif**
-
-Dengan mengubah skala relatif gambar, Anda dapat membuat bingkai gambar yang lebih kompleks. 
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation). 
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Tambahkan gambar ke koleksi gambar presentasi. 
 4. Buat objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage) dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/net/aspose.slides/iimagecollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk. 
 5. Tentukan lebar dan tinggi relatif gambar dalam bingkai gambar. 
-6. Tulis presentasi yang telah dimodifikasi sebagai file PPTX. 
+6. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX. 
 
-Kode C# berikut menunjukkan cara membuat bingkai gambar dengan skala relatif:
+Kode C# ini menunjukkan cara membuat bingkai gambar dengan skala relatif:
 
 ```c#
-// Membuat instance kelas Presentation yang mewakili file PPTX
+// Menginstansiasi kelas Presentation yang mewakili file PPTX
 using (Presentation presentation = new Presentation())
 {
     // Memuat gambar dan menambahkannya ke koleksi gambar presentasi
@@ -122,7 +120,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Ekstrak Gambar Raster dari Bingkai Gambar**
 
-Anda dapat mengekstrak gambar raster dari objek [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe) dan menyimpannya dalam format PNG, JPG, dan format lainnya. Contoh kode di bawah ini memperlihatkan cara mengekstrak gambar dari dokumen “sample.pptx” dan menyimpannya dalam format PNG.
+Anda dapat mengekstrak gambar raster dari objek [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe) dan menyimpannya dalam format PNG, JPG, dan lainnya. Contoh kode di bawah menunjukkan cara mengekstrak gambar dari dokumen "sample.pptx" dan menyimpannya dalam format PNG.
 
 ```c#
 using (var presentation = new Presentation("sample.pptx"))
@@ -140,9 +138,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ## **Ekstrak Gambar SVG dari Bingkai Gambar**
 
-Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/), Aspose.Slides untuk .NET memungkinkan Anda mengambil gambar vektor asli dengan fidelitas penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/), memeriksa apakah [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau stream dalam format SVG aslinya.
+Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/), Aspose.Slides untuk .NET memungkinkan Anda mengambil gambar vektor asli dengan fidelitas penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/), memeriksa apakah [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau aliran dalam format SVG aslinya.
 
-Contoh kode berikut memperlihatkan cara mengekstrak gambar SVG dari bingkai gambar:
+Contoh kode berikut memperlihatkan cara mengekstrak gambar SVG dari sebuah bingkai gambar:
 
 ```cs
 using var presentation = new Presentation("sample.pptx");
@@ -162,7 +160,7 @@ if (shape is IPictureFrame pictureFrame)
 
 ## **Dapatkan Transparansi Gambar**
 
-Aspose.Slides memungkinkan Anda mendapatkan efek transparansi yang diterapkan pada gambar. Kode C# berikut mendemonstrasikan operasi tersebut:
+Aspose.Slides memungkinkan Anda mendapatkan efek transparansi yang diterapkan pada gambar. Kode C# ini menunjukkan operasi tersebut:
 
 ```c#
 using (var presentation = new Presentation("Test.pptx"))
@@ -180,13 +178,42 @@ using (var presentation = new Presentation("Test.pptx"))
 }
 ```
 
+## **Dapatkan Kecerahan dan Kontras Gambar**
+
+Aspose.Slides memungkinkan Anda mendapatkan efek kecerahan dan kontras yang diterapkan pada gambar. Antarmuka [ILuminance](https://reference.aspose.com/slides/id/net/aspose.slides.effects/iluminance/) mewakili efek transformasi gambar ini.
+
+Kode C# ini menunjukkan cara mendapatkan pengaturan kecerahan dan kontras dari sebuah bingkai gambar:
+
+```csharp
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var slide = presentation.Slides[0];
+    var shape = slide.Shapes[0];
+    var pictureFrame = (IPictureFrame)shape;
+
+    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
+    foreach (var effect in imageTransform)
+    {
+        if (effect is ILuminance luminanceEffect)
+        {
+            var luminance = luminanceEffect.GetEffective();
+            var brightness = luminance.Brightness;
+            var contrast = luminance.Contrast;
+
+            Console.WriteLine("Brightness: " + brightness);
+            Console.WriteLine("Contrast: " + contrast);
+        }
+    }
+}
+```
+
 {{% alert color="primary" %}} 
-Semua efek yang diterapkan pada gambar dapat ditemukan di [Aspose.Slides.Effects](https://reference.aspose.com/slides/id/net/aspose.slides.effects/). 
+Semua efek yang diterapkan pada gambar dapat ditemukan di [Aspose.Slides.Effects](https://reference.aspose.com/slides/id/net/aspose.slides.effects/).
 {{% /alert %}}
 
 ## **Pemformatan Bingkai Gambar**
 
-Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bingkai gambar. Dengan opsi-opsi tersebut, Anda dapat mengubah bingkai gambar agar sesuai dengan kebutuhan spesifik.
+Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bingkai gambar. Dengan menggunakan opsi-opsi tersebut, Anda dapat mengubah bingkai gambar agar sesuai dengan kebutuhan tertentu.
 
 1. Buat instance dari kelas [Presentation](http://www.aspose.com/api/net/slides/id/aspose.slides/) . 
 2. Dapatkan referensi slide melalui indeksnya. 
@@ -194,21 +221,21 @@ Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bin
 4. Tentukan lebar dan tinggi gambar. 
 5. Buat `PictureFrame` berdasarkan lebar dan tinggi gambar melalui metode [AddPictureFrame](http://www.aspose.com/api/net/slides/id/aspose.slides/ishapecollection/methods/addpictureframe) yang disediakan oleh objek [IShapes](http://www.aspose.com/api/net/slides/id/aspose.slides/ishapecollection) yang terkait dengan slide yang direferensikan. 
 6. Tambahkan bingkai gambar (yang berisi gambar) ke slide. 
-7. Atur warna garis bingkai gambar. 
-8. Atur lebar garis bingkai gambar. 
-9. Putar bingkai gambar dengan memberi nilai positif atau negatif. 
+7. Setel warna garis bingkai gambar. 
+8. Setel lebar garis bingkai gambar. 
+9. Putar bingkai gambar dengan memberikan nilai positif atau negatif. 
    * Nilai positif memutar gambar searah jarum jam. 
    * Nilai negatif memutar gambar berlawanan arah jarum jam. 
 10. Tambahkan bingkai gambar (yang berisi gambar) ke slide. 
-11. Tulis presentasi yang telah dimodifikasi sebagai file PPTX. 
+11. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX. 
 
-Kode C# berikut mendemonstrasikan proses pemformatan bingkai gambar:
+Kode C# ini memperlihatkan proses pemformatan bingkai gambar:
 
 ```c#
-// Membuat instance kelas Presentation yang mewakili file PPTX
+// Menginstansiasi kelas Presentation yang mewakili file PPTX
 using (Presentation presentation = new Presentation())
 {
-    // Mengambil slide pertama
+    // Mendapatkan slide pertama
     ISlide slide = presentation.Slides[0];
 
     // Memuat gambar dan menambahkannya ke koleksi gambar presentasi
@@ -216,7 +243,7 @@ using (Presentation presentation = new Presentation())
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Menambahkan bingkai gambar dengan tinggi dan lebar gambar yang setara
+    // Menambahkan bingkai gambar dengan tinggi dan lebar yang setara dengan gambar
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
     // Menerapkan beberapa pemformatan pada bingkai gambar
@@ -232,13 +259,13 @@ using (Presentation presentation = new Presentation())
 
 {{% alert color="primary" %}}
 
-Aspose baru-baru ini mengembangkan [Collage Maker gratis](https://products.aspose.app/slides/id/collage). Jika Anda perlu menggabungkan gambar JPG/JPEG atau PNG, atau membuat grid dari foto, Anda dapat menggunakan layanan ini. 
+Baru-baru ini Aspose mengembangkan [Collage Maker gratis](https://products.aspose.app/slides/id/collage). Jika Anda pernah perlu [menggabungkan JPG/JPEG](https://products.aspose.app/slides/id/collage/jpg) atau gambar PNG, [membuat grid dari foto](https://products.aspose.app/slides/id/collage/photo-grid), Anda dapat menggunakan layanan ini. 
 
 {{% /alert %}}
 
 ## **Tambahkan Gambar sebagai Tautan**
 
-Untuk menghindari ukuran presentasi yang besar, Anda dapat menambahkan gambar (atau video) melalui tautan alih-alih menyematkan file secara langsung ke dalam presentasi. Kode C# berikut menunjukkan cara menambahkan gambar dan video ke placeholder:
+Jika Anda ingin menghindari ukuran presentasi yang besar, Anda dapat menambahkan gambar (atau video) melalui tautan alih-alih menyematkan file secara langsung ke dalam presentasi. Kode C# ini menunjukkan cara menambahkan gambar dan video ke dalam placeholder:
 
 ```c#
 using (var presentation = new Presentation("input.pptx"))
@@ -290,9 +317,9 @@ using (var presentation = new Presentation("input.pptx"))
 }
 ```
 
-## **Pangkas Gambar**
+## **Potong Gambar**
 
-Kode C# berikut menunjukkan cara memangkas gambar yang ada pada slide:
+Kode C# ini menunjukkan cara memotong gambar yang ada pada slide:
 
 ```c#
 using (Presentation presentation = new Presentation())
@@ -317,21 +344,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Hapus Area yang Dipangkas dari Bingkai**
+## **Hapus Area Terpotong pada Gambar**
 
-Jika Anda ingin menghapus area yang dipangkas dari gambar yang berada dalam bingkai, Anda dapat menggunakan metode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metode ini mengembalikan gambar yang dipangkas atau gambar asli jika pemangkasan tidak diperlukan.
+Jika Anda ingin menghapus area terpotong dari gambar yang terdapat dalam bingkai, Anda dapat menggunakan metode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Metode ini mengembalikan gambar yang dipotong atau gambar asli jika pemotongan tidak diperlukan.
 
-Kode C# berikut mendemonstrasikan operasi tersebut:
+Kode C# ini menunjukkan operasi tersebut:
 
 ```c#
 using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Mengambil PictureFrame dari slide pertama
+    // Mendapatkan PictureFrame dari slide pertama
     IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Menghapus area yang dipangkas dari gambar PictureFrame dan mengembalikan gambar yang dipangkas
+    // Menghapus area terpotong dari gambar PictureFrame dan mengembalikan gambar yang dipotong
     IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
 
     // Menyimpan hasil
@@ -341,19 +368,20 @@ using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 
 {{% alert title="NOTE" color="warning" %}} 
 
-Metode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) menambahkan gambar yang dipangkas ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/) yang diproses, pengaturan ini dapat mengurangi ukuran presentasi. Jika tidak, jumlah gambar dalam presentasi yang dihasilkan akan meningkat.
+Metode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) menambahkan gambar terpotong ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame] yang diproses, pengaturan ini dapat mengurangi ukuran presentasi. Jika tidak, jumlah gambar dalam presentasi yang dihasilkan akan bertambah.
 
-Metode ini mengonversi file metafile WMF/EMF ke gambar PNG raster pada operasi pemangkasan. 
+Metode ini mengonversi file metafile WMF/EMF menjadi gambar PNG raster dalam operasi pemotongan. 
 
 {{% /alert %}}
 
 ## **Kompres Gambar**
 
-Anda dapat mengompres gambar dalam presentasi menggunakan metode [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/compressimage/). Metode ini mengompres gambar dengan mengurangi ukurannya berdasarkan ukuran bentuk dan resolusi yang ditentukan, dengan opsi untuk menghapus area yang dipangkas. 
+Anda dapat mengompres gambar dalam presentasi menggunakan metode [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/compressimage/).
+Metode ini mengompres gambar dengan mengurangi ukurannya berdasarkan ukuran bentuk dan resolusi yang ditentukan, dengan opsi menghapus area terpotong.
 
-Ini menyesuaikan ukuran dan resolusi gambar serupa dengan fitur **Picture Format → Compress Pictures → Resolution** di PowerPoint.
+Ini menyesuaikan ukuran dan resolusi gambar mirip dengan fitur **Picture Format → Compress Pictures → Resolution** di PowerPoint.
 
-Contoh C# berikut menunjukkan cara mengompres gambar dalam presentasi dengan menentukan resolusi target dan secara opsional menghapus area yang dipangkas:
+Contoh C# berikut menunjukkan cara mengompres gambar dalam presentasi dengan menentukan resolusi target dan secara opsional menghapus area terpotong:
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
@@ -361,7 +389,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Kompres gambar dengan resolusi target 150 DPI (resolusi Web) dan hapus area yang dipangkas.
+    // Kompres gambar dengan resolusi target 150 DPI (resolusi Web) dan hapus area terpotong.
     bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
 
     // Periksa hasil kompresi.
@@ -386,7 +414,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Kompres gambar ke 150 DPI (resolusi web), menghapus area yang dipangkas.
+    // Kompres gambar ke 150 DPI (resolusi web), menghapus area terpotong.
     pictureFrame.PictureFormat.CompressImage(true, 150f);
 
     presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -395,15 +423,16 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 
 {{% alert title="NOTE" color="warning" %}} 
 
-Metode ini mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran bentuk dan DPI yang diberikan. Area yang dipangkas juga dapat dihapus untuk mengoptimalkan ukuran file. Jika gambar adalah metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit berkurang tergantung pada resolusi, serupa dengan cara PowerPoint menangani JPEG beresolusi tinggi. 
+Metode ini mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran bentuk dan DPI yang diberikan. Region terpotong juga dapat dihapus untuk mengoptimalkan ukuran file.
+Jika gambar berupa metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit berkurang tergantung pada resolusi, mirip dengan cara PowerPoint menangani JPEG beresolusi tinggi. 
 
 {{% /alert %}}
 
 ## **Kunci Rasio Aspek**
 
-Jika Anda ingin bentuk yang berisi gambar mempertahankan rasio aspeknya bahkan setelah Anda mengubah dimensi gambar, Anda dapat menggunakan properti [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframelock/aspectratiolocked/) untuk mengatur pengaturan *Lock Aspect Ratio*. 
+Jika Anda ingin bentuk yang berisi gambar mempertahankan rasio aspeknya bahkan setelah mengubah dimensi gambar, Anda dapat menggunakan properti [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframelock/aspectratiolocked/) untuk mengatur *Lock Aspect Ratio*.
 
-Kode C# berikut menunjukkan cara mengunci rasio aspek bentuk:
+Kode C# ini menunjukkan cara mengunci rasio aspek bentuk:
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -424,27 +453,26 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 {{% alert title="NOTE" color="warning" %}} 
 
-Pengaturan *Lock Aspect Ratio* ini hanya mempertahankan rasio aspek bentuk dan bukan gambar yang dikandungnya. 
-
+Pengaturan *Lock Aspect Ratio* ini hanya mempertahankan rasio aspek bentuk, bukan gambar yang dikandungnya. 
 {{% /alert %}}
 
 ## **Gunakan Properti StretchOff**
 
-Dengan menggunakan properti [StretchOffsetLeft](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsetright) dan [StretchOffsetBottom](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat), Anda dapat menentukan persegi panjang isi. 
+Dengan menggunakan properti [StretchOffsetLeft](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsetright) dan [StretchOffsetBottom](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom), dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat) serta kelas [PictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat), Anda dapat menentukan persegi panjang isian. 
 
-Ketika peregangan ditentukan untuk sebuah gambar, persegi panjang sumber diskalakan untuk menyesuaikan persegi panjang isi yang ditentukan. Setiap tepi persegi panjang isi didefinisikan oleh offset persentase dari tepi yang bersesuaian pada kotak batas bentuk. Persentase positif menentukan inset sementara persentase negatif menentukan outset. 
+Ketika peregangan ditentukan untuk sebuah gambar, persegi panjang sumber akan diubah skalanya agar sesuai dengan persegi panjang isian yang ditentukan. Setiap tepi persegi panjang isian didefinisikan oleh offset persentase dari tepi yang bersesuaian pada kotak pembatas bentuk. Persentase positif menunjukkan inset (penyusutan) sementara persentase negatif menunjukkan outset (penyebaran).
 
-1. Buat instance dari [Presentation](http://www.aspose.com/api/net/slides/id/aspose.slides/) . 
+1. Buat instance dari [Presentation](http://www.aspose.com/api/net/slides/id/aspose.slides/) class. 
 2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan rectangle `AutoShape`. 
-4. Buat gambar. 
-5. Atur tipe isian bentuk. 
-6. Atur mode isian gambar bentuk. 
-7. Tambahkan gambar yang akan mengisi bentuk. 
-8. Tentukan offset gambar dari tepi yang bersesuaian pada kotak batas bentuk 
-9. Tulis presentasi yang telah dimodifikasi sebagai file PPTX. 
+3. Tambahkan sebuah persegi `AutoShape`. 
+4. Buat sebuah gambar. 
+5. Atur jenis isi bentuk. 
+6. Atur mode isi gambar bentuk. 
+7. Tambahkan gambar yang diatur untuk mengisi bentuk. 
+8. Tentukan offset gambar dari tepi yang bersesuaian pada kotak pembatas bentuk 
+9. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX. 
 
-Kode C# berikut mendemonstrasikan proses di mana properti StretchOff digunakan:
+Kode C# ini memperlihatkan proses di mana properti StretchOff digunakan:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -455,7 +483,7 @@ using (Presentation pres = new Presentation())
 
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
 
-    // Mengatur gambar diregangkan dari setiap sisi dalam badan shape
+    // Mengatur gambar ditarik dari setiap sisi dalam badan bentuk
     pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
     pictureFrame.PictureFormat.StretchOffsetLeft = 24;
     pictureFrame.PictureFormat.StretchOffsetRight = 24;
@@ -468,18 +496,18 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Bagaimana cara mengetahui format gambar apa yang didukung untuk PictureFrame?**
+**Bagaimana saya dapat mengetahui format gambar apa yang didukung untuk PictureFrame?**
 
-Aspose.Slides mendukung baik gambar raster (PNG, JPEG, BMP, GIF, dll.) maupun gambar vektor (misalnya SVG) melalui objek gambar yang ditetapkan ke [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
+Aspose.Slides mendukung baik gambar raster (PNG, JPEG, BMP, GIF, dll.) maupun gambar vektor (misalnya, SVG) melalui objek gambar yang ditetapkan pada sebuah [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
 
-**Bagaimana dampak menambahkan puluhan gambar berukuran besar terhadap ukuran dan kinerja PPTX?**
+**Bagaimana penambahan puluhan gambar berukuran besar memengaruhi ukuran dan kinerja PPTX?**
 
-Menyematkan gambar besar meningkatkan ukuran file dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil tetapi memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar lewat tautan untuk mengurangi ukuran file.
+Menyematkan gambar besar meningkatkan ukuran file dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil namun memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar melalui tautan untuk mengurangi ukuran file.
 
-**Bagaimana cara mengunci objek gambar agar tidak sengaja dipindahkan/diubah ukuran?**
+**Bagaimana saya dapat mengunci objek gambar agar tidak tergerak/diubah ukurannya secara tidak sengaja?**
 
-Gunakan [shape locks](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/pictureframelock/) untuk sebuah [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/) (misalnya, nonaktifkan pemindahan atau pengubahan ukuran). Mekanisme penguncian dijelaskan untuk bentuk dalam artikel [proteksi terpisah](/slides/id/net/applying-protection-to-presentation/) dan didukung untuk berbagai jenis bentuk, termasuk [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/).
+Gunakan [kunci bentuk](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/pictureframelock/) untuk [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/) (misalnya, menonaktifkan pemindahan atau pengubahan ukuran). Mekanisme penguncian dijelaskan untuk bentuk dalam artikel [perlindungan](/slides/id/net/applying-protection-to-presentation/) terpisah dan didukung untuk berbagai jenis bentuk, termasuk [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/).
 
-**Apakah fidelitas vektor SVG terjaga saat mengekspor presentasi ke PDF/gambar?**
+**Apakah fidelitas vektor SVG dipertahankan saat mengekspor presentasi ke PDF/gambar?**
 
-Aspose.Slides memungkinkan mengekstrak SVG dari [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/net/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/net/convert-powerpoint-to-png/), hasilnya mungkin diraster tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.
+Aspose.Slides memungkinkan mengekstrak SVG dari sebuah [PictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/net/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/net/convert-powerpoint-to-png/), hasilnya dapat menjadi raster tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.
