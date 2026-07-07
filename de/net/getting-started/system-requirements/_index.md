@@ -21,7 +21,7 @@ description: "Entdecken Sie die Systemanforderungen von Aspose.Slides für .NET.
 ---
 ## **Einleitung**
 
-Aspose.Slides für .NET erfordert keine Installation von Microsoft PowerPoint, da Aspose.Slides eine eigenständige Engine zur Erstellung, Konvertierung, Seitenlayout und Darstellung von Microsoft PowerPoint‑Dokumenten ist.
+Aspose.Slides für .NET erfordert nicht, dass Microsoft PowerPoint installiert ist, da Aspose.Slides eine eigenständige Engine zur Erstellung, Konvertierung, Seitenlayout und Darstellung von Microsoft PowerPoint‑Dokumenten ist.
 
 ## **Unterstützte Betriebssysteme**
 
@@ -79,11 +79,11 @@ Aspose.Slides für .NET unterstützt .NET‑ und Mono‑Frameworks:
 
 ### **Mono Framework**
 
-- MONO‑Unterstützung auf MAC‑ und Linux‑Plattformen
+- MONO Support in MAC und Linux Plattformen
 
 ## **Entwicklungsumgebungen**
 
-Aspose.Slides für .NET kann in jeder Entwicklungsumgebung verwendet werden, die die .NET‑Plattform anvisiert, aber die folgenden Umgebungen werden explizit unterstützt:
+Aspose.Slides für .NET kann in jeder Entwicklungsumgebung verwendet werden, die die .NET‑Plattform anspricht, jedoch werden folgende Umgebungen ausdrücklich unterstützt:
 
 - Microsoft Visual Studio 2005
 - Microsoft Visual Studio 2008
@@ -101,11 +101,11 @@ Derzeit gibt es zwei Haupt‑Builds von Aspose.Slides — Aspose.Slides.NET und 
 
 ### **[Aspose.Slides für .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
 
-Dies ist die Hauptversion des Produkts. Sie verwendet die standardmäßige .NET‑Grafikengine.
+Dies ist die Hauptversion des Produkts. Sie verwendet die standardmäßige .NET‑Grafik‑Engine.
 - Auf Nicht‑Windows‑Plattformen müssen Sie möglicherweise die Bibliothek `libgdiplus` und deren Abhängigkeiten installieren.
-- Vor Version Aspose.Slides 25.3 war es für Nicht‑Windows‑Plattformen erforderlich, die .NET Standard 2.0‑DLL aus dem Aspose.Slides‑ZIP‑Paket zu verwenden.
+- Vor Version Aspose.Slides 25.3 war für Nicht‑Windows‑Plattformen die Verwendung der .NET Standard 2.0‑DLL aus dem Aspose.Slides‑ZIP‑Paket erforderlich.
 - Ab Version Aspose.Slides 25.3 kann das NuGet‑Paket direkt auch auf Nicht‑Windows‑Systemen verwendet werden.
-- Beim Ausführen auf Nicht‑Windows‑Systemen muss Ihre Anwendung die folgende Zeile beim Start einbinden:
+- Beim Ausführen auf Nicht‑Windows‑Systemen muss Ihre Anwendung beim Start die folgende Zeile enthalten:
 ```cs
 AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 ```
@@ -113,16 +113,16 @@ AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 
 #### **Zusätzliche Pakete für Linux Alpine**
 
-Beim Ausführen von Aspose.Slides für .NET in einem Alpine‑Linux‑Container reicht die Installation von `libgdiplus` allein möglicherweise nicht aus. Alpine‑Container enthalten standardmäßig normalerweise keine Schriftarten. Wenn keine Schriftarten vorhanden sind, können Rendering‑ oder Konvertierungs‑Operationen mit einem Fehler ähnlich dem folgenden fehlschlagen:
+Wenn Aspose.Slides für .NET in einem Alpine‑Linux‑Container ausgeführt wird, reicht die Installation von `libgdiplus` allein möglicherweise nicht. Alpine‑Container enthalten standardmäßig meist keine Schriftarten. Sind keine Schriftarten vorhanden, können Render‑ oder Konvertierungs‑Vorgänge mit einem Fehler ähnlich dem folgenden fehlschlagen:
 
 ```text
 System.ArgumentException: Font '?' cannot be found
 ```
-Um Aspose.Slides auf Alpine zu verwenden, installieren Sie `libgdiplus` zusammen mit mindestens einem Schriftpaket.
+Um Aspose.Slides unter Alpine zu nutzen, installieren Sie `libgdiplus` zusammen mit mindestens einem Schriftpaket.
 
-**Option 1: DejaVu‑Schriften**
+**Option 1: DejaVu-Schriften**
 
-Die empfohlene Option ist die Installation des Pakets `ttf-dejavu`:
+Empfohlen wird das Paket `ttf-dejavu`:
 
 ```
 RUN apk add --no-cache \
@@ -130,11 +130,11 @@ RUN apk add --no-cache \
     ttf-dejavu
 ```
 
-Das Paket `ttf-dejavu` installiert automatisch die erforderlichen Schrift‑Abhängigkeiten wie `fontconfig`, `encodings`, `mkfontscale` und `mkfontdir`. Für die meisten Anwendungsfälle sind keine zusätzlichen Schriftpakete nötig.
+Das Paket `ttf-dejavu` installiert automatisch die erforderlichen schriftenbezogenen Abhängigkeiten wie `fontconfig`, `encodings`, `mkfontscale` und `mkfontdir`. Für die meisten Anwendungsfälle sind keine zusätzlichen Schriftpakete nötig.
 
 **Option 2: Microsoft Core Fonts**
 
-Falls Ihre Präsentationen Microsoft‑spezifische Schriften wie Arial, Times New Roman, Courier New oder Verdana verwenden, installieren Sie stattdessen die Microsoft Core Fonts:
+Wenn Ihre Präsentationen Microsoft‑spezifische Schriftarten wie Arial, Times New Roman, Courier New oder Verdana verwenden, installieren Sie stattdessen Microsoft Core Fonts:
 
 ```
 RUN apk add --no-cache \
@@ -145,11 +145,20 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-Verwenden Sie diese Option nur, wenn die zu verarbeitenden Präsentationen Microsoft‑Schriften benötigen. Für die meisten Szenarien ist die Installation von `ttf-dejavu` einfacher und zuverlässiger.
+Verwenden Sie diese Option nur, wenn die zu verarbeitenden Präsentationen Microsoft‑Schriftarten benötigen. Für die meisten Szenarien ist die Installation von `ttf-dejavu` einfacher und zuverlässiger.
+
+**Zusätzliche Anforderungen für Globalisierung**
+
+Damit auf Alpine eine korrekte Globalisierung funktioniert, installieren Sie das Paket `icu-libs` und deaktivieren den Invariant‑Modus:
+
+```dockerfile
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+RUN apk --no-cache add icu-libs
+```
 
 ### **[Aspose.Slides für .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
 
-Dies ist die Version von Aspose.Slides, die eine vom Aspose.Slides‑Team entwickelte benutzerdefinierte plattformübergreifende Grafikengine nutzt.  
+Dies ist die Version von Aspose.Slides, die eine benutzerdefinierte plattformübergreifende Grafik‑Engine verwendet, die vom Aspose.Slides‑Team entwickelt wurde.  
 Auf Nicht‑Windows‑Plattformen kann die Bibliothek `fontconfig` erforderlich sein.
 
 **Unterstützte Plattformen**
@@ -158,24 +167,24 @@ Auf Nicht‑Windows‑Plattformen kann die Bibliothek `fontconfig` erforderlich 
 - *macOS*: x86_64, ARM64 (aarch64)
 
 **Nicht unterstützte Plattformen**
-- *Windows 11 ARM* (ARM64) — *Derzeit nicht in Betracht gezogen*
+- *Windows 11 ARM* (ARM64) — *Derzeit nicht vorgesehen*
 
 {{%  alert  title="Notes"  color="primary"  %}}  
-Für Linux x64 ist GLIBC 2.23+ erforderlich; für Linux ARM64 ist GLIBC 2.39+ erforderlich. Systeme wie CentOS 7 (GLIBC 2.14) werden nicht unterstützt. Wenn Sie Aspose.Slides auf CentOS 7 oder anderen inkompatiblen Systemen (z. B. Alpine) ausführen müssen, verwenden Sie bitte das Standardpaket: [Aspose.Slides für .NET](https://nuget.org/packages/Aspose.Slides.NET).  
+Für Linux x64 wird GLIBC 2.23+ benötigt; für Linux ARM64 GLIBC 2.39+. Systeme wie CentOS 7 (GLIBC 2.14) werden nicht unterstützt. Wenn Sie Aspose.Slides auf CentOS 7 oder anderen inkompatiblen Systemen (z. B. Alpine) ausführen müssen, verwenden Sie bitte das Standardpaket: [Aspose.Slides für .NET](https://nuget.org/packages/Aspose.Slides.NET).  
 {{% /alert %}} 
 
 ## **FAQ**
 
-**Muss Microsoft PowerPoint für Konvertierungen und Rendering installiert sein?**
+**Benötige ich Microsoft PowerPoint für Konvertierungen und Rendering?**
 
 Nein, PowerPoint ist nicht erforderlich; Aspose.Slides ist eine eigenständige Engine zum [Erstellen](/slides/de/net/create-presentation/), Ändern, [Konvertieren](/slides/de/net/convert-presentation/) und [Rendern](/slides/de/net/convert-powerpoint-to-png/) von Präsentationen.
 
-**Welche Schriften werden für korrektes Rendering benötigt?**
+**Welche Schriftarten werden für korrektes Rendering benötigt?**
 
-Die in der Präsentation verwendeten Schriften oder geeignete Ersatzschriften müssen im Betriebssystem vorhanden sein. Auf Linux und macOS sollten gängige Schriftpakete installiert werden, um ein konsistentes Rendering sicherzustellen.
+Die in der Präsentation verwendeten Schriftarten oder geeignete Ersatzschriften müssen im Betriebssystem vorhanden sein. Auf Linux und macOS sollten gängige Schriftpakete installiert werden, um ein konsistentes Rendering sicherzustellen.
 
-Für Alpine‑Linux‑Container installieren Sie mindestens ein Schriftpaket zusätzlich zu `libgdiplus`. Die empfohlene Minimalkonfiguration ist `libgdiplus` mit `ttf-dejavu`. Wenn Microsoft‑Schriften wie Arial, Times New Roman, Courier New oder Verdana benötigt werden, verwenden Sie `msttcorefonts-installer` zusammen mit `fontconfig`.
+Für Alpine‑Linux‑Container installieren Sie mindestens ein Schriftpaket zusätzlich zu `libgdiplus`. Die empfohlene Minimalkonfiguration besteht aus `libgdiplus` und `ttf-dejavu`. Wenn Microsoft‑Schriftarten wie Arial, Times New Roman, Courier New oder Verdana benötigt werden, verwenden Sie `msttcorefonts-installer` zusammen mit `fontconfig`.
 
-**Warum wird eine benutzerdefinierte Schrift auf Linux als Fallback oder fehlender Text dargestellt?**
+**Warum wird eine benutzerdefinierte Schriftart unter Linux als Ersatz oder fehlender Text gerendert?**
 
-Falls die Schriftdatei inkonsistente oder beschädigte Name‑Table‑Einträge enthält, kann der Linux‑Font‑Matching‑Stack (FreeType/fontconfig) einen ungültigen Eintrag auswählen, wodurch die Schrift nicht aufgelöst wird. Die Verwendung einer Schriftversion mit korrigierten Name‑Table‑Einträgen oder das Installieren einer konsistenten Ersatzschrift löst das Problem.
+Wenn die Schriftdatei inkonsistente oder beschädigte Name‑Table‑Einträge enthält, kann der Linux‑Schrift‑Matching‑Stack (FreeType/fontconfig) einen ungültigen Eintrag auswählen, wodurch die Schriftart nicht aufgelöst wird. Die Verwendung einer Schriftart‑Version mit korrigierten Name‑Table‑Einträgen oder die Installation eines konsistenten Ersatzes behebt das Problem.
