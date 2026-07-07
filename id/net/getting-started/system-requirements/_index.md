@@ -17,15 +17,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Temukan persyaratan sistem Aspose.Slides untuk .NET. Pastikan dukungan PowerPoint dan OpenDocument yang mulus pada Windows, Linux, dan macOS."
+description: "Temukan persyaratan sistem Aspose.Slides untuk .NET. Pastikan dukungan PowerPoint dan OpenDocument yang mulus di Windows, Linux, dan macOS."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides for .NET tidak memerlukan Microsoft PowerPoint terpasang karena Aspose.Slides adalah mesin pembuatan, konversi, tata letak halaman, dan rendering dokumen Microsoft PowerPoint yang berdiri sendiri.
+Aspose.Slides for .NET tidak memerlukan Microsoft PowerPoint terpasang karena Aspose.Slides adalah mesin independen untuk pembuatan, konversi, tata letak halaman, dan rendering dokumen Microsoft PowerPoint.
 
 ## **Sistem Operasi yang Didukung**
 
-Aspose.Slides for .NET mendukung semua sistem operasi 32-bit atau 64-bit yang memiliki .NET atau kerangka kerja Mono terpasang, termasuk (tetapi tidak terbatas pada):
+Aspose.Slides for .NET mendukung semua sistem operasi 32-bit atau 64-bit yang memiliki .NET atau kerangka kerja Mono terpasang termasuk (tetapi tidak terbatas pada):
 
 ### **Windows**
 
@@ -48,7 +48,7 @@ Aspose.Slides for .NET mendukung semua sistem operasi 32-bit atau 64-bit yang me
 
 - Mac OS X
 
-## **Kerangka Kerja yang Didukung**
+## **Framework yang Didukung**
 
 Aspose.Slides for .NET mendukung kerangka kerja .NET dan Mono:
 
@@ -75,15 +75,15 @@ Aspose.Slides for .NET mendukung kerangka kerja .NET dan Mono:
 - .NET 8
 - .NET 9
 - .NET Core
-- Dukungan COM Interop (COM, C++, VBScript)
+- COM Interop support (COM, C++, VBScript)
 
-### **Kerangka Kerja Mono**
+### **Framework Mono**
 
-- Dukungan MONO pada platform MAC dan Linux
+- Dukungan MONO di platform MAC dan Linux
 
 ## **Lingkungan Pengembangan**
 
-Aspose.Slides for .NET dapat digunakan untuk mengembangkan aplikasi pada lingkungan pengembangan apa pun yang menargetkan platform .NET, namun lingkungan berikut secara eksplisit didukung:
+Aspose.Slides for .NET dapat digunakan untuk mengembangkan aplikasi di lingkungan pengembangan apa pun yang menargetkan platform .NET, tetapi lingkungan berikut secara eksplisit didukung:
 
 - Microsoft Visual Studio 2005
 - Microsoft Visual Studio 2008
@@ -104,21 +104,21 @@ Saat ini, ada dua build utama Aspose.Slides — Aspose.Slides.NET dan Aspose.Sli
 Ini adalah versi utama produk. Ia menggunakan mesin grafis .NET standar.
 - Pada platform non-Windows, Anda mungkin perlu menginstal pustaka `libgdiplus` dan dependensinya.
 - Sebelum versi Aspose.Slides 25.3, untuk platform non-Windows, diperlukan menggunakan DLL .NET Standard 2.0 dari paket ZIP Aspose.Slides.
-- Mulai versi Aspose.Slides 25.3, paket NuGet dapat langsung digunakan bahkan pada sistem non-Windows.
-- Saat berjalan pada sistem non-Windows, aplikasi Anda harus menyertakan baris berikut saat startup:
+- Mulai dari versi Aspose.Slides 25.3, paket NuGet dapat langsung digunakan bahkan pada sistem non-Windows.
+- Saat dijalankan pada sistem non-Windows, aplikasi Anda harus menyertakan baris berikut pada startup:
 ```cs
 AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 ```
-- **Mulai versi 25.3, Anda dapat menggunakan paket ini pada platform yang mendukung .NET, seperti Linux aarch64 (ARM64).**
+- **Mulai dari versi 25.3, Anda dapat menggunakan paket ini pada platform yang mendukung .NET, seperti Linux aarch64 (ARM64).**
 
 #### **Paket Tambahan untuk Linux Alpine**
 
-Saat menjalankan Aspose.Slides for .NET dalam kontainer Alpine Linux, menginstal `libgdiplus` saja mungkin tidak cukup. Kontainer Alpine biasanya tidak menyertakan font secara default. Jika tidak ada font, operasi rendering atau konversi dapat gagal dengan error serupa dengan:
+Saat menjalankan Aspose.Slides for .NET dalam kontainer Alpine Linux, menginstal `libgdiplus` saja mungkin tidak cukup. Kontainer Alpine biasanya tidak menyertakan font secara default. Jika tidak ada font yang tersedia, operasi rendering atau konversi dapat gagal dengan error serupa dengan:
 
 ```text
 System.ArgumentException: Font '?' cannot be found
 ```
-Untuk menggunakan Aspose.Slides pada Alpine, instal `libgdiplus` bersama setidaknya satu paket font.
+Untuk menggunakan Aspose.Slides di Alpine, instal `libgdiplus` bersama setidaknya satu paket font.
 
 **Opsi 1: Font DejaVu**
 
@@ -130,9 +130,9 @@ RUN apk add --no-cache \
     ttf-dejavu
 ```
 
-Paket `ttf-dejavu` secara otomatis menginstal dependensi terkait font yang diperlukan, seperti `fontconfig`, `encodings`, `mkfontscale`, dan `mkfontdir`. Tidak diperlukan paket font tambahan untuk kebanyakan kasus penggunaan.
+Paket `ttf-dejavu` secara otomatis menginstal dependensi terkait font yang diperlukan, seperti `fontconfig`, `encodings`, `mkfontscale`, dan `mkfontdir`. Tidak ada paket font tambahan yang diperlukan untuk sebagian besar kasus penggunaan.
 
-**Opsi 2: Microsoft Core Fonts**
+**Opsi 2: Font Inti Microsoft**
 
 Jika presentasi Anda menggunakan font khusus Microsoft, seperti Arial, Times New Roman, Courier New, atau Verdana, instal Microsoft Core Fonts sebagai gantinya:
 
@@ -145,7 +145,16 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-Gunakan opsi ini hanya ketika presentasi yang diproses memerlukan font Microsoft. Untuk kebanyakan skenario, menginstal `ttf-dejavu` lebih sederhana dan lebih andal.
+Gunakan opsi ini hanya ketika presentasi yang diproses memerlukan font Microsoft. Untuk kebanyakan skenario, menginstal `ttf-dejavu` lebih sederhana dan lebih dapat diandalkan.
+
+**Persyaratan tambahan untuk globalisasi**
+
+Untuk mengaktifkan dukungan globalisasi yang tepat pada Alpine, instal paket `icu-libs` dan nonaktifkan mode invariant:
+
+```dockerfile
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+RUN apk --no-cache add icu-libs
+```
 
 ### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
 
@@ -158,24 +167,24 @@ Pada platform non-Windows, pustaka `fontconfig` mungkin diperlukan.
 - *macOS*: x86_64, ARM64 (aarch64)
 
 **Platform yang Tidak Didukung**
-- *Windows 11 ARM* (ARM64) — *Tidak sedang dipertimbangkan*
+- *Windows 11 ARM* (ARM64) — *Saat ini tidak dipertimbangkan*
 
-{{%  alert  title="Catatan"  color="primary"  %}}  
-Untuk Linux x64, GLIBC 2.23+ diperlukan; untuk Linux ARM64, GLIBC 2.39+ diperlukan. Sistem seperti CentOS 7 (GLIBC 2.14) tidak didukung. Jika Anda perlu menjalankan Aspose.Slides pada CentOS 7 atau sistem tidak kompatibel lainnya (misalnya Alpine), silakan gunakan paket standar: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
+{{%  alert  title="Notes"  color="primary"  %}}  
+Untuk Linux x64, diperlukan GLIBC 2.23+; untuk Linux ARM64, diperlukan GLIBC 2.39+. Sistem seperti CentOS 7 (GLIBC 2.14) tidak didukung. Jika Anda perlu menjalankan Aspose.Slides pada CentOS 7 atau sistem tidak kompatibel lainnya (misalnya, Alpine), silakan gunakan paket standar: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
 {{% /alert %}} 
 
-## **FAQ**
+## **Tanya Jawab**
 
 **Apakah saya perlu menginstal Microsoft PowerPoint untuk konversi dan rendering?**
 
 Tidak, PowerPoint tidak diperlukan; Aspose.Slides adalah mesin mandiri untuk [membuat](/slides/id/net/create-presentation/), memodifikasi, [mengonversi](/slides/id/net/convert-presentation/), dan [merender](/slides/id/net/convert-powerpoint-to-png/) presentasi.
 
-**Font apa yang diperlukan untuk rendering yang tepat?**
+**Font apa yang dibutuhkan untuk rendering yang tepat?**
 
-Font yang digunakan dalam presentasi, atau pengganti yang sesuai, harus tersedia di sistem operasi. Pada Linux dan macOS, instal paket font umum untuk memastikan rendering yang konsisten.
+Font yang digunakan dalam presentasi, atau pengganti yang cocok, harus tersedia di sistem operasi. Pada Linux dan macOS, instal paket font umum untuk memastikan rendering yang konsisten.
 
-Untuk kontainer Alpine Linux, instal setidaknya satu paket font selain `libgdiplus`. Pengaturan minimal yang direkomendasikan adalah `libgdiplus` dengan `ttf-dejavu`. Jika diperlukan font Microsoft seperti Arial, Times New Roman, Courier New, atau Verdana, gunakan `msttcorefonts-installer` bersama `fontconfig`.
+Untuk kontainer Alpine Linux, instal setidaknya satu paket font selain `libgdiplus`. Pengaturan minimal yang direkomendasikan adalah `libgdiplus` dengan `ttf-dejavu`. Jika font Microsoft seperti Arial, Times New Roman, Courier New, atau Verdana diperlukan, gunakan `msttcorefonts-installer` bersama `fontconfig`.
 
-**Mengapa font khusus tampil sebagai fallback atau teks yang hilang di Linux?**
+**Mengapa font khusus dirender sebagai fallback atau teks yang hilang di Linux?**
 
-Jika file font memiliki entri nama-table yang tidak konsisten atau rusak, tumpukan pencocokan font Linux (FreeType/fontconfig) dapat memilih record yang tidak valid, menyebabkan font tidak terdeteksi. Menggunakan versi font dengan tabel nama yang telah diperbaiki atau menginstal pengganti yang konsisten menyelesaikan masalah.
+Jika berkas font memiliki entri tabel nama yang tidak konsisten atau rusak, stack pencocokan font Linux (FreeType/fontconfig) dapat memilih rekaman yang tidak valid, menyebabkan font tidak terpecahkan. Menggunakan versi font dengan tabel nama yang diperbaiki atau menginstal pengganti yang konsisten menyelesaikan masalah.
