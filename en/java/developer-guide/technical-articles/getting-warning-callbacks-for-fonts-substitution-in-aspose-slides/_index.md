@@ -108,3 +108,31 @@ finally {
     presentation.dispose();
 }
 ```
+
+### Load External Fonts and Handle Warning Callback
+
+Load custom fonts before opening the presentation and ensure the warning callback does not abort the save operation.
+
+```java
+// Load custom fonts from a folder that contains the Selawik font.
+FontsLoader.loadExternalFonts(new String[] { "C:/fonts" });
+
+Presentation presentation = new Presentation("Comments_withcustomefonts.pptx");
+try {
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.setWarningCallback(new IWarningCallback() {
+        @Override
+        public int warning(IWarningInfo warning) {
+            System.out.println("Description: " + warning.getDescription());
+            // Continue the conversion even if a font substitution warning occurs.
+            return ReturnAction.Continue;
+        }
+    });
+
+    presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+This ensures the Selawik font is available and the warning callback returns `ReturnAction.Continue`, preventing the `PptxException: Saving aborted` error.
