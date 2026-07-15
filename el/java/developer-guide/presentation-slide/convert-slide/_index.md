@@ -1,6 +1,6 @@
 ---
-title: Μετατροπή διαφανειών παρουσίασης σε εικόνες σε Java
-linktitle: Διαφάνεια σε εικόνα
+title: Μετατροπή Διαφανειών Παρουσίασης σε Εικόνες με Java
+linktitle: Διαφάνεια σε Εικόνα
 type: docs
 weight: 35
 url: /el/java/convert-slide/
@@ -18,31 +18,31 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μετατρέψτε διαφάνειες από PPT, PPTX και ODP σε εικόνες στην Java χρησιμοποιώντας το Aspose.Slides—γρήγορη, υψηλής ποιότητας απόδοση με σαφή παραδείγματα κώδικα."
+description: "Μετατρέψτε διαφάνειες από PPT, PPTX και ODP σε εικόνες με Java χρησιμοποιώντας το Aspose.Slides—γρήγορη, υψηλής ποιότητας απόδοση με σαφή παραδείγματα κώδικα."
 ---
 ## **Εισαγωγή**
 
-Aspose.Slides for Java σας επιτρέπει να μετατρέπετε εύκολα διαφάνειες PowerPoint και OpenDocument σε διάφορες μορφές εικόνας, συμπεριλαμβανομένων των BMP, PNG, JPG (JPEG), GIF και άλλων.
+Το Aspose.Slides for Java σας επιτρέπει να μετατρέπετε εύκολα διαφάνειες παρουσιάσεων PowerPoint και OpenDocument σε διάφορες μορφές εικόνας, συμπεριλαμβανομένων BMP, PNG, JPG (JPEG), GIF και άλλων.
 
 Για να μετατρέψετε μια διαφάνεια σε εικόνα, ακολουθήστε τα παρακάτω βήματα:
 
 1. Ορίστε τις επιθυμητές ρυθμίσεις μετατροπής και επιλέξτε τις διαφάνειες που θέλετε να εξάγετε χρησιμοποιώντας:
-    - Το [ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/) interface, ή
-    - Το [IRenderingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/irenderingoptions/) interface.
-2. Δημιουργήστε την εικόνα της διαφάνειας καλώντας τη μέθοδο [getImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-).
+    - Το interface [ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/) , ή
+    - Το interface [IRenderingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/irenderingoptions/) .
+2. Δημιουργήστε την εικόνα της διαφάνειας καλώντας τη μέθοδο [getImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) .
 
-Στο Aspose.Slides for Java, ένα [IImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/iimage/) είναι ένα interface που σας επιτρέπει να εργάζεστε με εικόνες που ορίζονται από δεδομένα pixel. Μπορείτε να χρησιμοποιήσετε αυτό το interface για να αποθηκεύετε εικόνες σε ευρύ φάσμα μορφών (BMP, JPG, PNG κ.λπ.).
+Στο Aspose.Slides for Java, το [IImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/iimage/) είναι ένα interface που επιτρέπει την εργασία με εικόνες που ορίζονται από δεδομένα pixel. Μπορείτε να χρησιμοποιήσετε αυτό το interface για να αποθηκεύσετε εικόνες σε μια μεγάλη γκάμα μορφών (BMP, JPG, PNG κλπ).
 
-## **Μετατροπή Διαφανειών σε Bitmap και Αποθήκευση των Εικόνων σε PNG**
+## **Μετατροπή Διαφανειών σε Bitmap και Αποθήκευση Εικόνων σε PNG**
 
-Μπορείτε να μετατρέψετε μια διαφάνεια σε αντικείμενο bitmap και να το χρησιμοποιήσετε απευθείας στην εφαρμογή σας. Εναλλακτικά, μπορείτε να μετατρέψετε μια διαφάνεια σε bitmap και στη συνέχεια να αποθηκεύσετε την εικόνα σε JPEG ή σε άλλη προτιμώμενη μορφή.
+Μπορείτε να μετατρέψετε μια διαφάνεια σε αντικείμενο bitmap και να το χρησιμοποιήσετε απευθείας στην εφαρμογή σας. Εναλλακτικά, μπορείτε να μετατρέψετε μια διαφάνεια σε bitmap και, στη συνέχεια, να αποθηκεύσετε την εικόνα σε JPEG ή σε οποιαδήποτε άλλη προτιμώμενη μορφή.
 
-Αυτός ο κώδικας δείχνει πώς να μετατρέψετε την πρώτη διαφάνεια μιας παρουσίασης σε αντικείμενο bitmap και να αποθηκεύσετε την εικόνα σε μορφή PNG:
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε την πρώτη διαφάνεια μιας παρουσίασης σε αντικείμενο bitmap και στη συνέχεια να αποθηκεύσετε την εικόνα σε μορφή PNG:
 
 ```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Μετατρέψτε την πρώτη διαφάνεια της παρουσίασης σε bitmap.
+    // Μετατρέψτε τη πρώτη διαφάνεια στην παρουσίαση σε bitmap.
     IImage image = presentation.getSlides().get_Item(0).getImage();
 	try {
         // Αποθηκεύστε την εικόνα σε μορφή PNG.
@@ -57,16 +57,16 @@ try {
 
 ## **Μετατροπή Διαφανειών σε Εικόνες με Προσαρμοσμένα Μεγέθη**
 
-Μπορεί να χρειαστείτε μια εικόνα συγκεκριμένων διαστάσεων. Χρησιμοποιώντας μια υπερφόρτωση της μεθόδου [getImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), μπορείτε να μετατρέψετε μια διαφάνεια σε εικόνα με συγκεκριμένο πλάτος και ύψος.
+Μπορεί να χρειαστείτε μια εικόνα συγκεκριμένου μεγέθους. Χρησιμοποιώντας μια υπερφόρτωση της μεθόδου [getImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), μπορείτε να μετατρέψετε μια διαφάνεια σε εικόνα με συγκεκριμένες διαστάσεις (πλάτος και ύψος). 
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς γίνεται:
+Αυτός ο δείγματος κώδικας δείχνει πώς να το κάνετε:
 
 ```java 
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Μετατρέψτε την πρώτη διαφάνεια της παρουσίασης σε bitmap με το καθορισμένο μέγεθος.
+    // Μετατρέψτε την πρώτη διαφάνεια στην παρουσίαση σε bitmap με το καθορισμένο μέγεθος.
     IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
 
     try {
@@ -84,9 +84,9 @@ try {
 
 Κάποιες διαφάνειες μπορεί να περιέχουν σημειώσεις και σχόλια.
 
-Το Aspose.Slides παρέχει δύο interfaces—[ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/) και [IRenderingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/irenderingoptions/)—που σάς επιτρέπουν να ελέγχετε την απόδοση των διαφανειών παρουσίασης σε εικόνες. Και τα δύο interfaces περιλαμβάνουν τη μέθοδο `setSlidesLayoutOptions`, η οποία σας επιτρέπει να ρυθμίσετε την απόδοση των σημειώσεων και των σχολίων σε μια διαφάνεια κατά τη μετατροπή της σε εικόνα.
+Το Aspose.Slides παρέχει δύο interfaces—[ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/) και [IRenderingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/irenderingoptions/)—που σας επιτρέπουν να ελέγχετε την απόδοση των διαφανειών παρουσίασης σε εικόνες. Και τα δύο interfaces περιλαμβάνουν τη μέθοδο `setSlidesLayoutOptions`, η οποία σας δίνει τη δυνατότητα να ρυθμίσετε την απόδοση σημειώσεων και σχολίων σε μια διαφάνεια κατά τη μετατροπή της σε εικόνα.
 
-Με την κλάση [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/notescommentslayoutingoptions/) μπορείτε να ορίσετε την προτιμώμενη θέση των σημειώσεων και των σχολίων στην εικόνα που προκύπτει.
+Με την κλάση [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/notescommentslayoutingoptions/) μπορείτε να καθορίσετε την προτιμώμενη θέση για σημειώσεις και σχόλια στην τελική εικόνα.
 
 Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια διαφάνεια με σημειώσεις και σχόλια:
 
@@ -122,16 +122,14 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-
-Σε οποιαδήποτε διαδικασία μετατροπής διαφάνειας σε εικόνα, η μέθοδος [setNotesPosition](https://reference.aspose.com/slides/el/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) δεν μπορεί να εφαρμόσει το `BottomFull` (για τον καθορισμό της θέσης των σημειώσεων) επειδή το κείμενο μιας σημείωσης μπορεί να είναι πολύ μεγάλο, καθιστώντας αδύνατη την τοποθέτησή του στο καθορισμένο μέγεθος εικόνας.
-
+Σε οποιαδήποτε διαδικασία μετατροπής διαφάνειας σε εικόνα, η μέθοδος [setNotesPosition](https://reference.aspose.com/slides/el/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) δεν μπορεί να εφαρμόσει το `BottomFull` (για τον καθορισμό της θέσης των σημειώσεων) επειδή το κείμενο μιας σημείωσης μπορεί να είναι πολύ μεγάλο, καθιστώντας αδύνατη τη χωρητικότητα στην καθορισμένη διάσταση της εικόνας.
 {{% /alert %}} 
 
-## **Μετατροπή Διαφανειών σε Εικόνες Χρησιμοποιώντας Επιλογές TIFF**
+## **Μετατροπή Διαφανειών σε Εικόνες Χρησιμοποιώντας TIFF Options**
 
-Το interface [ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/) παρέχει μεγαλύτερο έλεγχο στην τελική εικόνα TIFF, επιτρέποντάς σας να ορίσετε παραμέτρους όπως μέγεθος, ανάλυση, χρωματική παλέτα κ.ά.
+Το interface [ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/) παρέχει μεγαλύτερο έλεγχο πάνω στην τελική εικόνα TIFF, επιτρέποντας τον καθορισμό παραμέτρων όπως μέγεθος, ανάλυση, παλέτα χρωμάτων κλπ.
 
-Αυτός ο κώδικας δείχνει μια διαδικασία μετατροπής όπου χρησιμοποιούνται επιλογές TIFF για την παραγωγή μιας ασπρόμαυρης εικόνας με ανάλυση 300 DPI και μέγεθος 2160 × 2800:
+Αυτός ο κώδικας δείχνει μια διαδικασία μετατροπής όπου χρησιμοποιούνται οι επιλογές TIFF για την εξαγωγή μιας ασπρόμαυρης εικόνας με ανάλυση 300 DPI και μέγεθος 2160 × 2800:
 
 ```java 
 // Φορτώστε ένα αρχείο παρουσίασης.
@@ -143,7 +141,7 @@ try {
     // Διαμορφώστε τις ρυθμίσεις της εξαγόμενης εικόνας TIFF.
     TiffOptions tiffOptions = new TiffOptions();
     tiffOptions.setImageSize(new Dimension(2160, 2880));             // Ορίστε το μέγεθος της εικόνας.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Ορίστε τη μορφή pixel (μαύρο-ασπρό).
+    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Ορίστε τη μορφή pixel (μαύρο και άσπρο).
     tiffOptions.setDpiX(300);                                        // Ορίστε την οριζόντια ανάλυση.
     tiffOptions.setDpiY(300);                                        // Ορίστε την κάθετη ανάλυση.
 
@@ -162,16 +160,14 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-
 Η υποστήριξη TIFF δεν είναι εγγυημένη σε εκδόσεις παλαιότερες από το JDK 9.
-
 {{% /alert %}} 
 
 ## **Μετατροπή Όλων των Διαφανειών σε Εικόνες**
 
 Το Aspose.Slides σας επιτρέπει να μετατρέψετε όλες τις διαφάνειες μιας παρουσίασης σε εικόνες, μετατρέποντας ουσιαστικά ολόκληρη την παρουσίαση σε μια σειρά εικόνων.
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να μετατρέψετε όλες τις διαφάνειες μιας παρουσίασης σε εικόνες στην Java:
+Αυτός ο δείγματος κώδικας δείχνει πώς να μετατρέψετε όλες τις διαφάνειες μιας παρουσίασης σε εικόνες σε Java:
 
 ```java 
 float scaleX = 2;
@@ -182,7 +178,7 @@ try {
     // Απόδοση της παρουσίασης σε εικόνες διαφάνεια ανά διαφάνεια.
     for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
-        // Έλεγχος κρυμμένων διαφανειών (να μην αποδοθούν κρυμμένες διαφάνειες).
+        // Έλεγχος κρυμμένων διαφανειών (να μην αποδίδονται κρυμμένες διαφάνειες).
         if (presentation.getSlides().get_Item(i).getHidden())
             continue;
 
@@ -201,15 +197,21 @@ try {
 } 
 ```
 
+## **Απόδοση Χρωματιστών Emoji**
+
+{{% alert title="Note" color="warning" %}} 
+Για να αποδοθούν σωστά τα χρωματιστά emoji κατά τη μετατροπή διαφανειών παρουσίασης σε εικόνες, οι γραμματοσειρές emoji που χρησιμοποιούνται στην παρουσίαση πρέπει να είναι εγκατεστημένες και διαθέσιμες στο σύστημα που εκτελεί τη μετατροπή. Για παράδειγμα, αν η παρουσίαση χρησιμοποιεί **Segoe UI Emoji** και αυτή η γραμματοσειρά λείπει, τα emoji ενδέχεται να εμφανιστούν μονόχρωμα στις εξαγόμενες εικόνες.
+{{% /alert %}} 
+
 ## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζει το Aspose.Slides την απόδοση διαφανειών με κινήσεις (animations);**
+**Υποστηρίζει το Aspose.Slides την απόδοση διαφανειών με κινούμενα γραφικά;**
 
-Όχι, η μέθοδος `getImage` αποθηκεύει μόνο μια στατική εικόνα της διαφάνειας, χωρίς κινήσεις.
+Όχι, η μέθοδος `getImage` αποθηκεύει μόνο μια στατική εικόνα της διαφάνειας, χωρίς κινούμενα γραφικά.
 
 **Μπορούν οι κρυμμένες διαφάνειες να εξαχθούν ως εικόνες;**
 
-Ναι, οι κρυμμένες διαφάνειες μπορούν να υποβληθούν σε επεξεργασία όπως και οι κανονικές. Απλώς βεβαιωθείτε ότι περιλαμβάνονται στο βρόχο επεξεργασίας.
+Ναι, οι κρυμμένες διαφάνειες μπορούν να υποβληθούν σε επεξεργασία όπως οι κανονικές. Απλώς βεβαιωθείτε ότι περιλαμβάνονται στο βρόχο επεξεργασίας.
 
 **Μπορούν οι εικόνες να αποθηκευτούν με σκιές και εφέ;**
 
