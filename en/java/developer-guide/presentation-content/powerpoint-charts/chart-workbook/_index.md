@@ -290,6 +290,10 @@ try {
 }
 ```
 
+## **PDF to PPTX Conversion Limitations**
+
+When an Excel chart that uses a gradient fill is first saved as a PDF and then imported into a presentation using `Presentation.slides.addFromPdf`, the gradient fill may be lost and the Y-axis text may not be rotated correctly. This behavior has been observed with Aspose.Slides for Java 26.2. A future release may address this issue.
+
 ## **FAQ**
 
 **Can I determine whether a specific chart is linked to an external or an embedded workbook?**
