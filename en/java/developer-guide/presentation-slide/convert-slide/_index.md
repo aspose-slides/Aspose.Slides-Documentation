@@ -202,6 +202,12 @@ try {
 } 
 ```
 
+## **Color Emoji Rendering**
+
+{{% alert title="Note" color="warning" %}} 
+To render color emojis correctly when converting PPTX slides to images, the **Segoe UI Emoji** font must be installed and available on the system performing the conversion. If this font is missing, emojis may appear in monochrome in the output images.
+{{% /alert %}}
+
 ## **FAQ**
 
 **Does Aspose.Slides support rendering slides with animations?**
