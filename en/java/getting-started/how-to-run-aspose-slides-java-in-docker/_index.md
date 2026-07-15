@@ -118,6 +118,10 @@ RUN apt-get install -y openjdk-11-jdk wget fontconfig ttf-mscorefonts-installer
 - **OpenJDK 11**: Java runtime environment
 - **Font packages**: Includes Microsoft Core Fonts
 
+### Emoji Font Support
+
+To render color emojis correctly when converting slides to images, the **Segoe UI Emoji** font must be installed in the container. Install it via the package manager or copy the font file into the image (e.g., add `apt-get install -y fonts-segoe-ui-emoji` or copy the `.ttf` file and run `fc-cache`). Using other fonts such as Noto Color Emoji or Symbola may result in overlapped or monochrome emojis.
+
 ### **Aspose.Slides Setup**
 
 ```dockerfile
