@@ -1,6 +1,6 @@
 ---
 title: แปลงสไลด์การนำเสนอเป็นภาพใน Java
-linktitle: สไลด์เป็นภาพ
+linktitle: สไลด์เป็นรูปภาพ
 type: docs
 weight: 35
 url: /th/java/convert-slide/
@@ -18,34 +18,34 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "แปลงสไลด์จาก PPT, PPTX และ ODP เป็นภาพใน Java โดยใช้ Aspose.Slides—เรนเดอร์เร็วคุณภาพสูงพร้อมตัวอย่างโค้ดที่ชัดเจน."
+description: "แปลงสไลด์จาก PPT, PPTX และ ODP เป็นภาพใน Java ด้วย Aspose.Slides—การเรนเดอร์ที่รวดเร็วและคุณภาพสูงพร้อมตัวอย่างโค้ดที่ชัดเจน."
 ---
 ## **บทนำ**
 
-Aspose.Slides for Java ช่วยให้คุณสามารถแปลงสไลด์การนำเสนอ PowerPoint และ OpenDocument ไปเป็นรูปภาพหลายรูปแบบได้อย่างง่ายดาย รวมถึง BMP, PNG, JPG (JPEG), GIF และอื่น ๆ.
+Aspose.Slides for Java ช่วยให้คุณสามารถแปลงสไลด์การนำเสนอ PowerPoint และ OpenDocument ไปเป็นรูปแบบภาพต่าง ๆ รวมถึง BMP, PNG, JPG (JPEG), GIF และอื่น ๆ ได้อย่างง่ายดาย
 
-เพื่อแปลงสไลด์เป็นรูปภาพ ให้ทำตามขั้นตอนต่อไปนี้:
+เพื่อแปลงสไลด์เป็นภาพ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. กำหนดการตั้งค่าการแปลงที่ต้องการและเลือกสไลด์ที่ต้องการส่งออกโดยใช้:
+1. กำหนดค่าการแปลงที่ต้องการและเลือกสไลด์ที่ต้องการส่งออกโดยใช้:
     - อินเทอร์เฟซ [ITiffOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/itiffoptions/) หรือ
     - อินเทอร์เฟซ [IRenderingOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/irenderingoptions/)
-2. สร้างรูปภาพสไลด์โดยเรียกเมธอด [getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-).
+2. สร้างภาพสไลด์โดยเรียกเมธอด [getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-)
 
-ใน Aspose.Slides for Java, อินเทอร์เฟซ [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/) เป็นอินเทอร์เฟซที่ช่วยให้คุณทำงานกับภาพที่กำหนดโดยข้อมูลพิกเซล คุณสามารถใช้อินเทอร์เฟซนี้เพื่อบันทึกภาพในหลากหลายรูปแบบ (BMP, JPG, PNG ฯลฯ).
+ใน Aspose.Slides for Java, [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/) คืออินเทอร์เฟซที่ให้คุณทำงานกับภาพที่กำหนดด้วยข้อมูลพิกเซล คุณสามารถใช้อินเทอร์เฟซนี้เพื่อบันทึกภาพในรูปแบบต่าง ๆ มากมาย (BMP, JPG, PNG เป็นต้น)
 
-## **แปลงสไลด์เป็นบิตแมพและบันทึกรูปภาพเป็น PNG**
+## **แปลงสไลด์เป็นบิตแมปและบันทึกภาพเป็น PNG**
 
-คุณสามารถแปลงสไลด์เป็นออบเจ็กต์บิตแมพและใช้โดยตรงในแอปพลิเคชันของคุณ หรือคุณสามารถแปลงสไลด์เป็นบิตแมพแล้วบันทึกรูปภาพเป็น JPEG หรือรูปแบบอื่นตามที่ต้องการ.
+คุณสามารถแปลงสไลด์เป็นอ็อบเจ็กต์บิตแมปและใช้โดยตรงในแอปพลิเคชันของคุณ หรือคุณสามารถแปลงสไลด์เป็นบิตแมปแล้วบันทึกภาพเป็น JPEG หรือรูปแบบใด ๆ ที่ต้องการ
 
-โค้ดนี้แสดงวิธีการแปลงสไลด์แรกของการนำเสนอเป็นออบเจ็กต์บิตแมพและบันทึกรูปภาพเป็นรูปแบบ PNG:
+ตัวอย่างโค้ดนี้แสดงวิธีแปลงสไลด์แรกของการนำเสนอเป็นอ็อบเจ็กต์บิตแมปแล้วบันทึกภาพเป็นรูปแบบ PNG:
 
-```java 
+```java
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็นบิตแมพ.
+    // แปลงสไลด์แรกของการนำเสนอเป็นบิตแมป.
     IImage image = presentation.getSlides().get_Item(0).getImage();
 	try {
-        // บันทึกรูปภาพในรูปแบบ PNG.
+        // บันทึกภาพในรูปแบบ PNG.
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -55,22 +55,22 @@ try {
 }
 ```
 
-## **แปลงสไลด์เป็นภาพด้วยขนาดกำหนดเอง**
+## **แปลงสไลด์เป็นภาพด้วยขนาดที่กำหนดเอง**
 
-คุณอาจต้องการภาพที่มีขนาดเฉพาะ โดยใช้การโอเวอร์โหลดของเมธอด [getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) คุณสามารถแปลงสไลด์เป็นภาพที่มีมิติที่กำหนด (ความกว้างและความสูง).
+คุณอาจต้องการได้ภาพที่มีขนาดเฉพาะ โดยใช้ overload ของเมธอด [getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) คุณสามารถแปลงสไลด์เป็นภาพที่มีความกว้างและความสูงที่กำหนด
 
-โค้ดตัวอย่างนี้แสดงวิธีทำเช่นนั้น:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีทำเช่นนั้น:
 
 ```java 
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็นบิตแมพด้วยขนาดที่ระบุ.
+    // แปลงสไลด์แรกของการนำเสนอเป็นบิตแมปด้วยขนาดที่ระบุ.
     IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
 
     try {
-        // บันทึกรูปภาพในรูปแบบ JPEG.
+        // บันทึกภาพในรูปแบบ JPEG.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,34 +80,34 @@ try {
 }
 ```
 
-## **แปลงสไลด์พร้อมบันทึกย่อและความคิดเห็นเป็นภาพ**
+## **แปลงสไลด์พร้อมบันทึกย่อและคอมเมนต์เป็นภาพ**
 
-สไลด์บางสไลด์อาจมีบันทึกย่อและความคิดเห็น.
+บางสไลด์อาจมีบันทึกย่อและคอมเมนต์
 
-Aspose.Slides มีสองอินเทอร์เฟซ—[ITiffOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/itiffoptions/) และ [IRenderingOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/irenderingoptions/)—ที่ให้คุณควบคุมการเรนเดอร์สไลด์การนำเสนอเป็นภาพ อินเทอร์เฟซทั้งสองมีเมธอด `setSlidesLayoutOptions` ซึ่งช่วยให้คุณกำหนดค่าการเรนเดอร์บันทึกย่อและความคิดเห็นบนสไลด์เมื่อต้องแปลงเป็นภาพ.
+Aspose.Slides มีสองอินเทอร์เฟซ—[ITiffOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/itiffoptions/) และ [IRenderingOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/irenderingoptions/)—ที่ให้คุณควบคุมการเรนเดอร์สไลด์นำเสนอเป็นภาพ ทั้งสองอินเทอร์เฟซมีเมธอด `setSlidesLayoutOptions` ที่ช่วยกำหนดการเรนเดอร์ของบันทึกย่อและคอมเมนต์บนสไลด์เมื่อแปลงเป็นภาพ
 
-ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับบันทึกย่อและความคิดเห็นในภาพที่ได้.
+ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับบันทึกย่อและคอมเมนต์ในภาพที่ได้
 
-โค้ดนี้แสดงวิธีการแปลงสไลด์ที่มีบันทึกย่อและความคิดเห็น:
+ตัวอย่างโค้ดนี้แสดงวิธีแปลงสไลด์ที่มีบันทึกย่อและคอมเมนต์:
 
 ```java 
 float scaleX = 2;
 float scaleY = scaleX;
 
-// โหลดไฟล์งานนำเสนอ.
+// โหลดไฟล์การนำเสนอ.
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // ตั้งตำแหน่งของบันทึกย่อ.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // ตั้งตำแหน่งของความคิดเห็น.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // ตั้งความกว้างของพื้นที่ความคิดเห็น.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // ตั้งสีสำหรับพื้นที่ความคิดเห็น.
+    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // กำหนดตำแหน่งของบันทึกย่อ.
+    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // กำหนดตำแหน่งของคอมเมนต์.
+    notesCommentsOptions.setCommentsAreaWidth(500);                         // กำหนดความกว้างของพื้นที่คอมเมนต์.
+    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // กำหนดสีสำหรับพื้นที่คอมเมนต์.
 
     // สร้างตัวเลือกการเรนเดอร์.
     RenderingOptions options = new RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
 
-    // แปลงสไลด์แรกของงานนำเสนอเป็นภาพ.
+    // แปลงสไลด์แรกของการนำเสนอเป็นภาพ.
     IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
 
     try {
@@ -122,30 +122,30 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-ในการแปลงสไลด์เป็นภาพใด ๆ เมธอด [setNotesPosition](https://reference.aspose.com/slides/th/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) ไม่สามารถใช้ค่า `BottomFull` (เพื่อระบุตำแหน่งของบันทึกย่อ) ได้ เนื่องจากข้อความของบันทึกย่ออาจยาวเกินไป ทำให้ไม่สามารถใส่ลงในขนาดภาพที่กำหนดได้.
+ในกระบวนการแปลงสไลด์เป็นภาพใด ๆ เมธอด [setNotesPosition](https://reference.aspose.com/slides/th/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) ไม่สามารถใช้ค่า `BottomFull` (เพื่อระบุตำแหน่งของบันทึกย่อ) ได้ เนื่องจากข้อความบันทึกย่ออาจมีขนาดใหญ่เกินไป ทำให้ไม่สามารถพอดีกับขนาดภาพที่กำหนด
 {{% /alert %}} 
 
 ## **แปลงสไลด์เป็นภาพโดยใช้ตัวเลือก TIFF**
 
-อินเทอร์เฟซ [ITiffOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/itiffoptions/) ให้การควบคุมที่ละเอียดขึ้นสำหรับภาพ TIFF ที่ได้โดยให้คุณระบุพารามิเตอร์ต่าง ๆ เช่น ขนาด, ความละเอียด, พาเลตสี, และอื่น ๆ.
+อินเทอร์เฟซ [ITiffOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/itiffoptions/) ให้การควบคุมที่ละเอียดขึ้นของภาพ TIFF ที่ได้ โดยให้คุณระบุพารามิเตอร์ต่าง ๆ เช่น ขนาด ความละเอียด พาเลตสี และอื่น ๆ
 
-โค้ดนี้แสดงกระบวนการแปลงที่ใช้ตัวเลือก TIFF เพื่อสร้างภาพขาว-ดำที่มีความละเอียด 300 DPI และขนาด 2160 × 2800:
+ตัวอย่างโค้ดนี้แสดงกระบวนการแปลงโดยใช้ตัวเลือก TIFF เพื่อสร้างภาพขาว–ดำที่มีความละเอียด 300 DPI และขนาด 2160 × 2800:
 
 ```java 
-// โหลดไฟล์งานนำเสนอ.
+// โหลดไฟล์การนำเสนอ.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // ดึงสไลด์แรกจากงานนำเสนอ.
+    // ดึงสไลด์แรกจากการนำเสนอ.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // กำหนดการตั้งค่าภาพ TIFF ที่ส่งออก.
+    // กำหนดค่าการตั้งค่าของภาพ TIFF ขาออก.
     TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // ตั้งขนาดภาพ.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // ตั้งรูปแบบพิกเซล (ขาวดำ).
-    tiffOptions.setDpiX(300);                                        // ตั้งความละเอียดแนวนอน.
-    tiffOptions.setDpiY(300);                                        // ตั้งความละเอียดแนวตั้ง.
+    tiffOptions.setImageSize(new Dimension(2160, 2880));             // กำหนดขนาดภาพ.
+    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // กำหนดรูปแบบพิกเซล (สีดำและขาว).
+    tiffOptions.setDpiX(300);                                        // กำหนดความละเอียดแนวนอน.
+    tiffOptions.setDpiY(300);                                        // กำหนดความละเอียดแนวตั้ง.
 
-    // แปลงสไลด์เป็นภาพด้วยตัวเลือกที่กำหนด.
+    // แปลงสไลด์เป็นภาพด้วยตัวเลือกที่ระบุ.
     IImage image = slide.getImage(tiffOptions);
 
     try {
@@ -160,14 +160,14 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-การสนับสนุน Tiff ไม่ได้รับการรับประกันในเวอร์ชันก่อน JDK 9.
+การสนับสนุน Tiff ไม่ได้รับการรับประกันในเวอร์ชันที่ก่อน JDK 9
 {{% /alert %}} 
 
 ## **แปลงสไลด์ทั้งหมดเป็นภาพ**
 
-Aspose.Slides ให้คุณแปลงสไลด์ทั้งหมดในการนำเสนอเป็นภาพ ทำให้การนำเสนอทั้งหมดถูกแปลงเป็นชุดของภาพ.
+Aspose.Slides ช่วยให้คุณแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นภาพ ได้อย่างมีประสิทธิภาพโดยทำให้การนำเสนอทั้งหมดกลายเป็นชุดของภาพ
 
-โค้ดตัวอย่างนี้แสดงวิธีการแปลงสไลด์ทั้งหมดในการนำเสนอเป็นภาพโดยใช้ Java:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นภาพด้วย Java:
 
 ```java 
 float scaleX = 2;
@@ -178,7 +178,7 @@ try {
     // แสดงผลการนำเสนอเป็นภาพสไลด์ต่อสไลด์.
     for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
-        // ควบคุมสไลด์ที่ซ่อนอยู่ (ไม่ต้องเรนเดอร์สไลด์ที่ซ่อน).
+        // ควบคุมสไลด์ที่ซ่อนอยู่ (ไม่แสดงผลสไลด์ที่ซ่อนอยู่).
         if (presentation.getSlides().get_Item(i).getHidden())
             continue;
 
@@ -197,16 +197,22 @@ try {
 } 
 ```
 
-## **FAQ**
+## **การเรนเดอร์สี Emoji**
 
-**Aspose.Slides รองรับการเรนเดอร์สไลด์พร้อมแอนิเมชันหรือไม่?**
+{{% alert title="Note" color="warning" %}} 
+เพื่อให้การเรนเดอร์สี Emoji ถูกต้องเมื่อแปลงสไลด์นำเสนอเป็นภาพ ฟอนท์ Emoji ที่ใช้ในงานนำเสนอต้องถูกติดตั้งและพร้อมใช้งานบนระบบที่ทำการแปลง ตัวอย่างเช่น หากงานนำใช้ **Segoe UI Emoji** แต่ฟอนท์นี้ไม่มีอยู่ Emoji อาจปรากฏเป็นสีเดียวในภาพผลลัพธ์
+{{% /alert %}}
 
-ไม่มี, เมธอด `getImage` จะบันทึกเฉพาะภาพสไลด์แบบคงที่ ไม่รวมแอนิเมชัน.
+## **คำถามที่พบบ่อย**
 
-**สามารถส่งออกสไลด์ที่ซ่อนอยู่เป็นภาพได้หรือไม่?**
+**Aspose.Slides รองรับการเรนเดอร์สไลด์ที่มีแอนิเมชันหรือไม่?**
 
-ได้, สไลด์ที่ซ่อนอยู่สามารถประมวลผลได้เช่นเดียวกับสไลด์ปกติ เพียงแค่ตรวจสอบให้แน่ใจว่าได้รวมไว้ในลูปการประมวลผล.
+ไม่, เมธอด `getImage` จะบันทึกเป็นภาพนิ่งของสไลด์เท่านั้น ไม่รวมแอนิเมชัน
+
+**สไลด์ที่ซ่อนอยู่สามารถส่งออกเป็นภาพได้หรือไม่?**
+
+ได้, สไลด์ที่ซ่อนอยู่สามารถประมวลผลได้เช่นเดียวกับสไลด์ปกติ เพียงตรวจสอบให้แน่ใจว่าได้รวมไว้ในลูปการประมวลผล
 
 **สามารถบันทึกภาพพร้อมเงาและเอฟเฟกต์ได้หรือไม่?**
 
-ได้, Aspose.Slides รองรับการเรนเดอร์เงา, ความโปร่งใส, และเอฟเฟกต์กราฟิกอื่น ๆ เมื่อบันทึกสไลด์เป็นภาพ.
+ได้, Aspose.Slides รองรับการเรนเดอร์เงา ความโปร่งแสง และเอฟเฟกต์กราฟิกอื่น ๆ เมื่อบันทึกสไลด์เป็นภาพ
