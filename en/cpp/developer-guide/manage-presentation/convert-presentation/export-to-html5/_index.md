@@ -58,6 +58,10 @@ options->set_AnimateTransitions(true);
 pres->Save(u"pres.html", SaveFormat::Html5, options);
 ```
 
+{{% alert title="Known Issue" color="warning" %}}
+In Aspose.Slides for C++ 25.4, HTML5 conversion may produce overlapping shapes for some PPTX files. This behavior has been fixed in version 26.7. Upgrade to 26.7 or later to obtain the correct layout.
+{{% /alert %}}
+
 ## **Export PowerPoint to HTML**
 
 This C++ demonstrates the standard PowerPoint to HTML process:
