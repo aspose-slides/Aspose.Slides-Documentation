@@ -130,7 +130,7 @@ finally
 }
 ```
 
-## Troubleshoot Font Rendering Issues on Linux
+## **Troubleshoot Font Rendering Issues on Linux**
 
 If chart text appears blurry or the wrong font style when exporting to PDF on Linux, try the following steps:
 
@@ -139,13 +139,11 @@ If chart text appears blurry or the wrong font style when exporting to PDF on Li
   ```bash
   fc-cache -f -v
   ```
-- Verify which font file is selected for a given family:
+- Verify which font file is selected for a given family, for example:
   ```bash
   fc-match Arial
   fc-match Aptos
   ```
-  The command should point to the expected font file in your custom folder.
-- Optionally test with the latest Aspose.Slides for .NET version (e.g., 26.7) to rule out version-specific behavior.
 
 These steps help confirm that the correct fonts are loaded and that the rendering engine uses them with proper hinting, reducing blurriness in chart text.
 
