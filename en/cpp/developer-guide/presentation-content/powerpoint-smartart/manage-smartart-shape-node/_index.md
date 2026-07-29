@@ -125,6 +125,7 @@ Now Aspose.Slides support for setting SmartArtShape X and Y properties. The cod
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomChildNodesInSmartArt-CustomChildNodesInSmartArt.cpp" >}}
 
+**Note:** When a SmartArt shape is placed inside a group, the coordinates returned for its child shapes may be incorrect. This behavior was fixed in Aspose.Slides for C++ version 26.7. Update to this version to obtain correct positions.
 
 ## **Check an Assistant Node**
 In the following sample code we will investigate how to identify Assistant Nodes in the SmartArt nodes collection and changing them.
