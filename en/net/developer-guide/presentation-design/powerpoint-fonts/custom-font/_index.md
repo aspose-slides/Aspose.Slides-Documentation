@@ -130,6 +130,25 @@ finally
 }
 ```
 
+## Troubleshoot Font Rendering Issues on Linux
+
+If chart text appears blurry or the wrong font style when exporting to PDF on Linux, try the following steps:
+
+- Ensure all required font variants (Regular, Bold, Italic, Bold Italic) are present in the custom fonts directory.
+- After adding or updating fonts, rebuild the Docker image without using the cache and run the font cache command:
+  ```bash
+  fc-cache -f -v
+  ```
+- Verify which font file is selected for a given family:
+  ```bash
+  fc-match Arial
+  fc-match Aptos
+  ```
+  The command should point to the expected font file in your custom folder.
+- Optionally test with the latest Aspose.Slides for .NET version (e.g., 26.7) to rule out version-specific behavior.
+
+These steps help confirm that the correct fonts are loaded and that the rendering engine uses them with proper hinting, reducing blurriness in chart text.
+
 ## **FAQ**
 
 **Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?**
