@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides pour PHP via Java
-second_title: "Documentation d'Aspose.Slides pour PHP"
+second_title: Aspose.Slides for PHP
 description: Aspose.Slides pour PHP via Java offre de nombreuses fonctionnalités clés telles que la gestion du texte, des formes, des tables et des animations, l'ajout d'audio et de vidéo aux diapositives, l'aperçu des diapositives, l'exportation des diapositives au format SVG, PDF et plus encore.
 type: docs
 weight: 45

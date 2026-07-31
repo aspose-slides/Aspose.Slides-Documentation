@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Java
-second_title: Aspose.Slides 文档
+second_title: Aspose.Slides for Java
 description: Aspose.Slides for Java 是第一个也是唯一一个提供管理 PowerPoint® 文档功能的组件。Aspose.Slides for Java 提供了许多关键功能，如管理文本、形状、将幻灯片导出为 SVG、PDF 和其他格式。
 type: docs
 weight: 20

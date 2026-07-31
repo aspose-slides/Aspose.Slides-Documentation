@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for PHP via Java
-second_title: "Aspose.Slides for PHP ドキュメント"
+second_title: Aspose.Slides for PHP
 description: Aspose.Slides for PHP via Java は、テキスト、図形、テーブル、アニメーションの管理、スライドへのオーディオおよびビデオの追加、スライドのプレビュー、SVG、PDF形式へのスライドのエクスポートなど、数多くの主要な機能を提供します。
 type: docs
 weight: 45

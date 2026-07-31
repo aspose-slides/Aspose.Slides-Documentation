@@ -1,6 +1,6 @@
 ---  
 title: Aspose.Slides für Android über Java  
-second_title: Aspose.Slides Dokumentation  
+second_title: Aspose.Slides for Android
 description: Aspose.Slides für Android bietet viele wichtige Funktionen, die es Ihnen ermöglichen, Texte, Formen, Tabellen und Animationen, Audios und Videos in Folien hinzuzufügen, zu ändern und zu manipulieren.  
 type: docs  
 weight: 40  

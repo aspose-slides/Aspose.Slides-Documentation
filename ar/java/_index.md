@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides لجافا
-second_title: وثائق Aspose.Slides
+second_title: Aspose.Slides for Java
 description: Aspose.Slides لجافا هو المكون الأول والوحيد الذي يقدم الوظائف اللازمة لإدارة مستندات PowerPoint®. يقدم Aspose.Slides لجافا العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال، وتصدير الشرائح إلى SVG و PDF وصيغ أخرى.
 type: docs
 weight: 20

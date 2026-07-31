@@ -1,6 +1,6 @@
 ---  
 title: Aspose.Slides pour JasperReports  
-second_title: Documentation Aspose.Slides  
+second_title: Aspose.Slides for JasperReports
 description: Aspose.Slides pour JasperReports est une bibliothèque spécialement conçue et développée pour les développeurs qui ont besoin d'exporter facilement des rapports de JasperReports vers les formats de présentation Microsoft PowerPoint (PPT) et Microsoft PowerPoint Show (PPS) dans leurs applications Java.  
 type: docs  
 weight: 70  
