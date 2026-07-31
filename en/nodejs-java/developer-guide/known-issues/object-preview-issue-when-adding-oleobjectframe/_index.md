@@ -4,6 +4,8 @@ linktitle: OLE Object Issue
 type: docs
 weight: 10
 url: /nodejs-java/object-preview-issue-when-adding-oleobjectframe/
+aliases:
+  - /nodejs-java/object-changed-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - preview issue

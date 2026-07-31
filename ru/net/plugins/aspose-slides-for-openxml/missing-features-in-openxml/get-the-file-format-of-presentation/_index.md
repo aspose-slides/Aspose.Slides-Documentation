@@ -3,6 +3,8 @@ title: Получить формат файла презентации
 type: docs
 weight: 50
 url: /ru/net/get-the-file-format-of-presentation/
+aliases:
+  - /ru/net/presentation-format/
 ---
 
 Чтобы получить формат файла, выполните следующие шаги:

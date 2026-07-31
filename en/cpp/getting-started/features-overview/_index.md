@@ -3,6 +3,8 @@ title: Features Overview
 type: docs
 weight: 10
 url: /cpp/features-overview/
+aliases:
+  - /cpp/aspose-slides-for-c-features/
 keywords:
 - features
 - supported platforms

@@ -3,6 +3,8 @@ title: Get the File Format of Presentation
 type: docs
 weight: 50
 url: /net/get-the-file-format-of-presentation/
+aliases:
+  - /net/presentation-format/
 ---
 
 In order to get the file format. Please follow the steps below:

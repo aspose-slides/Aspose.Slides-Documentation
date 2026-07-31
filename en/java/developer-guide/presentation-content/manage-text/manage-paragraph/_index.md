@@ -4,6 +4,9 @@ linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /java/manage-paragraph/
+aliases:
+  - /java/paragraph/
+  - /java/portion/
 keywords:
 - add text
 - add paragraph

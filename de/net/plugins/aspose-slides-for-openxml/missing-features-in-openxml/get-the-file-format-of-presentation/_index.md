@@ -3,6 +3,8 @@ title: Dateiformat der Präsentation abrufen
 type: docs
 weight: 50
 url: /de/net/get-the-file-format-of-presentation/
+aliases:
+  - /de/net/presentation-format/
 ---
 
 Um das Dateiformat zu erhalten, folgen Sie bitte den untenstehenden Schritten:

@@ -4,6 +4,9 @@ linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /cpp/manage-paragraph/
+aliases:
+  - /cpp/paragraph/
+  - /cpp/portion/
 keywords:
 - add text
 - add paragraph

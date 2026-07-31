@@ -3,6 +3,8 @@ title: Aspose.Slides for .NET 6 Cross-Platform (ZIP Package)
 type: docs
 weight: 237
 url: /net/slides-for-net-6-cross-platform-zip-package/
+aliases:
+  - /net/slides-for-net-6-cross-platform/
 keywords:
 - cross-platform
 - .NET 6

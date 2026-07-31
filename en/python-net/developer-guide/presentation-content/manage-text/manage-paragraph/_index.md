@@ -4,6 +4,9 @@ linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /python-net/manage-paragraph/
+aliases:
+  - /python-net/paragraph/
+  - /python-net/portion/
 keywords:
 - add text
 - add paragraph

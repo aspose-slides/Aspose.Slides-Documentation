@@ -4,6 +4,8 @@ linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
 keywords:
 - add text
 - add paragraph

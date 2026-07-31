@@ -4,6 +4,8 @@ linktitle: SmartArt в PowerPoint
 type: docs
 weight: 100
 url: /ru/net/powerpoint-smartart/
+aliases:
+  - /ru/net/examples/elements/smartart/
 keywords:
 - SmartArt
 - управление SmartArt

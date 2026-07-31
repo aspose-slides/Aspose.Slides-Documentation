@@ -4,6 +4,8 @@ linktitle: Excel Integration
 type: docs
 weight: 330
 url: /net/excel-integration/
+aliases:
+  - /net/developer-guide/technical-articles/excel-integration/
 keywords:
 - Excel
 - workbook

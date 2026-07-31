@@ -4,6 +4,8 @@ linktitle: Extract Text
 type: docs
 weight: 90
 url: /cpp/extract-text-from-presentation/
+aliases:
+  - /cpp/extracting-text-from-the-presentation/
 keywords:
 - extract text
 - extract text from slide

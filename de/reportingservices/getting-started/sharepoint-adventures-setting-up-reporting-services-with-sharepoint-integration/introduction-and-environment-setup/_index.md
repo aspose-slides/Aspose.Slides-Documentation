@@ -3,6 +3,8 @@ title: Einführung und Umgebungssetup
 type: docs  
 weight: 10  
 url: /de/reportingservices/introduction-and-environment-setup/  
+aliases:
+  - /de/reportingservices/introduction-amp-environment-setup/
 ---  
   
 {{% alert color="primary" %}}  
