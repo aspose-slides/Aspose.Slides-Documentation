@@ -27,7 +27,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-descriptions: "Learn how to quickly resize slides in PPT, PPTX and ODP files with Node.js and Aspose.Slides, optimize presentations for any screen without losing quality."
+description: "Learn how to quickly resize slides in PPT, PPTX and ODP files with Node.js and Aspose.Slides, optimize presentations for any screen without losing quality."
 ---
 
 ## **Introduction**

@@ -27,7 +27,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-descriptions: ".NET と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドをすばやくリサイズする方法を学び、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化します。"
+description: ".NET と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドをすばやくリサイズする方法を学び、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化します。"
 ---
 
 ## **プレゼンテーションのスライドサイズとアスペクト比のカスタマイズ**

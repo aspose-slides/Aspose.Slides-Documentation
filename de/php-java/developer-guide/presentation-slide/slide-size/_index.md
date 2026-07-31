@@ -26,7 +26,7 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-descriptions: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit PHP und Aspose.Slides schnell skalieren, Präsentationen für jeden Bildschirm optimieren, ohne Qualitätsverlust."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit PHP und Aspose.Slides schnell skalieren, Präsentationen für jeden Bildschirm optimieren, ohne Qualitätsverlust."
 ---
 
 ## **Foliengrößen in PowerPoint-Präsentationen**

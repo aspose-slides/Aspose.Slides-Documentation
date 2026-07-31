@@ -26,7 +26,7 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-descriptions: "تعلم كيفية تغيير حجم الشرائح بسرعة في ملفات PPT و PPTX و ODP باستخدام PHP و Aspose.Slides، وحسّن العروض التقديمية لأي شاشة دون فقدان الجودة."
+description: "تعلم كيفية تغيير حجم الشرائح بسرعة في ملفات PPT و PPTX و ODP باستخدام PHP و Aspose.Slides، وحسّن العروض التقديمية لأي شاشة دون فقدان الجودة."
 ---
 
 ## **أحجام الشرائح في عروض PowerPoint**

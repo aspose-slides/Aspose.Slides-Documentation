@@ -26,7 +26,7 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-descriptions: "Apprenez comment redimensionner rapidement les diapositives dans les fichiers PPT, PPTX et ODP avec PHP et Aspose.Slides, optimisez les présentations pour n'importe quel écran sans perdre en qualité."
+description: "Apprenez comment redimensionner rapidement les diapositives dans les fichiers PPT, PPTX et ODP avec PHP et Aspose.Slides, optimisez les présentations pour n'importe quel écran sans perdre en qualité."
 ---
 
 ## **Tailles de diapositives dans les présentations PowerPoint**

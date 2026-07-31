@@ -26,7 +26,7 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-descriptions: "C++ と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドをすばやくリサイズし、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化する方法を学びます。"
+description: "C++ と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドをすばやくリサイズし、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化する方法を学びます。"
 ---
 
 ## **PowerPoint プレゼンテーションのスライドサイズ**

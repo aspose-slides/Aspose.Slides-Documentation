@@ -27,7 +27,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-descriptions: "Aprenda cómo redimensionar rápidamente diapositivas en archivos PPT, PPTX y ODP con .NET y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
+description: "Aprenda cómo redimensionar rápidamente diapositivas en archivos PPT, PPTX y ODP con .NET y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
 ---
 
 ## **Personalizar tamaños de diapositivas y relaciones de aspecto en una presentación**

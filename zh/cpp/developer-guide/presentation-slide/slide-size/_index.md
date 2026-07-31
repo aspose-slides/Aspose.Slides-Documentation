@@ -26,7 +26,7 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-descriptions: "了解如何使用 C++ 和 Aspose.Slides 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片尺寸，优化演示文稿以适配任何屏幕而不失真。"
+description: "了解如何使用 C++ 和 Aspose.Slides 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片尺寸，优化演示文稿以适配任何屏幕而不失真。"
 ---
 
 ## **PowerPoint 演示文稿中的幻灯片尺寸**

@@ -27,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "使用 Java 和 Aspose.Slides for Android 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片尺寸，优化演示文稿以适配任何屏幕且不失真。"
+description: "使用 Java 和 Aspose.Slides for Android 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片尺寸，优化演示文稿以适配任何屏幕且不失真。"
 ---
 
 ## **PowerPoint 演示文稿中的幻灯片大小**
