@@ -26,7 +26,7 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-descriptions: "Aprenda a redimensionar rápidamente diapositivas en archivos PPT, PPTX y ODP con C++ y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
+description: "Aprenda a redimensionar rápidamente diapositivas en archivos PPT, PPTX y ODP con C++ y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
 ---
 
 ## **Tamaños de diapositiva en presentaciones de PowerPoint**

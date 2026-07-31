@@ -26,7 +26,7 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-descriptions: "了解如何使用 Java 和 Aspose.Slides 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片尺寸，在不损失质量的情况下为任何屏幕优化演示文稿。"
+description: "了解如何使用 Java 和 Aspose.Slides 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片尺寸，在不损失质量的情况下为任何屏幕优化演示文稿。"
 ---
 
 ## **PowerPoint 演示文稿中的幻灯片尺寸**

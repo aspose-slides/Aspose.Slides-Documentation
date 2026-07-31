@@ -27,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "قم بإعادة تحجيم الشرائح بسرعة في ملفات PPT و PPTX و ODP باستخدام Java و Aspose.Slides لـ Android، وقم بتحسين العروض التقديمية لأي شاشة دون فقدان الجودة."
+description: "قم بإعادة تحجيم الشرائح بسرعة في ملفات PPT و PPTX و ODP باستخدام Java و Aspose.Slides لـ Android، وقم بتحسين العروض التقديمية لأي شاشة دون فقدان الجودة."
 ---
 
 ## **أحجام الشرائح في عروض PowerPoint**

@@ -26,7 +26,7 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-descriptions: "Apprenez à redimensionner rapidement les diapositives dans les fichiers PPT, PPTX et ODP avec Python et Aspose.Slides, optimisez les présentations pour n'importe quel écran sans perdre de qualité."
+description: "Apprenez à redimensionner rapidement les diapositives dans les fichiers PPT, PPTX et ODP avec Python et Aspose.Slides, optimisez les présentations pour n'importe quel écran sans perdre de qualité."
 ---
 
 ## Tailles de diapositive dans les présentations PowerPoint

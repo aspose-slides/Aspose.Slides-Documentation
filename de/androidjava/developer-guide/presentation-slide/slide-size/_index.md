@@ -27,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Ändern Sie schnell die Foliengröße in PPT-, PPTX- und ODP-Dateien mit Java und Aspose.Slides für Android, optimieren Sie Präsentationen für jeden Bildschirm ohne Qualitätsverlust."
+description: "Ändern Sie schnell die Foliengröße in PPT-, PPTX- und ODP-Dateien mit Java und Aspose.Slides für Android, optimieren Sie Präsentationen für jeden Bildschirm ohne Qualitätsverlust."
 ---
 
 ## **Foliengrößen in PowerPoint-Präsentationen**

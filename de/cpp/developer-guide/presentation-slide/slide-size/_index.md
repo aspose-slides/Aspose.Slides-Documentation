@@ -26,7 +26,7 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-descriptions: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit C++ und Aspose.Slides schnell ändern, Präsentationen für jeden Bildschirm optimieren und dabei die Qualität erhalten."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit C++ und Aspose.Slides schnell ändern, Präsentationen für jeden Bildschirm optimieren und dabei die Qualität erhalten."
 ---
 
 ## **Foliengrößen in PowerPoint-Präsentationen**

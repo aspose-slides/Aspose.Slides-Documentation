@@ -27,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Java と Aspose.Slides for Android を使用して PPT、PPTX、ODP ファイルのスライドをすばやくリサイズし、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化します。"
+description: "Java と Aspose.Slides for Android を使用して PPT、PPTX、ODP ファイルのスライドをすばやくリサイズし、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化します。"
 ---
 
 ## **PowerPoint プレゼンテーションのスライドサイズ**

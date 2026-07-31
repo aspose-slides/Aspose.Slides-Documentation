@@ -26,7 +26,7 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-descriptions: "JavaとAspose.Slidesを使用してPPT、PPTX、ODPファイルのスライドをすばやくリサイズし、品質を損なわずに任意の画面に最適化されたプレゼンテーションを作成する方法をご紹介します。"
+description: "JavaとAspose.Slidesを使用してPPT、PPTX、ODPファイルのスライドをすばやくリサイズし、品質を損なわずに任意の画面に最適化されたプレゼンテーションを作成する方法をご紹介します。"
 ---
 
 ## **PowerPoint プレゼンテーションのスライド サイズ**

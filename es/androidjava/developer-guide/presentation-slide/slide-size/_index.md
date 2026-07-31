@@ -27,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Redimensione rápidamente diapositivas en archivos PPT, PPTX y ODP con Java y Aspose.Slides para Android, optimice presentaciones para cualquier pantalla sin perder calidad."
+description: "Redimensione rápidamente diapositivas en archivos PPT, PPTX y ODP con Java y Aspose.Slides para Android, optimice presentaciones para cualquier pantalla sin perder calidad."
 ---
 
 ## **Tamaños de diapositiva en presentaciones de PowerPoint**

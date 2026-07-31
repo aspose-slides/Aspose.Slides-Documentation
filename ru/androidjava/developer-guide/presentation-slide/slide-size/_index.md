@@ -27,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Быстро меняйте размер слайдов в файлах PPT, PPTX и ODP с помощью Java и Aspose.Slides для Android, оптимизируйте презентации для любого экрана без потери качества."
+description: "Быстро меняйте размер слайдов в файлах PPT, PPTX и ODP с помощью Java и Aspose.Slides для Android, оптимизируйте презентации для любого экрана без потери качества."
 ---
 
 ## **Размеры слайдов в презентациях PowerPoint**

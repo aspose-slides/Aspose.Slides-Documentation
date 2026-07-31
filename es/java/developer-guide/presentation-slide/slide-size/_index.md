@@ -26,7 +26,7 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-descriptions: "Aprenda a cambiar rápidamente el tamaño de las diapositivas en archivos PPT, PPTX y ODP con Java y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
+description: "Aprenda a cambiar rápidamente el tamaño de las diapositivas en archivos PPT, PPTX y ODP con Java y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
 ---
 
 ## **Tamaños de diapositivas en presentaciones de PowerPoint**

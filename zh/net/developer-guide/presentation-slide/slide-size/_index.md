@@ -27,7 +27,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-descriptions: "了解如何使用 .NET 和 Aspose.Slides 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片大小，在任何屏幕上优化演示文稿而不失真。"
+description: "了解如何使用 .NET 和 Aspose.Slides 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片大小，在任何屏幕上优化演示文稿而不失真。"
 ---
 
 ## **自定义演示文稿中的幻灯片尺寸和宽高比**

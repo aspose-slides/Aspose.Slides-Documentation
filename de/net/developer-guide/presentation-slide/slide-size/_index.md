@@ -27,7 +27,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-descriptions: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit .NET und Aspose.Slides schnell skalieren, Präsentationen für jeden Bildschirm optimieren, ohne Qualität zu verlieren."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit .NET und Aspose.Slides schnell skalieren, Präsentationen für jeden Bildschirm optimieren, ohne Qualität zu verlieren."
 ---
 
 ## **Anpassen von Foliengrößen und Seitenverhältnissen in einer Präsentation**

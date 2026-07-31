@@ -26,7 +26,7 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-descriptions: "PHP と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドを素早くリサイズし、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化する方法を学びます。"
+description: "PHP と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドを素早くリサイズし、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化する方法を学びます。"
 ---
 
 ## **PowerPoint プレゼンテーションのスライドサイズ**

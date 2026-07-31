@@ -26,7 +26,7 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-descriptions: "Python と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドを迅速にリサイズする方法を学び、品質を損なうことなくあらゆる画面向けにプレゼンテーションを最適化します。"
+description: "Python と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドを迅速にリサイズする方法を学び、品質を損なうことなくあらゆる画面向けにプレゼンテーションを最適化します。"
 ---
 
 ## PowerPoint プレゼンテーションのスライド サイズ
