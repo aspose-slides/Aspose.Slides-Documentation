@@ -3,7 +3,7 @@ title: Linienformen zu Präsentationen in .NET hinzufügen
 linktitle: Linie
 type: docs
 weight: 50
-url: /de/net/Line/
+url: /de/net/line/
 keywords:
 - "Linie"
 - "Linie erstellen"

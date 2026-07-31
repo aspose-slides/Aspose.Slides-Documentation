@@ -3,7 +3,7 @@ title: PowerPoint-Präsentationen im Handout-Modus auf Android konvertieren
 linktitle: Handout-Modus
 type: docs
 weight: 150
-url: /de/androidjava/convert-powerpoint-in-Handout-mode/
+url: /de/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint konvertieren
 - Präsentation konvertieren

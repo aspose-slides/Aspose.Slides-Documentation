@@ -3,7 +3,7 @@ title: Add Line Shapes to Presentations in Java
 linktitle: Line
 type: docs
 weight: 50
-url: /java/Line/
+url: /java/line/
 keywords:
 - line
 - create line

@@ -3,7 +3,7 @@ title: Добавить линейные фигуры в презентации 
 linktitle: Линия
 type: docs
 weight: 50
-url: /ru/net/Line/
+url: /ru/net/line/
 keywords:
 - линия
 - создать линию

@@ -2,7 +2,7 @@
 title: Convertir des présentations en mode Handout en JavaScript
 type: docs
 weight: 150
-url: /fr/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /fr/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - mode Handout

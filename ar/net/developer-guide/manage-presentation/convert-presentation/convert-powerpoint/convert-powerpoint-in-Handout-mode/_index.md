@@ -3,7 +3,7 @@ title: تحويل عروض PowerPoint التقديمية إلى وضع النش�
 linktitle: وضع النشرة
 type: docs
 weight: 150
-url: /ar/net/convert-powerpoint-in-Handout-mode/
+url: /ar/net/convert-powerpoint-in-handout-mode/
 keywords:
 - تحويل PowerPoint
 - تحويل العرض التقديمي

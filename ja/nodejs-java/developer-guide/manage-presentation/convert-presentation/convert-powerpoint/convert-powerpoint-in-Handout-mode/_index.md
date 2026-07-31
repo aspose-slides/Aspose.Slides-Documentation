@@ -2,7 +2,7 @@
 title: JavaScript でハンドアウトモードでプレゼンテーションを変換する
 type: docs
 weight: 150
-url: /ja/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /ja/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint を変換
 - ハンドアウトモード

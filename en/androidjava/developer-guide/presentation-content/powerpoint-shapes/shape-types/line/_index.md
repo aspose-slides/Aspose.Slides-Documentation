@@ -3,7 +3,7 @@ title: Add Line Shapes to Presentations on Android
 linktitle: Line
 type: docs
 weight: 50
-url: /androidjava/Line/
+url: /androidjava/line/
 keywords:
 - line
 - create line

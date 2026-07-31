@@ -3,7 +3,7 @@ title: Конвертировать презентации в режиме ра�
 linktitle: Режим раздаточного листа
 type: docs
 weight: 150
-url: /ru/python-net/convert-powerpoint-in-Handout-mode/
+url: /ru/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - конвертировать PowerPoint
 - конвертировать презентацию

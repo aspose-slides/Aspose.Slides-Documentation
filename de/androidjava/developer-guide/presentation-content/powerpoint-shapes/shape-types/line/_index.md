@@ -3,7 +3,7 @@ title: Linienformen zu Präsentationen auf Android hinzufügen
 linktitle: Linie
 type: docs
 weight: 50
-url: /de/androidjava/Line/
+url: /de/androidjava/line/
 keywords:
 - Linie
 - Linie erstellen

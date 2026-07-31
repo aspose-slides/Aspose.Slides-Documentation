@@ -3,7 +3,7 @@ title: Добавление линейных фигур в презентаци�
 linktitle: Линия
 type: docs
 weight: 50
-url: /ru/java/Line/
+url: /ru/java/line/
 keywords:
 - линия
 - создать линию

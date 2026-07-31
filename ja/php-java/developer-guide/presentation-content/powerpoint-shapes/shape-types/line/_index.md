@@ -3,7 +3,7 @@ title: PHP でプレゼンテーションに線形状を追加する
 linktitle: 線
 type: docs
 weight: 50
-url: /ja/php-java/Line/
+url: /ja/php-java/line/
 keywords:
 - 線
 - 線の作成

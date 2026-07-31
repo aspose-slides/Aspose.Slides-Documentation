@@ -3,7 +3,7 @@ title: Convertir des présentations PowerPoint en mode fiche avec PHP
 linktitle: Mode fiche
 type: docs
 weight: 150
-url: /fr/php-java/convert-powerpoint-in-Handout-mode/
+url: /fr/php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir présentation

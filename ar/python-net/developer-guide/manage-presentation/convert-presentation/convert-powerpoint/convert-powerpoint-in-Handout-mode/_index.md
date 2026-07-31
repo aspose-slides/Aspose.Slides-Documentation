@@ -3,7 +3,7 @@ title: تحويل العروض التقديمية في وضع النشرة با�
 linktitle: وضع النشرة
 type: docs
 weight: 150
-url: /ar/python-net/convert-powerpoint-in-Handout-mode/
+url: /ar/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - تحويل PowerPoint
 - تحويل عرض تقديمي

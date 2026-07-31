@@ -3,7 +3,7 @@ title: تحويل عروض PowerPoint في وضع النشرة باستخدام 
 linktitle: وضع النشرة
 type: docs
 weight: 150
-url: /ar/cpp/convert-powerpoint-in-Handout-mode/
+url: /ar/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - تحويل PowerPoint
 - تحويل العرض

@@ -3,7 +3,7 @@ title: 在 Android 上向演示文稿添加线形状
 linktitle: 线条
 type: docs
 weight: 50
-url: /zh/androidjava/Line/
+url: /zh/androidjava/line/
 keywords:
 - 线条
 - 创建线条

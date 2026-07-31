@@ -3,7 +3,7 @@ title: C++ を使用したハンドアウトモードで PowerPoint プレゼン
 linktitle: ハンドアウトモード
 type: docs
 weight: 150
-url: /ja/cpp/convert-powerpoint-in-Handout-mode/
+url: /ja/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint を変換
 - プレゼンテーションを変換

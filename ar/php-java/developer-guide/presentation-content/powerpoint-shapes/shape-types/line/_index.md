@@ -3,7 +3,7 @@ title: إضافة أشكال الخط إلى العروض التقديمية ف�
 linktitle: خط
 type: docs
 weight: 50
-url: /ar/php-java/Line/
+url: /ar/php-java/line/
 keywords:
 - خط
 - إنشاء خط

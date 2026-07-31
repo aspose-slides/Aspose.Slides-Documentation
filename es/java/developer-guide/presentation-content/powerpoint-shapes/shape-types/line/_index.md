@@ -3,7 +3,7 @@ title: Añadir formas de línea a presentaciones en Java
 linktitle: Línea
 type: docs
 weight: 50
-url: /es/java/Line/
+url: /es/java/line/
 keywords:
 - línea
 - crear línea

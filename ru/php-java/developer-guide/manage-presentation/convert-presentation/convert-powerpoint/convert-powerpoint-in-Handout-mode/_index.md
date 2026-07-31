@@ -3,7 +3,7 @@ title: Конвертация презентаций PowerPoint в режиме 
 linktitle: Режим раздаточного материала
 type: docs
 weight: 150
-url: /ru/php-java/convert-powerpoint-in-Handout-mode/
+url: /ru/php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - конвертировать PowerPoint
 - конвертировать презентацию

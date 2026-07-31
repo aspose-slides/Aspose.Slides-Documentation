@@ -3,7 +3,7 @@ title: Конвертировать презентации PowerPoint в реж�
 linktitle: Режим раздаточного материала
 type: docs
 weight: 150
-url: /ru/cpp/convert-powerpoint-in-Handout-mode/
+url: /ru/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - конвертировать PowerPoint
 - конвертировать презентацию

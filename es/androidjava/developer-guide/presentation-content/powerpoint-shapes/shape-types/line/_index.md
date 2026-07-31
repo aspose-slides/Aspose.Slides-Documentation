@@ -3,7 +3,7 @@ title: Añadir formas de línea a presentaciones en Android
 linktitle: Línea
 type: docs
 weight: 50
-url: /es/androidjava/Line/
+url: /es/androidjava/line/
 keywords:
 - línea
 - crear línea

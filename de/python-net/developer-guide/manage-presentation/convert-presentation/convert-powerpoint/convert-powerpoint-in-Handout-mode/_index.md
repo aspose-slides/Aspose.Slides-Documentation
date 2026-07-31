@@ -3,7 +3,7 @@ title: Präsentationen im Handout-Modus mit Python konvertieren
 linktitle: Handout-Modus
 type: docs
 weight: 150
-url: /de/python-net/convert-powerpoint-in-Handout-mode/
+url: /de/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint konvertieren
 - Präsentation konvertieren

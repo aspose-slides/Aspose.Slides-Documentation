@@ -3,7 +3,7 @@ title: PowerPoint-Präsentationen im Handout-Modus in .NET konvertieren
 linktitle: Handout-Modus
 type: docs
 weight: 150
-url: /de/net/convert-powerpoint-in-Handout-mode/
+url: /de/net/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint konvertieren
 - Präsentation konvertieren

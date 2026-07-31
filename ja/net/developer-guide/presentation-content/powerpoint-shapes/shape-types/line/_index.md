@@ -3,7 +3,7 @@ title: ".NET でプレゼンテーションに線形図形を追加"
 linktitle: "線"
 type: docs
 weight: 50
-url: /ja/net/Line/
+url: /ja/net/line/
 keywords:
   - "線"
   - "線の作成"

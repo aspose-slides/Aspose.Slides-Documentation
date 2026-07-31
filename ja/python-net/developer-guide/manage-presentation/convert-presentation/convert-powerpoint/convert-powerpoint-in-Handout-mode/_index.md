@@ -3,7 +3,7 @@ title: Pythonでハンドアウトモードのプレゼンテーションを変�
 linktitle: ハンドアウトモード
 type: docs
 weight: 150
-url: /ja/python-net/convert-powerpoint-in-Handout-mode/
+url: /ja/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPointを変換
 - プレゼンテーションを変換

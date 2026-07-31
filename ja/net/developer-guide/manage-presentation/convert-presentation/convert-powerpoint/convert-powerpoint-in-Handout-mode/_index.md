@@ -3,7 +3,7 @@ title: ".NET でハンドアウトモードの PowerPoint プレゼンテーシ�
 linktitle: "ハンドアウトモード"
 type: docs
 weight: 150
-url: /ja/net/convert-powerpoint-in-Handout-mode/
+url: /ja/net/convert-powerpoint-in-handout-mode/
 keywords:
 - "PowerPoint を変換"
 - "プレゼンテーションを変換"

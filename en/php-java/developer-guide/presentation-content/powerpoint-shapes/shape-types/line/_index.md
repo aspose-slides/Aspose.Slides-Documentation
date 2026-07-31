@@ -3,7 +3,7 @@ title: Add Line Shapes to Presentations in PHP
 linktitle: Line
 type: docs
 weight: 50
-url: /php-java/Line/
+url: /php-java/line/
 keywords:
 - line
 - create line

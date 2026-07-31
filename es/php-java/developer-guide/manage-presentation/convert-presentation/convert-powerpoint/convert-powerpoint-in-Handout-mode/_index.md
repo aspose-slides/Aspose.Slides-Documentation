@@ -3,7 +3,7 @@ title: Convertir presentaciones de PowerPoint en modo de folleto usando PHP
 linktitle: Modo de folleto
 type: docs
 weight: 150
-url: /es/php-java/convert-powerpoint-in-Handout-mode/
+url: /es/php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir presentación

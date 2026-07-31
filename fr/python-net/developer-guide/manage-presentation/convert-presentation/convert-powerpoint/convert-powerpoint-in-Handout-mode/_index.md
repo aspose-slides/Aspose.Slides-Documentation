@@ -3,7 +3,7 @@ title: Convertir des présentations en mode Dépliant avec Python
 linktitle: Mode Dépliant
 type: docs
 weight: 150
-url: /fr/python-net/convert-powerpoint-in-Handout-mode/
+url: /fr/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir présentation

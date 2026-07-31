@@ -2,7 +2,7 @@
 title: Конвертировать презентации в режиме раздаточного листа в JavaScript
 type: docs
 weight: 150
-url: /ru/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /ru/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
 - конвертировать PowerPoint
 - режим раздаточного листа

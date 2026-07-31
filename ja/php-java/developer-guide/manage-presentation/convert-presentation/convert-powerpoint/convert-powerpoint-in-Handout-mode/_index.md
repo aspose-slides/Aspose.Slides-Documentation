@@ -3,7 +3,7 @@ title: PHP を使用した Handout モードで PowerPoint プレゼンテーシ
 linktitle: Handout モード
 type: docs
 weight: 150
-url: /ja/php-java/convert-powerpoint-in-Handout-mode/
+url: /ja/php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint を変換
 - プレゼンテーションを変換

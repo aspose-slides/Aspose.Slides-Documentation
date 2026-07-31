@@ -3,7 +3,7 @@ title: Convert PowerPoint Presentations in Handout Mode Using C++
 linktitle: Handout Mode
 type: docs
 weight: 150
-url: /cpp/convert-powerpoint-in-Handout-mode/
+url: /cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - convert PowerPoint
 - convert presentation

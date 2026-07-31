@@ -3,7 +3,7 @@ title: AndroidでハンドアウトモードのPowerPointプレゼンテーシ�
 linktitle: ハンドアウトモード
 type: docs
 weight: 150
-url: /ja/androidjava/convert-powerpoint-in-Handout-mode/
+url: /ja/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPointを変換
 - プレゼンテーションを変換

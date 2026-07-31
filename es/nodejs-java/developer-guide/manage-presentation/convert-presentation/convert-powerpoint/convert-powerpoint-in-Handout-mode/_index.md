@@ -2,7 +2,7 @@
 title: Convertir presentaciones en modo Folleto en JavaScript
 type: docs
 weight: 150
-url: /es/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /es/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - modo folleto

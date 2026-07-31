@@ -3,7 +3,7 @@ title: 使用 C++ 将 PowerPoint 演示文稿转换为讲义模式
 linktitle: 讲义模式
 type: docs
 weight: 150
-url: /zh/cpp/convert-powerpoint-in-Handout-mode/
+url: /zh/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - 转换 PowerPoint
 - 转换 演示文稿
