@@ -1,0 +1,31 @@
+name: URL stability
+
+# The live URL of every page comes from its `url:` front-matter key, not its file path.
+# The Hugo build runs --cleanDestinationDir and the deploy does `sudo rm -rf` on the live
+# directory, so the moment a `url:` changes or vanishes the old URL becomes a hard 404
+# with no redirect.
+#
+# Measured 2026-07-28: 227 URLs carrying 62,287 impressions/year were 404ing, and the repo
+# contained no `aliases:` key anywhere. Three URL-destroying renames landed in the eight
+# weeks before that (SLIDESDOC-609, -731, -753). This makes forgetting an alias a failed
+# check instead of a traffic loss discovered a quarter later.
+
+on:
+  pull_request:
+    paths:
+      - '**.md'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: the check diffs the PR head against the base branch.
+          fetch-depth: 0
+
+      - name: Fetch the base branch
+        run: git fetch --no-tags origin "+refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}"
+
+      - name: Check for unaliased URL removals
+        run: python .github/scripts/check_url_removal.py "origin/${{ github.base_ref }}" HEAD
