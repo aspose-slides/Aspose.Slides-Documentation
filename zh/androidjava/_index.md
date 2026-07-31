@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Android via Java
-second_title: Aspose.Slides 文档
+second_title: Aspose.Slides for Android
 description: Aspose.Slides for Android 提供许多关键功能，使您能够在幻灯片中添加、修改和操作文本、形状、表格和动画、音频和视频。
 type: docs
 weight: 40

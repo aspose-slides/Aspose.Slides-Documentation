@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides für Python über Java
-second_title: "Aspose.Slides für Python Dokumentation"
+second_title: Aspose.Slides for Python
 description: Aspose.Slides für Python über Java bietet viele wichtige Funktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG-, PDF-Format und mehr.
 type: docs
 weight: 47

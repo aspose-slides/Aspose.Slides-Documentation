@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides لـ SharePoint
-second_title: توثيق Aspose.Slides
+second_title: Aspose.Slides for SharePoint
 description: Aspose.Slides لـ SharePoint هو حل مرن يجعل من الممكن تحويل مستندات PowerPoint® داخل مواقع Microsoft SharePoint.
 type: docs
 weight: 60

@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for C++
-second_title: Aspose.Slides 文档
+second_title: Aspose.Slides for C++
 description: Aspose.Slides for C++ 是第一个也是唯一一个提供管理 PowerPoint® 文档功能的组件。
 type: docs
 weight: 30
