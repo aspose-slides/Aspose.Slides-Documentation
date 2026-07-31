@@ -1,7 +1,7 @@
 ---
-title: Aspose.Slides for Node.js via .NET
-second_title: "Aspose.Slides for Node.js via .NET Tài liệu"
-description: Aspose.Slides for Node.js qua .NET cung cấp rất nhiều tính năng chính như quản lý văn bản, hình dạng, bảng & hoạt ảnh, thêm âm thanh và video vào các slide, xem trước slide, xuất slide sang định dạng SVG, PDF và hơn nữa.
+title: Aspose.Slides cho Node.js qua .NET
+second_title: Aspose.Slides cho Node.js
+description: Aspose.Slides cho Node.js qua .NET cung cấp nhiều tính năng quan trọng như quản lý văn bản, hình dạng, bảng & hoạt ảnh, thêm âm thanh và video vào slide, xem trước slide, xuất slide sang định dạng SVG, PDF và hơn thế nữa.
 type: docs
 weight: 47
 url: /vi/nodejs-net/
@@ -17,7 +17,7 @@ Aspose.Slides for Node.js qua .NET là một thư viện lớp cho phép các �
 
 Aspose.Slides for Node.js qua .NET là thành phần đầu tiên và duy nhất cung cấp chức năng quản lý tài liệu PowerPoint®.
 
-Aspose.Slides for Node.js qua .NET cung cấp rất nhiều tính năng chính như quản lý văn bản, hình dạng, bảng & hoạt ảnh, thêm âm thanh và video vào các slide, xem trước slide, xuất slide sang định dạng SVG, PDF và hơn nữa.
+Aspose.Slides for Node.js qua .NET cung cấp nhiều tính năng quan trọng như quản lý văn bản, hình dạng, bảng & hoạt ảnh, thêm âm thanh và video vào slide, xem trước slide, xuất slide sang định dạng SVG, PDF và hơn thế nữa.
 
 {{% /alert %}}
 
@@ -25,19 +25,19 @@ Aspose.Slides for Node.js qua .NET cung cấp rất nhiều tính năng chính n
 
 {{% alert color="primary" %}}
 
-Aspose.Slides for Node.js qua .NET được chuyển đổi từ Aspose.Slides cho .NET, vì vậy bạn có thể sử dụng tài liệu và tham chiếu API của nó.
+Aspose.Slides for Node.js qua .NET được chuyển từ Aspose.Slides cho .NET, vì vậy bạn có thể sử dụng tài liệu và tham chiếu API của phiên bản sau.
 
 {{% /alert %}}
 
 Đây là các liên kết tới các tài nguyên hữu ích:
 
-- [Tài liệu Trực tuyến Aspose.Slides for Node.js qua .NET](/slides/vi/net/developer-guide/)
+- [Tài liệu trực tuyến Aspose.Slides for Node.js qua .NET](/slides/vi/net/developer-guide/)
 - [Tính năng Aspose.Slides for Node.js qua .NET](/slides/vi/nodejs-net/features-overview/)
-- [Hạn chế và Sự khác biệt API của Aspose.Slides for Node.js qua .NET](/slides/vi/nodejs-net/limitations-and-api-differences/)
-- [Ghi chú Phát hành Aspose.Slides for Node.js qua .NET](https://releases.aspose.com/slides/vi/nodejs-net/release-notes/)
-- [Trang Sản phẩm Aspose.Slides for Node.js qua .NET](https://products.aspose.com/slides/vi/nodejs-net/)
-- [Tải về Gói Aspose.Slides for Node.js qua .NET](https://releases.aspose.com/slides/vi/nodejs-net/)
+- [Các hạn chế và sự khác biệt API của Aspose.Slides for Node.js qua .NET](/slides/vi/nodejs-net/limitations-and-api-differences/)
+- [Ghi chú phát hành Aspose.Slides for Node.js qua .NET](https://releases.aspose.com/slides/vi/nodejs-net/release-notes/)
+- [Trang sản phẩm Aspose.Slides for Node.js qua .NET](https://products.aspose.com/slides/vi/nodejs-net/)
+- [Tải xuống gói Aspose.Slides for Node.js qua .NET](https://releases.aspose.com/slides/vi/nodejs-net/)
 - [Cài đặt Aspose.Slides for Node.js qua .NET](/slides/vi/nodejs-net/installation/)
-- [Tham chiếu API Aspose.Slides for Node.js qua .NET](https://reference.aspose.com/slides/vi/nodejs-net/)
-- [Diễn đàn Hỗ trợ Miễn phí Aspose.Slides for Node.js qua .NET](https://forum.aspose.com/c/slides/vi/11)
-- [Trợ giúp Hỗ trợ Trả phí Aspose.Slides for Node.js qua .NET](https://helpdesk.aspose.com/)
+- [Tham khảo API Aspose.Slides for Node.js qua .NET](https://reference.aspose.com/slides/vi/nodejs-net/)
+- [Diễn đàn hỗ trợ miễn phí Aspose.Slides for Node.js qua .NET](https://forum.aspose.com/c/slides/vi/11)
+- [Bàn trợ giúp hỗ trợ trả phí Aspose.Slides for Node.js qua .NET](https://helpdesk.aspose.com/)

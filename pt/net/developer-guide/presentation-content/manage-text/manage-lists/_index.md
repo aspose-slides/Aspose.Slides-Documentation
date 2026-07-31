@@ -4,6 +4,8 @@ linktitle: Gerenciar Listas
 type: docs
 weight: 70
 url: /pt/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
 - marcador
 - lista com marcadores
@@ -21,11 +23,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a criar e formatar listas com marcadores, de imagem, multiníveis e numeradas em apresentações PowerPoint e OpenDocument usando Aspose.Slides para .NET."
+description: "Aprenda como criar e formatar listas com marcadores, imagens, multinível e numeradas em apresentações PowerPoint e OpenDocument usando Aspose.Slides para .NET."
 ---
 ## **Visão geral**
 
-Aspose.Slides for .NET permite criar e formatar listas com marcadores e numeradas em apresentações do PowerPoint e OpenDocument. Um item de lista é um parágrafo cujas configurações de marcador são controladas por meio do seu formato de parágrafo.
+Aspose.Slides para .NET permite que você crie e formate listas com marcadores e numeradas em apresentações PowerPoint e OpenDocument. Um item de lista é um parágrafo cujas configurações de marcador são controladas por meio do seu formato de parágrafo.
 
 Use a propriedade [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/paragraphformat/) para acessar as configurações de lista no nível do parágrafo. O ponto de entrada principal é [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/bullet/), que devolve um objeto [IBulletFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/). Com esse objeto, você pode definir o tipo de marcador, símbolo, imagem, cor, tamanho, estilo de numeração e número inicial.
 
@@ -35,7 +37,7 @@ Este artigo mostra como:
 - criar um marcador de imagem
 - criar uma lista multinível definindo a profundidade do parágrafo
 - criar uma lista numerada
-- inspecionar e alterar a formatação de lista em uma apresentação existente
+- inspecionar e alterar a formatação da lista em uma apresentação existente
 
 ## **Criar uma lista com marcadores**
 
@@ -117,12 +119,12 @@ O resultado:
 
 ## **Criar um marcador de imagem**
 
-Aspose.Slides permite substituir um símbolo de marcador regular por uma imagem. Marcadores de imagem funcionam melhor com imagens simples que permanecem legíveis em tamanho pequeno, como ícones ou arquivos PNG transparentes pequenos.
+Aspose.Slides permite substituir um símbolo de marcador padrão por uma imagem. Marcadores de imagem funcionam melhor com imagens simples que permanecem legíveis em tamanho pequeno, como ícones ou arquivos PNG transparentes pequenos.
 
 {{% alert color="primary" %}}
-Idealmente, se você planeja substituir o símbolo de marcador regular por uma imagem, é melhor escolher um gráfico simples com fundo transparente. Essas imagens funcionam bem como símbolos de marcador personalizados.
+Idealmente, se você planeja substituir o símbolo de marcador padrão por uma imagem, é melhor escolher um gráfico simples com fundo transparente. Esse tipo de imagem funciona bem como símbolo de marcador personalizado.
 
-Lembre-se de que a imagem será reduzida a um tamanho muito pequeno. Por esse motivo, recomendamos fortemente selecionar uma imagem que continue clara e visualmente eficaz quando usada como marcador em uma lista.
+Tenha em mente que a imagem será reduzida a um tamanho muito pequeno. Por esse motivo, recomendamos fortemente selecionar uma imagem que permaneça nítida e visualmente eficaz quando usada como marcador em uma lista.
 {{% /alert %}}
 
 Para criar um marcador de imagem, adicione uma imagem a [Presentation.Images](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/images/) e atribua o objeto de imagem retornado a [IBulletFormat.Picture](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/picture/). Defina [IBulletFormat.Type](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/type/) como [BulletType.Picture](https://reference.aspose.com/slides/pt/net/aspose.slides/bullettype/) antes de atribuir a imagem.
@@ -171,7 +173,7 @@ O resultado:
 
 ## **Criar uma lista multinível**
 
-Use [IParagraphFormat.Depth](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/depth/) para colocar os itens da lista em diferentes níveis. O nível 0 é o nível superior, o nível 1 está aninhado abaixo dele e assim por diante.
+Use [IParagraphFormat.Depth](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/depth/) para posicionar itens de lista em diferentes níveis. O nível 0 é o nível superior, o nível 1 está aninhado abaixo dele e assim por diante.
 
 O código C# a seguir mostra como criar uma lista com marcadores multinível:
 
@@ -213,9 +215,7 @@ O resultado:
 
 ## **Alterar uma lista existente**
 
-Para alterar a formatação de lista em uma apresentação existente, acesse o parágrafo alvo e atualize suas configurações [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/bullet/). As mesmas propriedades usadas para criar listas podem ser usadas para inspecionar ou modificar listas carregadas de um arquivo PPT, PPTX ou ODP.
-
-O código C# a seguir altera o primeiro parágrafo em um quadro de texto para usar um estilo de lista numerada:
+Para alterar a formatação da lista em uma apresentação existente, acesse o parágrafo de destino e atualize suas configurações de [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/bullet/). As mesmas propriedades usadas para criar listas podem ser usadas para inspecionar ou modificar listas carregadas de um arquivo PPT, PPTX ou ODP.
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -235,13 +235,13 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**As listas com marcadores e numeradas podem ser exportadas para PDF ou imagens?**
+**É possível exportar listas com marcadores e numeradas para PDF ou imagens?**
 
-Sim. Aspose.Slides preserva a formatação da lista quando o formato de destino oferece suporte ao layout de texto e aos recursos de marcador correspondentes.
+Sim. O Aspose.Slides preserva a formatação da lista quando o formato de destino oferece suporte ao layout de texto e recursos de marcadores correspondentes.
 
 **Posso editar listas em apresentações existentes?**
 
-Sim. Carregue a apresentação, acesse o parágrafo alvo, inspecione ou atualize suas configurações [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/bullet/) e salve a apresentação.
+Sim. Carregue a apresentação, acesse o parágrafo de destino, inspecione ou atualize suas configurações de [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/bullet/), e salve a apresentação.
 
 **As listas podem conter texto não‑latino?**
 

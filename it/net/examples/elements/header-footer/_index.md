@@ -1,12 +1,14 @@
 ---
-title: Intestazione Piè di pagina
+title: Intestazione e piè di pagina
 type: docs
 weight: 220
 url: /it/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- intestazione piè di pagina
-- aggiungi intestazione piè di pagina
-- aggiorna intestazione piè di pagina
+- intestazione e piè di pagina
+- aggiungi intestazione e piè di pagina
+- aggiorna intestazione e piè di pagina
 - esempio di codice
 - PowerPoint
 - OpenDocument
@@ -14,12 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Controlla intestazioni e piè di pagina delle diapositive con Aspose.Slides per .NET: aggiungi date, numeri di diapositiva e testo personalizzato in PPT, PPTX e ODP con esempi in C#."
+description: "Gestisci le intestazioni e i piè di pagina delle slide con Aspose.Slides per .NET: aggiungi date, numeri di slide e testo personalizzato in PPT, PPTX e ODP con esempi in C#."
 ---
-Questo articolo dimostra come aggiungere i piè di pagina e aggiornare i segnaposto di data e ora utilizzando **Aspose.Slides for .NET**.
+Questo articolo mostra come aggiungere piè di pagina e aggiornare i segnaposto di data e ora utilizzando **Aspose.Slides for .NET**.
 
 ## **Aggiungi un piè di pagina**
-Aggiungi testo all'area del piè di pagina di una diapositiva e rendilo visibile.
+
+Aggiungi testo all'area del piè di pagina di una slide e rendilo visibile.
 
 ```csharp
 static void AddHeaderFooter()
@@ -33,7 +36,8 @@ static void AddHeaderFooter()
 ```
 
 ## **Aggiorna data e ora**
-Modifica il segnaposto di data e ora su una diapositiva.
+
+Modifica il segnaposto di data e ora su una slide.
 
 ```csharp
 static void UpdateDateTime()

@@ -1,9 +1,11 @@
 ---
-title: Integrace dat z Excelu do prezentací PowerPoint
-linktitle: Integrace Excel
+title: Integrovat data z Excelu do prezentací PowerPoint
+linktitle: Integrace Excelu
 type: docs
 weight: 330
 url: /cs/net/excel-integration/
+aliases:
+  - /net/developer-guide/technical-articles/excel-integration/
 keywords:
 - Excel
 - sešit
@@ -12,66 +14,66 @@ keywords:
 - zdroj dat
 - hromadná korespondence
 - importovat tabulku
-- Excel do PowerPoint
+- Excel do PowerPointu
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Číst data ze sešitů Excel v Aspose.Slides pomocí API ExcelDataWorkbook. Načíst listy a buňky a použít hodnoty k vytváření datově řízených prezentací PowerPoint."
+description: "Číst data ze sešitů Excel v Aspose.Slides pomocí API ExcelDataWorkbook. Načtěte listy a buňky a použijte hodnoty k vytváření datově řízených prezentací PowerPoint."
 ---
 ## **Úvod**
 
-Prezentace PowerPoint jsou výkonným způsobem, jak zobrazit a komunikovat informace. Často se používají ve spojení se sešity Excel, kde Excel slouží jako vynikající zdroj strukturovaných dat a PowerPoint vyniká v vizualizaci těchto dat pro publikum.
+Prezentace PowerPoint jsou výkonným způsobem, jak zobrazovat a předávat informace. Často se používají ve spojení s sešity Excel, kde Excel slouží jako vynikající zdroj strukturovaných dat a PowerPoint je skvělý při vizualizaci těchto dat pro publikum.
 
-Existuje mnoho praktických scénářů, kde je kombinace Excelu a PowerPointu nezbytná: hromadná korespondence, vyplňování datových tabulek, generování jedné snímky na záznam dat (hromadné generování snímků), tvorba výukových materiálů a konsolidace více Excelových zpráv do jedné prezentace, jen vyjmenovat několik.
+Existuje mnoho praktických situací, kdy je kombinace Excelu a PowerPointu nezbytná: hromadná korespondence, naplňování datových tabulek, generování jedné snímky na jeden záznam (dávkové vytváření snímků), tvorba výukových materiálů a konsolidace několika Excelových zpráv do jediné prezentace, jen tak několik příkladů.
 
-Dosud implementace takových funkcí pomocí Aspose.Slides API vyžadovala spoléhat na řešení třetích stran, jako je Aspose.Cells. Přestože jsou tyto nástroje robustní, mohou být pro uživatele, kteří potřebují jen základní funkci integrace dat, nadměrně složité a nákladné.
+Dosud bylo nutné pro implementaci takových funkcí s API Aspose.Slides spoléhat na řešení třetích stran, jako je Aspose.Cells. Ačkoliv jsou tyto nástroje robustní, mohou být pro uživatele, kteří potřebují jen základní funkci integrace dat, zbytečně složité a nákladné.
 
 ## **Jak to funguje**
 
-Aby práce s daty Excelu byla snazší a plynulejší, Aspose.Slides představila nové třídy pro čtení dat ze sešitu Excel a import obsahu do prezentace. Tato funkce otevírá silné nové možnosti pro uživatele API, kteří chtějí využít Excel jako zdroj dat ve svých pracovních postupech s prezentacemi.
+Aby bylo práce s daty z Excelu jednodušší a efektivnější, Aspose.Slides zavedl nové třídy pro čtení dat ze sešitů Excel a importování obsahu do prezentace. Tato funkce otevírá silné nové možnosti pro uživatele API, kteří chtějí využít Excel jako zdroj dat ve svých pracovních postupech s prezentacemi.
 
-Nová funkčnost je navržena pro obecný přístup k datům a není integrována do Document Object Model (DOM) prezentace. To znamená *neumožňuje úpravy ani ukládání souborů Excel* — jejím jediným cílem je otevřít sešity a procházet jejich obsah za účelem získání hodnot buněk.
+Nová funkčnost je zamýšlena pro obecný přístup k datům a není integrována do Document Object Modelu (DOM) prezentace. To znamená, že *neumožňuje editaci ani ukládání souborů Excel* — její jediným účelem je otevřít sešit a procházet jeho obsah pro získání hodnot buněk.
 
-Na jádře této funkce je nová třída [ExcelDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldataworkbook/) . Tato třída umožňuje načíst sešit Excel z lokálního souboru nebo streamu. Po načtení poskytuje několik přetížení metody [GetCell](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldataworkbook/getcell/) , kterou můžete použít k získání konkrétních buněk podle jejich polohy (např. indexy řádku a sloupce nebo pojmenované oblasti).
+V jádru této funkce stojí nová třída [ExcelDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldataworkbook/). Tato třída umožňuje načíst sešit Excel z místního souboru nebo proudu. Jakmile je načten, poskytuje několik přetížených metod [GetCell](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldataworkbook/getcell/), které můžete použít k získání konkrétních buněk podle jejich pozice (např. indexy řádku a sloupce nebo pojmenované oblasti).
 
-Každé volání [GetCell](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldataworkbook/getcell/) vrací instanci třídy [ExcelDataCell](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldatacell/) . Tento objekt představuje jednu buňku v sešitu Excel a poskytuje vám přístup k její hodnotě jednoduchým a intuitivním způsobem.
+Každé volání [GetCell](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldataworkbook/getcell/) vrací instanci třídy [ExcelDataCell](https://reference.aspose.com/slides/cs/net/aspose.slides.excel/exceldatacell/). Tento objekt představuje jednu buňku v sešitu Excel a poskytuje vám přístup k její hodnotě jednoduchým a intuitivním způsobem.
 
-#### **Import grafu z Excelu**
+#### **Importovat Excel graf**
 
-Dalším krokem k rozšíření funkčnosti je třída [ExcelWorkbookImporter](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/) . Tato pomocná třída poskytuje funkci pro import obsahu ze sešitu Excel do prezentace. Obsahuje několik přetížení metody [AddChartFromWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) , která vám pomůže získat vybraný graf ze zadaného sešitu Excel a přidat jej na konec dané kolekce tvarů na zadaných souřadnicích.
+Dalším krokem rozšiřujícím funkčnost je třída [ExcelWorkbookImporter](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/). Tato pomocná třída poskytuje funkci pro importování obsahu ze sešitu Excel do prezentace. Obsahuje několik přetížených metod [AddChartFromWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/), které vám pomohou získat vybraný graf ze zadaného sešitu Excel a přidat jej na konec dané kolekce tvarů na zadaných souřadnicích.
 
-#### **Import tabulky z Excelu**
+#### **Importovat Excel tabulku**
 
-Třída [ExcelWorkbookImporter](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/) také obsahuje několik přetížení metody [AddTableFromWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/) . Tyto metody vám umožní importovat určený rozsah buněk z určeného listu a přidat jej jako tabulku na konec dané kolekce tvarů na zadaných souřadnicích.
+Třída [ExcelWorkbookImporter](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/) obsahuje také několik přetížených metod [AddTableFromWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/). Tyto metody vám umožní importovat určený rozsah buněk z určeného listu a přidat jej jako tabulku na konec dané kolekce tvarů na zadaných souřadnicích.
 
-Stručně řečeno, jde o lehké a přímočaré API pro čtení dat z Excelu — přesně to, co mnoho vývojářů potřebuje, bez zátěže kompletní knihovny pro zpracování tabulek.
+Stručně řečeno, jedná se o odlehčené a přímočaré API pro čtení dat z Excelu — přesně to, co mnoho vývojářů potřebuje, aniž by museli používat kompletní knihovnu pro zpracování tabulek.
 
-## **Pojďme kódit**
+## **Pojďme programovat**
 
 ### **Příklad scénáře hromadné korespondence**
 
-V následujícím příkladu implementujeme jednoduchý scénář hromadné korespondence generováním více prezentací na základě dat uložených v sešitu Excel.
+V následujícím příkladu vytvoříme jednoduchý scénář hromadné korespondence generováním více prezentací na základě dat uložených v sešitu Excel.
 
 Pro zahájení potřebujeme dvě věci:
 1. Sešit Excel obsahující data
 
-![Příklad dat Excelu](example1_image0.png)
+![Příklad dat v Excelu](example1_image0.png)
 
-2. Šablona prezentace PowerPoint
+2. Šablonu prezentace PowerPoint
 
-![Příklad šablony PowerPoint](example1_image1.png)
+![Příklad šablony PowerPointu](example1_image1.png)
 
 ```csharp
-// Načíst sešit Excel s daty zaměstnanců.
+// Načíst sešit Excel s údaji o zaměstnancích.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
 // Načíst šablonu prezentace.
 using Presentation templatePresentation = new Presentation("PresentationTemplate.pptx");
 
-// Procházet řádky v Excelu (vynechat hlavičku v řádku 0).
+// Procházet řádky Excelu (vyjma hlavičky na řádku 0).
 for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 {
     // Vytvořit novou prezentaci pro každý záznam zaměstnance.
@@ -80,7 +82,7 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
     // Odstranit výchozí prázdný snímek.
     employeePresentation.Slides.RemoveAt(0);
 
-    // Klonovat šablonový snímek do nové prezentace.
+    // Zkopírovat šablonový snímek do nové prezentace.
     ISlide slide = employeePresentation.Slides.AddClone(templatePresentation.Slides[0]);
 
     // Získat odstavce z cílového tvaru (předpokládá se, že se používá index tvaru 1).
@@ -108,12 +110,12 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 
 ### **Příklad tabulky Excel**
 
-Ve druhém příkladu jednoduše zkopírujeme data z tabulky Excel a zobrazíme je na snímku PowerPointu v vizuálně přitažlivějším formátu.
+Ve druhém příkladu jednoduše zkopírujeme data z tabulky Excel a zobrazíme je na snímku PowerPoint v esteticky příjemnějším formátu.
 
 V tomto příkladu znovu použijeme stejný sešit Excel z prvního příkladu, který obsahuje jednoduchou tabulku zaměstnanců.
 
 ```csharp
-// Načíst sešit Excel obsahující data zaměstnanců.
+// Načíst sešit Excel obsahující údaje o zaměstnancích.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
@@ -143,13 +145,13 @@ presentation.Save("Table.pptx", SaveFormat.Pptx);
 
 ![Výsledek](example2_image0.png)
 
-### **Příklad importu grafu z Excelu**
+### **Příklad importu Excel grafu**
 
-V tomto příkladu importujeme graf z prvního listu sešitu Excel použitého v předchozím příkladu. Graf bude v výsledné prezentaci odkazovat na externí sešit.
+V tomto příkladu importujeme graf z prvního listu sešitu Excel použitého v předchozím příkladu. Graf bude v výsledné prezentaci propojen s externím sešitem.
 
-Nejprve přidáme koláčový graf do sešitu Excel na základě tabulky zaměstnanců.
+Nejprve do sešitu Excel přidáme koláčový graf založený na tabulce zaměstnanců.
 
-![Příklad grafu Excel](example3_image0.png)
+![Příklad Excel grafu](example3_image0.png)
 
 ```csharp
 // Vytvořit novou prezentaci PowerPoint.
@@ -158,7 +160,7 @@ using Presentation presentation = new Presentation();
 // Získat kolekci tvarů z prvního snímku.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Importovat graf s názvem "Chart 1" z první listu sešitu a přidat jej do kolekce tvarů.
+// Importovat graf nazvaný "Chart 1" z prvního listu sešitu a přidat jej do kolekce tvarů.
 ExcelWorkbookImporter.AddChartFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "Chart 1", false);
 
 // Uložit výslednou prezentaci do souboru.
@@ -166,20 +168,20 @@ presentation.Save("Chart.pptx", SaveFormat.Pptx);
 ```
 ![Výsledek](example3_image1.png)
 
-### **Příklad importu všech grafů z Excelu**
+### **Příklad importu všech Excel grafů**
 
 Představte si, že máte sešit Excel plný grafů a potřebujete je všechny importovat do prezentace. Každý graf by měl být umístěn na novém snímku.
 
-Následující kód iteruje přes všechny listy ve zdrojovém souboru Excel, extrahuje grafy z každého listu a přidá každý graf na samostatný snímek pomocí rozložení prázdného snímku. Ve výsledné prezentaci bude vložen pouze datový graf, ne celý sešit.
+Následující kód prochází všechny listy ve zdrojovém souboru Excel, extrahuje grafy z každého listu a přidá každý graf na samostatný snímek pomocí prázdného rozvržení snímku. Ve výsledné prezentaci budou vložena pouze data grafu, nikoli celý sešit.
 
 ```csharp
-// Načíst sešit Excel obsahující data zaměstnanců.
+// Načíst sešit Excel obsahující údaje o zaměstnancích.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 
 // Vytvořit novou prezentaci PowerPoint.
 using Presentation presentation = new Presentation();
 
-// Získat prázdné rozložení snímku.
+// Získat prázdné rozvržení snímku.
 ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
 // Získat názvy všech listů obsažených v sešitu Excel.
@@ -191,10 +193,10 @@ foreach (var name in worksheetNames)
     IDictionary<int, string> worksheetCharts = workbook.GetChartsFromWorksheet(name);
     foreach (var chart in worksheetCharts)
     {
-        // Přidat nový snímek s použitím prázdného rozložení.
+        // Přidat nový snímek pomocí prázdného rozvržení.
         ISlide slide = presentation.Slides.AddEmptySlide(blankLayout);
 
-        // Importovat zadaný graf ze sešitu Excel do kolekce tvarů snímku.
+        // Importovat určený graf ze sešitu Excel do kolekce tvarů snímku.
         ExcelWorkbookImporter.AddChartFromWorkbook(slide.Shapes, 10, 10, workbook, name, chart.Key, false);
     }
 }
@@ -203,13 +205,13 @@ foreach (var name in worksheetNames)
 presentation.Save("Charts.pptx", SaveFormat.Pptx);
 ```
 
-### **Příklad importu tabulky z Excelu**
+### **Příklad importu Excel tabulky**
 
-V tomto příkladu importujeme formátovanou tabulku z listu Excel přímo do prezentace PowerPoint.
+V tomto příkladu importujeme naformátovanou tabulku z listu Excel přímo do prezentace PowerPoint.
 
-Zdrojový list Excel obsahuje formátovanou tabulku s údaji o zaměstnancích:
+Zdrojový list Excel obsahuje naformátovanou tabulku s údaji o zaměstnancích:
 
-![Příklad tabulky Excel](example4_image0.png)
+![Příklad Excel tabulky](example4_image0.png)
 
 ```csharp
 // Vytvořit novou prezentaci PowerPoint.
@@ -227,6 +229,7 @@ presentation.Save("FormattedTable.pptx", SaveFormat.Pptx);
 
 ![Výsledek](example4_image1.png)
 
+
 ## **Shrnutí**
 
-Tento mechanismus, dostupný přímo v Aspose.Slides, kombinuje práci s daty Excel a prezentacemi na jednom místě. Umožňuje vytvářet snímky s vizuálními grafy a data prezentovaná jako tabulky Excel — bez dalších knihoven či složitých integrací.
+Tento mechanismus, dostupný přímo v Aspose.Slides, kombinuje práci s daty z Excelu a prezentacemi na jednom místě. Umožňuje vám vytvářet snímky s vizuálními grafy a daty prezentovanými jako Excel tabulky — bez jakýchkoli dalších knihoven nebo složitých integrací.

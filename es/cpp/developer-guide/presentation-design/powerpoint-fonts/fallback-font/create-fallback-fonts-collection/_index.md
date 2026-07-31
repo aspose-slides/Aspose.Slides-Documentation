@@ -15,18 +15,26 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Configura una colección de fuentes de reserva en Aspose.Slides para C++ para mantener el texto coherente y nítido en presentaciones de PowerPoint y OpenDocument."
+description: "Configure una colección de fuentes de reserva en Aspose.Slides para C++ para mantener el texto coherente y nítido en presentaciones de PowerPoint y OpenDocument."
 ---
+## **Visión general**
+
+Aspose.Slides le permite configurar una colección de reglas de fuentes de reserva para una presentación. Cada regla de reserva está representada por la clase `FontFallBackRule` y puede añadirse a una `FontFallBackRulesCollection`, que implementa la interfaz `IFontFallBackRulesCollection`.
+
+Después de crear la colección, puede asignarla utilizando el método `set_FontFallBackRulesCollection` del `FontsManager` de la presentación. El `FontsManager` controla las fuentes en toda la presentación, y cada instancia de `Presentation` tiene su propio `FontsManager`.
+
+Una vez que el `FontsManager` está inicializado con la colección de fuentes de reserva, las fuentes de reserva especificadas se aplican durante la renderización de la presentación.
 
 ## **Aplicar reglas de reserva**
 
-Las instancias de la clase [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) pueden organizarse en [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrulescollection/), que implementa la interfaz [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrulescollection/). Es posible añadir o eliminar reglas de la colección.
+Las instancias de la clase [FontFallBackRule](https://reference.aspose.com/slides/es/cpp/aspose.slides/fontfallbackrule/) pueden organizarse en una [FontFallBackRulesCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/fontfallbackrulescollection/), que implementa la interfaz [IFontFallBackRulesCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/ifontfallbackrulescollection/). Es posible añadir o eliminar reglas de la colección.
 
-Luego, esta colección puede pasarse al método [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) de la clase [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/). FontsManager controla las fuentes en toda la presentación.
+Luego, esta colección puede pasarse al método [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/es/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) de la clase [FontsManager](https://reference.aspose.com/slides/es/cpp/aspose.slides/fontsmanager/). FontsManager controla las fuentes en toda la presentación.
 
-Cada [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) tiene un método [get_FontsManager()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/) con su propia instancia de la clase FontsManager.
+Cada [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/) tiene un método [get_FontsManager()](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/get_fontsmanager/) con su propia instancia de la clase FontsManager.
 
-Aquí hay un ejemplo de cómo crear una colección de reglas de fuentes de reserva y asignarla al FontsManager de una presentación determinada:  
+A continuación se muestra un ejemplo de cómo crear una colección de reglas de fuentes de reserva y asignarla al FontsManager de una presentación concreta:
+
 ``` cpp
 auto presentation = MakeObject<Presentation>();
 auto userRulesList = MakeObject<FontFallBackRulesCollection>();
@@ -37,27 +45,26 @@ userRulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), s
 presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList);
 ```
 
-
-Una vez que FontsManager se inicializa con la colección de fuentes de reserva, las fuentes de reserva se aplican durante la renderización de la presentación.
+Una vez que el FontsManager se inicializa con la colección de fuentes de reserva, las fuentes de reserva se aplican durante la renderización de la presentación.
 
 {{% alert color="primary" %}} 
-Obtenga más información sobre cómo [Renderizar presentación con fuente de reserva](/slides/es/cpp/render-presentation-with-fallback-font/).
+Lee más sobre cómo [Renderizar presentación con fuente de reserva](/slides/es/cpp/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Se incrustarán mis reglas de reserva en el archivo PPTX y serán visibles en PowerPoint después de guardar?**
+**¿Se incrustarán mis reglas de reserva en el archivo PPTX y serán visibles en PowerPoint después de guardarlo?**
 
 No. Las reglas de reserva son configuraciones de renderizado en tiempo de ejecución; no se serializan en el PPTX y no aparecerán en la interfaz de PowerPoint.
 
-**¿Se aplica la reserva al texto dentro de SmartArt, WordArt, gráficos y tablas?**
+**¿Se aplica la reserva a texto dentro de SmartArt, WordArt, gráficos y tablas?**
 
-Sí. Se utiliza el mismo mecanismo de sustitución de glifos para cualquier texto en estos objetos.
+Sí. Se utiliza el mismo mecanismo de sustitución de glifos para cualquier texto en dichos objetos.
 
-**¿Aspose distribuye alguna fuente con la biblioteca?**
+**¿Distribuye Aspose alguna fuente con la biblioteca?**
 
-No. Usted añade y utiliza fuentes por su cuenta y bajo su propia responsabilidad.
+No. Usted agrega y usa fuentes por su cuenta y bajo su propia responsabilidad.
 
-**¿Se pueden combinar el reemplazo/sustitución de fuentes faltantes y la reserva de glifos faltantes?**
+**¿Pueden usarse conjuntamente el reemplazo/sustitución de fuentes faltantes y la reserva de glifos faltantes?**
 
-Sí. Son etapas independientes del mismo pipeline de resolución de fuentes: primero el motor resuelve la disponibilidad de fuentes ([replacement](/slides/es/cpp/font-replacement/)/[substitution](/slides/es/cpp/font-substitution/)), luego la reserva rellena los vacíos de glifos faltantes en las fuentes disponibles.
+Sí. Son etapas independientes de la misma canalización de resolución de fuentes: primero el motor resuelve la disponibilidad de fuentes ([replacement](/slides/es/cpp/font-replacement/)/[substitution](/slides/es/cpp/font-substitution/)), luego la reserva cubre los vacíos de glifos faltantes en las fuentes disponibles.

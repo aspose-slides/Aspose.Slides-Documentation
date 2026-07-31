@@ -1,49 +1,49 @@
 ---
-title: Gestire le serie di dati dei grafici nelle presentazioni usando C++
+title: Gestire le serie di dati del grafico nelle presentazioni con C++
 linktitle: Serie di dati
 type: docs
 url: /it/cpp/chart-series/
 keywords:
 - serie di grafico
-- sovrapposizione serie
-- colore serie
-- colore categoria
-- nome serie
+- sovrapposizione delle serie
+- colore della serie
+- colore della categoria
+- nome della serie
 - punto dati
-- intervallo serie
+- spazio della serie
 - PowerPoint
 - presentazione
 - C++
 - Aspose.Slides
-description: "Scopri come gestire le serie di grafici in C++ per PowerPoint (PPT/PPTX) con esempi di codice pratici e migliori pratiche per migliorare le tue presentazioni di dati."
+description: "Scopri come gestire le serie di grafico in C++ per PowerPoint (PPT/PPTX) con esempi di codice pratici e migliori pratiche per migliorare le tue presentazioni dati."
 ---
 ## **Panoramica**
 
-Questo articolo descrive il ruolo di [ChartSeries](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartseries/) in Aspose.Slides, concentrandosi su come i dati sono strutturati e visualizzati nelle presentazioni. Questi oggetti forniscono gli elementi di base che definiscono insiemi individuali di punti dati, categorie e parametri di aspetto in un grafico. Lavorando con [ChartSeries](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartseries/), gli sviluppatori possono integrare senza problemi le fonti dati sottostanti e mantenere il pieno controllo su come le informazioni vengono visualizzate, ottenendo presentazioni dinamiche e guidate dai dati che comunicano chiaramente intuizioni e analisi.
+Questo articolo descrive il ruolo di [ChartSeries](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartseries/) in Aspose.Slides, concentrandosi su come i dati sono strutturati e visualizzati all'interno delle presentazioni. Questi oggetti forniscono gli elementi fondamentali che definiscono insiemi individuali di punti dati, categorie e parametri di aspetto in un grafico. Lavorando con [ChartSeries](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartseries/), gli sviluppatori possono integrare senza soluzione di continuità le sorgenti dati sottostanti e mantenere il pieno controllo su come le informazioni vengono visualizzate, ottenendo presentazioni dinamiche e basate sui dati che trasmettono chiaramente intuizioni e analisi.
 
-Una serie è una riga o una colonna di numeri tracciata in un grafico.
+Una serie è una riga o colonna di numeri tracciata in un grafico.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Impostare la sovrapposizione della serie di dati**
 
-Con il metodo [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) è possibile specificare quanto le barre e le colonne devono sovrapporsi in un grafico 2D (intervallo: -100 a 100). Questa proprietà si applica a tutte le serie del gruppo di serie padre: è una proiezione della proprietà di gruppo appropriata.
+Con il metodo [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) è possibile specificare di quanto le barre e le colonne devono sovrapporsi in un grafico 2D (intervallo: -100 a 100). Questa proprietà si applica a tutte le serie del gruppo di serie genitore: è una proiezione della proprietà di gruppo appropriata.
 
 Utilizzare il metodo `get_ParentSeriesGroup()::set_Overlap()` per impostare il valore desiderato per `Overlap`.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
 1. Aggiungere un grafico a colonne raggruppate su una diapositiva.
 1. Accedere alla prima serie del grafico.
-1. Accedere a `ParentSeriesGroup` della serie e impostare il valore di sovrapposizione desiderato.
+1. Accedere al `ParentSeriesGroup` della serie del grafico e impostare il valore di sovrapposizione desiderato per la serie.
 1. Scrivere la presentazione modificata in un file PPTX.
 
-Questo codice C++ mostra come impostare la sovrapposizione per una serie di grafico:
+Questo codice C++ mostra come impostare la sovrapposizione per una serie di un grafico:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// Adds chart
+// Aggiunge il grafico
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
@@ -52,7 +52,7 @@ if (series->idx_get(0)->get_Overlap() == 0)
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
-// Writes the presentation file to disk
+// Scrive il file della presentazione su disco
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
@@ -62,7 +62,7 @@ Aspose.Slides per C++ consente di modificare il colore di una serie in questo mo
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
 1. Aggiungere un grafico alla diapositiva.
-1. Accedere alla serie di cui si desidera cambiare il colore.
+1. Accedere alla serie di cui si desidera modificare il colore.
 1. Impostare il tipo di riempimento e il colore di riempimento desiderati.
 1. Salvare la presentazione modificata.
 
@@ -82,17 +82,17 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Modificare il colore di una categoria della serie di dati**
+## **Modificare il colore di una categoria di serie di dati**
 
 Aspose.Slides per C++ consente di modificare il colore di una categoria di serie in questo modo:
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
 1. Aggiungere un grafico alla diapositiva.
-1. Accedere alla categoria della serie di cui si desidera cambiare il colore.
+1. Accedere alla categoria della serie di cui si desidera modificare il colore.
 1. Impostare il tipo di riempimento e il colore di riempimento desiderati.
 1. Salvare la presentazione modificata.
 
-Questo codice C++ mostra come modificare il colore di una categoria della serie:
+Questo codice C++ mostra come modificare il colore di una categoria di serie:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -108,12 +108,12 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **Modificare il nome della serie di dati**
 
-Per impostazione predefinita, i nomi della legenda di un grafico sono i contenuti delle celle sopra ogni colonna o riga di dati.
+Per impostazione predefinita, i nomi della legenda per un grafico sono il contenuto delle celle sopra ciascuna colonna o riga di dati.
 
 Nel nostro esempio (immagine di esempio),
 
 * le colonne sono *Series 1, Series 2,* e *Series 3*;
-* le righe sono *Category 1, Category 2, Category 3,* e *Category 4*.
+* le righe sono *Category 1, Category 2, Category 3,* e *Category 4.* 
 
 Aspose.Slides per C++ consente di aggiornare o modificare il nome di una serie nei dati del grafico e nella legenda.
 
@@ -131,7 +131,7 @@ seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-Questo codice C++ mostra come modificare il nome di una serie nella legenda tramite `Series`:
+Questo codice C++ mostra come modificare il nome di una serie nella sua legenda tramite `Series`:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -146,15 +146,15 @@ name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 
 ## **Impostare il colore di riempimento della serie di dati**
 
-Aspose.Slides per C++ consente di impostare il colore di riempimento automatico per le serie di grafico all'interno dell'area di tracciamento in questo modo:
+Aspose.Slides per C++ consente di impostare il colore di riempimento automatico per le serie di un grafico all'interno di un'area di tracciamento in questo modo:
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
-1. Ottenere il riferimento di una diapositiva tramite il suo indice.
-1. Aggiungere un grafico con dati predefiniti basato sul tipo desiderato (nell'esempio sotto, abbiamo usato `ChartType::ClusteredColumn`).
+1. Ottenere il riferimento a una diapositiva tramite il suo indice.
+1. Aggiungere un grafico con dati predefiniti basato sul tipo preferito (nell'esempio seguente, abbiamo usato `ChartType::ClusteredColumn`).
 1. Accedere alla serie del grafico e impostare il colore di riempimento su Automatic.
 1. Salvare la presentazione in un file PPTX.
 
-Questo codice C++ mostra come impostare il colore di riempimento automatico per una serie di grafico:
+Questo codice C++ mostra come impostare il colore di riempimento automatico per una serie di un grafico:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -173,14 +173,14 @@ for (const auto& series : chart->get_ChartData()->get_Series())
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Impostare la serie di dati con inversione dei colori di riempimento**
+## **Impostare i colori di riempimento invertiti per le serie di dati**
 
-Aspose.Slides consente di impostare l'inversione del colore di riempimento per le serie di grafico all'interno dell'area di tracciamento in questo modo:
+Aspose.Slides consente di impostare il colore di riempimento invertito per le serie di un grafico all'interno di un'area di tracciamento in questo modo:
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
-1. Ottenere il riferimento di una diapositiva tramite il suo indice.
-1. Aggiungere un grafico con dati predefiniti basato sul tipo desiderato (nell'esempio sotto, abbiamo usato `ChartType::ClusteredColumn`).
-1. Accedere alla serie del grafico e impostare il colore di riempimento su invert.
+1. Ottenere il riferimento a una diapositiva tramite il suo indice.
+1. Aggiungere un grafico con dati predefiniti basato sul tipo preferito (nell'esempio seguente, abbiamo usato `ChartType::ClusteredColumn`).
+1. Accedere alla serie del grafico e impostare il colore di riempimento su invertito.
 1. Salvare la presentazione in un file PPTX.
 
 Questo codice C++ dimostra l'operazione:
@@ -217,9 +217,9 @@ series->get_InvertedSolidFillColor()->set_Color(inverColor);
 pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Impostare l'inversione del colore di riempimento per una serie di grafico**
+## **Impostare il colore di riempimento invertito per una serie di grafico**
 
-Aspose.Slides consente di impostare l'inversione tramite i metodi `IChartDataPoint::set_InvertIfNegative()` e `ChartDataPoint.set_InvertIfNegative()`. Quando l'inversione è impostata con questi metodi, il punto dati inverte i colori quando riceve un valore negativo.
+Aspose.Slides consente di impostare l'inversione tramite i metodi `IChartDataPoint::set_InvertIfNegative()` e `ChartDataPoint.set_InvertIfNegative()`. Quando l'inversione è impostata tramite questi metodi, il punto dati inverte i suoi colori quando riceve un valore negativo.
 
 Questo codice C++ dimostra l'operazione:
 
@@ -245,14 +245,14 @@ series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
 pres->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Cancella i valori di punti dati specifici**
+## **Cancella i valori specifici dei punti dati**
 
-Aspose.Slides per C++ consente di cancellare i dati `DataPoints` per una serie di grafico specifica in questo modo:
+Aspose.Slides per C++ consente di cancellare i dati `DataPoints` per una specifica serie di grafico in questo modo:
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
-2. Ottenere il riferimento di una diapositiva tramite il suo indice.
-3. Ottenere il riferimento di un grafico tramite il suo indice.
-4. Iterare tutti i `DataPoints` del grafico e impostare `XValue` e `YValue` su null.
+2. Ottenere il riferimento a una diapositiva tramite il suo indice.
+3. Ottenere il riferimento a un grafico tramite il suo indice.
+4. Iterare tutti i `DataPoints` del grafico e impostare `XValue` e `YValue` a null.
 5. Cancellare tutti i `DataPoints` per la serie di grafico specifica.
 6. Scrivere la presentazione modificata in un file PPTX.
 
@@ -276,50 +276,60 @@ dataPoints->Clear();
 pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 ```
 
-## **Impostare la larghezza dello spazio tra le serie di dati**
+## **Impostare la larghezza dello spazio della serie di dati**
 
-Aspose.Slides per C++ consente di impostare la larghezza dello spazio (`GapWidth`) di una serie tramite il metodo **`set_GapWidth()`** in questo modo:
+Aspose.Slides per C++ consente di impostare la larghezza dello spazio (Gap Width) di una serie tramite il metodo **`set_GapWidth()`** in questo modo:
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
 1. Accedere alla prima diapositiva.
 1. Aggiungere un grafico con dati predefiniti.
-1. Accedere a una qualsiasi serie del grafico.
+1. Accedere a qualsiasi serie del grafico.
 1. Impostare la proprietà `GapWidth`.
 1. Scrivere la presentazione modificata in un file PPTX.
 
-Questo codice C++ mostra come impostare la larghezza dello spazio per una serie:
+Questo codice C++ mostra come impostare la larghezza dello spazio di una serie:
 
 ```cpp
 // Crea una presentazione vuota 
-// Accede alla prima diapositiva della presentazione
-// Aggiunge un grafico con dati predefiniti
-// Imposta l'indice del foglio dati del grafico
-// Ottiene il foglio dati del grafico
-// Aggiunge le serie
-// Aggiunge le categorie
-// Prende la seconda serie del grafico
-// Popola i dati della serie
-// Imposta il valore di GapWidth
-// Salva la presentazione su disco
 auto presentation = System::MakeObject<Presentation>();
+
+// Accede alla prima diapositiva della presentazione
 auto slide = presentation->get_Slides()->idx_get(0);
+
+// Aggiunge un grafico con dati predefiniti
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
+
+// Imposta l'indice del foglio dati del grafico
 int32_t worksheetIndex = 0;
+
+// Ottiene il foglio dati del grafico
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Aggiunge le serie
 chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
 chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
+
+// Aggiunge le categorie
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+
+// Prende la seconda serie del grafico
 auto series = chart->get_ChartData()->get_Series()->idx_get(1);
 auto dataPoints = series->get_DataPoints();
+
+// Popola i dati della serie
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<int32_t>(30)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
+
+// Imposta il valore GapWidth
 series->get_ParentSeriesGroup()->set_GapWidth(50);
+
+// Salva la presentazione su disco
 presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 ```
 
@@ -327,8 +337,8 @@ presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 
 **Esiste un limite al numero di serie che un singolo grafico può contenere?**
 
-Aspose.Slides non impone un limite fisso al numero di serie aggiunte. Il limite pratico è determinato dalla leggibilità del grafico e dalla memoria disponibile per l'applicazione.
+Aspose.Slides non impone un limite fissato al numero di serie che è possibile aggiungere. Il limite pratico è determinato dalla leggibilità del grafico e dalla memoria disponibile per la tua applicazione.
 
-**Cosa succede se le colonne all'interno di un gruppo sono troppo vicine o troppo distanti?**
+**Cosa succede se le colonne all'interno di un raggruppamento sono troppo vicine o troppo distanti?**
 
-Regolare l'impostazione della larghezza dello spazio per quella serie (o per il suo gruppo di serie padre). Aumentare il valore amplia lo spazio tra le colonne, mentre diminuirlo le avvicina.
+Regola l'impostazione della larghezza dello spazio per quella serie (o per il suo gruppo di serie genitore). Incrementare il valore aumenta lo spazio tra le colonne, mentre diminuirlo le avvicina.

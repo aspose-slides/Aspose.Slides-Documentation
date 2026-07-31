@@ -1,65 +1,65 @@
 ---
-title: Handout Modunda PowerPoint Sunumlarını C++ Kullanarak Dönüştürme
-linktitle: Handout Modu
+title: C++ Kullanarak El Broşür Modunda PowerPoint Sunumlarını Dönüştürme
+linktitle: El Broşür Modu
 type: docs
 weight: 150
-url: /tr/cpp/convert-powerpoint-in-Handout-mode/
+url: /tr/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint dönüştür
-- sunumu dönüştür
-- handout modu
-- el kitabı
+- sunum dönüştür
+- el broşür modu
+- el broşürü
 - PPT
 - PPTX
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Sunumları C++ ile el kitapçığına dönüştürün. Sayfa başına slayt sayısını ayarlayın, notları koruyun, Aspose.Slides ile PDF veya görüntü olarak dışa aktarın, örnek kodla. Ücretsiz deneyin."
+description: "C++ ile sunumları el broşürlerine dönüştürün. Sayfa başına slayt sayısını ayarlayın, notları koruyun, Aspose.Slides ile PDF veya görüntülere dışa aktarın, örnek kodla. Ücretsiz deneyin."
 ---
-## **Introduction**
+## **Giriş**
 
-Aspose.Slides, sunumları çeşitli formatlara dönüştürme imkanı sunar; bunlar arasında Handout modunda yazdırma için el kitapçıkları oluşturma da bulunur. Bu mod, bir sayfada birden fazla slaytın nasıl görüneceğini yapılandırmanıza olanak tanır ve konferanslar, seminerler ve diğer etkinlikler için faydalıdır. Bu modu, [IPdfOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/ihtmloptions/) ve [ITiffOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/itiffoptions/) arabirimlerinde `set_SlidesLayoutOptions` metodunu ayarlayarak etkinleştirebilirsiniz.
+Aspose.Slides, sunumları çeşitli formatlarda dönüştürme yeteneği sağlar; bunlar arasında Handout modunda yazdırma için el broşürleri oluşturma da bulunur. Bu mod, bir sayfada birden çok slaytın nasıl görüneceğini yapılandırmanıza olanak tanır ve konferanslar, seminerler ve diğer etkinlikler için faydalıdır. Bu modu, `set_SlidesLayoutOptions` yöntemini [IPdfOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/ihtmloptions/), ve [ITiffOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/itiffoptions/) arabirimlerinde ayarlayarak etkinleştirebilirsiniz.
 
-## **Handout Mode Export**
+## **El Broşür Modu Dışa Aktarımı**
 
-Handout modunu yapılandırmak için, bir sayfada kaç slayt yer alacağını ve diğer görüntüleme parametrelerini belirleyen [HandoutLayoutingOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/handoutlayoutingoptions/) nesnesini kullanın.
+El broşür modunu yapılandırmak için, bir sayfaya kaç slayt yerleştirileceğini ve diğer görüntüleme parametrelerini belirleyen [HandoutLayoutingOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/handoutlayoutingoptions/) nesnesini kullanın.
 
-Aşağıda, bir sunumu Handout modunda PDF'ye dönüştürmeyi gösteren bir kod örneği bulunmaktadır.
+Aşağıda, bir sunumu El broşür modunda PDF'ye dönüştürmeyi gösteren bir kod örneği bulunmaktadır.
 
 ```cpp
-// Sunumu yükle.
+// Bir sunumu yükle.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Dışa aktarım seçeneklerini ayarla.
+// Set the export options.
 auto slidesLayoutOptions = MakeObject<HandoutLayoutingOptions>();
-slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // Yatay olarak bir sayfada 4 slayt
+slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // Bir sayfada yatay olarak 4 slayt
 slidesLayoutOptions->set_PrintSlideNumbers(true);                    // slayt numaralarını yazdır
-slidesLayoutOptions->set_PrintFrameSlide(true);                      // slaytların etrafına çerçeve ekle
+slidesLayoutOptions->set_PrintFrameSlide(true);                      // slaytların etrafına çerçeve yazdır
 slidesLayoutOptions->set_PrintComments(false);                       // yorum yok
 
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(slidesLayoutOptions);
 
-// Seçilen düzenle sunumu PDF olarak dışa aktar.
+// Export the presentation to PDF with the chosen layout.
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
 {{% alert color="warning" %}} 
-`set_SlidesLayoutOptions` metodunun yalnızca PDF, HTML, TIFF gibi belirli çıktı formatları ve görüntü olarak render edildiğinde kullanılabilir olduğunu aklınızda bulundurun.
+`set_SlidesLayoutOptions` yönteminin yalnızca PDF, HTML, TIFF gibi belirli çıktı formatları için ve görüntü olarak işlenirken kullanılabileceğini aklınızda bulundurun.
 {{% /alert %}} 
 
-## **FAQ**
+## **SSS**
 
-**What is the maximum number of slide thumbnails per page in Handout mode?**
+**El broşür modunda bir sayfa başına maksimum slayt küçük resmi sayısı nedir?**
 
-Aspose.Slides, sayfa başına en fazla 9 küçük resme kadar olan [presets](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/handouttype/) (ön ayarlar) destekler; yatay veya dikey sıralama seçenekleri: 1, 2, 3, 4 (yatay/dikey), 6 (yatay/dikey) ve 9 (yatay/dikey).
+Aspose.Slides, sayfa başına en fazla 9 küçük resim destekleyen [preset'ler](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/handouttype/) yatay veya dikey sıralama seçenekleriyle: 1, 2, 3, 4 (yatay/dikey), 6 (yatay/dikey) ve 9 (yatay/dikey) sunar.
 
-**Can I define a custom grid, such as 5 or 8 slides per page?**
+**Sayfa başına 5 veya 8 slayt gibi özel bir ızgara tanımlayabilir miyim?**
 
-Hayır. Küçük resimlerin sayısı ve sıralaması, sadece [HandoutType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/handouttype/) enumu tarafından belirlenir; rastgele düzenler desteklenmez.
+Hayır. Küçük resim sayısı ve sıralaması, [HandoutType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/handouttype/) enum'ı tarafından kesin olarak kontrol edilir; keyfi düzenler desteklenmez.
 
-**Can I include hidden slides in the Handout output?**
+**El broşür çıktısına gizli slaytları dahil edebilir miyim?**
 
-Evet. Hedef format için dışa aktarma ayarlarında `set_ShowHiddenSlides` metodunu kullanın; örneğin [PdfOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/htmloptions/) veya [TiffOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/).
+Evet. Hedef format için dışa aktarma ayarlarında `set_ShowHiddenSlides` yöntemini kullanın; örneğin [PdfOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/htmloptions/), veya [TiffOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/).

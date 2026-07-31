@@ -1,24 +1,24 @@
 ---
-title: A prezentáció diák méretének módosítása JavaScriptben
-linktitle: Diák méret
+title: A prezentáció diaméretének módosítása JavaScriptben
+linktitle: Dia mérete
 type: docs
 weight: 70
 url: /hu/nodejs-java/slide-size/
 keywords:
-- diák méret
+- dia mérete
 - képarány
-- szabványos
-- szélesvásznú
+- standard
+- szélesvászon
 - 4:3
 - 16:9
-- diák méret beállítása
-- diák méret módosítása
-- egyéni diák méret
-- különleges diák méret
-- egyedi diák méret
+- dia méretének beállítása
+- dia méretének módosítása
+- egyéni dia méret
+- különleges dia méret
+- egyedi dia méret
 - teljes méretű dia
-- képernyő típusa
-- ne méretezz
+- képernyő típus
+- ne méretezze
 - illeszkedés biztosítása
 - maximalizálás
 - PowerPoint
@@ -27,26 +27,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-descriptions: "Ismerje meg, hogyan lehet gyorsan átméretezni a diákat PPT, PPTX és ODP fájlokban Node.js és Aspose.Slides segítségével, optimalizálva a prezentációkat bármilyen képernyőre a minőség elvesztése nélkül."
+description: "Ismerje meg, hogyan lehet gyorsan átméretezni a diákat PPT, PPTX és ODP fájlokban Node.js és Aspose.Slides segítségével, és optimalizálja a prezentációkat bármilyen képernyőre a minőségromlás nélkül."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides átfogó eszközöket nyújt a diák méretének és képarányának beállításához PowerPoint‑prezentációkban, ami a nyomtatás és a képernyő megjelenítés szempontjából is kritikus.
+Az Aspose.Slides átfogó eszközöket biztosít a dia méretének és arányának beállításához a PowerPoint‑prezentációkban, ami mind a nyomtatás, mind a képernyőmegjelenítés szempontjából kritikus.
 
-Népszerű diák méretek és képarányok:
+Népszerű diák méretek és arányok:
 
-- **Standard (4:3 képarány)**: Ideális régebbi képernyők és eszközök számára.
-- **Widescreen (16:9 képarány)**: Ajánlott modern projektorok és kijelzők számára.
+- **Standard (4:3 képarány)**: Ideális régebbi képernyőkhöz és eszközökhöz.
+- **Widescreen (16:9 képarány)**: Ajánlott modern projektorokhoz és kijelzőkhöz.
 
-Biztosítsa a következetességet a teljes prezentációban, mivel egyetlen diák méret és képarány vonatkozik az összes diára. Az optimális eredmény érdekében állítsa be a diák méreteit a prezentációkészítés elején, hogy elkerülje a problémákat.
+Biztosítsa a konzisztenciát a teljes prezentációban, mivel egyetlen dia méret és képarány vonatkozik az összes diára. A legjobb eredmény érdekében állítsa be a dia méreteit a prezentáció létrehozásának elején, hogy elkerülje a komplikációkat.
 
 {{% alert color="primary" %}} 
-Alapértelmezés szerint az Aspose.Slides‑el létrehozott prezentációk a szabványos 4:3 képarányt használják.
+Alapértelmezés szerint az Aspose.Slides‑szel létrehozott prezentációk a szabványos 4:3 képarányt használják.
 {{% /alert %}}
 
-## **Diák méretének módosítása a prezentációkban**
+## **Dia méretének változtatása a prezentációkban**
 
-Ez a minta kód bemutatja, hogyan lehet megváltoztatni egy prezentáció diák méretét JavaScriptben az Aspose.Slides használatával:
+Ez a példakód bemutatja, hogyan változtathatja meg a dia méretét egy prezentációban JavaScript‑ben az Aspose.Slides használatával:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres-4x3-aspect-ratio.pptx");
@@ -60,16 +60,16 @@ try {
 }
 ```
 
-## **Egyéni diák méreteinek megadása a prezentációkban**
+## **Egyéni dia méretek megadása a prezentációkban**
 
-Ha a gyakori diák méretek (4:3 és 16:9) nem megfelelőek az Ön munkájához, dönthet úgy, hogy egy meghatározott vagy egyedi diák méretet használ. Például, ha a prezentációból teljes méretű diákat szeretne nyomtatni egy egyedi oldalelrendezésre, vagy ha a prezentációt bizonyos képernyőtípusokon kívánja megjeleníteni, valószínűleg hasznos lesz egy egyéni méret beállítása a prezentációhoz.
+Ha a gyakori dia méretek (4:3 és 16:9) nem megfelelőek az Ön számára, dönthet úgy, hogy egy meghatározott vagy egyedi dia méretet használ. Például, ha a prezentáció teljes méretű diáit egy egyedi oldalelrendezésre szeretné nyomtatni, vagy ha a prezentációt bizonyos képernyőtípusokon kívánja megjeleníteni, valószínűleg hasznos lesz egy egyedi méret beállítása a prezentációhoz.
 
-Ez a minta kód bemutatja, hogyan használhatja az Aspose.Slides for Node.js‑t Java‑n keresztül egy egyedi diák méret megadásához egy prezentációban JavaScriptben:
+Ez a példakód bemutatja, hogyan használhatja az Aspose.Slides for Node.js‑t Java‑on keresztül egy egyedi dia méret megadásához egy prezentációban JavaScript‑ben:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
-    pres.getSlideSize().setSize(780, 540, aspose.slides.SlideSizeScaleType.DoNotScale);// A4 papírméret
+    pres.getSlideSize().setSize(780, 540, aspose.slides.SlideSizeScaleType.DoNotScale);// A4 papír méret
     pres.save("pres-a4-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -78,25 +78,25 @@ try {
 }
 ```
 
-## **Problémák kezelése a diák méretének módosításakor a prezentációkban**
+## **Problémák kezelése a diák méretének változtatásakor a prezentációkban**
 
-Miután megváltoztatta egy prezentáció diák méretét, a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új diák méretéhez. Azonban a prezentáció diák méretének módosításakor megadhat egy beállítást, amely meghatározza, hogyan kezeli az Aspose.Slides a diák tartalmát.
+Miután megváltoztatta egy prezentáció dia méretét, a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új dia mérethez. Azonban a prezentáció dia méretének változtatásakor megadhat egy beállítást, amely meghatározza, hogyan kezeli az Aspose.Slides a diák tartalmát.
 
-Attól függően, hogy mit kíván elérni, az alábbi beállítások valamelyikét használhatja:
+Attól függően, hogy mit kíván elérni, az alábbi beállítások bármelyikét használhatja:
 
 - `DoNotScale`
 
-  Ha NEM szeretné, hogy a diák objektumai átméreteződjenek, használja ezt a beállítást.
+  Ha NEM szeretné, hogy a diákon lévő objektumok átméreteződjenek, használja ezt a beállítást.
 
 - `EnsureFit`
 
-  Ha kisebb diák méretre szeretne skálázni, és azt igényli, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy minden elférjen a diákon (így elkerülve a tartalom elvesztését), használja ezt a beállítást.
+  Ha egy kisebb dia méretre szeretne méretezni, és azt igényli, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy mindegyik elférjen a dián (ezzel elkerülve a tartalom elvesztését), használja ezt a beállítást.
 
 - `Maximize`
 
-  Ha nagyobb diák méretre szeretne skálázni, és azt igényli, hogy az Aspose.Slides megnövelje a diák objektumait, hogy arányosak legyenek az új diák mérettel, használja ezt a beállítást.
+  Ha egy nagyobb dia méretre szeretne méretezni, és azt igényli, hogy az Aspose.Slides megnövelje a diák objektumait, hogy arányosak legyenek az új dia mérettel, használja ezt a beállítást.
 
-Ez a minta kód bemutatja, hogyan lehet használni a `Maximize` beállítást a prezentáció diák méretének módosításakor:
+Ez a példakód bemutatja, hogyan használja a `Maximize` beállítást a prezentáció dia méretének változtatásakor:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -109,20 +109,20 @@ try {
 }
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Beállíthatok egy egyéni diák méretet más mértékegységekben, mint az hüvelyk (például pontokban vagy milliméterben)?**
+**Beállíthatok egyedi dia méretet csak hüvelyk helyett más mértékegységgel (például pontokkal vagy milliméterrel)?**
 
-Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont egy hüvelyk 1/72‑e. Bármely mértékegységet (például millimétert vagy centimétert) átalakíthat pontokra, és a konvertált értékeket használhatja a diák szélességének és magasságának meghatározásához.
+Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont = 1/72 hüvelyk. Bármely mértékegységet (például millimétert vagy centimétert) átkonvertálhat pontokra, és a konvertált értékeket használhatja a dia szélességének és magasságának meghatározásához.
 
-**Erősen nagy egyéni diák méret befolyásolja a teljesítményt és a memóriahasználatot a renderelés során?**
+**Egy nagyon nagy egyedi dia méret befolyásolja a teljesítményt és a memóriahasználatot a renderelés során?**
 
-Igen. A nagyobb diák méretek (pontban) magasabb renderelési skálával együtt megnövekedett memóriafelhasználáshoz és hosszabb feldolgozási időkhez vezetnek. Törekedjen egy praktikus diák méretre, és a renderelési skálát csak akkor módosítsa, ha szükséges a kívánt kimeneti minőség elérése érdekében.
+Igen. A nagyobb dia méretek (pontban) magasabb renderelési skálával együtt megnövekedett memóriafogyasztást és hosszabb feldolgozási időt eredményeznek. Célozzon meg egy praktikus dia méretet, és csak akkor állítson be nagyobb renderelési skálát, ha szükséges a kívánt kimeneti minőség eléréséhez.
 
-**Megadhatok egy nem szabványos diák méretet, majd összevonhatok diákokat olyan prezentációkból, amelyek különböző méretekkel rendelkeznek?**
+**Definiálhatok egy nem szabványos dia méretet, majd egyesíthetek diák‑csoportokat olyan prezentációkból, amelyek eltérő méretekkel rendelkeznek?**
 
-Nem vonhat össze [merge presentations](/slides/hu/nodejs-java/merge-presentation/) prezentációkat, ha különböző diák méretűek — először méretezze át az egyiket, hogy megegyezzen a másikkal. Diák méretének módosításakor a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidesizescaletype/) beállítással választhatja ki, hogyan kezelje a meglévő tartalmat. A méretek összehangolása után összevonhatja a diákat a formázás megtartásával.
+Nem [egyesítheti a prezentációkat](/slides/hu/nodejs-java/merge-presentation/) amíg különböző dia méretek vannak – először méretezze át az egyiket, hogy megfeleljen a másiknak. A dia méretének módosításakor kiválaszthatja, hogyan kezelje a meglévő tartalmat a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidesizescaletype/) opcióval. A méretek egyeztetése után egyesítheti a diákot a formázás megőrzésével.
 
-**Generálhatok bélyegképeket egyedi alakzatokra vagy egy diák meghatározott részeire, és figyelembe veszik az új diák méretet?**
+**Létrehozhatok előnézeti képeket egyedi alakzatokhoz vagy a dia meghatározott területeihez, és figyelembe veszik az új dia méretet?**
 
-Igen. Az Aspose.Slides képes bélyegképeket renderelni [entire slides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getImage) illetve [selected shapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/#getImage) számára. A kapott képek tükrözik az aktuális diák méretét és képarányát, biztosítva a konzisztens keretezést és geometriát.
+Igen. Az Aspose.Slides előnézeti képeket renderelhet [teljes diákra](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getImage), valamint [kiválasztott alakzatokra](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/#getImage). A kapott képek tükrözik az aktuális dia méretét és képarányát, biztosítva az egységes keretezést és geometriát.

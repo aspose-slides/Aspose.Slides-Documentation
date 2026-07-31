@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides per Java
-second_title: Documentazione Aspose.Slides
+second_title: Aspose.Slides per Java
 type: docs
 weight: 20
 url: /it/java/
@@ -17,17 +17,17 @@ is_root: true
 ---
 {{% alert color="primary" %}}
 
-![Logo del prodotto Aspose.Slides per Java](home_1.png)
+![Logo prodotto Aspose.Slides per Java](home_1.png)
 
 **Benvenuto in Aspose.Slides per Java!**
 
-Aspose.Slides per Java è un'API di gestione di Microsoft PowerPoint® che consente alle applicazioni Java di leggere e scrivere documenti PowerPoint® senza Microsoft PowerPoint®. Aspose.Slides per Java è il primo e unico componente che fornisce la funzionalità per gestire documenti PowerPoint®. Aspose.Slides per Java offre molte funzionalità chiave, come la gestione di testo, forme, tabelle e animazioni, l'aggiunta di audio e video alle diapositive, l'anteprima delle diapositive, l'esportazione delle diapositive in SVG, PDF e altri formati.
+Aspose.Slides per Java è un'API di gestione di Microsoft PowerPoint® che consente alle applicazioni Java di leggere e scrivere documenti PowerPoint® senza Microsoft PowerPoint®. Aspose.Slides per Java è il primo e unico componente che fornisce la funzionalità di gestire i documenti PowerPoint®. Aspose.Slides per Java offre molte funzionalità chiave, come la gestione di testo, forme, tabelle e animazioni, l'aggiunta di audio e video alle diapositive, l'anteprima delle diapositive, l'esportazione delle diapositive in SVG, PDF e altri formati.
 
 {{% /alert %}}
 
-## **Risorse Aspose.Slides per Java**
+## **Risorse di Aspose.Slides per Java**
 
-Ecco alcuni collegamenti a risorse utili:
+Di seguito sono riportati link a risorse utili:
 
 - [Documentazione online di Aspose.Slides per Java](/slides/it/java/)
 - [Funzionalità di Aspose.Slides per Java](/slides/it/java/features-overview/)

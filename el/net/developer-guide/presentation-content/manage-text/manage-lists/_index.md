@@ -1,15 +1,17 @@
 ---
-title: Διαχείριση λιστών με κουκκίδες και αριθμημένων σε παρουσιάσεις .NET
+title: Διαχείριση λιστών με κουκκίδες και αρίθμηση σε παρουσιάσεις σε .NET
 linktitle: Διαχείριση λιστών
 type: docs
 weight: 70
 url: /el/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
 - κουκκίδα
 - λίστα με κουκκίδες
 - αριθμημένη λίστα
 - συμβολική κουκκίδα
-- κουκκίδα εικόνας
+- εικόνα-κουκκίδα
 - προσαρμοσμένη κουκκίδα
 - πολυεπίπεδη λίστα
 - δημιουργία κουκκίδας
@@ -25,9 +27,9 @@ description: "Μάθετε πώς να δημιουργείτε και να μο
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for .NET σας επιτρέπει να δημιουργείτε και να μορφοποιείτε λίστες με κουκκίδες και αριθμημένες λίστες σε παρουσιάσεις PowerPoint και OpenDocument. Ένα στοιχείο λίστας είναι μια παράγραφος της οποίας οι ρυθμίσεις κουκκίδας ελέγχονται μέσω της μορφοποίησης παραγράφου.
+Aspose.Slides for .NET σάς επιτρέπει να δημιουργείτε και να μορφοποιείτε κώδικες με κουκκίδες και αριθμημένες λίστες σε παρουσιάσεις PowerPoint και OpenDocument. Ένα στοιχείο λίστας είναι μια παράγραφος της οποίας οι ρυθμίσεις της κουκκίδας ελέγχονται μέσω της μορφής της παραγράφου.
 
-Χρησιμοποιήστε την ιδιότητα [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/paragraphformat/) για να αποκτήσετε πρόσβαση στις ρυθμίσεις λίστας σε επίπεδο παραγράφου. Η κύρια είσοδος είναι το [IParagraphFormat.Bullet](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/bullet/), το οποίο επιστρέφει ένα αντικείμενο [IBulletFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/). Με αυτό το αντικείμενο, μπορείτε να ορίσετε τον τύπο της κουκκίδας, το σύμβολο, την εικόνα, το χρώμα, το μέγεθος, το στυλ αρίθμησης και τον αρχικό αριθμό.
+Χρησιμοποιήστε την ιδιότητα [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/paragraphformat/) για να έχετε πρόσβαση στις ρυθμίσεις λίστας σε επίπεδο παραγράφου. Το κύριο σημείο εισόδου είναι το [IParagraphFormat.Bullet](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/bullet/), το οποίο επιστρέφει ένα αντικείμενο [IBulletFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/). Με αυτό το αντικείμενο μπορείτε να ορίσετε τον τύπο της κουκκίδας, το σύμβολο, την εικόνα, το χρώμα, το μέγεθος, το στυλ αρίθμησης και τον αρχικό αριθμό.
 
 Αυτό το άρθρο δείχνει πώς να:
 
@@ -35,13 +37,13 @@ description: "Μάθετε πώς να δημιουργείτε και να μο
 - δημιουργήσετε μια εικόνα-κουκκίδα
 - δημιουργήσετε μια πολυεπίπεδη λίστα ορίζοντας το βάθος της παραγράφου
 - δημιουργήσετε μια αριθμημένη λίστα
-- εξετάσετε και να αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση
+- ελέγξετε και αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση
 
 ## **Δημιουργία λίστας με κουκκίδες**
 
-Για να δημιουργήσετε μια λίστα με κουκκίδες, προσθέστε αντικείμενα [IParagraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/) σε ένα [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) και ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) στο [BulletType.Symbol](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/). Στη συνέχεια, μπορείτε να ορίσετε το [IBulletFormat.Char](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/char/), το [IBulletFormat.Color](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/color/), και το [IBulletFormat.Height](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/height/) για να ελέγξετε την εμφάνιση της κουκκίδας.
+Για να δημιουργήσετε μια λίστα με κουκκίδες, προσθέστε αντικείμενα [IParagraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/) σε ένα [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) και ορίστε [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) σε [BulletType.Symbol](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/). Στη συνέχεια μπορείτε να ορίσετε [IBulletFormat.Char](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/color/) και [IBulletFormat.Height](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/height/) για να ελέγξετε την εμφάνιση της κουκκίδας.
 
-Ο ακόλουθος κώδικας C# δείχνει πώς να δημιουργήσετε μια λίστα με κουκκίδες σε μια διαφάνεια:
+Ο παρακάτω κώδικας C# δείχνει πώς να δημιουργήσετε μια λίστα με κουκκίδες σε μια διαφάνεια:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -76,13 +78,13 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![Οι συμβολικές κουκκίδες](symbol_bullets.png)
+![Τα σύμβολα των κουκκίδων](symbol_bullets.png)
 
 ## **Δημιουργία αριθμημένης λίστας**
 
-Χρησιμοποιήστε αριθμημένες λίστες όταν η σειρά των στοιχείων έχει σημασία. Ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) στο [BulletType.Numbered](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/). Μπορείτε επίσης να επιλέξετε μορφή αρίθμησης με το [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/numberedbulletstyle/) ή να ορίσετε το [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/numberedbulletstartwith/) όταν η λίστα πρέπει να ξεκινά από τιμή διαφορετική από το 1.
+Χρησιμοποιήστε αριθμημένες λίστες όταν η σειρά των στοιχείων είναι σημαντική. Ορίστε [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) σε [BulletType.Numbered](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/). Μπορείτε επίσης να επιλέξετε μορφή αρίθμησης με [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/numberedbulletstyle/) ή να ορίσετε [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/numberedbulletstartwith/) όταν η λίστα πρέπει να ξεκινήσει από τιμή διαφορετική του 1.
 
-Ο ακόλουθος κώδικας C# δείχνει πώς να δημιουργήσετε μια αριθμημένη λίστα σε μια διαφάνεια:
+Ο παρακάτω κώδικας C# δείχνει πώς να δημιουργήσετε μια αριθμημένη λίστα σε μια διαφάνεια:
 
 ```csharp
 using var presentation = new Presentation();
@@ -117,21 +119,21 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 ## **Δημιουργία εικόνας-κουκκίδας**
 
-Το Aspose.Slides σας επιτρέπει να αντικαταστήσετε ένα κανονικό σύμβολο κουκκίδας με μια εικόνα. Οι εικόνες-κουκκίδες λειτουργούν καλύτερα με απλές εικόνες που παραμένουν ευανάγνωστες σε μικρό μέγεθος, όπως εικονίδια ή μικρά διαφανή αρχεία PNG.
+Aspose.Slides σάς επιτρέπει να αντικαταστήσετε ένα κανονικό σύμβολο κουκκίδας με μια εικόνα. Οι εικόνες-κουκκίδες λειτουργούν καλύτερα με απλές εικόνες που παραμένουν αναγνώσιμες σε μικρό μέγεθος, όπως εικονίδια ή μικρά αρχεία PNG με διαφάνεια.
 
- {{% alert color="primary" %}}
-Ιδανικά, αν σκοπεύετε να αντικαταστήσετε το κανονικό σύμβολο κουκκίδας με μια εικόνα, είναι καλύτερο να επιλέξετε ένα απλό γραφικό με διαυγές φόντο. Τέτοιες εικόνες λειτουργούν καλά ως προσαρμοσμένα σύμβολα κουκκίδας.
+{{% alert color="primary" %}}
+Ιδανικά, αν σκοπεύετε να αντικαταστήσετε το κανονικό σύμβολο κουκκίδας με μια εικόνα, είναι καλύτερο να επιλέξετε ένα απλό γραφικό με διαφάνεια στο φόντο. Τέτοιες εικόνες λειτουργούν καλά ως προσαρμοσμένα σύμβολα κουκκίδας.
 
-Λάβετε υπόψη ότι η εικόνα θα κλιμακωθεί σε πολύ μικρό μέγεθος. Γι’ αυτό, συνιστούμε έντονα να επιλέξετε μια εικόνα που παραμένει καθαρή και οπτικά αποτελεσματική όταν χρησιμοποιείται ως κουκκίδα σε μια λίστα.
+Θυμηθείτε ότι η εικόνα θα μειωθεί σε πολύ μικρό μέγεθος. Για αυτό το λόγο, συνιστούμε έντονα να επιλέξετε μια εικόνα που παραμένει καθαρή και οπτικά αποτελεσματική όταν χρησιμοποιείται ως κουκκίδα σε λίστα.
 {{% /alert %}}
 
-Για να δημιουργήσετε μια εικόνα-κουκκίδα, προσθέστε μια εικόνα στο [Presentation.Images](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/images/) και αντιστοιχίστε το αντικείμενο εικόνας που επιστράφηκε στο [IBulletFormat.Picture](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/picture/). Ορίστε το [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) στο [BulletType.Picture](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/) πριν αντιστοιχίσετε την εικόνα.
+Για να δημιουργήσετε μια εικόνα-κουκκίδα, προσθέστε μια εικόνα στο [Presentation.Images](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/images/) και αντιστοιχίστε το αντικείμενο εικόνας που επιστρέφεται στο [IBulletFormat.Picture](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/picture/). Ορίστε [IBulletFormat.Type](https://reference.aspose.com/slides/el/net/aspose.slides/ibulletformat/type/) σε [BulletType.Picture](https://reference.aspose.com/slides/el/net/aspose.slides/bullettype/) πριν αντιστοιχίσετε την εικόνα.
 
-Ας υποθέσουμε ότι έχουμε ένα "image.png":
+Ας πούμε ότι έχουμε το "image.png":
 
-![Μια εικόνα για τις κουκκίδες](picture_for_bullets.png)
+![Μία εικόνα για τις κουκκίδες](picture_for_bullets.png)
 
-Ο ακόλουθος κώδικας C# δείχνει πώς να δημιουργήσετε εικόνες-κουκκίδες σε μια διαφάνεια:
+Ο παρακάτω κώδικας C# δείχνει πώς να δημιουργήσετε εικόνα-κουκκίδες σε μια διαφάνεια:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -167,13 +169,13 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![Οι εικόνες-κουκκίδες](picture_bullets.png)
+![Οι εικόνα-κουκκίδες](picture_bullets.png)
 
 ## **Δημιουργία πολυεπίπεδης λίστας**
 
-Χρησιμοποιήστε το [IParagraphFormat.Depth](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/depth/) για να τοποθετήσετε στοιχεία λίστας σε διαφορετικά επίπεδα. Το επίπεδο 0 είναι το ανώτερο επίπεδο, το επίπεδο 1 είναι ενσωματωμένο κάτω από αυτό, κ.λπ.
+Χρησιμοποιήστε [IParagraphFormat.Depth](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/depth/) για να τοποθετήσετε στοιχεία λίστας σε διαφορετικά επίπεδα. Το επίπεδο 0 είναι το κορυφαίο επίπεδο, το επίπεδο 1 είναι ενσωματωμένο κάτω από αυτό, κ.ο.κ.
 
-Ο ακόλουθος κώδικας C# δείχνει πώς να δημιουργήσετε μια πολυεπίπεδη λιστα με κουκκίδες:
+Ο παρακάτω κώδικας C# δείχνει πώς να δημιουργήσετε μια πολυεπίπεδη λίστα με κουκκίδες:
 
 ```csharp
 using var presentation = new Presentation();
@@ -211,9 +213,11 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 ![Η πολυεπίπεδη λίστα](multilevel_list.png)
 
-## **Τροποποίηση υπάρχουσας λίστας**
+## **Αλλαγή υπάρχουσας λίστας**
 
-Για να αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση, προσπελάστε την στοχευόμενη παράγραφο και ενημερώστε τις ρυθμίσεις της [IParagraphFormat.Bullet](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/bullet/). Οι ίδιες ιδιότητες που χρησιμοποιούνται για τη δημιουργία λιστών μπορούν να χρησιμοποιηθούν για την εξέταση ή την τροποποίηση λιστών που φορτώθηκαν από αρχείο PPT, PPTX ή ODP.
+Για να αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση, αποκτήστε πρόσβαση στην στόχευση παράγραφο και ενημερώστε τις ρυθμίσεις της [IParagraphFormat.Bullet](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/bullet/). Οι ίδιοι ιδιότητες που χρησιμοποιούνται για τη δημιουργία λιστών μπορούν να χρησιμοποιηθούν για την επιθεώρηση ή την τροποποίηση λιστών που έχουν φορτωθεί από αρχείο PPT, PPTX ή ODP.
+
+Ο παρακάτω κώδικας C# αλλάζει την πρώτη παράγραφο σε ένα πλαίσιο κειμένου ώστε να χρησιμοποιεί στυλ αριθμημένης λίστας:
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -231,16 +235,16 @@ paragraph.ParagraphFormat.Indent = -20;
 presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Συχνές ερωτήσεις**
 
-**Μπορούν οι λιστες με κουκκίδες και αριθμημένες λιστες να εξαχθούν σε PDF ή εικόνες;**
+**Μπορούν οι λίστες με κουκκίδες και αριθμημένες λίστες να εξαχθούν σε PDF ή εικόνες;**
 
-Ναι. Το Aspose.Slides διατηρεί τη μορφοποίηση της λίστας όταν η μορφή‑στόχος υποστηρίζει την αντίστοιχη διάταξη κειμένου και τις δυνατότητες κουκκίδας.
+Ναι. Το Aspose.Slides διατηρεί τη μορφοποίηση της λίστας όταν η μορφή προορισμού υποστηρίζει την αντίστοιχη διάταξη κειμένου και τις δυνατότητες των κουκκίδων.
 
-**Μπορώ να επεξεργαστώ τις λίστες σε υπάρχουσες παρουσιάσεις;**
+**Μπορώ να επεξεργαστώ λίστες σε υπάρχουσες παρουσιάσεις;**
 
-Ναι. Φορτώστε την παρουσίαση, προσπελάστε την στοχευόμενη παράγραφο, εξετάστε ή ενημερώστε τις ρυθμίσεις της [IParagraphFormat.Bullet](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/bullet/), και αποθηκεύστε την παρουσίαση.
+Ναι. Φορτώστε την παρουσίαση, αποκτήστε πρόσβαση στην στόχευση παράγραφο, ελέγξτε ή ενημερώστε τις ρυθμίσεις της [IParagraphFormat.Bullet](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/bullet/) και αποθηκεύστε την παρουσίαση.
 
-**Μπορούν οι λίστες να περιέχουν μη-λατινικό κείμενο;**
+**Μπορούν οι λίστες να περιέχουν μη λατινικό κείμενο;**
 
 Ναι. Το κείμενο των στοιχείων λίστας μπορεί να περιέχει χαρακτήρες Unicode, ώστε να μπορείτε να δημιουργήσετε λίστες σε πολυγλωσσικές παρουσιάσεις. Βεβαιωθείτε ότι οι γραμματοσειρές που χρησιμοποιούνται στην παρουσίαση υποστηρίζουν τους χαρακτήρες που χρειάζεστε.

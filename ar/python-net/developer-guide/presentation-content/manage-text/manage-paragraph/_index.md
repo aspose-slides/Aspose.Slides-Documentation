@@ -1,15 +1,18 @@
 ---
-title: إدارة فقرات نص PowerPoint باستخدام Python
+title: إدارة فقرات نص PowerPoint في Python
 linktitle: إدارة الفقرة
 type: docs
 weight: 40
 url: /ar/python-net/manage-paragraph/
+aliases:
+  - /python-net/paragraph/
+  - /python-net/portion/
 keywords:
 - إضافة نص
 - إضافة فقرة
 - إدارة النص
 - إدارة الفقرة
-- إدارة النقاط
+- إدارة النقطة
 - إزاحة الفقرة
 - إزاحة معلقة
 - نقطة الفقرة
@@ -26,30 +29,30 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "أتقن تنسيق الفقرات باستخدام Aspose.Slides للـ Python عبر .NET—حسن المحاذاة والمسافات والأسلوب في عروض PowerPoint وOpenDocument باستخدام Python لجذب المشاهدين."
+description: "أتقن تنسيق الفقرات باستخدام Aspose.Slides للـ Python عبر .NET—حسّن المحاذاة والمسافات والأسلوب في عروض PowerPoint وOpenDocument في Python لجذب المشاهدين."
 ---
-## **نظرة عامة**
+## **المقدمة**
 
 توفر Aspose.Slides الفئات التي تحتاجها للعمل مع نص PowerPoint في Python.
 
-* توفر Aspose.Slides فئة [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) لإنشاء كائنات إطار النص. يمكن لكائن `TextFrame` أن يحتوي على فقرة واحدة أو أكثر (كل فقرة مفصولة بعائد سطر).
+* توفر Aspose.Slides فئة [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) لإنشاء كائنات إطار النص. يمكن لكائن `TextFrame` أن يحتوي على فقرة واحدة أو أكثر (كل فقرة مفصولة بإرجاع السطر).
 * توفر Aspose.Slides فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) لإنشاء كائنات الفقرة. يمكن لكائن `Paragraph` أن يحتوي على جزء نصي واحد أو أكثر.
-* توفر Aspose.Slides فئة [Portion](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portion/) لإنشاء كائنات الجزء النصي وتحديد خصائص تنسيقه.
+* توفر Aspose.Slides فئة [Portion](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portion/) لإنشاء كائنات الجزء النصي وتحديد خصائص التنسيق الخاصة بها.
 
-يمكن لكائن `Paragraph` التعامل مع النص بخصائص تنسيق مختلفة من خلال كائنات `Portion` التابعة له.
+يمكن لكائن `Paragraph` معالجة النص بخصائص تنسيق مختلفة عبر كائنات `Portion` الأساسية الخاصة به.
 
 ## **إضافة فقرات متعددة تحتوي على أجزاء متعددة**
 
-تُظهر هذه الخطوات كيفية إضافة إطار نص يحتوي على ثلاث فقرات، كل منها يحتوي على ثلاثة أجزاء:
+تظهر هذه الخطوات كيفية إضافة إطار نص يحتوي على ثلاث فقرات، كل منها يحتوي على ثلاثة أجزاء:
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى الشريحة المستهدفة باستخدام الفهرس الخاص بها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيلة إلى الشريحة.
-1. الحصول على [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) المرتبط بـ [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) .
-1. إنشاء كائنين من فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وإضافتهما إلى مجموعة الفقرات في [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) (مع الفقرة الافتراضية، ينتج عن ذلك ثلاث فقرات).
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى الشريحة المستهدفة عبر فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيل إلى الشريحة.
+1. الحصول على الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) المرتبط بـ[AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/).
+1. إنشاء كائنين من فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وإضافتهما إلى مجموعة الفقرات في الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) (مع الفقرة الافتراضية، ينتج عن ذلك ثلاث فقرات).
 1. لكل فقرة، إنشاء ثلاثة كائنات من فئة [Portion](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portion/) وإضافتها إلى مجموعة الأجزاء الخاصة بتلك الفقرة.
 1. تعيين النص لكل جزء.
-1. تطبيق أي تنسيق مرغوب لكل جزء نصي باستخدام الخصائص التي توفرها فئة [Portion](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portion/) .
+1. تطبيق أي تنسيق مطلوب على كل جزء نصي باستخدام الخصائص التي توفرها فئة [Portion](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portion/).
 1. حفظ العرض التقديمي المعدل.
 
 الكود التالي بلغة Python يطبق هذه الخطوات:
@@ -109,45 +112,45 @@ with slides.Presentation() as presentation:
                 text_frame.paragraphs[i].portions[j].portion_format.font_italic = 1
                 text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
 
-    # حفظ ملف PPTX على القرص.
+    # حفظ ملف PPTX إلى القرص.
     presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **إدارة نقاط الفقرات**
 
-قوائم النقاط تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. الفقرات ذات النقاط غالبًا ما تكون أسهل في القراءة والفهم.
+قوائم النقاط تساعدك على تنظيم المعلومات وعرضها بسرعة وكفاءة. الفقرات النقطية غالبًا ما تكون أسهل في القراءة والفهم.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-2. الوصول إلى الشريحة المستهدفة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
-5. إزالة الفقرة الافتراضية من [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-6. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) .
-7. تعيين نوع النقطة في الفقرة إلى `SYMBOL` وتحديد حرف النقطة.
-8. تعيين نص الفقرة.
-9. تعيين إزاحة النقطة للفقرة.
-10. تعيين لون النقطة.
-11. تعيين حجم النقطة (الارتفاع).
-12. إضافة الفقرة إلى مجموعة الفقرات في [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-13. إضافة فقرة ثانية وتكرار الخطوات من 7 إلى 12.
-14. حفظ العرض التقديمي.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+1. الوصول إلى الشريحة المستهدفة عبر فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. الوصول إلى الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
+1. إزالة الفقرة الافتراضية من الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/).
+1. تعيين نوع نقطة الفقرة إلى `SYMBOL` وتحديد حرف النقطة.
+1. تعيين نص الفقرة.
+1. تعيين مسافة إزاحة النقطة للفقرة.
+1. تعيين لون النقطة.
+1. تعيين حجم النقطة (الارتفاع).
+1. إضافة الفقرة إلى مجموعة فقرات الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. إضافة فقرة ثانية وتكرار الخطوات 7–12.
+1. حفظ العرض التقديمي.
 
-هذا الكود بلغة Python يوضح كيفية إضافة فقرات ذات نقاط:
+هذا الكود بلغة Python يوضح كيفية إضافة فقرات نقطية:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء مثيل للعرض التقديمي.
+# إنشاء مثيل من العرض التقديمي.
 with slides.Presentation() as presentation:
 
     # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # إضافة والوصول إلى AutoShape.
+    # إضافة AutoShape والوصول إليه.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # الوصول إلى إطار النص لـ AutoShape المُنشئ.
+    # الوصول إلى TextFrame الخاص بـ AutoShape الذي تم إنشاؤه.
     text_frame = shape.text_frame
 
     # إزالة الفقرة الافتراضية.
@@ -156,7 +159,7 @@ with slides.Presentation() as presentation:
     # إنشاء فقرة.
     paragraph = slides.Paragraph()
 
-    # تعيين نمط النقطة للفقرة والرمز.
+    # تعيين نمط نقطة الفقرة والرمز.
     paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph.paragraph_format.bullet.char = chr(8226)
 
@@ -174,13 +177,13 @@ with slides.Presentation() as presentation:
     # تعيين ارتفاع النقطة.
     paragraph.paragraph_format.bullet.height = 100
 
-    # إضافة الفقرة إلى إطار النص.
+    # إضافة الفقرة إلى TextFrame.
     text_frame.paragraphs.add(paragraph)
 
     # إنشاء الفقرة الثانية.
     paragraph2 = slides.Paragraph()
 
-    # تعيين نوع النقطة للفقرة والنمط.
+    # تعيين نوع ونمط نقطة الفقرة.
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
     paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
 
@@ -198,34 +201,34 @@ with slides.Presentation() as presentation:
     # تعيين ارتفاع النقطة.
     paragraph2.paragraph_format.bullet.height = 100
 
-    # إضافة الفقرة إلى إطار النص.
+    # إضافة الفقرة إلى TextFrame.
     text_frame.paragraphs.add(paragraph2)
 
     # حفظ العرض التقديمي كملف PPTX.
     presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إدارة نقاط الصور**
+## **إدارة نقاط الصورة**
 
-قوائم النقاط تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. نقاط الصور سهلة القراءة والفهم.
+قوائم النقاط تساعدك على تنظيم المعلومات وعرضها بسرعة وكفاءة. نقاط الصورة سهلة القراءة والفهم.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-2. الوصول إلى الشريحة المستهدفة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
-5. إزالة الفقرة الافتراضية من [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-6. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) .
-7. تحميل صورة إلى كائن [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) .
-8. تعيين نوع النقطة إلى [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) وتعيين الصورة.
-9. تعيين نص الفقرة.
-10. تعيين إزاحة الفقرة للنقطة.
-11. تعيين لون النقطة.
-12. تعيين ارتفاع النقطة.
-13. إضافة الفقرة الجديدة إلى مجموعة الفقرات في [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-14. إضافة فقرة ثانية وتكرار الخطوات من 8 إلى 12.
-15. حفظ العرض التقديمي.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+1. الوصول إلى الشريحة المستهدفة عبر فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. الوصول إلى الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
+1. إزالة الفقرة الافتراضية من الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/).
+1. تحميل صورة إلى كائن [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/).
+1. تعيين نوع النقطة إلى [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) وربط الصورة.
+1. تعيين نص الفقرة.
+1. تعيين إزاحة الفقرة للنقطة.
+1. تعيين لون النقطة.
+1. تعيين ارتفاع النقطة.
+1. إضافة الفقرة الجديدة إلى مجموعة فقرات الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. إضافة فقرة ثانية وتكرار الخطوات 8–12.
+1. حفظ العرض التقديمي.
 
-هذا الكود بلغة Python يوضح كيفية إضافة وإدارة نقاط الصور:
+هذا الكود بلغة Python يوضح كيفية إضافة وإدارة نقاط الصورة:
 
 ```python
 import aspose.slides as slides
@@ -240,10 +243,10 @@ with slides.Presentation() as presentation:
     image = draw.Bitmap("bullets.png")
     pp_image = presentation.images.add_image(image)
 
-    # إضافة والوصول إلى AutoShape.
+    # إضافة AutoShape والوصول إليه.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # الوصول إلى TextFrame الخاص بـ AutoShape المُنشئ.
+    # الوصول إلى TextFrame الخاص بـ AutoShape الذي تم إنشاؤه.
     text_frame = auto_shape.text_frame
 
     # إزالة الفقرة الافتراضية.
@@ -260,7 +263,7 @@ with slides.Presentation() as presentation:
     # تعيين ارتفاع النقطة.
     paragraph.paragraph_format.bullet.height = 100
 
-    # إضافة الفقرة إلى إطار النص.
+    # إضافة الفقرة إلى TextFrame.
     text_frame.paragraphs.add(paragraph)
 
     # حفظ العرض التقديمي كملف PPTX.
@@ -271,21 +274,21 @@ with slides.Presentation() as presentation:
 
 ## **إدارة النقاط المتعددة المستويات**
 
-قوائم النقاط تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. النقاط المتعددة المستويات سهلة القراءة والفهم.
+قوائم النقاط تساعدك على تنظيم المعلومات وعرضها بسرعة وكفاءة. النقاط متعددة المستويات سهلة القراءة والفهم.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-2. الوصول إلى الشريحة المستهدفة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بـ [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) .
-5. إزالة الفقرة الافتراضية من [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-6. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 0.
-7. إنشاء الفقرة الثانية باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 1.
-8. إنشاء الفقرة الثالثة باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 2.
-9. إنشاء الفقرة الرابعة باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 3.
-10. إضافة الفقرات الجديدة إلى مجموعة الفقرات في [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-11. حفظ العرض التقديمي.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+1. الوصول إلى الشريحة المستهدفة عبر فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. الوصول إلى [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/)'s [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. إزالة الفقرة الافتراضية من الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 0.
+1. إنشاء الفقرة الثانية باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 1.
+1. إنشاء الفقرة الثالثة باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 2.
+1. إنشاء الفقرة الرابعة باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين عمقها إلى 3.
+1. إضافة الفقرات الجديدة إلى مجموعة فقرات الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. حفظ العرض التقديمي.
 
-الكود التالي بلغة Python يوضح كيفية إضافة وإدارة النقاط المتعددة المستويات:
+الكود التالي بلغة Python يوضح كيفية إضافة وإدارة النقاط متعددة المستويات:
 
 ```python
 import aspose.slides as slides
@@ -300,7 +303,7 @@ with slides.Presentation() as presentation:
     # إضافة AutoShape.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # الوصول إلى TextFrame الخاص بـ AutoShape المُنشأ.
+    # الوصول إلى TextFrame الخاص بـ AutoShape الذي تم إنشاؤه.
     text_frame = auto_shape.text_frame
     
     # مسح الفقرة الافتراضية.
@@ -356,38 +359,38 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إدارة الفقرات مع قوائم مرقمة مخصصة**
+## **إدارة الفقرات مع قوائم رقمية مخصصة**
 
-توفر فئة [BulletFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/) الخاصية `numbered_bullet_start_with` (وأخرى) للتحكم في الترقيم والتنسيق المخصص للفقرات.
+توفر فئة [BulletFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/) الخاصية `numbered_bullet_start_with` (وغيرها) للتحكم في الترقيم المخصص وتنسيق الفقرات.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-2. الوصول إلى الشريحة التي ستحتوي على الفقرات.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
-5. إزالة الفقرة الافتراضية من [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-6. إنشاء الفقرة الأولى من فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين `numbered_bullet_start_with` إلى 2.
-7. إنشاء الفقرة الثانية من فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين `numbered_bullet_start_with` إلى 3.
-8. إنشاء الفقرة الثالثة من فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين `numbered_bullet_start_with` إلى 7.
-9. إضافة الفقرات إلى مجموعة [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-10. حفظ العرض التقديمي.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+1. الوصول إلى الشريحة التي ستحتوي على الفقرات.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. الوصول إلى الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
+1. إزالة الفقرة الافتراضية من الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. إنشاء الفقرة الأولى عبر فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين `numbered_bullet_start_with` إلى 2.
+1. إنشاء الفقرة الثانية عبر فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين `numbered_bullet_start_with` إلى 3.
+1. إنشاء الفقرة الثالثة عبر فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) وتعيين `numbered_bullet_start_with` إلى 7.
+1. إضافة الفقرات إلى مجموعة الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. حفظ العرض التقديمي.
 
-الكود التالي بلغة Python يوضح كيفية إضافة وإدارة الفقرات مع ترقيم وتنسيق مخصص.
+الكود التالي بلغة Python يوضح كيفية إضافة وإدارة الفقرات مع ترقيم وتنسيق مخصص:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
 
-    # إضافة AutoShape والوصول إليه.
+    # إضافة والوصول إلى AutoShape.
     shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # الوصول إلى TextFrame الخاص بـ AutoShape المُنشأ.
+    # الوصول إلى TextFrame الخاص بـ AutoShape الذي تم إنشاؤه.
     text_frame = shape.text_frame
 
-    # إزالة الفقرة الافتراضية الموجودة.
+    # إزالة الفقرة الافتراضية الحالية.
     text_frame.paragraphs.remove_at(0)
 
-    # إنشاء العنصر الرقمي الأول (ابدأ من 2، مستوى العمق 4).
+    # إنشاء العنصر الرقمي الأول (ابدأ بـ 2، مستوى العمق 4).
     paragraph1 = slides.Paragraph()
     paragraph1.text = "bullet 2"
     paragraph1.paragraph_format.depth = 4 
@@ -395,7 +398,7 @@ with slides.Presentation() as presentation:
     paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
     text_frame.paragraphs.add(paragraph1)
 
-    # إنشاء العنصر الرقمي الثاني (ابدأ من 3، مستوى العمق 4).
+    # إنشاء العنصر الرقمي الثاني (ابدأ بـ 3، مستوى العمق 4).
     paragraph2 = slides.Paragraph()
     paragraph2.text = "bullet 3"
     paragraph2.paragraph_format.depth = 4
@@ -403,7 +406,7 @@ with slides.Presentation() as presentation:
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED  
     text_frame.paragraphs.add(paragraph2)
 
-    # إنشاء العنصر الرقمي الثالث (ابدأ من 7، مستوى العمق 4).
+    # إنشاء العنصر الرقمي الثالث (ابدأ بـ 7، مستوى العمق 4).
     paragraph5 = slides.Paragraph()
     paragraph5.text = "bullet 7"
     paragraph5.paragraph_format.depth = 4
@@ -416,17 +419,17 @@ with slides.Presentation() as presentation:
 
 ## **تعيين إزاحة السطر الأول للفقرة**
 
-استخدم الخاصية [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) للتحكم في إزاحة السطر الأول للفقرة. تنقل هذه الخاصية السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى السطور المتبقية محاذية لجسم الفقرة.
+استخدم الخاصية [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) للتحكم في إزاحة السطر الأول للفقرة. هذه الخاصية تحرك السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية إلى جسم الفقرة.
 
-استخدم [ParagraphFormat.margin_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/margin_left/) عندما تحتاج إلى نقل الفقرة بأكملها. استخدم [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) عندما تحتاج إلى نقل السطر الأول فقط.
+استخدم [ParagraphFormat.margin_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/margin_left/) عندما تحتاج إلى تحريك الفقرة بأكملها. استخدم [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) عندما تحتاج إلى تحريك السطر الأول فقط.
 
 المثال أدناه ينشئ عدة فقرات ويطبق قيم `indent` مختلفة لتوضيح تأثير إزاحة السطر الأول على تخطيط الفقرة.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيلة إلى الشريحة.
+3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيل إلى الشريحة.
 4. إضافة [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) فارغ إلى الشكل وإزالة الفقرة الافتراضية.
-5. إنشاء عدة فقرات وتعيين قيم مختلفة للخاصية [indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) لكل منها.
+5. إنشاء عدة فقرات وتعيين قيم مختلفة للخاصية [indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) لها.
 6. إضافة الفقرات إلى إطار النص.
 7. حفظ العرض التقديمي المعدل.
 
@@ -478,21 +481,21 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![إزاحة السطر الأول للفقرات](first_line_indent.png)
+![المسافة البادئة للسطر الأول للفقرات](first_line_indent.png)
 
 ## **تعيين إزاحة معلقة للفقرة**
 
-إزاحة معلقة هي تخطيط للفقرة حيث يبدأ السطر الأول إلى اليسار من باقي السطور. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام الخاصية [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) . حدد `indent` بقيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة لجسم الفقرة.
+الإزاحة المعلقة هي تخطيط فقرة يبدأ فيه السطر الأول إلى يسار الأسطر المتبقية. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام الخاصية [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/). عيّن `indent` إلى قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
 
-عمليًا، تحدد الخاصية [ParagraphFormat.margin_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/margin_left/) موضع الهامش الأيسر لجسم الفقرة، وتحدد الخاصية [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) موضع السطر الأول بالنسبة لذلك الهامش. لإنشاء إزاحة معلقة، حدد قيمة `margin_left` موجبة وقيمة `indent` سالبة.
+عمليًا، تحدد الخاصية [ParagraphFormat.margin_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/margin_left/) الموضع الأيسر لجسم الفقرة، وتحدد الخاصية [ParagraphFormat.indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) موضع السطر الأول نسبةً إلى هذا الهامش. لإنشاء إزاحة معلقة، عيّن قيمة `margin_left` موجبة وقيمة `indent` سالبة.
 
-هذا التنسيق مفيد للملاحق، المراجع، مدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون الأسطر الملتفة محاذية تحت جسم الفقرة بدلاً من تحت الحرف الأول للسطر الأول.
+هذا التنسيق مفيد للمراجع، القوائم الببليوغرافية، مدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون الأسطر المغلّفة محاذية تحت جسم الفقرة بدلاً من الحرف الأول للسطر الأول.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيلة إلى الشريحة.
+3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيل إلى الشريحة.
 4. إضافة [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) فارغ إلى الشكل وإزالة الفقرة الافتراضية.
-5. إنشاء الفقرات وتعيين قيمة موجبة للخاصية [margin_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/margin_left/) لكل فقرة.
+5. إنشاء فقرات وتعيين قيمة موجبة للخاصية [margin_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/margin_left/) لكل فقرة.
 6. تعيين قيمة سالبة للخاصية [indent](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/indent/) لإنشاء تأثير الإزاحة المعلقة.
 7. إضافة الفقرات إلى إطار النص.
 8. حفظ العرض التقديمي المعدل.
@@ -536,19 +539,19 @@ with slides.Presentation() as presentation:
 
 ![الإزاحة المعلقة للفقرات](hanging_indent.png)
 
-## **إدارة تنسيق الجزء في نهاية الفقرة**
+## **إدارة تنسيق جزء النهاية للفقرة**
 
-عندما تحتاج إلى التحكم في نمط "نهاية" الفقرة (التنسيق المطبَّق بعد الجزء النصي الأخير)، استخدم الخاصية `end_paragraph_portion_format`. يطبق المثال أدناه خط Times New Roman أكبر على نهاية الفقرة الثانية.
+عند الحاجة إلى التحكم في تنسيق "نهاية" الفقرة (التنسيق المطبق بعد آخر جزء نصي)، استخدم الخاصية `end_paragraph_portion_format`. يطبق المثال أدناه خطًا أكبر من نوع Times New Roman على نهاية الفقرة الثانية.
 
-1. إنشاء أو فتح ملف [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-2. الحصول على الشريحة المستهدفة باستخدام الفهرس.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيل إلى الشريحة.
-4. استخدام [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل وإنشاء فقرتين.
-5. إنشاء [PortionFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portionformat/) محدد بخط Times New Roman بحجم 48 نقطة وتطبيقه كتنسيق جزء نهاية الفقرة.
-6. تعيينه إلى الخاصية `end_paragraph_portion_format` للفقرة (يطبق على نهاية الفقرة الثانية).
-7. حفظ العرض التقديمي المعدل كملف PPTX.
+1. إنشاء أو فتح ملف [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+1. الحصول على الشريحة المستهدفة عبر الفهرس.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) مستطيل إلى الشريحة.
+1. استخدام [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل وإنشاء فقرتين.
+1. إنشاء كائن [PortionFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portionformat/) بحجم 48 نقطة من نوع Times New Roman وتطبيقه كتنسيق جزء نهاية الفقرة.
+1. تعيينه إلى الخاصية `end_paragraph_portion_format` للفقرة (يطبق على نهاية الفقرة الثانية).
+1. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية تعيين تنسيق الجزء في نهاية الفقرة للفقرة الثانية:
+هذا الكود بلغة Python يوضح كيفية تعيين تنسيق نهاية الفقرة للفقرة الثانية:
 
 ```python
 import aspose.slides as slides
@@ -577,20 +580,22 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 توفر Aspose.Slides دعمًا محسنًا لاستيراد نص HTML إلى الفقرات.
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-2. الوصول إلى الشريحة المستهدفة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بـ [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) .
-5. إزالة الفقرة الافتراضية من [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-6. قراءة ملف HTML المصدر.
-7. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) .
-8. إضافة محتوى HTML إلى مجموعة الفقرات في [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) .
-9. حفظ العرض التقديمي المعدل.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+1. الوصول إلى الشريحة المستهدفة عبر فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بـ[AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/).
+1. إزالة الفقرة الافتراضية من الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. قراءة ملف HTML المصدر.
+1. إنشاء الفقرة الأولى باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/).
+1. إضافة محتوى HTML إلى مجموعة فقرات الـ[TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+1. حفظ العرض التقديمي المعدل.
+
+الكود التالي بلغة Python ينفذ هذه الخطوات لاستيراد نص HTML إلى الفقرات:
 
 ```python
 import aspose.slides as slides
 
-# إنشاء مثال فارغ من فئة Presentation.
+# إنشاء مثيل Presentation فارغ.
 with slides.Presentation() as presentation:
 
     # الوصول إلى الشريحة الأولى في العرض التقديمي.
@@ -619,13 +624,13 @@ with slides.Presentation() as presentation:
 توفر Aspose.Slides دعمًا محسنًا لتصدير النص إلى HTML.
 
 1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) وتحميل العرض التقديمي المستهدف.
-2. الوصول إلى الشريحة المطلوبة باستخدام الفهرس.
-3. تحديد الشكل الذي يحتوي على النص المراد تصديره.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
-5. فتح تدفق ملف لكتابة مخرجات HTML.
-6. تحديد الفهرس الابتدائي وتصدير الفقرات المطلوبة.
+1. الوصول إلى الشريحة المطلوبة عبر فهرستها.
+1. اختيار الشكل الذي يحتوي على النص المراد تصديره.
+1. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
+1. فتح تدفق ملف لكتابة مخرجات HTML.
+1. تحديد الفهرس الابتدائي وتصدير الفقرات المطلوبة.
 
-هذا المثال بلغة Python يوضح كيفية تصدير نص الفقرة إلى HTML.
+هذا المثال بلغة Python يوضح كيفية تصدير نص الفقرة إلى HTML:
 
 ```python
 import aspose.slides as slides
@@ -635,28 +640,28 @@ with slides.Presentation("exporting_HTML_text.pptx") as presentation:
     # الوصول إلى الشريحة الأولى في العرض التقديمي.
     slide = presentation.slides[0]
 
-    # مؤشر الشكل المستهدف.
+    # فهرس الشكل المستهدف.
     index = 0
 
-    # الوصول إلى الشكل حسب المؤشر.
+    # الوصول إلى الشكل عبر الفهرس.
     shape = slide.shapes[index]
 
     with open("output.html", "w") as html_stream:
-        # كتابة بيانات الفقرات إلى HTML عن طريق توفير فهرس الفقرة الابتدائي وإجمالي عدد الفقرات للتصدير.
+        # كتابة بيانات الفقرة إلى HTML عن طريق توفير فهرس الفقرة الابتدائي والعدد الكلي للفقرات المراد تصديرها.
         html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
 ```
 
 ## **حفظ الفقرة كصورة**
 
-في هذا القسم، سنستعرض مثالين يوضحان كيفية حفظ فقرة نصية، ممثلة بفئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) ، كصورة. كلا المثالين يتضمنان الحصول على صورة للشكل الذي يحتوي على الفقرة باستخدام طرق `get_image` من فئة [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/) ، حساب حدود الفقرة داخل الشكل، وتصديرها كصورة bitmap. هذه الأساليب تسمح لك باستخراج أجزاء محددة من النص من عروض PowerPoint وحفظها كصور منفصلة، مما قد يكون مفيدًا لاستخدامها لاحقًا في سيناريوهات متعددة.
+في هذا القسم، نستعرض مثالين يوضحان كيفية حفظ فقرة نصية، ممثلة بفئة [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/)، كصورة. كلا المثالين يتضمنان الحصول على صورة الشكل الذي يحتوي الفقرة باستخدام طرق `get_image` من فئة [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/)، حساب حدود الفقرة داخل الشكل، وتصديرها كصورة bitmap. تتيح هذه الأساليب استخراج أجزاء محددة من النص من عروض PowerPoint وحفظها كصور منفصلة، مما قد يكون مفيدًا لاستخدامها في سيناريوهات مختلفة.
 
-لنفترض أن لدينا ملف عرض تقديمي اسمه sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو مربع نص يحتوي على ثلاث فقرات.
+دعونا نفترض أن لدينا ملف عرض تقديمي اسمه sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو صندوق نص يحتوي على ثلاث فقرات.
 
-![مربع النص يحتوي على ثلاث فقرات](paragraph_to_image_input.png)
+![صندوق النص مع ثلاث فقرات](paragraph_to_image_input.png)
 
 **مثال 1**
 
-في هذا المثال، نحصل على الفقرة الثانية كصورة. للقيام بذلك، نستخرج صورة الشكل من الشريحة الأولى للعرض ثم نحسب حدود الفقرة الثانية في إطار النص الخاص بالشكل. تُعاد رسم الفقرة على صورة bitmap جديدة، تُحفظ بصيغة PNG. هذه الطريقة مفيدة عندما تحتاج إلى حفظ فقرة معينة كصورة منفصلة مع الحفاظ على الأبعاد والتنسيق الدقيق للنص.
+في هذا المثال، نحصل على الفقرة الثانية كصورة. للقيام بذلك، نستخرج صورة الشكل من الشريحة الأولى للعرض التقديمي ثم نحسب حدود الفقرة الثانية في إطار النص الخاص بالشكل. ثم تُعاد رسم الفقرة على صورة bitmap جديدة تُحفظ بصيغة PNG. تكون هذه الطريقة مفيدة عندما تحتاج إلى حفظ فقرة محددة كصورة منفصلة مع الحفاظ على الأبعاد والتنسيق الأصلي للنص.
 
 ```py
 import aspose.slides as slides
@@ -680,13 +685,13 @@ with slides.Presentation("sample.pptx") as presentation:
     second_paragraph = first_shape.text_frame.paragraphs[1]
     paragraph_rectangle = second_paragraph.get_rect()
 
-    # حساب الإحداثيات والحجم للصورة الناتجة (الحد الأدنى للحجم - 1×1 بكسل).
+    # حساب إحداثيات وحجم الصورة الناتجة (الحد الأدنى - بكسل واحد × بكسل واحد).
     image_left = math.floor(paragraph_rectangle.x)
     image_top = math.floor(paragraph_rectangle.y)
     image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
     image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
 
-    # قص صورة النقاط للشكل للحصول على صورة الفقرة فقط.
+    # قص صورة الشكل للحصول على صورة الفقرة فقط.
     paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
 
     paragraph_bitmap.save("paragraph.png")
@@ -698,7 +703,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 **مثال 2**
 
-في هذا المثال، نوسع النهج السابق بإضافة عوامل مقياس إلى صورة الفقرة. يُستخرج الشكل من العرض ويُحفظ كصورة بعامل مقياس `2`. يسمح ذلك بإنتاج مخرج عالي الدقة عند تصدير الفقرة. تُحسب حدود الفقرة مع مراعاة المقياس. يمكن أن يكون المقياس مفيدًا عندما تحتاج إلى صورة أكثر تفصيلاً، على سبيل المثال للاستخدام في مواد مطبوعة عالية الجودة.
+في هذا المثال، نوسع النهج السابق بإضافة عوامل مقياس إلى صورة الفقرة. يتم استخراج الشكل من العرض التقديمي وحفظه كصورة بعامل مقياس `2`. يتيح ذلك مخرجات ذات دقة أعلى عند تصدير الفقرة. ثم تُحسب حدود الفقرة مع مراعاة المقياس. يمكن أن يكون المقياس مفيدًا عندما تحتاج إلى صورة أكثر تفصيلاً، على سبيل المثال للاستخدام في مواد مطبوعة عالية الجودة.
 
 ```py
 import aspose.slides as slides
@@ -729,13 +734,13 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph_rectangle.width *= image_scale_x
     paragraph_rectangle.height *= image_scale_y
 
-    # حساب الإحداثيات والحجم للصورة الناتجة (الحد الأدنى للحجم - 1×1 بكسل).
+    # حساب الإحداثيات والحجم للصورة الناتجة (الحد الأدنى - بكسل واحد × بكسل واحد).
     image_left = math.floor(paragraph_rectangle.x)
     image_top = math.floor(paragraph_rectangle.y)
     image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
     image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
 
-    # قص صورة النقاط للشكل للحصول على صورة الفقرة فقط.
+    # قص صورة الشكل للحصول على صورة الفقرة فقط.
     paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
 
     paragraph_bitmap.save("paragraph.png")
@@ -743,18 +748,18 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني تعطيل التفاف السطر بالكامل داخل إطار النص؟**
+**هل يمكنني تعطيل التفاف السطر داخل إطار النص تمامًا؟**
 
-نعم. استخدم إعداد التفاف إطار النص ([wrap_text](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframeformat/wrap_text/)) لتعطيل التفاف السطر بحيث لا تنكسر الأسطر عند حواف الإطار.
+نعم. استخدم إعداد التفاف النص في إطار النص ([wrap_text](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframeformat/wrap_text/)) لإيقاف التفاف السطور بحيث لا تنكسر عند حدود الإطار.
 
-**كيف يمكنني الحصول على حدود الفقرة المحددة على الشريحة بدقة؟**
+**كيف يمكنني الحصول على الحدود الدقيقة للفقرة على الشريحة؟**
 
-يمكنك استرجاع المستطيل المحدد للفقرة (وحتى للجزء الفردي) لمعرفة موقعها الدقيق وحجمها على الشريحة.
+يمكنك استخراج المستطيل الحدودي للفقرة (وحتى للجزء النصي الفردي) لمعرفة موقعها الدقيق وحجمها على الشريحة.
 
-**أين يتم التحكم في محاذاة الفقرة (يسار/يمين/وسط/ضبط)؟**
+**أين يتم التحكم في محاذاة الفقرة (اليسار/اليمين/الوسط/مساواة)?**
 
-[Alignment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/alignment/) هو إعداد على مستوى الفقرة في [ParagraphFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/)؛ يطبق على كامل الفقرة بغض النظر عن تنسيق الأجزاء الفردية.
+[Alignment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/alignment/) هو إعداد على مستوى الفقرة في [ParagraphFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/); يُطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
 
-**هل يمكنني تعيين لغة تدقيق إملائي لجزء فقط من الفقرة (مثل كلمة واحدة)؟**
+**هل يمكنني تعيين لغة التدقيق الإملائي لجزء فقط من الفقرة (مثل كلمة واحدة)؟**
 
-نعم. تُحدد اللغة على مستوى الجزء ([PortionFormat.language_id](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portionformat/language_id/))، لذا يمكن أن تتعايش لغات متعددة داخل فقرة واحدة.
+نعم. يتم تعيين اللغة على مستوى الجزء ([PortionFormat.language_id](https://reference.aspose.com/slides/ar/python-net/aspose.slides/portionformat/language_id/))، لذا يمكن أن تت coexist عدة لغات داخل الفقرة نفسها.

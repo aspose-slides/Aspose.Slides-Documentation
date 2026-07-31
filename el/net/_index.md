@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides για .NET
-second_title: "Aspose.Slides Τεκμηρίωση"
+title: Aspose.Slides for .NET
+second_title: Aspose.Slides for .NET
 type: docs
 weight: 10
 url: /el/net/
@@ -13,7 +13,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Το Aspose.Slides για .NET είναι ένα API διαχείρισης του Microsoft PowerPoint® που επιτρέπει στις εφαρμογές .NET να διαβάζουν και να γράφουν έγγραφα PowerPoint® χωρίς τη χρήση του Microsoft PowerPoint®."
+description: Aspose.Slides for .NET είναι ένα API διαχείρισης Microsoft PowerPoint® που επιτρέπει σε εφαρμογές .NET να διαβάζουν και να γράφουν έγγραφα PowerPoint® χωρίς τη χρήση του Microsoft PowerPoint®.
 is_root: true
 ---
 {{% alert color="primary" %}}
@@ -22,11 +22,11 @@ is_root: true
 
 ![Λογότυπο προϊόντος Aspose.Slides for .NET](home_1.png)
 
-Το Aspose.Slides for .NET είναι ένα API διαχείρισης του Microsoft PowerPoint® που επιτρέπει στις εφαρμογές .NET να διαβάζουν και να γράφουν έγγραφα PowerPoint® χωρίς τη χρήση του Microsoft PowerPoint®.
+Το Aspose.Slides for .NET είναι ένα API διαχείρισης Microsoft PowerPoint® που επιτρέπει σε εφαρμογές .NET να διαβάζουν και να γράφουν έγγραφα PowerPoint® χωρίς τη χρήση του Microsoft PowerPoint®.
 
 Το Aspose.Slides for .NET είναι το πρώτο και μοναδικό στοιχείο που παρέχει τις λειτουργίες που απαιτούνται για τη διαχείριση εγγράφων PowerPoint®.
 
-Το Aspose.Slides for .NET προσφέρει πολλές βασικές δυνατότητες, όπως τη διαχείριση κειμένου, σχημάτων, πινάκων & κινήσεων, την προσθήκη ήχου και βίντεο στις διαφάνειες, την προεπισκόπηση διαφανειών, την εξαγωγή διαφανειών σε SVG, PDF και διάφορες μορφές, καθώς και πολλές άλλες δυνατότητες.
+Το Aspose.Slides for .NET προσφέρει πολλές βασικές δυνατότητες, όπως η διαχείριση κειμένου, σχημάτων, πινάκων & κινήσεων, η προσθήκη ήχου και βίντεο στις διαφάνειες, η προεπισκόπηση διαφανειών, η εξαγωγή διαφανειών σε SVG, PDF και διάφορες μορφές, καθώς και πολλές άλλες δυνατότητες.
 
 {{% /alert %}}
 
@@ -34,8 +34,8 @@ is_root: true
 
 Αυτοί είναι σύνδεσμοι σε χρήσιμους πόρους:
 
-- [Τεκμηρίωση Aspose.Slides for .NET Online](/slides/el/net/)
-- [Λειτουργίες Aspose.Slides for .NET](/slides/el/net/features-overview/)
+- [Διαδικτυακή τεκμηρίωση Aspose.Slides for .NET](/slides/el/net/)
+- [Δυνατότητες Aspose.Slides for .NET](/slides/el/net/features-overview/)
 - [Περιορισμοί Aspose.Slides for .NET](/slides/el/net/known-issues/)
 - [Σημειώσεις έκδοσης Aspose.Slides for .NET](https://releases.aspose.com/slides/el/net/release-notes/)
 - [Σελίδα προϊόντος Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/)
@@ -44,4 +44,4 @@ is_root: true
 - [Οδηγός αναφοράς API Aspose.Slides for .NET](https://reference.aspose.com/slides/el/net)
 - [Λήψη παραδειγμάτων από αποθετήριο GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Δωρεάν φόρουμ υποστήριξης Aspose.Slides for .NET](https://forum.aspose.com/c/slides/el/11)
-- [Πληρωμένη υποστήριξη Helpdesk Aspose.Slides for .NET](https://helpdesk.aspose.com/)
+- [Πληρωμένο helpdesk υποστήριξης Aspose.Slides for .NET](https://helpdesk.aspose.com/)

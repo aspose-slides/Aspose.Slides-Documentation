@@ -1,5 +1,5 @@
 ---
-title: Cấu hình các Bộ sưu tập Phông chữ Dự phòng trong C++
+title: Cấu hình Bộ sưu tập Phông chữ Dự phòng trong C++
 linktitle: Bộ sưu tập Phông chữ Dự phòng
 type: docs
 weight: 20
@@ -19,21 +19,21 @@ description: "Thiết lập một bộ sưu tập phông chữ dự phòng trong
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn cấu hình một bộ quy tắc phông chữ dự phòng cho bài thuyết trình. Mỗi quy tắc dự phòng được biểu diễn bằng lớp `FontFallBackRule` và có thể được thêm vào `FontFallBackRulesCollection`, lớp này triển khai giao diện `IFontFallBackRulesCollection`.
+Aspose.Slides cho phép bạn cấu hình một bộ quy tắc phông chữ dự phòng cho bài thuyết trình. Mỗi quy tắc dự phòng được đại diện bởi lớp `FontFallBackRule` và có thể được thêm vào `FontFallBackRulesCollection`, lớp thực thi giao diện `IFontFallBackRulesCollection`.
 
-Sau khi tạo bộ sưu tập, bạn có thể gán nó bằng phương thức `set_FontFallBackRulesCollection` của `FontsManager` trong bài thuyết trình. `FontsManager` điều khiển phông chữ trên toàn bộ bài thuyết trình, và mỗi thể hiện `Presentation` có `FontsManager` riêng của nó.
+Sau khi tạo bộ sưu tập, bạn có thể gán nó bằng phương thức `set_FontFallBackRulesCollection` của `FontsManager` trong bài thuyết trình. `FontsManager` kiểm soát phông chữ trên toàn bộ bài thuyết trình, và mỗi đối tượng `Presentation` có `FontsManager` riêng.
 
-Khi `FontsManager` được khởi tạo với bộ sưu tập phông chữ dự phòng, các phông chữ dự phòng đã chỉ định sẽ được áp dụng trong quá trình render bài thuyết trình.
+Khi `FontsManager` được khởi tạo với bộ sưu tập phông chữ dự phòng, các phông chữ dự phòng được chỉ định sẽ được áp dụng trong quá trình render bài thuyết trình.
 
 ## **Áp dụng quy tắc dự phòng**
 
-Các thể hiện của lớp [FontFallBackRule](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontfallbackrule/) có thể được tổ chức thành [FontFallBackRulesCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontfallbackrulescollection/), lớp này triển khai giao diện [IFontFallBackRulesCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifontfallbackrulescollection/). Có thể thêm hoặc xóa các quy tắc trong bộ sưu tập.
+Các thể hiện của[FontFallBackRule](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontfallbackrule/) có thể được tổ chức thành[FontFallBackRulesCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontfallbackrulescollection/), lớp thực thi[IFontFallBackRulesCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifontfallbackrulescollection/) . Bạn có thể thêm hoặc xóa các quy tắc khỏi bộ sưu tập.
 
-Sau đó bộ sưu tập này có thể được truyền vào phương thức [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) của lớp [FontsManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontsmanager/). FontsManager điều khiển phông chữ trên toàn bộ bài thuyết trình.
+Sau đó bộ sưu tập này có thể được truyền vào[set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) của lớp[FontsManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fontsmanager/). FontsManager kiểm soát phông chữ trên toàn bộ bài thuyết trình.
 
-Mỗi [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) có một phương thức [get_FontsManager()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/get_fontsmanager/) với một thể hiện riêng của lớp FontsManager.
+Mỗi[Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) có một phương thức[get_FontsManager()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/get_fontsmanager/) với một thể hiện riêng của lớp FontsManager.
 
-Dưới đây là một ví dụ về cách tạo bộ quy tắc phông chữ dự phòng và gán nó vào FontsManager của một bài thuyết trình cụ thể:  
+Dưới đây là ví dụ cách tạo bộ quy tắc phông chữ dự phòng và gán vào FontsManager của một bản trình chiếu cụ thể:  
 
 ``` cpp
 auto presentation = MakeObject<Presentation>();
@@ -53,18 +53,18 @@ Sau khi FontsManager được khởi tạo với bộ sưu tập phông chữ d�
 
 ## **Câu hỏi thường gặp**
 
-**Các quy tắc dự phòng của tôi có được nhúng vào file PPTX và hiển thị trong PowerPoint sau khi lưu không?**
+**Các quy tắc dự phòng của tôi có được nhúng vào tập tin PPTX và hiển thị trong PowerPoint sau khi lưu không?**
 
-Không. Các quy tắc dự phòng là cài đặt render thời gian chạy; chúng không được ghi vào file PPTX và sẽ không xuất hiện trong giao diện PowerPoint.
+Không. Các quy tắc dự phòng là cài đặt render thời gian chạy; chúng không được ghi vào PPTX và sẽ không xuất hiện trong giao diện PowerPoint.
 
-**Có áp dụng dự phòng cho văn bản trong SmartArt, WordArt, biểu đồ và bảng không?**
+**Quy tắc dự phòng có áp dụng cho văn bản trong SmartArt, WordArt, biểu đồ và bảng không?**
 
-Có. Cùng một cơ chế thay thế glyph được sử dụng cho bất kỳ văn bản nào trong các đối tượng này.
+Có. Cơ chế thay thế glyph giống nhau được sử dụng cho mọi văn bản trong các đối tượng này.
 
-**Aspose có phân phối bất kỳ phông chữ nào cùng với thư viện không?**
+**Aspose có phân phối bất kỳ phông chữ nào cùng thư viện không?**
 
-Không. Bạn tự thêm và sử dụng phông chữ và chịu trách nhiệm hoàn toàn.
+Không. Bạn tự thêm và sử dụng phông chữ, chịu trách nhiệm hoàn toàn.
 
-**Có thể sử dụng đồng thời việc thay thế/phông chữ thay thế cho các phông chữ thiếu và dự phòng cho các glyph thiếu không?**
+**Có thể sử dụng đồng thời việc thay thế/phông chữ thay thế cho phông chữ thiếu và dự phòng cho glyph thiếu không?**
 
-Có. Chúng là các giai đoạn độc lập của cùng một quy trình giải quyết phông chữ: đầu tiên engine xác định tính khả dụng của phông chữ ([replacement](/slides/vi/cpp/font-replacement/)/[substitution](/slides/vi/cpp/font-substitution/)), sau đó dự phòng lấp đầy các khoảng trống cho glyph thiếu trong các phông chữ có sẵn.
+Có. Hai bước này là các giai đoạn độc lập của cùng một pipeline giải quyết phông chữ: đầu tiên engine xác định tính khả dụng của phông chữ ([replacement](/slides/vi/cpp/font-replacement/)/[substitution](/slides/vi/cpp/font-substitution/)), sau đó dự phòng lấp đầy các glyph còn thiếu trong các phông chữ có sẵn.

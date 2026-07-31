@@ -1,6 +1,6 @@
 ---
-title: Quản lý nội dung bài thuyết trình trong C++
-linktitle: Nội dung bài thuyết trình
+title: Quản lý nội dung bản trình chiếu trong C++
+linktitle: Nội dung bản trình chiếu
 type: docs
 weight: 30
 url: /vi/cpp/presentation-content/
@@ -11,17 +11,17 @@ keywords:
 - phương tiện
 - OLE
 - văn bản
-- phóng to
-- đồ thị
-- phương trình
+- thu phóng
+- biểu đồ
+- công thức
 - hình dạng
-- mực
+- bút vẽ
 - SmartArt
 - bảng
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - C++
 - Aspose.Slides
-description: "Tạo, chỉnh sửa và trích xuất nội dung bài thuyết trình bằng Aspose.Slides cho C++ — nhận ví dụ mã cho văn bản, hình ảnh, hình dạng, biểu đồ; PPT, PPTX và ODP."
+description: "Tạo, chỉnh sửa và trích xuất nội dung bản trình chiếu với Aspose.Slides cho C++ — nhận các ví dụ mã cho văn bản, hình ảnh, hình dạng, biểu đồ; PPT, PPTX và ODP."
 ---

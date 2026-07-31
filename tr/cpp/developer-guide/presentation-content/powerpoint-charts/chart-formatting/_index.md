@@ -1,123 +1,123 @@
 ---
-title: C++'ta Sunum Grafiklerini Biçimlendirme
+title: C++ Sunum Grafiklerini Biçimlendirme
 linktitle: Grafik Biçimlendirme
 type: docs
 weight: 60
 url: /tr/cpp/chart-formatting/
 keywords:
-- grafik biçimlendirme
+- grafik formatı
 - grafik biçimlendirme
 - grafik varlığı
 - grafik özellikleri
 - grafik ayarları
 - grafik seçenekleri
 - yazı tipi özellikleri
-- yuvarlatılmış kenar
+- yuvarlak kenar
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ta grafik biçimlendirmeyi öğrenin ve profesyonel, göz alıcı stil ile PowerPoint sunumunuzu yükseltin."
+description: "Aspose.Slides for C++ içinde grafik biçimlendirmeyi öğrenin ve PowerPoint sunumunuzu profesyonel, göz alıcı bir stil ile yükseltin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafiklerin nasıl biçimlendirileceğini açıklar. Eksenler, ızgara çizgileri, başlıklar, lejandlar, çizim alanı ve duvar dolgu renkleri gibi ana grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafikleri nasıl biçimlendireceğinizi açıklar. Ekseler, ızgara çizgileri, başlıklar, gösterge alanları, çizim alanı ve duvar dolguları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca, grafik metni için yazı tipi özelliklerinin nasıl ayarlanacağını, grafik verilerine hazır ve özel sayı biçimlerinin nasıl uygulanacağını ve grafik alanı için yuvarlak köşelerin nasıl etkinleştirileceğini gösterir. Bu örnekler, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi ortaya koyar.
+Ayrıca, grafik metni için yazı tipi özelliklerini ayarlamayı, grafik verilerine önceden tanımlı ve özel sayı formatları uygulamayı ve grafik alanı için yuvarlak köşeleri etkinleştirmeyi açıklar. Bu örnekler, bir sunumdaki grafiklerin görsel stilini ve veri sunumunu birlikte nasıl kontrol edebileceğinizi gösterir.
 
-## **Grafik Nesnelerini Biçimlendirme**
-Aspose.Slides for C++ geliştiricilerin sıfırdan özel grafikler eklemesini sağlar. Bu makale, grafik kategori ve değer ekseni dahil olmak üzere farklı grafik nesnelerinin nasıl biçimlendirileceğini açıklar.
+## **Grafik Öğelerini Biçimlendirme**
+Aspose.Slides for C++ geliştiricilerin sıfırdan özel grafikler eklemesine olanak tanır. Bu makale, grafik kategori ve değer ekseni dahil farklı grafik öğelerini nasıl biçimlendireceğinizi açıklar.
 
-Aspose.Slides for C++ farklı grafik nesnelerini yönetmek ve bunları özel değerlerle biçimlendirmek için basit bir API sunar:
+Aspose.Slides for C++ farklı grafik öğelerini yönetmek ve özelleştirilmiş değerlerle biçimlendirmek için basit bir API sunar:
 
-1. **Presentation** sınıfının bir örneğini oluşturun.  
-1. İndeksiyle bir slaytın referansını alın.  
-1. İstediğiniz türde (bu örnekte **ChartType.LineWithMarkers** kullanılacaktır) varsayılan veri ile bir grafik ekleyin.  
-1. Grafiğin **Değer Ekseni**ne erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. **Değer Ekseni** Büyük Izgara Çizgileri için **Çizgi Biçimi** ayarlama  
-   1. **Değer Ekseni** Küçük Izgara Çizgileri için **Çizgi Biçimi** ayarlama  
-   1. **Değer Ekseni** için **Sayı Biçimi** ayarlama  
-   1. **Değer Ekseni** için **Min, Max, Büyük ve Küçük birimler** ayarlama  
-   1. **Değer Ekseni** verileri için **Metin Özellikleri** ayarlama  
-   1. **Değer Ekseni** için **Başlık** ayarlama  
-   1. **Değer Ekseni** için **Çizgi Biçimi** ayarlama  
-1. Grafiğin **Kategori Ekseni**ne erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. **Kategori Ekseni** Büyük Izgara Çizgileri için **Çizgi Biçimi** ayarlama  
-   1. **Kategori Ekseni** Küçük Izgara Çizgileri için **Çizgi Biçimi** ayarlama  
-   1. **Kategori Ekseni** verileri için **Metin Özellikleri** ayarlama  
-   1. **Kategori Ekseni** için **Başlık** ayarlama  
-   1. **Kategori Ekseni** için **Etiket Konumlandırması** ayarlama  
-   1. **Kategori Ekseni** etiketleri için **Dönüş Açısı** ayarlama  
-1. Grafiğin **Lejand**ına erişin ve **Metin Özellikleri**ni ayarlayın.  
-1. Grafik lejandlarının grafik üzerine çakışmadan gösterilmesini ayarlayın.  
-1. Grafiğin **İkincil Değer Ekseni**ne erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. **İkincil Değer Ekseni**ni etkinleştirin.  
-   1. **İkincil Değer Ekseni** için **Çizgi Biçimi** ayarlama  
-   1. **İkincil Değer Ekseni** için **Sayı Biçimi** ayarlama  
-   1. **İkincil Değer Ekseni** için **Min, Max, Büyük ve Küçük birimler** ayarlama  
-1. İlk grafik serisini **İkincil Değer Ekseni**ne çizin.  
-1. Grafiğin arka duvarını dolgu rengine ayarlayın.  
-1. Grafiğin çizim alanının dolgu rengini ayarlayın.  
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+1. **Presentation** sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slaytın referansını alın.
+1. İstediğiniz tipte (bu örnekte ChartType.LineWithMarkers kullanacağız) varsayılan veriyle bir grafik ekleyin.
+1. Grafiğin Değer Ekseni'ne erişin ve aşağıdaki özellikleri ayarlayın:
+   1. Değer Ekseni Anaızık Çizgileri için **Line format**'ı ayarlayın
+   1. Değer Ekseni Altızık Çizgileri için **Line format**'ı ayarlayın
+   1. Değer Ekseni için **Number Format**'ı ayarlayın
+   1. Değer Ekseni için **Min, Max, Major and Minor units**'ı ayarlayın
+   1. Değer Ekseni verileri için **Text Properties**'i ayarlayın
+   1. Değer Ekseni için **Title**'ı ayarlayın
+   1. Değer Ekseni için **Line Format**'ı ayarlayın
+1. Grafiğin Kategori Ekseni'ne erişin ve aşağıdaki özellikleri ayarlayın:
+   1. Kategori Ekseni Anaızık Çizgileri için **Line format**'ı ayarlayın
+   1. Kategori Ekseni Altızık Çizgileri için **Line format**'ı ayarlayın
+   1. Kategori Ekseni verileri için **Text Properties**'i ayarlayın
+   1. Kategori Ekseni için **Title**'ı ayarlayın
+   1. Kategori Ekseni için **Label Positioning**'i ayarlayın
+   1. Kategori Ekseni etiketleri için **Rotation Angle**'ı ayarlayın
+1. Grafiğin Gösterge alanına erişin ve **Text Properties**'i ayarlayın
+1. Grafiğin gösterge alanının çakışmadan görünmesini ayarlayın
+1. Grafiğin **Secondary Value Axis**'ine erişin ve aşağıdaki özellikleri ayarlayın:
+   1. İkincil **Value Axis**'i etkinleştirin
+   1. İkincil Değer Ekseni için **Line Format**'ı ayarlayın
+   1. İkincil Değer Ekseni için **Number Format**'ı ayarlayın
+   1. İkincil Değer Ekseni için **Min, Max, Major and Minor units**'ı ayarlayın
+1. Şimdi ilk grafik serisini İkincil Değer Ekseni üzerine çizin
+1. Grafiğin arka duvarını dolgu rengine ayarlayın
+1. Grafiğin çizim alanının dolgu rengini ayarlayın
+1. Değiştirilmiş sunumu bir PPTX dosyasına yazın
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChartEntities-ChartEntities.cpp" >}}
 
 ## **Bir Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
-Aspose.Slides for C++ grafikler için yazı tipiyle ilgili özelliklerin ayarlanmasını destekler. Aşağıdaki adımları izleyerek grafik için yazı tipi özelliklerini ayarlayın.
+Aspose.Slides for C++ grafikler için yazı tipiyle ilgili özellikleri ayarlamayı destekler. Grafik için yazı tipi özelliklerini ayarlamak için aşağıdaki adımları izleyin.
 
-- **Presentation** sınıfı nesnesini oluşturun.  
-- Slayta bir grafik ekleyin.  
-- Yazı tipi yüksekliğini ayarlayın.  
+- Presentation sınıfı nesnesini örnekleyin.
+- Slayta bir grafik ekleyin.
+- Yazı tipi yüksekliğini ayarlayın.
 - Değiştirilmiş sunumu kaydedin.
 
-Aşağıda örnek bir örnek verilmiştir.
+Aşağıda örnek kod verilmiştir.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontPropertiesForChart-FontPropertiesForChart.cpp" >}}
 
-## **Bir Grafik Veri Tablosu İçin Yazı Tipi Özelliklerini Ayarlama**
-Aspose.Slides for C++ bir serideki kategorilerin renklerinin değiştirilmesini destekler.
+## **Grafik Veri Tablosu İçin Yazı Tipi Özelliklerini Ayarlama**
+Aspose.Slides for C++ bir serideki kategorilerin rengini değiştirmeyi destekler.
 
-1. **Presentation** sınıfı nesnesini oluşturun.  
-1. Slayta bir grafik ekleyin.  
-1. Grafik tablosunu ayarlayın.  
-1. Yazı tipi yüksekliğini ayarlayın.  
+1. Presentation sınıfı nesnesini örnekleyin.
+1. Slayta bir grafik ekleyin.
+1. Grafik tablosunu ayarlayın.
+1. Yazı tipi yüksekliğini ayarlayın.
 1. Değiştirilmiş sunumu kaydedin.
 
-Aşağıda örnek bir örnek verilmiştir.
+Aşağıda örnek kod verilmiştir. 
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingFontPropertiesForChartDataTable-SettingFontPropertiesForChartDataTable.cpp" >}}
 
-## **Grafik Alanı Yuvarlak Kenarlıklarını Ayarlama**
-Aspose.Slides for C++ grafik alanı ayarlamayı destekler. **IChart.HasRoundedCorners** ve **Chart.HasRoundedCorners** özellikleri Aspose.Slides’e eklenmiştir.
+## **Grafik Alanı Yuvarlak Köşelerle Ayarlama**
+Aspose.Slides for C++ grafik alanını ayarlamayı destekler. **IChart.HasRoundedCorners** ve **Chart.HasRoundedCorners** özellikleri Aspose.Slides içinde eklenmiştir.
 
-1. **Presentation** sınıfı nesnesini oluşturun.  
-1. Slayta bir grafik ekleyin.  
-1. Grafiğin doldurma türünü ve dolgu rengini ayarlayın.  
-1. Yuvarlak köşe özelliğini **True** olarak ayarlayın.  
-1. Değiştirilmiş sunumu kaydedin.
+1. Presentation sınıfı nesnesini örnekleyin.
+1. Slayta bir grafik ekleyin.
+1. Grafiğin doldurma tipini ve doldurma rengini ayarlayın
+1. Yuvarlak köşe özelliğini True olarak ayarlayın.
+1. Değiştirilmiş sunumu kaydedin. 
 
-Aşağıda örnek bir örnek verilmiştir.
+Aşağıda örnek kod verilmiştir. 
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingChartAreaRoundedBorders-SettingChartAreaRoundedBorders.cpp" >}}
 
-## **Sayısal Biçimi Ayarlama**
-Aspose.Slides for C++ grafik veri biçimini yönetmek için basit bir API sağlar:
+## **Sayısal Formatı Ayarlama**
+Aspose.Slides for C++ grafik veri formatını yönetmek için basit bir API sunar:
 
-1. **[Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/)** sınıfının bir örneğini oluşturun.  
-1. İndeksiyle bir slaytın referansını alın.  
-1. İstediğiniz türde (bu örnek **ChartType.ClusteredColumn** kullanır) varsayılan veri ile bir grafik ekleyin.  
-1. Olası hazır değerlerden birini seçerek hazır sayı biçimini ayarlayın.  
-1. Her grafik serisindeki grafik veri hücresini dolaşarak grafik veri sayı biçimini ayarlayın.  
-1. Sunumu kaydedin.  
-1. Özel sayı biçimini ayarlayın.  
-1. Her grafik serisindeki veri hücresini dolaşarak farklı bir sayı biçimi ayarlayın.  
+1. [Sunum](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slaytın referansını alın.
+1. Varsayılan veriyle birlikte istediğiniz tipte bir grafik ekleyin (bu örnek **ChartType.ClusteredColumn** kullanır).
+1. Olası önceden tanımlı değerlerden birini seçerek ön tanımlı sayı formatını ayarlayın.
+1. Her grafik serisindeki grafik veri hücrelerini dolaşarak grafik veri sayı formatını ayarlayın.
+1. Sunumu kaydedin.
+1. Özel sayı formatını ayarlayın.
+1. Her grafik serisi içindeki veri hücrelerini dolaşarak farklı bir grafik veri sayı formatı ayarlayın.
 1. Sunumu kaydedin.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-NumberFormat-NumberFormat.cpp" >}}
 
-| |**Kullanılabilecek olası önceden tanımlı sayı biçimi değerleri ve bunların indeksleri aşağıda verilmiştir:**|
+| |**Kullanılabilecek olası önceden tanımlı sayı formatı değerleri ve bunların indeksleri aşağıda verilmiştir:**|
 | :- | :- |
-|**0**|Genel|
+|**0**|General|
 |**1**|0|
 |**2**|0.00|
 |**3**|#,##0|
@@ -153,19 +153,20 @@ Aspose.Slides for C++ grafik veri biçimini yönetmek için basit bir API sağla
 |**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
+
 |||
 | :- | :- |
 
-## **SSS**
+## **FAQ**
 
-**Sütunlar/alanlar için yarı saydam doldurulmalar ayarlayıp kenarlığı opak tutabilir miyim?**
+**Sütunlar/alanlar için yarı saydam dolgu ayarlayıp kenarlığı opak tutabilir miyim?**
 
-Evet. Doldurma şeffaflığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için faydalıdır.
+Evet. Dolgu saydamlığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verinin okunabilirliğini artırmak için faydalıdır.
 
-**Veri etiketleri üst üste geldiğinde nasıl başa çıkabilirim?**
+**Etiketler çakıştığında ne yapmalıyım?**
 
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin kategorileri), etiket kaydırma/konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiket gösterin veya formatı “değer + lejand” olarak değiştirin.
+Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin, kategorileri), etiket ofset/konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiketleri gösterin veya formatı “değer + gösterge” olarak değiştirin.
 
-**Serilere degrade veya desen doldurulması uygulayabilir miyim?**
+**Serilere degrade veya desen dolguları uygulayabilir miyim?**
 
-Evet. Hem katı hem de degrade/desen doldurmaları genellikle mevcuttur. Gerçekte, degradeleri ölçülü kullanın ve ızgara ile metin arasındaki kontrastı azaltabilecek kombinasyonlardan kaçının.
+Evet. Katı ve degrade/desen dolguları genellikle mevcuttur. Pratikte, degradeleri ölçülü kullanın ve ızgara ve metinle olan kontrastı azaltan kombinasyonlardan kaçının.

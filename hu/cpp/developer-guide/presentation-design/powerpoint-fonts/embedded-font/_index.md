@@ -1,5 +1,5 @@
 ---
-title: Betűtípusok beágyazása prezentációkba C++ használatával
+title: Betűtípusok beágyazása prezentációkba C++-ban
 linktitle: Betűtípus beágyazása
 type: docs
 weight: 40
@@ -15,32 +15,32 @@ keywords:
 - PowerPoint
 - OpenDocument
 - prezentáció
-- С++
+- C++
 - Aspose.Slides
-description: "TrueType betűtípusok beágyazása PowerPoint és OpenDocument prezentációkba az Aspose.Slides for C++ segítségével, biztosítva a pontos megjelenítést minden platformon."
+description: "TrueType betűtípusok beágyazása PowerPoint és OpenDocument prezentációkba az Aspose.Slides for C++ segítségével, biztosítva a pontos renderelést minden platformon."
 ---
 ## **Bevezetés**
 
-**A PowerPointba beágyazott betűtípusok** segítenek biztosítani, hogy bemutatója megtartsa a kívánt megjelenést, amikor bármely rendszeren vagy eszközön megnyitják. Ez különösen fontos egyedi, harmadik féltől származó vagy nem szabványos betűtípusok használatakor a márkaépítés vagy a kreatív célok érdekében. Beágyazott betűtípusok hiányában a szöveget helyettesíthetik, az elrendezések megbomolhatnak, és a karakterek olvashatatlan szimbólumokként vagy négyzetekként jelenhetnek meg, ami aláássa a teljes dizájnt.
+**Beágyazott betűtípusok a PowerPointban** segítenek biztosítani, hogy a prezentáció megőrizze a szándékolt megjelenését bármely rendszer vagy eszköz megnyitásakor. Ez különösen fontos egyedi, harmadik féltől származó vagy nem szabványos betűtípusok használatakor a márkaépítés vagy kreatív célok érdekében. Beágyazott betűtípusok nélkül a szöveget helyettesíthetik, a layoutrak megszakadhatnak, és a karakterek olvashatatlan szimbólumokként vagy négyzetekként jelenhetnek meg, ezzel veszélyeztetve a teljes tervezést.
 
-Aspose.Slides for C++ egy erőteljes API-készletet biztosít a beágyazott betűtípusok programozott kezeléséhez. Használhatja a [FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/) és a [FontData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontdata/) osztályokat a betűtípusok vizsgálatához, hozzáadásához vagy eltávolításához a prezentáció fájljaiban. Emellett a [Compress](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/) osztály lehetővé teszi a fájlméret optimalizálását a betűtípus‑adatok tömörítésével, anélkül hogy a minőség vagy a megjelenés romlana.
+Aspose.Slides for C++ egy sor hatékony API-t biztosít a beágyazott betűtípusok programozott kezeléséhez. Használhatja a [FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/) és a [FontData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontdata/) osztályokat a betűtípusok ellenőrzéséhez, hozzáadásához vagy eltávolításához a prezentációs fájlokban. Továbbá a [Compress](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/) osztály lehetővé teszi a fájlméret optimalizálását a betűtípus adatainak tömörítésével anélkül, hogy a minőség vagy a megjelenés változna.
 
-Ezek az eszközök teljes körű irányítást adnak a betűtípus‑beágyazás felett, segítve a tipográfia következetes megtartását különböző platformokon, miközben szükség esetén csökkentik a fájlméretet.
+Ezek az eszközök teljes irányítást adnak a betűtípus beágyazása felett, segítve a konzisztens tipográfia fenntartását különböző platformokon, miközben szükség esetén csökkentik a fájlméretet.
 
-## **Beágyazott betűtípusok lekérése egy prezentációból**
+## **Beágyazott betűtípusok lekérése a prezentációból**
 
-Aspose.Slides for C++ a `GetEmbeddedFonts` metódust biztosítja a [FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/) osztályon keresztül, amely lehetővé teszi a PowerPoint‑prezentációba beágyazott betűtípusok listájának lekérését. Ez hasznos lehet a betűtípus‑használat auditálásához, a márka‑irányelvek betartásának biztosításához, vagy annak ellenőrzéséhez, hogy minden szükséges betűtípus helyesen legyen beágyazva a fájl megosztása előtt.
+Az Aspose.Slides for C++ a `GetEmbeddedFonts` metódust a [FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/) osztályon keresztül biztosítja, amely lehetővé teszi a PowerPoint prezentációban beágyazott betűtípusok listájának lekérését. Ez hasznos lehet a betűtípus használatának auditálásához, a márka irányelveinek való megfelelés biztosításához, vagy annak ellenőrzéséhez, hogy minden szükséges betűtípus megfelelően be legyen vonva a fájl megosztása előtt.
 
-Az alábbi C++ kód bemutatja, hogyan lehet beágyazott betűtípusokat lekérni egy prezentációfájlból:
+Az alábbi C++ kód bemutatja, hogyan lehet beágyazott betűtípusokat lekérni egy prezentációs fájlból:
 
 ```cpp
-// Példányosítja a Presentation osztályt, amely egy prezentációfájlt képvisel.
+// Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
-// Lekéri az összes beágyazott betűtípust.
+// Az összes beágyazott betűtípust lekéri.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
-// Kiírja a beágyazott betűtípusok neveit.
+// Kiírja a beágyazott betűtípusok nevét.
 for (auto&& fontData : embeddedFonts)
 {
     Console::WriteLine(fontData->get_FontName());
@@ -49,14 +49,14 @@ for (auto&& fontData : embeddedFonts)
 presentation->Dispose();
 ```
 
-## **Beágyazott betűtípusok hozzáadása egy prezentációhoz**
+## **Beágyazott betűtípusok hozzáadása a prezentációhoz**
 
-Aspose.Slides for C++ lehetővé teszi betűtípusok beágyazását egy PowerPoint‑prezentációba a [AddEmbeddedFont](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/addembeddedfont/) metódus segítségével, amely két túlterheléssel biztosít rugalmas használatot. A beágyazott karakterek mennyiségét a [EmbedFontCharacters](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/embedfontcharacters/) felsorolás használatával szabályozhatja – például csak a használt karakterek vagy a teljes betűtípus‑készlet beágyazásával. Ez a funkció különösen hasznos a prezentáció megosztására vagy terjesztésére való előkészítésekor, biztosítva, hogy az egyedi vagy nem szabványos betűtípusok helyesen jelenjenek meg minden rendszeren, még akkor is, ha azok nincsenek telepítve.
+Aspose.Slides for C++ lehetővé teszi a betűtípusok PowerPoint prezentációba történő beágyazását a [AddEmbeddedFont](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/addembeddedfont/) metódus használatával, amely két túlterheléssel rendelkezik a rugalmas használathoz. Az [EmbedFontCharacters](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/embedfontcharacters/) felsorolás segítségével szabályozhatja, hogy a betűtípus mennyire legyen beágyazva – például csak a használt karakterek vagy a teljes betűtípus készlet beágyazását választhatja. Ez a funkció különösen hasznos a prezentáció megosztásra vagy terjesztésre való előkészítésekor, biztosítva, hogy az egyedi vagy nem szabványos betűtípusok helyesen jelenjenek meg minden rendszerben, még akkor is, ha a betűtípusok nincsenek telepítve.
 
-Az alábbi C++ kód ellenőrzi a prezentációban használt összes betűtípust, és beágyazza azokat, amelyek még nincsenek beágyazva:
+Az alábbi C++ kód ellenőrzi a prezentációban használt összes betűtípust, és beágyazza azokat a betűtípusokat, amelyek még nincsenek beágyazva:
 
 ```cpp
-// Betölt egy prezentációfájlt.
+// Betölt egy prezentációs fájlt.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 auto usedFonts = presentation->get_FontsManager()->GetFonts();
@@ -69,31 +69,31 @@ for (auto&& fontData : usedFonts)
             return data == fontData;
         };
 
-    // Ellenőrzi, hogy a betűtípus már be van-e ágyazva.
+    // Ellenőrizze, hogy a betűtípus már be van-e ágyazva.
     bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
     if (!isEmbeddedFont)
     {
-        // Beágyazza a betűtípust a prezentációba.
+        // Ágyazza be a betűtípust a prezentációba.
         presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
     }
 
 }
 
-// Mentse a prezentációt a lemezen.
+// Mentse a prezentációt a lemezre.
 presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Beágyazott betűtípusok eltávolítása egy prezentációból**
+## **Beágyazott betűtípusok eltávolítása a prezentációból**
 
-Aspose.Slides for C++ a `RemoveEmbeddedFont` metódust biztosítja a [FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/) osztályon keresztül, amely lehetővé teszi a PowerPoint‑prezentációban beágyazott konkrét betűtípusok eltávolítását. Ez segíthet a fájlméret csökkentésében, különösen ha a beágyazott betűtípusok már nem szükségesek vagy nem használtak. A nem használt betűtípusok eltávolítása javíthatja a teljesítményt, és biztosíthatja, hogy a prezentáció csak a lényeges erőforrásokat tartalmazza.
+Az Aspose.Slides for C++ a `RemoveEmbeddedFont` metódust a [FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/) osztályon keresztül biztosítja, amely lehetővé teszi a PowerPoint prezentációban beágyazott konkrét betűtípusok eltávolítását. Ez segíthet a teljes fájlméret csökkentésében, különösen ha a beágyazott betűtípusok már nem használatosak vagy szükségesek. A nem használt betűtípusok eltávolítása javíthatja a teljesítményt, és biztosíthatja, hogy a prezentáció csak a szükséges erőforrásokat tartalmazza.
 
-Az alábbi C++ kód bemutatja, hogyan lehet egy beágyazott betűtípust eltávolítani egy prezentációból:
+Az alábbi C++ kód bemutatja, hogyan lehet eltávolítani egy beágyazott betűtípust a prezentációból:
 
 ```cpp
 auto fontName = u"Calibri";
 
-// Példányosítja a Presentation osztályt, amely egy prezentációfájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
 // Lekéri az összes beágyazott betűtípust.
@@ -116,9 +116,9 @@ presentation->Dispose();
 
 ## **Beágyazott betűtípusok tömörítése**
 
-Aspose.Slides for C++ a `CompressEmbeddedFonts` metódust biztosítja a [Compress](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/) osztályon keresztül, lehetővé téve a prezentáció összes fájlméretének csökkentését a beágyazott betűtípus‑adatok optimalizálásával. Ez különösen hasznos, ha a prezentáció nagy vagy több betűtípust tartalmaz, és a fájlt könnyűsúlyúvá szeretné tenni megosztás, tárolás vagy online használat céljából – anélkül, hogy a tartalom vizuális hűségét veszélyeztetné.
+Az Aspose.Slides for C++ a `CompressEmbeddedFonts` metódust a [Compress](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/) osztályon keresztül biztosítja, lehetővé téve a prezentáció teljes fájlméretének csökkentését a beágyazott betűtípus adatainak optimalizálásával. Ez különösen hasznos, ha a prezentáció nagy vagy több betűtípust tartalmaz, és könnyű fájlt szeretne fenntartani a megosztáshoz, tároláshoz vagy online használathoz – anélkül, hogy a tartalom vizuális hűségét veszélyeztetné.
 
-Az alábbi C++ kód bemutatja, hogyan lehet beágyazott betűtípusokat tömöríteni egy PowerPoint‑prezentációban:
+Az alábbi C++ kód bemutatja, hogyan lehet tömöríteni a beágyazott betűtípusokat egy PowerPoint prezentációban:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -131,8 +131,10 @@ presentation->Dispose();
 
 ## **GYIK**
 
-**Hogyan tudhatom, hogy egy adott betűtípus a prezentációban még mindig helyettesítésre kerül a renderelés során a beágyazás ellenére?**  
-Ellenőrizze a [substitution information](/slides/hu/cpp/font-substitution/) és a [fallback/substitution rules](/slides/hu/cpp/fallback-font/) információkat a betűtípus‑kezelőben: ha a betűtípus nem elérhető vagy korlátozott, egy helyettesítő lesz használva.
+**Hogyan tudom megállapítani, hogy egy adott betűtípus a prezentációban a beágyazás ellenére is helyettesítésre kerül a renderelés során?**
 
-**Érdemes-e a “rendszer” betűtípusokat, például az Arial/Calibri‑t beágyazni?**  
-Általában nem – ezek szinte mindig elérhetők. De „vékony” környezetekben (Docker, Linux‑szerver előre telepített betűtípusok nélkül) a rendszer‑betűtípusok beágyazása kiküszöbölheti a váratlan helyettesítések kockázatát.
+Ellenőrizze a [helyettesítési információ](/slides/hu/cpp/font-substitution/) a betűtípuskezelőben és a [fallback/substitution szabályok](/slides/hu/cpp/fallback-font/)-at: ha a betűtípus nem elérhető vagy korlátozott, egy tartalék (fallback) lesz használva.
+
+**Érdemes beágyazni a „rendszer” betűtípusokat, például az Arial/Calibri-t?**
+
+Általában nem – ezek szinte mindig elérhetők. Azonban a teljes hordozhatóság érdekében „vékony” környezetekben (Docker, egy előre telepített betűtípusok nélküli Linux szerver), a rendszerbetűtípusok beágyazása kiküszöbölheti a váratlan helyettesítések kockázatát.

@@ -3,24 +3,26 @@ title: Poznámka
 type: docs
 weight: 240
 url: /cs/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - poznámka
 - přidat poznámkový snímek
 - přístup k poznámkovému snímku
 - odstranit poznámkový snímek
-- aktualizovat text poznámky
-- příklad kódu
+- aktualizovat text poznámek
+- ukázkový kód
 - PowerPoint
 - OpenDocument
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Pracujte s poznámkami ke snímkům v Aspose.Slides pro .NET: přidávejte, čtěte, upravujte a exportujte řečnické poznámky v PPT, PPTX a ODP pomocí přehledných příkladů v C#."
+description: "Práce s poznámkami ke snímkům v Aspose.Slides pro .NET: přidávejte, čtěte, upravujte a exportujte poznámky přednášejícího v PPT, PPTX a ODP pomocí přehledných příkladů v C#."
 ---
 Tento článek ukazuje, jak pomocí **Aspose.Slides for .NET** přidávat, číst, odstraňovat a aktualizovat poznámkové snímky.
 
-## **Přidat poznámkový snímek**
+## **Přidání poznámkového snímku**
 
 Vytvořte poznámkový snímek a přiřaďte mu text.
 
@@ -37,7 +39,7 @@ static void AddNote()
 
 ## **Přístup k poznámkovému snímku**
 
-Přečtěte text z existujícího poznámkového snímku.
+Načtěte text z existujícího poznámkového snímku.
 
 ```csharp
 static void AccessNote()
@@ -51,7 +53,7 @@ static void AccessNote()
 }
 ```
 
-## **Odstranit poznámkový snímek**
+## **Odstranění poznámkového snímku**
 
 Odstraňte poznámkový snímek přiřazený ke snímku.
 
@@ -67,7 +69,7 @@ static void RemoveNote()
 }
 ```
 
-## **Aktualizovat text poznámky**
+## **Aktualizace textu poznámkového snímku**
 
 Změňte text poznámkového snímku.
 

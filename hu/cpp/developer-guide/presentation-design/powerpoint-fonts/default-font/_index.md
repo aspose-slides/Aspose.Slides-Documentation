@@ -5,40 +5,39 @@ type: docs
 weight: 30
 url: /hu/cpp/default-font/
 keywords:
-  - alapértelmezett betűtípus
-  - normál betűtípus
-  - normál betűtípus
-  - ázsiai betűtípus
-  - PDF export
-  - XPS export
-  - kép export
-  - PowerPoint
-  - OpenDocument
-  - prezentáció
-  - C++
-  - Aspose.Slides
-description: "Állítsa be az alapértelmezett betűtípusokat az Aspose.Slides C++-hoz, hogy biztosítsa a PowerPoint (PPT, PPTX) és OpenDocument (ODP) helyes konvertálását PDF‑be, XPS‑be és képekké."
+- alapértelmezett betűtípus
+- normál betűtípus
+- standard betűtípus
+- ázsiai betűtípus
+- PDF export
+- XPS export
+- kép export
+- PowerPoint
+- OpenDocument
+- prezentáció
+- C++
+- Aspose.Slides
+description: "Állítsa be az alapértelmezett betűtípusokat az Aspose.Slides for C++-ban, hogy biztosítsa a PowerPoint (PPT, PPTX) és az OpenDocument (ODP) megfelelő konvertálását PDF, XPS és képek formátumokra."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy megadja az alapértelmezett betűtípusokat, amelyeket a prezentáció renderelése során használ. Ez akkor hasznos, amikor diaképek előnézeteket generál vagy egy prezentációt olyan formátumokba exportál, mint a PDF és az XPS. Az alapértelmezett betűtípusok a `LoadOptions` segítségével állíthatók be, mielőtt a prezentáció betöltésre kerül.
+Az Aspose.Slides lehetővé teszi alapértelmezett betűtípusok megadását, amelyeket a bemutató renderelésekor használ. Ez hasznos diaképbélyegek létrehozásakor vagy a bemutató PDF és XPS formátumokba exportálásakor. Az alapértelmezett betűtípusok a `LoadOptions` segítségével konfigurálhatók, mielőtt a bemutatót betöltenék.
 
-A `set_DefaultRegularFont` metódus határozza meg az alapértelmezett betűtípust a normál szöveghez, míg a `set_DefaultAsianFont` az ázsiai szöveg alapértelmezett betűtípusát definiálja. Ezeknek a lehetőségeknek a beállítása után a prezentáció betölthető és a megadott betűtípusokkal renderelhető.
+`set_DefaultRegularFont` metódus határozza meg az alapértelmezett betűtípust a normál szöveghez, míg a `set_DefaultAsianFont` az ázsiai szöveghez. Miután ezek az opciók be vannak állítva, a bemutatót betölthetjük és renderelhetjük a megadott betűtípusokkal.
 
-## **Alapértelmezett betűtípusok használata egy prezentáció rendereléséhez**
-
-Az Aspose.Slides lehetővé teszi, hogy beállítsa az alapértelmezett betűtípust a prezentáció PDF, XPS vagy bélyegképek formátumba történő rendereléséhez. Ez a cikk bemutatja, hogyan lehet meghatározni a DefaultRegularFont és a DefaultAsianFont betűtípusokat alapértelmezettként. Kérjük, kövesse az alábbi lépéseket a betűtípusok külső könyvtárakból történő betöltéséhez az Aspose.Slides for C++ API használatával:
+## **Alapértelmezett betűtípusok használata a bemutató rendereléséhez**
+Az Aspose.Slides lehetővé teszi az alapértelmezett betűtípus beállítását a bemutató PDF, XPS vagy bélyegképekre való rendereléséhez. Ez a cikk bemutatja, hogyan definiálhatók a DefaultRegular Font és a DefaultAsian Font alapértelmezett betűtípusként. Kérjük, kövesse az alábbi lépéseket a betűtípusok külső könyvtárakból történő betöltéséhez az Aspose.Slides for C++ API használatával:
 
 1. Hozzon létre egy LoadOptions példányt.
-1. Állítsa be a DefaultRegularFont-ot a kívánt betűtípusra. Az alábbi példában a Wingdings-et használtam.
-1. Állítsa be a DefaultAsianFont-ot a kívánt betűtípusra. Az alábbi példában a Wingdings-et használtam.
-1. Töltse be a prezentációt a Presentation osztállyal, és állítsa be a betöltési beállításokat.
-1. Ezután generálja a diák bélyegképét, a PDF-et és az XPS-et az eredmények ellenőrzéséhez.
+1. Állítsa be a DefaultRegularFont-ot a kívánt betűtípusra. Az alábbi példában Wingdings-et használtam.
+1. Állítsa be a DefaultAsianFont-ot a kívánt betűtípusra. A következő mintában Wingdings-et használtam.
+1. Töltse be a bemutatót a Presentation osztállyal, és állítsa be a betöltési beállításokat.
+1. Ezután generálja a diakép bélyegképet, PDF-et és XPS-et a eredmény ellenőrzéséhez.
 
 A fenti megvalósítás alább található.
 
 ```cpp
-// Használja a betöltési beállításokat az alapértelmezett normál és ázsiai betűtípusok megadásához
+// Használja a betöltési opciókat az alapértelmezett normál és ázsiai betűtípusok megadásához
 auto loadOptions = MakeObject<LoadOptions>(LoadFormat::Auto);
 loadOptions->set_DefaultRegularFont(u"Wingdings");
 loadOptions->set_DefaultAsianFont(u"Wingdings");
@@ -57,22 +56,22 @@ pptx->Dispose();
 
 ## **GYIK**
 
-**Pontosan mire hat a DefaultRegularFont és a DefaultAsianFont – csak az exportálásra, vagy a bélyegképekre, PDF-re, XPS-re, HTML-re és SVG-re is?**
+**A DefaultRegularFont és a DefaultAsianFont pontosan mit befolyásol — csak az exportot, vagy a bélyegképeket, PDF-et, XPS-et, HTML-t és SVG-t is?**
 
-Részt vesznek a renderelési csővezetékben minden támogatott kimenetnél. Ez magában foglalja a diák bélyegképeit, a [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/), a [XPS](/slides/hu/cpp/convert-powerpoint-to-xps/), a [raszteres képeket](/slides/hu/cpp/convert-powerpoint-to-png/), a [HTML](/slides/hu/cpp/convert-powerpoint-to-html/) és a [SVG](/slides/hu/cpp/render-a-slide-as-an-svg-image/) formátumokat, mivel az Aspose.Slides ugyanazt a layout és glif feloldási logikát használja ezeken a célokon.
+Részt vesznek a renderelési folyamatban minden támogatott kimenetnél. Ez magában foglalja a diakép bélyegképeket, a [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/), a [XPS](/slides/hu/cpp/convert-powerpoint-to-xps/), a [raszteres képeket](/slides/hu/cpp/convert-powerpoint-to-png/), a [HTML](/slides/hu/cpp/convert-powerpoint-to-html/), és az [SVG](/slides/hu/cpp/render-a-slide-as-an-svg-image/) formátumokat, mivel az Aspose.Slides ugyanazt a elrendezési és glif feloldási logikát alkalmazza ezeken a célokon.
 
-**Alkalmazzák az alapértelmezett betűtípusok egyszerűen egy PPTX beolvasása és mentése esetén bármilyen renderelés nélkül?**
+**Alkalmazzák-e az alapértelmezett betűtípusok egyszerűen egy PPTX beolvasásakor és mentésekor, renderelés nélkül?**
 
-Nem. Az alapértelmezett betűtípusok csak akkor számítanak, ha a szöveget mérni és rajzolni kell. Egy egyszerű megnyitás‑mentés művelet nem változtatja meg a tárolt betűtípus‑futamokat vagy a fájl szerkezetét. Az alapértelmezett betűtípusok akkor lépnek működésbe, amikor a szöveget renderelik vagy újraelrendezik.
+Nem. Az alapértelmezett betűtípusok csak akkor számítanak, ha a szöveget mérni és rajzolni kell. Egy egyszerű megnyitás‑és‑mentés nem módosítja a tárolt betűtípus‑futtatásokat vagy a fájl struktúráját. Az alapértelmezett betűtípusok olyan műveletek során lépnek életbe, melyek renderelik vagy újraindítják a szöveget.
 
-**Ha saját betűtípus-mappákat adok hozzá vagy memóriából biztosítok betűtípusokat, figyelembe veszik ezeket az alapértelmezett betűtípusok kiválasztásakor?**
+**Ha saját betűtípus‑könyvtárakat adok hozzá vagy memóriából szolgáltatok betűtípusokat, figyelembe veszik ezeket az alapértelmezett betűtípusok kiválasztásakor?**
 
-Igen. A [Egyéni betűtípus források](/slides/hu/cpp/custom-font/) kibővíti a rendelkezésre álló családok és glifyek katalógusát, amelyet a motor használhat. Az alapértelmezett betűtípusok és minden [helyettesítő szabályok](/slides/hu/cpp/fallback-font/) először ezekkel a forrásokkal kerülnek egyeztetésre, így megbízhatóbb lefedettséget biztosítanak a szervereken és a konténerekben.
+Igen. A [Custom font sources](/slides/hu/cpp/custom-font/) kibővíti a rendelkezésre álló családok és glifek katalógusát, amelyet a motor használhat. Az alapértelmezett betűtípusok és minden [fallback rules](/slides/hu/cpp/fallback-font/) elsőként ezekből a forrásokból fognak megoldódni, ami megbízhatóbb lefedettséget biztosít a szervereken és konténerekben.
 
-**Hatnak az alapértelmezett betűtípusok a szövegmetrikákra (kerning, advance), és ezáltal a sortörésekre és a tördelésre?**
+**Az alapértelmezett betűtípusok befolyásolják a szövegmetrikákat (kerning, előrelépések), és ezáltal a sortöréseket és a sortördelést?**
 
-Igen. A betűtípus megváltoztatása módosítja a glif metrikákat, és befolyásolhatja a sorvágásokat, a tördelést és a lapozást renderelés közben. A layout stabilitása érdekében [beágyazni az eredeti betűtípusokat](/slides/hu/cpp/embedded-font/) vagy olyan metrikailag kompatibilis alapértelmezett és helyettesítő családokat kell választani.
+Igen. A betűtípus megváltoztatása módosítja a glif metrikákat, ami befolyásolhatja a sortöréseket, a sortördelést és a lapozást a renderelés során. A elrendezés stabilitása érdekében [embed the original fonts](/slides/hu/cpp/embedded-font/) vagy válasszon metrikailag kompatibilis alapértelmezett és tartalék családokat.
 
-**Van értelme alapértelmezett betűtípusokat beállítani, ha a prezentációban használt összes betűtípus be van ágyazva?**
+**Van-e értelme alapértelmezett betűtípusokat beállítani, ha a bemutatóban használt összes betűtípust beágyazzák?**
 
-Gyakran nincs rá szükség, mivel a [beágyazott betűtípusok](/slides/hu/cpp/embedded-font/) már biztosítják a konzisztens megjelenést. Az alapértelmezett betűtípusok továbbra is segítenek biztonsági hálóként azokhoz a karakterekhez, amelyeket a beágyazott részhalmaz nem fed le, vagy ha egy fájl vegyesen tartalmaz beágyazott és nem beágyazott szöveget.
+Gyakran nincs rá szükség, mivel a [embedded fonts](/slides/hu/cpp/embedded-font/) már biztosítja a konzisztens megjelenést. Az alapértelmezett betűtípusok mégis hasznosak védőhálóként azokhoz a karakterekhez, amelyeket a beágyazott részhalmaz nem fed le, vagy amikor egy fájl keveri a beágyazott és a nem beágyazott szöveget.

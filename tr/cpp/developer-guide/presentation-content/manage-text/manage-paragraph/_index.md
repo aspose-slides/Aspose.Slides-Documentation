@@ -4,6 +4,9 @@ linktitle: Paragrafı Yönet
 type: docs
 weight: 40
 url: /tr/cpp/manage-paragraph/
+aliases:
+  - /cpp/paragraph/
+  - /cpp/portion/
 keywords:
 - metin ekle
 - paragraf ekle
@@ -19,41 +22,39 @@ keywords:
 - HTML içe aktar
 - metni HTML'ye
 - paragrafı HTML'ye
-- paragrafı görsele
-- metni görsele
+- paragrafı resme
+- metni resme
 - paragrafı dışa aktar
 - PowerPoint
 - OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile paragraf biçimlendirmesinde uzmanlaşın—C++'ta PPT, PPTX ve ODP sunumlarında hizalama, boşluk ve stili optimize edin."
+description: "Aspose.Slides for C++ ile paragraf formatlamada uzmanlaşın—C++'ta PPT, PPTX ve ODP sunumlarındaki hizalama, boşluk ve stili optimize edin."
 ---
 ## **Giriş**
 
-Aspose.Slides, C++'ta PowerPoint metinleri, paragrafları ve bölümleriyle çalışmak için ihtiyaç duyduğunuz tüm arayüzleri ve sınıfları sağlar.
+Aspose.Slides, C++'ta PowerPoint metinleri, paragrafları ve bölümleriyle çalışmanız için gereken tüm arabirimleri ve sınıfları sağlar.
 
-* Aspose.Slides, bir paragrafı temsil eden nesneler eklemenizi sağlayan [ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) arayüzünü sunar. Bir `ITextFame` nesnesi bir veya birden fazla paragraf içerebilir (her paragraf bir satır sonu ile oluşturulur).
-* Aspose.Slides, bölümleri temsil eden nesneler eklemenizi sağlayan [IParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraph/) arayüzünü sunar. Bir `IParagraph` nesnesi bir veya birden fazla bölüm (iPortion nesnelerinin koleksiyonu) içerebilir.
-* Aspose.Slides, metinleri ve biçimlendirme özelliklerini temsil eden nesneler eklemenizi sağlayan [IPortion](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportion/) arayüzünü sunar.  
+* Aspose.Slides, bir paragrafı temsil eden nesneler eklemenizi sağlayan [ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) arabirimini sunar. Bir `ITextFame` nesnesi bir veya birden fazla paragraf içerebilir (her paragraf bir satır sonu ile oluşturulur).
+* Aspose.Slides, bölümleri temsil eden nesneler eklemenizi sağlayan [IParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraph/) arabirimini sunar. Bir `IParagraph` nesnesi bir veya birden fazla bölüm içerebilir (iPortions nesnelerinin koleksiyonu).
+* Aspose.Slides, metinleri ve biçimlendirme özelliklerini temsil eden nesneler eklemenizi sağlayan [IPortion](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportion/) arabirimini sunar.
 
-Bir `IParagraph` nesnesi, altındaki `IPortion` nesneleri aracılığıyla farklı biçimlendirme özelliklerine sahip metinleri işleyebilir.
+Bir `IParagraph` nesnesi, altında bulunan `IPortion` nesneleri aracılığıyla farklı biçimlendirme özelliklerine sahip metinleri işleyebilir.
 
-## **Birden Çok Bölüm İçeren Çoklu Paragraflar Ekleme**
+## **Birden Çok Paragraf ve Her Paragrafa Birden Çok Bölüm Ekleme**
 
-Bu adımlar, 3 paragraf ve her paragraf içinde 3 bölüm içeren bir metin çerçevesi eklemeyi gösterir:
+Bu adımlar, 3 paragraf ve her paragrafın içinde 3 bölüm içeren bir metin çerçevesi eklemenizi gösterir:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slaytın referansını indeksine göre alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
 3. Slayta bir Dikdörtgen [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.
-4. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ile ilişkili `ITextFrame` nesnesini alın.
-5. İki adet [IParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraph/) nesnesi oluşturun ve bunları [ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)`in `IParagraphs` koleksiyonuna ekleyin.
-6. Her yeni `IParagraph` için üç adet [IPortion](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportion/) nesnesi (varsayılan paragraf için iki bölüm) oluşturun ve her bir `IPortion` nesnesini ilgili `IParagraph`'ın `IPortion` koleksiyonuna ekleyin.
-7. Her bölüm için bir metin belirleyin.
-8. `IPortion` nesnesinin sunduğu biçimlendirme özelliklerini kullanarak her bölüme istediğiniz biçimlendirmeyi uygulayın.
+4. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ile ilişkili ITextFrame'i alın.
+5. İki [IParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraph/) nesnesi oluşturun ve bunları [ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)'in `IParagraphs` koleksiyonuna ekleyin.
+6. Her yeni `IParagraph` için üç [IPortion](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportion/) nesnesi (varsayılan Paragraf için iki Portion nesnesi) oluşturun ve her `IPortion` nesnesini ilgili `IParagraph`'in IPortion koleksiyonuna ekleyin.
+7. Her bölüm için metin ayarlayın.
+8. `IPortion` nesnesinin sunduğu biçimlendirme özelliklerini kullanarak her bölüm için istediğiniz biçimlendirme özelliklerini uygulayın.
 9. Değiştirilmiş sunumu kaydedin.
-
-Bu C++ kodu, bölümler içeren paragrafların eklenmesi adımlarının bir uygulamasıdır: 
 
 ```c++
 // Belgeler dizinine giden yol.
@@ -61,7 +62,7 @@ const String outPath = u"../out/MultipleParagraphs_out.pptx";
 
 
 
-// İstenen sunumu yükle
+// Load the desired the presentation
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // İlk slayta eriş
@@ -74,7 +75,7 @@ SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectang
 SharedPtr<ITextFrame> tf=ashp->AddTextFrame(u" ");
 
 
-// İlk paragrafı alıyor
+// İlk paragrafı al
 SharedPtr<IParagraph> para0 = tf->get_Paragraphs()->idx_get(0);
 	
 SharedPtr<Portion> port01 = MakeObject<Portion>();
@@ -128,31 +129,29 @@ for (int i = 0; i < 3; i++)
 
 }
 
-// PPTX'i diske kaydet
+// PPTX dosyasını diske kaydet
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
 
+```
 
 ## **Paragraf Madde İşaretlerini Yönetme**
 
-Madde işaretli listeler, bilgileri hızlı ve etkili bir şekilde düzenlemenizi ve sunmanızı sağlar. Madde işaretli paragraflar her zaman daha okunaklı ve anlaşılırdır.
+Madde işaretli listeler, bilgileri hızlı ve verimli bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Madde işaretli paragraflar her zaman okunması ve anlaşılması daha kolaydır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slaytın referansını indeksine göre alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
 3. Seçili slayta bir [autoshape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.
-4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)'ine erişin. 
+4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) öğesine erişin.
 5. `TextFrame` içindeki varsayılan paragrafı kaldırın.
 6. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfını kullanarak ilk paragraf örneğini oluşturun.
 7. Paragrafın madde işareti `Type` değerini `Symbol` olarak ayarlayın ve madde işareti karakterini belirleyin.
-8. Paragrafın `Text` özelliğini ayarlayın.
-9. Madde işareti için paragrafın `Indent` değerini belirleyin.
+8. Paragraf `Text` özelliğini ayarlayın.
+9. Madde işareti için paragraf `Indent` değerini ayarlayın.
 10. Madde işareti için bir renk ayarlayın.
 11. Madde işaretinin yüksekliğini ayarlayın.
 12. Yeni paragrafı `TextFrame` paragraf koleksiyonuna ekleyin.
-13. İkinci paragrafı ekleyin ve 7‑13. adımları tekrar edin.
+13. İkinci paragrafı ekleyin ve 7 ile 13. adımlar arasındaki işlemleri tekrarlayın.
 14. Sunumu kaydedin.
-
-Bu C++ kodu, bir paragraf madde işareti eklemenizi gösterir:
 
 ```c++
 // Belgeler dizinine giden yol.
@@ -179,47 +178,47 @@ txtFrame->get_Paragraphs()->Clear();
 // Metin çerçevesi için Paragraph nesnesi oluştur
 SharedPtr<Paragraph> paragraph = MakeObject<Paragraph>();
 
-//Setting Metni ayarla
+// Metni ayarla
 paragraph->set_Text(u"Welcome to Aspose.Slides");
 
-// Setting madde işareti girintisini ayarla
+// Madde işareti girintisini ayarla
 paragraph->get_ParagraphFormat()->set_Indent (25);
 
-// Setting madde işareti rengini ayarla
+// Madde işareti rengini ayarla
 paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType ( ColorType::RGB);
 paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
 	
-// set Kendi madde işareti rengini kullanmak için IsBulletHardColor değerini true olarak ayarla
+// Kendi madde işareti rengini kullanmak için IsBulletHardColor'ı true olarak ayarla
 paragraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True); 
 																					
-// Setting madde işareti yüksekliğini ayarla
+// Madde işareti yüksekliğini ayarla
 paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
 
 // Paragrafı metin çerçevesine ekle
 txtFrame->get_Paragraphs()->Add(paragraph);
 
-// Creating second paragraph
+// İkinci paragrafı oluştur
 // Metin çerçevesi için Paragraph nesnesi oluştur
 SharedPtr<Paragraph> paragraph2 = MakeObject<Paragraph>();
 
-//Setting Metni ayarla
+// Metni ayarla
 paragraph2->set_Text(u"This is numbered bullet");
 
-// Setting paragraf madde işareti tipini ve stilini ayarla
+// Paragraf madde işareti tipi ve stilini ayarla
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_Type ( BulletType::Numbered);
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle ( NumberedBulletStyle::BulletCircleNumWDBlackPlain);
 
-// Setting madde işareti girintisini ayarla
+// Madde işareti girintisini ayarla
 paragraph2->get_ParagraphFormat()->set_Indent(25);
 
-// Setting madde işareti rengini ayarla
+// Madde işareti rengini ayarla
 paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
 paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
 
-// set Kendi madde işareti rengini kullanmak için IsBulletHardColor değerini true olarak ayarla
+// Kendi madde işareti rengini kullanmak için IsBulletHardColor'ı true olarak ayarla
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
 
-// Setting madde işareti yüksekliğini ayarla
+// Madde işareti yüksekliğini ayarla
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_Height(100);
 
 // Paragrafı metin çerçevesine ekle
@@ -233,28 +232,26 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ## **Resim Madde İşaretlerini Yönetme**
 
-Madde işaretli listeler, bilgileri hızlı ve etkili bir şekilde düzenlemenizi ve sunmanızı sağlar. Resim paragrafı da okunaklı ve anlaşılırdır.
+Madde işaretli listeler, bilgileri hızlı ve verimli bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Resimli paragraflar okunması ve anlaşılması kolaydır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slaytın referansını indeksine göre alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
 3. Slayta bir [autoshape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.
-4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)'ine erişin. 
+4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) öğesine erişin.
 5. `TextFrame` içindeki varsayılan paragrafı kaldırın.
 6. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfını kullanarak ilk paragraf örneğini oluşturun.
-7. [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) ile resmi yükleyin.
+7. [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) içinde resmi yükleyin.
 8. Madde işareti türünü [Picture](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) olarak ayarlayın ve resmi belirleyin.
-9. Paragrafın `Text` özelliğini ayarlayın.
-10. Madde işareti için paragrafın `Indent` değerini belirleyin.
+9. Paragraf `Text` özelliğini ayarlayın.
+10. Madde işareti için Paragraf `Indent` değerini ayarlayın.
 11. Madde işareti için bir renk ayarlayın.
 12. Madde işaretinin yüksekliğini ayarlayın.
 13. Yeni paragrafı `TextFrame` paragraf koleksiyonuna ekleyin.
 14. İkinci paragrafı ekleyin ve önceki adımlara göre işlemi tekrarlayın.
 15. Değiştirilmiş sunumu kaydedin.
 
-Bu C++ kodu, resim madde işaretlerinin eklenmesi ve yönetilmesini gösterir:
-
 ```c++
-// Bir PPTX dosyasını temsil eden Presentation sınıfını örnekler
+// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 // İlk slayta erişir
@@ -267,7 +264,7 @@ System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(ima
 // Autoshape ekler ve ona erişir
 System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Autoshape'in metin çerçevesine erişir
+// autoshape'in metin çerçevesine erişir
 System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
 
 // Varsayılan paragrafı kaldırır
@@ -295,27 +292,24 @@ presentation->Save(u"ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
 presentation->Save(u"ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
 ```
 
+## **Çok Seviyeli Madde İşaretlerini Yönetme**
 
-## **Çok Düzeyli Madde İşaretlerini Yönetme**
+Madde işaretli listeler, bilgileri hızlı ve verimli bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Çok seviyeli madde işaretleri okunması ve anlaşılması kolaydır.
 
-Madde işaretli listeler, bilgileri hızlı ve etkili bir şekilde düzenlemenizi ve sunmanızı sağlar. Çok düzeyli madde işaretleri okunaklı ve anlaşılırdır.
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slaytın referansını indeksine göre alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
 3. Yeni slayta bir [autoshape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.
-4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)'ine erişin. 
+4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) öğesine erişin.
 5. `TextFrame` içindeki varsayılan paragrafı kaldırın.
-6. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfı üzerinden ilk paragrafı oluşturun ve derinliği 0 olarak ayarlayın.
-7. `Paragraph` sınıfı üzerinden ikinci paragrafı oluşturun ve derinliği 1 olarak ayarlayın.
-8. `Paragraph` sınıfı üzerinden üçüncü paragrafı oluşturun ve derinliği 2 olarak ayarlayın.
-9. `Paragraph` sınıfı üzerinden dördüncü paragrafı oluşturun ve derinliği 3 olarak ayarlayın.
+6. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfı aracılığıyla ilk paragraf örneğini oluşturun ve derinliği 0 olarak ayarlayın.
+7. `Paragraph` sınıfı aracılığıyla ikinci paragraf örneğini oluşturun ve derinliği 1 olarak ayarlayın.
+8. `Paragraph` sınıfı aracılığıyla üçüncü paragraf örneğini oluşturun ve derinliği 2 olarak ayarlayın.
+9. `Paragraph` sınıfı aracılığıyla dördüncü paragraf örneğini oluşturun ve derinliği 3 olarak ayarlayın.
 10. Yeni paragrafları `TextFrame` paragraf koleksiyonuna ekleyin.
 11. Değiştirilmiş sunumu kaydedin.
 
-Bu C++ kodu, çok düzeyli madde işaretlerinin eklenmesi ve yönetilmesini gösterir:
-
 ```c++
-// PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluşturur
+// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 // İlk slayta erişir
@@ -393,23 +387,20 @@ paragraphs->Add(para4);
 pres->Save(u"MultilevelBullet.pptx", SaveFormat::Pptx);
 ```
 
+## **Özel Numaralı Listeyle Paragraf Yönetme**
 
-## **Özel Numaralı Liste ile Paragraf Yönetimi**
+[IBulletFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibulletformat/) arabirimi, özel numaralandırma veya biçimlendirme ile paragrafları yönetmenizi sağlayan [NumberedBulletStartWith](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) özelliği ve diğer özellikleri sunar.
 
-[IBulletFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibulletformat/) arayüzü, `NumberedBulletStartWith` özelliği ve benzerlerini sunarak özel numaralandırma veya biçimlendirme ile paragrafları yönetmenizi sağlar.
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
 2. Paragrafı içeren slayta erişin.
 3. Slayta bir [autoshape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.
-4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)'ine erişin. 
+4. Autoshape'in [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) öğesine erişin.
 5. `TextFrame` içindeki varsayılan paragrafı kaldırın.
-6. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfı üzerinden ilk paragrafı oluşturun ve [NumberedBulletStartWith](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) değerini 2 olarak ayarlayın.
-7. `Paragraph` sınıfı üzerinden ikinci paragrafı oluşturun ve `NumberedBulletStartWith` değerini 3 olarak ayarlayın.
-8. `Paragraph` sınıfı üzerinden üçüncü paragrafı oluşturun ve `NumberedBulletStartWith` değerini 7 olarak ayarlayın.
+6. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfı aracılığıyla ilk paragraf örneğini oluşturun ve [NumberedBulletStartWith] değerini 2 olarak ayarlayın.
+7. `Paragraph` sınıfı aracılığıyla ikinci paragraf örneğini oluşturun ve `NumberedBulletStartWith` değerini 3 olarak ayarlayın.
+8. `Paragraph` sınıfı aracılığıyla üçüncü paragraf örneğini oluşturun ve `NumberedBulletStartWith` değerini 7 olarak ayarlayın.
 9. Yeni paragrafları `TextFrame` paragraf koleksiyonuna ekleyin.
 10. Değiştirilmiş sunumu kaydedin.
-
-Bu C++ kodu, özel numaralandırma veya biçimlendirme ile paragrafların eklenmesi ve yönetilmesini gösterir:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>();
@@ -453,23 +444,21 @@ textFrame->get_Paragraphs()->Add(paragraph5);
 presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
 ```
 
-## **Bir Paragraf İçin İlk Satır Girintisi Ayarlama**
+## **Bir Paragraf için İlk Satır Girintisini Ayarlama**
 
-[İlk satır girintisini](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) kontrol etmek için `IParagraphFormat::set_Indent` yöntemini kullanın. Bu yöntem yalnızca paragrafın sol kenarına göre ilk satırı hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
+[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) metodunu kullanarak bir paragrafın ilk satır girintisini kontrol edin. Bu metod yalnızca ilk satırı paragrafın sol kenar boşluğuna göre hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
 
-Tüm paragrafı taşımak istediğinizde `IParagraphFormat::set_MarginLeft` kullanın. Yalnızca ilk satırı taşımak istediğinizde ise `IParagraphFormat::set_Indent` kullanın.
+Tüm paragrafı taşımak istediğinizde [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_marginleft/) metodunu kullanın. Yalnızca ilk satırı taşımak istediğinizde [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) metodunu kullanın.
 
-Aşağıdaki örnek, çeşitli `Indent` değerleriyle birkaç paragraf oluşturarak ilk satır girintisinin paragraf düzenine etkisini gösterir.
+Aşağıdaki örnek, birkaç paragraf oluşturur ve farklı `Indent` değerleri uygulayarak ilk satır girintisinin paragraf düzenine etkisini gösterir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta bir dikdörtgen [AutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/autoshape/) ekleyin.
+3. Slayta dikdörtgensel bir [AutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/autoshape/) ekleyin.
 4. Şekle boş bir [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/textframe/) ekleyin ve varsayılan paragrafı kaldırın.
-5. Birkaç paragraf oluşturun ve her biri için farklı [Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) değerleri belirleyin.
+5. Birçok paragraf oluşturun ve onlara farklı [Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) değerleri ayarlayın.
 6. Paragrafları metin çerçevesine ekleyin.
 7. Değiştirilmiş sunumu kaydedin.
-
-Bu kod, bir paragraf girintisinin nasıl ayarlanacağını gösterir:
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -513,28 +502,24 @@ presentation->Save(u"paragraph_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
-
 ![Paragrafların ilk satır girintisi](first_line_indent.png)
 
-## **Bir Paragraf İçin Asılı Girinti Ayarlama**
+## **Bir Paragraf için Asılı Girinti Ayarlama**
 
-Asılı girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides'te bu etkiyi `IParagraphFormat::set_Indent` yöntemiyle oluşturursunuz. İlk satırı paragraf gövdesine göre sola kaydırmak için girintiyi negatif bir değer olarak ayarlayın.
+Asılı girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides'te bu etkiyi [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) yöntemiyle oluşturursunuz. Girintiyi negatif bir değerle ayarlayarak ilk satırı paragraf gövdesine göre sola kaydırabilirsiniz.
 
-Uygulamada, `IParagraphFormat::set_MarginLeft` paragraf gövdesinin sol konumunu belirlerken, `IParagraphFormat::set_Indent` bu marjın göre ilk satır konumunu tanımlar. Asılı girinti oluşturmak için pozitif bir `MarginLeft` ve negatif bir `Indent` değeri ayarlayın.
+Uygulamada, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_marginleft/) paragraf gövdesinin sol konumunu tanımlar ve [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) ilk satırın bu kenar boşluğuna göre konumunu belirler. Asılı girinti oluşturmak için pozitif bir `MarginLeft` değeri ve negatif bir `Indent` değeri ayarlayın.
 
-Bu biçimlendirme, bibliyografya, kaynakça, sözlük girdileri ve satırların paragraf gövdesi altında hizalanması gereken diğer paragraflar için faydalıdır.
+Bu biçimlendirme, satırların paragraf gövdesinin altında hizalanması gereken bibliyografyalar, referanslar, sözlük girişleri ve benzeri paragraflar için faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta bir dikdörtgen [AutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/autoshape/) ekleyin.
+3. Slayta dikdörtgensel bir [AutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/autoshape/) ekleyin.
 4. Şekle boş bir [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/textframe/) ekleyin ve varsayılan paragrafı kaldırın.
 5. Paragraflar oluşturun ve her biri için pozitif bir [MarginLeft](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_marginleft/) değeri ayarlayın.
-6. Asılı girinti etkisi yaratmak için negatif bir [Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) değeri belirleyin.
+6. Asılı girinti etkisini oluşturmak için negatif bir [Indent](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_indent/) değeri ayarlayın.
 7. Paragrafları metin çerçevesine ekleyin.
 8. Değiştirilmiş sunumu kaydedin.
-
-Bu kod, bir paragraf için asılı girintinin nasıl ayarlanacağını gösterir:
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -570,21 +555,17 @@ presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
-
 ![Paragrafların asılı girintisi](hanging_indent.png)
 
 ## **Paragraf Sonu Çalışma Özelliklerini Yönetme**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Paragrafı içeren slaytın referansını konumuna göre alın.  
-3. Slayta bir dikdörtgen [autoshape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.  
-4. Dikdörtgene iki paragraf içeren bir [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) ekleyin.  
-5. Paragraflar için `FontHeight` ve yazı tipi ayarlayın.  
-6. Paragraflar için End (son) özelliklerini ayarlayın.  
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+2. Paragrafı içeren slaydın referansını konumuna göre alın.
+3. Slayta dikdörtgen bir [autoshape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.
+4. Dikdörtgene iki paragraf içeren bir [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) ekleyin.
+5. Paragraflar için `FontHeight` ve Yazı tipi belirleyin.
+6. Paragraflar için End özelliklerini ayarlayın.
 7. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
-
-Bu C++ kodu, PowerPoint'teki paragraflar için End (son) özelliklerinin nasıl ayarlanacağını gösterir: 
 
 ```c++
 // Belgeler dizinine giden yol.
@@ -631,25 +612,21 @@ ashp->get_TextFrame()->get_Paragraphs()->Add(para2);
 
 // PPTX'i diske kaydet
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
-
 
 ## **HTML Metnini Paragraflara İçe Aktarma**
 
-Aspose.Slides, HTML metninin paragraflara içe aktarılmasını gelişmiş şekilde destekler.
+Aspose.Slides, HTML metnini paragraflara içe aktarmak için gelişmiş destek sunar.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slaytın referansını indeksine göre alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
 3. Slayta bir [autoshape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ekleyin.
-4. `autoshape`[ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)'ine erişin ve ekleyin.
+4. `autoshape` [ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) ekleyin ve ona erişin.
 5. `ITextFrame` içindeki varsayılan paragrafı kaldırın.
-6. Kaynak HTML dosyasını bir `TextReader` ile okuyun.
-7. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfını kullanarak ilk paragraf örneğini oluşturun.
-8. Okunan `TextReader` içeriğini TextFrame'in [ParagraphCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraphcollection/)'ına ekleyin.
+6. Kaynak HTML dosyasını bir TextReader ile okuyun.
+7. [Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraph/) sınıfı aracılığıyla ilk paragraf örneğini oluşturun.
+8. Okunan TextReader'dan HTML dosyası içeriğini TextFrame'in [ParagraphCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraphcollection/) öğesine ekleyin.
 9. Değiştirilmiş sunumu kaydedin.
-
-Bu C++ kodu, HTML metinlerinin paragraflara içe aktarılması adımlarının bir uygulamasıdır: 
 
 ```c++
 For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
@@ -676,7 +653,7 @@ ashp->AddTextFrame(u" ");
 // Metin çerçevesine erişiliyor
 SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
 
-// Paragraflar koleksiyonunu al
+// Paragraphs koleksiyonunu al
 SharedPtr<Aspose::Slides::IParagraphCollection>ParaCollection = txtFrame->get_Paragraphs();
 
 // Eklenen metin çerçevesindeki tüm paragrafları temizle
@@ -685,7 +662,7 @@ ParaCollection->Clear();
 // Akış okuyucu ile HTML dosyasını yüklüyor
 SharedPtr<System::IO::StreamReader>  tr = MakeObject<System::IO::StreamReader>(sampleHtml);
 
-// HTML akış okuyucudan metni metin çerçevesine ekliyor
+// HTML akış okuyucusundan metni metin çerçevesine ekle
 ParaCollection->AddFromHtml(tr->ReadToEnd());
 
 
@@ -702,19 +679,19 @@ SharedPtr<IPortionFormat> pf = portion->get_PortionFormat();
 // Bölüm için Yazı tipini ayarla
 pf->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
 
-// Yazı tipinin Kalın (Bold) özelliğini ayarla
+// Yazı tipinin Kalın özelliğini ayarla
 pf->set_FontBold(NullableBool::True);
 
-// Yazı tipinin İtalik (Italic) özelliğini ayarla
+// Yazı tipinin İtalik özelliğini ayarla
 pf->set_FontItalic(NullableBool::True);
 
-// Yazı tipinin Alt çizgi (Underline) özelliğini ayarla
+// Yazı tipinin Alt Çizgi özelliğini ayarla
 pf->set_FontUnderline(TextUnderlineType::Single);
 
-// Yazı tipinin Yüksekliğini ayarla
+// Yazı tipinin Boyutunu ayarla
 pf->set_FontHeight(25);
 
-// Yazı tipinin Rengini ayarla
+// Yazı tipinin rengini ayarla
 pf->get_FillFormat()->set_FillType(FillType::Solid);
 pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
@@ -722,19 +699,16 @@ pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ## **Paragraf Metnini HTML'ye Dışa Aktarma**
 
-Aspose.Slides, paragraflarda bulunan metinlerin HTML'ye dışa aktarılmasını gelişmiş şekilde destekler.
+Aspose.Slides, metinleri (paragraflarda bulunan) HTML'ye dışa aktarmak için gelişmiş destek sunar.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve istenen sunumu yükleyin.
-2. İlgili slaytın referansını indeksine göre alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun ve istediğiniz sunumu yükleyin.
+2. İlgili slaytın referansına diziniyle erişin.
 3. HTML'ye dışa aktarılacak metni içeren şekle erişin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/)'ine erişin.
-5. Bir `StreamWriter` örneği oluşturun ve yeni HTML dosyasını ekleyin.
-6. `StreamWriter` için bir başlangıç indeksi belirtin ve istediğiniz paragrafları dışa aktarın.
-
-Bu C++ kodu, PowerPoint paragraf metinlerini HTML'ye dışa aktarmanızı gösterir: 
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) öğesine erişin.
+5. `StreamWriter` örneği oluşturun ve yeni HTML dosyasını ekleyin.
+6. StreamWriter'a bir başlangıç indeksi sağlayın ve istediğiniz paragrafları dışa aktarın.
 
 ```c++
 For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
@@ -749,7 +723,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(tempplatePath);
 // Sunumun varsayılan ilk slaytına eriş
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// İstenen indeks
+// İstenilen indeks
 int index = 0;
 
 // Eklenen şekle erişiliyor
@@ -757,54 +731,55 @@ SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
 
 SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
 
-// İlk paragrafı HTML olarak çıkarıyor
+// İlk paragrafı HTML olarak çıkartma
 SharedPtr<System::IO::StreamWriter> sw = MakeObject<System::IO::StreamWriter>(outPath, false, Encoding::get_UTF8());
 //	System::IO::StreamWriter^ sr = gcnew System::IO::StreamWriter("TestFile.txt", false, Encoding::get_UTF8());
 
-// Paragrafların verilerini HTML'ye yazarak paragraf başlangıç indeksi ve kopyalanacak toplam paragraf sayısını sağlar
+// Paragrafların verisini HTML'ye, paragraf başlangıç indeksi ve kopyalanacak toplam paragraf sayısını sağlayarak yazma
 sw->Write(ashape->get_TextFrame()->get_Paragraphs()->ExportToHtml(0, ashape->get_TextFrame()->get_Paragraphs()->get_Count(), nullptr));
 
 sw->Close();
+
 ```
 
-## **Paragrafı Görüntü Olarak Kaydetme**
+## **Bir Paragrafı Resim Olarak Kaydetme**
 
-Bu bölümde, [IParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraph/) arayüzü ile temsil edilen bir metin paragrafının görüntü olarak nasıl kaydedileceğini gösteren iki örnek incelenecek. Her iki örnek de, paragrafı içeren şeklin görüntüsünü `GetImage` yöntemleriyle almayı, paragrafın şekil içindeki sınırlarını hesaplamayı ve bitmap görüntüsü olarak dışa aktarmayı içerir. Bu yaklaşımlar, PowerPoint sunumlarından belirli metin bölümlerini ayırıp ayrı görüntüler olarak kaydetmenizi sağlar ve çeşitli senaryolarda yeniden kullanılabilir.
+Bu bölümde, [IParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraph/) arabirimiyle temsil edilen bir metin paragrafını resim olarak kaydetmeyi gösteren iki örneği inceleyeceğiz. Her iki örnek de paragrafı içeren şeklin görüntüsünü [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) arabiriminin `GetImage` yöntemleriyle almayı, paragrafın şekil içindeki sınırlarını hesaplamayı ve bitmap olarak dışa aktarmayı içerir. Bu yaklaşımlar, PowerPoint sunumlarından metnin belirli bölümlerini ayırıp ayrı görüntüler olarak kaydetmenize olanak tanır ve çeşitli senaryolarda faydalı olabilir.
 
-Örnek dosyamızın adı **sample.pptx** ve içinde bir slayt bulunuyor; ilk şekil üç paragraf içeren bir metin kutusu.
+sample.pptx adlı bir sunum dosyamızın bir slaytı olduğunu ve ilk şeklin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
 
 ![Üç paragraf içeren metin kutusu](paragraph_to_image_input.png)
 
-**Örnek 1**
+**Example 1**
 
-Bu örnekte ikinci paragraf bir görüntü olarak alınır. Bunun için sunumun ilk slaydındaki şeklin görüntüsü elde edilir, ardından şeklin metin çerçevesindeki ikinci paragrafın sınırları hesaplanır. Paragraf daha sonra yeni bir bitmap görüntüsü üzerine çizilir ve PNG formatında kaydedilir. Bu yöntem, belirli bir paragrafı tam boyut ve biçimlendirmesiyle ayrı bir görüntü olarak kaydetmek istediğinizde çok kullanışlıdır.
+Bu örnekte ikinci paragrafı resim olarak elde ediyoruz. Bunun için sunumun ilk slaydındaki şeklin görüntüsünü çıkarıyor, ardından şeklin metin çerçevesindeki ikinci paragrafın sınırlarını hesaplıyoruz. Paragraf daha sonra yeni bir bitmap görüntüsüne yeniden çizilir ve PNG formatında kaydedilir. Bu yöntem, metnin tam boyut ve biçimlendirmesini koruyarak belirli bir paragrafı ayrı bir resim olarak kaydetmeniz gerektiğinde özellikle yararlıdır.
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-// Şekli bellekte bitmap olarak kaydet.
+// Şekli bellek içinde bir bitmap olarak kaydet.
 auto shapeImage = firstShape->GetImage();
 auto shapeImageStream = MakeObject<MemoryStream>();
 shapeImage->Save(shapeImageStream, ImageFormat::Png);
 shapeImage->Dispose();
 
-// Create a shape bitmap from memory.
+// Bellekten bir şekil bitmap'i oluştur.
 shapeImageStream->set_Position(0);
 auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
 
-// Calculate the boundaries of the second paragraph.
+// İkinci paragrafın sınırlarını hesapla.
 auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
 auto paragraphRectangle = secondParagraph->GetRect();
 
-// Calculate the size for the output image (minimum size - 1x1 pixel).
+// Çıktı görüntüsü için boyutu hesapla (minimum boyut - 1x1 piksel).
 auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
 auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
 
-// Prepare a bitmap for the paragraph.
+// Paragraf için bir bitmap hazırla.
 auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
 
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
+// Paragrafı şekil bitmap'inden paragraf bitmap'ine yeniden çiz.
 auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
 RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
 imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
@@ -815,13 +790,11 @@ paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
 presentation->Dispose();
 ```
 
-Sonuç:
+![Paragraf resmi](paragraph_to_image_output.png)
 
-![Paragraf görüntüsü](paragraph_to_image_output.png)
+**Example 2**
 
-**Örnek 2**
-
-Bu örnek, önceki yaklaşıma ölçek faktörleri ekleyerek genişletir. Şekil sunumdan elde edilir ve `2` ölçek faktörüyle görüntülenir. Bu, paragrafı dışa aktarırken daha yüksek çözünürlüklü bir çıktı elde etmenizi sağlar. Paragraf sınırları ölçek dikkate alınarak hesaplanır. Ölçekleme, özellikle yüksek kaliteli baskı malzemeleri gibi daha detaylı bir görüntüye ihtiyaç duyulduğunda faydalıdır.
+Bu örnekte önceki yaklaşımı, paragraf görüntüsüne ölçek faktörleri ekleyerek genişletiyoruz. Şekil sunumdan çıkarılıyor ve `2` ölçek faktörüyle bir görüntü olarak kaydediliyor. Bu, paragrafı dışa aktarırken daha yüksek çözünürlüklü bir çıktı sağlar. Paragraf sınırları ölçeği göz önünde bulundurarak hesaplanır. Ölçekleme, özellikle yüksek kaliteli basılı materyallerde kullanılacak daha detaylı bir görüntü gerektiğinde faydalıdır.
 
 ```cpp
 auto imageScaleX = 2.0f;
@@ -830,7 +803,7 @@ auto imageScaleY = imageScaleX;
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-// Şekli bellekte ölçekli bir bitmap olarak kaydet.
+// Şekli ölçeklendirme ile bellekte bir bitmap olarak kaydet.
 auto shapeImage = firstShape->GetImage(ShapeThumbnailBounds::Shape, imageScaleX, imageScaleY);
 auto shapeImageStream = MakeObject<MemoryStream>();
 shapeImage->Save(shapeImageStream, ImageFormat::Png);
@@ -840,7 +813,7 @@ shapeImage->Dispose();
 shapeImageStream->set_Position(0);
 auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
 
-// Calculate the boundaries of the second paragraph.
+// İkinci paragrafın sınırlarını hesapla.
 auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
 auto paragraphRectangle = secondParagraph->GetRect();
 paragraphRectangle.set_X(paragraphRectangle.get_X() * imageScaleX);
@@ -866,20 +839,20 @@ paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
 presentation->Dispose();
 ```
 
-## **SSS**
+## **FAQ**
 
-**Bir metin çerçevesinde satır kırmayı tamamen devre dışı bırakabilir miyim?**
+**Bir metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
 
-Evet. Metin çerçevesinin kırma yöntemini ([set_WrapText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/textframeformat/set_wraptext/)) kullanarak kırmayı kapatabilirsiniz; böylece satırlar çerçevenin kenarlarında kırılmaz.
+Evet. Satır kaydırmayı kapatmak ve satırların çerçevenin kenarlarında bölünmesini önlemek için metin çerçevesinin kaydırma yöntemini ([set_WrapText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/textframeformat/set_wraptext/)) kullanın.
 
 **Belirli bir paragrafın slayt üzerindeki tam sınırlarını nasıl alabilirim?**
 
-Paragrafın (ve hatta tek bir bölümün) sınırlayıcı dikdörtgenini alarak slayt üzerindeki kesin konum ve boyutunu öğrenebilirsiniz.
+Paragrafın (ve hatta tek bir bölümün) sınırlayıcı dikdörtgenini alarak slayt üzerindeki tam konum ve boyutunu öğrenebilirsiniz.
 
 **Paragraf hizalaması (sol/sağ/ortala/iki yana yasla) nerede kontrol edilir?**
 
-[Alignment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraphformat/set_alignment/) bir paragraf düzeyinde ayardır ve [ParagraphFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraphformat/) içinde bulunur; bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
+[Alignment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraphformat/set_alignment/) , [ParagraphFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/paragraphformat/) içinde paragraf düzeyinde bir ayardır; bireysel bölüm biçimlendirmelerinden bağımsız olarak bütün paragrafı etkiler.
 
-**Paragrafın sadece bir kısmı (ör. bir kelime) için yazım denetimi dili ayarlayabilir miyim?**
+**Bir paragrafın sadece bir kısmı (ör. tek kelime) için yazım denetimi dili ayarlayabilir miyim?**
 
-Evet. Dil, bölüm düzeyinde ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/tr/cpp/aspose.slides/baseportionformat/set_languageid/)) ayarlandığından, aynı paragrafta birden fazla dil aynı anda bulunabilir.
+Evet. Dil, ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/tr/cpp/aspose.slides/baseportionformat/set_languageid/)) kullanılarak bölüm düzeyinde ayarlanır; böylece tek bir paragrafta birden çok dil birlikte bulunabilir.

@@ -1,5 +1,5 @@
 ---
-title: Kelola Konten Presentasi di С++
+title: Kelola Konten Presentasi di C++
 linktitle: Konten Presentasi
 type: docs
 weight: 30
@@ -21,7 +21,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Buat, edit, dan ekstrak konten presentasi dengan Aspose.Slides untuk С++ — dapatkan contoh kode untuk teks, gambar, bentuk, diagram; PPT, PPTX, dan ODP."
+description: "Buat, edit, dan ekstrak konten presentasi dengan Aspose.Slides untuk C++ — dapatkan contoh kode untuk teks, gambar, bentuk, diagram; PPT, PPTX, dan ODP."
 ---

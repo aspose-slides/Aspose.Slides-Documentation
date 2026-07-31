@@ -1,11 +1,11 @@
 ---
-title: AndroidでハンドアウトモードのPowerPointプレゼンテーションを変換
+title: Android でハンドアウトモードの PowerPoint プレゼンテーションを変換
 linktitle: ハンドアウトモード
 type: docs
 weight: 150
 url: /ja/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
-- PowerPointを変換
+- PowerPoint を変換
 - プレゼンテーションを変換
 - ハンドアウトモード
 - ハンドアウト
@@ -16,25 +16,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Javaでプレゼンテーションをハンドアウトに変換します。1ページあたりのスライド数を設定し、ノートを保持し、Aspose.Slides for Androidを使用してPDFまたは画像にエクスポートします。サンプルコード付きです。無料でお試しください。"
+description: "Java でプレゼンテーションをハンドアウトに変換します。ページあたりのスライド数を設定し、ノートを保持し、Aspose.Slides for Android を使用して PDF または画像にエクスポートします。サンプルコード付きです。無料でお試しください。"
 ---
+## **はじめに**
 
-## **ハンドアウトモードエクスポート**
+Aspose.Slides は、プレゼンテーションをさまざまな形式に変換する機能を提供し、ハンドアウトモードで印刷用のハンドアウトを作成することもできます。このモードでは、1 ページに複数のスライドをどのように配置するかを設定でき、会議やセミナー、その他のイベントで便利です。`setSlidesLayoutOptions` メソッドを[IPdfOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipdfoptions/)、[IRenderingOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/irenderingoptions/)、[IHtmlOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ihtmloptions/)、および[ITiffOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiffoptions/)インターフェイスで設定することで、このモードを有効にできます。
 
-Aspose.Slides は、プレゼンテーションをさまざまな形式に変換する機能を提供し、ハンドアウトモードで印刷用ハンドアウトを作成することもできます。このモードでは、1ページに複数のスライドをどのように配置するかを設定でき、会議やセミナー、その他のイベントに便利です。このモードは、[IPdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipdfoptions/)、[IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/)、[IHtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihtmloptions/)、および[ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) インターフェイスで `setSlidesLayoutOptions` メソッドを設定することで有効にできます。
+## **ハンドアウトモードのエクスポート**
 
-ハンドアウトモードを構成するには、[HandoutLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handoutlayoutingoptions/) オブジェクトを使用します。これにより、1ページに配置するスライド数やその他の表示パラメーターを決定できます。
+ハンドアウトモードを構成するには、[HandoutLayoutingOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/handoutlayoutingoptions/) オブジェクトを使用します。このオブジェクトは、1 ページに配置するスライド数やその他の表示パラメータを決定します。
 
 以下は、ハンドアウトモードでプレゼンテーションを PDF に変換するコード例です。
+
 ```java
 // プレゼンテーションを読み込む。
 Presentation presentation = new Presentation("sample.pptx");
 try {
-	// エクスポートオプションを設定する。
+	// エクスポートオプションを設定。
 	HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
-	slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 1ページに横方向で4枚のスライド
+	slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 1 ページに横方向で 4 スライド
 	slidesLayoutOptions.setPrintSlideNumbers(true);                   // スライド番号を印刷
-	slidesLayoutOptions.setPrintFrameSlide(true);                     // スライドの周囲にフレームを印刷
+	slidesLayoutOptions.setPrintFrameSlide(true);                     // スライドの周囲に枠を印刷
 	slidesLayoutOptions.setPrintComments(false);                      // コメントなし
 
 	PdfOptions pdfOptions = new PdfOptions();
@@ -47,21 +49,20 @@ try {
 }
 ```
 
-
 {{% alert color="warning" %}} 
-`setSlidesLayoutOptions` メソッドは、PDF、HTML、TIFF などの特定の出力形式や画像としてレンダリングする場合にのみ利用可能であることに注意してください。
+`setSlidesLayoutOptions` メソッドは、PDF、HTML、TIFF など特定の出力形式や画像としてレンダリングする場合にのみ利用可能であることに注意してください。
 {{% /alert %}} 
 
 ## **よくある質問**
 
-**ハンドアウトモードで1ページあたり表示できるスライドサムネイルの最大数は何ですか？**
+**ハンドアウトモードで 1 ページあたり表示できるスライドサムネイルの最大数は何ですか？**
 
-Aspose.Slides は、[presets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handouttype/) により、横方向または縦方向の並び順で最大 9 つのサムネイルを1ページに表示できます。利用可能なオプションは、1、2、3、4（横/縦）、6（横/縦）、9（横/縦）です。
+Aspose.Slides は、横順または縦順の配置で、1 ページあたり最大 9 枚のサムネイルをサポートする[presets](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/handouttype/) を提供しています。利用可能な設定は、1、2、3、4（横/縦）、6（横/縦）、9（横/縦）です。
 
-**5枚や8枚など、カスタムグリッドを定義できますか？**
+**5 枚や 8 枚など、カスタムグリッドを定義できますか？**
 
-いいえ。サムネイルの数と並び順は [HandoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handouttype/) クラスで厳密に制御されており、任意のレイアウトはサポートされていません。
+いいえ。サムネイルの数と順序は[HandoutType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/handouttype/) クラスで厳密に管理されており、任意のレイアウトはサポートされていません。
 
-**ハンドアウト出力に非表示スライドを含めることはできますか？**
+**ハンドアウトの出力に非表示スライドを含めることはできますか？**
 
-はい。対象フォーマットのエクスポート設定で `setShowHiddenSlides` メソッドを使用して非表示スライドを有効にできます。たとえば、[PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/)、[HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/htmloptions/)、または [TiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/) です。
+はい。対象フォーマットのエクスポート設定（例: [PdfOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/pdfoptions/)、[HtmlOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/htmloptions/)、または[TiffOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/)）で`setShowHiddenSlides` メソッドを有効にすることで、非表示スライドを含めることができます。

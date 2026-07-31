@@ -3,26 +3,25 @@ title: سرصفحه و پاورقی
 type: docs
 weight: 220
 url: /fa/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - سرصفحه و پاورقی
 - افزودن سرصفحه و پاورقی
 - به‌روزرسانی سرصفحه و پاورقی
 - مثال کد
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "با Aspose.Slides برای .NET کنترل سرصفحه‌ها و پاورقی‌های اسلاید را انجام دهید: تاریخ‌ها، شماره اسلاید و متن سفارشی را در قالب‌های PPT، PPTX و ODP با مثال‌های C# اضافه کنید."
+description: "سرصفحه‌ها و پاورقی‌های اسلاید را با Aspose.Slides برای .NET کنترل کنید: تاریخ‌ها، شماره اسلاید و متن سفارشی را در PPT، PPTX و ODP با مثال‌های C# اضافه کنید."
 ---
-این مقاله نشان می‌دهد که چگونه پاورقی‌ها را اضافه کنید و مکان‌نگهدارهای تاریخ و زمان را با استفاده از **Aspose.Slides for .NET** به‌روزرسانی کنید.
+این مقاله نشان می‌دهد که چگونه پاورقی‌ها را اضافه کرده و مکان‌گیرهای تاریخ و زمان را با استفاده از **Aspose.Slides for .NET** به‌روز کنید.
 
-## **Add a Footer**
-افزودن یک پاورقی
-
-Add text to the footer area of a slide and make it visible.
-متن را به ناحیهٔ پاورقی اسلاید اضافه کنید و آن را قابل مشاهده کنید.
+## **افزودن پاورقی**
+متن را به ناحیهٔ پاورقی یک اسلاید اضافه کنید و آن را قابل مشاهده کنید.
 
 ```csharp
 static void AddHeaderFooter()
@@ -35,11 +34,8 @@ static void AddHeaderFooter()
 }
 ```
 
-## **Update Date and Time**
-به‌روزرسانی تاریخ و زمان
-
-Modify the date and time placeholder on a slide.
-مکان‌نگهدار تاریخ و زمان را در یک اسلاید اصلاح کنید.
+## **به‌روزرسانی تاریخ و زمان**
+مکان‌گیر تاریخ و زمان را در یک اسلاید اصلاح کنید.
 
 ```csharp
 static void UpdateDateTime()

@@ -1,9 +1,11 @@
 ---
-title: "إنشاء وتخصيص SmartArt في PowerPoint باستخدام .NET"
-linktitle: "SmartArt في PowerPoint"
+title: إنشاء وتخصيص SmartArt في PowerPoint باستخدام .NET
+linktitle: SmartArt في PowerPoint
 type: docs
 weight: 100
 url: /ar/net/powerpoint-smartart/
+aliases:
+  - /net/examples/elements/smartart/
 keywords:
 - SmartArt
 - إدارة SmartArt
@@ -14,5 +16,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرف على كيفية إنشاء وتحرير SmartArt في PowerPoint باستخدام .NET عبر واجهة برمجة تطبيقات Aspose.Slides: التخطيطات، العقد، الأنماط، مع أمثلة خطوة بخطوة لتلقيم الشرائح بسرعة."
+description: "تعلم كيفية إنشاء وتحرير SmartArt في PowerPoint باستخدام .NET عبر واجهة برمجة تطبيقات Aspose.Slides: التخطيطات، العقد، الأنماط، مع أمثلة خطوة بخطوة لأتمتة الشرائح بسرعة."
 ---

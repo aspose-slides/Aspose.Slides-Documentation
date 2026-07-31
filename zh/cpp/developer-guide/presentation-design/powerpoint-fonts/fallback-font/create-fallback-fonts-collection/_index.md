@@ -15,18 +15,25 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "在 Aspose.Slides for C++ 中设置回退字体集合，以保持 PowerPoint 和 OpenDocument 演示文稿中的文本一致且清晰。"
+description: "在 Aspose.Slides for C++ 中设置回退字体集合，以确保 PowerPoint 和 OpenDocument 演示文稿中的文本保持一致且清晰。"
 ---
+## **概述**
 
-## **应用回退规则**
+Aspose.Slides 允许您为演示文稿配置一组后备字体规则。每个后备规则由 `FontFallBackRule` 类表示，并可以添加到实现 `IFontFallBackRulesCollection` 接口的 `FontFallBackRulesCollection` 中。
 
-可以将 [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) 类的实例组织到 [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrulescollection/)，它实现了 [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrulescollection/) 接口。可以向集合中添加或移除规则。
+创建集合后，您可以使用演示文稿的 `FontsManager` 的 `set_FontFallBackRulesCollection` 方法进行分配。`FontsManager` 控制整个演示文稿的字体，每个 `Presentation` 实例都有其独立的 `FontsManager`。
 
-然后可以将此集合传递给 [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) 方法，该方法属于 [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) 类。FontsManager 控制整个演示文稿中的字体。
+当 `FontsManager` 使用后备字体集合初始化后，指定的后备字体将在演示文稿渲染期间生效。
 
-每个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 都有一个 [get_FontsManager()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_fontsmanager/) 方法，返回其自身的 FontsManager 类实例。
+## **应用后备规则**
 
-下面示例演示如何创建回退字体规则集合并将其分配给特定演示文稿的 FontsManager：
+可以将 [FontFallBackRule](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontfallbackrule/) 类的实例组织到实现了 [IFontFallBackRulesCollection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ifontfallbackrulescollection/) 接口的 [FontFallBackRulesCollection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontfallbackrulescollection/) 中。可以向集合中添加或移除规则。
+
+然后可以将该集合传递给 [FontsManager](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontsmanager/) 类的 [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) 方法。FontsManager 控制整个演示文稿的字体。
+
+每个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 都有一个返回其自身 FontsManager 实例的 [get_FontsManager()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_fontsmanager/) 方法。
+
+以下示例演示了如何创建后备字体规则集合并将其分配给特定演示文稿的 FontsManager：
 
 ``` cpp
 auto presentation = MakeObject<Presentation>();
@@ -38,27 +45,26 @@ userRulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), s
 presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList);
 ```
 
-
-在 FontsManager 使用回退字体集合初始化后，回退字体将在演示文稿渲染期间应用。
+在 FontsManager 使用后备字体集合初始化后，后备字体将在演示文稿渲染期间生效。
 
 {{% alert color="primary" %}} 
-阅读更多关于如何[渲染演示文稿使用回退字体](/slides/zh/cpp/render-presentation-with-fallback-font/)。
+阅读更多关于[Render Presentation with Fallback Font](/slides/zh/cpp/render-presentation-with-fallback-font/)的信息。
 {{% /alert %}}
 
 ## **常见问题**
 
-**我的回退规则会嵌入到 PPTX 文件并在保存后在 PowerPoint 中可见吗？**
+**我的后备规则会嵌入到 PPTX 文件中并在保存后在 PowerPoint 中可见吗？**
 
-不会。回退规则是运行时渲染设置；它们不会序列化到 PPTX 中，也不会出现在 PowerPoint 的界面中。
+不会。后备规则是运行时渲染设置；它们不会序列化到 PPTX 中，也不会出现在 PowerPoint 的界面中。
 
-**回退规则适用于 SmartArt、WordArt、图表和表格中的文本吗？**
+**后备规则是否适用于 SmartArt、WordArt、图表和表格中的文本？**
 
-是。这些对象中的任何文本都使用相同的字形替换机制。
+是的。相同的字形替换机制用于这些对象中的所有文本。
 
 **Aspose 是否随库分发任何字体？**
 
-不会。您需要自行添加和使用字体，且责任自负。
+不会。您需要自行添加和使用字体，且需自行承担责任。
 
-**缺失字体的替换/替代和缺失字形的回退可以一起使用吗？**
+**缺失字体的替换/替代与缺失字形的后备可以一起使用吗？**
 
-是。它们是同一字体解析管道的独立阶段：首先引擎解析字体可用性（[replacement](/slides/zh/cpp/font-replacement/)/[substitution](/slides/zh/cpp/font-substitution/)），然后回退在可用字体中填补缺失字形的空白。
+可以。它们是同一字体解析流水线的独立阶段：首先引擎解析字体可用性（[replacement](/slides/zh/cpp/font-replacement/)/[substitution](/slides/zh/cpp/font-substitution/)），然后后备在可用字体中为缺失字形填补空缺。

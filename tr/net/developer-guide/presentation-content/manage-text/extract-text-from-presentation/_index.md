@@ -1,43 +1,46 @@
 ---
-title: .NET'te Sunumlardan Gelişmiş Metin Çıkarma
-linktitle: Metni Çıkar
+title: Sunumlardan Gelişmiş Metin Çıkarma .NET'te
+linktitle: Metin Çıkarma
 type: docs
 weight: 90
 url: /tr/net/extract-text-from-presentation/
+aliases:
+  - /net/slides-on-cloud-platforms/extracting-text/overview/
+  - /net/slides-on-cloud-platforms/extracting-text/slides/tr/
 keywords:
-- metin çıkarma
-- slayttan metin çıkarma
-- sunumdan metin çıkarma
-- PowerPoint'tan metin çıkarma
-- OpenDocument'ten metin çıkarma
-- PPT'den metin çıkarma
-- PPTX'ten metin çıkarma
-- ODP'den metin çıkarma
-- metin alma
-- slayttan metin alma
-- sunumdan metin alma
-- PowerPoint'tan metin alma
-- OpenDocument'ten metin alma
-- PPT'den metin alma
-- PPTX'ten metin alma
-- ODP'den metin alma
+- metin çıkar
+- slayttan metin çıkar
+- sunumdan metin çıkar
+- PowerPoint'tan metin çıkar
+- OpenDocument'ten metin çıkar
+- PPT'den metin çıkar
+- PPTX'ten metin çıkar
+- ODP'den metin çıkar
+- metin al
+- slayttan metin al
+- sunumdan metin al
+- PowerPoint'tan metin al
+- OpenDocument'ten metin al
+- PPT'den metin al
+- PPTX'ten metin al
+- ODP'den metin al
 - PowerPoint
 - OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument sunumlarından hızlıca metin çıkarın. Zaman kazanmak için basit, adım adım kılavuzumuzu izleyin."
+description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument sunumlarından hızlıca metin çıkarın. Zaman tasarrufu sağlamak için basit, adım adım rehberimizi izleyin."
 ---
 ## **Genel Bakış**
 
-Sunumlardan metin çıkarma, slayt içeriğiyle çalışan geliştiriciler için yaygın ancak hayati bir görevdir. Microsoft PowerPoint dosyaları PPT ya da PPTX formatında ya da OpenDocument sunumları (ODP) ile çalışıyor olun, metinsel verilere erişmek ve bunları almak analiz, otomasyon, indeksleme veya içerik taşıma amaçları için kritik olabilir.
+Sunumlardan metin çıkarmak, slayt içeriği ile çalışan geliştiriciler için yaygın ancak kritik bir görevdir. Microsoft PowerPoint dosyaları PPT veya PPTX formatında olsun ya da OpenDocument sunumları (ODP) olsun, metinsel verilere erişmek ve bunları almak analiz, otomasyon, indeksleme veya içerik taşıma amaçları için hayati önem taşıyabilir.
 
-Bu makale, Aspose.Slides for .NET kullanarak PPT, PPTX ve ODP gibi çeşitli sunum formatlarından metni verimli bir şekilde çıkarmak için kapsamlı bir rehber sunar. Sunum öğeleri üzerinde sistematik olarak nasıl iterasyon yapılacağını ve ihtiyacınız olan metin içeriğini doğru bir şekilde nasıl elde edeceğinizi öğreneceksiniz.
+Bu makale, Aspose.Slides for .NET kullanarak PPT, PPTX ve ODP dahil çeşitli sunum formatlarından metni verimli bir şekilde çıkarmanın kapsamlı bir rehberini sunar. Sunum öğeleri arasında sistematik olarak nasıl döngü oluşturup ihtiyaç duyduğunuz metin içeriğini doğru bir şekilde alacağınızı öğreneceksiniz.
 
 ## **Slayttan Metin Çıkarma**
 
-Aspose.Slides for .NET, [Aspose.Slides.Util](https://reference.aspose.com/slides/tr/net/aspose.slides.util/) ad alanını sağlar; bu ad alanı [SlideUtil](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/) sınıfını içerir. Bu sınıf, bir sunum veya slayttan tüm metni çıkarmak için bir dizi aşırı yüklenmiş static yöntemi sunar. Bir sunumdaki slayttan metin çıkarmak için [GetAllTextBoxes](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/getalltextboxes/) yöntemini kullanın. Bu yöntem, parametre olarak [IBaseSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseslide/) tipinde bir nesne alır. Çalıştırıldığında, yöntem tüm slaytı metin için tarar ve metin biçimlendirmesini koruyarak [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) tipinde nesneler dizisi döndürür.
+Aspose.Slides for .NET, [Aspose.Slides.Util](https://reference.aspose.com/slides/tr/net/aspose.slides.util/) ad alanını sağlar; bu ad alanda [SlideUtil](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/) sınıfı bulunur. Bu sınıf, bir sunum veya slayttan tüm metni çıkarmak için bir dizi aşırı yüklenmiş statik yöntem sunar. Bir sunumdaki slayttan metin çıkarmak için [GetAllTextBoxes](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/getalltextboxes/) yöntemini kullanın. Bu yöntem, parametre olarak [IBaseSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseslide/) türünde bir nesne alır. Çalıştırıldığında, yöntem tüm slaytı metin için tarar ve [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) türündeki nesnelerin bir dizisini döndürür; metin biçimlendirmesini korur.
 
 Aşağıdaki kod parçacığı, sunumun ilk slaytındaki tüm metni çıkarır:
 
@@ -76,12 +79,12 @@ foreach (var textFrame in textFrames)
 
 ## **Sunumdan Metin Çıkarma**
 
-Tüm sunumdaki metni taramak için [SlideUtil](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/) sınıfı tarafından sunulan [GetAllTextFrames](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/getalltextframes/) static yöntemini kullanın. Bu yöntem iki parametre alır:
+Tüm sunumdan metni taramak için, [SlideUtil](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/) sınıfının sunduğu [GetAllTextFrames](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/getalltextframes/) statik yöntemini kullanın. Bu yöntem iki parametre alır:
 
 1. İlk olarak, metnin çıkarılacağı PowerPoint veya OpenDocument sunumunu temsil eden bir [IPresentation](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/) nesnesi.
-2. İkinci olarak, ana slaytların tarama sırasında dahil edilip edilmeyeceğini belirten bir `Boolean` değeri.
+1. İkinci olarak, sunumdan metin taranırken ana slaytların (master slides) dahil edilip edilmeyeceğini belirten bir `Boolean` değeri.
 
-Yöntem, metin biçimlendirme bilgilerini içeren [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) tipinde nesneler dizisi döndürür. Aşağıdaki kod, ana slaytlar dahil olmak üzere bir sunumun metin ve biçimlendirme ayrıntılarını tarar.
+Yöntem, metin biçimlendirme bilgilerini içeren [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) türündeki nesnelerin bir dizisini döndürür. Aşağıdaki kod, ana slaytlar da dahil olmak üzere bir sunumdan metin ve biçimlendirme ayrıntılarını tarar.
 
 ```cs
 using var presentation = new Presentation("demo.pptx");
@@ -115,7 +118,7 @@ foreach (var textFrame in textFrames)
 
 ## **Kategorize ve Hızlı Metin Çıkarma**
 
-[PresentationFactory](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationfactory/) sınıfı da sunumlardan tüm metni çıkarmak için yöntemler sunar:
+[PresentationFactory](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationfactory/) sınıfı ayrıca sunumlardan tüm metni çıkarmak için yöntemler sağlar:
 
 ``` cs
 IPresentationText GetPresentationText(string file, TextExtractionArrangingMode mode);
@@ -123,13 +126,13 @@ IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode, ILoadOptions options);
 ```
 
-[TextExtractionArrangingMode](https://reference.aspose.com/slides/tr/net/aspose.slides/textextractionarrangingmode/) enum bağımsız değişkeni, metin çıkarma sonucunun düzenlenme biçimini belirtir ve aşağıdaki değerlerden birine ayarlanabilir:
+[TextExtractionArrangingMode](https://reference.aspose.com/slides/tr/net/aspose.slides/textextractionarrangingmode/) enum argümanı, metin çıkarma sonucunun düzenlenme şeklini gösterir ve aşağıdaki değerlerden birine ayarlanabilir:
 - `Unarranged` - Slayttaki konumuna bakılmaksızın ham metin.
-- `Arranged` - Metin slayttaki sırayla düzenlenir.
+- `Arranged` - Metin, slayttaki aynı sırayla düzenlenir.
 
-Düzenlenmemiş (unarranged) mod, hız kritik olduğunda kullanılabilir; düzenli (arranged) moddan daha hızlıdır.
+Hızın kritik olduğu durumlarda düzenlenmemiş (unarranged) mod kullanılabilir; bu mod, düzenli (arranged) moddan daha hızlıdır.
 
-[IPresentationText](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationtext/) sunumdan çıkarılan ham metni temsil eder. `SlidesText` özelliği, [ISlideText](https://reference.aspose.com/slides/tr/net/aspose.slides/islidetext/) tipinde nesneler dizisi döndürür. Her nesne ilgili slayttaki metni temsil eder. [ISlideText](https://reference.aspose.com/slides/tr/net/aspose.slides/islidetext/) tipindeki nesnenin aşağıdaki özellikleri vardır:
+[IPresentationText](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationtext/) sunumdan çıkarılan ham metni temsil eder. `SlidesText` özelliği, [ISlideText](https://reference.aspose.com/slides/tr/net/aspose.slides/islidetext/) türündeki nesnelerin bir dizisini döndürür. Her nesne, ilgili slayttaki metni temsil eder. [ISlideText](https://reference.aspose.com/slides/tr/net/aspose.slides/islidetext/) türündeki nesnenin aşağıdaki özellikleri vardır:
 
 - `Text` - Slayt şekillerindeki metin.
 - `MasterText` - Bu slaytla ilişkili ana slayt şekillerindeki metin.
@@ -152,14 +155,14 @@ Console.WriteLine(firstSlideText.CommentsText);
 
 ## **SSS**
 
-**Aspose.Slides büyük sunumları metin çıkarma sırasında ne kadar hızlı işler?**
+**Aspose.Slides büyük sunumları metin çıkarımı sırasında ne kadar hızlı işler?**
 
-Aspose.Slides yüksek performans için optimize edilmiştir ve [büyük sunumları](/slides/tr/net/open-presentation/) işleyebilir; bu da gerçek zamanlı veya toplu işleme senaryoları için uygundur.
+Aspose.Slides yüksek performans için optimize edilmiştir ve [büyük sunumları](/slides/tr/net/open-presentation/) bile işleyebilir; bu da gerçek zamanlı veya toplu işleme senaryoları için uygundur.
 
-**Aspose.Slides sunumlardaki tablolar ve grafiklerden metin çıkarabilir mi?**
+**Aspose.Slides, tablolar ve grafiklerle ilişkili nesneler dahil olmak üzere sunumlardaki metni çıkarabilir mi?**
 
-Evet. Aspose.Slides, tablolar ve grafikle ilgili nesneler dahil olmak üzere birçok slayt öğesinden metin çıkarabilir; böylece yaygın sunum yapılarındaki metinsel içeriğe erişebilir ve analiz edebilirsiniz.
+Evet. Aspose.Slides, tablolar ve grafiklerle ilişkili nesneler dahil olmak üzere birçok slayt öğesinden metin çıkarabilir; böylece yaygın sunum yapılarınızdaki metinsel içeriğe erişebilir ve analiz edebilirsiniz.
 
 **Sunumlardan metin çıkarmak için özel bir Aspose.Slides lisansına ihtiyacım var mı?**
 
-Metni ücretsiz deneme sürümünü kullanarak çıkarabilirsiniz, ancak bu sürüm [belirli sınırlamalara](/slides/tr/net/licensing/) sahiptir; örneğin yalnızca sınırlı sayıda slayt işlenebilir. Sınırsız kullanım ve daha büyük sunumları işlemek için tam bir lisans satın almanız önerilir.
+Metni ücretsiz deneme sürümü Aspose.Slides ile çıkarabilirsiniz, ancak bu sürüm [belirli kısıtlamalara](/slides/tr/net/licensing/) sahiptir; örneğin sadece sınırlı sayıda slaytı işleyebilir. Sınırsız kullanım ve daha büyük sunumları işlemek için tam bir lisans satın almanız tavsiye edilir.

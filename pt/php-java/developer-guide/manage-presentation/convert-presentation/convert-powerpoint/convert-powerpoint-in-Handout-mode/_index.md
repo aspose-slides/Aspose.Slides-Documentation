@@ -3,7 +3,7 @@ title: Converter apresentações PowerPoint no modo Handout usando PHP
 linktitle: Modo Handout
 type: docs
 weight: 150
-url: /pt/php-java/convert-powerpoint-in-Handout-mode/
+url: /pt/php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - converter PowerPoint
 - converter apresentação
@@ -15,13 +15,13 @@ keywords:
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Converter apresentações em folhetos em PHP. Defina slides por página, mantenha notas, exporte para PDF ou imagens com Aspose.Slides para PHP, com código de exemplo. Experimente grátis."
+description: "Converta apresentações em folhetos usando PHP. Defina quantos slides por página, mantenha notas, exporte para PDF ou imagens com Aspose.Slides para PHP, com código de exemplo. Experimente gratuitamente."
 ---
 ## **Introdução**
 
-O Aspose.Slides oferece a capacidade de converter apresentações em vários formatos, incluindo a criação de folhetos para impressão no modo Handout. Esse modo permite configurar como múltiplos slides aparecem em uma única página, tornando‑o útil para conferências, seminários e outros eventos. Você pode ativar esse modo definindo o método `setSlidesLayoutOptions` nas classes [PdfOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/htmloptions/) e [TiffOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/tiffoptions/).
+Aspose.Slides fornece a capacidade de converter apresentações em vários formatos, incluindo a criação de folhetos para impressão no modo Handout. Esse modo permite configurar como múltiplos slides aparecem em uma única página, sendo útil para conferências, seminários e outros eventos. Você pode habilitar esse modo definindo o método `setSlidesLayoutOptions` nas classes [PdfOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/htmloptions/) e [TiffOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/tiffoptions/).
 
-## **Exportação no modo Handout**
+## **Exportação no Modo Handout**
 
 Para configurar o modo Handout, use o objeto [HandoutLayoutingOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/handoutlayoutingoptions/), que determina quantos slides são colocados em uma única página e outros parâmetros de exibição.
 
@@ -47,10 +47,10 @@ $presentation->dispose();
 ```
 
 {{% alert color="warning" %}} 
-Lembre‑se de que o método `setSlidesLayoutOptions` está disponível apenas para certos formatos de saída, como PDF, HTML, TIFF, e ao renderizar como imagens.
+Observe que o método `setSlidesLayoutOptions` está disponível apenas para determinados formatos de saída, como PDF, HTML, TIFF, e ao renderizar como imagens. 
 {{% /alert %}} 
 
-## **FAQ**
+## **Perguntas Frequentes**
 
 **Qual é o número máximo de miniaturas de slide por página no modo Handout?**
 
@@ -62,4 +62,4 @@ Não. O número e a ordenação das miniaturas são controlados estritamente pel
 
 **Posso incluir slides ocultos na saída Handout?**
 
-Sim. Ative os slides ocultos usando o método `setShowHiddenSlides` nas configurações de exportação para o formato de destino, como [PdfOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/htmloptions/) ou [TiffOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/tiffoptions/).
+Sim. Habilite os slides ocultos usando o método `setShowHiddenSlides` nas configurações de exportação para o formato de destino, como [PdfOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/htmloptions/) ou [TiffOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/tiffoptions/).

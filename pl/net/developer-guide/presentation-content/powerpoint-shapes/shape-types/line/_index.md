@@ -1,16 +1,16 @@
 ---
-title: Dodaj kształty linii do prezentacji w .NET
+title: Dodawanie kształtów linii do prezentacji w .NET
 linktitle: Linia
 type: docs
 weight: 50
-url: /pl/net/Line/
+url: /pl/net/line/
 keywords:
 - linia
-- utwórz linię
-- dodaj linię
+- tworzenie linii
+- dodawanie linii
 - prosta linia
-- skonfiguruj linię
-- dostosuj linię
+- konfigurowanie linii
+- dostosowywanie linii
 - styl kreski
 - grot strzałki
 - PowerPoint
@@ -18,64 +18,64 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naucz się manipulować formatowaniem linii w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET. Poznaj właściwości, metody i przykłady."
+description: "Naucz się manipulować formatowaniem linii w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET. Odkryj właściwości, metody i przykłady."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia programowe dodawanie kształtów linii do slajdów PowerPoint. Ten artykuł pokazuje, jak utworzyć prostą linię oraz jak dostosować linię, aby wyglądała jak strzałka.
+Aspose.Slides umożliwia programowe dodawanie kształtów linii do slajdów PowerPoint. Ten artykuł pokazuje, jak utworzyć prostą linię i jak dostosować linię, aby wyglądała jak strzałka.
 
-Dowiesz się, jak dodać kształt linii do slajdu, zmienić jej wygląd oraz zapisać zaktualizowaną prezentację. Przykłady koncentrują się na praktycznych ustawieniach formatowania linii, takich jak styl, szerokość, wzór kreski, opcje grotów i kolor wypełnienia.
+Nauczysz się, jak dodać kształt linii do slajdu, dostosować jego wygląd oraz zapisać zmienioną prezentację. Przykłady koncentrują się na praktycznych ustawieniach formatowania linii, takich jak styl, szerokość, wzór kreski, opcje grotu strzałki i kolor wypełnienia.
 
-## **Utwórz prostą linię**
-Aby dodać prostą, nieozdobioną linię do wybranego slajdu prezentacji, wykonaj poniższe kroki:
+## **Utworzenie prostej linii**
+Aby dodać prostą linię do wybranego slajdu prezentacji, wykonaj następujące kroki:
 
-- Utwórz instancję [Prezentacja](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation)class.
-- Uzyskaj odniesienie do slajdu, używając jego indeksu.
+- Utwórz instancję klasy [Presentation ](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
+- Pobierz odwołanie do slajdu, używając jego indeksu.
 - Dodaj AutoShape typu Line za pomocą metody [AddAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/methods/addautoshape/index) udostępnionej przez obiekt Shapes.
 - Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 W poniższym przykładzie dodaliśmy linię do pierwszego slajdu prezentacji.
 
 ```c#
-// Utwórz klasę PresentationEx reprezentującą plik PPTX
+ // Utwórz instancję klasy PresentationEx reprezentującej plik PPTX
 using (Presentation pres = new Presentation())
 {
     // Pobierz pierwszy slajd
     ISlide sld = pres.Slides[0];
 
-    // Dodaj autoshape typu line
+    // Dodaj autoshape typu linia
     sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // Zapisz plik PPTX na dysk
+    //Zapisz plik PPTX na dysku
     pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Utwórz linię w kształcie strzałki**
-Aspose.Slides for .NET umożliwia również konfigurację niektórych właściwości linii, aby wyglądała bardziej atrakcyjnie. Spróbujmy skonfigurować kilka właściwości linii, aby przypominała strzałkę. Postępuj zgodnie z poniższymi krokami:
+## **Utworzenie linii w kształcie strzałki**
+Aspose.Slides dla .NET umożliwia również programistom konfigurowanie niektórych właściwości linii, aby wyglądała bardziej atrakcyjnie. Spróbujmy skonfigurować kilka właściwości linii, aby przypominała strzałkę. Postępuj zgodnie z poniższymi krokami:
 
-- Utwórz instancję [Prezentacja](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/pl/aspose.slides/)[](http://www.aspose.com/api/net/slides/pl/aspose.slides/).
-- Uzyskaj odniesienie do slajdu, używając jego indeksu.
+- Utwórz instancję klasy [Presentation ](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/pl/aspose.slides/)[](http://www.aspose.com/api/net/slides/pl/aspose.slides/).
+- Pobierz odwołanie do slajdu, używając jego indeksu.
 - Dodaj AutoShape typu Line za pomocą metody AddAutoShape udostępnionej przez obiekt Shapes.
-- Ustaw styl linii na jeden ze stylów oferowanych przez Aspose.Slides for .NET.
+- Ustaw styl linii na jeden z oferowanych przez Aspose.Slides dla .NET.
 - Ustaw szerokość linii.
-- Ustaw [Dash Style](https://reference.aspose.com/slides/pl/net/aspose.slides/linedashstyle) linii na jeden ze stylów oferowanych przez Aspose.Slides for .NET.
-- Ustaw [Arrow Head Style](https://reference.aspose.com/slides/pl/net/aspose.slides/linearrowheadstyle) i długość punktu początkowego linii.
-- Ustaw Arrow Head Style i długość punktu końcowego linii.
+- Ustaw [Dash Style](https://reference.aspose.com/slides/pl/net/aspose.slides/linedashstyle) linii na jeden z stylów oferowanych przez Aspose.Slides dla .NET.
+- Ustaw [Arrow Head Style](https://reference.aspose.com/slides/pl/net/aspose.slides/linearrowheadstyle) oraz długość grotu początkowego linii.
+- Ustaw styl i długość grotu końcowego linii.
 - Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```c#
- // Utwórz klasę PresentationEx reprezentującą plik PPTX
+ // Utwórz instancję klasy PresentationEx reprezentującej plik PPTX
 using (Presentation pres = new Presentation())
 {
 
     // Pobierz pierwszy slajd
     ISlide sld = pres.Slides[0];
 
-    // Dodaj autoshape typu line
+    // Dodaj autoshape typu linia
     IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // Zastosuj formatowanie linii
+    // Zastosuj pewne formatowanie linii
     shp.LineFormat.Style = LineStyle.ThickBetweenThin;
     shp.LineFormat.Width = 10;
 
@@ -90,21 +90,21 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.FillFormat.FillType = FillType.Solid;
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
 
-    // Zapisz plik PPTX na dysk
+    // Zapisz plik PPTX na dysku
     pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **FAQ**
 
-**Czy mogę zamienić zwykłą linię w łącznik, aby „przyczepiała” się do kształtów?**
+**Czy mogę zamienić zwykłą linię w łącznik, aby „przyciągała” się do kształtów?**
 
-Nie. Zwykła linia (AutoShape typu Line) nie przekształca się automatycznie w łącznik. Aby przyczepić ją do kształtów, użyj dedykowanego typu [Connector](https://reference.aspose.com/slides/pl/net/aspose.slides/connector/) oraz [odpowiednich interfejsów API](/slides/pl/net/connector/) do połączeń.
+Nie. Zwykła linia ( [AutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/) typu [Line](https://reference.aspose.com/slides/pl/net/aspose.slides/shapetype/) ) nie staje się automatycznie łącznikiem. Aby umożliwić przyciąganie do kształtów, użyj dedykowanego typu [Connector](https://reference.aspose.com/slides/pl/net/aspose.slides/connector/) oraz [odpowiednich interfejsów API](/slides/pl/net/connector/) do połączeń.
 
 **Co zrobić, gdy właściwości linii są dziedziczone z motywu i trudno określić ich ostateczne wartości?**
 
-[Przeczytaj właściwości efektywne](/slides/pl/net/shape-effective-properties/) za pomocą interfejsów [ILineFormatEffectiveData](https://reference.aspose.com/slides/pl/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/pl/net/aspose.slides/ilinefillformateffectivedata/); już one uwzględniają dziedziczenie i style motywu.
+[Przeczytaj właściwości efektywne](/slides/pl/net/shape-effective-properties/) za pośrednictwem interfejsów [ILineFormatEffectiveData](https://reference.aspose.com/slides/pl/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/pl/net/aspose.slides/ilinefillformateffectivedata/) — te już uwzględniają dziedziczenie oraz style motywu.
 
 **Czy mogę zablokować linię przed edycją (przemieszczaniem, zmianą rozmiaru)?**
 
-Tak. Kształty udostępniają [obiekty blokady](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/autoshapelock/), które pozwalają [zablokować operacje edycji](/slides/pl/net/applying-protection-to-presentation/).
+Tak. Kształty udostępniają [obiekty blokady](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/autoshapelock/), które pozwalają [zabronić operacji edycyjnych](/slides/pl/net/applying-protection-to-presentation/).

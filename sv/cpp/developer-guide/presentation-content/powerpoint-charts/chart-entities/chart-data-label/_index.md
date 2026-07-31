@@ -1,5 +1,5 @@
 ---
-title: Hantera diagramdataetiketter i presentationer med С++
+title: Hantera diagramdataetiketter i presentationer med C++
 linktitle: Dataetikett
 type: docs
 url: /sv/cpp/chart-data-label/
@@ -7,28 +7,28 @@ keywords:
 - diagram
 - dataetikett
 - dataprecision
-- procent
+- procentandel
 - etikettavstånd
-- etikettplacering
+- etikettposition
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för С++ för mer engagerande bilder."
+description: "Lär dig lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för C++ för mer engagerande bildspel."
 ---
 ## **Introduktion**
 
-Datalabels på ett diagram visar detaljer om diagrammets dataserier eller enskilda datapunkter. De gör det möjligt för läsaren att snabbt identifiera dataserier och gör diagrammen lättare att förstå.
+Dataetiketter på ett diagram visar detaljer om diagrammets dataserier eller enskilda datapunkter. De gör det möjligt för läsare att snabbt identifiera dataserier och de gör också diagrammen lättare att förstå.
 
-## **Ställ in dataprecision i diagrammets datalabels**
+## **Ställ in dataprecision i diagramdataetiketter**
 
-Den här C++-koden visar hur du anger dataprecision i en diagramdatapunktlabel:
+Den här C++-koden visar hur du ställer in dataprecision i en diagramdataetikett:
 
 ```c++
 	// Sökvägen till dokumentkatalogen
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Instansierar en Presentation-klass som representerar en PPTX-fil
+	// Skapar en Presentation-klass som representerar en PPTX-fil
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Hämtar den första bilden
@@ -37,7 +37,7 @@ Den här C++-koden visar hur du anger dataprecision i en diagramdatapunktlabel:
 	// Lägger till diagram med standarddata
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Ställer in talformat för serien
+	// Ställer in serienummerformat
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
@@ -45,9 +45,8 @@ Den här C++-koden visar hur du anger dataprecision i en diagramdatapunktlabel:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
-## **Visa procenttal som etiketter**
-Aspose.Slides for C++ låter dig ange procentetiketter på diagram som visas. Den här C++-koden demonstrerar hur du gör det:
+## **Visa procent som etiketter**
+Aspose.Slides för C++ låter dig ange procentetiketter på visade diagram. Den här C++-koden demonstrerar hur det görs:
 
 ```c++
 	// Sökvägen till dokumentkatalogen
@@ -95,16 +94,17 @@ Aspose.Slides for C++ låter dig ange procentetiketter på diagram som visas. De
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+
 		}
+
 	}
 
 	// Sparar presentationen som innehåller diagrammet
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
-## **Ställ in procenttecken med diagrammets datalabels**
-Den här C++-koden visar hur du ställer in procenttecken för en diagramdatapunktlabel:
+## **Ange procenttecknet i diagramdataetiketter**
+Den här C++-koden visar hur du anger procenttecknet för en diagramdataetikett:
 
 ```c++
 	// Sökvägen till dokumentkatalogen.
@@ -113,25 +113,25 @@ Den här C++-koden visar hur du ställer in procenttecken för en diagramdatapun
 	// Skapar en instans av Presentation-klassen
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Hämtar en slides referens via dess index
+	// Hämtar en bilds referens via dess index
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Skapar diagrammet PercentsStackedColumn på en slide
+	// Skapar diagrammet PercentsStackedColumn på en bild
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// Ställer in NumberFormatLinkedToSource till false
+	// Sätter NumberFormatLinkedToSource till false
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
 
-	// Ställer in index för diagrammets kalkylblad
+	// Anger index för diagrammets dataark
 	int defaultWorksheetIndex = 0;
 
-	// Hämtar diagrammets dataarbetsbok
+	// Hämtar diagrammets dataarbetsblad
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Tar bort standardgenererade serier 
+	// Tar bort standardgenererad serie 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -141,17 +141,17 @@ Den här C++-koden visar hur du ställer in procenttecken för en diagramdatapun
 
 	// Hämtar den första diagramserien
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// Fyller serien med data
+	// Fyller seriedatan
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// Ställer in fyllningsfärg för serien
+	// Anger fyllnadsfärg för serien
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
-	// Ställer in LabelFormat-egenskaper
+	// Anger egenskaper för LabelFormat
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
@@ -162,17 +162,17 @@ Den här C++-koden visar hur du ställer in procenttecken för en diagramdatapun
 
 	// Hämtar den andra diagramserien
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// Fyller serien med data
+	// Fyller seriedatan
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// Ställer in fyllningsfärg för serien
+	// Anger fyllnadsfärg för serien
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
-	// Ställer in LabelFormat-egenskaper
+	// Anger egenskaper för LabelFormat
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
@@ -185,9 +185,8 @@ Den här C++-koden visar hur du ställer in procenttecken för en diagramdatapun
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
-## **Ställ in etikettdistans från axeln**
-Den här C++-koden visar hur du anger etikettdistansen från en kategoraxel när du arbetar med ett diagram som ritas från axlar:
+## **Ange etikettavstånd från axel**
+Den här C++-koden visar hur du ställer in etikettavståndet från en kategoriekel när du arbetar med ett diagram som ritas från axlar:
 
 ```c++
 	// Sökvägen till dokumentkatalogen
@@ -203,7 +202,7 @@ Den här C++-koden visar hur du anger etikettdistansen från en kategoraxel när
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Hämtar diagrammets seriekollektion
+	// Hämtar samlingen av diagramserier
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
 	// Ställer in etikettavståndet från en axel
@@ -213,11 +212,11 @@ Den här C++-koden visar hur du anger etikettdistansen från en kategoraxel när
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Justera etikettplacering**
+## **Justera etikettposition**
 
-När du skapar ett diagram som inte bygger på någon axel, till exempel ett cirkeldiagram, kan diagrammets datalabels hamna för nära kanten. I så fall måste du justera etikettens placering så att ledlinjerna visas tydligt.
+När du skapar ett diagram som inte är beroende av någon axel, som ett pajdiagram, kan diagrammets dataetiketter hamna för nära kanten. I så fall måste du justera etikettens placering så att hjälplinjerna visas tydligt.
 
-Den här C++-koden visar hur du justerar etikettplaceringen i ett cirkeldiagram:
+Den här C++-koden visar hur du justerar etikettplaceringen på ett pajdiagram:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -238,16 +237,16 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Hur kan jag förhindra att datalabels överlappar i täta diagram?**
+**Hur kan jag förhindra att dataetiketter överlappar i täta diagram?**
 
-Kombinera automatisk placering av etiketter, ledlinjer och minskad teckenstorlek; vid behov dölja vissa fält (t.ex. kategori) eller visa etiketter endast för extrema/nyckelpunkter.
+Kombinera automatisk placering av etiketter, hjälplinjer och minskad teckenstorlek; om det behövs, dölj vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema/nyckelpunkter.
 
-**Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
+**Hur kan jag inaktivera etiketter bara för noll-, negativa eller tomma värden?**
 
-Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa värden eller saknade värden enligt en definierad regel.
+Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden på 0, negativa värden eller saknade värden enligt en definierad regel.
 
-**Hur kan jag säkerställa en konsekvent etikettdesign vid export till PDF/bilder?**
+**Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
 
-Ange tydligt teckensnitt (familj, storlek) och verifiera att teckensnittet finns tillgängligt på renderingssidan för att undvika ersättning.
+Ange explicit teckensnitt (familj, storlek) och verifiera att teckensnittet är tillgängligt på renderingssidan för att undvika fallback.

@@ -1,6 +1,6 @@
 ---
-title: Beheer presentatietinhoud in С++
-linktitle: Presentatietinhoud
+title: Presentatie-inhoud beheren in C++
+linktitle: Presentatie-inhoud
 type: docs
 weight: 30
 url: /nl/cpp/presentation-content/
@@ -12,7 +12,7 @@ keywords:
 - OLE
 - tekst
 - zoom
-- grafiek
+- diagram
 - vergelijking
 - vorm
 - inkt
@@ -21,7 +21,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentatie
-- С++
+- C++
 - Aspose.Slides
-description: "Maak, bewerk en haal presentatietinhoud op met Aspose.Slides voor С++ — krijg code‑voorbeelden voor tekst, afbeeldingen, vormen, grafieken; PPT, PPTX en ODP."
+description: "Maak, bewerk en haal presentatie‑inhoud op met Aspose.Slides voor C++ — krijg codevoorbeelden voor tekst, afbeeldingen, vormen, diagrammen; PPT, PPTX en ODP."
 ---

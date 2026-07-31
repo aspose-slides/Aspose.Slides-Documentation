@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for SharePoint
-second_title: Aspose.Slides dokumentáció
+second_title: Aspose.Slides for SharePoint
 description: Az Aspose.Slides for SharePoint egy rugalmas megoldás, amely lehetővé teszi a PowerPoint® dokumentumok konvertálását a Microsoft SharePoint webhelyeken.
 type: docs
 weight: 60
@@ -11,20 +11,20 @@ is_root: true
 
 ![Aspose.Slides for SharePoint](home_1.png)
 
-**Üdvözöljük az Aspose.Slides for SharePoint szolgáltatásban**
+**Üdvözöljük az Aspose.Slides for SharePoint-ban**
 
-Aspose.Slides for SharePoint egy rugalmas megoldás, amely lehetővé teszi a PowerPoint® dokumentumok konvertálását a Microsoft SharePoint webhelyeken.
+Az Aspose.Slides for SharePoint egy rugalmas megoldás, amely lehetővé teszi a PowerPoint® dokumentumok konvertálását a Microsoft SharePoint webhelyeken.
 
 {{% /alert %}}
 
-## **Aspose.Slides for SharePoint források**
+## **Aspose.Slides for SharePoint Erőforrások**
 
-Az alábbiakban néhány hasznos forrásra mutató linket talál, amelyekre feladatainak elvégzéséhez szüksége lehet.
+Az alábbiakban néhány hasznos erőforrásra mutató linket talál, amelyekre a feladatok elvégzéséhez szüksége lehet.
 
-- [Aspose.Slides for SharePoint online dokumentáció](/slides/hu/sharepoint/)
+- [Aspose.Slides for SharePoint Online Dokumentáció](/slides/hu/sharepoint/)
 - [Aspose.Slides for SharePoint funkciók](/slides/hu/sharepoint/features/)
 - [Aspose.Slides for SharePoint kiadási jegyzetek](https://releases.aspose.com/slides/hu/sharepoint/release-notes/)
 - [Aspose.Slides for SharePoint termékoldal](https://products.aspose.com/slides/hu/sharepoint/)
 - [Aspose.Slides for SharePoint letöltése](https://releases.aspose.com/slides/hu/sharepoint/)
-- [Aspose.Slides for SharePoint ingyenes támogató fórum](https://forum.aspose.com/c/slides/hu/11)
+- [Aspose.Slides for SharePoint ingyenes támogatási fórum](https://forum.aspose.com/c/slides/hu/11)
 - [Aspose.Slides for SharePoint fizetős támogatási helpdesk](https://helpdesk.aspose.com/)

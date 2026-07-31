@@ -1,71 +1,76 @@
 ---
-title: Управление абзацами текста PowerPoint в C++
-linktitle: Управление абзацем
+title: "Управление текстовыми абзацами PowerPoint в C++"
+linktitle: "Управление абзацем"
 type: docs
 weight: 40
 url: /ru/cpp/manage-paragraph/
+aliases:
+  - /cpp/paragraph/
+  - /cpp/portion/
 keywords:
-- добавить текст
-- добавить абзац
-- управление текстом
-- управление абзацем
-- управление маркером
-- отступ абзаца
-- висячий отступ
-- маркер абзаца
-- нумерованный список
-- маркированный список
-- свойства абзаца
-- импорт HTML
-- текст в HTML
-- абзац в HTML
-- абзац в изображение
-- текст в изображение
-- экспорт абзаца
-- PowerPoint
-- OpenDocument
-- презентация
-- C++
-- Aspose.Slides
+  - "добавить текст"
+  - "добавить абзац"
+  - "управлять текстом"
+  - "управлять абзацем"
+  - "управлять маркером"
+  - "отступ абзаца"
+  - "подвесной отступ"
+  - "маркер абзаца"
+  - "нумерованный список"
+  - "маркированный список"
+  - "свойства абзаца"
+  - "импорт HTML"
+  - "текст в HTML"
+  - "абзац в HTML"
+  - "абзац в изображение"
+  - "текст в изображение"
+  - "экспортировать абзац"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "презентация"
+  - "C++"
+  - "Aspose.Slides"
 description: "Освойте форматирование абзацев с Aspose.Slides для C++ — оптимизируйте выравнивание, интервалы и стиль в презентациях PPT, PPTX и ODP на C++."
 ---
-Aspose.Slides предоставляет все интерфейсы и классы, необходимые для работы с текстами, абзацами и фрагментами PowerPoint в C++.
+## **Введение**
 
-* Aspose.Slides предоставляет интерфейс [ITextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) для добавления объектов, представляющих абзац. Объект `ITextFame` может содержать один или несколько абзацев (каждый абзац создаётся через возврат каретки).
-* Aspose.Slides предоставляет интерфейс [IParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraph/) для добавления объектов, представляющих фрагменты. Объект `IParagraph` может содержать один или несколько фрагментов (коллекцию объектов iPortions).
-* Aspose.Slides предоставляет интерфейс [IPortion](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportion/) для добавления объектов, представляющих тексты и их свойства форматирования. 
+Aspose.Slides предоставляет все интерфейсы и классы, необходимые для работы с текстом, абзацами и частями в PowerPoint на C++.
 
-Объект `IParagraph` способен обрабатывать тексты с различными свойствами форматирования через свои вложенные объекты `IPortion`.
+* Aspose.Slides предоставляет интерфейс [ITextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) для добавления объектов, представляющих абзац. Объект `ITextFame` может содержать один или несколько абзацев (каждый абзац создаётся через перевод строки).
+* Aspose.Slides предоставляет интерфейс [IParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraph/) для добавления объектов, представляющих части. Объект `IParagraph` может иметь одну или несколько частей (коллекция объектов iPortions).
+* Aspose.Slides предоставляет интерфейс [IPortion](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportion/) для добавления объектов, представляющих текст и его свойства форматирования. 
 
-## **Добавление нескольких абзацев, содержащих несколько фрагментов**
+Объект `IParagraph` способен обрабатывать текст с различными свойствами форматирования через вложенные объекты `IPortion`.
 
-Эти шаги показывают, как добавить текстовый кадр, содержащий 3 абзаца, каждый из которых содержит 3 фрагмента:
+## **Добавление нескольких абзацев, содержащих несколько частей**
+
+Выполните следующие шаги, чтобы добавить текстовый фрейм с 3‑мя абзацами, каждый из которых содержит 3 части:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
 2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на слайд.
-4. Получите ITextFrame, связанный с [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/).
-5. Создайте два объекта [IParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraph/), и добавьте их в коллекцию `IParagraphs` объекта [ITextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/).
-6. Создайте три объекта [IPortion](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportion/) для каждого нового `IParagraph` (по два объекта Portion для абзаца по умолчанию) и добавьте каждый объект `IPortion` в коллекцию IPortion соответствующего `IParagraph`.
-7. Задайте некоторый текст для каждого фрагмента.
-8. Примените желаемые свойства форматирования к каждому фрагменту с помощью свойств форматирования, доступных в объекте `IPortion`.
+4. Получите `ITextFrame`, связанный с [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/).
+5. Создайте два объекта [IParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraph/) и добавьте их в коллекцию `IParagraphs` у [ITextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/).
+6. Для каждого нового `IParagraph` создайте три объекта [IPortion](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportion/) (по две части для абзаца по умолчанию) и добавьте каждый `IPortion` в коллекцию `IPortion` соответствующего `IParagraph`.
+7. Задайте текст для каждой части.
+8. Примените нужные свойства форматирования к каждой части, используя свойства `IPortion`.
 9. Сохраните изменённую презентацию.
 
-Этот код C++ реализует шаги по добавлению абзацев с фрагментами: 
+Ниже приведён C++‑код, реализующий указанные шаги:
 
 ```c++
-// Путь к каталогу документов.
+// Путь к директории документов.
 const String outPath = u"../out/MultipleParagraphs_out.pptx";
 
 
 
-// Загрузить желаемую презентацию
+// Загрузить нужную презентацию
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // Получить первый слайд
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Добавить AutoShape типа Rectangle
+// Добавить AutoShape прямоугольного типа
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
 
 // Добавить TextFrame к прямоугольнику
@@ -80,7 +85,7 @@ SharedPtr<Portion> port02 = MakeObject<Portion>();
 para0->get_Portions()->Add(port01);
 para0->get_Portions()->Add(port02);
 
-// Adding second Paragraph
+// Добавление второго абзаца
 SharedPtr<Paragraph> para1 = MakeObject<Paragraph>();
 tf->get_Paragraphs()->Add(para1);
 SharedPtr<Portion> port10 = MakeObject<Portion>();
@@ -90,7 +95,7 @@ para1->get_Portions()->Add(port10);
 para1->get_Portions()->Add(port11);
 para1->get_Portions()->Add(port12);
 
-// Adding third Paragraph
+// Добавление третьего абзаца
 SharedPtr<Paragraph> para2 = MakeObject<Paragraph>();
 tf->get_Paragraphs()->Add(para2);
 SharedPtr<Portion> port20 = MakeObject<Portion>();
@@ -126,33 +131,34 @@ for (int i = 0; i < 3; i++)
 
 }
 
-// Save PPTX to Disk
+// Сохранить PPTX на диск
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
 ## **Управление маркерами абзацев**
 
-Маркированные списки помогают быстро и эффективно организовать и представить информацию. Абзацы с маркерами всегда легче читать и понимать.
+Маркированные списки помогают быстро и эффективно организовать и представить информацию. Маркированные абзацы всегда легче читать и понимать.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
 2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на выбранный слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) автоконтрола. 
+4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) у автоконтурной формы. 
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте первый экземпляр абзаца с помощью класса [Paragraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraph/).
-7. Установите `Type` маркера для абзаца в значение `Symbol` и задайте символ маркера.
-8. Задайте `Text` абзаца.
-9. Установите `Indent` абзаца для маркера.
-10. Задайте цвет маркера.
-11. Задайте высоту маркера.
+6. Создайте первый абзац с помощью класса [Paragraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraph/).
+7. Установите тип маркера `Type` для абзаца в `Symbol` и задайте символ маркера.
+8. Установите текст абзаца.
+9. Задайте отступ `Indent` для маркера.
+10. Установите цвет маркера.
+11. Установите высоту маркера.
 12. Добавьте новый абзац в коллекцию абзацев `TextFrame`.
 13. Добавьте второй абзац и повторите процесс, описанный в шагах 7‑13.
 14. Сохраните презентацию.
 
-Этот код C++ показывает, как добавить маркер абзаца:
+C++‑код, показывающий, как добавить маркированный абзац:
 
 ```c++
-// Путь к каталогу документов.
+// Путь к директории документов.
 const String outPath = u"../out/ParagraphBullets_out.pptx";
 const String templatePath = u"../templates/DefaultFonts.pptx";
 const String ImagePath = u"../templates/Tulips.jpg";
@@ -163,17 +169,17 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 // Получить первый слайд
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Добавить AutoShape типа Rectangle
+// Добавить AutoShape прямоугольного типа
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
 
 // Добавить TextFrame к прямоугольнику
 ashp->AddTextFrame(u"");
 
-// Получение текстового кадра
+// Доступ к текстовому фрейму
 SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
 txtFrame->get_Paragraphs()->Clear();
 
-// Создать объект Paragraph для текстового кадра
+// Создать объект Paragraph для текстового фрейма
 SharedPtr<Paragraph> paragraph = MakeObject<Paragraph>();
 
 // Установка текста
@@ -186,17 +192,17 @@ paragraph->get_ParagraphFormat()->set_Indent (25);
 paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType ( ColorType::RGB);
 paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
 	
-// установить IsBulletHardColor в true, чтобы использовать собственный цвет маркера
+// Установить IsBulletHardColor в true, чтобы использовать собственный цвет маркера
 paragraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True); 
 																					
 // Установка высоты маркера
 paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
 
-// Добавление абзаца в текстовый кадр
+// Добавление абзаца в текстовый фрейм
 txtFrame->get_Paragraphs()->Add(paragraph);
 
 // Создание второго абзаца
-// Создать объект Paragraph для текстового кадра
+// Создать объект Paragraph для текстового фрейма
 SharedPtr<Paragraph> paragraph2 = MakeObject<Paragraph>();
 
 // Установка текста
@@ -213,13 +219,13 @@ paragraph2->get_ParagraphFormat()->set_Indent(25);
 paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
 paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
 
-// установить IsBulletHardColor в true, чтобы использовать собственный цвет маркера
+// Установить IsBulletHardColor в true, чтобы использовать собственный цвет маркера
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
 
 // Установка высоты маркера
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_Height(100);
 
-// Добавление абзаца в текстовый кадр
+// Добавление абзаца в текстовый фрейм
 txtFrame->get_Paragraphs()->Add(paragraph2);
 
 
@@ -227,27 +233,27 @@ txtFrame->get_Paragraphs()->Add(paragraph2);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Управление изображениями‑маркерами**
+## **Управление маркерами‑картинками**
 
-Маркированные списки помогают быстро и эффективно организовать и представить информацию. Абзацы с изображениями‑маркерами легко читать и понимать.
+Маркированные списки помогают быстро и эффективно организовать и представить информацию. Абзацы с изображениями легко читать и понимать.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
 2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) автоконтрола. 
+4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) у автоконтурной формы. 
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте первый экземпляр абзаца с помощью класса [Paragraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraph/).
+6. Создайте первый абзац с помощью класса [Paragraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraph/).
 7. Загрузите изображение в [IPPImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ippimage/).
 8. Установите тип маркера в [Picture](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ippimage/) и задайте изображение.
-9. Задайте `Text` абзаца.
-10. Установите `Indent` абзаца для маркера.
-11. Задайте цвет маркера.
-12. Задайте высоту маркера.
+9. Установите текст абзаца.
+10. Задайте отступ `Indent` для маркера.
+11. Установите цвет маркера.
+12. Установите высоту маркера.
 13. Добавьте новый абзац в коллекцию абзацев `TextFrame`.
-14. Добавьте второй абзац и повторите процесс, основываясь на предыдущих шагах.
+14. Добавьте второй абзац и повторите процесс, описанный в предыдущих шагах.
 15. Сохраните изменённую презентацию.
 
-Этот код C++ показывает, как добавить и управлять изображениями‑маркерами:
+C++‑код, показывающий, как добавить и управлять маркерами‑картинками:
 
 ```c++
 // Создаёт экземпляр класса Presentation, представляющего файл PPTX
@@ -260,10 +266,10 @@ System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 System::SharedPtr<IImage> image = Images::FromFile(u"bullets.png");
 System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(image);
 
-// Добавляет и получает Autoshape
+// Добавляет и получает AutoShape
 System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Получает TextFrame автоконтрола
+// Получает TextFrame автоконтурной формы
 System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
 
 // Удаляет абзац по умолчанию
@@ -293,21 +299,21 @@ presentation->Save(u"ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
 
 ## **Управление многоуровневыми маркерами**
 
-Маркированные списки помогают быстро и эффективно организовать и представить информацию. Многоуровневые маркеры легко читать и понимать.
+Маркированные списки помогают быстро и эффективно организовать и представить информацию. Многоуровневые маркеры удобны для чтения и восприятия.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
 2. Получите ссылку на нужный слайд по его индексу.
-3. Добавьте [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) в новый слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) автоконтрола. 
+3. Добавьте [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на новый слайд.
+4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) у автоконтурной формы. 
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте первый абзац через класс [Paragraph] и установите глубину 0.
+6. Создайте первый абзац через класс [Paragraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraph/) и установите глубину 0.
 7. Создайте второй абзац через класс `Paragraph` и установите глубину 1.
 8. Создайте третий абзац через класс `Paragraph` и установите глубину 2.
 9. Создайте четвёртый абзац через класс `Paragraph` и установите глубину 3.
 10. Добавьте новые абзацы в коллекцию абзацев `TextFrame`.
 11. Сохраните изменённую презентацию.
 
-Этот код C++ показывает, как добавить и управлять многоуровневыми маркерами:
+C++‑код, показывающий, как добавить и управлять многоуровневыми маркерами:
 
 ```c++
 // Создаёт экземпляр класса Presentation, представляющего файл PPTX
@@ -316,10 +322,10 @@ System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 // Получает первый слайд
 System::SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Добавляет и получает Autoshape
+// Добавляет и получает AutoShape
 System::SharedPtr<IAutoShape> aShp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Получает текстовый кадр созданного автоконтрола
+// Получает текстовый фрейм созданного AutoShape
 System::SharedPtr<ITextFrame> text = aShp->AddTextFrame(u"");
 
 // Очищает абзац по умолчанию
@@ -393,30 +399,30 @@ pres->Save(u"MultilevelBullet.pptx", SaveFormat::Pptx);
 Интерфейс [IBulletFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibulletformat/) предоставляет свойство [NumberedBulletStartWith](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) и другие, позволяющие управлять абзацами с пользовательской нумерацией или форматированием. 
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
-2. Получите слайд, содержащий абзац.
+2. Получите слайд, содержащий нужный абзац.
 3. Добавьте [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) автоконтрола. 
+4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) у автоконтурной формы. 
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте первый абзац через класс [Paragraph] и установите [NumberedBulletStartWith] в 2.
-7. Создайте второй абзац через класс `Paragraph` и задайте `NumberedBulletStartWith` равным 3.
-8. Создайте третий абзац через класс `Paragraph` и задайте `NumberedBulletStartWith` равным 7.
+6. Создайте первый абзац через класс [Paragraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraph/) и установите [NumberedBulletStartWith](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) в 2.
+7. Создайте второй абзац через класс `Paragraph` и установите `NumberedBulletStartWith` в 3.
+8. Создайте третий абзац через класс `Paragraph` и установите `NumberedBulletStartWith` в 7.
 9. Добавьте новые абзацы в коллекцию абзацев `TextFrame`.
 10. Сохраните изменённую презентацию.
 
-Этот код C++ показывает, как добавить и управлять абзацами с пользовательской нумерацией или форматированием:
+C++‑код, показывающий, как добавить и управлять абзацами с пользовательской нумерацией:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>();
 
 auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Получает текстовый кадр созданного автоконтрола
+// Получает текстовый фрейм созданной автoshape
 System::SharedPtr<ITextFrame> textFrame = shape->get_TextFrame();
 
 // Удаляет существующий абзац по умолчанию
 textFrame->get_Paragraphs()->RemoveAt(0);
 
-// Первый список
+// First list
 auto paragraph1 = System::MakeObject<Paragraph>();
 paragraph1->set_Text(u"bullet 2");
 auto paragraph1Format = paragraph1->get_ParagraphFormat();
@@ -447,23 +453,23 @@ textFrame->get_Paragraphs()->Add(paragraph5);
 presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
 ```
 
-## **Установка отступа первой строки для абзаца**
+## **Установка отступа первой строки абзаца**
 
 Используйте метод [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/) для управления отступом первой строки абзаца. Этот метод смещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, остальные строки остаются выровненными по телу абзаца.
 
-Используйте [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_marginleft/), когда нужно сдвинуть весь абзац. Используйте [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/), когда требуется сместить только первую строку.
+Для перемещения всего абзаца используйте [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_marginleft/). Для изменения только первой строки — [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/).
 
-Пример ниже создаёт несколько абзацев и применяет разные значения `Indent`, чтобы продемонстрировать, как отступ первой строки влияет на макет абзаца.
+В примере ниже создаются несколько абзацев с различными значениями `Indent`, чтобы продемонстрировать влияние отступа первой строки на макет абзаца.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
 2. Получите целевой слайд.
 3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/autoshape/) на слайд.
-4. Добавьте пустой [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/textframe/) к фигуре и удалите абзац по умолчанию.
+4. Добавьте пустой [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/textframe/) к форме и удалите абзац по умолчанию.
 5. Создайте несколько абзацев и задайте им разные значения [Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/).
-6. Добавьте абзацы в текстовый кадр.
+6. Добавьте абзацы в текстовый фрейм.
 7. Сохраните изменённую презентацию.
 
-Этот код показывает, как установить отступ абзаца:
+Код, показывающий, как установить отступ абзаца:
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -509,26 +515,26 @@ presentation->Dispose();
 
 Результат:
 
-![Отступ первой строки абзацев](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-## **Установка висячего отступа для абзаца**
+## **Установка подвесного отступа для абзаца**
 
-Висячий отступ — это макет абзаца, при котором первая строка начинается левее остальных строк. В Aspose.Slides вы создаёте такой эффект с помощью метода [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/). Установите отрицательное значение отступа, чтобы переместить первую строку влево относительно тела абзаца.
+Подвесной отступ — это макет, при котором первая строка начинается левее остальных строк. В Aspose.Slides этот эффект достигается методом [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/). Установите отрицательное значение отступа, чтобы первая строка сдвинулась влево относительно тела абзаца.
 
-На практике [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_marginleft/) определяет левую позицию тела абзаца, а [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/) определяет позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение `MarginLeft` и отрицательное значение `Indent`.
+На практике [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_marginleft/) определяет левую позицию тела абзаца, а [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/) — позицию первой строки относительно этого поля. Чтобы создать подвесной отступ, задайте положительное значение `MarginLeft` и отрицательное значение `Indent`.
 
-Такое форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где перенесённые строки должны выравниваться под телом абзаца, а не под первым символом первой строки.
+Такой формат полезен для библиографий, ссылок, глоссариев и других абзацев, где строки, переносятся под тело абзаца, а не под первый символ первой строки.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
 2. Получите целевой слайд.
 3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/autoshape/) на слайд.
-4. Добавьте пустой [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/textframe/) к фигуре и удалите абзац по умолчанию.
+4. Добавьте пустой [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/textframe/) к форме и удалите абзац по умолчанию.
 5. Создайте абзацы и задайте каждому положительное значение [MarginLeft](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_marginleft/).
-6. Задайте отрицательное значение [Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/), чтобы создать эффект висячего отступа.
-7. Добавьте абзацы в текстовый кадр.
+6. Установите отрицательное значение [Indent](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraphformat/set_indent/) для создания эффекта подвесного отступа.
+7. Добавьте абзацы в текстовый фрейм.
 8. Сохраните изменённую презентацию.
 
-Этот код показывает, как установить висячий отступ для абзаца:
+Код, показывающий, как установить подвесной отступ для абзаца:
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -566,22 +572,22 @@ presentation->Dispose();
 
 Результат:
 
-![Висячий отступ абзацев](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-## **Управление свойствами End абзаца**
+## **Управление свойствами завершающего абзаца (End Run Properties)**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
-2. Получите ссылку на слайд, содержащий абзац, по его позиции.
-3. Добавьте прямоугольный [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на слайд.
-4. Добавьте [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) с двумя абзацами к прямоугольнику.
-5. Установите `FontHeight` и тип шрифта для абзацев.
-6. Задайте свойства End для абзацев.
-7. Запишите изменённую презентацию в файл PPTX.
+1. Получите ссылку на слайд, содержащий абзац, по его позиции.
+1. Добавьте прямоугольный [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на слайд.
+1. Добавьте [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) с двумя абзацами к прямоугольнику.
+1. Установите `FontHeight` и тип шрифта для абзацев.
+1. Задайте свойства End для абзацев.
+1. Сохраните изменённую презентацию в формате PPTX.
 
-Этот код C++ показывает, как задать свойства End для абзацев в PowerPoint: 
+C++‑код, показывающий, как задать свойства End для абзацев в PowerPoint:
 
 ```c++
-// Путь к каталогу документов.
+// Путь к директории документов.
 const String outPath = u"../out/EndParaGraphProperties_out.pptx";
 //const String templatePath = u"../templates/DefaultFonts.pptx";
 
@@ -592,7 +598,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 // Получить первый слайд
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Добавить AutoShape типа Rectangle
+// Добавить AutoShape прямоугольного типа
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
 
 // Добавить TextFrame к прямоугольнику
@@ -629,23 +635,23 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ## **Импорт HTML‑текста в абзацы**
 
-Aspose.Slides предоставляет расширенную поддержку импорта HTML‑текста в абзацы.
+Aspose.Slides расширенно поддерживает импорт HTML‑текста в абзацы.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
 2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте [autoshape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) на слайд.
 4. Добавьте и получите `autoshape` [ITextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) 
 5. Удалите абзац по умолчанию в `ITextFrame`.
-6. Прочитайте исходный HTML‑файл с помощью TextReader.
+6. Прочитайте исходный HTML‑файл с помощью `TextReader`.
 7. Создайте первый абзац через класс [Paragraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraph/).
-8. Добавьте содержимое HTML‑файла, считанное TextReader, в [ParagraphCollection] TextFrame.
+8. Добавьте содержимое HTML‑файла, считанное `TextReader`, в [ParagraphCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraphcollection/) TextFrame.
 9. Сохраните изменённую презентацию.
 
-Этот код C++ является реализацией шагов по импорту HTML‑текстов в абзацы: 
+C++‑код, реализующий шаги по импорту HTML‑текста в абзацы:
 
 ```c++
 For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// Путь к каталогу документов.
+// Путь к директории документов.
 const String outPath = u"../out/ImportingHTMLText_out.pptx";
 const String sampleHtml = u"../templates/file.html";
 
@@ -656,7 +662,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 // Получить первый слайд
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Добавить AutoShape типа Rectangle
+// Добавить AutoShape прямоугольного типа
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 700, 500);
 	
 // Сброс значения цвета заливки по умолчанию
@@ -665,42 +671,42 @@ ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 // Добавить TextFrame к прямоугольнику
 ashp->AddTextFrame(u" ");
 
-// Получение текстового кадра
+// Доступ к текстовому фрейму
 SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
 
 // Получить коллекцию Paragraphs
 SharedPtr<Aspose::Slides::IParagraphCollection>ParaCollection = txtFrame->get_Paragraphs();
 
-// Очистить все абзацы в добавленном текстовом кадре
+// Очистить все абзацы в добавленном текстовом фрейме
 ParaCollection->Clear();
 
 // Загрузка HTML‑файла с помощью StreamReader
 SharedPtr<System::IO::StreamReader>  tr = MakeObject<System::IO::StreamReader>(sampleHtml);
 
-// Добавление текста из HTML‑потока в текстовый кадр
+// Добавление текста из StreamReader HTML в текстовый фрейм
 ParaCollection->AddFromHtml(tr->ReadToEnd());
 
 
-// Создать объект Paragraph для текстового кадра
+// Создание объекта Paragraph для текстового фрейма
 SharedPtr<IParagraph> paragraph = txtFrame->get_Paragraphs()->idx_get(0);
 
-// Создать объект Portion для абзаца
+// Создание объекта Portion для абзаца
 SharedPtr<IPortion> portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose TextBox");
 
-// Получить формат Portion
+// Получить формат части
 SharedPtr<IPortionFormat> pf = portion->get_PortionFormat();
 
 // Установить шрифт для Portion
 pf->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
 
-// Установить свойство Bold для шрифта
+// Установить свойство жирного шрифта
 pf->set_FontBold(NullableBool::True);
 
-// Установить свойство Italic для шрифта
+// Установить свойство курсивного шрифта
 pf->set_FontItalic(NullableBool::True);
 
-// Установить свойство Underline для шрифта
+// Установить свойство подчеркивания шрифта
 pf->set_FontUnderline(TextUnderlineType::Single);
 
 // Установить высоту шрифта
@@ -712,24 +718,26 @@ pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
 // Сохранить PPTX на диск
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
+
 ```
 
 ## **Экспорт текста абзаца в HTML**
 
-Aspose.Slides предоставляет расширенную поддержку экспорта текстов (содержащихся в абзацах) в HTML.
+Aspose.Slides расширенно поддерживает экспорт текста (содержащегося в абзацах) в HTML.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) и загрузите нужную презентацию.
 2. Получите ссылку на нужный слайд по его индексу.
 3. Получите форму, содержащую текст, который будет экспортирован в HTML.
-4. Получите [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/) формы.
-5. Создайте экземпляр `StreamWriter` и добавьте новый HTML‑файл.
-6. Укажите начальный индекс для StreamWriter и экспортируйте выбранные абзацы.
+4. Получите у формы [TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/).
+5. Создайте экземпляр `StreamWriter` и откройте новый HTML‑файл.
+6. Укажите начальный индекс для `StreamWriter` и экспортируйте выбранные абзацы.
 
-Этот код C++ показывает, как экспортировать тексты абзацев PowerPoint в HTML: 
+C++‑код, показывающий, как экспортировать тексты абзацев PowerPoint в HTML:
 
 ```c++
 For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// Путь к каталогу документов.
+// Путь к директории документов.
 const String outPath = u"../out/output.html";
 const String tempplatePath = u"../templates/DefaultFonts.pptx";
 
@@ -752,29 +760,30 @@ SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
 SharedPtr<System::IO::StreamWriter> sw = MakeObject<System::IO::StreamWriter>(outPath, false, Encoding::get_UTF8());
 //	System::IO::StreamWriter^ sr = gcnew System::IO::StreamWriter("TestFile.txt", false, Encoding::get_UTF8());
 
-// Запись данных абзацев в HTML, указав начальный индекс абзаца и общее количество копируемых абзацев
+// Записываем данные абзацев в HTML, указывая начальный индекс абзаца и общее количество копируемых абзацев
 sw->Write(ashape->get_TextFrame()->get_Paragraphs()->ExportToHtml(0, ashape->get_TextFrame()->get_Paragraphs()->get_Count(), nullptr));
 
 sw->Close();
+
 ```
 
-## **Сохранение абзаца как изображения**
+## **Сохранение абзаца в виде изображения**
 
-В этом разделе мы рассмотрим два примера, демонстрирующих, как сохранить текстовый абзац, представленный интерфейсом [IParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraph/), как изображение. Оба примера включают получение изображения фигуры, содержащей абзац, с помощью методов `GetImage` из интерфейса [IShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/), вычисление границ абзаца внутри фигуры и экспорт его как растрового изображения. Такие подходы позволяют извлекать отдельные части текста из презентаций PowerPoint и сохранять их как отдельные изображения, что может быть полезно в разных сценариях.
+В этом разделе рассмотрены два примера, демонстрирующие, как сохранить абзац текста, представленный интерфейсом [IParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iparagraph/), в виде изображения. Оба примера включают получение изображения формы, содержащей абзац, с помощью методов `GetImage` интерфейса [IShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/), вычисление границ абзаца внутри формы и экспорт его в виде растрового изображения. Такие подходы позволяют извлекать отдельные части текста из презентаций PowerPoint и сохранять их как отдельные изображения, что может быть полезно в различных сценариях.
 
-Предположим, у нас есть файл презентации sample.pptx с одним слайдом, где первая фигура — это текстовое поле, содержащее три абзаца.
+Предположим, у нас есть файл презентации `sample.pptx` с одним слайдом, на котором первая форма — это текстовое поле с тремя абзацами.
 
-![Текстовое поле с тремя абзацами](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
 **Пример 1**
 
-В этом примере мы получаем второй абзац как изображение. Для этого извлекаем изображение фигуры с первого слайда презентации, затем вычисляем границы второго абзаца в текстовом кадре фигуры. Затем абзац перерисовывается на новом растровом изображении, которое сохраняется в формате PNG. Этот метод особенно полезен, когда нужно сохранить конкретный абзац как отдельное изображение, сохранив точные размеры и форматирование текста.
+В этом примере мы получаем второй абзац в виде изображения. Для этого извлекаем изображение формы с первого слайда презентации, затем вычисляем границы второго абзаца в текстовом фрейме формы. После этого абзац перерисовывается на новом bitmap‑изображении, которое сохраняется в формате PNG. Метод полезен, когда необходимо сохранить конкретный абзац как отдельное изображение, сохранив точные размеры и форматирование текста.
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-// Сохранить фигуру в памяти как растровое изображение.
+// Save the shape in memory as a bitmap.
 auto shapeImage = firstShape->GetImage();
 auto shapeImageStream = MakeObject<MemoryStream>();
 shapeImage->Save(shapeImageStream, ImageFormat::Png);
@@ -808,11 +817,11 @@ presentation->Dispose();
 
 Результат:
 
-![Изображение абзаца](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
 **Пример 2**
 
-В этом примере мы расширяем предыдущий подход, добавляя коэффициенты масштабирования к изображению абзаца. Фигура извлекается из презентации и сохраняется как изображение с коэффициентом масштабирования `2`. Это позволяет получить изображение более высокого разрешения при экспорте абзаца. Затем границы абзаца рассчитываются с учётом масштаба. Масштабирование особенно полезно, когда требуется более детализированное изображение, например, для печати высокой качества.
+Во втором примере к предыдущему подходу добавляются коэффициенты масштабирования изображения абзаца. Форма извлекается из презентации и сохраняется с коэффициентом масштабирования `2`. Это обеспечивает более высокое разрешение результата. Границы абзаца вычисляются с учётом масштаба. Масштабирование особенно актуально, когда требуется более детализированное изображение, например, для печатных материалов высокого качества.
 
 ```cpp
 auto imageScaleX = 2.0f;
@@ -859,18 +868,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Могу ли я полностью отключить перенос строк внутри текстового кадра?**
+**Можно ли полностью отключить перенос строк внутри текстового фрейма?**
 
-Да. Используйте метод обтекания текстового кадра ([set_WrapText](https://reference.aspose.com/slides/ru/cpp/aspose.slides/textframeformat/set_wraptext/)), чтобы отключить перенос, и строки не будут разрываться у краёв кадра.
+Да. Используйте метод обтекания текстового фрейма ([set_WrapText](https://reference.aspose.com/slides/ru/cpp/aspose.slides/textframeformat/set_wraptext/)), чтобы отключить перенос — строки не будут разрываться по краям фрейма.
 
 **Как получить точные границы конкретного абзаца на слайде?**
 
-Вы можете получить ограничительный прямоугольник абзаца (и даже отдельного фрагмента), чтобы знать его точное положение и размер на слайде.
+Можно получить ограничительный прямоугольник абзаца (и даже отдельной части), чтобы узнать его точное положение и размер на слайде.
 
-**Где контролируется выравнивание абзаца (по левому краю/правому/по центру/по ширине)?**
+**Где управляется выравнивание абзаца (лево/право/центр/по ширине)?**
 
-[Alignment](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraphformat/set_alignment/) — это настройка уровня абзаца в [ParagraphFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraphformat/); она применяется ко всему абзацу независимо от форматирования отдельных фрагментов.
+[Alignment](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraphformat/set_alignment/) — это настройка уровня абзаца в [ParagraphFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/paragraphformat/); она применяется ко всему абзацу независимо от форматирования отдельных частей.
 
-**Могу ли я установить язык проверки орфографии только для части абзаца (например, для одного слова)?**
+**Можно ли задать язык проверки орфографии только для части абзаца (например, одного слова)?**
 
-Да. Язык задаётся на уровне фрагмента с помощью ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/ru/cpp/aspose.slides/baseportionformat/set_languageid/)), поэтому в одном абзаце могут сосуществовать несколько языков.
+Да. Язык задаётся на уровне части с помощью ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/ru/cpp/aspose.slides/baseportionformat/set_languageid/)), поэтому в одном абзаце могут встречаться несколько языков.

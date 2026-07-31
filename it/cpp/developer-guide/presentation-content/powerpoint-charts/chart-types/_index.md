@@ -5,8 +5,8 @@ type: docs
 weight: 20
 url: /it/cpp/chart-types/
 keywords:
-- personalizza grafico
-- gestisci grafico
+- personalizzare grafico
+- gestire grafico
 - tipo di grafico
 - grafico PowerPoint
 - grafico di presentazione
@@ -16,5 +16,5 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Esplora ogni tipo di grafico che puoi creare o modificare con Aspose.Slides per C++ – guide veloci e basate sul codice per presentazioni PowerPoint."
+description: "Esplora tutti i tipi di grafico che puoi creare o modificare con Aspose.Slides per C++ - guide rapide, basate sul codice, per le presentazioni PowerPoint."
 ---

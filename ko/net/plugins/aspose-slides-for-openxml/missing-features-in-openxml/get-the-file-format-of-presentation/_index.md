@@ -3,13 +3,15 @@ title: 프레젠테이션 파일 형식 가져오기
 type: docs
 weight: 50
 url: /ko/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/presentation-format/
 ---
-파일 형식을 가져오려면 아래 단계를 따라 주세요:
+파일 형식을 가져오려면 아래 단계에 따라 주세요:
 
-- **IPresentationInfo** 클래스의 인스턴스 생성
-- 프레젠테이션에 대한 정보 가져오기
+- **IPresentationInfo** 클래스의 인스턴스를 생성합니다
+- 프레젠테이션에 대한 정보를 가져옵니다
 
-아래 예제에서 파일 형식을 확인할 수 있습니다.
+아래 예제에서 파일 형식을 얻었습니다.
 ## **예제**
 ``` csharp
 

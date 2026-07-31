@@ -15,35 +15,34 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "了解如何在 C++ 中管理 PowerPoint (PPT/PPTX) 的圖表系列，並透過實用程式碼範例與最佳實踐提升資料簡報的效果。"
+description: "了解如何在 C++ 中管理 PowerPoint（PPT/PPTX）的圖表系列，並提供實用程式碼範例與最佳實踐，以提升您的資料簡報。"
 ---
 ## **概述**
 
-本文件說明了 Aspose.Slides 中 [ChartSeries](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/chartseries/) 的角色，重點在於資料在簡報中的結構與可視化方式。這些物件提供了定義圖表中各個資料點集合、類別與外觀參數的基礎元素。透過使用 [ChartSeries](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/chartseries/)，開發人員能夠無縫整合底層資料來源，並完整掌控資訊的顯示方式，從而產生動態、資料驅動的簡報，清晰傳達見解與分析。
+本文說明了 [ChartSeries](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/chartseries/) 在 Aspose.Slides 中的作用，重點在於資料在簡報中的結構與可視化方式。這些物件提供了定義圖表中單獨資料點、類別與外觀參數的基礎元素。透過使用 [ChartSeries](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/chartseries/)，開發人員可以無縫整合底層資料來源，並全程掌控資訊的顯示方式，從而產生動態、以資料為驅動的簡報，清晰傳達見解與分析。
 
-系列是圖表中繪製的一行或一列數字。
+系列是一列或一欄在圖表中繪製的數字。
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **設定資料系列重疊**
 
-使用 [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) 方法，您可以指定 2D 圖表中條形與柱形的重疊程度（範圍：-100 到 100）。此屬性套用到父系列群組的所有系列：這是相應群組屬性的投射。
-
-使用 `get_ParentSeriesGroup()::set_Overlap()` 方法為 `Overlap` 設定您偏好的值。
+使用 [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) 方法，您可以指定 2D 圖表中長條與柱形的重疊程度（範圍：-100 到 100）。此屬性套用於父系列群組的所有系列：它是相應群組屬性的投影。  
+使用 `get_ParentSeriesGroup()::set_Overlap()` 方法設定您偏好的 `Overlap` 值。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
-1. 在投影片上新增叢集柱狀圖。
-1. 存取第一個圖表系列。
-1. 存取圖表系列的 `ParentSeriesGroup` 並為該系列設定您偏好的重疊值。
+1. 在投影片上新增一個叢集柱形圖。
+1. 取得第一個圖表系列。
+1. 取得圖表系列的 `ParentSeriesGroup`，並為該系列設定您偏好的重疊值。
 1. 將修改後的簡報寫入 PPTX 檔案。
 
-此 C++ 程式碼示範如何為圖表系列設定重疊：
+以下 C++ 程式碼示範如何為圖表系列設定重疊：
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// Adds chart
+// 新增圖表
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
@@ -52,21 +51,21 @@ if (series->idx_get(0)->get_Overlap() == 0)
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
-// Writes the presentation file to disk
+// 將簡報檔案寫入磁碟
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **變更資料系列顏色**
 
-Aspose.Slides for C++ 允許您這樣變更系列的顏色：
+Aspose.Slides for C++ 允許您以以下方式變更系列的顏色：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
 1. 在投影片上新增圖表。
-1. 存取您想變更顏色的系列。
-1. 設定您偏好的填充類型與填充顏色。
+1. 取得您想變更顏色的系列。
+1. 設定您偏好的填色類型與填色。
 1. 儲存修改後的簡報。
 
-此 C++ 程式碼示範如何變更系列的顏色：
+以下 C++ 程式碼示範如何變更系列的顏色：
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -84,15 +83,15 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **變更資料系列類別的顏色**
 
-Aspose.Slides for C++ 允許您這樣變更系列類別的顏色：
+Aspose.Slides for C++ 允許您以以下方式變更系列類別的顏色：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
 1. 在投影片上新增圖表。
-1. 存取您想變更顏色的系列類別。
-1. 設定您偏好的填充類型與填充顏色。
+1. 取得您想變更顏色的系列類別。
+1. 設定您偏好的填色類型與填色。
 1. 儲存修改後的簡報。
 
-此 C++ 程式碼示範如何變更系列類別的顏色：
+以下 C++ 程式碼示範如何變更系列類別的顏色：
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -108,16 +107,16 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **變更資料系列名稱**
 
-預設情況下，圖表的圖例名稱會取自每個欄位或列上方儲存格的內容。
+預設情況下，圖表的圖例名稱是每欄或每列資料上方儲存格的內容。
 
 在我們的範例（示意圖）中，
 
-* 列是 *Series 1, Series 2,* 與 *Series 3*；
-* 行是 *Category 1, Category 2, Category 3,* 與 *Category 4*。
+* 欄位分別為 *Series 1, Series 2,* 與 *Series 3*；
+* 列分別為 *Category 1, Category 2, Category 3,* 與 *Category 4*。
 
 Aspose.Slides for C++ 允許您在圖表資料與圖例中更新或變更系列名稱。
 
-此 C++ 程式碼示範如何在圖表資料 `ChartDataWorkbook` 中變更系列名稱：
+以下 C++ 程式碼示範如何在圖表資料 `ChartDataWorkbook` 中變更系列名稱：
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -131,7 +130,7 @@ seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-此 C++ 程式碼示範如何透過 `Series` 在圖例中變更系列名稱：
+以下 C++ 程式碼示範如何透過 `Series` 在圖例中變更系列名稱：
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -144,46 +143,46 @@ auto name = series->get_Name();
 name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 ```
 
-## **設定資料系列填充顏色**
+## **設定資料系列填色**
 
-Aspose.Slides for C++ 允許您這樣在繪圖區域內為圖表系列設定自動填充顏色：
+Aspose.Slides for C++ 允許您以以下方式在繪圖區內為圖表系列設定自動填色：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
 1. 依索引取得投影片的參照。
-1. 依您偏好的類型新增預設資料圖表（以下範例使用 `ChartType::ClusteredColumn`）。
-1. 存取圖表系列並將填充顏色設定為 Automatic。
+1. 依您偏好的類型（以下範例使用 `ChartType::ClusteredColumn`）新增含預設資料的圖表。
+1. 取得圖表系列，並將填色設定為 Automatic。
 1. 將簡報儲存為 PPTX 檔案。
 
-此 C++ 程式碼示範如何為圖表系列設定自動填充顏色：
+以下 C++ 程式碼示範如何為圖表系列設定自動填色：
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// 建立叢集柱狀圖
+// 建立叢集柱形圖
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
 
-// 將系列填充格式設定為自動
+// 將系列填色格式設定為自動
 for (const auto& series : chart->get_ChartData()->get_Series())
 {
     series->GetAutomaticSeriesColor();
 }
 
-// 將簡報檔案寫入磁碟
+// 將簡報檔寫入磁碟
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-## **設定資料系列反轉填充顏色**
+## **設定資料系列反轉填色**
 
-Aspose.Slides 允許您這樣在繪圖區域內為圖表系列設定反轉填充顏色：
+Aspose.Slides 允許您以以下方式在繪圖區內為圖表系列設定反轉填色：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
 1. 依索引取得投影片的參照。
-1. 依您偏好的類型新增預設資料圖表（以下範例使用 `ChartType::ClusteredColumn`）。
-1. 存取圖表系列並將填充顏色設定為 invert。
+1. 依您偏好的類型（以下範例使用 `ChartType::ClusteredColumn`）新增含預設資料的圖表。
+1. 取得圖表系列，並將填色設定為 invert。
 1. 將簡報儲存為 PPTX 檔案。
 
-此 C++ 程式碼示範此操作：
+以下 C++ 程式碼示範此操作：
 
 ```cpp
 Color inverColor = Color::get_Red();
@@ -217,11 +216,11 @@ series->get_InvertedSolidFillColor()->set_Color(inverColor);
 pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **為圖表系列設定反轉填充顏色**
+## **為圖表系列設定反轉填色**
 
-Aspose.Slides 允許您透過 `IChartDataPoint::set_InvertIfNegative()` 與 `ChartDataPoint.set_InvertIfNegative()` 方法設定反轉。當使用這些方法設定反轉時，資料點在取得負值時會反轉其顏色。
+Aspose.Slides 允許您透過 `IChartDataPoint::set_InvertIfNegative()` 與 `ChartDataPoint.set_InvertIfNegative()` 方法設定反轉。當使用這些方法設定反轉後，資料點在取得負值時會反轉其顏色。
 
-此 C++ 程式碼示範此操作：
+以下 C++ 程式碼示範此操作：
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -247,16 +246,16 @@ pres->Save(u"out.pptx", SaveFormat::Pptx);
 
 ## **清除特定資料點值**
 
-Aspose.Slides for C++ 允許您這樣清除特定圖表系列的 `DataPoints` 資料：
+Aspose.Slides for C++ 允許您以以下方式清除特定圖表系列的 `DataPoints` 資料：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
 2. 依索引取得投影片的參照。
 3. 依索引取得圖表的參照。
 4. 迭代所有圖表的 `DataPoints`，將 `XValue` 與 `YValue` 設為 null。
-5. 清除特定圖表系列的所有 `DataPoints`。
+5. 清除特定圖表系列的全部 `DataPoints`。
 6. 將修改後的簡報寫入 PPTX 檔案。
 
-此 C++ 程式碼示範此操作：
+以下 C++ 程式碼示範此操作：
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
@@ -276,21 +275,21 @@ dataPoints->Clear();
 pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 ```
 
-## **設定資料系列間隙寬度**
+## **設定資料系列間距寬度**
 
-Aspose.Slides for C++ 允許您透過 **`set_GapWidth()`** 方法為系列設定間隙寬度：
+Aspose.Slides for C++ 允許您透過 **`set_GapWidth()`** 方法以以下方式設定系列的間距寬度：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
-1. 存取第一張投影片。
-1. 新增預設資料圖表。
-1. 存取任意圖表系列。
+1. 取得第一張投影片。
+1. 新增帶有預設資料的圖表。
+1. 取得任意圖表系列。
 1. 設定 `GapWidth` 屬性。
 1. 將修改後的簡報寫入 PPTX 檔案。
 
-此 C++ 程式碼示範如何設定系列的間隙寬度：
+以下 C++ 程式碼示範如何設定系列的 Gap Width：
 
 ```cpp
-// 建立空白簡報 
+// 建立空的簡報 
 auto presentation = System::MakeObject<Presentation>();
 
 // 取得簡報的第一張投影片
@@ -326,19 +325,19 @@ dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, Obj
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
 
-// 設定間隙寬度值
+// 設定 GapWidth 值
 series->get_ParentSeriesGroup()->set_GapWidth(50);
 
 // 將簡報儲存至磁碟
 presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **常見問題**
 
-**單一圖表可包含的系列數量有上限嗎？**
+**單一圖表能包含的系列數量是否有限制？**
 
-Aspose.Slides 不對您加入的系列數量設定固定上限。實際限制取決於圖表的可讀性以及您的應用程式可用的記憶體。
+Aspose.Slides 對您添加的系列數量沒有限制。實際上限取決於圖表的可讀性以及應用程式可用的記憶體。
 
-**如果叢集內的柱狀圖過於靠近或過於分散該怎麼辦？**
+**如果叢集內的柱形過於接近或過於分離該怎麼辦？**
 
-調整該系列（或其父系列群組）的間隙寬度設定。增大數值會擴大柱狀圖之間的間距，減小則會使它們更靠近。
+調整該系列（或其父系列群組）的間距寬度設定。增大數值會擴大柱形之間的空間，減小則會使它們更靠近。

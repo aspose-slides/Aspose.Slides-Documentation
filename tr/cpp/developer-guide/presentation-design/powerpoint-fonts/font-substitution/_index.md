@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda C++ Kullanarak Yazı Tipi İkamesini Yapılandırma
+title: C++ Kullanarak Sunumlarda Yazı Tipi İkamesini Yapılandırma
 linktitle: Yazı Tipi İkamesi
 type: docs
 weight: 70
@@ -8,8 +8,8 @@ keywords:
 - yazı tipi
 - ikame yazı tipi
 - yazı tipi ikamesi
-- yazı tipini değiştir
-- yazı tipi değişimi
+- yazı tipi değiştirme
+- yazı tipi değiştirme
 - ikame kuralı
 - değiştirme kuralı
 - PowerPoint
@@ -17,29 +17,29 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını diğer dosya formatlarına dönüştürürken Aspose.Slides için C++'ta optimum yazı tipi ikamesini etkinleştirin."
+description: "PowerPoint ve OpenDocument sunumlarını diğer dosya formatlarına dönüştürürken C++ için Aspose.Slides'de optimal yazı tipi ikamesini etkinleştirin."
 ---
 ## **Genel Bakış**
 
-Yazı tipi ikamesi, Aspose.Slides'in orijinal sunum yazı tipi renderleme veya dönüştürme sırasında mevcut olmadığında başka bir yazı tipi kullanmasını sağlar. `IFontsManager` arayüzündeki `GetSubstitutions` yöntemini kullanarak hangi yazı tiplerinin ikame edildiğini kontrol edebilirsiniz.
+Yazı tipi ikamesi, Aspose.Slides'in orijinal sunum yazı tipi renderleme veya dönüştürme sırasında bulunamadığında başka bir yazı tipi kullanmasını sağlar. `IFontsManager` arayüzündeki `GetSubstitutions` metodunu kullanarak hangi yazı tiplerinin ikame edildiğini kontrol edebilirsiniz.
 
-Aspose.Slides ayrıca yazı tipi ikame kuralları tanımlamanıza olanak tanır. Örneğin, erişilemeyen bir yazı tipinin başka bir mevcut yazı tipiyle değiştirilmesini belirtebilir ve bu kuralları sunumun yazı tipi yöneticisi aracılığıyla uygulayabilirsiniz.
+Aspose.Slides ayrıca yazı tipi ikame kuralları tanımlamanıza izin verir. Örneğin, erişilemeyen bir yazı tipinin başka bir kullanılabilir yazı tipiyle değiştirilmesi gerektiğini belirtebilir ve bu kuralları sunumun yazı tipi yöneticisi aracılığıyla uygulayabilirsiniz.
 
-## **Yazı Tipi İkame Kurallarını Ayarlama**
+## **Yazı Tipi İkame Kurallarını Belirleme**
 
-Aspose.Slides, belirli koşullarda (örneğin, bir yazı tipine erişilemediğinde) ne yapılması gerektiğini belirleyen yazı tipleri için kurallar ayarlamanıza izin verir:
+Aspose.Slides, belirli koşullarda (örneğin bir yazı tipine erişilemediğinde) ne yapılması gerektiğini belirleyen kuralları şu şekilde ayarlamanıza olanak tanır:
 
 1. İlgili sunumu yükleyin.
 2. Değiştirilecek yazı tipini yükleyin.
 3. Yeni yazı tipini yükleyin.
 4. Değiştirme için bir kural ekleyin.
-5. Kuralı sunumun yazı tipi değiştirme kuralı koleksiyonuna ekleyin.
-6. Etkiyi gözlemlemek için slayt resmini oluşturun.
+5. Kuralı sunumun yazı tipi değiştirme kural koleksiyonuna ekleyin.
+6. Etkiyi gözlemlemek için slayt görüntüsü oluşturun.
 
-Bu C++ kodu, yazı tipi ikame sürecini göstermektedir:
+Bu C++ kodu, yazı tipi ikame sürecini gösterir:
 
 ```c++
-// Belgeler dizini yolu.
+// Belgeler dizinine giden yol.
 const String outPath = u"../out/RuleBasedFontsReplacement_out.pptx";
 const String templatePath = u"../templates/DefaultFonts.pptx";
 
@@ -51,7 +51,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 SharedPtr<IFontData> sourceFont = MakeObject<FontData>(u"SomeRareFont");
 SharedPtr<IFontData> destFont = MakeObject<FontData>(u"Arial");
 	
-// Yazı tipi değişimi için bir kural ekler
+// Yazı tipi değiştirme için bir kural ekler
 SharedPtr<FontSubstRule> fontSubstRule = MakeObject<FontSubstRule>(sourceFont, destFont, FontSubstCondition::WhenInaccessible);
 
 // Kuralı yazı tipi ikame kuralları koleksiyonuna ekler
@@ -62,50 +62,50 @@ fontSubstRuleCollection->Add(fontSubstRule);
 pres->get_FontsManager()->set_FontSubstRuleList ( fontSubstRuleCollection);
 
 
-// PPTX'i diske kaydeder
+// PPTX dosyasını diske kaydeder
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 {{%  alert title="NOTE"  color="warning"   %}} 
-Şu sayfayı görmek isteyebilirsiniz [**Font Replacement**](/slides/tr/cpp/font-replacement/). 
+İlgileniyorsanız [**Yazı Tipi Değiştirme**](/slides/tr/cpp/font-replacement/) sayfasına bakabilirsiniz. 
 {{% /alert %}}
 
-## **Matematik Denklemi Yazı Tipleri için Sınırlamalar**
+## **Matematik Denklemleri Yazı Tipleri İçin Sınırlamalar**
 
-Yazı tipi ikame kuralları, renderleme ve dönüştürme sırasında kullanılan standart yazı tipi seçim sürecine katılır. Yapılandırılmış kurala göre Aspose.Slides'in erişilemeyen bir yazı tipini başka bir mevcut yazı tipiyle değiştirebildiği normal metin senaryoları için uygundur.
+Yazı tipi ikame kuralları, renderleme ve dönüştürme sırasında kullanılan standart yazı tipi seçim sürecine katılır. Aspose.Slides'in yapılandırılmış kurala göre erişilemeyen bir yazı tipini başka bir kullanılabilir yazı tipine değiştirebildiği normal metin senaryoları için uygundur.
 
-Bununla birlikte, Office matematik denklemlerinin önemli bir sınırlaması vardır. Bir denklem **Cambria Math** ile oluşturulmuşsa, Aspose.Slides doğru şekilde denklem yerleşimini hesaplamak ve renderlemek için hâlâ orijinal **Cambria Math** yazı tipine ihtiyaç duyabilir. Bu nedenle, **Cambria Math**'ı **STIX Two Math** gibi başka bir matematik yazı tipiyle ikame etmek, denklem renderlemesi için desteklenmez ve hâlâ **Cambria Math**'ın gerekli olduğunu belirten bir istisna ile sonuçlanabilir.
+Ancak Office matematik denklemleri önemli bir sınırlamaya sahiptir. Bir denklem **Cambria Math** ile oluşturulmuşsa, Aspose.Slides denklemin yerleşimini doğru bir şekilde hesaplamak ve renderlemek için hâlâ orijinal **Cambria Math** yazı tipine ihtiyaç duyabilir. Bu nedenle **Cambria Math**'ı **STIX Two Math** gibi başka bir matematik yazı tipiyle ikame etmek, denklem renderlemesi için desteklenmez ve **Cambria Math** gerektirdiğine dair bir istisna ortaya çıkabilir.
 
-Bu tür sunumları başarılı bir şekilde dönüştürmek için, **Cambria Math**'ın çalışma zamanında Aspose.Slides tarafından erişilebilir olduğundan emin olun. Yazı tipini işletim sistemine kurabilir veya [external font](/slides/tr/cpp/custom-font/) olarak sağlayabilirsiniz; böylece renderleme ve dönüştürme sırasında normal yazı tipi seçim sürecine katılabilir.
+Bu tür sunumları başarıyla dönüştürmek için, çalışma zamanında **Cambria Math**'ın Aspose.Slides tarafından erişilebilir olduğundan emin olun. Yazı tipini işletim sistemine kurabilir veya bir [harici yazı tipi](/slides/tr/cpp/custom-font/) olarak sağlayarak renderleme ve dönüştürme sırasında normal yazı tipi seçim sürecine katılmasını sağlayabilirsiniz.
 
-Bu sınırlama özel olarak denklem renderlemesiyle ilgilidir. Yukarıda açıklanan standart yazı tipi ikame kuralları, orijinal yazı tipi erişilemez olduğunda normal sunum metnine hâlâ uygulanır.
+Bu sınırlama yalnızca denklem renderlemesi için geçerlidir. Yukarıda açıklanan standart yazı tipi ikame kuralları, orijinal yazı tipi erişilemediğinde normal sunum metni için hâlâ geçerlidir.
 
-## **FAQ**
+## **SSS**
 
-**Yazı tipi değiştirme ile yazı tipi ikamesi arasındaki fark nedir?**
+**Yazı tipi değiştirme ile ikame arasındaki fark nedir?**
 
-[Replacement](/slides/tr/cpp/font-replacement/) tüm sunum boyunca bir yazı tipinin başka bir yazı tipiyle zorunlu olarak değiştirilmesidir. İkame ise belirli bir koşulda (örneğin orijinal yazı tipi mevcut olmadığında) tetiklenen ve atanan bir yedek yazı tipinin kullanıldığı bir kuraldır.
+[Değiştirme](/slides/tr/cpp/font-replacement/) tüm sunum boyunca bir yazı tipinin başka bir yazı tipiyle zorla değiştirilmesidir. İkame ise belirli bir koşul altında (örneğin orijinal yazı tipi mevcut olmadığında) devreye giren ve belirlenmiş bir yedek yazı tipinin kullanıldığı bir kuraldır.
 
 **İkame kuralları tam olarak ne zaman uygulanır?**
 
-Kurallar, yükleme, renderleme ve dönüştürme sırasında değerlendirilen standart [font selection](/slides/tr/cpp/font-selection-sequence/) sırasına katılır; seçilen yazı tipi mevcut değilse, değiştirme veya ikame uygulanır.
+Kurallar, yükleme, renderleme ve dönüştürme sırasında değerlendirilen standart [yazı tipi seçimi](/slides/tr/cpp/font-selection-sequence/) sürecine katılır; seçilen yazı tipi mevcut değilse değiştirme veya ikame uygulanır.
 
-**Ne replacement ne de substitution yapılandırılmadığında ve sistemde yazı tipi eksik olduğunda varsayılan davranış nedir?**
+**Ne yazı tipi ne değiştirme ne de ikame yapılandırılmamış ve sistemde yazı tipi eksikse varsayılan davranış nedir?**
 
-Kütüphane, PowerPoint'in davranışına benzer şekilde en yakın mevcut sistem yazı tipini seçmeye çalışacaktır.
+Kütüphane, PowerPoint'in davranışına benzer şekilde, en yakın mevcut sistem yazı tipini seçmeye çalışır.
 
-**İkameyi önlemek için çalışma zamanında özel dış yazı tipleri ekleyebilir miyim?**
+**İkameyi önlemek için çalışma zamanında özel harici yazı tipleri ekleyebilir miyim?**
 
-Evet. Çalışma zamanında [add external fonts](/slides/tr/cpp/custom-font/) ekleyerek kütüphanenin seçim ve renderleme sırasında, sonraki dönüştürmeler için de dahil olmak üzere, bu yazı tiplerini göz önünde bulundurmasını sağlayabilirsiniz.
+Evet. Çalışma zamanında [harici yazı tipleri ekleyebilir](/slides/tr/cpp/custom-font/) ve kütüphane bunları seçim ve renderleme için, sonraki dönüştürmeler dahil, dikkate alır.
 
-**Aspose, kütüphane ile birlikte herhangi bir yazı tipi dağıtıyor mu?**
+**Aspose kütüphane ile birlikte herhangi bir yazı tipi dağıtıyor mu?**
 
-Hayır. Aspose, ücretli ya da ücretsiz yazı tipleri dağıtmaz; yazı tiplerini kendi takdirinize ve sorumluluğunuza göre eklersiniz ve kullanırsınız.
+Hayır. Aspose, ücretli veya ücretsiz yazı tipleri dağıtmaz; yazı tiplerini kendi takdiriniz ve sorumluluğunuz dahilinde ekler ve kullanırsınız.
 
-**Windows, Linux ve macOS'ta ikame davranışında farklılıklar var mı?**
+**Windows, Linux ve macOS üzerinde ikame davranışında farklılıklar var mı?**
 
-Evet. Yazı tipi keşfi işletim sisteminin yazı tipi dizinlerinden başlar. Varsayılan mevcut yazı tiplerinin seti ve arama yolları platformlar arasında farklılık gösterir; bu da erişilebilirliği ve ikame ihtiyacını etkiler.
+Evet. Yazı tipi keşfi, işletim sisteminin yazı tipi dizinlerinden başlar. Varsayılan olarak mevcut olan yazı tipleri ve arama yolları platformlar arasında farklılık gösterir; bu da kullanılabilirliği ve ikame ihtiyacını etkiler.
 
-**Toplu dönüştürmeler sırasında beklenmeyen ikameleri en aza indirmek için ortamı nasıl hazırlamalıyım?**
+**Toplu dönüştürmeler sırasında beklenmedik ikameleri en aza indirmek için ortamı nasıl hazırlamalıyım?**
 
-Makine veya konteynerler arasında yazı tipi setini senkronize edin, çıktı belgeleri için gerekli olan [add the external fonts](/slides/tr/cpp/custom-font/) ekleyin ve mümkün olduğunda sunumlara [embed fonts](/slides/tr/cpp/embedded-font/) yerleştirerek seçilen yazı tiplerinin renderleme sırasında mevcut olmasını sağlayın.
+Makineler veya konteynerler arasında yazı tipi setini senkronize edin, çıkış belgeleri için gerekli [harici yazı tiplerini ekleyin](/slides/tr/cpp/custom-font/) ve mümkün olduğunda sunumlara [yazı tiplerini gömün](/slides/tr/cpp/embedded-font/) böylece renderleme sırasında seçilen yazı tipleri mevcut olur.

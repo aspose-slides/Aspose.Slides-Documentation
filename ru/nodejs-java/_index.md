@@ -1,44 +1,52 @@
 ---
 title: Aspose.Slides для Node.js через Java
-second_title: Aspose.Slides for Node.js
-description: Aspose.Slides для Node.js через Java предоставляет множество ключевых функций, таких как управление текстом, формами, таблицами и анимацией, добавление аудио и видео на слайды, предварительный просмотр слайдов, экспорт слайдов в SVG, PDF формат и многое другое.
+second_title: Aspose.Slides для Node.js
 type: docs
 weight: 47
 url: /ru/nodejs-java/
+keywords:
+- документация
+- обработка презентаций
+- конвертация презентаций
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides — это API управления Microsoft PowerPoint® , позволяющее приложениям читать и записывать документы PowerPoint® без использования Microsoft PowerPoint®."
 is_root: true
 ---
-
 {{% alert color="primary" %}}
 
-**Добро пожаловать в Aspose.Slides для Node.js через Java**
+**Добро пожаловать в Aspose.Slides for Node.js via Java**
 
-![Логотип продукта Aspose.Slides для Node.js через Java](aspose_slides-for-nodejs-via-java.png)
+![Логотип продукта Aspose.Slides for Node.js via Java](aspose_slides-for-nodejs-via-java.png)
 
-Aspose.Slides для Node.js через Java — это библиотека классов, которая позволяет вашим приложениям читать и записывать документы PowerPoint® без использования Microsoft PowerPoint®.
+Aspose.Slides for Node.js via Java — это библиотека классов, позволяющая вашим приложениям читать и записывать документы PowerPoint® без использования Microsoft PowerPoint®.
 
-Aspose.Slides для Node.js через Java — это первый и единственный компонент, который предоставляет функциональность для управления документами PowerPoint®.
+Aspose.Slides for Node.js via Java — первый и единственный компонент, предоставляющий возможности управления документами PowerPoint®.
 
-Aspose.Slides для Node.js через Java предоставляет множество ключевых функций, таких как управление текстом, формами, таблицами и анимацией, добавление аудио и видео на слайды, предварительный просмотр слайдов, экспорт слайдов в SVG, PDF формат и многое другое.
+Aspose.Slides for Node.js via Java предоставляет множество ключевых функций, таких как управление текстом, фигурами, таблицами и анимациями, добавление аудио и видео на слайды, предварительный просмотр слайдов, экспорт слайдов в SVG, PDF и многое другое.
 
 {{% /alert %}}
 
-## Ресурсы Aspose.Slides для Node.js через Java
+## Ресурсы Aspose.Slides for Node.js via Java
 
 {{% alert color="primary" %}}
 
-Aspose.Slides для Node.js через Java портирован из Aspose.Slides для Java, поэтому вы можете использовать документацию и справочник API последнего.
+Aspose.Slides for Node.js via Java портирован из Aspose.Slides for Java, поэтому вы можете использовать документацию и справочник API последнего.
 
 {{% /alert %}}
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для Node.js через Java](/slides/ru/java/developer-guide/)
-- [Функции Aspose.Slides для Node.js через Java](/slides/ru/nodejs-java/features-overview/)
-- [Ограничения и отличия API Aspose.Slides для Node.js через Java](/slides/ru/nodejs-java/limitations-and-api-differences/)
-- [Примечания к версиям Aspose.Slides для Node.js через Java](https://releases.aspose.com/slides/nodejs-java/release-notes/)
-- [Страница продукта Aspose.Slides для Node.js через Java](https://products.aspose.com/slides/nodejs-java/)
-- [Скачать пакет Aspose.Slides для Node.js через Java](https://releases.aspose.com/slides/nodejs-java/)
-- [Установка Aspose.Slides для Node.js через Java](/slides/ru/nodejs-java/installation/)
-- [Справочник API Aspose.Slides для Node.js через Java](https://reference.aspose.com/slides/nodejs-java/)
-- [Форум бесплатной поддержки Aspose.Slides для Node.js через Java](https://forum.aspose.com/c/slides/11)
-- [Служба поддержки Aspose.Slides для Node.js через Java на платной основе](https://helpdesk.aspose.com/)
+- [Онлайн-документация Aspose.Slides for Node.js via Java](/slides/ru/nodejs-java/developer-guide/)
+- [Возможности Aspose.Slides for Node.js via Java](/slides/ru/nodejs-java/features-overview/)
+- [Ограничения и различия API Aspose.Slides for Node.js via Java](/slides/ru/nodejs-java/limitations-and-api-differences/)
+- [Примечания к выпуску Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/ru/nodejs-java/release-notes/)
+- [Страница продукта Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/ru/nodejs-java/)
+- [Скачать пакет Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/ru/nodejs-java/)
+- [Установка Aspose.Slides for Node.js via Java](/slides/ru/nodejs-java/installation/)
+- [Справочник API Aspose.Slides for Node.js via Java](https://reference.aspose.com/slides/ru/nodejs-java/)
+- [Бесплатный форум поддержки Aspose.Slides for Node.js via Java](https://forum.aspose.com/c/slides/ru/)
+- [Платный сервис поддержки Aspose.Slides for Node.js via Java](https://helpdesk.aspose.com/)

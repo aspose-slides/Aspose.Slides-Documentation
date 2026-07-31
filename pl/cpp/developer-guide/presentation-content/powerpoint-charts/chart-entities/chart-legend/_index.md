@@ -11,31 +11,29 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dostosuj legendy wykresów za pomocą Aspose.Slides dla C++, aby zoptymalizować prezentacje PowerPoint dzięki spersonalizowanemu formatowaniu legendy."
+description: "Dostosuj legendy wykresów za pomocą Aspose.Slides dla C++, aby zoptymalizować prezentacje PowerPoint dzięki spersonalizowanemu formatowaniu legend."
 ---
 ## **Przegląd**
 
-Aspose.Slides udostępnia opcje dostosowywania legend wykresów w prezentacjach PowerPoint. Ten artykuł pokazuje, jak ustawić pozycję i rozmiar legendy, ustawić rozmiar czcionki dla całej legendy oraz zastosować formatowanie do pojedynczego wpisu legendy.
-
-Opisuje także kilka powiązanych zachowań w sekcji FAQ, w tym użycie trybu bez nakładania, aby obszar wykresu zrobić miejsce dla legendy, umożliwienie długim etykietom legendy zawijania lub używania wymuszonego podziału wiersza oraz dziedziczenie formatowania legendy z motywu prezentacji, gdy nie są ustawione wyraźne kolory tekstu i wypełnienia.
+Aspose.Slides udostępnia opcje dostosowywania legend wykresów w prezentacjach PowerPoint. Ten artykuł pokazuje, jak ustawić położenie i rozmiar legendy, określić rozmiar czcionki dla całej legendy oraz zastosować formatowanie do pojedynczego wpisu legendy. Omówiono również kilka powiązanych zachowań w sekcji FAQ, w tym użycie trybu bez nakładania, aby obszar wykresu zostawił miejsce na legendę, umożliwienie długim etykietom legendy zawijania lub wprowadzania podziałów linii oraz dziedziczenie formatowania legendy z tematu prezentacji, gdy nie ustawiono jawnych ustawień tekstu i wypełnienia.
 
 ## **Pozycjonowanie legendy**
 Aby ustawić właściwości legendy, wykonaj poniższe kroki:
 
 - Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
-- Pobierz odniesienie do slajdu.
+- Uzyskaj odniesienie do slajdu.
 - Dodaj wykres na slajdzie.
-- Ustawienie właściwości legendy.
+- Ustaw właściwości legendy.
 - Zapisz prezentację jako plik PPTX.
 
-W poniższym przykładzie ustawiliśmy pozycję i rozmiar legendy wykresu.
+W poniższym przykładzie ustawiliśmy położenie i rozmiar legendy wykresu.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetlegendCustomOptions-SetlegendCustomOptions.cpp" >}}
 
 ## **Ustaw rozmiar czcionki legendy**
-Aspose.Slides dla C++ umożliwia programistom ustawienie rozmiaru czcionki legendy. Wykonaj poniższe kroki:
+Aspose.Slides dla C++ umożliwia programistom ustawienie rozmiaru czcionki legendy. Wykonaj poniższe kroki: 
 
-- Utwórz instancję klasy Presentation.
+- Zainicjalizuj klasę Presentation.
 - Utwórz domyślny wykres.
 - Ustaw rozmiar czcionki.
 - Ustaw minimalną wartość osi.
@@ -44,10 +42,10 @@ Aspose.Slides dla C++ umożliwia programistom ustawienie rozmiaru czcionki legen
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingFontSizeOfLegend-SettingFontSizeOfLegend.cpp" >}}
 
-## **Ustaw rozmiar czcionki pojedynczej pozycji legendy**
-Aspose.Slides dla C++ umożliwia programistom ustawienie rozmiaru czcionki poszczególnych wpisów legendy. Wykonaj poniższe kroki:
+## **Ustaw rozmiar czcionki poszczególnej legendy**
+Aspose.Slides dla C++ umożliwia programistom ustawienie rozmiaru czcionki poszczególnych wpisów legendy. Wykonaj poniższe kroki: 
 
-- Utwórz instancję klasy Presentation.
+- Zainicjalizuj klasę Presentation.
 - Utwórz domyślny wykres.
 - Uzyskaj dostęp do wpisu legendy.
 - Ustaw rozmiar czcionki.
@@ -65,8 +63,8 @@ Tak. Użyj trybu bez nakładania ([set_Overlay(false)](https://reference.aspose.
 
 **Czy mogę tworzyć etykiety legendy wielowierszowe?**
 
-Tak. Długie etykiety są automatycznie zawijane, gdy brakuje miejsca; wymuszone podziały wierszy są obsługiwane za pomocą znaków nowej linii w nazwie serii.
+Tak. Długie etykiety automatycznie zawijają się, gdy brakuje miejsca; wymuszone podziały linii są obsługiwane poprzez znaki nowej linii w nazwie serii.
 
-**Jak sprawić, aby legenda korzystała ze schematu kolorów motywu prezentacji?**
+**Jak sprawić, aby legenda korzystała ze schematu kolorów tematu prezentacji?**
 
-Nie ustawiaj wyraźnych kolorów, wypełnień ani czcionek dla legendy ani jej tekstu. Wtedy zostaną one odziedziczone z motywu i będą się prawidłowo aktualizować po zmianie projektu.
+Nie ustawiaj jawnych kolorów/wypełnień/czcionek dla legendy ani jej tekstu. Wówczas będą one dziedziczone z tematu i będą się poprawnie aktualizować po zmianie projektu.

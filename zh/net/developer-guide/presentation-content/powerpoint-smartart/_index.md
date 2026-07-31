@@ -4,6 +4,8 @@ linktitle: PowerPoint SmartArt
 type: docs
 weight: 100
 url: /zh/net/powerpoint-smartart/
+aliases:
+  - /net/examples/elements/smartart/
 keywords:
 - SmartArt
 - 管理 SmartArt
@@ -14,5 +16,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何通过 Aspose.Slides API 在 .NET 中创建和编辑 PowerPoint SmartArt：布局、节点、样式，并提供分步示例，快速实现幻灯片自动化。"
+description: "了解如何通过 Aspose.Slides API 在 .NET 中创建和编辑 PowerPoint SmartArt：布局、节点、样式，并提供逐步示例，快速实现幻灯片自动化。"
 ---

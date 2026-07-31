@@ -1,5 +1,5 @@
 ---
-title: C++ でプレゼンテーション コンテンツを管理する
+title: C++ でプレゼンテーション コンテンツを管理
 linktitle: プレゼンテーション コンテンツ
 type: docs
 weight: 30
@@ -13,7 +13,7 @@ keywords:
 - テキスト
 - ズーム
 - チャート
-- 数式
+- 方程式
 - シェイプ
 - インク
 - SmartArt
@@ -23,5 +23,5 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用してプレゼンテーション コンテンツを作成、編集、抽出します。テキスト、画像、シェイプ、チャートのコード例が取得できます。PPT、PPTX、ODP に対応。"
+description: "Aspose.Slides for C++ を使用してプレゼンテーション コンテンツを作成、編集、抽出します — テキスト、画像、シェイプ、チャートのコード例を取得; PPT、PPTX、ODP。"
 ---

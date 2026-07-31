@@ -1,5 +1,5 @@
 ---
-title: Render Presentasi dengan Font Fallback di С++
+title: Render Presentasi dengan Font Fallback di C++
 linktitle: Render Presentasi
 type: docs
 weight: 30
@@ -12,30 +12,30 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Render presentasi dengan font fallback di Aspose.Slides untuk С++ – pertahankan konsistensi teks di seluruh PPT, PPTX, dan ODP dengan contoh kode С++ langkah demi langkah."
+description: "Render presentasi dengan font fallback di Aspose.Slides untuk C++ – menjaga konsistensi teks di seluruh PPT, PPTX, dan ODP dengan contoh kode C++ langkah demi langkah."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
 Aspose.Slides memungkinkan Anda merender presentasi menggunakan aturan font fallback. Artikel ini menunjukkan cara membuat koleksi aturan font fallback, memodifikasi aturannya dengan menghapus atau menambahkan font fallback, dan menetapkan koleksi tersebut menggunakan metode `FontsManager::set_FontFallBackRulesCollection`.
 
-Setelah koleksi aturan font fallback ditetapkan ke `FontsManager` presentasi, aturan tersebut diterapkan selama operasi seperti menyimpan, merender, dan mengonversi presentasi. Contoh ini menunjukkan cara menggunakan aturan yang dikonfigurasi saat merender thumbnail slide dan menyimpannya sebagai gambar PNG.
+Setelah koleksi aturan font fallback ditetapkan ke `FontsManager` presentasi, aturan tersebut diterapkan selama operasi seperti penyimpanan, perenderan, dan konversi presentasi. Contoh ini menunjukkan cara menggunakan aturan yang dikonfigurasi saat merender thumbnail slide dan menyimpannya sebagai gambar PNG.
 
 ## **Render Slide Menggunakan Aturan Font Fallback**
 
 Contoh berikut mencakup langkah-langkah ini:
 
 1. Kami [membuat koleksi aturan font fallback](/slides/id/cpp/create-fallback-fonts-collection/).
-1. [Remove()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/remove/) sebuah aturan font fallback dan [AddFallBackFonts()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) ke aturan lain.
-1. Serahkan koleksi aturan ke metode [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
-1. Dengan metode [Presentation::Save()](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) kita dapat menyimpan presentasi dalam format yang sama, atau menyimpannya dalam format lain. Setelah koleksi aturan font fallback ditetapkan ke FontsManager, aturan-aturan ini diterapkan selama operasi apa pun pada presentasi: menyimpan, merender, mengonversi, dll.
+1. [Remove()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/remove/) sebuah aturan font fallback dan [AddFallBackFonts()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) menambah font fallback ke aturan lain.
+1. Melewatkan koleksi aturan ke metode [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
+1. Dengan metode [Presentation::Save()](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) kami dapat menyimpan presentasi dalam format yang sama, atau menyimpannya dalam format lain. Setelah koleksi aturan font fallback diatur ke FontsManager, aturan-aturan ini diterapkan selama operasi apa pun pada presentasi: simpan, render, konversi, dll.
 
 ``` cpp
 // Membuat instance baru dari koleksi aturan
 auto rulesList = MakeObject<FontFallBackRulesCollection>();
 
-// Create a number of rules
+// Membuat sejumlah aturan
 rulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x400), static_cast<uint32_t>(0x4FF), u"Times New Roman"));
 //rulesList.Add(new FontFallBackRule(...));
 
@@ -69,6 +69,7 @@ image->Dispose();
 
 pres->Dispose();
 ```
+
 
 {{% alert color="primary" %}} 
 Baca lebih lanjut tentang cara [Mengonversi Slide PowerPoint ke PNG dalam C++](/slides/id/cpp/convert-powerpoint-to-png/).

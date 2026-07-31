@@ -1,15 +1,15 @@
 ---
-title: Personalizar ejes de gráfico en presentaciones usando C++
+title: Personalizar ejes de gráficos en presentaciones usando C++
 linktitle: Eje del gráfico
 type: docs
 url: /es/cpp/chart-axis/
 keywords:
-- eje de gráfico
+- eje del gráfico
 - eje vertical
 - eje horizontal
 - personalizar eje
 - manipular eje
-- administrar eje
+- gestionar eje
 - propiedades del eje
 - valor máximo
 - valor mínimo
@@ -23,21 +23,25 @@ keywords:
 - Aspose.Slides
 description: "Descubra cómo usar Aspose.Slides para C++ para personalizar los ejes de los gráficos en presentaciones de PowerPoint para informes y visualizaciones."
 ---
+## **Descripción general**
+
+Este artículo explica cómo personalizar los ejes de los gráficos en Aspose.Slides. Muestra cómo obtener los valores reales de los ejes, intercambiar datos entre ejes, ocultar el eje vertical o horizontal en gráficos de líneas, cambiar el tipo de eje de categoría, establecer el formato de fecha para los valores del eje de categoría, rotar el título de un eje, establecer la posición del eje y mostrar una etiqueta de unidad en el eje de valores.
 
 ## **Obtener los valores máximos en el eje vertical**
-Aspose.Slides for C++ le permite obtener los valores mínimo y máximo en un eje vertical. Siga estos pasos:
+Aspose.Slides para C++ le permite obtener los valores mínimo y máximo en un eje vertical. Siga estos pasos:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Acceda a la primera diapositiva.
-1. Agregue un gráfico con datos predeterminados.
-1. Obtenga el valor máximo real del eje.
-1. Obtenga el valor mínimo real del eje.
-1. Obtenga la unidad mayor real del eje.
-1. Obtenga la unidad menor real del eje.
-1. Obtenga la escala de unidad mayor real del eje.
-1. Obtenga la escala de unidad menor real del eje.
+1. Crear una instancia de la clase [Presentación](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.presentation).
+1. Acceder a la primera diapositiva.
+1. Añadir un gráfico con datos predeterminados.
+1. Obtener el valor máximo real del eje.
+1. Obtener el valor mínimo real del eje.
+1. Obtener la unidad mayor real del eje.
+1. Obtener la unidad menor real del eje.
+1. Obtener la escala de la unidad mayor real del eje.
+1. Obtener la escala de la unidad menor real del eje.
 
-Este código de ejemplo —una implementación de los pasos anteriores— muestra cómo obtener los valores requeridos en C++:
+Este fragmento de código —una implementación de los pasos anteriores— muestra cómo obtener los valores requeridos en C++:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -56,11 +60,11 @@ double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Intercambiar los datos entre ejes**
-Aspose.Slides le permite intercambiar rápidamente los datos entre ejes: los datos representados en el eje vertical (eje y) se trasladan al eje horizontal (eje x) y viceversa.
+Aspose.Slides le permite intercambiar rápidamente los datos entre ejes: los datos representados en el eje vertical (eje Y) se trasladan al eje horizontal (eje X) y viceversa.
 
-Este código C++ muestra cómo realizar la tarea de intercambio de datos entre ejes en un gráfico:
+Este código en C++ muestra cómo realizar la tarea de intercambio de datos entre ejes en un gráfico:
+
 ``` cpp
 // Crea una presentación vacía
 auto pres = System::MakeObject<Presentation>();
@@ -74,9 +78,10 @@ chart->get_ChartData()->SwitchRowColumn();
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Desactivar el eje vertical para gráficos de líneas**
-Este código C++ muestra cómo ocultar el eje vertical en un gráfico de líneas:
+
+Este código en C++ muestra cómo ocultar el eje vertical en un gráfico de líneas:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -86,9 +91,10 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Desactivar el eje horizontal para gráficos de líneas**
+
 Este código muestra cómo ocultar el eje horizontal en un gráfico de líneas:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -98,9 +104,10 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Cambiar un eje de categoría**
-Con el método **set_CategoryAxisType()**, puede especificar su tipo de eje de categoría preferido (**date** o **text**). Este código en C++ demuestra la operación: 
+
+Utilizando el método **set_CategoryAxisType()**, puede especificar el tipo de eje de categoría que prefiera (**date** o **text**). Este código en C++ demuestra la operación:
+
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -114,9 +121,9 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Establecer el formato de fecha para los valores del eje de categoría**
-Aspose.Slides for C++ le permite establecer el formato de fecha para un valor del eje de categoría. La operación se demuestra en este código C++:
+Aspose.Slides para C++ le permite establecer el formato de fecha para un valor del eje de categoría. La operación se demuestra en este código C++:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
@@ -148,9 +155,9 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Establecer el ángulo de rotación para el título de un eje**
-Aspose.Slides for C++ le permite establecer el ángulo de rotación para el título de un eje de gráfico. Este código C++ demuestra la operación:
+Aspose.Slides para C++ le permite establecer el ángulo de rotación para el título de un eje de gráfico. Este código C++ muestra la operación:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -162,9 +169,9 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Establecer la posición del eje en un eje de categoría o de valor**
-Aspose.Slides for C++ le permite establecer la posición del eje en un eje de categoría o de valor. Este código C++ muestra cómo realizar la tarea:
+Aspose.Slides para C++ le permite establecer la posición del eje en un eje de categoría o de valor. Este código C++ muestra cómo realizar la tarea:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -174,9 +181,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
+## **Activar la etiqueta de unidad de visualización en el eje de valores de un gráfico**
+Aspose.Slides para C++ le permite configurar un gráfico para que muestre una etiqueta de unidad en su eje de valores. Este código C++ demuestra la operación:
 
-## **Habilitar la etiqueta de unidad de visualización en el eje de valores de un gráfico**
-Aspose.Slides for C++ le permite configurar un gráfico para que muestre una etiqueta de unidad en su eje de valores. Este código C++ demuestra la operación:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -186,13 +193,12 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Preguntas frecuentes**
 
 **¿Cómo establezco el valor en el que un eje cruza al otro (cruce de ejes)?**
 
-Los ejes ofrecen una [configuración de cruce](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/): puede elegir cruzar en cero, en la categoría/valor máximo, o en un valor numérico específico. Esto es útil para desplazar el eje X hacia arriba o hacia abajo o para destacar una línea de base.
+Los ejes proporcionan una [configuración de cruce](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/axis/set_crosstype/): puede elegir cruzar en cero, en la categoría/valor máximo, o en un valor numérico específico. Esto es útil para desplazar el eje X hacia arriba o abajo o para destacar una línea de base.
 
-**¿Cómo puedo posicionar las etiquetas de marcas relativas al eje (junto, fuera, dentro)?**
+**¿Cómo puedo posicionar las etiquetas de marcas de graduación respecto al eje (junto, fuera, dentro)?**
 
-Establezca la [posición de la etiqueta](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) a "cross", "outside" o "inside". Esto afecta la legibilidad y ayuda a ahorrar espacio, especialmente en gráficos pequeños.
+Establezca la [posición de la etiqueta](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/axis/set_majortickmark/) en "cross", "outside" o "inside". Esto afecta la legibilidad y ayuda a ahorrar espacio, especialmente en gráficos pequeños.

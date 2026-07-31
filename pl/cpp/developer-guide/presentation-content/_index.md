@@ -8,14 +8,14 @@ keywords:
 - zawartość
 - BLOB
 - hiperłącze
-- multimedia
+- media
 - OLE
 - tekst
-- powiększenie
+- zoom
 - wykres
 - równanie
 - kształt
-- tusz
+- atrament
 - SmartArt
 - tabela
 - PowerPoint
@@ -23,5 +23,5 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Twórz, edytuj i wyodrębniaj zawartość prezentacji z Aspose.Slides dla C++ — uzyskaj przykłady kodu dla tekstu, obrazów, kształtów, wykresów; PPT, PPTX i ODP."
+description: "Twórz, edytuj i wyodrębniaj zawartość prezentacji za pomocą Aspose.Slides dla C++ — uzyskaj przykłady kodu dla tekstu, obrazów, kształtów, wykresów; PPT, PPTX i ODP."
 ---

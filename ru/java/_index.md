@@ -1,36 +1,43 @@
 ---
 title: Aspose.Slides для Java
-second_title: Aspose.Slides for Java
-description: Aspose.Slides для Java — это первый и единственный компонент, который предоставляет возможность управлять документами PowerPoint®. Aspose.Slides для Java предлагает множество ключевых функций, таких как управление текстом, формами, экспорт слайдов в SVG, PDF и другие форматы.
+second_title: Aspose.Slides для Java
 type: docs
 weight: 20
 url: /ru/java/
+keywords:
+- документация
+- обработка презентаций
+- конвертация презентаций
+- PowerPoint
+- OpenDocument
+- Java
+- Aspose.Slides
+description: Aspose.Slides for Java — это API управления Microsoft PowerPoint® , позволяющее Java‑приложениям читать и записывать документы PowerPoint® без использования Microsoft PowerPoint®.
 is_root: true
 ---
-
 {{% alert color="primary" %}}
 
-![Логотип продукта Aspose.Slides для Java](home_1.png)
+![Aspose.Slides for Java Product Logo](home_1.png)
 
-**Добро пожаловать в Aspose.Slides для Java!**
+**Добро пожаловать в Aspose.Slides for Java!**
 
-Aspose.Slides для Java — это API управления Microsoft PowerPoint®, который позволяет Java-приложениям читать и записывать документы PowerPoint® без Microsoft PowerPoint®. Aspose.Slides для Java — это первый и единственный компонент, который предоставляет возможность управлять документами PowerPoint®. Aspose.Slides для Java предлагает множество ключевых функций, таких как управление текстом, формами, таблицами и анимациями, добавление аудио и видео на слайды, предварительный просмотр слайдов, экспорт слайдов в SVG, PDF и другие форматы.
+Aspose.Slides for Java — это API управления Microsoft PowerPoint®, позволяющее Java‑приложениям читать и записывать документы PowerPoint® без Microsoft PowerPoint®. Aspose.Slides for Java является первым и единственным компонентом, предоставляющим функциональность управления документами PowerPoint®. Aspose.Slides for Java предлагает множество ключевых возможностей, таких как управление текстом, фигурами, таблицами и анимациями, добавление аудио и видео на слайды, предварительный просмотр слайдов, экспорт слайдов в SVG, PDF и другие форматы.
 
 {{% /alert %}}
 
-## **Ресурсы Aspose.Slides для Java**
+## **Ресурсы Aspose.Slides for Java**
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для Java](/slides/ru/java/)
-- [Функции Aspose.Slides для Java](/slides/ru/java/features-overview/)
-- [Ограничения Aspose.Slides для Java](/slides/ru/java/known-issues/)
-- [Примечания к версиям Aspose.Slides для Java](https://releases.aspose.com/slides/java/release-notes/)
-- [Страница продукта Aspose.Slides для Java](https://products.aspose.com/slides/java/)
-- [Скачать Aspose.Slides для Java](https://releases.aspose.com/slides/java/)
-- [Репозиторий Maven Aspose.Slides для Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Установить Aspose.Slides для Java из репозитория Maven](/slides/ru/java/installation/)
-- [Руководство по API Aspose.Slides для Java](https://reference.aspose.com/slides/java)
+- [Онлайн‑документация Aspose.Slides for Java](/slides/ru/java/)
+- [Особенности Aspose.Slides for Java](/slides/ru/java/features-overview/)
+- [Ограничения Aspose.Slides for Java](/slides/ru/java/known-issues/)
+- [Примечания к выпуску Aspose.Slides for Java](https://releases.aspose.com/slides/ru/java/release-notes/)
+- [Страница продукта Aspose.Slides for Java](https://products.aspose.com/slides/ru/java/)
+- [Скачать Aspose.Slides for Java](https://releases.aspose.com/slides/ru/java/)
+- [Maven‑репозиторий Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
+- [Установить Aspose.Slides for Java из Maven‑репозитория](/slides/ru/java/installation/)
+- [Справочник API Aspose.Slides for Java](https://reference.aspose.com/slides/ru/java)
 - [Скачать примеры из репозитория GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [Форум бесплатной поддержки Aspose.Slides для Java](https://forum.aspose.com/c/slides/11)
-- [Платный сервис поддержки Aspose.Slides для Java](https://helpdesk.aspose.com/)
+- [Бесплатный форум поддержки Aspose.Slides for Java](https://forum.aspose.com/c/slides/ru/11)
+- [Платный сервис поддержки Aspose.Slides for Java](https://helpdesk.aspose.com/)

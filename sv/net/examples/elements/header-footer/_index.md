@@ -3,10 +3,12 @@ title: Sidhuvud och sidfot
 type: docs
 weight: 220
 url: /sv/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - sidhuvud sidfot
-- lägga till sidhuvud och sidfot
-- uppdatera sidhuvud och sidfot
+- lägg till sidhuvud sidfot
+- uppdatera sidhuvud sidfot
 - kodexempel
 - PowerPoint
 - OpenDocument
@@ -14,7 +16,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Kontrollera bildhuvuden och sidfötter med Aspose.Slides för .NET: lägg till datum, bildnummer och anpassad text i PPT, PPTX och ODP med C#-exempel."
+description: "Styr bildrubriker och -sidfötter med Aspose.Slides för .NET: lägg till datum, bildnummer och anpassad text i PPT, PPTX och ODP med C#-exempel."
 ---
 Den här artikeln visar hur man lägger till sidfötter och uppdaterar datum- och tidsplatshållare med hjälp av **Aspose.Slides for .NET**.
 

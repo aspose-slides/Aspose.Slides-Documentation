@@ -12,14 +12,17 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Descubra cómo crear y personalizar gráficos de rosquilla en Aspose.Slides para C++, compatible con formatos de PowerPoint para presentaciones dinámicas."
+description: "Descubra cómo crear y personalizar gráficos de rosquilla en Aspose.Slides para C++, compatible con los formatos de PowerPoint para presentaciones dinámicas."
 ---
+## **Resumen**
+
+Este artículo muestra cómo trabajar con un gráfico de rosquilla en Aspose.Slides añadiendo el gráfico a una diapositiva, estableciendo el tamaño del agujero central y guardando la presentación. Se centra en el método `set_DoughnutHoleSize` y demuestra los pasos básicos necesarios para personalizar este tipo de gráfico mediante código.
 
 ## **Especificar el espacio central en un gráfico de rosquilla**
-Para especificar el tamaño del agujero en un gráfico de rosquilla. Siga los pasos a continuación:
+Para especificar el tamaño del agujero en un gráfico de rosquilla, siga los pasos a continuación:
 
-- Instanciar la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-- Añadir un gráfico de rosquilla en la diapositiva.
+- Instanciar la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
+- Añadir un gráfico de rosquilla a la diapositiva.
 - Especificar el tamaño del agujero en el gráfico de rosquilla.
 - Guardar la presentación en disco.
 
@@ -29,14 +32,14 @@ En el ejemplo que se muestra a continuación, hemos establecido el tamaño del a
 
 ## **Preguntas frecuentes**
 
-**¿Puedo crear una rosquilla de varios niveles con múltiples anillos?**
+**¿Puedo crear una rosquilla multinivel con varios anillos?**
 
-Sí. Añada varias series a un solo gráfico de rosquilla; cada serie se convierte en un anillo separado. El orden de los anillos se determina por el orden de las series en la colección.
+Sí. Añada varias series a un único gráfico de rosquilla; cada serie se convierte en un anillo separado. El orden de los anillos se determina por el orden de las series en la colección.
 
-**¿Se admite una rosquilla "explotada" (rebanadas separadas)?**
+**¿Se admite una rosquilla "explosiva" (rebanadas separadas)?**
 
-Sí. Existe un tipo de gráfico [rosquilla explotada](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) y una propiedad de explosión en los puntos de datos; puede separar rebanadas individuales.
+Sí. Existe un tipo de gráfico Rosquilla Explosiva [chart type](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/charttype/) y una propiedad de explosión en los puntos de datos; puede separar rebanadas individuales.
 
 **¿Cómo puedo obtener una imagen de un gráfico de rosquilla (PNG/SVG) para un informe?**
 
-Un gráfico es una forma; puede renderizarlo a una [imagen rasterizada](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) o exportar el gráfico a una [imagen SVG](https://reference.aspose.com/slides/cpp/aspose.slides/shape/writeassvg/).
+Un gráfico es una forma; puede renderizarlo a una [raster image](https://reference.aspose.com/slides/es/cpp/aspose.slides/shape/getimage/) o exportar el gráfico a una [SVG image](https://reference.aspose.com/slides/es/cpp/aspose.slides/shape/writeassvg/).

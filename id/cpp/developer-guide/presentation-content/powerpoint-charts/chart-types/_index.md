@@ -1,20 +1,20 @@
 ---
-title: Sesuaikan Diagram Presentasi di С++
-linktitle: Jenis Diagram
+title: "Sesuaikan Diagram Presentasi di C++"
+linktitle: "Tipe Diagram"
 type: docs
 weight: 20
 url: /id/cpp/chart-types/
 keywords:
-- sesuaikan diagram
-- kelola diagram
-- jenis diagram
-- diagram PowerPoint
-- diagram presentasi
-- diagram PPT
-- diagram PPTX
-- PowerPoint
-- presentasi
-- С++
-- Aspose.Slides
-description: "Jelajahi setiap jenis diagram yang dapat Anda buat atau edit dengan Aspose.Slides untuk С++ – panduan cepat berbasis kode untuk presentasi PowerPoint."
+- "sesuaikan diagram"
+- "kelola diagram"
+- "tipe diagram"
+- "diagram PowerPoint"
+- "diagram presentasi"
+- "diagram PPT"
+- "diagram PPTX"
+- "PowerPoint"
+- "presentasi"
+- "C++"
+- "Aspose.Slides"
+description: "Jelajahi semua tipe diagram yang dapat Anda buat atau edit dengan Aspose.Slides untuk C++ – panduan cepat berbasis kode untuk presentasi PowerPoint."
 ---

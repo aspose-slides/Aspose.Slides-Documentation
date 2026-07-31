@@ -17,12 +17,13 @@ description: "Scopri come gestire i punti dati nei grafici treemap e sunburst co
 ---
 ## **Introduzione**
 
-Tra gli altri tipi di grafici PowerPoint, esistono due tipi “gerarchici” - **Treemap** e **Sunburst** (noti anche come Grafico Sunburst, Diagramma Sunburst, Grafico Radiale, Grafico Radiale o Grafico a Torta Multi Livello). Questi grafici visualizzano dati gerarchici organizzati come un albero, dalle foglie fino alla parte superiore del ramo. Le foglie sono definite dai punti dati della serie, e ogni successivo livello di raggruppamento nidificato è definito dalla corrispondente categoria. Aspose.Slides per C++ consente di formattare i punti dati del grafico Sunburst e Treemap in C++.
+Tra gli altri tipi di grafici PowerPoint, esistono due tipologie “gerarchiche” - **Treemap** e **Sunburst** chart (noto anche come Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph o Multi Level Pie Chart). Questi grafici visualizzano dati gerarchici organizzati come un albero - dalle foglie fino alla cima del ramo. Le foglie sono definite dai punti dati della serie, e ogni successivo livello di raggruppamento annidato è definito dalla categoria corrispondente. Aspose.Slides for C++ consente di formattare i punti dati di Sunburst Chart e Treemap in C++.
 
-Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, while other columns define hierarchical datapoints:
+Ecco un grafico Sunburst, in cui i dati nella colonna Series1 definiscono i nodi foglia, mentre le altre colonne definiscono i punti dati gerarchici:
+
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-Cominciamo aggiungendo un nuovo grafico Sunburst alla presentazione:
+Iniziamo aggiungendo un nuovo grafico Sunburst alla presentazione:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -31,13 +32,14 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 {{% alert color="primary" title="Vedi anche" %}} 
-- [**Creare grafico Sunburst**](/slides/it/cpp/create-chart/#create-sunburst-chart)
+- [**Creazione del grafico Sunburst**](/slides/it/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
-Se è necessario formattare i punti dati del grafico, dovremmo utilizzare i seguenti:
-Le classi [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevel/) e il metodo [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) forniscono l'accesso per formattare i punti dati dei grafici Treemap e Sunburst.  
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) è utilizzato per accedere a categorie a più livelli - rappresenta il contenitore degli oggetti [**IChartDataPointLevel**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevel/).  
-Fondamentalmente è un wrapper per [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) con le proprietà aggiunte specifiche per i punti dati.  
+Se è necessario formattare i punti dati del grafico, dovremmo utilizzare quanto segue:
+
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevel/) classi e [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) metodo forniscono l'accesso per formattare i punti dati dei grafici Treemap e Sunburst.  
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) è utilizzato per accedere a categorie multilevel - rappresenta il contenitore degli oggetti [**IChartDataPointLevel**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevel/).  
+In pratica è un wrapper per [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) con le proprietà aggiunte specifiche per i punti dati.  
 La classe [**IChartDataPointLevel**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevel/) ha due metodi: [**get_Format()**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) e [**get_Label()**](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) che forniscono l'accesso alle impostazioni corrispondenti.
 
 ## **Mostra il valore di un punto dati**
@@ -50,7 +52,7 @@ dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_Data
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
-## **Imposta etichetta e colore di un punto dati**
+## **Imposta l'etichetta e il colore di un punto dati**
 Imposta l'etichetta dati di "Branch 1" per mostrare il nome della serie ("Series1") invece del nome della categoria. Quindi imposta il colore del testo su giallo:
 
 ``` cpp
@@ -65,8 +67,7 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
 ## **Imposta il colore del ramo del punto dati**
-
-Cambia il colore del ramo "Stem 4":
+Modifica il colore del ramo "Stem 4":
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -84,18 +85,18 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Posso cambiare l'ordine (ordinamento) dei segmenti in Sunburst/Treemap?**
+**Posso modificare l'ordine (ordinamento) dei segmenti in Sunburst/Treemap?**
 
-No. PowerPoint ordina i segmenti automaticamente (tipicamente per valori decrescenti, in senso orario). Aspose.Slides rispecchia questo comportamento: non è possibile modificare direttamente l'ordine; è necessario farlo pre-elaborando i dati.
+No. PowerPoint ordina i segmenti automaticamente (tipicamente per valori decrescenti, in senso orario). Aspose.Slides rispecchia questo comportamento: non è possibile modificare direttamente l'ordine; è necessario farlo preelaborando i dati.
 
 **Come influisce il tema della presentazione sui colori dei segmenti e delle etichette?**
 
-I colori del grafico ereditano il [tema/palette](/slides/it/cpp/presentation-theme/) della presentazione, a meno che non impostiate esplicitamente riempimenti/fondamenti dei caratteri. Per risultati coerenti, fissate riempimenti solidi e formattazioni del testo ai livelli richiesti.
+I colori del grafico ereditano il [tema/palette](/slides/it/cpp/presentation-theme/) della presentazione, a meno che non vengano impostati esplicitamente riempimenti/font. Per risultati coerenti, fissa riempimenti solidi e la formattazione del testo ai livelli necessari.
 
-**L'esportazione in PDF/PNG preserva i colori personalizzati dei rami e le impostazioni delle etichette?**
+**L'esportazione in PDF/PNG conserverà i colori personalizzati dei rami e le impostazioni delle etichette?**
 
-Sì. Durante l'esportazione della presentazione, le impostazioni del grafico (riempimenti, etichette) vengono mantenute nei formati di output perché Aspose.Slides rende il grafico con la formattazione applicata.
+Sì. Durante l'esportazione della presentazione, le impostazioni del grafico (riempimenti, etichette) vengono preservate nei formati di output poiché Aspose.Slides rende il grafico con la formattazione applicata.
 
-**Posso calcolare le coordinate effettive di un'etichetta/elemento per posizionare un overlay personalizzato sopra il grafico?**
+**Posso calcolare le coordinate reali di un'etichetta/elemento per posizionare sovrapposizioni personalizzate sopra il grafico?**
 
-Sì. Dopo che il layout del grafico è stato convalidato, le coordinate X reale e Y reale sono disponibili per gli elementi (ad esempio, un [DataLabel](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/datalabel/)), il che aiuta a posizionare con precisione gli overlay.
+Sì. Dopo che il layout del grafico è stato convalidato, sono disponibili le coordinate X e Y effettive per gli elementi (ad esempio, un [DataLabel](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/datalabel/)), il che facilita il posizionamento preciso delle sovrapposizioni.

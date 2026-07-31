@@ -1,46 +1,48 @@
 ---
 title: Zarządzanie listami wypunktowanymi i numerowanymi w prezentacjach w Pythonie
-linktitle: Zarządzaj listami
+linktitle: Zarządzanie listami
 type: docs
 weight: 70
 url: /pl/python-net/manage-lists/
+aliases:
+  - /python-net/zarzadzaj-listami-wypunktowanymi-i-numerowanymi/
 keywords:
-- punktor
-- lista wypunktowana
-- lista numerowana
-- symbol punktora
-- grafika punktora
-- niestandardowy punktor
-- lista wielopoziomowa
-- utwórz punktor
-- dodaj punktor
-- dodaj listę
-- PowerPoint
-- OpenDocument
-- prezentacja
-- Python
-- Aspose.Slides
+  - punkt
+  - lista wypunktowana
+  - lista numerowana
+  - symbol wypunktowania
+  - punkt graficzny
+  - niestandardowy punkt
+  - lista wielopoziomowa
+  - utwórz punkt
+  - dodaj punkt
+  - dodaj listę
+  - PowerPoint
+  - OpenDocument
+  - prezentacja
+  - Python
+  - Aspose.Slides
 description: "Dowiedz się, jak tworzyć i formatować listy wypunktowane, graficzne, wielopoziomowe i numerowane w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Python via .NET."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python via .NET umożliwia tworzenie i formatowanie list wypunktowanych oraz numerowanych w prezentacjach PowerPoint i OpenDocument. Element listy jest akapitem, którego ustawienia punktora są kontrolowane przez formatowanie akapitu.
+Aspose.Slides for Python via .NET umożliwia tworzenie i formatowanie list wypunktowanych oraz numerowanych w prezentacjach PowerPoint i OpenDocument. Element listy to akapit, którego ustawienia wypunktowania kontrolowane są przez format akapitu.
 
-Użyj właściwości [Paragraph.paragraph_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/paragraph_format/) aby uzyskać dostęp do ustawień list na poziomie akapitu. Głównym punktem wejścia jest [ParagraphFormat.bullet](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/bullet/), które zwraca obiekt [BulletFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/). Dzięki temu obiektowi możesz ustawić typ punktora, symbol, obraz, kolor, rozmiar, styl numeracji oraz numer początkowy.
+Użyj właściwości [Paragraph.paragraph_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/paragraph_format/) aby uzyskać dostęp do ustawień list na poziomie akapitu. Głównym punktem wejścia jest [ParagraphFormat.bullet](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/bullet/), które zwraca obiekt [BulletFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/). Dzięki temu obiektowi możesz ustawić typ wypunktowania, symbol, obraz, kolor, rozmiar, styl numeracji oraz numer początkowy.
 
 Ten artykuł pokazuje, jak:
 
 - utworzyć listę wypunktowaną z niestandardowym symbolem
-- utworzyć punktor graficzny
-- utworzyć listę wielopoziomową, ustawiając głębokość akapitu
+- utworzyć punkt graficzny
+- utworzyć listę wielopoziomową ustawiając głębokość akapitu
 - utworzyć listę numerowaną
-- przejrzeć i zmienić formatowanie listy w istniejącej prezentacji
+- zbadać i zmienić formatowanie listy w istniejącej prezentacji
 
-## **Utworzenie listy wypunktowanej**
+## **Utwórz listę wypunktowaną**
 
-Aby utworzyć listę wypunktowaną, dodaj obiekty [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) i ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.SYMBOL](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/). Następnie możesz ustawić [BulletFormat.char](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/color/) oraz [BulletFormat.height](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/height/), aby kontrolować wygląd punktora.
+Aby utworzyć listę wypunktowaną, dodaj obiekty [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) i ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.SYMBOL](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/). Następnie możesz ustawić [BulletFormat.char](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/color/) oraz [BulletFormat.height](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/height/), aby kontrolować wygląd wypunktowania.
 
-Poniższy kod Python demonstruje, jak utworzyć listę wypunktowaną na slajdzie:
+Poniższy kod w języku Python demonstruje tworzenie listy wypunktowanej na slajdzie:
 
 ```py
 import aspose.slides as slides
@@ -76,13 +78,13 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Symbole punktorów](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
-## **Utworzenie listy numerowanej**
+## **Utwórz listę numerowaną**
 
-Używaj list numerowanych, gdy istotna jest kolejność elementów. Ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.NUMBERED](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/). Możesz także wybrać format numeracji za pomocą [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_style/) lub ustawić [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), gdy lista ma zaczynać się od wartości innej niż 1.
+Używaj list numerowanych, gdy kolejność elementów ma znaczenie. Ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.NUMBERED](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/). Możesz także wybrać format numeracji za pomocą [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_style/) lub ustawić [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), gdy lista ma zaczynać się od wartości innej niż 1.
 
-Poniższy kod Python pokazuje, jak utworzyć listę numerowaną na slajdzie:
+Poniższy kod w języku Python pokazuje, jak utworzyć listę numerowaną na slajdzie:
 
 ```py
 import aspose.slides as slides
@@ -114,25 +116,23 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Punktory numerowane](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
-## **Utworzenie punktora graficznego**
+## **Utwórz punkt graficzny**
 
-Aspose.Slides umożliwia zastąpienie zwykłego symbolu punktora obrazem. Punktory graficzne działają najlepiej z prostymi obrazami, które pozostają czytelne przy małym rozmiarze, takimi jak ikony lub małe przezroczyste pliki PNG.
+Aspose.Slides pozwala zastąpić zwykły symbol wypunktowania obrazem. Punkty graficzne działają najlepiej z prostymi obrazami, które pozostają czytelne w małym rozmiarze, takimi jak ikony lub małe pliki PNG z przezroczystością.
 
 {{% alert color="primary" %}}
-Idealnie, jeśli planujesz zastąpić zwykły symbol punktora obrazem, najlepiej wybrać prostą grafikę z przezroczystym tłem. Takie obrazy dobrze sprawdzają się jako niestandardowe symbole punktorów.
-
-Doradzamy, że obraz zostanie skalowany do bardzo małego rozmiaru. Z tego powodu zdecydowanie zalecamy wybranie obrazu, który pozostaje wyraźny i wizualnie skuteczny jako punktor w liście.
+Idealnie, jeśli planujesz zastąpić standardowy symbol wypunktowania obrazem, wybierz prostą grafikę z przezroczystym tłem. Takie obrazy doskonale sprawdzają się jako niestandardowe symbole wypunktowań.
 {{% /alert %}}
 
-Aby utworzyć punktor graficzny, dodaj obraz do [Presentation.images](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/images/) i przypisz zwrócony obiekt obrazu do [BulletFormat.picture](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/picture/). Ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.PICTURE](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/) przed przypisaniem obrazu.
+Aby utworzyć punkt graficzny, dodaj obraz do [Presentation.images](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/images/) i przypisz zwrócony obiekt obrazu do [BulletFormat.picture](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/picture/). Ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.PICTURE](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/) przed przypisaniem obrazu.
 
-Załóżmy, że mamy plik "image.png":
+Załóżmy, że mamy plik „image.png”:
 
-![Obraz dla punktorów](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
-Poniższy kod Python pokazuje, jak utworzyć punktory graficzne na slajdzie:
+Poniższy kod w języku Python pokazuje, jak utworzyć punkty graficzne na slajdzie:
 
 ```py
 import aspose.slides as slides
@@ -168,13 +168,13 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Punktory graficzne](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
-## **Utworzenie listy wielopoziomowej**
+## **Utwórz listę wielopoziomową**
 
-Użyj [ParagraphFormat.depth](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/depth/), aby umieścić elementy listy na różnych poziomach. Poziom 0 to najwyższy poziom, poziom 1 jest zagnieżdżony pod nim, i tak dalej.
+Użyj [ParagraphFormat.depth](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/depth/), aby umieścić elementy listy na różnych poziomach. Poziom 0 to najwyższy poziom, poziom 1 jest zagnieżdżony poniżej niego, itd.
 
-Poniższy kod Python pokazuje, jak utworzyć wielopoziomową listę wypunktowaną:
+Poniższy kod w języku Python pokazuje, jak utworzyć wielopoziomową listę wypunktowaną:
 
 ```py
 import aspose.slides as slides
@@ -211,13 +211,13 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wielopoziomowa lista](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
-## **Zmiana istniejącej listy**
+## **Zmień istniejącą listę**
 
-Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [ParagraphFormat.bullet](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/bullet/). Te same właściwości użyte do tworzenia list mogą być wykorzystane do przeglądania lub modyfikowania list wczytanych z pliku PPT, PPTX lub ODP.
+Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [ParagraphFormat.bullet](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/bullet/). Te same właściwości używane do tworzenia list można wykorzystać do przeglądania lub modyfikowania list załadowanych z pliku PPT, PPTX lub ODP.
 
-Poniższy kod Python zmienia pierwszy akapit w ramce tekstowej, aby używał stylu listy numerowanej:
+Poniższy kod w języku Python zmienia pierwszy akapit w ramce tekstowej, aby używał stylu listy numerowanej:
 
 ```py
 import aspose.slides as slides
@@ -240,12 +240,12 @@ with slides.Presentation("input.pptx") as presentation:
 
 **Czy listy wypunktowane i numerowane mogą być eksportowane do PDF lub obrazów?**
 
-Tak. Aspose.Slides zachowuje formatowanie list, gdy format docelowy obsługuje odpowiednie rozmieszczenie tekstu i funkcje punktorów.
+Tak. Aspose.Slides zachowuje formatowanie list, gdy docelowy format obsługuje odpowiednie rozmieszczenie tekstu i funkcje wypunktowań.
 
 **Czy mogę edytować listy w istniejących prezentacjach?**
 
-Tak. Wczytaj prezentację, uzyskaj dostęp do docelowego akapitu, przeglądaj lub zaktualizuj jego ustawienia [ParagraphFormat.bullet](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/bullet/), i zapisz prezentację.
+Tak. Załaduj prezentację, uzyskaj dostęp do docelowego akapitu, przeglądaj lub aktualizuj jego ustawienia [ParagraphFormat.bullet](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/bullet/), a następnie zapisz prezentację.
 
 **Czy listy mogą zawierać tekst niełaciński?**
 
-Tak. Tekst elementu listy może zawierać znaki Unicode, dzięki czemu możesz tworzyć listy w wielojęzycznych prezentacjach. Upewnij się, że użyte w prezentacji czcionki obsługują potrzebne znaki.
+Tak. Tekst elementu listy może zawierać znaki Unicode, więc możesz tworzyć listy w wielojęzykowych prezentacjach. Upewnij się, że użyte w prezentacji czcionki obsługują potrzebne znaki.

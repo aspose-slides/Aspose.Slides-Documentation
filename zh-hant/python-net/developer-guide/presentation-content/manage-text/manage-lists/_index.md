@@ -4,6 +4,8 @@ linktitle: 管理清單
 type: docs
 weight: 70
 url: /zh-hant/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - 項目符號
 - 項目符號清單
@@ -20,13 +22,13 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "學習如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 與 OpenDocument 簡報中建立與格式化項目符號、圖片、多層級與編號清單。"
+description: "學習如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 簡報中建立與格式化項目符號、圖片、多層級與編號清單。"
 ---
 ## **概述**
 
-Aspose.Slides for Python via .NET 讓您能在 PowerPoint 與 OpenDocument 簡報中建立與格式化項目符號與編號清單。清單項目是一個段落，其項目符號設定透過段落格式進行控制。
+Aspose.Slides for Python via .NET 讓您能在 PowerPoint 和 OpenDocument 簡報中建立並格式化項目符號和編號清單。清單項目是一個段落，其項目符號設定是透過段落格式來控制的。
 
-使用 [Paragraph.paragraph_format](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraph/paragraph_format/) 屬性可存取段落層級的清單設定。主要入口點是 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/bullet/)，它會傳回一個 [BulletFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/) 物件。透過此物件，您可以設定項目符號類型、符號、圖片、顏色、大小、編號樣式以及起始編號。
+使用 [Paragraph.paragraph_format](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraph/paragraph_format/) 屬性存取段落層級的清單設定。主要入口是 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/bullet/)，它會回傳一個 [BulletFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/) 物件。透過此物件，您可以設定項目符號類型、符號、圖片、顏色、大小、編號樣式以及起始編號。
 
 本文說明如何：
 
@@ -38,7 +40,7 @@ Aspose.Slides for Python via .NET 讓您能在 PowerPoint 與 OpenDocument 簡�
 
 ## **建立項目符號清單**
 
-若要建立項目符號清單，將 [Paragraph](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraph/) 物件新增至 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/textframe/) 並將 [BulletFormat.type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/type/) 設為 [BulletType.SYMBOL](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bullettype/)。之後您可以設定 [BulletFormat.char](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/char/)、[BulletFormat.color](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/color/) 與 [BulletFormat.height](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/height/) 以控制項目符號的外觀。
+若要建立項目符號清單，將 [Paragraph](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraph/) 物件加入 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/textframe/)，並將 [BulletFormat.type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/type/) 設為 [BulletType.SYMBOL](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bullettype/)。之後您可以設定 [BulletFormat.char](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/char/)、[BulletFormat.color](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/color/) 與 [BulletFormat.height](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/height/) 以控制項目符號的外觀。
 
 以下 Python 程式碼示範如何在投影片中建立項目符號清單：
 
@@ -80,9 +82,9 @@ with slides.Presentation() as presentation:
 
 ## **建立編號清單**
 
-當項目的順序很重要時，請使用編號清單。將 [BulletFormat.type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/type/) 設為 [BulletType.NUMBERED](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bullettype/)。您也可以使用 [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/numbered_bullet_style/) 選擇編號格式，或在清單需從非 1 的值開始時設定 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/)。
+當項目的順序很重要時，請使用編號清單。將 [BulletFormat.type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/type/) 設為 [BulletType.NUMBERED](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bullettype/)。您也可以使用 [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/numbered_bullet_style/) 來選擇編號格式，或在清單需從非 1 的值開始時設定 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/)。
 
-以下 Python 程式碼顯示如何在投影片中建立編號清單：
+以下 Python 程式碼示範如何在投影片中建立編號清單：
 
 ```py
 import aspose.slides as slides
@@ -118,21 +120,21 @@ with slides.Presentation() as presentation:
 
 ## **建立圖片項目符號**
 
-Aspose.Slides 允許您以影像取代一般的項目符號。圖片項目符號最適合使用簡單且在小尺寸下仍具可讀性的影像，例如圖示或小型透明 PNG 檔案。
+Aspose.Slides 允許您以圖片取代一般的項目符號。圖片項目符號最適合使用簡單且在小尺寸仍能保持可讀性的圖像，例如圖示或小型透明 PNG 檔。
 
 {{% alert color="primary" %}}
-理想情況下，如果您打算以影像取代一般的項目符號，最好選擇具有透明背景的簡易圖形。此類影像非常適合作為自訂項目符號。
+理想情況下，如果您打算以圖像取代一般的項目符號，最好選擇具備透明背景的簡易圖形。此類圖像非常適合作為自訂項目符號。
 
-請記住，影像會被縮小至非常小的尺寸。因此，我們強烈建議選擇在作為清單項目符號時仍保持清晰且視覺有效的影像。
+請記住，圖像會被縮小至非常小的尺寸。因此，我們強烈建議選擇在作為清單項目符號時仍保持清晰且具視覺效果的圖像。
 {{% /alert %}}
 
-若要建立圖片項目符號，請將影像加入 [Presentation.images](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/images/)，並將返回的影像物件指派給 [BulletFormat.picture](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/picture/)。在指派影像之前，將 [BulletFormat.type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/type/) 設為 [BulletType.PICTURE](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bullettype/)。
+若要建立圖片項目符號，將圖像加入 [Presentation.images](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/images/)，並將回傳的圖像物件指派給 [BulletFormat.picture](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/picture/)。在指派圖像之前，先將 [BulletFormat.type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bulletformat/type/) 設為 [BulletType.PICTURE](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/bullettype/)。
 
-假設我們有一個 "image.png"：
+假設我們有一個「image.png」：
 
 ![用於項目符號的圖片](picture_for_bullets.png)
 
-以下 Python 程式碼顯示如何在投影片中建立圖片項目符號：
+以下 Python 程式碼示範如何在投影片中建立圖片項目符號：
 
 ```py
 import aspose.slides as slides
@@ -172,9 +174,9 @@ with slides.Presentation() as presentation:
 
 ## **建立多層級清單**
 
-使用 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/depth/) 可將清單項目放置在不同層級。層級 0 為最上層，層級 1 為其下的子層，以此類推。
+使用 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/depth/) 可將清單項目放置於不同層級。層級 0 為最上層，層級 1 為其下的子層，以此類推。
 
-以下 Python 程式碼顯示如何建立多層級項目符號清單：
+以下 Python 程式碼示範如何建立多層級項目符號清單：
 
 ```py
 import aspose.slides as slides
@@ -213,11 +215,11 @@ with slides.Presentation() as presentation:
 
 ![多層級清單](multilevel_list.png)
 
-## **變更既有清單**
+## **變更現有清單**
 
-若要變更既有簡報中的清單格式，請存取目標段落並更新其 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/bullet/) 設定。建立清單時使用的相同屬性亦可用於檢查或修改從 PPT、PPTX 或 ODP 檔案載入的清單。
+若要變更現有簡報中的清單格式，存取目標段落並更新其 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/bullet/) 設定。建立清單時使用的相同屬性，也可用於檢查或修改從 PPT、PPTX 或 ODP 檔載入的清單。
 
-以下 Python 程式碼將文字框中的第一個段落變更為使用編號清單樣式：
+以下 Python 程式碼將文字框中的第一個段落改為使用編號清單樣式：
 
 ```py
 import aspose.slides as slides
@@ -238,14 +240,14 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **常見問題**
 
-**項目符號與編號清單能匯出為 PDF 或影像嗎？**
+**項目符號和編號清單能匯出為 PDF 或圖像嗎？**
 
-是的。當目標格式支援相應的文字版面配置與項目符號功能時，Aspose.Slides 會保留清單格式。
+是的。當目標格式支援相應的文字版面配置和項目符號功能時，Aspose.Slides 會保留清單格式。
 
-**我可以編輯既有簡報中的清單嗎？**
+**我可以編輯現有簡報中的清單嗎？**
 
-是的。載入簡報，存取目標段落，檢查或更新其 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/bullet/) 設定，然後儲存簡報。
+可以。載入簡報後，存取目標段落，檢查或更新其 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/paragraphformat/bullet/) 設定，然後儲存簡報。
 
 **清單可以包含非拉丁文字嗎？**
 
-是的。清單項目的文字可以包含 Unicode 字元，您可以在多語言簡報中建立清單。請確保簡報中使用的字型支援您所需的字元。
+可以。清單項目的文字支援 Unicode 字元，您可以在多語言簡報中建立清單。請確保簡報中使用的字型支援所需的字元。

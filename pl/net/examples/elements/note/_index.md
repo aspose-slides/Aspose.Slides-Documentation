@@ -3,10 +3,12 @@ title: Notatka
 type: docs
 weight: 240
 url: /pl/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - notatka
 - dodaj slajd z notatkami
-- dostęp do slajdu z notatkami
+- uzyskaj dostęp do slajdu z notatkami
 - usuń slajd z notatkami
 - zaktualizuj tekst notatek
 - przykład kodu
@@ -16,9 +18,9 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Pracuj z notatkami slajdów w Aspose.Slides dla .NET: dodawaj, odczytuj, edytuj i eksportuj notatki prelegenta w formatach PPT, PPTX i ODP, używając przejrzystych przykładów w C#."
+description: "Pracuj z notatkami slajdów w Aspose.Slides dla .NET: dodawaj, odczytuj, edytuj i eksportuj notatki prelegenta w formatach PPT, PPTX i ODP, korzystając z przejrzystych przykładów C#."
 ---
-Ten artykuł demonstruje, jak dodać, odczytać, usunąć i zaktualizować slajdy notatek przy użyciu **Aspose.Slides for .NET**.
+Ten artykuł pokazuje, jak dodawać, odczytywać, usuwać i aktualizować slajdy z notatkami przy użyciu **Aspose.Slides for .NET**.
 
 ## **Dodaj slajd z notatkami**
 

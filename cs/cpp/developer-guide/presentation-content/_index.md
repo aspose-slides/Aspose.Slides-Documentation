@@ -1,5 +1,5 @@
 ---
-title: Spravovat obsah prezentace v C++
+title: Správa obsahu prezentace v C++
 linktitle: Obsah prezentace
 type: docs
 weight: 30
@@ -15,7 +15,7 @@ keywords:
 - graf
 - rovnice
 - tvar
-- inkoust
+- pero
 - SmartArt
 - tabulka
 - PowerPoint
@@ -23,5 +23,5 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Vytvářejte, upravujte a extrahujte obsah prezentací pomocí Aspose.Slides pro C++ — získáte ukázky kódu pro text, obrázky, tvary, grafy; PPT, PPTX a ODP."
+description: "Vytvářejte, upravujte a extrahujte obsah prezentací pomocí Aspose.Slides pro C++ — získejte ukázkové kódy pro text, obrázky, tvary, grafy; PPT, PPTX a ODP."
 ---

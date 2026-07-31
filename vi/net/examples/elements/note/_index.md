@@ -3,6 +3,8 @@ title: Ghi chú
 type: docs
 weight: 240
 url: /vi/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - ghi chú
 - thêm slide ghi chú
@@ -12,11 +14,11 @@ keywords:
 - ví dụ mã
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Làm việc với ghi chú slide trong Aspose.Slides cho .NET: thêm, đọc, chỉnh sửa và xuất ghi chú người nói trong PPT, PPTX và ODP bằng các ví dụ C# rõ ràng."
+description: "Làm việc với ghi chú slide trong Aspose.Slides cho .NET: thêm, đọc, chỉnh sửa và xuất ghi chú thuyết trình trong PPT, PPTX và ODP bằng các ví dụ C# rõ ràng."
 ---
 Bài viết này trình bày cách thêm, đọc, xóa và cập nhật các slide ghi chú bằng **Aspose.Slides for .NET**.
 

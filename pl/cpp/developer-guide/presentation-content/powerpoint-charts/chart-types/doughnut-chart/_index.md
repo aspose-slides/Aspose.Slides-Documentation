@@ -16,13 +16,13 @@ description: "Dowiedz się, jak tworzyć i dostosowywać wykresy pierścieniowe 
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak pracować z wykresem pierścieniowym w Aspose.Slides, dodając wykres do slajdu, ustawiając rozmiar centralnej dziury i zapisując prezentację. Skupia się na metodzie `set_DoughnutHoleSize` i demonstruje podstawowe kroki niezbędne do dostosowania tego typu wykresu w kodzie.
+Ten artykuł pokazuje, jak pracować z wykresem pierścieniowym w Aspose.Slides, dodając wykres do slajdu, ustawiając rozmiar centralnej dziury i zapisując prezentację. Skupia się na metodzie `set_DoughnutHoleSize` i demonstruje podstawowe kroki potrzebne do dostosowania tego typu wykresu w kodzie.
 
-## **Określenie przerwy w centrum wykresu pierścieniowego**
+## **Określ przerwę w centrum wykresu pierścieniowego**
 
 Aby określić rozmiar dziury w wykresie pierścieniowym, wykonaj poniższe kroki:
 
-- Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+- Utwórz klasę [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
 - Dodaj wykres pierścieniowy na slajdzie.
 - Określ rozmiar dziury w wykresie pierścieniowym.
 - Zapisz prezentację na dysku.
@@ -33,14 +33,14 @@ W poniższym przykładzie ustawiliśmy rozmiar dziury w wykresie pierścieniowym
 
 ## **FAQ**
 
-**Czy mogę stworzyć wielopoziomowy wykres pierścieniowy z wieloma pierścieniami?**
+**Czy mogę utworzyć wielopoziomowy wykres pierścieniowy z wieloma pierścieniami?**
 
-Tak. Dodaj wiele serii do jednego wykresu pierścieniowego — każda seria staje się osobnym pierścieniem. Kolejność pierścieni jest określana kolejnością serii w kolekcji.
+Tak. Dodaj wiele serii do jednego wykresu pierścieniowego — każda seria staje się osobnym pierścieniem. Kolejność pierścieni jest określana przez kolejność serii w kolekcji.
 
-**Czy obsługiwany jest „rozsadzany” wykres pierścieniowy (oddzielone kawałki)?**
+**Czy obsługiwany jest „rozsadzony” wykres pierścieniowy (oddzielone segmenty)?**
 
-Tak. Istnieje typ wykresu Exploded Doughnut [chart type](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/charttype/) oraz właściwość explosion na punktach danych; możesz oddzielić poszczególne kawałki.
+Tak. Istnieje typ wykresu Exploded Doughnut [chart type](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/charttype/) oraz właściwość eksplozji na punktach danych; możesz oddzielić poszczególne segmenty.
 
 **Jak mogę uzyskać obraz wykresu pierścieniowego (PNG/SVG) do raportu?**
 
-Wykres jest kształtem; możesz wyrenderować go do [obrazka rastrowego](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shape/getimage/) lub wyeksportować wykres jako [obraz SVG](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shape/writeassvg/).
+Wykres jest kształtem; możesz go wyrenderować do [obrazu rastrowego](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shape/getimage/) lub wyeksportować wykres jako [obraz SVG](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shape/writeassvg/).

@@ -1,9 +1,12 @@
 ---
-title: Geavanceerde tekstextractie uit presentaties in .NET
+title: Geavanceerde teksextractie uit presentaties in .NET
 linktitle: Tekst extraheren
 type: docs
 weight: 90
 url: /nl/net/extract-text-from-presentation/
+aliases:
+  - /net/slides-on-cloud-platforms/extracting-text/overview/
+  - /net/slides-on-cloud-platforms/extracting-text/slides/nl/
 keywords:
 - tekst extraheren
 - tekst extraheren uit dia
@@ -31,13 +34,15 @@ description: "Extraheer snel tekst uit PowerPoint- en OpenDocument-presentaties 
 ---
 ## **Overzicht**
 
-Tekst uit presentaties extraheren is een gewone maar essentiële taak voor ontwikkelaars die met dia-inhoud werken. Of je nu werkt met Microsoft PowerPoint-bestanden in PPT- of PPTX-formaat, of met OpenDocument-presentaties (ODP), toegang krijgen tot en het ophalen van tekstuele gegevens kan cruciaal zijn voor analyse, automatisering, indexering of content-migratie.
+Tekst extraheren uit presentaties is een veelvoorkomende maar essentiële taak voor ontwikkelaars die met dia‑inhoud werken. Of je nu met Microsoft PowerPoint‑bestanden in PPT‑ of PPTX‑formaat werkt, of met OpenDocument‑presentaties (ODP), het benaderen en ophalen van tekstgegevens kan cruciaal zijn voor analyse, automatisering, indexering of content‑migratie.
 
-Dit artikel biedt een uitgebreide gids over hoe je efficiënt tekst kunt extraheren uit verschillende presentatieformaten, waaronder PPT, PPTX en ODP, met behulp van Aspose.Slides voor .NET. Je leert hoe je systematisch door presentatie-elementen kunt itereren om de benodigde tekstinhoud nauwkeurig op te halen.
+Dit artikel biedt een uitgebreide gids over hoe je efficiënt tekst kunt extraheren uit verschillende presentatieformaten, waaronder PPT, PPTX en ODP, met behulp van Aspose.Slides voor .NET. Je leert hoe je systematisch door presentatie‑elementen kunt itereren om nauwkeurig de gewenste tekstinhoud op te halen.
 
-## **Tekst extraheren van een dia**
+## **Tekst extraheren uit een dia**
 
-Aspose.Slides voor .NET levert de [Aspose.Slides.Util](https://reference.aspose.com/slides/nl/net/aspose.slides.util/) namespace, die de [SlideUtil](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/)-klasse bevat. Deze klasse biedt verschillende overladen statische methoden om alle tekst uit een presentatie of dia te extraheren. Om tekst uit een dia in een presentatie te extraheren, gebruik je de [GetAllTextBoxes](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/getalltextboxes/)-methode. Deze methode accepteert een object van het type [IBaseSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/) als parameter. Bij uitvoering scant de methode de volledige dia op tekst en geeft een array van objecten van het type [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) terug, waarbij eventuele tekstopmaak behouden blijft.
+Aspose.Slides voor .NET biedt de [Aspose.Slides.Util](https://reference.aspose.com/slides/nl/net/aspose.slides.util/) namespace, die de [SlideUtil](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/)‑klasse bevat. Deze klasse stelt verschillende overladen statische methoden beschikbaar voor het extraheren van alle tekst uit een presentatie of dia. Om tekst uit een dia in een presentatie te extraheren, gebruik je de [GetAllTextBoxes](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/getalltextboxes/)‑methode. Deze methode accepteert een object van het type [IBaseSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/) als parameter. Bij uitvoering scant de methode de volledige dia op tekst en retourneert een array van objecten van het type [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/), waarbij eventuele opmaak behouden blijft.
+
+De volgende code‑fragment extrahert alle tekst van de eerste dia van de presentatie:
 
 ```cs
 int slideIndex = 0;
@@ -72,15 +77,14 @@ foreach (var textFrame in textFrames)
 }
 ```
 
-
 ## **Tekst extraheren uit een presentatie**
 
-Om tekst uit de volledige presentatie te scannen, gebruik je de statische methode [GetAllTextFrames](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/getalltextframes/) die wordt aangeboden door de [SlideUtil](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/)-klasse. Deze methode accepteert twee parameters:
+Om tekst van de volledige presentatie te scannen, gebruik je de statische methode [GetAllTextFrames](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/getalltextframes/) die wordt aangeboden door de klasse [SlideUtil](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/). Deze accepteert twee parameters:
 
-1. Ten eerste een [IPresentation](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/) object dat een PowerPoint- of OpenDocument-presentatie voorstelt waaruit de tekst wordt geëxtraheerd.
-1. Ten tweede een `Boolean`-waarde die aangeeft of de master-dias moeten worden meegenomen bij het scannen van tekst uit de presentatie.
+1. Ten eerste een [IPresentation](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/) object dat een PowerPoint‑ of OpenDocument‑presentatie vertegenwoordigt waaruit tekst wordt gehaald.
+1. Ten tweede een `Boolean`‑waarde die aangeeft of de master‑dia's moeten worden meegegleden bij het scannen van tekst uit de presentatie.
 
-De methode retourneert een array van objecten van het type [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/), inclusief informatie over tekstopmaak. De code hieronder scant de tekst en opmaakinformatie uit een presentatie, inclusief de masters.
+De methode retourneert een array van objecten van het type [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/), inclusief informatie over tekstopmaak. De code hieronder scant de tekst en opmaakdetails uit een presentatie, inclusief de master‑dia's.
 
 ```cs
 using var presentation = new Presentation("demo.pptx");
@@ -112,9 +116,9 @@ foreach (var textFrame in textFrames)
 }
 ```
 
-## **Gecategoriseerde en snelle tekstextractie**
+## **Gecategoriseerde en snelle teksextractie**
 
-De klasse [PresentationFactory](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/) biedt tevens methoden om alle tekst uit presentaties te extraheren:
+De klasse [PresentationFactory](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/) biedt ook methoden om alle tekst uit presentaties te extraheren:
 
 ``` cs
 IPresentationText GetPresentationText(string file, TextExtractionArrangingMode mode);
@@ -122,19 +126,19 @@ IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode, ILoadOptions options);
 ```
 
-Het enum-argument [TextExtractionArrangingMode](https://reference.aspose.com/slides/nl/net/aspose.slides/textextractionarrangingmode/) geeft de modus aan voor het ordenen van het resultaat van de tekstextractie en kan de volgende waarden aannemen:
-- `Unarranged` - De ruwe tekst zonder rekening te houden met de positie op de dia.
-- `Arranged` - De tekst wordt gerangschikt in dezelfde volgorde als op de dia.
+Het enum‑argument [TextExtractionArrangingMode](https://reference.aspose.com/slides/nl/net/aspose.slides/textextractionarrangingmode/) geeft de modus aan voor het organiseren van het resultaat van de teksextractie en kan op de volgende waarden worden ingesteld:
+- `Unarranged` – De ruwe tekst, los van de positie op de dia.
+- `Arranged` – De tekst wordt gerangschikt in dezelfde volgorde als op de dia.
 
-De `Unarranged`-modus kan worden gebruikt wanneer snelheid cruciaal is; deze is sneller dan de `Arranged`-modus.
+De `Unarranged`‑modus kan worden gebruikt wanneer snelheid cruciaal is; deze is sneller dan de `Arranged`‑modus.
 
 [IPresentationText](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationtext/) vertegenwoordigt de ruwe tekst die uit de presentatie is geëxtraheerd. De eigenschap `SlidesText` retourneert een array van objecten van het type [ISlideText](https://reference.aspose.com/slides/nl/net/aspose.slides/islidetext/). Elk object vertegenwoordigt de tekst op de overeenkomstige dia. Het object van het type [ISlideText](https://reference.aspose.com/slides/nl/net/aspose.slides/islidetext/) heeft de volgende eigenschappen:
 
-- `Text` - De tekst binnen de vormen van de dia.
-- `MasterText` - De tekst binnen de vormen van de master-dias die bij deze dia horen.
-- `LayoutText` - De tekst binnen de vormen van de layout-dias die bij deze dia horen.
-- `NotesText` - De tekst binnen de vormen van de notes-dias die bij deze dia horen.
-- `CommentsText` - De tekst binnen de opmerkingen die bij deze dia horen.
+- `Text` – De tekst binnen de vormen van de dia.
+- `MasterText` – De tekst binnen de vormen van de master‑dia die bij deze dia horen.
+- `LayoutText` – De tekst binnen de vormen van de lay‑out‑dia die bij deze dia horen.
+- `NotesText` – De tekst binnen de vormen van de notities‑dia die bij deze dia horen.
+- `CommentsText` – De tekst binnen de opmerkingen die bij deze dia horen.
 
 ```cs
 var presentationPath = "presentation.ppt";
@@ -151,14 +155,14 @@ Console.WriteLine(firstSlideText.CommentsText);
 
 ## **FAQ**
 
-**Hoe snel verwerkt Aspose.Slides grote presentaties tijdens tekstextractie?**
+**Hoe snel verwerkt Aspose.Slides grote presentaties tijdens teksextractie?**
 
-Aspose.Slides is geoptimaliseerd voor hoge prestaties en kan zelfs [grote presentaties](/slides/nl/net/open-presentation/) verwerken, waardoor het geschikt is voor real-time of bulk-verwerking scenario's.
+Aspose.Slides is geoptimaliseerd voor hoge prestaties en kan zelfs [grote presentaties](/slides/nl/net/open-presentation/) verwerken, waardoor het geschikt is voor realtime‑ of bulkverwerkingsscenario’s.
 
 **Kan Aspose.Slides tekst extraheren uit tabellen en grafieken binnen presentaties?**
 
-Ja. Aspose.Slides kan tekst extraheren uit vele dia-elementen, waaronder tabellen en grafiek-gerelateerde objecten, zodat je de tekstuele inhoud in gangbare presentatiestructuren kunt benaderen en analyseren.
+Ja. Aspose.Slides kan tekst extraheren uit vele dia‑elementen, waaronder tabellen en grafiekgerelateerde objecten, zodat je de tekstinhoud in gangbare presentatiestructuren kunt benaderen en analyseren.
 
-**Heb ik een speciale Aspose.Slides-licentie nodig om tekst uit presentaties te extraheren?**
+**Heb ik een speciale Aspose.Slides‑licentie nodig om tekst uit presentaties te extraheren?**
 
-Je kunt tekst extraheren met de gratis proefversie van Aspose.Slides, hoewel deze [bepaalde beperkingen](/slides/nl/net/licensing/) heeft, zoals het verwerken van slechts een beperkt aantal dia's. Voor onbeperkt gebruik en om grotere presentaties te kunnen verwerken, wordt aangeraden een volledige licentie aan te schaffen.
+Je kunt tekst extraheren met de gratis proefversie van Aspose.Slides, hoewel deze [bepaalde beperkingen](/slides/nl/net/licensing/) heeft, zoals het verwerken van slechts een beperkt aantal dia's. Voor onbeperkt gebruik en om grotere presentaties aan te kunnen, wordt aangeraden een volledige licentie aan te schaffen.

@@ -1,9 +1,11 @@
 ---
-title: 在 PHP 中管理 PowerPoint 文字段落
+title: 管理 PHP 中的 PowerPoint 文字段落
 linktitle: 管理段落
 type: docs
 weight: 40
 url: /zh-hant/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
 keywords:
 - 新增文字
 - 新增段落
@@ -19,51 +21,53 @@ keywords:
 - 匯入 HTML
 - 文字轉 HTML
 - 段落轉 HTML
-- 段落轉影像
-- 文字轉影像
+- 段落轉圖片
+- 文字轉圖片
 - 匯出段落
 - PowerPoint
 - OpenDocument
 - 簡報
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 精通段落格式設定 — 優化 PPT、PPTX 及 ODP 簡報中的對齊、間距與樣式。"
+description: "使用 Aspose.Slides for PHP via Java 完成段落格式的完整控制 — 在 PPT、PPTX 與 ODP 簡報中最佳化對齊、間距與樣式。"
 ---
 ## **簡介**
 
-Aspose.Slides 提供您處理 PowerPoint 文字、段落和文字段所需的所有類別。
+Aspose.Slides 提供了處理 PowerPoint 文字、段落與區塊所需的所有類別。
 
-* Aspose.Slides 提供 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/) 類別，讓您新增代表段落的物件。`TextFame` 物件可以包含一個或多個段落（每個段落透過換行字元建立）。
-* Aspose.Slides 提供 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別，讓您新增代表文字段的物件。`Paragraph` 物件可以包含一個或多個文字段（文字段物件的集合）。
-* Aspose.Slides 提供 [Portion](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/portion/) 類別，讓您新增代表文字及其格式屬性的物件。
+* Aspose.Slides 提供了 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/) 類別，讓您可以新增代表段落的物件。`TextFrame` 物件可以包含一個或多個段落（每個段落透過換行符建立）。
+* Aspose.Slides 提供了 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別，讓您可以新增代表區塊的物件。`Paragraph` 物件可以包含一個或多個區塊（區塊物件的集合）。
+* Aspose.Slides 提供了 [Portion](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/portion/) 類別，讓您可以新增代表文字與其格式屬性的物件。
 
-`Paragraph` 物件能透過其底層的 `Portion` 物件處理具有不同格式屬性的文字。
+`Paragraph` 物件透過底層的 `Portion` 物件，能處理具有不同格式屬性的文字。
 
-## **新增多段落且每段落包含多個文字段**
+## **新增包含多個區塊的多段落**
 
-以下步驟示範如何新增一個包含 3 個段落且每個段落皆包含 3 個文字段的文字框：
+以下步驟示範如何新增一個包含 3 個段落、且每個段落各有 3 個區塊的文字框：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得相關投影片的參照。
-3. 在投影片中新增一個矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 取得與 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 相關聯的 ITextFrame。
-5. 建立兩個 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 物件，並將它們加入 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/) 的段落集合中。
-6. 為每個新 `Paragraph` 建立三個 [Portion](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/portion/) 物件（預設段落建立兩個 Portion 物件），並將每個 `Portion` 物件加入各自的 `Paragraph` 的文字段集合中。
-7. 為每個文字段設定文字。
-8. 使用 `Portion` 物件提供的格式屬性，對每個文字段套用您偏好的格式設定。
+2. 透過索引取得目標投影片的參考。
+3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+4. 取得與該 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 關聯的 ITextFrame。
+5. 建立兩個 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 物件，並將它們加入 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/) 的段落集合。
+6. 為每個新 `Paragraph`（預設段落則為兩個）建立三個 [Portion](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/portion/) 物件，並將每個 `Portion` 加入各自 `Paragraph` 的區塊集合。
+7. 為每個區塊設定文字。
+8. 使用 `Portion` 物件所提供的格式屬性，套用您偏好的格式設定。
 9. 儲存已修改的簡報。
 
+以下 PHP 程式碼實作了上述新增段落與區塊的步驟：
+
 ```php
-# 實例化代表 PPTX 檔案的 Presentation 類別
+# 實例化一個代表 PPTX 檔案的 Presentation 類別
 $pres = new Presentation();
 try {
     # 存取第一張投影片
     $slide = $pres->getSlides()->get_Item(0);
     # 新增一個矩形類型的 AutoShape
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # 存取 AutoShape 的 TextFrame
+    # 取得 AutoShape 的 TextFrame
     $tf = $ashp->getTextFrame();
-    # 建立具有不同文字格式的段落與文字段
+    # 建立具不同文字格式的段落與區塊
     $para0 = $tf->getParagraphs()->get_Item(0);
     $port01 = new Portion();
     $port02 = new Portion();
@@ -111,34 +115,37 @@ try {
 }
 ```
 
+
 ## **管理段落項目符號**
 
-項目符號清單可協助您快速、有效率地組織與呈現資訊。使用項目符號的段落更易於閱讀與理解。
+項目符號清單可讓您快速且有效率地組織與呈現資訊。使用項目符號的段落始終更易閱讀與理解。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得相關投影片的參照。
-3. 在選取的投影片中加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 取得自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
+2. 透過索引取得目標投影片的參考。
+3. 在選取的投影片上加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+4. 取得該 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
 5. 移除 `TextFrame` 中的預設段落。
 6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例。
 7. 將段落的項目符號 `Type` 設為 `Symbol`，並設定項目符號字元。
 8. 設定段落的 `Text`。
-9. 設定段落的項目符號 `Indent`。
-10. 為項目符號設定顏色。
+9. 設定項目符號的 `Indent`。
+10. 設定項目符號的顏色。
 11. 設定項目符號的高度。
-12. 將新段落加入 `TextFrame` 的段落集合中。
-13. 新增第二個段落，並重複步驟 7 至 13 的流程。
+12. 將新段落加入 `TextFrame` 的段落集合。
+13. 新增第二個段落，並重複第 7~12 步驟。
 14. 儲存簡報。
 
+以下 PHP 程式碼示範如何新增段落項目符號：
+
 ```php
-# 實例化代表 PPTX 檔案的 Presentation 類別
+# 實例化一個代表 PPTX 檔案的 Presentation 類別
 $pres = new Presentation();
 try {
-    # 存取第一張投影片
+    # 取得第一張投影片
     $slide = $pres->getSlides()->get_Item(0);
-    # 新增並存取 AutoShape
+    # 新增並取得 AutoShape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # 存取 AutoShape 的文字框
+    # 取得 AutoShape 的文字框
     $txtFrm = $aShp->getTextFrame();
     # 移除預設段落
     $txtFrm->getParagraphs()->removeAt(0);
@@ -160,12 +167,12 @@ try {
     $para->getParagraphFormat()->getBullet()->setHeight(100);
     # 將段落加入文字框
     $txtFrm->getParagraphs()->add($para);
-    # 建立第二段落
+    # 建立第二個段落
     $para2 = new Paragraph();
     # 設定段落的項目符號類型與樣式
     $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
-    # 新增段落文字
+    # 設定段落文字
     $para2->setText("This is numbered bullet");
     # 設定項目符號縮排
     $para2->getParagraphFormat()->setIndent(25);
@@ -186,33 +193,36 @@ try {
 }
 ```
 
+
 ## **管理圖片項目符號**
 
-項目符號清單可協助您快速、有效率地組織與呈現資訊。圖片項目符號的段落易於閱讀與理解。
+項目符號清單可讓您快速且有效率地組織與呈現資訊。使用圖片段落可讓內容更易閱讀與理解。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得相關投影片的參照。
-3. 在投影片中加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 取得自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
+2. 透過索引取得目標投影片的參考。
+3. 在投影片上加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+4. 取得該 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
 5. 移除 `TextFrame` 中的預設段落。
 6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例。
-7. 在 [PPImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/) 中載入影像。
-8. 將項目符號類型設定為 [Picture](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bullettype/#Picture)，並設定影像。
+7. 以 [PPImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/) 載入圖片。
+8. 將項目符號類型設為 [Picture](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bullettype/#Picture)，並設定圖片。
 9. 設定段落的 `Text`。
-10. 設定段落的項目符號 `Indent`。
-11. 為項目符號設定顏色。
+10. 設定項目符號的 `Indent`。
+11. 設定項目符號的顏色。
 12. 設定項目符號的高度。
-13. 將新段落加入 `TextFrame` 的段落集合中。
-14. 新增第二個段落，並依照前述步驟重複操作。
+13. 將新段落加入 `TextFrame` 的段落集合。
+14. 新增第二個段落，依照前述步驟重複操作。
 15. 儲存已修改的簡報。
 
+以下 PHP 程式碼示範如何新增與管理圖片項目符號：
+
 ```php
-# 實例化代表 PPTX 檔案的 Presentation 類別
+# 實例化一個代表 PPTX 檔案的 Presentation 類別
 $presentation = new Presentation();
 try {
-    # 存取第一張投影片
+    # 取得第一張投影片
     $slide = $presentation->getSlides()->get_Item(0);
-    # 實例化項目符號用的影像
+    # 實例化用於項目符號的圖片
     $picture;
     $image = Images->fromFile("bullets.png");
     try {
@@ -222,16 +232,16 @@ try {
             $image->dispose();
         }
     }
-    # 新增並存取 Autoshape
+    # 新增並取得 Autoshape
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # 存取 autoshape 的文字框
+    # 取得 autoshape 文字框
     $textFrame = $autoShape->getTextFrame();
     # 移除預設段落
     $textFrame->getParagraphs()->removeAt(0);
-    # 建立新段落
+    # 建立新的段落
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
-    # 設定段落的項目符號樣式與影像
+    # 設定段落的項目符號樣式與圖片
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
     $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
     # 設定項目符號高度
@@ -250,31 +260,34 @@ try {
 }
 ```
 
+
 ## **管理多層級項目符號**
 
-項目符號清單可協助您快速、有效率地組織與呈現資訊。多層級項目符號易於閱讀與理解。
+項目符號清單可讓您快速且有效率地組織與呈現資訊。多層級項目符號更易閱讀與理解。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得相關投影片的參照。
-3. 在新投影片中加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 取得自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
+2. 透過索引取得目標投影片的參考。
+3. 在新投影片上加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+4. 取得該 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
 5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例，並將深度設為 0。
-7. 使用 `Paragraph` 類別建立第二個段落實例，並將深度設為 1。
-8. 使用 `Paragraph` 類別建立第三個段落實例，並將深度設為 2。
-9. 使用 `Paragraph` 類別建立第四個段落實例，並將深度設為 3。
-10. 將新段落加入 `TextFrame` 的段落集合中。
+6. 透過 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例，並將深度設定為 0。
+7. 透過 `Paragraph` 類別建立第二個段落實例，將深度設定為 1。
+8. 透過 `Paragraph` 類別建立第三個段落實例，將深度設定為 2。
+9. 透過 `Paragraph` 類別建立第四個段落實例，將深度設定為 3。
+10. 將新段落加入 `TextFrame` 的段落集合。
 11. 儲存已修改的簡報。
 
+以下 PHP 程式碼示範如何新增與管理多層級項目符號：
+
 ```php
-# 實例化代表 PPTX 檔案的 Presentation 類別
+# 實例化一個代表 PPTX 檔案的 Presentation 類別
 $pres = new Presentation();
 try {
-    # 存取第一張投影片
+    # 取得第一張投影片
     $slide = $pres->getSlides()->get_Item(0);
-    # 新增並存取 Autoshape
+    # 新增並取得 Autoshape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # 存取所建立 Autoshape 的文字框
+    # 取得已建立 AutoShape 的文字框
     $text = $aShp->addTextFrame("");
     # 清除預設段落
     $text->getParagraphs()->clear();
@@ -328,28 +341,31 @@ try {
 }
 ```
 
+
 ## **管理自訂編號清單的段落**
 
-[BulletFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bulletformat/) 類別提供 [setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 方法及其他功能，讓您管理具有自訂編號或格式的段落。
+[BulletFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bulletformat/) 類別提供了 [setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 等方法，可讓您管理自訂編號或格式的段落。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-2. 取得包含該段落的投影片。
-3. 在投影片中加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 取得自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
+2. 取得包含段落的投影片。
+3. 在投影片上加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+4. 取得該 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
 5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例，並將 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 設為 2。
-7. 使用 `Paragraph` 類別建立第二個段落實例，並將 `NumberedBulletStartWith` 設為 3。
-8. 使用 `Paragraph` 類別建立第三個段落實例，並將 `NumberedBulletStartWith` 設為 7。
-9. 將新段落加入 `TextFrame` 的段落集合中。
+6. 透過 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例，並將 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 設為 2。
+7. 透過 `Paragraph` 類別建立第二個段落實例，將 `NumberedBulletStartWith` 設為 3。
+8. 透過 `Paragraph` 類別建立第三個段落實例，將 `NumberedBulletStartWith` 設為 7。
+9. 將新段落加入 `TextFrame` 的段落集合。
 10. 儲存已修改的簡報。
+
+以下 PHP 程式碼示範如何新增與管理具有自訂編號或格式的段落：
 
 ```php
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # 存取所建立 autoshape 的文字框
+    # 取得已建立 AutoShape 的文字框
     $textFrame = $shape->getTextFrame();
-    # 移除預設的現有段落
+    # 移除預設已存在的段落
     $textFrame->getParagraphs()->removeAt(0);
     # 第一個清單
     $paragraph1 = new Paragraph();
@@ -378,21 +394,23 @@ try {
 }
 ```
 
-## **設定段落首行縮排**
+## **為段落設定首行縮排**
 
-使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/) 方法可控制段落的首行縮排。此方法僅移動第一行相對於段落左邊緣的距離。正值會將首行向右移動，而其餘行則保持與段落本體對齊。
+使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/) 方法可控制段落的首行縮排。此方法僅移動第一行相對於段落左邊界的距離。正值會將第一行向右移動，而其餘行則保持與段落本體對齊。
 
-當需要移動整段時，使用 [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setmarginleft/)；若僅需移動首行，使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/)。
+當需要整段移動時，請使用 [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setmarginleft/)；若只需移動第一行，則使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/)。
 
-以下範例建立多個段落，並套用不同的縮排值，以示範首行縮排如何影響段落排版。
+以下範例建立多個段落，並套用不同的縮排值，以示範首行縮排對段落版面的影響。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
 2. 取得目標投影片。
-3. 在投影片中加入一個矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 在形狀中新增空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)，並移除預設段落。
+3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+4. 為圖形加入空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)，並移除預設段落。
 5. 建立多個段落，並為它們設定不同的 [Indent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/) 值。
 6. 將段落加入文字框。
 7. 儲存已修改的簡報。
+
+以下程式碼示範如何設定段落縮排：
 
 ```php
 $presentation = new Presentation();
@@ -443,22 +461,24 @@ try {
 
 ![段落的首行縮排](first_line_indent.png)
 
-## **設定段落懸掛縮排**
+## **為段落設定懸掛縮排**
 
-懸掛縮排是一種段落排版方式，第一行相對於後續行向左開始。在 Aspose.Slides 中，您可使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/) 方法產生此效果。將縮排設為負值，即可使第一行相對於段落本體向左移動。
+懸掛縮排是一種段落版面配置，第一行位於其餘行的左側。在 Aspose.Slides 中，您可透過 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/) 方法實現此效果。將縮排設定為負值，即可使第一行相對於段落本體向左移動。
 
-實務上，[ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setmarginleft/) 定義段落本體的左側位置，而 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/) 定義第一行相對於該邊距的位置。要建立懸掛縮排，請將 `MarginLeft` 設為正值，`Indent` 設為負值。
+實務上，[ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setmarginleft/) 定義段落本體的左側位置，而 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/) 定義第一行相對於該左側的位移。若要產生懸掛縮排，請將 `MarginLeft` 設為正值，`Indent` 設為負值。
 
-此格式在參考文獻、引用、詞彙表條目以及其他需要將換行行對齊於段落本體而非首行第一個字元的段落中十分有用。
+此格式在書目、參考文獻、詞彙表等需要換行後對齊於段落本體而非首字的情況下特別有用。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
 2. 取得目標投影片。
-3. 在投影片中加入一個矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 在形狀中新增空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)，並移除預設段落。
-5. 建立段落，並為每個段落設定正值的 [MarginLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setmarginleft/)。
+3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+4. 為圖形加入空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)，並移除預設段落。
+5. 為每個段落設定正值的 [MarginLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setmarginleft/)。
 6. 設定負值的 [Indent](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setindent/)，以產生懸掛縮排效果。
 7. 將段落加入文字框。
 8. 儲存已修改的簡報。
+
+以下程式碼示範如何為段落設定懸掛縮排：
 
 ```php
 $presentation = new Presentation();
@@ -501,15 +521,17 @@ try {
 
 ![段落的懸掛縮排](hanging_indent.png)
 
-## **管理段落結尾執行屬性**
+## **管理段落結束屬性**
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過其位置取得包含該段落的投影片參照。
-3. 在投影片中加入一個矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
-4. 在矩形中加入一個包含兩個段落的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
-5. 為段落設定字型高度與字型類型。
-6. 設定段落的 End 屬性。
-7. 將已修改的簡報寫入為 PPTX 檔案。
+1. 透過位置取得包含段落的投影片參考。
+1. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+1. 為矩形加入含兩個段落的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
+1. 設定段落的字型高度與字型類型。
+1. 設定段落的結束屬性。
+1. 將已修改的簡報寫入為 PPTX 檔案。
+
+以下 PHP 程式碼示範如何為段落設定結束屬性：
 
 ```php
 $pres = new Presentation();
@@ -533,19 +555,22 @@ try {
 }
 ```
 
+
 ## **將 HTML 文字匯入段落**
 
-Aspose.Slides 提供加強的支援，可將 HTML 文字匯入段落。
+Aspose.Slides 加強了將 HTML 文字匯入段落的支援。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得相關投影片的參照。
-3. 在投影片中加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
+2. 透過索引取得目標投影片的參考。
+3. 在投影片上加入 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)。
 4. 加入並取得 `AutoShape` 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
 5. 移除 `TextFrame` 中的預設段落。
-6. 使用 TextReader 讀取來源 HTML 檔案。
-7. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例。
-8. 將從 TextReader 讀取的 HTML 檔內容加入 TextFrame 的 [ParagraphCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphcollection/) 中。
+6. 在 TextReader 中讀取來源 HTML 檔案。
+7. 透過 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別建立第一個段落實例。
+8. 將讀取的 TextReader 內容加入 TextFrame 的 [ParagraphCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphcollection/)。
 9. 儲存已修改的簡報。
+
+以下 PHP 程式碼實作了匯入 HTML 文字至段落的步驟：
 
 ```php
 # 建立空的簡報實例
@@ -556,13 +581,13 @@ try {
     # 新增 AutoShape 以容納 HTML 內容
     $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
     $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # 為形狀新增文字框
+    # 為圖形新增文字框
     $ashape->addTextFrame("");
-    # 清除已新增文字框中的所有段落
+    # 清除已加入文字框中的所有段落
     $ashape->getTextFrame()->getParagraphs()->clear();
     # 使用 StreamReader 載入 HTML 檔案
     $tr = new StreamReader("file.html");
-    # 將 HTML StreamReader 的文字加入文字框
+    # 在文字框中加入來自 HTML StreamReader 的文字
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
     # 儲存簡報
     $pres->save("output_out.pptx", SaveFormat::Pptx);
@@ -573,16 +598,19 @@ try {
 }
 ```
 
+
 ## **將段落文字匯出為 HTML**
 
-Aspose.Slides 提供加強的支援，可將文字（位於段落中）匯出為 HTML。
+Aspose.Slides 加強了將段落文字匯出為 HTML 的支援。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例，並載入所需的簡報。
-2. 透過索引取得相關投影片的參照。
-3. 取得包含欲匯出為 HTML 文字的形狀。
-4. 取得該形狀的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
-5. 建立 `StreamWriter` 實例，並新增新的 HTML 檔案。
-6. 提供起始索引給 StreamWriter，並匯出您選擇的段落。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例，並載入目標簡報。
+2. 透過索引取得目標投影片的參考。
+3. 取得將要匯出為 HTML 的文字所在圖形。
+4. 取得該圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。
+5. 建立 `StreamWriter` 實例，並新增 HTML 檔案。
+6. 為 StreamWriter 提供起始索引，匯出您偏好的段落。
+
+以下 PHP 程式碼示範如何將 PowerPoint 段落文字匯出為 HTML：
 
 ```php
 # 載入簡報檔案
@@ -590,15 +618,15 @@ $pres = new Presentation("ExportingHTMLText.pptx");
 try {
     # 存取簡報的預設第一張投影片
     $slide = $pres->getSlides()->get_Item(0);
-    # 所需索引
+    # 目標索引
     $index = 0;
-    # 存取已新增的形狀
+    # 取得已加入的圖形
     $ashape = $slide->getShapes()->get_Item($index);
     # 建立輸出 HTML 檔案
     $os = new Java("java.io.FileOutputStream", "output.html");
     $writer = new OutputStreamWriter($os, "UTF-8");
-    # 以 HTML 形式擷取第一段落
-    # 透過提供段落起始索引與要複製的段落總數，將段落資料寫入 HTML
+    # 擷取第一段落為 HTML
+    # 以提供段落起始索引與要複製的段落總數方式，將段落資料寫入 HTML
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
     $writer->close();
 } catch (JavaException $e) {
@@ -609,17 +637,17 @@ try {
 }
 ```
 
-## **將段落儲存為影像**
+## **將段落另存為圖片**
 
-在本節中，我們將探討兩個範例，示範如何將由 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別表示的文字段落儲存為影像。兩個範例皆包括使用 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/) 類別的 `getImage` 方法取得包含段落的形狀影像、計算段落在形狀中的邊界，並將其匯出為點陣圖影像。這些方法允許您從 PowerPoint 簡報中擷取特定文字部份，並另存為獨立影像，對於各種後續使用情境相當有用。
+本節將展示兩個範例，說明如何將由 [Paragraph](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/) 類別表示的文字段落另存為圖片。兩個範例皆包含以下步驟：使用 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/) 類別的 `getImage` 方法取得包含段落的圖形影像、計算段落在圖形中的邊界，並將其匯出為位圖圖像。這些方法可讓您從 PowerPoint 簡報中擷取特定文字區段，並另存為單獨圖片，適用於各種後續使用情境。
 
-假設我們有一個名為 sample.pptx 的簡報檔，包含一張投影片，第一個形狀是一個包含三個段落的文字方塊。
+假設我們有一個名為 sample.pptx 的簡報檔，內含一張投影片，第一個圖形是一個包含三個段落的文字方塊。
 
 ![包含三個段落的文字方塊](paragraph_to_image_input.png)
 
 **範例 1**
 
-在此範例中，我們將第二段落取得為影像。為此，我們先從簡報的第一張投影片中擷取形狀的影像，接著計算該形狀文字框中第二段落的邊界。然後將段落重新繪製到新的點陣圖影像上，並以 PNG 格式儲存。此方法在您需要將特定段落儲存為獨立影像，同時保留文字的精確尺寸與格式時特別有用。
+本範例取得第二個段落的影像。為此，我們先從簡報的第一張投影片中取得圖形影像，然後計算第二個段落在圖形文字框中的邊界。接著將段落重新繪製至新的位圖圖像，並以 PNG 格式儲存。此方法特別適合在需要將特定段落另存為獨立圖片，同時保留文字的精確尺寸與格式時使用。
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -628,13 +656,13 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // 將形狀在記憶體中儲存為位圖。
+    // 將圖形儲存至記憶體作為位圖。
     $shapeImage = $firstShape->getImage();
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // 從記憶體建立形狀位圖。
+    // 從記憶體建立圖形位圖。
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
@@ -648,7 +676,7 @@ try {
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // 裁切形狀位圖以僅取得段落位圖。
+    // 裁剪圖形位圖以僅取得段落位圖。
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -659,11 +687,13 @@ try {
 }
 ```
 
+結果：
+
 ![段落影像](paragraph_to_image_output.png)
 
 **範例 2**
 
-在此範例中，我們在先前的方法上加入縮放比例以產生段落影像。形狀從簡報中擷取，且以 `2` 的縮放比例儲存為影像。這可在匯出段落時提供更高解析度的輸出。接著會在考慮縮放比例的情況下計算段落邊界。當需要更高細節的影像時，例如用於高品質印刷品，此縮放功能特別有用。
+在本範例中，我們在先前的方法基礎上加入了縮放比例。從簡報中取得圖形並以 `2` 的縮放比例儲存為影像，從而在匯出段落時得到更高解析度。計算段落邊界時會考慮縮放比例。當需要更高畫質的圖像（例如用於高品質列印材料）時，縮放非常有用。
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -675,13 +705,13 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // 將形狀以縮放後的方式在記憶體中儲存為位圖。
+    // 將圖形以縮放比例儲存至記憶體作為位圖。
     $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // 從記憶體建立形狀位圖。
+    // 從記憶體建立圖形位圖。
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
@@ -701,7 +731,7 @@ try {
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // 裁切形狀位圖以僅取得段落位圖。
+    // 裁剪圖形位圖以僅取得段落位圖。
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -712,20 +742,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **常見問題集**
 
 **我可以完全停用文字框內的自動換行嗎？**
 
-是的。使用文字框的換行設定（[setWrapText](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/setwraptext/)）將換行關閉，則行不會在框的邊緣斷行。
+可以。使用文字框的換行設定（[setWrapText](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/setwraptext/)）將換行關閉，即可避免行在框邊緣換行。
 
 **如何取得特定段落在投影片上的精確邊界？**
 
-您可以取得段落（甚至單一文字段）的邊界矩形，以了解其在投影片上的精確位置與尺寸。
+您可以取得段落（甚至單一區塊）的邊界矩形，以得知其在投影片上的精確位置與尺寸。
 
-**段落對齊（左/右/置中/兩端對齊）是在哪裡控制的？**
+**段落的對齊方式（左/右/置中/兩端對齊）在何處控制？**
 
-[Alignment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setalignment/) 是在 [ParagraphFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/) 中的段落層級設定；它會套用於整個段落，而不受個別文字段格式的影響。
+[Alignment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/setalignment/) 是在 [ParagraphFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/) 中的段落層級設定；它會套用於整個段落，不受單一區塊格式影響。
 
-**我可以只為段落的一部分（例如單個字詞）設定拼寫檢查語言嗎？**
+**我可以為段落中的單一詞彙設定拼寫檢查語言嗎？**
 
-可以。語言是在文字段層級設定的（[PortionFormat::setLanguageId](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setLanguageId)），因此同一段落中可以同時存在多種語言。
+可以。語言設定在區塊層級（[PortionFormat::setLanguageId](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setLanguageId)），因此同一段落內可同時存在多種語言。

@@ -6,21 +6,21 @@ weight: 90
 url: /zh-hant/cpp/export-chart/
 keywords:
 - 圖表
-- 圖表轉為影像
-- 圖表作為影像
-- 擷取圖表影像
+- 圖表轉圖像
+- 圖表作為圖像
+- 擷取圖表圖像
 - PowerPoint
 - 簡報
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for C++ 匯出簡報圖表，支援 PPT 與 PPTX 格式，並將報告流程自動化整合至任何工作流程。"
+description: "了解如何使用 Aspose.Slides for C++ 匯出簡報圖表，支援 PPT 與 PPTX 格式，並將報告流程簡化至任何工作流程。"
 ---
-## **概覽**
+## **概觀**
 
-Aspose.Slides 允許您將簡報中的圖表匯出為影像。本文示範如何取得圖表的影像並將其儲存，這在需要在 PowerPoint 簡報之外重複使用圖表視覺時非常有用。
+Aspose.Slides 允許您將投影片中的圖表匯出為影像。本文示範如何從圖表取得影像並儲存，它在您需要在 PowerPoint 投影片之外重複使用圖表視覺時非常有用。
 
 ## **取得圖表影像**
-Aspose.Slides for C++ 提供擷取特定圖表影像的支援。以下示範範例說明如何操作。
+Aspose.Slides for C++ 提供支援，以擷取特定圖表的影像。以下提供範例程式碼。
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"test.pptx");
@@ -37,22 +37,22 @@ presentation->Dispose();
 
 ## **常見問題**
 
-**我可以將圖表匯出為向量 (SVG) 而不是點陣圖嗎？**
+**我可以將圖表匯出為向量圖（SVG）而非點陣圖嗎？**
 
-可以。圖表是一個形狀，其內容可以使用[形狀轉 SVG 儲存方法](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/shape/writeassvg/)儲存為 SVG。
+是的。圖表是一個形狀，其內容可以使用[shape-to-SVG 保存方法](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/shape/writeassvg/)儲存為 SVG。
 
-**如何在匯出圖表時設定精確的像素尺寸？**
+**如何設定匯出圖表的精確像素大小？**
 
-使用允許指定尺寸或比例的影像渲染覆載函式—函式庫支援以給定的尺寸/比例渲染物件。
+使用可指定大小或縮放比例的影像渲染覆載方法——函式庫支援以給定的尺寸/縮放比例呈現物件。
 
-**匯出後標籤與圖例的字型顯示異常，我該怎麼辦？**
+**匯出後標籤和圖例的字型顯示不正確，我該怎麼辦？**
 
-[載入所需字型](/slides/zh-hant/cpp/custom-font/)，並透過[FontsLoader](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsloader/)載入，這樣圖表渲染時即可保留字型度量與文字外觀。
+可透過[FontsLoader](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsloader/) [載入必要的字型](/slides/zh-hant/cpp/custom-font/)，以確保圖表渲染保留字型度量與文字外觀。
 
-**匯出是否遵守 PowerPoint 主題、樣式與效果？**
+**匯出是否遵循 PowerPoint 主題、樣式與效果？**
 
-會。Aspose.Slides 的渲染器遵循簡報的格式設定（主題、樣式、填色、效果），因此圖表的外觀會被保留。
+是的。Aspose.Slides 的渲染器遵循簡報的格式設定（主題、樣式、填色、效果），因此圖表的外觀得以保留。
 
-**我可以在哪裡找到圖表影像以外的其他渲染/匯出功能？**
+**我在哪裡可以找到圖表影像之外的可用渲染/匯出功能？**
 
-請參閱[API](/slides/zh-hant/cpp/convert-powerpoint/)與[文件](/slides/zh-hant/cpp/convert-powerpoint/)的匯出章節，了解可輸出的目標（[PDF](/slides/zh-hant/cpp/convert-powerpoint-to-pdf/)、[SVG](/slides/zh-hant/cpp/render-a-slide-as-an-svg-image/)、[XPS](/slides/zh-hant/cpp/convert-powerpoint-to-xps/)、[HTML](/slides/zh-hant/cpp/convert-powerpoint-to-html/)等）以及相關的渲染選項。
+請參閱 [API](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/)/[文件](/slides/zh-hant/cpp/convert-powerpoint/) 的匯出章節，以了解可用的輸出目標（[PDF](/slides/zh-hant/cpp/convert-powerpoint-to-pdf/)、[SVG](/slides/zh-hant/cpp/render-a-slide-as-an-svg-image/)、[XPS](/slides/zh-hant/cpp/convert-powerpoint-to-xps/)、[HTML](/slides/zh-hant/cpp/convert-powerpoint-to-html/)...）以及相關的渲染選項。

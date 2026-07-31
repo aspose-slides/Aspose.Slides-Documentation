@@ -3,26 +3,28 @@ title: Note
 type: docs
 weight: 240
 url: /fr/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
-- note
-- ajouter diapositive de notes
-- accéder à une diapositive de notes
-- supprimer diapositive de notes
-- mettre à jour texte des notes
-- exemple de code
-- PowerPoint
-- OpenDocument
-- présentation
-- .NET
-- C#
-- Aspose.Slides
-description: "Travailler avec les notes de diapositive dans Aspose.Slides for .NET : ajouter, lire, modifier et exporter les notes du présentateur au format PPT, PPTX et ODP à l’aide d’exemples clairs en C#."
+  - note
+  - ajouter diapositive de notes
+  - accéder diapositive de notes
+  - supprimer diapositive de notes
+  - mettre à jour texte des notes
+  - exemple de code
+  - PowerPoint
+  - OpenDocument
+  - présentation
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Travailler avec les notes de diapositive dans Aspose.Slides for .NET : ajouter, lire, modifier et exporter les notes du présentateur au format PPT, PPTX et ODP à l’aide d’exemples C# clairs."
 ---
 Cet article montre comment ajouter, lire, supprimer et mettre à jour des diapositives de notes à l’aide de **Aspose.Slides for .NET**.
 
 ## **Ajouter une diapositive de notes**
 
-Créez une diapositive de notes et assignez-lui du texte.
+Créer une diapositive de notes et lui assigner du texte.
 
 ```csharp
 static void AddNote()
@@ -37,7 +39,7 @@ static void AddNote()
 
 ## **Accéder à une diapositive de notes**
 
-Lisez le texte d'une diapositive de notes existante.
+Lire le texte d’une diapositive de notes existante.
 
 ```csharp
 static void AccessNote()
@@ -53,7 +55,7 @@ static void AccessNote()
 
 ## **Supprimer une diapositive de notes**
 
-Supprimez la diapositive de notes associée à une diapositive.
+Supprimer la diapositive de notes associée à une diapositive.
 
 ```csharp
 static void RemoveNote()
@@ -69,7 +71,7 @@ static void RemoveNote()
 
 ## **Mettre à jour le texte des notes**
 
-Modifiez le texte d'une diapositive de notes.
+Modifier le texte d’une diapositive de notes.
 
 ```csharp
 static void UpdateNoteText()

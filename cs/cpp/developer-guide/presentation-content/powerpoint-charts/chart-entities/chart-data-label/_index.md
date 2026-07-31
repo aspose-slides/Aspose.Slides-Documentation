@@ -1,5 +1,5 @@
 ---
-title: Spravujte popisky dat v grafech v prezentacích pomocí С++
+title: Správa popisků dat v grafech v prezentacích pomocí C++
 linktitle: Popisek dat
 type: docs
 url: /cs/cpp/chart-data-label/
@@ -12,23 +12,23 @@ keywords:
 - umístění popisku
 - PowerPoint
 - prezentace
-- С++
+- C++
 - Aspose.Slides
-description: "Naučte se přidávat a formátovat popisky dat v grafech v prezentacích PowerPoint pomocí Aspose.Slides pro С++ pro poutavější snímky."
+description: "Naučte se přidávat a formátovat popisky dat v grafech v prezentacích PowerPoint pomocí Aspose.Slides pro C++ pro poutavější snímky."
 ---
 ## **Úvod**
 
-Popisky dat v grafu zobrazují podrobnosti o sériích dat grafu nebo jednotlivých bodech. Umožňují čtenářům rychle rozpoznat sérii a také usnadňují pochopení grafu.
+Popisky dat v grafu zobrazují podrobnosti o sérii dat grafu nebo o jednotlivých datových bodech. Umožňují čtenářům rychle rozpoznat datové série a také usnadňují pochopení grafů.
 
-## **Nastavení přesnosti dat v popiscích grafu**
+## **Nastavení přesnosti dat v popiscích dat v grafu**
 
-Tento kód v C++ vám ukazuje, jak nastavit přesnost dat v popisku grafu:
+Tento C++ kód ukazuje, jak nastavit přesnost dat v popisku dat v grafu:
 
 ```c++
 	// Cesta k adresáři dokumentů
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
+	// Vytvoří instanci třídy Presentation, která reprezentuje soubor PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Získá první snímek
@@ -37,7 +37,7 @@ Tento kód v C++ vám ukazuje, jak nastavit přesnost dat v popisku grafu:
 	// Přidá graf s výchozími daty
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Nastaví formát čísla řady
+	// Nastaví formát čísel řady
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
@@ -47,7 +47,7 @@ Tento kód v C++ vám ukazuje, jak nastavit přesnost dat v popisku grafu:
 
 ## **Zobrazení procent jako popisků**
 
-Aspose.Slides pro C++ umožňuje nastavit procentuální popisky v zobrazených grafech. Tento kód v C++ demonstruje tuto operaci:
+Aspose.Slides pro C++ umožňuje nastavit procentuální popisky v zobrazených grafech. Tento C++ kód demonstruje operaci:
 
 ```c++
 	// Cesta k adresáři dokumentů
@@ -95,16 +95,18 @@ Aspose.Slides pro C++ umožňuje nastavit procentuální popisky v zobrazených 
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+
 		}
+
 	}
 
 	// Uloží prezentaci obsahující graf
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Nastavení znaku procenta v popiscích grafu**
+## **Nastavení znaku procenta v popiscích dat grafu**
 
-Tento kód v C++ vám ukazuje, jak nastavit znak procenta pro popisek grafu:
+Tento C++ kód ukazuje, jak nastavit znak procenta pro popisek dat v grafu:
 
 ```c++
 	// Cesta k adresáři dokumentů.
@@ -113,7 +115,7 @@ Tento kód v C++ vám ukazuje, jak nastavit znak procenta pro popisek grafu:
 	// Vytvoří instanci třídy Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Získá referenci snímku podle jeho indexu
+	// Získá referenci snímku pomocí jeho indexu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Vytvoří graf PercentsStackedColumn na snímku
@@ -127,11 +129,11 @@ Tento kód v C++ vám ukazuje, jak nastavit znak procenta pro popisek grafu:
 	// Nastaví index listu dat grafu
 	int defaultWorksheetIndex = 0;
 
-	// Získá sešit dat grafu
+	// Získá list dat grafu
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Odstraní výchozí vygenerované řady 
+	// Odstraní výchozí generované řady 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -147,7 +149,7 @@ Tento kód v C++ vám ukazuje, jak nastavit znak procenta pro popisek grafu:
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// Nastaví barvu výplně pro řadu
+	// Nastaví barvu výplně řady
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
@@ -168,7 +170,7 @@ Tento kód v C++ vám ukazuje, jak nastavit znak procenta pro popisek grafu:
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// Nastaví barvu výplně pro řadu
+	// Nastaví barvu výplně řady
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
@@ -188,7 +190,7 @@ Tento kód v C++ vám ukazuje, jak nastavit znak procenta pro popisek grafu:
 
 ## **Nastavení vzdálenosti popisku od osy**
 
-Tento kód v C++ vám ukazuje, jak nastavit vzdálenost popisku od kategoriální osy při práci s grafem vykresleným z os:
+Tento C++ kód ukazuje, jak nastavit vzdálenost popisku od kategoriální osy, když pracujete s grafem vykresleným na osách:
 
 ```c++
 	// Cesta k adresáři dokumentů
@@ -216,9 +218,9 @@ Tento kód v C++ vám ukazuje, jak nastavit vzdálenost popisku od kategoriáln�
 
 ## **Úprava umístění popisku**
 
-Když vytvoříte graf, který nezávisí na žádné ose, například koláčový graf, mohou být popisky dat grafu příliš blízko jeho okraje. V takovém případě musíte upravit umístění popisku, aby byly čáry spojující (leader lines) zobrazeny jasně.
+Když vytvoříte graf, který není založen na žádné ose, například koláčový graf, mohou být popisky dat příliš blízko okraji grafu. V takovém případě je nutné upravit umístění popisku, aby byly čáry spojující popisky (leader lines) zobrazeny zřetelně.
 
-Tento kód v C++ vám ukazuje, jak upravit umístění popisku v koláčovém grafu:
+Tento C++ kód ukazuje, jak upravit umístění popisku v koláčovém grafu:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -243,12 +245,12 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 **Jak mohu zabránit překrývání popisků dat v hustých grafech?**
 
-Kombinujte automatické umísťování popisků, čáry spojující (leader lines) a zmenšení velikosti písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen pro krajní/klíčové body.
+Kombinujte automatické umísťování popisků, čáry spojující popisky a zmenšení velikosti písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen pro extrémní/klíčové body.
 
-**Jak mohu zakázat popisky pouze pro nulové, záporné nebo prázdné hodnoty?**
+**Jak mohu zakázat popisky pouze pro nula, záporné nebo prázdné hodnoty?**
 
-Před povolením popisků filtrujte datové body a vypněte jejich zobrazování pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
+Před povolením popisků filtrovejte datové body a vypněte jejich zobrazování pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
 
-**Jak mohu zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
+**Jak zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
 
-Explicitně nastavte písma (rodinu, velikost) a ověřte, že písmo je k dispozici na straně vykreslování, aby se předešlo náhradnímu písmu.
+Explicitně nastavte písmo (rodinu, velikost) a ověřte, že je písmo dostupné na straně vykreslování, aby nedošlo k automatickému náhradnímu písmu.

@@ -1,30 +1,30 @@
 ---
-title: 3D diagramok testreszabása prezentációkban C++ használatával
+title: 3D diagramok testreszabása előadásokban C++ használatával
 linktitle: 3D diagram
 type: docs
 url: /hu/cpp/3d-chart/
 keywords:
 - 3D diagram
-- forgatás
+- forgás
 - mélység
 - PowerPoint
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és testreszabhat 3-D diagramokat az Aspose.Slides for C++-ban, PPT és PPTX fájlok támogatásával - növelje prezentációi hatékonyságát még ma."
+description: "Ismerje meg, hogyan hozhat létre és testreszabhat 3-D diagramokat az Aspose.Slides C++ verziójában, PPT és PPTX fájlok támogatásával - erősítse meg előadásait még ma."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet testreszabni egy 3D diagramot az Aspose.Slides-ban a `Rotation3D` beállítások, például a `RotationX`, `RotationY`, `DepthPercents` és `RightAngleAxes` konfigurálásával. Lépésről lépésre végigvezet a bemutató létrehozásán, egy alapértelmezett adatokkal rendelkező 3D diagram hozzáadásán, a szükséges 3D nézeti beállítások alkalmazásán, valamint a módosított bemutató PPTX fájlba mentésén.
+Ez a cikk bemutatja, hogyan lehet testreszabni egy 3D diagramot az Aspose.Slides-ban a `Rotation3D` beállítások, például a `RotationX`, `RotationY`, `DepthPercents` és `RightAngleAxes` konfigurálásával. Lépésről lépésre bemutatja egy bemutató létrehozását, egy alapértelmezett adatokat tartalmazó 3D diagram hozzáadását, a szükséges 3D nézeti beállítások alkalmazását, és a módosított bemutató mentését PPTX fájlként.
 
-## **Állítsa be a RotationX, RotationY és DepthPercents tulajdonságokat egy 3D diagramon**
-Az Aspose.Slides for C++ egyszerű API-t biztosít ezen tulajdonságok beállításához. Az alábbi cikk segít különböző tulajdonságok, például az X, Y forgatás, **DepthPercents** stb. beállításában. A mintakód bemutatja a fenti tulajdonságok alkalmazását.
+## **A 3D diagram RotationX, RotationY és DepthPercents tulajdonságainak beállítása**
+Az Aspose.Slides for C++ egyszerű API-t biztosít ezen tulajdonságok beállításához. Ez a következő cikk segít abban, hogyan állítható be különböző tulajdonság, például X, Y forgatás, **DepthPercents** stb. A mintakód alkalmazza a fent említett tulajdonságok beállítását.
 
-1. Hozzon létre egy példányt a[Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályból.
-1. Hozzáférés az első diahoz.
-1. Diagram hozzáadása alapértelmezett adatokkal.
-1. Rotation3D tulajdonságok beállítása.
-1. A módosított prezentáció mentése PPTX fájlba.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályból.
+2. Érje el az első diát.
+3. Adjon hozzá egy diagramot alapértelmezett adatokkal.
+4. Állítsa be a Rotation3D tulajdonságokat.
+5. Írja ki a módosított bemutatót egy PPTX fájlba.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ManagePropertiesCharts-ManagePropertiesCharts.cpp" >}}
 
@@ -32,12 +32,12 @@ Az Aspose.Slides for C++ egyszerű API-t biztosít ezen tulajdonságok beállít
 
 **Mely diagramtípusok támogatják a 3D módot az Aspose.Slides-ban?**
 
-Az Aspose.Slides támogatja a 3D oszlopdiagramok változatait, beleértve a Column 3D, Clustered Column 3D, Stacked Column 3D és a 100% Stacked Column 3D diagramokat, valamint a kapcsolódó 3D típusokat, amelyek a [ChartType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/charttype/) felsorolásban érhetők el. A pontos, naprakész listáért tekintse meg a [ChartType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/charttype/) elemeit az adott telepített verzió API‑referenciájában.
+Az Aspose.Slides támogatja az oszlopdiagramok 3D változatait, beleértve a Column 3D, Clustered Column 3D, Stacked Column 3D és a 100 % Stacked Column 3D diagramokat, valamint a kapcsolódó 3D típusokat, amelyeket a [ChartType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/charttype/) felsorolás biztosít. A pontos, naprakész lista megtekintéséhez ellenőrizze a [ChartType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/charttype/) tagjait az adott verzió API‑referenciájában.
 
 **Kaphatok raszteres képet egy 3D diagramról jelentéshez vagy a webhez?**
 
-Igen. A diagramot exportálhatja képfájlba a [diagram API](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/getimage/) segítségével, vagy renderelheti az egész diát [/slides/hu/cpp/convert-powerpoint-to-png/](/slides/hu/cpp/convert-powerpoint-to-png/) útvonalon PNG vagy JPEG formátumba. Ez akkor hasznos, ha pixelpontos előnézetre van szüksége, vagy a diagramot dokumentumokba, irányítópultokra vagy weboldalakba szeretné beágyazni PowerPoint nélkül.
+Igen. A diagramot exportálhatja képként a [chart API](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/getimage/) segítségével, vagy a [render the entire slide](/slides/hu/cpp/convert-powerpoint-to-png/) útján PNG vagy JPEG formátumba. Ez akkor hasznos, ha pixel‑pontos előnézetre van szüksége, vagy be szeretné ágyazni a diagramot dokumentumokba, irányítópultokba vagy weboldalakba a PowerPoint nélkül.
 
-**Mennyire teljesítményhatékony a nagy 3D diagramok építése és renderelése?**
+**Mennyire hatékony a nagy 3D diagramok létrehozása és megjelenítése?**
 
-A teljesítmény az adatvolumen és a vizuális komplexitás függvénye. A legjobb eredmény érdekében tartsa minimalizálva a 3D effektusokat, kerülje a nehéz textúrákat a falakon és ábraterületeken, korlátozza az egyes sorozatok adatpontszámát ahol lehetséges, és rendereljen megfelelő méretű kimenetre (felbontás és méretek), amely megfelel a célkijelző vagy nyomtatási igényeknek.
+A teljesítmény az adatvolumen és a vizuális összetettség függvénye. A legjobb eredmény érdekében tartsa a 3D effektusokat minimálisra, kerülje a nehéz textúrákat a falakon és a grafikonterületen, ha lehetséges korlátozza az egy sorban lévő adatpontok számát, valamint rendereljen megfelelő méretű (felbontású és méretű) kimenetre, amely megfelel a céleszköz vagy a nyomtatási igényeknek.

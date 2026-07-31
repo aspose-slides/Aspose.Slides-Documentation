@@ -1,18 +1,17 @@
 ---
-title: Dateiformat der Präsentation abrufen
+title: Dateiformat der Präsentation ermitteln
 type: docs
 weight: 50
 url: /de/net/get-the-file-format-of-presentation/
 aliases:
-  - /de/net/presentation-format/
+  - /net/praesentation-format/
 ---
-
-Um das Dateiformat zu erhalten, folgen Sie bitte den untenstehenden Schritten:
+Um das Dateiformat zu erhalten, führen Sie die folgenden Schritte aus:
 
 - Erstellen Sie eine Instanz der Klasse **IPresentationInfo**
 - Rufen Sie Informationen zur Präsentation ab
 
-Im nachstehenden Beispiel haben wir das Dateiformat ermittelt.
+Im nachfolgenden Beispiel haben wir das Dateiformat erhalten.
 ## **Beispiel**
 ``` csharp
 
@@ -46,7 +45,6 @@ switch (info.LoadFormat)
         }
 
 }
-
 ``` 
 ## **Beispielcode herunterladen**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

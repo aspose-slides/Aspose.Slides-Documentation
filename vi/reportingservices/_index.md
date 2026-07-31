@@ -1,7 +1,7 @@
 ---
-title: Aspose.Slides for Reporting Services
-second_title: Tài liệu Aspose.Slides
-description: Aspose.Slides for Reporting Services là giải pháp duy nhất trên thị trường cho phép tạo ra các báo cáo PPT và PPS thực thụ trong Microsoft SQL Server 2005, 2008, 2012, 2016 và 2017 Reporting Services (32-bit và 64-bit).
+title: Aspose.Slides cho Reporting Services
+second_title: Aspose.Slides cho Reporting Services
+description: Aspose.Slides cho Reporting Services là giải pháp duy nhất trên thị trường cho phép tạo các báo cáo PPT và PPS thực sự trong Microsoft SQL Server 2005, 2008, 2012, 2016 và 2017 Reporting Services (32-bit và 64-bit).
 type: docs
 weight: 50
 url: /vi/reportingservices/
@@ -9,17 +9,17 @@ is_root: true
 ---
 {{% alert color="primary" %}}
 
-![Logo Sản phẩm Aspose.Slides for Reporting Services](home_1.png)
+![Aspose.Slides for Reporting Services Product Logo](home_1.png)
 
 **Chào mừng đến với Aspose.Slides for Reporting Services**
 
-Aspose.Slides for Reporting Services là giải pháp duy nhất trên thị trường cho phép tạo ra các báo cáo PPT và PPS thực thụ trong Microsoft SQL Server 2005, 2008, 2012, 2016 và 2017 Reporting Services (32-bit và 64-bit). Tất cả các tính năng báo cáo RDL, bao gồm bảng, ma trận, biểu đồ và hình ảnh đều được chuyển đổi với độ chính xác cao nhất sang các bản trình bày Microsoft PowerPoint.
+Aspose.Slides for Reporting Services là giải pháp duy nhất trên thị trường cho phép tạo các báo cáo PPT và PPS thực sự trong Microsoft SQL Server 2005, 2008, 2012, 2016 và 2017 Reporting Services (32-bit và 64-bit). Tất cả các tính năng báo cáo RDL, bao gồm bảng, ma trận, biểu đồ và hình ảnh đều được chuyển đổi với độ chính xác cao nhất sang các bản trình bày Microsoft PowerPoint.
 
 {{% /alert %}}
 
 ## **Tài nguyên Aspose.Slides for Reporting Services**
 
-Following are the links to some useful resources you may need to accomplish your tasks.
+Dưới đây là các liên kết tới một số tài nguyên hữu ích mà bạn có thể cần để hoàn thành công việc của mình.
 
 - [Tài liệu trực tuyến Aspose.Slides for Reporting Services](/slides/vi/reportingservices/)
 - [Các tính năng Aspose.Slides for Reporting Services](/slides/vi/reportingservices/features/)
@@ -27,4 +27,4 @@ Following are the links to some useful resources you may need to accomplish your
 - [Trang sản phẩm Aspose.Slides for Reporting Services](https://products.aspose.com/slides/vi/reporting-services/)
 - [Tải xuống Aspose.Slides for Reporting Services](https://releases.aspose.com/slides/vi/reportingservices/)
 - [Diễn đàn hỗ trợ miễn phí Aspose.Slides for Reporting Services](https://forum.aspose.com/c/slides/vi/11)
-- [Trung tâm trợ giúp hỗ trợ trả phí Aspose.Slides for Reporting Services](https://helpdesk.aspose.com/)
+- [Trung tâm hỗ trợ trả phí Aspose.Slides for Reporting Services](https://helpdesk.aspose.com/)

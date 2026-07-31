@@ -13,11 +13,11 @@ keywords:
 - legenda
 - area plot
 - seri data
-- batang galat
+- garis kesalahan
 - garis tren
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pahami entitas grafik dalam Aspose.Slides untuk C++ dan pelajari cara mengelola seri, kategori, titik data, dan sumbu dalam PowerPoint PPT dan PPTX menggunakan C++."
+description: "Pahami entitas grafik dalam Aspose.Slides untuk C++ dan pelajari cara mengelola seri, kategori, titik data, serta sumbu dalam PowerPoint PPT dan PPTX menggunakan C++."
 ---

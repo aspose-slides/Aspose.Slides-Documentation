@@ -14,44 +14,46 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
+description: "Aspose.Slides for C++ を使用して、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
+## **概要**
 
-チャートのデータラベルは、チャートのデータ系列や個々のデータポイントに関する詳細を表示します。これにより、読者はデータ系列をすばやく識別でき、チャートの理解もしやすくなります。
+チャートのデータ ラベルは、データ系列や個々のデータ ポイントに関する詳細を表示します。これにより、読者はデータ系列をすばやく識別でき、チャートの理解が容易になります。
 
-## **チャート データラベルのデータ精度を設定する**
+## **チャート データ ラベルのデータ精度を設定する**
 
-この C++ コードは、チャート データラベルのデータ精度を設定する方法を示します。
+この C++ コードは、チャート データ ラベルのデータ精度を設定する方法を示します。
+
 ```c++
-	// ドキュメントディレクトリへのパス
+	// ドキュメント ディレクトリへのパス
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// PPTX ファイルを表す Presentation クラスのインスタンスを生成する
+	// PPTX ファイルを表す Presentation クラスのインスタンスを作成
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// 最初のスライドを取得する
+	// 最初のスライドを取得
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// デフォルトデータでチャートを追加する
+	// デフォルト データでチャートを追加
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// 系列の数値書式を設定する
+	// 系列の数値書式を設定
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// プレゼンテーションファイルをディスクに保存する
+	// プレゼンテーション ファイルをディスクに保存
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **パーセンテージをラベルとして表示する**
 
-## **ラベルとしてパーセンテージを表示する**
+Aspose.Slides for C++ を使用すると、表示されるチャートにパーセンテージ ラベルを設定できます。この C++ コードはその操作をデモンストレーションします。
 
-Aspose.Slides for C++ を使用すると、表示されたチャートにパーセンテージ ラベルを設定できます。この C++ コードは、その操作を示しています。
 ```c++
-	// ドキュメントディレクトリへのパス
+	// ドキュメント ディレクトリへのパス
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
 
-	// Presentation クラスのインスタンスを作成する
+	// Presentation クラスのインスタンスを作成
 	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
@@ -93,63 +95,65 @@ Aspose.Slides for C++ を使用すると、表示されたチャートにパー�
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+
 		}
+
 	}
 
-	// チャートを含むプレゼンテーションを保存する
+	// チャートを含むプレゼンテーションを保存
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **チャート データ ラベルにパーセンテージ記号を設定する**
 
-## **チャート データラベルにパーセンテージ記号を設定する**
+この C++ コードは、チャート データ ラベルにパーセンテージ記号を設定する方法を示します。
 
-この C++ コードは、チャート データラベルにパーセンテージ記号を設定する方法を示します。
 ```c++
-	// ドキュメントディレクトリへのパス。
+	// ドキュメント ディレクトリへのパス。
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
-	// Presentation クラスのインスタンスを作成する
+	// Presentation クラスのインスタンスを作成
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// インデックスでスライドの参照を取得する
+	// インデックスでスライドの参照を取得
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// スライド上に PercentsStackedColumn チャートを作成する
+	// スライド上に PercentsStackedColumn チャートを作成
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// NumberFormatLinkedToSource を false に設定する
+	// NumberFormatLinkedToSource を false に設定
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
 
-	// チャート データシートのインデックスを設定する
+	// チャート データ シートのインデックスを設定
 	int defaultWorksheetIndex = 0;
 
-	// チャート データのワークシートを取得する
+	// チャート データ ワークシートを取得
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// デフォルトで生成された系列を削除する
+	// デフォルトで生成された系列を削除 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
-	// 新しい系列を追加する
+	// 新しい系列を追加
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
 
-	// 最初のチャート系列を取得する
+	// 最初のチャート系列を取得
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// 系列データを設定する
+	// 系列データを設定
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// 系列の塗りつぶし色を設定する
+	// 系列の塗りつぶし色を設定
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
-	// LabelFormat のプロパティを設定する
+	// LabelFormat のプロパティを設定
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
@@ -158,19 +162,19 @@ Aspose.Slides for C++ を使用すると、表示されたチャートにパー�
 	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// 2 番目のチャート系列を取得する
+	// 2 番目のチャート系列を取得
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// 系列データを設定する
+	// 系列データを設定
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// 系列の塗りつぶし色を設定する
+	// 系列の塗りつぶし色を設定
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
-	// LabelFormat のプロパティを設定する
+	// LabelFormat のプロパティを設定
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
@@ -179,46 +183,45 @@ Aspose.Slides for C++ を使用すると、表示されたチャートにパー�
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// プレゼンテーションファイルをディスクに保存する
+	// プレゼンテーション ファイルをディスクに保存
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 
+## **軸からのラベル距離を設定する**
 
-## **軸からラベルの距離を設定する**
+この C++ コードは、軸からカテゴリ軸上のラベル距離を設定する方法を示します。
 
-この C++ コードは、軸からプロットされたチャートでカテゴリ軸からラベルの距離を設定する方法を示します。
 ```c++
-	// ドキュメントディレクトリへのパス
+	// ドキュメント ディレクトリへのパス
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
 
-	// Presentation クラスのインスタンスを作成する
+	// Presentation クラスのインスタンスを作成
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// スライドの参照を取得する
+	// スライドの参照を取得
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// スライド上にチャートを作成する
+	// スライド上にチャートを作成
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// チャート系列コレクションを取得する
+	// チャート系列コレクションを取得
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// 軸からラベルの距離を設定する
+	// 軸からラベルの距離を設定
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// プレゼンテーションファイルをディスクに保存する
+	// プレゼンテーション ファイルをディスクに保存
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ## **ラベル位置を調整する**
 
-円グラフのように軸に依存しないチャートを作成する場合、チャートのデータラベルが端に近すぎることがあります。そのような場合、リーダーラインが明確に表示されるようにデータラベルの位置を調整する必要があります。
+軸に依存しないチャート（例: 円グラフ）を作成すると、データ ラベルがエッジに近すぎることがあります。そのような場合、リーダー ラインがはっきり表示されるようにデータ ラベルの位置を調整する必要があります。
 
-この C++ コードは、円グラフでラベル位置を調整する方法を示します。
+この C++ コードは、円グラフのラベル位置を調整する方法を示します。
+
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -236,19 +239,18 @@ label->set_Y(0.04f);
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **よくある質問**
 
-**密集したチャートでデータラベルが重なるのを防ぐにはどうすればよいですか？**
+**密集したチャートでデータ ラベルが重なるのを防ぐにはどうすればよいですか？**
 
-自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて、いくつかのフィールド（例: カテゴリ）を非表示にするか、極端または重要なポイントのみラベルを表示します。
+自動ラベル配置、リーダー ライン、フォント サイズの縮小を組み合わせます。必要に応じて、一部のフィールド（例: カテゴリ）を非表示にするか、極端または重要なポイントにのみラベルを表示します。
 
-**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
+**ゼロ、負、または空の値に対してラベルを無効にするにはどうすればよいですか？**
 
-ラベルを有効にする前にデータポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
+ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用します。
 
-**PDF/画像にエクスポートする際にラベルスタイルの一貫性を確保するにはどうすればよいですか？**
+**PDF/画像にエクスポートする際にラベルのスタイルを一貫させるにはどうすればよいですか？**
 
-フォント（ファミリー、サイズ）を明示的に設定し、フォールバックを防ぐためにレンダリング側でフォントが利用可能であることを確認します。
+フォント（ファミリ、サイズ）を明示的に設定し、レンダリング側でフォントが利用可能であることを確認してフォールバックを防止します。

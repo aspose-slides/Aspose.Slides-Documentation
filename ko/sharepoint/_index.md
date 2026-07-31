@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for SharePoint
-second_title: Aspose.Slides 문서
-description: Aspose.Slides for SharePoint는 Microsoft SharePoint 사이트 내에서 PowerPoint® 문서를 변환할 수 있게 하는 유연한 솔루션입니다.
+second_title: Aspose.Slides for SharePoint
+description: Aspose.Slides for SharePoint는 Microsoft SharePoint 사이트 내에서 PowerPoint® 문서를 변환할 수 있게 해주는 유연한 솔루션입니다.
 type: docs
 weight: 60
 url: /ko/sharepoint/
@@ -13,13 +13,13 @@ is_root: true
 
 **Aspose.Slides for SharePoint에 오신 것을 환영합니다**
 
-Aspose.Slides for SharePoint는 Microsoft SharePoint 사이트 내에서 PowerPoint® 문서를 변환할 수 있게 하는 유연한 솔루션입니다.
+Aspose.Slides for SharePoint는 Microsoft SharePoint 사이트 내에서 PowerPoint® 문서를 변환할 수 있게 해주는 유연한 솔루션입니다.
 
 {{% /alert %}}
 
 ## **Aspose.Slides for SharePoint 리소스**
 
-다음은 작업을 수행하는 데 필요한 일부 유용한 리소스에 대한 링크입니다.
+다음은 작업을 수행하는 데 필요할 수 있는 유용한 리소스에 대한 링크입니다.
 
 - [Aspose.Slides for SharePoint 온라인 문서](/slides/ko/sharepoint/)
 - [Aspose.Slides for SharePoint 기능](/slides/ko/sharepoint/features/)

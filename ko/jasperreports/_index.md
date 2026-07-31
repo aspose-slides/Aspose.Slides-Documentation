@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides 문서
-description: Aspose.Slides for JasperReports는 JasperReports에서 보고서를 Java 애플리케이션의 Microsoft PowerPoint 프레젠테이션(PPT) 및 Microsoft PowerPoint 쇼(PPS) 형식으로 쉽게 내보내야 하는 개발자를 위해 특별히 설계·개발된 라이브러리입니다.
+second_title: Aspose.Slides for JasperReports
+description: Aspose.Slides for JasperReports는 JasperReports에서 Microsoft PowerPoint 프레젠테이션(PPT) 및 Microsoft PowerPoint 쇼(PPS) 형식으로 보고서를 쉽게 내보내야 하는 개발자를 위해 특별히 설계·개발된 라이브러리입니다.
 type: docs
 weight: 70
 url: /ko/jasperreports/
@@ -13,13 +13,13 @@ is_root: true
 
 **Aspose.Slides for JasperReports에 오신 것을 환영합니다**
 
-Aspose.Slides for JasperReports는 JasperReports에서 보고서를 Java 애플리케이션의 Microsoft PowerPoint 프레젠테이션(PPT) 및 Microsoft PowerPoint 쇼(PPS) 형식으로 쉽게 내보낼 수 있도록 특별히 설계·개발된 라이브러리입니다. 모든 보고서 기능이 최고의 정밀도로 Microsoft PowerPoint 프레젠테이션으로 변환됩니다. Aspose.Slides for JasperReports는 JasperReports 5 이상을 지원합니다.
+Aspose.Slides for JasperReports는 JasperReports에서 Microsoft PowerPoint 프레젠테이션(PPT) 및 Microsoft PowerPoint 쇼(PPS) 형식으로 보고서를 쉽게 내보내야 하는 개발자를 위해 특별히 설계·개발된 라이브러리입니다. 모든 보고서 기능이 가장 높은 정밀도로 Microsoft PowerPoint 프레젠테이션으로 변환됩니다. Aspose.Slides for JasperReports는 JasperReports 5+를 지원합니다.
 
 {{% /alert %}}
 
 ## **Aspose.Slides for JasperReports 리소스**
 
-다음은 작업을 수행하는 데 필요한 유용한 리소스 링크입니다.
+다음은 작업을 수행하는 데 필요할 수 있는 유용한 리소스에 대한 링크입니다.
 
 - [Aspose.Slides for JasperReports 온라인 문서](/slides/ko/jasperreports/)
 - [Aspose.Slides for JasperReports 기능](/slides/ko/jasperreports/features/)

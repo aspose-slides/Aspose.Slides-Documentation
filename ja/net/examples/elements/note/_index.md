@@ -3,6 +3,8 @@ title: ノート
 type: docs
 weight: 240
 url: /ja/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - ノート
 - ノート スライドの追加
@@ -16,9 +18,9 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET でスライド ノートを操作します。ノートの追加、読み取り、編集、そして PPT、PPTX、ODP でスピーカーノートをエクスポートする方法を、分かりやすい C# のサンプルで示しています。"
+description: "Aspose.Slides for .NET でスライド ノートを操作します：PPT、PPTX、ODP のスピーカー ノートを追加、読み取り、編集、エクスポートする明確な C# の例を使用。"
 ---
-この記事では、**Aspose.Slides for .NET** を使用して、ノート スライドの追加、読み取り、削除、更新方法を実演します。
+この記事では、**Aspose.Slides for .NET** を使用してノート スライドの追加、読み取り、削除、更新方法を示します。
 
 ## **ノート スライドの追加**
 

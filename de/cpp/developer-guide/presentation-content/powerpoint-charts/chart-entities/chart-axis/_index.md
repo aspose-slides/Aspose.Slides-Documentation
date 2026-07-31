@@ -23,21 +23,25 @@ keywords:
 - Aspose.Slides
 description: "Entdecken Sie, wie Sie Aspose.Slides für C++ verwenden, um Diagrammachsen in PowerPoint-Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
+## **Übersicht**
 
-## **Ermitteln Sie die Maximalwerte auf der vertikalen Achse**
-Aspose.Slides für C++ ermöglicht das Abrufen der minimalen und maximalen Werte auf einer vertikalen Achse. Gehen Sie dabei wie folgt vor:
+Dieser Artikel erklärt, wie Sie Diagrammachsen in Aspose.Slides anpassen. Er zeigt, wie Sie tatsächliche Achsenwerte erhalten, Daten zwischen Achsen austauschen, die vertikale oder horizontale Achse bei Liniendiagrammen ausblenden, den Typ der Kategorieachse ändern, das Datumsformat für Kategorieachsenwerte festlegen, einen Achsentitel drehen, die Achsenposition setzen und eine Einheitensbeschriftung auf der Werteachse anzeigen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)-Klasse.
+## **Ermitteln der Maximalwerte auf der vertikalen Achse**
+Aspose.Slides für C++ ermöglicht das Abrufen des Minimum‑ und Maximumwerts einer vertikalen Achse. Gehen Sie die folgenden Schritte durch:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation) Klasse.
 1. Greifen Sie auf die erste Folie zu.
 1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-1. Ermitteln Sie den tatsächlichen Maximalwert auf der Achse.
-1. Ermitteln Sie den tatsächlichen Minimalwert auf der Achse.
+1. Ermitteln Sie den tatsächlichen Maximalwert der Achse.
+1. Ermitteln Sie den tatsächlichen Minimalwert der Achse.
 1. Ermitteln Sie die tatsächliche Haupteinheit der Achse.
 1. Ermitteln Sie die tatsächliche Nebeneinheit der Achse.
-1. Ermitteln Sie die tatsächliche Skalierung der Haupteinheit der Achse.
-1. Ermitteln Sie die tatsächliche Skalierung der Nebeneinheit der Achse.
+1. Ermitteln Sie die tatsächliche Skala der Haupteinheit der Achse.
+1. Ermitteln Sie die tatsächliche Skala der Nebeneinheit der Achse.
 
-Dieser Beispielcode – eine Umsetzung der obigen Schritte – zeigt, wie Sie die erforderlichen Werte in C++ erhalten:
+Dieser Beispielcode - eine Umsetzung der oben genannten Schritte - zeigt, wie Sie die erforderlichen Werte in C++ erhalten:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -56,11 +60,11 @@ double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Daten zwischen Achsen austauschen**
+Aspose.Slides ermöglicht es, die Daten zwischen Achsen schnell zu vertauschen – die auf der vertikalen Achse (y‑Achse) dargestellten Daten werden auf die horizontale Achse (x‑Achse) verschoben und umgekehrt.
 
-## **Daten zwischen Achsen vertauschen**
-Aspose.Slides ermöglicht das schnelle Vertauschen von Daten zwischen Achsen – die auf der vertikalen Achse (y-Achse) dargestellten Daten werden auf die horizontale Achse (x-Achse) verschoben und umgekehrt. 
+Dieser C++‑Code zeigt, wie Sie den Datenaustausch zwischen Achsen in einem Diagramm durchführen:
 
-Dieser C++‑Code zeigt, wie Sie den Datentausch zwischen Achsen in einem Diagramm durchführen:
 ``` cpp
 // Erstellt eine leere Präsentation
 auto pres = System::MakeObject<Presentation>();
@@ -74,9 +78,10 @@ chart->get_ChartData()->SwitchRowColumn();
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Vertikale Achse für Liniendiagramme deaktivieren**
-Dieser C++‑Code zeigt, wie Sie die vertikale Achse in einem Liniendiagramm ausblenden:
+
+Dieser C++‑Code zeigt, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -86,9 +91,10 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Horizontale Achse für Liniendiagramme deaktivieren**
-Dieser Code zeigt, wie Sie die horizontale Achse in einem Liniendiagramm ausblenden:
+
+Dieser Code zeigt, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -98,9 +104,10 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Kategorieachse ändern**
-Mit der Methode **set_CategoryAxisType()** können Sie den gewünschten Typ der Kategorieachse festlegen (**date** oder **text**). Dieser C++‑Code demonstriert die Vorgehensweise: 
+
+Mit der Methode **set_CategoryAxisType()** können Sie den gewünschten Typ der Kategorieachse (**date** oder **text**) festlegen. Dieser C++‑Code demonstriert die Vorgehensweise:
+
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -114,9 +121,9 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Datumsformat für Kategorieachsenwerte festlegen**
-Aspose.Slides für C++ ermöglicht das Festlegen des Datumsformats für einen Wert einer Kategorieachse. Die Vorgehensweise wird in diesem C++‑Code gezeigt:
+Aspose.Slides für C++ ermöglicht das Festlegen des Datumsformats für einen Wert der Kategorieachse. Der Vorgang wird in diesem C++‑Code demonstriert:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
@@ -148,9 +155,9 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Rotationswinkel für einen Achsentitel festlegen**
-Aspose.Slides für C++ ermöglicht das Festlegen des Rotationswinkels für einen Diagramm‑Achsentitel. Dieser C++‑Code demonstriert die Vorgehensweise:
+Aspose.Slides für C++ ermöglicht das Festlegen des Rotationswinkels für einen Diagrammachsentitel. Dieser C++‑Code demonstriert den Vorgang:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -162,9 +169,9 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
+## **Achsenposition auf einer Kategorie‑ oder Wertachse festlegen**
+Aspose.Slides für C++ ermöglicht das Festlegen der Position einer Achse in einer Kategorie‑ oder Wertachse. Dieser C++‑Code zeigt, wie Sie die Aufgabe ausführen:
 
-## **Achsenposition auf einer Kategorie‑ oder Werteachse festlegen**
-Aspose.Slides für C++ ermöglicht das Festlegen der Achsenposition auf einer Kategorie‑ oder Werteachse. Dieser C++‑Code zeigt, wie die Aufgabe ausgeführt wird:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -174,9 +181,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
+## **Anzeige der Einheitensbeschriftung auf einer Diagrammwertachse aktivieren**
+Aspose.Slides für C++ ermöglicht es, ein Diagramm zu konfigurieren, sodass eine Einheitensbeschriftung auf seiner Werteachse angezeigt wird. Dieser C++‑Code demonstriert den Vorgang:
 
-## **Einheitenbeschriftung auf einer Diagramm‑Werteachse aktivieren**
-Aspose.Slides für C++ ermöglicht die Konfiguration eines Diagramms, um eine Einheitenbeschriftung auf seiner Werteachse anzuzeigen. Dieser C++‑Code demonstriert die Vorgehensweise:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -186,13 +193,12 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **FAQ**
 
 **Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
 
-Achsen bieten eine [Kreuzungseinstellung](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/): Sie können wählen, ob die Achsen bei Null, beim maximalen Kategorie‑/Wert oder bei einem bestimmten numerischen Wert kreuzen. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder eine Basislinie hervorzuheben.
+Achsen bieten eine [Kreuzungseinstellung](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/axis/set_crosstype/): Sie können wählen, dass die Achsen bei Null, beim maximalen Kategorie‑/Wert‑Punkt oder bei einem spezifischen numerischen Wert kreuzen. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder eine Basislinie hervorzuheben.
 
-**Wie kann ich die Achsenbeschriftungen relativ zur Achse positionieren (neben, außen, innen)?**
+**Wie kann ich die Tick‑Beschriftungen relativ zur Achse positionieren (neben, außen, innen)?**
 
-Stellen Sie die [Beschriftungsposition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) auf „cross“, „outside“ oder „inside“ ein. Dies beeinflusst die Lesbarkeit und spart Platz, insbesondere bei kleinen Diagrammen.
+Setzen Sie die [label position](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/axis/set_majortickmark/) auf "cross", "outside" oder "inside". Das beeinflusst die Lesbarkeit und hilft, Platz zu sparen, besonders bei kleinen Diagrammen.

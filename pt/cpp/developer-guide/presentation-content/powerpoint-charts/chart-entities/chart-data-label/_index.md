@@ -14,15 +14,15 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Aprenda a adicionar e formatar rótulos de dados de gráfico em apresentações PowerPoint usando Aspose.Slides para C++ para slides mais envolventes."
+description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações do PowerPoint usando Aspose.Slides para C++ para slides mais envolventes."
 ---
 ## **Introdução**
 
-Os rótulos de dados em um gráfico exibem detalhes sobre a série de dados do gráfico ou pontos de dados individuais. Eles permitem que os leitores identifiquem rapidamente as séries de dados e também facilitam a compreensão dos gráficos.
+Os rótulos de dados em um gráfico mostram detalhes sobre a série de dados do gráfico ou pontos de dados individuais. Eles permitem que os leitores identifiquem rapidamente as séries de dados e também tornam os gráficos mais fáceis de entender.
 
-## **Definir Precisão dos Dados nos Rótulos do Gráfico**
+## **Definir Precisão dos Dados em Rótulos de Dados do Gráfico**
 
-Este código C++ mostra como definir a precisão dos dados em um rótulo de gráfico:
+Este código C++ mostra como definir a precisão dos dados em um rótulo de dados do gráfico:
 
 ```c++
 	// O caminho para o diretório de documentos
@@ -46,6 +46,7 @@ Este código C++ mostra como definir a precisão dos dados em um rótulo de grá
 ```
 
 ## **Exibir Percentuais como Rótulos**
+
 Aspose.Slides for C++ permite definir rótulos de percentual em gráficos exibidos. Este código C++ demonstra a operação:
 
 ```c++
@@ -94,17 +95,16 @@ Aspose.Slides for C++ permite definir rótulos de percentual em gráficos exibid
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
-
 		}
-
 	}
 
 	// Salva a apresentação que contém o gráfico
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Definir o Sinal de Percentual nos Rótulos do Gráfico**
-Este código C++ mostra como definir o sinal de percentual para um rótulo de gráfico:
+## **Definir o Sinal de Percentual nos Rótulos de Dados do Gráfico**
+
+Este código C++ mostra como definir o sinal de percentual em um rótulo de dados do gráfico:
 
 ```c++
 	// O caminho para o diretório de documentos.
@@ -141,7 +141,7 @@ Este código C++ mostra como definir o sinal de percentual para um rótulo de gr
 
 	// Obtém a primeira série do gráfico
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// Preenche os dados da série
+	// Popula os dados da série
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
@@ -162,7 +162,7 @@ Este código C++ mostra como definir o sinal de percentual para um rótulo de gr
 
 	// Obtém a segunda série do gráfico
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// Preenche os dados da série
+	// Popula os dados da série
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
@@ -183,11 +183,11 @@ Este código C++ mostra como definir o sinal de percentual para um rótulo de gr
 
 	// Grava o arquivo de apresentação no disco
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
-## **Definir Distância do Rótulo ao Eixo**
-Este código C++ mostra como definir a distância do rótulo a um eixo de categoria ao trabalhar com um gráfico plotado a partir de eixos:
+## **Definir Distância do Rótulo a partir do Eixo**
+
+Este código C++ mostra como definir a distância do rótulo a partir de um eixo de categoria ao lidar com um gráfico plotado a partir de eixos:
 
 ```c++
 	// O caminho para o diretório de documentos
@@ -213,11 +213,11 @@ Este código C++ mostra como definir a distância do rótulo a um eixo de catego
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Ajustar a Posição do Rótulo**
+## **Ajustar Localização do Rótulo**
 
-Ao criar um gráfico que não depende de nenhum eixo, como um gráfico de pizza, os rótulos de dados do gráfico podem ficar muito próximos de sua borda. Nesse caso, é necessário ajustar a posição do rótulo de dados para que as linhas de chamada sejam exibidas claramente.
+Ao criar um gráfico que não depende de nenhum eixo, como um gráfico de pizza, os rótulos de dados do gráfico podem ficar muito próximos da borda. Nesse caso, é necessário ajustar a localização do rótulo de dados para que as linhas de ligação sejam exibidas claramente.
 
-Este código C++ mostra como ajustar a posição do rótulo em um gráfico de pizza:
+Este código C++ mostra como ajustar a localização do rótulo em um gráfico de pizza:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -240,14 +240,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
+**Como posso evitar que os rótulos de dados se sobreponham em gráficos densos?**
 
-Combine posicionamento automático de rótulos, linhas de chamada e tamanho de fonte reduzido; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para pontos extremos/chave.
+Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para pontos extremos/chave.
 
-**Como desabilitar rótulos apenas para valores zero, negativos ou vazios?**
+**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**
 
 Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
 
 **Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
 
-Defina explicitamente as fontes (família, tamanho) e verifique se a fonte está disponível no lado de renderização para evitar fallback.
+Defina explicitamente as fontes (família, tamanho) e verifique se a fonte está disponível no lado de renderização para evitar substituição.

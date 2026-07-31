@@ -3,8 +3,10 @@ title: Sunumun Dosya Biçimini Alın
 type: docs
 weight: 50
 url: /tr/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/sunum-bicimi/
 ---
-Dosya biçimini elde etmek için, lütfen aşağıdaki adımları izleyin:
+Dosya biçimini almak için aşağıdaki adımları izleyin:
 
 - **IPresentationInfo** sınıfının bir örneğini oluşturun
 - Sunum hakkında bilgi alın
@@ -46,6 +48,6 @@ switch (info.LoadFormat)
 
 ``` 
 ## **Örnek Kodu İndir**
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **Çalışan Örneği İndir**
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

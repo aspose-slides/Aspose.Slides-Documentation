@@ -3,20 +3,22 @@ title: Záhlaví a zápatí
 type: docs
 weight: 220
 url: /cs/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - záhlaví a zápatí
 - přidat záhlaví a zápatí
 - aktualizovat záhlaví a zápatí
-- ukázka kódu
+- příklad kódu
 - PowerPoint
 - OpenDocument
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Řiďte záhlaví a zápatí snímků pomocí Aspose.Slides pro .NET: přidávejte data, čísla snímků a vlastní text do souborů PPT, PPTX a ODP s ukázkami v C#."
+description: "Ovládejte záhlaví a zápatí snímků pomocí Aspose.Slides pro .NET: přidejte data, čísla snímků a vlastní text v PPT, PPTX a ODP s příklady v C#."
 ---
-Tento článek ukazuje, jak přidat zápatí a aktualizovat zástupné znaky data a času pomocí **Aspose.Slides for .NET**.
+Tento článek demonstruje, jak přidat zápatí a aktualizovat zástupce data a času pomocí **Aspose.Slides for .NET**.
 
 ## **Přidat zápatí**
 
@@ -35,7 +37,7 @@ static void AddHeaderFooter()
 
 ## **Aktualizovat datum a čas**
 
-Upravte zástupný znak data a času na snímku.
+Upravte zástupce data a času na snímku.
 
 ```csharp
 static void UpdateDateTime()

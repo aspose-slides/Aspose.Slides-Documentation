@@ -1,5 +1,5 @@
 ---
-title: Přizpůsobení tabulek dat grafů v prezentacích pomocí C++
+title: Přizpůsobení tabulek dat grafu v prezentacích pomocí C++
 linktitle: Datová tabulka
 type: docs
 url: /cs/cpp/chart-data-table/
@@ -11,22 +11,22 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Přizpůsobte tabulky dat grafů v C++ pro PPT a PPTX pomocí Aspose.Slides a zvyšte efektivitu a atraktivitu prezentací."
+description: "Přizpůsobte tabulky dat grafu v C++ pro soubory PPT a PPTX pomocí Aspose.Slides a zvyšte efektivitu i atraktivitu prezentací."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s tabulkami dat v grafech v Aspose.Slides. Ukazuje, jak zobrazit tabulku dat pro graf a přizpůsobit formátování textu nastavením vlastností písma, jako je tučný styl a výška písma. Příklad demonstruje načtení prezentace, přidání grafu, povolení tabulky dat grafu, aplikaci nastavení písma a uložení aktualizované prezentace.
+Tento článek vysvětluje, jak pracovat s tabulkami dat grafu v Aspose.Slides. Ukazuje, jak zobrazit tabulku dat pro graf a přizpůsobit formátování textu nastavením vlastností písma, jako je tučný styl a výška písma. Příklad demonstruje načtení prezentace, přidání grafu, povolení tabulky dat grafu, aplikaci nastavení písma a uložení aktualizované prezentace.
 
 ## **Nastavení vlastností písma pro tabulku dat grafu**
-Aspose.Slides pro C++ umožňuje měnit vlastnosti písma pro tabulku dat grafu. 
+Aspose.Slides pro C++ umožňuje měnit vlastnosti písma pro tabulku dat grafu.  
 
-1. Instancujte objekt třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
+1. Vytvořte objekt třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
 1. Přidejte graf na snímek.
 1. Nastavte tabulku grafu.
 1. Nastavte výšku písma.
 1. Uložte upravenou prezentaci.
 
-Níže je uveden ukázkový příklad. 
+Níže je uvedený ukázkový příklad.  
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -43,18 +43,18 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **Často kladené otázky**
 
-**Mohu zobrazit malé legendové klíče vedle hodnot v tabulce dat grafu?**
+**Mohu zobrazit malé legendy vedle hodnot v tabulce dat grafu?**
 
-Ano. Tabulka dat podporuje [legendové klíče](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/datatable/set_showlegendkey/), a můžete je zapnout nebo vypnout.
+Ano. Tabulka dat podporuje [legendy](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/datatable/set_showlegendkey/), a můžete je zapnout nebo vypnout.
 
 **Zůstane tabulka dat zachována při exportu prezentace do PDF, HTML nebo obrázků?**
 
-Ano. Aspose.Slides vykresluje graf jako součást snímku, takže exportovaný [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/cs/cpp/convert-powerpoint-to-html/)/[obrázek](/slides/cs/cpp/convert-powerpoint-to-png/) obsahuje graf s jeho tabulkou dat.
+Ano. Aspose.Slides vykresluje graf jako součást snímku, takže exportovaný [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/cs/cpp/convert-powerpoint-to-html/)/[image](/slides/cs/cpp/convert-powerpoint-to-png/) obsahuje graf s jeho tabulkou dat.
 
-**Jsou tabulky dat podporovány pro grafy, které pocházejí ze souboru šablony?**
+**Jsou tabulky dat podporovány pro grafy pocházející ze šablonového souboru?**
 
 Ano. Pro libovolný graf načtený z existující prezentace nebo šablony můžete pomocí vlastností grafu zkontrolovat a změnit, zda je tabulka dat [zobrazena](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chart/set_hasdatatable/).
 
-**Jak mohu rychle najít, které grafy v souboru mají povolenou tabulku dat?**
+**Jak mohu rychle zjistit, které grafy v souboru mají povolenou tabulku dat?**
 
-Prozkoumejte vlastnost každého grafu, která udává, zda je tabulka dat [zobrazena](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chart/get_hasdatatable/), a projděte snímky, abyste identifikovali grafy, kde je povolena.
+Prohlédněte vlastnost každého grafu, která udává, zda je tabulka dat [zobrazená](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chart/get_hasdatatable/), a projděte snímky, abyste identifikovali grafy, kde je povolena.

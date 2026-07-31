@@ -1,31 +1,30 @@
 ---
-title: Aspose.Slides para SharePoint
+title: Aspose.Slides for SharePoint
 second_title: Aspose.Slides for SharePoint
-description: Aspose.Slides para SharePoint es una solución flexible que hace posible convertir documentos de PowerPoint® dentro de sitios de Microsoft SharePoint.
+description: Aspose.Slides for SharePoint es una solución flexible que permite convertir documentos PowerPoint® dentro de los sitios de Microsoft SharePoint.
 type: docs
 weight: 60
 url: /es/sharepoint/
 is_root: true
 ---
-
 {{% alert color="primary" %}}
 
 ![Aspose.Slides para SharePoint](home_1.png)
 
 **Bienvenido a Aspose.Slides para SharePoint**
 
-Aspose.Slides para SharePoint es una solución flexible que hace posible convertir documentos de PowerPoint® dentro de sitios de Microsoft SharePoint.
+Aspose.Slides para SharePoint es una solución flexible que permite convertir documentos PowerPoint® dentro de los sitios de Microsoft SharePoint.
 
 {{% /alert %}}
 
 ## **Recursos de Aspose.Slides para SharePoint**
 
-A continuación se presentan los enlaces a algunos recursos útiles que puede necesitar para llevar a cabo sus tareas.
+A continuación se encuentran los enlaces a algunos recursos útiles que puede necesitar para realizar sus tareas.
 
-- [Documentación en línea de Aspose.Slides para SharePoint](/slides/es/sharepoint/)
+- [Documentación de Aspose.Slides para SharePoint Online](/slides/es/sharepoint/)
 - [Características de Aspose.Slides para SharePoint](/slides/es/sharepoint/features/)
-- [Notas de la versión de Aspose.Slides para SharePoint](https://releases.aspose.com/slides/sharepoint/release-notes/)
-- [Página del producto Aspose.Slides para SharePoint](https://products.aspose.com/slides/sharepoint/)
-- [Descargar Aspose.Slides para SharePoint](https://releases.aspose.com/slides/sharepoint/)
-- [Foro de soporte gratuito de Aspose.Slides para SharePoint](https://forum.aspose.com/c/slides/11)
-- [Mesa de ayuda de soporte pagado de Aspose.Slides para SharePoint](https://helpdesk.aspose.com/)
+- [Notas de la versión de Aspose.Slides para SharePoint](https://releases.aspose.com/slides/es/sharepoint/release-notes/)
+- [Página del producto Aspose.Slides para SharePoint](https://products.aspose.com/slides/es/sharepoint/)
+- [Descargar Aspose.Slides para SharePoint](https://releases.aspose.com/slides/es/sharepoint/)
+- [Foro gratuito de soporte de Aspose.Slides para SharePoint](https://forum.aspose.com/c/slides/es/11)
+- [Helpdesk de soporte de pago de Aspose.Slides para SharePoint](https://helpdesk.aspose.com/)

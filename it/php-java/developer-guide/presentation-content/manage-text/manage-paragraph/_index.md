@@ -1,21 +1,23 @@
 ---
-title: Gestire i paragrafi di testo PowerPoint in PHP
-linktitle: Gestisci Paragrafo
+title: Gestisci i paragrafi di testo PowerPoint in PHP
+linktitle: Gestisci paragrafo
 type: docs
 weight: 40
 url: /it/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
 keywords:
 - aggiungi testo
 - aggiungi paragrafo
 - gestisci testo
 - gestisci paragrafo
-- gestisci punto elenco
-- indentazione paragrafo
-- indentazione a penzolante
-- punto elenco paragrafo
+- gestisci elenco puntato
+- rientro del paragrafo
+- rientro sospeso
+- punto elenco del paragrafo
 - elenco numerato
 - elenco puntato
-- proprietà paragrafo
+- proprietà del paragrafo
 - importa HTML
 - testo in HTML
 - paragrafo in HTML
@@ -31,41 +33,41 @@ description: "Domina la formattazione dei paragrafi con Aspose.Slides per PHP tr
 ---
 ## **Introduzione**
 
-Aspose.Slides fornisce tutte le classi necessarie per lavorare con i testi, i paragrafi e le porzioni di PowerPoint.
+Aspose.Slides fornisce tutte le classi necessarie per lavorare con i testi, i paragrafi e le parti di PowerPoint.
 
-* Aspose.Slides fornisce la classe [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) per consentire di aggiungere oggetti che rappresentano un paragrafo. Un oggetto `TextFame` può contenere uno o più paragrafi (ogni paragrafo è creato tramite un ritorno a capo).
-* Aspose.Slides fornisce la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/) per consentire di aggiungere oggetti che rappresentano porzioni. Un oggetto `Paragraph` può contenere una o più porzioni (collezione di oggetti porzione).
+* Aspose.Slides fornisce la classe [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) per consentire di aggiungere oggetti che rappresentano un paragrafo. Un oggetto `TextFame` può contenere uno o più paragrafi (ogni paragrafo è creato mediante un ritorno a capo).
+* Aspose.Slides fornisce la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/) per consentire di aggiungere oggetti che rappresentano parti. Un oggetto `Paragraph` può contenere una o più parti (collezione di oggetti parte).
 * Aspose.Slides fornisce la classe [Portion](https://reference.aspose.com/slides/it/php-java/aspose.slides/portion/) per consentire di aggiungere oggetti che rappresentano testi e le loro proprietà di formattazione.
 
-Un oggetto `Paragraph` è in grado di gestire testi con diverse proprietà di formattazione tramite i suoi oggetti `Portion` sottostanti.
+Un oggetto `Paragraph` è in grado di gestire testi con diverse proprietà di formattazione attraverso i relativi oggetti `Portion`.
 
-## **Aggiungere più paragrafi contenenti più porzioni**
+## **Aggiungere più paragrafi contenenti più parti**
 
-Questi passaggi mostrano come aggiungere un riquadro di testo contenente 3 paragrafi e ogni paragrafo contenente 3 porzioni:
+Questi passaggi mostrano come aggiungere un TextFrame contenente 3 paragrafi e ciascun paragrafo contenente 3 parti:
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Accedere al riferimento della diapositiva desiderata tramite il suo indice.
-3. Aggiungere un rettangolo [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva.
-4. Ottenere l'`ITextFrame` associato all'[AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/).
-5. Creare due oggetti [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/) e aggiungerli alla collezione di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/).
-6. Creare tre oggetti [Portion](https://reference.aspose.com/slides/it/php-java/aspose.slides/portion/) per ciascun nuovo `Paragraph` (due oggetti Portion per il paragrafo predefinito) e aggiungere ogni oggetto `Portion` alla collezione di porzioni di ciascun `Paragraph`.
-7. Impostare del testo per ogni porzione.
-8. Applicare le caratteristiche di formattazione preferite a ciascuna porzione utilizzando le proprietà di formattazione esposte dall'oggetto `Portion`.
+2. Accedere al riferimento della diapositiva pertinente tramite il suo indice.
+3. Aggiungere un [AutoShape] rettangolare alla diapositiva.
+4. Ottenere l'ITextFrame associato al [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/).
+5. Creare due oggetti [Paragraph] e aggiungerli alla collezione di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/).
+6. Creare tre oggetti [Portion] per ciascun nuovo `Paragraph` (due oggetti Portion per il Paragraph predefinito) e aggiungere ogni oggetto `Portion` alla collezione di parti di ciascun `Paragraph`.
+7. Impostare del testo per ogni parte.
+8. Applicare le caratteristiche di formattazione preferite a ogni parte usando le proprietà di formattazione esposte dall'oggetto `Portion`.
 9. Salvare la presentazione modificata.
 
-Questo codice PHP è un'implementazione dei passaggi per aggiungere paragrafi contenenti porzioni:
+Questo codice PHP è un'implementazione dei passaggi per aggiungere paragrafi contenenti parti:
 
 ```php
-# Istanzia una classe Presentation che rappresenta un file PPTX
+# Istanziate una classe Presentation che rappresenta un file PPTX
 $pres = new Presentation();
 try {
     # Accesso alla prima diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Aggiungi un AutoShape di tipo Rettangolo
+    # Aggiungere un AutoShape di tipo Rettangolo
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # Accedi al TextFrame dell'AutoShape
+    # Accedere al TextFrame dell'AutoShape
     $tf = $ashp->getTextFrame();
-    # Crea Paragraph e Portion con formati di testo diversi
+    # Creare paragrafi e parti con differenti formati di testo
     $para0 = $tf->getParagraphs()->get_Item(0);
     $port01 = new Portion();
     $port02 = new Portion();
@@ -104,7 +106,7 @@ try {
             }
         }
     }
-    # Scrivi il PPTX su disco
+    # Scrivere il PPTX su disco
     $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -113,26 +115,26 @@ try {
 }
 ```
 
-## **Gestire i punti elenco del paragrafo**
+## **Gestire i punti elenco dei paragrafi**
 
-Le liste puntate aiutano a organizzare e presentare le informazioni in modo rapido ed efficiente. I paragrafi puntati sono sempre più facili da leggere e comprendere.
+Le elenchi puntati aiutano a organizzare e presentare le informazioni in modo rapido ed efficiente. I paragrafi puntati sono sempre più facili da leggere e comprendere.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Accedere al riferimento della diapositiva desiderata tramite il suo indice.
+2. Accedere al riferimento della diapositiva pertinente tramite il suo indice.
 3. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva selezionata.
 4. Accedere al [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) dell'autoshape.
 5. Rimuovere il paragrafo predefinito nel `TextFrame`.
 6. Creare la prima istanza di paragrafo usando la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/).
-7. Impostare il `Type` del punto elenco per il paragrafo su `Symbol` e impostare il carattere del punto.
+7. Impostare il `Type` del bullet per il paragrafo su `Symbol` e impostare il carattere del bullet.
 8. Impostare il `Text` del paragrafo.
-9. Impostare l'`Indent` del paragrafo per il punto elenco.
-10. Impostare un colore per il punto elenco.
-11. Impostare un'altezza per il punto elenco.
+9. Impostare l'`Indent` del paragrafo per il bullet.
+10. Impostare un colore per il bullet.
+11. Impostare un'altezza per il bullet.
 12. Aggiungere il nuovo paragrafo alla collezione di paragrafi del `TextFrame`.
-13. Aggiungere il secondo paragrafo e ripetere il processo descritto nei passaggi da 7 a 13.
+13. Aggiungere il secondo paragrafo e ripetere il processo descritto nei passaggi da 7 a 12.
 14. Salvare la presentazione.
 
-Questo codice PHP mostra come aggiungere un punto elenco a un paragrafo:
+Questo codice PHP mostra come aggiungere un bullet al paragrafo:
 
 ```php
 # Istanzia una classe Presentation che rappresenta un file PPTX
@@ -140,46 +142,46 @@ $pres = new Presentation();
 try {
     # Accede alla prima diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Aggiunge e accede a Autoshape
+    # Aggiunge e accede all'AutoShape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accede al TextFrame dell'autoshape
+    # Accede al text frame dell'AutoShape
     $txtFrm = $aShp->getTextFrame();
     # Rimuove il paragrafo predefinito
     $txtFrm->getParagraphs()->removeAt(0);
     # Crea un paragrafo
     $para = new Paragraph();
-    # Imposta lo stile del punto elenco del paragrafo e il simbolo
+    # Imposta lo stile e il simbolo del bullet del paragrafo
     $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para->getParagraphFormat()->getBullet()->setChar(8226);
     # Imposta il testo del paragrafo
     $para->setText("Welcome to Aspose.Slides");
-    # Imposta l'indentazione del punto elenco
+    # Imposta l'indentazione del bullet
     $para->getParagraphFormat()->setIndent(25);
-    # Imposta il colore del punto elenco
+    # Imposta il colore del bullet
     $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// imposta IsBulletHardColor a true per usare il proprio colore del punto elenco
+    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// imposta IsBulletHardColor a true per usare un colore del bullet personalizzato
 
-    # Imposta l'altezza del punto elenco
+    # Imposta l'altezza del bullet
     $para->getParagraphFormat()->getBullet()->setHeight(100);
-    # Aggiunge il paragrafo al TextFrame
+    # Aggiunge il paragrafo al text frame
     $txtFrm->getParagraphs()->add($para);
     # Crea il secondo paragrafo
     $para2 = new Paragraph();
-    # Imposta il tipo e lo stile del punto elenco del paragrafo
+    # Imposta il tipo e lo stile del bullet del paragrafo
     $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
     # Aggiunge il testo al paragrafo
     $para2->setText("This is numbered bullet");
-    # Imposta l'indentazione del punto elenco
+    # Imposta l'indentazione del bullet
     $para2->getParagraphFormat()->setIndent(25);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// imposta IsBulletHardColor a true per usare il proprio colore del punto elenco
+    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// imposta IsBulletHardColor a true per usare un colore del bullet personalizzato
 
-    # Imposta l'altezza del punto elenco
+    # Imposta l'altezza del bullet
     $para2->getParagraphFormat()->getBullet()->setHeight(100);
-    # Aggiunge il paragrafo al TextFrame
+    # Aggiunge il paragrafo al text frame
     $txtFrm->getParagraphs()->add($para2);
     # Salva la presentazione modificata
     $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
@@ -190,27 +192,27 @@ try {
 }
 ```
 
-## **Gestire i punti elenco con immagine**
+## **Gestire i punti elenco con immagini**
 
-Le liste puntate aiutano a organizzare e presentare le informazioni in modo rapido ed efficiente. I paragrafi con immagine sono facili da leggere e comprendere.
+Le elenchi puntati aiutano a organizzare e presentare le informazioni in modo rapido ed efficiente. I paragrafi con immagini sono facili da leggere e capire.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Accedere al riferimento della diapositiva desiderata tramite il suo indice.
+2. Accedere al riferimento della diapositiva pertinente tramite il suo indice.
 3. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva.
 4. Accedere al [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) dell'autoshape.
 5. Rimuovere il paragrafo predefinito nel `TextFrame`.
 6. Creare la prima istanza di paragrafo usando la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/).
 7. Caricare l'immagine in [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/).
-8. Impostare il tipo di punto elenco su [Picture](https://reference.aspose.com/slides/it/php-java/aspose.slides/bullettype/#Picture) e impostare l'immagine.
+8. Impostare il tipo di bullet su [Picture](https://reference.aspose.com/slides/it/php-java/aspose.slides/bullettype/#Picture) e impostare l'immagine.
 9. Impostare il `Text` del paragrafo.
-10. Impostare l'`Indent` del paragrafo per il punto elenco.
-11. Impostare un colore per il punto elenco.
-12. Impostare un'altezza per il punto elenco.
+10. Impostare l'`Indent` del paragrafo per il bullet.
+11. Impostare un colore per il bullet.
+12. Impostare un'altezza per il bullet.
 13. Aggiungere il nuovo paragrafo alla collezione di paragrafi del `TextFrame`.
 14. Aggiungere il secondo paragrafo e ripetere il processo basato sui passaggi precedenti.
 15. Salvare la presentazione modificata.
 
-Questo codice PHP mostra come aggiungere e gestire punti elenco con immagine:
+Questo codice PHP mostra come aggiungere e gestire bullet con immagine:
 
 ```php
 # Istanzia una classe Presentation che rappresenta un file PPTX
@@ -218,7 +220,7 @@ $presentation = new Presentation();
 try {
     # Accede alla prima diapositiva
     $slide = $presentation->getSlides()->get_Item(0);
-    # Istanzia l'immagine per i punti elenco
+    # Istanzia l'immagine per i bullet
     $picture;
     $image = Images->fromFile("bullets.png");
     try {
@@ -228,19 +230,19 @@ try {
             $image->dispose();
         }
     }
-    # Aggiunge e accede a Autoshape
+    # Aggiunge e accede all'AutoShape
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accede al textframe dell'autoshape
+    # Accede al textframe dell'AutoShape
     $textFrame = $autoShape->getTextFrame();
     # Rimuove il paragrafo predefinito
     $textFrame->getParagraphs()->removeAt(0);
     # Crea un nuovo paragrafo
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
-    # Imposta lo stile del punto elenco del paragrafo e l'immagine
+    # Imposta lo stile del bullet del paragrafo e l'immagine
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
     $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # Imposta l'altezza del punto elenco
+    # Imposta l'altezza del bullet
     $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
     # Aggiunge il paragrafo al text frame
     $textFrame->getParagraphs()->add($paragraph);
@@ -256,23 +258,23 @@ try {
 }
 ```
 
-## **Gestire i punti elenco multilevel**
+## **Gestire i punti elenco multilivello**
 
-Le liste puntate aiutano a organizzare e presentare le informazioni in modo rapido ed efficiente. I punti elenco multilevel sono facili da leggere e comprendere.
+Le elenchi puntati aiutano a organizzare e presentare le informazioni in modo rapido ed efficiente. I bullet multilivello sono facili da leggere e comprendere.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Accedere al riferimento della diapositiva desiderata tramite il suo indice.
+2. Accedere al riferimento della diapositiva pertinente tramite il suo indice.
 3. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) nella nuova diapositiva.
 4. Accedere al [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) dell'autoshape.
 5. Rimuovere il paragrafo predefinito nel `TextFrame`.
-6. Creare la prima istanza di paragrafo attraverso la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/) e impostare la profondità a 0.
-7. Creare la seconda istanza di paragrafo attraverso la classe `Paragraph` e impostare la profondità a 1.
-8. Creare la terza istanza di paragrafo attraverso la classe `Paragraph` e impostare la profondità a 2.
-9. Creare la quarta istanza di paragrafo attraverso la classe `Paragraph` e impostare la profondità a 3.
+6. Creare la prima istanza di paragrafo tramite la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/) e impostare la profondità a 0.
+7. Creare la seconda istanza di paragrafo tramite la classe `Paragraph` e impostare la profondità a 1.
+8. Creare la terza istanza di paragrafo tramite la classe `Paragraph` e impostare la profondità a 2.
+9. Creare la quarta istanza di paragrafo tramite la classe `Paragraph` e impostare la profondità a 3.
 10. Aggiungere i nuovi paragrafi alla collezione di paragrafi del `TextFrame`.
 11. Salvare la presentazione modificata.
 
-Questo codice PHP mostra come aggiungere e gestire punti elenco multilevel:
+Questo codice PHP mostra come aggiungere e gestire bullet multilivello:
 
 ```php
 # Istanzia una classe Presentation che rappresenta un file PPTX
@@ -280,11 +282,11 @@ $pres = new Presentation();
 try {
     # Accede alla prima diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Aggiunge e accede a Autoshape
+    # Aggiunge e accede all'AutoShape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accede al riquadro di testo dell'autoshape creato
+    # Accede al text frame dell'AutoShape creata
     $text = $aShp->addTextFrame("");
-    # Pulisce il paragrafo predefinito
+    # Cancella il paragrafo predefinito
     $text->getParagraphs()->clear();
     # Aggiunge il primo paragrafo
     $para1 = new Paragraph();
@@ -293,7 +295,7 @@ try {
     $para1->getParagraphFormat()->getBullet()->setChar(8226);
     $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Imposta il livello del punto elenco
+    # Imposta il livello del bullet
     $para1->getParagraphFormat()->setDepth(0);
     # Aggiunge il secondo paragrafo
     $para2 = new Paragraph();
@@ -302,7 +304,7 @@ try {
     $para2->getParagraphFormat()->getBullet()->setChar('-');
     $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Imposta il livello del punto elenco
+    # Imposta il livello del bullet
     $para2->getParagraphFormat()->setDepth(1);
     # Aggiunge il terzo paragrafo
     $para3 = new Paragraph();
@@ -311,7 +313,7 @@ try {
     $para3->getParagraphFormat()->getBullet()->setChar(8226);
     $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Imposta il livello del punto elenco
+    # Imposta il livello del bullet
     $para3->getParagraphFormat()->setDepth(2);
     # Aggiunge il quarto paragrafo
     $para4 = new Paragraph();
@@ -320,7 +322,7 @@ try {
     $para4->getParagraphFormat()->getBullet()->setChar('-');
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Imposta il livello del punto elenco
+    # Imposta il livello del bullet
     $para4->getParagraphFormat()->setDepth(3);
     # Aggiunge i paragrafi alla collezione
     $text->getParagraphs()->add($para1);
@@ -345,9 +347,9 @@ La classe [BulletFormat](https://reference.aspose.com/slides/it/php-java/aspose.
 3. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva.
 4. Accedere al [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) dell'autoshape.
 5. Rimuovere il paragrafo predefinito nel `TextFrame`.
-6. Creare la prima istanza di paragrafo attraverso la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/) e impostare [NumberedBulletStartWith](https://reference.aspose.com/slides/it/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) a 2.
-7. Creare la seconda istanza di paragrafo attraverso la classe `Paragraph` e impostare `NumberedBulletStartWith` a 3.
-8. Creare la terza istanza di paragrafo attraverso la classe `Paragraph` e impostare `NumberedBulletStartWith` a 7.
+6. Creare la prima istanza di paragrafo tramite la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/) e impostare [NumberedBulletStartWith](https://reference.aspose.com/slides/it/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) a 2.
+7. Creare la seconda istanza di paragrafo tramite la classe `Paragraph` e impostare `NumberedBulletStartWith` a 3.
+8. Creare la terza istanza di paragrafo tramite la classe `Paragraph` e impostare `NumberedBulletStartWith` a 7.
 9. Aggiungere i nuovi paragrafi alla collezione di paragrafi del `TextFrame`.
 10. Salvare la presentazione modificata.
 
@@ -357,7 +359,7 @@ Questo codice PHP mostra come aggiungere e gestire paragrafi con numerazione o f
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accede al riquadro di testo dell'autoshape creato
+    # Accede al text frame dell'autoshape creata
     $textFrame = $shape->getTextFrame();
     # Rimuove il paragrafo predefinito esistente
     $textFrame->getParagraphs()->removeAt(0);
@@ -388,20 +390,20 @@ try {
 }
 ```
 
-## **Impostare l'indentazione della prima riga per un paragrafo**
+## **Impostare l'indentazione della prima linea per un paragrafo**
 
-Utilizzare il metodo [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) per controllare l'indentazione della prima riga di un paragrafo. Questo metodo sposta solo la prima riga rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima riga verso destra, mentre le righe restanti rimangono allineate al corpo del paragrafo.
+Utilizzare il metodo [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) per controllare l'indentazione della prima linea di un paragrafo. Questo metodo sposta solo la prima linea rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima linea a destra, mentre le linee rimanenti rimangono allineate al corpo del paragrafo.
 
-Utilizzare [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginleft/) quando è necessario spostare l'intero paragrafo. Utilizzare [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) quando è necessario spostare solo la prima riga.
+Usare [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginleft/) quando è necessario spostare l'intero paragrafo. Usare [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) quando è necessario spostare solo la prima linea.
 
-L'esempio riportato di seguito crea diversi paragrafi e applica valori di indentazione diversi per dimostrare come l'indentazione della prima riga influisce sul layout del paragrafo.
+L'esempio seguente crea diversi paragrafi e applica valori di indentazione diversi per dimostrare come l'indentazione della prima linea influisce sul layout del paragrafo.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Accedere alla diapositiva target.
-3. Aggiungere un rettangolare [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva.
-4. Aggiungere un [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) vuoto alla forma e rimuovere il paragrafo predefinito.
+2. Accedere alla diapositiva di destinazione.
+3. Aggiungere un [AutoShape] rettangolare alla diapositiva.
+4. Aggiungere un [TextFrame] vuoto alla forma e rimuovere il paragrafo predefinito.
 5. Creare diversi paragrafi e impostare valori diversi di [Indent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) per ciascuno.
-6. Aggiungere i paragrafi al riquadro di testo.
+6. Aggiungere i paragrafi al text frame.
 7. Salvare la presentazione modificata.
 
 Questo codice mostra come impostare l'indentazione di un paragrafo:
@@ -453,26 +455,26 @@ try {
 
 Il risultato:
 
-![L'indentazione della prima riga dei paragrafi](first_line_indent.png)
+![L'indentazione della prima linea dei paragrafi](first_line_indent.png)
 
-## **Impostare un'indentazione a penzolante per un paragrafo**
+## **Impostare l'indentazione sospesa per un paragrafo**
 
-Un'indentazione a penzolante è una disposizione del paragrafo in cui la prima riga inizia a sinistra rispetto alle righe rimanenti. In Aspose.Slides, è possibile creare questo effetto con il metodo [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/). Impostare l'indentazione a un valore negativo per spostare la prima riga a sinistra rispetto al corpo del paragrafo.
+Un'indentazione sospesa è un layout del paragrafo in cui la prima linea inizia a sinistra delle linee successive. In Aspose.Slides, si ottiene questo effetto con il metodo [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/). Impostare l'indentazione su un valore negativo per spostare la prima linea a sinistra rispetto al corpo del paragrafo.
 
-In pratica, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginleft/) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) definisce la posizione della prima riga rispetto a quel margine. Per creare un'indentazione a penzolante, impostare un valore positivo di `MarginLeft` e un valore negativo di `Indent`.
+In pratica, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginleft/) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat::setIndent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) definisce la posizione della prima linea rispetto a quel margine. Per creare un'indentazione sospesa, impostare un valore positivo di `MarginLeft` e un valore negativo di `Indent`.
 
-Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le righe a capo devono essere allineate sotto il corpo del paragrafo anziché sotto il primo carattere della prima riga.
+Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le linee a capo devono allinearsi sotto il corpo del paragrafo piuttosto che sotto il primo carattere della prima linea.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Accedere alla diapositiva target.
-3. Aggiungere un rettangolare [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva.
-4. Aggiungere un [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) vuoto alla forma e rimuovere il paragrafo predefinito.
-5. Creare i paragrafi e impostare un valore positivo di [MarginLeft](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginleft/) per ciascuno.
-6. Impostare un valore negativo di [Indent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) per creare l'effetto di indentazione a penzolante.
-7. Aggiungere i paragrafi al riquadro di testo.
+2. Accedere alla diapositiva di destinazione.
+3. Aggiungere un [AutoShape] rettangolare alla diapositiva.
+4. Aggiungere un [TextFrame] vuoto alla forma e rimuovere il paragrafo predefinito.
+5. Creare paragrafi e impostare un valore positivo di [MarginLeft](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginleft/) per ciascun paragrafo.
+6. Impostare un valore negativo di [Indent](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setindent/) per creare l'effetto di indentazione sospesa.
+7. Aggiungere i paragrafi al text frame.
 8. Salvare la presentazione modificata.
 
-Questo codice mostra come impostare un'indentazione a penzolante per un paragrafo:
+Questo codice mostra come impostare un'indentazione sospesa per un paragrafo:
 
 ```php
 $presentation = new Presentation();
@@ -513,14 +515,14 @@ try {
 
 Il risultato:
 
-![L'indentazione a penzolante dei paragrafi](hanging_indent.png)
+![L'indentazione sospesa dei paragrafi](hanging_indent.png)
 
-## **Gestire le proprietà di esecuzione del paragrafo finale**
+## **Gestire le proprietà di fine esecuzione del paragrafo**
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-1. Ottenere il riferimento alla diapositiva contenente il paragrafo tramite la sua posizione.
-1. Aggiungere un rettangolo [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva.
-1. Aggiungere un [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) con due paragrafi al rettangolo.
+1. Ottenere il riferimento per la diapositiva contenente il paragrafo tramite la sua posizione.
+1. Aggiungere un [AutoShape] rettangolare alla diapositiva.
+1. Aggiungere un [TextFrame] con due paragrafi al rettangolo.
 1. Impostare l'altezza del carattere e il tipo di carattere per i paragrafi.
 1. Impostare le proprietà End per i paragrafi.
 1. Scrivere la presentazione modificata come file PPTX.
@@ -551,22 +553,22 @@ try {
 
 ## **Importare testo HTML nei paragrafi**
 
-Aspose.Slides fornisce supporto avanzato per l'importazione di testo HTML nei paragrafi.
+Aspose.Slides fornisce un supporto avanzato per l'importazione di testo HTML nei paragrafi.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Accedere al riferimento della diapositiva desiderata tramite il suo indice.
+2. Accedere al riferimento della diapositiva pertinente tramite il suo indice.
 3. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/) alla diapositiva.
 4. Aggiungere e accedere al [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) dell'AutoShape.
 5. Rimuovere il paragrafo predefinito nel `TextFrame`.
 6. Leggere il file HTML di origine in un TextReader.
-7. Creare la prima istanza di paragrafo attraverso la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/).
+7. Creare la prima istanza di paragrafo tramite la classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/).
 8. Aggiungere il contenuto del file HTML letto dal TextReader alla [ParagraphCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphcollection/) del TextFrame.
 9. Salvare la presentazione modificata.
 
 Questo codice PHP è un'implementazione dei passaggi per importare testi HTML nei paragrafi:
 
 ```php
-# Crea un'istanza vuota di presentazione
+# Crea un'istanza di presentazione vuota
 $pres = new Presentation();
 try {
     # Accede alla prima diapositiva predefinita della presentazione
@@ -580,7 +582,7 @@ try {
     $ashape->getTextFrame()->getParagraphs()->clear();
     # Carica il file HTML usando lo stream reader
     $tr = new StreamReader("file.html");
-    # Aggiunge il testo dallo stream reader HTML nel text frame
+    # Aggiunge testo dal stream reader HTML nel text frame
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
     # Salva la presentazione
     $pres->save("output_out.pptx", SaveFormat::Pptx);
@@ -593,11 +595,11 @@ try {
 
 ## **Esportare il testo del paragrafo in HTML**
 
-Aspose.Slides fornisce supporto avanzato per l'esportazione dei testi (contenuti nei paragrafi) in HTML.
+Aspose.Slides fornisce un supporto avanzato per l'esportazione di testi (contenuti nei paragrafi) in HTML.
 
 1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) e caricare la presentazione desiderata.
-2. Accedere al riferimento della diapositiva desiderata tramite il suo indice.
-3. Accedere alla forma contenente il testo da esportare in HTML.
+2. Accedere al riferimento della diapositiva pertinente tramite il suo indice.
+3. Accedere alla forma contenente il testo che verrà esportato in HTML.
 4. Accedere al [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/) della forma.
 5. Creare un'istanza di `StreamWriter` e aggiungere il nuovo file HTML.
 6. Fornire un indice di partenza a StreamWriter ed esportare i paragrafi desiderati.
@@ -618,7 +620,7 @@ try {
     $os = new Java("java.io.FileOutputStream", "output.html");
     $writer = new OutputStreamWriter($os, "UTF-8");
     # Estrae il primo paragrafo come HTML
-    # Scrive i dati dei paragrafi in HTML fornendo l'indice di inizio del paragrafo e il numero totale di paragrafi da copiare
+    # Scrive i dati dei paragrafi in HTML fornendo l'indice di inizio del paragrafo, il numero totale di paragrafi da copiare
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
     $writer->close();
 } catch (JavaException $e) {
@@ -631,7 +633,7 @@ try {
 
 ## **Salvare un paragrafo come immagine**
 
-In questa sezione, esploreremo due esempi che dimostrano come salvare un paragrafo di testo, rappresentato dalla classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/), come immagine. Entrambi gli esempi includono l'ottenimento dell'immagine di una forma contenente il paragrafo tramite i metodi `getImage` della classe [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/), il calcolo dei limiti del paragrafo all'interno della forma e l'esportazione come immagine bitmap. Questi approcci consentono di estrarre parti specifiche del testo da presentazioni PowerPoint e salvarle come immagini separate, utili in vari scenari.
+In questa sezione esploreremo due esempi che dimostrano come salvare un paragrafo di testo, rappresentato dalla classe [Paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraph/), come immagine. Entrambi gli esempi includono l'ottenimento dell'immagine di una forma contenente il paragrafo mediante i metodi `getImage` della classe [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/), il calcolo dei limiti del paragrafo all'interno della forma e l'esportazione come immagine bitmap. Questi approcci consentono di estrarre parti specifiche del testo da presentazioni PowerPoint e salvarle come immagini separate, utili in vari scenari.
 
 Supponiamo di avere un file di presentazione chiamato sample.pptx con una diapositiva, dove la prima forma è una casella di testo contenente tre paragrafi.
 
@@ -639,7 +641,7 @@ Supponiamo di avere un file di presentazione chiamato sample.pptx con una diapos
 
 **Esempio 1**
 
-In questo esempio, otteniamo il secondo paragrafo come immagine. Per farlo, estraiamo l'immagine della forma dalla prima diapositiva della presentazione e calcoliamo i limiti del secondo paragrafo nel riquadro di testo della forma. Il paragrafo viene quindi ridisegnato su una nuova immagine bitmap, salvata in formato PNG. Questo metodo è particolarmente utile quando è necessario salvare un paragrafo specifico come immagine separata mantenendo le dimensioni e la formattazione esatte del testo.
+In questo esempio otteniamo il secondo paragrafo come immagine. Per farlo, estraiamo l'immagine della forma dalla prima diapositiva della presentazione e poi calcoliamo i limiti del secondo paragrafo nel text frame della forma. Il paragrafo viene quindi ridisegnato su una nuova immagine bitmap, salvata in formato PNG. Questo metodo è particolarmente utile quando è necessario salvare un paragrafo specifico come immagine separata mantenendo le esatte dimensioni e la formattazione del testo.
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -654,7 +656,7 @@ try {
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // Crea un bitmap della forma da memoria.
+    // Crea un bitmap della forma dalla memoria.
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
@@ -685,7 +687,7 @@ Il risultato:
 
 **Esempio 2**
 
-In questo esempio, estendiamo l'approccio precedente aggiungendo fattori di scala all'immagine del paragrafo. La forma viene estratta dalla presentazione e salvata come immagine con un fattore di scala di `2`. Ciò consente di ottenere un'output a risoluzione più alta quando si esporta il paragrafo. I limiti del paragrafo vengono quindi calcolati tenendo conto della scala. La scalatura è particolarmente utile quando è necessaria un'immagine più dettagliata, ad esempio per materiali stampati di alta qualità.
+In questo esempio estendiamo l'approccio precedente aggiungendo fattori di scala all'immagine del paragrafo. La forma viene estratta dalla presentazione e salvata come immagine con un fattore di scala di `2`. Questo consente una risoluzione più alta nell'esportazione del paragrafo. I limiti del paragrafo sono poi calcolati tenendo conto della scala. La scalatura può essere particolarmente utile quando è necessaria un'immagine più dettagliata, ad esempio per materiali stampati di alta qualità.
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -697,13 +699,13 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Salva la forma in memoria come bitmap con scalatura.
+    // Salva la forma in memoria come bitmap con scaling.
     $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // Crea un bitmap della forma da memoria.
+    // Crea un bitmap della forma dalla memoria.
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
@@ -736,18 +738,18 @@ try {
 
 ## **FAQ**
 
-**Posso disabilitare completamente l'andamento del testo all'interno di un riquadro di testo?**
+**Posso disabilitare completamente l'andamento delle righe all'interno di un TextFrame?**
 
-Sì. Utilizzare l'impostazione di avvolgimento del riquadro di testo ([setWrapText](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/setwraptext/)) per disattivare l'avvolgimento in modo che le linee non vengano interrotte ai bordi del riquadro.
+Sì. Usa l'impostazione di avvolgimento del text frame ([setWrapText](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/setwraptext/)) per disattivare l'andamento così le righe non si spezzano ai bordi del frame.
 
-**Come posso ottenere i limiti esatti su diapositiva di uno specifico paragrafo?**
+**Come posso ottenere i limiti esatti su diapositiva di un paragrafo specifico?**
 
-È possibile recuperare il rettangolo di delimitazione del paragrafo (e anche di una singola porzione) per conoscere la sua posizione e dimensione precise sulla diapositiva.
+Puoi recuperare il rettangolo di delimitazione del paragrafo (e anche di una singola parte) per conoscere la sua posizione e dimensione precise sulla diapositiva.
 
 **Dove è controllato l'allineamento del paragrafo (sinistra/destra/centro/giustificato)?**
 
-[Alignment](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setalignment/) è un'impostazione a livello di paragrafo in [ParagraphFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/); si applica all'intero paragrafo indipendentemente dalla formattazione delle singole porzioni.
+[Alignment](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setalignment/) è un'impostazione a livello di paragrafo in [ParagraphFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/); si applica all'intero paragrafo indipendentemente dalla formattazione delle singole parti.
 
-**Posso impostare la lingua di correzione ortografica solo per una parte del paragrafo (ad es. una parola)?**
+**Posso impostare una lingua di correzione ortografica solo per una parte del paragrafo (ad esempio una sola parola)?**
 
-Sì. La lingua è impostata a livello di porzione ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseportionformat/#setLanguageId)), quindi più lingue possono coesistere all'interno dello stesso paragrafo.
+Sì. La lingua è impostata a livello di parte ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseportionformat/#setLanguageId)), quindi più lingue possono coesistere all'interno di un unico paragrafo.

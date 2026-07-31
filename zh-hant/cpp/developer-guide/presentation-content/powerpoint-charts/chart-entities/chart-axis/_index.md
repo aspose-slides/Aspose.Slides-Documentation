@@ -1,46 +1,46 @@
 ---
-title: "在簡報中使用 C++ 自訂圖表座標軸"
-linktitle: "圖表座標軸"
+title: 使用 C++ 在簡報中自訂圖表坐標軸
+linktitle: 圖表坐標軸
 type: docs
 url: /zh-hant/cpp/chart-axis/
 keywords:
-- "圖表座標軸"
-- "垂直座標軸"
-- "水平座標軸"
-- "自訂座標軸"
-- "操作座標軸"
-- "管理座標軸"
-- "座標軸屬性"
-- "最大值"
-- "最小值"
-- "座標軸線"
-- "日期格式"
-- "座標軸標題"
-- "座標軸位置"
-- "PowerPoint"
-- "簡報"
-- "C++"
-- "Aspose.Slides"
-description: "了解如何使用 Aspose.Slides for C++ 在 PowerPoint 簡報中自訂圖表座標軸，以用於報告與視覺化。"
+- 圖表坐標軸
+- 垂直坐標軸
+- 水平坐標軸
+- 自訂坐標軸
+- 操作坐標軸
+- 管理坐標軸
+- 坐標軸屬性
+- 最大值
+- 最小值
+- 坐標軸線
+- 日期格式
+- 坐標軸標題
+- 坐標軸位置
+- PowerPoint
+- 簡報
+- C++
+- Aspose.Slides
+description: "探索如何使用 Aspose.Slides for C++ 在 PowerPoint 簡報中自訂圖表坐標軸，以用於報告與視覺化。"
 ---
-## **概觀**
+## **概覽**
 
-本文說明如何在 Aspose.Slides 中自訂圖表座標軸。它展示了如何取得實際座標軸值、在座標軸之間交換資料、隱藏折線圖的垂直或水平座標軸、變更類別座標軸類型、設定類別座標軸值的日期格式、旋轉座標軸標題、設定座標軸位置，以及在值座標軸上顯示單位標籤。
+本文說明如何在 Aspose.Slides 中自訂圖表坐標軸。它展示了如何取得實際坐標軸值、在坐標軸之間交換資料、隱藏折線圖的垂直或水平坐標軸、更改類別坐標軸類型、設定類別坐標軸值的日期格式、旋轉坐標軸標題、設定坐標軸位置，以及在數值坐標軸上顯示單位標籤。
 
-## **取得垂直座標軸的最大值**
-Aspose.Slides for C++ 允許您取得垂直座標軸的最小值與最大值。請依照以下步驟操作：
+## **取得垂直坐標軸的最大值**
+Aspose.Slides for C++ 允許您取得垂直坐標軸的最小值與最大值。請依照以下步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的執行個體。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。
 1. 存取第一張投影片。
-1. 新增一個帶有預設資料的圖表。
-1. 取得座標軸上的實際最大值。
-1. 取得座標軸上的實際最小值。
-1. 取得座標軸的實際主單位。
-1. 取得座標軸的實際次單位。
-1. 取得座標軸的實際主單位比例。
-1. 取得座標軸的實際次單位比例。
+1. 新增一個使用預設資料的圖表。
+1. 取得坐標軸的實際最大值。
+1. 取得坐標軸的實際最小值。
+1. 取得坐標軸的實際主要單位。
+1. 取得坐標軸的實際次要單位。
+1. 取得坐標軸的實際主要單位刻度。
+1. 取得坐標軸的實際次要單位刻度。
 
-以下範例程式碼—上述步驟的實作—示範了如何在 C++ 中取得所需的值：
+此範例程式碼—上述步驟的實作—示範了如何在 C++ 中取得所需值：
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -56,32 +56,31 @@ double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
 double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
 double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 
-// 儲存簡報
+// 保存簡報
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
+## **交換坐標軸之間的資料**
+Aspose.Slides 允許您快速交換坐標軸之間的資料——垂直坐標軸 (y 軸) 上的資料會移至水平坐標軸 (x 軸)，反之亦然。
 
-## **交換座標軸之間的資料**
-Aspose.Slides 允許您快速交換座標軸之間的資料—垂直座標軸（y 軸）的資料會移至水平座標軸（x 軸），反之亦然。
-
-以下 C++ 程式碼示範了如何在圖表的座標軸之間執行資料交換：
+此 C++ 程式碼示範如何在圖表的坐標軸之間執行資料交換：
 
 ``` cpp
-// 建立空的簡報
+// 建立空白簡報
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
 
-// 交換列與欄
+// 交換行與列
 chart->get_ChartData()->SwitchRowColumn();
 
 // 儲存簡報
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **停用折線圖的垂直座標軸**
+## **為折線圖停用垂直坐標軸**
 
-以下 C++ 程式碼示範了如何隱藏折線圖的垂直座標軸：
+此 C++ 程式碼示範如何隱藏折線圖的垂直坐標軸：
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -92,9 +91,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **停用折線圖的水平座標軸**
+## **為折線圖停用水平坐標軸**
 
-以下程式碼示範了如何隱藏折線圖的水平座標軸：
+此程式碼示範如何隱藏折線圖的水平坐標軸：
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -105,9 +104,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **變更類別座標軸**
+## **變更類別坐標軸**
 
-使用 **set_CategoryAxisType()** 方法，您可以指定首選的類別座標軸類型（**date** 或 **text**）。以下 C++ 程式碼示範了此操作：
+使用 **set_CategoryAxisType()** 方法，您可以指定首選的類別坐標軸類型（**date** 或 **text**）。以下 C++ 程式碼示範此操作：
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -122,8 +121,8 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **為類別座標軸值設定日期格式**
-Aspose.Slides for C++ 允許您為類別座標軸值設定日期格式。以下 C++ 程式碼示範了此操作：
+## **設定類別坐標軸值的日期格式**
+Aspose.Slides for C++ 允許您為類別坐標軸值設定日期格式。此 C++ 程式碼示範了此操作：
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -156,8 +155,8 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **設定座標軸標題的旋轉角度**
-Aspose.Slides for C++ 允許您設定圖表座標軸標題的旋轉角度。以下 C++ 程式碼示範了此操作：
+## **設定坐標軸標題的旋轉角度**
+Aspose.Slides for C++ 允許您設定圖表坐標軸標題的旋轉角度。此 C++ 程式碼示範了此操作：
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -170,8 +169,8 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **設定類別或值座標軸的位置**
-Aspose.Slides for C++ 允許您設定類別或值座標軸的位置。以下 C++ 程式碼示範了如何執行此任務：
+## **設定類別或數值坐標軸的位置**
+Aspose.Slides for C++ 允許您在類別或數值坐標軸上設定位置坐標軸。此 C++ 程式碼說明了如何執行此任務：
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -182,8 +181,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **在圖表值座標軸上啟用顯示單位標籤**
-Aspose.Slides for C++ 允許您設定圖表在其值座標軸上顯示單位標籤。以下 C++ 程式碼示範了此操作：
+## **在圖表數值坐標軸上啟用顯示單位標籤**
+Aspose.Slides for C++ 允許您設定圖表在其數值坐標軸上顯示單位標籤。此 C++ 程式碼示範了此操作：
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -194,12 +193,12 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-## **常見問答**
+## **FAQ**
 
-**如何設定一個座標軸交叉另一個座標軸的位置（座標軸交叉）？**
+**如何設定兩條坐標軸交叉的值（坐標軸交叉）？**
 
-座標軸提供了 [crossing setting](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/axis/set_crosstype/)：您可以選擇在零點、最大類別/值或特定數值處交叉。此功能有助於將 X 軸上移或下移，或強調基線。
+坐標軸提供一個 [crossing setting](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/axis/set_crosstype/)：您可以選擇在零、在最大類別/數值，或在特定數值處交叉。此功能有助於上下移動 X 軸或強調基準線。
 
-**如何相對於座標軸定位刻度標籤（旁邊、外側、內側）？**
+**如何相對於坐標軸定位刻度標籤（旁邊、外側、內側）？**
 
-將 [label position](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/axis/set_majortickmark/) 設為 "cross"、"outside" 或 "inside"。這會影響可讀性，並有助於在小型圖表上節省空間。
+將 [label position](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/axis/set_majortickmark/) 設為 "cross"、"outside" 或 "inside"。此設定會影響可讀性，並有助於在小型圖表上節省空間。

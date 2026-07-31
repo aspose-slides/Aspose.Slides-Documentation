@@ -1,5 +1,5 @@
 ---
-title: Administrar etiquetas de datos de gráficos en presentaciones usando C++
+title: Gestionar etiquetas de datos de gráficos en presentaciones usando C++
 linktitle: Etiqueta de datos
 type: docs
 url: /es/cpp/chart-data-label/
@@ -14,19 +14,21 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Aprenda a agregar y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para C++ para diapositivas más atractivas."
+description: "Aprende a añadir y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para C++ para obtener diapositivas más atractivas."
 ---
+## **Introducción**
 
-Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de entender.
+Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de comprender.
 
 ## **Establecer la precisión de los datos en las etiquetas de datos del gráfico**
 
-Este código C++ le muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
+Este código C++ muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
+
 ```c++
 	// La ruta al directorio de documentos
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Instancia la clase Presentation que representa un archivo PPTX
+	// Instancia una clase Presentation que representa un archivo PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Obtiene la primera diapositiva
@@ -39,14 +41,14 @@ Este código C++ le muestra cómo establecer la precisión de los datos en una e
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// Guarda el archivo de la presentación en disco
+	// Escribe el archivo de la presentación en disco
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ## **Mostrar porcentajes como etiquetas**
 
-Aspose.Slides para C++ le permite establecer etiquetas de porcentaje en los gráficos mostrados. Este código C++ demuestra la operación:
+Aspose.Slides para C++ permite establecer etiquetas de porcentaje en los gráficos mostrados. Este código C++ demuestra la operación:
+
 ```c++
 	// La ruta al directorio de documentos
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
@@ -100,10 +102,10 @@ Aspose.Slides para C++ le permite establecer etiquetas de porcentaje en los grá
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Establecer el símbolo de porcentaje en las etiquetas de datos del gráfico**
 
-## **Establecer el signo de porcentaje con las etiquetas de datos del gráfico**
+Este código C++ muestra cómo establecer el símbolo de porcentaje para una etiqueta de datos del gráfico:
 
-Este código C++ le muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
 ```c++
 	// La ruta al directorio de documentos.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
@@ -125,7 +127,7 @@ Este código C++ le muestra cómo establecer el signo de porcentaje para una eti
 	// Establece el índice de la hoja de datos del gráfico
 	int defaultWorksheetIndex = 0;
 
-	// Obtiene la hoja de datos del gráfico
+	// Obtiene la hoja de cálculo de datos del gráfico
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -179,15 +181,14 @@ Este código C++ le muestra cómo establecer el signo de porcentaje para una eti
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// Guarda el archivo de la presentación en disco
+	// Escribe el archivo de la presentación en disco
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
-
 
 ## **Establecer la distancia de la etiqueta desde el eje**
 
-Este código C++ le muestra cómo establecer la distancia de la etiqueta desde un eje de categorías cuando se trata de un gráfico trazado a partir de ejes:
+Este código C++ muestra cómo establecer la distancia de la etiqueta desde un eje de categorías cuando se trabaja con un gráfico trazado a partir de ejes:
+
 ```c++
 	// La ruta al directorio de documentos
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
@@ -208,16 +209,16 @@ Este código C++ le muestra cómo establecer la distancia de la etiqueta desde u
 	// Establece la distancia de la etiqueta desde un eje
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// Guarda el archivo de la presentación en disco
+	// Escribe el archivo de la presentación en disco
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ## **Ajustar la ubicación de la etiqueta**
 
-Cuando crea un gráfico que no depende de ningún eje, como un gráfico circular, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En tal caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas guía se muestren claramente.
+Cuando crea un gráfico que no depende de ningún eje, como un gráfico de pastel, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En tal caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas guía se muestren claramente.
 
-Este código C++ le muestra cómo ajustar la ubicación de la etiqueta en un gráfico circular:
+Este código C++ muestra cómo ajustar la ubicación de la etiqueta en un gráfico de pastel:
+
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -235,19 +236,18 @@ label->set_Y(0.04f);
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
 ## **Preguntas frecuentes**
 
 **¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
 
-Combine la colocación automática de etiquetas, líneas guía y un tamaño de fuente reducido; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para los puntos extremos/clave.
+Combine la colocación automática de etiquetas, líneas guías y un tamaño de fuente reducido; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para los puntos extremos/clave.
 
 **¿Cómo puedo desactivar las etiquetas solo para valores cero, negativos o vacíos?**
 
-Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
+Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores faltantes según una regla definida.
 
-**¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imagenes?**
+**¿Cómo puedo asegurar un estilo consistente de etiquetas al exportar a PDF/imágenes?**
 
 Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar sustituciones.

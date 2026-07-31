@@ -1,9 +1,11 @@
 ---
-title: Chuyển đổi bài thuyết trình PowerPoint trong PHP | HTML, PNG, PDF, Word, TIFF
+title: Chuyển đổi Bản trình chiếu PowerPoint trong PHP | HTML, PNG, PDF, Word, TIFF
 linktitle: Chuyển đổi PowerPoint
 type: docs
 weight: 20
 url: /vi/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
 - chuyển đổi PowerPoint
 - chuyển đổi bản trình chiếu
@@ -17,5 +19,5 @@ keywords:
 - xuất PPTX
 - PHP
 - Aspose.Slides
-description: "Chuyển đổi các bài thuyết trình PowerPoint sang các định dạng khác bằng Aspose.Slides cho PHP qua Java. Nhanh, chính xác và chuyển đổi PPT, PPTX liền mạch."
+description: "Chuyển đổi bản trình chiếu PowerPoint sang các định dạng khác bằng Aspose.Slides cho PHP thông qua Java. Nhanh chóng, chính xác và chuyển đổi PPT và PPTX liền mạch."
 ---

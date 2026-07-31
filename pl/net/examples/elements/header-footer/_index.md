@@ -3,10 +3,12 @@ title: Nagłówek i stopka
 type: docs
 weight: 220
 url: /pl/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- nagłówek i stopka
+- nagłówek stopka
 - dodaj nagłówek i stopkę
-- zaktualizuj nagłówek i stopkę
+- zaktualizuj nagłówek stopka
 - przykład kodu
 - PowerPoint
 - OpenDocument
@@ -14,13 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Steruj nagłówkami i stopkami slajdów przy użyciu Aspose.Slides dla .NET: dodaj daty, numery slajdów i własny tekst w formatach PPT, PPTX i ODP z przykładami w C#."
+description: "Steruj nagłówkami i stopkami slajdów przy użyciu Aspose.Slides dla .NET: dodawaj daty, numery slajdów i własny tekst w formatach PPT, PPTX i ODP z przykładami w C#."
 ---
-Ten artykuł demonstruje, jak dodać stopki oraz zaktualizować pola zastępcze daty i godziny przy użyciu **Aspose.Slides for .NET**.
+Ten artykuł demonstruje, jak dodać stopki i zaktualizować znaczniki daty i godziny przy użyciu **Aspose.Slides for .NET**.
 
 ## **Dodaj stopkę**
 
-Dodaj tekst do obszaru stopki na slajdzie i spraw, aby był widoczny.
+Dodaj tekst do obszaru stopki w slajdzie i spraw, aby był widoczny.
 
 ```csharp
 static void AddHeaderFooter()
@@ -35,7 +37,7 @@ static void AddHeaderFooter()
 
 ## **Zaktualizuj datę i godzinę**
 
-Zmodyfikuj pole zastępcze daty i godziny na slajdzie.
+Zmodyfikuj znacznik daty i godziny na slajdzie.
 
 ```csharp
 static void UpdateDateTime()

@@ -1,5 +1,5 @@
 ---
-title: C++ を使用したプレゼンテーションでのチャート データテーブルのカスタマイズ
+title: C++ を使用したプレゼンテーションのチャート データ テーブルのカスタマイズ
 linktitle: データテーブル
 type: docs
 url: /ja/cpp/chart-data-table/
@@ -11,19 +11,23 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides を使用して C++ で PPT および PPTX のチャート データテーブルをカスタマイズし、プレゼンテーションの効率と魅力を向上させます。"
+description: "Aspose.Slides を使用して C++ で PPT および PPTX のチャート データ テーブルをカスタマイズし、プレゼンテーションの効率と魅力を向上させます。"
 ---
+## **概要**
 
-## **チャート データテーブルのフォント プロパティを設定する**
-Aspose.Slides for C++ では、チャート データテーブルのフォント プロパティを変更できます。
+この記事では、Aspose.Slides のチャート データ テーブルの操作方法を説明します。チャートのデータ テーブルを表示し、太字スタイルやフォントの高さなどのフォント プロパティを設定してテキストの書式設定をカスタマイズする方法を示します。この例では、プレゼンテーションの読み込み、チャートの追加、チャート データ テーブルの有効化、フォント設定の適用、そして更新されたプレゼンテーションの保存を行います。
 
-1. [プレゼンテーション](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのオブジェクトをインスタンス化します。
-1. スライドにチャートを追加します。
-1. チャートテーブルを設定します。
-1. フォントの高さを設定します。
-1. 変更されたプレゼンテーションを保存します。
+## **チャート データ テーブルのフォント プロパティの設定**
+Aspose.Slides for C++ では、チャート データ テーブルのフォント プロパティを変更できます。
 
-以下にサンプル例が示されています。  
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのオブジェクトをインスタンス化します。
+2. スライドにチャートを追加します。
+3. チャート テーブルを設定します。
+4. フォントの高さを設定します。
+5. 変更したプレゼンテーションを保存します。
+
+以下にサンプル例を示します。  
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
     
@@ -37,21 +41,20 @@ chart->get_ChartDataTable()->get_TextFormat()->get_PortionFormat()->set_FontHeig
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **よくある質問**
 
 **チャートのデータテーブルの値の横に小さな凡例キーを表示できますか？**
 
-はい。データテーブルは[凡例キー](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datatable/set_showlegendkey/)をサポートしており、オンまたはオフにできます。
+はい。データテーブルは [legend keys](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/datatable/set_showlegendkey/) をサポートしており、オンまたはオフに切り替えることができます。
 
-**プレゼンテーションを PDF、HTML、または画像にエクスポートするときにデータテーブルは保持されますか？**
+**プレゼンテーションを PDF、HTML、または画像にエクスポートする際にデータテーブルは保持されますか？**
 
-はい。Aspose.Slides はチャートをスライドの一部としてレンダリングするため、エクスポートされた[PDF](/slides/ja/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/ja/cpp/convert-powerpoint-to-html/)/[画像](/slides/ja/cpp/convert-powerpoint-to-png/) にはデータテーブルを含むチャートが含まれます。
+はい。Aspose.Slides はチャートをスライドの一部として描画するため、エクスポートされた [PDF](/slides/ja/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/ja/cpp/convert-powerpoint-to-html/)/[image](/slides/ja/cpp/convert-powerpoint-to-png/) にはデータテーブルを含むチャートが含まれます。
 
-**テンプレート ファイルから取得したチャートでもデータテーブルはサポートされていますか？**
+**テンプレート ファイルから取得したチャートでもデータテーブルはサポートされますか？**
 
-はい。既存のプレゼンテーションまたはテンプレートからロードされたすべてのチャートについて、チャートのプロパティを使用してデータテーブルが[表示](/slides/ja/cpp/convert-powerpoint-to-png/)されているかを確認および変更できます。
+はい。既存のプレゼンテーションまたはテンプレートから読み込まれたチャートについては、チャートのプロパティを使用してデータテーブルが [表示されているか](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chart/set_hasdatatable/) を確認および変更できます。
 
-**ファイル内でデータテーブルが有効になっているチャートを素早く見つけるにはどうすればよいですか？**
+**ファイル内のどのチャートでデータテーブルが有効になっているかをすばやく確認するにはどうすればよいですか？**
 
-データテーブルが[表示](/slides/ja/cpp/convert-powerpoint-to-png/)されているかを示す各チャートのプロパティを確認し、スライドを順に走査して、有効になっているチャートを特定します。
+各チャートのデータテーブルが [表示されているか](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chart/get_hasdatatable/) を示すプロパティを確認し、スライドを走査して有効になっているチャートを特定します。

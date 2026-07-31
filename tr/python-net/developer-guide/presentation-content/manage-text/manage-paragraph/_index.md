@@ -4,12 +4,15 @@ linktitle: Paragrafı Yönet
 type: docs
 weight: 40
 url: /tr/python-net/manage-paragraph/
+aliases:
+  - /python-net/paragraph/
+  - /python-net/portion/
 keywords:
 - metin ekle
 - paragraf ekle
-- metni yönet
-- paragrafı yönet
-- madde işaretini yönet
+- metin yönet
+- paragraf yönet
+- madde işareti yönet
 - paragraf girintisi
 - asılı girinti
 - paragraf madde işareti
@@ -19,58 +22,58 @@ keywords:
 - HTML içe aktar
 - metni HTML'ye
 - paragrafı HTML'ye
-- paragrafı görüntüye
-- metni görüntüye
+- paragrafı resme
+- metni resme
 - paragrafı dışa aktar
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python ve .NET ile paragraf biçimlendirmesinde uzmanlaşın—PowerPoint ve OpenDocument sunumlarında hizalama, boşluk ve stili optimize ederek izleyicileri etkileyin."
+description: "Aspose.Slides for Python via .NET ile paragraf formatlamayı uzmanlıkla yönetin—PowerPoint ve OpenDocument sunumlarında hizalama, boşluk ve stili optimize ederek izleyicileri etkileyin."
 ---
 ## **Giriş**
 
-Aspose.Slides, Python'da PowerPoint metniyle çalışmak için gereken sınıfları sağlar.
+Aspose.Slides, Python'da PowerPoint metniyle çalışmanız için gereken sınıfları sağlar.
 
-* Aspose.Slides, metin çerçevesi nesneleri oluşturmak için [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) sınıfını sağlar. Bir `TextFrame` nesnesi bir veya daha fazla paragraf içerebilir (her paragraf bir satır sonu ile ayrılır).
+* Aspose.Slides, metin çerçevesi nesneleri oluşturmak için [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) sınıfını sağlar. Bir `TextFrame` nesnesi bir veya daha fazla paragraf içerebilir (her paragraf satır sonu ile ayrılır).
 * Aspose.Slides, paragraf nesneleri oluşturmak için [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını sağlar. Bir `Paragraph` nesnesi bir veya daha fazla metin bölümü içerebilir.
 * Aspose.Slides, metin bölümü nesneleri oluşturmak ve biçimlendirme özelliklerini belirtmek için [Portion](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portion/) sınıfını sağlar.
 
-`Paragraph` nesnesi, altta yatan `Portion` nesneleri aracılığıyla farklı biçimlendirme özelliklerine sahip metni işleyebilir.
+Bir `Paragraph` nesnesi, temelindeki `Portion` nesneleri aracılığıyla farklı biçimlendirme özelliklerine sahip metinleri işleyebilir.
 
-## **Çoklu Bölümler İçeren Çoklu Paragraflar Ekle**
+## **Birden Çok Bölüm İçeren Birden Çok Paragraf Ekleyin**
 
-Bu adımlar, her biri üç bölüm içeren üç paragraf içeren bir metin çerçevesi eklemenin yolunu gösterir:
+Bu adımlar, her biri üç bölüm içeren üç paragraf içeren bir metin çerçevesi eklemeyi gösterir:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. Hedef slayta indeksine göre bir referans alın.
-1. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-1. [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ile ilişkili [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) alın.
-1. İki [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesi oluşturun ve bunları [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) nesnesinin paragraf koleksiyonuna ekleyin (varsayılan paragrafla birlikte bu üç paragraf verir).
-1. Her paragraf için üç [Portion](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portion/) nesnesi oluşturun ve bu paragrafın bölüm koleksiyonuna ekleyin.
-1. Her bölüm için metni ayarlayın.
-1. İstenilen biçimlendirmeyi, [Portion](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portion/) tarafından sunulan özellikleri kullanarak her metin bölümüne uygulayın.
-1. Değiştirilen sunumu kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Hedef slayta indeksine göre bir referans alın.
+3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
+4. [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ile ilişkili [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) alın.
+5. İki [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesi oluşturun ve bunları [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) nesnesinin paragraf koleksiyonuna ekleyin (varsayılan paragrafla birlikte üç paragraf elde edilir).
+6. Her paragraf için üç [Portion](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portion/) nesnesi oluşturun ve bu paragrafın bölüm koleksiyonuna ekleyin.
+7. Her bölüm için metni ayarlayın.
+8. [Portion](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portion/) tarafından sunulan özellikleri kullanarak her metin bölümüne istediğiniz biçimlendirmeyi uygulayın.
+9. Değiştirilmiş sunumu kaydedin.
 
-Aşağıdaki Python kodu bu adımları uygular:
+Bu adımları uygulayan aşağıdaki Python kodu:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Yeni bir PPTX dosyası oluşturmak için Presentation sınıfını örnekleyin.
+# Yeni bir PPTX dosyası oluşturmak için Presentation sınıfının bir örneğini oluştur.
 with slides.Presentation() as presentation:
 
-    # İlk slayta erişin.
+    # İlk slayta eriş.
     slide = presentation.slides[0]
 
-    # Bir dikdörtgen AutoShape ekleyin.
+    # Dikdörtgen bir AutoShape ekle.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
 
-    # AutoShape'ın TextFrame'ine erişin.
+    # AutoShape'in TextFrame'ine eriş.
     text_frame = shape.text_frame
 
-    # Paragrafları ve bölümleri oluşturun; biçimlendirme aşağıda uygulanır.
+    # Paragraflar ve bölümler oluştur; biçimlendirme aşağıda uygulanır.
     paragraph0 = text_frame.paragraphs[0]
     portion01 = slides.Portion()
     portion02 = slides.Portion()
@@ -109,123 +112,123 @@ with slides.Presentation() as presentation:
                 text_frame.paragraphs[i].portions[j].portion_format.font_italic = 1
                 text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
 
-    # PPTX'i diske kaydedin.
+    # PPTX'i diske kaydet.
     presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Paragraf Madde İşaretlerini Yönet**
 
-Madde işaretli listeler, bilgiyi hızlı ve verimli bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Madde işaretli paragraflar genellikle daha okunaklı ve anlaşılırdır.
+Madde işaretli listeler, bilgileri hızlı ve etkili bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Madde işaretli paragraflar genellikle okumayı ve anlamayı kolaylaştırır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. İndeksine göre hedef slayta erişin.
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-1. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
-1. Varsayılan paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içinden kaldırın.
-1. İlk paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun.
-1. Paragrafın madde işareti tipini `SYMBOL` olarak ayarlayın ve madde işareti karakterini belirtin.
-1. Paragrafın metnini ayarlayın.
-1. Paragraf için madde işareti girintisini ayarlayın.
-1. Madde işareti rengini ayarlayın.
-1. Madde işareti boyutunu (yüksekliğini) ayarlayın.
-1. Paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/)'in paragraf koleksiyonuna ekleyin.
-1. İkinci paragrafı ekleyin ve adım 7–12'yi tekrarlayın.
-1. Sunumu kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Hedef slayta indeksine göre erişin.
+3. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
+5. [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içindeki varsayılan paragrafı kaldırın.
+6. İlk paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun.
+7. Paragrafın madde işareti tipini `SYMBOL` olarak ayarlayın ve madde işareti karakterini belirtin.
+8. Paragrafın metnini ayarlayın.
+9. Paragraf için madde işareti girintisini ayarlayın.
+10. Madde işareti rengini ayarlayın.
+11. Madde işareti boyutunu (yüksekliğini) ayarlayın.
+12. Paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) koleksiyonuna ekleyin.
+13. İkinci bir paragraf ekleyin ve adım 7‑12’yi tekrarlayın.
+14. Sunumu kaydedin.
 
-Bu Python kodu, madde işaretli paragrafların nasıl eklenileceğini gösterir:
+Bu Python kodu, madde işaretli paragrafların nasıl ekleneceğini gösterir:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Sunum örneği oluştur.
+# Bir sunum örneği oluştur.
 with slides.Presentation() as presentation:
 
-    # İlk slayta erişin.
+    # İlk slayta eriş.
     slide = presentation.slides[0]
 
-    # Bir AutoShape ekleyin ve ona erişin.
+    # Bir AutoShape ekle ve ona eriş.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Oluşturulan AutoShape'ın metin çerçevesine erişin.
+    # Oluşturulan AutoShape'in metin çerçevesine eriş.
     text_frame = shape.text_frame
 
-    # Varsayılan paragrafı kaldırın.
+    # Varsayılan paragrafı kaldır.
     text_frame.paragraphs.remove_at(0)
 
-    # Bir paragraf oluşturun.
+    # Bir paragraf oluştur.
     paragraph = slides.Paragraph()
 
-    # Paragrafın madde işareti stilini ve simgesini ayarlayın.
+    # Paragrafın madde işareti stilini ve sembolünü ayarla.
     paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph.paragraph_format.bullet.char = chr(8226)
 
-    # Paragraf metnini ayarlayın.
+    # Paragraf metnini ayarla.
     paragraph.text = "Welcome to Aspose.Slides"
 
-    # Madde işareti girintisini ayarlayın.
+    # Madde işareti girintisini ayarla.
     paragraph.paragraph_format.indent = 25
 
-    # Madde işareti rengini ayarlayın.
+    # Madde işareti rengini ayarla.
     paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph.paragraph_format.bullet.color.color = draw.Color.black
     paragraph.paragraph_format.bullet.is_bullet_hard_color = 1 
 
-    # Madde işareti yüksekliğini ayarlayın.
+    # Madde işareti yüksekliğini ayarla.
     paragraph.paragraph_format.bullet.height = 100
 
-    # Paragrafı metin çerçevesine ekleyin.
+    # Paragrafı metin çerçevesine ekle.
     text_frame.paragraphs.add(paragraph)
 
-    # İkinci paragrafı oluşturun.
+    # İkinci paragrafı oluştur.
     paragraph2 = slides.Paragraph()
 
-    # Paragrafın madde işareti tipini ve stilini ayarlayın.
+    # Paragrafın madde işareti türünü ve stilini ayarla.
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
     paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
 
-    # Paragraf metnini ayarlayın.
+    # Paragraf metnini ayarla.
     paragraph2.text = "This is numbered bullet"
 
-    # Madde işareti girintisini ayarlayın.
+    # Madde işareti girintisini ayarla.
     paragraph2.paragraph_format.indent = 25
 
-    # Madde işareti rengini ayarlayın.
+    # Madde işareti rengini ayarla.
     paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph2.paragraph_format.bullet.color.color = draw.Color.black
     paragraph2.paragraph_format.bullet.is_bullet_hard_color = 1
 
-    # Madde işareti yüksekliğini ayarlayın.
+    # Madde işareti yüksekliğini ayarla.
     paragraph2.paragraph_format.bullet.height = 100
 
-    # Paragrafı metin çerçevesine ekleyin.
+    # Paragrafı metin çerçevesine ekle.
     text_frame.paragraphs.add(paragraph2)
 
-    # Sunumu PPTX dosyası olarak kaydedin.
+    # Sunumu PPTX dosyası olarak kaydet.
     presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Resimli Madde İşaretlerini Yönet**
+## **Resim Madde İşaretlerini Yönet**
 
-Madde işaretli listeler, bilgiyi hızlı ve verimli bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Resimli madde işaretleri okunması ve anlaşılması kolaydır.
+Madde işaretli listeler, bilgileri hızlı ve etkili bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Resim madde işaretleri okumayı ve anlamayı kolaylaştırır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. İndeksine göre hedef slayta erişin.
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-1. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
-1. Varsayılan paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içinden kaldırın.
-1. İlk paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun.
-1. Bir görüntüyü [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) içine yükleyin.
-1. Madde işareti tipini [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) olarak ayarlayın ve görüntüyü atayın.
-1. Paragraf metnini ayarlayın.
-1. Madde işareti için paragraf girintisini ayarlayın.
-1. Madde işareti rengini ayarlayın.
-1. Madde işareti yüksekliğini ayarlayın.
-1. Yeni paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/)'in paragraf koleksiyonuna ekleyin.
-1. İkinci paragrafı ekleyin ve adım 8–12'yi tekrarlayın.
-1. Sunumu kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Hedef slayta indeksine göre erişin.
+3. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
+5. [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içindeki varsayılan paragrafı kaldırın.
+6. İlk paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun.
+7. Bir resmi [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) içine yükleyin.
+8. Madde işareti tipini [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) olarak ayarlayın ve resmi atayın.
+9. Paragrafın metnini ayarlayın.
+10. Madde işareti için paragraf girintisini ayarlayın.
+11. Madde işareti rengini ayarlayın.
+12. Madde işareti yüksekliğini ayarlayın.
+13. Paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) koleksiyonuna ekleyin.
+14. İkinci bir paragraf ekleyin ve adım 8‑12’yi tekrarlayın.
+15. Sunumu kaydedin.
 
-Bu Python kodu, resimli madde işaretlerinin nasıl eklenip yönetileceğini gösterir:
+Bu Python kodu, resim madde işaretlerinin nasıl eklenip yönetileceğini gösterir:
 
 ```python
 import aspose.slides as slides
@@ -236,14 +239,14 @@ with slides.Presentation() as presentation:
     # İlk slayta eriş.
     slide = presentation.slides[0]
 
-    # Madde işareti görüntüsünü yükle.
+    # Madde işareti resmini yükle.
     image = draw.Bitmap("bullets.png")
     pp_image = presentation.images.add_image(image)
 
     # Bir AutoShape ekle ve ona eriş.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Oluşturulan AutoShape'ın TextFrame'ine eriş.
+    # Oluşturulan AutoShape'in TextFrame'ine eriş.
     text_frame = auto_shape.text_frame
 
     # Varsayılan paragrafı kaldır.
@@ -253,7 +256,7 @@ with slides.Presentation() as presentation:
     paragraph = slides.Paragraph()
     paragraph.text = "Welcome to Aspose.Slides"
 
-    # Paragrafın madde işareti tipini Resim olarak ayarla ve görüntüyü ata.
+    # Paragrafın madde işareti tipini Resim olarak ayarla ve resmi ata.
     paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
     paragraph.paragraph_format.bullet.picture.image = pp_image
 
@@ -271,19 +274,19 @@ with slides.Presentation() as presentation:
 
 ## **Çok Düzeyli Madde İşaretlerini Yönet**
 
-Madde işaretli listeler, bilgiyi hızlı ve verimli bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Çok düzeyli madde işaretleri okunması ve anlaşılması kolaydır.
+Madde işaretli listeler, bilgileri hızlı ve etkili bir şekilde düzenlemenize ve sunmanıza yardımcı olur. Çok düzeyli madde işaretleri okumayı ve anlamayı kolaylaştırır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. İndeksine göre hedef slayta erişin.
-1. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-1. [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/)'in [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
-1. Varsayılan paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içinden kaldırın.
-1. İlk paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 0 olarak ayarlayın.
-1. İkinci paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 1 olarak ayarlayın.
-1. Üçüncü paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 2 olarak ayarlayın.
-1. Dördüncü paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 3 olarak ayarlayın.
-1. Yeni paragrafları [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/)'in paragraf koleksiyonuna ekleyin.
-1. Sunumu kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Hedef slayta indeksine göre erişin.
+3. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
+4. [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/)’in [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
+5. [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içindeki varsayılan paragrafı kaldırın.
+6. İlk paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 0 olarak ayarlayın.
+7. İkinci paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 1 olarak ayarlayın.
+8. Üçüncü paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 2 olarak ayarlayın.
+9. Dördüncü paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun ve derinliğini 3 olarak ayarlayın.
+10. Yeni paragrafları [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) koleksiyonuna ekleyin.
+11. Sunumu kaydedin.
 
 Aşağıdaki Python kodu, çok düzeyli madde işaretlerinin nasıl eklenip yönetileceğini gösterir:
 
@@ -291,7 +294,7 @@ Aşağıdaki Python kodu, çok düzeyli madde işaretlerinin nasıl eklenip yön
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Sunum örneği oluştur.
+# Bir sunum örneği oluştur.
 with slides.Presentation() as presentation:
 
     # İlk slayta eriş.
@@ -300,7 +303,7 @@ with slides.Presentation() as presentation:
     # Bir AutoShape ekle.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Oluşturulan AutoShape'ın TextFrame'ine eriş.
+    # Oluşturulan AutoShape'in TextFrame'ine eriş.
     text_frame = auto_shape.text_frame
     
     # Varsayılan paragrafı temizle.
@@ -358,30 +361,30 @@ with slides.Presentation() as presentation:
 
 ## **Özel Numaralı Listelerle Paragrafları Yönet**
 
-[BulletFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/) sınıfı, paragraflar için özel numaralandırma ve biçimlendirmeyi kontrol etmek amacıyla `numbered_bullet_start_with` özelliğini (ve diğerlerini) sağlar.
+[BulletFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/) sınıfı, paragraflar için özel numaralandırma ve biçimlendirmeyi kontrol etmek amacıyla `numbered_bullet_start_with` özelliği (ve diğerlerini) sağlar.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. Paragrafların bulunacağı slayta erişin.
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-1. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
-1. Varsayılan paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içinden kaldırın.
-1. İlk [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesini oluşturun ve `numbered_bullet_start_with` değerini 2 olarak ayarlayın.
-1. İkinci [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesini oluşturun ve `numbered_bullet_start_with` değerini 3 olarak ayarlayın.
-1. Üçüncü [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesini oluşturun ve `numbered_bullet_start_with` değerini 7 olarak ayarlayın.
-1. Paragrafları [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/)'in koleksiyonuna ekleyin.
-1. Sunumu kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Paragrafları içerecek slayta erişin.
+3. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
+5. [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içindeki varsayılan paragrafı kaldırın.
+6. İlk [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesini oluşturun ve `numbered_bullet_start_with` değerini 2 olarak ayarlayın.
+7. İkinci [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesini oluşturun ve `numbered_bullet_start_with` değerini 3 olarak ayarlayın.
+8. Üçüncü [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesnesini oluşturun ve `numbered_bullet_start_with` değerini 7 olarak ayarlayın.
+9. Paragrafları [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) koleksiyonuna ekleyin.
+10. Sunumu kaydedin.
 
-Aşağıdaki Python kodu, özel numaralandırma ve biçimlendirme ile paragrafların nasıl eklenip yönetileceğini gösterir.
+Bu Python kodu, özel numaralandırma ve biçimlendirme ile paragrafların nasıl eklenip yönetileceğini gösterir.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
 
-    # AutoShape ekleyin ve ona erişin.
+    # Bir AutoShape ekle ve ona eriş.
     shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Oluşturulan AutoShape'ın TextFrame'ine erişin.
+    # Oluşturulan AutoShape'in TextFrame'ine eriş.
     text_frame = shape.text_frame
 
     # Varsayılan mevcut paragrafı kaldır.
@@ -414,21 +417,21 @@ with slides.Presentation() as presentation:
     presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bir Paragraf İçin İlk Satır Girintisini Ayarlama**
+## **Paragraf İçin İlk Satır Girintisi Ayarlama**
 
-[ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) özelliğini kullanarak bir paragrafın ilk satır girintisini kontrol edebilirsiniz. Bu özellik sadece ilk satırı paragrafın sol kenar boşluğuna göre hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
+[ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) özelliğini, bir paragrafın ilk satır girintisini kontrol etmek için kullanın. Bu özellik yalnızca ilk satırı paragrafın sol kenar boşluğuna göre kaydırır. Pozitif bir değer, ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
 
-Tüm paragrafı taşımak istediğinizde [ParagraphFormat.margin_left](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/margin_left/) kullanın. Sadece ilk satırı taşımak istediğinizde ise [ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) kullanın.
+Paragrafın tamamını taşımak istediğinizde [ParagraphFormat.margin_left](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/margin_left/) kullanın. Yalnızca ilk satırı taşımak istediğinizde [ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) kullanın.
 
 Aşağıdaki örnek, birkaç paragraf oluşturur ve farklı `indent` değerleri uygulayarak ilk satır girintisinin paragraf düzenine etkisini gösterir.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
 3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
 4. Şekle boş bir [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) ekleyin ve varsayılan paragrafı kaldırın.
-5. Birçok paragraf oluşturun ve onlar için farklı [indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) değerleri ayarlayın.
+5. Birkaç paragraf oluşturun ve bunlar için farklı [indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) değerleri ayarlayın.
 6. Paragrafları metin çerçevesine ekleyin.
-7. Değiştirilen sunumu kaydedin.
+7. Değiştirilmiş sunumu kaydedin.
 
 Bu kod, bir paragraf girintisinin nasıl ayarlanacağını gösterir:
 
@@ -477,25 +480,24 @@ with slides.Presentation() as presentation:
 ```
 
 Sonuç:
+![Paragrafların İlk Satır Girintisi](first_line_indent.png)
 
-![Paragrafların ilk satır girintisi](first_line_indent.png)
+## **Paragraf İçin Asılı Girinti Ayarlama**
 
-## **Bir Paragraf İçin Asılı Girinti Ayarlama**
+Asılı girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides içinde bu etkiyi [ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) özelliği ile oluşturursunuz. `indent` değerini negatif yaparak ilk satırı paragraf gövdesine göre sola kaydırabilirsiniz.
 
-Asılı girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides'de bu etkiyi [ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) özelliğiyle oluşturursunuz. `indent` değerini negatif yaparak ilk satırı paragraf gövdesine göre sola kaydırırsınız.
+Uygulamada, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/margin_left/) paragraf gövdesinin sol konumunu, [ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) ise ilk satırın bu kenar boşluğuna göre konumunu tanımlar. Asılı bir girinti oluşturmak için pozitif bir `margin_left` ve negatif bir `indent` değeri ayarlayın.
 
-Uygulamada, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/margin_left/) paragraf gövdesinin sol konumunu tanımlar ve [ParagraphFormat.indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) bu kenar boşluğuna göre ilk satırın konumunu belirler. Asılı girinti oluşturmak için pozitif bir `margin_left` değeri ve negatif bir `indent` değeri ayarlayın.
+Bu biçimlendirme, kaynakça, referans, sözlük girişleri ve satırların paragraf gövdesinin altına hizalanması gereken diğer paragraflar için yararlıdır; ilk satırın ilk karakterinin altına değil, paragraf gövdesinin altına hizalanmalıdır.
 
-Bu biçimlendirme, bibliyografyalar, referanslar, sözlük girişleri ve satırların paragraf gövdesi altında hizalanması gereken diğer paragraflar için kullanışlıdır.
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
 3. Slayta dikdörtgen bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
 4. Şekle boş bir [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) ekleyin ve varsayılan paragrafı kaldırın.
-5. Paragraflar oluşturun ve her biri için pozitif bir [margin_left](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/margin_left/) değeri ayarlayın.
+5. Her paragraf için pozitif bir [margin_left](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/margin_left/) değeri ayarlayın.
 6. Asılı girinti etkisini oluşturmak için negatif bir [indent](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/indent/) değeri ayarlayın.
 7. Paragrafları metin çerçevesine ekleyin.
-8. Değiştirilen sunumu kaydedin.
+8. Değiştirilmiş sunumu kaydedin.
 
 Bu kod, bir paragraf için asılı girintinin nasıl ayarlanacağını gösterir:
 
@@ -533,22 +535,21 @@ with slides.Presentation() as presentation:
 ```
 
 Sonuç:
-
-![Paragrafların asılı girintisi](hanging_indent.png)
+![Paragrafların Asılı Girintisi](hanging_indent.png)
 
 ## **Paragraf Sonu Bölüm Biçimini Yönet**
 
-Bir paragrafın “son” kısmının (son metin bölümünden sonra uygulanan biçimlendirme) stilini kontrol etmeniz gerektiğinde, `end_paragraph_portion_format` özelliğini kullanın. Aşağıdaki örnek, ikinci paragrafın sonuna daha büyük bir Times New Roman yazı tipi uygular.
+Bir paragrafın “son” kısmının stilini (son metin bölümünden sonra uygulanan biçimlendirme) kontrol etmeniz gerektiğinde `end_paragraph_portion_format` özelliğini kullanın. Aşağıdaki örnek, ikinci paragrafın sonuna daha büyük bir Times New Roman yazı tipi uygular.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) dosyası oluşturun veya açın.
-2. İndeksine göre hedef slaytı alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) dosyasını oluşturun veya açın.
+2. Hedef slayta indeksine göre erişin.
 3. Slayta bir dikdörtgen [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesini kullanın ve iki paragraf oluşturun.
-5. 48 punto Times New Roman olarak ayarlanmış bir [PortionFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portionformat/) oluşturun ve paragrafın son-paragraf bölüm biçimi olarak uygulayın.
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesini kullanarak iki paragraf oluşturun.
+5. 48 pt Times New Roman olarak ayarlanmış bir [PortionFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portionformat/) oluşturun ve bunu paragrafın end_paragraph_portion_format özelliği olarak uygulayın.
 6. Bunu paragrafın `end_paragraph_portion_format` özelliğine atayın (ikinci paragrafın sonuna uygulanır).
-7. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+7. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
-Bu Python kodu, ikinci paragraf için paragraf sonu biçimlendirmesinin nasıl ayarlanacağını gösterir:
+Bu Python kodu, ikinci paragraf için paragraf sonu biçimini nasıl ayarlayacağınızı gösterir:
 
 ```python
 import aspose.slides as slides
@@ -573,21 +574,21 @@ with slides.Presentation("presentation.pptx") as presentation:
 	presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **HTML Metnini Paragraflara İçe Aktarma**
+## **Paragraflara HTML Metni İçe Aktarma**
 
-Aspose.Slides, HTML metnini paragraflara içe aktarmak için geliştirilmiş destek sağlar.
+Aspose.Slides, HTML metnini paragraflara içe aktarma konusunda gelişmiş bir destek sağlar.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. İndeksine göre hedef slayta erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Hedef slayta indeksine göre erişin.
 3. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-4. [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/)'in [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
-5. Varsayılan paragrafı [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içinden kaldırın.
+4. [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/)’nin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
+5. [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içindeki varsayılan paragrafı kaldırın.
 6. Kaynak HTML dosyasını okuyun.
 7. İlk paragrafı [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfını kullanarak oluşturun.
-8. HTML içeriğini [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/)'in paragraf koleksiyonuna ekleyin.
-9. Değiştirilen sunumu kaydedin.
+8. HTML içeriğini [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/)’in paragraf koleksiyonuna ekleyin.
+9. Değiştirilmiş sunumu kaydedin.
 
-Aşağıdaki Python kodu, HTML metninin paragraflara nasıl içe aktarılacağını uygular.
+Aşağıdaki Python kodu, HTML metnini paragraflara içe aktarma adımlarını uygular:
 
 ```python
 import aspose.slides as slides
@@ -601,7 +602,7 @@ with slides.Presentation() as presentation:
     slide_width = presentation.slide_size.size.width
     slide_height = presentation.slide_size.size.height
 
-    # HTML içeriğini barındıracak bir AutoShape ekle.
+    # HTML içeriğini barındırmak için bir AutoShape ekle.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
 
     # Eklenen metin çerçevesindeki tüm paragrafları temizle.
@@ -616,16 +617,18 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Paragraf Metnini HTML'ye Dışa Aktarma**
+## **Paragraf Metnini HTML’ye Dışa Aktarma**
 
-Aspose.Slides, metni HTML'ye dışa aktarmak için geliştirilmiş destek sağlar.
+Aspose.Slides, metni HTML’ye dışa aktarma konusunda gelişmiş bir destek sunar.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun ve hedef sunumu yükleyin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve hedef sunumu yükleyin.
 2. İstenen slayta indeksine göre erişin.
 3. Dışa aktarılacak metni içeren şekli seçin.
 4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) öğesine erişin.
 5. HTML çıktısını yazmak için bir dosya akışı açın.
-6. Başlangıç indeksini belirleyin ve gereken paragrafları dışa aktarın.
+6. Başlangıç indeksini belirleyin ve gerekli paragrafları dışa aktarın.
+
+Bu Python örneği, paragraf metnini HTML’ye dışa aktarmayı gösterir.
 
 ```python
 import aspose.slides as slides
@@ -638,25 +641,25 @@ with slides.Presentation("exporting_HTML_text.pptx") as presentation:
     # Hedef şekil indeksi.
     index = 0
 
-    # Şekle indeks ile eriş.
+    # Şekle indeksle eriş.
     shape = slide.shapes[index]
 
     with open("output.html", "w") as html_stream:
-        # Paragraf verilerini HTML'ye, başlangıç paragraf indeksi ve dışa aktarılacak toplam paragraf sayısını sağlayarak yaz.
+        # Paragraf verilerini HTML'ye, başlangıç paragraf indeksi ve dışa aktarılacak toplam paragraf sayısını vererek yaz.
         html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
 ```
 
-## **Bir Paragrafı Görüntü Olarak Kaydet**
+## **Bir Paragrafı Resim Olarak Kaydet**
 
-Bu bölümde, [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfı ile temsil edilen bir metin paragrafını görüntü olarak kaydetmeyi gösteren iki örnek keşfedeceğiz. Her iki örnek de, paragrafı içeren şeklin görüntüsünü [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) sınıfının `get_image` yöntemleriyle elde etmeyi, paragrafın şekil içindeki sınırlarını hesaplamayı ve bunu bir bitmap görüntüsü olarak dışa aktarmayı içerir. Bu yaklaşımlar, PowerPoint sunumlarından belirli metin parçalarını ayıklayıp ayrı görüntüler olarak kaydetmenize olanak tanır; böylece çeşitli senaryolarda yeniden kullanılabilirler.
+Bu bölümde, [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) sınıfı ile temsil edilen bir metin paragrafını resim olarak kaydetmeyi gösteren iki örnek inceleyeceğiz. Her iki örnek de paragrafı içeren şeklin görüntüsünü [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) sınıfının `get_image` metodlarıyla almayı, paragrafın şekil içindeki sınırlamalarını (bounds) hesaplamayı ve bitmap resmi olarak dışa aktarmayı içerir. Bu yaklaşımlar, PowerPoint sunumlarından metnin belirli bölümlerini ayıklayıp ayrı resimler olarak kaydetmenizi sağlar; çeşitli senaryolarda sonraki kullanım için faydalı olabilir.
 
-sample.pptx adlı bir sunum dosyamızın bir slaytı olduğunu ve ilk şeklinin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
+sample.pptx adlı bir sunum dosyamızın bir slaytı olduğunu ve ilk şeklin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
 
-![Üç paragraf içeren metin kutusu](paragraph_to_image_input.png)
+![Üç Paragraf İçeren Metin Kutusu](paragraph_to_image_input.png)
 
-**Example 1**
+**Örnek 1**
 
-Bu örnekte ikinci paragrafı bir görüntü olarak elde ediyoruz. Bunun için sunumun ilk slaydındaki şeklin görüntüsünü çıkarıp ardından şeklin metin çerçevesindeki ikinci paragrafın sınırlarını hesaplıyoruz. Paragraf daha sonra yeni bir bitmap görüntüsüne yeniden çizilir ve PNG formatında kaydedilir. Bu yöntem, belirli bir paragrafı ayrı bir görüntü olarak kaydetmek ve metnin tam boyutları ve biçimlendirmesini korumak istediğinizde özellikle yararlıdır.
+Bu örnekte, ikinci paragrafı bir resim olarak elde ediyoruz. Bunun için, sunumun ilk slaydındaki şeklin görüntüsünü çıkarıp, şeklin metin çerçevesindeki ikinci paragrafın sınırlamalarını (bounds) hesaplıyoruz. Paragraf daha sonra yeni bir bitmap resmine yeniden çizilir ve PNG formatında kaydedilir. Bu yöntem, belirli bir paragrafı tam boyutları ve biçimlendirmesi korunarak ayrı bir resim olarak kaydetmeniz gerektiğinde özellikle faydalıdır.
 
 ```py
 import aspose.slides as slides
@@ -686,19 +689,18 @@ with slides.Presentation("sample.pptx") as presentation:
     image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
     image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
 
-    # Paragraf bitmap'ini yalnızca almak için şekil bitmap'ini kırp.
+    # Paragraf bitmap'ini elde etmek için şekil bitmap'ini kırp.
     paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
 
     paragraph_bitmap.save("paragraph.png")
 ```
 
 Sonuç:
+![Paragraf Görüntüsü](paragraph_to_image_output.png)
 
-![Paragraf resmi](paragraph_to_image_output.png)
+**Örnek 2**
 
-**Example 2**
-
-Bu örnek, önceki yaklaşımı paragraf görüntüsüne ölçek faktörleri ekleyerek genişletir. Şekil sunumdan çıkarılır ve `2` ölçek faktörüyle bir görüntü olarak kaydedilir. Bu, paragrafı dışa aktarırken daha yüksek çözünürlük elde etmenizi sağlar. Paragraf sınırları, ölçeği göz önünde bulundurarak hesaplanır. Ölçekleme, daha ayrıntılı bir görüntü gerektiğinde, örneğin yüksek kaliteli basılı materyallerde kullanıldığında faydalı olabilir.
+Bu örnekte, önceki yaklaşıma paragraf görüntüsüne ölçekleme faktörleri ekleyerek genişletiyoruz. Şekil sunumdan çıkarılır ve `2` ölçekleme faktörüyle bir görüntü olarak kaydedilir. Bu, paragrafı dışa aktarırken daha yüksek çözünürlüklü bir çıktı sağlar. Paragraf sınırlamaları ölçek dikkate alınarak hesaplanır. Ölçekleme, daha ayrıntılı bir görüntünün gerektiği durumlarda, örneğin yüksek kaliteli basılı materyallerde kullanılmak üzere özellikle yararlı olabilir.
 
 ```py
 import aspose.slides as slides
@@ -735,26 +737,26 @@ with slides.Presentation("sample.pptx") as presentation:
     image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
     image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
 
-    # Paragraf bitmap'ini yalnızca almak için şekil bitmap'ini kırp.
+    # Paragraf bitmap'ini elde etmek için şekil bitmap'ini kırp.
     paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
 
     paragraph_bitmap.save("paragraph.png")
 ```
 
-## **FAQ**
+## **SSS**
 
-**Bir metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
+**Metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
 
-Evet. Satır kaydırmayı kapatmak için metin çerçevesinin kaydırma ayarını ([wrap_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/wrap_text/)) kullanın; böylece satırlar çerçevenin kenarlarında kırılmaz.
+Evet. Satır kaydırmayı kapatmak için metin çerçevesinin kaydırma ayarını ([wrap_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/wrap_text/)) kullanın; böylece satırlar çerçevenin kenarlarından kırılmaz.
 
-**Belirli bir paragrafın slayt üzerindeki tam sınırlarını nasıl alabilirim?**
+**Belirli bir paragrafın slayt üzerindeki kesin sınırlarını nasıl alabilirim?**
 
-Paragrafın (ve hatta tek bir bölümün) sınırlayıcı dikdörtgenini alarak konumunu ve boyutunu tam olarak öğrenebilirsiniz.
+Paragrafın (ve hatta tek bir bölümün) sınırlayıcı dikdörtgenini alarak slayt üzerindeki kesin konum ve boyutunu öğrenebilirsiniz.
 
 **Paragraf hizalaması (sol/sağ/ortala/iki yana yasla) nerede kontrol edilir?**
 
-[Alignment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/alignment/) bir paragraf seviyesindeki ayardır ve [ParagraphFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/) içinde bulunur; bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
+[Alignment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/alignment/) bir paragraf düzeyi ayardır ve [ParagraphFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/) içinde bulunur; bu ayar, tek tek bölüm biçimlendirmelerinden bağımsız olarak tüm paragrafı etkiler.
 
-**Bir paragrafın sadece bir kısmı (ör. bir kelime) için yazım denetimi dili ayarlayabilir miyim?**
+**Bir paragrafın sadece bir bölümü (ör. bir kelime) için yazım denetimi dili ayarlayabilir miyim?**
 
-Evet. Dil, bölüm seviyesinde ([PortionFormat.language_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portionformat/language_id/)) ayarlanır; böylece tek bir paragrafta birden fazla dil aynı anda bulunabilir.
+Evet. Dil, bölüm seviyesinde ([PortionFormat.language_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portionformat/language_id/)) ayarlanır; bu sayede tek bir paragrafta birden fazla dil bir arada bulunabilir.

@@ -11,31 +11,31 @@ keywords:
 - línea simple
 - configurar línea
 - personalizar línea
-- estilo de guión
-- cabeza de flecha
+- estilo de guiones
+- punta de flecha
 - PowerPoint
 - presentación
 - Java
 - Aspose.Slides
 description: "Aprenda a manipular el formato de líneas en presentaciones de PowerPoint con Aspose.Slides para Java. Descubra propiedades, métodos y ejemplos."
 ---
+## **Visión general**
 
-{{% alert color="primary" %}} 
+Aspose.Slides le permite añadir formas de línea a diapositivas de PowerPoint mediante código. Este artículo muestra cómo crear una línea sencilla y cómo personalizar una línea para que aparezca como una flecha.
 
-Aspose.Slides for Java admite la inserción de diferentes tipos de formas en las diapositivas. En este tema, comenzaremos a trabajar con formas añadiendo líneas a las diapositivas. Con Aspose.Slides for Java, los desarrolladores pueden no solo crear líneas simples, sino también dibujar líneas decorativas en las diapositivas.
+Aprenderá cómo añadir una forma de línea a una diapositiva, ajustar su aspecto visual y guardar la presentación actualizada. Los ejemplos se centran en configuraciones prácticas de formato de línea, como estilo, ancho, patrón de guiones, opciones de punta de flecha y color de relleno.
 
-{{% /alert %}} 
+## **Crear una línea simple**
 
-## **Create a Plain Line**
+Para añadir una línea simple a la diapositiva seleccionada de la presentación, siga los pasos a continuación:
 
-Para agregar una línea simple a una diapositiva seleccionada de la presentación, siga los pasos a continuación:
-
-- Cree una instancia de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtenga la referencia de una diapositiva usando su Index.
-- Añada un AutoShape de tipo Line usando el método [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
+- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/Presentation).
+- Obtenga la referencia de una diapositiva mediante su índice.
+- Añada una AutoShape de tipo Línea usando el método [addAutoShape](https://reference.aspose.com/slides/es/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/es/java/com.aspose.slides/IShapeCollection).
 - Guarde la presentación modificada como un archivo PPTX.
 
 En el ejemplo que se muestra a continuación, hemos añadido una línea a la primera diapositiva de la presentación.
+
 ```java
 // Instanciar la clase PresentationEx que representa el archivo PPTX
 Presentation pres = new Presentation();
@@ -43,7 +43,7 @@ try {
     // Obtener la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Agregar un AutoShape de tipo línea
+    // Añadir una AutoShape de tipo línea
     sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
     
     // Guardar el PPTX en disco
@@ -53,20 +53,20 @@ try {
 }
 ```
 
+## **Crear una línea con forma de flecha**
 
-## **Create an Arrow-Shaped Line**
+Aspose.Slides for Java también permite a los desarrolladores configurar algunas propiedades de la línea para que resulte más atractiva. Vamos a configurar algunas propiedades de una línea para que tenga forma de flecha. Siga los pasos a continuación:
 
-Aspose.Slides for Java también permite a los desarrolladores configurar algunas propiedades de la línea para que tenga un aspecto más atractivo. Intentemos configurar algunas propiedades de la línea para que parezca una flecha. Siga los pasos a continuación:
-
-- Cree una instancia de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtenga la referencia de una diapositiva usando su Index.
-- Añada un AutoShape de tipo Line usando el método [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
-- Establezca el [Line Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineStyle) a uno de los estilos ofrecidos por Aspose.Slides for Java.
-- Defina el Width de la línea.
-- Establezca el [Dash Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineDashStyle) de la línea a uno de los estilos ofrecidos por Aspose.Slides for Java.
-- Establezca el [Arrow Head Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadStyle) y el [Length](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadLength) del punto de inicio de la línea.
-- Establezca el [Arrow Head Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadStyle) y el [Length](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadLength) del punto final de la línea.
+- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/Presentation).
+- Obtenga la referencia de una diapositiva mediante su índice.
+- Añada una AutoShape de tipo Línea usando el método [addAutoShape](https://reference.aspose.com/slides/es/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/es/java/com.aspose.slides/IShapeCollection).
+- Establezca el [Line Style](https://reference.aspose.com/slides/es/java/com.aspose.slides/LineStyle) a uno de los estilos ofrecidos por Aspose.Slides for Java.
+- Establezca el ancho de la línea.
+- Establezca el [Dash Style](https://reference.aspose.com/slides/es/java/com.aspose.slides/LineDashStyle) de la línea a uno de los estilos ofrecidos por Aspose.Slides for Java.
+- Establezca el [Arrow Head Style](https://reference.aspose.com/slides/es/java/com.aspose.slides/LineArrowheadStyle) y la [Length](https://reference.aspose.com/slides/es/java/com.aspose.slides/LineArrowheadLength) del punto de inicio de la línea.
+- Establezca el [Arrow Head Style](https://reference.aspose.com/slides/es/java/com.aspose.slides/LineArrowheadStyle) y la [Length](https://reference.aspose.com/slides/es/java/com.aspose.slides/LineArrowheadLength) del punto final de la línea.
 - Guarde la presentación modificada como un archivo PPTX.
+
 ```java
 // Instanciar la clase PresentationEx que representa el archivo PPTX
 Presentation pres = new Presentation();
@@ -74,7 +74,7 @@ try {
     // Obtener la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Agregar un AutoShape de tipo línea
+    // Añadir una AutoShape de tipo línea
     IAutoShape shp = sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
     // Aplicar algo de formato a la línea
@@ -99,17 +99,16 @@ try {
 }
 ```
 
+## **Preguntas frecuentes**
 
-## **FAQ**
+**¿Puedo convertir una línea normal en un conector para que "se ajuste" a las formas?**
 
-**Can I convert a regular line into a connector so it "snaps" to shapes?**
+No. Una línea normal (una [AutoShape](https://reference.aspose.com/slides/es/java/com.aspose.slides/autoshape/) de tipo [Line](https://reference.aspose.com/slides/es/java/com.aspose.slides/shapetype/)) no se convierte automáticamente en un conector. Para que se ajuste a las formas, use el tipo [Connector](https://reference.aspose.com/slides/es/java/com.aspose.slides/connector/) dedicado y las [APIs correspondientes](/slides/es/java/connector/) para conexiones.
 
-No. Una línea regular (un [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/) de tipo [Line](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/)) no se convierte automáticamente en un conector. Para que se ajuste a las formas, utilice el tipo dedicado [Connector](https://reference.aspose.com/slides/java/com.aspose.slides/connector/) y las [corresponding APIs](/slides/es/java/connector/) para conexiones.
+**¿Qué debo hacer si las propiedades de una línea se heredan del tema y es difícil determinar los valores finales?**
 
-**What should I do if a line’s properties are inherited from the theme and it’s hard to determine the final values?**
+[Leer las propiedades efectivas](/slides/es/java/shape-effective-properties/) a través de las interfaces [ILineFormatEffectiveData](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilinefillformateffectivedata/) —estas ya tienen en cuenta la herencia y los estilos del tema.
 
-[Read the effective properties](/slides/es/java/shape-effective-properties/) a través de las interfaces [ILineFormatEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ilinefillformateffectivedata/); estas ya tienen en cuenta la herencia y los estilos del tema.
+**¿Puedo bloquear una línea contra la edición (movimiento, redimensionado)?**
 
-**Can I lock a line against editing (moving, resizing)?**
-
-Sí. Las formas proporcionan [lock objects](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/#getAutoShapeLock--) que permiten [disallow editing operations](/slides/es/java/applying-protection-to-presentation/).
+Sí. Las formas proporcionan [objetos de bloqueo](https://reference.aspose.com/slides/es/java/com.aspose.slides/autoshape/#getAutoShapeLock--) que le permiten [denegar operaciones de edición](/slides/es/java/applying-protection-to-presentation/).

@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for PHP via Java
-second_title: "Aspose.Slides for PHP Belgeleri"
+second_title: Aspose.Slides for PHP
 type: docs
 weight: 45
 url: /tr/php-java/
@@ -12,20 +12,20 @@ keywords:
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides, Microsoft PowerPoint® yönetim API'si olup, PHP uygulamalarının Microsoft PowerPoint® kullanmadan PowerPoint® belgelerini okumasını ve yazmasını sağlar."
+description: "Aspose.Slides, Microsoft PowerPoint® yönetim API'sidir ve PHP uygulamalarının Microsoft PowerPoint® kullanmadan PowerPoint® belgelerini okumasını ve yazmasını sağlar."
 is_root: true
 ---
 {{% alert color="primary" %}}
 
-**Aspose.Slides for PHP via Java'ye Hoş Geldiniz**
+**Aspose.Slides for PHP via Java'a Hoş Geldiniz**
 
 ![Aspose.Slides for PHP via Java Ürün Logosu](aspose_slides-for-php-via-java.png)
 
-Aspose.Slides for PHP via Java, uygulamalarınızın Microsoft PowerPoint® kullanmadan PowerPoint® belgelerini okumasını ve yazmasını sağlayan bir sınıf kitaplığıdır.
+Aspose.Slides for PHP via Java, uygulamalarınızın Microsoft PowerPoint® kullanmadan PowerPoint® belgelerini okumasını ve yazmasını sağlayan bir sınıf kütüphanesidir.
 
-Aspose.Slides for PHP via Java, PowerPoint® belgelerini yönetme işlevini sağlayan ilk ve tek bileşendir.
+Aspose.Slides for PHP via Java, PowerPoint® belgelerini yönetme işlevselliğini sağlayan ilk ve tek bileşendir.
 
-Aspose.Slides for PHP via Java, metin, şekil, tablo ve animasyonları yönetme, slaytlara ses ve video ekleme, slaytları önizleme, slaytları SVG, PDF formatına dışa aktarma ve daha fazlası gibi birçok önemli özelliği sunar.
+Aspose.Slides for PHP via Java, metin, şekiller, tablolar ve animasyonları yönetme, slaytlara ses ve video ekleme, slaytları önizleme, slaytları SVG, PDF formatına dışa aktarma ve daha fazlası gibi birçok önemli özelliği sunar.
 
 {{% /alert %}}
 
@@ -33,11 +33,11 @@ Aspose.Slides for PHP via Java, metin, şekil, tablo ve animasyonları yönetme,
 
 {{% alert color="primary" %}}
 
-Aspose.Slides for PHP via Java, Aspose.Slides for Java'dan aktarılmıştır; bu nedenle sonraki belgeleri ve API referansını kullanabilirsiniz.
+Aspose.Slides for PHP via Java, Aspose.Slides for Java'dan taşındığı için, sonraki belgeleri ve API referansını kullanabilirsiniz.
 
 {{% /alert %}}
 
-İşte faydalı kaynaklara yönlendiren bağlantılar:
+Bunlar faydalı kaynaklara yönlendiren bağlantılardır:
 
 - [Aspose.Slides for PHP via Java Çevrimiçi Belgeleri](/slides/tr/php-java/)
 - [Aspose.Slides for PHP via Java Özellikleri](/slides/tr/php-java/features-overview/)

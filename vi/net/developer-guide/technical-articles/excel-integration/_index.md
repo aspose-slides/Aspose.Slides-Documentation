@@ -1,89 +1,91 @@
 ---
-title: Tích hợp dữ liệu Excel vào các bản trình bày PowerPoint
+title: Tích hợp dữ liệu Excel vào bản thuyết trình PowerPoint
 linktitle: Tích hợp Excel
 type: docs
 weight: 330
 url: /vi/net/excel-integration/
+aliases:
+  - /net/developer-guide/technical-articles/excel-integration/
 keywords:
 - Excel
 - sổ làm việc
 - đọc Excel
 - tích hợp Excel
 - nguồn dữ liệu
-- ghép thư
+- gửi thư trộn
 - nhập bảng
 - Excel vào PowerPoint
 - PowerPoint
-- bản trình bày
+- bản thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Đọc dữ liệu từ sổ làm việc Excel trong Aspose.Slides bằng API ExcelDataWorkbook. Tải các sheet và ô, sau đó sử dụng giá trị để tạo các bản trình bày PowerPoint dựa trên dữ liệu."
+description: "Đọc dữ liệu từ sổ làm việc Excel trong Aspose.Slides bằng API ExcelDataWorkbook. Tải các sheet và ô và sử dụng giá trị để tạo bản thuyết trình PowerPoint dựa trên dữ liệu."
 ---
 ## **Giới thiệu**
 
-PowerPoint là một công cụ mạnh mẽ để hiển thị và truyền đạt thông tin. Nó thường được sử dụng cùng với các sổ làm việc Excel, trong đó Excel đóng vai trò là nguồn dữ liệu có cấu trúc tuyệt vời và PowerPoint xuất sắc trong việc trực quan hoá dữ liệu đó cho khán giả.
+Các bài thuyết trình PowerPoint là một cách mạnh mẽ để hiển thị và truyền đạt thông tin. Chúng thường được sử dụng kết hợp với các workbook Excel, trong đó Excel là nguồn dữ liệu có cấu trúc tuyệt vời và PowerPoint xuất sắc trong việc trực quan hoá dữ liệu đó cho khán giả.
 
-Có rất nhiều kịch bản thực tế mà việc kết hợp Excel và PowerPoint là thiết yếu: ghép thư, điền dữ liệu vào bảng, tạo một slide cho mỗi bản ghi dữ liệu (tạo slide theo lô), tạo tài liệu đào tạo và hợp nhất nhiều báo cáo Excel vào một bản trình bày duy nhất, v.v.
+Có rất nhiều kịch bản thực tế mà việc kết hợp Excel và PowerPoint là thiết yếu: mail merge, điền dữ liệu vào bảng, tạo một slide cho mỗi bản ghi dữ liệu (tạo slide hàng loạt), tạo tài liệu đào tạo, và hợp nhất nhiều báo cáo Excel thành một bản thuyết trình duy nhất, chỉ kể vài ví dụ.
 
-Cho đến nay, việc triển khai các tính năng này bằng Aspose.Slides API yêu cầu dựa vào các giải pháp của bên thứ ba như Aspose.Cells. Mặc dù các công cụ này mạnh mẽ, chúng có thể quá phức tạp và tốn kém đối với người dùng chỉ cần chức năng tích hợp dữ liệu cơ bản.
+Cho đến nay, việc triển khai các tính năng này với API Aspose.Slides yêu cầu dựa vào các giải pháp bên thứ ba như Aspose.Cells. Mặc dù các công cụ này mạnh mẽ, chúng có thể quá phức tạp và tốn kém cho người dùng chỉ cần chức năng tích hợp dữ liệu cơ bản.
 
 ## **Cách hoạt động**
 
-Để làm việc với dữ liệu Excel dễ dàng và hiệu quả hơn, Aspose.Slides đã giới thiệu các lớp mới để đọc dữ liệu từ sổ làm việc Excel và nhập nội dung vào bản trình bày. Tính năng này mở ra những khả năng mạnh mẽ mới cho người dùng API muốn sử dụng Excel như một nguồn dữ liệu trong quy trình tạo slide.
+Để làm việc với dữ liệu Excel dễ dàng và gọn gàng hơn, Aspose.Slides đã giới thiệu các lớp mới để đọc dữ liệu từ workbook Excel và nhập nội dung vào một bản thuyết trình. Tính năng này mở ra những khả năng mới mạnh mẽ cho người dùng API muốn tận dụng Excel như một nguồn dữ liệu trong quy trình làm việc với slide.
 
-Tính năng mới được thiết kế cho việc truy cập dữ liệu đa mục đích và không được tích hợp vào Presentation Document Object Model (DOM). Điều này có nghĩa là *nó không cho phép chỉnh sửa hoặc lưu tệp Excel* — mục đích duy nhất của nó là mở sổ làm việc và duyệt nội dung để lấy dữ liệu ô.
+Chức năng mới được thiết kế cho việc truy cập dữ liệu mục đích chung và không được tích hợp vào Presentation Document Object Model (DOM). Điều đó có nghĩa là *nó không cho phép chỉnh sửa hoặc lưu file Excel* — mục đích duy nhất của nó là mở workbook và duyệt qua nội dung để lấy dữ liệu ô.
 
-Ở trung tâm của tính năng này là lớp mới [ExcelDataWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldataworkbook/) . Lớp này cho phép bạn tải một sổ Excel từ tệp cục bộ hoặc luồng. Khi đã tải, nó cung cấp một số overload của phương thức [GetCell](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldataworkbook/getcell/) mà bạn có thể sử dụng để lấy các ô cụ thể dựa trên vị trí của chúng (ví dụ: chỉ số hàng và cột hoặc phạm vi có tên).
+Trọng tâm của tính năng này là lớp mới [ExcelDataWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldataworkbook/) . Lớp này cho phép bạn tải một workbook Excel từ tệp cục bộ hoặc luồng. Khi đã tải, nó cung cấp một số overload của phương thức [GetCell](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldataworkbook/getcell/) , mà bạn có thể dùng để lấy các ô cụ thể theo vị trí (ví dụ: chỉ số hàng và cột hoặc phạm vi có tên).
 
-Mỗi lần gọi [GetCell](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldataworkbook/getcell/) sẽ trả về một thể hiện của lớp [ExcelDataCell](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldatacell/) . Đối tượng này đại diện cho một ô duy nhất trong sổ Excel và cung cấp cho bạn cách truy cập giá trị của nó một cách đơn giản và trực quan.
+Mỗi lần gọi [GetCell](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldataworkbook/getcell/) sẽ trả về một thể hiện của lớp [ExcelDataCell](https://reference.aspose.com/slides/vi/net/aspose.slides.excel/exceldatacell/) . Đối tượng này đại diện cho một ô duy nhất trong workbook Excel và cung cấp cho bạn truy cập tới giá trị của ô một cách đơn giản và trực quan.
 
 #### **Nhập biểu đồ Excel**
 
-Bước tiếp theo để mở rộng chức năng là lớp [ExcelWorkbookImporter](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/) . Lớp tiện ích này cung cấp chức năng nhập nội dung từ sổ Excel vào bản trình bày. Nó chứa một số overload của phương thức [AddChartFromWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) , giúp bạn lấy biểu đồ đã chọn từ sổ Excel chỉ định và thêm nó vào cuối bộ sưu tập shape được cho tại các tọa độ xác định.
+Bước tiếp theo để mở rộng chức năng là lớp [ExcelWorkbookImporter](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/) . Lớp tiện ích này cung cấp chức năng nhập nội dung từ một workbook Excel vào một bản thuyết trình. Nó chứa một số overload của phương thức [AddChartFromWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) , giúp bạn lấy biểu đồ đã chọn từ workbook Excel được chỉ định và thêm nó vào cuối bộ sưu tập shape cho trước tại tọa độ đã chỉ định.
 
 #### **Nhập bảng Excel**
 
-Lớp [ExcelWorkbookImporter](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/) cũng chứa một số overload của phương thức [AddTableFromWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/) . Những phương thức này cho phép bạn nhập một phạm vi ô được chỉ định từ một worksheet được chỉ định và thêm nó như một bảng vào cuối bộ sưu tập shape tại các tọa độ xác định.
+Lớp [ExcelWorkbookImporter](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/) cũng chứa một số overload của phương thức [AddTableFromWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/) . Các phương thức này cho phép bạn nhập một phạm vi ô được chỉ định từ một worksheet được chỉ định và thêm nó dưới dạng bảng vào cuối bộ sưu tập shape cho trước tại tọa độ đã chỉ định.
 
 Tóm lại, đây là một API nhẹ và đơn giản để đọc dữ liệu Excel — chính xác những gì nhiều nhà phát triển cần mà không phải chịu gánh nặng của một thư viện xử lý bảng tính đầy đủ.
 
-## **Hãy cùng lập trình**
+## **Hãy lập trình**
 
-### **Ví dụ kịch bản Ghép thư**
+### **Ví dụ kịch bản Mail Merge**
 
-Trong ví dụ dưới đây, chúng ta sẽ triển khai một kịch bản Ghép thư đơn giản bằng cách tạo nhiều bản trình bày dựa trên dữ liệu lưu trong một sổ Excel.
+Trong ví dụ sau, chúng ta sẽ triển khai một kịch bản Mail Merge đơn giản bằng cách tạo nhiều bản thuyết trình dựa trên dữ liệu lưu trong một workbook Excel.
 
 Để bắt đầu, chúng ta cần hai thứ:
-1. Một sổ Excel chứa dữ liệu
+1. Một workbook Excel chứa dữ liệu
 
 ![Ví dụ dữ liệu Excel](example1_image0.png)
 
-2. Mẫu bản trình bày PowerPoint
+2.  Mẫu bản thuyết trình PowerPoint
 
 ![Ví dụ mẫu PowerPoint](example1_image1.png)
 
 ```csharp
-// Tải sổ Excel chứa dữ liệu nhân viên.
+// Tải workbook Excel chứa dữ liệu nhân viên.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Tải mẫu bản trình bày.
+// Tải mẫu bản thuyết trình.
 using Presentation templatePresentation = new Presentation("PresentationTemplate.pptx");
 
-// Lặp qua các hàng Excel (bỏ qua tiêu đề ở hàng 0).
+// Lặp qua các hàng Excel (loại trừ tiêu đề ở hàng 0).
 for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 {
-    // Tạo một bản trình bày mới cho mỗi bản ghi nhân viên.
+    // Tạo một bản thuyết trình mới cho mỗi bản ghi nhân viên.
     using Presentation employeePresentation = new Presentation();
 
     // Xóa slide trống mặc định.
     employeePresentation.Slides.RemoveAt(0);
 
-    // Nhân bản slide mẫu vào bản trình bày mới.
+    // Sao chép slide mẫu vào bản thuyết trình mới.
     ISlide slide = employeePresentation.Slides.AddClone(templatePresentation.Slides[0]);
 
-    // Lấy các đoạn văn từ shape mục tiêu (giả sử shape có chỉ số 1 được sử dụng).
+    // Lấy các đoạn văn từ shape mục tiêu (giả sử sử dụng shape có chỉ số 1).
     IParagraphCollection paragraphs = (slide.Shapes[1] as IAutoShape).TextFrame.Paragraphs;
 
     // Thay thế các placeholder bằng dữ liệu từ Excel.
@@ -99,7 +101,7 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
     IPortion yearsPortion = paragraphs[2].Portions[0];
     yearsPortion.Text = yearsPortion.Text.Replace("{{YearsOfService}}", yearsOfService);
 
-    // Lưu bản trình bày cá nhân hoá vào một tệp riêng.
+    // Lưu bản thuyết trình cá nhân hoá vào một tệp riêng.
     employeePresentation.Save($"{employeeName} Report.pptx", SaveFormat.Pptx);
 }
 ```
@@ -108,26 +110,26 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 
 ### **Ví dụ bảng Excel**
 
-Trong ví dụ thứ hai, chúng ta chỉ sao chép dữ liệu từ một bảng Excel và hiển thị nó trên một slide PowerPoint theo định dạng hấp dẫn hơn về mặt hình ảnh.
+Trong ví dụ thứ hai, chúng ta chỉ sao chép dữ liệu từ một bảng Excel và hiển thị nó trên một slide PowerPoint theo dạng trực quan hơn.
 
-Trong ví dụ này, chúng ta tái sử dụng cùng một sổ Excel từ ví dụ đầu tiên, trong đó chứa một bảng nhân viên đơn giản.
+Trong ví dụ này, chúng ta tái sử dụng cùng một workbook Excel từ ví dụ đầu tiên, chứa một bảng nhân viên đơn giản.
 
 ```csharp
-// Tải sổ Excel chứa dữ liệu nhân viên.
+// Tải workbook Excel chứa dữ liệu nhân viên.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
 
-// Tạo một bản trình bày PowerPoint mới.
+// Tạo một bản thuyết trình PowerPoint mới.
 using Presentation presentation = new Presentation();
 
-// Thêm một shape bảng vào slide đầu tiên.
+// Thêm shape bảng vào slide đầu tiên.
 ITable table = presentation.Slides[0].Shapes.AddTable(
     50, 200,
     new double[] { 200, 200, 200 },
     new double[] { 30, 30, 30, 30, 30 }
 );
 
-// Đổ dữ liệu từ sổ Excel vào bảng PowerPoint.
+// Điền dữ liệu từ workbook Excel vào bảng PowerPoint.
 for (int rowIndex = 0; rowIndex < 5; rowIndex++)
 {
     for (int columnIndex = 0; columnIndex < 3; columnIndex++)
@@ -137,7 +139,7 @@ for (int rowIndex = 0; rowIndex < 5; rowIndex++)
     }
 }
 
-// Lưu bản trình bày kết quả vào tệp.
+// Lưu bản thuyết trình đã tạo ra vào tệp.
 presentation.Save("Table.pptx", SaveFormat.Pptx);
 ```
 
@@ -145,44 +147,44 @@ presentation.Save("Table.pptx", SaveFormat.Pptx);
 
 ### **Ví dụ nhập biểu đồ Excel**
 
-Trong ví dụ này, chúng ta nhập một biểu đồ từ worksheet đầu tiên của sổ Excel được sử dụng trong ví dụ trước. Biểu đồ sẽ liên kết tới sổ làm việc bên ngoài trong bản trình bày kết quả.
+Trong ví dụ này, chúng ta nhập một biểu đồ từ worksheet đầu tiên của workbook Excel đã dùng trong ví dụ trước. Biểu đồ sẽ liên kết tới workbook bên ngoài trong bản thuyết trình kết quả.
 
-Đầu tiên, chúng ta thêm một biểu đồ Pie vào sổ Excel dựa trên bảng nhân viên.
+Đầu tiên, chúng ta thêm một biểu đồ Pie vào workbook Excel dựa trên bảng nhân viên.
 
 ![Ví dụ biểu đồ Excel](example3_image0.png)
 
 ```csharp
-// Tạo một bản trình bày PowerPoint mới.
+// Tạo một bản thuyết trình PowerPoint mới.
 using Presentation presentation = new Presentation();
 
-// Lấy bộ sưu tập shapes của slide đầu tiên.
+// Get the shapes collection of the first slide.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Nhập biểu đồ có tên "Chart 1" từ sheet đầu tiên của sổ làm việc và thêm nó vào bộ sưu tập shapes.
+// Import the chart named "Chart 1" from the first sheet of the workbook and add it to the shapes collection.
 ExcelWorkbookImporter.AddChartFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "Chart 1", false);
 
-// Lưu bản trình bày kết quả vào tệp.
+// Lưu bản thuyết trình đã tạo ra vào tệp.
 presentation.Save("Chart.pptx", SaveFormat.Pptx);
 ```
 ![Kết quả](example3_image1.png)
 
 ### **Ví dụ nhập tất cả biểu đồ Excel**
 
-Hãy tưởng tượng bạn có một sổ Excel đầy các biểu đồ và bạn cần nhập tất cả chúng vào một bản trình bày. Mỗi biểu đồ nên được đặt trên một slide mới.
+Hãy tưởng tượng bạn có một workbook Excel đầy biểu đồ và bạn cần nhập tất cả chúng vào một bản thuyết trình. Mỗi biểu đồ sẽ được đặt trên một slide mới.
 
-Mã dưới đây duyệt qua tất cả các worksheet trong tệp Excel nguồn, trích xuất các biểu đồ từ mỗi worksheet và thêm mỗi biểu đồ vào một slide riêng biệt bằng bố cục slide trống. Trong bản trình bày kết quả, chỉ dữ liệu biểu đồ sẽ được nhúng, không phải toàn bộ sổ làm việc.
+Đoạn mã dưới đây duyệt qua tất cả các worksheet trong file Excel nguồn, trích xuất các biểu đồ từ mỗi worksheet, và thêm mỗi biểu đồ vào một slide riêng bằng cách sử dụng bố cục slide trống. Trong bản thuyết trình kết quả, chỉ dữ liệu biểu đồ sẽ được nhúng, không phải toàn bộ workbook.
 
 ```csharp
-// Tải sổ Excel chứa dữ liệu nhân viên.
+// Tải workbook Excel chứa dữ liệu nhân viên.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 
-// Tạo một bản trình bày PowerPoint mới.
+// Tạo một bản thuyết trình PowerPoint mới.
 using Presentation presentation = new Presentation();
 
 // Lấy bố cục slide trống.
 ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-// Lấy danh sách tên tất cả các worksheet có trong sổ Excel.
+// Lấy tên của tất cả các worksheet có trong workbook Excel.
 IList<string> worksheetNames = workbook.GetWorksheetNames();
 
 foreach (var name in worksheetNames)
@@ -194,38 +196,40 @@ foreach (var name in worksheetNames)
         // Thêm một slide mới sử dụng bố cục trống.
         ISlide slide = presentation.Slides.AddEmptySlide(blankLayout);
 
-        // Nhập biểu đồ được chỉ định từ sổ Excel vào bộ sưu tập shapes của slide.
+        // Nhập biểu đồ đã chỉ định từ workbook Excel vào bộ sưu tập shape của slide.
         ExcelWorkbookImporter.AddChartFromWorkbook(slide.Shapes, 10, 10, workbook, name, chart.Key, false);
     }
 }
 
-// Lưu bản trình bày kết quả vào tệp.
+// Lưu bản thuyết trình đã tạo ra vào tệp.
 presentation.Save("Charts.pptx", SaveFormat.Pptx);
 ```
 
 ### **Ví dụ nhập bảng Excel**
 
-Trong ví dụ này, chúng ta nhập một bảng đã định dạng từ một worksheet Excel trực tiếp vào bản trình bày PowerPoint.
+Trong ví dụ này, chúng ta nhập một bảng đã định dạng từ một worksheet Excel trực tiếp vào bản thuyết trình PowerPoint.
 
 Worksheet Excel nguồn chứa một bảng đã định dạng với dữ liệu nhân viên:
 
 ![Ví dụ bảng Excel](example4_image0.png)
 
 ```csharp
-// Tạo một bản trình bày PowerPoint mới.
+// Tạo một bản thuyết trình PowerPoint mới.
 using Presentation presentation = new Presentation();
 
-// Lấy bộ sưu tập shapes của slide đầu tiên.
+// Lấy bộ sưu tập shape của slide đầu tiên.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Nhập bảng từ sheet đầu tiên của sổ làm việc và thêm nó vào bộ sưu tập shapes.
+// Nhập bảng từ sheet đầu tiên của workbook và thêm nó vào bộ sưu tập shape.
 ExcelWorkbookImporter.AddTableFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "A1:C5");
 
-// Lưu bản trình bày kết quả vào tệp.
+// Lưu bản thuyết trình đã tạo ra vào tệp.
 presentation.Save("FormattedTable.pptx", SaveFormat.Pptx);
 ```
+
 ![Kết quả](example4_image1.png)
+
 
 ## **Tóm tắt**
 
-Cơ chế này, có sẵn trực tiếp trong Aspose.Slides, kết hợp việc làm việc với dữ liệu Excel và bản trình bày ở một nơi. Nó cho phép bạn tạo slide với biểu đồ trực quan và dữ liệu được trình bày dưới dạng bảng Excel — mà không cần bất kỳ thư viện bổ sung hay tích hợp phức tạp nào.
+Cơ chế này, có sẵn trực tiếp trong Aspose.Slides, kết hợp việc làm việc với dữ liệu Excel và bản thuyết trình trong một nơi. Nó cho phép bạn tạo slide với biểu đồ trực quan và dữ liệu được trình bày dưới dạng bảng Excel — mà không cần thư viện bổ sung hay tích hợp phức tạp.

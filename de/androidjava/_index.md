@@ -1,34 +1,42 @@
----  
-title: Aspose.Slides für Android über Java  
-second_title: Aspose.Slides for Android
-description: Aspose.Slides für Android bietet viele wichtige Funktionen, die es Ihnen ermöglichen, Texte, Formen, Tabellen und Animationen, Audios und Videos in Folien hinzuzufügen, zu ändern und zu manipulieren.  
-type: docs  
-weight: 40  
-url: /de/androidjava/  
-is_root: true  
----  
+---
+title: Aspose.Slides für Android via Java
+second_title: Aspose.Slides für Android
+type: docs
+weight: 40
+url: /de/androidjava/
+keywords:
+- Dokumentation
+- Präsentationsverarbeitung
+- Präsentationskonvertierung
+- PowerPoint
+- OpenDocument
+- Android
+- Java
+- Aspose.Slides
+description: Aspose.Slides für Android ist eine Microsoft PowerPoint®‑Verwaltungs‑API, die Java‑Anwendungen das Lesen und Schreiben von PowerPoint®‑Dokumenten ermöglicht, ohne Microsoft PowerPoint® zu verwenden.
+is_root: true
+---
+{{% alert color="primary" %}}
 
-{{% alert color="primary" %}}  
+![Aspose.Slides für Android Produktlogo](home_1.png)
 
-![Aspose.Slides für Android Produktlogo](home_1.png)  
+**Willkommen bei Aspose.Slides für Android via Java**
 
-**Willkommen bei Aspose.Slides für Android über Java**  
+Aspose.Slides für Android via Java ist eine Microsoft PowerPoint®‑Verwaltungs‑API, die Android‑Anwendungen das Lesen und Schreiben von PowerPoint®‑Dokumenten ohne Microsoft PowerPoint® ermöglicht. Aspose.Slides für Android via Java ist die erste und einzige Komponente, die die zum Verwalten von PowerPoint®‑Dokumenten auf Android‑Plattformen erforderlichen Funktionen bereitstellt. Aspose.Slides für Android bietet zahlreiche wichtige Funktionen, mit denen Sie Text, Formen, Tabellen & Animationen, Audios und Videos in Folien hinzufügen, ändern und manipulieren können.
 
-Aspose.Slides für Android über Java ist eine API zur Verwaltung von Microsoft PowerPoint®, die es Android-Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu benötigen. Aspose.Slides für Android über Java ist die erste und einzige Komponente, die die erforderlichen Funktionen zur Verwaltung von PowerPoint®-Dokumenten auf Android-Plattformen bereitstellt. Aspose.Slides für Android bietet viele wichtige Funktionen, die es Ihnen ermöglichen, Texte, Formen, Tabellen und Animationen, Audios und Videos in Folien hinzuzufügen, zu ändern und zu manipulieren.  
+{{% /alert %}}
 
-{{% /alert %}}  
+## **Aspose.Slides für Android via Java Ressourcen**
 
-## **Aspose.Slides für Android über Java Ressourcen**  
+Diese Links führen zu nützlichen Ressourcen, die Sie für Ihre Arbeit benötigen könnten:
 
-Dies sind Links zu nützlichen Ressourcen, die Sie möglicherweise benötigen, um Ihre Arbeit zu erledigen:  
-
-- [Aspose.Slides für Android über Java Online-Dokumentation](/slides/de/androidjava/)  
-- [Aspose.Slides für Android über Java Funktionen](https://docs.aspose.com/slides/androidjava/aspose-slides-for-android-via-java-features/)  
-- [Aspose.Slides für Android über Java Versionshinweise](https://releases.aspose.com/slides/androidjava/release-notes/)  
-- [Aspose.Slides für Android über Java Produktseite](https://products.aspose.com/slides/android-java/)  
-- [Laden Sie Aspose.Slides für Android über Java herunter](https://releases.aspose.com/slides/androidjava/)  
-- [Aspose.Slides für Android über Java Maven-Repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)  
-- [Installieren Sie Aspose.Slides für Android über Java](/slides/de/androidjava/install-aspose-slides-for-android-via-java/)  
-- [Aspose.Slides für Android über Java API-Referenzhandbuch](https://reference.aspose.com/slides/androidjava)  
-- [Aspose.Slides für Android über Java Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)  
-- [Aspose.Slides für Android über Java Bezahlt Support-Helpdesk](https://helpdesk.aspose.com/)  
+- [Aspose.Slides für Android via Java Online-Dokumentation](/slides/de/androidjava/)
+- [Aspose.Slides für Android via Java Funktionen](https://docs.aspose.com/slides/de/androidjava/aspose-slides-for-android-via-java-features/)
+- [Aspose.Slides für Android via Java Versionshinweise](https://releases.aspose.com/slides/de/androidjava/release-notes/)
+- [Aspose.Slides für Android via Java Produktseite](https://products.aspose.com/slides/de/android-java/)
+- [Aspose.Slides für Android via Java herunterladen](https://releases.aspose.com/slides/de/androidjava/)
+- [Aspose.Slides für Android via Java Maven-Repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
+- [Aspose.Slides für Android via Java installieren](/slides/de/androidjava/install-aspose-slides-for-android-via-java/)
+- [Aspose.Slides für Android via Java API-Referenzhandbuch](https://reference.aspose.com/slides/de/androidjava)
+- [Aspose.Slides für Android via Java kostenloses Support-Forum](https://forum.aspose.com/c/slides/de/11)
+- [Aspose.Slides für Android via Java kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)

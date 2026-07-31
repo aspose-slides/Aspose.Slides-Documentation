@@ -1,9 +1,9 @@
 ---
-title: Konversi Presentasi PowerPoint dalam Mode Handout Menggunakan Java
+title: Mengonversi Presentasi PowerPoint dalam Mode Handout Menggunakan Java
 linktitle: Mode Handout
 type: docs
 weight: 150
-url: /id/java/convert-powerpoint-in-Handout-mode/
+url: /id/java/convert-powerpoint-in-handout-mode/
 keywords:
 - konversi PowerPoint
 - konversi presentasi
@@ -15,19 +15,19 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Konversi presentasi ke handout dalam Java. Atur slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar dengan Aspose.Slides, dengan contoh kode Java. Coba gratis."
+description: "Mengonversi presentasi menjadi handout di Java. Atur jumlah slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar dengan Aspose.Slides, dengan contoh kode Java. Coba gratis."
 ---
 ## **Pendahuluan**
 
 Aspose.Slides memungkinkan Anda mengonversi presentasi ke format output yang mendukung mode Handout. Dalam mode ini, beberapa slide diatur pada satu halaman, yang berguna untuk mencetak materi presentasi untuk konferensi, seminar, dan acara serupa.
 
-Mode Handout dikonfigurasi melalui metode `setSlidesLayoutOptions`, yang tersedia di [IPdfOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/itiffoptions/). Untuk menentukan tata letak handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/handoutlayoutingoptions/).
+Mode Handout dikonfigurasi melalui metode `setSlidesLayoutOptions`, yang tersedia di [IPdfOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/itiffoptions/). Untuk menentukan tata letak handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/handoutlayoutingoptions/) .
 
 ## **Ekspor Mode Handout**
 
-Untuk mengekspor presentasi dalam mode Handout, atur metode `setSlidesLayoutOptions` pada opsi ekspor target dan lampirkan instance [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/handoutlayoutingoptions/) yang menentukan jumlah slide per halaman serta parameter tampilan terkait.
+Untuk mengekspor presentasi dalam mode Handout, atur metode `setSlidesLayoutOptions` pada opsi ekspor target dan tetapkan sebuah instance [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/handoutlayoutingoptions/) yang menentukan jumlah slide per halaman serta parameter tampilan terkait.
 
-Di bawah ini contoh kode yang menunjukkan cara mengonversi presentasi ke PDF dalam mode Handout.
+Berikut adalah contoh kode yang menunjukkan cara mengonversi presentasi ke PDF dalam mode Handout.
 
 ```java
 // Muat presentasi.
@@ -38,7 +38,7 @@ try {
     slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 slide pada satu halaman secara horizontal
     slidesLayoutOptions.setPrintSlideNumbers(true);                   // cetak nomor slide
     slidesLayoutOptions.setPrintFrameSlide(true);                     // cetak bingkai di sekitar slide
-    slidesLayoutOptions.setPrintComments(false);                      // tidak ada komentar
+    slidesLayoutOptions.setPrintComments(false);                      // tanpa komentar
 
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
@@ -60,9 +60,9 @@ Perlu diingat bahwa metode `setSlidesLayoutOptions` hanya tersedia untuk format 
 
 Aspose.Slides mendukung [presets](https://reference.aspose.com/slides/id/java/com.aspose.slides/handouttype/) hingga 9 thumbnail per halaman dengan urutan horizontal atau vertikal: 1, 2, 3, 4 (horizontal/vertikal), 6 (horizontal/vertikal), dan 9 (horizontal/vertikal).
 
-**Apakah saya dapat menentukan grid khusus, misalnya 5 atau 8 slide per halaman?**
+**Apakah saya dapat menentukan grid khusus, seperti 5 atau 8 slide per halaman?**
 
-Tidak. Jumlah dan urutan thumbnail dikontrol secara ketat oleh kelas [HandoutType](https://reference.aspose.com/slides/id/java/com.aspose.slides/handouttype/); tata letak arbitrer tidak didukung.
+Tidak. Jumlah dan urutan thumbnail dikontrol secara ketat oleh kelas [HandoutType](https://reference.aspose.com/slides/id/java/com.aspose.slides/handouttype/) ; layout arbitrer tidak didukung.
 
 **Apakah saya dapat menyertakan slide tersembunyi dalam output Handout?**
 

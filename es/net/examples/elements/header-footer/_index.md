@@ -4,23 +4,23 @@ type: docs
 weight: 220
 url: /es/net/examples/elements/header-footer/
 aliases:
-  - /es/net/examples/elements/elements/header-footer/
+  - /net/examples/elementos/elementos/encabezado-pie/
 keywords:
-- encabezado y pie de página
-- agregar encabezado y pie de página
-- actualizar encabezado y pie de página
-- ejemplo de código
-- PowerPoint
-- OpenDocument
-- presentación
-- .NET
-- C#
-- Aspose.Slides
-description: "Controla los encabezados y pies de página de las diapositivas con Aspose.Slides para .NET: agrega fechas, números de diapositiva y texto personalizado en PPT, PPTX y ODP con ejemplos en C#."
+  - encabezado y pie de página
+  - añadir encabezado y pie de página
+  - actualizar encabezado y pie de página
+  - ejemplo de código
+  - PowerPoint
+  - OpenDocument
+  - presentación
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Controla los encabezados y pies de página de las diapositivas con Aspose.Slides para .NET: añade fechas, números de diapositiva y texto personalizado en PPT, PPTX y ODP con ejemplos en C#."
 ---
-Este artículo muestra cómo agregar pies de página y actualizar los marcadores de posición de fecha y hora usando **Aspose.Slides for .NET**.
+Este artículo muestra cómo añadir pies de página y actualizar los marcadores de posición de fecha y hora utilizando **Aspose.Slides for .NET**.
 
-## **Agregar un pie de página**
+## **Añadir un pie de página**
 
 Añade texto al área del pie de página de una diapositiva y hazlo visible.
 

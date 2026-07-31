@@ -1,20 +1,23 @@
 ---
-title: إدارة فقرات نصوص PowerPoint في JavaScript
+title: إدارة فقرات نص PowerPoint في JavaScript
 linktitle: إدارة الفقرة
 type: docs
 weight: 40
 url: /ar/nodejs-java/manage-paragraph/
+aliases:
+  - /nodejs-java/paragraph/
+  - /nodejs-java/portion/
 keywords:
 - إضافة نص
 - إضافة فقرة
 - إدارة النص
 - إدارة الفقرة
-- إدارة النقاط
+- إدارة النقطة
 - إزاحة الفقرة
 - إزاحة معلقة
 - نقطة الفقرة
 - قائمة مرقمة
-- قائمة نقطية
+- قائمة نقاط
 - خصائص الفقرة
 - استيراد HTML
 - نص إلى HTML
@@ -28,31 +31,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "إتقان تنسيق الفقرات باستخدام Aspose.Slides لـ Node.js عبر Java—تحسين المحاذاة والمسافات والنمط في عروض PPT و PPTX و ODP باستخدام JavaScript."
+description: "إتقان تنسيق الفقرات مع Aspose.Slides لـ Node.js عبر Java—تحسين المحاذاة والمسافات والنمط في عروض PPT و PPTX و ODP باستخدام JavaScript."
 ---
+## **مقدمة**
+
 توفر Aspose.Slides جميع الفئات والصفوف التي تحتاجها للعمل مع نصوص PowerPoint والفقرات والأجزاء في Java.
 
-* توفر Aspose.Slides الفئة [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) للسماح لك بإضافة كائنات تمثل فقرة. يمكن لكائن `TextFame` أن يحتوي على فقرة واحدة أو عدة فقرات (كل فقرة تُنشأ عبر إدخال سطر جديد).
-* توفر Aspose.Slides الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/) للسماح لك بإضافة كائنات تمثل أجزاء. يمكن لكائن `Paragraph` أن يحتوي على جزء واحد أو عدة أجزاء (مجموعة من كائنات الجزء النصي).
-* توفر Aspose.Slides الفئة [Portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portion/) للسماح لك بإضافة كائنات تمثل نصوصًا وخصائص التنسيق الخاصة بها.
+* توفر Aspose.Slides الفئة [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) التي تسمح لك بإضافة كائنات تمثل فقرة. يمكن لكائن `TextFame` أن يحتوي على فقرة واحدة أو عدة فقرات (يتم إنشاء كل فقرة من خلال إدخال عودة سطر).
+* توفر Aspose.Slides الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/) التي تسمح لك بإضافة كائنات تمثل أجزاء. يمكن لكائن `Paragraph` أن يحتوي على جزء واحد أو عدة أجزاء (مجموعة من كائنات جزء النص).
+* توفر Aspose.Slides الفئة [Portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portion/) التي تسمح لك بإضافة كائنات تمثل نصوصًا وخصائص تنسيقها.
 
-كائن `Paragraph` قادر على معالجة النصوص ذات خصائص التنسيق المختلفة عبر كائنات `Portion` الأساسية الخاصة به.
+يمكن لكائن `Paragraph` التعامل مع نصوص ذات خصائص تنسيق مختلفة من خلال كائنات `Portion` الأساسية الخاصة به.
 
 ## **إضافة فقرات متعددة تحتوي على أجزاء متعددة**
 
-توضح هذه الخطوات كيفية إضافة إطار نص يحتوي على 3 فقرات، وكل فقرة تحتوي على 3 أجزاء:
+تُظهر هذه الخطوات كيفية إضافة إطار نص يحتوي على 3 فقرات، وكل فقرة تحتوي على 3 أجزاء:
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) على شكل مستطيل إلى الشريحة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة المطلوبة عبر فهرستها.
+3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) مستطيل إلى الشريحة.
 4. الحصول على `ITextFrame` المرتبط بـ [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/).
 5. إنشاء كائنين من الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/) وإضافتهما إلى مجموعة `IParagraphs` في [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
-6. إنشاء ثلاثة كائنات من الفئة [Portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portion/) لكل `Paragraph` جديد (جزئين من الـ Portion للفقرة الافتراضية) وإضافة كل كائن `Portion` إلى مجموعة IPortion الخاصة بكل `Paragraph`.
-7. ضبط نص لكل جزء.
-8. تطبيق خصائص التنسيق المفضلة لكل جزء باستخدام خصائص التنسيق التي تُظهرها كائن `Portion`.
+6. إنشاء ثلاثة كائنات من الفئة [Portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portion/) لكل `Paragraph` جديد (جزئين `Portion` للفقرة الافتراضية) وإضافة كل كائن `Portion` إلى مجموعة IPortion الخاصة بكل `Paragraph`.
+7. تعيين نص لكل جزء.
+8. تطبيق ميزات التنسيق المفضلة على كل جزء باستخدام خصائص تنسيق `Portion`.
 9. حفظ العرض التقديمي المعدل.
 
-هذا الكود Javascript هو تنفيذ للخطوات الخاصة بإضافة فقرات تحتوي على أجزاء:
+هذا الكود JavaScript هو تنفيذ للخطوات لإضافة فقرات تحتوي على أجزاء:
 
 ```javascript
 // إنشاء كائن من فئة Presentation يمثل ملف PPTX
@@ -64,7 +69,7 @@ try {
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
     // الوصول إلى TextFrame الخاص بـ AutoShape
     var tf = ashp.getTextFrame();
-    // إنشاء فقرات وأجزاء بتنسيقات نصية مختلفة
+    // إنشاء فقرات وأجزاء بتنسيقات نص مختلفة
     var para0 = tf.getParagraphs().get_Item(0);
     var port01 = new aspose.slides.Portion();
     var port02 = new aspose.slides.Portion();
@@ -103,7 +108,7 @@ try {
             }
         }
     }
-    // كتابة ملف PPTX إلى القرص
+    // حفظ PPTX إلى القرص
     pres.save("multiParaPort_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -112,102 +117,102 @@ try {
 }
 ```
 
-## **إدارة نقط القوائم الفقرية**
+## **إدارة تعداد الفقرات**
 
-تساعد قوائم النقط على تنظيم وتقديم المعلومات بسرعة وكفاءة. تكون الفقرات ذات النقط دائمًا أسهل في القراءة والفهم.
+تساعد القوائم ذات النقاط في تنظيم وعرض المعلومات بسرعة وكفاءة. الفقرات ذات النقاط تكون دائمًا أسهل للقراءة والفهم.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة المطلوبة عبر فهرستها.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة المحددة.
-4. الوصول إلى `TextFrame` الخاص بـ AutoShape عبر [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/).
-7. ضبط `Type` للنقطة للفقرة إلى `Symbol` وتحديد حرف النقطة.
-8. ضبط `Text` للفقرة.
-9. ضبط `Indent` للفقرة بالنسبة للنقطة.
-10. تحديد لون للنقطة.
-11. تحديد ارتفاع للنقطة.
+6. إنشاء أول فقرة باستخدام الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/).
+7. تعيين خاصية `Type` للنقطة إلى `Symbol` وتحديد حرف النقطة.
+8. تعيين نص الفقرة.
+9. تعيين `Indent` للفقرة بالنسبة للنقطة.
+10. تعيين لون للنقطة.
+11. تعيين ارتفاع للنقطة.
 12. إضافة الفقرة الجديدة إلى مجموعة فقرات `TextFrame`.
-13. إضافة الفقرة الثانية وتكرار العملية المذكورة في الخطوات من 7 إلى 13.
+13. إضافة الفقرة الثانية وتكرار العملية من الخطوة 7 إلى 13.
 14. حفظ العرض التقديمي.
 
-هذا الكود Javascript يوضح كيفية إضافة نقطة فقرة:
+هذا الكود JavaScript يوضح كيفية إضافة نقطة للفقرة:
 
 ```javascript
-    // ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // يفتح الشريحة الأولى
-        var slide = pres.getSlides().get_Item(0);
-        // يضيف ويصل إلى Autoshape
-        var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-        // يفتح إطار النص للـ Autoshape
-        var txtFrm = aShp.getTextFrame();
-        // يزيل الفقرة الافتراضية
-        txtFrm.getParagraphs().removeAt(0);
-        // ينشئ فقرة
-        var para = new aspose.slides.Paragraph();
-        // يضبط نمط نقطة الفقرة والرمز
-        para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-        para.getParagraphFormat().getBullet().setChar(8226);
-        // يضبط نص الفقرة
-        para.setText("Welcome to Aspose.Slides");
-        // يضبط إزاحة النقطة
-        para.getParagraphFormat().setIndent(25);
-        // يضبط لون النقطة
-        para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-        para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True); // تعيين IsBulletHardColor إلى true لاستخدام لون نقطة مخصص
-        // يضبط ارتفاع النقطة
-        para.getParagraphFormat().getBullet().setHeight(100);
-        // يضيف الفقرة إلى إطار النص
-        txtFrm.getParagraphs().add(para);
-        // ينشئ الفقرة الثانية
-        var para2 = new aspose.slides.Paragraph();
-        // يضبط نوع النقطة للفقرة والنمط
-        para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-        para2.getParagraphFormat().getBullet().setNumberedBulletStyle(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-        // يضيف نص الفقرة
-        para2.setText("This is numbered bullet");
-        // يضبط إزاحة النقطة
-        para2.getParagraphFormat().setIndent(25);
-        para2.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-        para2.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True); // تعيين IsBulletHardColor إلى true لاستخدام لون نقطة مخصص
-        // يضبط ارتفاع النقطة
-        para2.getParagraphFormat().getBullet().setHeight(100);
-        // يضيف الفقرة إلى إطار النص
-        txtFrm.getParagraphs().add(para2);
-        // يحفظ العرض التقديمي المعدل
-        pres.save("Bullet_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
+var pres = new aspose.slides.Presentation();
+try {
+    // يصل إلى الشريحة الأولى
+    var slide = pres.getSlides().get_Item(0);
+    // يضيف ويصل إلى AutoShape
+    var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    // يصل إلى إطار النص للـ AutoShape
+    var txtFrm = aShp.getTextFrame();
+    // يزيل الفقرة الافتراضية
+    txtFrm.getParagraphs().removeAt(0);
+    // ينشئ فقرة
+    var para = new aspose.slides.Paragraph();
+    // يحدد نمط نقطة الفقرة والرمز
+    para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
+    para.getParagraphFormat().getBullet().setChar(8226);
+    // يحدد نص الفقرة
+    para.setText("Welcome to Aspose.Slides");
+    // يحدد إزاحة النقطة
+    para.getParagraphFormat().setIndent(25);
+    // يحدد لون النقطة
+    para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True); // ضبط IsBulletHardColor إلى true لاستخدام لون نقطة مخصص
+    // يحدد ارتفاع النقطة
+    para.getParagraphFormat().getBullet().setHeight(100);
+    // يضيف الفقرة إلى إطار النص
+    txtFrm.getParagraphs().add(para);
+    // ينشئ الفقرة الثانية
+    var para2 = new aspose.slides.Paragraph();
+    // يحدد نوع نمط نقطة الفقرة
+    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
+    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    // يضيف نص الفقرة
+    para2.setText("This is numbered bullet");
+    // يحدد إزاحة النقطة
+    para2.getParagraphFormat().setIndent(25);
+    para2.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    para2.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True); // ضبط IsBulletHardColor إلى true لاستخدام لون نقطة مخصص
+    // يحدد ارتفاع النقطة
+    para2.getParagraphFormat().getBullet().setHeight(100);
+    // يضيف الفقرة إلى إطار النص
+    txtFrm.getParagraphs().add(para2);
+    // يحفظ العرض التقديمي المعدل
+    pres.save("Bullet_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
-## **إدارة نقط القوائم المصورة**
+## **إدارة نقاط الصورة**
 
-تساعد قوائم النقط على تنظيم وتقديم المعلومات بسرعة وكفاءة. الفقرات المصورة سهلة القراءة والفهم.
+تساعد القوائم ذات النقاط في تنظيم وعرض المعلومات بسرعة وكفاءة. فقرات الصورة سهلة القراءة والفهم.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة المطلوبة عبر فهرستها.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. الوصول إلى `TextFrame` الخاص بـ AutoShape عبر [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة باستخدام فئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/).
-7. تحميل الصورة في فئة [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/).
-8. ضبط نوع النقطة إلى [Picture](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) وتعيين الصورة.
-9. ضبط `Text` للفقرة.
-10. ضبط `Indent` للفقرة بالنسبة للنقطة.
-11. تحديد لون للنقطة.
-12. تحديد ارتفاع للنقطة.
+6. إنشاء أول فقرة باستخدام الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/).
+7. تحميل الصورة في الفئة [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/).
+8. تعيين نوع النقطة إلى [Picture](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) وتحديد الصورة.
+9. تعيين نص الفقرة.
+10. تعيين `Indent` للفقرة بالنسبة للنقطة.
+11. تعيين لون للنقطة.
+12. تعيين ارتفاع للنقطة.
 13. إضافة الفقرة الجديدة إلى مجموعة فقرات `TextFrame`.
 14. إضافة الفقرة الثانية وتكرار العملية بناءً على الخطوات السابقة.
 15. حفظ العرض التقديمي المعدل.
 
-هذا الكود Javascript يوضح كيفية إضافة وإدارة النقاط المصورة:
+هذا الكود JavaScript يوضح كيفية إضافة وإدارة نقاط الصورة:
 
 ```javascript
 // ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
@@ -215,7 +220,7 @@ var presentation = new aspose.slides.Presentation();
 try {
     // يصل إلى الشريحة الأولى
     var slide = presentation.getSlides().get_Item(0);
-    // ينشئ الصورة المستخدمة للنقاط
+    // ينشئ الصورة للنقاط
     var picture;
     var image = aspose.slides.Images.fromFile("bullets.png");
     try {
@@ -255,21 +260,21 @@ try {
 
 ## **إدارة النقاط متعددة المستويات**
 
-تساعد قوائم النقط على تنظيم وتقديم المعلومات بسرعة وكفاءة. النقاط متعددة المستويات سهلة القراءة والفهم.
+تساعد القوائم ذات النقاط في تنظيم وعرض المعلومات بسرعة وكفاءة. النقاط متعددة المستويات سهلة القراءة والفهم.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة المطلوبة عبر فهرستها.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) في الشريحة الجديدة.
-4. الوصول إلى `TextFrame` الخاص بـ AutoShape عبر [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة عبر فئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/) وضبط العمق إلى 0.
-7. إنشاء المثال الثاني للفقرة عبر فئة `Paragraph` وضبط العمق إلى 1.
-8. إنشاء المثال الثالث للفقرة عبر فئة `Paragraph` وضبط العمق إلى 2.
-9. إنشاء المثال الرابع للفقرة عبر فئة `Paragraph` وضبط العمق إلى 3.
+6. إنشاء أول فقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/) وتعيين العمق إلى 0.
+7. إنشاء الفقرة الثانية عبر الفئة `Paragraph` وتعيين العمق إلى 1.
+8. إنشاء الفقرة الثالثة عبر الفئة `Paragraph` وتعيين العمق إلى 2.
+9. إنشاء الفقرة الرابعة عبر الفئة `Paragraph` وتعيين العمق إلى 3.
 10. إضافة الفقرات الجديدة إلى مجموعة فقرات `TextFrame`.
 11. حفظ العرض التقديمي المعدل.
 
-هذا الكود Javascript يوضح كيفية إضافة وإدارة النقاط متعددة المستويات:
+هذا الكود JavaScript يوضح كيفية إضافة وإدارة النقاط متعددة المستويات:
 
 ```javascript
 // ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
@@ -290,7 +295,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar(8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // يحدد مستوى النقطة
+    // يضبط مستوى النقطة
     para1.getParagraphFormat().setDepth(0);
     // يضيف الفقرة الثانية
     var para2 = new aspose.slides.Paragraph();
@@ -299,7 +304,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // يحدد مستوى النقطة
+    // يضبط مستوى النقطة
     para2.getParagraphFormat().setDepth(1);
     // يضيف الفقرة الثالثة
     var para3 = new aspose.slides.Paragraph();
@@ -308,7 +313,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar(8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // يحدد مستوى النقطة
+    // يضبط مستوى النقطة
     para3.getParagraphFormat().setDepth(2);
     // يضيف الفقرة الرابعة
     var para4 = new aspose.slides.Paragraph();
@@ -317,7 +322,7 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // يحدد مستوى النقطة
+    // يضبط مستوى النقطة
     para4.getParagraphFormat().setDepth(3);
     // يضيف الفقرات إلى المجموعة
     text.getParagraphs().add(para1);
@@ -335,20 +340,20 @@ try {
 
 ## **إدارة الفقرة مع قائمة مرقمة مخصصة**
 
-توفر الفئة [BulletFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/bulletformat/) الخاصية [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) وغيرها التي تسمح لك بإدارة الفقرات ذات الترقيم أو التنسيق المخصص.
+توفر الفئة [BulletFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/bulletformat/) الخاصية [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) وغيرها التي تسمح لك بإدارة الفقرات بأرقام أو تنسيقات مخصصة.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
 2. الوصول إلى الشريحة التي تحتوي على الفقرة.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. الوصول إلى `TextFrame` الخاص بـ AutoShape عبر [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة عبر فئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/) وضبط [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) إلى 2.
-7. إنشاء المثال الثاني للفقرة عبر فئة `Paragraph` وضبط `NumberedBulletStartWith` إلى 3.
-8. إنشاء المثال الثالث للفقرة عبر فئة `Paragraph` وضبط `NumberedBulletStartWith` إلى 7.
+6. إنشاء أول فقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/) وتعيين [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) إلى 2.
+7. إنشاء الفقرة الثانية عبر الفئة `Paragraph` وتعيين `NumberedBulletStartWith` إلى 3.
+8. إنشاء الفقرة الثالثة عبر الفئة `Paragraph` وتعيين `NumberedBulletStartWith` إلى 7.
 9. إضافة الفقرات الجديدة إلى مجموعة فقرات `TextFrame`.
 10. حفظ العرض التقديمي المعدل.
 
-هذا الكود Javascript يوضح كيفية إضافة وإدارة الفقرات ذات الترقيم أو التنسيق المخصص:
+هذا الكود JavaScript يوضح كيفية إضافة وإدارة الفقرات بأرقام مخصصة أو تنسيقات مخصصة:
 
 ```javascript
 var presentation = new aspose.slides.Presentation();
@@ -385,23 +390,23 @@ try {
 }
 ```
 
-## **ضبط مسافة الإزاحة للسطرة الأولى في الفقرة**
+## **تعيين المسافة البادئة للسطر الأول للفقرة**
 
-استخدم الطريقة [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) للتحكم في إزاحة السطر الأول للفقرة. هذه الطريقة تحرك السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية لجسم الفقرة.
+استخدم الطريقة [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) للتحكم في المسافة البادئة للسطر الأول للفقرة. تنقل هذه الطريقة السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية إلى جسم الفقرة.
 
-استخدم [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) عندما تحتاج إلى تحريك الفقرة بأكملها. استخدم [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) عندما تحتاج إلى تحريك السطر الأول فقط.
+استخدم [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) عندما تحتاج إلى تحريك الفقرة بالكامل. استخدم [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) عندما تحتاج إلى تحريك السطر الأول فقط.
 
-المثال أدناه ينشئ عدة فقرات ويطبق قيم إزاحة مختلفة لتوضيح تأثير إزاحة السطر الأول على تخطيط الفقرة.
+المثال أدناه ينشئ عدة فقرات ويطبق قيم مسافة بادئة مختلفة لتوضيح تأثير المسافة البادئة للسطر الأول على تخطيط الفقرة.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) مستطيل إلى الشريحة.
 4. إضافة [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) فارغ إلى الشكل وإزالة الفقرة الافتراضية.
-5. إنشاء عدة فقرات وضبط قيم مختلفة لـ [Indent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) لها.
+5. إنشاء عدة فقرات وتعيين قيم مختلفة لـ [Indent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) لها.
 6. إضافة الفقرات إلى إطار النص.
 7. حفظ العرض التقديمي المعدل.
 
-هذا الكود يوضح كيفية ضبط إزاحة الفقرة:
+هذا الكود يوضح كيفية تعيين مسافة بادئة للفقرة:
 
 ```js
 let presentation = new aspose.slides.Presentation();
@@ -451,26 +456,26 @@ finally {
 
 النتيجة:
 
-![إزاحة السطر الأول للفقرات](first_line_indent.png)
+![المسافة البادئة للسطر الأول للفقرات](first_line_indent.png)
 
-## **ضبط إزاحة معلقة للفقرة**
+## **تعيين مسافة بادئة معلقة للفقرة**
 
-الإزاحة المعلقة هي تخطيط فقرة يكون فيه السطر الأول يبدأ إلى اليسار من الأسطر المتبقية. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام الطريقة [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/). اضبط الإزاحة إلى قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة لجسم الفقرة.
+المسافة البادئة المعلقة هي تخطيط فقرة يكون فيه السطر الأول يبدأ إلى يسار الأسطر المتبقية. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام الطريقة [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/). اضبط المسافة على قيمة سلبية لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
 
-في الواقع، [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) يحدد الموضع الأيسر لجسم الفقرة، و[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) يحدد موضع السطر الأول نسبةً لهذا الهامش. لإنشاء إزاحة معلقة، اضبط قيمة `MarginLeft` إلى موجبة وقيمة `Indent` إلى سالبة.
+عمليًا، [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) يحدد الموضع الأيسر لجسم الفقرة، و[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) يحدد موضع السطر الأول بالنسبة لهذا الهامش. لإنشاء مسافة بادئة معلقة، اضبط قيمة `MarginLeft` موجبة وقيمة `Indent` سالبة.
 
-هذا التنسيق مفيد للبيبليوغرافيات، المراجع، مداخل القاموس، والفقرات الأخرى التي يجب أن تتماشى الأسطر المغلفة تحت جسم الفقرة بدلاً من تحت الحرف الأول للسطر الأول.
+يكون هذا التنسيق مفيدًا للمراجع، الفهارس، مدخلات القاموس، وفقرات أخرى تحتاج إلى محاذاة الأسطر المتلاحقة تحت جسم الفقرة بدلاً من تحت الحرف الأول للسطر الأول.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) مستطيل إلى الشريحة.
 4. إضافة [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) فارغ إلى الشكل وإزالة الفقرة الافتراضية.
-5. إنشاء فقرات وضبط قيمة موجبة لـ [MarginLeft](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) لكل فقرة.
-6. ضبط قيمة سالبة لـ [Indent](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setindent/) لإنشاء تأثير الإزاحة المعلقة.
+5. إنشاء فقرات وتعيين قيمة `MarginLeft` موجبة لكل فقرة.
+6. تعيين قيمة `Indent` سلبية لإنشاء تأثير المسافة البادئة المعلقة.
 7. إضافة الفقرات إلى إطار النص.
 8. حفظ العرض التقديمي المعدل.
 
-هذا الكود يوضح كيفية ضبط إزاحة معلقة للفقرة:
+هذا الكود يوضح كيفية تعيين مسافة بادئة معلقة للفقرة:
 
 ```js
 let presentation = new aspose.slides.Presentation();
@@ -512,19 +517,19 @@ finally {
 
 النتيجة:
 
-![الإزاحة المعلقة للفقرات](hanging_indent.png)
+![المسافة البادئة المعلقة للفقرات](hanging_indent.png)
 
-## **إدارة خصائص تشغيل نهاية الفقرة للفقرة**
+## **إدارة خصائص تشغيل الفقرة النهاية للفقرة**
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
 1. الحصول على مرجع الشريحة التي تحتوي على الفقرة عبر موقعها.
 1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) مستطيل إلى الشريحة.
-1. إضافة [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) به فقرتان إلى المستطيل.
-1. ضبط `FontHeight` ونوع الخط للفقرات.
-1. ضبط خصائص End للفقرات.
-1. كتابة العرض التقديمي المعدل كملف PPTX.
+1. إضافة [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) يحتوي على فقرتين إلى المستطيل.
+1. تعيين `FontHeight` ونوع الخط للفقرات.
+1. تعيين خصائص النهاية للفقرات.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود Javascript يوضح كيفية ضبط خصائص End للفقرات في PowerPoint:
+هذا الكود JavaScript يوضح كيفية تعيين خصائص النهاية للفقرات في PowerPoint:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -550,22 +555,22 @@ try {
 
 ## **استيراد نص HTML إلى الفقرات**
 
-توفر Aspose.Slides دعمًا محسنًا لاستيراد نصوص HTML إلى الفقرات.
+توفر Aspose.Slides دعمًا محسنًا لاستيراد نص HTML إلى الفقرات.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة المطلوبة عبر فهرستها.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. إضافة والوصول إلى `TextFrame` الخاص بـ AutoShape عبر [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
+4. إضافة والوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) الخاص بـ `AutoShape`.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. قراءة ملف HTML المصدر في `TextReader`.
-7. إنشاء أول مثال للفقرة عبر فئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/).
-8. إضافة محتوى ملف HTML المقروء إلى مجموعة فقرات `ParagraphCollection` في `TextFrame`.
+6. قراءة ملف HTML المصدر باستخدام `TextReader`.
+7. إنشاء أول فقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/).
+8. إضافة محتوى ملف HTML المقروء من `TextReader` إلى [ParagraphCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphcollection/) الخاص بـ `TextFrame`.
 9. حفظ العرض التقديمي المعدل.
 
-هذا الكود Javascript هو تنفيذ للخطوات الخاصة باستيراد نصوص HTML إلى الفقرات:
+هذا الكود JavaScript هو تنفيذ للخطوات لاستيراد نصوص HTML إلى الفقرات:
 
 ```javascript
-// إنشاء مثيل عرض تقديمي فارغ
+// إنشاء نسخة فارغة من العرض التقديمي
 var pres = new aspose.slides.Presentation();
 try {
     // الوصول إلى الشريحة الأولى الافتراضية في العرض التقديمي
@@ -594,14 +599,14 @@ try {
 
 توفر Aspose.Slides دعمًا محسنًا لتصدير النصوص (الموجودة في الفقرات) إلى HTML.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) وتحميل العرض التقديمي المرغوب.
-2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
-3. الوصول إلى الشكل الذي يحتوي على النص الذي سيُصدر إلى HTML.
-4. الوصول إلى `TextFrame` الخاص بالشكل عبر [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
-5. إنشاء مثال من `StreamWriter` وإضافة ملف HTML الجديد.
-6. تحديد فهرس بداية للـ `StreamWriter` وتصدير الفقرات المفضلة لديك.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) وتحميل العرض التقديمي المطلوب.
+2. الوصول إلى مرجع الشريحة المطلوبة عبر فهرستها.
+3. الوصول إلى الشكل الذي يحتوي على النص المراد تصديره إلى HTML.
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) الخاص بالشكل.
+5. إنشاء نسخة من `StreamWriter` وإضافة ملف HTML الجديد.
+6. توفير فهرس بدء إلى `StreamWriter` وتصدير الفقرات المفضلة لديك.
 
-هذا الكود Javascript يوضح كيفية تصدير نصوص فقرات PowerPoint إلى HTML:
+هذا الكود JavaScript يوضح كيفية تصدير نصوص فقرات PowerPoint إلى HTML:
 
 ```javascript
 // تحميل ملف العرض التقديمي
@@ -617,7 +622,7 @@ try {
     var os = java.newInstanceSync("java.io.FileOutputStream", "output.html");
     var writer = java.newInstanceSync("java.io.OutputStreamWriter", os, "UTF-8");
     // استخراج الفقرة الأولى كـ HTML
-    // كتابة بيانات الفقرات إلى HTML بتحديد فهرس بداية الفقرة وإجمالي عدد الفقرات التي سيتم نسخها
+    // كتابة بيانات الفقرات إلى HTML عن طريق توفير فهرس بدء الفقرة وإجمالي عدد الفقرات التي سيتم نسخها
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (e) {console.log(e);
@@ -630,15 +635,15 @@ try {
 
 ## **حفظ الفقرة كصورة**
 
-في هذا القسم، نستكشف مثالين يوضحان كيفية حفظ فقرة نصية، ممثلةً بفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/)، كصورة. يتضمن كل مثال الحصول على صورة الشكل الذي يحتوي الفقرة باستخدام طرقي `getImage` من فئة [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/)، حساب حدود الفقرة داخل الشكل، وتصديرها كصورة bitmap. تسمح هذه الأساليب باستخراج أجزاء محددة من النص من عروض PowerPoint وت保存ها كصور منفصلة، وهو ما يمكن أن يكون مفيدًا للاستخدام لاحقًا في سيناريوهات مختلفة.
+في هذا القسم، سنستعرض مثالين يوضحان كيفية حفظ فقرة نصية، ممثلة بالفئة [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/)، كصورة. يتضمن كلا المثالين الحصول على صورة الشكل الذي يحتوي على الفقرة باستخدام طرق `getImage` من الفئة [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/)، حساب حدود الفقرة داخل الشكل، وتصديرها كصورة bitmap. تسمح هذه الأساليب باستخراج أجزاء محددة من النص من عروض PowerPoint وحفظها كصور منفصلة، وهو ما يمكن أن يكون مفيدًا في سيناريوهات متعددة.
 
-لنفترض أن لدينا ملف عرض تقديمي يُدعى **sample.pptx** يحتوي على شريحة واحدة، حيث الشكل الأول هو مربع نص يحتوي على ثلاث فقرات.
+لنفترض أن لدينا ملف عرض تقديمي يسمى sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو مربع نص يحتوي على ثلاث فقرات.
 
-![مربع النص مع ثلاث فقرات](paragraph_to_image_input.png)
+![مربع النص يحتوي على ثلاث فقرات](paragraph_to_image_input.png)
 
-**المثال 1**
+**مثال 1**
 
-في هذا المثال، نحصل على الفقرة الثانية كصورة. للقيام بذلك، نقوم باستخراج صورة الشكل من الشريحة الأولى للعرض التقديمي ثم نحسب حدود الفقرة الثانية في إطار النص الخاص بالشكل. تُعاد رسم الفقرة على صورة bitmap جديدة تُحفظ بصيغة PNG. هذه الطريقة مفيدة جدًا عندما تحتاج إلى حفظ فقرة معينة كصورة منفصلة مع الحفاظ على الأبعاد والتنسيق الدقيق للنص.
+في هذا المثال، نحصل على الفقرة الثانية كصورة. للقيام بذلك، نستخرج صورة الشكل من الشريحة الأولى للعرض التقديمي ثم نحسب حدود الفقرة الثانية في إطار نص الشكل. ثم يتم إعادة رسم الفقرة على صورة bitmap جديدة تُحفظ بتنسيق PNG. هذه الطريقة مفيدة عندما تحتاج إلى حفظ فقرة معينة كصورة مستقلة مع الحفاظ على أبعاد النص وتنسيقه الدقيق.
 
 ```java
 const imageio = java.import("javax.imageio.ImageIO");
@@ -646,7 +651,7 @@ const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // حفظ الشكل في الذاكرة كصورة bitmap.
+    // احفظ الشكل في الذاكرة كصورة نقطية.
     const shapeImage = firstShape.getImage();
         
     const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
@@ -654,24 +659,24 @@ try {
     shapeImage.dispose();
     shapeImageStream.flush();
     
-    // إنشاء صورة bitmap للشكل من الذاكرة.
+    // إنشاء صورة نقطية للشكل من الذاكرة.
     const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
     const javaBytes = java.newArray("byte", Array.from(byteBuffer));
     const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
     const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
     const shapeBitmap = imageio.read(shapeImageInputStream);
 
-    // حساب حدود الفقرة الثانية.
+    // احسب حدود الفقرة الثانية.
     const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     const paragraphRectangle = secondParagraph.getRect();
 
-    // حساب إحداثيات وحجم الصورة الناتجة (الحد الأدنى - بكسل واحد × 1).
+    // احسب إحداثيات وحجم الصورة الناتجة (الحد الأدنى - بكسل 1×1).
     const imageX = Math.floor(paragraphRectangle.getX());
     const imageY = Math.floor(paragraphRectangle.getY());
     const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
     const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
 
-    // قص صورة bitmap الخاصة بالشكل للحصول على صورة bitmap للفقرة فقط.
+    // قم بقص صورة الشكل للحصول على صورة الفقرة فقط.
     const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     const file = java.newInstanceSync("java.io.File", "paragraph.png");
@@ -688,9 +693,9 @@ try {
 
 ![صورة الفقرة](paragraph_to_image_output.png)
 
-**المثال 2**
+**مثال 2**
 
-في هذا المثال، نُوسّع النهج السابق بإضافة عوامل تكبير إلى صورة الفقرة. يُستخرج الشكل من العرض التقديمي ويُحفظ كصورة بمعامل تكبير `2`. يسمح ذلك بإنتاج صورة ذات دقة أعلى عند تصدير الفقرة. تُحسب حدود الفقرة مع مراعاة المقياس. التكبير يمكن أن يكون مفيدًا عندما تحتاج إلى صورة أكثر تفصيلاً، على سبيل المثال للاستخدام في مواد مطبوعة عالية الجودة.
+في هذا المثال، نوسع النهج السابق بإضافة عوامل تكبير إلى صورة الفقرة. يتم استخراج الشكل من العرض التقديمي وحفظه كصورة بمعامل تكبير `2`. يتيح ذلك الحصول على مخرج بدقة أعلى عند تصدير الفقرة. ثم تُحسب حدود الفقرة مع مراعاة التكبير. يمكن أن يكون التكبير مفيدًا عندما تحتاج إلى صورة أكثر تفصيلاً، على سبيل المثال لاستخدامها في مواد مطبوعة عالية الجودة.
 
 ```java
 const imageScaleX = 2;
@@ -701,20 +706,20 @@ const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // حفظ الشكل في الذاكرة كصورة bitmap مع التحجيم.
+    // احفظ الشكل في الذاكرة كصورة نقطية مع التكبير.
     const shapeImage = firstShape.getImage(aspose.slides.ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
     shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
     shapeImage.dispose();
 
-    // إنشاء صورة bitmap للشكل من الذاكرة.
+    // إنشاء صورة نقطية للشكل من الذاكرة.
     const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
     const javaBytes = java.newArray("byte", Array.from(byteBuffer));
     const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
     const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
     const shapeBitmap = imageio.read(shapeImageInputStream);
 
-    // حساب حدود الفقرة الثانية.
+    // احسب حدود الفقرة الثانية.
     const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     const paragraphRectangle = secondParagraph.getRect();
     paragraphRectangle.setRect(
@@ -724,13 +729,13 @@ try {
             paragraphRectangle.getHeight() * imageScaleY
     );
 
-    // حساب الإحداثيات والحجم للصورة الناتجة (الحد الأدنى - بكسل 1×1).
+    // احسب إحداثيات وحجم الصورة الناتجة (الحد الأدنى - بكسل 1×1).
     const imageX = Math.floor(paragraphRectangle.getX());
     const imageY = Math.floor(paragraphRectangle.getY());
     const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
     const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
 
-    // قص صورة bitmap الخاصة بالشكل للحصول على صورة bitmap للفقرة فقط.
+    // قص صورة الشكل للحصول على صورة الفقرة فقط.
     const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     const file = java.newInstanceSync("java.io.File", "paragraph.png");
@@ -743,20 +748,20 @@ try {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني تعطيل التفاف الأسطر داخل إطار النص تمامًا؟**
+**هل يمكنني تعطيل التفاف النص بالكامل داخل إطار النص؟**
 
-نعم. استخدم إعداد التفاف إطار النص ([setWrapText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/setwraptext/)) لإيقاف التفاف الأسطر بحيث لا تُقَصَ الأسطر عند حدود الإطار.
+نعم. استخدم إعداد التفاف إطار النص ([setWrapText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/setwraptext/)) لإيقاف التفاف الأسطر بحيث لا تنكسر عند حدود الإطار.
 
-**كيف يمكنني الحصول على حدود الفقرة المحددة على الشريحة بدقة؟**
+**كيف يمكنني الحصول على حدود الفقرة المحددة بدقة على الشريحة؟**
 
-يمكنك استرداد المستطيل المحيط بالفقرة (وحتى الجزء الفردي) لمعرفة موقعها وحجمها الدقيق على الشريحة.
+يمكنك استخراج مستطيل الحدود للفقرة (وحتى لجزء واحد) لتعرف موقعها وحجمها الدقيق على الشريحة.
 
 **أين يتم التحكم في محاذاة الفقرة (يسار/يمين/وسط/ضبط)؟**
 
-[setAlignment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setalignment/) هو طريقة لضبط المحاذاة على مستوى الفقرة في [ParagraphFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/); وتطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
+`[setAlignment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/setalignment/)` هي طريقة لضبط محاذاة الفقرة في `[ParagraphFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/)`؛ وتطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
 
-**هل يمكنني تعيين لغة تدقيق إملائي لجزء فقط من الفقرة (مثلاً كلمة واحدة)؟**
+**هل يمكنني تعيين لغة التدقيق الإملائي لجزء فقط من الفقرة (مثل كلمة واحدة)؟**
 
-نعم. تُحدد اللغة على مستوى الجزء ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setLanguageId))، لذا يمكن أن تت coexist لغات متعددة داخل فقرة واحدة.
+نعم. تُحدد اللغة على مستوى الجزء (`[PortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)`)، لذلك يمكن أن تتواجد لغات متعددة داخل نفس الفقرة.

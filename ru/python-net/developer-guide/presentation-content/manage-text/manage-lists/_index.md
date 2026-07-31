@@ -1,44 +1,46 @@
 ---
-title: Управление маркированными и нумерованными списками в презентациях на Python
-linktitle: Управление списками
+title: "Управление маркированными и нумерованными списками в презентациях на Python"
+linktitle: "Управление списками"
 type: docs
 weight: 70
 url: /ru/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
-- маркер
-- маркированный список
-- нумерованный список
-- символ‑маркер
-- изображение‑маркер
-- пользовательский маркер
-- многоуровневый список
-- создание маркера
-- добавление маркера
-- добавление списка
-- PowerPoint
-- OpenDocument
-- презентация
-- Python
-- Aspose.Slides
-description: "Узнайте, как создавать и форматировать маркированные, изображения‑маркеры, многоуровневые и нумерованные списки в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET."
+  - "маркер"
+  - "маркированный список"
+  - "нумерованный список"
+  - "символьный маркер"
+  - "маркер‑изображение"
+  - "пользовательский маркер"
+  - "многоуровневый список"
+  - "создать маркер"
+  - "добавить маркер"
+  - "добавить список"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "презентация"
+  - "Python"
+  - "Aspose.Slides"
+description: "Узнайте, как создавать и форматировать маркированные, маркеры с изображением, многоуровневые и нумерованные списки в презентациях PowerPoint и OpenDocument с использованием Aspose.Slides for Python via .NET."
 ---
 ## **Обзор**
 
-Aspose.Slides for Python via .NET позволяет создавать и форматировать маркированные и нумерованные списки в презентациях PowerPoint и OpenDocument. Элемент списка — это абзац, настройки маркера которого управляются через формат абзаца.
+Aspose.Slides for Python via .NET позволяет создавать и форматировать маркированные и нумерованные списки в презентациях PowerPoint и OpenDocument. Элемент списка представляет собой абзац, настройки маркера которого контролируются через его формат абзаца.
 
-Используйте свойство [Paragraph.paragraph_format](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/paragraph_format/) для доступа к настройкам списка на уровне абзаца. Главной точкой входа является [ParagraphFormat.bullet](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/bullet/), который возвращает объект [BulletFormat](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/). С помощью этого объекта можно задать тип маркера, символ, изображение, цвет, размер, стиль нумерации и начальное число.
+Используйте свойство [Paragraph.paragraph_format](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/paragraph_format/) для доступа к настройкам списка уровня абзаца. Основной точкой входа является [ParagraphFormat.bullet](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/bullet/), который возвращает объект [BulletFormat](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/). С помощью этого объекта вы можете задавать тип маркера, символ, изображение, цвет, размер, стиль нумерации и начальное число.
 
 В этой статье показано, как:
 
 - создать маркированный список с пользовательским символом
-- создать изображение‑маркер
+- создать маркер‑изображение
 - создать многоуровневый список, задав глубину абзаца
 - создать нумерованный список
 - просмотреть и изменить форматирование списка в существующей презентации
 
-## **Создание маркированного списка**
+## **Создать маркированный список**
 
-Чтобы создать маркированный список, добавьте объекты [Paragraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/) в [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) и установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.SYMBOL](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/). Затем можно задать [BulletFormat.char](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/color/) и [BulletFormat.height](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/height/) для контроля внешнего вида маркера.
+Чтобы создать маркированный список, добавьте объекты [Paragraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraph/) в [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) и установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.SYMBOL](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/). Затем вы можете задать [BulletFormat.char](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/color/), и [BulletFormat.height](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/height/) для управления внешним видом маркера.
 
 Следующий код Python демонстрирует, как создать маркированный список на слайде:
 
@@ -78,9 +80,9 @@ with slides.Presentation() as presentation:
 
 ![Символьные маркеры](symbol_bullets.png)
 
-## **Создание нумерованного списка**
+## **Создать нумерованный список**
 
-Используйте нумерованные списки, когда порядок элементов имеет значение. Установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.NUMBERED](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/). Вы также можете выбрать формат нумерации с помощью [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/numbered_bullet_style/) или задать [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), если список должен начинаться с значения, отличного от 1.
+Используйте нумерованные списки, когда порядок элементов имеет значение. Установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.NUMBERED](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/). Вы также можете выбрать формат нумерации с помощью [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/numbered_bullet_style/) или задать [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), если список должен начинаться с числа, отличного от 1.
 
 Следующий код Python показывает, как создать нумерованный список на слайде:
 
@@ -116,23 +118,22 @@ with slides.Presentation() as presentation:
 
 ![Нумерованные маркеры](numbered_bullets.png)
 
-## **Создание изображения‑маркера**
+## **Создать маркер‑изображение**
 
-Aspose.Slides позволяет заменить обычный символ маркера изображением. Изображения‑маркеры лучше всего работают с простыми рисунками, остающимися читаемыми при небольшом размере, например, с иконками или небольшими прозрачными PNG‑файлами.
+Aspose.Slides позволяет заменить обычный символ маркера изображением. Маркеры‑изображения лучше всего работают с простыми изображениями, которые остаются разборчивыми при небольшом размере, например, иконками или небольшими прозрачными PNG‑файлами.
 
 {{% alert color="primary" %}}
-Идеально, если вы планируете заменить обычный символ маркера изображением, выбирайте простую графику с прозрачным фоном. Такие изображения хорошо подходят в качестве пользовательских символов маркеров.
-
-Имейте в виду, что изображение будет уменьшено до очень маленького размера. По этой причине настоятельно рекомендуется выбирать изображение, которое остаётся четким и визуально эффективным в роли маркера списка.
+Оптимально, если вы планируете заменить обычный символ маркера изображением, лучше выбрать простую графику с прозрачным фоном. Такие изображения хорошо подходят в качестве пользовательских символов маркеров.
+Имейте в виду, что изображение будет масштабировано до очень малого размера. По этой причине мы настоятельно рекомендуем выбирать изображение, которое остаётся чётким и визуально эффективным при использовании в качестве маркера списка.
 {{% /alert %}}
 
-Чтобы создать изображение‑маркер, добавьте изображение в [Presentation.images](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/images/) и присвойте полученный объект изображения свойству [BulletFormat.picture](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/picture/). Установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.PICTURE](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/) перед назначением изображения.
+Чтобы создать маркер‑изображение, добавьте изображение в [Presentation.images](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/images/) и присвойте возвращённый объект изображения свойству [BulletFormat.picture](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/picture/). Установите [BulletFormat.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bulletformat/type/) в значение [BulletType.PICTURE](https://reference.aspose.com/slides/ru/python-net/aspose.slides/bullettype/) перед присвоением изображения.
 
-Предположим, у нас есть файл "image.png":
+Допустим, у нас есть "image.png":
 
 ![Изображение для маркеров](picture_for_bullets.png)
 
-Следующий код Python показывает, как создать изображение‑маркеры на слайде:
+Следующий код Python показывает, как создать маркеры‑изображения на слайде:
 
 ```py
 import aspose.slides as slides
@@ -168,11 +169,11 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![Изображения‑маркеры](picture_bullets.png)
+![Маркеры‑изображения](picture_bullets.png)
 
-## **Создание многоуровневого списка**
+## **Создать многоуровневый список**
 
-Используйте [ParagraphFormat.depth](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/depth/) для размещения элементов списка на разных уровнях. Уровень 0 — верхний уровень, уровень 1 — вложенный под ним и т.д.
+Используйте [ParagraphFormat.depth](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/depth/) для размещения элементов списка на разных уровнях. Уровень 0 — верхний уровень, уровень 1 — вложенный под ним и так далее.
 
 Следующий код Python показывает, как создать многоуровневый маркированный список:
 
@@ -213,9 +214,11 @@ with slides.Presentation() as presentation:
 
 ![Многоуровневый список](multilevel_list.png)
 
-## **Изменение существующего списка**
+## **Изменить существующий список**
 
-Чтобы изменить форматирование списка в существующей презентации, получите целевой абзац и обновите его настройки [ParagraphFormat.bullet](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/bullet/). Те же свойства, которые использовались для создания списков, могут быть применены для просмотра или изменения списков, загруженных из файлов PPT, PPTX или ODP.
+Чтобы изменить форматирование списка в существующей презентации, получите доступ к целевому абзацу и обновите его настройки [ParagraphFormat.bullet](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/bullet/). Те же свойства, которые использовались для создания списков, могут быть применены для просмотра или изменения списков, загруженных из файлов PPT, PPTX или ODP.
+
+Следующий код Python меняет первый абзац в текстовом кадре, чтобы использовать стиль нумерованного списка:
 
 ```py
 import aspose.slides as slides
@@ -242,8 +245,8 @@ with slides.Presentation("input.pptx") as presentation:
 
 **Могу ли я редактировать списки в существующих презентациях?**
 
-Да. Загрузите презентацию, получите доступ к целевому абзацу, просмотрите или обновите его настройки [ParagraphFormat.bullet] и сохраните презентацию.
+Да. Загрузите презентацию, получите доступ к целевому абзацу, просмотрите или обновите его настройки [ParagraphFormat.bullet](https://reference.aspose.com/slides/ru/python-net/aspose.slides/paragraphformat/bullet/), и сохраните презентацию.
 
 **Могут ли списки содержать нелатинский текст?**
 
-Да. Текст элементов списка может включать Unicode‑символы, поэтому вы можете создавать списки в многоязычных презентациях. Убедитесь, что шрифты, используемые в презентации, поддерживают необходимые символы.
+Да. Текст элементов списка может содержать символы Unicode, поэтому вы можете создавать списки в многоязычных презентациях. Убедитесь, что шрифты, используемые в презентации, поддерживают необходимые вам символы.

@@ -1,13 +1,13 @@
 ---
-title: Konvertera presentationer i handout‑läge med Python
-linktitle: Handout‑läge
+title: Konvertera presentationer i handout-läge med Python
+linktitle: Handout-läge
 type: docs
 weight: 150
-url: /sv/python-net/convert-powerpoint-in-Handout-mode/
+url: /sv/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - konvertera PowerPoint
 - konvertera presentation
-- handout‑läge
+- handout-läge
 - handout
 - PowerPoint
 - presentation
@@ -15,20 +15,20 @@ keywords:
 - PPTX
 - Python
 - Aspose.Slides
-description: "Konvertera presentationer till handouts i Python. Ställ in bilder per sida, behåll anteckningar, exportera till PDF eller bilder med Aspose.Slides, med exempel kod. Prova det gratis."
+description: "Konvertera presentationer till handouts i Python. Ställ in antal bilder per sida, behåll anteckningar, exportera till PDF eller bilder med Aspose.Slides, med exempelprogramkod. Prova gratis."
 ---
 ## **Introduktion**
 
-Aspose.Slides tillhandahåller möjligheten att konvertera presentationer till olika format, inklusive att skapa handouts för utskrift i Handout‑läge. Detta läge låter dig konfigurera hur flera bilder visas på en enda sida, vilket gör det användbart för konferenser, seminarier och andra evenemang. Du kan aktivera detta läge genom att sätta egenskapen `slides_layout_options` i klasserna [PdfOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/htmloptions/) och [TiffOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/tiffoptions/).
+Aspose.Slides ger möjlighet att konvertera presentationer till olika format, inklusive att skapa handouts för utskrift i Handout‑läge. Detta läge låter dig konfigurera hur flera bilder visas på en enda sida, vilket är användbart för konferenser, seminarier och andra evenemang. Du kan aktivera detta läge genom att ange egenskapen `slides_layout_options` i klasserna [PdfOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/htmloptions/), och [TiffOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/tiffoptions/).
 
-## **Export av Handout‑läge**
+## **Export av handout‑läge**
 
-För att konfigurera Handout‑läge, använd objektet [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/handoutlayoutingoptions/), som bestämmer hur många bilder som placeras på en enda sida samt andra visningsparametrar.
+För att konfigurera Handout‑läge använder du objektet [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/handoutlayoutingoptions/), som bestämmer hur många bilder som placeras på en ensam sida samt andra visningsparametrar.
 
-Nedan är ett kodexempel som visar hur du konverterar en presentation till PDF i Handout‑läge.
+Nedan visas ett kodexempel som visar hur du konverterar en presentation till PDF i Handout‑läge.
 
 ```py
-# Laddar en presentation.
+# Ladda en presentation.
 with slides.Presentation("sample.pptx") as presentation:
 
     # Ställ in exportalternativen.
@@ -46,10 +46,10 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert color="warning" %}} 
-Kom ihåg att egenskapen `slides_layout_options` endast är tillgänglig för vissa utdataformat, såsom PDF, HTML, TIFF, och vid rendering som bilder.
+Kom ihåg att egenskapen `slides_layout_options` endast är tillgänglig för vissa utdataformat, såsom PDF, HTML, TIFF och vid rendering som bilder.
 {{% /alert %}} 
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Vad är det maximala antalet bildminiatyrer per sida i Handout‑läge?**
 
@@ -61,4 +61,4 @@ Nej. Antalet och ordningen på miniatyrerna styrs strikt av uppräkningen [Hando
 
 **Kan jag inkludera dolda bilder i Handout‑utdata?**
 
-Ja. Aktivera alternativet `show_hidden_slides` i exportinställningarna för målformatet, såsom [PdfOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/htmloptions/) eller [TiffOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/tiffoptions/).
+Ja. Aktivera alternativet `show_hidden_slides` i exportinställningarna för målformatet, till exempel [PdfOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/htmloptions/), eller [TiffOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/tiffoptions/).

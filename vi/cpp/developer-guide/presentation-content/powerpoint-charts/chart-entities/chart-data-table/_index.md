@@ -11,22 +11,22 @@ keywords:
 - bản trình bày
 - C++
 - Aspose.Slides
-description: "Tùy chỉnh bảng dữ liệu biểu đồ trong C++ cho PPT và PPTX với Aspose.Slides để tăng hiệu quả và sức hấp dẫn trong bản trình bày."
+description: "Tùy chỉnh bảng dữ liệu biểu đồ trong C++ cho PPT và PPTX với Aspose.Slides để tăng hiệu quả và hấp dẫn trong các bản trình bày."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với bảng dữ liệu biểu đồ trong Aspose.Slides. Nó chỉ ra cách hiển thị bảng dữ liệu cho một biểu đồ và tùy chỉnh định dạng văn bản bằng cách thiết lập các thuộc tính phông chữ như kiểu đậm và chiều cao phông chữ. Ví dụ minh họa việc tải một bản trình bày, thêm một biểu đồ, bật bảng dữ liệu biểu đồ, áp dụng cài đặt phông chữ và lưu bản trình bày đã cập nhật.
+Bài viết này giải thích cách làm việc với bảng dữ liệu biểu đồ trong Aspose.Slides. Nó cho thấy cách hiển thị bảng dữ liệu cho một biểu đồ và tùy chỉnh định dạng văn bản bằng cách đặt các thuộc tính phông chữ như kiểu đậm và chiều cao phông chữ. Ví dụ minh họa việc tải một bản trình bày, thêm biểu đồ, bật bảng dữ liệu biểu đồ, áp dụng cài đặt phông chữ và lưu bản trình bày đã cập nhật.
 
 ## **Đặt thuộc tính phông chữ cho bảng dữ liệu biểu đồ**
-Aspose.Slides for C++ cho phép thay đổi các thuộc tính phông chữ cho bảng dữ liệu biểu đồ. 
+Aspose.Slides cho C++ cho phép thay đổi thuộc tính phông chữ cho bảng dữ liệu biểu đồ. 
 
 1. Tạo một đối tượng lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
 1. Thêm biểu đồ vào slide.
 1. Đặt bảng biểu đồ.
 1. Đặt chiều cao phông chữ.
-1. Lưu bản trình bày đã sửa đổi.
+1. Lưu bản trình bày đã chỉnh sửa.
 
-Dưới đây là ví dụ mẫu. 
+Ví dụ mẫu được cung cấp bên dưới. 
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -43,18 +43,18 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Tôi có thể hiển thị các ký hiệu chú giải nhỏ bên cạnh các giá trị trong bảng dữ liệu của biểu đồ không?**
+**Tôi có thể hiển thị các ký hiệu chú thích nhỏ bên cạnh các giá trị trong bảng dữ liệu của biểu đồ không?**
 
 Có. Bảng dữ liệu hỗ trợ [legend keys](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/datatable/set_showlegendkey/), và bạn có thể bật hoặc tắt chúng.
 
 **Bảng dữ liệu có được giữ lại khi xuất bản trình bày sang PDF, HTML hoặc hình ảnh không?**
 
-Có. Aspose.Slides render biểu đồ như một phần của slide, vì vậy khi xuất ra [PDF](/slides/vi/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/vi/cpp/convert-powerpoint-to-html/)/[image](/slides/vi/cpp/convert-powerpoint-to-png/) sẽ bao gồm biểu đồ cùng bảng dữ liệu của nó.
+Có. Aspose.Slides dựng biểu đồ như một phần của slide, vì vậy bản xuất ra [PDF](/slides/vi/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/vi/cpp/convert-powerpoint-to-html/)/[image](/slides/vi/cpp/convert-powerpoint-to-png/) sẽ bao gồm biểu đồ cùng bảng dữ liệu của nó.
 
-**Có hỗ trợ bảng dữ liệu cho các biểu đồ được tạo từ tệp mẫu không?**
+**Các bảng dữ liệu có được hỗ trợ cho các biểu đồ được tạo từ tệp mẫu không?**
 
-Có. Đối với bất kỳ biểu đồ nào được tải từ một bản trình bày hoặc mẫu hiện có, bạn có thể kiểm tra và thay đổi việc bảng dữ liệu [is shown](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chart/set_hasdatatable/) bằng các thuộc tính của biểu đồ.
+Có. Đối với bất kỳ biểu đồ nào được tải từ bản trình bày hoặc mẫu hiện có, bạn có thể kiểm tra và thay đổi việc bảng dữ liệu [is shown](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chart/set_hasdatatable/) bằng cách sử dụng các thuộc tính của biểu đồ.
 
-**Làm sao tôi có thể nhanh chóng tìm ra những biểu đồ nào trong tệp có bật bảng dữ liệu?**
+**Làm thế nào tôi có thể nhanh chóng xác định biểu đồ nào trong tệp đã bật bảng dữ liệu?**
 
-Kiểm tra thuộc tính của từng biểu đồ cho biết liệu bảng dữ liệu [is shown](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chart/get_hasdatatable/) hay không và duyệt qua các slide để xác định các biểu đồ đã bật tính năng này.
+Kiểm tra thuộc tính của từng biểu đồ cho biết bảng dữ liệu [is shown](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chart/get_hasdatatable/) và duyệt qua các slide để xác định các biểu đồ mà tính năng này được bật.

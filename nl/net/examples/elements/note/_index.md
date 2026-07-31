@@ -3,10 +3,12 @@ title: Notitie
 type: docs
 weight: 240
 url: /nl/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - notitie
 - notitieslide toevoegen
-- toegang tot notitieslide
+- notitieslide openen
 - notitieslide verwijderen
 - notitietekst bijwerken
 - codevoorbeeld
@@ -16,9 +18,9 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Werken met notitieslides in Aspose.Slides for .NET: voeg toe, lees, bewerk en exporteer spreker-notities in PPT, PPTX en ODP met duidelijke C#-voorbeelden."
+description: "Werk met dia-notities in Aspose.Slides voor .NET: voeg toe, lees, bewerk en exporteer presentatorenotities in PPT, PPTX en ODP met duidelijke C#-voorbeelden."
 ---
-Dit artikel laat zien hoe u notitieslides kunt toevoegen, lezen, verwijderen en bijwerken met **Aspose.Slides for .NET**.
+Dit artikel toont hoe u notitieslides kunt toevoegen, lezen, verwijderen en bijwerken met **Aspose.Slides for .NET**.
 
 ## **Een notitieslide toevoegen**
 
@@ -53,7 +55,7 @@ static void AccessNote()
 
 ## **Een notitieslide verwijderen**
 
-Verwijder de notitieslide die bij een dia hoort.
+Verwijder de notitieslide die bij een slide hoort.
 
 ```csharp
 static void RemoveNote()

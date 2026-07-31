@@ -1,94 +1,96 @@
 ---
-title: PowerPoint prezentáció diagramok létrehozása vagy frissítése С++-ban
-linktitle: Diagramok létrehozása vagy frissítése
+title: "PowerPoint-prezentáció diagramok létrehozása vagy frissítése C++-ban"
+linktitle: "Diagramok létrehozása vagy frissítése"
 type: docs
 weight: 10
 url: /hu/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
-- diagram hozzáadása
-- diagram létrehozása
-- diagram szerkesztése
-- diagram módosítása
-- diagram frissítése
-- szórt diagram
-- kördiagram
-- vonaldiagram
-- fa térkép diagram
-- részvény diagram
-- doboz‑szárny diagram
-- tölcsér diagram
-- napfény diagram
-- hisztogram diagram
-- radar diagram
-- többkategóriás diagram
-- PowerPoint
-- prezentáció
-- С++
-- Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for С++ használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C++ kódpéldákkal."
+  - "diagram hozzáadása"
+  - "diagram létrehozása"
+  - "diagram szerkesztése"
+  - "diagram módosítása"
+  - "diagram frissítése"
+  - "szórt diagram"
+  - "kördiagram"
+  - "vonaldiagram"
+  - "fa térkép diagram"
+  - "részvény diagram"
+  - "doboz- és buzogány diagram"
+  - "tölcsér diagram"
+  - "sugaras (sunburst) diagram"
+  - "hisztogram diagram"
+  - "radar diagram"
+  - "többkategóriás diagram"
+  - "PowerPoint"
+  - "prezentáció"
+  - "C++"
+  - "Aspose.Slides"
+description: "Diagramok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for C++ használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C++ kódrészletekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides segítségével. Megtanulja, hogyan adhat programozottan diagramot egy diára, hogyan töltheti fel adatokka­l, és hogyan alkalmazhat különféle formázási lehetőségeket a specifikus tervezési igényeknek megfelelően. A cikk során részletes kódpéldák szemléltetik az egyes lépéseket, az előadás és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével szilárd megértést szerez a dinamikus diagramgenerálás alkalmazásokba való integrálásához, megkönnyítve az adat‑vezérelt prezentációk létrehozását.
+Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides használatával. Megtanulja, hogyan adjon programozottan diagramot egy diára, töltse fel adatokal, és alkalmazzon különféle formázási beállításokat a konkrét tervezési követelményeknek megfelelően. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a bemutató és a diagram objektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével szilárd megértést szerez a dinamikus diagramgenerálás integrálásáról alkalmazásaiban, megkönnyítve az adatvezérelt prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek gyorsan megjeleníteni az adatokat és felismerni az összefüggéseket, amelyek egy táblázatból vagy számolótáblázatból nem feltétlenül nyilvánvalóak.
+A diagramok segítik az embereket az adatok gyors megjelenítésében és betekintés nyerésében, ami egy táblázatból vagy táblázatkezelőből nem feltétlenül látható.
 
-**Miért hozunk létre diagramokat?**
+**Miért érdemes diagramokat létrehozni?**
 
-Diagramok használatával:
+A diagramok használatával
 
-* nagy adatmennyiségeket összegyűjthet, sűríthet vagy összefoglalhat egyetlen dián belül
-* mintákat és trendeket mutathat be az adatokban
-* meghatározhatja az adatok időbeli vagy egy adott mérési egységhez viszonyított irányát és lendületét
-* kiemelheti az outliereket, rendellenességeket, eltéréseket, hibákat, értelmetlen adatokat stb.
+* nagy mennyiségű adatot összesíthet, tömöríthet vagy összefoglalhat egyetlen dián egy prezentációban
+* felfedezheti az adatok mintáit és trendjeit
+* meghatározhatja az adatok irányát és lendületét időben vagy egy adott mérőegységhez viszonyítva
+* kiemelheti a kiugró, rendellenes, eltérő vagy hibás adatokat
 * komplex adatokat kommunikálhat vagy prezentálhat
 
-PowerPointban a beszúrás funkcióval hozhat létre diagramokat, amely sablonokat kínál a különböző diagramtípusok tervezéséhez. Az Aspose.Slides segítségével szabványos diagramokat (népszerű diagramtípusok alapján) és egyedi diagramokat is létrehozhat.
+A PowerPointban diagramokat hozhat létre a Beszúrás funkción keresztül, amely sablonokat biztosít számos diagramtípus megtervezéséhez. Az Aspose.Slides használatával szabályos diagramokat (népszerű diagramtípusokon alapuló) és egyéni diagramokat is létrehozhat.
 
 {{% alert color="primary" %}} 
 
-Ahhoz, hogy diagramokat hozzon létre, az Aspose.Slides a [ChartType](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) enum osztályt biztosítja az [Aspose::Slides::Charts](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.charts/) névtérben. Az enum osztály értékei a különböző diagramtípusoknak felelnek meg. 
+A diagramok létrehozásához az Aspose.Slides biztosítja a [ChartType](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) felsorolást a [Aspose::Slides::Charts](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.charts/) névtér alatt. Ennek a felsorolásnak az értékei különböző diagramtípusoknak felelnek meg. 
 
 {{% /alert %}} 
 
-### **Normál diagramok létrehozása**
+### **Szokásos diagramok létrehozása**
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust. 
-1. Adjon címet a diagramhoz. 
-1. Érje el a diagram adatmunkalapját. 
+1. Adjon címet a diagramnak. 
+1. Nyissa meg a diagram adatmunkalapját. 
 1. Törölje az összes alapértelmezett sorozatot és kategóriát. 
 1. Adjon hozzá új sorozatokat és kategóriákat. 
-1. Adjon hozzá új diagramadatokat a sorozathoz. 
-1. Állítson be kitöltőszínt a diagram sorozathoz. 
-1. Adjon címkéket a diagram sorozathoz. 
-1. Írja a módosított prezentációt PPTX fájlként.
+1. Adjon új diagramadatokat a diagram sorozatokhoz. 
+1. Állítson be kitöltőszínt a diagram sorozatokhoz. 
+1. Adjon címkéket a diagram sorozatokhoz. 
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy normál diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy szokásos diagramot:
 
 ```c++
-// A dokumentumok könyvtárának útvonala.
+// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	// Létrehozza a PPTX fájlt reprezentáló prezentáció osztályt
+	//Létrehozza a prezentáció osztályt, amely egy PPTX fájlt képvisel
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Első dia elérése
+	//Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Diagram hozzáadása alapértelmezett adatokkal
+	// Hozzáad egy diagramot alapértelmezett adatokkal
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
 	// Beállítja a diagram adatlap indexét
 	int defaultWorksheetIndex = 0;
 
-	// Lekéri a diagram adat munkalapot
+	// Lekéri a diagram adatlapot
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Beállítja a diagram címet
+	// Beállítja a diagram címét
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
@@ -101,20 +103,20 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy normál diagramot:
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// Új sorozat hozzáadása
+	// Hozzáad egy új sorozatot
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Kategóriák hozzáadása
+	// Hozzáad kategóriákat
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// Az első diagram sorozatát veszi
+	// Lekéri az első diagram sorozatot
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Feltölti a sorozat adataival
+	// Feltölti a sorozat adatokat
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -124,10 +126,10 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy normál diagramot:
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// A második diagram sorozatát veszi
+	// Lekéri a második diagram sorozatot
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Feltölti a sorozat adataival
+	// Feltölti a sorozat adatokat
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
@@ -137,50 +139,49 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy normál diagramot:
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// Az első címke a kategórianév megjelenítésére van beállítva
+	// Az első címke úgy van beállítva, hogy a kategória nevét mutassa
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// Megjeleníti az értéket a harmadik címkén
+	// Megjeleníti a harmadik címke értékét
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// Mentés a prezentációt
+	// Ment a prezentációt
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 ### **Szórt diagramok létrehozása**
 A szórt diagramok (más néven szórt ábrák vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korrelációk bemutatására. 
 
-Szórt diagramra akkor lehet szükség, ha:
+Szórt diagramot akkor érdemes használnia, ha
 
-* párosított numerikus adatokkal rendelkezik
+* párosított numerikus adatok állnak rendelkezésére
 * két változó jól párosítható egymással
-* meg szeretné állapítani, hogy a két változó összefügg-e
-* egy független változó több értéket vehet fel egy függő változóhoz
+* meg szeretné határozni, hogy a két változó összefügg-e
+* egy független változó több értékkel rendelkezik egy függő változóhoz képest
 
-Ez a C++ kód megmutatja, hogyan hozhat létre szórt diagramot különböző jelölőkkel:
+Ez a C++ kód bemutatja, hogyan hozhat létre szórt diagramot különböző jelölőkkel:
 
 ```c++
-// A dokumentumok könyvtárának útvonala.
+// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//PPTX fájlt reprezentáló prezentáció osztály példányosítása
+	// PPTX fájlt képviselő prezentáció osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Diagram hozzáadása alapértelmezett adatokkal
+	// Hozzáad egy diagramot alapértelmezett adatokkal
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// Beállítja a diagram címet
+	// Beállítja a diagram címét
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
@@ -192,48 +193,48 @@ Ez a C++ kód megmutatja, hogyan hozhat létre szórt diagramot különböző je
 	// Beállítja a diagram adatlap indexét
 	int defaultWorksheetIndex = 0;
 
-	// Lekéri a diagram adat munkalapot
+	// Lekéri a diagram adatlapot
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Új sorozat hozzáadása
+	// Hozzáad egy új sorozatot
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Az első diagram sorozatát veszi
+	// Lekéri az első diagram sorozatot
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Új pont hozzáadása (1:3)
+	// Hozzáad egy új pontot (1:3)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(1)), fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(3)));
 
-	// Új pont hozzáadása (2:10)
+	// Hozzáad egy új pontot (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// Sorozattípus szerkesztése
+	// Módosítja a sorozat típusát
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// Diagram sorozat jelölő módosítása
+	// Megváltoztatja a diagram sorozat jelölőjét
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// A második diagram sorozatát veszi
+	// Lekéri a második diagram sorozatot
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Új pont hozzáadása (5:2)
+	// Hozzáad egy új pontot (5:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
-	// Új pont hozzáadása (3:1)
+	// Hozzáad egy új pontot (3:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(3)), fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(1)));
 
-	// Új pont hozzáadása (2:2)
+	// Hozzáad egy új pontot (2:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 4, 3, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 4, 4, ObjectExt::Box<double>(2)));
 
-	// Új pont hozzáadása (5:1)
+	// Hozzáad egy új pontot (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// Diagram sorozat jelölő módosítása
+	// Módosítja a diagram sorozat jelölőjét
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -264,7 +265,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre szórt diagramot különböző je
 
 
 	SharedPtr<IChartDataPoint> point2 = series->get_DataPoints()->idx_get(2);
-	point2->get_Format()->set_Fill()->set_FillType(FillType::Solid);
+	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
 	// Beállítja a szektor szegélyét
@@ -275,7 +276,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre szórt diagramot különböző je
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Egyedi címkék létrehozása az új sorozat minden kategóriájához
+	// Létrehozza az egyéni címkéket az új sorozat minden kategóriájához
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -292,10 +293,10 @@ Ez a C++ kód megmutatja, hogyan hozhat létre szórt diagramot különböző je
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Megjeleníti a vezérlővonalakat a diagramon
+	// Megjeleníti a vezetővonalakat a diagramhoz
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Beállítja a kördiagram szektorainak forgásszögét
+	// Beállítja a kördiagram szektorok forgásszögét
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
@@ -304,34 +305,34 @@ Ez a C++ kód megmutatja, hogyan hozhat létre szórt diagramot különböző je
 ```
 
 ### **Kördiagramok létrehozása**
-A kördiagramok leginkább a rész‑a‑teljes kapcsolat ábrázolására alkalmasak, különösen ha a adatok kategóriákat és numerikus értékeket tartalmaznak. Ha azonban sok rész vagy címke van, érdemes lehet oszlopdiagramot használni. 
+A kördiagramok leginkább az adat része‑egész viszonyának bemutatására szolgálnak, különösen akkor, ha az adatok kategória címkékkel és numerikus értékekkel rendelkeznek. Ha azonban sok része vagy címkéje van az adatnak, érdemes helyette oszlopdiagramot használni. 
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (ebben az esetben `ChartType.Pie`).
-1. Érje el a diagram adat‑IChartDataWorkbook objektumát.
+1. Nyissa meg a diagram adatokat tartalmazó `IChartDataWorkbook` objektumot.
 1. Törölje az alapértelmezett sorozatokat és kategóriákat.
 1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
-1. Adjon hozzá új pontokat a diagramhoz, és állítson be egyedi színeket a kördiagram szeleteihez.
-1. Állítson be címkéket a sorozathoz.
+1. Adjon új diagramadatokat a diagram sorozatokhoz.
+1. Adjon új pontokat a diagramokhoz, és állítson be egyéni színeket a kördiagram szeleteihez.
+1. Állítson be címkéket a sorozatokhoz.
 1. Állítson be vezetővonalakat a sorozatcímkékhez.
 1. Állítsa be a forgásszöget a kördiagram diákhoz.
-1. Írja a módosított prezentációt PPTX fájlként.
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy kördiagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy kördiagramot:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+	// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	//PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Diagram hozzáadása alapértelmezett adatokkal
+	// Hozzáad egy diagramot alapértelmezett adatokkal
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
 	// Beállítja a diagram címét
@@ -340,28 +341,28 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy kördiagramot:
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Törli az alapértelmezett generált sorozatot és kategóriákat
+	// Törli az alapértelmezett generált sorozatokat és kategóriákat
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 	// Beállítja a diagram adatlap indexét
 	int defaultWorksheetIndex = 0;
 
-	// Lekéri a diagram adat munkalapot
+	// Lekéri a diagram adatlapot
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Kategóriák hozzáadása
+	// Hozzáad kategóriákat
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
-	// Új sorozat hozzáadása
+	// Hozzáad egy új sorozatot
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// Az első diagram sorozatát veszi
+	// Lekéri az első diagram sorozatot
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Feltölti a sorozat adataival
+	// Feltölti a sorozat adatait
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -402,7 +403,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy kördiagramot:
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Egyedi címkék létrehozása az új sorozat minden kategóriájához
+	// Létrehozza az egyéni címkéket az új sorozat minden kategóriájához
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -419,10 +420,10 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy kördiagramot:
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Beállítja, hogy a sorozat mutassa a vezérlővonalakat a diagramon
+	// Beállítja a sorozatot, hogy vezetővonalakat mutasson a diagramon
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Beállítja a kördiagram szektorainak forgásszögét
+	// Beállítja a kördiagram szektorok forgásszögét
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
@@ -432,18 +433,18 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy kördiagramot:
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használhatók, ahol az értékek időbeli változását szeretné ábrázolni. Egy vonaldiagram segítségével egyszerre sok adatot hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelheti a sorozatok anomáliáit stb.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben hasznosak, ahol az értékek időbeli változását szeretné bemutatni. Vonaldiagram segítségével egyszerre összehasonlíthat sok adatot, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az adatsorok rendellenességeit stb.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (ebben az esetben `ChartType::Line`).
-1. Érje el a diagram adat‑IChartDataWorkbook objektumát.
+1. Nyissa meg a diagram adatokat tartalmazó `IChartDataWorkbook` objektumot.
 1. Törölje az alapértelmezett sorozatokat és kategóriákat.
 1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
-1. Írja a módosított prezentációt PPTX fájlként.
+1. Adjon új diagramadatokat a diagram sorozatokhoz.
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy vonaldiagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy vonaldiagramot:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -452,7 +453,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjai egyenes, folytonos vonallal vannak összekötve. Ha szeretné, hogy a pontok pontvonalak helyett szaggatott vonallal legyenek összekötve, a kívánt szaggatott típust a következő módon adhatja meg:
+Alapértelmezés szerint a vonaldiagram pontjai egyenes, folyamatos vonallal vannak összekötve. Ha pontokat szaggatott vonallal szeretne összekötni, a kívánt szaggatott típust a következőképpen adhatja meg:
 
 ```c++
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
@@ -464,27 +465,27 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 ### **Fa térkép diagramok létrehozása**
 
-A fa térkép diagramok leginkább értékesítési adatok esetén használandók, amikor a kategóriák relatív méretét és egyben gyorsan fel akarja hívni a figyelmet a nagyobb hozzájárulású elemekre.
+A fa térkép diagramok leginkább értékesítési adatoknál hasznosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és egyúttal gyorsan felhívni a figyelmet a nagy hozzájáruló elemekre minden kategóriában. 
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (ebben az esetben `ChartType.TreeMap`).
-1. Érje el a diagram adat‑IChartDataWorkbook objektumát.
+1. Nyissa meg a diagram adatokat tartalmazó `IChartDataWorkbook` objektumot.
 1. Törölje az alapértelmezett sorozatokat és kategóriákat.
 1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
-1. Írja a módosított prezentációt PPTX fájlként.
+1. Adjon új diagramadatokat a diagram sorozatokhoz.
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy fa térkép diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy fa térkép diagramot:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Treemap, 50, 50, 500, 400);
@@ -495,7 +496,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy fa térkép diagramot:
 
 	wb->Clear(0);
 
-	// 1. ág
+	// Ágazat 1
 	System::SharedPtr<IChartCategory> leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C1", System::ObjectExt::Box<System::String>(u"Leaf1")));
 	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem1"));
 	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch1"));
@@ -508,7 +509,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy fa térkép diagramot:
 	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C4", System::ObjectExt::Box<System::String>(u"Leaf4")));
 
 
-	// 2. ág
+	// Ágazat 2
 	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C5", System::ObjectExt::Box<System::String>(u"Leaf5")));
 	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem3"));
 	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch2"));
@@ -533,83 +534,83 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy fa térkép diagramot:
 
 	series->set_ParentLabelLayout(Aspose::Slides::Charts::ParentLabelLayoutType::Overlapping);
 
-	// Mentés a prezentációt
+	// A prezentáció mentése
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Részvény diagramok létrehozása**
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (`ChartType.OpenHighLowClose`).
-1. Érje el a diagram adat‑IChartDataWorkbook objektumát.
+1. Nyissa meg a diagram adatokat tartalmazó `IChartDataWorkbook` objektumot.
 1. Törölje az alapértelmezett sorozatokat és kategóriákat.
 1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
+1. Adjon új diagramadatokat a diagram sorozatokhoz.
 1. Adja meg a HiLowLines formátumot.
-1. Írja a módosított prezentációt PPTX fájlként
+1. Írja ki a módosított prezentációt PPTX fájlként
 
 Példa C++ kód a részvény diagram létrehozásához:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+	// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	// PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Az első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Diagram hozzáadása alapértelmezett adatokkal
+	// Hozzáad egy diagramot alapértelmezett adatokkal
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
 	// Beállítja a diagram adatlap indexét
 	int defaultWorksheetIndex = 0;
 
-	// Lekéri a diagram adat munkalapot
+	// Lekéri a diagram adatlapot
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Törli az alapértelmezett generált sorozatot és kategóriákat
+	// Törli az alapértelmezett generált sorozatokat és kategóriákat
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// Kategóriák hozzáadása
+	// Hozzáad kategóriákat
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
 
-	// Új sorozat hozzáadása
+	// Hozzáad egy új sorozatot
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Open")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"High")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, ObjectExt::Box<System::String>(u"Low")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
 
-	// Az első diagram sorozatát veszi
+	// Lekéri az első diagram sorozatot
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// Feltölti az első sorozat adataival
+	// Feltölti az első sorozat adatait
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// Feltölti a második sorozat adataival
+	// Feltölti a második sorozat adatait
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// Feltölti a második sorozat adataival
+	// Feltölti a második sorozat adatait
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// Feltölti a második sorozat adataival
+	// Feltölti a második sorozat adatait
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
@@ -625,30 +626,30 @@ Példa C++ kód a részvény diagram létrehozásához:
 		series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 	}
 
-	// Mentés a prezentációt
+	// A prezentáció mentése
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Box‑and‑Whisker diagramok létrehozása**
+### **Doboz- és buzogány diagramok létrehozása**
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (`ChartType.BoxAndWhisker`).
-1. Érje el a diagram adat‑IChartDataWorkbook objektumát.
+1. Nyissa meg a diagram adatokat tartalmazó `IChartDataWorkbook` objektumot.
 1. Törölje az alapértelmezett sorozatokat és kategóriákat.
 1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
-1. Írja a módosított prezentációt PPTX fájlként
+1. Adjon új diagramadatokat a diagram sorozatokhoz.
+1. Írja ki a módosított prezentációt PPTX fájlként
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy box‑and‑whisker diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy doboz‑ és buzogány diagramot:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+	// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	// PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Az első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -682,26 +683,26 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy box‑and‑whisker diagramot
 	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
 
 
-	// Mentés a prezentációt
+	// A prezentáció mentése
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Tölcsér diagramok létrehozása**
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (`ChartType.Funnel`).
-1. Írja a módosított prezentációt PPTX fájlként
+1. Írja ki a módosított prezentációt PPTX fájlként
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy tölcsér diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy tölcsér diagramot:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+	// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	// PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Az első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
@@ -729,26 +730,26 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy tölcsér diagramot:
 	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(500)));
 
 
-	// Mentés a prezentációt
+	// A prezentáció mentése
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Sunburst diagramok létrehozása**
+### **Sugaras diagramok (Sunburst) létrehozása**
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be a dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (ebben az esetben `ChartType.sunburst`).
-1. Írja a módosított prezentációt PPTX fájlként
+1. Írja ki a módosított prezentációt PPTX fájlként
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy sunburst diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy sugaras diagramot:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+	// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Az első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart=slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Sunburst, 50, 50, 500, 400);
@@ -759,7 +760,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy sunburst diagramot:
 
 	wb->Clear(0);
 
-	// 1. ág
+	// Ágazat 1
 	System::SharedPtr<IChartCategory> leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C1", System::ObjectExt::Box<System::String>(u"Leaf1")));
 	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem1"));
 	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch1"));
@@ -771,7 +772,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy sunburst diagramot:
 
 	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C4", System::ObjectExt::Box<System::String>(u"Leaf4")));
 
-	// 2. ág
+	// Ágazat 2
 	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C5", System::ObjectExt::Box<System::String>(u"Leaf5")));
 	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem3"));
 	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch2"));
@@ -794,29 +795,30 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy sunburst diagramot:
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// A prezentációt lemezre menti
+	// A prezentáció fájl mentése a lemezre
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
 ### **Hisztogram diagramok létrehozása**
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján. 
-1. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust (`ChartType.Histogram` ebben az esetben).
-1. Érje el a diagram adat‑`IChartDataWorkbook` objektumát.
+1. Szerezze be a dia hivatkozását index alapján. 
+1. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust (ebben az esetben `ChartType.Histogram`).
+1. Nyissa meg a diagram adatokat tartalmazó `IChartDataWorkbook` objektumot.
 1. Törölje az alapértelmezett sorozatokat és kategóriákat.
 1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Írja a módosított prezentációt PPTX fájlként.
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy hisztogram diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy hisztogram diagramot:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+	// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Az első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -837,18 +839,18 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy hisztogram diagramot:
 
 	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
 
-	// Mentés a prezentációt
+	// A prezentáció mentése
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Radar diagramok létrehozása**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján. 
+1. Szerezze be a dia hivatkozását index alapján. 
 1. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust (`ChartType.Radar` ebben az esetben).
-1. Írja a módosított prezentációt PPTX fájlként
+1. Írja ki a módosított prezentációt PPTX fájlként
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy radar diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy radar diagramot:
 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
@@ -860,33 +862,33 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 ### **Többkategóriás diagramok létrehozása**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Szerezze be egy dia hivatkozását index alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (`ChartType.ClusteredColumn`).
-1. Érje el a diagram adat‑IChartDataWorkbook objektumát.
+1. Nyissa meg a diagram adatokat tartalmazó `IChartDataWorkbook` objektumot.
 1. Törölje az alapértelmezett sorozatokat és kategóriákat.
 1. Adjon hozzá új sorozatokat és kategóriákat.
-1. Adjon hozzá új diagramadatokat a sorozathoz.
-1. Írja a módosított prezentációt PPTX fájlként.
+1. Adjon új diagramadatokat a diagram sorozatokhoz.
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy többkategóriás diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy többkategóriás diagramot:
 
 ```c++
-	// A dokumentumok könyvtárának útvonala.
+	// A dokumentumok könyvtárának elérési útja.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	//PPTX fájlt reprezentáló Presentation osztály példányosítása
+	// PPTX fájlt képviselő Presentation osztály példányosítása
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Az első dia elérése
+	// Eléri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Diagram hozzáadása alapértelmezett adatokkal
+	// Hozzáad egy diagramot alapértelmezett adatokkal
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 	// Beállítja a diagram adatlap indexét
 	int defaultWorksheetIndex = 0;
 
-	// Lekéri a diagram adat munkalapot
+	// Lekéri a diagram adatlapot
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Törli a munkafüzetet
@@ -896,7 +898,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy többkategóriás diagramot:
 	chart->get_ChartData()->get_Categories()->Clear();
 
 
-	// Kategóriák hozzáadása
+	// Hozzáad kategóriákat
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
@@ -914,7 +916,7 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy többkategóriás diagramot:
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
 
-	// Új sorozat hozzáadása
+	// Hozzáad egy új sorozatot
 	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
 		ChartType::ClusteredColumn);
 
@@ -927,15 +929,15 @@ Ez a C++ kód megmutatja, hogyan hozhat létre egy többkategóriás diagramot:
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D8", ObjectExt::Box<double>(70)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D9", ObjectExt::Box<double>(80)));
 
-	// Mentés a prezentációt
+	// A prezentáció mentése
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Térképi diagramok létrehozása**
+### **Térkép diagramok létrehozása**
 
-A térképi diagram egy olyan terület vizualizációja, amely adatokat tartalmaz. Térképi diagramok leginkább adat- vagy érték-összehasonlításra használhatók földrajzi régiók között.
+A térkép diagram egy terület adatainak vizualizációja. A térkép diagramok leginkább adat vagy értékek összehasonlítására használhatók földrajzi régiók között.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy térképi diagramot:
+Ez a C++ kód bemutatja, hogyan hozhat létre egy térkép diagramot:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -946,18 +948,18 @@ pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 ### **Kombinációs diagramok létrehozása**
 
-A kombinációs diagram (vagy combo diagram) több diagramtípust egyesít egyetlen ábrában. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja két vagy több adatkészlet közti különbségeket, segítve a kapcsolatuk azonosítását.
+A kombinációs diagram (vagy combo diagram) több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja két vagy több adathalmaz közötti különbségeket, segítve a köztük lévő kapcsolatok feltárását.
 
-![A kombinációs diagram](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Az alábbi C++ kód megmutatja, hogyan hozható létre a fenti kombinációs diagram PowerPoint prezentációban:
+A következő C++ kód bemutatja, hogyan hozható létre a fenti kombinációs diagram PowerPoint prezentációban:
 
 ```cpp
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Állítsa be a diagram címét.
+    // A diagram címének beállítása.
     chart->set_HasTitle(true);
     chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
     chart->get_ChartTitle()->set_Overlay(false);
@@ -966,7 +968,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // Állítsa be a diagram jelmagyarázatát.
+    // A diagram jelmagyarázatának beállítása.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
@@ -1104,30 +1106,30 @@ static void CreateComboChart()
 
 ## **Diagramok frissítése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
-2. Szerezze meg a dia referenciáját az indexe alapján.
-3. Járja be az összes alakzatot a kívánt diagram megtalálásához.
-4. Érje el a diagram adatmunkalapját.
-5. Módosítsa a diagram sorozatadatokat a sorozatértékek megváltoztatásával.
-6. Adjon hozzá egy új sorozatot, és töltse fel adatokkal.
-7. Írja a módosított prezentációt PPTX fájlként.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) példányt, amely a diagramot tartalmazó prezentációt képviseli.
+2. Szerezze be a dia hivatkozását index alapján.
+3. Járja végig az összes alakzatot a kívánt diagram megtalálásához.
+4. Nyissa meg a diagram adatmunkalapját.
+5. Módosítsa a diagram sorozat adatainak értékeit.
+6. Adjon hozzá egy új sorozatot, és töltse fel az adatokat.
+7. Írja ki a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan frissíthet egy diagramot:
+Ez a C++ kód bemutatja, hogyan frissíthet egy diagramot:
 
 ```c++
-// Létrehozza a PPTX fájlt reprezentáló Presentation osztályt
+// PPTX fájlt képviselő Presentation osztály példányosítása
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
-// Az első dia elérése
+// Eléri az első diát
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Diagram hozzáadása alapértelmezett adatokkal
+// Hozzáad egy diagramot alapértelmezett adatokkal
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
 // Beállítja a diagram adatlap indexét
 int32_t defaultWorksheetIndex = 0;
 
-// Lekéri a diagram adat munkalapot
+// Lekéri a diagram adatlapot
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -1135,62 +1137,62 @@ System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDa
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// Az első diagram sorozatát veszi
+// Lekéri az első diagram sorozatot
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// Frissíti a sorozat adatait
+// Frissíti a sorozat adatokat
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// Sorozat nevét módosítja
+// Sorozat nevének módosítása
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// A második diagram sorozatát veszi
+// Lekéri a második diagram sorozatot
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Most frissíti a sorozat adatait
+// Most frissíti a sorozat adatokat
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// Sorozat nevét módosítja
+// Sorozat nevének módosítása
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// Most új sorozatot ad hozzá
+// Most hozzáad egy új sorozatot
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// A harmadik diagram sorozatát veszi
+// Lekéri a harmadik diagram sorozatot
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// Most feltölti a sorozat adataival
+// Most feltölti a sorozat adatokat
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// Mentés a diagrammal együtt
+// Mentés a diagramot tartalmazó prezentációval
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Adattartomány beállítása diagramokhoz**
+## **Az adattartomány beállítása diagramokhoz**
 
 1. Nyisson meg egy [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) példányt, amely a diagramot tartalmazza.
-2. Szerezze meg a dia referenciáját az indexe alapján.
-3. Járja be az összes alakzatot a kívánt diagram megtalálásához.
-4. Érje el a diagram adatokat, és állítsa be a tartományt.
+2. Szerezze be a dia hivatkozását index alapján.
+3. Járja végig az összes alakzatot a kívánt diagram megtalálásához.
+4. Nyissa meg a diagram adatokat, és állítsa be a tartományt.
 5. Mentse el a módosított prezentációt PPTX fájlként.
 
-Ez a C++ kód megmutatja, hogyan állítható be egy diagram adattartománya:
+Ez a C++ kód bemutatja, hogyan állíthatja be egy diagram adat tartományát:
 
-```cpp
-// A dokumentumok könyvtárának útvonala.
+``` cpp
+// A dokumentumok könyvtárának elérési útja.
 String dataDir = GetDataPath();
 
-// PPTX fájlt reprezentáló Presentation osztály példányosítása
+// PPTX fájlt képviselő Presentation osztály példányosítása
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// Az első slideMarker elérése és diagram hozzáadása alapértelmezett adatokkal
+// Eléri az első diát és hozzáad egy diagramot alapértelmezett adatokkal
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
@@ -1198,12 +1200,12 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Alapértelmezett jelölők használata diagramokban**
-Alapértelmezett jelölő használatakor a diagram minden sorozata automatikusan más‑más alapértelmezett jelölőszimbólumot kap.
+Alapértelmezett jelölő használatakor a diagram sorozatai automatikusan különböző alapértelmezett jelölőszimbólumokat kapnak.
 
-Ez a C++ kód megmutatja, hogyan állíthat be automatikusan egy diagram sorozat jelölőt:
+Ez a C++ kód bemutatja, hogyan állíthat be egy diagram sorozat jelölőt automatikusan:
 
-```cpp
-	// A dokumentumok könyvtárának útvonala.
+``` cpp
+	// A dokumentumok könyvtárának elérési útja.
 	String dataDir = GetDataPath();
 
 	auto pres = System::MakeObject<Presentation>();
@@ -1229,10 +1231,10 @@ Ez a C++ kód megmutatja, hogyan állíthat be automatikusan egy diagram sorozat
 
 	chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-	// A második diagram sorozatát veszi
+	// Lekéri a második diagram sorozatot
 	auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Feltölti a sorozat adataival
+	// Feltölti a sorozat adatait
 	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1248,16 +1250,16 @@ Ez a C++ kód megmutatja, hogyan állíthat be automatikusan egy diagram sorozat
 
 **Milyen diagramtípusokat támogat az Aspose.Slides?**
 
-Az Aspose.Slides széles körű diagramtípusokat támogat, többek között oszlop, vonal, kör, terület, szórt, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeinek leginkább megfelelőt válassza.
+Az Aspose.Slides számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szórt, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
 
-**Hogyan adhatok új diagramot egy diára?**
+**Hogyan adhatok hozzá új diagramot egy diához?**
 
-Diagram hozzáadásához először hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típust és a kezdeti adatokat. Ez a folyamat közvetlenül a diagramot integrálja a prezentációba.
+Diagram hozzáadásához először hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályból, szerezze be a kívánt diát index alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül integrálja a diagramot a prezentációba.
 
-**Hogyan frissíthetem a diagramon megjelenített adatokat?**
+**Hogyan frissíthetem egy diagramon megjelenített adatokat?**
 
-A diagram adatait a [IChartDataWorkbook](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichartdataworkbook/) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd saját adatainak hozzáadásával frissítheti. Ez lehetővé teszi a diagram programozott frissítését a legújabb adatok megjelenítésére.
+A diagram adatait úgy frissítheti, hogy hozzáfér a diagram adatkönyvtárához ([IChartDataWorkbook](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichartdataworkbook/)), törli az alapértelmezett sorozatokat és kategóriákat, majd hozzáadja saját adatait. Ez lehetővé teszi, hogy programozottan frissítse a diagramot a legújabb adatokkal.
 
-**Testreszabható-e a diagram megjelenése?**
+**Lehetőség van a diagram megjelenésének testreszabására?**
 
-Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket kínál. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a konkrét tervezési követelményeknek.
+Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a konkrét tervezési követelményeknek.

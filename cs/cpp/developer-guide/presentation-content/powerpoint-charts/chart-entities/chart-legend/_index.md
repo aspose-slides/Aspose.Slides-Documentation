@@ -1,26 +1,26 @@
 ---
-title: Přizpůsobení legend grafů v prezentacích pomocí С++
+title: Přizpůsobení legend grafů v prezentacích pomocí C++
 linktitle: Legenda grafu
 type: docs
 url: /cs/cpp/chart-legend/
 keywords:
 - legenda grafu
-- pozice legendy
+- umístění legendy
 - velikost písma
 - PowerPoint
 - prezentace
-- С++
+- C++
 - Aspose.Slides
-description: "Přizpůsobte legendy grafů pomocí Aspose.Slides pro С++ a optimalizujte prezentace PowerPoint pomocí upraveného formátování legendy."
+description: "Přizpůsobte legendy grafů pomocí Aspose.Slides pro C++, abyste optimalizovali prezentace PowerPoint s nastaveným formátováním legend."
 ---
 ## **Přehled**
 
-Aspose.Slides poskytuje možnosti přizpůsobení legend grafů v prezentacích PowerPoint. Tento článek ukazuje, jak nastavit umístění a velikost legendy, nastavit velikost písma pro celou legendu a aplikovat formátování na jednotlivou položku legendy.
+Aspose.Slides poskytuje možnosti přizpůsobení legendy grafu v prezentacích PowerPoint. Tento článek ukazuje, jak umístit a změnit velikost legendy, nastavit velikost písma pro celou legendu a aplikovat formátování na jednotlivou položku legendy.
 
-Také jsou zde zahrnuty související chování v sekci FAQ, včetně použití režimu bez překrytí, aby oblast grafu udělala místo pro legendu, povolení zalamování dlouhých štítků legendy nebo použití konců řádků a umožnění dědění formátování legendy z motivu prezentace, když nejsou nastaveny explicitní nastavení textu a výplně.
+Také pokrývá několik souvisejících chování v sekci FAQ, včetně použití režimu bez překrytí, aby oblast grafu uvolnila místo pro legendu, umožnění zalamování dlouhých popisků legend nebo použití koncových znaků řádku, a nechání formátování legendy dědit ze schématu motivu prezentace, pokud nejsou nastaveny explicitní barvy, výplně ani písma.
 
 ## **Umístění legendy**
-Chcete‑li nastavit vlastnosti legendy, postupujte podle následujících kroků:
+Pro nastavení vlastností legendy postupujte podle následujících kroků:
 
 - Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) .
 - Získejte odkaz na snímek.
@@ -28,7 +28,7 @@ Chcete‑li nastavit vlastnosti legendy, postupujte podle následujících krok�
 - Nastavte vlastnosti legendy.
 - Uložte prezentaci jako soubor PPTX.
 
-V ukázkovém příkladu níže jsme nastavili umístění a velikost legendy grafu.
+V níže uvedeném příkladu jsme nastavili pozici a velikost legendy grafu.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetlegendCustomOptions-SetlegendCustomOptions.cpp" >}}
 
@@ -59,14 +59,14 @@ Aspose.Slides pro C++ umožňuje vývojářům nastavit velikost písma jednotli
 
 ## **FAQ**
 
-**Mohu povolit legendu tak, aby graf automaticky vyčlenil místo pro ni místo překrytí?**
+**Mohu povolit legendu tak, aby graf automaticky vyhradil pro ni místo místo překrytí?**
 
-Ano. Použijte režim bez překrytí ([set_Overlay(false)](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/legend/set_overlay/)); v tomto případě se oblast vykreslení zmenší, aby poskytla místo legendě.
+Ano. Použijte režim bez překrytí ([set_Overlay(false)](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/legend/set_overlay/)); v tomto případě se oblast grafu zmenší, aby uvolnila místo pro legendu.
 
-**Mohu vytvořit vícero řádkové popisky legendy?**
+**Mohu vytvořit vícřádkové popisky legendy?**
 
-Ano. Dlouhé popisky se automaticky zalamují, pokud není dostatek místa; vynucené zalomení řádku je podporováno pomocí znaků nového řádku ve jménu řady.
+Ano. Dlouhé popisky se automaticky zalamují, pokud není dostatek místa; vynucené zalomení řádku je podporováno pomocí znaků nového řádku v názvu řady.
 
 **Jak zajistit, aby legenda používala barevné schéma motivu prezentace?**
 
-Nesetrovejte explicitní barvy/výplně/písma pro legendu ani její text. Ty pak zdědí nastavení z motivu a budou se správně aktualizovat při změně designu.
+Nenastavujte explicitní barvy, výplně ani písma pro legendu nebo její text. Pak budou tyto vlastnosti dědit ze motivu a správně se aktualizují při změně designu.

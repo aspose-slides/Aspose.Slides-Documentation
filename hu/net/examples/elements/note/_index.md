@@ -3,22 +3,24 @@ title: Jegyzet
 type: docs
 weight: 240
 url: /hu/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - jegyzet
-- jegyzet dia hozzáadása
-- jegyzet dia elérése
-- jegyzet dia eltávolítása
+- jegyzetdia hozzáadása
+- jegyzetdia elérése
+- jegyzetdia eltávolítása
 - jegyzet szövegének frissítése
-- kód példa
+- kódpélda
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Dolgozzon a diák jegyzeteivel az Aspose.Slides for .NET-ben: adjon hozzá, olvasson, szerkesszen, és exportáljon előadó jegyzeteket PPT, PPTX és ODP formátumban, tiszta C# példákkal."
+description: "Aspose.Slides for .NET-ben a diához tartozó jegyzetek kezelése: jegyzetek hozzáadása, olvasása, szerkesztése és hangjegyzetek exportálása PPT, PPTX és ODP formátumokban, világos C# példákkal."
 ---
-Ez a cikk bemutatja, hogyan lehet hozzáadni, olvasni, eltávolítani és frissíteni a jegyzetdia‑kat a **Aspose.Slides for .NET** használatával.
+Ez a cikk bemutatja, hogyan lehet hozzáadni, olvasni, eltávolítani és frissíteni a jegyzetdia-kat a **Aspose.Slides for .NET** használatával.
 
 ## **Jegyzetdia hozzáadása**
 
@@ -37,7 +39,7 @@ static void AddNote()
 
 ## **Jegyzetdia elérése**
 
-Olvassa ki a szöveget egy meglévő jegyzetdiából.
+Olvassa ki a szöveget egy meglévő jegyzetdiáról.
 
 ```csharp
 static void AccessNote()
@@ -53,7 +55,7 @@ static void AccessNote()
 
 ## **Jegyzetdia eltávolítása**
 
-Távolítsa el a diához társított jegyzetdiát.
+Távolítsa el a diához kapcsolódó jegyzetdiát.
 
 ```csharp
 static void RemoveNote()
@@ -69,7 +71,7 @@ static void RemoveNote()
 
 ## **Jegyzet szövegének frissítése**
 
-Módosítsa a jegyzetdia szövegét.
+Módosítsa egy jegyzetdia szövegét.
 
 ```csharp
 static void UpdateNoteText()

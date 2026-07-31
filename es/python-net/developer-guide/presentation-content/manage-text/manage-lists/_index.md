@@ -1,9 +1,11 @@
 ---
-title: Administrar listas con viñetas y numeradas en presentaciones en Python
-linktitle: Administrar listas
+title: Gestionar listas con viñetas y numeradas en presentaciones en Python
+linktitle: Gestionar listas
 type: docs
 weight: 70
 url: /es/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - viñeta
 - lista con viñetas
@@ -20,17 +22,17 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda a crear y dar formato a listas con viñetas, con imágenes, multinivel y numeradas en presentaciones de PowerPoint y OpenDocument utilizando Aspose.Slides para Python a través de .NET."
+description: "Aprenda a crear y dar formato a listas con viñetas, con imágenes, multinivel y numeradas en presentaciones PowerPoint y OpenDocument utilizando Aspose.Slides para Python a través de .NET."
 ---
-## **Descripción general**
+## **Visión general**
 
-Aspose.Slides for Python via .NET le permite crear y dar formato a listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument. Un elemento de lista es un párrafo cuyas configuraciones de viñeta se controlan mediante su formato de párrafo.
+Aspose.Slides for Python a través de .NET le permite crear y dar formato a listas con viñetas y numeradas en presentaciones PowerPoint y OpenDocument. Un elemento de lista es un párrafo cuyas configuraciones de viñeta se controlan mediante el formato de párrafo.
 
-Utilice la propiedad [Paragraph.paragraph_format](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/paragraph_format/) para acceder a la configuración de listas a nivel de párrafo. El punto de entrada principal es [ParagraphFormat.bullet](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/bullet/), que devuelve un objeto [BulletFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/). Con este objeto, puede establecer el tipo de viñeta, símbolo, imagen, color, tamaño, estilo de numeración y número inicial.
+Utilice la propiedad [Paragraph.paragraph_format](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/paragraph_format/) para acceder a la configuración de listas a nivel de párrafo. El punto de entrada principal es [ParagraphFormat.bullet](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/bullet/), que devuelve un objeto [BulletFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/). Con este objeto, puede establecer el tipo de viñeta, símbolo, imagen, color, tamaño, estilo de numeración y número de inicio.
 
 Este artículo muestra cómo:
 
-- crear una lista con viñetas con un símbolo personalizado
+- crear una lista con viñetas usando un símbolo personalizado
 - crear una viñeta con imagen
 - crear una lista multinivel estableciendo la profundidad del párrafo
 - crear una lista numerada
@@ -38,7 +40,7 @@ Este artículo muestra cómo:
 
 ## **Crear una lista con viñetas**
 
-Para crear una lista con viñetas, añada objetos [Paragraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/) a un [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) y establezca [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.SYMBOL](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/). Luego puede establecer [BulletFormat.char](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/color/) y [BulletFormat.height](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/height/) para controlar la apariencia de la viñeta.
+Para crear una lista con viñetas, añada objetos [Paragraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraph/) a un [TextFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/textframe/) y establezca [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.SYMBOL](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/). Después podrá definir [BulletFormat.char](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/color/) y [BulletFormat.height](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/height/) para controlar la apariencia de la viñeta.
 
 El siguiente código Python muestra cómo crear una lista con viñetas en una diapositiva:
 
@@ -76,11 +78,11 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Las viñetas de símbolo](symbol_bullets.png)
+![Viñetas de símbolo](symbol_bullets.png)
 
 ## **Crear una lista numerada**
 
-Utilice listas numeradas cuando el orden de los elementos sea importante. Establezca [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.NUMBERED](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/). También puede elegir un formato de numeración con [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/numbered_bullet_style/) o establecer [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) cuando la lista deba comenzar con un valor distinto de 1.
+Utilice listas numeradas cuando el orden de los elementos sea importante. Establezca [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.NUMBERED](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/). También puede elegir un formato de numeración con [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/numbered_bullet_style/) o definir [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) cuando la lista deba comenzar en un valor distinto de 1.
 
 El siguiente código Python muestra cómo crear una lista numerada en una diapositiva:
 
@@ -114,21 +116,21 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Las viñetas numeradas](numbered_bullets.png)
+![Viñetas numeradas](numbered_bullets.png)
 
 ## **Crear una viñeta con imagen**
 
-Aspose.Slides permite sustituir un símbolo de viñeta normal por una imagen. Las viñetas con imagen funcionan mejor con imágenes simples que sigan siendo legibles en un tamaño pequeño, como íconos o archivos PNG transparentes de pequeño tamaño.
+Aspose.Slides permite sustituir un símbolo de viñeta normal por una imagen. Las viñetas con imágenes funcionan mejor con gráficos sencillos que sigan siendo legibles a un tamaño pequeño, como iconos o archivos PNG transparentes de dimensiones reducidas.
 
 {{% alert color="primary" %}}
-Idealmente, si planea sustituir el símbolo de viñeta normal por una imagen, es mejor elegir un gráfico sencillo con fondo transparente. Ese tipo de imágenes funciona bien como símbolos de viñeta personalizados.
+Idealmente, si planea sustituir el símbolo de viñeta normal por una imagen, lo mejor es elegir un gráfico sencillo con fondo transparente. Ese tipo de imágenes funciona bien como símbolos de viñeta personalizados.
 
-Tenga en cuenta que la imagen se reducirá a un tamaño muy pequeño. Por esa razón, recomendamos encarecidamente seleccionar una imagen que siga siendo clara y visualmente eficaz cuando se use como viñeta en una lista.
+Tenga en cuenta que la imagen se reducirá a un tamaño muy pequeño. Por esa razón, recomendamos encarecidamente seleccionar una imagen que mantenga su claridad y efectividad visual al usarse como viñeta en una lista.
 {{% /alert %}}
 
 Para crear una viñeta con imagen, añada una imagen a [Presentation.images](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/images/) y asigne el objeto de imagen devuelto a [BulletFormat.picture](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/picture/). Establezca [BulletFormat.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/bulletformat/type/) a [BulletType.PICTURE](https://reference.aspose.com/slides/es/python-net/aspose.slides/bullettype/) antes de asignar la imagen.
 
-Supongamos que tenemos un "image.png":
+Supongamos que disponemos de un “image.png”:
 
 ![Una imagen para las viñetas](picture_for_bullets.png)
 
@@ -168,7 +170,7 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Las viñetas con imagen](picture_bullets.png)
+![Viñetas con imagen](picture_bullets.png)
 
 ## **Crear una lista multinivel**
 
@@ -211,13 +213,13 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![La lista multinivel](multilevel_list.png)
+![Lista multinivel](multilevel_list.png)
 
 ## **Cambiar una lista existente**
 
-Para cambiar el formato de lista en una presentación existente, acceda al párrafo objetivo y actualice su configuración [ParagraphFormat.bullet](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/bullet/). Las mismas propiedades usadas para crear listas pueden usarse para inspeccionar o modificar listas cargadas desde un archivo PPT, PPTX o ODP.
+Para modificar el formato de una lista en una presentación existente, acceda al párrafo deseado y actualice sus configuraciones de [ParagraphFormat.bullet](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/bullet/). Las mismas propiedades usadas para crear listas pueden emplearse para inspeccionar o modificar listas cargadas desde un archivo PPT, PPTX o ODP.
 
-El siguiente código Python cambia el primer párrafo en un marco de texto para usar un estilo de lista numerada:
+El siguiente código Python cambia el primer párrafo de un marco de texto para usar un estilo de lista numerada:
 
 ```py
 import aspose.slides as slides
@@ -238,14 +240,14 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **Preguntas frecuentes**
 
-**¿Pueden exportarse las listas con viñetas y numeradas a PDF o imágenes?**
+**¿Se pueden exportar las listas con viñetas y numeradas a PDF o imágenes?**
 
-Sí. Aspose.Slides conserva el formato de la lista cuando el formato de destino admite la disposición de texto correspondiente y las características de viñetas.
+Sí. Aspose.Slides conserva el formato de la lista cuando el formato de destino admite el diseño de texto y las características de viñetas correspondientes.
 
 **¿Puedo editar listas en presentaciones existentes?**
 
-Sí. Cargue la presentación, acceda al párrafo objetivo, inspeccione o actualice su configuración [ParagraphFormat.bullet](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/bullet/), y guarde la presentación.
+Sí. Cargue la presentación, acceda al párrafo objetivo, inspeccione o actualice sus configuraciones de [ParagraphFormat.bullet](https://reference.aspose.com/slides/es/python-net/aspose.slides/paragraphformat/bullet/), y guarde la presentación.
 
 **¿Pueden las listas contener texto no latino?**
 
-Sí. El texto de los elementos de la lista puede contener caracteres Unicode, por lo que puede crear listas en presentaciones multilingües. Asegúrese de que las fuentes usadas en la presentación soporten los caracteres que necesita.
+Sí. El texto de los elementos de lista puede contener caracteres Unicode, por lo que puede crear listas en presentaciones multilingües. Asegúrese de que las fuentes utilizadas en la presentación soporten los caracteres que necesita.

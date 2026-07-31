@@ -1,48 +1,48 @@
 ---
-title: PHP में प्रस्तुतियों में लाइन शैप जोड़ें
+title: PHP में प्रस्तुतियों में लाइन शैलियों को जोड़ें
 linktitle: लाइन
 type: docs
 weight: 50
-url: /hi/php-java/Line/
+url: /hi/php-java/line/
 keywords:
 - लाइन
 - लाइन बनाएं
 - लाइन जोड़ें
 - साधारण लाइन
 - लाइन कॉन्फ़िगर करें
-- लाइन अनुकूलित करें
+- लाइन कस्टमाइज़ करें
 - डैश शैली
-- तीर सिर
+- तीर सिरा
 - PowerPoint
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के साथ PowerPoint प्रस्तुतियों में लाइन फ़ॉर्मेटिंग को नियंत्रित करना सीखें। गुण, विधियाँ और उदाहरणों की खोज करें।"
+description: "Aspose.Slides for PHP via Java के साथ PowerPoint प्रस्तुतियों में लाइन फ़ॉर्मेटिंग को नियंत्रित करना सीखें। गुण, विधियों और उदाहरणों की खोज करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-Aspose.Slides आपको प्रोग्रामेटिक रूप से PowerPoint स्लाइड्स में लाइन शैप जोड़ने की अनुमति देता है। यह लेख दर्शाता है कि कैसे एक सरल लाइन बनाई जा सकती है और लाइन को कैसे अनुकूलित किया जाए ताकि वह तीर जैसा दिखे।
+Aspose.Slides आपको प्रोग्रामेटिक रूप से PowerPoint स्लाइड्स में लाइन शैलियों को जोड़ने की अनुमति देता है। यह लेख दिखाता है कि एक साधारण लाइन कैसे बनायीं जाए और कैसे एक लाइन को इस प्रकार अनुकूलित किया जाए कि वह तीर जैसा दिखे।
 
-आप सीखेंगे कि स्लाइड में लाइन शैप कैसे जोड़ी जाए, उसकी दृश्य उपस्थिति को कैसे समायोजित किया जाए, और अद्यतन प्रस्तुति को कैसे सहेजा जाए। उदाहरण व्यावहारिक लाइन फ़ॉर्मेटिंग सेटिंग्स जैसे शैली, चौड़ाई, डैश पैटर्न, तीर के सिर के विकल्प, और भरने का रंग पर केंद्रित हैं।
+आप सीखेंगे कि कैसे एक स्लाइड में लाइन शैपे जोड़ें, उसकी दृश्य रूपरेखा समायोजित करें, और अपडेटेड प्रस्तुतीकरण को सहेजें। उदाहरण व्यावहारिक लाइन फ़ॉर्मेटिंग सेटिंग्स पर केंद्रित हैं जैसे शैली, चौड़ाई, डैश पैटर्न, एरोहेड विकल्प, और भराव रंग।
 
-## **साधारण लाइन बनाएं**
+## **साधारण लाइन बनाना**
 
-प्रेजेंटेशन की चयनित स्लाइड में एक साधारण लाइन जोड़ने के लिए, कृपया नीचे दिए गए चरणों का पालन करें:
+एक चयनित प्रस्तुतीकरण स्लाइड में एक साधारण प्लेन लाइन जोड़ने के लिए, कृपया नीचे दिए गए चरणों का पालन करें:
 
-- Presentation क्लास का एक उदाहरण बनाएं।
-- इंडेक्स का उपयोग करके एक स्लाइड का रेफ़रेंस प्राप्त करें।
-- ShapeCollection ऑब्जेक्ट द्वारा प्रदान किए गए [addAutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/#addAutoShape) मेथड का उपयोग करके लाइन प्रकार का AutoShape जोड़ें।
-- संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+- एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का एक उदाहरण बनाएं।
+- Index का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+- एक लाइन प्रकार की AutoShape को [addAutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/#addAutoShape) मेथड का उपयोग करके, जो [ShapeCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/) ऑब्जेक्ट द्वारा उपलब्ध कराया गया है, जोड़ें।
+- परिवर्तित प्रस्तुतीकरण को PPTX फ़ाइल के रूप में लिखें।
 
-निचे दिए गए उदाहरण में, हमने प्रस्तुति की पहली स्लाइड में एक लाइन जोड़ी है।
+नीचे दिए गए उदाहरण में, हमने प्रस्तुतीकरण की पहली स्लाइड में एक लाइन जोड़ी है।
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली PresentationEx क्लास को बनाएं
+  # PPTX फ़ाइल का प्रतिनिधित्व करने वाले PresentationEx क्लास का उदाहरण बनाएं
   $pres = new Presentation();
   try {
     # पहली स्लाइड प्राप्त करें
     $sld = $pres->getSlides()->get_Item(0);
-    # लाइन प्रकार का AutoShape जोड़ें
+    # लाइन प्रकार की AutoShape जोड़ें
     $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     # PPTX को डिस्क पर लिखें
     $pres->save("LineShape.pptx", SaveFormat::Pptx);
@@ -53,27 +53,27 @@ Aspose.Slides आपको प्रोग्रामेटिक रूप स
   }
 ```
 
-## **तीर के आकार वाली लाइन बनाएं**
+## **तीर-आकार की लाइन बनाना**
 
-Aspose.Slides for PHP via Java डेवलपर्स को लाइन की कुछ विशेषताओं को कॉन्फ़िगर करने की सुविधा भी देता है जिससे वह अधिक आकर्षक दिखे। चलिए लाइन की कुछ विशेषताओं को इस तरह कॉन्फ़िगर करते हैं कि वह तीर जैसा दिखे। इसके लिए नीचे दिए चरणों का पालन करें:
+Aspose.Slides for PHP via Java भी डेवलपर्स को लाइन की कुछ गुणों को कॉन्फ़िगर करने की अनुमति देता है ताकि वह अधिक आकर्षक दिखे। चलिए लाइन की कुछ गुणों को इस प्रकार कॉन्फ़िगर करने का प्रयास करते हैं कि वह तीर जैसा दिखे। इसके लिए नीचे दिए गए चरणों का पालन करें:
 
-- Presentation क्लास का एक उदाहरण बनाएं।
-- इंडेक्स का उपयोग करके एक स्लाइड का रेफ़रेंस प्राप्त करें।
-- ShapeCollection ऑब्जेक्ट द्वारा प्रदान किए गए [addAutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/#addAutoShape) मेथड का उपयोग करके लाइन प्रकार का AutoShape जोड़ें।
-- [Line Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineStyle) को Aspose.Slides for PHP via Java द्वारा प्रदान की गई शैलियों में से एक पर सेट करें।
+- एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का एक उदाहरण बनाएं।
+- Index का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
+- एक लाइन प्रकार की AutoShape को [addAutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/#addAutoShape) मेथड का उपयोग करके, जो [ShapeCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/) ऑब्जेक्ट द्वारा उपलब्ध कराया गया है, जोड़ें।
+- [Line Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineStyle) को Aspose.Slides for PHP via Java द्वारा उपलब्ध कराई गई शैलियों में से एक पर सेट करें।
 - लाइन की चौड़ाई सेट करें।
-- लाइन के [Dash Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineDashStyle) को Aspose.Slides for PHP via Java द्वारा प्रदान की गई शैलियों में से एक पर सेट करें।
-- लाइन के प्रारंभ बिंदु के लिए [Arrow Head Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadStyle) और [Length](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadLength) सेट करें।
-- लाइन के अंत बिंदु के लिए [Arrow Head Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadStyle) और [Length](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadLength) सेट करें।
-- संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+- लाइन के [Dash Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineDashStyle) को Aspose.Slides for PHP via Java द्वारा उपलब्ध कराई गई शैलियों में से एक पर सेट करें।
+- लाइन के प्रारंभ बिंदु के [Arrow Head Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadStyle) और [Length](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadLength) सेट करें।
+- लाइन के अंत बिंदु के [Arrow Head Style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadStyle) और [Length](https://reference.aspose.com/slides/hi/php-java/aspose.slides/LineArrowheadLength) सेट करें।
+- परिवर्तित प्रस्तुतीकरण को PPTX फ़ाइल के रूप में लिखें।
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली PresentationEx क्लास का उदाहरण बनाएं
+  # PPTX फ़ाइल का प्रतिनिधित्व करने वाले PresentationEx क्लास का उदाहरण बनाएं
   $pres = new Presentation();
   try {
     # पहली स्लाइड प्राप्त करें
     $sld = $pres->getSlides()->get_Item(0);
-    # लाइन प्रकार का AutoShape जोड़ें
+    # लाइन प्रकार की AutoShape जोड़ें
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     # लाइन पर कुछ फ़ॉर्मेटिंग लागू करें
     $shp->getLineFormat()->setStyle(LineStyle->ThickBetweenThin);
@@ -96,14 +96,14 @@ Aspose.Slides for PHP via Java डेवलपर्स को लाइन क�
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं सामान्य लाइन को कनेक्टर में बदल सकता हूँ ताकि यह आकृतियों से "स्नैप" हो जाए?**
+**क्या मैं एक सामान्य लाइन को कनेक्टर में बदल सकता हूँ ताकि वह आकृतियों (shapes) से 'स्नैप' हो जाए?**
 
-नहीं। एक सामान्य लाइन (type [Line] का एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/)) स्वतः कनेक्टर नहीं बनती। इसे आकृतियों से स्नैप करने के लिए समर्पित [Connector](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/) प्रकार और कनेक्शनों के लिए [corresponding APIs](/slides/hi/php-java/connector/) का उपयोग करें।
+नहीं। एक सामान्य लाइन (एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) प्रकार की [Line](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapetype/)) स्वचालित रूप से कनेक्टर नहीं बनती। इसे आकृतियों से स्नैप करने के लिए, समर्पित [Connector](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/) प्रकार और कनेक्शन के लिए [corresponding APIs](/slides/hi/php-java/connector/) का उपयोग करें।
 
-**यदि लाइन की विशेषताएँ थीम से विरासत में मिली हों और अंतिम मान निर्धारित करना कठिन हो तो मैं क्या करूँ?**
+**यदि लाइन की गुणधर्म थीम से विरासत में मिले हों और अंतिम मान निर्धारित करना कठिन हो तो मैं क्या करूँ?**
 
-[असली गुण पढ़ें](/slides/hi/php-java/shape-effective-properties/) `LineFormatEffectiveData`/`LineFillFormatEffectiveData` के माध्यम से — ये पहले से ही विरासत और थीम शैलियों को ध्यान में रखते हैं।
+[Read the effective properties](/slides/hi/php-java/shape-effective-properties/) को `LineFormatEffectiveData`/`LineFillFormatEffectiveData` के माध्यम से पढ़ें—ये पहले से ही विरासत और थीम स्टाइल्स को ध्यान में रखते हैं।
 
-**क्या मैं लाइन को संपादन (हिलाना, आकार बदलना) से लॉक कर सकता हूँ?**
+**क्या मैं किसी लाइन को संपादन (हिलाना, आकार बदलना) से लॉक कर सकता हूँ?**
 
-हां। शैप [lock objects](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/getautoshapelock/) प्रदान करते हैं जो आपको संपादन ऑपरेशनों को प्रतिबंधित करने की अनुमति देते हैं।
+हाँ। शैलियां [lock objects](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/getautoshapelock/) प्रदान करती हैं जो आपको संपादन संचालन को प्रतिबंधित करने देती हैं।

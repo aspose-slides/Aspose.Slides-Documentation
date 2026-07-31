@@ -1,5 +1,5 @@
 ---
-title: กำหนดค่าคอลเลกชันฟอนต์สำรองใน С++
+title: กำหนดค่าคอลเลกชันฟอนต์สำรองใน C++
 linktitle: คอลเลกชันฟอนต์สำรอง
 type: docs
 weight: 20
@@ -12,28 +12,28 @@ keywords:
 - ตั้งค่าฟอนต์
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
-- С++
+- การนำเสนอ
+- C++
 - Aspose.Slides
-description: "กำหนดค่าคอลเลกชันฟอนต์สำรองใน Aspose.Slides สำหรับ С++ เพื่อให้ข้อความมีความสอดคล้องและคมชัดในงานนำเสนอ PowerPoint และ OpenDocument"
+description: "ตั้งค่าคอลเลกชันฟอนต์สำรองใน Aspose.Slides สำหรับ C++ เพื่อให้ข้อความคงความสอดคล้องและคมชัดในการนำเสนอ PowerPoint และ OpenDocument"
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ให้คุณกำหนดคอลเลกชันของกฎฟอนต์สำรองสำหรับงานนำเสนอ แต่ละกฎฟอนต์สำรองจะแสดงโดยคลาส `FontFallBackRule` และสามารถเพิ่มลงใน `FontFallBackRulesCollection` ซึ่งทำการ implements อินเทอร์เฟซ `IFontFallBackRulesCollection`  
+Aspose.Slides ช่วยให้คุณกำหนดค่าชุดของกฎฟอนต์สำรองสำหรับการนำเสนอแต่ละชุด แต่ละกฎฟอนต์สำรองถูกแทนด้วยคลาส `FontFallBackRule` และสามารถเพิ่มลงใน `FontFallBackRulesCollection` ซึ่งทำการดำเนินตามอินเทอร์เฟซ `IFontFallBackRulesCollection`  
 
-หลังจากสร้างคอลเลกชันแล้ว คุณสามารถกำหนดค่าได้โดยใช้เมธอด `set_FontFallBackRulesCollection` ของ `FontsManager` ของงานนำเสนอ `FontsManager` ควบคุมฟอนต์ทั่วทั้งงานนำเสนอและแต่ละอินสแตนซ์ `Presentation` จะมี `FontsManager` ของตนเอง  
+หลังจากสร้างคอลเลกชันแล้ว คุณสามารถกำหนดค่าโดยใช้เมธอด `set_FontFallBackRulesCollection` ของ `FontsManager` ของการนำเสนอ `FontsManager` ควบคุมฟอนต์ทั่วทั้งการนำเสนอ และแต่ละอินสแตนซ์ของ `Presentation` มี `FontsManager` ของตนเอง  
 
-เมื่อ `FontsManager` ถูกเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองที่ระบุจะถูกนำไปใช้ระหว่างการเรนเดอร์งานนำเสนอ  
+เมื่อ `FontsManager` ถูกเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองที่ระบุจะถูกนำไปใช้ระหว่างการเรนเดอร์การนำเสนอ  
 
-## **ใช้กฎฟอนต์สำรอง**
+## **นำกฎฟอนต์สำรองไปใช้**
 
-อินสแตนซ์ของคลาส [FontFallBackRule](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontfallbackrule/) สามารถจัดระเบียบเป็น [FontFallBackRulesCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontfallbackrulescollection/) ซึ่งทำการ implements อินเทอร์เฟซ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontfallbackrulescollection/) สามารถเพิ่มหรือเอากฎออกจากคอลเลกชันได้  
+อินสแตนซ์ของคลาส [FontFallBackRule](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontfallbackrule/) สามารถจัดระเบียบเป็น [FontFallBackRulesCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontfallbackrulescollection/) ที่ทำการดำเนินตามอินเทอร์เฟซ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontfallbackrulescollection/) ได้ สามารถเพิ่มหรือค้นกฎจากคอลเลกชันได้  
 
-จากนั้นคอลเลกชันนี้สามารถส่งให้เมธอด [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) ของคลาส [FontsManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/) ได้ FontsManager ควบคุมฟอนต์ทั่วทั้งงานนำเสนอ  
+จากนั้นคอลเลกชันนี้อาจถูกส่งไปยังเมธอด [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) ของคลาส [FontsManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/)  FontsManager ควบคุมฟอนต์ทั่วทั้งการนำเสนอ  
 
-แต่ละ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) มีเมธอด [get_FontsManager()](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_fontsmanager/) ที่ให้อินสแตนซ์ของคลาส FontsManager ของตนเอง  
+แต่ละ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) มีเมธอด [get_FontsManager()](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_fontsmanager/) ที่มีอินสแตนซ์ของคลาส FontsManager ของตนเอง  
 
-ตัวอย่างวิธีสร้างคอลเลกชันกฎฟอนต์สำรองและกำหนดให้กับ FontsManager ของงานนำเสนอหนึ่ง:    
+ต่อไปนี้คือตัวอย่างวิธีสร้างคอลเลกชันกฎฟอนต์สำรองและกำหนดให้กับ FontsManager ของการนำเสนอหนึ่ง:  
 
 ``` cpp
 auto presentation = MakeObject<Presentation>();
@@ -45,26 +45,26 @@ userRulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), s
 presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList);
 ```
 
-หลังจาก FontsManager ถูกเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองจะถูกนำไปใช้ระหว่างการเรนเดอร์งานนำเสนอ  
+หลังจาก FontsManager ถูกเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองจะถูกนำไปใช้ระหว่างการเรนเดอร์การนำเสนอ  
 
 {{% alert color="primary" %}} 
-อ่านเพิ่มเติมวิธี [เรนเดอร์งานนำเสนอด้วยฟอนต์สำรอง](/slides/th/cpp/render-presentation-with-fallback-font/).
+อ่านเพิ่มเติมเกี่ยวกับวิธีการ [Render Presentation with Fallback Font](/slides/th/cpp/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**กฎฟอนต์สำรองของฉันจะถูกฝังลงในไฟล์ PPTX และแสดงใน PowerPoint หลังบันทึกหรือไม่?**
+**กฎฟอนต์สำรองของฉันจะถูกฝังลงในไฟล์ PPTX และเห็นใน PowerPoint หลังจากบันทึกหรือไม่?**
 
-ไม่ กฎฟอนต์สำรองเป็นการตั้งค่าการเรนเดอร์ขณะรัน; ไม่ได้ถูกซีเรียลไลซ์ลงในไฟล์ PPTX และจะไม่ปรากฏใน UI ของ PowerPoint.  
+ไม่ กฎฟอนต์สำรองเป็นการตั้งค่าการเรนเดอร์ในขณะรันไทม์; ไม่ได้ถูกซีเรียลไลซ์ลงใน PPTX และจะไม่ปรากฏใน UI ของ PowerPoint.  
 
-**ฟอนต์สำรองใช้กับข้อความภายใน SmartArt, WordArt, แผนภูมิ และตารางหรือไม่?**
+**ฟอนต์สำรองจะใช้กับข้อความภายใน SmartArt, WordArt, แผนภูมิ และตารางหรือไม่?**
 
-ใช่ กลไกการแทนที่ glyph เดียวกันจะถูกใช้กับข้อความใด ๆ ในวัตถุเหล่านี้.  
+ใช่ กลไกการแทนที่ glyph เดียวกันจะใช้กับข้อความใดก็ได้ในวัตถุเหล่านี้.  
 
 **Aspose แจกจ่ายฟอนต์ใด ๆ มาพร้อมกับไลบรารีหรือไม่?**
 
-ไม่ คุณต้องเพิ่มและใช้ฟอนต์ด้วยตัวคุณเองและรับผิดชอบเอง.  
+ไม่ คุณต้องเพิ่มและใช้ฟอนต์ด้วยตนเองและรับผิดชอบเอง.  
 
-**สามารถใช้การแทนที่/การสับเปลี่ยนฟอนต์ที่หายไปและฟอนต์สำรองสำหรับ glyph ที่หายไปร่วมกันได้หรือไม่?**
+**สามารถใช้การทดแทน/การแทนที่ฟอนต์ที่หายไปและฟอนต์สำรองสำหรับ glyph ที่หายไปร่วมกันได้หรือไม่?**
 
-ใช่ พวกมันเป็นขั้นตอนอิสระของสายงานการแก้ไขฟอนต์เดียวกัน: ก่อนแรกเอนจินจะตรวจสอบความพร้อมของฟอนต์ ([replacement](/slides/th/cpp/font-replacement/)/[substitution](/slides/th/cpp/font-substitution/)) และจากนั้นฟอนต์สำรองจะเติมช่องว่างของ glyph ที่หายไปในฟอนต์ที่มีอยู่.
+ได้ พวกมันเป็นขั้นตอนอิสระของกระบวนการแก้ไขฟอนต์เดียวกัน: ก่อนเริ่มต้นเอนจินจะตรวจสอบความพร้อมของฟอนต์ ([replacement](/slides/th/cpp/font-replacement/)/[substitution](/slides/th/cpp/font-substitution/)) แล้วฟอนต์สำรองจะเติมช่องว่างสำหรับ glyph ที่หายไปในฟอนต์ที่มีอยู่.

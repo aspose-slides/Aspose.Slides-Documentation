@@ -14,25 +14,25 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Temukan cara menyesuaikan area plot grafik pada presentasi PowerPoint dengan Aspose.Slides untuk C++. Tingkatkan visual slide Anda dengan mudah."
+description: "Temukan cara menyesuaikan area plot grafik dalam presentasi PowerPoint dengan Aspose.Slides untuk C++. Tingkatkan visual slide Anda dengan mudah."
 ---
 ## **Gambaran Umum**
 
 Artikel ini menunjukkan cara bekerja dengan area plot grafik di Aspose.Slides. Artikel ini menjelaskan cara mendapatkan posisi dan ukuran sebenarnya dari area plot dengan memvalidasi tata letak grafik dan kemudian membaca nilai X, Y, lebar, dan tinggi.
 
-Artikel ini juga memperagakan cara mengonfigurasi mode tata letak area plot ketika tata letak diatur secara manual, menggunakan `LayoutTargetType` untuk menentukan apakah area plot dihitung oleh wilayah dalamnya atau oleh wilayah luarnya bersama dengan sumbu dan label sumbu.
+Artikel ini juga mendemonstrasikan cara mengonfigurasi mode tata letak area plot ketika tata letak diatur secara manual, menggunakan `LayoutTargetType` untuk menentukan apakah area plot dihitung berdasarkan wilayah dalamnya atau wilayah luarnya bersama dengan sumbu dan label sumbu.
 
 ## **Dapatkan Lebar dan Tinggi Area Plot Grafik**
-Aspose.Slides untuk C++ menyediakan API sederhana untuk .
+Aspose.Slides for C++ menyediakan API sederhana untuk .
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
 2. Akses slide pertama.
 3. Tambahkan grafik dengan data default.
 4. Panggil metode IChart::ValidateChartLayout() terlebih dahulu untuk mendapatkan nilai sebenarnya.
-5. Dapatkan lokasi X aktual (kiri) dari elemen grafik relatif terhadap sudut kiri‑atas grafik.
-6. Dapatkan posisi atas aktual dari elemen grafik relatif terhadap sudut kiri‑atas grafik.
-7. Dapatkan lebar aktual dari elemen grafik.
-8. Dapatkan tinggi aktual dari elemen grafik.
+5. Mendapatkan lokasi X aktual (kiri) dari elemen grafik relatif terhadap sudut kiri atas grafik.
+6. Mendapatkan posisi atas aktual elemen grafik relatif terhadap sudut kiri atas grafik.
+7. Mendapatkan lebar aktual elemen grafik.
+8. Mendapatkan tinggi aktual elemen grafik.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.Pptx");
@@ -45,15 +45,15 @@ double y = chart->get_PlotArea()->get_ActualY();
 double w = chart->get_PlotArea()->get_ActualWidth();
 double h = chart->get_PlotArea()->get_ActualHeight();
 
-// Simpan presentasi dengan diagram
+// Simpan presentasi dengan grafik
 pres->Save(u"Chart_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Atur Mode Tata Letak Area Plot Grafik**
-Aspose.Slides untuk C++ menyediakan API sederhana untuk mengatur mode tata letak area plot grafik. Properti **LayoutTargetType** telah ditambahkan ke kelas **ChartPlotArea** dan **IChartPlotArea**. Jika tata letak area plot didefinisikan secara manual, properti ini menentukan apakah menata area plot berdasarkan bagian dalamnya (tidak termasuk sumbu dan label sumbu) atau bagian luarnya (termasuk sumbu dan label sumbu). Ada dua nilai yang mungkin yang didefinisikan dalam enum **LayoutTargetType**.
+Aspose.Slides for C++ menyediakan API sederhana untuk mengatur mode tata letak area plot grafik. Properti **LayoutTargetType** telah ditambahkan ke kelas **ChartPlotArea** dan **IChartPlotArea**. Jika tata letak area plot didefinisikan secara manual, properti ini menentukan apakah tata letak area plot berbasis bagian dalamnya (tidak termasuk sumbu dan label sumbu) atau bagian luarnya (termasuk sumbu dan label sumbu). Ada dua nilai yang mungkin yang didefinisikan dalam enum **LayoutTargetType**.
 
-- **LayoutTargetType.Inner** – menentukan bahwa ukuran area plot akan menentukan ukuran area plot, tidak termasuk tanda centang dan label sumbu.
-- **LayoutTargetType.Outer** – menentukan bahwa ukuran area plot akan menentukan ukuran area plot, tanda centang, dan label sumbu.
+- **LayoutTargetType.Inner** - menunjukkan bahwa ukuran area plot ditentukan oleh ukuran area plot, tidak termasuk tanda centang dan label sumbu.
+- **LayoutTargetType.Outer** - menunjukkan bahwa ukuran area plot ditentukan oleh ukuran area plot, tanda centang, dan label sumbu.
 
 Contoh kode diberikan di bawah.
 
@@ -65,14 +65,14 @@ Contoh kode diberikan di bawah.
 
 Dalam poin; 1 inci = 72 poin. Ini adalah satuan koordinat Aspose.Slides.
 
-**Bagaimana perbedaan antara Plot Area dan Chart Area dalam hal konten?**
+**Bagaimana perbedaan Area Plot dengan Area Grafik dalam hal konten?**
 
-Plot Area adalah wilayah gambar data (seri, garis kisi, garis tren, dll.); Chart Area mencakup elemen sekitarnya (judul, legenda, dll.). Pada grafik 3D, Plot Area juga mencakup dinding/lantai dan sumbu.
+Area Plot adalah wilayah menggambar data (seri, garis kisi, garis tren, dll.); Area Grafik mencakup elemen di sekitarnya (judul, legenda, dll.). Pada grafik 3D, Area Plot juga mencakup dinding/lantai dan sumbu.
 
-**Bagaimana X, Y, Width, dan Height Plot Area diinterpretasikan ketika tata letak diatur secara manual?**
+**Bagaimana X, Y, Lebar, dan Tinggi Area Plot diinterpretasikan ketika tata letak manual?**
 
-Mereka adalah pecahan (0‑1) dari ukuran keseluruhan grafik; dalam mode ini, penempatan otomatis dinonaktifkan dan pecahan yang Anda setel akan digunakan.
+Mereka adalah fraksi (0–1) dari ukuran keseluruhan grafik; dalam mode ini, penempatan otomatis dinonaktifkan dan fraksi yang Anda tentukan digunakan.
 
-**Mengapa posisi Plot Area berubah setelah menambahkan/memindahkan legenda?**
+**Mengapa posisi Area Plot berubah setelah menambahkan/memindahkan legenda?**
 
-Legenda berada di area grafik di luar Plot Area tetapi memengaruhi tata letak dan ruang yang tersedia, sehingga Plot Area dapat bergeser ketika penempatan otomatis berlaku. (Ini adalah perilaku standar untuk grafik PowerPoint.)
+Legenda berada di area grafik di luar Area Plot namun memengaruhi tata letak dan ruang yang tersedia, sehingga Area Plot dapat bergeser ketika penempatan otomatis diaktifkan. (Ini adalah perilaku standar untuk grafik PowerPoint.)

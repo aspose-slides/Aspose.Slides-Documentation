@@ -1,39 +1,39 @@
 ---
-title: C++ Kullanarak Sunum Grafiklerinde Balonları Yönetme
-linktitle: Balon
+title: C++ Kullanarak Sunum Grafiklerinde Çağrı Balonlarını Yönetme
+linktitle: Çağrı Balonu
 type: docs
 url: /tr/cpp/callout/
 keywords:
-- grafik balonu
-- balon kullanımı
+- grafik çağrı balonu
+- çağrı balonu kullanımı
 - veri etiketi
-- etiket formatı
+- etiket biçimi
 - PowerPoint
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ içinde balonları oluşturun ve biçimlendirin, PPT ve PPTX ile uyumlu kısa kod örnekleriyle sunum iş akışlarını otomatikleştirin."
+description: "Aspose.Slides for C++ içinde çağrı balonlarını oluşturun ve biçimlendirin, kısa kod örnekleriyle PPT ve PPTX ile uyumlu, sunum iş akışlarını otomatikleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'te grafik veri etiketleri için balonlarla nasıl çalışılacağını açıklar. `set_ShowLabelAsDataCallout` yönteminin etiketleri balon olarak göstermek için nasıl kullanılacağını, bir donut grafiği için balonla ilgili etiket ayarlarının nasıl yapılandırılacağını ve balonların ve görünümlerinin sunum PDF, HTML5, SVG ve raster görüntü formatlarına dışa aktarılırken korunduğunu gösterir.
+Bu makale Aspose.Slides içinde grafik veri etiketleri için çağrı balonlarıyla nasıl çalışılacağını açıklar. `set_ShowLabelAsDataCallout` metodunu kullanarak etiketleri çağrı balonu olarak nasıl gösterileceğini, bir halka grafik için çağrı balonu ile ilgili etiket ayarlarının nasıl yapılandırılacağını ve çağrı balonları ile görünümlerinin sunumlar PDF, HTML5, SVG ve raster görüntü formatlarına dışa aktarıldığında korunduğunu gösterir.
 
-## **Balonları Kullanma**
-Yeni **ShowLabelAsDataCallout** özelliği **DataLabelFormat** sınıfına ve **IDataLabelFormat** arayüzüne eklenmiştir; bu özellik, belirtilen grafiğin veri etiketinin veri balonu olarak mı yoksa veri etiketi olarak mı gösterileceğini belirler. Aşağıdaki örnekte Balonları ayarladık.
+## **Çağrı Balonları Kullanma**
+Yeni **ShowLabelAsDataCallout** özelliği **DataLabelFormat** sınıfına ve **IDataLabelFormat** arayüzüne eklenmiştir; bu özellik belirtilen grafik veri etiketinin veri çağrı balonu olarak mı yoksa veri etiketi olarak mı görüntüleneceğini belirler. Aşağıdaki örnekte Çağrı Balonları ayarlanmıştır.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-DisplayChartLabels-DisplayChartLabels.cpp" >}}
 
-## **Donut Grafiği için Bir Balon Ayarlama**
-Aspose.Slides for C++, Donut grafiği için seri veri etiketi balonu şeklini ayarlama desteği sunar. Aşağıda örnek bir kod bulunmaktadır.
+## **Halka Grafik için Çağrı Balonu Ayarlama**
+Aspose.Slides for C++ bir Halka grafik için seri veri etiketi çağrı balonu şeklini ayarlamayı destekler. Aşağıdaki örnek verilmiştir.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddDoughnutCallout-AddDoughnutCallout.cpp" >}}
 
 ## **SSS**
 
-**Sunumu PDF, HTML5, SVG veya görüntülere dönüştürürken balonlar korunur mu?**
+**Sunumu PDF, HTML5, SVG veya görüntülere dönüştürürken çağrı balonları korunur mu?**
 
-Evet. Balonlar grafik oluşturmanın bir parçasıdır; bu nedenle [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/), [HTML5](/slides/tr/cpp/export-to-html5/), [SVG](/slides/tr/cpp/render-a-slide-as-an-svg-image/) veya [raster görüntüler](/slides/tr/cpp/convert-powerpoint-to-png/) olarak dışa aktardığınızda, slaytın biçimlendirmesiyle birlikte korunur.
+Evet. Çağrı balonları grafik oluşturmanın bir parçasıdır; bu nedenle [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/), [HTML5](/slides/tr/cpp/export-to-html5/), [SVG](/slides/tr/cpp/render-a-slide-as-an-svg-image/), veya [RasterGörüntüler](/slides/tr/cpp/convert-powerpoint-to-png/) olarak dışa aktardığınızda slayt biçimlendirmesiyle birlikte korunur.
 
-**Balonlarda özel yazı tipleri çalışır mı ve görünümleri dışa aktarımda korunabilir mi?**
+**Özel yazı tipleri çağrı balonlarında çalışır mı ve dışa aktarımda görünümleri korunur mu?**
 
-Evet. Aspose.Slides, sunuma [yazı tiplerini gömmeyi](/slides/tr/cpp/embedded-font/) destekler ve [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/) gibi dışa aktarımlar sırasında yazı tipi gömme kontrolü yapar, böylece balonlar farklı sistemlerde aynı şekilde görünür.
+Evet. Aspose.Slides, sunuma [Yazı tipi gömme](/slides/tr/cpp/embedded-font/) özelliğini destekler ve [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/) gibi dışa aktarımlarda yazı tipi gömme kontrolü yapar; böylece çağrı balonları farklı sistemlerde aynı görünüme sahip olur.

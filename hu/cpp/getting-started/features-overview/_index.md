@@ -1,13 +1,15 @@
 ---
-title: "Funkciók áttekintése"
+title: Funkciók áttekintése
 type: docs
 weight: 10
 url: /hu/cpp/features-overview/
+aliases:
+  - /cpp/aspose-slides-for-c-features/
 keywords:
 - funkciók
 - támogatott platformok
 - fájlformátum
-- konverzió
+- konvertálás
 - megjelenítés
 - nyomtatás
 - formázás
@@ -16,87 +18,76 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for C++-t: egy erőteljes API, amely hatékonyan képes prezentációkat létrehozni, szerkeszteni, automatizálni és konvertálni PowerPoint és OpenDocument formátumban."
+description: "Fedezze fel az Aspose.Slides for C++-t: egy hatékony API a PowerPoint és OpenDocument prezentációk létrehozásához, szerkesztéséhez, automatizálásához és konvertálásához."
 ---
 ## **Fájlformátumok és konverziók**
-Aspose.Slides for C++ támogatja a PowerPoint dokumentumformátumok nagy részét, és exportálja őket népszerű formátumokba, amelyeket széles körben használnak a szervezetek közötti cserére. Az alábbi táblázat felsorolja ezeket a formátumokat:
+Az Aspose.Slides for C++ a legtöbb PowerPoint-dokumentumformátumot támogatja, és exportálja őket a szervezetek közötti széles körben használt népszerű formátumokba. Az alábbi táblázat felsorolja ezeket a formátumokat:
 
-|**Jellemző**|**Leírás**|
+|**Funkció**|**Leírás**|
 | :- | :- |
 |[Microsoft PowerPoint (PPT)](/slides/hu/cpp/microsoft-powerpoint-ppt/)|Az Aspose.Slides for C++ a leggyorsabb feldolgozást biztosít ehhez a prezentációs dokumentumformátumhoz.|
 |[Portable Document Format (PDF)](/slides/hu/cpp/portable-document-format-pdf/)|A támogatott fájlformátumok egyetlen módszerrel exportálhatók az Adobe Portable Document Format (PDF) dokumentumokba.|
-|[XML Parser Specification (XPS)](/slides/hu/cpp/xml-parser-specification-xps/)|Az összes támogatott fájlformátum egyetlen módszerrel exportálható XML Parser Specification (XPS) dokumentumokba.|
+|[XML Parser Specification (XPS)](/slides/hu/cpp/xml-parser-specification-xps/)|Az összes támogatott fájlformátum egyetlen módszerrel exportálható XML-parser specifikáció (XPS) dokumentumokba.|
 |[PresentationML (PPTX, XML)](/slides/hu/cpp/presentationml-pptx-xml/)|Az Aspose.Slides for C++ támogatja az OOXML prezentációs formátum feldolgozását, amely PresentationML vagy PPTX néven is ismert.|
-|[PPTX To HTML Conversion](https://docs.aspose.com/slides/hu/cpp/convert-powerpoint-to-html/)|Az Aspose.Slides for C++ támogatja a prezentáció HTML formátumba történő konvertálását.|
+|[PPTX To HTML Conversion](https://docs.aspose.com/slides/hu/cpp/convert-powerpoint-to-html/)|Az Aspose.Slides for C++ támogatja a prezentációk HTML formátumba történő konvertálását.|
+## **Megjelenítés**
+Az Aspose.Slides for C++ támogatja a diák magas hűségű megjelenítését a prezentációs dokumentumokban különféle grafikus formátumokba, az alábbiek szerint:
 
-## **Renderelés**
-Az Aspose.Slides for C++ magas hűségű renderelést biztosít a prezentációs dokumentumok diáihoz különböző grafikus formátumokba, az alábbiak szerint:
-
-|**Jellemző**|**Leírás**|
+|**Funkció**|**Leírás**|
 | :- | :- |
-|C++ Supported Image Formats|Az Aspose.Slides for C++ használatával nem csak a prezentációs diák, hanem a diákon lévő képek renderelhetők minden C++ által támogatott grafikus formátumba, mint például PNG, BMP és JPEG.|
-|SVG Format|Az Aspose.Slides for C++ beépített módszert is biztosít a prezentációs diák Scalable Vector Graphics (SVG) formátumba történő exportálásához.|
-
+|C++ által támogatott képfájlformátumok|Az Aspose.Slides for C++ használatával nem csak a prezentációs diákat, hanem a diákon lévő képeket is renderelheti az összes C++ által támogatott grafikus formátumba, mint például PNG, BMP és JPEG.|
+|SVG formátum|Az Aspose.Slides for C++ beépített módszert is biztosít a prezentációs diák Scalable Vector Graphics (SVG) formátumba történő exportálásához.|
 ## **Tartalmi funkciók**
-Az Aspose.Slides for C++ lehetővé teszi a prezentációs dokumentumok szinte minden tartalmának elérését, módosítását vagy létrehozását.
+Az Aspose.Slides for C++ lehetővé teszi a prezentációs dokumentumok szinte minden lehetséges tartalmának elérését, módosítását vagy létrehozását.
 
-|**Jellemző**|**Leírás**|
+|**Funkció**|**Leírás**|
 | :- | :- |
-|Mester diák|A mester diák határozzák meg a normál diák elrendezését. Az Aspose.Slides for C++ lehetővé teszi a prezentációs dokumentumok Mester diáinak elérését és módosítását.|
-|Normál diák|Az Aspose.Slides for C++ használatával nem csak új diák különböző típusú létrehozása lehetséges, hanem a meglévő diák elérése és módosítása is a prezentációs dokumentumokban.|
-|Dia klónozása / másolása|Az Aspose.Slides for C++ beépített módszereket biztosít a meglévő diák klónozására vagy másolására nem csak egy prezentáción belül, hanem egy prezentációról a másikra is. Mivel egy dia az elrendezést a mester diától örökli, a beépített klónozási módszerek automatikusan másolják a mestert is a klónozás során.|
-|Helytartók és szövegtartók|A dián belül hozzáférhet a helytartókhoz és szövegtartókhoz is. Ezen felül egy diát szövegtartókkal is létrehozhat a megfelelő módszerrel a semmiből.|
-|Fejléc és lábléc|Az Aspose.Slides for C++ megkönnyíti a diák fejlécének/láblécének kezelését.|
-|Megjegyzések a diákon|Az Aspose.Slides for C++ segítségével nem csak a diához kapcsolódó megjegyzéseket érheti el és módosíthatja, hanem új megjegyzéseket is hozzáadhat.|
-|Alakzat keresése|A dián egy adott alakzatot megtalálhatja az alakzathoz tartozó alternatív szöveg alapján.|
-|Háttérképek|Az Aspose.Slides for C++ lehetővé teszi a prezentáció mester vagy normál diájához tartozó háttérrel való munkát.|
-|Szövegdobozok|A szövegdobozok a semmiből létrehozhatók. A meglévő szövegdobozok elérhetők, és a szövegük módosítható az eredeti formázás megőrzése mellett.|
-|Téglalap alakzatok|Téglalap alakzatok létrehozhatók vagy módosíthatók az Aspose.Slides for C++ által.|
-|Polivonal alakzatok|Polivonal alakzatok is létrehozhatók vagy módosíthatók az Aspose.Slides for C++ által.|
-|Ellipszis alakzatok|Ellipszis alakzatok is létrehozhatók vagy módosíthatók az Aspose.Slides for C++ által.|
-|Csoportos alakzatok|Az Aspose.Slides for C++ csoportos alakzatokat is támogat.|
-|Auto alakzatok|Az Aspose.Slides for C++ auto alakzatokat is támogat.|
-|Alakzatok sorosítása|Bár az Aspose.Slides for C++ számos alakzatot támogat, ha egy alakzatot nem támogat, akkor az Aspose.Slides for C++ egy sorosítási módszert biztosít, amellyel az alakzatot egy meglévő diáról sorosíthatja, és a későbbiekben a szükségnek megfelelően újra felhasználhatja az Aspose.Slides for C++.|
-|Képkockák|A képek képkockákban vannak kezelve az Aspose.Slides for C++ használatával.|
-|Audio keretek|Az audio fájlok a diákon audio keretekben linkelhetők vagy beágyazhatók az Aspose.Slides for C++ által.|
-|Videó keretek|A videó fájlok videó keretekben vannak kezelve az Aspose.Slides for C++ használatával.|
-|OLE keret|Az OLE objektumok OLE keretekben vannak kezelve az Aspose.Slides for C++ által.|
-|Táblázatok|A diákon lévő táblázatokat is támogatja az Aspose.Slides for C++.|
-|Szövegkeret|Az alakzathoz tartozó szöveg elérhető a hozzá kapcsolódó szövegkereten keresztül.|
-|Szöveg beolvasása|A prezentáció szövege beolvasható a prezentáció vagy a dia szintjén beépített beolvasó módszerekkel.|
-|Animációk|Az alakzatokra animációk alkalmazhatók.|
-|Diavetítések|A diavetítéseket, diaátmeneteket és Morph átmeneteket is támogatja.|
-
+|Mester diák|A mesterdiák határozzák meg a normál diák elrendezését. Az Aspose.Slides for C++ lehetővé teszi a prezentációs dokumentumok mesterdiáinak elérését és módosítását.|
+|Normál diák|Az Aspose.Slides for C++ használatával nem csak új diák különböző típusait hozhatja létre, hanem a meglévő diák elérését és módosítását is elvégezheti a prezentációs dokumentumokban.|
+|Cloning / Copying Slides|Az Aspose.Slides for C++ beépített módszereket biztosít létező diák klónozásához vagy másolásához nem csak egy prezentáción belül, hanem egy prezentációról a másikra is. Mivel egy dia a mesterdiától örökli az elrendezést, a beépített klónozási módszerek automatikusan a mestert is másolják a klónozás során.|
+|Place Holders and Text Holders|A diában lévő helyőrzőkhöz és szöveghelyezőkhöz is hozzáférhet. Továbbá az adott módszerrel teljesen új diát hozhat létre szöveghelyezőkkel.|
+|Header and Footers|Az Aspose.Slides for C++ lehetővé teszi a diáknál fejléc/lábléc kezelését is.|
+|Notes in Slides|Az Aspose.Slides for C++ segítségével nem csak a diákhoz kapcsolódó jegyzeteket érheti el és módosíthatja, hanem újakat is hozzáadhat.|
+|Finding a Shape|Egy adott alakzatot a diáról a hozzá tartozó alternatív szöveg alapján is megtalálhatja.|
+|Backgrounds|Az Aspose.Slides for C++ lehetővé teszi a prezentáció mester vagy normál diájához tartozó háttér kezelését.|
+|Text Boxes|A szövegdobozok teljesen újonnan létrehozhatók. A meglévő szövegdobozokhoz hozzáférhet, és a bennük lévő szöveget módosíthatja az eredeti formátum megőrzése mellett.|
+|Rectangle Shapes|Az Aspose.Slides for C++ képes téglalap alakzatokat létrehozni vagy módosítani.|
+|Poly Line Shapes|Az Aspose.Slides for C++ képes polivonalis vonal alakzatokat is létrehozni vagy módosítani.|
+|Ellipse Shapes|Az Aspose.Slides for C++ ellipszis alakzatokat is létrehoz vagy módosít.|
+|Group Shapes|Az Aspose.Slides for C++ támogatja a csoport alakzatokat is.|
+|Auto Shapes|Az Aspose.Slides for C++ auto alakzatokat is támogat.|
+|Shapes Serialization|Bár az Aspose.Slides for C++ számos alakzatot támogat, ha egy alakzat nem támogatott, akkor az Aspose.Slides for C++ egy sorosítási módszert biztosít, amellyel az alakzatot egy meglévő diáról sorosíthatja, és a továbbiakban az Aspose.Slides for C++ igény szerint használhatja.|
+|Picture Frames|A képeket képkockákban kezeli az Aspose.Slides for C++.|
+|Audio Frames|Az Aspose.Slides for C++ lehetővé teszi, hogy a hangfájlokat a diákon hangkeretekbe linkeljék vagy beágyazzák.|
+|Video Frames|A videofájlok videokeretekben kerülnek kezelésre az Aspose.Slides for C++ segítségével.|
+|OLE Frame|Az OLE objektumokat OLE keretekben kezeli az Aspose.Slides for C++.|
+|Tables|A diákon lévő táblázatokat is támogatja az Aspose.Slides for C++.|
+|Text Frame|Az alakzathoz kapcsolódó szöveget a hozzá tartozó szövegkereten keresztül érheti el.|
+|Text Scanning|A prezentációban lévő szöveget beépített vizsgálati módszerekkel, a prezentáció vagy dia szintjén lehet beolvasni.|
+|Animations|Animációk alkalmazhatók alakzatokra.|
+|Slide Shows|Diavetítések, diaátmenetek és Morph átmenetek is támogatottak.|
 ## **Formázási funkciók**
-Az Aspose.Slides for C++ segítségével szöveget és alakzatokat formázhat a prezentációs dokumentum diáin.
+Az Aspose.Slides for C++ segítségével lehetséges a szöveg és alakzatok formázása a prezentációs dokumentum diáin.
 
-|**Jellemző**|**Leírás**|
+|**Funkció**|**Leírás**|
 | :- | :- |
-|Szövegformázás|<p>Az Aspose.Slides for C++-ben a szöveget a alakzatokhoz kapcsolódó szövegkeretek kezelik. Így a szöveg a szövegkeretekhez tartozó bekezdések és részek segítségével formázható. Az alábbi szövegelemek formázhatók az Aspose.Slides for C++ használatával.</p><p>- Betűtípus típusa</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítása</p><p>- Bekezdés felsorolása</p><p>- Bekezdés orientációja</p>|
-|Alakzatformázás|<p>Az Aspose.Slides for C++-ban egy dia alapeleme az alakzat. Az alábbi alakzat elemek formázhatók az Aspose.Slides for C++ használatával:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, a színátmenetet, a szilárdot)</p><p>- Szöveg</p><p>- Kép</p>|
-
+|Text Formatting|<p>Az Aspose.Slides for C++-ban a szöveget a formához tartozó szövegkeretek kezelik. Ennek megfelelően a szöveget a szövegkeretekhez tartozó bekezdések és részek segítségével formázhatja. Az alábbi szövegelemek formázhatók az Aspose.Slides for C++ segítségével.</p><p>- Betűtípus</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítása</p><p>- Bekezdés felsorolás</p><p>- Bekezdés orientáció</p>|
+|Shape Formatting|<p>Az Aspose.Slides for C++-ban a dia alapvető eleme az alakzat. Az alábbi alakzat‑elemek formázhatók az Aspose.Slides for C++ segítségével:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, a gradienst, a szilárdot)</p><p>- Szöveg</p><p>- Kép</p>|
 ## **GYIK**
+**Szükséges-e a Microsoft PowerPoint telepítése a szerveren/PC-n a könyvtár működéséhez?**
+Nem. A PowerPoint nem szükséges; az Aspose.Slides egy önálló motor a prezentációk létrehozásához, szerkesztéséhez, konvertálásához és megjelenítéséhez.
 
-**Szükségem van a Microsoft PowerPoint telepítésére a szerveren/PC-n a könyvtár működéséhez?**
+**Hogyan működik a többszálúság? A feldolgozás párhuzamosítható?**
+Biztonságos különböző dokumentumokat külön szálakon feldolgozni; ugyanazt a [presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) objektumot nem szabad [multiple threads](/slides/hu/cpp/multithreading/) által egyszerre használni.
 
-Nem. A PowerPoint nem szükséges; az Aspose.Slides önálló motor a prezentációk létrehozásához, szerkesztéséhez, konvertálásához és rendereléséhez.
+**Támogatottak-e a fájl jelszavak és a titkosítás?**
+Igen. [Megnyithatod](/slides/hu/cpp/password-protected-presentation/) a titkosított prezentációkat, beállíthatsz vagy eltávolíthatsz megnyitási és írási jelszót, és ellenőrizheted a védelem állapotát.
 
-**Hogyan működik a több szálú feldolgozás? Paralelizálható a feldolgozás?**
-
-Biztonságos különböző dokumentumok feldolgozása külön szálakon; ugyanazt a [prezentációt](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) objektumot nem szabad [több szál](/slides/hu/cpp/multithreading/) egyszerre használni.
-
-**Támogatottak a fájl jelszavak és a titkosítás?**
-
-Igen. [Megnyithat](/slides/hu/cpp/password-protected-presentation/) titkosított prezentációkat, beállíthat vagy eltávolíthat megnyitási és írási jelszót, valamint ellenőrizheti a védelem állapotát.
-
-**Gondoskodnom kell a betűcsomagokért Linux konténerekben?**
-
-Igen. Ajánlott a gyakori betűcsomagok telepítése és/vagy a [betűkészlet könyvtárak](/slides/hu/cpp/custom-font/) kifejezett megadása az alkalmazásban, hogy elkerülje a váratlan helyettesítéseket.
+**Gondoskodnom kell a betűcsomagokról Linux konténerekben?**
+Igen. Ajánlott a gyakori betűcsomagok telepítése és/vagy a [betűk könyvtárának megadása](/slides/hu/cpp/custom-font/) az alkalmazásban a váratlan helyettesítések elkerülése érdekében.
 
 **Vannak korlátozások az értékelő verzióban?**
+A [evaluation mode](/slides/hu/cpp/licensing/) módban vízjel kerül a kimenetre, és bizonyos korlátozások érvényesek; egy [30‑napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) elérhető a teljes funkcionalitás teszteléséhez.
 
-Az [értékelő módban](/slides/hu/cpp/licensing/) vízjelet adnak a kimenethez, és bizonyos korlátozások érvényesek; egy [30 napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) áll rendelkezésre a teljes funkcionalitás teszteléséhez.
-
-**Támogatott a külső formátumok importálása egy prezentációba (PDF/HTML → PPTX)?**
-
+**Támogatott-e külső formátumok importálása a prezentációba (PDF/HTML → PPTX)?**
 Igen. [PDF oldalakat és HTML tartalmat](/slides/hu/cpp/import-presentation/) adhat hozzá egy prezentációhoz, amelyek diákká alakulnak.

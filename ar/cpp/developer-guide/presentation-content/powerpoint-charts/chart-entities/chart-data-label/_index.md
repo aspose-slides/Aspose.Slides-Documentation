@@ -7,50 +7,52 @@ keywords:
 - مخطط
 - تسمية البيانات
 - دقة البيانات
-- النسبة المئوية
+- نسبة مئوية
 - مسافة التسمية
-- موضع التسمية
+- موقع التسمية
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ C++ لإنشاء شرائح أكثر تفاعلاً."
+description: "تعرّف على كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للغة C++ للحصول على شرائح أكثر جذبًا."
 ---
+## **المقدمة**
 
-تُظهر تسميات البيانات في المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. فهي تسمح للقراء بتحديد سلسلة البيانات بسرعة وتُسهِّل أيضًا فهم المخططات.
+تظهر تسميات البيانات على المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. تسمح للقراء بالتعرف بسرعة على سلسلة البيانات كما تجعل المخططات أسهل للفهم.
 
-## **ضبط دقة البيانات في تسميات بيانات المخطط**
-هذا الكود C++ يوضح لك كيفية ضبط دقة البيانات في تسمية بيانات المخطط:
+## **تعيين دقة البيانات في تسميات بيانات المخطط**
+
+هذا الكود C++ يوضح لك كيفية تعيين دقة البيانات في تسمية بيانات المخطط:
+
 ```c++
 	// مسار دليل المستندات
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
+	// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// يحصل على الشريحة الأولى
+	// الحصول على الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// يضيف مخططًا ببيانات افتراضية
+	// إضافة مخطط ببيانات افتراضية
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// يضبط تنسيق أرقام السلسلة
+	// ضبط تنسيق أرقام السلسلة
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// يحفظ ملف العرض التقديمي على القرص
+	// حفظ ملف العرض التقديمي على القرص
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **عرض النسب المئوية كعناوين**
+Aspose.Slides for C++ يتيح لك تعيين تسميات النسبة المئوية على المخططات المعروضة. يوضح هذا الكود C++ العملية:
 
-
-## **عرض النسب المئوية كتسميات**
-تتيح لك Aspose.Slides للـ C++ تعيين تسميات النسبة المئوية على المخططات المعروضة. يوضح هذا الكود C++ العملية:
 ```c++
 	// مسار دليل المستندات
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
 
-	// إنشاء مثيل لفئة Presentation
+	// إنشاء نسخة من فئة Presentation
 	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
@@ -99,17 +101,17 @@ description: "تعلم كيفية إضافة وتنسيق تسميات بيان�
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
+هذا الكود C++ يوضح لك كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
 
-## **ضبط علامة النسبة المئوية في تسميات بيانات المخطط**
-هذا الكود C++ يوضح لك كيفية ضبط علامة النسبة المئوية لتسمية بيانات المخطط:
 ```c++
 	// مسار دليل المستندات.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
-	// إنشاء مثيل لفئة Presentation
+	// إنشاء نسخة من فئة Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// الحصول على مرجع الشريحة عبر فهرسها
+	// الحصول على مرجع الشريحة عبر الفهرس الخاص بها
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// إنشاء مخطط PercentsStackedColumn على شريحة
@@ -127,7 +129,7 @@ description: "تعلم كيفية إضافة وتنسيق تسميات بيان�
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// حذف السلسلة المُنشأة افتراضيًا 
+	// حذف السلسلة المولدة افتراضيًا 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -135,9 +137,9 @@ description: "تعلم كيفية إضافة وتنسيق تسميات بيان�
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
 
-	// أخذ أول سلسلة في المخطط
+	// أخذ السلسلة الأولى للمخطط
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// تعبئة بيانات السلسلة
+	// ملء بيانات السلسلة
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
@@ -156,9 +158,9 @@ description: "تعلم كيفية إضافة وتنسيق تسميات بيان�
 	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// أخذ السلسلة الثانية في المخطط
+	// أخذ السلسلة الثانية للمخطط
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// تعبئة بيانات السلسلة
+	// ملء بيانات السلسلة
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
@@ -181,14 +183,14 @@ description: "تعلم كيفية إضافة وتنسيق تسميات بيان�
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **تعيين مسافة التسمية من المحور**
+هذا الكود C++ يوضح لك كيفية تعيين مسافة التسمية من محور الفئة عندما تتعامل مع مخطط مرسم من المحاور:
 
-## **ضبط مسافة التسمية عن المحور**
-هذا الكود C++ يوضح لك كيفية ضبط مسافة التسمية عن محور الفئة عندما تتعامل مع مخطط مرسوم من المحاور:
 ```c++
 	// مسار دليل المستندات
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
 
-	// إنشاء مثيل لفئة Presentation
+	// إنشاء نسخة من فئة Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// الحصول على مرجع الشريحة
@@ -208,10 +210,12 @@ description: "تعلم كيفية إضافة وتنسيق تسميات بيان�
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ## **ضبط موقع التسمية**
-عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات البيانات في المخطط قريبة جدًا من حافته. في هذه الحالة، يجب عليك ضبط موقع تسمية البيانات لتظهر خطوط الربط بوضوح.
-هذا الكود C++ يوضح لك كيفية ضبط موقع التسمية في مخطط الفطيرة:
+
+عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات بيانات المخطط قريبة للغاية من حافته. في هذه الحالة، عليك ضبط موقع تسمية البيانات بحيث تُعرض خطوط القائد بوضوح.
+
+هذا الكود C++ يوضح لك كيفية ضبط موقع التسمية على مخطط الفطيرة:
+
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -229,16 +233,18 @@ label->set_Y(0.04f);
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+![مخطط-فطيرة-معدّل-التسمية](pie-chart-adjusted-label.png)
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
-
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
-استخدم وضعية توضع التسميات تلقائيًا، خطوط الربط، وتصغير حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/المهمة.
 
-**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السالبة أو الفارغة فقط؟**
-قوم بفلترة نقاط البيانات قبل تمكين التسميات وأطفئ العرض للقيم الصفرية أو السالبة أو القيم المفقودة وفقًا لقاعدة محددة.
+اجمع بين وضع التسميات التلقائي، خطوط القائد، وتصغير حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/الرئيسية.
 
-**كيف يمكنني ضمان نمط تسميات ثابت عند التصدير إلى PDF/صور؟**
-قم بتحديد الخطوط (العائلة، الحجم) صراحةً وتأكد من توافر الخط على جانب العرض لتجنب الاستبدال.
+**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
+
+قم بفلترة نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم 0 أو القيم السلبية أو القيم المفقودة وفقاً لقاعدة معرفة.
+
+**كيف يمكنني ضمان نمط تسمية ثابت عند التصدير إلى PDF/الصور؟**
+
+حدد الخطوط صراحة (العائلة، الحجم) وتأكد من توفر الخط على جانب العرض لتجنب الاستبدال الافتراضي.

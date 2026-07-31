@@ -11,15 +11,18 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Aprenda a crear y personalizar gráficos 3D en Aspose.Slides para C++, con compatibilidad para archivos PPT y PPTX—mejore sus presentaciones hoy."
+description: "Aprenda a crear y personalizar gráficos 3D en Aspose.Slides para C++, con soporte para archivos PPT y PPTX — mejore sus presentaciones hoy."
 ---
+## **Descripción general**
+
+Este artículo explica cómo personalizar un gráfico 3D en Aspose.Slides configurando los ajustes de `Rotation3D` como `RotationX`, `RotationY`, `DepthPercents` y `RightAngleAxes`. Describe el proceso de crear una presentación, añadir un gráfico 3D con datos predeterminados, aplicar los ajustes de vista 3D requeridos y guardar la presentación modificada como un archivo PPTX.
 
 ## **Establecer las propiedades RotationX, RotationY y DepthPercents de un gráfico 3D**
-Aspose.Slides for C++ ofrece una API sencilla para establecer estas propiedades. El siguiente artículo le ayudará a configurar diferentes propiedades como Rotación X, Rotación Y, **DepthPercents** etc. El código de ejemplo aplica la configuración de las propiedades mencionadas.
+Aspose.Slides for C++ proporciona una API sencilla para establecer estas propiedades. El siguiente artículo le ayudará a configurar diferentes propiedades como Rotación X,Y, **DepthPercents**, etc. El código de ejemplo aplica la configuración de las propiedades mencionadas.
 
-1. Crear una instancia de la clase [Presentación](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 1. Acceder a la primera diapositiva.
-1. Agregar un gráfico con datos predeterminados.
+1. Añadir un gráfico con datos predeterminados.
 1. Establecer las propiedades Rotation3D.
 1. Guardar la presentación modificada en un archivo PPTX.
 
@@ -27,14 +30,14 @@ Aspose.Slides for C++ ofrece una API sencilla para establecer estas propiedades.
 
 ## **Preguntas frecuentes**
 
-**¿Qué tipos de gráfico admiten el modo 3D en Aspose.Slides?**
+**¿Qué tipos de gráficos admiten el modo 3D en Aspose.Slides?**
 
-Aspose.Slides admite variantes 3D de gráficos de columnas, incluidos Column 3D, Clustered Column 3D, Stacked Column 3D y 100% Stacked Column 3D, junto con tipos 3D relacionados expuestos a través del enumerado [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Para obtener una lista exacta y actualizada, consulte los miembros de [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) en la referencia de la API de la versión instalada.
+Aspose.Slides admite variantes 3D de gráficos de columnas, incluidos Column 3D, Clustered Column 3D, Stacked Column 3D y 100% Stacked Column 3D, junto con los tipos 3D relacionados expuestos mediante la enumeración [ChartType](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/charttype/). Para obtener una lista exacta y actualizada, consulte los miembros de [ChartType](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/charttype/) en la referencia de la API de la versión que tiene instalada.
 
 **¿Puedo obtener una imagen rasterizada de un gráfico 3D para un informe o la web?**
 
-Sí. Puede exportar un gráfico a una imagen mediante la [API de gráfico](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) o [renderizar toda la diapositiva](/slides/es/cpp/convert-powerpoint-to-png/) a formatos como PNG o JPEG. Esto es útil cuando necesita una vista previa pixel perfecta o desea incrustar el gráfico en documentos, paneles de control o páginas web sin requerir PowerPoint.
+Sí. Puede exportar un gráfico a una imagen mediante la [API de gráficos](https://reference.aspose.com/slides/es/cpp/aspose.slides/shape/getimage/) o [renderizar toda la diapositiva](/slides/es/cpp/convert-powerpoint-to-png/) a formatos como PNG o JPEG. Esto es útil cuando necesita una vista previa pixel‑perfecta o desea incrustar el gráfico en documentos, paneles de control o páginas web sin requerir PowerPoint.
 
-**¿Qué tan eficiente es crear y renderizar gráficos 3D grandes?**
+**¿Qué rendimiento tiene la creación y renderizado de gráficos 3D grandes?**
 
-El rendimiento depende del volumen de datos y la complejidad visual. Para obtener los mejores resultados, mantenga los efectos 3D al mínimo, evite texturas pesadas en las paredes y áreas de trazado, limite la cantidad de puntos de datos por serie cuando sea posible y renderice a una salida de tamaño adecuado (resolución y dimensiones) para que coincida con la pantalla o los requisitos de impresión objetivo.
+El rendimiento depende del volumen de datos y la complejidad visual. Para obtener los mejores resultados, mantenga los efectos 3D al mínimo, evite texturas pesadas en las paredes y áreas de trazado, limite la cantidad de puntos de datos por serie cuando sea posible y renderice a una salida con un tamaño adecuado (resolución y dimensiones) que coincida con la pantalla o los requerimientos de impresión del destino.

@@ -1,5 +1,5 @@
 ---
-title: Personalizza le entità del grafico di presentazione in C++
+title: Personalizza le entità del grafico della presentazione in C++
 linktitle: Entità del grafico
 type: docs
 weight: 30
@@ -19,5 +19,5 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Comprendi le entità del grafico in Aspose.Slides per C++ e impara a gestire serie, categorie, punti dati e assi in PowerPoint PPT e PPTX usando C++."
+description: "Comprendi le entità del grafico in Aspose.Slides per C++ e impara a gestire serie, categorie, punti dati e assi in PowerPoint PPT e PPTX utilizzando C++."
 ---

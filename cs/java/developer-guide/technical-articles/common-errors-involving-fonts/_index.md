@@ -1,38 +1,42 @@
 ---
-title: Běžné výjimky a chyby související s fonty na Linuxu
+title: Běžné výjimky a chyby související s písmy na Linuxu
 type: docs
 weight: 200
 url: /cs/java/common-errors-involving-fonts/
-keywords: "Výjimka fontu, Chyba fontu, Linux, Java, Aspose.Slides pro Java"
-description: "Výjimky a chyby fontů na Linuxu"
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
+keywords: "Výjimka písma, Chyba písma, Linux, Java, Aspose.Slides pro Java"
+description: "Výjimky a chyby písma na Linuxu"
 ---
 ## **Přehled**
 
-Když je Aspose.Slides používán na Linuxu, mohou se vyskytnout problémy související s fonty, pokud Java proces nemůže získat přístup k požadovaným složkám s fonty nebo dočasnému adresáři, pokud nejsou ve systému nainstalovány žádné fonty, nebo pokud chybí požadované systémové knihovny, jako je fontconfig nebo libfreetype.
+Když je Aspose.Slides používán na Linuxu, mohou nastat problémy související s písmy, pokud Java proces nemůže přistupovat k požadovaným složkám písem nebo dočasnému adresáři, pokud nejsou v systému nainstalována žádná písma, nebo pokud chybí požadované systémové knihovny, jako je fontconfig nebo libfreetype.
+
+Tento článek popisuje běžné chyby a výjimky související s písmy na Linuxu a poskytuje řešení pro jejich odstranění. Vysvětluje, jak zkontrolovat přístup k adresářům s písmy a TEMP, nainstalovat požadovaná písma a knihovny a použít `FontsLoader` k načtení písem bez jejich instalace do celého systému.
 
 ## **Chybějící text nebo obrázky (EMF nebo WMF) při spouštění kódu na Linuxu**
 
-Tento problém se vyskytuje v systémech s omezeními v těchto případech:
+Tento problém se vyskytuje v systémech s omezeními v následujících případech:
 
-1. Když nejsou nainstalovány žádné fonty nebo když není přístupná složka s fonty pro Java proces
+1. Když nejsou nainstalována žádná písma nebo když složka s písmy pro java proces není přístupná
 2. Když není přístupný adresář TEMP.
 
 ### **Řešení**
 
-Zkontrolujte a potvrďte, že přístup k adresáři TEMP a složce s fonty byl povolen. 
+Zkontrolujte a potvrďte, že byl udělen přístup k adresáři TEMP a složce s písmy. 
 
 {{% alert color="warning" %}}
-V některých případech může být přidělení přístupu ke složkám omezeno prostředím nebo bezpečnostní politikou. Vyzkoušejte následující řešení: 
+In některých případech můžete být neschopni udělit přístup ke složkám kvůli omezením uloženým prostředím nebo bezpečnostní politikou. Vyzkoušejte tato řešení: 
 {{% /alert %}}
 
-**Obcházení**
+**Obcházející řešení**
 
-Použijte [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader) k načtení požadovaných fontů bez jejich instalace:
+Použijte [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader) k načtení požadovaných písem bez jejich instalace:
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-Pokud není přístup k adresáři TEMP, použijte tento kód k určení jiného adresáře jako TEMP pro Javu:
+Pokud není přístupný adresář TEMP, použijte tento kód k určení jiného adresáře jako TEMP pro Javu:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -52,20 +56,18 @@ try {
 }
 ```
 
-## **Výjimka: InvalidOperationException: Nelze najít žádné nainstalované fonty v systému**
+## **Výjimka: InvalidOperationException: Nelze najít žádná písma nainstalovaná v systému**
 
-Tato výjimka nastává, když
+Tato výjimka nastane, když
 
-1) Java proces nemůže získat přístup ke složce s fonty  
-2) nebyly nainstalovány žádné fonty.
+1) java proces nemůže přistupovat ke složce s písmy  
+2) nebyla nainstalována žádná písma.
 
 ### **Řešení**
 
-1. Zkontrolujte a potvrďte, že přístup ke složce s fonty pro Java proces byl povolen.
-
-2. Nainstalujte nějaké fonty nebo použijte [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader).
-
-3. Instalace fontů.
+1. Zkontrolujte a potvrďte, že byl udělen přístup ke složce s písmy pro Java proces.
+2. Nainstalujte některá písma nebo použijte [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader).
+3. Nainstalujte písma.
 
    * Ubuntu: 
 
@@ -83,7 +85,7 @@ Tato výjimka nastává, když
      fc-cache -fv
      ```
 
-   * Použití [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader): 
+   * Using [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader): 
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
@@ -91,7 +93,7 @@ Tato výjimka nastává, když
 
 ## **Výjimka: NoClassDefFoundError: Nepodařilo se inicializovat třídu com.aspose.slides.internal.ey.this**
 
-Tato výjimka nastává na Linux systému, který postrádá fontconfig a fonty. 
+Tato výjimka nastane na Linux systému, který postrádá fontconfig a písma. 
 
 ### **Řešení**
 
@@ -111,7 +113,7 @@ Nainstalujte fontconfig:
   sudo yum -y install fontconfig
   ```
 
-Navíc některé verze open-jdk (například **alpine JDK**) také **vyžadují nainstalované fonty**.
+Navíc některé verze open-jdk (například **alpine JDK**) také **vyžadují nainstalovaná písma**.
 
 * Ubuntu:
 
@@ -127,9 +129,9 @@ Navíc některé verze open-jdk (například **alpine JDK**) také **vyžadují 
   fc-cache -fv
   ```
 
-## **Výjimka: UnsatisfiedLinkError: libfreetype.so.6: Nelze otevřít sdílený objekt: Soubor nebo adresář neexistuje**
+## **Výjimka: UnsatisfiedLinkError: libfreetype.so.6: Nelze otevřít sdílený soubor: Soubor nebo adresář neexistuje**
 
-Tato výjimka nastává na Linux systému, který postrádá knihovnu libfreetype. 
+Tato výjimka nastane na Linux systému, který postrádá knihovnu libfreetype. 
 
 ### **Řešení**
 
@@ -152,5 +154,5 @@ Nainstalujte libfreetype a fontconfig:
   ```
 
 {{% alert title="TIP" color="primary" %}} 
-Nezapomeňte nainstalovat fonty nebo použít FontsLoader.
+Nezapomeňte nainstalovat písma nebo použít FontsLoader.
 {{% /alert %}}

@@ -1,47 +1,47 @@
 ---
-title: Gestisci i caratteri di riserva per le presentazioni in С++
-linktitle: Carattere di riserva
+title: Gestisci i Font di Fallback per le Presentazioni in C++
+linktitle: Font di Fallback
 type: docs
 weight: 50
 url: /it/cpp/fallback-font/
 keywords:
-- carattere di riserva
-- carattere disponibile
-- sostituzione del glifo
-- specificare il carattere
+- font di fallback
+- font disponibile
+- sostituzione di glifi
+- specificare il font
 - specificare la regola
 - PowerPoint
 - OpenDocument
 - presentazione
-- С++
+- C++
 - Aspose.Slides
-description: "Scopri come Aspose.Slides per С++ utilizza i caratteri di riserva per mantenere il testo leggibile nelle presentazioni PowerPoint e OpenDocument quando i caratteri originali non sono disponibili."
+description: "Scopri come Aspose.Slides per C++ utilizza i font di fallback per mantenere il testo leggibile nelle presentazioni PowerPoint e OpenDocument quando i font originali non sono disponibili."
 ---
 ## **Introduzione**
 
-I caratteri di riserva vengono utilizzati quando il carattere specificato per il testo è disponibile nel sistema ma non contiene un glifo richiesto. In questo caso, Aspose.Slides può utilizzare uno dei caratteri di riserva specificati per sostituire il glifo mancante.
+I font di fallback vengono utilizzati quando il font specificato per il testo è disponibile nel sistema ma non contiene il glifo richiesto. In questo caso, Aspose.Slides può utilizzare uno dei font di fallback specificati per sostituire il glifo mancante.
 
-## **Carattere di riserva**
-Il carattere di riserva viene utilizzato quando il carattere specificato per il testo è disponibile nel sistema, ma questo carattere non contiene un glifo necessario. In questo caso, è possibile utilizzare uno dei caratteri di riserva specificati per la sostituzione del glifo.
+## **Font di fallback**
+Il font di fallback viene utilizzato quando il font specificato per il testo è disponibile nel sistema, ma questo font non contiene il glifo necessario. In questo caso, è possibile utilizzare uno dei font di fallback specificati per la sostituzione del glifo.
 
-Aspose.Slides consente di creare caratteri di riserva, aggiungerli alla collezione di caratteri di riserva, impostare la collezione di caratteri di riserva per una determinata presentazione, rimuovere i caratteri di riserva dalla presentazione, specificare le regole per applicare i caratteri di riserva e altro.
+Aspose.Slides consente di creare font di fallback, aggiungerli alla collezione di font di fallback, impostare la collezione di font di fallback per una determinata presentazione, rimuovere i font di fallback dalla presentazione, specificare le regole per applicare i font di fallback e altro.
 
 Per familiarizzare con queste funzionalità, utilizza i seguenti collegamenti:
 
-- [Crea Carattere di Riserva](/slides/it/cpp/create-fallback-font)
-- [Crea Collezione di Caratteri di Riserva](/slides/it/cpp/create-fallback-fonts-collection)
-- [Renderizza Presentazione con Carattere di Riserva](/slides/it/cpp/render-presentation-with-fallback-font)
+- [Crea Font di Fallback](/slides/it/cpp/create-fallback-font)
+- [Crea Collezione di Font di Fallback](/slides/it/cpp/create-fallback-fonts-collection)
+- [Renderizza Presentazione con Font di Fallback](/slides/it/cpp/render-presentation-with-fallback-font)
 
 ## **FAQ**
 
-**Qual è la differenza tra i caratteri di riserva e la sostituzione dei caratteri?**
+**Qual è la differenza tra i font di fallback e la sostituzione dei font?**
 
-Il carattere di riserva viene applicato per carattere o per intervallo di Unicode quando il carattere principale non dispone di glifi specifici; riempie solo i caratteri mancanti. [Sostituzione](/slides/it/cpp/font-substitution/) sostituisce un carattere mancante o non disponibile per un intero intervallo o porzione di testo con un altro carattere. Possono essere combinati, ma il loro ambito e la logica di selezione sono diversi.
+Il fallback viene applicato per carattere o per intervallo Unicode quando il font principale non contiene glifi specifici; riempie solo i caratteri mancanti. [Sostituzione](/slides/it/cpp/font-substitution/) sostituisce un font mancante o non disponibile per un'intera sequenza o parte di testo con un altro font. Possono essere combinati, ma il loro ambito e la logica di selezione sono diversi.
 
-**Le impostazioni di riserva vengono salvate all'interno del file della presentazione?**
+**Le impostazioni di fallback vengono salvate all'interno del file di presentazione?**
 
-No. La configurazione di riserva vive al momento dell'elaborazione/rendering nella libreria e non viene serializzata nel PPTX. La presentazione non memorizza le tue regole di riserva.
+No. La configurazione di fallback vive al momento dell'elaborazione/rendering nella libreria e non viene serializzata nel PPTX. La presentazione non memorizza le tue regole di fallback.
 
-**Il carattere di riserva influisce sugli elementi creati dagli oggetti di PowerPoint (SmartArt, grafici, WordArt)?**
+**Il fallback influisce sugli elementi creati da oggetti PowerPoint (SmartArt, grafici, WordArt)?**
 
-Sì. Il testo all'interno di questi oggetti passa attraverso lo stesso processo di rendering, quindi le stesse regole di riserva si applicano a esso come al testo normale.
+Sì. Il testo all'interno di questi oggetti passa attraverso la stessa pipeline di rendering, quindi le stesse regole di fallback si applicano ad esso come al testo normale.

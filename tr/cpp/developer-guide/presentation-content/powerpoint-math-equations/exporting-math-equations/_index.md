@@ -1,11 +1,11 @@
 ---
-title: Sunumlardan C++ ile Matematik Denklemlerini Dışa Aktar
+title: Sunumlardan C++'ta Matematik Denklemlerini Dışa Aktarma
 linktitle: Denklemleri Dışa Aktar
 type: docs
 weight: 30
 url: /tr/cpp/exporting-math-equations/
 keywords:
-- matematik denklemleri dışa aktar
+- matematik denklemlerini dışa aktar
 - MathML
 - LaTeX
 - PowerPoint
@@ -16,17 +16,17 @@ description: "Aspose.Slides for C++ kullanarak PowerPoint'ten MathML'ye matemati
 ---
 ## **Giriş**
 
-Aspose.Slides for C++ sunumlardan matematik denklemlerini dışa aktarmanıza izin verir. Örneğin, slaytlardaki (belirli bir sunumdan) matematik denklemlerini çıkarıp başka bir programda veya platformda kullanmanız gerekebilir.
+Aspose.Slides for C++ sunumlardan matematik denklemlerini dışa aktarmanıza olanak tanır. Örneğin, slaytlardaki (belirli bir sunumdan) matematik denklemlerini çıkartıp başka bir programda veya platformda kullanmanız gerekebilir. 
 
 {{% alert color="primary" %}} 
-Denklikleri MathML'ye dışa aktarabilirsiniz; bu, web'de ve birçok uygulamada görülen matematik denklemleri ve benzeri içerikler için popüler bir format veya standarttır. 
+Denklemleri, web'de ve birçok uygulamada görülen matematik denklemleri ve benzeri içerikler için popüler bir format veya standart olan MathML'ye dışa aktarabilirsiniz. 
 {{% /alert %}}
 
-## **Matematik Denklemlerini MathML Olarak Kaydet**
+## **Math Denklemlerini MathML Olarak Kaydet**
 
-İnsanlar LaTeX gibi bazı denklem formatları için kodu kolayca yazabilirken, MathML için kod yazmakta zorlanırlar çünkü MathML, uygulamalar tarafından otomatik olarak üretilmek üzere tasarlanmıştır. Programlar, MathML'nin kodu XML olduğu için MathML'yi kolayca okuyup ayrıştırabilir; bu nedenle MathML birçok alanda çıktı ve baskı formatı olarak yaygın şekilde kullanılır.
+İnsanlar LaTeX gibi bazı denklem formatları için kodu kolayca yazabilirken, MathML kodunu yazmakta zorlanırlar çünkü MathML, uygulamalar tarafından otomatik olarak üretilmek üzere tasarlanmıştır. Programlar, MathML'nin XML tabanlı olması nedeniyle onu kolayca okuyup ayrıştırabilir, bu yüzden MathML birçok alanda çıktı ve baskı formatı olarak yaygın olarak kullanılır. 
 
-Bu örnek kod, bir sunumdan matematik denklemini MathML'ye nasıl dışa aktaracağınızı gösterir:
+Bu örnek kod, bir sunumdan matematik denklemini MathML'ye nasıl dışa aktaracağınızı gösterir: 
 
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -49,24 +49,24 @@ SharedPtr<Stream> stream = System::MakeObject<FileStream>(u"mathml.xml", FileMod
 mathParagraph->WriteAsMathMl(stream);
 ```
 
-## **FAQ**
+## **SSS**
 
-**MathML'ye tam olarak ne dışa aktarılır—bir paragraf mı yoksa bireysel bir formül bloğu mu?**
+**MathML'ye tam olarak ne dışa aktarılır—bir paragraf mı yoksa tek bir formül bloğu mu?**  
 
-MathML'ye ya tüm bir matematik paragrafı ([MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/)) ya da bireysel bir blok ([MathBlock](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathblock/)) dışa aktarabilirsiniz. Her iki tip de MathML'ye yazmak için bir yöntem sağlar.
+MathML'ye bir bütün math paragrafı ([MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/)) veya tek bir blok ([MathBlock](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathblock/)) dışa aktarabilirsiniz. Her iki tip de MathML'ye yazma yöntemi sunar.  
 
-**Bir slayttaki nesnenin normal metin veya görüntü yerine bir matematik formülü olduğunu nasıl anlayabilirim?**
+**Bir slayd üzerindeki bir nesnenin normal metin veya resim yerine bir matematik formülü olduğunu nasıl anlayabilirim?**  
 
-Bir formül, bir [MathPortion](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathportion/) içinde bulunur ve bir [MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/) içerir. [MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/) içermeyen görüntüler ve normal metin bölümleri dışa aktarılabilir formüller değildir.
+Bir formül, bir [MathPortion](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathportion/) içinde bulunur ve bir [MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/) içerir. [MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/) içermeyen resimler ve normal metin bölümleri dışa aktarılabilir formüller değildir.  
 
-**Sunumdaki MathML nereden gelir—PowerPoint'e özgü mü yoksa bir standart mı?**
+**Bir sunumda MathML nereden gelir—PowerPoint'e özgü mü yoksa bir standart mı?**  
 
-Dışa aktarma, standart MathML (XML)'yi hedefler. Aspose, standardın sunum alt kümesi olan Presentation MathML'i kullanır; bu, uygulamalar ve web üzerinde yaygın olarak kullanılır.
+Dışa aktarma, standart MathML (XML)'i hedefler. Aspose, standardın sunum alt kümesi olan Presentation MathML'yi kullanır; bu, uygulamalar ve web arasında yaygın olarak kullanılır.  
 
-**Tablolar, SmartArt, gruplar vb. içindeki formüllerin dışa aktarılması destekleniyor mu?**
+**Tablolar, SmartArt, gruplar vb. içindeki formüllerin dışa aktarılması destekleniyor mu?**  
 
-Evet, bu nesneler bir [MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/) içeren metin bölümleri (yani gerçek PowerPoint formülleri) içeriyorsa dışa aktarılırlar. Formül bir görsel olarak gömülü ise dışa aktarılmaz.
+Evet, bu nesneler bir [MathParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.mathtext/mathparagraph/) içeren metin bölümleri barındırıyorsa (yani gerçek PowerPoint formülleri), dışa aktarılırlar. Formül bir resim olarak gömülü ise dışa aktarılmaz.  
 
-**MathML'ye dışa aktarmak orijinal sunumu değiştirir mi?**
+**MathML'ye dışa aktarma orijinal sunumu değiştirir mi?**  
 
-Hayır. MathML yazmak, formülün içeriğinin bir serileştirilmesidir; sunum dosyasını değiştirmez.
+Hayır. MathML yazmak, formül içeriğinin bir serileştirilmesidir; sunum dosyasını değiştirmez.

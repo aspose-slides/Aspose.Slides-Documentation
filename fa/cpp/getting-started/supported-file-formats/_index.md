@@ -37,15 +37,15 @@ keywords:
 - ارائه
 - C++
 - Aspose.Slides
-description: "همهٔ فرمت‌های فایلی که Aspose.Slides برای C++ می‌تواند باز، ذخیره و تبدیل کند — شامل PPT، PPTX و ODP — را با نکات واضح پشتیبانی واردات/صادرات کشف کنید."
+description: "همهٔ فرمت‌های فایلی که Aspose.Slides برای C++ می‌تواند باز کند، ذخیره کرده و تبدیل نماید — شامل PPT، PPTX و ODP — را با یادداشت‌های واضح دربارهٔ پشتیبانی وارد/صادر کشف کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-Aspose.Slides از فایل‌های ارائه Microsoft PowerPoint از نسخه 97 تا Office 365، از جمله Microsoft PowerPoint برای macOS پشتیبانی می‌کند. این مقاله نسخه‌های PowerPoint پشتیبانی‌شده توسط کتابخانه را فهرست می‌کند و جدول فرمت‌های فایل قابل بارگذاری، ذخیره‌سازی یا هر دو را ارائه می‌دهد.
+Aspose.Slides از فایل‌های ارائه از Microsoft PowerPoint 97 تا Office 365، از جمله Microsoft PowerPoint برای Mac پشتیبانی می‌کند. این مقاله نسخه‌های PowerPoint پشتیبانی‌شده توسط کتابخانه را فهرست می‌کند و جدول فرمت‌های فایلی که می‌توانند بارگیری، ذخیره یا هر دو شوند را ارائه می‌دهد.
 
-همچنین به سوالات رایج در مورد سازگاری PDF، تعبیه قلم، فایل‌های محافظت‌شده با رمز عبور، قلم‌های سفارشی، مکانیزم‌های جایگزینی قلم و گزینه‌های خروجی XPS پاسخ می‌دهد.
+این مقاله همچنین به سوالات رایج درباره سازگاری PDF، تعبیه قلم، فایل‌های محافظت‌شده با رمز عبور، قلم‌های سفارشی، بازگردانی قلم و گزینه‌های صدور XPS پاسخ می‌دهد.
 
-## **نسخه‌های پشتیبانی‌شده Microsoft PowerPoint**
+## **نسخه‌های Microsoft PowerPoint پشتیبانی‌شده**
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -55,58 +55,58 @@ Aspose.Slides از فایل‌های ارائه Microsoft PowerPoint از نسخ
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint برای Mac
+- Microsoft PowerPoint for MAC
 - Office 365
 
 ## **فرمت‌های فایل پشتیبانی‌شده**
-این جدول شامل فرمت‌های فایلی است که Aspose.Slides برای С++ می‌تواند بارگذاری و ذخیره کند:
+این جدول شامل فرمت‌های فایلی است که Aspose.Slides برای C++ می‌تواند بارگیری و ذخیره کند:
 
-|**قالب**|**توضیح**|**بارگذاری**|**ذخیره**|**توضیحات**|
+|**فرمت**|**شرح**|**بارگیری**|**ذخیره**|**ملاحظات**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|ارائه PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POT](https://docs.fileformat.com/presentation/pot/)|قالب PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|نمایش PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|ارائه PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POT](https://docs.fileformat.com/presentation/pot/)|قالب PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|نمایش PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[PPTX](https://docs.fileformat.com/presentation/pptx/)|ارائه PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[POTX](https://docs.fileformat.com/presentation/potx/)|قالب PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|نمایش PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|ارائه PowerPoint با قابلیت ماکرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|نمایش PowerPoint با قابلیت ماکرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://docs.fileformat.com/presentation/potm/)|قالب PowerPoint با قابلیت ماکرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|نمایش PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|ارائه PowerPoint با ماکرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|نمایش PowerPoint با ماکرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|قالب PowerPoint با ماکرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|ارائه OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[OTP](https://docs.fileformat.com/presentation/otp/)|قالب ارائه OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|فرمت تصویر Tag Image File| |{{< emoticons/tick >}}| |
-|[EMF](https://docs.fileformat.com/image/emf/)|فرمت Enhanced Metafile| |{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|فرمت فایل تصویر برچسب| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|فرمت متافایل پیشرفته| |{{< emoticons/tick >}}| |
 |[PDF](https://docs.fileformat.com/pdf/)|فرمت سند قابل حمل|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|مشخصات کاغذ XML| |{{< emoticons/tick >}}| |
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
-|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics| |{{< emoticons/tick >}}| |
-|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format| |{{< emoticons/tick >}}| |
-|[BMP](https://docs.fileformat.com/image/bmp/)|Device Independent Bitmap| |{{< emoticons/tick >}}| |
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics| |{{< emoticons/tick >}}| |
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language| |{{< emoticons/tick >}}| |
-|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|مشخصات XML Paper| |{{< emoticons/tick >}}| |
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|فرمت JPEG| |{{< emoticons/tick >}}| |
+|[PNG](https://docs.fileformat.com/image/png/)|فرمت PNG| |{{< emoticons/tick >}}| |
+|[GIF](https://docs.fileformat.com/image/gif/)|فرمت GIF| |{{< emoticons/tick >}}| |
+|[BMP](https://docs.fileformat.com/image/bmp/)|فرمت BMP| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|فرمت SVG| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|فرمت SWF| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|زبان نشانه‌گذاری ابرمتن|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|زبان نشانه‌گذاری برنامه قابل گسترش| |{{< emoticons/tick >}}| |
+|[MD](https://docs.fileformat.com/word-processing/md/)|مارک‌داون| |{{< emoticons/tick >}}| |
 |[XML](https://docs.fileformat.com/web/xml/)|ارائه XML PowerPoint| |{{< emoticons/tick >}}| |
 
 ## **سوالات متداول**
 
-**آیا می‌توانم ارائه‌ها را به PDF‌ای ذخیره کنم که با استانداردهای بایگانی و دسترسی (PDF/A و PDF/UA) سازگار باشد؟**
+**آیا می‌توانم ارائه‌ها را به PDF ذخیره کنم که با استانداردهای بایگانی و دسترس‌پذیری (PDF/A و PDF/UA) سازگار باشد؟**
 
-بله. Aspose.Slides از خروجی PDF با سطوح سازگاری مانند PDF/A-2a، PDF/A-2b، PDF/A-2u، PDF/A-3a، PDF/A-3b و همچنین PDF/UA از طریق تنظیم [compliance](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/pdfoptions/set_compliance/) در [PDF export options](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/pdfoptions/) پشتیبانی می‌کند.
+بله. Aspose.Slides از صادر کردن به PDF با سطوح سازگاری مانند PDF/A-2a، PDF/A-2b، PDF/A-2u، PDF/A-3a، PDF/A-3b و همچنین PDF/UA از طریق تنظیم [compliance](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/pdfoptions/set_compliance/) در [گزینه‌های صدور PDF](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/pdfoptions/) پشتیبانی می‌کند.
 
-**آیا کتابخانه امکان تعبیه قلم هنگام خروجی به PDF را دارد و می‌توانم به‌صورت دقیق کنترل کنم چه چیزی تعبیه شود؟**
+**آیا کتابخانه از تعبیه قلم هنگام صدور به PDF پشتیبانی می‌کند و کنترل دقیق بر آنچه تعبیه می‌شود دارد؟**
 
-بله. می‌توانید کنترل کنید که آیا قلم‌ها به‌صورت کامل یا به‌صورت زیرمجموعه (فقط گلیف‌های استفاده‌شده) تعبیه شوند، نحوه رفتار با قلم‌های سیستم معمول را تعیین کنید و رفتار متن ASCII را از طریق [PDF export options](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/pdfoptions/) پیکربندی کنید.
+بله. می‌توانید کنترل کنید که آیا قلم‌ها به‌صورت کامل تعبیه شوند یا به زیرمجموعه (فقط گلیف‌های استفاده‌شده) تبدیل شوند، نحوهٔ رفتار با قلم‌های عمومی سیستم را مشخص کنید و رفتار متن ASCII را از طریق [گزینه‌های صدور PDF](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/pdfoptions/) پیکربندی کنید.
 
-**آیا می‌توانم قبل از بارگذاری واقعی تشخیص دهم که فایل با رمز عبور محافظت شده است؟**
+**آیا می‌توانم پیش از بارگذاری واقعی، تشخیص دهم که آیا یک فایل با رمز محافظت شده است؟**
 
-بله. با استفاده از [factory-based inspection API](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentationfactory/)، می‌توانید یک فایل ارائه را بررسی کنید تا مشخص شود آیا محافظت‌شده با رمز عبور است یا خیر، بدون اینکه آن را به‌صورت کامل باز کنید.
+بله. با استفاده از [API بازبینی مبتنی بر کارخانه](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentationfactory/)، می‌توانید یک فایل ارائه را پرس‌وجو کنید تا تعیین کنید آیا با رمز حفاظت شده است یا نه بدون اینکه آن را به‌طور کامل باز کنید.
 
-**آیا مکانیزم‌های جایگزینی قلم و پشتیبانی از قلم‌های سفارشی وجود دارد؟**
+**آیا مکانیزم‌های بازگردانی قلم و پشتیبانی از قلم‌های سفارشی وجود دارد؟**
 
-بله. کتابخانه از [loading](/slides/fa/cpp/custom-font/) و [embedding](/slides/fa/cpp/embedded-font/) قلم‌های سفارشی پشتیبانی می‌کند و قوانین [fallback](/slides/fa/cpp/fallback-font/) قلم را برای جلوگیری از گمشده شدن گلیف‌ها هنگام رندر و تبدیل فراهم می‌کند.
+بله. کتابخانه از [بارگیری](/slides/fa/cpp/custom-font/) و [تعبیه](/slides/fa/cpp/embedded-font/) قلم‌های سفارشی پشتیبانی می‌کند و قوانین [بازگردانی قلم](/slides/fa/cpp/fallback-font/) را برای جلوگیری از گمشده بودن گلیف‌ها هنگام رندر و تبدیل ارائه می‌دهد.
 
-**آیا می‌توانم اسلایدها را به XPS خروجی بگیرم و گزینه‌هایی برای تنظیم خروجی XPS وجود دارد؟**
+**آیا می‌توانم اسلایدها را به XPS صادر کنم و گزینه‌هایی برای تنظیم خروجی XPS وجود دارد؟**
 
-بله. خروجی به XPS از طریق [Export to XPS](/slides/fa/cpp/convert-powerpoint-to-xps/) پشتیبانی می‌شود و می‌توانید گزینه‌های ذخیره‌سازی مرتبط را از طریق [save options](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/xpsoptions/) تنظیم کنید تا کیفیت و محتویات سند XPS را کنترل کنید.
+بله. [صادر کردن به XPS](/slides/fa/cpp/convert-powerpoint-to-xps/) پشتیبانی می‌شود و می‌توانید [گزینه‌های ذخیره‌سازی](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/xpsoptions/) مرتبط را تنظیم کنید تا کیفیت خروجی و محتوای سند XPS را کنترل کنید.

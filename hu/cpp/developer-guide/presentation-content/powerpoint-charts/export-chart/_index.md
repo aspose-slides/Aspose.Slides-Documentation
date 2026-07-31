@@ -13,14 +13,14 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan exportálhatja a prezentációs diagramokat az Aspose.Slides for C++ segítségével, PPT és PPTX formátumok támogatásával, és egyszerűsítse a jelentéstételt bármilyen munkafolyamatban."
+description: "Ismerje meg, hogyan exportálhatja a prezentációs diagramokat az Aspose.Slides for C++ segítségével, támogatva a PPT és PPTX formátumokat, és egyszerűsítse a jelentéskészítést bármely munkafolyamatban."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy egy diagramot a prezentációból képként exportálja. Ez a cikk bemutatja, hogyan lehet egy diagramról képet kapni és elmenteni, ami hasznos, ha a diagram vizuális elemeit a PowerPoint prezentáción kívül szeretné újra felhasználni.
+Az Aspose.Slides lehetővé teszi, hogy egy diagramot egy prezentációból képként exportálja. Ez a cikk bemutatja, hogyan lehet egy diagramból képet létrehozni és menteni, ami hasznos, ha a diagram vizuális elemeit a PowerPoint-prezentáción kívül kell újra felhasználni.
 
 ## **Diagramkép lekérése**
-Az Aspose.Slides for C++ támogatja egy adott diagram képként történő kinyerését. Az alábbi példakód mutatja.
+Az Aspose.Slides for C++ támogatja egy adott diagram képének kinyerését. Az alábbi példa bemutatásra kerül.
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"test.pptx");
@@ -37,22 +37,22 @@ presentation->Dispose();
 
 ## **GYIK**
 
-**Exportálhatok egy diagramot vektorként (SVG) a raszteres kép helyett?**
+**Exportálhatok egy diagramot vektor (SVG) formátumban a raszteres kép helyett?**
 
-Igen. A diagram egy alakzat, és tartalma SVG-be menthető a [shape-to-SVG mentési módszer](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/writeassvg/) használatával.
+Igen. A diagram egy alakzat, és tartalmát SVG-be menthetjük a [shape-to-SVG mentési módszer](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/writeassvg/) használatával.
 
-**Hogyan állíthatom be a exportált diagram pontos méretét pixelekben?**
+**Hogyan állíthatom be a exportált diagram pontos méretét pixelben?**
 
-Használja a képrenderelés túlterheléseit, amelyek lehetővé teszik a méret vagy a méretezés megadását – a könyvtár támogatja az objektumok adott mérettel/méretezéssel történő renderelését.
+Használja a képrenderelés túlterheléseit, amelyek lehetővé teszik a méret vagy méretezés megadását - a könyvtár támogatja az objektumok megadott dimenziók/arányok szerinti renderelését.
 
-**Mit tegyek, ha a címkék és a jelmagyarázat betűtípusai hibásan jelennek meg export után?**
+**Mit tegyek, ha a címkékben és a jelmagyarázatban lévő betűtípusok helytelennek tűnnek az exportálás után?**
 
-[Töltse be a szükséges betűtípusokat](/slides/hu/cpp/custom-font/) a [FontsLoader](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/) segítségével, hogy a diagram renderelése megőrizze a metrikákat és a szöveg megjelenését.
+[Töltsön be a szükséges betűtípusokat](/slides/hu/cpp/custom-font/) a [FontsLoader](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/) segítségével, hogy a diagram renderelése megőrizze a metrikákat és a szöveg kinézetét.
 
-**Tiszteletben tartja-e az export a PowerPoint téma, stílusok és hatásokat?**
+**Tiszteletben tartja az exportálás a PowerPoint téma, stílusok és effektusok beállításait?**
 
-Igen. Az Aspose.Slides renderelője követi a prezentáció formázását (témák, stílusok, kitöltések, hatások), így a diagram megjelenése megmarad.
+Igen. Az Aspose.Slides renderelője a prezentáció formázását (témák, stílusok, kitöltések, hatások) követi, így a diagram megjelenése megmarad.
 
-**Hol találhatók a diagramképeken kívüli elérhető renderelési/exportálási lehetőségek?**
+**Hol találhatók a diagramképeken túl elérhető renderelési/exportálási lehetőségek?**
 
-Tekintse meg az export szekciót az [API](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/)/[dokumentációban](/slides/hu/cpp/convert-powerpoint/) a kimeneti célokhoz ([PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/), [SVG](/slides/hu/cpp/render-a-slide-as-an-svg-image/), [XPS](/slides/hu/cpp/convert-powerpoint-to-xps/), [HTML](/slides/hu/cpp/convert-powerpoint-to-html/), stb.) és a kapcsolódó renderelési beállításokat.
+Lásd az exportálási szakaszt az [API](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/)/[dokumentáció](/slides/hu/cpp/convert-powerpoint/) oldalon a kimeneti célokhoz ([PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/), [SVG](/slides/hu/cpp/render-a-slide-as-an-svg-image/), [XPS](/slides/hu/cpp/convert-powerpoint-to-xps/), [HTML](/slides/hu/cpp/convert-powerpoint-to-html/), stb.) és a kapcsolódó renderelési beállítások.

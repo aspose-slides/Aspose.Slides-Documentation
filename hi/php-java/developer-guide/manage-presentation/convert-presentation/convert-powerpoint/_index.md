@@ -4,18 +4,20 @@ linktitle: PowerPoint परिवर्तित करें
 type: docs
 weight: 20
 url: /hi/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
-- PowerPoint परिवर्तित करें
-- प्रस्तुति परिवर्तित करें
-- स्लाइड परिवर्तित करें
-- PPT परिवर्तित करें
-- PPTX परिवर्तित करें
-- PowerPoint निर्यात करें
-- प्रस्तुति निर्यात करें
-- स्लाइड निर्यात करें
-- PPT निर्यात करें
-- PPTX निर्यात करें
+- PowerPoint रूपांतरण
+- प्रेजेंटेशन रूपांतरण
+- स्लाइड रूपांतरण
+- PPT रूपांतरण
+- PPTX रूपांतरण
+- PowerPoint निर्यात
+- प्रेजेंटेशन निर्यात
+- स्लाइड निर्यात
+- PPT निर्यात
+- PPTX निर्यात
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों को अन्य स्वरूपों में परिवर्तित करें। तेज़, सटीक और सहज PPT और PPTX रूपांतरण।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों को अन्य स्वरूपों में परिवर्तित करें। तेज़, सटीक, और निरंतर PPT और PPTX रूपांतरण।"
 ---

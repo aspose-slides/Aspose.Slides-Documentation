@@ -1,77 +1,77 @@
 ---
-title: Aspose.Slides for Python via .NET
-second_title: "Aspose.Slides voor Python documentatie"
+title: Aspose.Slides voor Python via .NET
+second_title: Aspose.Slides voor Python
 type: docs
 weight: 35
 url: /nl/python-net/
 is_root: true
 keywords:
 - Aspose.Slides voor Python
-- PowerPoint automatisering Python
+- PowerPoint-automatisering Python
 - Python PPT-bibliotheek
-- PowerPoint exporteren naar PDF met Python
-- PowerPoint exporteren naar SVG met Python
+- PowerPoint exporteren naar PDF Python
+- PowerPoint exporteren naar SVG Python
 - PowerPoint bewerken in Python
 - Python PowerPoint zonder Microsoft Office
 - PPTX beheren met Python
-- dia preview Python
-- audio toevoegen aan dia's met Python
+- dia-preview Python
+- Python audio aan dia's toevoegen
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET biedt een uitgebreide set functies, waaronder het beheren van tekst, vormen, tabellen en animaties, het toevoegen van audio en video aan dia's, het voorvertonen van dia's en het exporteren naar SVG, PDF en meer."
+description: "Aspose.Slides voor Python via .NET biedt een uitgebreide reeks functies, waaronder het beheren van tekst, vormen, tabellen en animaties, het toevoegen van audio en video aan dia's, het previewen van dia's en het exporteren naar SVG, PDF en meer."
 ---
 {{% alert color="primary" %}}
 
-**Welkom bij Aspose.Slides for Python via .NET**
+**Welkom bij Aspose.Slides voor Python via .NET**
 
-![Productlogo van Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.png)
+![Productlogo van Aspose.Slides voor Python via .NET](aspose_slides-for-python.png)
 
-Aspose.Slides for Python via .NET is een robuuste klassenbibliotheek waarmee uw toepassingen PowerPoint®‑presentaties kunnen lezen en schrijven zonder dat Microsoft PowerPoint® vereist is.
+Aspose.Slides voor Python via .NET is een robuuste klasselibrary die uw toepassingen in staat stelt PowerPoint®-presentaties te lezen en te schrijven zonder Microsoft PowerPoint® nodig te hebben.
 
-Het is het eerste en enige component dat volledige PowerPoint®‑documentbeheer biedt voor Python‑ontwikkelaars.
+Het is het eerste en enige component dat volledige PowerPoint®-documentbeheer biedt voor Python-ontwikkelaars.
 
-Aspose.Slides for Python via .NET omvat een breed scala aan functies, zoals werken met tekst, vormen, tabellen en animaties; audio‑ en video‑toevoeging; voorvertoning van dia’s; en het exporteren van dia’s naar formaten zoals SVG, PDF en meer.
+Aspose.Slides voor Python via .NET omvat een breed scala aan functies, zoals werken met tekst, vormen, tabellen en animaties; audio en video toevoegen; dia‑preview; en dia’s exporteren naar formaten zoals SVG, PDF en meer.
 
 {{% /alert %}}
 
-## Aspose.Slides for Python via .NET‑resources
+## Aspose.Slides voor Python via .NET bronnen
 
-Explore these helpful resources::
+Verken deze nuttige bronnen:
 
-- [Aspose.Slides for Python via .NET online documentatie](/slides/nl/python-net/)
-- [Aspose.Slides for Python via .NET‑functies](/slides/nl/python-net/features-overview/)
-- [Aspose.Slides for Python via .NET release-opmerkingen](https://releases.aspose.com/slides/nl/python-net/release-notes/)
-- [Aspose.Slides for Python via .NET productpagina](https://products.aspose.com/slides/nl/python-net/)
-- [Download Aspose.Slides for Python via .NET](https://releases.aspose.com/slides/nl/python-net/)
-- [Installeer Aspose.Slides for Python via .NET PyPi‑pakket](https://pypi.org/project/aspose.slides/)
-- [Aspose.Slides for Python via .NET API‑referentiegids](https://reference.aspose.com/slides/nl/python-net/)
-- [Aspose.Slides for Python via .NET gratis ondersteuningsforum](https://forum.aspose.com/c/slides/nl/11)
-- [Aspose.Slides for Python via .NET betaalde ondersteuningshelpdesk](https://helpdesk.aspose.com/)
+- [Aspose.Slides voor Python via .NET online documentatie](/slides/nl/python-net/)
+- [Aspose.Slides voor Python via .NET functies](/slides/nl/python-net/features-overview/)
+- [Aspose.Slides voor Python via .NET release-opmerkingen](https://releases.aspose.com/slides/nl/python-net/release-notes/)
+- [Aspose.Slides voor Python via .NET productpagina](https://products.aspose.com/slides/nl/python-net/)
+- [Download Aspose.Slides voor Python via .NET](https://releases.aspose.com/slides/nl/python-net/)
+- [Installeer Aspose.Slides voor Python via .NET PyPi‑pakket](https://pypi.org/project/aspose.slides/)
+- [Aspose.Slides voor Python via .NET API-referentiegids](https://reference.aspose.com/slides/nl/python-net/)
+- [Aspose.Slides voor Python via .NET gratis ondersteuningsforum](https://forum.aspose.com/c/slides/nl/11)
+- [Aspose.Slides voor Python via .NET betaalde ondersteuningshelpdesk](https://helpdesk.aspose.com/)
 
 ## Veelgestelde vragen
 
-### Wat is Aspose.Slides for Python via .NET?
+### Wat is Aspose.Slides voor Python via .NET?
 
-Aspose.Slides for Python via .NET is een krachtige Python‑bibliotheek die u in staat stelt PowerPoint‑presentaties (PPT, PPTX, ODP) programmatisch te maken, bewerken en converteren zonder dat Microsoft PowerPoint geïnstalleerd is.
+Aspose.Slides voor Python via .NET is een krachtige Python‑library die u in staat stelt PowerPoint‑presentaties (PPT, PPTX, ODP) programmatically te maken, bewerken en converteren zonder dat Microsoft PowerPoint geïnstalleerd is.
 
-### Welke presentatie‑functies ondersteunt Aspose.Slides?
+### Welke presentatiefuncties ondersteunt Aspose.Slides?
 
-De bibliotheek ondersteunt beheer van tekst, vormen, tabellen, grafieken, animaties, masterdia’s, audio, video en meer. Daarnaast maakt het voorvertoning, renderen, afdrukken en exporteren naar formaten zoals PDF, SVG, HTML en afbeeldingen mogelijk.
+De library ondersteunt het beheren van tekst, vormen, tabellen, grafieken, animaties, masterslides, audio, video en meer. Het maakt ook dia‑preview, rendering, afdrukken en export naar formaten zoals PDF, SVG, HTML en afbeeldingen mogelijk.
 
 ### Kan ik presentaties naar andere formaten converteren met Aspose.Slides?
 
-Ja. Aspose.Slides maakt conversie van PowerPoint‑bestanden naar PDF, SVG, HTML, JPG, PNG, TIFF en andere formaten mogelijk met hoge getrouwheid en prestaties.
+Ja. Aspose.Slides maakt conversie van PowerPoint‑bestanden naar PDF, SVG, HTML, JPG, PNG, TIFF en andere formaten mogelijk met hoge nauwkeurigheid en prestaties.
 
 ### Is Microsoft PowerPoint vereist om Aspose.Slides te gebruiken?
 
-Nee. Aspose.Slides is een zelfstandige API en vereist geen Microsoft Office of andere derde‑partijsoftware.
+Nee. Aspose.Slides is een zelfstandige API en vereist geen Microsoft Office of enige externe software.
 
-### Welke platforms ondersteunt Aspose.Slides for Python via .NET?
+### Welke platformen ondersteunt Aspose.Slides voor Python via .NET?
 
-Het is cross‑platform en werkt op Windows, Linux en macOS omgevingen.
+Het is cross‑platform en werkt in Windows-, Linux- en macOS‑omgevingen.
 
-### Hoe begin ik met Aspose.Slides for Python?
+### Hoe begin ik met Aspose.Slides voor Python?
 
 U kunt het installeren via PyPi en de [Ontwikkelaarsgids](/slides/nl/python-net/developer-guide/) verkennen om aan de slag te gaan met voorbeelden, API‑referenties en tutorials.

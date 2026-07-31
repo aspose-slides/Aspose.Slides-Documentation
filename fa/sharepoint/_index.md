@@ -1,7 +1,7 @@
 ---
-title: Aspose.Slides برای SharePoint
-second_title: مستندات Aspose.Slides
-description: Aspose.Slides for SharePoint یک راه حل انعطاف‌پذیر است که امکان تبدیل اسناد PowerPoint® را در داخل سایت‌های Microsoft SharePoint فراهم می‌کند.
+title: Aspose.Slides for SharePoint
+second_title: Aspose.Slides for SharePoint
+description: Aspose.Slides for SharePoint یک راه حل انعطاف‌پذیر است که امکان تبدیل اسناد PowerPoint® را در سایت‌های Microsoft SharePoint فراهم می‌کند.
 type: docs
 weight: 60
 url: /fa/sharepoint/
@@ -9,7 +9,7 @@ is_root: true
 ---
 {{% alert color="primary" %}}
 
-![Aspose.Slides for SharePoint](home_1.png)
+![Aspose.Slides برای SharePoint](home_1.png)
 
 **به Aspose.Slides for SharePoint خوش آمدید**
 
@@ -19,12 +19,12 @@ Aspose.Slides for SharePoint یک راه حل انعطاف‌پذیر است ک�
 
 ## **منابع Aspose.Slides for SharePoint**
 
-در زیر پیوندهایی به برخی منابع مفیدی که ممکن است برای انجام کارهای خود نیاز داشته باشید، آورده شده است.
+در ادامه لینک‌های برخی از منابع مفیدی که ممکن است برای انجام وظایف خود به آن‌ها نیاز داشته باشید، آمده است.
 
-- [مستندات آنلاین Aspose.Slides for SharePoint](/slides/fa/sharepoint/)
+- [مستندات Aspose.Slides for SharePoint Online](/slides/fa/sharepoint/)
 - [ویژگی‌های Aspose.Slides for SharePoint](/slides/fa/sharepoint/features/)
 - [یادداشت‌های انتشار Aspose.Slides for SharePoint](https://releases.aspose.com/slides/fa/sharepoint/release-notes/)
 - [صفحه محصول Aspose.Slides for SharePoint](https://products.aspose.com/slides/fa/sharepoint/)
 - [دانلود Aspose.Slides for SharePoint](https://releases.aspose.com/slides/fa/sharepoint/)
-- [فروم پشتیبانی رایگان Aspose.Slides for SharePoint](https://forum.aspose.com/c/slides/fa/11)
+- [انجمن پشتیبانی رایگان Aspose.Slides for SharePoint](https://forum.aspose.com/c/slides/fa/11)
 - [پشتیبانی پرداختی Aspose.Slides for SharePoint](https://helpdesk.aspose.com/)

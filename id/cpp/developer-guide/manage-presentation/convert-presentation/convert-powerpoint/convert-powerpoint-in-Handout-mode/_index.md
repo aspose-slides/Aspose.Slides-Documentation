@@ -1,9 +1,9 @@
 ---
-title: Konversi Presentasi PowerPoint ke Mode Handout Menggunakan C++
+title: Mengonversi Presentasi PowerPoint dalam Mode Handout Menggunakan C++
 linktitle: Mode Handout
 type: docs
 weight: 150
-url: /id/cpp/convert-powerpoint-in-Handout-mode/
+url: /id/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - konversi PowerPoint
 - konversi presentasi
@@ -15,21 +15,23 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Konversi presentasi menjadi handout dengan C++. Atur jumlah slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar menggunakan Aspose.Slides, lengkap dengan contoh kode. Coba secara gratis."
+description: "Mengonversi presentasi menjadi handout dalam C++. Atur slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar dengan Aspose.Slides, dengan contoh kode. Coba gratis."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides menyediakan kemampuan untuk mengonversi presentasi ke berbagai format, termasuk membuat handout untuk pencetakan dalam mode Handout. Mode ini memungkinkan Anda mengatur bagaimana beberapa slide ditampilkan pada satu halaman, sehingga berguna untuk konferensi, seminar, dan acara lainnya. Anda dapat mengaktifkan mode ini dengan menetapkan metode `set_SlidesLayoutOptions` pada antarmuka [IPdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/itiffoptions/) .
+Aspose.Slides menyediakan kemampuan untuk mengonversi presentasi ke berbagai format, termasuk membuat handout untuk pencetakan dalam mode Handout. Mode ini memungkinkan Anda mengonfigurasi bagaimana beberapa slide muncul pada satu halaman, menjadikannya berguna untuk konferensi, seminar, dan acara lainnya. Anda dapat mengaktifkan mode ini dengan mengatur metode `set_SlidesLayoutOptions` pada antarmuka [IPdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/itiffoptions/) .
 
 ## **Ekspor Mode Handout**
 
-Untuk mengatur mode Handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/handoutlayoutingoptions/) , yang menentukan berapa banyak slide yang ditempatkan pada satu halaman serta parameter tampilan lainnya.
+Untuk mengonfigurasi mode Handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/handoutlayoutingoptions/), yang menentukan berapa banyak slide yang ditempatkan pada satu halaman serta parameter tampilan lainnya.
+
+Berikut adalah contoh kode yang menunjukkan cara mengonversi presentasi ke PDF dalam mode Handout.
 
 ```cpp
 // Muat presentasi.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Set the export options.
+// Atur opsi ekspor.
 auto slidesLayoutOptions = MakeObject<HandoutLayoutingOptions>();
 slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // 4 slide pada satu halaman secara horizontal
 slidesLayoutOptions->set_PrintSlideNumbers(true);                    // cetak nomor slide
@@ -39,13 +41,13 @@ slidesLayoutOptions->set_PrintComments(false);                       // tanpa ko
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(slidesLayoutOptions);
 
-// Export the presentation to PDF with the chosen layout.
+// Ekspor presentasi ke PDF dengan tata letak yang dipilih.
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
 {{% alert color="warning" %}} 
-Perlu diingat bahwa metode `set_SlidesLayoutOptions` hanya tersedia untuk format output tertentu, seperti PDF, HTML, TIFF, dan saat merender sebagai gambar. 
+Perlu diingat bahwa metode `set_SlidesLayoutOptions` hanya tersedia untuk format output tertentu, seperti PDF, HTML, TIFF, dan saat merender sebagai gambar.
 {{% /alert %}} 
 
 ## **FAQ**
@@ -56,8 +58,8 @@ Aspose.Slides mendukung [presets](https://reference.aspose.com/slides/id/cpp/asp
 
 **Apakah saya dapat menentukan grid khusus, seperti 5 atau 8 slide per halaman?**
 
-Tidak. Jumlah dan urutan thumbnail dikontrol secara ketat oleh enumerasi [HandoutType](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/handouttype/) ; tata letak arbitrer tidak didukung.
+Tidak. Jumlah dan urutan thumbnail dikontrol secara ketat oleh enumerasi [HandoutType](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/handouttype/); sehingga tata letak arbitrer tidak didukung.
 
 **Apakah saya dapat menyertakan slide tersembunyi dalam output Handout?**
 
-Ya. Gunakan metode `set_ShowHiddenSlides` pada pengaturan ekspor untuk format target, seperti [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/htmloptions/), atau [TiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/tiffoptions/).
+Ya. Gunakan metode `set_ShowHiddenSlides` dalam pengaturan ekspor untuk format target, seperti [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/htmloptions/), atau [TiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/tiffoptions/).

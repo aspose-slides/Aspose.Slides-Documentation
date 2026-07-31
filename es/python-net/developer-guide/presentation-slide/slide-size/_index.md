@@ -8,7 +8,7 @@ keywords:
 - tamaño de diapositiva
 - relación de aspecto
 - estándar
-- panorámico
+- pantalla ancha
 - 4:3
 - 16:9
 - establecer tamaño de diapositiva
@@ -19,43 +19,34 @@ keywords:
 - diapositiva de tamaño completo
 - tipo de pantalla
 - no escalar
-- asegurar ajuste
+- garantizar ajuste
 - maximizar
 - PowerPoint
 - OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda a cambiar rápidamente el tamaño de las diapositivas en archivos PPT, PPTX y ODP con Python y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
+description: "Aprende a cambiar rápidamente el tamaño de las diapositivas en archivos PPT, PPTX y ODP con Python y Aspose.Slides, y optimiza presentaciones para cualquier pantalla sin perder calidad."
 ---
+## **Introducción**
 
-## Tamaños de diapositivas en presentaciones de PowerPoint
+Aspose.Slides ofrece herramientas completas para ajustar el tamaño de la diapositiva y la relación de aspecto en presentaciones de PowerPoint, lo que resulta fundamental tanto para la impresión como para la visualización en pantalla.
 
-Aspose.Slides for Python via .NET permite cambiar el tamaño de la diapositiva o la relación de aspecto en presentaciones de PowerPoint. Si planea imprimir su presentación o mostrar sus diapositivas en una pantalla, debe prestar atención al tamaño de la diapositiva o a la relación de aspecto. 
+Tamaños de diapositiva y relaciones de aspecto más populares:
 
-Estos son los tamaños de diapositiva y relaciones de aspecto más comunes:
+- **Estándar (relación de aspecto 4:3)**: Ideal para pantallas y dispositivos más antiguos.
+- **Pantalla ancha (relación de aspecto 16:9)**: Recomendado para proyectores y pantallas modernas.
 
-- **Estándar (relación de aspecto 4:3)**
-
-  Si su presentación se mostrará o visualizará en dispositivos o pantallas relativamente antiguos, es posible que desee usar esta configuración. 
-
-- **Panorámica (relación de aspecto 16:9)** 
-
-  Si su presentación se verá en proyectores o pantallas modernas, es posible que desee usar esta configuración. 
-
-No puede usar varias configuraciones de tamaño de diapositiva en una sola presentación. Cuando selecciona un tamaño de diapositiva para una presentación, esa configuración se aplica a todas las diapositivas de la presentación. 
-
-Si prefiere usar un tamaño de diapositiva especial para sus presentaciones, le recomendamos encarecidamente hacerlo temprano. Idealmente, debe especificar su tamaño de diapositiva preferido al principio, es decir, cuando apenas está configurando la presentación—antes de agregar cualquier contenido a la presentación. De esta manera, evita complicaciones derivadas de cambios (futuros) en el tamaño de las diapositivas. 
+Asegúrese de mantener la coherencia en toda su presentación, ya que un único tamaño de diapositiva y relación de aspecto se aplican a todas las diapositivas. Para obtener resultados óptimos, establezca las dimensiones de sus diapositivas al inicio del proceso de creación de la presentación para evitar complicaciones.
 
 {{% alert color="primary" %}} 
+Por defecto, las presentaciones creadas con Aspose.Slides utilizan la relación de aspecto estándar 4:3.
+{{% /alert %}}
 
- Cuando usa Aspose.Slides para crear una presentación, todas las diapositivas de la presentación obtienen automáticamente el tamaño estándar o la relación de aspecto 4:3.
+## **Cambiar el tamaño de la diapositiva en una presentación**
 
-{{% /alert %}} 
+Este fragmento de código muestra cómo cambiar el tamaño de la diapositiva en una presentación en Python usando Aspose.Slides:
 
-## Cambiar el tamaño de la diapositiva en presentaciones 
-
- Este fragmento de código le muestra cómo cambiar el tamaño de la diapositiva en una presentación en Python usando Aspose.Slides:
 ```py
 import aspose.slides as slides
 
@@ -64,12 +55,12 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
     pres.save("pres-4x3-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Especificar tamaños de diapositiva personalizados**
 
-## Especificar tamaños de diapositiva personalizados en presentaciones
+Si considera que los tamaños de diapositiva habituales (4:3 y 16:9) no son adecuados para su trabajo, puede decidir utilizar un tamaño de diapositiva específico o único. Por ejemplo, si planea imprimir diapositivas a tamaño completo de su presentación en un diseño de página personalizado o si pretende mostrar su presentación en ciertos tipos de pantalla, probablemente se beneficie de usar una configuración de tamaño personalizado para su presentación.
 
-Si considera que los tamaños de diapositiva comunes (4:3 y 16:9) no son adecuados para su trabajo, puede decidir usar un tamaño de diapositiva específico o único. Por ejemplo, si planea imprimir diapositivas a tamaño completo de su presentación en un diseño de página personalizado o si pretende mostrar su presentación en ciertos tipos de pantalla, probablemente se beneficie de usar una configuración de tamaño personalizada para su presentación. 
+Este fragmento de código muestra cómo usar Aspose.Slides para Python a través de .NET para especificar un tamaño de diapositiva personalizado para una presentación en Python:
 
-Este fragmento de código le muestra cómo usar Aspose.Slides for Python via .NET para especificar un tamaño de diapositiva personalizado para una presentación en Python:
 ```py
 import aspose.slides as slides
 
@@ -78,12 +69,11 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
     pres.save("pres-a4-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Gestionar el contenido de la diapositiva después de cambiar el tamaño**
 
-## Resolver problemas al cambiar el tamaño de las diapositivas en presentaciones
+Después de cambiar el tamaño de la diapositiva de una presentación, el contenido de las diapositivas (imágenes u objetos, por ejemplo) puede distorsionarse. Por defecto, los objetos se redimensionan automáticamente para ajustarse al nuevo tamaño de la diapositiva. Sin embargo, al cambiar el tamaño de la diapositiva de una presentación, puede especificar una configuración que determina cómo Aspose.Slides gestiona el contenido de las diapositivas.
 
-Después de cambiar el tamaño de la diapositiva de una presentación, el contenido de las diapositivas (imágenes u objetos, por ejemplo) puede distorsionarse. Por defecto, los objetos se redimensionan automáticamente para ajustarse al nuevo tamaño de la diapositiva. Sin embargo, al cambiar el tamaño de la diapositiva de una presentación, puede especificar una configuración que determina cómo Aspose.Slides maneja el contenido de las diapositivas.
-
-Dependiendo de lo que pretenda hacer o lograr, puede usar cualquiera de estas configuraciones:
+Dependiendo de lo que pretenda hacer o lograr, puede utilizar cualquiera de estas configuraciones:
 
 - `DO_NOT_SCALE`
 
@@ -91,13 +81,14 @@ Dependiendo de lo que pretenda hacer o lograr, puede usar cualquiera de estas co
 
 - `ENSURE_FIT`
 
-  Si desea escalar a un tamaño de diapositiva más pequeño y necesita que Aspose.Slides reduzca los objetos de las diapositivas para asegurarse de que todos quepan en las diapositivas (de este modo, evita perder contenido), use esta configuración. 
+  Si desea escalar a un tamaño de diapositiva más pequeño y necesita que Aspose.Slides reduzca los objetos de las diapositivas para garantizar que todos quepan en ellas (de este modo, evita perder contenido), use esta configuración.
 
 - `MAXIMIZE`
 
-  Si desea escalar a un tamaño de diapositiva mayor y necesita que Aspose.Slides amplíe los objetos de las diapositivas para que sean proporcionales al nuevo tamaño de la diapositiva, use esta configuración. 
+  Si desea escalar a un tamaño de diapositiva mayor y necesita que Aspose.Slides amplíe los objetos de las diapositivas para que sean proporcionales al nuevo tamaño, use esta configuración.
 
-Este fragmento de código le muestra cómo usar la configuración `MAXIMIZE` al cambiar el tamaño de la diapositiva de una presentación:
+Este fragmento de código muestra cómo usar la configuración `MAXIMIZE` al cambiar el tamaño de la diapositiva de una presentación:
+
 ```py
 import aspose.slides as slides
 
@@ -105,21 +96,20 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
    pres.slide_size.set_size(slides.SlideSizeType.LEDGER, slides.SlideSizeScaleType.MAXIMIZE)
 ```
 
-
 ## **Preguntas frecuentes**
 
 **¿Puedo establecer un tamaño de diapositiva personalizado usando unidades distintas de pulgadas (por ejemplo, puntos o milímetros)?**
 
-Sí. Aspose.Slides usa puntos internamente, donde 1 punto equivale a 1/72 de pulgada. Puede convertir cualquier unidad (como milímetros o centímetros) a puntos y usar los valores convertidos para definir el ancho y la altura de la diapositiva.
+Sí. Aspose.Slides utiliza puntos internamente, donde 1 punto equivale a 1/72 de pulgada. Puede convertir cualquier unidad (como milímetros o centímetros) a puntos y usar los valores convertidos para definir el ancho y la altura de la diapositiva.
 
-**¿Un tamaño de diapositiva personalizado muy grande afectará el rendimiento y el consumo de memoria durante el renderizado?**
+**¿Afectará un tamaño de diapositiva personalizado muy grande al rendimiento y al uso de memoria durante la renderización?**
 
-Sí. Dimensiones de diapositiva más grandes (en puntos) combinadas con una escala de renderizado más alta generan mayor consumo de memoria y tiempos de procesamiento más largos. Apunte a un tamaño de diapositiva práctico y ajuste la escala de renderizado solo cuando sea necesario para lograr la calidad de salida deseada.
+Sí. Dimensiones de diapositiva mayores (en puntos) combinadas con una escala de renderizado más alta provocan un mayor consumo de memoria y tiempos de procesamiento más largos. Apunte a un tamaño de diapositiva práctico y ajuste la escala de renderizado solo cuando sea necesario para alcanzar la calidad de salida deseada.
 
-**¿Puedo definir un solo tamaño de diapositiva no estándar y luego fusionar diapositivas de presentaciones que tengan tamaños diferentes?**
+**¿Puedo definir un tamaño de diapositiva no estándar y luego combinar diapositivas de presentaciones que tengan tamaños diferentes?**
 
-No puede [fusionar presentaciones](/slides/es/python-net/merge-presentation/) mientras tengan tamaños de diapositiva diferentes; primero, redimensione una presentación para que coincida con la otra. Al cambiar el tamaño de la diapositiva, puede elegir cómo se maneja el contenido existente mediante la opción [SlideSizeScaleType](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/). Después de alinear los tamaños, puede fusionar diapositivas conservando el formato.
+No puede [merge presentations](/slides/es/python-net/merge-presentation/) mientras tengan diferentes tamaños de diapositiva — primero, redimensione una presentación para que coincida con la otra. Al cambiar el tamaño de la diapositiva, puede elegir cómo se maneja el contenido existente mediante la opción [SlideSizeScaleType](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidesizescaletype/). Después de alinear los tamaños, puede combinar diapositivas conservando el formato.
 
 **¿Puedo generar miniaturas para formas individuales o regiones específicas de una diapositiva, y respetarán el nuevo tamaño de la diapositiva?**
 
-Sí. Aspose.Slides puede generar miniaturas para [todas las diapositivas](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) así como para [formas seleccionadas](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/). Las imágenes resultantes reflejan el tamaño y la relación de aspecto actuales de la diapositiva, garantizando un encuadre y una geometría consistentes.
+Sí. Aspose.Slides puede generar miniaturas para [entire slides](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/get_image/) así como para [selected shapes](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_image/). Las imágenes resultantes reflejan el tamaño y la relación de aspecto actuales de la diapositiva, garantizando un encuadre y una geometría coherentes.

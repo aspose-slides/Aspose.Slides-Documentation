@@ -3,11 +3,13 @@ title: Anteckning
 type: docs
 weight: 240
 url: /sv/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/anteckning/
 keywords:
 - anteckning
-- lägg till anteckningsslide
-- åtkomst till anteckningsslide
-- ta bort anteckningsslide
+- lägg till anteckningsbild
+- få åtkomst till anteckningsbild
+- ta bort anteckningsbild
 - uppdatera anteckningstext
 - kodexempel
 - PowerPoint
@@ -16,13 +18,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Arbeta med bildanteckningar i Aspose.Slides för .NET: lägg till, läs, redigera och exportera presentatörsanteckningar i PPT, PPTX och ODP med tydliga C#-exempel."
+description: "Arbeta med bildanteckningar i Aspose.Slides för .NET: lägg till, läs, redigera och exportera talaranteckningar i PPT, PPTX och ODP med tydliga C#-exempel."
 ---
-Denna artikel visar hur man lägger till, läser, tar bort och uppdaterar notslides med **Aspose.Slides for .NET**.
+Denna artikel visar hur du lägger till, läser, tar bort och uppdaterar anteckningsbilder med **Aspose.Slides for .NET**.
 
-## **Lägg till en anteckningsslide**
+## **Lägg till en anteckningsbild**
 
-Skapa en anteckningsslide och tilldela text till den.
+Skapa en anteckningsbild och tilldela text till den.
 
 ```csharp
 static void AddNote()
@@ -35,9 +37,9 @@ static void AddNote()
 }
 ```
 
-## **Åtkomst till en anteckningsslide**
+## **Få åtkomst till en anteckningsbild**
 
-Läs text från en befintlig anteckningsslide.
+Läs text från en befintlig anteckningsbild.
 
 ```csharp
 static void AccessNote()
@@ -51,9 +53,9 @@ static void AccessNote()
 }
 ```
 
-## **Ta bort en anteckningsslide**
+## **Ta bort en anteckningsbild**
 
-Ta bort anteckningssliden som är kopplad till en bild.
+Ta bort anteckningsbilden som är associerad med en bild.
 
 ```csharp
 static void RemoveNote()
@@ -67,9 +69,9 @@ static void RemoveNote()
 }
 ```
 
-## **Uppdatera anteckningstexten**
+## **Uppdatera anteckningstext**
 
-Ändra texten på en anteckningsslide.
+Ändra texten på en anteckningsbild.
 
 ```csharp
 static void UpdateNoteText()

@@ -1,5 +1,5 @@
 ---
-title: Foliengröße in der Präsentation mit PHP ändern
+title: Foliengröße in Präsentationen mit PHP ändern
 linktitle: Foliengröße
 type: docs
 weight: 70
@@ -14,9 +14,9 @@ keywords:
 - Foliengröße festlegen
 - Foliengröße ändern
 - benutzerdefinierte Foliengröße
-- spezielle Foliengröße
+- besondere Foliengröße
 - einzigartige Foliengröße
-- Folie in voller Größe
+- Vollformatfolie
 - Bildschirmtyp
 - nicht skalieren
 - Passend anpassen
@@ -26,36 +26,27 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit PHP und Aspose.Slides schnell skalieren, Präsentationen für jeden Bildschirm optimieren, ohne Qualitätsverlust."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit PHP und Aspose.Slides schnell skalieren und Präsentationen für jeden Bildschirm optimieren, ohne Qualitätsverlust."
 ---
+## **Einführung**
 
-## **Foliengrößen in PowerPoint-Präsentationen**
+Aspose.Slides bietet umfassende Werkzeuge zum Anpassen der Foliengröße und des Seitenverhältnisses in PowerPoint‑Präsentationen, die sowohl für den Druck als auch für die Anzeige auf dem Bildschirm entscheidend sind.
 
-Aspose.Slides für PHP via Java ermöglicht das Ändern der Foliengröße oder des Seitenverhältnisses in PowerPoint-Präsentationen. Wenn Sie Ihre Präsentation drucken oder die Folien auf einem Bildschirm anzeigen möchten, müssen Sie auf die Foliengröße bzw. das Seitenverhältnis achten.
+Beliebte Foliengrößen und Seitenverhältnisse:
 
-Dies sind die gängigsten Foliengrößen und Seitenverhältnisse:
+- **Standard (4:3 Seitenverhältnis)**: Ideal für ältere Bildschirme und Geräte.
+- **Widescreen (16:9 Seitenverhältnis)**: Empfohlen für moderne Projektoren und Bildschirme.
 
-- **Standard (4:3 Seitenverhältnis)**
-
-  Wenn Ihre Präsentation auf relativ älteren Geräten oder Bildschirmen angezeigt oder betrachtet wird, möchten Sie vielleicht diese Einstellung verwenden. 
-
-- **Breitbild (16:9 Seitenverhältnis)** 
-
-  Wenn Ihre Präsentation auf modernen Projektoren oder Bildschirmen angezeigt wird, möchten Sie vielleicht diese Einstellung verwenden. 
-
-Sie können nicht mehrere Foliengrößeneinstellungen in einer einzelnen Präsentation verwenden. Wenn Sie eine Foliengröße für eine Präsentation auswählen, wird diese Einstellung auf alle Folien der Präsentation angewendet. 
-
-Wenn Sie für Ihre Präsentationen eine spezielle Foliengröße verwenden möchten, empfehlen wir dringend, dies frühzeitig zu tun. Idealerweise sollten Sie Ihre bevorzugte Folie zu Beginn festlegen, d. h. bereits beim Erstellen der Präsentation – bevor Sie Inhalte hinzufügen. Auf diese Weise vermeiden Sie Komplikationen, die durch (zukünftige) Änderungen der Foliengröße entstehen. 
+Stellen Sie die Konsistenz in Ihrer gesamten Präsentation sicher, da eine einheitliche Foliengröße und ein einheitliches Seitenverhältnis für alle Folien gelten. Für optimale Ergebnisse legen Sie die Folienabmessungen zu Beginn des Erstellungsprozesses Ihrer Präsentation fest, um Komplikationen zu vermeiden.
 
 {{% alert color="primary" %}} 
-
- Wenn Sie Aspose.Slides verwenden, um eine Präsentation zu erstellen, erhalten alle Folien in der Präsentation automatisch die Standardgröße bzw. das 4:3‑Seitenverhältnis.
-
-{{% /alert %}} 
+Standardmäßig verwenden mit Aspose.Slides erstellte Präsentationen das Standard‑Seitenverhältnis 4:3.
+{{% /alert %}}
 
 ## **Foliengröße in Präsentationen ändern**
 
- Dieser Beispielcode zeigt, wie Sie die Foliengröße in einer Präsentation mit Aspose.Slides ändern:
+Dieser Beispielcode zeigt, wie Sie die Foliengröße in einer Präsentation mit Aspose.Slides ändern:
+
 ```php
   $pres = new Presentation("pres-4x3-aspect-ratio.pptx");
   try {
@@ -68,12 +59,12 @@ Wenn Sie für Ihre Präsentationen eine spezielle Foliengröße verwenden möcht
   }
 ```
 
+## **Benutzerdefinierte Foliengrößen in Präsentationen festlegen**
 
-## **Benutzerdefinierte Foliengrößen in Präsentationen angeben**
+Wenn die üblichen Foliengrößen (4:3 und 16:9) für Ihre Arbeit ungeeignet sind, können Sie eine spezifische oder einzigartige Foliengröße verwenden. Beispielsweise profitieren Sie von einer benutzerdefinierten Größe, wenn Sie Vollformat‑Folien Ihrer Präsentation auf einem individuellen Seitenlayout drucken oder Ihre Präsentation auf bestimmten Bildschirmtypen anzeigen möchten.
 
- Wenn die gängigen Foliengrößen (4:3 und 16:9) für Ihre Arbeit nicht geeignet sind, können Sie eine spezifische oder einzigartige Foliengröße verwenden. Beispielsweise, wenn Sie beabsichtigen, Folien Ihrer Präsentation in voller Größe auf einem benutzerdefinierten Seitenlayout zu drucken oder die Präsentation auf bestimmten Bildschirmtypen anzuzeigen, profitieren Sie wahrscheinlich von einer benutzerdefinierten Größeneinstellung für Ihre Präsentation. 
+Dieser Beispielcode zeigt, wie Sie Aspose.Slides für PHP via Java verwenden, um eine benutzerdefinierte Foliengröße für eine Präsentation festzulegen:
 
- Dieser Beispielcode zeigt, wie Sie Aspose.Slides für PHP via Java verwenden, um eine benutzerdefinierte Foliengröße für eine Präsentation festzulegen:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -87,12 +78,11 @@ Wenn Sie für Ihre Präsentationen eine spezielle Foliengröße verwenden möcht
   }
 ```
 
-
 ## **Folieninhalt nach Größenänderung verarbeiten**
 
- Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Inhalte der Folien (z. B. Bilder oder Objekte) verzerrt werden. Standardmäßig werden die Objekte automatisch an die neue Foliengröße angepasst. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung festlegen, die bestimmt, wie Aspose.Slides mit den Inhalten auf den Folien umgeht.
+Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Inhalte der Folien (z. B. Bilder oder Objekte) verzerrt werden. Standardmäßig werden die Objekte automatisch an die neue Foliengröße angepasst. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung festlegen, die bestimmt, wie Aspose.Slides mit den Inhalten auf den Folien umgeht.
 
- Je nach dem, was Sie tun oder erreichen möchten, können Sie eine dieser Einstellungen verwenden:
+Je nach dem, was Sie erreichen möchten, können Sie eine dieser Einstellungen verwenden:
 
 - `DoNotScale`
 
@@ -100,13 +90,14 @@ Wenn Sie für Ihre Präsentationen eine spezielle Foliengröße verwenden möcht
 
 - `EnsureFit`
 
-  Wenn Sie auf eine kleinere Foliengröße skalieren und Aspose.Slides die Folienobjekte verkleinern soll, damit sie alle auf die Folien passen (so vermeiden Sie Inhaltsverlust), verwenden Sie diese Einstellung. 
+  Wenn Sie zu einer kleineren Foliengröße skalieren und Aspose.Slides die Folienobjekte verkleinern soll, damit alle auf die Folien passen (so vermeiden Sie den Verlust von Inhalten), verwenden Sie diese Einstellung.
 
 - `Maximize`
 
-  Wenn Sie auf eine größere Foliengröße skalieren und Aspose.Slides die Folienobjekte vergrößern soll, damit sie proportional zur neuen Foliengröße werden, verwenden Sie diese Einstellung. 
+  Wenn Sie zu einer größeren Foliengröße skalieren und Aspose.Slides die Folienobjekte vergrößern soll, damit sie proportional zur neuen Foliengröße sind, verwenden Sie diese Einstellung.
 
- Dieser Beispielcode zeigt, wie Sie die Einstellung `Maximize` beim Ändern der Foliengröße einer Präsentation verwenden:
+Dieser Beispielcode zeigt, wie Sie die Einstellung `Maximize` verwenden, wenn Sie die Größe einer Folie einer Präsentation ändern:
+
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -118,21 +109,20 @@ Wenn Sie für Ihre Präsentationen eine spezielle Foliengröße verwenden möcht
   }
 ```
 
-
 ## **FAQ**
 
-**Kann ich eine benutzerdefinierte Foliengröße mit anderen Einheiten als Zoll festlegen (z. B. Punkte oder Millimeter)?**
+**Kann ich eine benutzerdefinierte Foliengröße mit anderen Einheiten als Zoll festlegen (zum Beispiel Punkte oder Millimeter)?**
 
-Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. Sie können beliebige Einheiten (wie Millimeter oder Zentimeter) in Punkte umrechnen und die konvertierten Werte zur Definition von Folienbreite und -höhe verwenden.
+Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. Sie können jede Einheit (wie Millimeter oder Zentimeter) in Punkte umrechnen und die umgerechneten Werte zur Festlegung von Folienbreite und -höhe verwenden.
 
-**Beeinflusst eine sehr große benutzerdefinierte Foliengröße die Leistung und den Speicherverbrauch beim Rendern?**
+**Wirkt sich eine sehr große benutzerdefinierte Foliengröße auf die Leistung und den Speicherverbrauch beim Rendern aus?**
 
-Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einer höheren Render‑Skala führen zu höherem Speicherverbrauch und längeren Verarbeitungszeiten. Streben Sie eine praktische Foliengröße an und passen Sie die Render‑Skala nur bei Bedarf an, um die gewünschte Ausgabqualität zu erreichen.
+Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einem höheren Render‑Skalenfaktor führen zu erhöhtem Speicherverbrauch und längeren Verarbeitungszeiten. Ziel ist eine praktikable Foliengröße, und der Render‑Skalenfaktor sollte nur bei Bedarf angepasst werden, um die gewünschte Ausgabequalität zu erreichen.
 
-**Kann ich eine nicht‑standardmäßige Foliengröße festlegen und dann Folien aus Präsentationen zusammenführen, die unterschiedliche Größen haben?**
+**Kann ich eine nicht‑standardmäßige Foliengröße definieren und anschließend Folien aus Präsentationen mit unterschiedlichen Größen zusammenführen?**
 
-Sie können nicht [Präsentationen zusammenführen](/slides/de/php-java/merge-presentation/), solange sie unterschiedliche Foliengrößen haben — resize zunächst eine Präsentation, damit sie der anderen entspricht. Beim Ändern der Foliengröße können Sie über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/php-java/aspose.slides/slidesizescaletype/) festlegen, wie vorhandene Inhalte behandelt werden. Nach dem Angleichen der Größen können Sie Folien zusammenführen und dabei die Formatierung beibehalten.
+Sie können nicht [merge presentations](/slides/de/php-java/merge-presentation/) durchführen, solange die Präsentationen unterschiedliche Foliengrößen haben – passen Sie zunächst eine Präsentation an die andere an. Beim Ändern der Foliengröße können Sie über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidesizescaletype/) festlegen, wie vorhandene Inhalte behandelt werden. Nach der Angleichung der Größen können Sie Folien zusammenführen und dabei die Formatierung beibehalten.
 
 **Kann ich Miniaturansichten für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und berücksichtigen sie die neue Foliengröße?**
 
-Ja. Aspose.Slides kann Miniaturansichten für [gesamte Folien](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) sowie für [ausgewählte Formen](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) rendern. Die erzeugten Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider und gewährleisten eine konsistente Bildrahmung und Geometrie.
+Ja. Aspose.Slides kann Miniaturansichten für [entire slides](https://reference.aspose.com/slides/de/php-java/aspose.slides/slide/#getImage) sowie für [selected shapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/#getImage) rendern. Die resultierenden Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider und sorgen für konsistente Bildausschnitte und Geometrie.

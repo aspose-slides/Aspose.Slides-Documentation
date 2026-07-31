@@ -1,6 +1,6 @@
 ---
-title: "Linienformen zu Präsentationen in Java hinzufügen"
-linktitle: "Linie"
+title: Linienformen zu Präsentationen in Java hinzufügen
+linktitle: Linie
 type: docs
 weight: 50
 url: /de/java/line/
@@ -17,67 +17,63 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie die Linienformatierung in PowerPoint-Präsentationen mit Aspose.Slides für Java manipulieren. Entdecken Sie Eigenschaften, Methoden und Beispiele."
+description: "Erfahren Sie, wie Sie die Linienformatierung in PowerPoint‑Präsentationen mit Aspose.Slides für Java manipulieren. Entdecken Sie Eigenschaften, Methoden und Beispiele."
 ---
+## **Übersicht**
 
-{{% alert color="primary" %}} 
+Aspose.Slides ermöglicht es Ihnen, Linienformen programmgesteuert zu PowerPoint‑Folien hinzuzufügen. Dieser Artikel zeigt, wie Sie eine einfache Linie erstellen und wie Sie eine Linie anpassen, sodass sie als Pfeil dargestellt wird.
 
-Aspose.Slides for Java unterstützt das Hinzufügen verschiedener Formen zu den Folien. In diesem Thema beginnen wir mit Formen, indem wir Linien zu den Folien hinzufügen. Mit Aspose.Slides for Java können Entwickler nicht nur einfache Linien erstellen, sondern auch ausgefallene Linien auf den Folien zeichnen.
+Sie lernen, wie Sie einer Folie eine Linienform hinzufügen, ihr Aussehen anpassen und die aktualisierte Präsentation speichern. Die Beispiele konzentrieren sich auf praktische Formatierungseinstellungen für Linien, wie Stil, Breite, Strichmuster, Pfeilspitzenoptionen und Füllfarbe.
 
-{{% /alert %}} 
+## **Einfache Linie erstellen**
 
-## **Eine einfache Linie erstellen**
+- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/Presentation).
+- Rufen Sie die Referenz einer Folie über deren Index ab.
+- Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) ein AutoShape vom Typ Line hinzu, die vom Objekt [IShapeCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/IShapeCollection) bereitgestellt wird.
+- Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Um eine einfache Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, gehen Sie bitte wie folgt vor:
+Im nachstehenden Beispiel haben wir eine Linie zur ersten Folie der Präsentation hinzugefügt.
 
-- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
-- Fügen Sie eine AutoShape vom Typ Line hinzu, indem Sie die Methode [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) verwenden, die vom Objekt [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) bereitgestellt wird.
-- Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
-
-Im nachstehenden Beispiel haben wir einer ersten Folie der Präsentation eine Linie hinzugefügt.
 ```java
-// Instanziieren Sie die PresentationEx-Klasse, die die PPTX-Datei repräsentiert
+// Instanziiere die PresentationEx-Klasse, die die PPTX-Datei repräsentiert
 Presentation pres = new Presentation();
 try {
-    // Holen Sie die erste Folie
+    // Hole die erste Folie
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Fügen Sie eine AutoShape vom Typ Linie hinzu
+    // Füge ein AutoShape vom Typ Linie hinzu
     sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
     
-    // Schreiben Sie die PPTX auf die Festplatte
+    // Schreibe die PPTX-Datei auf die Festplatte
     pres.save("LineShape.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **Pfeilförmige Linie erstellen**
 
-## **Eine pfeilförmige Linie erstellen**
+- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/Presentation).
+- Rufen Sie die Referenz einer Folie über deren Index ab.
+- Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) ein AutoShape vom Typ Line hinzu, die vom Objekt [IShapeCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/IShapeCollection) bereitgestellt wird.
+- Setzen Sie den [Line Style](https://reference.aspose.com/slides/de/java/com.aspose.slides/LineStyle) auf einen der von Aspose.Slides für Java angebotenen Stile.
+- Legen Sie die Breite der Linie fest.
+- Setzen Sie den [Dash Style](https://reference.aspose.com/slides/de/java/com.aspose.slides/LineDashStyle) der Linie auf einen der von Aspose.Slides für Java angebotenen Stile.
+- Legen Sie den [Arrow Head Style](https://reference.aspose.com/slides/de/java/com.aspose.slides/LineArrowheadStyle) und die [Length](https://reference.aspose.com/slides/de/java/com.aspose.slides/LineArrowheadLength) des Startpunkts der Linie fest.
+- Legen Sie den [Arrow Head Style](https://reference.aspose.com/slides/de/java/com.aspose.slides/LineArrowheadStyle) und die [Length](https://reference.aspose.com/slides/de/java/com.aspose.slides/LineArrowheadLength) des Endpunkts der Linie fest.
+- Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Aspose.Slides for Java ermöglicht es Entwicklern zudem, einige Eigenschaften der Linie zu konfigurieren, damit sie ansprechender aussieht. Versuchen wir, einige Eigenschaften einer Linie so zu konfigurieren, dass sie wie ein Pfeil aussieht. Bitte folgen Sie den nachstehenden Schritten, um dies zu tun:
-
-- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
-- Fügen Sie eine AutoShape vom Typ Line hinzu, indem Sie die Methode [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) verwenden, die vom Objekt [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) bereitgestellt wird.
-- Setzen Sie den [Line Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineStyle) auf einen der von Aspose.Slides for Java angebotenen Stile.
-- Setzen Sie die Breite der Linie.
-- Setzen Sie den [Dash Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineDashStyle) der Linie auf einen der von Aspose.Slides for Java angebotenen Stile.
-- Setzen Sie den [Arrow Head Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadStyle) und die [Length](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadLength) des Startpunkts der Linie.
-- Setzen Sie den [Arrow Head Style](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadStyle) und die [Length](https://reference.aspose.com/slides/java/com.aspose.slides/LineArrowheadLength) des Endpunkts der Linie.
-- Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
 ```java
-// Instanziieren Sie die PresentationEx-Klasse, die die PPTX-Datei darstellt
+// Instanziiere die PresentationEx-Klasse, die die PPTX-Datei repräsentiert
 Presentation pres = new Presentation();
 try {
-    // Holen Sie die erste Folie
+    // Hole die erste Folie
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Linie hinzu
+    // Füge ein AutoShape vom Typ Linie hinzu
     IAutoShape shp = sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // Wenden Sie einige Formatierungen auf die Linie an
+    // Wende einige Formatierungen auf die Linie an
     shp.getLineFormat().setStyle(LineStyle.ThickBetweenThin);
     shp.getLineFormat().setWidth(10);
 
@@ -92,24 +88,23 @@ try {
     shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Maroon));
 
-    // Schreiben Sie die PPTX auf die Festplatte
+    // Schreibe die PPTX-Datei auf die Festplatte
     pres.save("LineShape.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**Kann ich eine normale Linie in einen Connector umwandeln, damit sie an Formen „einrastet“?**
+**Kann ich eine normale Linie in einen Connector umwandeln, sodass sie an Formen „einrastet“?**
 
-Nein. Eine normale Linie (eine [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/) vom Typ [Line](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/)) wird nicht automatisch zu einem Connector. Um sie an Formen einrasten zu lassen, verwenden Sie den speziellen [Connector](https://reference.aspose.com/slides/java/com.aspose.slides/connector/)‑Typ und die [entsprechende APIs](/slides/de/java/connector/) für Verbindungen.
+Nein. Eine normale Linie (ein [AutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/autoshape/) vom Typ [Line](https://reference.aspose.com/slides/de/java/com.aspose.slides/shapetype/)) wird nicht automatisch zu einem Connector. Um sie an Formen einrasten zu lassen, verwenden Sie den speziellen [Connector](https://reference.aspose.com/slides/de/java/com.aspose.slides/connector/)‑Typ und die [corresponding APIs](/slides/de/java/connector/) für Verbindungen.
 
-**Was soll ich tun, wenn die Eigenschaften einer Linie vom Theme geerbt werden und es schwierig ist, die endgültigen Werte zu bestimmen?**
+**Was soll ich tun, wenn die Eigenschaften einer Linie vom Theme geerbt werden und die endgültigen Werte schwer zu bestimmen sind?**
 
-[Lesen Sie die effektiven Eigenschaften](/slides/de/java/shape-effective-properties/) über die Schnittstellen [ILineFormatEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ilinefillformateffectivedata/) — diese berücksichtigen bereits Vererbung und Theme‑Stile.
+Lesen Sie die [effective properties](/slides/de/java/shape-effective-properties/) über die Schnittstellen [ILineFormatEffectiveData](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilinefillformateffectivedata/); diese berücksichtigen bereits Vererbung und Theme‑Stile.
 
-**Kann ich eine Linie gegen Bearbeitung (Verschieben, Größenändern) sperren?**
+**Kann ich eine Linie vor Bearbeitung (Verschieben, Größenänderung) schützen?**
 
-Ja. Formen stellen [lock objects](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/#getAutoShapeLock--) bereit, die es ermöglichen, [Bearbeitungsoperationen nicht zulassen](/slides/de/java/applying-protection-to-presentation/) zu verhindern.
+Ja. Formen bieten [lock objects](https://reference.aspose.com/slides/de/java/com.aspose.slides/autoshape/#getAutoShapeLock--) an, mit denen Sie [disallow editing operations](/slides/de/java/applying-protection-to-presentation/) verhindern.

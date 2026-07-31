@@ -1,36 +1,41 @@
 ---
-title: Управление подсказками в диаграммах презентаций с использованием C++
-linktitle: Подсказка
+title: Управление выносами в диаграммах презентаций с использованием C++
+linktitle: Выноска
 type: docs
 url: /ru/cpp/callout/
 keywords:
-- подсказка диаграммы
-- использовать подсказку
+- выноска диаграммы
+- использовать выноску
 - метка данных
 - формат метки
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Создавайте и оформляйте подсказки в Aspose.Slides для C++ с краткими примерами кода, совместимыми с PPT и PPTX, чтобы автоматизировать рабочие процессы презентаций."
+description: "Создавайте и оформляйте выноски в Aspose.Slides для C++ с помощью лаконичных примеров кода, совместимых с PPT и PPTX, чтобы автоматизировать рабочие процессы презентаций."
 ---
+## **Обзор**
 
-## **Использование Callouts**
-В класс **DataLabelFormat** и интерфейс **IDataLabelFormat** добавлено новое свойство **ShowLabelAsDataCallout**, которое определяет, будет ли метка данных указанной диаграммы отображаться как подсказка данных или как метка данных. В приведённом ниже примере мы установили Callouts.
+В этой статье объясняется, как работать с выносками для подписей данных диаграмм в Aspose.Slides. Описывается, как использовать метод `set_ShowLabelAsDataCallout` для отображения подписей в виде выноски, как настроить параметры подписей, связанных с выносками, для кольцевой диаграммы, а также отмечается, что выноски и их внешний вид сохраняются при экспорте презентаций в форматы PDF, HTML5, SVG и растровые изображения.
+
+## **Использование выносок**
+
+В класс **DataLabelFormat** и интерфейс **IDataLabelFormat** добавлено новое свойство **ShowLabelAsDataCallout**, которое определяет, будет ли подпись данных указанной диаграммы отображаться как выноска или как обычная подпись. В приведённом ниже примере мы задали выноски.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-DisplayChartLabels-DisplayChartLabels.cpp" >}}
 
-## **Установить Callout для кольцевой диаграммы**
-Aspose.Slides for C++ поддерживает возможность задавать форму подсказки метки данных серии для кольцевой диаграммы. Ниже приведён пример.
+## **Установка выноски для кольцевой диаграммы**
+
+Aspose.Slides for C++ предоставляет возможность задавать форму выноски подписи данных серии для кольцевой диаграммы. Ниже приведён пример.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddDoughnutCallout-AddDoughnutCallout.cpp" >}}
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?**
+**Сохраняются ли выноски при конвертации презентации в PDF, HTML5, SVG или изображения?**
 
-Yes. Callouts are part of the chart rendering, so when you export to [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/cpp/export-to-html5/), [SVG](/slides/ru/cpp/render-a-slide-as-an-svg-image/), or [raster images](/slides/ru/cpp/convert-powerpoint-to-png/), they are preserved together with the slide’s formatting.
+Да. Выноски являются частью рендеринга диаграммы, поэтому при экспорте в [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/cpp/export-to-html5/), [SVG](/slides/ru/cpp/render-a-slide-as-an-svg-image/) или [растровые изображения](/slides/ru/cpp/convert-powerpoint-to-png/) они сохраняются вместе с форматированием слайда.
 
-**Do custom fonts work in callouts, and can their appearance be preserved on export?**
+**Работают ли пользовательские шрифты в выносках, и может ли их внешний вид сохраняться при экспорте?**
 
-Yes. Aspose.Slides supports [embedding fonts](/slides/ru/cpp/embedded-font/) into the presentation and controls font embedding during exports such as [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), ensuring the callouts look the same across different systems.
+Да. Aspose.Slides поддерживает [встраивание шрифтов](/slides/ru/cpp/embedded-font/) в презентацию и управляет встраиванием шрифтов при экспорте, например в [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), обеспечивая одинаковый вид выносок на разных системах.

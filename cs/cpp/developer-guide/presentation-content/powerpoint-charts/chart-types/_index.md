@@ -8,7 +8,7 @@ keywords:
 - přizpůsobit graf
 - spravovat graf
 - typ grafu
-- graf PowerPoint
+- graf PowerPointu
 - prezentační graf
 - graf PPT
 - graf PPTX

@@ -1,39 +1,39 @@
 ---
-title: 使用 С++ 管理簡報圖表中的引線
-linktitle: 引線
+title: 使用 C++ 管理簡報圖表中的標註線
+linktitle: 標註線
 type: docs
 url: /zh-hant/cpp/callout/
 keywords:
-- 圖表引線
-- 使用引線
+- 圖表標註線
+- 使用標註線
 - 資料標籤
 - 標籤格式
 - PowerPoint
 - 簡報
-- С++
+- C++
 - Aspose.Slides
-description: "使用簡潔的程式碼範例在 Aspose.Slides for С++ 中建立與樣式化引線，兼容 PPT 與 PPTX，以自動化簡報工作流程。"
+description: "使用簡潔的程式碼範例在 Aspose.Slides for C++ 中建立與設計標註線，支援 PPT 與 PPTX，協助自動化簡報工作流程。"
 ---
 ## **概觀**
 
-本文說明了如何在 Aspose.Slides 中處理圖表資料標籤的引線。它展示了如何使用 `set_ShowLabelAsDataCallout` 方法將標籤顯示為引線，如何為環狀圖設定與引線相關的標籤設定，並說明在將簡報匯出為 PDF、HTML5、SVG 與點陣圖格式時，會保留引線及其外觀。
+本文說明如何在 Aspose.Slides 中使用圖表資料標籤的標註線（callout）。它展示了如何使用 `set_ShowLabelAsDataCallout` 方法將標籤顯示為標註線，如何為環形圖設定與標註線相關的標籤設定，並指出在將簡報匯出為 PDF、HTML5、SVG 與點陣圖像格式時，標註線及其外觀會被保留。
 
-## **使用引線**
-已在 **DataLabelFormat** 類別和 **IDataLabelFormat** 介面中新增屬性 **ShowLabelAsDataCallout**，該屬性決定指定圖表的資料標籤是顯示為資料引線還是顯示為資料標籤。以下範例中，我們已設定引線。
+## **使用標註線**
+已在 **DataLabelFormat** 類別與 **IDataLabelFormat** 介面中新增屬性 **ShowLabelAsDataCallout**，用以決定指定圖表的資料標籤是顯示為資料標註線還是資料標籤。本範例中，我們已設定標註線。
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-DisplayChartLabels-DisplayChartLabels.cpp" >}}
 
-## **為環狀圖設定引線**
-Aspose.Slides for C++ 提供設定環狀圖系列資料標籤引線形狀的支援。以下提供範例程式碼。
+## **為環形圖設定標註線**
+Aspose.Slides for C++ 提供設定環形圖系列資料標籤標註線形狀的支援。下面給出範例程式碼。
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddDoughnutCallout-AddDoughnutCallout.cpp" >}}
 
 ## **常見問題**
 
-**將簡報轉換為 PDF、HTML5、SVG 或影像時，會保留引線嗎？**
+**將簡報轉換為 PDF、HTML5、SVG 或圖像時，標註線會被保留嗎？**
 
-是的。引線是圖表呈現的一部份，因此在匯出為[PDF](/slides/zh-hant/cpp/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh-hant/cpp/export-to-html5/)、[SVG](/slides/zh-hant/cpp/render-a-slide-as-an-svg-image/)或[點陣圖](/slides/zh-hant/cpp/convert-powerpoint-to-png/)時，都會與投影片的格式一起保留下來。
+會。標註線是圖表呈現的一部份，當您匯出至[PDF](/slides/zh-hant/cpp/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh-hant/cpp/export-to-html5/)、[SVG](/slides/zh-hant/cpp/render-a-slide-as-an-svg-image/)、或[點陣圖像](/slides/zh-hant/cpp/convert-powerpoint-to-png/)時，它們會與投影片的格式一起被保留。
 
-**自訂字型能在引線中使用，且其外觀在匯出時能被保留嗎？**
+**自訂字型能在標註線中使用，且在匯出時外觀會被保留嗎？**
 
-是的。Aspose.Slides 支援將[嵌入字型](/slides/zh-hant/cpp/embedded-font/)加入簡報，並在匯出如[PDF](/slides/zh-hant/cpp/convert-powerpoint-to-pdf/)時控制字型嵌入，確保引線在不同系統上保持相同的外觀。
+會。Aspose.Slides 支援將[嵌入字型](/slides/zh-hant/cpp/embedded-font/)嵌入至簡報，並在匯出如[PDF](/slides/zh-hant/cpp/convert-powerpoint-to-pdf/)等格式時控制字型嵌入，確保標註線在不同系統上保持相同外觀。

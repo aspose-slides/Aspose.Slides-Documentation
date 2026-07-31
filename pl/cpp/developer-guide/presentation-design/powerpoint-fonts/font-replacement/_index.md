@@ -1,47 +1,49 @@
 ---
-title: Usprawnij zamianę czcionek w prezentacjach przy użyciu С++
-linktitle: Zamiana czcionek
+title: Usprawnij zamianę czcionek w prezentacjach przy użyciu C++
+linktitle: Zastąpienie czcionki
 type: docs
 weight: 60
 url: /pl/cpp/font-replacement/
 keywords:
 - czcionka
 - zastąp czcionkę
-- zamiana czcionek
-- zmiana czcionki
+- zastąpienie czcionki
+- zmień czcionkę
 - PowerPoint
 - OpenDocument
 - prezentacja
-- С++
+- C++
 - Aspose.Slides
-description: "Bezproblemowo zamieniaj czcionki w Aspose.Slides dla С++, aby zapewnić spójną typografię w prezentacjach PowerPoint i OpenDocument."
+description: "Bezproblemowo zastąp czcionki w Aspose.Slides dla C++, aby zapewnić spójną typografię w prezentacjach PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-Aspose.Slides pozwala zamienić jedną czcionkę na inną w całej prezentacji. Gdy czcionka zostanie zamieniona, wszystkie wystąpienia oryginalnej czcionki są zmieniane na nową czcionkę.
+Aspose.Slides umożliwia zastąpienie jednej czcionki inną w całej prezentacji. Gdy czcionka zostaje zastąpiona, wszystkie wystąpienia oryginalnej czcionki są zmieniane na nową czcionkę.
 
-Aby wykonać zamianę czcionek, wczytaj prezentację, określ czcionkę źródłową i czcionkę zastępczą, wywołaj metodę zamiany czcionek i zapisz zmodyfikowaną prezentację jako plik PPTX. To podejście jest przydatne, gdy celowo chcesz przełączyć się z jednej rodziny czcionek na inną w całej prezentacji.
+Aby wykonać zamianę czcionki, wczytaj prezentację, określ czcionkę źródłową i czcionkę zastępczą, wywołaj metodę zamiany czcionki i zapisz zmodyfikowaną prezentację jako plik PPTX. To podejście jest przydatne, gdy zamierzenie chcesz przełączyć jedną rodzinę czcionek na inną w całej prezentacji.
 
-## **Zamiana czcionek**
+## **Zastąp czcionki**
 
-Jeśli zmienisz zdanie co do używania czcionki, możesz zamienić tę czcionkę na inną. Wszystkie wystąpienia starej czcionki zostaną zastąpione nową czcionką.
+Jeśli zmienisz zdanie odnośnie używania czcionki, możesz zastąpić tę czcionkę inną. Wszystkie wystąpienia starej czcionki zostaną zastąpione nową czcionką. 
 
-Aspose.Slides pozwala na zamianę czcionki w następujący sposób:
+Aspose.Slides umożliwia zamianę czcionki w następujący sposób:
 
-1. Wczytaj odpowiednią prezentację.  
-2. Wczytaj czcionkę, która ma zostać zastąpiona.  
-3. Wczytaj nową czcionkę.  
-4. Zastąp czcionkę.  
+1. Wczytaj odpowiednią prezentację. 
+2. Wczytaj czcionkę, która ma zostać zastąpiona.
+3. Wczytaj nową czcionkę. 
+4. Zastąp czcionkę. 
 5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
+Ten kod C++ demonstruje zamianę czcionki:
+
 ``` cpp
-// Wczytuje prezentację
+// Ładuje prezentację
 auto presentation = System::MakeObject<Presentation>(u"Fonts.pptx");
 
-// Wczytuje czcionkę źródłową, która zostanie zastąpiona
+// Ładuje czcionkę źródłową, która ma zostać zastąpiona
 auto sourceFont = System::MakeObject<FontData>(u"Arial");
 
-// Wczytuje nową czcionkę
+// Ładuje nową czcionkę
 auto destFont = System::MakeObject<FontData>(u"Times New Roman");
 
 // Zastępuje czcionki
@@ -51,30 +53,40 @@ presentation->get_FontsManager()->ReplaceFont(sourceFont, destFont);
 presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}}Aby ustawić reguły określające, co się stanie w określonych warunkach (np. gdy czcionka jest niedostępna), zobacz [**Zastąpienie czcionek**](/slides/pl/cpp/font-substitution/).{{% /alert %}}
+{{% alert title="Note" color="warning" %}} 
+Aby ustawić reguły określające, co się stanie w określonych warunkach (np. gdy czcionka nie jest dostępna), zobacz [**Substitucja czcionki**](/slides/pl/cpp/font-substitution/). 
+{{% /alert %}}
 
 ## **FAQ**
 
-**Jaka jest różnica między „zamianą czcionek”, „zastąpieniem czcionek” a „czcionkami awaryjnymi”?**  
-Zamiana to celowe przełączenie z jednej rodziny na inną w całym dokumencie. [Zastąpienie](/slides/pl/cpp/font-substitution/) to reguła typu „jeśli czcionka jest niedostępna, użyj X”. [Czcionki awaryjne](/slides/pl/cpp/fallback-font/) są stosowane precyzyjnie dla pojedynczych brakujących glifów, gdy podstawowa czcionka jest zainstalowana, ale nie zawiera wymaganego znaku.
+**Jaka jest różnica między „zastąpieniem czcionki”, „substitucją czcionki” i „czcionkami zapasowymi”?**
 
-**Czy zamiana ma zastosowanie do slajdów master, układów, notatek i komentarzy?**  
-Tak. Zamiana wpływa na wszystkie obiekty prezentacji używające oryginalnej czcionki, w tym slajdy master i notatki; komentarze są również częścią dokumentu i są brane pod uwagę przez silnik czcionek.
+Zastąpienie to zamierzone przełączenie jednej rodziny na inną w całym dokumencie. [Substitucja](/slides/pl/cpp/font-substitution/) to reguła typu „jeśli czcionka jest niedostępna, użyj X”. [Zapasowa](/slides/pl/cpp/fallback-font/) jest stosowana precyzyjnie dla pojedynczych brakujących glifów, gdy podstawowa czcionka jest zainstalowana, ale nie zawiera wymaganych znaków.
 
-**Czy czcionka zmieni się we wbudowanych obiektach OLE (np. Excel)?**  
-Nie. [Zawartość OLE](/slides/pl/cpp/manage-ole/) jest kontrolowana przez własną aplikację. Zamiana w prezentacji nie reformatuje wewnętrznych danych OLE; może być wyświetlana jako obraz lub jako zewnętrznie edytowalna treść.
+**Czy zastąpienie dotyczy slajdów głównych, układów, notatek i komentarzy?**
 
-**Czy mogę zamienić czcionkę tylko w części prezentacji (według slajdów lub regionów)?**  
-Ukierunkowana zamiana jest możliwa, jeśli zmienisz czcionkę na poziomie wymaganych obiektów/zakresów zamiast stosować globalną zamianę dla całego dokumentu. Ogólna logika wyboru czcionki podczas renderowania pozostaje taka sama.
+Tak. Zastąpienie wpływa na wszystkie obiekty prezentacji używające oryginalnej czcionki, w tym slajdy główne i notatki; komentarze również są częścią dokumentu i są brane pod uwagę przez silnik czcionek.
 
-**Jak mogę z góry określić, jakich czcionek używa prezentacja?**  
-Użyj [menedżera czcionek](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/): dostarcza listę [używanych rodzin](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getfonts/) oraz informacje o [zastąpieniach/„nieznane” czcionki](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getsubstitutions/), co pomaga zaplanować zamianę.
+**Czy czcionka zmieni się w osadzonych obiektach OLE (np. Excel)?**
 
-**Czy zamiana czcionek działa przy konwertowaniu na PDF/obrazy?**  
-Tak. Podczas eksportu Aspose.Slides stosuje tę samą [sekwencję wyboru/zastąpienia czcionek](/slides/pl/cpp/font-selection-sequence/), więc wcześniej wykonana zamiana zostanie uwzględniona podczas konwersji.
+Nie. [Zawartość OLE](/slides/pl/cpp/manage-ole/) jest kontrolowana przez własną aplikację. Zastąpienie w prezentacji nie przekształca wewnętrznych danych OLE; mogą być wyświetlane jako obraz lub jako edytowalna zewnętrznie zawartość.
 
-**Czy muszę zainstalować docelową czcionkę w systemie, czy mogę dołączyć folder czcionek?**  
-Instalacja nie jest wymagana: biblioteka pozwala na [ładowanie zewnętrznych czcionek](/slides/pl/cpp/custom-font/) z folderów użytkownika do użycia podczas [renderowania i eksportu](/slides/pl/cpp/convert-powerpoint/).
+**Czy mogę zastąpić czcionkę tylko w części prezentacji (według slajdów lub regionów)?**
 
-**Czy zamiana naprawi „tofu” (kwadraty) zamiast znaków?**  
-Tylko jeśli docelowa czcionka faktycznie zawiera wymagane glify. Jeśli nie, [skonfiguruj czcionki awaryjne](/slides/pl/cpp/fallback-font/) aby pokryć brakujące znaki.
+Zastąpienie skierowane jest możliwe, jeśli zmienisz czcionkę na poziomie wymaganych obiektów/zakresów zamiast stosować globalne zastąpienie w całym dokumencie. Ogólna logika wyboru czcionki podczas renderowania pozostaje niezmienna.
+
+**Jak mogę z góry określić, jakich czcionek używa prezentacja?**
+
+Użyj [menedżera czcionek] prezentacji (https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/): dostarcza listę [używanych rodzin](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getfonts/) oraz informacje o [substitucjach/"nieznanych" czcionkach](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getsubstitutions/), co pomaga w planowaniu zastąpienia.
+
+**Czy zastąpienie czcionki działa przy konwertowaniu do PDF/obrazów?**
+
+Tak. Podczas eksportu Aspose.Slides stosuje tę samą [sekwencję wyboru/substitucji czcionek](/slides/pl/cpp/font-selection-sequence/), więc wcześniej wykonane zastąpienie zostanie uwzględnione podczas konwersji.
+
+**Czy muszę zainstalować docelową czcionkę w systemie, czy mogę dołączyć folder czcionek?**
+
+Instalacja nie jest wymagana: biblioteka umożliwia [wczytywanie zewnętrznych czcionek](/slides/pl/cpp/custom-font/) z folderów użytkownika do użycia podczas [renderowania i eksportu](/slides/pl/cpp/convert-powerpoint/).
+
+**Czy zastąpienie naprawi „tofu” (kwadraty) zamiast znaków?**
+
+Tylko jeśli docelowa czcionka rzeczywiście zawiera wymagane glify. Jeśli nie, [skonfiguruj czcionkę zapasową](/slides/pl/cpp/fallback-font/), aby pokryć brakujące znaki.

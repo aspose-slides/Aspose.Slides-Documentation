@@ -7,9 +7,9 @@ keywords:
 - oś wykresu
 - oś pionowa
 - oś pozioma
-- dostosuj oś
-- manipuluj osią
-- zarządzaj osią
+- dostosowywanie osi
+- manipulowanie osią
+- zarządzanie osią
 - właściwości osi
 - wartość maksymalna
 - wartość minimalna
@@ -21,14 +21,14 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak używać Aspose.Slides dla C++ do dostosowywania osi wykresu w prezentacjach PowerPoint przeznaczonych do raportów i wizualizacji."
+description: "Dowiedz się, jak używać Aspose.Slides dla C++ do dostosowywania osi wykresów w prezentacjach PowerPoint w raportach i wizualizacjach."
 ---
 ## **Przegląd**
 
 Ten artykuł wyjaśnia, jak dostosować osie wykresu w Aspose.Slides. Pokazuje, jak uzyskać rzeczywiste wartości osi, zamienić dane między osiami, ukryć pionową lub poziomą oś w wykresach liniowych, zmienić typ osi kategorii, ustawić format daty dla wartości osi kategorii, obrócić tytuł osi, ustawić pozycję osi oraz wyświetlić etykietę jednostki na osi wartości.
 
-## **Uzyskaj maksymalne wartości na osi pionowej**
-Aspose.Slides for C++ umożliwia pobranie minimalnych i maksymalnych wartości na osi pionowej. Przejdź przez następujące kroki:
+## **Pobierz maksymalne wartości na osi pionowej**
+Aspose.Slides for C++ umożliwia uzyskanie minimalnych i maksymalnych wartości na osi pionowej. Przejdź przez następujące kroki:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
 2. Uzyskaj dostęp do pierwszego slajdu.
@@ -36,11 +36,9 @@ Aspose.Slides for C++ umożliwia pobranie minimalnych i maksymalnych wartości n
 4. Pobierz rzeczywistą maksymalną wartość na osi.
 5. Pobierz rzeczywistą minimalną wartość na osi.
 6. Pobierz rzeczywistą jednostkę główną osi.
-7. Pobierz rzeczywistą jednostkę pomocniczą osi.
+7. Pobierz rzeczywistą jednostkę podrzędną osi.
 8. Pobierz rzeczywistą skalę jednostki głównej osi.
-9. Pobierz rzeczywistą skalę jednostki pomocniczej osi.
-
-Ten przykładowy kod — implementacja powyższych kroków — pokazuje, jak uzyskać wymagane wartości w C++:
+9. Pobierz rzeczywistą skalę jednostki podrzędnej osi.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -61,9 +59,7 @@ pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Zamień dane między osiami**
-Aspose.Slides umożliwia szybkie zamienienie danych między osiami — dane przedstawione na osi pionowej (y) przenoszone są na oś poziomą (x) i odwrotnie.
-
-Ten kod C++ pokazuje, jak wykonać zamianę danych między osiami w wykresie:
+Aspose.Slides pozwala szybko zamienić dane między osiami — dane reprezentowane na osi pionowej (y) przenoszone są na oś poziomą (x) i odwrotnie.
 
 ``` cpp
 // Tworzy pustą prezentację
@@ -71,14 +67,14 @@ auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
 
-// Przełącza wiersze i kolumny
+// Zamienia wiersze i kolumny
 chart->get_ChartData()->SwitchRowColumn();
 
 // Zapisuje prezentację
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ukryj oś pionową w wykresach liniowych**
+## **Wyłącz oś pionową dla wykresów liniowych**
 
 Ten kod C++ pokazuje, jak ukryć oś pionową w wykresie liniowym:
 
@@ -91,7 +87,7 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Ukryj oś poziomą w wykresach liniowych**
+## **Wyłącz oś poziomą dla wykresów liniowych**
 
 Ten kod pokazuje, jak ukryć oś poziomą w wykresie liniowym:
 
@@ -106,7 +102,7 @@ pres->Save(u"chart.pptx", SaveFormat::Pptx);
 
 ## **Zmień oś kategorii**
 
-Za pomocą metody **set_CategoryAxisType()** możesz określić preferowany typ osi kategorii (**date** lub **text**). Ten kod w C++ demonstruje operację: 
+Korzystając z metody **set_CategoryAxisType()**, możesz określić preferowany typ osi kategorii (**date** lub **text**). Ten kod w C++ demonstruje tę operację:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -156,7 +152,7 @@ pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ustaw kąt obrotu tytułu osi**
-Aspose.Slides for C++ umożliwia ustawienie kąta obrotu tytułu osi wykresu. Ten kod C++ demonstruje operację:
+Aspose.Slides for C++ umożliwia ustawienie kąta obrotu tytułu osi wykresu. Ten kod C++ demonstruje tę operację:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -182,7 +178,7 @@ pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
 ## **Włącz wyświetlanie etykiety jednostki na osi wartości wykresu**
-Aspose.Slides for C++ umożliwia skonfigurowanie wykresu tak, aby wyświetlał etykietę jednostki na osi wartości wykresu. Ten kod C++ demonstruje operację:
+Aspose.Slides for C++ umożliwia skonfigurowanie wykresu tak, aby wyświetlał etykietę jednostki na osi wartości wykresu. Ten kod C++ demonstruje tę operację:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -195,10 +191,10 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Jak ustawić wartość, w której jedna oś przecina drugą (przecięcie osi)?**
+**Jak ustawić wartość, w której jedna oś przechodzi przez drugą (przecięcie osi)?**
 
-Osie oferują [ustawienie przecięcia](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/axis/set_crosstype/): możesz wybrać przecięcie w zerze, w maksymalnej kategorii/wartości lub w określonej wartości numerycznej. Jest to przydatne do przesunięcia osi X w górę lub w dół lub do podkreślenia linii bazowej.
+Osie oferują [ustawienie przecięcia](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/axis/set_crosstype/): możesz wybrać przecięcie w zerze, w maksymalnej wartości kategorii/wartości lub w określonej liczbowej wartości. Jest to przydatne do przesuwania osi X w górę lub w dół lub podkreślania linii bazowej.
 
 **Jak mogę pozycjonować etykiety podziałek względem osi (obok, na zewnątrz, wewnątrz)?**
 
-Ustaw [pozycję etykiety](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/axis/set_majortickmark/) na “cross”, “outside” lub “inside”. To wpływa na czytelność i pomaga zaoszczędzić miejsce, szczególnie w małych wykresach.
+Ustaw [pozycję etykiety](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/axis/set_majortickmark/) na „cross”, „outside” lub „inside”. Ma to wpływ na czytelność i pomaga oszczędzać miejsce, szczególnie w małych wykresach.

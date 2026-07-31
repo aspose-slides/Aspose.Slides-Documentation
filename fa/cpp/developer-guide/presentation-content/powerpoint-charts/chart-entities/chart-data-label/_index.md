@@ -1,5 +1,5 @@
 ---
-title: مدیریت برچسب‌های داده نمودار در ارائه‌ها با استفاده از С++
+title: مدیریت برچسب‌های دادهٔ نمودار در ارائه‌ها با استفاده از C++
 linktitle: برچسب داده
 type: docs
 url: /fa/cpp/chart-data-label/
@@ -10,28 +10,28 @@ keywords:
 - درصد
 - فاصله برچسب
 - موقعیت برچسب
-- PowerPoint
+- پاورپوینت
 - ارائه
-- С++
+- C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای С++ اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+description: "یاد بگیرید چگونه برچسب‌های دادهٔ نمودار را در ارائه‌های پاورپوینت با استفاده از Aspose.Slides برای C++ اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
 ---
-## **معرفی**
+## **مقدمه**
 
-برچسب‌های داده در یک نمودار جزئیاتی دربارهٔ سری‌های دادهٔ نمودار یا نقاط دادهٔ منفرد نشان می‌دهند. این برچسب‌ها به خوانندگان امکان می‌دهند تا سری‌های داده را به سرعت شناسایی کنند و همچنین نمودارها را راحت‌تر درک کنند.
+برچسب‌های داده در یک نمودار جزئیات مربوط به سری‌های داده‌ای نمودار یا نقاط داده‌ای منفرد را نشان می‌دهند. این برچسب‌ها به خوانندگان امکان می‌دهند سری‌های داده را به‌سرعت شناسایی کنند و همچنین فهم نمودارها را آسان‌تر می‌سازند.
 
-## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
+## **تنظیم دقت داده در برچسب‌های داده نمودار**
 
-این کد C++ به شما نشان می‌دهد چگونه دقت داده را در یک برچسب دادهٔ نمودار تنظیم کنید:
+این کد C++ نشان می‌دهد چگونه دقت داده را در یک برچسب داده نمودار تنظیم کنید:
 
 ```c++
-	// مسیر به پوشه اسناد
+	// مسیر به پوشهٔ اسناد
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// یک شیء از کلاس Presentation ایجاد می‌کند که نشان‌دهنده یک فایل PPTX است
+	// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر فایل PPTX است
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// اسلاید اول را دریافت می‌کند
+	// اسلاید اول را به دست می‌آورد
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// نموداری با داده‌های پیش‌فرض اضافه می‌کند
@@ -41,16 +41,15 @@ description: "یاد بگیرید چگونه برچسب‌های داده نمو
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// فایل ارائه را بر روی دیسک می‌نویسد
+	// پرزنتیشن را به‌صورت فایل بر روی دیسک ذخیره می‌کند
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **نمایش درصدها به‌عنوان برچسب‌ها**
-
-Aspose.Slides برای C++ به شما اجازه می‌دهد برچسب‌های درصدی را بر روی نمودارهای نمایش‌ داده شده تنظیم کنید. این کد C++ عملیات را نشان می‌دهد:
+Aspose.Slides برای C++ به شما امکان تنظیم برچسب‌های درصدی روی نمودارهای نمایش داده‌شده را می‌دهد. این کد C++ عمل را نشان می‌دهد:
 
 ```c++
-	// مسیر به پوشه اسناد
+	// مسیر به پوشهٔ اسناد
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
 
 	// یک نمونه از کلاس Presentation ایجاد می‌کند
@@ -102,56 +101,55 @@ Aspose.Slides برای C++ به شما اجازه می‌دهد برچسب‌ه�
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
-
-این کد C++ به شما نشان می‌دهد چگونه علامت درصد را برای یک برچسب دادهٔ نمودار تنظیم کنید:
+## **تنظیم علامت درصد با برچسب‌های داده نمودار**
+این کد C++ به شما نشان می‌دهد چگونه علامت درصد را برای یک برچسب داده نمودار تنظیم کنید:
 
 ```c++
-	// مسیر به پوشه اسناد.
+	// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
 	// یک نمونه از کلاس Presentation ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// مرجع اسلاید را از طریق شاخص آن دریافت می‌کند
+	// مرجع یک اسلاید را از طریق شاخص آن دریافت می‌کند
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// نمودار PercentsStackedColumn را بر روی اسلاید ایجاد می‌کند
+	// نمودار PercentsStackedColumn را روی یک اسلاید ایجاد می‌کند
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// NumberFormatLinkedToSource را به false تنظیم می‌کند
+	// مقدار NumberFormatLinkedToSource را روی false تنظیم می‌کند
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
 
-	// شاخص شیت داده‌های نمودار را تنظیم می‌کند
+	// شاخص کاربرگ داده‌های نمودار را تنظیم می‌کند
 	int defaultWorksheetIndex = 0;
 
-	// شیت کار کتاب داده‌های نمودار را دریافت می‌کند
+	// کاربرگ داده‌های نمودار را دریافت می‌کند
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// حذف سری‌های پیش‌فرض تولید شده 
+	// سری‌های پیش‌فرض تولید شده را حذف می‌کند 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
-	// افزودن یک سری جدید
+	// سری جدیدی اضافه می‌کند
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
 
-	// دریافت اولین سری نمودار
+	// سری اول نمودار را می‌گیرد
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// پر کردن داده‌های سری
+	// داده‌های سری را پر می‌کند
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// تنظیم رنگ پر برای سری
+	// رنگ پر کردن سری را تنظیم می‌کند
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
-	// تنظیم ویژگی‌های LabelFormat
+	// ویژگی‌های LabelFormat را تنظیم می‌کند
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
@@ -160,19 +158,19 @@ Aspose.Slides برای C++ به شما اجازه می‌دهد برچسب‌ه�
 	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// دریافت دومین سری نمودار
+	// سری دوم نمودار را می‌گیرد
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// پر کردن داده‌های سری
+	// داده‌های سری را پر می‌کند
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// تنظیم رنگ پر برای سری
+	// رنگ پر کردن سری را تنظیم می‌کند
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
-	// تنظیم ویژگی‌های LabelFormat
+	// ویژگی‌های LabelFormat را تنظیم می‌کند
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
@@ -181,16 +179,15 @@ Aspose.Slides برای C++ به شما اجازه می‌دهد برچسب‌ه�
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// فایل ارائه را بر روی دیسک می‌نویسد
+	// فایل ارائه را روی دیسک می‌نویسد
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **تنظیم فاصله برچسب از محور**
-
-این کد C++ به شما نشان می‌دهد چگونه فاصله برچسب را از محور دسته‌بندی تنظیم کنید زمانی که با یک نمودار رسم‌شده از محورها سر و کار دارید:
+این کد C++ نشان می‌دهد چگونه فاصله برچسب را از محور دسته‌برداری تنظیم کنید هنگامی که با نموداری که از محورها رسم شده کار می‌کنید:
 
 ```c++
-	// مسیر به پوشه اسناد
+	// مسیر به پوشهٔ اسناد
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
 
 	// یک نمونه از کلاس Presentation ایجاد می‌کند
@@ -199,25 +196,25 @@ Aspose.Slides برای C++ به شما اجازه می‌دهد برچسب‌ه�
 	// مرجع یک اسلاید را دریافت می‌کند
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// یک نمودار بر روی اسلاید ایجاد می‌کند
+	// یک نمودار روی اسلاید ایجاد می‌کند
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// کلکسیون سری‌های نمودار را دریافت می‌کند
+	// مجموعهٔ سری‌های نمودار را دریافت می‌کند
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// فاصله برچسب از محور را تنظیم می‌کند
+	// فاصلهٔ برچسب را از محور تنظیم می‌کند
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// فایل ارائه را بر روی دیسک می‌نویسد
+	// فایل ارائه را روی دیسک می‌نویسد
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **تنظیم موقعیت برچسب**
 
-زمانی که یک نمودار ایجاد می‌کنید که به هیچ محور وابسته نیست، مانند نمودار دایره‌ای، ممکن است برچسب‌های دادهٔ نمودار بسیار نزدیک به لبهٔ آن شوند. در چنین حالتی، باید موقعیت برچسب داده را تنظیم کنید تا خطوط راهنما به‌وضوح نمایش داده شوند.
+زمانی که نموداری ایجاد می‌کنید که بر هیچ محوری تکیه ندارد مانند نمودار دایره‌ای، ممکن است برچسب‌های دادهٔ نمودار به‌حد زیادی به لبهٔ آن نزدیک شوند. در این صورت باید موقعیت برچسب داده را تنظیم کنید تا خطوط راهنمای آن به‌وضوح نمایش داده شوند.
 
-این کد C++ به شما نشان می‌دهد چگونه موقعیت برچسب را در یک نمودار دایره‌ای تنظیم کنید:
+این کد C++ نشان می‌دهد چگونه موقعیت برچسب را در یک نمودار دایره‌ای تنظیم کنید:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -238,16 +235,16 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای متراکم جلوگیری کنم؟**
+**چگونه می‌توانم از هم‑پوشانی برچسب‌های داده در نمودارهای شلوغ جلوگیری کنم؟**
 
-از ترکیب قرارگذاری خودکار برچسب، خطوط راهنما و کاهش اندازه فونت استفاده کنید؛ اگر لازم باشد، برخی فیلدها (مثلاً دسته‌بندی) را مخفی کنید یا فقط برای نقاط بحرانی/کلیدی برچسب نشان دهید.
+از ترکیب قرارگیری خودکار برچسب‌ها، خطوط راهنما و کاهش اندازهٔ قلم استفاده کنید؛ در صورت نیاز، برخی فیلدها (مثلاً دسته) را پنهان کنید یا برچسب‌ها را فقط برای نقاط انتها/کلیدی نمایش دهید.
 
 **چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
 
-نقاط داده را قبل از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر صفر، مقادیر منفی یا مقادیر گمشده را بر اساس یک قانون تعریف‌شده غیرفعال کنید.
+نقاط داده را پیش از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش را برای مقادیر صفر، مقادیر منفی یا مقادیر گمشده بر اساس یک قاعدۀ تعریف‌شده خاموش کنید.
 
-**چگونه می‌توانم سبک برچسب را هنگام خروجی به PDF/تصاویر ثابت نگه دارم؟**
+**چگونه می‌توانم اطمینان حاصل کنم که سبک برچسب‌ها هنگام خروجی به PDF/تصاویر ثابت باقی می‌ماند؟**
 
-به‌صراحت قلم‌ها (خانواده، اندازه) را تنظیم کنید و اطمینان حاصل کنید که قلم بر روی سمت رندر موجود است تا از استفادهٔ جایگزین جلوگیری شود.
+قلم‌ها (نام خانوادگی، اندازه) را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید که قلم موردنظر در سمت رندر موجود است تا از استفادهٔ قلم پیش‌فرض جلوگیری شود.

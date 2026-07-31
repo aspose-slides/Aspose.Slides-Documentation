@@ -4,55 +4,57 @@ linktitle: Integracja Excel
 type: docs
 weight: 330
 url: /pl/net/excel-integration/
+aliases:
+  - /net/developer-guide/technical-articles/excel-integration/
 keywords:
 - Excel
 - skoroszyt
 - odczyt Excel
 - integracja Excel
 - źródło danych
-- korespondencja seryjna
+- scalanie korespondencji
 - import tabeli
-- Excel do PowerPointa
+- Excel do PowerPoint
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Odczytuj dane ze skoroszytów Excel w Aspose.Slides przy użyciu interfejsu API ExcelDataWorkbook. Ładuj arkusze i komórki oraz wykorzystuj ich wartości do generowania prezentacji PowerPoint opartych na danych."
+description: "Odczytuj dane z skoroszytów Excel w Aspose.Slides przy użyciu API ExcelDataWorkbook. Ładuj arkusze i komórki oraz wykorzystuj ich wartości do generowania prezentacji PowerPoint opartych na danych."
 ---
 ## **Wprowadzenie**
 
-Prezentacje PowerPoint to potężny sposób wyświetlania i przekazywania informacji. Często są używane w połączeniu z skoroszytami Excel, gdzie Excel służy jako doskonałe źródło danych strukturalnych, a PowerPoint wyróżnia się wizualizacją tych danych dla odbiorcy.
+Prezentacje PowerPoint to potężny sposób wyświetlania i przekazywania informacji. Często są używane razem z skoroszytami Excel, gdzie Excel stanowi doskonałe źródło danych strukturalnych, a PowerPoint wyróżnia się wizualizacją tych danych dla odbiorców.
 
-Wiele praktycznych scenariuszy wymaga łączenia Excela i PowerPointa: korespondencja seryjna, wypełnianie tabel danych, generowanie jednego slajdu na rekord danych (generowanie slajdów wsadowych), tworzenie materiałów szkoleniowych oraz konsolidacja wielu raportów Excel w jednej prezentacji, aby wymienić tylko niektóre.
+Istnieje wiele praktycznych scenariuszy, w których połączenie Excela i PowerPointa jest niezbędne: scalanie korespondencji, wypełnianie tabel danych, generowanie jednego slajdu na rekord danych (generowanie slajdów wsadowych), tworzenie materiałów szkoleniowych oraz konsolidacja wielu raportów Excel w jedną prezentację, aby wymienić tylko niektóre.
 
-Do tej pory implementacja takich funkcji przy użyciu API Aspose.Slides wymagała korzystania z rozwiązań zewnętrznych, takich jak Aspose.Cells. Choć te narzędzia są solidne, mogą być zbyt skomplikowane i kosztowne dla użytkowników, którzy potrzebują jedynie podstawowej funkcjonalności integracji danych.
+Do tej pory wprowadzanie takich funkcji przy użyciu API Aspose.Slides wymagało polegania na rozwiązaniach firm trzecich, takich jak Aspose.Cells. Chociaż te narzędzia są solidne, mogą być zbyt skomplikowane i kosztowne dla użytkowników, którzy potrzebują tylko podstawowej funkcjonalności integracji danych.
 
 ## **Jak to działa**
 
-Aby ułatwić pracę z danymi Excel i uczynić ją bardziej płynną, Aspose.Slides wprowadziło nowe klasy do odczytu danych z skoroszytów Excel oraz importowania ich zawartości do prezentacji. Ta funkcja otwiera potężne nowe możliwości dla użytkowników API, którzy chcą wykorzystać Excel jako źródło danych w swoich przepływach pracy z prezentacjami.
+Aby ułatwić i usprawnić pracę z danymi Excel, Aspose.Slides wprowadziło nowe klasy do odczytywania danych ze skoroszytów Excel i importowania treści do prezentacji. Ta funkcja otwiera potężne nowe możliwości dla użytkowników API, którzy chcą wykorzystać Excel jako źródło danych w swoich przepływach pracy związanych z prezentacjami.
 
-Nowa funkcjonalność jest przeznaczona do ogólnego dostępu do danych i nie jest zintegrowana z modelem DOM dokumentu prezentacji (Presentation Document Object Model). Oznacza to, że *nie umożliwia edycji ani zapisu plików Excel* — jej jedynym celem jest otwieranie skoroszytów i nawigowanie po ich zawartości w celu pobrania danych komórek.
+Nowa funkcjonalność została zaprojektowana do ogólnego dostępu do danych i nie jest zintegrowana z Modelem Obiektów Dokumentu Prezentacji (DOM). Oznacza to, że *nie umożliwia edytowania ani zapisywania plików Excel* — jej jedynym celem jest otwieranie skoroszytów i nawigowanie po ich zawartości w celu pobrania danych komórek.
 
-W sercu tej funkcji znajduje się nowa klasa [ExcelDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldataworkbook/). Klasa ta umożliwia załadowanie skoroszytu Excel z pliku lokalnego lub strumienia. Po załadowaniu udostępnia kilka przeciążeń metody [GetCell](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldataworkbook/getcell/), które można używać do pobierania konkretnych komórek według ich pozycji (np. indeksy wiersza i kolumny lub nazwy zakresów).
+W sercu tej funkcji znajduje się nowa klasa [ExcelDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldataworkbook/). Ta klasa pozwala wczytać skoroszyt Excel z lokalnego pliku lub strumienia. Po wczytaniu udostępnia kilka przeciążeń metody [GetCell](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldataworkbook/getcell/), które można wykorzystać do pobierania konkretnych komórek według ich pozycji (np. indeksy wiersza i kolumny lub nazwane zakresy).
 
-Każde wywołanie [GetCell](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldataworkbook/getcell/) zwraca instancję klasy [ExcelDataCell](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldatacell/). Obiekt ten reprezentuje pojedynczą komórkę w skoroszycie Excel i zapewnia dostęp do jej wartości w prosty i intuicyjny sposób.
+Każde wywołanie [GetCell](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldataworkbook/getcell/) zwraca instancję klasy [ExcelDataCell](https://reference.aspose.com/slides/pl/net/aspose.slides.excel/exceldatacell/). Ten obiekt reprezentuje pojedynczą komórkę w skoroszycie Excel i zapewnia dostęp do jej wartości w prosty i intuicyjny sposób.
 
-#### **Import wykresu Excel**
+#### **Importowanie wykresu Excel**
 
-Następnym krokiem rozszerzenia funkcjonalności jest klasa [ExcelWorkbookImporter](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/). Ta klasa narzędziowa zapewnia funkcjonalność importowania zawartości ze skoroszytu Excel do prezentacji. Zawiera kilka przeciążeń metody [AddChartFromWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/), które pomagają pobrać wybrany wykres z określonego skoroszytu Excel i dodać go na koniec podanej kolekcji kształtów w określonych współrzędnych.
+Kolejnym krokiem w rozszerzaniu funkcjonalności jest klasa [ExcelWorkbookImporter](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/). Ta klasa pomocnicza zapewnia funkcję importowania treści ze skoroszytu Excel do prezentacji. Zawiera kilka przeciążeń metody [AddChartFromWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/), które pomagają pobrać wybrany wykres z określonego skoroszytu Excel i dodać go na koniec podanej kolekcji kształtów w określonych współrzędnych.
 
-#### **Import tabeli Excel**
+#### **Importowanie tabeli Excel**
 
-Klasa [ExcelWorkbookImporter](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/) zawiera również kilka przeciążeń metody [AddTableFromWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/). Metody te umożliwiają import określonego zakresu komórek z określonego arkusza i dodanie go jako tabeli na koniec podanej kolekcji kształtów w określonych współrzędnych.
+Klasa [ExcelWorkbookImporter](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/) zawiera także kilka przeciążeń metody [AddTableFromWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.import/excelworkbookimporter/addtablefromworkbook/). Metody te umożliwiają import określonego zakresu komórek z określonego arkusza i dodanie go jako tabeli na koniec podanej kolekcji kształtów w określonych współrzędnych.
 
-W skrócie, jest to lekka i prosta API do odczytu danych Excel — dokładnie to, czego wielu deweloperów potrzebuje, bez narzutu pełnej biblioteki przetwarzania arkuszy kalkulacyjnych.
+Krótko mówiąc, jest to lekki i prosty interfejs API do odczytu danych Excel — dokładnie to, czego potrzebuje wielu programistów, bez obciążenia pełnoprawną biblioteką przetwarzania arkuszy kalkulacyjnych.
 
 ## **Zacznijmy kodować**
 
-### **Przykład scenariusza korespondencji seryjnej**
+### **Przykład scenariusza scalania korespondencji**
 
-W poniższym przykładzie zaimplementujemy prosty scenariusz korespondencji seryjnej, generując wiele prezentacji na podstawie danych przechowywanych w skoroszycie Excel.
+W poniższym przykładzie zaimplementujemy prosty scenariusz scalania korespondencji, generując wiele prezentacji na podstawie danych przechowywanych w skoroszycie Excel.
 
 Aby rozpocząć, potrzebujemy dwóch rzeczy:
 1. Skoroszyt Excel zawierający dane
@@ -71,7 +73,7 @@ int worksheetIndex = 0;
 // Załaduj szablon prezentacji.
 using Presentation templatePresentation = new Presentation("PresentationTemplate.pptx");
 
-// Przejdź przez wiersze Excela (z wyłączeniem nagłówka w wierszu 0).
+// Iteruj po wierszach Excel (z wyjątkiem nagłówka w wierszu 0).
 for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 {
     // Utwórz nową prezentację dla każdego rekordu pracownika.
@@ -83,10 +85,10 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
     // Sklonuj slajd szablonu do nowej prezentacji.
     ISlide slide = employeePresentation.Slides.AddClone(templatePresentation.Slides[0]);
 
-    // Pobierz akapity z docelowego kształtu (zakładając, że używany jest indeks kształtu 1).
+    // Pobierz akapity z docelowego kształtu (zakłada się, że używany jest indeks kształtu 1).
     IParagraphCollection paragraphs = (slide.Shapes[1] as IAutoShape).TextFrame.Paragraphs;
 
-    // Zastąp znaczniki danymi z Excela.
+    // Zastąp symbole zastępcze danymi z Excela.
     string employeeName = workbook.GetCell(worksheetIndex, rowIndex, 0).Value.ToString();
     IPortion namePortion = paragraphs[0].Portions[0];
     namePortion.Text = namePortion.Text.Replace("{{EmployeeName}}", employeeName);
@@ -137,7 +139,7 @@ for (int rowIndex = 0; rowIndex < 5; rowIndex++)
     }
 }
 
-// Zapisz wygenerowaną prezentację do pliku.
+// Zapisz powstałą prezentację do pliku.
 presentation.Save("Table.pptx", SaveFormat.Pptx);
 ```
 
@@ -145,7 +147,7 @@ presentation.Save("Table.pptx", SaveFormat.Pptx);
 
 ### **Przykład importu wykresu Excel**
 
-W tym przykładzie importujemy wykres z pierwszego arkusza skoroszytu Excel użytego w poprzednim przykładzie. Wykres będzie połączony z zewnętrznym skoroszytem w powstałej prezentacji.
+W tym przykładzie importujemy wykres z pierwszego arkusza skoroszytu Excel użytego w poprzednim przykładzie. Wykres będzie odwoływał się do zewnętrznego skoroszytu w powstałej prezentacji.
 
 Najpierw dodajemy wykres kołowy do skoroszytu Excel na podstawie tabeli pracowników.
 
@@ -158,19 +160,19 @@ using Presentation presentation = new Presentation();
 // Pobierz kolekcję kształtów pierwszego slajdu.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Zaimportuj wykres o nazwie "Chart 1" z pierwszego arkusza skoroszytu i dodaj go do kolekcji kształtów.
+// Importuj wykres o nazwie "Chart 1" z pierwszego arkusza skoroszytu i dodaj go do kolekcji kształtów.
 ExcelWorkbookImporter.AddChartFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "Chart 1", false);
 
-// Zapisz wynikową prezentację do pliku.
+// Zapisz powstałą prezentację do pliku.
 presentation.Save("Chart.pptx", SaveFormat.Pptx);
 ```
 ![Wynik](example3_image1.png)
 
 ### **Przykład importu wszystkich wykresów Excel**
 
-Wyobraźmy sobie, że masz skoroszyt Excel pełen wykresów i musisz zaimportować je wszystkie do prezentacji. Każdy wykres powinien zostać umieszczony na nowym slajdzie.
+Wyobraź sobie, że masz skoroszyt Excel pełen wykresów i potrzebujesz zaimportować je wszystkie do prezentacji. Każdy wykres powinien być umieszczony na nowym slajdzie.
 
-Poniższy kod iteruje po wszystkich arkuszach w źródłowym pliku Excel, wyodrębnia wykresy z każdego arkusza i dodaje każdy wykres do osobnego slajdu przy użyciu układu pustego slajdu. W powstałej prezentacji zostaną osadzone jedynie dane wykresu, a nie cały skoroszyt.
+Poniższy kod iteruje przez wszystkie arkusze w źródłowym pliku Excel, wyodrębnia wykresy z każdego arkusza i dodaje każdy wykres do osobnego slajdu przy użyciu pustego układu slajdu. W powstałej prezentacji zostaną osadzone tylko dane wykresu, a nie cały skoroszyt.
 
 ```csharp
 // Załaduj skoroszyt Excel zawierający dane pracowników.
@@ -179,7 +181,7 @@ ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 // Utwórz nową prezentację PowerPoint.
 using Presentation presentation = new Presentation();
 
-// Pobierz układ pustego slajdu.
+// Pobierz pusty układ slajdu.
 ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
 // Pobierz nazwy wszystkich arkuszy zawartych w skoroszycie Excel.
@@ -191,15 +193,15 @@ foreach (var name in worksheetNames)
     IDictionary<int, string> worksheetCharts = workbook.GetChartsFromWorksheet(name);
     foreach (var chart in worksheetCharts)
     {
-        // Dodaj nowy slajd używając układu pustego.
+        // Dodaj nowy slajd używając pustego układu.
         ISlide slide = presentation.Slides.AddEmptySlide(blankLayout);
 
-        // Zaimportuj wybrany wykres ze skoroszytu Excel do kolekcji kształtów slajdu.
+        // Importuj określony wykres ze skoroszytu Excel do kolekcji kształtów slajdu.
         ExcelWorkbookImporter.AddChartFromWorkbook(slide.Shapes, 10, 10, workbook, name, chart.Key, false);
     }
 }
 
-// Zapisz wynikową prezentację do pliku.
+// Zapisz powstałą prezentację do pliku.
 presentation.Save("Charts.pptx", SaveFormat.Pptx);
 ```
 
@@ -218,15 +220,14 @@ using Presentation presentation = new Presentation();
 // Pobierz kolekcję kształtów pierwszego slajdu.
 IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-// Zaimportuj tabelę z pierwszego arkusza skoroszytu i dodaj ją do kolekcji kształtów.
+// Importuj tabelę z pierwszego arkusza skoroszytu i dodaj ją do kolekcji kształtów.
 ExcelWorkbookImporter.AddTableFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "A1:C5");
 
-// Zapisz wynikową prezentację do pliku.
+// Zapisz powstałą prezentację do pliku.
 presentation.Save("FormattedTable.pptx", SaveFormat.Pptx);
 ```
-
 ![Wynik](example4_image1.png)
 
 ## **Podsumowanie**
 
-Ten mechanizm, dostępny bezpośrednio w Aspose.Slides, łączy pracę z danymi Excel i prezentacjami w jednym miejscu. Umożliwia tworzenie slajdów z wykresami wizualnymi oraz danymi prezentowanymi jako tabele Excel — bez dodatkowych bibliotek czy skomplikowanych integracji.
+Ten mechanizm, dostępny bezpośrednio w Aspose.Slides, łączy pracę z danymi Excel i prezentacjami w jednym miejscu. Umożliwia tworzenie slajdów z wykresami wizualnymi i danymi przedstawionymi jako tabele Excel — bez dodatkowych bibliotek ani skomplikowanych integracji.

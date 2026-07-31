@@ -1,47 +1,49 @@
 ---
-title: "Felsorolási és számozott listák kezelése prezentációkban .NET-ben"
+title: "Felsorolás- és számozott listák kezelése prezentációkban .NET-ben"
 linktitle: "Listák kezelése"
 type: docs
 weight: 70
 url: /hu/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- felsorolásjel
-- felsorolási lista
-- számozott lista
-- szimbólum felsorolásjel
-- képes felsorolásjel
-- egyedi felsorolásjel
-- többszintű lista
-- felsorolásjel létrehozása
-- felsorolásjel hozzáadása
-- lista hozzáadása
-- PowerPoint
-- OpenDocument
-- prezentáció
-- .NET
-- C#
-- Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és formázhat felsorolási, képes, többszintű és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for .NET segítségével."
+  - "felsorolásjel"
+  - "felsoroláslista"
+  - "számozott lista"
+  - "szimbólum felsorolásjel"
+  - "képes felsorolásjel"
+  - "egyéni felsorolásjel"
+  - "többszintű lista"
+  - "felsorolásjel létrehozása"
+  - "felsorolásjel hozzáadása"
+  - "lista hozzáadása"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "prezentáció"
+  - ".NET"
+  - "C#"
+  - "Aspose.Slides"
+description: "Ismerje meg, hogyan hozhat létre és formázhat felsorolás-, képes-, többszintű- és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for .NET használatával."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for .NET lehetővé teszi felsorolási és számozott listák létrehozását és formázását PowerPoint és OpenDocument bemutatókban. A listaelem egy bekezdés, amelynek felsorolás beállításait a bekezdés formátumán keresztül szabályozzák.
+Az Aspose.Slides for .NET lehetővé teszi, hogy felsorolásjelekkel és számozott listákkal hozzon létre és formázzon PowerPoint és OpenDocument prezentációkat. A listaelem egy bekezdés, amelynek a felsorolásjel beállításait a bekezdés formátuma szabályozza.
 
-Használja az [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/paragraphformat/) tulajdonságot a bekezdés‑szintű lista beállítások eléréséhez. A fő belépési pont az [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/bullet/), amely egy [IBulletFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/) objektumot ad vissza. Ezzel az objektummal beállíthatja a felsorolás típusát, szimbólumát, képét, színét, méretét, számozási stílusát és a kezdő számot.
+Használja a [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/paragraphformat/) tulajdonságot a bekezdés szintű lista beállítások eléréséhez. A fő belépési pont a [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/bullet/), amely egy [IBulletFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/) objektumot ad vissza. Ezzel az objektummal beállíthatja a felsorolásjel típusát, szimbólumát, képét, színét, méretét, számozási stílusát és a kezdő számot.
 
 Ez a cikk bemutatja, hogyan:
 
-- egy egyedi szimbóllal ellátott felsorolási lista létrehozása
-- képes felsorolójel létrehozása
-- többszintű lista létrehozása a bekezdés mélységének beállításával
-- számozott lista létrehozása
-- lista formázásának ellenőrzése és módosítása egy meglévő bemutatóban
+- hozzon létre egy felsoroláslistát egy egyéni szimbólummal
+- hozzon létre képes felsorolásjelet
+- hozzon létre többszintű listát a bekezdés mélységének beállításával
+- hozzon létre számozott listát
+- vizsgálja meg és módosítsa a lista formázását egy meglévő prezentációban
 
-## **Felsorolási lista létrehozása**
+## **Felsoroláslista létrehozása**
 
-A felsorolási lista létrehozásához adjon [IParagraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/) objektumokat egy [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑hez, és állítsa be az [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/) értékét a [BulletType.Symbol](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/) típusra. Ezután beállíthatja az [IBulletFormat.Char](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/color/) és [IBulletFormat.Height](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/height/) értékeket a felsorolás megjelenésének szabályozásához.
+A felsoroláslista létrehozásához adjon [IParagraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/) objektumokat egy [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)-hez, és állítsa be a [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/) értékét a [BulletType.Symbol](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/) típusra. Ezután beállíthatja a [IBulletFormat.Char](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/color/) és [IBulletFormat.Height](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/height/) értékeket a felsorolásjel megjelenésének vezérléséhez.
 
-Az alábbi C# kód bemutatja, hogyan hozhatunk létre felsorolási listát egy dián:
+Az alábbi C# kód bemutatja, hogyan hozhat létre felsoroláslistát egy dián:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -76,13 +78,13 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A szimbólum felsorolások](symbol_bullets.png)
+![A szimbólum felsorolásjelek](symbol_bullets.png)
 
 ## **Számozott lista létrehozása**
 
-Használjon számozott listákat, ha az elemek sorrendje fontos. Állítsa be az [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/) értékét a [BulletType.Numbered](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/) típusra. A [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstyle/) segítségével választhat számozási formátumot, vagy beállíthatja a [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstartwith/) értéket, ha a lista 1‑nél más értékkel kell, hogy kezdődjön.
+Használjon számozott listákat, ha az elemek sorrendje fontos. Állítsa be a [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/) értékét a [BulletType.Numbered](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/) típusra. Választhat számozási formátumot a [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstyle/) segítségével, vagy megadhatja a [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstartwith/) értékét, ha a lista 1 helyett más értékkel kezdődjön.
 
-Az alábbi C# kód megmutatja, hogyan hozhatunk létre számozott listát egy dián:
+Az alábbi C# kód bemutatja, hogyan hozhat létre számozott listát egy dián:
 
 ```csharp
 using var presentation = new Presentation();
@@ -113,25 +115,25 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A számozott felsorolások](numbered_bullets.png)
+![A számozott felsorolásjelek](numbered_bullets.png)
 
-## **Képes felsorolójel létrehozása**
+## **Képes felsorolásjel létrehozása**
 
-Az Aspose.Slides lehetővé teszi, hogy egy szabályos felsorolási szimbólumot egy képpel helyettesítsen. A képes felsorolások leginkább egyszerű, kis méretben is olvasható képekkel működnek, például ikonokkal vagy kis átlátszó PNG fájlokkal.
+Az Aspose.Slides lehetővé teszi, hogy egy szabályos felsorolásjel helyett képet használjon. A képes felsorolásjelek leginkább egyszerű képekkel működnek, amelyek kis méretben is olvashatóak, például ikonokkal vagy kis átlátszó PNG fájlokkal.
 
 {{% alert color="primary" %}}
-Ideális esetben, ha a szabályos felsorolási szimbólumot egy képpel szeretné helyettesíteni, egy egyszerű, átlátszó háttérrel rendelkező grafikát válasszon. Az ilyen képek jól működnek egyedi felsorolási szimbólumokként.
+Ideális esetben, ha a szabályos felsorolásjelet képpel szeretnéd helyettesíteni, a legjobb, ha egy egyszerű, átlátszó háttérrel rendelkező grafikát választasz. Az ilyen képek jól működnek egyéni felsorolásjel szimbólumként.
 
-Ne feledje, hogy a kép nagyon kis méretre lesz leméretezve. Emiatt határozottan javasoljuk, hogy olyan képet válasszon, amely tiszta marad és vizuálisan hatékony, amikor listában felsorolási jelként használják.
+Ne feledd, hogy a képet nagyon kis méretre lesz méretezve. Emiatt erősen ajánljuk, hogy olyan képet válassz, amely kicsinyítés után is tiszta és vizuálisan hatékony marad a lista felsorolásjelének.
 {{% /alert %}}
 
-A képes felsoroláshoz adjon képet a [Presentation.Images](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/images/) gyűjteményhez, és rendelje hozzá a visszaadott kép objektumot az [IBulletFormat.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/picture/) tulajdonsághoz. Mielőtt a képet hozzárendeli, állítsa be az [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/) értékét a [BulletType.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/) típusra.
+Képes felsorolásjel létrehozásához adjon egy képet a [Presentation.Images](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/images/) gyűjteményhez, és rendelje a visszaadott képobjektumot a [IBulletFormat.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/picture/) tulajdonsághoz. A [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/) értékét állítsa a [BulletType.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/) típusra a kép hozzárendelése előtt.
 
-Tegyük fel, hogy van egy „image.png” fájlunk:
+Tegyük fel, hogy van egy „image.png” nevű fájlunk:
 
-![Kép a felsorolásokhoz](picture_for_bullets.png)
+![Kép a felsorolásjelekhez](picture_for_bullets.png)
 
-Az alábbi C# kód bemutatja, hogyan hozhatunk létre képes felsorolásokat egy dián:
+Az alábbi C# kód bemutatja, hogyan hozhat létre képes felsorolásjeleket egy dián:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -167,13 +169,13 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A képes felsorolások](picture_bullets.png)
+![A képes felsorolásjelek](picture_bullets.png)
 
 ## **Többszintű lista létrehozása**
 
-Használja az [IParagraphFormat.Depth](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/depth/) beállítást a listaelemek különböző szinteken való elhelyezéséhez. A 0. szint a legfelső szint, az 1. szint alatta van, és így tovább.
+Használja a [IParagraphFormat.Depth](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/depth/) tulajdonságot a listaelemek különböző szintekre helyezéséhez. A 0. szint a legfelső szint, az 1. szint alatta, és így tovább.
 
-Az alábbi C# kód megmutatja, hogyan hozhatunk létre többszintű felsorolási listát:
+Az alábbi C# kód bemutatja, hogyan hozhat létre többszintű felsoroláslistát:
 
 ```csharp
 using var presentation = new Presentation();
@@ -213,9 +215,9 @@ Az eredmény:
 
 ## **Meglévő lista módosítása**
 
-A lista formázásának módosításához egy meglévő bemutatóban nyissa meg a cél bekezdést, és frissítse annak [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/bullet/) beállításait. A listák létrehozásához használt ugyanazok a tulajdonságok használhatók a PPT, PPTX vagy ODP fájlból betöltött listák ellenőrzésére vagy módosítására.
+A lista formázásának módosításához egy meglévő prezentációban érje el a cél bekezdést, és frissítse annak a [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/bullet/) beállításait. A listák létrehozásához használt ugyanazok a tulajdonságok használhatók a PPT, PPTX vagy ODP fájlból betöltött listák megtekintésére vagy módosítására.
 
-Az alábbi C# kód megváltoztatja az első bekezdést egy szövegkeretben, hogy számozott lista stílust használjon:
+Az alábbi C# kód a szövegkeret első bekezdését számozott lista stílusra állítja:
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -235,14 +237,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **GYIK**
 
-**Exportálhatók-e a felsorolási és számozott listák PDF vagy képek formátumba?**
+**Exportálhatók a felsorolás- és számozott listák PDF vagy képek formátumba?**
 
-Igen. Az Aspose.Slides megőrzi a lista formázását, ha a célformátum támogatja a megfelelő szövegelrendezést és felsorolási funkciókat.
+Igen. Az Aspose.Slides megőrzi a lista formázását, ha a célformátum támogatja a megfelelő szövegelrendezést és felsorolásjel funkciókat.
 
-**Szerkeszthetek-e listákat meglévő bemutatókban?**
+**Szerkeszthetek listákat meglévő prezentációkban?**
 
-Igen. Töltse be a bemutatót, érje el a cél bekezdést, vizsgálja vagy frissítse annak [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/bullet/) beállításait, majd mentse a bemutatót.
+Igen. Töltse be a prezentációt, érje el a cél bekezdést, vizsgálja meg vagy frissítse annak a [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/bullet/) beállításait, majd mentse a prezentációt.
 
-**Tartalmazhatnak-e a listák nem latin szöveget?**
+**Tartalmazhatnak a listák nem latin szöveget?**
 
-Igen. A listaelemek szövege tartalmazhat Unicode karaktereket, így többenyelvű bemutatókban is létrehozhat listákat. Győződjön meg arról, hogy a bemutatóban használt betűtípusok támogatják a szükséges karaktereket.
+Igen. A listaelemek szövege Unicode karaktereket is tartalmazhat, így többnyelvű prezentációkban is létrehozhat listákat. Győződjön meg róla, hogy a prezentációban használt betűtípusok támogatják a szükséges karaktereket.

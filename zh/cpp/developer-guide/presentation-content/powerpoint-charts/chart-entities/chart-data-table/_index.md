@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 在演示文稿中自定义图表数据表
+title: 使用 C++ 自定义演示文稿中的图表数据表
 linktitle: 数据表
 type: docs
 url: /zh/cpp/chart-data-table/
@@ -11,19 +11,23 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 C++ 在 PPT 和 PPTX 中通过 Aspose.Slides 定制图表数据表，以提升演示文稿的效率和吸引力。"
+description: "使用 Aspose.Slides 在 C++ 中自定义 PPT 和 PPTX 的图表数据表，以提升演示效率和吸引力。"
 ---
+## **概览**
+
+本文说明了如何在 Aspose.Slides 中使用图表数据表。它展示了如何为图表显示数据表并通过设置诸如粗体样式和字体高度等字体属性来自定义文本格式。示例演示了加载演示文稿、添加图表、启用图表数据表、应用字体设置以及保存更新后的演示文稿。
 
 ## **设置图表数据表的字体属性**
 Aspose.Slides for C++ 允许更改图表数据表的字体属性。
 
-1. 实例化 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类对象。
+1. 实例化 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类对象。
 1. 在幻灯片上添加图表。
-1. 设置图表表格。
+1. 设置图表数据表。
 1. 设置字体高度。
 1. 保存修改后的演示文稿。
 
-下面给出示例代码。  
+下面给出示例。
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
     
@@ -37,21 +41,20 @@ chart->get_ChartDataTable()->get_TextFormat()->get_PortionFormat()->set_FontHeig
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **常见问题**
 
 **我可以在图表数据表的数值旁显示小的图例键吗？**
 
-是的。数据表支持[图例键](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datatable/set_showlegendkey/)，您可以打开或关闭它们。
+是的。数据表支持 [legend keys](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/datatable/set_showlegendkey/)，您可以打开或关闭它们。
 
-**在将演示文稿导出为 PDF、HTML 或图像时，数据表会被保留吗？**
+**将演示文稿导出为 PDF、HTML 或图像时，数据表会被保留吗？**
 
-是的。Aspose.Slides 将图表渲染为幻灯片的一部分，因此导出的[PDF](/slides/zh/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/zh/cpp/convert-powerpoint-to-html/)/[image](/slides/zh/cpp/convert-powerpoint-to-png/) 包含带数据表的图表。
+是的。Aspose.Slides 将图表渲染为幻灯片的一部分，因此导出的 [PDF](/slides/zh/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/zh/cpp/convert-powerpoint-to-html/)/[image](/slides/zh/cpp/convert-powerpoint-to-png/) 包含带有数据表的图表。
 
 **模板文件中的图表是否支持数据表？**
 
-是的。对于任何从现有演示文稿或模板加载的图表，您可以使用图表的属性检查并更改数据表是否[显示](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/set_hasdatatable/)。
+是的。对于从现有演示文稿或模板加载的任何图表，您可以使用图表的属性检查并更改数据表是否[显示](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chart/set_hasdatatable/)。
 
-**我如何快速找出文件中哪些图表启用了数据表？**
+**我如何快速查找文件中哪些图表启用了数据表？**
 
-检查每个图表的属性以判断数据表是否[显示](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_hasdatatable/)，并遍历幻灯片以识别已启用数据表的图表。
+检查每个图表的属性以确定数据表是否[显示](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chart/get_hasdatatable/)，并遍历幻灯片以识别启用了该功能的图表。

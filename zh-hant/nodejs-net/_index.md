@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for Node.js via .NET
-second_title: "Aspose.Slides for Node.js via .NET 文件說明"
-description: Aspose.Slides for Node.js via .NET 提供許多關鍵功能，包括管理文字、圖形、表格與動畫、向投影片新增音訊與影片、預覽投影片、將投影片匯出為 SVG、PDF 格式等。
+second_title: Aspose.Slides for Node.js
+description: Aspose.Slides for Node.js via .NET 提供許多關鍵功能，例如管理文字、圖形、表格與動畫、向投影片加入音訊與視訊、預覽投影片、將投影片匯出為 SVG、PDF 格式等。
 type: docs
 weight: 47
 url: /zh-hant/nodejs-net/
@@ -17,7 +17,7 @@ Aspose.Slides for Node.js via .NET 是一個類別庫，使您的應用程式能
 
 Aspose.Slides for Node.js via .NET 是首個也是唯一提供管理 PowerPoint® 文件功能的元件。
 
-Aspose.Slides for Node.js via .NET 提供許多關鍵功能，例如管理文字、圖形、表格與動畫、向投影片新增音訊與影片、預覽投影片、將投影片匯出為 SVG、PDF 格式等。
+Aspose.Slides for Node.js via .NET 提供諸多關鍵功能，例如管理文字、圖形、表格與動畫、向投影片加入音訊與視訊、預覽投影片、將投影片匯出為 SVG、PDF 格式等。
 
 {{% /alert %}}
 
@@ -25,7 +25,7 @@ Aspose.Slides for Node.js via .NET 提供許多關鍵功能，例如管理文字
 
 {{% alert color="primary" %}}
 
-Aspose.Slides for Node.js via .NET 由 Aspose.Slides for .NET 移植而來，因此您可以使用後者的文件與 API 參考。
+Aspose.Slides for Node.js via .NET 來源於 Aspose.Slides for .NET，因此您可以使用後者的文件與 API 參考。
 
 {{% /alert %}}
 
@@ -39,5 +39,5 @@ Aspose.Slides for Node.js via .NET 由 Aspose.Slides for .NET 移植而來，因
 - [下載 Aspose.Slides for Node.js via .NET 套件](https://releases.aspose.com/slides/zh-hant/nodejs-net/)
 - [安裝 Aspose.Slides for Node.js via .NET](/slides/zh-hant/nodejs-net/installation/)
 - [Aspose.Slides for Node.js via .NET API 參考](https://reference.aspose.com/slides/zh-hant/nodejs-net/)
-- [Aspose.Slides for Node.js via .NET 免費支援討論區](https://forum.aspose.com/c/slides/zh-hant/11)
-- [Aspose.Slides for Node.js via .NET 付費支援客服](https://helpdesk.aspose.com/)
+- [Aspose.Slides for Node.js via .NET 免費支援論壇](https://forum.aspose.com/c/slides/zh-hant/11)
+- [Aspose.Slides for Node.js via .NET 付費支援服務台](https://helpdesk.aspose.com/)

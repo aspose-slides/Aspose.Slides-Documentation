@@ -1,12 +1,12 @@
 ---
-title: Gestisci le etichette dati del grafico nelle presentazioni usando C++
+title: Gestisci le etichette dei dati del grafico nelle presentazioni usando C++
 linktitle: Etichetta dati
 type: docs
 url: /it/cpp/chart-data-label/
 keywords:
 - grafico
 - etichetta dati
-- precisione dati
+- precisione dei dati
 - percentuale
 - distanza etichetta
 - posizione etichetta
@@ -14,15 +14,15 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Impara ad aggiungere e formattare le etichette dati del grafico nelle presentazioni PowerPoint usando Aspose.Slides per C++ per slide più coinvolgenti."
+description: "Impara ad aggiungere e formattare le etichette dei dati del grafico nelle presentazioni PowerPoint usando Aspose.Slides per C++ per slide più coinvolgenti."
 ---
 ## **Introduzione**
 
-Le etichette dati su un grafico mostrano i dettagli relativi alla serie di dati del grafico o ai singoli punti dati. Consentono ai lettori di identificare rapidamente le serie di dati e rendono i grafici più facili da comprendere.
+Le etichette dei dati su un grafico mostrano dettagli sulla serie di dati del grafico o sui singoli punti dati. Permettono ai lettori di identificare rapidamente le serie di dati e rendono i grafici più facili da comprendere.
 
 ## **Imposta la precisione dei dati nelle etichette del grafico**
 
-Questo codice C++ mostra come impostare la precisione dei dati in un'etichetta del grafico:
+Questo codice C++ mostra come impostare la precisione dei dati in un'etichetta di un grafico:
 
 ```c++
 	// Il percorso della directory dei documenti
@@ -31,7 +31,7 @@ Questo codice C++ mostra come impostare la precisione dei dati in un'etichetta d
 	// Istanzia una classe Presentation che rappresenta un file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Ottiene la prima diapositiva
+	// Ottiene la prima slide
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Aggiunge un grafico con dati predefiniti
@@ -41,11 +41,12 @@ Questo codice C++ mostra come impostare la precisione dei dati in un'etichetta d
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// Scrive il file di presentazione su disco
+	// Scrive il file della presentazione su disco
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Visualizza le percentuali come etichette**
+
 Aspose.Slides per C++ consente di impostare etichette percentuali sui grafici visualizzati. Questo codice C++ dimostra l'operazione:
 
 ```c++
@@ -94,15 +95,18 @@ Aspose.Slides per C++ consente di impostare etichette percentuali sui grafici vi
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+
 		}
+
 	}
 
 	// Salva la presentazione contenente il grafico
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Imposta il segno percentuale con le etichette dei dati del grafico**
-Questo codice C++ mostra come impostare il segno percentuale per un'etichetta dati del grafico:
+## **Imposta il simbolo percentuale con le etichette dei dati del grafico**
+
+Questo codice C++ mostra come impostare il simbolo percentuale per un'etichetta di dati del grafico:
 
 ```c++
 	// Il percorso della directory dei documenti.
@@ -111,13 +115,13 @@ Questo codice C++ mostra come impostare il segno percentuale per un'etichetta da
 	// Crea un'istanza della classe Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Ottiene il riferimento di una diapositiva tramite il suo indice
+	// Ottiene un riferimento a una slide tramite il suo indice
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Crea il grafico PercentsStackedColumn su una diapositiva
+	// Crea il grafico PercentsStackedColumn su una slide
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// Imposta NumberFormatLinkedToSource su false
+	// Imposta NumberFormatLinkedToSource a false
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
@@ -129,7 +133,7 @@ Questo codice C++ mostra come impostare il segno percentuale per un'etichetta da
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Elimina la serie generata per impostazione predefinita
+	// Elimina le serie generate di default 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -181,10 +185,12 @@ Questo codice C++ mostra come impostare il segno percentuale per un'etichetta da
 
 	// Scrive il file della presentazione su disco
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
 ## **Imposta la distanza dell'etichetta dall'asse**
-Questo codice C++ mostra come impostare la distanza dell'etichetta da un asse di categoria quando si lavora con un grafico tracciato da assi:
+
+Questo codice C++ mostra come impostare la distanza dell'etichetta da un asse di categoria quando si lavora con un grafico tracciato dagli assi:
 
 ```c++
 	// Il percorso della directory dei documenti
@@ -193,17 +199,17 @@ Questo codice C++ mostra come impostare la distanza dell'etichetta da un asse di
 	// Crea un'istanza della classe Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Ottiene il riferimento di una diapositiva
+	// Ottiene un riferimento a una slide
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Crea un grafico sulla diapositiva
+	// Crea un grafico sulla slide
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Ottiene la collezione di serie del grafico
+	// Ottiene la collezione delle serie del grafico
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// Imposta la distanza dell'etichetta dall'asse
+	// Imposta la distanza dell'etichetta da un asse
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
 	// Scrive il file della presentazione su disco
@@ -212,7 +218,7 @@ Questo codice C++ mostra come impostare la distanza dell'etichetta da un asse di
 
 ## **Regola la posizione dell'etichetta**
 
-Quando crei un grafico che non si basa su alcun asse, come un grafico a torta, le etichette dati del grafico potrebbero finire troppo vicine al suo bordo. In tal caso, è necessario regolare la posizione dell'etichetta dati affinché le linee guida vengano visualizzate chiaramente.
+Quando si crea un grafico che non dipende da alcun asse, come un grafico a torta, le etichette dei dati del grafico possono risultare troppo vicine al suo bordo. In tal caso, è necessario regolare la posizione dell'etichetta in modo che le linee guida vengano visualizzate chiaramente.
 
 Questo codice C++ mostra come regolare la posizione dell'etichetta su un grafico a torta:
 
@@ -237,7 +243,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Come posso evitare che le etichette dati si sovrappongano su grafici densi?**
+**Come posso impedire che le etichette dei dati si sovrappongano in grafici densi?**
 
 Combina il posizionamento automatico delle etichette, le linee guida e una riduzione della dimensione del carattere; se necessario, nascondi alcuni campi (ad esempio, la categoria) o mostra le etichette solo per i punti estremi/chiave.
 
@@ -245,6 +251,6 @@ Combina il posizionamento automatico delle etichette, le linee guida e una riduz
 
 Filtra i punti dati prima di abilitare le etichette e disattiva la visualizzazione per valori pari a 0, valori negativi o valori mancanti secondo una regola definita.
 
-**Come posso garantire uno stile coerente delle etichette esportando in PDF/immagini?**
+**Come posso garantire uno stile coerente delle etichette durante l'esportazione in PDF/immagini?**
 
-Imposta esplicitamente i font (famiglia, dimensione) e verifica che il font sia disponibile sul lato di rendering per evitare il fallback.
+Imposta esplicitamente i caratteri (famiglia, dimensione) e verifica che il carattere sia disponibile sul lato di rendering per evitare il fallback.

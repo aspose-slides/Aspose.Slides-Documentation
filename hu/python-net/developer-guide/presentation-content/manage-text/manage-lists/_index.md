@@ -1,46 +1,48 @@
 ---
-title: Felsorolásjeles és számozott listák kezelése prezentációkban Python használatával
-linktitle: Listák kezelése
+title: "Felsorolások és számozott listák kezelése prezentációkban Python nyelven"
+linktitle: "Listák kezelése"
 type: docs
 weight: 70
 url: /hu/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
-- jel
-- felsorolásjeles lista
-- számozott lista
-- szimbólum jel
-- képes jel
-- egyéni jel
-- többszintű lista
-- jel létrehozása
-- jel hozzáadása
-- lista hozzáadása
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Python
-- Aspose.Slides
-description: "Tanulja meg, hogyan hozhat létre és formázhat felsorolásjeles, képes, többszintű és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via .NET használatával."
+  - jelölő
+  - felsoroláslista
+  - számozott lista
+  - szimbólum jelölő
+  - kép jelölő
+  - egyedi jelölő
+  - többszintű lista
+  - jelölő létrehozása
+  - jelölő hozzáadása
+  - lista hozzáadása
+  - PowerPoint
+  - OpenDocument
+  - prezentáció
+  - Python
+  - Aspose.Slides
+description: "Ismerje meg, hogyan hozhat létre és formázhat felsorolás-, kép-, többszintű és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via .NET használatával."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Python via .NET lehetővé teszi, hogy felsorolásjeles és számozott listákat hozzon létre és formázzon PowerPoint és OpenDocument prezentációkban. Egy listaelem egy bekezdés, amelynek a jel‑beállításait a bekezdés formátuma vezérli.
+Az Aspose.Slides for Python via .NET lehetővé teszi felsorolások és számozott listák létrehozását és formázását PowerPoint és OpenDocument bemutatókban. Egy listaelem egy bekezdés, amelynek jelölőbeállításait a bekezdés formátuma vezérli.
 
-Használja a [Paragraph.paragraph_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/paragraph_format/) tulajdonságot a bekezdés szintű lista beállítások eléréséhez. A fő belépési pont a [ParagraphFormat.bullet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/bullet/), amely egy [BulletFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/) objektumot ad vissza. Ezzel az objektummal beállíthatja a jel típusát, szimbólumát, képét, színét, méretét, számozási stílusát és a kezdő számot.
+Használja a [Paragraph.paragraph_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/paragraph_format/) tulajdonságot a bekezdés szintű lista beállítások eléréséhez. A fő belépési pont a [ParagraphFormat.bullet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/bullet/), amely egy [BulletFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/) objektumot ad vissza. Ezzel az objektummal beállíthatja a jelölő típusát, szimbólumát, képét, színét, méretét, a számozási stílust és a kezdő számot.
 
 Ez a cikk bemutatja, hogyan:
 
-- létrehozni egy felsorolásjeles listát egy egyéni szimbólummal
-- létrehozni egy képes jelet
-- létrehozni egy többszintű listát a bekezdés mélységének beállításával
-- létrehozni egy számozott listát
-- ellenőrizni és módosítani a lista formázását egy meglévő prezentációban
+- hozhat létre egy egyedi szimbólummal ellátott felsorolást
+- hozhat létre képjelölőt
+- hozhat létre többszintű listát a bekezdés mélységének beállításával
+- hozhat létre számozott listát
+- vizsgálhatja és módosíthatja a lista formázását egy meglévő bemutatóban
 
-## **Felsorolásjeles lista létrehozása**
+## **Egy felsorolás létrehozása**
 
-Felsorolásjeles lista létrehozásához adjon [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) objektumokat egy [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) -hez, és állítsa a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét [BulletType.SYMBOL](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/)-ra. Ezután beállíthatja a [BulletFormat.char](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/char/), a [BulletFormat.color](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/color/) és a [BulletFormat.height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/height/) értékeket a jel megjelenésének szabályozásához.
+Egy felsorolás létrehozásához adjon [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) objektumokat egy [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/)-hez, és állítsa be a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét a [BulletType.SYMBOL](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/)-ra. Ezután beállíthatja a [BulletFormat.char](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/color/) és [BulletFormat.height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/height/) tulajdonságokat a jelölő megjelenésének szabályozásához.
 
-Az alábbi Python kód bemutatja, hogyan hozhat létre felsorolásjeles listát egy dián:
+Az alábbi Python kód bemutatja, hogyan hozhat létre felsorolást egy dián:
 
 ```py
 import aspose.slides as slides
@@ -76,11 +78,11 @@ with slides.Presentation() as presentation:
 
 Az eredmény:
 
-![A szimbólum jelzések](symbol_bullets.png)
+![A szimbólum jelölők](symbol_bullets.png)
 
 ## **Számozott lista létrehozása**
 
-Használjon számozott listákat, amikor az elemek sorrendje fontos. Állítsa a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét [BulletType.NUMBERED](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/)-ra. A [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/numbered_bullet_style/) segítségével kiválaszthat egy számozási formátumot, vagy a [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) beállításával megadhatja, hogy a lista ne 1‑től, hanem más értéktől induljon.
+Használjon számozott listákat, ha az elemek sorrendje számít. Állítsa a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét a [BulletType.NUMBERED](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/)-ra. Kiválaszthat egy számozási formátumot a [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/numbered_bullet_style/) segítségével, vagy beállíthatja a [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) értékét, ha a lista nem az 1‑től szeretne indulni.
 
 Az alábbi Python kód megmutatja, hogyan hozhat létre számozott listát egy dián:
 
@@ -114,25 +116,23 @@ with slides.Presentation() as presentation:
 
 Az eredmény:
 
-![A számozott jelzések](numbered_bullets.png)
+![A számozott jelölők](numbered_bullets.png)
 
-## **Képes jel létrehozása**
+## **Képjelölő létrehozása**
 
-Aspose.Slides lehetővé teszi, hogy egy szabványos felsorolásjelet képpel helyettesítsen. A képes jelzések legjobban egyszerű képekkel működnek, amelyek kis méretben is olvashatóak, például ikonok vagy kis átlátszó PNG fájlok.
+Az Aspose.Slides lehetővé teszi a szokásos jelölő szimbólum helyettesítését egy képpel. A képjelölők leginkább egyszerű, kis méretben is olvasható képekkel működnek, például ikonokkal vagy kis átlátszó PNG fájlokkal.
 
- {{% alert color="primary" %}}
-Elvileg, ha egy szabványos felsorolásjelet képpel szeretne helyettesíteni, a legjobb, ha egyszerű, átlátszó háttérrel rendelkező grafikát választ. Az ilyen képek jól működnek egyéni felsorolásjeleként.
-
-Ne feledje, hogy a képet nagyon kis méretre méretezik le. Ezért erősen ajánljuk, hogy olyan képet válasszon, amely kicsinyítve is tiszta és vizuálisan hatékony marad a listában lévő jelként.
+{{% alert color="primary" %}}
+Ideális esetben, ha a szokásos jelölő szimbólum helyett képet kíván használni, válasszon egyszerű grafikát átlátszó háttérrel. Az ilyen képek jól szolgálhatnak egyedi jelölő szimbólumként.
 {{% /alert %}}
 
-Ahhoz, hogy képes jelzést hozzon létre, adjon egy képet a [Presentation.images](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/images/) gyűjteményhez, és rendelje hozzá a visszaadott képobjektumot a [BulletFormat.picture](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/picture/)-hez. A kép hozzárendelése előtt állítsa a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét [BulletType.PICTURE](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/)-ra.
+Egy képjelölő létrehozásához adjon képet a [Presentation.images](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/images/) gyűjteményhez, és rendelje hozzá a visszakapott képet a [BulletFormat.picture](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/picture/)-hez. Mielőtt a képet hozzárendeli, állítsa a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét a [BulletType.PICTURE](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/)-ra.
 
-Tegyük fel, hogy van egy "image.png" fájlunk:
+Tegyük fel, hogy van egy „image.png” nevű képünk:
 
-![Kép a jelzésekhez](picture_for_bullets.png)
+![A kép a jelölőkhöz](picture_for_bullets.png)
 
-Az alábbi Python kód megmutatja, hogyan hozhat létre képes jelzéseket egy dián:
+Az alábbi Python kód megmutatja, hogyan hozhat létre képjelölőket egy dián:
 
 ```py
 import aspose.slides as slides
@@ -168,13 +168,13 @@ with slides.Presentation() as presentation:
 
 Az eredmény:
 
-![A képes jelzések](picture_bullets.png)
+![A képjelölők](picture_bullets.png)
 
 ## **Többszintű lista létrehozása**
 
-Használja a [ParagraphFormat.depth](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/depth/)‑t a listaelemek különböző szintekre helyezéséhez. A 0‑szint a legfelső szint, az 1‑szint alatta van, és így tovább.
+Használja a [ParagraphFormat.depth](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/depth/) tulajdonságot a listaelemek különböző szinteken való elhelyezéséhez. A 0‑szint a legfelső, az 1‑szint alatta helyezkedik el, és így tovább.
 
-Az alábbi Python kód megmutatja, hogyan hozhat létre többszintű felsorolásjeles listát:
+Az alábbi Python kód bemutatja, hogyan hozhat létre egy többszintű felsorolást:
 
 ```py
 import aspose.slides as slides
@@ -215,9 +215,9 @@ Az eredmény:
 
 ## **Meglévő lista módosítása**
 
-Az meglévő prezentációban a lista formázásának módosításához lépjen a cél bekezdésre, és frissítse annak a [ParagraphFormat.bullet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/bullet/) beállításait. Azonos tulajdonságokat használhat a listák ellenőrzésére vagy módosítására, amelyeket PPT, PPTX vagy ODP fájlból tölt be.
+Egy meglévő bemutató listaformázásának módosításához érje el a célbekezdéset, és frissítse a [ParagraphFormat.bullet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/bullet/) beállításait. Az ugyanazok a tulajdonságok, amelyeket listák létrehozásához használ, alkalmazhatók a PPT, PPTX vagy ODP fájlokból betöltött listák vizsgálatára vagy módosítására.
 
-Az alábbi Python kód megváltoztatja a szövegkeret első bekezdését, hogy számozott lista stílusát használja:
+Az alábbi Python kód a szövegkeret első bekezdését számozott lista stílusra állítja:
 
 ```py
 import aspose.slides as slides
@@ -238,14 +238,14 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **GYIK**
 
-**Exportálhatók a felsorolásjeles és számozott listák PDF‑be vagy képekbe?**
+**Exportálhatók a felsorolások és számozott listák PDF‑be vagy képekbe?**
 
-Igen. Az Aspose.Slides megőrzi a lista formázását, ha a célformátum támogatja a megfelelő szövegelrendezést és jelző funkciókat.
+Igen. Az Aspose.Slides megőrzi a listaformázást, ha a célnformátum támogatja a megfelelő szövegelrendezést és jelölő funkciókat.
 
-**Szerkeszthetek listákat meglévő prezentációkban?**
+**Szerkeszthetőek a listák meglévő prezentációkban?**
 
-Igen. Töltse be a prezentációt, lépjen a cél bekezdésre, ellenőrizze vagy frissítse a [ParagraphFormat.bullet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/bullet/) beállításait, és mentse a prezentációt.
+Igen. Töltse be a prezentációt, érje el a célbekezdést, vizsgálja meg vagy frissítse a [ParagraphFormat.bullet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/bullet/) beállításait, majd mentse a fájlt.
 
-**Tartalmazhatnak a listák nem latin karaktereket?**
+**Tartalmazhatnak a listák nem latin szöveget?**
 
-Igen. A listaelemek szövege Unicode karaktereket is tartalmazhat, így többnyelvű prezentációkban is létrehozhat listákat. Győződjön meg arról, hogy a prezentációban használt betűtípusok támogatják a szükséges karaktereket.
+Igen. A listaelemek szövege Unicode karaktereket is tartalmazhat, így többnyelvű prezentációkban is létrehozhat listákat. Győződjön meg arról, hogy a prezentációban használt betűkészletek támogatják a szükséges karaktereket.

@@ -4,41 +4,43 @@ linktitle: Kelola Daftar
 type: docs
 weight: 70
 url: /id/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
-- bullet
-- daftar berpoin
-- daftar bernomor
-- bullet simbol
-- bullet gambar
-- bullet khusus
-- daftar bertingkat
-- buat bullet
-- tambahkan bullet
-- tambahkan daftar
-- PowerPoint
-- OpenDocument
-- presentasi
-- Python
-- Aspose.Slides
-description: "Pelajari cara membuat dan memformat daftar berpoin, bullet gambar, daftar bertingkat, dan daftar bernomor dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via .NET."
+  - bullet
+  - daftar berpoin
+  - daftar bernomor
+  - bullet simbol
+  - bullet gambar
+  - bullet khusus
+  - daftar berjenjang
+  - buat bullet
+  - tambahkan bullet
+  - tambahkan daftar
+  - PowerPoint
+  - OpenDocument
+  - presentasi
+  - Python
+  - Aspose.Slides
+description: "Pelajari cara membuat dan memformat daftar berpoin, bullet gambar, daftar berjenjang, dan daftar bernomor dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via .NET."
 ---
 ## **Ikhtisar**
 
 Aspose.Slides for Python via .NET memungkinkan Anda membuat dan memformat daftar berpoin dan bernomor dalam presentasi PowerPoint dan OpenDocument. Item daftar adalah paragraf yang pengaturan bullet‑nya dikendalikan melalui format paragrafnya.
 
-Gunakan properti [Paragraph.paragraph_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/paragraph_format/) untuk mengakses pengaturan daftar tingkat paragraf. Titik masuk utama adalah [ParagraphFormat.bullet](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/bullet/), yang mengembalikan objek [BulletFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/). Dengan objek ini, Anda dapat mengatur tipe bullet, simbol, gambar, warna, ukuran, gaya penomoran, dan angka awal.
+Gunakan properti [Paragraph.paragraph_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/paragraph_format/) untuk mengakses pengaturan daftar tingkat paragraf. Titik masuk utama adalah [ParagraphFormat.bullet](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/bullet/), yang mengembalikan objek [BulletFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/). Dengan objek ini, Anda dapat mengatur jenis bullet, simbol, gambar, warna, ukuran, gaya penomoran, dan nomor awal.
 
-Artikel ini menunjukkan cara:
+Artikel ini menjelaskan cara:
 
 - membuat daftar berpoin dengan simbol khusus
 - membuat bullet gambar
-- membuat daftar bertingkat dengan mengatur kedalaman paragraf
+- membuat daftar berjenjang dengan mengatur kedalaman paragraf
 - membuat daftar bernomor
-- memeriksa dan mengubah pemformatan daftar dalam presentasi yang sudah ada
+- memeriksa dan mengubah pemformatan daftar dalam presentasi yang ada
 
 ## **Buat Daftar Berpoin**
 
-Untuk membuat daftar berpoin, tambahkan objek [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) ke dalam [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) dan setel [BulletFormat.type](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/type/) ke [BulletType.SYMBOL](https://reference.aspose.com/slides/id/python-net/aspose.slides/bullettype/). Selanjutnya Anda dapat menyetel [BulletFormat.char](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/color/), dan [BulletFormat.height](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/height/) untuk mengontrol tampilan bullet.
+Untuk membuat daftar berpoin, tambahkan objek [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) ke dalam [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) dan atur [BulletFormat.type](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/type/) ke [BulletType.SYMBOL](https://reference.aspose.com/slides/id/python-net/aspose.slides/bullettype/). Anda kemudian dapat mengatur [BulletFormat.char](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/color/), dan [BulletFormat.height](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/height/) untuk mengontrol tampilan bullet.
 
 Kode Python berikut mendemonstrasikan cara membuat daftar berpoin dalam sebuah slide:
 
@@ -76,11 +78,11 @@ with slides.Presentation() as presentation:
 
 Hasil:
 
-![Bullet simbol](symbol_bullets.png)
+![Simbol bullet](symbol_bullets.png)
 
 ## **Buat Daftar Bernomor**
 
-Gunakan daftar bernomor ketika urutan item penting. Setel [BulletFormat.type](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/type/) ke [BulletType.NUMBERED](https://reference.aspose.com/slides/id/python-net/aspose.slides/bullettype/). Anda juga dapat memilih format penomoran dengan [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/numbered_bullet_style/) atau menyetel [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) ketika daftar harus dimulai dari nilai selain 1.
+Gunakan daftar bernomor ketika urutan item penting. Atur [BulletFormat.type](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/type/) ke [BulletType.NUMBERED](https://reference.aspose.com/slides/id/python-net/aspose.slides/bullettype/). Anda juga dapat memilih format penomoran dengan [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/numbered_bullet_style/) atau mengatur [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) ketika daftar harus dimulai dari nilai selain 1.
 
 Kode Python berikut menunjukkan cara membuat daftar bernomor dalam sebuah slide:
 
@@ -118,15 +120,15 @@ Hasil:
 
 ## **Buat Bullet Gambar**
 
-Aspose.Slides memungkinkan Anda mengganti simbol bullet standar dengan gambar. Bullet gambar paling cocok untuk gambar sederhana yang tetap dapat dibaca pada ukuran kecil, seperti ikon atau file PNG transparan kecil.
+Aspose.Slides memungkinkan Anda mengganti simbol bullet biasa dengan gambar. Bullet gambar paling cocok dengan gambar sederhana yang tetap terbaca pada ukuran kecil, seperti ikon atau file PNG transparan kecil.
 
 {{% alert color="primary" %}}
-Idealnya, jika Anda berencana mengganti simbol bullet standar dengan gambar, sebaiknya pilih grafik sederhana dengan latar belakang transparan. Gambar semacam itu bekerja dengan baik sebagai simbol bullet khusus.
+Idealnya, jika Anda berencana mengganti simbol bullet biasa dengan gambar, pilih grafik sederhana dengan latar belakang transparan. Gambar semacam itu bekerja baik sebagai simbol bullet khusus.
 {{% /alert %}}
 
-Untuk membuat bullet gambar, tambahkan gambar ke [Presentation.images](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/images/) dan tetapkan objek gambar yang dikembalikan ke [BulletFormat.picture](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/picture/). Setel [BulletFormat.type](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/type/) ke [BulletType.PICTURE](https://reference.aspose.com/slides/id/python-net/aspose.slides/bullettype/) sebelum menetapkan gambar.
+Untuk membuat bullet gambar, tambahkan gambar ke [Presentation.images](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/images/) dan tetapkan objek gambar yang dikembalikan ke [BulletFormat.picture](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/picture/). Atur [BulletFormat.type](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/type/) ke [BulletType.PICTURE](https://reference.aspose.com/slides/id/python-net/aspose.slides/bullettype/) sebelum menetapkan gambar.
 
-Misalnya kita memiliki "image.png":
+Misalkan kita memiliki "image.png":
 
 ![Gambar untuk bullet](picture_for_bullets.png)
 
@@ -168,11 +170,11 @@ Hasil:
 
 ![Bullet gambar](picture_bullets.png)
 
-## **Buat Daftar Bertingkat**
+## **Buat Daftar Berjenjang**
 
-Gunakan [ParagraphFormat.depth](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/depth/) untuk menempatkan item daftar pada level yang berbeda. Level 0 adalah level teratas, level 1 berada di bawahnya, dan seterusnya.
+Gunakan [ParagraphFormat.depth](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/depth/) untuk menempatkan item daftar pada tingkat yang berbeda. Tingkat 0 adalah tingkat atas, tingkat 1 berada di bawahnya, dan seterusnya.
 
-Kode Python berikut menunjukkan cara membuat daftar berpoin bertingkat:
+Kode Python berikut menunjukkan cara membuat daftar berpoin berjenjang:
 
 ```py
 import aspose.slides as slides
@@ -209,13 +211,13 @@ with slides.Presentation() as presentation:
 
 Hasil:
 
-![Daftar bertingkat](multilevel_list.png)
+![Daftar berjenjang](multilevel_list.png)
 
 ## **Ubah Daftar yang Ada**
 
-Untuk mengubah pemformatan daftar dalam presentasi yang sudah ada, akses paragraf target dan perbarui pengaturan [ParagraphFormat.bullet](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/bullet/)‑nya. Properti yang sama yang digunakan untuk membuat daftar dapat dipakai untuk memeriksa atau memodifikasi daftar yang dimuat dari file PPT, PPTX, atau ODP.
+Untuk mengubah pemformatan daftar dalam presentasi yang ada, akses paragraf target dan perbarui pengaturan [ParagraphFormat.bullet](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/bullet/)‑nya. Properti yang sama digunakan untuk membuat daftar dapat dipakai untuk memeriksa atau memodifikasi daftar yang dimuat dari file PPT, PPTX, atau ODP.
 
-Kode Python berikut mengubah paragraf pertama dalam sebuah text frame agar menggunakan gaya daftar bernomor:
+Kode Python berikut mengubah paragraf pertama dalam sebuah text frame untuk menggunakan gaya daftar bernomor:
 
 ```py
 import aspose.slides as slides
@@ -240,10 +242,10 @@ with slides.Presentation("input.pptx") as presentation:
 
 Ya. Aspose.Slides mempertahankan pemformatan daftar ketika format target mendukung tata letak teks dan fitur bullet yang bersangkutan.
 
-**Apakah saya dapat mengedit daftar dalam presentasi yang sudah ada?**
+**Apakah saya dapat mengedit daftar dalam presentasi yang ada?**
 
 Ya. Muat presentasi, akses paragraf target, periksa atau perbarui pengaturan [ParagraphFormat.bullet](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/bullet/), dan simpan presentasi.
 
 **Apakah daftar dapat berisi teks non‑Latin?**
 
-Ya. Teks item daftar dapat berisi karakter Unicode, sehingga Anda dapat membuat daftar dalam presentasi multibahasa. Pastikan font yang digunakan dalam presentasi mendukung karakter yang Anda perlukan.
+Ya. Teks item daftar dapat berisi karakter Unicode, sehingga Anda dapat membuat daftar dalam presentasi multibahasa. Pastikan font yang digunakan dalam presentasi mendukung karakter yang diperlukan.

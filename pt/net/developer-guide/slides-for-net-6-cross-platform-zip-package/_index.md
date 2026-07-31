@@ -1,10 +1,12 @@
 ---
-title: Aspose.Slides para .NET 6 multiplataforma (pacote ZIP)
+title: Aspose.Slides para .NET 6 Cross-Platform (Pacote ZIP)
 type: docs
 weight: 237
 url: /pt/net/slides-for-net-6-cross-platform-zip-package/
+aliases:
+  - /net/slides-for-net-6-cross-platform/
 keywords:
-- multiplataforma
+- cross-platform
 - .NET 6
 - GLIBC
 - csproj
@@ -13,7 +15,7 @@ keywords:
 - Aspose.Slides.dll
 - System.Drawing.Common
 - conflito de nome
-- alias externo
+- extern alias
 - CS0433
 - PowerPoint
 - OpenDocument
@@ -25,21 +27,23 @@ description: "Use o Aspose.Slides para .NET 6 para criar aplicativos C# multipla
 ---
 ## **Visão geral**
 
-Este artigo explica como usar Aspose.Slides for .NET 6 Cross-Platform a partir de um pacote ZIP. Ele descreve como baixar o pacote, descompactar os arquivos da pasta `net6.0/crossplatform`, adicionar uma referência a `Aspose.Slides.dll` e configurar o arquivo do projeto para que as bibliotecas dependentes necessárias sejam copiadas para o diretório de saída da aplicação.
+Este artigo explica como usar o Aspose.Slides for .NET 6 Cross-Platform a partir de um pacote ZIP. Ele descreve como baixar o pacote, extrair os arquivos da pasta `net6.0/crossplatform`, adicionar uma referência ao `Aspose.Slides.dll` e configurar o arquivo de projeto para que as bibliotecas dependentes necessárias sejam copiadas para o diretório de saída da aplicação.
 
-O artigo também descreve o conteúdo do pacote cross‑platform, incluindo o assembly principal do Aspose.Slides .NET e as bibliotecas do subsistema gráfico específicas da plataforma para Windows, Linux e macOS.
+O artigo também descreve o conteúdo do pacote cross‑platform, incluindo o assembly principal do Aspose.Slides .NET e as bibliotecas do subsistema gráfico específicas de cada plataforma para Windows, Linux e macOS.
 
-{{% alert title="Nota" color="primary" %}}
+{{% alert title="Note" color="primary" %}}
+
 Aspose.Slides for .NET 6 Cross-Platform também está disponível no [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform).
+
 {{% /alert %}}
 
-## **Usando o Aspose.Slides Cross-Platform a partir de um Pacote ZIP**
+## **Usando o Aspose.Slides Cross‑Platform a partir de um pacote ZIP**
 
-1. Baixe o pacote ZIP da versão mais recente do Aspose.Slides na [Página de Lançamento](https://releases.aspose.com/slides/pt/net/).
+1. Baixe o pacote ZIP da versão mais recente do Aspose.Slides na [Release Page](https://releases.aspose.com/slides/pt/net/).
 
-2. Descompacte os arquivos de *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* e coloque-os na pasta que será usada para dependências em seu projeto.
+2. Extraia os arquivos de *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* e coloque‑os na pasta que será usada para as dependências em seu projeto.
 
-3. Adicione uma referência a Aspose.Slides.dll.
+3. Adicione uma referência ao Aspose.Slides.dll.
 
    ![add-project-reference-visual-studio](add-project-reference-visual-studio.png)
 
@@ -47,7 +51,7 @@ Aspose.Slides for .NET 6 Cross-Platform também está disponível no [NuGet](htt
 
    ![browse-console-app](browse-console-app.jpg)
 
-4. Coloque os arquivos restantes (dos quais o Aspose.Slides depende) no diretório de saída adicionando instruções ao arquivo de projeto csproj da seguinte forma:
+4. Coloque os arquivos restantes (dos quais o Aspose.Slides depende) no diretório de saída adicionando instruções ao arquivo de projeto csproj desta forma:
 
 ```xml
 <ItemGroup>
@@ -87,16 +91,16 @@ Aspose.Slides for .NET 6 Cross-Platform também está disponível no [NuGet](htt
 
 5. Preste atenção ao `TargetPath`.
 
-   Por padrão, `<CopyToOutputDirectory>` copia arquivos preservando seu caminho relativo, mas precisamos que as bibliotecas dependentes vão para a mesma pasta onde a saída é gerada (localização do Aspose.Slides.dll).
+   Por padrão, `<CopyToOutputDirectory>` copia arquivos preservando seu caminho relativo, mas precisamos que as bibliotecas dependentes sejam colocadas na mesma pasta onde a saída é gerada (localização do Aspose.Slides.dll).
 
 ## **Observações**
 
 ### **Subsistema Gráfico Proprietário**
 
-Aspose.Slides cross‑platform é uma coleção de bibliotecas:
+O Aspose.Slides cross‑platform é uma coleção de bibliotecas:
 
 | Aspose.Slides.dll                                          | Assembly .NET principal responsável por toda a lógica do Aspose.Slides |
-| ---------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------ |
 | aspose.slides.drawing.capi_vc14x64.dll                     | Dependência: implementação do subsistema gráfico para Win x64          |
 | aspose.slides.drawing.capi_vc14x86.dll                     | Dependência: implementação do subsistema gráfico para Win x86          |
 | libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | Dependência: implementação do subsistema gráfico para Linux (x86/x64) |
@@ -123,8 +127,8 @@ O pacote ZIP contém a seguinte estrutura de pastas:
 
   └─── netstandard2.0
 
-* Cada pasta contém assemblies para a respectiva versão .NET. Existem duas versões para net6.0: default e crossplatform. Esta última contém o Aspose.Slides.dll cross‑platform e todas as suas dependências. O conteúdo descompactado desta pasta pode ser usado como adição de dependência em um projeto para desenvolvimento cross‑platform e outras instâncias de uso do Aspose.Slides.
+* Cada pasta contém assemblies para sua respectiva versão do .NET. Existem duas versões para net6.0: default e crossplatform. Esta última contém o Aspose.Slides.dll cross‑platform e todas as suas dependências. O conteúdo extraído desta pasta pode ser usado como adição de dependência em um projeto para desenvolvimento cross‑platform e outras instâncias de uso do Aspose.Slides.
 
-## **Veja Também**
+## **Veja também**
 
-- [Requisitos do Sistema](/slides/pt/net/system-requirements/)
+- [System Requirements](/slides/pt/net/system-requirements/)

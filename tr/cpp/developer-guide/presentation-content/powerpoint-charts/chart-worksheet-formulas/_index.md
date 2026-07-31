@@ -1,5 +1,5 @@
 ---
-title: C++ Kullanarak Sunumlarda Grafik Çalışma Sayfası Formüllerini Uygula
+title: C++ Kullanarak Sunumlarda Grafik Çalışma Sayfası Formüllerini Uygulama
 linktitle: Çalışma Sayfası Formülleri
 type: docs
 weight: 70
@@ -24,31 +24,30 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides için C++ grafik çalışma sayfalarında Excel tarzı formülleri uygulayın ve PPT ve PPTX dosyalarındaki raporları otomatikleştirin."
+description: "Aspose.Slides for C++ grafik çalışma sayfalarında Excel benzeri formülleri uygulayın ve PPT ve PPTX dosyaları arasında raporları otomatikleştirin."
 ---
 ## **Genel Bakış**
 
-Bir grafik çalışma sayfası, bir sunumdaki grafiğin arkasındaki veri kaynağıdır. Kategori ve seri adlarını, grafiğin gösterdiği sayısal değerlerle birlikte depolar. Aspose.Slides içinde bu çalışma sayfasına grafik veri çalışma kitabı aracılığıyla erişilir ve böylece grafik verileri programlı olarak işlenebilir.
+Bir grafik çalışma sayfası, bir sunumdaki grafiğin veri kaynağıdır. Kategori ve seri adlarını, grafiğin gösterdiği sayısal değerlerle birlikte depolar. Aspose.Slides içinde bu çalışma sayfasına grafik veri çalışma kitabı aracılığıyla erişilir; bu sayede grafik verileri programlı olarak işlenebilir.
 
-Bu makale, hücre değerlerinin manuel olarak girilmesi yerine otomatik olarak hesaplanıp güncellenebilmesi için grafik verilerinde çalışma sayfası formüllerinin nasıl kullanılacağını açıklar. Formüllerin nasıl atanacağını, hem A1 hem de R1C1 stilindeki referansların nasıl kullanılacağını, çalışma kitabı formüllerinin nasıl yeniden hesaplanacağını ve sunumlardaki grafik çalışma sayfalarında mevcut olan sabitler, operatörler, hücre referansları ve önceden tanımlı işlevler ile nasıl çalışılacağını gösterir.
+Bu makale, hücre değerlerinin manuel olarak girilmesi yerine otomatik olarak hesaplanıp güncellenebilmesi için grafik verilerinde çalışma sayfası formüllerinin nasıl kullanılacağını açıklar. Formüllerin nasıl atanacağını, A1‑stili ve R1C1‑stili başvuruların nasıl kullanılacağını, çalışma kitabı formüllerinin nasıl yeniden hesaplanacağını ve sunumlardaki grafik çalışma sayfalarında kullanılan desteklenen sabitler, operatörler, hücre başvuruları ve önceden tanımlı işlevler hakkında bilgi verir.
 
 ## **Sunumlardaki Grafik Çalışma Sayfası Formülleri Hakkında**
-**Grafik çalışma sayfası** (veya grafik çalışma sayfası) bir sunumdaki grafiğin veri kaynağıdır. Grafik çalışma sayfası, grafikte grafiksel olarak gösterilen verileri içerir. PowerPoint'te bir grafik oluşturduğunuzda bu grafiğe bağlı çalışma sayfası otomatik olarak oluşturulur. Grafik çalışma sayfası tüm grafik türleri için oluşturulur: çizgi grafik, çubuk grafik, sunburst grafik, pasta grafik vb. PowerPoint'te grafik çalışma sayfasını görmek için grafiğe çift tıklamalısınız:
+**Grafik çalışma sayfası** (veya grafik çalışma sayfası) bir sunumdaki grafiğin veri kaynağıdır. Grafik çalışma sayfası, grafiğin grafiksel olarak temsil edildiği verileri içerir. PowerPoint’te bir grafik oluşturduğunuzda, bu grafikle ilişkili çalışma sayfası da otomatik olarak oluşturulur. Grafik çalışma sayfası, çizgi grafik, çubuk grafik, sunburst grafik, pasta grafik vb. tüm grafik türleri için oluşturulur. PowerPoint’te grafik çalışma sayfasını görmek için grafiğe çift tıklamalısınız:
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
 
-Grafik çalışma sayfası, grafik öğelerinin adlarını (Kategori Adı: *Category1*, Seri Adı) ve bu kategorilere ve serilere uygun sayısal verileri içeren bir tabloyu barındırır. Varsayılan olarak yeni bir grafik oluşturduğunuzda - grafik çalışma sayfası verileri varsayılan verilerle ayarlanır. Ardından çalışma sayfası verilerini manuel olarak değiştirebilirsiniz.
+Grafik çalışma sayfası, grafik öğelerinin adlarını (Kategori Adı: *Category1*, Seri Adı) ve bu kategorilere ve serilere uygun sayısal veri tablosunu içerir. Varsayılan olarak, yeni bir grafik oluşturduğunuzda – grafik çalışma sayfası verileri varsayılan verilerle ayarlanır. Ardından çalışma sayfasındaki verileri manuel olarak değiştirebilirsiniz.
 
-Genellikle grafik, (ör. finansal analistler, bilimsel analistler) diğer hücrelerdeki değerlerden veya dinamik verilerden hesaplanan hücrelere sahip karmaşık verileri temsil eder. Hücrenin değerini manuel olarak hesaplayıp hücreye sabit kodlamak, gelecekte değişiklik yapmayı zorlaştırır. Belirli bir hücrenin değerini değiştirirseniz, ona bağımlı tüm hücrelerin de güncellenmesi gerekir. Ayrıca tablo verileri diğer tablolardan gelen verilere bağımlı olabilir; bu da sunum veri şemasını karmaşıklaştırır ve kolay ve esnek bir şekilde güncellenmesi gerekir.
+Genellikle grafik, karmaşık verileri (ör. finansal analizler, bilimsel analizler) temsil eder; bu veriler diğer hücrelerdeki değerlerden veya diğer dinamik verilerden hesaplanır. Hücrenin değerini manuel olarak hesaplayıp sabit kodlamak, gelecekte değiştirildiğinde zorluk yaratır. Belirli bir hücrenin değeri değiştirildiğinde, ona bağımlı tüm hücrelerin de güncellenmesi gerekir. Ayrıca tablo verileri diğer tablolardan gelen verilere bağımlı olabilir; bu da güncellenmesi kolay ve esnek bir sunum veri şeması gerektirir.
 
-Sunumdaki **grafik çalışma sayfası formülü**, grafik çalışma sayfası verilerini otomatik olarak hesaplamak ve güncellemek için kullanılan bir ifadedir. Çalışma sayfası formülü, belirli bir hücre veya hücre kümesi için veri hesaplama mantığını tanımlar. Çalışma sayfası formülü, hücre referansları, matematik işlevleri, mantıksal operatörler, aritmetik operatörler, dönüşüm işlevleri, dize sabitleri vb. kullanan bir matematik ya da mantık formülüdür. Formül tanımı bir hücreye yazılır ve bu hücre basit bir değer içermez. Çalışma sayfası formülü değeri hesaplar ve geri döndürür; ardından bu değer hücreye atanır. Sunumlardaki grafik çalışma sayfası formülleri aslında Excel formülleriyle aynıdır ve uygulanmaları için aynı varsayılan işlevler, operatörler ve sabitler desteklenir.
+**Grafik çalışma sayfası formülü**, grafik çalışma sayfası verilerini otomatik olarak hesaplamak ve güncellemek için bir ifadedir. Çalışma sayfası formülü, belirli bir hücre veya hücre kümesi için veri hesaplama mantığını tanımlar. Çalışma sayfası formülü, hücre başvuruları, matematik işlevleri, mantıksal operatörler, aritmetik operatörler, dönüşüm işlevleri, dize sabitleri vb. kullanan bir matematik veya mantıksal formüldür. Formül tanımı bir hücreye yazılır ve bu hücre basit bir değer içermez. Çalışma sayfası formülü değeri hesaplar ve geri döner; ardından bu değer hücreye atanır. Sunumlardaki grafik çalışma sayfası formülleri, Excel formülleri ile aynıdır ve aynı varsayılan işlevler, operatörler ve sabitler desteklenir.
 
 [**Aspose.Slides**](https://products.aspose.com/slides/tr/cpp/) içinde grafik çalışma sayfası,
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) yöntemiyle
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_workbook) türü üzerinden temsil edilir. 
+[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) yöntemiyle temsil edilir. 
 Çalışma sayfası formülü, 
 [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) yöntemiyle atanabilir ve değiştirilebilir. 
-Aspose.Slides içinde formüller için aşağıdaki işlevsellik desteklenir:
+Aspose.Slides’te formüller için aşağıdaki işlevsellik desteklenir:
 
 - Mantıksal sabitler
 - Sayısal sabitler
@@ -56,18 +55,20 @@ Aspose.Slides içinde formüller için aşağıdaki işlevsellik desteklenir:
 - Hata sabitleri
 - Aritmetik operatörler
 - Karşılaştırma operatörleri
-- A1-stili hücre referansları
-- R1C1-stili hücre referansları
+- A1‑stili hücre başvuruları
+- R1C1‑stili hücre başvuruları
 - Önceden tanımlı işlevler
 
-Genellikle çalışma sayfaları son hesaplanan formül değerlerini saklar. Sunum yüklendikten sonra grafik verileri değiştirilmemişse, **IChartDataCell.get_Value()** yöntemi bu değerleri okurken döndürür. Ancak çalışma sayfası verileri değiştirilmişse, **ChartDataCell.get_Value()** yöntemi desteklenmeyen formüller için **CellUnsupportedDataException** hatası fırlatır. Bunun nedeni, formüller başarıyla ayrıştırıldığında hücre bağımlılıklarının belirlenmesi ve son değerlerin doğruluğunun teyit edilmesidir. Formül ayrıştırılamazsa hücre değerinin doğruluğu garanti edilemez.
+
+
+Genellikle çalışma sayfaları son hesaplanan formül değerlerini saklar. Sunum yüklendikten sonra grafik verileri değiştirilmemişse – **IChartDataCell.get_Value()** yöntemi bu değerleri okuma sırasında döndürür. Ancak çalışma sayfası verileri değiştirilmişse, **ChartDataCell.get_Value()** yöntemi desteklenmeyen formüller için **CellUnsupportedDataException** hatası fırlatır. Bunun nedeni, formüller başarıyla ayrıştırıldığında hücre bağımlılıklarının belirlendiği ve son değerlerin doğruluğunun kontrol edildiğidir. Formül ayrıştırılamazsa, hücre değerinin doğruluğu garanti edilemez.
+
 
 ## **Sunuma Bir Grafik Çalışma Sayfası Formülü Ekleme**
-İlk slayda yeni bir sunumda bir grafik eklemek için 
-[IShapeCollection::AddChart()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374) 
-kullanılır. Grafiğin çalışma sayfası otomatik olarak oluşturulur ve 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) 
-yöntemi ile erişilebilir:
+İlk olarak, yeni bir sunumun ilk slaytına bir grafik ekleyin:
+[IShapeCollection::AddChart()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374). 
+Grafiğin çalışma sayfası otomatik olarak oluşturulur ve şu yöntemle erişilebilir:
+[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea):
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -78,9 +79,8 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 // ...
 ```
 
-Hücrelere değer yazmak için **Object** türündeki 
-[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) 
-yöntemi kullanılabilir; bu, metoda herhangi bir değer geçirebileceğiniz anlamına gelir:
+Bazı hücrelere değer yazmak için **Object** türündeki 
+[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) yöntemini kullanabilirsiniz; bu, metoda herhangi bir değer geçirebileceğiniz anlamına gelir:
 
 ``` cpp
 workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
@@ -89,93 +89,101 @@ workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
 ```
 
 Şimdi hücreye formül yazmak için 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) 
-yöntemini kullanabilirsiniz:
+[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) yöntemini kullanabilirsiniz:
 
-*Not*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) yöntemi A1-stili hücre referanslarını ayarlamak için kullanılır. 
+*Not*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) yöntemi A1‑stili hücre başvurularını ayarlamak için kullanılır.
 
-R1C1Formula hücre referansını ayarlamak için 
-[**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) 
-yöntemini kullanabilirsiniz:
+R1C1Formula hücre başvurusunu ayarlamak için 
+[**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) yöntemini kullanabilirsiniz:
+
+Bu işlemden sonra B2 ve C2 hücrelerinin değerlerini okursanız, değerler hesaplanmış olur:
 
 ``` cpp
 auto value1 = cell1->get_Value(); // 7.8
 auto value2 = cell2->get_Value(); // 2.1
 ```
 
+
 ## **Mantıksal Sabitler**
-Formüllerde *FALSE* ve *TRUE* gibi mantıksal sabitler kullanılabilir:
+Hücre formüllerinde *FALSE* ve *TRUE* gibi mantıksal sabitler kullanılabilir:
+
 
 ## **Sayısal Sabitler**
-Sayılar, grafik çalışma sayfası formülü oluşturmak için ortak ya da bilimsel gösterimde kullanılabilir:
+Sayılar, ortak veya bilimsel gösterimlerle grafik çalışma sayfası formülü oluşturmak için kullanılabilir:
+
 
 ## **Dize Sabitleri**
-Dize (veya literal) sabiti, olduğu gibi kullanılan ve değişmeyen bir değerdir. Dize sabitleri şunlar olabilir: tarihler, metinler, sayılar vb.:
+Dize (ya da literal) sabiti, olduğu gibi kullanılan ve değişmeyen bir değerdir. Dize sabitleri şunlar olabilir: tarih, metin, sayı vb.:
 
 ## **Hata Sabitleri**
-Bazen formül sonucu hesaplanamaz. Bu durumda hücrede değer yerine bir hata kodu gösterilir. Her hata türünün belirli bir kodu vardır:
+Bazen formülle sonucun hesaplanması mümkün olmayabilir. Bu durumda hücrede değeri yerine hata kodu gösterilir. Her hata türünün özgü bir kodu vardır:
 
-- #DIV/0! – formül sıfıra bölmeye çalışıyor.
-- #GETTING_DATA – hücrenin değeri hâlâ hesaplanırken gösterilebilir.
-- #N/A – bilgi eksik veya mevcut değil. Nedenler: formülde kullanılan hücreler boş, ekstra boşluk karakteri, yazım hatası vb.
-- #NAME? – belirli bir hücre ya da diğer formül nesneleri adıyla bulunamıyor.
-- #NULL! – formülde (, ) gibi bir hata oluştuğunda ya da iki nokta üst üste (:) yerine boşluk karakteri kullanıldığında ortaya çıkabilir.
-- #NUM! – formüldeki sayısal değer geçersiz, çok uzun veya çok kısa olabilir.
-- #REF! – geçersiz hücre referansı.
-- #VALUE! – beklenmeyen değer türü. Örneğin, sayısal bir hücreye dize değeri atanmışsa.
+- #DIV/0! – formül sıfıra bölmeye çalışır.
+- #GETTING_DATA – değer hâlâ hesaplanırken hücrede görünebilir.
+- #N/A – bilgi eksik veya mevcut değil. Nedenler: formülde kullanılan hücre boş, fazladan boşluk karakteri, yazım hatası vb.
+- #NAME? – belirli bir hücre ya da diğer formül nesnesi adıyla bulunamıyor.
+- #NULL! – formülde (, ) gibi yanlış bir karakter ya da iki nokta (:) yerine boşluk kullanılması.
+- #NUM! – formüldeki sayısal değer geçersiz, çok uzun veya çok küçük vb.
+- #REF! – geçersiz hücre başvurusu.
+- #VALUE! – beklenmedik değer türü. Örneğin, metin değeri sayısal bir hücreye atanmış.
+
+
 
 ## **Aritmetik Operatörler**
 Grafik çalışma sayfası formüllerinde tüm aritmetik operatörler kullanılabilir:
 
-|**Operatör**|**Anlamı**|**Örnek**|
+|**Operatör**|**Anlam**|**Örnek**|
 | :- | :- | :- |
 |+ (artı işareti)|Toplama veya tekli artı|2 + 3|
-|- (eksi işareti)|Çıkarma veya eksi|2 - 3<br>-3|
-|* (asterisk)|Çarpma|2 * 3|
+|- (eksi işareti)|Çıkarma veya negatif|2 - 3<br>-3|
+|* (yıldız)|Çarpma|2 * 3|
 |/ (bölü işareti)|Bölme|2 / 3|
 |% (yüzde işareti)|Yüzde|30%|
-|^ (caret)|Üs alma|2 ^ 3|
+|^ (üst işareti)|Üs alma|2 ^ 3|
 
-*Not*: Değerlendirme sırasını değiştirmek için, önce hesaplanacak formül kısmını parantez içine koyun.
+*Not*: Değerlendirme sırasını değiştirmek için formülün önce hesaplanması gereken kısmını parantez içine alın.
+
 
 ## **Karşılaştırma Operatörleri**
-Hücre değerlerini karşılaştırma operatörleriyle karşılaştırabilirsiniz. Bu operatörler kullanıldığında sonuç mantıksal bir değer (*TRUE* ya da *FALSE*) olur:
+Hücre değerlerini karşılaştırma operatörleriyle kıyaslayabilirsiniz. Bu operatörler kullanıldığında sonuç *TRUE* ya da *FALSE* mantıksal bir değer olur:
 
-|**Operatör**|**Anlamı**|**Örnek**|
+|**Operatör**|**Anlam**|**Örnek**|
 | :- | :- | :- |
 |= (eşittir)|Eşit|A2 = 3|
-|<> (eşit değildir)|Eşit değildir|A2 <> 3|
-|> (büyüktür)|Büyük|A2 > 3|
-|>= (büyük veya eşittir)|Büyük veya eşit|A2 >= 3|
-|< (küçüktür)|Küçük|A2 < 3|
-|<= (küçük veya eşittir)|Küçük veya eşit|A2 <= 3|
+|<> (eşit değil)|Eşit değil|A2 <> 3|
+|> (büyük)|Büyük|A2 > 3|
+|>= (büyük veya eşit)|Büyük veya eşit|A2 >= 3|
+|< (küçük)|Küçük|A2 < 3|
+|<= (küçük veya eşit)|Küçük veya eşit|A2 <= 3|
 
-## **A1-Stili Hücre Referansları**
-**A1-stili hücre referansları**, sütunun harf kimliği (ör. "*A*") ve satırın sayısal kimliği (ör. "*1*") olduğu çalışma sayfalarında kullanılır. A1-stili hücre referansları aşağıdaki şekilde kullanılabilir:
+## **A1‑Stili Hücre Başvuruları**
+**A1‑stili hücre başvuruları**, sütunun harf (ör. "*A*") ve satırın sayı (ör. "*1*") ile tanımlandığı çalışma sayfalarında kullanılır. A1‑stili başvurular aşağıdaki şekilde kullanılabilir:
 
-|**Hücre referansı**|**Mutlak**|**Göreceli**|**Karışık**|
+|**Hücre başvurusu**|**Örnek**| | |
 | :- | :- | :- | :- |
+| |Mutlak|Göreli|Karışık|
 |Hücre|$A$2|A2|<p>A$2</p><p>$A2</p>|
 |Satır|$2:$2|2:2|-|
 |Sütun|$A:$A|A:A|-|
 |Aralık|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
 
-Aşağıda A1-stili hücre referansının formülde nasıl kullanılacağına bir örnek verilmiştir:
+Aşağıda A1‑stili hücre başvurusunun formül içinde nasıl kullanılacağına bir örnek verilmiştir:
 
-## **R1C1-Stili Hücre Referansları**
-**R1C1-stili hücre referansları**, hem satır hem de sütunun sayısal kimliği olduğu çalışma sayfalarında kullanılır. R1C1-stili hücre referansları aşağıdaki şekilde kullanılabilir:
+## **R1C1‑Stili Hücre Başvuruları**
+**R1C1‑stili hücre başvuruları**, hem satır hem de sütunun sayısal kimliği olduğu çalışma sayfalarında kullanılır. R1C1‑stili başvurular aşağıdaki şekilde kullanılabilir:
 
-|**Hücre referansı**|**Mutlak**|**Göreceli**|**Karışık**|
+|**Hücre başvurusu**|**Örnek**| | |
 | :- | :- | :- | :- |
+| |Mutlak|Göreli|Karışık|
 |Hücre|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
 |Satır|R2|R[2]|-|
 |Sütun|C3|C[3]|-|
 |Aralık|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
 
-Aşağıda A1-stili hücre referansının formülde nasıl kullanılacağına bir örnek verilmiştir:
+Aşağıda formül içinde A1‑stili hücre başvurusunun nasıl kullanılacağına bir örnek verilmiştir:
 
 ## **Önceden Tanımlı İşlevler**
-Formüllerde kullanılabilecek, uygulanmalarını basitleştiren önceden tanımlı işlevler vardır. Bu işlevler en yaygın kullanılan işlemleri kapsar, örneğin:
+Formüllerde kullanımını kolaylaştırmak için önceden tanımlı işlevler bulunur. Bu işlevler en yaygın kullanılan işlemleri kapsar, örneğin:
 
 - ABS
 - AVERAGE
@@ -197,10 +205,10 @@ Formüllerde kullanılabilecek, uygulanmalarını basitleştiren önceden tanım
 
 ## **SSS**
 
-**Formüllü bir grafik için dış Excel dosyaları veri kaynağı olarak destekleniyor mu?**
+**Formüllü bir grafik için harici Excel dosyaları veri kaynağı olarak destekleniyor mu?**
 
-Evet. Aspose.Slides, bir grafiğin veri kaynağı olarak dış çalışma kitaplarını destekler([chart's data source](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdatasourcetype/)), bu da sunum dışındaki bir XLSX dosyasındaki formüllerin kullanılmasını sağlar.
+Evet. Aspose.Slides, bir [grafiğin veri kaynağı](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdatasourcetype/) olarak harici çalışma kitaplarını destekler; bu sayede sunum dışındaki bir XLSX dosyasından formüller kullanılabilir.
 
-**Grafik formülleri aynı çalışma kitabındaki sayfa adlarıyla referans verebilir mi?**
+**Grafik formülleri, aynı çalışma kitabındaki sayfalara sayfa adıyla başvurabilir mi?**
 
-Evet. Formüller standart Excel referans modelini izler, bu yüzden aynı çalışma kitabındaki ya da dış bir çalışma kitabındaki diğer sayfalara referans verebilirsiniz. Dış referanslar için Excel sözdizimini kullanarak yol ve çalışma kitabı adını ekleyin.
+Evet. Formüller standart Excel referans modelini izler, bu yüzden aynı çalışma kitabındaki diğer sayfalara ya da harici bir çalışma kitabına başvurabilirsiniz. Harici başvurular için Excel sözdizimini kullanarak yol ve çalışma kitabı adını eklemelisiniz.

@@ -1,21 +1,23 @@
 ---
-title: PowerPoint előadások konvertálása PHP-ben | HTML, PNG, PDF, Word, TIFF
+title: PowerPoint bemutatók konvertálása PHP-ben | HTML, PNG, PDF, Word, TIFF
 linktitle: PowerPoint konvertálása
 type: docs
 weight: 20
 url: /hu/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
 - PowerPoint konvertálása
-- előadás konvertálása
+- prezentáció konvertálása
 - dia konvertálása
 - PPT konvertálása
 - PPTX konvertálása
 - PowerPoint exportálása
-- előadás exportálása
+- prezentáció exportálása
 - dia exportálása
 - PPT exportálása
 - PPTX exportálása
 - PHP
 - Aspose.Slides
-description: "Konvertálja a PowerPoint előadásokat más formátumokra az Aspose.Slides for PHP via Java segítségével. Gyors, pontos és zökkenőmentes PPT és PPTX konvertálás."
+description: "PowerPoint bemutatók átalakítása más formátumokra az Aspose.Slides for PHP via Java segítségével. Gyors, pontos és zökkenőmentes PPT és PPTX konvertálás."
 ---

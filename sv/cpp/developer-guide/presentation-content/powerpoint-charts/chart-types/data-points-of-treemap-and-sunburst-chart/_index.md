@@ -1,5 +1,5 @@
 ---
-title: Anpassa datapunkter i Treemap- och Sunburst-diagram med С++
+title: Anpassa datapunkter i Treemap- och Sunburst-diagram med C++
 linktitle: Datapunkter i Treemap- och Sunburst-diagram
 type: docs
 url: /sv/cpp/data-points-of-treemap-and-sunburst-chart/
@@ -11,15 +11,15 @@ keywords:
 - grenfärg
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Lär dig hur du hanterar datapunkter i treemap- och sunburst-diagram med Aspose.Slides för С++, kompatibel med PowerPoint-format."
+description: "Lär dig hur du hanterar datapunkter i treemap- och sunburst-diagram med Aspose.Slides för C++, kompatibelt med PowerPoint-format."
 ---
 ## **Introduktion**
 
-Förutom andra typer av PowerPoint-diagram finns det två ”hierarkiska” typer – **Treemap** och **Sunburst**‑diagram (även känt som Sunburst‑graf, Sunburst‑diagram, radiellt diagram, radiell graf eller flernivå‑cirkeldiagram). Dessa diagram visar hierarkiska data organiserade som ett träd – från löv till grenens topp. Löv definieras av seriedatapunkterna, och varje efterföljande inbäddad gruppering definieras av motsvarande kategori. Aspose.Slides för C++ möjliggör formatering av datapunkter i Sunburst‑diagram och Treemap i C++.
+Bland andra typer av PowerPoint-diagram finns två “hierarkiska” typer – **Treemap** och **Sunburst**‑diagram (även känt som Sunburst‑graf, Sunburst‑diagram, Radial‑diagram, Radial‑graf eller Multi Level Pie Chart). Dessa diagram visar hierarkiska data organiserade som ett träd – från blad till grenens topp. Bladen definieras av serie‑datapunkterna, och varje efterföljande inbäddad grupperingsnivå definieras av motsvarande kategori. Aspose.Slides for C++ gör att du kan formatera datapunkterna i Sunburst‑diagram och Treemap i C++.
 
-Här är ett Sunburst‑diagram, där data i kolumnen Series1 definierar löv‑noderna, medan andra kolumner definierar hierarkiska datapunkter:
+Här är ett Sunburst‑diagram, där data i kolumnen Series1 definierar bladnoderna, medan övriga kolumner definierar hierarkiska datapunkter:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
@@ -35,19 +35,16 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 - [**Skapa Sunburst‑diagram**](/slides/sv/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
-Om det finns ett behov av att formatera diagrammets datapunkter bör vi använda följande:
+Om det finns ett behov av att formatera datapunkterna i diagrammet bör vi använda följande:
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/) classes and [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) method ger åtkomst till att formatera datapunkter i Treemap‑ och Sunburst‑diagram.
-
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) används för att komma åt flernivåkategorier – den representerar behållaren för [**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/)‑objekt.
-
-I princip är det ett omslag för [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) med egenskaper som är specifika för datapunkter.
-
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/)‑klasser och [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/)‑metoden ger åtkomst för att formatera datapunkter i Treemap‑ och Sunburst‑diagram.
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) används för åtkomst till flernivåkategorier – den representerar behållaren för [**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/)‑objekt. 
+I grund och botten är den ett omslag för [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) med egenskaper som lagts till specifikt för datapunkter. 
 [**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/)‑klassen har två metoder: [**get_Format()**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) och [**get_Label()**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) som ger åtkomst till motsvarande inställningar.
 
-## **Visa ett datapunktvärde**
-
-Visa värdet för datapunkten "Leaf 4":
+## **Visa värdet för en datapunkt**
+Visa värdet för datapunkten ”Leaf 4”:
 
 ``` cpp
 auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
@@ -57,8 +54,7 @@ dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_Data
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
 ## **Ställ in en datapunktetikett och färg**
-
-Ställ in datapunktetiketten för "Branch 1" så att den visar serienamnet ("Series1") istället för kategorinamnet. Ställ sedan in textfärgen till gul:
+Ställ in datalabeln för ”Branch 1” så att den visar serienamnet (“Series1”) istället för kategorinamnet. Sätt sedan textfärgen till gul:
 
 ``` cpp
 auto branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
@@ -73,7 +69,7 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 
 ## **Ställ in grenfärgen för datapunkten**
 
-Ändra färgen på grenen "Stem 4":
+Ändra färg på grenen ”Stem 4”:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -97,12 +93,12 @@ Nej. PowerPoint sorterar segment automatiskt (vanligtvis efter fallande värden,
 
 **Hur påverkar presentationens tema färgerna på segment och etiketter?**
 
-Diagrammets färger ärver presentationens [tema/palett](/slides/sv/cpp/presentation-theme/) om du inte explicit ställer in fyllningar/teckensnitt. För konsekventa resultat, lås fast solida fyllningar och textformatering på de nödvändiga nivåerna.
+Diagramfärger ärvs från presentationens [theme/palette](/slides/sv/cpp/presentation-theme/) om du inte explicit anger fyllningar/teckensnitt. För konsekventa resultat bör du låsa fast solida fyllningar och textformatering på de nivåer som krävs.
 
-**Kommer export till PDF/PNG att bevara anpassade grenfärger och etikettsinställningar?**
+**Behåller export till PDF/PNG anpassade grenfärger och etikettinställningar?**
 
-Ja. Vid export av presentationen bevaras diagraminställningarna (fyllningar, etiketter) i de exporterade formaten eftersom Aspose.Slides renderar med diagrammets formatering applicerad.
+Ja. Vid export av presentationen bevaras diagraminställningarna (fyllningar, etiketter) i de exporterade formaten eftersom Aspose.Slides renderar med diagrammets formatering tillämpad.
 
-**Kan jag beräkna de faktiska koordinaterna för en etikett/element för att placera en anpassad överläggning ovanpå diagrammet?**
+**Kan jag beräkna de faktiska koordinaterna för en etikett/element för att placera ett anpassat överlägg ovanpå diagrammet?**
 
-Ja. Efter att diagramlayouten har validerats finns faktiska X- och Y-koordinater tillgängliga för element (till exempel en [DataLabel](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/datalabel/)), vilket underlättar exakt placering av överlägg.
+Ja. Efter att diagrammets layout har validerats är faktiska X‑ och Y‑koordinater tillgängliga för element (t.ex. en [DataLabel](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/datalabel/)), vilket underlättar exakt positionering av överlägg.

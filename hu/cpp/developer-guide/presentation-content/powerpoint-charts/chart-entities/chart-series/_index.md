@@ -1,43 +1,43 @@
 ---
-title: Diagram adat sorozatok kezelése prezentációkban C++ használatával
+title: Diagram adatsorok kezelése prezentációkban C++-ban
 linktitle: Adatsorok
 type: docs
 url: /hu/cpp/chart-series/
 keywords:
-  - diagram sorozat
-  - sorozat átfedés
-  - sorozat szín
-  - kategória szín
-  - sorozat név
-  - adatpont
-  - sorozat hézag
-  - PowerPoint
-  - prezentáció
-  - C++
-  - Aspose.Slides
-description: "Ismerje meg, hogyan kezelheti a diagram sorozatokat C++ nyelven PowerPoint (PPT/PPTX) esetén gyakorlati kódrészletekkel és legjobb gyakorlatokkal, hogy javítsa adatprezentációit."
+- diagram adatsorok
+- sor átfedés
+- sor színe
+- kategória színe
+- sor neve
+- adatpont
+- sor hézag
+- PowerPoint
+- prezentáció
+- C++
+- Aspose.Slides
+description: "Ismerje meg, hogyan kezelje a diagram sorokat C++-ban a PowerPoint (PPT/PPTX) számára, gyakorlati kódpéldákkal és legjobb gyakorlatokkal, hogy javítsa adatprezentációit."
 ---
 ## **Áttekintés**
 
-Ez a cikk leírja a [ChartSeries](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts.chartseries/) szerepét az Aspose.Slides-ben, kiemelve, hogy az adatok hogyan vannak felépítve és megjelenítve a prezentációkban. Ezek az objektumok alapvető elemeket biztosítanak, amelyek meghatározzák az egyes adatpontkészleteket, kategóriákat és a diagram megjelenési paramétereit. A [ChartSeries](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts.chartseries/) használatával a fejlesztők zökkenőmentesen integrálhatják az alapul szolgáló adatforrásokat, és teljes irányítást tarthatnak a megjelenítés felett, ami dinamikus, adatvezérelt prezentációkat eredményez, amelyek világosan közvetítik az elemzéseket és következtetéseket.
+Ez a cikk leírja a [ChartSeries](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartseries/) szerepét az Aspose.Slides-ban, kiemelve, hogyan szerveződik és jelenik meg az adat a prezentációkban. Ezek a objektumok biztosítják az alapvető elemeket, amelyek meghatározzák az egyes adatpontok, kategóriák és megjelenési paraméterek halmazait egy diagramon. A [ChartSeries](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartseries/) használatával a fejlesztők zökkenőmentesen integrálhatják a háttéradatforrásokat, és teljes irányítást gyakorolhatnak az információ megjelenítése felett, ami dinamikus, adatalapú prezentációkat eredményez, amelyek egyértelműen közvetítik a betekintéseket és az elemzéseket.
 
-A sorozat egy sor vagy oszlop számból áll, amely egy diagramon ábrázolva van.
+A sor egy sor vagy oszlop szám, amelyet egy diagramon ábrázolunk.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Az adat sorozat átfedésének beállítása**
+## **Az adat sor átfedésének beállítása**
 
-Az [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) metódussal megadhatja, hogy a sávok és oszlopok mennyire fedjék egymást egy 2D diagramon (tartomány: -100‑tól 100‑ig). Ez a tulajdonság az összes sorozatra érvényes a szülő sorozatcsoportban: ez a megfelelő csoporttulajdonság vetítése.
+Az [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) metódussal megadhatja, hogy a sávok és oszlopok milyen mértékben fedjék át egymást egy 2D diagramon (tartomány: -100‑tól 100‑ig). Ez a tulajdonság a szülő sorcsoport összes sorára vonatkozik: ez a megfelelő csoporttulajdonság projekciója.
 
-Használja a `get_ParentSeriesGroup()::set_Overlap()` metódust az `Overlap` kívánt értékének beállításához. 
+Használja a `get_ParentSeriesGroup()::set_Overlap()` metódust az `Overlap` kívánt értékének beállításához.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
 1. Adjon hozzá egy csoportosított oszlopdiagramot egy diára.
-1. Hozzáférés az első diagram sorozathoz.
-1. Hozzáférés a diagram sorozat `ParentSeriesGroup` tulajdonságához, és állítsa be a sorozat kívánt átfedési értékét.
+1. Érje el az első diagram sort.
+1. Érje el a diagram sor `ParentSeriesGroup`‑ját, és állítsa be a sor kívánt átfedési értékét.
 1. Írja a módosított prezentációt egy PPTX fájlba.
 
-Ez a C++ kód bemutatja, hogyan állítható be a diagram sorozat átfedése:
+Ez a C++ kód megmutatja, hogyan állítható be egy diagram sor átfedése:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -48,25 +48,25 @@ auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
 {
-    // A sorozat átfedésének beállítása
+    // Beállítja a sor átfedését
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
-// A prezentáció fájljának mentése lemezre
+// Writes the presentation file to disk
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Az adat sorozat színének módosítása**
+## **Az adat sor színének módosítása**
 
-Az Aspose.Slides for C++ lehetővé teszi a sorozat színének megváltoztatását a következő módon:
+Az Aspose.Slides for C++ lehetővé teszi a sor színének módosítását a következő módon:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Adj hozzá egy diagramot a diára.
-1. Hozzáférés a színt módosítani kívánt sorozathoz. 
+1. Adjon hozzá egy diagramot a diára.
+1. Érje el azt a sorot, amelynek a színét módosítani kívánja.
 1. Állítsa be a kívánt kitöltéstípust és kitöltőszínt.
-1. Mentse a módosított prezentációt.
+1. Mentse el a módosított prezentációt.
 
-Ez a C++ kód bemutatja, hogyan változtatható meg egy sorozat színe:
+Ez a C++ kód megmutatja, hogyan módosítható egy sor színe:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -82,17 +82,17 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Az adat sorozat kategória színének módosítása**
+## **Az adat sor kategória színének módosítása**
 
-Az Aspose.Slides for C++ lehetővé teszi a sorozatkategória színének megváltoztatását a következő módon:
+Az Aspose.Slides for C++ lehetővé teszi egy sorkategória színének módosítását a következő módon:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Adj hozzá egy diagramot a diára.
-1. Hozzáférés a színt módosítani kívánt sorozatkategóriához.
+1. Adjon hozzá egy diagramot a diára.
+1. Érje el azt a sorkategóriát, amelynek a színét módosítani kívánja.
 1. Állítsa be a kívánt kitöltéstípust és kitöltőszínt.
-1. Mentse a módosított prezentációt.
+1. Mentse el a módosított prezentációt.
 
-Ez a C++ kód bemutatja, hogyan módosítható egy sorozatkategória színe:
+Ez a C++ kód megmutatja, hogyan módosítható egy sorkategória színe:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -106,18 +106,18 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Az adat sorozat nevének módosítása** 
+## **Az adat sor nevének módosítása**
 
-Alapértelmezés szerint a diagram jelmagyarázatának nevei a megfelelő oszlop vagy sor feletti cellák tartalma.
+Alapértelmezés szerint egy diagram legendanevei a minden oszlop vagy sor feletti cellák tartalma.
 
-Példánkban (mintakép) 
+A példánkban (mintaképen),
 
-* az oszlopok a *Series 1, Series 2* és *Series 3*;
-* a sorok a *Category 1, Category 2, Category 3* és *Category 4*.
+* az oszlopok: *Series 1, Series 2,* és *Series 3*;
+* a sorok: *Category 1, Category 2, Category 3,* és *Category 4.*
 
-Az Aspose.Slides for C++ lehetővé teszi a sorozat nevének frissítését vagy módosítását a diagram adataiban és a jelmagyarázatban. 
+Az Aspose.Slides for C++ lehetővé teszi egy sor nevének frissítését vagy módosítását a diagram adataiban és a legendában.
 
-Ez a C++ kód bemutatja, hogyan változtatható meg egy sorozat neve a diagram adatainak `ChartDataWorkbook` részén:
+Ez a C++ kód megmutatja, hogyan változtatható meg egy sor neve a `ChartDataWorkbook` diagramadatban:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -131,7 +131,7 @@ seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-Ez a C++ kód bemutatja, hogyan módosítható egy sorozat neve a jelmagyarázatban a `Series` segítségével:
+Ez a C++ kód megmutatja, hogyan változtatható meg egy sor neve a legendában a `Series` segítségével:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -144,17 +144,17 @@ auto name = series->get_Name();
 name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 ```
 
-## **Az adat sorozat kitöltőszínének beállítása**
+## **Az adat sor kitöltőszínének beállítása**
 
-Az Aspose.Slides for C++ lehetővé teszi a diagram sorozatok automatikus kitöltőszínének beállítását a rajzterületen a következő módon:
+Az Aspose.Slides for C++ lehetővé teszi a diagram sorok automatikus kitöltőszínének beállítását a plot területen a következő módon:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
 1. Szerezze meg a dia hivatkozását indexe alapján.
 1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus szerint (az alábbi példában a `ChartType::ClusteredColumn` típust használtuk).
-1. Hozzáférés a diagram sorozathoz, és állítsa be a kitöltőszínt Automatikusra.
-1. Mentse a prezentációt egy PPTX fájlba.
+1. Érje el a diagram sort, és állítsa a kitöltőszínt Automatikusra.
+1. Mentse el a prezentációt egy PPTX fájlba.
 
-Ez a C++ kód bemutatja, hogyan állítható be az automatikus kitöltőszín egy diagram sorozathoz:
+Ez a C++ kód megmutatja, hogyan állítható be a diagram sor automatikus kitöltőszíne:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -163,25 +163,19 @@ auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 // Létrehoz egy csoportosított oszlopdiagramot
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
 
-// Beállítja a sorozat kitöltési formátumát automatikusra
+// Beállítja a sor kitöltési formátumát automatikusra
 for (const auto& series : chart->get_ChartData()->get_Series())
 {
     series->GetAutomaticSeriesColor();
 }
 
-// A prezentáció fájlját lemezre menti
+// A prezentáció fájlt lemezre írja
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Az adat sorozat invertált kitöltőszínének beállítása**
+## **Az adat sor invertált kitöltőszíneinek beállítása**
 
-Az Aspose.Slides lehetővé teszi az invertált kitöltőszín beállítását a diagram sorozatokhoz a rajzterületen a következő módon:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Szerezze meg a dia hivatkozását indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus szerint (az alábbi példában a `ChartType::ClusteredColumn` típust használtuk).
-1. Hozzáférés a diagram sorozathoz, és állítsa be a kitöltőszínt invertáltra.
-1. Mentse a prezentációt egy PPTX fájlba.
+Az Aspose.Slides lehetővé teszi az invertált kitöltőszín beállítását a diagram soroknál a `IChartDataPoint::set_InvertIfNegative()` és a `ChartDataPoint.set_InvertIfNegative()` metódusokon keresztül. Amikor egy invertálás van beállítva a metódusokkal, a adatpont inverzálja színeit negatív érték esetén.
 
 Ez a C++ kód bemutatja a műveletet:
 
@@ -198,13 +192,13 @@ auto chartData = chart->get_ChartData();
 chartData->get_Series()->Clear();
 chartData->get_Categories()->Clear();
 
-// Adds new series and categories
+// Új sorok és kategóriák hozzáadása
 chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
 chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
 chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Takes the first chart series and populates its series data.
+// Az első diagram sorát veszi, és feltölti a sor adataival.
 auto series = chartData->get_Series()->idx_get(0);
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
@@ -217,9 +211,9 @@ series->get_InvertedSolidFillColor()->set_Color(inverColor);
 pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Invertált kitöltőszín beállítása diagram sorozathoz**
+## **Invertált kitöltőszín beállítása egy diagram sorhoz**
 
-Az Aspose.Slides lehetővé teszi az invertálás beállítását a `IChartDataPoint::set_InvertIfNegative()` és `ChartDataPoint.set_InvertIfNegative()` metódusok segítségével. Ha egy invertálás be van állítva a metódusokkal, az adatpont megfordítja színeit, amikor negatív értéket kap. 
+Az Aspose.Slides lehetővé teszi az invertált kitöltőszín beállítását a diagram soroknál a `IChartDataPoint::set_InvertIfNegative()` és a `ChartDataPoint.set_InvertIfNegative()` metódusokon keresztül. Amikor egy invertálás van beállítva a metódusokkal, a adatpont inverzálja színeit negatív érték esetén.
 
 Ez a C++ kód bemutatja a műveletet:
 
@@ -245,15 +239,15 @@ series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
 pres->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Specifikus adatpont értékek törlése**
+## **Megadott adatpont értékek törlése**
 
-Az Aspose.Slides for C++ lehetővé teszi a specifikus diagram sorozat `DataPoints` adatainak törlését a következő módon:
+Az Aspose.Slides for C++ lehetővé teszi a `DataPoints` adatainak törlését egy konkrét diagram sorra a következő módon:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-2. Szerezze meg egy dia hivatkozását az indexe alapján.
-3. Szerezze meg egy diagram hivatkozását az indexe alapján.
-4. Iteráljon végig a diagram összes `DataPoints` elemén, és állítsa be az `XValue` és `YValue` értékeket nullára.
-5. Törölje az összes `DataPoints`-et a specifikus diagram sorozatban.
+2. Szerezze meg a dia hivatkozását indexe alapján.
+3. Szerezze meg a diagram hivatkozását indexe alapján.
+4. Iteráljon végig a diagram összes `DataPoints` elemén, és állítsa az `XValue` és `YValue` értékeket nullára.
+5. Törölje az összes `DataPoints` elemet a megadott diagram sorhoz.
 6. Írja a módosított prezentációt egy PPTX fájlba.
 
 Ez a C++ kód bemutatja a műveletet:
@@ -276,49 +270,49 @@ dataPoints->Clear();
 pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 ```
 
-## **Az adat sorozat hézagszélességének beállítása**
+## **Az adat sor hézag szélességének beállítása**
 
-Az Aspose.Slides for C++ lehetővé teszi egy sorozat hézagszélességének beállítását a **`set_GapWidth()`** metóduson keresztül a következő módon:
+Az Aspose.Slides for C++ lehetővé teszi egy sor `GapWidth` beállítását a **`set_GapWidth()`** metóduson keresztül a következő módon:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-1. Hozzáférés az első diához.
-1. Diagram hozzáadása alapértelmezett adatokkal.
-1. Hozzáférés bármely diagram sorozathoz.
+1. Érje el az első diát.
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal.
+1. Érje el bármelyik diagram sort.
 1. Állítsa be a `GapWidth` tulajdonságot.
 1. Írja a módosított prezentációt egy PPTX fájlba.
 
-Ez a C++ kód bemutatja, hogyan állítható be egy sorozat hézagszélessége:
+Ez a C++ kód megmutatja, hogyan állítható be egy sor Hézag Szélessége:
 
 ```cpp
-// Üres prezentáció létrehozása
+// Létrehozza az üres prezentációt 
 auto presentation = System::MakeObject<Presentation>();
 
-// Hozzáférés a prezentáció első diájához
+// Eléri a prezentáció első diáját
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// Diagram hozzáadása alapértelmezett adatokkal
+// Diagramot ad hozzá alapértelmezett adatokkal
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
 
-// Beállítja a diagram adatlap indexét
+// Beállítja a diagram adatlapjának indexét
 int32_t worksheetIndex = 0;
 
-// A diagram adatlapjának lekérése
+// Lekéri a diagram adatlapját
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// Sorozatok hozzáadása
+// Sorokat ad hozzá
 chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
 chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// Kategóriák hozzáadása
+// Kategóriákat ad hozzá
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Kiválasztja a második diagram sorozatot
+// A második diagram sort veszi
 auto series = chart->get_ChartData()->get_Series()->idx_get(1);
 auto dataPoints = series->get_DataPoints();
 
-// Kitölti a sorozat adatait
+// Feltölti a sor adatait
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
@@ -329,16 +323,16 @@ dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, Obj
 // Beállítja a GapWidth értékét
 series->get_ParentSeriesGroup()->set_GapWidth(50);
 
-// A prezentáció mentése lemezre
+// A prezentációt lemezre menti
 presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Van korlát arra, hogy egy diagram hány sorozatot tartalmazhat?**
+**Van korláta annak, hogy egy diagram hány sorral rendelkezhet?**
 
-Az Aspose.Slides nem határoz meg fix felső határt a hozzáadott sorozatok számára. A gyakorlati határt a diagram olvashatósága és az alkalmazás rendelkezésre álló memóriája határozza meg.
+Az Aspose.Slides nem szab meg fix felső határt a sorok számát illetően. A gyakorlati korlát a diagram olvashatóságában és az alkalmazás rendelkezésére álló memóriában rejlik.
 
-**Mi a teendő, ha a klaszter belüli oszlopok túl közel vagy túl messze vannak egymástól?**
+**Mi van, ha a csoporton belüli oszlopok túl közel vagy túl messze vannak egymástól?**
 
-Állítsa be a hézagszélességet az adott sorozathoz (vagy annak szülő sorozatcsoportjához). Az érték növelése növeli az oszlopok közötti távolságot, míg csökkentése közelebb hozza őket egymáshoz.
+Állítsa be a sor (vagy annak szülő sorcsoportja) hézag szélességét. Az érték növelése megnöveli a oszlopok közti távolságot, a csökkentése közelebb hozza őket.

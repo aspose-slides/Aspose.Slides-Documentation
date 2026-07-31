@@ -1,51 +1,51 @@
 ---
-title: Diaformaat van de presentatie wijzigen in PHP
-linktitle: Diaformaat
+title: Wijzig de dia‑grootte van de presentatie in PHP
+linktitle: Dia‑grootte
 type: docs
 weight: 70
 url: /nl/php-java/slide-size/
 keywords:
-- diaformaat
+- dia‑grootte
 - beeldverhouding
 - standaard
 - breedbeeld
 - 4:3
 - 16:9
-- diaformaat instellen
-- diaformaat wijzigen
-- aangepast diaformaat
-- speciaal diaformaat
-- uniek diaformaat
+- dia‑grootte instellen
+- dia‑grootte wijzigen
+- aangepaste dia‑grootte
+- bijzondere dia‑grootte
+- unieke dia‑grootte
 - volledige dia
 - schermtype
 - niet schalen
-- passen garanderen
+- passend maken
 - maximaliseren
 - PowerPoint
 - OpenDocument
 - presentatie
 - PHP
 - Aspose.Slides
-descriptions: "Leer hoe u snel dia's kunt aanpassen in PPT-, PPTX- en ODP-bestanden met PHP en Aspose.Slides, en presentaties optimaliseert voor elk scherm zonder kwaliteitsverlies."
+description: "Leer hoe u snel dia's kunt herschalen in PPT-, PPTX- en ODP-bestanden met PHP en Aspose.Slides, en presentaties optimaliseert voor elk scherm zonder kwaliteitsverlies."
 ---
-## **Introductie**
+## **Inleiding**
 
-Aspose.Slides biedt uitgebreide hulpmiddelen om de dia‑afmeting en beeldverhouding in PowerPoint‑presentaties aan te passen, wat cruciaal is voor zowel afdrukken als weergave op scherm. 
+Aspose.Slides biedt uitgebreide hulpmiddelen om de dia‑grootte en beeldverhouding in PowerPoint‑presentaties aan te passen, wat cruciaal is voor zowel afdrukken als weergave op beeldschermen.
 
-Populaire diaformaten en verhoudingen:
+Populaire dia‑groottes en verhoudingen:
 
-- **Standaard (4:3 beeldverhouding)**: Ideaal voor oudere schermen en apparaten.
-- **Breedbeeld (16:9 beeldverhouding)**: Aanbevolen voor moderne projectoren en displays.
+- **Standaard (4:3 beeldverhouding)**: Ideaal voor oudere schermen en apparaten.  
+- **Breedbeeld (16:9 beeldverhouding)**: Aanbevolen voor moderne projectors en displays.
 
-Zorg voor consistentie door uw hele presentatie: één diaformaat en beeldverhouding gelden voor alle dia’s. Voor optimale resultaten stelt u de dia‑afmetingen in aan het begin van het maken van de presentatie om complicaties te vermijden.
+Zorg voor consistentie in je hele presentatie, want één enkele dia‑grootte en beeldverhouding geldt voor alle dia’s. Voor optimale resultaten stel je de dia‑afmetingen in aan het begin van het maken van je presentatie om complicaties te vermijden.
 
 {{% alert color="primary" %}} 
-Standaard gebruiken presentaties die met Aspose.Slides worden aangemaakt de 4:3‑beeldverhouding.
+Standaard gebruiken presentaties die met Aspose.Slides worden aangemaakt de 4:3‑beeldverhouding.  
 {{% /alert %}}
 
-## **Diaformaat wijzigen in presentaties**
+## **Dia‑grootte wijzigen in presentaties**
 
-Deze voorbeeldcode laat zien hoe u het diaformaat in een presentatie wijzigt met Aspose.Slides:
+ Deze voorbeeldcode toont hoe je de dia‑grootte in een presentatie wijzigt met Aspose.Slides:
 
 ```php
   $pres = new Presentation("pres-4x3-aspect-ratio.pptx");
@@ -59,11 +59,11 @@ Deze voorbeeldcode laat zien hoe u het diaformaat in een presentatie wijzigt met
   }
 ```
 
-## **Aangepaste diaformaten opgeven in presentaties**
+## **Aangepaste dia‑groottes opgeven in presentaties**
 
-Als de gangbare diaformaten (4:3 en 16:9) niet geschikt zijn voor uw werk, kunt u een specifiek of uniek diaformaat gebruiken. Bijvoorbeeld wanneer u volledige dia’s wilt afdrukken op een aangepast paginalay‑out of wanneer u de presentatie wilt weergeven op bepaalde schermtypen, kan een aangepaste afmeting nuttig zijn. 
+Als de gangbare dia‑groottes (4:3 en 16:9) niet passen bij jouw werk, kun je besluiten een specifieke of unieke dia‑grootte te gebruiken. Bijvoorbeeld wanneer je volledige dia’s wilt afdrukken op een aangepaste paginalay‑out of wanneer je de presentatie wilt weergeven op bepaalde schermtypen, profiteer je van een aangepaste grootte‑instelling voor je presentatie.
 
-Deze voorbeeldcode laat zien hoe u Aspose.Slides voor PHP via Java gebruikt om een aangepast diaformaat voor een presentatie op te geven:
+Deze voorbeeldcode laat zien hoe je Aspose.Slides for PHP via Java gebruikt om een aangepaste dia‑grootte voor een presentatie op te geven:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -78,25 +78,25 @@ Deze voorbeeldcode laat zien hoe u Aspose.Slides voor PHP via Java gebruikt om e
   }
 ```
 
-## **Dia-inhoud behandelen na het aanpassen van het formaat**
+## **Dia‑inhoud verwerken na herschalen**
 
-Nadat u het diaformaat van een presentatie hebt gewijzigd, kan de inhoud van de dia’s (afbeeldingen of objecten, bijvoorbeeld) vervormd raken. Standaard worden objecten automatisch verkleind of vergroot zodat ze passen bij het nieuwe diaformaat. Bij het wijzigen van het diaformaat kunt u echter een instelling opgeven die bepaalt hoe Aspose.Slides omgaat met de inhoud op de dia’s.
+Na het wijzigen van de dia‑grootte van een presentatie kan de inhoud van de dia’s (bijvoorbeeld afbeeldingen of objecten) vervormd raken. Standaard worden de objecten automatisch herschaald om in de nieuwe dia‑grootte te passen. Wanneer je de dia‑grootte van een presentatie wijzigt, kun je echter een instelling specificeren die bepaalt hoe Aspose.Slides omgaat met de inhoud op de dia’s.
 
-Afhankelijk van wat u wilt bereiken, kunt u één van de volgende instellingen gebruiken:
+Afhankelijk van wat je wilt bereiken, kun je een van de volgende instellingen gebruiken:
 
 - `DoNotScale`
 
-  Als u **NIET** wilt dat de objecten op de dia’s worden geschaald, gebruikt u deze instelling.
+  Gebruik deze instelling als je **NIET** wilt dat de objecten op de dia’s worden herschaald.
 
 - `EnsureFit`
 
-  Als u naar een kleiner diaformaat wilt schalen en Aspose.Slides de objecten moet verkleinen zodat ze allemaal op de dia passen (zodat u geen inhoud verliest), gebruikt u deze instelling. 
+  Gebruik deze instelling als je naar een kleinere dia‑grootte wilt schalen en wilt dat Aspose.Slides de objecten verlaagt zodat ze allemaal op de dia passen (zodat er geen inhoud verloren gaat).
 
 - `Maximize`
 
-  Als u naar een groter diaformaat wilt schalen en Aspose.Slides de objecten moet vergroten zodat ze evenredig blijven aan het nieuwe diaformaat, gebruikt u deze instelling. 
+  Gebruik deze instelling als je naar een grotere dia‑grootte wilt schalen en wilt dat Aspose.Slides de objecten vergroot zodat ze evenredig blijven met de nieuwe dia‑grootte.
 
-Deze voorbeeldcode laat zien hoe u de `Maximize`‑instelling gebruikt bij het wijzigen van het diaformaat van een presentatie:
+Deze voorbeeldcode laat zien hoe je de `Maximize`‑instelling gebruikt wanneer je de grootte van de dia’s van een presentatie wijzigt:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -111,18 +111,18 @@ Deze voorbeeldcode laat zien hoe u de `Maximize`‑instelling gebruikt bij het w
 
 ## **FAQ**
 
-**Kan ik een aangepast diaformaat instellen met eenheden anders dan inches (bijvoorbeeld punten of millimeters)?**
+**Kan ik een aangepaste dia‑grootte instellen met andere eenheden dan inches (bijvoorbeeld punten of millimeters)?**
 
-Ja. Aspose.Slides werkt intern met punten, waarbij 1 punt gelijk is aan 1/72 van een inch. U kunt elke eenheid (zoals millimeters of centimeters) omrekenen naar punten en deze waarden gebruiken om de dia‑breedte en -hoogte te definiëren.
+Ja. Aspose.Slides werkt intern met punten, waarbij 1 punt gelijk is aan 1/72 van een inch. Je kunt elke eenheid (zoals millimeters of centimeters) omrekenen naar punten en de omgerekenen waarden gebruiken om de dia‑breedte en -hoogte te definiëren.
 
-**Zal een zeer groot aangepast diaformaat de prestaties en het geheugenverbruik tijdens het renderen beïnvloeden?**
+**Zal een zeer grote aangepaste dia‑grootte de prestaties en het geheugenverbruik tijdens het renderen beïnvloeden?**
 
-Ja. Grotere dia‑afmetingen (in punten) in combinatie met een hogere render‑schaal leiden tot meer geheugenverbruik en langere verwerkingstijden. Streef naar een praktisch diaformaat en pas de render‑schaal alleen aan wanneer dat nodig is om de gewenste kwaliteit te bereiken.
+Ja. Grotere dia‑afmetingen (in punten) in combinatie met een hogere render‑schaal zorgen voor een hoger geheugenverbruik en langere verwerkingstijden. Streef naar een praktische dia‑grootte en pas de render‑schaal alleen aan wanneer dat nodig is om de gewenste output‑kwaliteit te behalen.
 
-**Kan ik één niet‑standaard diaformaat definiëren en vervolgens dia’s uit presentaties met verschillende formaten samenvoegen?**
+**Kan ik één niet‑standaard dia‑grootte definiëren en daarna dia’s uit presentaties met verschillende groottes samenvoegen?**
 
-U kunt geen [presentaties samenvoegen](/slides/nl/php-java/merge-presentation/) terwijl ze verschillende diaformaten hebben – resize eerst één presentatie zodat deze overeenkomt met de andere. Bij het wijzigen van het diaformaat kunt u kiezen hoe bestaande inhoud wordt behandeld via de [SlideSizeScaleType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesizescaletype/)‑optie. Nadat de formaten zijn afgestemd, kunt u dia’s samenvoegen met behoud van opmaak.
+Je kunt niet [presentaties samenvoegen](/slides/nl/php-java/merge-presentation/) terwijl ze verschillende dia‑groottes hebben — eerst moet je één presentatie herschalen zodat deze overeenkomt met de andere. Bij het wijzigen van de dia‑grootte kun je kiezen hoe bestaande inhoud wordt behandeld via de [SlideSizeScaleType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesizescaletype/)-optie. Nadat de groottes zijn afgestemd, kun je dia’s samenvoegen en de opmaak behouden.
 
-**Kan ik miniaturen genereren voor individuele vormen of specifieke gebieden van een dia, en respecteren deze de nieuwe dia‑afmeting?**
+**Kan ik thumbnails genereren voor individuele vormen of specifieke gebieden van een dia, en respecteren deze de nieuwe dia‑grootte?**
 
-Ja. Aspose.Slides kan miniaturen renderen voor [volledige dia's](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/#getImage) én voor [geselecteerde vormen](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage). De resulterende afbeeldingen weerspiegelen de huidige dia‑afmeting en beeldverhouding, waardoor een consistente framing en geometrie wordt gegarandeerd.
+Ja. Aspose.Slides kan thumbnails renderen voor [volledige dia’s](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/#getImage) evenals voor [geselecteerde vormen](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage). De resulterende afbeeldingen weerspiegelen de huidige dia‑grootte en beeldverhouding, waardoor een consistente kadrering en geometrie gegarandeerd zijn.

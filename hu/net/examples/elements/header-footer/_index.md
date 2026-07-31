@@ -1,22 +1,24 @@
 ---
-title: Fejléc és lábléc
+title: Fejléc lábléc
 type: docs
 weight: 220
 url: /hu/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- fejléc és lábléc
+- fejléc lábléc
 - fejléc és lábléc hozzáadása
 - fejléc és lábléc frissítése
-- kód példa
+- kódpélda
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "A diák fejléceinek és láblécinek vezérlése az Aspose.Slides for .NET használatával: dátumok, dia számok és egyéni szöveg hozzáadása PPT, PPTX és ODP formátumokban C# példákkal."
+description: "Kezelje a diafejléceket és lábléceket az Aspose.Slides for .NET segítségével: adjon hozzá dátumokat, diaszámokat és egyéni szöveget PPT, PPTX és ODP fájlokban C# példákkal."
 ---
-Ez a cikk bemutatja, hogyan adhat hozzá láblécet, és frissítheti a dátum- és időhelyettesítőket az **Aspose.Slides for .NET** használatával.
+Ez a cikk bemutatja, hogyan adhat hozzá lábléceket, és frissítheti a dátum- és időhelyőrzőket a **Aspose.Slides for .NET** használatával.
 
 ## **Lábléc hozzáadása**
 
@@ -35,7 +37,7 @@ static void AddHeaderFooter()
 
 ## **Dátum és idő frissítése**
 
-Módosítsa a dia dátum- és időhelyettesítőjét.
+Módosítsa a dátum- és időhelyőrzőt egy dián.
 
 ```csharp
 static void UpdateDateTime()

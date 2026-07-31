@@ -1,6 +1,6 @@
 ---
-title: Конвертировать презентации PowerPoint в режиме Handout на Android
-linktitle: Режим Handout
+title: Конвертировать презентации PowerPoint в режиме раздаточного листа на Android
+linktitle: Режим раздаточного листа
 type: docs
 weight: 150
 url: /ru/androidjava/convert-powerpoint-in-handout-mode/
@@ -16,16 +16,18 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Конвертировать презентации в раздаточные листы в Java. Установить количество слайдов на страницу, сохранить заметки, экспортировать в PDF или изображения с Aspose.Slides для Android, с примером кода. Попробуйте бесплатно."
+description: "Конвертировать презентации в раздаточные листы в Java. Установить количество слайдов на страницу, сохранять примечания, экспортировать в PDF или изображения с помощью Aspose.Slides для Android, с примером кода. Попробуйте бесплатно."
 ---
+## **Введение**
+
+Aspose.Slides предоставляет возможность конвертировать презентации в различные форматы, включая создание раздаточных материалов для печати в режиме Handout. Этот режим позволяет настроить, как несколько слайдов отображаются на одной странице, что полезно для конференций, семинаров и прочих мероприятий. Вы можете включить этот режим, задав метод `setSlidesLayoutOptions` в интерфейсах [IPdfOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ihtmloptions/) и [ITiffOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itiffoptions/).
 
 ## **Экспорт в режиме Handout**
 
-Aspose.Slides предоставляет возможность преобразовывать презентации в различные форматы, включая создание раздаточных листов для печати в режиме Handout. Этот режим позволяет настроить, как несколько слайдов отображаются на одной странице, что полезно для конференций, семинаров и других мероприятий. Вы можете включить этот режим, установив метод `setSlidesLayoutOptions` в интерфейсах [IPdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihtmloptions/) и [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/).
+Для настройки режима Handout используйте объект [HandoutLayoutingOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/handoutlayoutingoptions/), который определяет, сколько слайдов помещается на одну страницу и другие параметры отображения.
 
-Для настройки режима Handout используйте объект [HandoutLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handoutlayoutingoptions/), который определяет, сколько слайдов размещается на одной странице и другие параметры отображения.
+Ниже приведён пример кода, показывающий, как конвертировать презентацию в PDF в режиме Handout.
 
-Ниже приведён пример кода, демонстрирующий, как конвертировать презентацию в PDF в режиме Handout.
 ```java
 // Загрузить презентацию.
 Presentation presentation = new Presentation("sample.pptx");
@@ -40,28 +42,29 @@ try {
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-	// Экспортировать презентацию в PDF с выбранной компоновкой.
+	// Экспортировать презентацию в PDF с выбранным макетом.
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-
 {{% alert color="warning" %}} 
-Имейте в виду, что метод `setSlidesLayoutOptions` доступен только для некоторых форматов вывода, таких как PDF, HTML, TIFF, а также при рендеринге в виде изображений.
+
+Имейте в виду, что метод `setSlidesLayoutOptions` доступен только для некоторых форматов вывода, таких как PDF, HTML, TIFF и при рендеринге в виде изображений.
+
 {{% /alert %}} 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Каково максимальное количество миниатюр слайдов на странице в режиме Handout?**
+**Каково максимальное количество миниатюр слайдов на страницу в режиме Handout?**
 
-Aspose.Slides поддерживает [presets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handouttype/) до 9 миниатюр на странице с горизонтальной или вертикальной раскладкой: 1, 2, 3, 4 (горизонтальная/вертикальная), 6 (горизонтальная/вертикальная) и 9 (горизонтальная/вертикальная).
+Aspose.Slides поддерживает [preset'ы](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/handouttype/) до 9 миниатюр на страницу с горизонтальным или вертикальным расположением: 1, 2, 3, 4 (горизонтально/вертикально), 6 (горизонтально/вертикально) и 9 (горизонтально/вертикально).
 
-**Могу ли я задать собственную сетку, например 5 или 8 слайдов на страницу?**
+**Можно ли задать пользовательскую сетку, например 5 или 8 слайдов на страницу?**
 
-Нет. Количество и порядок миниатюр строго контролируются классом [HandoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handouttype/); произвольные макеты не поддерживаются.
+Нет. Количество и порядок миниатюр строго контролируются классом [HandoutType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/handouttype/); произвольные раскладки не поддерживаются.
 
-**Могу ли я включить скрытые слайды в вывод Handout?**
+**Можно ли включить скрытые слайды в вывод Handout?**
 
-Да. Включите скрытые слайды, используя метод `setShowHiddenSlides` в настройках экспорта для целевого формата, например [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/htmloptions/) или [TiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/).
+Да. Включите скрытые слайды, используя метод `setShowHiddenSlides` в параметрах экспорта для целевого формата, например [PdfOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/htmloptions/) или [TiffOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/tiffoptions/).

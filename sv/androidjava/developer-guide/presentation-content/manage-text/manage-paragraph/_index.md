@@ -1,12 +1,14 @@
 ---
-title: Hantera PowerPoint-textparagrafer på Android
+title: Hantera PowerPoint‑textstycken på Android
 linktitle: Hantera stycke
 type: docs
 weight: 40
 url: /sv/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
 keywords:
-- lägga till text
-- lägga till stycke
+- lägg till text
+- lägg till stycke
 - hantera text
 - hantera stycke
 - hantera punkt
@@ -32,42 +34,44 @@ description: "Behärska styckeformatering med Aspose.Slides för Android—optim
 ---
 ## **Introduktion**
 
-Aspose.Slides tillhandahåller alla gränssnitt och klasser du behöver för att arbeta med PowerPoint‑texter, stycken och portioner i Java.
+Aspose.Slides tillhandahåller alla de gränssnitt och klasser du behöver för att arbeta med PowerPoint‑texter, stycken och delar i Java.
 
-* Aspose.Slides tillhandahåller gränssnittet [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/) för att låta dig lägga till objekt som representerar ett stycke. Ett `ITextFame`‑objekt kan ha ett eller flera stycken (varje stycke skapas genom ett radbrytningstecken).
-* Aspose.Slides tillhandahåller gränssnittet [IParagraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraph/) för att låta dig lägga till objekt som representerar portioner. Ett `IParagraph`‑objekt kan ha en eller flera portioner (samling av iPortions‑objekt).
-* Aspose.Slides tillhandahåller gränssnittet [IPortion](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iportion/) för att låta dig lägga till objekt som representerar texter och deras formateringsegenskaper.
+* Aspose.Slides tillhandahåller gränssnittet [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/) så att du kan lägga till objekt som representerar ett stycke. Ett `ITextFame`‑objekt kan ha ett eller flera stycken (varje stycke skapas genom ett radbryt).
+* Aspose.Slides tillhandahåller gränssnittet [IParagraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraph/) så att du kan lägga till objekt som representerar delar. Ett `IParagraph`‑objekt kan ha ett eller flera delar (samling av iPortions‑objekt).
+* Aspose.Slides tillhandahåller gränssnittet [IPortion](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iportion/) så att du kan lägga till objekt som representerar text och dess formateringsegenskaper.
 
 Ett `IParagraph`‑objekt kan hantera texter med olika formateringsegenskaper via sina underliggande `IPortion`‑objekt.
 
-## **Lägg till flera stycken som innehåller flera textportioner**
+## **Lägg till flera stycken som innehåller flera textdelar**
 
-Stegen visar hur du lägger till en textram som innehåller 3 stycken och varje stycke innehåller 3 portioner:
+Dessa steg visar hur du lägger till ett textfält som innehåller 3 stycken och varje stycke innehåller 3 delar:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-2. Hämta referensen till den relevanta bilden via dess index.
-3. Lägg till en rektangulär [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
+2. Hämta referensen till den aktuella bilden via dess index.
+3. Lägg till en rektangel‑[IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
 4. Hämta ITextFrame som är associerad med [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/).
-5. Skapa två [IParagraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraph/)‑objekt och lägg till dem i `IParagraphs`‑samlingen för [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/).
-6. Skapa tre [IPortion](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iportion/)‑objekt för varje nytt `IParagraph` (två Portion‑objekt för standardstycket) och lägg till varje `IPortion`‑objekt i IPortion‑samlingen för respektive `IParagraph`.
-7. Ange lite text för varje portion.
-8. Tillämpa dina önskade formateringsfunktioner på varje portion med hjälp av formateringsegenskaperna som exponeras av `IPortion`‑objektet.
-9. Spara den modifierade presentationen.
+5. Skapa två [IParagraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraph/)-objekt och lägg till dem i `IParagraphs`‑samlingen för [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/).
+6. Skapa tre [IPortion](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iportion/)-objekt för varje nytt `IParagraph` (två Portion‑objekt för standardstycket) och lägg till varje `IPortion`‑objekt i IPortion‑samlingen för varje `IParagraph`.
+7. Tilldela lite text till varje del.
+8. Tillämpa dina föredragna formateringsfunktioner på varje del med hjälp av formateringsegenskaperna som exponeras av `IPortion`‑objektet.
+9. Spara den ändrade presentationen.
+
+Denna Java‑kod är en implementation av stegen för att lägga till stycken som innehåller delar:
 
 ```java
 // Instansiera en Presentation-klass som representerar en PPTX-fil
 Presentation pres = new Presentation();
 try {
-    // Hämtar första bilden
+    // Åtkomst till första bilden
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Lägg till en AutoShape av rektangulär typ
+    // Lägg till en AutoShape av typ rektangel
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
-    // Hämta TextFrame för AutoShape
+    // Åtkomst till TextFrame för AutoShape
     ITextFrame tf = ashp.getTextFrame();
 
-    // Skapa stycken och portioner med olika textformat
+    // Skapa stycken och delar med olika textformat
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -112,43 +116,45 @@ try {
         }
     }
 
-    // Spara PPTX till disk
+    // Skriv PPTX till disk
     pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Hantera paragrafpunkter**
+## **Hantera stycke‑punkter**
 
-Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Listade stycken är alltid enklare att läsa och förstå.
+Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Stycken med punkter är alltid lättare att läsa och förstå.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-2. Hämta referensen till den relevanta bilden via dess index.
+2. Hämta referensen till den aktuella bilden via dess index.
 3. Lägg till en [autoshape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på den valda bilden.
 4. Hämta autoshapens [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/).
 5. Ta bort standardstycket i `TextFrame`.
-6. Skapa den första styckeinstansen med klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/).
+6. Skapa det första stycket med hjälp av klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/).
 7. Ställ in punktens `Type` för stycket till `Symbol` och ange punkttecknet.
-8. Ange styckets `Text`.
+8. Ställ in styckets `Text`.
 9. Ställ in styckets `Indent` för punkten.
 10. Ange en färg för punkten.
 11. Ange en höjd för punkten.
-12. Lägg till det nya stycket i `TextFrame`‑styckessamlingen.
-13. Lägg till det andra stycket och upprepa processen enligt steg 7 till 13.
+12. Lägg till det nya stycket i `TextFrame`‑samlingen för stycken.
+13. Lägg till det andra stycket och upprepa processen som beskrivs i steg 7‑13.
 14. Spara presentationen.
+
+Denna Java‑kod visar hur du lägger till en styckepunkt:
 
 ```java
 // Instansierar en Presentation-klass som representerar en PPTX-fil
 Presentation pres = new Presentation();
 try {
-    // Hämtar den första bilden
+    // Åtkomst till den första bilden
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Lägger till och hämtar Autoshape
+    // Lägger till och får åtkomst till Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Hämtar autoshapens textram
+    // Åtkomst till autoshapens textram
     ITextFrame txtFrm = aShp.getTextFrame();
 
     // Tar bort standardstycket
@@ -157,7 +163,7 @@ try {
     // Skapar ett stycke
     Paragraph para = new Paragraph();
 
-    // Ställer in ett styckespunktsstil och -symbol
+    // Ställer in punktstil för stycket och symbol
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char)8226);
 
@@ -181,11 +187,11 @@ try {
     // Skapar andra stycket
     Paragraph para2 = new Paragraph();
 
-    // Ställer in styckespunkttyp och -stil
+    // Ställer in styckepunktens typ och stil
     para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
 
-    // Lägger till stycke text
+    // Lägger till styckets text
     para2.setText("This is numbered bullet");
 
     // Ställer in punktindrag
@@ -201,7 +207,7 @@ try {
     // Lägger till stycke i textramen
     txtFrm.getParagraphs().add(para2);
     
-    // Sparar den modifierade presentationen
+    // Sparar den ändrade presentationen
     pres.save("Bullet_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -213,26 +219,28 @@ try {
 Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Bildstycken är lätta att läsa och förstå.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-2. Hämta referensen till den relevanta bilden via dess index.
+2. Hämta referensen till den aktuella bilden via dess index.
 3. Lägg till en [autoshape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
 4. Hämta autoshapens [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/).
 5. Ta bort standardstycket i `TextFrame`.
-6. Skapa den första styckeinstansen med klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/).
-7. Läs in bilden i [IPPImage](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ippimage/).
-8. Ställ in punkttypen till [Picture](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ippimage/) och ange bilden.
-9. Ange styckets `Text`.
+6. Skapa det första stycket med hjälp av klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/).
+7. Ladda bilden i [IPPImage](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ippimage/).
+8. Ställ in punktens typ till [Picture](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ippimage/) och ange bilden.
+9. Ställ in styckets `Text`.
 10. Ställ in styckets `Indent` för punkten.
 11. Ange en färg för punkten.
 12. Ange en höjd för punkten.
-13. Lägg till det nya stycket i `TextFrame`‑styckessamlingen.
-14. Lägg till det andra stycket och upprepa processen baserat på föregående steg.
-15. Spara den modifierade presentationen.
+13. Lägg till det nya stycket i `TextFrame`‑samlingen för stycken.
+14. Lägg till det andra stycket och upprepa processen baserat på de föregående stegen.
+15. Spara den ändrade presentationen.
+
+Denna Java‑kod visar hur du lägger till och hanterar bildpunkter:
 
 ```java
 // Instansierar en Presentation-klass som representerar en PPTX-fil
 Presentation presentation = new Presentation();
 try {
-    // Hämtar den första bilden
+    // Åtkomst till den första bilden
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Instansierar bilden för punkter
@@ -243,10 +251,10 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-    // Lägger till och hämtar Autoshape
+    // Lägger till och får åtkomst till Autoshape
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Hämtar autoshapens textram
+    // Åtkomst till autoshapens textram
     ITextFrame textFrame = autoShape.getTextFrame();
 
     // Tar bort standardstycket
@@ -256,7 +264,7 @@ try {
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
 
-    // Ställer in styckespunktsstil och bild
+    // Ställer in styckepunktens stil och bild
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
@@ -282,28 +290,30 @@ try {
 Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Flernivåpunkter är lätta att läsa och förstå.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-2. Hämta referensen till den relevanta bilden via dess index.
+2. Hämta referensen till den aktuella bilden via dess index.
 3. Lägg till en [autoshape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) i den nya bilden.
 4. Hämta autoshapens [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/).
 5. Ta bort standardstycket i `TextFrame`.
-6. Skapa den första styckeinstansen via klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/) och sätt djupet till 0.
-7. Skapa den andra styckeinstansen via `Paragraph`‑klassen och sätt djupet till 1.
-8. Skapa den tredje styckeinstansen via `Paragraph`‑klassen och sätt djupet till 2.
+6. Skapa det första stycket via klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/) och sätt djupet till 0.
+7. Skapa det andra stycket via `Paragraph`‑klassen och sätt djupet till 1.
+8. Skapa det tredje stycket via `Paragraph`‑klassen och sätt djupet till 2.
 9. Skapa det fjärde stycket via `Paragraph`‑klassen och sätt djupet till 3.
-10. Lägg till de nya styckena i `TextFrame`‑styckessamlingen.
-11. Spara den modifierade presentationen.
+10. Lägg till de nya styckena i `TextFrame`‑samlingen för stycken.
+11. Spara den ändrade presentationen.
+
+Denna Java‑kod visar hur du lägger till och hanterar flernivåpunkter:
 
 ```java
 // Instansierar en Presentation-klass som representerar en PPTX-fil
 Presentation pres = new Presentation();
 try {
-    // Hämtar den första bilden
+    // Åtkomst till den första bilden
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Lägger till och hämtar Autoshape
+    // Lägger till och får åtkomst till Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Hämtar textramen för skapad autoshape
+    // Åtkomst till textramen för den skapade autoshapen
     ITextFrame text = aShp.addTextFrame("");
 
     // Rensar standardstycket
@@ -316,7 +326,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Ställer in punktnivån
+    // Ställer in punktnivå
     para1.getParagraphFormat().setDepth((short)0);
 
     // Lägger till andra stycket
@@ -326,7 +336,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Ställer in punktnivån
+    // Ställer in punktnivå
     para2.getParagraphFormat().setDepth((short)1);
 
     // Lägger till tredje stycket
@@ -336,7 +346,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar((char)8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Ställer in punktnivån
+    // Ställer in punktnivå
     para3.getParagraphFormat().setDepth((short)2);
 
     // Lägger till fjärde stycket
@@ -346,7 +356,7 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Ställer in punktnivån
+    // Ställer in punktnivå
     para4.getParagraphFormat().setDepth((short)3);
 
     // Lägger till stycken i samlingen
@@ -371,21 +381,23 @@ Gränssnittet [IBulletFormat](https://reference.aspose.com/slides/sv/androidjava
 3. Lägg till en [autoshape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
 4. Hämta autoshapens [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/).
 5. Ta bort standardstycket i `TextFrame`.
-6. Skapa den första styckeinstansen via klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/) och sätt [NumberedBulletStartWith](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) till 2.
+6. Skapa det första stycket via klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/) och sätt [NumberedBulletStartWith](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) till 2.
 7. Skapa det andra stycket via `Paragraph`‑klassen och sätt `NumberedBulletStartWith` till 3.
 8. Skapa det tredje stycket via `Paragraph`‑klassen och sätt `NumberedBulletStartWith` till 7.
-9. Lägg till de nya styckena i `TextFrame`‑styckessamlingen.
-10. Spara den modifierade presentationen.
+9. Lägg till de nya styckena i `TextFrame`‑samlingen för stycken.
+10. Spara den ändrade presentationen.
+
+Denna Java‑kod visar hur du lägger till och hanterar stycken med anpassad numrering eller formatering:
 
 ```java
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Hämtar textramen för den skapade autoshapen
+    // Åtkomst till textramen för den skapade autoshapen
     ITextFrame textFrame = shape.getTextFrame();
 
-    // Tar bort standardstycket som finns
+    // Tar bort det befintliga standardstycket
     textFrame.getParagraphs().removeAt(0);
 
     // Första listan
@@ -417,21 +429,23 @@ try {
 }
 ```
 
-## **Ställ in första raden indrag för ett stycke**
+## **Ställ in första‑radens indrag för ett stycke**
 
-Använd metoden [IParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) för att kontrollera första radens indrag i ett stycke. Metoden flyttar endast den första raden i förhållande till styckets vänstermarginal. Ett positivt värde flyttar den första raden åt höger, medan de återstående raderna förblir justerade med styckets huvudtext.
+Använd metoden [IParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) för att kontrollera första‑radens indrag i ett stycke. Denna metod flyttar endast den första raden i förhållande till styckets vänstra marginal. Ett positivt värde förskjuter den första raden åt höger, medan resterande rader behåller justeringen mot styckets kropp.
 
 Använd [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) när du behöver flytta hela stycket. Använd [IParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) när du bara vill flytta den första raden.
 
-Exemplet nedan skapar flera stycken och tillämpar olika indragsvärden för att demonstrera hur första radens indrag påverkar styckeformatet.
+Exemplet nedan skapar flera stycken och tillämpar olika indragsvärden för att demonstrera hur första‑radens indrag påverkar stycke‑layouten.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
 2. Hämta målbilden.
 3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/autoshape/) på bilden.
-4. Lägg till en tom [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/textframe/) till formen och ta bort standardstycket.
-5. Skapa flera stycken och ange olika [Indent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)‑värden för dem.
-6. Lägg till styckena i textramen.
-7. Spara den modifierade presentationen.
+4. Lägg till ett tomt [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/textframe/) i formen och ta bort standardstycket.
+5. Skapa flera stycken och sätt olika [Indent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)‑värden för dem.
+6. Lägg till styckena i textfältet.
+7. Spara den ändrade presentationen.
+
+Denna kod visar hur du anger ett styckeindrag:
 
 ```java
 Presentation presentation = new Presentation();
@@ -481,24 +495,26 @@ finally {
 
 Resultatet:
 
-![Första radens indrag i styckena](first_line_indent.png)
+![Det första radindraget för styckena](first_line_indent.png)
 
 ## **Ställ in hängande indrag för ett stycke**
 
-Ett hängande indrag är en styckeformat där den första raden börjar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med metoden [IParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Sätt indraget till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckets huvudtext.
+Ett hängande indrag är en stycke‑layout där den första raden börjar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med metoden [IParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Sätt indraget till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckets kropp.
 
-I praktiken definierar [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) den vänstra positionen för styckets huvudtext, och [IParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) definierar positionen för den första raden i förhållande till den marginalen. För att skapa ett hängande indrag, ange ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
+I praktiken definierar [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) den vänstra positionen för styckets kropp, och [IParagraphFormat.setIndent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
 
-Denna formatering är användbar för bibliografier, referenser, uppslagsord, och andra stycken där radbrytna rader ska justeras under styckets huvudtext snarare än under det första tecknet i den första raden.
+Denna formatering är användbar för bibliografier, referenser, uppslagsord och andra stycken där radbrytningar ska justeras under styckets kropp snarare än under den första tecknet i den första raden.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
 2. Hämta målbilden.
 3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/autoshape/) på bilden.
-4. Lägg till en tom [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/textframe/) till formen och ta bort standardstycket.
-5. Skapa stycken och ange ett positivt [MarginLeft](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)‑värde för varje stycke.
-6. Ange ett negativt [Indent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)‑värde för att skapa hängande indrag.
-7. Lägg till styckena i textramen.
-8. Spara den modifierade presentationen.
+4. Lägg till ett tomt [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/textframe/) i formen och ta bort standardstycket.
+5. Skapa stycken och sätt ett positivt [MarginLeft](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)‑värde för varje stycke.
+6. Sätt ett negativt [Indent](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)‑värde för att skapa hängande indrag.
+7. Lägg till styckena i textfältet.
+8. Spara den ändrade presentationen.
+
+Denna kod visar hur du anger ett hängande indrag för ett stycke:
 
 ```java
 Presentation presentation = new Presentation();
@@ -540,17 +556,19 @@ finally {
 
 Resultatet:
 
-![Hängande indrag i styckena](hanging_indent.png)
+![Det hängande indraget för styckena](hanging_indent.png)
 
-## **Hantera slutrunegenskaper för stycke**
+## **Hantera slutegenskaper för stycke**
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-2. Hämta referensen till bilden som innehåller stycket via dess position.
-3. Lägg till en rektangulär [autoshape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-4. Lägg till ett [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/) med två stycken till rektangeln.
-5. Ställ in `FontHeight` och teckensnittstyp för styckena.
-6. Ställ in slut‑egenskaperna för styckena.
-7. Skriv den modifierade presentationen som en PPTX‑fil.
+1. Hämta referensen för bilden som innehåller stycket via dess position.
+1. Lägg till en rektangulär [autoshape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
+1. Lägg till en [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/) med två stycken till rektangeln.
+1. Ställ in `FontHeight` och typsnitt för styckena.
+1. Ställ in slutegenskaperna för styckena.
+1. Skriv den ändrade presentationen som en PPTX‑fil.
+
+Denna Java‑kod visar hur du ställer in slutegenskaper för stycken i PowerPoint:
 
 ```java
 Presentation pres = new Presentation();
@@ -582,38 +600,40 @@ try {
 Aspose.Slides erbjuder förbättrat stöd för att importera HTML‑text till stycken.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-2. Hämta referensen till den relevanta bilden via dess index.
+2. Hämta referensen till den aktuella bilden via dess index.
 3. Lägg till en [autoshape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
 4. Lägg till och hämta `autoshape`‑[ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/).
 5. Ta bort standardstycket i `ITextFrame`.
-6. Läs in käll‑HTML‑filen med en TextReader.
-7. Skapa den första styckeinstansen via klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/).
-8. Lägg till HTML‑filens innehåll från den lästa TextReader‑objektet till TextFrames [ParagraphCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraphcollection/).
-9. Spara den modifierade presentationen.
+6. Läs in käll‑HTML‑filen i en TextReader.
+7. Skapa det första stycket via klassen [Paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraph/).
+8. Lägg till HTML‑filens innehåll från TextReader i TextFrames [ParagraphCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraphcollection/).
+9. Spara den ändrade presentationen.
+
+Denna Java‑kod är en implementation av stegen för att importera HTML‑texter i stycken:
 
 ```java
 // Skapa tom presentationsinstans
 Presentation pres = new Presentation();
 try {
-    // Hämta standardförsta bilden i presentationen
+    // Åtkomst till standardförsta bilden i presentationen
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Lägger till AutoShape för att rymma HTML-innehållet
+    // Lägger till AutoShape för att rymma HTML‑innehållet
     IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
             (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
 
     ashape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Lägger till textram till formen
+    // Lägger till textram i formen
     ashape.addTextFrame("");
 
-    // Rensar alla stycken i den tillagda textramen
+    // Rensar alla stycken i det tillagda textramet
     ashape.getTextFrame().getParagraphs().clear();
 
-    // Laddar HTML-filen med stream reader
+    // Laddar HTML‑filen med stream‑läsare
     TextReader tr = new StreamReader("file.html");
 
-    // Lägger till text från HTML-stream reader i textramen
+    // Lägger till text från HTML‑stream‑läsaren i textramet
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
     // Sparar presentationen
@@ -623,36 +643,38 @@ try {
 }
 ```
 
-## **Exportera stycketext till HTML**
+## **Exportera styckettext till HTML**
 
-Aspose.Slides erbjuder förbättrat stöd för att exportera texter (innehållande i stycken) till HTML.
+Aspose.Slides erbjuder förbättrat stöd för att exportera texter (som finns i stycken) till HTML.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) och läs in den önskade presentationen.
-2. Hämta referensen till den relevanta bilden via dess index.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) och ladda den önskade presentationen.
+2. Hämta referensen till den aktuella bilden via dess index.
 3. Hämta formen som innehåller texten som ska exporteras till HTML.
 4. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/textframe/).
 5. Skapa en instans av `StreamWriter` och lägg till den nya HTML‑filen.
-6. Ange ett startindex till StreamWriter och exportera dina önskade stycken.
+6. Ange ett startindex för StreamWriter och exportera dina föredragna stycken.
+
+Denna Java‑kod visar hur du exporterar PowerPoint‑styckettexter till HTML:
 
 ```java
-// Ladda presentationsfilen
+// Läs in presentationsfilen
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    // Hämtar standardförsta bilden i presentationen
+    // Åtkomst till standardförsta bilden i presentationen
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Önskat index
     int index = 0;
 
-    // Hämtar den tillagda formen
+    // Åtkomst till den tillagda formen
     IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
 
-    // Skapar utdata-HTML-fil
+    // Skapar utdata HTML-fil
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    //Extraherar första stycket som HTML
-    // Skriver styckedata till HTML genom att ange startindex för stycke och totalt antal stycken som ska kopieras
+    // Extraherar första stycket som HTML
+    // Skriver styckesdata till HTML genom att ange startindex för stycket och totalt antal stycken som ska kopieras
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -663,15 +685,15 @@ try {
 
 ## **Spara ett stycke som en bild**
 
-I det här avsnittet ska vi gå igenom två exempel som visar hur man sparar ett textstycke, representerat av gränssnittet [IParagraph], som en bild. Båda exemplen inkluderar att erhålla bilden av en form som innehåller stycket med metoderna `getImage` från gränssnittet [IShape], beräkna styckets gränser inom formen och exportera det som en bitmap‑bild. Dessa metoder låter dig extrahera specifika delar av texten från PowerPoint‑presentationer och spara dem som separata bilder, vilket kan vara användbart i olika scenarier.
+I detta avsnitt utforskar vi två exempel som visar hur du sparar ett textstycke, representerat av gränssnittet [IParagraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraph/), som en bild. Båda exemplen inkluderar att hämta bilden av en form som innehåller stycket med hjälp av `getImage`‑metoderna från gränssnittet [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/), beräkna styckets gränser inom formen och exportera den som en bitmap‑bild. Dessa metoder låter dig extrahera specifika delar av texten från PowerPoint‑presentationer och spara dem som separata bilder, vilket kan vara användbart i olika scenarier.
 
-Låt oss anta att vi har en presentationsfil som heter sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
+Låt oss anta att vi har en presentationsfil kallad sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
 
 ![Textrutan med tre stycken](paragraph_to_image_input.png)
 
-**Example 1**
+**Exempel 1**
 
-I det här exemplet hämtar vi det andra stycket som en bild. För att göra detta extraherar vi bilden av formen från den första bilden i presentationen och beräknar sedan gränserna för det andra stycket i formens textram. Stycket ritas sedan om på en ny bitmap‑bild som sparas i PNG‑format. Denna metod är särskilt användbar när du behöver spara ett specifikt stycke som en separat bild samtidigt som du bevarar textens exakta dimensioner och formatering.
+I detta exempel hämtar vi det andra stycket som en bild. För att göra detta extraherar vi bildens form från den första bilden i presentationen och beräknar sedan styckets gränser i formens textruta. Stycket ritas sedan om på en ny bitmap‑bild, som sparas i PNG‑format. Metoden är särskilt användbar när du behöver spara ett specifikt stycke som en separat bild samtidigt som du bevarar exakt dimension och formatering.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -684,7 +706,7 @@ try {
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // Skapa en form-bitmap från minnet.
+    // Skapa en bitmap av formen från minnet.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
@@ -692,13 +714,13 @@ try {
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     RectF paragraphRectangle = secondParagraph.getRect();
 
-    // Beräkna koordinaterna och storleken för utdatareformen (minsta storlek - 1x1 pixel).
+    // Beräkna koordinaterna och storleken för utdata-bilden (minsta storlek - 1x1 pixel).
     int imageX = (int) Math.floor(paragraphRectangle.left);
     int imageY = (int) Math.floor(paragraphRectangle.top);
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // Beskär form-bitmapen för att bara få stycke-bitmapen.
+    // Beskär formens bitmap för att endast få styckets bitmap.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -708,11 +730,13 @@ try {
 }
 ```
 
-![Styckets bild](paragraph_to_image_output.png)
+Resultatet:
 
-**Example 2**
+![Styckebilden](paragraph_to_image_output.png)
 
-I det här exemplet utvidgar vi den föregående metoden genom att lägga till skalningsfaktorer till styckets bild. Formen extraheras från presentationen och sparas som en bild med en skalningsfaktor på `2`. Detta ger en högre upplösning vid export av stycket. Styckets gränser beräknas sedan med hänsyn till skalan. Skalning kan vara särskilt användbart när en mer detaljerad bild behövs, till exempel för användning i högkvalitativa trycksaker.
+**Exempel 2**
+
+I detta exempel utökar vi föregående metod genom att lägga till skalningsfaktorer för styckebilden. Formen extraheras från presentationen och sparas som en bild med en skalningsfaktor på `2`. Detta möjliggör högre upplösning vid export av stycket. Styckets gränser beräknas sedan med hänsyn till skalan. Skalning kan vara särskilt användbart när en mer detaljerad bild behövs, exempelvis för högkvalitativt tryckt material.
 
 ```java
 float imageScaleX = 2f;
@@ -728,7 +752,7 @@ try {
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // Skapa en form-bitmap från minnet.
+    // Skapa en bitmap av formen från minnet.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
@@ -748,7 +772,7 @@ try {
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // Beskär form-bitmapen för att bara få stycke-bitmapen.
+    // Beskär formens bitmap för att endast få styckets bitmap.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -760,18 +784,18 @@ try {
 
 ## **FAQ**
 
-**Kan jag helt inaktivera radbrytning i en textram?**
+**Kan jag helt inaktivera radbrytning i ett textfält?**
 
-Ja. Använd textramens inställning för radbrytning ([setWrapText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) för att stänga av radbrytning så att rader inte bryts vid ramens kanter.
+Ja. Använd textfältets radbrytningsinställning ([setWrapText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) för att stänga av radbrytning så att raderna inte bryts vid fältets kanter.
 
-**Hur kan jag få exakt på‑bildens gräns för ett specifikt stycke?**
+**Hur får jag exakt position för ett specifikt stycke på bilden?**
 
-Du kan hämta styckets (och även en enskild portions) avgränsningsrektangel för att veta dess exakta position och storlek på bilden.
+Du kan hämta styckets (och även en enskild portions) omgivningsrektangel för att veta dess exakta position och storlek på bilden.
 
-**Var styrs styckejusteringen (vänster/höger/centrerad/justerad)?**
+**Var styrs styckejustering (vänster/höger/centrerad/justerad)?**
 
-[Alignment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) är en inställning på styckennivå i [ParagraphFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraphformat/); den gäller hela stycket oavsett enskild portions formatering.
+[Alignment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) är en inställning på styckelnivå i [ParagraphFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/paragraphformat/); den gäller hela stycket oavsett enskild portions formatering.
 
-**Kan jag ange ett stavningsspråk för bara en del av ett stycke (t.ex. ett ord)?**
+**Kan jag ange språk för stavningskontroll för bara en del av ett stycke (t.ex. ett ord)?**
 
-Ja. Språket sätts på portionsnivå ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), så flera språk kan samexistera inom ett och samma stycke.
+Ja. Språket anges på portionsnivå ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), så flera språk kan samexistera inom samma stycke.

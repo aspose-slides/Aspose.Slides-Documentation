@@ -1,44 +1,46 @@
 ---
-title: Verwalten von Fallback-Schriftarten für Präsentationen in C++
-linktitle: Fallback-Schriftart
+title: Verwalten von Fallback‑Schriften für Präsentationen in C++
+linktitle: Fallback‑Schrift
 type: docs
 weight: 50
 url: /de/cpp/fallback-font/
 keywords:
-- fallback-Schriftart
-- verfügbare Schriftart
-- Glyph-Ersetzung
-- Schriftart angeben
+- Fallback‑Schrift
+- verfügbare Schrift
+- Glyph‑Ersetzung
+- Schrift angeben
 - Regel angeben
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Aspose.Slides für C++ Fallback-Schriftarten verwendet, um Text in PowerPoint- und OpenDocument-Präsentationen lesbar zu halten, wenn die ursprünglichen Schriftarten nicht verfügbar sind."
+description: "Erfahren Sie, wie Aspose.Slides für C++ Fallback‑Schriften verwendet, um Text in PowerPoint‑ und OpenDocument‑Präsentationen lesbar zu halten, wenn die ursprünglichen Schriften nicht verfügbar sind."
 ---
+## **Einführung**
 
-## **Fallback-Font**
-Der Fallback-Font wird verwendet, wenn die für den Text angegebene Schriftart im System verfügbar ist, diese Schriftart jedoch das erforderliche Glyph nicht enthält. In diesem Fall kann einer der angegebenen Fallback-Fonts für den Glyph-Ersatz verwendet werden.
+Fallback‑Schriften werden verwendet, wenn die für den Text angegebene Schrift im System vorhanden ist, aber das erforderliche Glyph nicht enthält. In diesem Fall kann Aspose.Slides eine der angegebenen Fallback‑Schriften nutzen, um das fehlende Glyph zu ersetzen.
 
-Aspose.Slides ermöglicht das Erstellen von Fallback-Fonts, das Hinzufügen zu einer Fallback-Fonts‑Sammlung, das Festlegen einer Fallback-Font‑Sammlung für eine bestimmte Präsentation, das Entfernen von Fallback-Fonts aus einer Präsentation, das Festlegen von Regeln zur Anwendung von Fallback-Fonts und weitere Funktionen.
+## **Fallback‑Schrift**
+Eine Fallback‑Schrift wird verwendet, wenn die für den Text angegebene Schrift im System vorhanden ist, diese Schrift jedoch das notwendige Glyph nicht enthält. In diesem Fall kann man eine der angegebenen Fallback‑Schriften für den Glyph‑Ersatz verwenden.
+
+Aspose.Slides ermöglicht das Erstellen von Fallback‑Schriften, das Hinzufügen zu einer Fallback‑Schriftensammlung, das Festlegen einer Fallback‑Schriftensammlung für eine bestimmte Präsentation, das Entfernen von Fallback‑Schriften aus einer Präsentation, das Festlegen von Regeln zur Anwendung von Fallback‑Schriften und weitere.
 
 Um sich mit diesen Funktionen vertraut zu machen, verwenden Sie die folgenden Links:
-
-- [Fallback-Font erstellen](/slides/de/cpp/create-fallback-font)
-- [Fallback-Fonts‑Sammlung erstellen](/slides/de/cpp/create-fallback-fonts-collection)
-- [Präsentation mit Fallback-Font rendern](/slides/de/cpp/render-presentation-with-fallback-font)
+- [Fallback‑Schrift erstellen](/slides/de/cpp/create-fallback-font)
+- [Fallback‑Schriftensammlung erstellen](/slides/de/cpp/create-fallback-fonts-collection)
+- [Präsentation mit Fallback‑Schrift rendern](/slides/de/cpp/render-presentation-with-fallback-font)
 
 ## **FAQ**
 
-**Wie unterscheiden sich Fallback-Fonts von der Schriftart-Substitution?**
+**Wie unterscheiden sich Fallback‑Schriften von Schriftartenersatz?**
 
-Fallback wird pro Zeichen oder pro Unicode‑Bereich angewendet, wenn die primäre Schriftart bestimmte Glyphs nicht enthält; es füllt nur die fehlenden Zeichen. [Substitution](/slides/de/cpp/font-substitution/) ersetzt eine fehlende oder nicht verfügbare Schriftart für einen gesamten Lauf oder Textabschnitt durch eine andere Schriftart. Sie können kombiniert werden, aber ihr Anwendungsbereich und die Auswahllogik sind unterschiedlich.
+Fallback wird pro Zeichen oder pro Unicode‑Bereich angewendet, wenn die primäre Schrift bestimmte Glyphs nicht enthält; es füllt nur die fehlenden Zeichen. [Substitution](/slides/de/cpp/font-substitution/) ersetzt eine fehlende oder nicht verfügbare Schrift für einen gesamten Lauf oder Textabschnitt durch eine andere Schrift. Sie können kombiniert werden, aber ihr Anwendungsumfang und die Auswahllogik sind unterschiedlich.
 
 **Werden Fallback‑Einstellungen in der Präsentationsdatei gespeichert?**
 
-Nein. Die Fallback‑Konfiguration existiert nur zur Verarbeitungs‑/Renderzeit in der Bibliothek und wird nicht in die PPTX-Datei serialisiert. Die Präsentation speichert Ihre Fallback‑Regeln nicht.
+Nein. Die Fallback‑Konfiguration existiert nur zur Verarbeitungs‑/Renderzeit in der Bibliothek und wird nicht in die PPTX‑Datei serialisiert. Die Präsentation speichert Ihre Fallback‑Regeln nicht.
 
-**Wirkt sich Fallback auf Elemente aus, die von PowerPoint‑Objekten erstellt wurden (SmartArt, Diagramme, WordArt)?**
+**Wirkt sich Fallback auf von PowerPoint‑Objekten erstellte Elemente aus (SmartArt, Diagramme, WordArt)?**
 
-Ja. Text in diesen Objekten durchläuft dieselbe Rendering‑Pipeline, sodass dieselben Fallback‑Regeln darauf wie auf normalen Text angewendet werden.
+Ja. Der Text in diesen Objekten durchläuft dieselbe Rendering‑Pipeline, sodass dieselben Fallback‑Regeln darauf wie auf normalen Text angewendet werden.

@@ -37,13 +37,13 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Ontdek alle bestandsformaten die Aspose.Slides voor C++ kan openen, opslaan en converteren — inclusief PPT, PPTX en ODP — met duidelijke opmerkingen over import/exportondersteuning."
+description: "Ontdek alle bestandsformaten die Aspose.Slides voor C++ kan openen, opslaan en converteren — inclusief PPT, PPTX en ODP — met duidelijke import/export-ondersteuningsnotities."
 ---
 ## **Overzicht**
 
-Aspose.Slides ondersteunt presentatiedocumenten van Microsoft PowerPoint 97 tot en met Office 365, inclusief Microsoft PowerPoint voor Mac. Dit artikel geeft een overzicht van de PowerPoint‑versies die door de bibliotheek worden ondersteund en bevat een tabel met bestandsformaten die geladen, opgeslagen of beide kunnen worden.
+Aspose.Slides ondersteunt presentatiebestanden van Microsoft PowerPoint 97 tot en met Office 365, inclusief Microsoft PowerPoint voor Mac. Dit artikel somt de PowerPoint‑versies op die door de bibliotheek worden ondersteund en biedt een tabel met bestandsformaten die kunnen worden geladen, opgeslagen of beide.
 
-Het artikel beantwoordt ook vaak gestelde vragen over PDF‑conformiteit, het insluiten van lettertypen, met wachtwoord beveiligde bestanden, aangepaste lettertypen, lettertype‑fallback en XPS‑exportopties.
+Het artikel beantwoordt ook veelgestelde vragen over PDF‑naleving, het insluiten van lettertypen, wachtwoordbeveiligde bestanden, aangepaste lettertypen, lettertype‑fallback en XPS‑exportopties.
 
 ## **Ondersteunde Microsoft PowerPoint‑versies**
 - Microsoft PowerPoint 97
@@ -59,23 +59,23 @@ Het artikel beantwoordt ook vaak gestelde vragen over PDF‑conformiteit, het in
 - Office 365
 
 ## **Ondersteunde bestandsformaten**
-Deze tabel bevat de bestandsformaten die Aspose.Slides voor С++ kan laden en opslaan:
+Deze tabel bevat de bestandsformaten die Aspose.Slides voor C++ kan laden en opslaan:
 
 |**Formaat**|**Beschrijving**|**Laden**|**Opslaan**|**Opmerkingen**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint‑presentatie 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint‑sjabloon 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint‑show 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint‑presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint‑sjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint‑show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint‑presentatie met macro's|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint‑show met macro's|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint‑sjabloon met macro's|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97-2003-presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint 97-2003-sjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint 97-2003-show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint-presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint-sjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint-show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Macro‑ingeschakelde PowerPoint‑presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Macro‑ingeschakelde PowerPoint‑show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|Macro‑ingeschakelde PowerPoint‑sjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument‑presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument‑presentatiesjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format| |{{< emoticons/tick >}}| |
-|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format| |{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag‑afbeeldingsbestandsformaat| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile‑formaat| |{{< emoticons/tick >}}| |
 |[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification| |{{< emoticons/tick >}}| |
 |[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
@@ -89,24 +89,24 @@ Deze tabel bevat de bestandsformaten die Aspose.Slides voor С++ kan laden en op
 |[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
 |[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML‑presentatie| |{{< emoticons/tick >}}| |
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan ik presentaties opslaan als PDF die voldoen aan archiverings‑ en toegankelijkheidsnormen (PDF/A en PDF/UA)?**
+**Kan ik presentaties opslaan als PDF die voldoen aan archiverings- en toegankelijkheidsnormen (PDF/A en PDF/UA)?**
 
-Ja. Aspose.Slides ondersteunt exporteren naar PDF met conformiteitsniveaus zoals PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, evenals PDF/UA via de [compliance](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pdfoptions/set_compliance/) instelling in [PDF‑exportopties](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pdfoptions/).
+Ja. Aspose.Slides ondersteunt exporteren naar PDF met nalevingsniveaus zoals PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, evenals PDF/UA via de [compliance](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pdfoptions/set_compliance/)‑instelling in [PDF‑exportopties](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pdfoptions/).
 
-**Ondersteunt de bibliotheek het insluiten van lettertypen bij exporteren naar PDF, met gedetailleerde controle over wat er wordt ingesloten?**
+**Ondersteunt de bibliotheek het insluiten van lettertypen bij het exporteren naar PDF, met fijne controle over wat er wordt ingebed?**
 
-Ja. U kunt bepalen of lettertypen volledig worden ingesloten of als subset (alleen gebruikte tekens), aangeven hoe veelgebruikte systeembrede lettertypen worden behandeld en het gedrag voor ASCII‑tekst configureren via [PDF‑exportopties](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pdfoptions/).
+Ja. Je kunt bepalen of lettertypen volledig worden ingesloten of slechts een deel (alleen gebruikte glyphs), aangeven hoe gangbare systeembrede lettertypen worden behandeld, en het gedrag voor ASCII‑tekst configureren via [PDF‑exportopties](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pdfoptions/).
 
 **Kan ik detecteren of een bestand met een wachtwoord is beveiligd voordat ik het daadwerkelijk laad?**
 
-Ja. Met de [factory‑gebaseerde inspectie‑API](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentationfactory/) kunt u een presentatiedocument bevragen om te bepalen of het met een wachtwoord is beveiligd zonder het volledig te openen.
+Ja. Met de [factory‑gebaseerde inspectie‑API](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentationfactory/) kun je een presentatie‑bestand onderzoeken om te bepalen of het met een wachtwoord is beveiligd zonder het volledig te openen.
 
-**Zijn er lettertype‑fallbackmechanismen en ondersteuning voor aangepaste lettertypen?**
+**Zijn er mechanismen voor lettertype‑fallback en ondersteuning voor aangepaste lettertypen?**
 
-Ja. De bibliotheek ondersteunt het [laden](/slides/nl/cpp/custom-font/) en [insluiten](/slides/nl/cpp/embedded-font/) van aangepaste lettertypen en biedt lettertype‑[fallback‑regels](/slides/nl/cpp/fallback-font/) om ontbrekende tekens tijdens het renderen en converteren te voorkomen.
+Ja. De bibliotheek ondersteunt het [laden](/slides/nl/cpp/custom-font/) en [insluiten](/slides/nl/cpp/embedded-font/) van aangepaste lettertypen en biedt [fallback‑regels](/slides/nl/cpp/fallback-font/) voor lettertypen om ontbrekende glyphs tijdens het renderen en converteren te voorkomen.
 
-**Kan ik dia's exporteren naar XPS, en zijn er opties om de XPS‑output bij te stellen?**
+**Kan ik dia's exporteren naar XPS, en zijn er opties om de XPS‑output af te stemmen?**
 
-Ja. [Exporteren naar XPS](/slides/nl/cpp/convert-powerpoint-to-xps/) wordt ondersteund, en u kunt de relevante [opslaan‑opties](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/xpsoptions/) aanpassen om de kwaliteit en de inhoud van het XPS‑document te beheersen.
+Ja. [Exporteren naar XPS](/slides/nl/cpp/convert-powerpoint-to-xps/) wordt ondersteund, en je kunt de relevante [opslaan‑opties](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/xpsoptions/) aanpassen om de kwaliteit en inhoud van het XPS‑document te regelen.

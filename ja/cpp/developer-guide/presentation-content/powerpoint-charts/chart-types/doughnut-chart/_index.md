@@ -1,5 +1,5 @@
 ---
-title: C++ を使用してプレゼンテーションのドーナツ グラフをカスタマイズ
+title: C++ を使用したプレゼンテーションのドーナツ グラフのカスタマイズ
 linktitle: ドーナツ グラフ
 type: docs
 weight: 30
@@ -12,16 +12,19 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用してドーナツ グラフを作成およびカスタマイズする方法を紹介します。PowerPoint 形式に対応し、動的なプレゼンテーションを実現します。"
+description: "Aspose.Slides for C++ でドーナツ グラフを作成およびカスタマイズする方法を紹介し、動的なプレゼンテーション向けに PowerPoint 形式をサポートします。"
 ---
+## **概要**
+
+この項目では、Aspose.Slides でドーナツ グラフをスライドに追加し、中心の穴のサイズを設定し、プレゼンテーションを保存する方法を示します。`set_DoughnutHoleSize` メソッドに焦点を当て、コードでこのグラフ種別をカスタマイズする基本的な手順を解説します。
 
 ## **ドーナツ グラフの中心ギャップを指定する**
 ドーナツ グラフの穴のサイズを指定するには、以下の手順に従ってください。
 
-- [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+- [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
 - スライドにドーナツ グラフを追加します。
 - ドーナツ グラフの穴のサイズを指定します。
-- プレゼンテーションをディスクに書き込みます。
+- プレゼンテーションをディスクに書き出します。
 
 以下の例では、ドーナツ グラフの穴のサイズを設定しています。
 
@@ -29,14 +32,14 @@ description: "Aspose.Slides for C++ を使用してドーナツ グラフを作�
 
 ## **FAQ**
 
-**複数のリングを持つマルチレベル ドーナツを作成できますか？**
+**マルチレベルのドーナツ（複数のリング）を作成できますか？**
 
-はい。単一のドーナツ グラフに複数の系列を追加すると、各系列が別々のリングになります。リングの順序は、コレクション内の系列の順序によって決まります。
+はい。単一のドーナツ グラフに複数の系列を追加すると、各系列が別々のリングになります。リングの順序は、系列コレクション内の順序で決まります。
 
-**「エクスプロード」ドーナツ（スライスが分離）のサポートはありますか？**
+**「爆発」したドーナツ（スライスが分離された状態）はサポートされていますか？**
 
-はい。Exploded Doughnut [chart type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) があり、データ ポイントに爆発プロパティがあります。個々のスライスを分離できます。
+はい。Exploded Doughnut [chart type](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/charttype/) と、データ ポイントの爆発プロパティがあり、個々のスライスを分離できます。
 
-**レポート用にドーナツ グラフの画像（PNG/SVG）を取得するにはどうすればよいですか？**
+**レポート用にドーナツ グラフの画像（PNG/SVG）を取得するには？**
 
-グラフはシェイプです。[raster image](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) にレンダリングするか、[SVG image](https://reference.aspose.com/slides/cpp/aspose.slides/shape/writeassvg/) にエクスポートできます。
+グラフはシェイプです。シェイプを[ラスタ画像](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shape/getimage/) にレンダリングするか、[SVG 画像](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shape/writeassvg/) にエクスポートできます。

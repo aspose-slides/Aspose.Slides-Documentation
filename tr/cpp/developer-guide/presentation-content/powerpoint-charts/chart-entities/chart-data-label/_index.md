@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda С++ Kullanarak Grafik Veri Etiketlerini Yönetme
+title: C++ Kullanarak Sunumlarda Grafik Veri Etiketlerini Yönetme
 linktitle: Veri Etiketi
 type: docs
 url: /tr/cpp/chart-data-label/
@@ -12,29 +12,29 @@ keywords:
 - etiket konumu
 - PowerPoint
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ kullanarak PowerPoint sunumlarında grafik veri etiketlerini eklemeyi ve biçimlendirmeyi öğrenin, böylece slaytlar daha etkileyici olur."
+description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarında grafik veri etiketlerini eklemeyi ve biçimlendirmeyi öğrenin, böylece daha etkileyici slaytlar oluşturun."
 ---
 ## **Giriş**
 
-Bir grafikteki veri etiketleri, grafik veri serileri veya tek tek veri noktaları hakkında ayrıntılar gösterir. Okuyucuların veri serilerini hızlıca tanımlamasını sağlar ve grafikleri daha anlaşılır kılar.
+Bir grafiğin veri etiketleri, grafik veri serileri veya tek tek veri noktaları hakkında ayrıntılar gösterir. Okuyucuların veri serilerini hızlıca tanımlamasını sağlar ve grafikleri daha anlaşılır kılar.
 
 ## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Bu C++ kodu, bir grafik veri etiketinde veri hassasiyetini nasıl ayarlayacağınızı gösterir:
+Bu C++ kodu, bir grafik veri etiketinde veri hassasiyetinin nasıl ayarlanacağını gösterir:
 
 ```c++
-	// Belgeler dizinine giden yol
+	// Belgeler dizinine olan yol
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluşturur
+	// PPTX dosyasını temsil eden Presentation sınıfını örnekler
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// İlk slaytı alır
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Varsayılan veriyle bir grafik ekler
+	// Varsayılan veriyle grafik ekler
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
 	// Seri sayı formatını ayarlar
@@ -45,14 +45,15 @@ Bu C++ kodu, bir grafik veri etiketinde veri hassasiyetini nasıl ayarlayacağı
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ## **Yüzdeleri Etiket Olarak Görüntüleme**
-Aspose.Slides for C++, görüntülenen grafiklerde yüzde etiketleri ayarlamanıza olanak tanır. Bu C++ kodu işlemi gösterir:
+Aspose.Slides for C++ gösterilen grafiklerde yüzde etiketleri ayarlamanıza izin verir. Bu C++ kodu işlemi gösterir:
 
 ```c++
-	// Belgeler dizinine giden yol
+	// Belgeler dizinine olan yol
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
 
-	// Creates an instance of the Presentation class
+	// Presentation sınıfının bir örneğini oluşturur
 	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
@@ -101,23 +102,24 @@ Aspose.Slides for C++, görüntülenen grafiklerde yüzde etiketleri ayarlamanı
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
-Bu C++ kodu, bir grafik veri etiketi için yüzde işaretini nasıl ayarlayacağınızı gösterir:
+
+## **Grafik Veri Etiketleriyle Yüzde İşaretini Ayarlama**
+Bu C++ kodu, bir grafik veri etiketi için yüzde işaretinin nasıl ayarlanacağını gösterir:
 
 ```c++
-	// Belgeler dizinine giden yol.
+	// Belgeler dizinine olan yol.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
 	// Presentation sınıfının bir örneğini oluşturur
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Bir slaytın referansını indeksiyle alır
+	// İndeks aracılığıyla bir slaytın referansını alır
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Slayt üzerinde PercentsStackedColumn grafiğini oluşturur
+	// Bir slaytta PercentsStackedColumn grafiğini oluşturur
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// NumberFormatLinkedToSource özelliğini false olarak ayarlar
+	// NumberFormatLinkedToSource değerini false olarak ayarlar
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
@@ -129,7 +131,7 @@ Bu C++ kodu, bir grafik veri etiketi için yüzde işaretini nasıl ayarlayacağ
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Varsayılan oluşturulan seriyi siler 
+	// Varsayılan oluşturulan seriyi siler
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -181,14 +183,14 @@ Bu C++ kodu, bir grafik veri etiketi için yüzde işaretini nasıl ayarlayacağ
 
 	// Sunum dosyasını diske yazar
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
-## **Etiketi Eksenden Uzaklığa Ayarlama**
-Bu C++ kodu, eksenlerden çizilmiş bir grafikle çalışırken kategori ekseninden etiket mesafesini nasıl ayarlayacağınızı gösterir:
+
+## **Etiket Mesafesini Eksenden Ayarlama**
+Bu C++ kodu, eksenlerden çizilmiş bir grafikte kategori ekseninden etikete olan mesafenin nasıl ayarlanacağını gösterir:
 
 ```c++
-	// Belgeler dizinine giden yol
+	// Belgeler dizinine olan yol
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
 
 	// Presentation sınıfının bir örneğini oluşturur
@@ -197,14 +199,14 @@ Bu C++ kodu, eksenlerden çizilmiş bir grafikle çalışırken kategori eksenin
 	// Bir slaytın referansını alır
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Slaytta bir grafik oluşturur
+	// Slayta bir grafik oluşturur
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
 	// Grafik serileri koleksiyonunu alır
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// Etiketi eksenden uzaklığı ayarlar
+	// Bir eksenden etiket mesafesini ayarlar
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
 	// Sunum dosyasını diske yazar
@@ -213,9 +215,9 @@ Bu C++ kodu, eksenlerden çizilmiş bir grafikle çalışırken kategori eksenin
 
 ## **Etiket Konumunu Ayarlama**
 
-Eksen gerektirmeyen bir grafik (örneğin pasta grafiği) oluşturduğunuzda, grafiğin veri etiketleri kenara çok yakın olabilir. Böyle bir durumda, lider çizgilerin net görünmesi için veri etiketinin konumunu ayarlamanız gerekir.
+Eksenlere dayanmayan bir grafik (örneğin pasta grafiği) oluşturduğunuzda, grafiğin veri etiketleri kenara çok yakın olabilir. Bu durumda, veri etiketinin konumunu ayarlamanız gerekir ki kılavuz çizgileri net bir şekilde görüntülensin.
 
-Bu C++ kodu, bir pasta grafiğinde etiket konumunu nasıl ayarlayacağınızı gösterir:
+Bu C++ kodu, bir pasta grafiğinde etiket konumunun nasıl ayarlanacağını gösterir:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -238,14 +240,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **SSS**
 
-**Yoğun grafiklerde veri etiketlerinin üst üste binmesini nasıl önleyebilirim?**
+**Yoğun grafiklerde veri etiketlerinin çakışmasını nasıl önleyebilirim?**
 
-Otomatik etiket yerleşimini, lider çizgileri ve küçültülmüş yazı tipini birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç/anahtar noktalar için etiketleri gösterin.
+Otomatik etiket yerleştirme, kılavuz çizgileri ve azaltılmış yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç/anahtar noktalara etiket gösterin.
 
-**Sıfır, negatif veya boş değerler için yalnızca etiketleri nasıl devre dışı bırakabilirim?**
+**Sıfır, negatif veya boş değerler için etiketleri nasıl devre dışı bırakabilirim?**
 
-Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için görünümü kapatın.
+Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif değerler veya eksik değerler için gösterimi kapatın.
 
-**PDF/görsellere dışa aktarırken tutarlı bir etiket stilini nasıl sağlayabilirim?**
+**PDF/görsellere aktarırken tutarlı bir etiket stili nasıl sağlanır?**
 
-Yazı tiplerini (aile, boyut) açıkça ayarlayın ve yedekleme olmaması için render tarafında yazı tipinin mevcut olduğunu doğrulayın.
+Yazı tiplerini (aile, boyut) açıkça ayarlayın ve render tarafında yazı tipinin mevcut olduğundan emin olun; böylece yedekleme önlenir.

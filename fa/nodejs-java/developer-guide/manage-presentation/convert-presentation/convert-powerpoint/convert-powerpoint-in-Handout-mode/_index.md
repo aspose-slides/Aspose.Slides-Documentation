@@ -3,7 +3,7 @@ title: تبدیل ارائه‌های پاورپوینت در حالت جزوه 
 linktitle: حالت جزوه
 type: docs
 weight: 150
-url: /fa/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /fa/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
 - تبدیل پاورپوینت
 - تبدیل ارائه
@@ -11,56 +11,56 @@ keywords:
 - جزوه
 - PPT
 - PPTX
-- پاورپوینت
+- PowerPoint
 - ارائه
 - Node.js
-- جاوااسکریپت
+- JavaScript
 - Aspose.Slides
-description: "تبدیل ارائه‌ها به جزوه‌ها. تنظیم تعداد اسلایدها در هر صفحه، حفظ یادداشت‌ها، خروجی به PDF یا تصاویر با Aspose.Slides برای Node.js، به همراه کد نمونه. به‌صورت رایگان امتحان کنید."
+description: "ارائه‌ها را به جزوه‌ها تبدیل کنید. تعداد اسلایدها در هر صفحه را تنظیم کنید، یادداشت‌ها را نگه دارید، با Aspose.Slides برای Node.js به PDF یا تصاویر صادر کنید، همراه با کد نمونه. به‌صورت رایگان امتحان کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-Aspose.Slides امکان تبدیل ارائه‌ها به فرمت‌های مختلف را فراهم می‌کند، از جمله ایجاد جزوه‌های چاپی در حالت Handout. این حالت به شما اجازه می‌دهد تنظیم کنید که چند اسلاید بر روی یک صفحه ظاهر شوند، که برای کنفرانس‌ها، سمینارها و سایر رویدادها مفید است. می‌توانید این حالت را با تنظیم متد `setSlidesLayoutOptions` در کلاس‌های [PdfOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pdfoptions/)، [RenderingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/renderingoptions/)، [HtmlOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/htmloptions/)، و [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) فعال کنید.
+Aspose.Slides امکان تبدیل ارائه‌ها به انواع فرمت‌ها را فراهم می‌کند، از جمله ایجاد جزوه‌ها برای چاپ در حالت Handout. این حالت به شما اجازه می‌دهد که پیکربندی کنید چند اسلاید بر روی یک صفحه نمایش داده شوند، که برای کنفرانس‌ها، سمینارها و سایر رویدادها مفید است. می‌توانید این حالت را با تنظیم متد `setSlidesLayoutOptions` در کلاس‌های [PdfOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/htmloptions/), و [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) فعال کنید.
 
-## **صادرات در حالت Handout**
+## **صادرات حالت جزوه**
 
-برای پیکربندی حالت Handout، از شیء [HandoutLayoutingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/handoutlayoutingoptions/) استفاده کنید که تعیین می‌کند چند اسلاید بر روی یک صفحه قرار گیرند و سایر پارامترهای نمایش را تنظیم می‌کند.
+برای پیکربندی حالت Handout، از شیء [HandoutLayoutingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/handoutlayoutingoptions/) استفاده کنید که تعیین می‌کند چند اسلاید بر روی یک صفحه قرار می‌گیرند و سایر پارامترهای نمایش را تنظیم می‌کند.
 
-در زیر یک مثال کد آمده است که نشان می‌دهد چگونه یک ارائه را به PDF در حالت Handout تبدیل کنید.
+در زیر نمونه کدی آورده شده است که نشان می‌دهد چگونه یک ارائه را به PDF در حالت Handout تبدیل کنید.
 
 ```js
-// یک ارائه را بارگیری کنید.
+// بارگذاری یک ارائه.
 let presentation = new asposeSlides.Presentation("sample.pptx");
 
-// تنظیم گزینه‌های خروجی.
+// تنظیم گزینه‌های صادر کردن.
 let slidesLayoutOptions = new asposeSlides.HandoutLayoutingOptions();
-slidesLayoutOptions.setHandout(asposeSlides.HandoutType.Handouts4Horizontal);  // ۴ اسلاید در یک صفحه به صورت افقی
+slidesLayoutOptions.setHandout(asposeSlides.HandoutType.Handouts4Horizontal);  // 4 اسلاید بر روی یک صفحه به صورت افقی
 slidesLayoutOptions.setPrintSlideNumbers(true);                                // چاپ شماره اسلایدها
-slidesLayoutOptions.setPrintFrameSlide(true);                                  // چاپ قاب دور اسلایدها
+slidesLayoutOptions.setPrintFrameSlide(true);                                  // چاپ یک قاب دور اسلایدها
 slidesLayoutOptions.setPrintComments(false);                                   // بدون نظرات
 
 let pdfOptions = new asposeSlides.PdfOptions();
 pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-// صادر کردن ارائه به PDF با چینش انتخابی.
+// صادر کردن ارائه به PDF با چیدمان انتخابی.
 presentation.save("output.pdf", asposeSlides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
 {{% alert color="warning" %}} 
-به خاطر داشته باشید که متد `setSlidesLayoutOptions` فقط برای برخی از فرمت‌های خروجی مانند PDF، HTML، TIFF و هنگام رندر به عنوان تصویر در دسترس است. 
+در نظر داشته باشید که متد `setSlidesLayoutOptions` فقط برای برخی از قالب‌های خروجی مانند PDF، HTML، TIFF و هنگام رندر به عنوان تصاویر در دسترس است.
 {{% /alert %}} 
 
 ## **سؤالات متداول**
 
-**حداکثر تعداد تصویر بند انگشتی اسلایدها در هر صفحه در حالت Handout چقدر است؟**
+**حداکثر تعداد تصویر بندانگشتی اسلاید در هر صفحه در حالت Handout چیست؟**
 
-Aspose.Slides از [پیش‌تنظیم‌ها](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/handouttype/) تا ۹ تصویر بند انگشتی در هر صفحه با ترتیب افقی یا عمودی پشتیبانی می‌کند: ۱، ۲، ۳، ۴ (افقی/عمودی)، ۶ (افقی/عمودی) و ۹ (افقی/عمودی).
+Aspose.Slides از [پیش‌تنظیم‌ها](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/handouttype/) تا 9 تصویر بندانگشتی در هر صفحه با ترتیب افقی یا عمودی پشتیبانی می‌کند: 1، 2، 3، 4 (افقی/عمودی)، 6 (افقی/عمودی) و 9 (افقی/عمودی).
 
-**آیا می‌توانم یک شبکه سفارشی، مانند ۵ یا ۸ اسلاید در هر صفحه، تعریف کنم؟**
+**آیا می‌توانم یک شبکه سفارشی، مانند 5 یا 8 اسلاید در هر صفحه، تعریف کنم؟**
 
-خیر. تعداد و ترتیب تصویرهای بند انگشتی به‌صورت دقیق توسط شمارش [HandoutType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/handouttype/) کنترل می‌شود؛ چیدمان‌های دلخواه پشتیبانی نمی‌شوند.
+خیر. تعداد و ترتیب تصویرهای بندانگشتی به‌صورت دقیق توسط شمارنده [HandoutType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/handouttype/) کنترل می‌شود؛ چیدمان‌های دلخواه پشتیبانی نمی‌شوند.
 
 **آیا می‌توانم اسلایدهای مخفی را در خروجی Handout گنجانده کنم؟**
 
-بله. از متد `setShowHiddenSlides` در تنظیمات خروجی برای فرمت هدف، مانند [PdfOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pdfoptions/)، [HtmlOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/htmloptions/)، یا [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) استفاده کنید.
+بله. از متد `setShowHiddenSlides` در تنظیمات خروجی برای قالب هدف، مانند [PdfOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/htmloptions/), یا [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) استفاده کنید.

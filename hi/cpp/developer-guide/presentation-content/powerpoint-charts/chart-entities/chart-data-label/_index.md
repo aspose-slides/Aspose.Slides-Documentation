@@ -1,5 +1,5 @@
 ---
-title: C++ का उपयोग करके प्रस्तुतियों में चार्ट डेटा लेबल्स प्रबंधित करें
+title: C++ का उपयोग करके प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
 linktitle: डेटा लेबल
 type: docs
 url: /hi/cpp/chart-data-label/
@@ -12,47 +12,47 @@ keywords:
 - लेबल स्थान
 - PowerPoint
 - प्रस्तुति
-- С++
+- C++
 - Aspose.Slides
-description: "PowerPoint प्रस्तुतियों में अधिक आकर्षक स्लाइड्स के लिए Aspose.Slides for С++ का उपयोग करके चार्ट डेटा लेबल जोड़ना और स्वरूपित करना सीखें।"
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और फ़ॉर्मेट करने के बारे में जानें, जिससे अधिक आकर्षक स्लाइड्स बनें।"
 ---
 ## **परिचय**
 
-चार्ट में डेटा लेबल्स चार्ट डेटा सीरीज़ या व्यक्तिगत डेटा पॉइंट्स के बारे में विवरण दिखाते हैं। वे पाठकों को डेटा सीरीज़ जल्दी पहचानने में मदद करते हैं और चार्ट को समझना आसान बनाते हैं।
+डेटा लेबल्स चार्ट पर डेटा श्रृंखला या व्यक्तिगत डेटा बिंदुओं के बारे में विवरण दिखाते हैं। वे पाठकों को जल्दी से डेटा श्रृंखला पहचानने में मदद करते हैं और चार्ट को समझना आसान बनाते हैं।
 
-## **चार्ट डेटा लेबल्स में डेटा प्रिसीजन सेट करें**
+## **चार्ट डेटा लेबल्स में डेटा सटीकता सेट करें**
 
-यह C++ कोड दिखाता है कि चार्ट डेटा लेबल में डेटा प्रिसीजन कैसे सेट करें:
+यह C++ कोड दिखाता है कि चार्ट डेटा लेबल में डेटा सटीकता कैसे सेट करें:
 
 ```c++
-	// दस्तावेज़ डायरेक्टरी का पथ
+	// डॉक्यूमेंट्स निर्देशिका का पथ
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का instance बनाता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहला स्लाइड प्राप्त करता है
+	// पहली स्लाइड प्राप्त करता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// सीरीज़ संख्या स्वरूप सेट करता है
+	// सीरीज़ संख्या प्रारूप सेट करता है
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// प्रस्तुति फ़ाइल को डिस्क पर लिखता है
+	// प्रेजेंटेशन फ़ाइल को डिस्क में लिखता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **लेबल्स के रूप में प्रतिशत दिखाएं**
-Aspose.Slides for C++ आपको प्रदर्शित चार्ट्स पर प्रतिशत लेबल सेट करने की अनुमति देता है। यह C++ कोड इस संचालन को दर्शाता है:
+## **लेबल्स के रूप में प्रतिशत दिखाएँ**
+Aspose.Slides for C++ आपको प्रदर्शित चार्ट्स पर प्रतिशत लेबल सेट करने की अनुमति देता है। यह C++ कोड इस ऑपरेशन को दर्शाता है:
 
 ```c++
-	// दस्तावेज़ डायरेक्टरी का पथ
+	// डॉक्यूमेंट्स निर्देशिका का पथ
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
 
-	// Presentation क्लास का एक उदाहरण बनाता है
+	// Presentation क्लास का instance बनाता है
 	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
@@ -94,21 +94,23 @@ Aspose.Slides for C++ आपको प्रदर्शित चार्ट�
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+
 		}
+
 	}
 
-	// चार्ट युक्त प्रस्तुति को सहेजता है
+	// चार्ट युक्त प्रेजेंटेशन को सहेजता है
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **चार्ट डेटा लेबल्स के साथ प्रतिशत चिह्न सेट करें**
-यह C++ कोड आपको चार्ट डेटा लेबल के लिए प्रतिशत चिह्न सेट करना दिखाता है:
+यह C++ कोड दिखाता है कि चार्ट डेटा लेबल के लिए प्रतिशत चिह्न कैसे सेट करें:
 
 ```c++
-	// दस्तावेज़ डायरेक्टरी का पथ।
+	// डॉक्यूमेंट्स निर्देशिका का पथ।
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
-	// Presentation क्लास का एक उदाहरण बनाता है
+	// Presentation क्लास का एक instance बनाता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करता है
@@ -145,11 +147,11 @@ Aspose.Slides for C++ आपको प्रदर्शित चार्ट�
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// सीरीज़ के लिए फ़िल रंग सेट करता है
+	// सीरीज़ के लिए फ़िल कलर सेट करता है
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
-	// LabelFormat गुण सेट करता है
+	// LabelFormat प्रॉपर्टीज़ सेट करता है
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
@@ -166,11 +168,11 @@ Aspose.Slides for C++ आपको प्रदर्शित चार्ट�
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// सीरीज़ के लिए फ़िल रंग सेट करता है
+	// सीरीज़ के लिए फ़िल कलर सेट करता है
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
-	// LabelFormat गुण सेट करता है
+	// LabelFormat प्रॉपर्टीज़ सेट करता है
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
@@ -179,40 +181,41 @@ Aspose.Slides for C++ आपको प्रदर्शित चार्ट�
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// प्रस्तुति फ़ाइल को डिस्क पर लिखता है
+	// प्रेजेंटेशन फ़ाइल को डिस्क में लिखता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-## **अक्ष से लेबल की दूरी सेट करें**
-यह C++ कोड दिखाता है कि जब आप अक्षों से प्लॉट किए गए चार्ट के साथ काम कर रहे हों तो श्रेणी अक्ष से लेबल की दूरी कैसे सेट करें:
+## **अक्ष से लेबल दूरी सेट करें**
+यह C++ कोड दिखाता है कि जब आप अक्षों से बना चार्ट प्लॉट कर रहे हों तो श्रेणी अक्ष से लेबल दूरी कैसे सेट करें:
 
 ```c++
-	// दस्तावेज़ डायरेक्टरी का पथ
+	// डॉक्यूमेंट्स निर्देशिका का पथ
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
 
-	// Presentation क्लास का एक उदाहरण बनाता है
+	// Presentation क्लास का एक instance बनाता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// स्लाइड का संदर्भ प्राप्त करता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// स्लाइड पर एक चार्ट बनाता है
+	// स्लाइड पर चार्ट बनाता है
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
 	// चार्ट सीरीज़ कलेक्शन प्राप्त करता है
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// अक्ष से लेबल की दूरी सेट करता है
+	// अक्ष से लेबल दूरी सेट करता है
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// प्रस्तुति फ़ाइल को डिस्क पर लिखता है
+	// प्रेजेंटेशन फ़ाइल को डिस्क में लिखता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **लेबल स्थान समायोजित करें**
 
-जब आप ऐसी चार्ट बनाते हैं जो किसी भी अक्ष पर निर्भर नहीं करता जैसे पाई चार्ट, तो चार्ट के डेटा लेबल्स इसकी किनारे के बहुत करीब हो सकते हैं। ऐसे में आपको डेटा लेबल का स्थान समायोजित करना होगा ताकि लीडर लाइन्स स्पष्ट रूप से दिखें।
+जब आप ऐसा चार्ट बनाते हैं जो किसी भी अक्ष पर निर्भर नहीं करता है, जैसे पाई चार्ट, तो चार्ट के डेटा लेबल्स उसके किनारे के बहुत पास हो सकते हैं। ऐसे मामले में, आपको डेटा लेबल का स्थान समायोजित करना पड़ता है ताकि लीडर लाइन्स स्पष्ट रूप से दिखाई दें।
 
 यह C++ कोड दिखाता है कि पाई चार्ट पर लेबल स्थान कैसे समायोजित करें:
 
@@ -233,18 +236,18 @@ label->set_Y(0.04f);
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![पाई-चार्ट-समायोजित-लेबल](pie-chart-adjusted-label.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं घने चार्ट्स पर डेटा लेबल्स के ओवरलैप को कैसे रोक सकता हूँ?**
+**घनी चार्ट्स में डेटा लेबल्स के ओवरलैप को कैसे रोकें?**
 
-स्वचालित लेबल प्लेसमेंट, लीडर लाइन्स, और फ़ॉन्ट आकार को कम करें; यदि आवश्यक हो तो कुछ फ़ील्ड्स (जैसे श्रेणी) को छिपाएँ या केवल चरम/मुख्य बिंदुओं के लिए लेबल दिखाएँ।
+स्वचालित लेबल प्लेसमेंट, लीडर लाइन्स, और फ़ॉन्ट आकार को घटाकर संयोजन करें; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छिपाएँ या केवल चरम/मुख्य बिंदुओं के लिए लेबल दिखाएँ।
 
-**मैं शून्य, नकारात्मक, या खाली मानों के लिए केवल लेबल्स को कैसे निष्क्रिय कर सकता हूँ?**
+**शून्य, नकारात्मक, या खाली मानों के लिए लेबल केवल कैसे निष्क्रिय करें?**
 
-लेबल्स सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक मानों या अनुपलब्ध मानों के लिए डिस्प्ले बंद करें।
+लेबल्स सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद करें।
 
-**PDF/छवियों में निर्यात करते समय निरंतर लेबल शैली कैसे सुनिश्चित करूँ?**
+**PDF/इमेज में निर्यात करने पर लेबल शैली निरंतर कैसे रखें?**
 
-फ़ॉन्ट (परिवार, आकार) को स्पष्ट रूप से सेट करें और रेंडरिंग साइड पर फ़ॉन्ट उपलब्ध है यह सुनिश्चित करें ताकि फॉलबैक न हो।
+फ़ॉन्ट (परिवार, आकार) को स्पष्ट रूप से सेट करें और रेंडरिंग पक्ष पर फ़ॉन्ट उपलब्ध है यह सत्यापित करें ताकि फॉलबैक न हो।

@@ -4,15 +4,17 @@ linktitle: SmartArt di PowerPoint
 type: docs
 weight: 100
 url: /it/net/powerpoint-smartart/
+aliases:
+  - /net/examples/elements/smartart/
 keywords:
 - SmartArt
 - gestire SmartArt
-- grafico SmartArt
+- grafica SmartArt
 - nodo SmartArt
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Scopri come creare e modificare SmartArt di PowerPoint in .NET tramite l'API Aspose.Slides: layout, nodi, stili, con esempi passo-passo per automatizzare rapidamente le diapositive."
+description: "Scopri come creare e modificare SmartArt di PowerPoint in .NET tramite l'API Aspose.Slides: layout, nodi, stili, con esempi passo passo per automatizzare le diapositive rapidamente."
 ---

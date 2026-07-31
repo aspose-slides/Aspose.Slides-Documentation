@@ -10,26 +10,26 @@ keywords:
 - yazı tipi gömme
 - gömülü yazı tipini al
 - gömülü yazı tipi ekle
-- gömülü yazı tipini kaldır
+- gömülü yazı tipi kaldır
 - gömülü yazı tipini sıkıştır
 - PowerPoint
 - OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint ve OpenDocument sunumlarında TrueType yazı tiplerini gömerek, tüm platformlarda doğru render almayı sağlayın."
+description: "Aspose.Slides for C++ ile PowerPoint ve OpenDocument sunumlarına TrueType yazı tiplerini gömerek, tüm platformlarda doğru render edilmesini sağlayın."
 ---
 ## **Giriş**
 
-**PowerPoint’te gömülü yazı tipleri**, sunumunuzun herhangi bir sistem veya cihazda açıldığında planlanan görünümünü korumasını sağlar. Bu, marka kimliği veya yaratıcı amaçlar için özel, üçüncü‑taraf veya standart dışı yazı tipleri kullanıldığında özellikle önemlidir. Gömülü yazı tipleri olmadan, metin başka bir yazı tipiyle değiştirilebilir, düzen bozulabilir ve karakterler okunamaz semboller ya da dikdörtgenler şeklinde görünebilir; bu da tasarımın bütünlüğünü zedeler.
+**Embedded fonts in PowerPoint** PowerPoint'taki gömülü yazı tipleri, sunumunuzun herhangi bir sistem veya cihazda açıldığında istenen görünümünü korumasına yardımcı olur. Bu, markalaşma veya yaratıcı amaçlar için özel, üçüncü taraf veya standart dışı yazı tipleri kullanıldığında özellikle önemlidir. Gömülü yazı tipleri olmadığında, metin başka bir yazı tipine değiştirilebilir, düzen bozulabilir ve karakterler okunamayan semboller veya dikdörtgenler şeklinde görünebilir; bu da tasarımın bütünlüğünü zedeler.
 
-Aspose.Slides for C++, gömülü yazı tiplerini program aracılığıyla yönetmek için güçlü API’ler sunar. Sunum dosyalarınızda gömülü yazı tiplerini incelemek, eklemek veya kaldırmak için [FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/) ve [FontData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontdata/) sınıflarını kullanabilirsiniz. Ayrıca, kaliteyi veya görünümü etkilemeden yazı tipi verisini sıkıştırarak dosya boyutunu optimize etmenizi sağlayan [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) sınıfı da mevcuttur.
+Aspose.Slides for C++ gömülü yazı tiplerini programlı olarak yönetmek için güçlü bir dizi API sağlar. Sunum dosyalarınızda gömülü yazı tiplerini incelemek, eklemek veya kaldırmak için [FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/) ve [FontData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontdata/) sınıflarını kullanabilirsiniz. Ayrıca, [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) sınıfı, kaliteyi veya görünümü etkilemeden yazı tipi verisini sıkıştırarak dosya boyutunu optimize etmenizi sağlar.
 
-Bu araçlar, font gömme üzerinde tam kontrol sağlayarak platformlar arasında tutarlı tipografi sürdürmenize ve gerektiğinde dosya boyutunu azaltmanıza yardımcı olur.
+Bu araçlar, yazı tipi gömmesi üzerinde tam kontrol sağlar; böylece gerektiğinde dosya boyutunu küçültürken platformlar arasında tutarlı tipografiyi korumanıza yardımcı olur.
 
-## **Bir Sunumdan Gömülü Yazı Tiplerini Almak**
+## **Bir Sunumdan Gömülü Yazı Tiplerini Al**
 
-Aspose.Slides for C++ `GetEmbeddedFonts` yöntemini, bir PowerPoint sunumunda gömülü olan yazı tiplerinin listesini almanızı sağlayan [FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/) sınıfı aracılığıyla sunar. Bu, yazı tipi kullanımını denetlemek, marka yönergelerine uyumu sağlamak veya dosyayı paylaşmadan önce gerekli tüm yazı tiplerinin doğru bir şekilde dahil edildiğini doğrulamak için faydalı olabilir.
+Aspose.Slides for C++ FontsManager sınıfı üzerinden `GetEmbeddedFonts` yöntemini sunar; bu yöntem, bir PowerPoint sunumunda gömülü olan yazı tiplerinin listesini almanızı sağlar. Bu, yazı tipi kullanımını denetlemek, marka yönergelerine uyumu sağlamak veya dosyayı paylaşmadan önce gerekli tüm yazı tiplerinin doğru şekilde dahil edildiğini doğrulamak için yararlı olabilir.
 
 Aşağıdaki C++ kodu, bir sunum dosyasından gömülü yazı tiplerini nasıl alacağınızı gösterir:
 
@@ -37,10 +37,10 @@ Aşağıdaki C++ kodu, bir sunum dosyasından gömülü yazı tiplerini nasıl a
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
-// Get all embedded fonts.
+// Tüm gömülü yazı tiplerini alın.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
-// Print names of the embedded fonts.
+// Gömülü yazı tiplerinin adlarını yazdırın.
 for (auto&& fontData : embeddedFonts)
 {
     Console::WriteLine(fontData->get_FontName());
@@ -49,14 +49,14 @@ for (auto&& fontData : embeddedFonts)
 presentation->Dispose();
 ```
 
-## **Bir Sunuma Gömülü Yazı Tipi Eklemek**
+## **Bir Sunuma Gömülü Yazı Tipi Ekle**
 
-Aspose.Slides for C++ [AddEmbeddedFont](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/addembeddedfont/) yöntemini kullanarak bir PowerPoint sunumuna yazı tipi gömebilirsiniz; bu yöntem iki aşırı yüklemesiyle esnek bir kullanım sunar. [EmbedFontCharacters](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/embedfontcharacters/) enum’ı sayesinde gömülen karakter miktarını kontrol edebilirsiniz — örneğin yalnızca kullanılan karakterleri ya da tüm yazı tipi setini gömebilirsiniz. Bu özellik, sunumu paylaşım veya dağıtım için hazırlarken, özel veya standart dışı yazı tiplerinin tüm sistemlerde doğru görünmesini sağlamak için özellikle yararlıdır; bu sistemlerde ilgili yazı tipleri yüklü olmayabilir.
+Aspose.Slides for C++ AddEmbeddedFont yöntemiyle bir PowerPoint sunumuna yazı tipleri gömmeyi sağlar; bu yöntem iki aşırı yükleme (overload) ile esnek kullanım sunar. [EmbedFontCharacters](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/embedfontcharacters/) enumarasyonunu kullanarak gömülen yazı tipi karakter sayısını kontrol edebilirsiniz — örneğin yalnızca kullanılan karakterleri ya da tüm yazı tipi kümesini gömmeyi seçebilirsiniz. Bu özellik, sunumu paylaşım veya dağıtım için hazırlarken özellikle faydalıdır; özel veya standart dışı yazı tiplerinin, ilgili yazı tipleri yüklü olmasa bile tüm sistemlerde doğru görünmesini sağlar.
 
-Aşağıdaki C++ kodu, bir sunumda kullanılan tüm yazı tiplerini kontrol eder ve hâlâ gömülmemiş olanları gömer:
+Aşağıdaki C++ kodu, bir sunumda kullanılan tüm yazı tiplerini kontrol eder ve hâlihazırda gömülü olmayanları gömer:
 
 ```cpp
-// Bir sunum dosyasını yükle.
+// Bir sunum dosyasını yükleyin.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 auto usedFonts = presentation->get_FontsManager()->GetFonts();
@@ -69,26 +69,26 @@ for (auto&& fontData : usedFonts)
             return data == fontData;
         };
 
-    // Yazı tipinin zaten gömülü olup olmadığını kontrol et.
+    // Yazı tipinin zaten gömülü olup olmadığını kontrol edin.
     bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
     if (!isEmbeddedFont)
     {
-        // Yazı tipini sunuma göm.
+        // Yazı tipini sunuma gömün.
         presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
     }
 
 }
 
-// Sunumu diske kaydet.
+// Sunumu diske kaydedin.
 presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Bir Sunumdan Gömülü Yazı Tipi Kaldırmak**
+## **Bir Sunumdan Gömülü Yazı Tiplerini Kaldır**
 
-Aspose.Slides for C++ `RemoveEmbeddedFont` yöntemini, bir PowerPoint sunumunda gömülü belirli bir yazı tipini kaldırmanızı sağlayan [FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/) sınıfı aracılığıyla sunar. Bu, gömülü yazı tipleri artık kullanılmadığında veya gerekmediğinde toplam dosya boyutunu azaltmaya yardımcı olur. Kullanılmayan yazı tiplerini kaldırmak ayrıca performansı iyileştirir ve sunumunuzun yalnızca gerekli kaynakları içermesini sağlar.
+Aspose.Slides for C++ FontsManager sınıfı üzerinden `RemoveEmbeddedFont` yöntemini sunar; bu yöntem bir PowerPoint sunumunda gömülü belirli bir yazı tipini kaldırmanıza olanak tanır. Bu, gömülü yazı tipleri artık kullanılmadığında veya gereksiz olduğunda dosya boyutunu azaltmaya yardımcı olabilir. Kullanılmayan yazı tiplerini kaldırmak aynı zamanda performansı iyileştirir ve sunumunuzun yalnızca gerekli kaynakları içermesini sağlar.
 
-Aşağıdaki C++ kodu, bir sunumdan gömülü bir yazı tipinin nasıl kaldırılacağını gösterir:
+Aşağıdaki C++ kodu, bir sunumdan gömülü bir yazı tipini nasıl kaldıracağınızı gösterir:
 
 ```cpp
 auto fontName = u"Calibri";
@@ -96,14 +96,14 @@ auto fontName = u"Calibri";
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
-// Tüm gömülü yazı tiplerini al.
+// Tüm gömülü yazı tiplerini alın.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
 for (auto&& fontData : embeddedFonts)
 {
     if (fontData->get_FontName().Equals(fontName))
     {
-        // Gömülü yazı tipini kaldır.
+        // Gömülü yazı tipini kaldırın.
         presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
 
         break;
@@ -114,9 +114,9 @@ presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
 presentation->Dispose();
 ```
 
-## **Gömülü Yazı Tiplerini Sıkıştırmak**
+## **Gömülü Yazı Tiplerini Sıkıştır**
 
-Aspose.Slides for C++ `CompressEmbeddedFonts` yöntemini, gömülü yazı tipi verisini optimize ederek bir sunumun toplam dosya boyutunu azaltmanızı sağlayan [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) sınıfı aracılığıyla sunar. Bu, sunumunuzda büyük veya birden çok yazı tipi bulunduğunda ve dosyayı paylaşım, depolama veya çevrimiçi kullanım için hafif tutmak istediğinizde özellikle faydalıdır — içerik görsel bütünlüğünden ödün vermeden.
+Aspose.Slides for C++ [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) sınıfı aracılığıyla `CompressEmbeddedFonts` yöntemini sunar; bu yöntem gömülü yazı tipi verisini optimize ederek bir sunumun toplam dosya boyutunu azaltmanıza olanak tanır. Sunumunuz büyük veya birden çok yazı tipi içerdiğinde ve dosyayı paylaşım, depolama veya çevrimiçi kullanım için hafif tutmak istediğinizde — içeriğin görsel bütünlüğünü bozmadan — özellikle kullanışlıdır.
 
 Aşağıdaki C++ kodu, bir PowerPoint sunumunda gömülü yazı tiplerini nasıl sıkıştıracağınızı gösterir:
 
@@ -131,10 +131,8 @@ presentation->Dispose();
 
 ## **SSS**
 
-**Gömülmüş bir yazı tipi, render sırasında hâlâ değiştirilecek mi, nasıl anlayabilirim?**
+**Gömülü olmasına rağmen bir yazı tipinin yine de render sırasında değiştirileceğini nasıl anlayabilirim?**  
+[yerine koyma bilgisi](/slides/tr/cpp/font-substitution/) ve [yedekleme/yerine koyma kuralları](/slides/tr/cpp/fallback-font/) incelenerek font yöneticisinde kontrol edilebilir: yazı tipi mevcut değilse veya kısıtlıysa bir yedekleme kullanılacaktır.
 
-Yazı tipi yöneticisindeki [substitution information](/slides/tr/cpp/font-substitution/) ve [fallback/substitution rules](/slides/tr/cpp/fallback-font/) bölümlerine bakın; eğer yazı tipi kullanılamaz ya da kısıtlıysa bir yedek kullanılacaktır.
-
-**Arial/Calibri gibi “sistem” yazı tiplerini gömmek mantıklı mı?**
-
-Genellikle hayır — bu yazı tipleri hemen her yerde bulunur. Ancak “ince” ortamlarda (Docker, önceden yüklü yazı tipi olmayan bir Linux sunucusu) tam taşınabilirlik için sistem yazı tiplerini gömmek beklenmedik değişiklik riskini ortadan kaldırabilir.
+**Arial/Calibri gibi “sistem” yazı tiplerini gömmek mantıklı mı?**  
+Genellikle hayır—bu yazı tipleri neredeyse her zaman mevcuttur. Ancak “ince” ortamların (Docker, önceden yüklü font olmayan bir Linux sunucusu) tam taşınabilirliğini sağlamak için sistem yazı tiplerini gömmek, beklenmedik değişiklik riskini ortadan kaldırabilir.

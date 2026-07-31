@@ -13,36 +13,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET は、Microsoft PowerPoint® を使用せずに .NET アプリケーションが PowerPoint® ドキュメントを読み書きできる Microsoft PowerPoint® 管理 API です。
+description: Aspose.Slides for .NET は、Microsoft PowerPoint® の管理 API で、Microsoft PowerPoint® を使用せずに .NET アプリケーションが PowerPoint® ドキュメントを読み書きできるようにします。
 is_root: true
 ---
-
 {{% alert color="primary" %}}
 
 **Aspose.Slides for .NET へようこそ**
 
 ![Aspose.Slides for .NET 製品ロゴ](home_1.png)
 
-Aspose.Slides for .NET は、Microsoft PowerPoint® を使用せずに .NET アプリケーションが PowerPoint® ドキュメントを読み書きできる Microsoft PowerPoint® 管理 API です。
+Aspose.Slides for .NET は、Microsoft PowerPoint® の管理 API で、.NET アプリケーションが Microsoft PowerPoint® を使用せずに PowerPoint® ドキュメントの読み取りと書き込みを可能にします。
 
-Aspose.Slides for .NET は、PowerPoint® ドキュメントの管理に必要な機能を提供する初めてで唯一のコンポーネントです。
+Aspose.Slides for .NET は、PowerPoint® ドキュメントの管理に必要な機能を提供する、唯一かつ最初のコンポーネントです。
 
-Aspose.Slides for .NET は、テキスト、図形、表およびアニメーションの管理、スライドへの音声とビデオの追加、スライドのプレビュー、SVG、PDF、その他さまざまな形式へのエクスポートなど、多くの主要機能を提供します。
+Aspose.Slides for .NET は、テキスト、シェイプ、テーブルとアニメーションの管理、スライドへの音声・動画の追加、スライドのプレビュー、スライドを SVG、PDF などのさまざまな形式へエクスポートすることなど、多くの主要機能を提供します。
 
 {{% /alert %}}
 
 ## Aspose.Slides for .NET リソース
 
-以下は便利なリソースへのリンクです。
+以下は便利なリソースへのリンクです：
 
-- [Aspose.Slides for .NET オンライン ドキュメント](/slides/ja/net/)
+- [Aspose.Slides for .NET オンラインドキュメント](/slides/ja/net/)
 - [Aspose.Slides for .NET の機能](/slides/ja/net/features-overview/)
 - [Aspose.Slides for .NET の制限事項](/slides/ja/net/known-issues/)
-- [Aspose.Slides for .NET リリース ノート](https://releases.aspose.com/slides/net/release-notes/)
-- [Aspose.Slides for .NET 製品ページ](https://products.aspose.com/slides/net/)
-- [Aspose.Slides for .NET のダウンロード](https://releases.aspose.com/slides/net/)
+- [Aspose.Slides for .NET リリースノート](https://releases.aspose.com/slides/ja/net/release-notes/)
+- [Aspose.Slides for .NET 製品ページ](https://products.aspose.com/slides/ja/net/)
+- [Aspose.Slides for .NET のダウンロード](https://releases.aspose.com/slides/ja/net/)
 - [Aspose.Slides for .NET NuGet パッケージのインストール](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Aspose.Slides for .NET API リファレンス ガイド](https://reference.aspose.com/slides/net)
+- [Aspose.Slides for .NET API リファレンスガイド](https://reference.aspose.com/slides/ja/net)
 - [GitHub リポジトリからサンプルをダウンロード](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Aspose.Slides for .NET 無料サポート フォーラム](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides for .NET 有料サポート ヘルプデスク](https://helpdesk.aspose.com/)
+- [Aspose.Slides for .NET 無料サポートフォーラム](https://forum.aspose.com/c/slides/ja/11)
+- [Aspose.Slides for .NET 有料サポートヘルプデスク](https://helpdesk.aspose.com/)

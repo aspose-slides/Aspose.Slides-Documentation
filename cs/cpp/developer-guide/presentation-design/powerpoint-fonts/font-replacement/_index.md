@@ -1,5 +1,5 @@
 ---
-title: Zefektivněte nahrazování písem v prezentacích pomocí С++
+title: Zjednodušte nahrazení písem v prezentacích pomocí C++
 linktitle: Nahrazení písma
 type: docs
 weight: 60
@@ -7,31 +7,31 @@ url: /cs/cpp/font-replacement/
 keywords:
 - písmo
 - nahrazení písma
-- nahrazení písem
+- nahrazení písma
 - změna písma
 - PowerPoint
 - OpenDocument
 - prezentace
-- С++
+- C++
 - Aspose.Slides
-description: "Bez problémů nahraďte písma v Aspose.Slides pro С++ a zajistěte konzistentní typografii v prezentacích PowerPoint a OpenDocument."
+description: "Bez problémů nahraďte písma v Aspose.Slides pro C++, abyste zajistili konzistentní typografii v prezentacích PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje nahradit jedno písmo jiným v celé prezentaci. Když je písmo nahrazeno, všechny výskyty původního písma jsou změněny na nové písmo.
+Aspose.Slides umožňuje nahradit jedno písmo jiným v celé prezentaci. Když je písmo nahrazeno, všechny výskyty původního písma jsou změněny na nové písmo.
 
-Pro provedení nahrazení písma načtěte prezentaci, určete zdrojové písmo a písmo náhrady, zavolejte metodu pro nahrazení písma a uložte upravenou prezentaci jako soubor PPTX. Tento postup je užitečný, když úmyslně chcete přejít z jedné rodiny písma na jinou v celé prezentaci.
+Pro provedení nahrazení písma načtěte prezentaci, určete zdrojové písmo a náhradní písmo, zavolejte metodu pro nahrazení písma a uložte upravenou prezentaci jako soubor PPTX. Tento postup je užitečný, když chcete úmyslně přejít z jedné rodiny písem na jinou v celé prezentaci.
 
-## **Nahrazení písem**
+## **Nahradit písma**
 
-Pokud změníte názor na používání písma, můžete toto písmo nahradit jiným. Všechny výskyty starého písma budou nahrazeny novým písmem.
+Pokud změníte názor na používání písma, můžete toto písmo nahradit jiným písmem. Všechny výskyty starého písma budou nahrazeny novým písmem.
 
-Aspose.Slides vám umožňuje nahradit písmo tímto způsobem:
+Aspose.Slides umožňuje nahradit písmo následovně:
 
-1. Načtěte příslušnou prezentaci.  
-2. Načtěte písmo, které bude nahrazeno.  
-3. Načtěte nové písmo.  
-4. Nahraďte písmo.  
+1. Načtěte příslušnou prezentaci. 
+2. Načtěte písmo, které bude nahrazeno.
+3. Načtěte nové písmo. 
+4. Proveďte nahrazení písma. 
 5. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento C++ kód demonstruje nahrazení písma:
@@ -46,7 +46,7 @@ auto sourceFont = System::MakeObject<FontData>(u"Arial");
 // Načte nové písmo
 auto destFont = System::MakeObject<FontData>(u"Times New Roman");
 
-// Nahrazuje písma
+// Nahradí písma
 presentation->get_FontsManager()->ReplaceFont(sourceFont, destFont);
 
 // Uloží prezentaci
@@ -54,39 +54,39 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Chcete‑li nastavit pravidla určující, co se stane v určitých podmínkách (například pokud není písmo dostupné), viz [**Font Substitution**](/slides/cs/cpp/font-substitution/). 
+Chcete-li nastavit pravidla, která určují, co se stane v určitých podmínkách (například pokud není písmo dostupné), podívejte se na [**Náhradu písem**](/slides/cs/cpp/font-substitution/). 
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Jaký je rozdíl mezi „nahrazením písma“, „substitucí písma“ a „záložními písmy“?**
+**Jaký je rozdíl mezi „náhradou písma“, „substitucí písma“ a „náhradními písmy“?**
 
-Nahrazení je úmyslný přechod z jedné rodiny na jinou v celém dokumentu. [Substitution](/slides/cs/cpp/font-substitution/) je pravidlo typu „pokud písmo není k dispozici, použij X.“ [Fallback](/slides/cs/cpp/fallback-font/) se uplatňuje cíleně pro jednotlivé chybějící glyfy, když je základní písmo nainstalované, ale neobsahuje požadované znaky.
+Náhrada je úmyslný přechod z jedné rodiny písem na jinou v celém dokumentu. [Substituce](/slides/cs/cpp/font-substitution/) je pravidlo typu „pokud není písmo dostupné, použij X.“ [Náhradní písmo](/slides/cs/cpp/fallback-font/) se používá selektivně pro jednotlivé chybějící glyfy, když je základní písmo nainstalované, ale neobsahuje požadované znaky.
 
-**Platí nahrazení i pro hlavní snímky, rozvržení, poznámky a komentáře?**
+**Platí náhrada na hlavní snímky, rozvržení, poznámky a komentáře?**
 
-Ano. Nahrazení ovlivňuje všechny objekty prezentace, které používají původní písmo, včetně hlavních snímků a poznámek; komentáře jsou také součástí dokumentu a jsou zohledněny fontovým enginem.
+Ano. Náhrada ovlivňuje všechny objekty prezentace, které používají původní písmo, včetně hlavních snímků a poznámek; komentáře jsou také součástí dokumentu a jsou zohledněny fontovým enginem.
 
-**Změní se písmo i uvnitř vložených OLE objektů (například Excel)?**
+**Změní se písmo uvnitř vložených OLE objektů (například Excel)?**
 
-Ne. [OLE content](/slides/cs/cpp/manage-ole/) řídí vlastní aplikace. Nahrazení v prezentaci nemění interní data OLE; může být zobrazeno jako obrázek nebo jako externě editovatelný obsah.
+Ne. [OLE obsah](/slides/cs/cpp/manage-ole/) je řízen vlastním aplikací. Náhrada v prezentaci nepřetváří interní OLE data; může být zobrazena jako obrázek nebo jako externě editovatelný obsah.
 
 **Mohu nahradit písmo jen v části prezentace (podle snímků nebo oblastí)?**
 
-Cílené nahrazení je možné, pokud změníte písmo na úrovni požadovaných objektů/rozsahů místo aplikace globálního nahrazení na celý dokument. Celková logika výběru písma během renderování zůstává stejná.
+Cílená náhrada je možná, pokud měníte písmo na úrovni požadovaných objektů/oborů místo globální náhrady v celém dokumentu. Celková logika výběru písma při vykreslování zůstává stejná.
 
-**Jak mohu předem zjistit, která písma prezentace vůbec používá?**
+**Jak mohu předem zjistit, jaká písma prezentace používá?**
 
-Použijte [font manager] prezentace (https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/): poskytuje seznam [používaných rodin] (https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/getfonts/) a informace o [substitucích/„neznámých“ písmech] (https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/getsubstitutions/), což pomáhá naplánovat nahrazení.
+Použijte [správce písem] prezentace(https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/): poskytuje seznam [používaných rodin] (https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/getfonts/) a informace o [substitucích/„neznámých“ písmech] (https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/getsubstitutions/), což pomáhá naplánovat náhradu.
 
-**Funguje nahrazení písma při konverzi do PDF/obrázků?**
+**Funguje náhrada písma při převodu do PDF/obrázků?**
 
-Ano. Během exportu Aspose.Slides používá stejnou [font selection/substitution sequence](/slides/cs/cpp/font-selection-sequence/), takže nahrazení provedené předem bude při konverzi respektováno.
+Ano. Během exportu Aspose.Slides používá stejnou [sekvenci výběru/substituce písma](/slides/cs/cpp/font-selection-sequence/), takže provedená náhrada bude při konverzi respektována.
 
-**Musím nainstalovat cílové písmo do systému, nebo mohu připojit složku s písmy?**
+**Musím nainstalovat cílové písmo do systému, nebo mohu připojit složku s fonty?**
 
-Instalace není vyžadována: knihovna umožňuje [loading external fonts](/slides/cs/cpp/custom-font/) ze složek uživatele pro použití během [renderování a exportu](/slides/cs/cpp/convert-powerpoint/).
+Instalace není vyžadována: knihovna umožňuje [načítání externích fontů](/slides/cs/cpp/custom-font/) z uživatelských složek pro použití během [vykreslování a exportu](/slides/cs/cpp/convert-powerpoint/).
 
-**Opraví nahrazení „tofu“ (čtverečky) místo znaků?**
+**Opraví náhrada „tofu“ (čtverečky) místo znaků?**
 
-Pouze pokud cílové písmo skutečně obsahuje požadované glyfy. Pokud ne, [configure fallback](/slides/cs/cpp/fallback-font/) k pokrytí chybějících znaků.
+Pouze pokud cílové písmo skutečně obsahuje požadované glyfy. Pokud ne, [nastavte náhradní písmo](/slides/cs/cpp/fallback-font/) pro pokrytí chybějících znaků.

@@ -3,20 +3,22 @@ title: Pengecualian dan Kesalahan Umum yang Melibatkan Font di Linux
 type: docs
 weight: 200
 url: /id/java/common-errors-involving-fonts/
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
 keywords: "Pengecualian font, Kesalahan font, Linux, Java, Aspose.Slides untuk Java"
 description: "Pengecualian dan kesalahan font di Linux"
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Ketika Aspose.Slides digunakan di Linux, masalah terkait font dapat terjadi jika proses Java tidak dapat mengakses folder font yang diperlukan atau direktori sementara, jika tidak ada font yang diinstal pada sistem, atau jika pustaka sistem yang diperlukan seperti fontconfig atau libfreetype tidak ada.
+Ketika Aspose.Slides digunakan di Linux, masalah terkait font dapat terjadi jika proses Java tidak dapat mengakses folder font yang diperlukan atau direktori sementara, jika tidak ada font yang terpasang pada sistem, atau jika pustaka sistem yang diperlukan seperti fontconfig atau libfreetype tidak ada.
 
-Artikel ini menjelaskan kesalahan dan pengecualian umum yang terkait dengan font di Linux serta menyediakan solusi untuk mengatasinya. Ini menjelaskan cara memeriksa akses ke direktori font dan TEMP, menginstal font serta pustaka yang diperlukan, dan menggunakan `FontsLoader` untuk memuat font tanpa menginstalnya secara sistem.
+Artikel ini menjelaskan kesalahan dan pengecualian umum yang berhubungan dengan font di Linux serta menyediakan solusi untuk mengatasinya. Artikel ini menjelaskan cara memeriksa akses ke direktori font dan TEMP, menginstal font serta pustaka yang diperlukan, dan menggunakan `FontsLoader` untuk memuat font tanpa menginstalnya secara sistem‑wide.
 
 ## **Teks atau Gambar Hilang (EMF atau WMF) Saat Kode Dijalankan di Linux**
 
 Masalah ini terjadi pada sistem dengan pembatasan dalam kasus berikut:
 
-1. Ketika tidak ada font yang diinstal atau ketika folder font untuk proses java tidak dapat diakses
+1. Ketika tidak ada font yang terpasang atau folder font untuk proses java tidak dapat diakses
 2. Ketika direktori TEMP tidak dapat diakses.
 
 ### **Solusi**
@@ -55,12 +57,12 @@ try {
 }
 ```
 
-## **Pengecualian: InvalidOperationException: Tidak Dapat Menemukan Font yang Diinstal pada Sistem**
+## **Pengecualian: InvalidOperationException: Tidak Dapat Menemukan Font yang Terpasang pada Sistem**
 
 Pengecualian ini terjadi ketika
 
-1) proses Java tidak dapat mengakses folder font  
-2) tidak ada font yang diinstal.
+1) proses Java tidak dapat mengakses folder font
+2) tidak ada font yang terpasang.
 
 ### **Solusi**
 
@@ -76,7 +78,7 @@ Pengecualian ini terjadi ketika
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
-```
+     ```
 
    * CentOS: 
 
@@ -114,7 +116,7 @@ Instal fontconfig:
   sudo yum -y install fontconfig
   ```
 
-Selain itu, beberapa versi open-jdk (misalnya, **alpine JDK**) juga **memerlukan font yang diinstal**.
+Selain itu, beberapa versi open‑jdk (misalnya, **alpine JDK**) juga **memerlukan font yang terinstal**.
 
 * Ubuntu:
 
@@ -128,9 +130,9 @@ Selain itu, beberapa versi open-jdk (misalnya, **alpine JDK**) juga **memerlukan
   ```
   sudo yum -y install dejavu-sans-fonts
   fc-cache -fv
-```
+  ```
 
-## **Pengecualian: UnsatisfiedLinkError: libfreetype.so.6: Tidak Dapat Membuka File Objek Bersama: Tidak Ada File atau Direktori**
+## **Pengecualian: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
 
 Pengecualian ini terjadi pada sistem Linux yang tidak memiliki pustaka libfreetype. 
 
@@ -144,7 +146,7 @@ Instal libfreetype dan fontconfig:
   sudo apt-get update
   sudo apt-get install libfreetype6
   sudo apt-get -y install fontconfig
-```
+  ```
 
 * CentOS: 
 

@@ -1,26 +1,28 @@
 ---
-title: ترويسة وتذييل
+title: رأس وتذييل
 type: docs
 weight: 220
 url: /ar/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- ترويسة وتذييل
-- إضافة ترويسة وتذييل
-- تحديث ترويسة وتذييل
-- مثال على الكود
+- رأس وتذييل
+- إضافة رأس وتذييل
+- تحديث رأس وتذييل
+- مثال على الشيفرة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تحكم في رؤوس وتذييلات الشرائح باستخدام Aspose.Slides for .NET: أضف التواريخ، أرقام الشرائح، ونصًا مخصصًا في صيغ PPT و PPTX و ODP مع أمثلة C#."
+description: "التحكم في رؤوس وتذييلات الشرائح باستخدام Aspose.Slides for .NET: إضافة تواريخ، أرقام الشرائح، ونص مخصص في ملفات PPT و PPTX و ODP مع أمثلة C#."
 ---
-توّضح هذه المقالة كيفية إضافة تذييلات وتحديث العنصر النائب للتاريخ والوقت باستخدام **Aspose.Slides for .NET**.
+توضح هذه المقالة كيفية إضافة تذييلات وتحديث عناصر نائب التاريخ والوقت باستخدام **Aspose.Slides for .NET**.
 
 ## **إضافة تذييل**
 
-أضف نصًا إلى منطقة التذييل في الشريحة واجعلها مرئية.
+أضف نصًا إلى منطقة التذييل في الشريحة واجعله مرئيًا.
 
 ```csharp
 static void AddHeaderFooter()
@@ -35,7 +37,7 @@ static void AddHeaderFooter()
 
 ## **تحديث التاريخ والوقت**
 
-عدّل العنصر النائب للتاريخ والوقت في الشريحة.
+عدل عنصر نائب التاريخ والوقت في الشريحة.
 
 ```csharp
 static void UpdateDateTime()

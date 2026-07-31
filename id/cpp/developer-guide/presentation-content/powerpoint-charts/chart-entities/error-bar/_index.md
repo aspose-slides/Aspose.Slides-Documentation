@@ -1,6 +1,6 @@
 ---
-title: Sesuaikan Error Bars dalam Diagram Presentasi dengan C++
-linktitle: Error Bar
+title: Sesuaikan Batang Kesalahan dalam Diagram Presentasi Menggunakan C++
+linktitle: Batang Kesalahan
 type: docs
 url: /id/cpp/error-bar/
 keywords:
@@ -10,50 +10,49 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan menyesuaikan error bars dalam diagram dengan Aspose.Slides untuk C++ — optimalkan visualisasi data dalam presentasi PowerPoint."
+description: "Pelajari cara menambahkan dan menyesuaikan batang kesalahan dalam diagram dengan Aspose.Slides untuk C++ — optimalkan visual data dalam presentasi PowerPoint."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan batang kesalahan (error bars) pada diagram presentasi menggunakan Aspose.Slides. Ini menunjukkan cara menambahkan error bars ke seri diagram, mengonfigurasi pengaturan error bar X dan Y, serta menerapkan tipe nilai yang berbeda seperti nilai tetap, persentase, dan nilai khusus.
+Artikel ini menjelaskan cara bekerja dengan batang kesalahan (error bars) pada diagram presentasi menggunakan Aspose.Slides. Artikel ini menunjukkan cara menambahkan batang kesalahan ke seri diagram, mengonfigurasi pengaturan batang kesalahan X dan Y, serta menerapkan berbagai tipe nilai seperti tetap, persentase, dan nilai khusus.
 
-Selain itu, artikel ini menunjukkan cara menetapkan nilai error bar khusus untuk titik data individu dalam sebuah seri dengan menggunakan koleksi titik data yang bersesuaian. Selain itu, artikel mencakup catatan singkat tentang perilaku error bars saat diekspor, kompatibilitasnya dengan penanda dan label data, serta dimana menemukan kelas referensi API dan enum yang terkait.
+Artikel ini juga memperlihatkan cara menetapkan nilai batang kesalahan khusus untuk poin data individu dalam sebuah seri dengan menggunakan koleksi poin data yang bersangkutan. Selain itu, artikel ini mencakup catatan singkat tentang perilaku batang kesalahan saat diekspor, kompatibilitasnya dengan penanda (markers) dan label data, serta di mana menemukan kelas referensi API dan enum yang terkait.
 
-## **Menambahkan Error Bars**
-Aspose.Slides untuk C++ menyediakan API sederhana untuk mengelola nilai error bar. Kode contoh berlaku ketika menggunakan tipe nilai khusus. Untuk menentukan nilai, gunakan properti **ErrorBarCustomValues** dari titik data tertentu dalam koleksi **DataPoints** pada seri:
+## **Menambahkan Batang Kesalahan**
+Aspose.Slides for C++ menyediakan API sederhana untuk mengelola nilai batang kesalahan. Kode contoh berlaku saat menggunakan tipe nilai khusus. Untuk menentukan nilai, gunakan properti **ErrorBarCustomValues** pada poin data tertentu dalam koleksi **DataPoints** pada seri:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Tambahkan diagram gelembung pada slide yang diinginkan.
-1. Akses seri diagram pertama dan atur format error bar X.
-1. Akses seri diagram pertama dan atur format error bar Y.
-1. Mengatur nilai dan format batang.
+1. Akses seri diagram pertama dan tetapkan format batang kesalahan X.
+1. Akses seri diagram pertama dan tetapkan format batang kesalahan Y.
+1. Menetapkan nilai dan format batang.
 1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddErrorBars-AddErrorBars.cpp" >}}
 
+## **Menambahkan Batang Kesalahan Khusus**
+Aspose.Slides for C++ menyediakan API sederhana untuk mengelola nilai batang kesalahan khusus. Kode contoh berlaku ketika properti **IErrorBarsFormat.ValueType** sama dengan **Custom**. Untuk menentukan nilai, gunakan properti **ErrorBarCustomValues** pada poin data tertentu dalam koleksi **DataPoints** pada seri:
 
-## **Menambahkan Custom Error Bars**
-Aspose.Slides untuk C++ menyediakan API sederhana untuk mengelola nilai error bar khusus. Kode contoh berlaku ketika properti **IErrorBarsFormat.ValueType** sama dengan **Custom**. Untuk menentukan nilai, gunakan properti **ErrorBarCustomValues** dari titik data tertentu dalam koleksi **DataPoints** pada seri:
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Tambahkan diagram gelembung pada slide yang diinginkan.
-1. Akses seri diagram pertama dan atur format error bar X.
-1. Akses seri diagram pertama dan atur format error bar Y.
-1. Akses titik data individu pada seri diagram dan atur nilai Error Bar untuk titik data seri tersebut.
-1. Mengatur nilai dan format batang.
+1. Akses seri diagram pertama dan tetapkan format batang kesalahan X.
+1. Akses seri diagram pertama dan tetapkan format batang kesalahan Y.
+1. Akses poin data individu pada seri diagram dan tetapkan nilai Batang Kesalahan untuk poin data seri tersebut.
+1. Menetapkan nilai dan format batang.
 1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddCustomError-AddCustomError.cpp" >}}
 
 ## **FAQ**
 
-**Apa yang terjadi pada error bars saat mengekspor presentasi ke PDF atau gambar?**
+**Apa yang terjadi pada batang kesalahan saat mengekspor presentasi ke PDF atau gambar?**
 
-Mereka dirender sebagai bagian dari diagram dan dipertahankan selama konversi bersama dengan seluruh format diagram, dengan asumsi versi atau renderer yang kompatibel.
+Batang kesalahan dirender sebagai bagian dari diagram dan dipertahankan selama konversi bersama dengan format diagram lainnya, dengan asumsi versi atau renderer yang kompatibel.
 
-**Apakah error bars dapat digabungkan dengan marker dan label data?**
+**Apakah batang kesalahan dapat digabungkan dengan penanda dan label data?**
 
-Ya. Error bars merupakan elemen terpisah dan kompatibel dengan marker serta label data; jika elemen saling tumpang tindih, Anda mungkin perlu menyesuaikan formatnya.
+Ya. Batang kesalahan merupakan elemen terpisah dan kompatibel dengan penanda serta label data; jika elemen saling tumpang tindih, Anda mungkin perlu menyesuaikan formatnya.
 
-**Di mana saya dapat menemukan daftar properti dan enum untuk bekerja dengan error bars di API?**
+**Di mana saya dapat menemukan daftar properti dan enum untuk bekerja dengan batang kesalahan dalam API?**
 
-Dalam referensi API: kelas [ErrorBarsFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/errorbarsformat/) dan enum terkait [ErrorBarType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/errorbartype/) serta [ErrorBarValueType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/errorbarvaluetype/).
+Di referensi API: kelas [ErrorBarsFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/errorbarsformat/) dan enum terkait [ErrorBarType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/errorbartype/) serta [ErrorBarValueType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/errorbarvaluetype/).

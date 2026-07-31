@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides cho .NET
-second_title: "Tài liệu Aspose.Slides"
+title: Aspose.Slides for .NET
+second_title: Aspose.Slides for .NET
 type: docs
 weight: 10
 url: /vi/net/
@@ -24,24 +24,24 @@ is_root: true
 
 Aspose.Slides for .NET là một API quản lý Microsoft PowerPoint® cho phép các ứng dụng .NET đọc và ghi tài liệu PowerPoint® mà không cần sử dụng Microsoft PowerPoint®.
 
-Aspose.Slides for .NET là thành phần đầu tiên và duy nhất cung cấp các tính năng cần thiết để quản lý tài liệu PowerPoint®.
+Aspose.Slides for .NET là thành phần đầu tiên và duy nhất cung cấp các chức năng cần thiết để quản lý tài liệu PowerPoint®.
 
-Aspose.Slides for .NET cung cấp nhiều tính năng chính như quản lý văn bản, hình dạng, bảng & hoạt hình, thêm âm thanh và video vào các slide, xem trước slide, xuất slide sang SVG, PDF và các định dạng khác, cùng rất nhiều khả năng khác.
+Aspose.Slides for .NET cung cấp nhiều tính năng chính như quản lý văn bản, hình dạng, bảng & hoạt hình, thêm âm thanh và video vào các slide, xem trước slide, xuất slide sang SVG, PDF và các định dạng khác, và nhiều khả năng khác.
 
 {{% /alert %}}
 
-## Tài nguyên Aspose.Slides for .NET
+## Tài nguyên Aspose.Slides cho .NET
 
-Đây là các liên kết tới các tài nguyên hữu ích:
+Đây là các liên kết tới tài nguyên hữu ích:
 
-- [Tài liệu trực tuyến Aspose.Slides for .NET](/slides/vi/net/)
-- [Các tính năng Aspose.Slides for .NET](/slides/vi/net/features-overview/)
-- [Giới hạn Aspose.Slides for .NET](/slides/vi/net/known-issues/)
-- [Ghi chú phát hành Aspose.Slides for .NET](https://releases.aspose.com/slides/vi/net/release-notes/)
-- [Trang sản phẩm Aspose.Slides for .NET](https://products.aspose.com/slides/vi/net/)
-- [Tải xuống Aspose.Slides for .NET](https://releases.aspose.com/slides/vi/net/)
-- [Cài đặt gói NuGet Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Hướng dẫn tham khảo API Aspose.Slides for .NET](https://reference.aspose.com/slides/vi/net)
-- [Tải ví dụ từ kho GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Diễn đàn hỗ trợ miễn phí Aspose.Slides for .NET](https://forum.aspose.com/c/slides/vi/11)
-- [Trung tâm hỗ trợ trả phí Aspose.Slides for .NET](https://helpdesk.aspose.com/)
+- [Aspose.Slides for .NET Online Documentation](/slides/vi/net/)
+- [Aspose.Slides for .NET Features](/slides/vi/net/features-overview/)
+- [Aspose.Slides for .NET Limitations](/slides/vi/net/known-issues/)
+- [Aspose.Slides for .NET Release Notes](https://releases.aspose.com/slides/vi/net/release-notes/)
+- [Aspose.Slides for .NET Product Page](https://products.aspose.com/slides/vi/net/)
+- [Download Aspose.Slides for .NET](https://releases.aspose.com/slides/vi/net/)
+- [Install Aspose.Slides for .NET NuGet Package](https://www.nuget.org/packages/Aspose.Slides.NET/)
+- [Aspose.Slides for .NET API Reference Guide](https://reference.aspose.com/slides/vi/net)
+- [Download Examples from a GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
+- [Aspose.Slides for .NET Free Support Forum](https://forum.aspose.com/c/slides/vi/11)
+- [Aspose.Slides for .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)

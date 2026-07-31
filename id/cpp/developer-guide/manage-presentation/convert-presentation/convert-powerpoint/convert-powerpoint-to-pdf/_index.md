@@ -1,6 +1,6 @@
 ---
-title: "Konversi PPT dan PPTX ke PDF dalam C++ [Fitur Lanjutan Termasuk]"
-linktitle: "PowerPoint ke PDF"
+title: Konversi PPT dan PPTX ke PDF dalam C++ [Fitur Lanjutan Disertakan]
+linktitle: PowerPoint ke PDF
 type: docs
 weight: 40
 url: /id/cpp/convert-powerpoint-to-pdf/
@@ -25,22 +25,24 @@ keywords:
 - Aspose.Slides
 description: "Konversi PowerPoint PPT/PPTX ke PDF berkualitas tinggi dan dapat dicari dalam C++ menggunakan Aspose.Slides, dengan contoh kode cepat dan opsi konversi lanjutan."
 ---
-## **Ringkasan**
+## **Ikhtisar**
 
-Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) ke format PDF dalam C++ menawarkan beberapa keuntungan, termasuk kompatibilitas lintas perangkat dan menjaga tata letak serta pemformatan presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi menjadi dokumen PDF, menggunakan berbagai opsi untuk mengontrol kualitas gambar, menyertakan slide tersembunyi, melindungi file PDF dengan kata sandi, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen output.
+Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) ke format PDF dalam C++ menawarkan beberapa keuntungan, termasuk kompatibilitas di berbagai perangkat dan mempertahankan tata letak serta format presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi ke dokumen PDF, menggunakan berbagai opsi untuk mengontrol kualitas gambar, menyertakan slide tersembunyi, melindungi file PDF dengan kata sandi, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen keluaran.
 
 ## **Konversi PowerPoint ke PDF**
 
-Dengan Aspose.Slides, Anda dapat mengonversi presentasi dalam format berikut ke PDF:
+Menggunakan Aspose.Slides, Anda dapat mengonversi presentasi dalam format berikut ke PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Untuk mengonversi presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) kemudian simpan presentasi sebagai PDF menggunakan metode `Save`. Kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) menyediakan metode `Save` yang biasanya digunakan untuk mengonversi presentasi ke PDF.
+Untuk mengonversi presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) dan kemudian simpan presentasi sebagai PDF menggunakan metode `Save`. Kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) menyediakan metode `Save` yang biasanya digunakan untuk mengonversi presentasi ke PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
-Aspose.Slides untuk C++ menyisipkan informasi API dan nomor versinya ke dalam dokumen output. Misalnya, saat mengonversi presentasi ke PDF, Aspose.Slides mengisi field Application dengan "*Aspose.Slides*" dan field PDF Producer dengan nilai dalam format "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen output.
+
+Aspose.Slides untuk C++ menyisipkan informasi API dan nomor versi ke dalam dokumen keluaran. Misalnya, saat mengonversi presentasi ke PDF, Aspose.Slides mengisi bidang Application dengan "*Aspose.Slides*" dan bidang PDF Producer dengan nilai dalam format "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen keluaran.
+
 {{% /alert %}}
 
 Aspose.Slides memungkinkan Anda untuk mengonversi:
@@ -61,12 +63,12 @@ Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sanga
 
 ## **Konversi PowerPoint ke PDF**
 
-Proses konversi standar dari PowerPoint ke PDF menggunakan opsi default. Dalam hal ini, Aspose.Slides mencoba mengonversi presentasi yang diberikan ke PDF dengan pengaturan optimal pada tingkat kualitas maksimum.
+Proses konversi standar PowerPoint-ke-PDF menggunakan opsi default. Dalam hal ini, Aspose.Slides berusaha mengonversi presentasi yang diberikan ke PDF dengan pengaturan optimal pada tingkat kualitas maksimum.
 
 Kode C++ berikut menunjukkan cara mengonversi sebuah presentasi (PPT, PPTX, ODP, dll.) ke PDF:
 
 ```c++
-// Membuat instance kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
+// Instansiasi kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.ppt");
 
 // Simpan presentasi sebagai PDF.
@@ -76,42 +78,49 @@ presentation->Dispose();
 ```
 
 {{%  alert  color="primary"  %}} 
-Aspose menyediakan [**konverter PowerPoint ke PDF**](https://products.aspose.app/slides/id/conversion/ppt-to-pdf) gratis secara online yang memperlihatkan proses konversi presentasi ke PDF. Anda dapat melakukan tes dengan konverter ini untuk implementasi langsung prosedur yang dijelaskan di sini.
+
+Aspose menyediakan [**konverter PowerPoint ke PDF**](https://products.aspose.app/slides/id/conversion/ppt-to-pdf) online gratis yang mendemonstrasikan proses konversi presentasi ke PDF. Anda dapat menjalankan tes dengan konverter ini untuk implementasi langsung dari prosedur yang dijelaskan di sini.
+
 {{% /alert %}}
 
 ## **Konversi PowerPoint ke PDF dengan Opsi**
 
-Aspose.Slides menyediakan opsi khusus—properti pada kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF yang dihasilkan, mengunci PDF dengan kata sandi, atau menentukan bagaimana proses konversi harus dijalankan.
+Aspose.Slides menyediakan opsi khusus—properti di bawah kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF yang dihasilkan, mengunci PDF dengan kata sandi, atau menentukan cara proses konversi berjalan.
 
-### **Konversi PowerPoint ke PDF dengan Opsi Khusus**
+### **Konversi PowerPoint ke PDF dengan Opsi Kustom**
 
-Dengan menggunakan opsi konversi khusus, Anda dapat menentukan pengaturan kualitas yang Anda inginkan untuk gambar raster, menentukan bagaimana metafile harus diproses, mengatur tingkat kompresi untuk teks, mengkonfigurasi DPI untuk gambar, dan lain-lain.
+Dengan menggunakan opsi konversi kustom, Anda dapat menentukan pengaturan kualitas yang diinginkan untuk gambar raster, menentukan cara penanganan metafile, menetapkan tingkat kompresi untuk teks, mengonfigurasi DPI untuk gambar, dan lain-lain.
 
-Contoh kode di bawah ini menunjukkan cara mengonversi presentasi PowerPoint ke PDF dengan beberapa opsi khusus.
+Contoh kode di bawah ini menunjukkan cara mengonversi presentasi PowerPoint ke PDF dengan beberapa opsi kustom.
 
 ```c++
-// Membuat instance kelas PdfOptions.
+// Instansiasi kelas PdfOptions.
+// Atur kualitas gambar JPG.
+// Atur DPI untuk gambar.
+// Atur perilaku untuk metafile.
+// Atur level kompresi teks untuk konten teks.
+// Tentukan mode kepatuhan PDF.
+// Instansiasi kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
 auto pdfOptions = MakeObject<PdfOptions>();
 
-// Atur kualitas untuk gambar JPG.
 pdfOptions->set_JpegQuality(90);
 
-// Atur DPI untuk gambar.
+// Set DPI for images.
 pdfOptions->set_SufficientResolution(300);
 
-// Atur perilaku untuk metafile.
+// Set the behavior for metafiles.
 pdfOptions->set_SaveMetafilesAsPng(true);
 
-// Atur tingkat kompresi teks untuk konten teks.
+// Set the text compression level for textual content.
 pdfOptions->set_TextCompression(PdfTextCompression::Flate);
 
-// Definisikan mode kepatuhan PDF.
+// Define the PDF compliance mode.
 pdfOptions->set_Compliance(PdfCompliance::Pdf15);
 
-// Membuat instance kelas Presentation yang mewakili file PowerPoint atau OpenDocument file.
+// Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// Simpan presentasi sebagai dokumen PDF.
+// Save the presentation as a PDF document.
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
@@ -124,10 +133,10 @@ Jika sebuah presentasi berisi slide tersembunyi, Anda dapat menggunakan metode [
 Kode C++ berikut menunjukkan cara mengonversi presentasi PowerPoint ke PDF dengan menyertakan slide tersembunyi:
 
 ```c++
-// Membuat instance kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
+// Instansiasi kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// Membuat instance kelas PdfOptions.
+// Instansiasi kelas PdfOptions.
 auto pdfOptions = MakeObject<PdfOptions>();
 
 // Tambahkan slide tersembunyi.
@@ -139,15 +148,15 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-### **Konversi PowerPoint ke PDF dengan Perlindungan Kata Sandi**
+### **Konversi PowerPoint ke PDF yang Dilindungi Kata Sandi**
 
 Kode C++ berikut mendemonstrasikan cara mengonversi presentasi PowerPoint menjadi PDF yang dilindungi kata sandi menggunakan parameter perlindungan dari kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/):
 
 ```c++
-// Membuat instance kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
+// Instansiasi kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// Membuat instance kelas PdfOptions.
+// Instansiasi kelas PdfOptions.
 auto pdfOptions = MakeObject<PdfOptions>();
 
 // Atur kata sandi PDF dan izin akses.
@@ -162,7 +171,7 @@ presentation->Dispose();
 
 ### **Deteksi Substitusi Font**
 
-Aspose.Slides menyediakan metode [set_WarningCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/saveoptions/set_warningcallback/) pada kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/) yang memungkinkan Anda mendeteksi substitusi font selama proses konversi presentasi ke PDF.
+Aspose.Slides menyediakan metode [set_WarningCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/saveoptions/set_warningcallback/) pada kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/), memungkinkan Anda mendeteksi substitusi font selama proses konversi presentasi ke PDF.
 
 Kode C++ berikut menunjukkan cara mendeteksi substitusi font:
 
@@ -187,7 +196,7 @@ ReturnAction FontSubstitutionHandler::Warning(SharedPtr<IWarningInfo> warning)
 
 int main()
 {
-    // Membuat instance kelas Presentation yang mewakili file PowerPoint atau OpenDocument file.
+    // Instansiasi kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
     auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
     // Atur callback peringatan pada opsi PDF.
@@ -204,20 +213,22 @@ int main()
 ```
 
 {{%  alert color="primary"  %}} 
+
 Untuk informasi lebih lanjut tentang menerima callback untuk substitusi font selama proses rendering, lihat [Mendapatkan Callback Peringatan untuk Substitusi Font](/slides/id/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
 Untuk informasi lebih lanjut tentang substitusi font, lihat artikel [Substitusi Font](/slides/id/cpp/font-substitution/).
+
 {{% /alert %}} 
 
 ## **Konversi Slide Terpilih dari PowerPoint ke PDF**
 
-Kode C++ berikut mendemonstrasikan cara mengonversi hanya slide tertentu dari sebuah presentasi PowerPoint ke PDF:
+Kode C++ berikut mendemonstrasikan cara mengonversi hanya slide tertentu dari presentasi PowerPoint ke PDF:
 
 ```C++
-// Membuat instance kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
+// Instansiasi kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// Setel array nomor slide.
+// Atur array nomor slide.
 auto slides = MakeArray<int32_t>({ 1, 3 });
 
 // Simpan presentasi sebagai PDF.
@@ -254,15 +265,15 @@ resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
-## **Konversi PowerPoint ke PDF dalam Tampilan Catatan Slide**
+## **Konversi PowerPoint ke PDF dalam Tampilan Slide Catatan**
 
 Kode C++ berikut mendemonstrasikan cara mengonversi presentasi PowerPoint ke PDF yang menyertakan catatan:
 
 ```C++
-// Membuat instance kelas Presentation yang mewakili file PowerPoint atau OpenDocument file.
+// Instansiasi kelas Presentation yang mewakili file PowerPoint atau OpenDocument.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
-// Konfigurasikan opsi PDF dengan tata letak Catatan.
+// Konfigurasikan opsi PDF dengan Tata Letak Catatan.
 auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
 notesOptions->set_NotesPosition(NotesPositions::BottomFull);
 auto pdfOptions = MakeObject<PdfOptions>();
@@ -274,11 +285,11 @@ presentation->Save(u"PDF_with_notes.tiff", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-## **Standar Aksesibilitas dan Kepatuhan untuk PDF**
+## **Aksesibilitas dan Standar Kepatuhan untuk PDF**
 
 Aspose.Slides memungkinkan Anda menggunakan prosedur konversi yang mematuhi [Pedoman Aksesibilitas Konten Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Anda dapat mengekspor dokumen PowerPoint ke PDF menggunakan salah satu standar kepatuhan berikut: **PDF/A1a**, **PDF/A1b**, dan **PDF/UA**.
 
-Kode C++ berikut mendemonstrasikan proses konversi PowerPoint ke PDF yang menghasilkan beberapa PDF berdasarkan standar kepatuhan yang berbeda:
+Kode C++ berikut mendemonstrasikan proses konversi PowerPoint-ke-PDF yang menghasilkan beberapa PDF berdasarkan standar kepatuhan yang berbeda:
 
 ```C++
 auto presentation = MakeObject<Presentation>(u"pres.pptx");
@@ -301,30 +312,37 @@ presentation->Dispose();
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Aspose.Slides mendukung operasi konversi PDF, memungkinkan Anda mengonversi file PDF ke format file populer. Anda dapat melakukan konversi [PDF ke HTML](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-html/), [PDF ke gambar](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-image/), [PDF ke JPG](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-jpg/), dan [PDF ke PNG](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-png/). Operasi konversi PDF ke format khusus lainnya—[PDF ke SVG](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-svg/), [PDF ke TIFF](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-tiff/), dan [PDF ke XML](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-xml/)—juga didukung.
+
+Aspose.Slides mendukung operasi konversi PDF, memungkinkan Anda mengonversi file PDF ke format file populer. Anda dapat melakukan konversi [PDF ke HTML](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-html/), [PDF ke gambar](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-image/), [PDF ke JPG](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-jpg/), dan [PDF ke PNG](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-png/). Operasi konversi PDF lainnya ke format khusus—[PDF ke SVG](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-svg/), [PDF ke TIFF](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-tiff/), dan [PDF ke XML](https://products.aspose.com/slides/id/cpp/conversion/pdf-to-xml/)—juga didukung.
+
 {{% /alert %}}
 
-> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, diagram, dan formula sebagai satu gambar. Elemen jalur individual tidak dipertahankan sebagai konten terpisah dan dapat ditandai sebagai artefak; teks alternatif hanya disediakan untuk keseluruhan gambar.
+> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, diagram, dan rumus sebagai satu gambar tunggal. Elemen jalur individual tidak dipertahankan sebagai konten terpisah dan mungkin ditandai sebagai artefak; teks alternatif hanya disediakan untuk seluruh gambar.
 
 ## **FAQ**
 
-**Apakah saya dapat mengonversi banyak file PowerPoint ke PDF sekaligus?**  
-Ya, Aspose.Slides mendukung konversi batch beberapa file PPT atau PPTX ke PDF. Anda dapat mengiterasi file Anda dan menerapkan proses konversi secara programatis.
+**Apakah saya dapat mengonversi banyak file PowerPoint ke PDF secara massal?**
 
-**Apakah memungkinkan untuk melindungi PDF yang dikonversi dengan kata sandi?**  
-Tentu saja. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/) untuk menetapkan kata sandi dan mendefinisikan izin akses selama proses konversi.
+Ya, Aspose.Slides mendukung konversi batch banyak file PPT atau PPTX ke PDF. Anda dapat mengulang file Anda dan menerapkan proses konversi secara programatis.
 
-**Bagaimana cara menyertakan slide tersembunyi dalam PDF?**  
+**Apakah memungkinkan untuk melindungi PDF yang dikonversi dengan kata sandi?**
+
+Tentu saja. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/) untuk mengatur kata sandi dan menentukan izin akses selama proses konversi.
+
+**Bagaimana cara menyertakan slide tersembunyi dalam PDF?**
+
 Gunakan metode `set_ShowHiddenSlides` pada kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/) untuk menyertakan slide tersembunyi dalam PDF yang dihasilkan.
 
-**Apakah Aspose.Slides dapat mempertahankan kualitas gambar tinggi dalam PDF?**  
+**Apakah Aspose.Slides dapat mempertahankan kualitas gambar tinggi dalam PDF?**
+
 Ya, Anda dapat mengontrol kualitas gambar dengan menggunakan metode seperti `set_JpegQuality` dan `set_SufficientResolution` pada kelas [PdfOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/) untuk memastikan gambar berkualitas tinggi dalam PDF Anda.
 
-**Apakah Aspose.Slides mendukung standar kepatuhan PDF/A?**  
-Ya, Aspose.Slides memungkinkan Anda mengekspor PDF yang mematuhi berbagai standar, termasuk PDF/A1a, PDF/A1b, dan PDF/UA, sehingga dokumen Anda memenuhi persyaratan aksesibilitas dan arsip.
+**Apakah Aspose.Slides mendukung standar kepatuhan PDF/A?**
+
+Ya, Aspose.Slides memungkinkan Anda mengekspor PDF yang mematuhi berbagai standar, termasuk PDF/A1a, PDF/A1b, dan PDF/UA, memastikan dokumen Anda memenuhi persyaratan aksesibilitas dan pengarsipan.
 
 ## **Sumber Daya Tambahan**
 
-- [Aspose.Slides for C++ Documentation](/slides/id/cpp/)
-- [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/id/cpp/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/id/conversion)
+- [Dokumentasi Aspose.Slides untuk C++](/slides/id/cpp/)
+- [Referensi API Aspose.Slides untuk C++](https://reference.aspose.com/slides/id/cpp/)
+- [Konverter Online Gratis Aspose](https://products.aspose.app/slides/id/conversion)

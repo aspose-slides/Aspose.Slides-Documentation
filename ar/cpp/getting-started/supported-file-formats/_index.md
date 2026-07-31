@@ -1,11 +1,11 @@
 ---
-title: تنسيقات الملفات المدعومة
+title: صيغ الملفات المدعومة
 type: docs
 weight: 20
 url: /ar/cpp/supported-file-formats/
 keywords:
-- تنسيق ملف
-- تنسيق مدعوم
+- صيغة ملف
+- صيغة مدعومة
 - PPT
 - POT
 - PPS
@@ -34,11 +34,16 @@ keywords:
 - XML
 - PowerPoint
 - OpenDocument
-- عرض
+- عرض تقديمي
 - C++
 - Aspose.Slides
-description: "اكتشف جميع تنسيقات الملفات التي يمكن لـ Aspose.Slides للغة C++ فتحها وحفظها وتحويلها — بما في ذلك PPT و PPTX و ODP — مع ملاحظات واضحة حول دعم الاستيراد/التصدير."
+description: "اكتشف جميع صيغ الملفات التي يمكن لـ Aspose.Slides للغة C++ فتحها وحفظها وتحويلها — بما في ذلك PPT و PPTX و ODP — مع ملاحظات واضحة حول الدعم في الاستيراد/التصدير."
 ---
+## **نظرة عامة**
+
+Aspose.Slides يدعم ملفات العروض التقديمية من Microsoft PowerPoint 97 حتى Office 365، بما في ذلك Microsoft PowerPoint لنظام Mac. تُدرج هذه المقالة إصدارات PowerPoint التي يدعمها المكتبة وتقدم جدولًا بصيغ الملفات التي يمكن تحميلها أو حفظها أو كليهما.
+
+كما تُجيب المقالة على أسئلة شائعة حول التوافق مع PDF، تضمين الخطوط، الملفات المحمية بكلمة مرور، الخطوط المخصصة، بدائل الخطوط، وخيارات تصدير XPS.
 
 ## **الإصدارات المدعومة من Microsoft PowerPoint**
 - Microsoft PowerPoint 97
@@ -53,55 +58,55 @@ description: "اكتشف جميع تنسيقات الملفات التي يمك�
 - Microsoft PowerPoint لنظام MAC
 - Office 365
 
-## **تنسيقات الملفات المدعومة**
-تحتوي هذه الجدول على تنسيقات الملفات التي يمكن لـ Aspose.Slides للغة C++ تحميلها وحفظها:
+## **صيغ الملفات المدعومة**
+هذا الجدول يحتوي على صيغ الملفات التي يمكن لـ Aspose.Slides for C++ تحميلها وحفظها:
 
-|**التنسيق**|**الوصف**|**التحميل**|**الحفظ**|**ملاحظات**|
+|**الصيغة**|**الوصف**|**تحميل**|**حفظ**|**ملاحظات**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|عرض PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POT](https://docs.fileformat.com/presentation/pot/)|قالب PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|عرض PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|عرض PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTX](https://docs.fileformat.com/presentation/potx/)|قالب PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|عرض PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|عرض PowerPoint مع تمكين الماكرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|عرض PowerPoint مع تمكين الماكرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTM](https://docs.fileformat.com/presentation/potm/)|قالب PowerPoint مع تمكين الماكرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|عرض OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[OTP](https://docs.fileformat.com/presentation/otp/)|قالب عرض OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[TIFF](https://docs.fileformat.com/image/tiff/)|تنسيق ملف صورة العلامة||{{< emoticons/tick >}}||
-|[EMF](https://docs.fileformat.com/image/emf/)|تنسيق ملف ميتافايل المحسن||{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|تنسيق المستندات المحمولة|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|مواصفة ورقة XML||{{< emoticons/tick >}}||
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|مجموعة الخبراء المشتركة للصور||{{< emoticons/tick >}}||
-|[PNG](https://docs.fileformat.com/image/png/)|رسوميات شبكة محمولة||{{< emoticons/tick >}}||
-|[GIF](https://docs.fileformat.com/image/gif/)|تنسيق تبادل الرسوميات||{{< emoticons/tick >}}||
-|[BMP](https://docs.fileformat.com/image/bmp/)|صورة نقطية مستقلة عن الجهاز||{{< emoticons/tick >}}||
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|رسومات متجهية قابلة للتوسع||{{< emoticons/tick >}}||
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|تنسيق ويب صغير||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|لغة توصيف النص الفائق|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XAML](https://docs.fileformat.com/web/xaml/)|لغة توصيف تطبيقية موسعة||{{< emoticons/tick >}}||
-|[MD](https://docs.fileformat.com/word-processing/md/)|ماركداون||{{< emoticons/tick >}}||
-|[XML](https://docs.fileformat.com/web/xml/)|عرض PowerPoint XML||{{< emoticons/tick >}}||
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|عرض PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POT](https://docs.fileformat.com/presentation/pot/)|قالب PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|عرض PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|عرض PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTX](https://docs.fileformat.com/presentation/potx/)|قالب PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|عرض PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|عرض PowerPoint مع ماكرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|عرض PowerPoint مع ماكرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|قالب PowerPoint مع ماكرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|عرض OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[OTP](https://docs.fileformat.com/presentation/otp/)|قالب OpenDocument للعرض|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|تنسيق ملف صورة العلامة| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|تنسيق ميتافايل محسّن| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|تنسيق المستندات المحمولة|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|مواصفة ورق XML| |{{< emoticons/tick >}}| |
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|مجموعة الصور المشتركة للخبراء| |{{< emoticons/tick >}}| |
+|[PNG](https://docs.fileformat.com/image/png/)|رسومات شبكية محمولة| |{{< emoticons/tick >}}| |
+|[GIF](https://docs.fileformat.com/image/gif/)|تنسيق تبادل الرسومات| |{{< emoticons/tick >}}| |
+|[BMP](https://docs.fileformat.com/image/bmp/)|صورة بت خالية من الاعتماد على الجهاز| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|رسومات متجهة قابلة للتوسيع| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|تنسيق ويب صغير| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|لغة ترميز النص الفائق|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|لغة توصيف التطبيقات القابلة للتوسيع| |{{< emoticons/tick >}}| |
+|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
+|[XML](https://docs.fileformat.com/web/xml/)|عرض PowerPoint XML| |{{< emoticons/tick >}}| |
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني حفظ العروض التقديمية إلى PDF التي تفي بمعايير الأرشفة وإمكانية الوصول (PDF/A و PDF/UA)؟**
+**هل يمكنني حفظ العروض التقديمية إلى PDF تتوافق مع معايير الأرشفة وإمكانية الوصول (PDF/A و PDF/UA)؟**
 
-نعم. يدعم Aspose.Slides التصدير إلى PDF مع مستويات الامتثال مثل PDF/A-2a، PDF/A-2b، PDF/A-2u، PDF/A-3a، PDF/A-3b، بالإضافة إلى PDF/UA عبر إعداد [الامتثال](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_compliance/) في [خيارات تصدير PDF](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/).
+نعم. يدعم Aspose.Slides تصدير إلى PDF بمستويات توافق مثل PDF/A-2a و PDF/A-2b و PDF/A-2u و PDF/A-3a و PDF/A-3b، بالإضافة إلى PDF/UA عبر إعداد [compliance](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/set_compliance/) في [PDF export options](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/).
 
-**هل تدعم المكتبة تضمين الخطوط عند التصدير إلى PDF، مع تحكم دقيق في ما يتم تضمينه؟**
+**هل تدعم المكتبة تضمين الخطوط عند التصدير إلى PDF مع إمكانية التحكم الدقيق في ما يتم تضمينه؟**
 
-نعم. يمكنك التحكم فيما إذا كان سيتم تضمين الخطوط بالكامل أو جزئيًا (الأحرف المستخدمة فقط)، وتحديد كيفية التعامل مع خطوط النظام الشائعة، وتكوين سلوك النص ASCII من خلال [خيارات تصدير PDF](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/).
+نعم. يمكنك التحكم فيما إذا كانت الخطوط مضمَّنة بالكامل أو جزئية (فقط الأحرف المستخدمة)، وتحديد كيفية معالجة الخطوط النظامية الشائعة، وتكوين سلوك النص ASCII عبر [PDF export options](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/).
 
-**هل يمكنني اكتشاف ما إذا كان الملف محميًا بكلمة مرور قبل تحميله فعليًا؟**
+**هل يمكنني الكشف عما إذا كان الملف محميًا بكلمة مرور قبل تحميله فعليًا؟**
 
-نعم. باستخدام [واجهة برمجة تطبيقات الفحص القائمة على المصنع](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/)، يمكنك استعلام ملف العرض لتحديد ما إذا كان محميًا بكلمة مرور دون فتحه بالكامل.
+نعم. باستخدام [factory-based inspection API](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentationfactory/)، يمكنك الاستعلام عن ملف العرض لتحديد ما إذا كان محميًا دون فتحه بالكامل.
 
-**هل توجد آليات احتياطي للخطوط ودعم للخطوط المخصصة؟**
+**هل توجد آليات fallback للخطوط ودعم للخطوط المخصصة؟**
 
-نعم. تدعم المكتبة [تحميل](/slides/ar/cpp/custom-font/) و[تضمين](/slides/ar/cpp/embedded-font/) الخطوط المخصصة وتوفر [قواعد احتياطي الخطوط](/slides/ar/cpp/fallback-font/) لمنع فقدان الأحرف أثناء العرض والتحويل.
+نعم. تدعم المكتبة [loading](/slides/ar/cpp/custom-font/) و[embedding](/slides/ar/cpp/embedded-font/) للخطوط المخصصة وتوفر قواعد [fallback](/slides/ar/cpp/fallback-font/) لتفادي فقدان الأحرف أثناء العرض والتحويل.
 
-**هل يمكنني تصدير الشرائح إلى XPS، وهل توجد خيارات لضبط مخرجات XPS؟**
+**هل يمكنني تصدير الشرائح إلى XPS، وهل هناك خيارات لضبط مخرجات XPS؟**
 
-نعم. يتم دعم [التصدير إلى XPS](/slides/ar/cpp/convert-powerpoint-to-xps/)، ويمكنك تعديل [خيارات الحفظ](https://reference.aspose.com/slides/cpp/aspose.slides.export/xpsoptions/) ذات الصلة للتحكم في جودة المحتوى ومخرجات مستند XPS.
+نعم. [Export to XPS](/slides/ar/cpp/convert-powerpoint-to-xps/) مدعوم، ويمكنك تعديل [save options](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/xpsoptions/) ذات الصلة للتحكم في جودة ومحتوى مستند XPS.

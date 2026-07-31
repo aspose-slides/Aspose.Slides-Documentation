@@ -1,14 +1,14 @@
 ---
-title: C++'da Sunum Grafiklerini Özelleştir
+title: C++'ta Sunum Grafiklerini Özelleştirme
 linktitle: Grafik Türleri
 type: docs
 weight: 20
 url: /tr/cpp/chart-types/
 keywords:
-- grafiği özelleştir
-- grafiği yönet
+- grafik özelleştirme
+- grafik yönetimi
 - grafik türü
-- PowerPoint grafiği
+- PowerPoint grafik
 - sunum grafiği
 - PPT grafiği
 - PPTX grafiği

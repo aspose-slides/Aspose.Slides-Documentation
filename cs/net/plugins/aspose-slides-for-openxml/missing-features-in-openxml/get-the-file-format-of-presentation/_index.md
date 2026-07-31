@@ -1,12 +1,14 @@
 ---
-title: Získání formátu souboru prezentace
+title: Získat formát souboru prezentace
 type: docs
 weight: 50
 url: /cs/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/format-prezentace/
 ---
 Pro získání formátu souboru postupujte podle následujících kroků:
 
-- Vytvořte instanci třídy **IPresentationInfo** class
+- Vytvořte instanci třídy **IPresentationInfo**
 - Získejte informace o prezentaci
 
 V níže uvedeném příkladu získáme formát souboru.
@@ -46,6 +48,6 @@ switch (info.LoadFormat)
 
 ``` 
 ## **Stáhnout ukázkový kód**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-## **Stáhnout spuštěný příklad**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+## **Stáhnout běžící příklad**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

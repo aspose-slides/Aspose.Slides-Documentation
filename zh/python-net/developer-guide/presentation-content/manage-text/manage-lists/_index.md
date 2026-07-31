@@ -1,9 +1,11 @@
 ---
-title: 在 Python 中管理演示文稿中的项目符号和编号列表
+title: 在 Python 中管理演示文稿的项目符号和编号列表
 linktitle: 管理列表
 type: docs
 weight: 70
 url: /zh/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - 项目符号
 - 项目符号列表
@@ -24,13 +26,13 @@ description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoin
 ---
 ## **概述**
 
-Aspose.Slides for Python via .NET 让您能够在 PowerPoint 和 OpenDocument 演示文稿中创建和格式化项目符号列表和编号列表。列表项是一个段落，其项目符号设置通过段落格式进行控制。
+Aspose.Slides for Python via .NET 允许您在 PowerPoint 和 OpenDocument 演示文稿中创建和格式化项目符号列表和编号列表。列表项是其项目符号设置通过段落格式控制的段落。
 
-使用 [Paragraph.paragraph_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/paragraph_format/) 属性访问段落级别的列表设置。主要入口是 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/bullet/)，它返回一个 [BulletFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/) 对象。使用该对象，您可以设置项目符号的类型、符号、图片、颜色、大小、编号样式以及起始编号。
+使用 [Paragraph.paragraph_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/paragraph_format/) 属性来访问段落级别的列表设置。主要入口是 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/bullet/)，它返回一个 [BulletFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/) 对象。通过此对象，您可以设置项目符号的类型、符号、图片、颜色、大小、编号样式以及起始编号。
 
 本文展示了如何：
 
-- 创建带自定义符号的项目符号列表
+- 创建带有自定义符号的项目符号列表
 - 创建图片项目符号
 - 通过设置段落深度创建多级列表
 - 创建编号列表
@@ -38,9 +40,9 @@ Aspose.Slides for Python via .NET 让您能够在 PowerPoint 和 OpenDocument �
 
 ## **创建项目符号列表**
 
-要创建项目符号列表，向 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/) 添加 [Paragraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/) 对象，并将 [BulletFormat.type](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/type/) 设置为 [BulletType.SYMBOL](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bullettype/)。随后可以设置 [BulletFormat.char](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/char/)、[BulletFormat.color](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/color/) 和 [BulletFormat.height](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/height/) 来控制项目符号的外观。
+要创建项目符号列表，向 [Paragraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/) 对象添加到 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/) 中，并将 [BulletFormat.type](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/type/) 设置为 [BulletType.SYMBOL](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bullettype/)。随后可以设置 [BulletFormat.char](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/char/)、[BulletFormat.color](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/color/) 、以及 [BulletFormat.height](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/height/) 来控制项目符号的外观。
 
-下面的 Python 代码演示了如何在幻灯片中创建项目符号列表：
+以下 Python 代码演示了如何在幻灯片中创建项目符号列表：
 
 ```py
 import aspose.slides as slides
@@ -80,9 +82,9 @@ with slides.Presentation() as presentation:
 
 ## **创建编号列表**
 
-当项目顺序重要时请使用编号列表。将 [BulletFormat.type](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/type/) 设置为 [BulletType.NUMBERED](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bullettype/)。您还可以通过 [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_style/) 选择编号格式，或在列表需要从非 1 的值开始时设置 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/)。
+当项目顺序重要时使用编号列表。将 [BulletFormat.type](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/type/) 设置为 [BulletType.NUMBERED](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bullettype/)。您还可以使用 [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_style/) 选择编号格式，或在列表应从除 1 之外的值开始时设置 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/)。
 
-下面的 Python 代码展示了如何在幻灯片中创建编号列表：
+以下 Python 代码显示了如何在幻灯片中创建编号列表：
 
 ```py
 import aspose.slides as slides
@@ -118,21 +120,21 @@ with slides.Presentation() as presentation:
 
 ## **创建图片项目符号**
 
-Aspose.Slides 允许您用图像替换常规的项目符号符号。图片项目符号最适合使用在小尺寸下仍保持可读性的简单图像，例如图标或小型透明 PNG 文件。
+Aspose.Slides 允许您用图像替换常规项目符号。图片项目符号最适合使用在小尺寸下仍保持可读性的简洁图像，例如图标或小的透明 PNG 文件。
 
 {{% alert color="primary" %}}
-理想情况下，如果您计划用图像替换常规项目符号，最好选择具有透明背景的简单图形。这类图像作为自定义项目符号效果更佳。
+理想情况下，如果您计划用图像替换常规项目符号，最好选择具有透明背景的简洁图形。这类图像非常适合作为自定义项目符号。
 
-请记住，图像会被缩小到非常小的尺寸。因此，我们强烈建议选用在列表中作为项目符号使用时仍然清晰且视觉有效的图像。
+请注意，图像会被缩小到非常小的尺寸。因此，我们强烈建议选择在列表中用作项目符号时仍保持清晰且视觉有效的图像。
 {{% /alert %}}
 
-要创建图片项目符号，先向 [Presentation.images](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/images/) 添加图像，并将返回的图像对象分配给 [BulletFormat.picture](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/picture/)。在分配图像之前，将 [BulletFormat.type](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/type/) 设置为 [BulletType.PICTURE](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bullettype/)。
+要创建图片项目符号，向 [Presentation.images](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/images/) 添加图像，并将返回的图像对象分配给 [BulletFormat.picture](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/picture/)。在分配图像之前，将 [BulletFormat.type](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/type/) 设置为 [BulletType.PICTURE](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bullettype/)。
 
-假设我们有一个 “image.png”：
+假设我们有一张 "image.png"：
 
-![图片项目符号示例](picture_for_bullets.png)
+![用于项目符号的图片](picture_for_bullets.png)
 
-下面的 Python 代码展示了如何在幻灯片中创建图片项目符号：
+以下 Python 代码显示了如何在幻灯片中创建图片项目符号：
 
 ```py
 import aspose.slides as slides
@@ -172,9 +174,9 @@ with slides.Presentation() as presentation:
 
 ## **创建多级列表**
 
-使用 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/depth/) 将列表项放置在不同层级。层级 0 为顶层，层级 1 为其下的子层，以此类推。
+使用 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/depth/) 将列表项放置在不同级别。级别 0 为顶级，级别 1 为其下的嵌套，以此类推。
 
-下面的 Python 代码展示了如何创建多级项目符号列表：
+以下 Python 代码显示了如何创建多级项目符号列表：
 
 ```py
 import aspose.slides as slides
@@ -215,9 +217,9 @@ with slides.Presentation() as presentation:
 
 ## **更改现有列表**
 
-要更改现有演示文稿中的列表格式，访问目标段落并更新其 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/bullet/) 设置。创建列表时使用的相同属性也可用于检查或修改从 PPT、PPTX 或 ODP 文件加载的列表。
+要更改现有演示文稿中的列表格式，访问目标段落并更新其 [ParagraphFormat.bullet](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/bullet/) 设置。用于创建列表的相同属性也可用于检查或修改从 PPT、PPTX 或 ODP 文件加载的列表。
 
-下面的 Python 代码将文本框中的第一个段落更改为使用编号列表样式：
+以下 Python 代码将文本框中的第一个段落更改为使用编号列表样式：
 
 ```py
 import aspose.slides as slides
@@ -238,9 +240,9 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **常见问题**
 
-**项目符号和编号列表可以导出为 PDF 或图像吗？**
+**是否可以将项目符号列表和编号列表导出为 PDF 或图像？**
 
-可以。Aspose.Slides 在目标格式支持相应的文本布局和项目符号特性时，会保留列表格式。
+是的。Aspose.Slides 在目标格式支持相应的文本布局和项目符号特性的情况下会保留列表格式。
 
 **我可以编辑现有演示文稿中的列表吗？**
 
@@ -248,4 +250,4 @@ with slides.Presentation("input.pptx") as presentation:
 
 **列表可以包含非拉丁文字吗？**
 
-可以。列表项文本支持 Unicode 字符，您可以在多语言演示文稿中创建列表。请确保演示文稿使用的字体支持所需字符。
+可以。列表项文本可以包含 Unicode 字符，因此您可以在多语言演示文稿中创建列表。确保演示文稿中使用的字体支持您所需的字符。

@@ -3,12 +3,14 @@ title: Note
 type: docs
 weight: 240
 url: /it/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
-- note
+- nota
 - aggiungi diapositiva delle note
 - accedi alla diapositiva delle note
 - rimuovi diapositiva delle note
-- aggiorna il testo delle note
+- aggiorna testo delle note
 - esempio di codice
 - PowerPoint
 - OpenDocument
@@ -16,13 +18,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Lavora con le note delle diapositive in Aspose.Slides per .NET: aggiungi, leggi, modifica ed esporta le note del relatore in PPT, PPTX e ODP con esempi chiari in C#."
+description: "Lavora con le note delle diapositive in Aspose.Slides per .NET: aggiungi, leggi, modifica ed esporta le note del relatore in PPT, PPTX e ODP utilizzando chiari esempi C#."
 ---
-Questo articolo dimostra come aggiungere, leggere, rimuovere e aggiornare le diapositive delle note utilizzando **Aspose.Slides for .NET**.
+Questo articolo mostra come aggiungere, leggere, rimuovere e aggiornare le diapositive delle note utilizzando **Aspose.Slides for .NET**.
 
 ## **Aggiungere una diapositiva delle note**
 
-Crea una diapositiva delle note e assegna del testo.
+Crea una diapositiva delle note e assegnale del testo.
 
 ```csharp
 static void AddNote()

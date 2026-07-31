@@ -1,45 +1,48 @@
 ---
-title: "مدیریت فهرست‌های بولت‌دار و شماره‌دار در ارائه‌ها با پایتون"
-linktitle: "مدیریت فهرست‌ها"
+title: مدیریت فهرست‌های نقطه‌دار و عدددار در ارائه‌ها با Python
+linktitle: مدیریت فهرست‌ها
 type: docs
 weight: 70
 url: /fa/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
-- "بولت"
-- "فهرست بولت‌دار"
-- "فهرست شماره‌دار"
-- "بولت نماد"
-- "بولت تصویری"
-- "بولت سفارشی"
-- "فهرست چندسطحه‌ای"
-- "ایجاد بولت"
-- "افزودن بولت"
-- "افزودن فهرست"
-- "PowerPoint"
-- "OpenDocument"
-- "ارائه"
-- "Python"
-- "Aspose.Slides"
-description: "نحوه ایجاد و قالب‌بندی فهرست‌های بولت‌دار، تصویری، چندسطحه‌ای و شماره‌دار در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای پایتون از طریق .NET را بیاموزید."
+- گلوله
+- فهرست نقطه‌دار
+- فهرست عدددار
+- گلوله نمادین
+- گلوله تصویری
+- گلوله سفارشی
+- فهرست چندسطحی
+- ایجاد گلوله
+- افزودن گلوله
+- افزودن فهرست
+- PowerPoint
+- OpenDocument
+- ارائه
+- Python
+- Aspose.Slides
+description: "بیاموزید چگونه فهرست‌های نقطه‌دار، تصویری، چندسطحی و عدددار را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Python از طریق .NET ایجاد و قالب‌بندی کنید."
 ---
-## **بررسی کلی**
+## **Overview**
 
-Aspose.Slides برای Python از طریق .NET به شما امکان ایجاد و قالب‌بندی فهرست‌های بولت‌دار و شماره‌دار را در ارائه‌های PowerPoint و OpenDocument می‌دهد. یک آیتم فهرست یک پاراگراف است که تنظیمات بولت آن از طریق قالب‌بندی پاراگراف کنترل می‌شود.
+Aspose.Slides for Python via .NET به شما امکان می‌دهد فهرست‌های نقطه‌دار و عدددار را در ارائه‌های PowerPoint و OpenDocument ایجاد و قالب‌بندی کنید. یک مورد فهرست یک پاراگراف است که تنظیمات گلوله آن از طریق قالب‌بندی پاراگراف کنترل می‌شود.
 
-از ویژگی [Paragraph.paragraph_format](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraph/paragraph_format/) برای دسترسی به تنظیمات فهرست در سطح پاراگراف استفاده کنید. نقطه ورودی اصلی [ParagraphFormat.bullet](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/bullet/) است که یک شیء [BulletFormat](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/) را برمی‌گرداند. با استفاده از این شیء می‌توانید نوع بولت، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و عدد شروع را تنظیم کنید.
+از خصوصیت [Paragraph.paragraph_format](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraph/paragraph_format/) برای دسترسی به تنظیمات فهرست در سطح پاراگراف استفاده کنید. نقطهٔ ورود اصلی، [ParagraphFormat.bullet](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/bullet/) است که یک شیء [BulletFormat](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/) برمی‌گرداند. با این شیء می‌توانید نوع گلوله، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و شمارهٔ شروع را تنظیم کنید.
 
 این مقاله نشان می‌دهد چگونه:
-- یک فهرست بولت‌دار با نماد سفارشی ایجاد کنید
-- یک بولت تصویری ایجاد کنید
-- یک فهرست چندسطحه‌ای با تنظیم عمق پاراگراف ایجاد کنید
-- یک فهرست شماره‌دار ایجاد کنید
-- قالب‌بندی فهرست را در یک ارائه موجود بررسی و تغییر دهید
 
-## **ایجاد فهرست بولت‌دار**
+- فهرست نقطه‌دار با نماد سفارشی ایجاد کنید
+- گلولهٔ تصویری بسازید
+- فهرست چندسطحی را با تنظیم عمق پاراگراف ایجاد کنید
+- فهرست عدددار بسازید
+- قالب‌بندی فهرست را در یک ارائهٔ موجود بررسی و تغییر دهید
 
-برای ایجاد یک فهرست بولت‌دار، اشیاء [Paragraph](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraph/) را به یک [TextFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/textframe/) اضافه کنید و [BulletFormat.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/type/) را به [BulletType.SYMBOL](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bullettype/) تنظیم کنید. سپس می‌توانید [BulletFormat.char](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/char/)، [BulletFormat.color](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/color/)، و [BulletFormat.height](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/height/) را برای کنترل ظاهر بولت تنظیم کنید.
+## **Create a Bulleted List**
 
-کد پایتون زیر نحوه ایجاد یک فهرست بولت‌دار در یک اسلاید را نشان می‌دهد:
+برای ایجاد فهرست نقطه‌دار، اشیاء [Paragraph](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraph/) را به یک [TextFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/textframe/) اضافه کنید و [BulletFormat.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/type/) را روی [BulletType.SYMBOL](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bullettype/) تنظیم کنید. سپس می‌توانید [BulletFormat.char](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/char/)، [BulletFormat.color](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/color/)، و [BulletFormat.height](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/height/) را برای کنترل ظاهر گلوله تنظیم کنید.
+
+کد پایتون زیر نحوهٔ ایجاد فهرست نقطه‌دار در یک اسلاید را نشان می‌دهد:
 
 ```py
 import aspose.slides as slides
@@ -75,13 +78,13 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![بولت‌های نماد](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
-## **ایجاد فهرست شماره‌دار**
+## **Create a Numbered List**
 
-از فهرست‌های شماره‌دار زمانی استفاده کنید که ترتیب آیتم‌ها مهم باشد. [BulletFormat.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/type/) را به [BulletType.NUMBERED](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bullettype/) تنظیم کنید. می‌توانید همچنین یک قالب شماره‌گذاری را با [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/numbered_bullet_style/) انتخاب کنید یا هنگام شروع فهرست از مقداری جز 1، [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) را تنظیم کنید.
+زمانی که ترتیب موارد مهم است از فهرست‌های عدددار استفاده کنید. [BulletFormat.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/type/) را روی [BulletType.NUMBERED](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bullettype/) تنظیم کنید. همچنین می‌توانید یک قالب شماره‌گذاری را با [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/numbered_bullet_style/) انتخاب کرده یا وقتی فهرست باید از مقداری غیر از 1 شروع شود، [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) را تنظیم کنید.
 
-کد پایتون زیر نشان می‌دهد چگونه یک فهرست شماره‌دار در یک اسلاید ایجاد کنید:
+کد پایتون زیر نحوهٔ ایجاد فهرست عدددار در یک اسلاید را نشان می‌دهد:
 
 ```py
 import aspose.slides as slides
@@ -113,25 +116,23 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![بولت‌های شماره‌دار](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
-## **ایجاد بولت تصویری**
+## **Create a Picture Bullet**
 
-Aspose.Slides به شما اجازه می‌دهد نماد بولت معمولی را با یک تصویر جایگزین کنید. بولت‌های تصویری بهترین عملکرد را با تصاویر ساده‌ای دارند که در اندازه کوچک قابل خواندن باقی می‌مانند، مانند آیکون‌ها یا فایل‌های PNG شفاف کوچک.
+Aspose.Slides به شما اجازه می‌دهد نماد گلولهٔ معمولی را با یک تصویر جایگزین کنید. گلوله‌های تصویری بهترین عملکرد را با تصاویر ساده‌ای دارند که در اندازهٔ کوچک نیز خوانا باقی می‌مانند، مانند آیکن‌ها یا فایل‌های PNG شفاف کوچک.
 
 {{% alert color="primary" %}}
-در حالت ایده‌آل، اگر قصد دارید نماد بولت معمولی را با یک تصویر جایگزین کنید، بهتر است یک گرافیک ساده با پس‌زمینه شفاف انتخاب کنید. اینگونه تصاویر به عنوان نمادهای بولت سفارشی به خوبی کار می‌کنند.
-
-به‌خاطر داشته باشید که تصویر به اندازه بسیار کوچک کاهش خواهد یافت. به همین دلیل، به شدت توصیه می‌کنیم که تصویری را انتخاب کنید که در هنگام استفاده به‌عنوان بولت در یک فهرست، واضح و بصری مؤثر باقی بماند.
+در صورت برنامه‌ریزی برای جایگزینی نماد گلولهٔ معمولی با تصویر، بهتر است یک گرافیک ساده با پس‌زمینهٔ شفاف انتخاب کنید. چنین تصاویری به‌عنوان نمادهای گلولهٔ سفارشی به خوبی کار می‌کنند.
 {{% /alert %}}
 
-برای ایجاد یک بولت تصویری، یک تصویر را به [Presentation.images](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/images/) اضافه کنید و شیء تصویری برگردانده شده را به [BulletFormat.picture](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/picture/) اختصاص دهید. قبل از اختصاص تصویر، [BulletFormat.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/type/) را به [BulletType.PICTURE](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bullettype/) تنظیم کنید.
+برای ایجاد گلولهٔ تصویری، یک تصویر را به [Presentation.images](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/images/) اضافه کنید و شیء تصویر بازگشتی را به [BulletFormat.picture](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/picture/) اختصاص دهید. قبل از اختصاص تصویر، [BulletFormat.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bulletformat/type/) را روی [BulletType.PICTURE](https://reference.aspose.com/slides/fa/python-net/aspose.slides/bullettype/) تنظیم کنید.
 
-فرض کنید فایل "image.png" را داریم:
+فرض کنیم فایلی به نام "image.png" داریم:
 
-![تصویری برای بولت‌ها](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
-کد پایتون زیر نشان می‌دهد چگونه بولت‌های تصویری را در یک اسلاید ایجاد کنید:
+کد پایتون زیر نحوهٔ ایجاد گلوله‌های تصویری در یک اسلاید را نشان می‌دهد:
 
 ```py
 import aspose.slides as slides
@@ -167,13 +168,13 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![بولت‌های تصویری](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
-## **ایجاد فهرست چندسطحه‌ای**
+## **Create a Multilevel List**
 
-از [ParagraphFormat.depth](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/depth/) برای قرار دادن آیتم‌های فهرست در سطوح مختلف استفاده کنید. سطح ۰ بالاترین سطح است، سطح ۱ زیر آن تو در تو می‌شود و به همین ترتیب.
+از [ParagraphFormat.depth](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/depth/) برای قرار دادن موارد فهرست در سطوح مختلف استفاده کنید. سطح 0 بالاترین سطح است، سطح 1 زیر آن تو در تو می‌شود، و به همین ترتیب.
 
-کد پایتون زیر نشان می‌دهد چگونه یک فهرست بولت‌دار چندسطحه‌ای ایجاد کنید:
+کد پایتون زیر نحوهٔ ایجاد فهرست نقطه‌دار چندسطحی را نشان می‌دهد:
 
 ```py
 import aspose.slides as slides
@@ -210,13 +211,13 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![فهرست چندسطحه‌ای](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
-## **تغییر فهرست موجود**
+## **Change an Existing List**
 
-برای تغییر قالب‌بندی فهرست در یک ارائه موجود، به پاراگراف هدف دسترسی پیدا کنید و تنظیمات [ParagraphFormat.bullet](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/bullet/) آن را به‌روزرسانی کنید. همان خصوصیات استفاده شده برای ایجاد فهرست‌ها می‌توانند برای بررسی یا اصلاح فهرست‌های بارگذاری شده از یک فایل PPT، PPTX یا ODP نیز به کار روند.
+برای تغییر قالب‌بندی فهرست در یک ارائهٔ موجود، به پاراگراف هدف دسترسی پیدا کنید و تنظیمات [ParagraphFormat.bullet](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/bullet/) آن را به‌روزرسانی کنید. همان خصوصیات استفاده شده برای ایجاد فهرست‌ها می‌توانند برای بررسی یا اصلاح فهرست‌های بارگذاری‌شده از یک فایل PPT، PPTX یا ODP به کار روند.
 
-کد پایتون زیر پاراگراف اول در یک فریم متنی را به استفاده از سبک فهرست شماره‌دار تغییر می‌دهد:
+کد پایتون زیر اولین پاراگراف در یک فریم متنی را طوری تغییر می‌دهد که از سبک فهرست عدددار استفاده کند:
 
 ```py
 import aspose.slides as slides
@@ -235,16 +236,16 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("updated_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **سوالات متداول**
+## **FAQ**
 
-**آیا فهرست‌های بولت‌دار و شماره‌دار می‌توانند به PDF یا تصاویر صادر شوند؟**
+**Can bulleted and numbered lists be exported to PDF or images?**
 
-بله. Aspose.Slides قالب‌بندی فهرست را حفظ می‌کند هنگامی که فرمت هدف از چیدمان متن و ویژگی‌های بولت متناظر پشتیبانی می‌کند.
+بله. Aspose.Slides قالب‌بندی فهرست‌ها را زمانی که فرمت هدف از چیدمان متن و ویژگی‌های گلوله مربوطه پشتیبانی کند، حفظ می‌کند.
 
-**آیا می‌توانم فهرست‌ها را در ارائه‌های موجود ویرایش کنم؟**
+**Can I edit lists in existing presentations?**
 
-بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات [ParagraphFormat.bullet](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/bullet/) آن را بررسی یا به‌روزرسانی کنید و سپس ارائه را ذخیره کنید.
+بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات [ParagraphFormat.bullet](https://reference.aspose.com/slides/fa/python-net/aspose.slides/paragraphformat/bullet/) را بررسی یا به‌روزرسانی کنید، و سپس ارائه را ذخیره نمایید.
 
-**آیا فهرست‌ها می‌توانند شامل متن غیرلاتین باشند؟**
+**Can lists contain non-Latin text?**
 
-بله. متن آیتم فهرست می‌تواند شامل کاراکترهای یونی‌کد باشد، بنابراین می‌توانید فهرست‌ها را در ارائه‌های چند زبانه ایجاد کنید. اطمینان حاصل کنید که فونت‌های استفاده شده در ارائه از کاراکترهای مورد نیاز شما پشتیبانی می‌کنند.
+بله. متن موارد فهرست می‌تواند شامل کاراکترهای یونیکد باشد، بنابراین می‌توانید فهرست‌ها را در ارائه‌های چندزبانه ایجاد کنید. اطمینان حاصل کنید که فونت‌های استفاده‌شده در ارائه، کاراکترهای مورد نیاز شما را پشتیبانی می‌کنند.

@@ -1,11 +1,11 @@
 ---
-title: "Podporované formáty souborů"
+title: Podporované formáty souborů
 type: docs
 weight: 20
 url: /cs/cpp/supported-file-formats/
 keywords:
-- "formát souboru"
-- "podporovaný formát"
+- formát souboru
+- podporovaný formát
 - PPT
 - POT
 - PPS
@@ -37,13 +37,13 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Objevte všechny formáty souborů, které Aspose.Slides pro C++ může otevřít, uložit a převést — včetně PPT, PPTX a ODP — s přehlednými poznámkami o podpoře importu/exportu."
+description: "Objevte všechny formáty souborů, které Aspose.Slides pro C++ dokáže otevřít, uložit a převést — včetně PPT, PPTX a ODP — s jasnými poznámkami o podpoře importu/exportu."
 ---
 ## **Přehled**
 
 Aspose.Slides podporuje soubory prezentací od Microsoft PowerPoint 97 až po Office 365, včetně Microsoft PowerPoint pro Mac. Tento článek uvádí verze PowerPointu podporované knihovnou a poskytuje tabulku formátů souborů, které lze načíst, uložit nebo obojí.
 
-Článek také odpovídá na časté otázky týkající se souladu PDF, vkládání písem, souborů chráněných heslem, vlastních písem, náhradních písem a možností exportu do XPS.
+Článek také odpovídá na časté otázky o souladu s PDF, vkládání písem, souborech chráněných heslem, vlastních písmech, náhradních písmech a možnostech exportu do XPS.
 
 ## **Podporované verze Microsoft PowerPoint**
 - Microsoft PowerPoint 97
@@ -55,58 +55,58 @@ Aspose.Slides podporuje soubory prezentací od Microsoft PowerPoint 97 až po Of
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint pro Mac
+- Microsoft PowerPoint pro MAC
 - Office 365
 
 ## **Podporované formáty souborů**
-Tato tabulka obsahuje formáty souborů, které Aspose.Slides pro С++ může načíst a uložit:
+Tato tabulka obsahuje formáty souborů, které Aspose.Slides pro C++ může načíst a uložit:
 
 |**Formát**|**Popis**|**Načíst**|**Uložit**|**Poznámky**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Prezentace PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POT](https://docs.fileformat.com/presentation/pot/)|Šablona PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Show PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Prezentace PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTX](https://docs.fileformat.com/presentation/potx/)|Šablona PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|Show PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Prezentace PowerPoint s makry|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Show PowerPoint s makry|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://docs.fileformat.com/presentation/potm/)|Šablona PowerPoint s makry|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|Prezentace OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[OTP](https://docs.fileformat.com/presentation/otp/)|Šablona prezentace OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Formát souboru Tag Image| |{{< emoticons/tick >}}| |
-|[EMF](https://docs.fileformat.com/image/emf/)|Rozšířený formát metafile| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Formát přenosných dokumentů (PDF)|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Specifikace XML Paper (XPS)| |{{< emoticons/tick >}}| |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97‑2003 Presentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint 97‑2003 Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint 97‑2003 Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint Presentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint Macro‑Enabled Presentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint Macro‑Enabled Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint Macro‑Enabled Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument Presentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument Presentation Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification| |{{< emoticons/tick >}}| |
 |[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
 |[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics| |{{< emoticons/tick >}}| |
-|[GIF](https://docs.fileformat.com/image/gif/)|Formát grafické výměny| |{{< emoticons/tick >}}| |
-|[BMP](https://docs.fileformat.com/image/bmp/)|Bitmapa nezávislá na zařízení| |{{< emoticons/tick >}}| |
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Škálovatelná vektorová grafika| |{{< emoticons/tick >}}| |
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Malý webový formát| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Hypertextový značkovací jazyk|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XAML](https://docs.fileformat.com/web/xaml/)|Rozšiřitelný značkovací jazyk aplikací| |{{< emoticons/tick >}}| |
+|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format| |{{< emoticons/tick >}}| |
+|[BMP](https://docs.fileformat.com/image/bmp/)|Device Independent Bitmap| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language| |{{< emoticons/tick >}}| |
 |[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
-|[XML](https://docs.fileformat.com/web/xml/)|XML prezentace PowerPoint| |{{< emoticons/tick >}}| |
+|[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML Presentation| |{{< emoticons/tick >}}| |
 
 ## **Často kladené otázky**
 
 **Mohu ukládat prezentace do PDF, které splňují archivní a přístupové standardy (PDF/A a PDF/UA)?**
 
-Ano. Aspose.Slides podporuje export do PDF s úrovněmi souladu jako PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, a také PDF/UA prostřednictvím nastavení [compliance](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/set_compliance/) v [PDF export options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/).
+Ano. Aspose.Slides podporuje export do PDF s úrovněmi souladu jako PDF/A‑2a, PDF/A‑2b, PDF/A‑2u, PDF/A‑3a, PDF/A‑3b, stejně jako PDF/UA pomocí nastavení [compliance](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/set_compliance/) v [PDF export options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/).
 
-**Podporuje knihovna vkládání písem při exportu do PDF s podrobnou kontrolou toho, co je vloženo?**
+**Podporuje knihovna vkládání písem při exportu do PDF s podrobnou kontrolou toho, co se vloží?**
 
-Ano. Můžete řídit, zda jsou písma plně vložena nebo podmnožena (pouze použité glify), určit, jak jsou zacházena se běžnými systémovými písmy, a konfigurovat chování pro ASCII text pomocí [PDF export options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/).
+Ano. Můžete ovládat, zda jsou písma plně vložena nebo podmnožinována (pouze použité glyfy), určit, jak se zachází se běžnými systémovými písmy, a konfigurovat chování pro ASCII text pomocí [PDF export options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/).
 
-**Mohu zjistit, zda je soubor chráněn heslem, ještě před jeho načtením?**
+**Dokážu zjistit, zda je soubor chráněn heslem, ještě před tím, než ho načtu?**
 
-Ano. Pomocí [factory-based inspection API](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentationfactory/) můžete dotázat soubor prezentace a zjistit, jestli je chráněn heslem, aniž byste jej plně otevřeli.
+Ano. Pomocí [factory‑based inspection API](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentationfactory/) můžete dotazovat soubor prezentace a určit, zda je chráněn heslem, aniž byste jej plně otevřeli.
 
-**Existují mechanismy náhradních písem a podpora vlastních písem?**
+**Existují mechanismy náhradního písma a podpora vlastních písem?**
 
-Ano. Knihovna podporuje [loading](/slides/cs/cpp/custom-font/) a [embedding](/slides/cs/cpp/embedded-font/) vlastních písem a poskytuje [fallback rules](/slides/cs/cpp/fallback-font/) pro písma, aby se předešlo chybějícím glifům během renderování a konverze.
+Ano. Knihovna podporuje [loading](/slides/cs/cpp/custom-font/) a [embedding](/slides/cs/cpp/embedded-font/) vlastních písem a poskytuje pravidla [fallback font](/slides/cs/cpp/fallback-font/) k zabránění chybějících glyfů během vykreslování a konverze.
 
-**Mohu exportovat snímky do XPS a existují možnosti pro ladění výstupu XPS?**
+**Mohu exportovat snímky do XPS a jsou k dispozici možnosti ladění výstupu XPS?**
 
-Ano. [Export to XPS](/slides/cs/cpp/convert-powerpoint-to-xps/) je podporován a můžete upravit příslušné [save options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/xpsoptions/) pro řízení kvality výstupu a obsahu dokumentu XPS.
+Ano. [Export to XPS](/slides/cs/cpp/convert-powerpoint-to-xps/) je podporován a můžete upravit příslušné [save options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/xpsoptions/) pro řízení kvality a obsahu XPS dokumentu.

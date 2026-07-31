@@ -1,6 +1,6 @@
 ---
-title: Tùy chỉnh các trục biểu đồ trong bản thuyết trình bằng С++
-linktitle: Trục Biểu Đồ
+title: Tùy chỉnh Trục Biểu đồ trong Bài thuyết trình bằng C++
+linktitle: Trục Biểu đồ
 type: docs
 url: /vi/cpp/chart-axis/
 keywords:
@@ -18,29 +18,29 @@ keywords:
 - tiêu đề trục
 - vị trí trục
 - PowerPoint
-- bản thuyết trình
-- С++
+- bài thuyết trình
+- C++
 - Aspose.Slides
-description: "Khám phá cách sử dụng Aspose.Slides cho С++ để tùy chỉnh các trục biểu đồ trong bản thuyết trình PowerPoint cho báo cáo và trực quan hoá."
+description: "Khám phá cách sử dụng Aspose.Slides cho C++ để tùy chỉnh trục biểu đồ trong các bài thuyết trình PowerPoint cho báo cáo và trực quan hoá."
 ---
-## **Overview**
+## **Tổng quan**
 
-Bài viết này giải thích cách tùy chỉnh các trục biểu đồ trong Aspose.Slides. Nó chỉ ra cách lấy giá trị thực tế của trục, hoán đổi dữ liệu giữa các trục, ẩn trục dọc hoặc trục ngang cho biểu đồ đường, thay đổi loại trục danh mục, đặt định dạng ngày cho giá trị trục danh mục, xoay tiêu đề trục, đặt vị trí trục và hiển thị nhãn đơn vị trên trục giá trị.
+Bài viết này giải thích cách tùy chỉnh các trục biểu đồ trong Aspose.Slides. Nó chỉ ra cách lấy giá trị thực tế của trục, hoán đổi dữ liệu giữa các trục, ẩn trục dọc hoặc ngang cho biểu đồ đường, thay đổi loại trục danh mục, đặt định dạng ngày cho các giá trị trục danh mục, xoay tiêu đề trục, đặt vị trí trục và hiển thị nhãn đơn vị trên trục giá trị.
 
-## **Get the Max Values on the Vertical Axis**
+## **Lấy Giá Trị Tối Đa Trên Trục Dọc**
 Aspose.Slides for C++ cho phép bạn lấy giá trị tối thiểu và tối đa trên trục dọc. Thực hiện các bước sau:
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Truy cập slide đầu tiên.
-3. Thêm một biểu đồ với dữ liệu mặc định.
-4. Lấy giá trị tối đa thực tế trên trục.
-5. Lấy giá trị tối thiểu thực tế trên trục.
-6. Lấy đơn vị chính thực tế của trục.
-7. Lấy đơn vị phụ thực tế của trục.
-8. Lấy tỷ lệ đơn vị chính thực tế của trục.
-9. Lấy tỷ lệ đơn vị phụ thực tế của trục.
+1. Truy cập slide đầu tiên.
+1. Thêm một biểu đồ với dữ liệu mặc định.
+1. Lấy giá trị tối đa thực tế trên trục.
+1. Lấy giá trị tối thiểu thực tế trên trục.
+1. Lấy đơn vị chính thực tế của trục.
+1. Lấy đơn vị phụ thực tế của trục.
+1. Lấy tỷ lệ đơn vị chính thực tế của trục.
+1. Lấy tỷ lệ đơn vị phụ thực tế của trục.
 
-Mã mẫu này—cụ thể hoá các bước trên—cho thấy cách lấy các giá trị cần thiết trong C++:
+Mã mẫu—các bước được thực hiện ở trên—cho bạn thấy cách lấy các giá trị cần thiết trong C++:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -56,30 +56,32 @@ double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
 double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
 double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 
-// Lưu bản thuyết trình
+// Lưu bản trình chiếu
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Swap the Data between Axes**
-Aspose.Slides cho phép bạn nhanh chóng hoán đổi dữ liệu giữa các trục—dữ liệu trên trục dọc (y-axis) sẽ chuyển sang trục ngang (x-axis) và ngược lại.
 
-Mã C++ này cho thấy cách thực hiện việc hoán đổi dữ liệu giữa các trục trên một biểu đồ:
+## **Hoán Đổi Dữ Liệu Giữa Các Trục**
+Aspose.Slides cho phép bạn nhanh chóng hoán đổi dữ liệu giữa các trục—dữ liệu trên trục dọc (trục y) chuyển sang trục ngang (trục x) và ngược lại. 
+
+Mã C++ này cho bạn thấy cách thực hiện việc hoán đổi dữ liệu giữa các trục trên một biểu đồ:
 
 ``` cpp
-// Tạo bản thuyết trình trống
+// Tạo bản trình chiếu trống
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
 
-// Hoán đổi hàng và cột
+// Chuyển đổi hàng và cột
 chart->get_ChartData()->SwitchRowColumn();
 
-// Lưu bản thuyết trình
+// Lưu bản trình chiếu
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Disable the Vertical Axis for Line Charts**
-Mã C++ này cho thấy cách ẩn trục dọc cho một biểu đồ đường:
+## **Vô Hiệu Hóa Trục Dọc cho Biểu Đồ Đường**
+
+Mã C++ này cho bạn thấy cách ẩn trục dọc cho một biểu đồ đường:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -90,8 +92,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Disable the Horizontal Axis for Line Charts**
-Mã này cho thấy cách ẩn trục ngang cho một biểu đồ đường:
+## **Vô Hiệu Hóa Trục Ngang cho Biểu Đồ Đường**
+
+Mã này cho bạn thấy cách ẩn trục ngang cho một biểu đồ đường:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -102,8 +105,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Change a Category Axis**
-Bằng cách sử dụng phương thức **set_CategoryAxisType()**, bạn có thể chỉ định loại trục danh mục ưu tiên của mình (**date** hoặc **text**). Mã C++ này minh họa thao tác:
+## **Thay Đổi Trục Danh Mục**
+
+Bằng phương thức **set_CategoryAxisType()**, bạn có thể chỉ định loại trục danh mục ưa thích (**date** hoặc **text**). Đoạn mã C++ sau minh họa thao tác này: 
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -118,8 +122,8 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Set the Date Format for Category Axis Values**
-Aspose.Slides cho C++ cho phép bạn đặt định dạng ngày cho giá trị trục danh mục. Thao tác này được minh họa trong mã C++ sau:
+## **Đặt Định Dạng Ngày cho Giá Trị Trục Danh Mục**
+Aspose.Slides for C++ cho phép bạn đặt định dạng ngày cho một giá trị trục danh mục. Hoạt động này được minh họa trong đoạn mã C++ sau:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -152,8 +156,8 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Set the Rotation Angle for an Axis Title**
-Aspose.Slides cho C++ cho phép bạn đặt góc xoay cho tiêu đề trục biểu đồ. Mã C++ này minh họa thao tác:
+## **Đặt Góc Xoay cho Tiêu Đề Trục**
+Aspose.Slides for C++ cho phép bạn đặt góc xoay cho tiêu đề trục biểu đồ. Đoạn mã C++ này minh họa hoạt động:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -166,8 +170,8 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Set the Axis Position on a Category or Value Axis**
-Aspose.Slides cho C++ cho phép bạn đặt vị trí trục trong một trục danh mục hoặc trục giá trị. Mã C++ này cho thấy cách thực hiện nhiệm vụ:
+## **Đặt Vị Trí Trục trên Trục Danh Mục hoặc Giá Trị**
+Aspose.Slides for C++ cho phép bạn đặt vị trí trục trong một trục danh mục hoặc giá trị. Đoạn mã C++ này cho thấy cách thực hiện nhiệm vụ:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -178,8 +182,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Enable the Display Unit Label on a Chart Value Axis**
-Aspose.Slides cho C++ cho phép bạn cấu hình biểu đồ để hiển thị nhãn đơn vị trên trục giá trị của nó. Mã C++ này minh họa thao tác:
+## **Bật Hiển Thị Nhãn Đơn Vị trên Trục Giá Trị của Biểu Đồ**
+Aspose.Slides for C++ cho phép bạn cấu hình biểu đồ để hiển thị nhãn đơn vị trên trục giá trị của nó. Đoạn mã C++ này minh họa hoạt động:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -190,12 +194,12 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Câu Hỏi Thường Gặp**
 
-**Làm thế nào để đặt giá trị mà tại đó một trục cắt qua trục kia (giao điểm trục)?**
+**Làm thế nào để đặt giá trị mà một trục cắt qua trục còn lại (cắt trục)?**
 
-Trục cung cấp một [cài đặt giao điểm](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/axis/set_crosstype/): bạn có thể chọn giao tại giá trị zero, tại danh mục/giá trị tối đa, hoặc tại một giá trị số cụ thể. Điều này hữu ích để di chuyển trục X lên hoặc xuống hoặc để nhấn mạnh một đường cơ sở.
+Các trục cung cấp một [crossing setting](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/axis/set_crosstype/): bạn có thể chọn cắt ở không, ở giá trị danh mục/tối đa, hoặc ở một giá trị số cụ thể. Tùy chọn này hữu ích để kéo trục X lên hoặc xuống hoặc để nhấn mạnh đường cơ sở.
 
-**Làm thế nào để định vị nhãn tick so với trục (bên cạnh, bên ngoài, bên trong)?**
+**Làm sao tôi có thể đặt vị trí nhãn đánh dấu so với trục (bên cạnh, bên ngoài, bên trong)?**
 
-Đặt [vị trí nhãn](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/axis/set_majortickmark/) thành "cross", "outside" hoặc "inside". Điều này ảnh hưởng đến khả năng đọc và giúp tiết kiệm không gian, đặc biệt trên các biểu đồ nhỏ.
+Đặt [label position](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/axis/set_majortickmark/) thành "cross", "outside" hoặc "inside". Điều này ảnh hưởng tới khả năng đọc và giúp tiết kiệm không gian, đặc biệt trên các biểu đồ nhỏ.

@@ -1,5 +1,5 @@
 ---
-title: Ekspor Bagan Presentasi dalam C++
+title: Ekspor Bagan Presentasi di C++
 linktitle: Ekspor Bagan
 type: docs
 weight: 90
@@ -13,14 +13,14 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara mengekspor bagan presentasi dengan Aspose.Slides untuk C++, mendukung format PPT dan PPTX, serta mempermudah pelaporan ke dalam alur kerja apa pun."
+description: "Pelajari cara mengekspor bagan presentasi dengan Aspose.Slides untuk C++, mendukung format PPT dan PPTX, serta menyederhanakan pelaporan ke dalam alur kerja apa pun."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides memungkinkan Anda mengekspor bagan dari presentasi sebagai gambar. Artikel ini menunjukkan cara mendapatkan gambar dari bagan dan menyimpannya, yang berguna ketika Anda perlu menggunakan visual bagan di luar presentasi PowerPoint.
+Aspose.Slides memungkinkan Anda mengekspor bagan dari presentasi sebagai gambar. Artikel ini menunjukkan cara mendapatkan gambar dari bagan dan menyimpannya, yang berguna ketika Anda perlu menggunakan kembali visual bagan di luar presentasi PowerPoint.
 
-## **Dapatkan Gambar Bagan**
-Aspose.Slides untuk C++ menyediakan dukungan untuk mengekstrak gambar bagan tertentu. Contoh sampel di bawah diberikan.  
+## **Mendapatkan Gambar Bagan**
+Aspose.Slides untuk C++ menyediakan dukungan untuk mengekstrak gambar dari bagan tertentu. Contoh sampel di bawah diberikan.
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"test.pptx");
@@ -39,11 +39,11 @@ presentation->Dispose();
 
 **Apakah saya dapat mengekspor bagan sebagai vektor (SVG) alih-alih gambar raster?**
 
-Ya. Bagan adalah bentuk, dan isinya dapat disimpan ke SVG menggunakan [metode penyimpanan shape-ke-SVG](https://reference.aspose.com/slides/id/cpp/aspose.slides/shape/writeassvg/).
+Ya. Bagan adalah sebuah bentuk, dan isinya dapat disimpan ke SVG menggunakan [metode penyimpanan shape-to-SVG](https://reference.aspose.com/slides/id/cpp/aspose.slides/shape/writeassvg/).
 
-**Bagaimana cara mengatur ukuran pasti bagan yang diekspor dalam piksel?**
+**Bagaimana cara saya mengatur ukuran tepat bagan yang diekspor dalam piksel?**
 
-Gunakan overload rendering gambar yang memungkinkan Anda menentukan ukuran atau skala — perpustakaan mendukung rendering objek dengan dimensi/skala yang diberikan.
+Gunakan overload rendering-gambar yang memungkinkan Anda menentukan ukuran atau skala—perpustakaan ini mendukung rendering objek dengan dimensi/skala yang diberikan.
 
 **Apa yang harus saya lakukan jika font pada label dan legenda terlihat salah setelah ekspor?**
 
@@ -51,8 +51,8 @@ Gunakan overload rendering gambar yang memungkinkan Anda menentukan ukuran atau 
 
 **Apakah ekspor menghormati tema, gaya, dan efek PowerPoint?**
 
-Ya. Renderer Aspose.Slides mengikuti pemformatan presentasi (tema, gaya, isi, efek), sehingga tampilan bagan tetap terjaga.
+Ya. Renderer Aspose.Slides mengikuti pemformatan presentasi (tema, gaya, isian, efek), sehingga tampilan bagan dipertahankan.
 
 **Di mana saya dapat menemukan kemampuan rendering/ekspor yang tersedia selain gambar bagan?**
 
-Lihat bagian ekspor pada [API](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/)/[dokumentasi](/slides/id/cpp/convert-powerpoint/) untuk target keluaran ([PDF](/slides/id/cpp/convert-powerpoint-to-pdf/), [SVG](/slides/id/cpp/render-a-slide-as-an-svg-image/), [XPS](/slides/id/cpp/convert-powerpoint-to-xps/), [HTML](/slides/id/cpp/convert-powerpoint-to-html/), dll.) dan opsi rendering terkait.
+Lihat bagian ekspor pada [API](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/)/[dokumentasi](/slides/id/cpp/convert-powerpoint/) untuk target output ([PDF](/slides/id/cpp/convert-powerpoint-to-pdf/), [SVG](/slides/id/cpp/render-a-slide-as-an-svg-image/), [XPS](/slides/id/cpp/convert-powerpoint-to-xps/), [HTML](/slides/id/cpp/convert-powerpoint-to-html/), dll.) dan opsi rendering terkait.

@@ -4,17 +4,19 @@ linktitle: Hantera listor
 type: docs
 weight: 70
 url: /sv/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - punkt
-- punklista
+- punktlista
 - numrerad lista
 - symbolpunkt
 - bildpunkt
 - anpassad punkt
 - flernivålista
 - skapa punkt
-- lägg till punkt
-- lägg till lista
+- lägga till punkt
+- lägga till lista
 - PowerPoint
 - OpenDocument
 - presentation
@@ -26,21 +28,21 @@ description: "Lär dig hur du skapar och formaterar punkt-, bild-, flernivå- oc
 
 Aspose.Slides för Python via .NET låter dig skapa och formatera punkt- och numrerade listor i PowerPoint‑ och OpenDocument‑presentationer. Ett listobjekt är ett stycke vars punktinställningar styrs via dess styckeformat.
 
-Använd egenskapen [Paragraph.paragraph_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/paragraph_format/) för att komma åt listinställningar på styckennivå. Huvudinkörningspunkten är [ParagraphFormat.bullet](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/bullet/), som returnerar ett [BulletFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/)‑objekt. Med detta objekt kan du ange punkttyp, symbol, bild, färg, storlek, nummereringsstil och startnummer.
+Använd egenskapen [Paragraph.paragraph_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/paragraph_format/) för att komma åt lista‑inställningar på styckelnivå. Huvud­ingångspunkten är [ParagraphFormat.bullet](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/bullet/), som returnerar ett [BulletFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/)‑objekt. Med detta objekt kan du ange punkttyp, symbol, bild, färg, storlek, numreringsstil och startnummer.
 
-Den här artikeln visar hur man:
+Denna artikel visar hur du:
 
-- skapa en punktlista med en anpassad symbol
-- skapa en bildpunkt
-- skapa en flernivålista genom att ange styckedjup
-- skapa en numrerad lista
-- inspektera och ändra listformat i en befintlig presentation
+- skapar en punktlista med en anpassad symbol
+- skapar en bildpunkt
+- skapar en flernivålista genom att ange styckets djup
+- skapar en numrerad lista
+- inspekterar och ändrar listformatering i en befintlig presentation
 
 ## **Skapa en punktlista**
 
-För att skapa en punktlista, lägg till [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/)‑objekt i en [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) och ange [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.SYMBOL](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/). Du kan sedan ange [BulletFormat.char](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/color/) och [BulletFormat.height](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/height/) för att styra punktens utseende.
+För att skapa en punktlista, lägg till [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/)‑objekt i en [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) och sätt [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.SYMBOL](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/). Du kan sedan ange [BulletFormat.char](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/color/) och [BulletFormat.height](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/height/) för att styra punktens utseende.
 
-Följande Python‑kod demonstrerar hur man skapar en punktlista i en bild:
+Följande Python‑kod demonstrerar hur du skapar en punktlista i ett bildspel:
 
 ```py
 import aspose.slides as slides
@@ -76,13 +78,13 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Symbolpunkterna](symbol_bullets.png)
+![Symbolpunkter](symbol_bullets.png)
 
 ## **Skapa en numrerad lista**
 
-Använd numrerade listor när ordningen på objekt är viktig. Ange [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.NUMBERED](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/). Du kan också välja ett nummereringsformat med [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/numbered_bullet_style/) eller ange [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) när listan ska börja med ett annat värde än 1.
+Använd numrerade listor när ordningen på objekten är viktig. Sätt [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.NUMBERED](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/). Du kan också välja ett nummerformat med [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/numbered_bullet_style/) eller ange [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) när listan ska börja med ett annat värde än 1.
 
-Följande Python‑kod visar hur man skapar en numrerad lista i en bild:
+Följande Python‑kod visar hur du skapar en numrerad lista i ett bildspel:
 
 ```py
 import aspose.slides as slides
@@ -118,21 +120,21 @@ Resultatet:
 
 ## **Skapa en bildpunkt**
 
-Aspose.Slides låter dig ersätta en vanlig punkt‑symbol med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, såsom ikoner eller små transparenta PNG‑filer.
+Aspose.Slides låter dig ersätta en vanlig punktsymbol med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, till exempel ikoner eller små genomskinliga PNG‑filer.
 
 {{% alert color="primary" %}}
-Idealiskt, om du planerar att ersätta den vanliga punkt‑symbolen med en bild, är det bäst att välja en enkel grafik med transparent bakgrund. Sådana bilder fungerar bra som anpassade puntssymboler.
+Idealiskt, om du planerar att ersätta den vanliga punkt‑symbolen med en bild, bör du välja en enkel grafik med transparent bakgrund. Sådana bilder fungerar väl som anpassade punkt‑symboler.
 
-Tänk på att bilden kommer att skalas ner till en mycket liten storlek. Av den anledningen rekommenderar vi starkt att välja en bild som förblir tydlig och visuellt effektiv när den används som punkt i en lista.
+Kom ihåg att bilden kommer att skalas ner till mycket liten storlek. Av den anledningen rekommenderar vi starkt att välja en bild som förblir tydlig och visuellt effektiv när den används som punkt i en lista.
 {{% /alert %}}
 
-För att skapa en bildpunkt, lägg till en bild i [Presentation.images](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/images/) och tilldela det returnerade bildobjektet till [BulletFormat.picture](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/picture/). Ange [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.PICTURE](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/) innan du tilldelar bilden.
+För att skapa en bildpunkt, lägg till en bild i [Presentation.images](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/images/) och tilldela det returnerade bildobjektet till [BulletFormat.picture](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/picture/). Sätt [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.PICTURE](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/) innan du tilldelar bilden.
 
 Anta att vi har en "image.png":
 
-![En bild för punkterna](picture_for_bullets.png)
+![Bild för punkterna](picture_for_bullets.png)
 
-Följande Python‑kod visar hur man skapar bildpunkter i en bild:
+Följande Python‑kod visar hur du skapar bildpunkter i ett bildspel:
 
 ```py
 import aspose.slides as slides
@@ -168,13 +170,13 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Bildpunkterna](picture_bullets.png)
+![Bildpunkter](picture_bullets.png)
 
 ## **Skapa en flernivålista**
 
-Använd [ParagraphFormat.depth](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/depth/) för att placera listobjekt på olika nivåer. Nivå 0 är den översta nivån, nivå 1 är nästlad under den, och så vidare.
+Använd [ParagraphFormat.depth](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/depth/) för att placera listobjekt på olika nivåer. Nivå 0 är den översta nivån, nivå 1 ligger under den, och så vidare.
 
-Följande Python‑kod visar hur man skapar en flernivå punktlista:
+Följande Python‑kod visar hur du skapar en flernivåpunktlista:
 
 ```py
 import aspose.slides as slides
@@ -215,7 +217,9 @@ Resultatet:
 
 ## **Ändra en befintlig lista**
 
-För att ändra listformat i en befintlig presentation, hämta mål‑stycket och uppdatera dess [ParagraphFormat.bullet](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/bullet/)‑inställningar. Samma egenskaper som används för att skapa listor kan användas för att inspektera eller modifiera listor som lästs in från en PPT‑, PPTX‑ eller ODP‑fil.
+För att ändra listformatering i en befintlig presentation, hämta mål‑stycket och uppdatera dess [ParagraphFormat.bullet](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/bullet/)‑inställningar. Samma egenskaper som används för att skapa listor kan användas för att inspektera eller modifiera listor som lästs in från en PPT‑, PPTX‑ eller ODP‑fil.
+
+Följande Python‑kod ändrar det första stycket i en textram för att använda en numrerad liststil:
 
 ```py
 import aspose.slides as slides
@@ -234,11 +238,11 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("updated_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan punkt‑ och numrerade listor exporteras till PDF eller bilder?**
 
-Ja. Aspose.Slides bevarar listformat när målformatet stöder motsvarande textlayout och punktfunktioner.
+Ja. Aspose.Slides behåller listformatering när målformatet stöder motsvarande textlayout och punktfunktioner.
 
 **Kan jag redigera listor i befintliga presentationer?**
 
@@ -246,4 +250,4 @@ Ja. Läs in presentationen, hämta mål‑stycket, inspektera eller uppdatera de
 
 **Kan listor innehålla icke‑latinsk text?**
 
-Ja. Listtext kan innehålla Unicode‑tecken, så du kan skapa listor i flerspråkiga presentationer. Se till att de teckensnitt som används i presentationen stödjer de tecken du behöver.
+Ja. Text i listobjekt kan innehålla Unicode‑tecken, så du kan skapa listor i flerspråkiga presentationer. Se till att de typsnitt som används i presentationen stöder de tecken du behöver.

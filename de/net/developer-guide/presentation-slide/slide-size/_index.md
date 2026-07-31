@@ -1,5 +1,5 @@
 ---
-title: Ändern der Foliengröße einer Präsentation in .NET
+title: Foliengröße einer Präsentation in .NET ändern
 linktitle: Foliengröße
 type: docs
 weight: 70
@@ -16,7 +16,7 @@ keywords:
 - Benutzerdefinierte Foliengröße
 - Spezielle Foliengröße
 - Einzigartige Foliengröße
-- Vollformatfolie
+- Vollgröße-Folie
 - Bildschirmtyp
 - Nicht skalieren
 - Passend skalieren
@@ -27,28 +27,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit .NET und Aspose.Slides schnell skalieren, Präsentationen für jeden Bildschirm optimieren, ohne Qualität zu verlieren."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit .NET und Aspose.Slides schnell skalieren, um Präsentationen für jeden Bildschirm zu optimieren, ohne Qualitätsverlust."
 ---
+## **Einleitung**
 
-## **Anpassen von Foliengrößen und Seitenverhältnissen in einer Präsentation**
+Aspose.Slides für .NET bietet umfassende Werkzeuge, um die Foliengröße und das Seitenverhältnis in PowerPoint‑Präsentationen anzupassen – ein entscheidender Faktor sowohl für den Druck als auch für die Anzeige auf Bildschirmen. 
 
-Aspose.Slides for .NET bietet umfassende Werkzeuge zum Anpassen der Foliengröße und des Seitenverhältnisses in PowerPoint‑Präsentationen, die sowohl für den Druck als auch für die Anzeige auf Bildschirmen entscheidend sind. 
+Beliebte Foliengrößen und Seitenverhältnisse:
 
-### **Beliebte Foliengrößen und Verhältnisse**
+- **Standard (4:3‑Seitenverhältnis)**: Ideal für ältere Bildschirme und Geräte.
+- **Widescreen (16:9‑Seitenverhältnis)**: Empfohlen für moderne Projektoren und Displays.
 
-- **Standard (4:3 Seitenverhältnis)**: Ideal für ältere Bildschirme und Geräte.
-  
-- **Widescreen (16:9 Seitenverhältnis)**: Empfohlen für moderne Projektoren und Bildschirme.
-
-Stellen Sie die Konsistenz Ihrer gesamten Präsentation sicher, da eine einheitliche Foliengröße und ein einheitliches Seitenverhältnis für alle Folien gelten. Für optimale Ergebnisse legen Sie die Folienabmessungen zu Beginn des Erstellungsprozesses fest, um Komplikationen zu vermeiden.
+Stellen Sie Konsistenz in Ihrer gesamten Präsentation sicher, da eine einheitliche Foliengröße und ein einheitliches Seitenverhältnis für alle Folien gelten. Für optimale Ergebnisse legen Sie die Folienabmessungen zu Beginn des Erstellungsprozesses Ihrer Präsentation fest, um Komplikationen zu vermeiden.
 
 {{% alert color="primary" %}} 
-Standardmäßig verwenden Präsentationen, die mit Aspose.Slides erstellt wurden, das Standard‑Seitenverhältnis 4:3.
+Standardmäßig verwenden mit Aspose.Slides erstellte Präsentationen das Standard‑Seitenverhältnis 4:3.
 {{% /alert %}}
 
-## **Wie Sie die Foliengröße in einer Präsentation ändern**
+## **So ändern Sie die Foliengröße in einer Präsentation**
 
-Dieses Beispiel zeigt, wie die Foliengröße einer Präsentation mit Aspose.Slides in C# geändert wird:
+Dieses Beispiel zeigt, wie Sie die Foliengröße einer Präsentation mit Aspose.Slides in C# ändern:
+
 ```csharp
 using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 {
@@ -57,28 +56,28 @@ using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 }
 ```
 
-
 ## **Benutzerdefinierte Foliengrößen festlegen**
 
-Die Anpassung der Foliengröße an Ihre spezifischen Bedürfnisse, etwa für besondere Papierformate oder Bildschirmvorgaben, kann vorteilhaft sein. So legen Sie eine benutzerdefinierte Foliengröße mit Aspose.Slides für .NET fest:
+Die Anpassung der Foliengröße an Ihre spezifischen Anforderungen – etwa für besondere Papierformate oder Bildschirmspezifikationen – kann vorteilhaft sein. So setzen Sie eine benutzerdefinierte Foliengröße mit Aspose.Slides für .NET:
+
 ```csharp
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
-    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4-Papiergröße
+    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 Papiergröße
     pres.Save("presentation-a4.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Folieninhalt nach der Größenänderung verarbeiten**
 
-## **Umgang mit Folieninhalten nach dem Ändern der Größe**
-
-Nach dem Ändern der Größe können Folieninhalte verzerrt werden. Sie können steuern, wie Aspose.Slides dieses Resizing handhabt:
+Nach dem Ändern der Größe können Folieninhalte verzerrt werden. Sie können steuern, wie Aspose.Slides diese Größenanpassung behandelt:
 
 - **`DoNotScale`**: Objekte in ihrer Originalgröße belassen, um Skalierung zu vermeiden.
-- **`EnsureFit`**: Objekte skalieren, damit sie auf kleinere Folien passen und Inhaltsverlust verhindert wird.
-- **`Maximize`**: Objekte vergrößern, damit sie zu größeren Folien passen und ästhetische Konsistenz gewährleistet ist.
+- **`EnsureFit`**: Objekte skalieren, damit sie auf kleinere Folien passen, und Inhaltsverlust verhindern.
+- **`Maximize`**: Objekte vergrößern, um zu größeren Folien zu passen und ein ästhetisch konsistentes Ergebnis zu erzielen.
 
-Beispiel für die Verwendung der Einstellung `Maximize` zur Anpassung der Foliengröße:
+Beispiel für die Verwendung der Einstellung `Maximize` bei der Foliengrößenanpassung:
+
 ```csharp
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
@@ -86,21 +85,20 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
-
 ## **FAQ**
 
 **Kann ich eine benutzerdefinierte Foliengröße mit anderen Einheiten als Zoll festlegen (z. B. Punkte oder Millimeter)?**
 
-Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. Sie können jede Einheit (z. B. Millimeter oder Zentimeter) in Punkte umrechnen und die umgerechneten Werte zur Definition von Folienbreite und -höhe verwenden.
+Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. Sie können jede Einheit (wie Millimeter oder Zentimeter) in Punkte umrechnen und die konvertierten Werte zur Definition von Folienbreite und -höhe verwenden.
 
-**Wird eine sehr große benutzerdefinierte Foliengröße die Leistung und den Speicherverbrauch beim Rendern beeinträchtigen?**
+**Wirkt sich eine sehr große benutzerdefinierte Foliengröße auf die Leistung und den Speicherverbrauch beim Rendern aus?**
 
-Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einem höheren Render‑Skalenfaktor führen zu erhöhtem Speicherverbrauch und längeren Verarbeitungszeiten. Streben Sie eine praktische Foliengröße an und passen Sie den Render‑Skalenfaktor nur bei Bedarf an, um die gewünschte Ausgabequalität zu erzielen.
+Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einem höheren Render‑Skalierungsfaktor führen zu höherem Speicherverbrauch und längeren Verarbeitungszeiten. Ziel sollte eine praktikable Foliengröße sein; passen Sie die Render‑Skalierung nur bei Bedarf an, um die gewünschte Ausgabequalität zu erreichen.
 
-**Kann ich eine nicht‑standardmäßige Foliengröße festlegen und dann Folien aus Präsentationen, die unterschiedliche Größen haben, zusammenführen?**
+**Kann ich eine nicht‑standardmäßige Foliengröße definieren und dann Folien aus Präsentationen mit unterschiedlichen Größen zusammenführen?**
 
-Sie können nicht [Präsentationen zusammenführen](/slides/de/net/merge-presentation/) durchführen, solange die Präsentationen unterschiedliche Foliengrößen haben – zuerst müssen Sie eine Präsentation auf die Größe der anderen anpassen. Beim Ändern der Foliengröße können Sie über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) festlegen, wie vorhandene Inhalte behandelt werden. Nach der Angleichung der Größen können Sie Folien zusammenführen und dabei die Formatierung beibehalten.
+Sie können nicht [Präsentationen zusammenführen](/slides/de/net/merge-presentation/), solange sie unterschiedliche Foliengrößen haben – passen Sie zuerst eine Präsentation an die Größe der anderen an. Beim Ändern der Foliengröße können Sie wählen, wie vorhandene Inhalte über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/de/net/aspose.slides/slidesizescaletype/) behandelt werden. Nach der Angleichung der Größen können Sie Folien zusammenführen und das Format beibehalten.
 
-**Kann ich Miniaturbilder für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und berücksichtigen sie die neue Foliengröße?**
+**Kann ich Miniaturansichten für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und berücksichtigen sie die neue Foliengröße?**
 
-Ja. Aspose.Slides kann Miniaturbilder für [gesamte Folien](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) sowie für [ausgewählte Formen](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) rendern. Die resultierenden Bilder widerspiegeln die aktuelle Foliengröße und das Seitenverhältnis und gewährleisten eine konsistente Bildausschnitt‑ und Geometrie.
+Ja. Aspose.Slides kann Miniaturansichten für [gesamte Folien](https://reference.aspose.com/slides/de/net/aspose.slides/slide/getimage/) sowie für [ausgewählte Formen](https://reference.aspose.com/slides/de/net/aspose.slides/shape/getimage/) rendern. Die resultierenden Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider, wodurch ein konsistenter Bildausschnitt und korrekte Geometrie gewährleistet sind.

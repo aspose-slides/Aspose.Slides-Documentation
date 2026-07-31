@@ -1,6 +1,6 @@
 ---
-title: C++'ta Sunum Grafik Öğelerini Özelleştirin
-linktitle: Grafik Öğeleri
+title: C++'ta Sunum Grafik Varlıklarını Özelleştir
+linktitle: Grafik Varlıkları
 type: docs
 weight: 30
 url: /tr/cpp/chart-entities/
@@ -8,16 +8,16 @@ keywords:
 - açıklama
 - eksen
 - veri etiketi
-- veri işaretçisi
+- veri işaretleyici
 - veri tablosu
-- lejant
+- gösterge
 - grafik alanı
 - veri serisi
 - hata çubuğu
-- trend çizgisi
+- eğilim çizgisi
 - PowerPoint
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++'ta grafik öğelerini anlayın ve C++ kullanarak PowerPoint PPT ve PPTX'de serileri, kategorileri, veri noktalarını ve eksenleri yönetmeyi öğrenin."
+description: "Aspose.Slides for C++'ta grafik varlıklarını anlayın ve C++ kullanarak PowerPoint PPT ve PPTX içinde serileri, kategorileri, veri noktalarını ve eksenleri yönetmeyi öğrenin."
 ---

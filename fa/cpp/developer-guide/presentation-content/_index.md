@@ -1,5 +1,5 @@
 ---
-title: مدیریت محتوای ارائه در С++
+title: مدیریت محتوای ارائه در C++
 linktitle: محتوای ارائه
 type: docs
 weight: 30
@@ -21,7 +21,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - ارائه
-- С++
+- C++
 - Aspose.Slides
-description: "ایجاد، ویرایش و استخراج محتوای ارائه با Aspose.Slides برای С++ — دریافت مثال‌های کد برای متن، تصاویر، شکل‌ها، نمودارها؛ PPT، PPTX و ODP."
+description: "ایجاد، ویرایش و استخراج محتوای ارائه با Aspose.Slides برای C++ — دریافت مثال‌های کد برای متن، تصاویر، اشکال، نمودارها؛ PPT، PPTX و ODP."
 ---

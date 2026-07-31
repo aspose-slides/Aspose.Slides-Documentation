@@ -1,12 +1,14 @@
 ---
-title: Haladó szövegkivonás prezentációkból C++-ban
+title: Haladó szövegkinyerés prezentációkból C++-ban
 linktitle: Szöveg kinyerése
 type: docs
 weight: 90
 url: /hu/cpp/extract-text-from-presentation/
+aliases:
+  - /cpp/szoveg-kinyerese-a-prezentaciobol/
 keywords:
 - szöveg kinyerése
-- szöveg kinyerése diából
+- szöveg kinyerése diáról
 - szöveg kinyerése prezentációból
 - szöveg kinyerése PowerPointból
 - szöveg kinyerése OpenDocumentből
@@ -14,7 +16,7 @@ keywords:
 - szöveg kinyerése PPTX-ből
 - szöveg kinyerése ODP-ből
 - szöveg lekérése
-- szöveg lekérése diából
+- szöveg lekérése diáról
 - szöveg lekérése prezentációból
 - szöveg lekérése PowerPointból
 - szöveg lekérése OpenDocumentből
@@ -26,19 +28,19 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Gyorsan nyerje ki a szöveget PowerPoint és OpenDocument prezentációkból az Aspose.Slides for C++ használatával. Kövesse egyszerű, lépésről‑lépésre szóló útmutatónkat az időspórolásért."
+description: "Gyorsan nyerjen ki szöveget PowerPoint és OpenDocument prezentációkból az Aspose.Slides for C++ segítségével. Kövesse egyszerű, lépésről-lépésre útmutatónkat az idő megtakarítása érdekében."
 ---
 ## **Áttekintés**
 
-A prezentációkból szöveg kinyerése gyakori, ugyanakkor alapvető feladat a diákkal dolgozó fejlesztők számára. Akár Microsoft PowerPoint fájlokkal (PPT vagy PPTX formátumban), akár OpenDocument prezentációkkal (ODP) dolgozol, a szöveges adatok elérése és lekérése kulcsfontosságú lehet elemzés, automatizálás, indexelés vagy tartalom migráció céljából.
+A prezentációkból történő szövegkinyerés gyakori, de elengedhetetlen feladat a diatartalommal dolgozó fejlesztők számára. Legyen szó Microsoft PowerPoint fájlokról PPT vagy PPTX formátumban, vagy OpenDocument prezentációkról (ODP), a szöveges adatok elérése és kinyerése kritikus lehet elemzés, automatizálás, indexelés vagy tartalom‑migráció céljából.
 
-Ez a cikk átfogó útmutatót nyújt arról, hogyan lehet hatékonyan kinyerni a szöveget különböző prezentációformátumokból, beleértve a PPT, PPTX és ODP formátumokat, az Aspose.Slides for C++ használatával. Megtanulod, hogyan iterálj rendszeresen a prezentáció elemein, hogy pontosan kinyerd a szükséges szöveges tartalmat.
+Ez a cikk átfogó útmutatót nyújt arról, hogyan lehet hatékonyan kinyerni a szöveget különböző prezentációformátumokból, beleértve a PPT, PPTX és ODP formátumokat, az Aspose.Slides for C++ használatával. Megtanulja, hogyan iteráljon rendszerezetten a prezentációelemek között a szükséges szövegtartalom pontos lekéréséhez.
 
 ## **Szöveg kinyerése egy diáról**
 
-Az Aspose.Slides for C++ a [Aspose.Slides.Util](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/) névtérrel rendelkezik, amely tartalmazza a [SlideUtil](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/) osztályt. Ez az osztály több túlterhelt statikus metódust tesz elérhetővé a prezentáció vagy dia összes szövegének kinyerésére. Egy diáról való szövegkivonáshoz egy prezentációban használd a [GetAllTextBoxes](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/getalltextboxes/) metódust. Ez a metódus egy [IBaseSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/) típusú objektumot vár paraméterként. Végrehajtáskor a metódus az egész diát átvizsgálja a szöveg után, és egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/) típusú objektumok tömbjét adja vissza, megőrizve a szöveg formázását.
+Az Aspose.Slides for C++ a [Aspose.Slides.Util](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/) névtérrel rendelkezik, amely tartalmazza a [SlideUtil](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/) osztályt. Ez az osztály több túlterhelt statikus metódust biztosít a prezentáció vagy dia összes szövegének kinyeréséhez. Egy diáról történő szövegkivonáshoz a [GetAllTextBoxes](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/getalltextboxes/) metódust kell használni. Ez a metódus egy [IBaseSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/) típusú objektumot vár paraméterként. Végrehajtásakor a metódus végig pásztázza a teljes diát a szöveg után, és egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/) típusú objektumok tömbjét adja vissza, megőrizve a szövegformázást.
 
-Az alábbi kódrészlet kinyeri a teljes szöveget a prezentáció első diájáról:
+Az alábbi kódrészlet a prezentáció első diájáról nyeri ki az összes szöveget:
 
 ```cpp
 auto slideIndex = 0;
@@ -76,12 +78,12 @@ presentation->Dispose();
 
 ## **Szöveg kinyerése egy prezentációból**
 
-Az egész prezentáció szövegének beolvasásához használd a [SlideUtil](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/) osztály által kínált [GetAllTextFrames](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/getalltextframes/) statikus metódust. Ez két paramétert fogad:
+A teljes prezentáció szövegének pásztázásához használja a [SlideUtil](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/) osztály által kiadott [GetAllTextFrames](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/getalltextframes/) statikus metódust. Két paramétert fogad:
 
 1. Először egy [IPresentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/) objektum, amely egy PowerPoint vagy OpenDocument prezentációt képvisel, amelyből a szöveget ki kell nyerni.
-2. Másodszor egy `Boolean` érték, amely azt jelzi, hogy a mesterdiák is bele legyenek véve a prezentáció szövegének beolvasásakor.
+1. Másodszor egy `Boolean` érték, amely azt jelzi, hogy a mesterdiák is bele legyenek véve a prezentáció szövegének pásztázásakor.
 
-A metódus egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/) típusú objektumok tömbjét adja vissza, amely tartalmazza a szöveg formázási információkat is. Az alábbi kód beolvassa a szöveget és a formázási részleteket egy prezentációból, beleértve a mesterdiákat.
+A metódus egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/) típusú objektumok tömbjét adja vissza, beleértve a szövegformázási információkat is. Az alábbi kód a prezentáció szövegét és formázási részleteit pásztázza, beleértve a mesterdiákat.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
@@ -115,9 +117,9 @@ for (const auto& textFrame : textFrames)
 presentation->Dispose();
 ```
 
-## **Kategorizált és gyors szövegkivonás**
+## **Kategorizált és gyors szövegkinyerés**
 
-A [PresentationFactory](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationfactory/) osztály szintén metódusokat kínál a prezentációkból történő teljes szövegkivonáshoz:
+A [PresentationFactory](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationfactory/) osztály szintén biztosít metódusokat a prezentációkból történő összes szöveg kinyeréséhez:
 
 ```cpp
 System::SharedPtr<IPresentationText> GetPresentationText(System::String file, TextExtractionArrangingMode mode);
@@ -125,18 +127,20 @@ System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<Syste
 System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode, System::SharedPtr<ILoadOptions> options);
 ```
 
-A [TextExtractionArrangingMode](https://reference.aspose.com/slides/hu/cpp/aspose.slides/textextractionarrangingmode/) felsorolt típus argumentuma a szövegkivonási eredmény rendezésének módját jelzi, és a következő értékekre állítható:
-- `Unarranged` – A nyers szöveg, a dia pozíciója figyelembe vétele nélkül.
-- `Arranged` – A szöveg a dián lévő sorrendben van rendezve.
+A [TextExtractionArrangingMode](https://reference.aspose.com/slides/hu/cpp/aspose.slides/textextractionarrangingmode/) felsorolt argumentuma a szövegkinyerés eredményének rendezési módját jelzi, és a következő értékekre állítható:
 
-Az `Unarranged` mód akkor használható, ha a sebesség kritikus; gyorsabb, mint a `Arranged` mód.
+- `Unarranged` – A nyers szöveg, anélkül, hogy figyelembe venné a dia helyzetét.
+- `Arranged` – A szöveg a diához hasonló sorrendben van rendezve.
 
-Az [IPresentationText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationtext/) a prezentációból kinyert nyers szöveget képviseli. A `get_SlidesText()` metódusa egy [ISlideText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidetext/) típusú objektumok tömbjét adja vissza. Minden objektum a megfelelő dia szövegét reprezentálja. A [ISlideText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidetext/) típusú objektumnak a következő metódusai vannak:
+Az `Unarranged` mód akkor használható, amikor a sebesség kritikus; gyorsabb, mint a `Arranged` mód.
+
+Az [IPresentationText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationtext/) a prezentációból kinyert nyers szöveget reprezentálja. `get_SlidesText()` metódusa egy [ISlideText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidettext/) típusú objektumok tömbjét adja vissza. Minden objektum a megfelelő dia szövegét tartalmazza. Az [ISlideText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidettext/) típusú objektumnak a következő metódusai vannak:
+
 - `get_Text()` – A dia alakzatain belüli szöveg.
-- `get_MasterText()` – A diához kapcsolódó mesterdia alakzatain belüli szöveg.
-- `get_LayoutText()` – A diához kapcsolódó elrendezésdia alakzatain belüli szöveg.
-- `get_NotesText()` – A diához kapcsolódó jegyzetdia alakzatain belüli szöveg.
-- `get_CommentsText()` – A diához kapcsolódó megjegyzések szövege.
+- `get_MasterText()` – Az ehhez a diához tartozó mesterdia alakzatain belüli szöveg.
+- `get_LayoutText()` – Az ehhez a diához tartozó elrendezésdia alakzatain belüli szöveg.
+- `get_NotesText()` – A jegyzetdia alakzatain belüli szöveg.
+- `get_CommentsText()` – A diához tartozó megjegyzések szövege.
 
 ```cpp
 auto presentationPath = u"presentation.ppt";
@@ -153,14 +157,14 @@ Console::WriteLine(firstSlideText->get_CommentsText());
 
 ## **GYIK**
 
-**Milyen gyorsan dolgozza fel az Aspose.Slides a nagy prezentációkat a szövegkivonás során?**
+**Milyen gyorsan dolgozza fel az Aspose.Slides a nagy prezentációkat a szövegkinyerés során?**
 
-Az Aspose.Slides magas teljesítményre van optimalizálva, és képes nagy [prezentációk](/slides/hu/cpp/open-presentation/) feldolgozására is, így alkalmas valós idejű vagy tömeges feldolgozási helyzetekben.
+Az Aspose.Slides magas teljesítményre van optimalizálva, és még [nagy prezentációkat](/slides/hu/cpp/open-presentation/) is képes feldolgozni, így alkalmas valós idejű vagy tömeges feldolgozási szituációkra.
 
-**Kivonhatja az Aspose.Slides a szöveget a prezentációk táblázataiból és diagramjaiból?**
+**Képes az Aspose.Slides szöveget kinyerni táblázatokból és diagramokból a prezentációkon belül?**
 
-Igen. Az Aspose.Slides szöveget tud kinyerni számos diavázlatból, beleértve a táblázatokat és diagramokkal kapcsolatos objektumokat is, így hozzáférhetsz és elemezheted a szöveges tartalmat a gyakori prezentációs struktúrákban.
+Igen. Az Aspose.Slides képes szöveget kinyerni számos dián lévő elemről, beleértve a táblázatokat és diagramokhoz kapcsolódó objektumokat is, így hozzáférhet és elemezheti a szöveges tartalmat a gyakori prezentációs struktúrákban.
 
-**Szükségem van külön Aspose.Slides licencre a prezentációk szövegének kinyeréséhez?**
+**Szükségem van külön Aspose.Slides licencre a prezentációkból való szövegkinyeréshez?**
 
-A szöveget kinyerheted az Aspose.Slides ingyenes próba Verziójával, bár ez [bizonyos korlátozásokkal](/slides/hu/cpp/licensing/) jár, például csak korlátozott számú dia feldolgozásával. Korlátlan használathoz és nagyobb prezentációk kezeléséhez ajánlott teljes licencet vásárolni.
+A szöveget a Aspose.Slides ingyenes próbaverziójával is ki lehet nyerni, bár ez [bizonyos korlátozásokkal](/slides/hu/cpp/licensing/) jár, például csak korlátozott számú dia feldolgozásával. Korlátlan használathoz és nagyobb prezentációk kezeléséhez teljes licenc vásárlását ajánljuk.

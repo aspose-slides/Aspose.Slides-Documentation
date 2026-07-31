@@ -4,71 +4,72 @@ linktitle: "पैराग्राफ प्रबंधित करें"
 type: docs
 weight: 40
 url: /hi/net/manage-paragraph/
+aliases:
+  - /net/paragraph/
+  - /net/portion/
 keywords:
-- "पाठ जोड़ें"
-- "पैराग्राफ जोड़ें"
-- "पाठ प्रबंधित करें"
-- "पैराग्राफ प्रबंधित करें"
-- "बुलेट प्रबंधित करें"
-- "पैराग्राफ इंडेंट"
-- "हैंगिंग इंडेंट"
-- "पैराग्राफ बुलेट"
-- "नंबरित सूची"
-- "बुलेटेड सूची"
-- "पैराग्राफ गुण"
-- "HTML आयात करें"
-- "टेक्स्ट को HTML में"
-- "पैराग्राफ को HTML में"
-- "पैराग्राफ को छवि में"
-- "टेक्स्ट को छवि में"
-- "पैराग्राफ निर्यात करें"
-- "PowerPoint"
-- "प्रेजेंटेशन"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET के साथ पैराग्राफ फ़ॉर्मेटिंग में माहिर बनें—PPT, PPTX, और ODP प्रेजेंटेशन में C# में संरेखण, स्पेसिंग और शैली को अनुकूलित करें।"
+  - "टेक्स्ट जोड़ें"
+  - "पैराग्राफ जोड़ें"
+  - "टेक्स्ट प्रबंधित करें"
+  - "पैराग्राफ प्रबंधित करें"
+  - "बुलेट प्रबंधित करें"
+  - "पैराग्राफ इंडेंट"
+  - "हैंगिंग इंडेंट"
+  - "पैराग्राफ बुलेट"
+  - "नंबरित सूची"
+  - "बुलेटेड सूची"
+  - "पैराग्राफ प्रॉपर्टीज़"
+  - "HTML आयात करें"
+  - "टेक्स्ट से HTML"
+  - "पैराग्राफ से HTML"
+  - "पैराग्राफ से इमेज"
+  - "टेक्स्ट से इमेज"
+  - "पैराग्राफ निर्यात करें"
+  - "PowerPoint"
+  - "प्रेजेंटेशन"
+  - ".NET"
+  - "C#"
+  - "Aspose.Slides"
+description: "Aspose.Slides for .NET के साथ पैराग्राफ फ़ॉर्मेटिंग में महारत हासिल करें—PPT, PPTX, और ODP प्रेजेंटेशनों में संरेखण, स्पेसिंग और शैली को C# में अनुकूलित करें।"
 ---
 ## **परिचय**
 
-Aspose.Slides वह सभी इंटरफ़ेस और क्लास प्रदान करता है जो आपको C# में PowerPoint पाठ, पैराग्राफ और पोर्शन के साथ काम करने के लिए आवश्यक हैं।
+Aspose.Slides वह सभी इंटरफ़ेस और क्लासें प्रदान करता है जिनकी आपको C# में PowerPoint के टेक्स्ट, पैराग्राफ और पोर्शन के साथ काम करने के लिए आवश्यकता है।
 
-* Aspose.Slides आप को पैराग्राफ का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ने के लिए [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) इंटरफ़ेस प्रदान करता है। एक `ITextFame` ऑब्जेक्ट में एक या कई पैराग्राफ हो सकते हैं (प्रत्येक पैराग्राफ कैरिज रिटर्न के माध्यम से बनाया जाता है)।
-* Aspose.Slides आप को पोर्शन का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ने के लिए [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) इंटरफ़ेस प्रदान करता है। एक `IParagraph` ऑब्जेक्ट में एक या कई पोर्शन (iPortions ऑब्जेक्ट का संग्रह) हो सकते हैं।
-* Aspose.Slides आप को पाठ और उनकी फ़ॉर्मैटिंग गुणों का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ने के लिए [IPortion](https://reference.aspose.com/slides/hi/net/aspose.slides/iportion/) इंटरफ़ेस प्रदान करता है।
+* Aspose.Slides [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) इंटरफ़ेस प्रदान करता है जो आपको पैराग्राफ का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ने की अनुमति देता है। एक `ITextFame` ऑब्जेक्ट में एक या कई पैराग्राफ हो सकते हैं (प्रत्येक पैराग्राफ कैरिज रिटर्न के माध्यम से बनाया जाता है)।
+* Aspose.Slides [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) इंटरफ़ेस प्रदान करता है जो आपको पोर्शन का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ने की अनुमति देता है। एक `IParagraph` ऑब्जेक्ट में एक या कई पोर्शन हो सकते हैं (iPortions ऑब्जेक्ट्स का संग्रह)।
+* Aspose.Slides [IPortion](https://reference.aspose.com/slides/hi/net/aspose.slides/iportion/) इंटरफ़ेस प्रदान करता है जो आपको टेक्स्ट और उनके फ़ॉर्मेटिंग प्रॉपर्टीज़ का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ने की अनुमति देता है।  
 
-एक `IParagraph` ऑब्जेक्ट अपने अंतर्निहित `IPortion` ऑब्जेक्ट्स के माध्यम से विभिन्न फ़ॉर्मैटिंग गुणों वाले पाठ को संभाल सकता है।
+एक `IParagraph` ऑब्जेक्ट अपने अंतर्निहित `IPortion` ऑब्जेक्ट्स के माध्यम से विभिन्न फ़ॉर्मेटिंग प्रॉपर्टीज़ वाले टेक्स्ट को संभाल सकता है।
 
-## **एकाधिक पोर्शन वाले कई पैराग्राफ जोड़ें**
+## **एक ही टेक्स्ट फ्रेम में कई पैराग्राफ और कई पोर्शन जोड़ना**
 
-इन चरणों में दिखाया गया है कि 3 पैराग्राफ और प्रत्येक पैराग्राफ में 3 पोर्शन वाला टेक्स्ट फ़्रेम कैसे जोड़ें:
+इन चरणों में दिखाया गया है कि कैसे 3 पैराग्राफ वाला एक टेक्स्ट फ्रेम जोड़ें और प्रत्येक पैराग्राफ में 3 पोर्शन रखें:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
-4. उस [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) से जुड़ा ITextFrame प्राप्त करें।
-5. दो [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) ऑब्जेक्ट बनाएं और उन्हें [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) के `IParagraphs` संग्रह में जोड़ें।
-6. प्रत्येक नए `IParagraph` के लिए तीन [IPortion](https://reference.aspose.com/slides/hi/net/aspose.slides/iportion/) ऑब्जेक्ट बनाएं (डिफ़ॉल्ट पैराग्राफ के लिए दो Portion ऑब्जेक्ट) और प्रत्येक `IPortion` ऑब्जेक्ट को संबंधित `IParagraph` के IPortion संग्रह में जोड़ें।
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. स्लाइड में एक Rectangle [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
+4. उस [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) से जुड़ा `ITextFrame` प्राप्त करें।
+5. दो [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) ऑब्जेक्ट बनाकर उन्हें [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) की `IParagraphs` संग्रह में जोड़ें।
+6. प्रत्येक नए `IParagraph` के लिए तीन [IPortion](https://reference.aspose.com/slides/hi/net/aspose.slides/iportion/) ऑब्जेक्ट बनाएं (डिफ़ॉल्ट पैराग्राफ के लिए दो Portion ऑब्जेक्ट) और प्रत्येक `IPortion` को प्रत्येक `IParagraph` की IPortion संग्रह में जोड़ें।
 7. प्रत्येक पोर्शन के लिए कुछ टेक्स्ट सेट करें।
-8. `IPortion` ऑब्जेक्ट द्वारा प्रदत्त फ़ॉर्मैटिंग गुणों का उपयोग करके प्रत्येक पोर्शन पर वांछित फ़ॉर्मैटिंग लागू करें।
-9. संशोधित प्रेजेंटेशन सहेजें।
-
-यह C# कोड पैराग्राफ़ में पोर्शन जोड़ने के चरणों का कार्यान्वयन है:
+8. प्रत्येक पोर्शन पर `IPortion` ऑब्जेक्ट द्वारा प्रदान की गई फ़ॉर्मेटिंग प्रॉपर्टीज़ का उपयोग करके अपनी इच्छित फ़ॉर्मेटिंग लागू करें।
+9. संशोधित प्रेजेंटेशन को सेव करें।
 
 ```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
 using (Presentation pres = new Presentation())
 {
-    // पहले स्लाइड तक पहुँचता है
+    // पहली स्लाइड तक पहुंचता है
     ISlide slide = pres.Slides[0];
 
-    // एक आयताकार IAutoShape जोड़ता है
+    // एक Rectangle IAutoShape जोड़ता है
     IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
-    // AutoShape के TextFrame तक पहुँचता है
+    // AutoShape के TextFrame तक पहुंचता है
     ITextFrame tf = ashp.TextFrame;
 
-    // विभिन्न टेक्स्ट फ़ॉर्मेट वाले पैराग्राफ और पोर्शन बनाता है
+    // विभिन्न टेक्स्ट फ़ॉर्मेट्स के साथ Paragraphs और Portions बनाता है
     IParagraph para0 = tf.Paragraphs[0];
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -118,49 +119,49 @@ using (Presentation pres = new Presentation())
 ```
 
 ## **पैराग्राफ बुलेट्स प्रबंधित करें**
-बुलेट सूची आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती है। बुलेटेड पैराग्राफ हमेशा पढ़ने और समझने में आसान होते हैं।
+बुलेट लिस्ट्स आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती हैं। बुलेटेड पैराग्राफ हमेशा पढ़ने और समझने में आसान होते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. चयनित स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
-4. autoshape के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) तक पहुंचें। 
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएं।
-8. पैराग्राफ के लिए बुलेट `Type` को `Symbol` सेट करें और बुलेट कैरेक्टर सेट करें।
-9. पैराग्राफ `Text` सेट करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. चयनित स्लाइड में एक [ऑटोशेप](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) तक पहुंचें। 
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएँ।
+8. पैराग्राफ की बुल्लेट `Type` को `Symbol` सेट करें और बुलेट कैरेक्टर निर्धारित करें।
+9. पैराग्राफ का `Text` सेट करें।
 10. बुलेट के लिए पैराग्राफ `Indent` सेट करें।
-11. बुलेट के लिए एक रंग सेट करें।
+11. बुलेट के लिए एक रंग निर्धारित करें।
 12. बुलेट की ऊँचाई सेट करें।
-13. नया पैराग्राफ `TextFrame` पैराग्राफ संग्रह में जोड़ें।
+13. नए पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
 14. दूसरा पैराग्राफ जोड़ें और चरण 7 से 13 तक की प्रक्रिया दोहराएँ।
-15. प्रेजेंटेशन सहेजें।
-
-यह C# कोड दिखाता है कि बुलेट पैराग्राफ कैसे जोड़ें:
+15. प्रेजेंटेशन को सेव करें।
 
 ```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
 using (Presentation pres = new Presentation())
 {
-    // पहले स्लाइड तक पहुँचता है
+
+    // पहली स्लाइड तक पहुंचता है
     ISlide slide = pres.Slides[0];
 
-    // ऑटोशेप जोड़ता और पहुँचता है
+
+    // ऑटोशेप जोड़ता है और उसकी पहुंच हासिल करता है
     IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // ऑटोशेप के टेक्स्ट फ्रेम तक पहुँचता है
+    // ऑटोशेप के टेक्स्ट फ्रेम तक पहुंचता है
     ITextFrame txtFrm = aShp.TextFrame;
 
-    // डिफ़ॉल्ट पैराग्राफ हटाता है
+    // डिफ़ॉल्ट पैराग्राफ को हटाता है
     txtFrm.Paragraphs.RemoveAt(0);
 
     // एक पैराग्राफ बनाता है
     Paragraph para = new Paragraph();
 
-    // पैराग्राफ बुलेट शैली और प्रतीक सेट करता है
+    // पैराग्राफ बुलेट शैली और संकेत सेट करता है
     para.ParagraphFormat.Bullet.Type = BulletType.Symbol;
     para.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
 
-    // पैराग्राफ टेक्स्ट सेट करता है
+    // पैराग्राफ का टेक्स्ट सेट करता है
     para.Text = "Welcome to Aspose.Slides";
 
     // बुलेट इंडेंट सेट करता है
@@ -171,7 +172,7 @@ using (Presentation pres = new Presentation())
     para.ParagraphFormat.Bullet.Color.Color = Color.Black;
     para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // IsBulletHardColor को true सेट करें ताकि अपना बुलेट रंग उपयोग किया जा सके
 
-    // बुलेट ऊँचाई सेट करता है
+    // बुलेट की ऊँचाई सेट करता है
     para.ParagraphFormat.Bullet.Height = 100;
 
     // पैराग्राफ को टेक्स्ट फ्रेम में जोड़ता है
@@ -194,60 +195,60 @@ using (Presentation pres = new Presentation())
     para2.ParagraphFormat.Bullet.Color.Color = Color.Black;
     para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // IsBulletHardColor को true सेट करें ताकि अपना बुलेट रंग उपयोग किया जा सके
 
-    // बुलेट ऊँचाई सेट करता है
+    // बुलेट की ऊँचाई सेट करता है
     para2.ParagraphFormat.Bullet.Height = 100;
 
     // पैराग्राफ को टेक्स्ट फ्रेम में जोड़ता है
     txtFrm.Paragraphs.Add(para2);
 
+
     // संशोधित प्रेजेंटेशन को सहेजता है
     pres.Save("Bullet_out.pptx", SaveFormat.Pptx);
+
 }
 ```
 
 ## **चित्र बुलेट्स प्रबंधित करें**
-बुलेट सूची आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती है। चित्र पैराग्राफ पढ़ने और समझने में आसान होते हैं।
+बुलेट लिस्ट्स आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती हैं। चित्र पैराग्राफ पढ़ने और समझने में आसान होते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
-4. autoshape के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) तक पहुंचें।
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएं।
-7. [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) में छवि लोड करें।
-8. बुलेट प्रकार को [Picture](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) सेट करें और छवि सेट करें।
-9. पैराग्राफ `Text` सेट करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. स्लाइड में एक [ऑटोशेप](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) तक पहुंचें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएँ।
+7. [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) में इमेज लोड करें।
+8. बुलेट टाइप को [Picture](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) सेट करें और इमेज निर्धारित करें।
+9. पैराग्राफ का `Text` सेट करें।
 10. बुलेट के लिए पैराग्राफ `Indent` सेट करें।
-11. बुलेट के लिए एक रंग सेट करें।
+11. बुलेट के लिए एक रंग निर्धारित करें।
 12. बुलेट की ऊँचाई सेट करें।
-13. नया पैराग्राफ `TextFrame` पैराग्राफ संग्रह में जोड़ें।
+13. नए पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
 14. दूसरा पैराग्राफ जोड़ें और पिछले चरणों के आधार पर प्रक्रिया दोहराएँ।
-15. संशोधित प्रेजेंटेशन सहेजें।
-
-यह C# कोड दिखाता है कि चित्र बुलेट कैसे जोड़ें और प्रबंधित करें:
+15. संशोधित प्रेजेंटेशन को सेव करें।
 
 ```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
 Presentation presentation = new Presentation();
 
-// पहले स्लाइड तक पहुँचता है
+// पहली स्लाइड तक पहुंचता है
 ISlide slide = presentation.Slides[0];
 
-// बुलेट्स के लिये इमेज का इंस्टेंस बनाता है
+// बुलेट्स के लिए इमेज का इंस्टैंस बनाता है
 IImage image = Images.FromFile("bullets.png");
 IPPImage ippxImage = presentation.Images.AddImage(image);
 image.Dispose();
 
-// ऑटोशेप जोड़ता और पहुँचता है
+// ऑटोशेप जोड़ता है और उसकी पहुंच हासिल करता है
 IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-// ऑटोशेप के टेक्स्टफ़्रेम तक पहुँचता है
+// ऑटोशेप के टेक्स्टफ़्रेम तक पहुंचता है
 ITextFrame textFrame = autoShape.TextFrame;
 
-// डिफ़ॉल्ट पैराग्राफ हटाता है
+// डिफ़ॉल्ट पैराग्राफ को हटाता है
 textFrame.Paragraphs.RemoveAt(0);
 
-// नया पैराग्राफ बनाता है
+// एक नया पैराग्राफ बनाता है
 Paragraph paragraph = new Paragraph();
 paragraph.Text = "Welcome to Aspose.Slides";
 
@@ -261,45 +262,43 @@ paragraph.ParagraphFormat.Bullet.Height = 100;
 // पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ता है
 textFrame.Paragraphs.Add(paragraph);
 
-// प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजता है
+// प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखता है
 presentation.Save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-// प्रेजेंटेशन को PPT फ़ाइल के रूप में सहेजता है
+// प्रेजेंटेशन को PPT फ़ाइल के रूप में लिखता है
 presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 ```
 
-## **बहुस्तरीय बुलेट्स प्रबंधित करें**
-बुलेट सूची आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती है। बहुस्तरीय बुलेट्स पढ़ने और समझने में आसान होते हैं।
+## **बहु‑स्तरीय बुलेट्स प्रबंधित करें**
+बुलेट लिस्ट्स आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती हैं। बहु‑स्तरीय बुलेट्स पढ़ने और समझने में आसान होते हैं।
 
-1. [Presentation ](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation)class का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. नई स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
-4. autoshape के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) तक पहुंचें।
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ बनाएं और गहराई 0 सेट करें।
-7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ बनाएं और गहराई 1 सेट करें।
-8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ बनाएं और गहराई 2 सेट करें।
-9. `Paragraph` क्लास के माध्यम से चौथा पैराग्राफ बनाएं और गहराई 3 सेट करें।
+1. [Presentation ](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. नए स्लाइड में एक [ऑटोशेप](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) तक पहुंचें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाएँ और डेप्थ को 0 सेट करें।
+7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ इंस्टेंस बनाएँ और डेप्थ को 1 सेट करें।
+8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ इंस्टेंस बनाएँ और डेप्थ को 2 सेट करें।
+9. `Paragraph` क्लास के माध्यम से चौथा पैराग्राफ इंस्टेंस बनाएँ और डेप्थ को 3 सेट करें।
 10. नए पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
-11. संशोधित प्रेजेंटेशन सहेजें।
-
-यह C# कोड दिखाता है कि बहुस्तरीय बुलेट्स कैसे जोड़ें और प्रबंधित करें:
+11. संशोधित प्रेजेंटेशन को सेव करें।
 
 ```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
 using (Presentation pres = new Presentation())
 {
 
-    // पहले स्लाइड तक पहुँचता है
+    // पहली स्लाइड तक पहुंचता है
     ISlide slide = pres.Slides[0];
     
-    // ऑटोशेप जोड़ता और पहुँचता है
+    // ऑटोशेप जोड़ता है और उसकी पहुंच हासिल करता है
     IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // बनाए गए ऑटोशेप के टेक्स्ट फ़्रेम तक पहुँचता है
+    // बनाए गए ऑटोशेप के टेक्स्ट फ्रेम तक पहुंचता है
     ITextFrame text = aShp.AddTextFrame("");
     
-    // डिफ़ॉल्ट पैराग्राफ को साफ़ करता है
+    // डिफ़ॉल्ट पैराग्राफ को हटाता है
     text.Paragraphs.Clear();
 
     // पहला पैराग्राफ जोड़ता है
@@ -342,42 +341,40 @@ using (Presentation pres = new Presentation())
     // बुलेट स्तर सेट करता है
     para4.ParagraphFormat.Depth = 3;
 
-    // पैराग्राफ को संग्रह में जोड़ता है
+    // पैराग्राफ को कलेक्शन में जोड़ता है
     text.Paragraphs.Add(para1);
     text.Paragraphs.Add(para2);
     text.Paragraphs.Add(para3);
     text.Paragraphs.Add(para4);
 
-    // प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजता है
+    // प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखता है
     pres.Save("MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
-## **कस्टम नंबर्ड लिस्ट के साथ पैराग्राफ प्रबंधित करें**
-[IBulletFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/) इंटरफ़ेस [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstartwith) गुण और अन्य प्रदान करता है जो आपको कस्टम नंबरिंग या फ़ॉर्मैटिंग के साथ पैराग्राफ प्रबंधित करने की अनुमति देता है। 
+## **कस्टम क्रमांकित सूची के साथ पैराग्राफ प्रबंधित करें**
+[IBulletFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/) इंटरफ़ेस [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstartwith) प्रॉपर्टी और अन्य प्रदान करता है जो आपको कस्टम नंबरिंग या फ़ॉर्मेटिंग के साथ पैराग्राफ प्रबंधित करने की अनुमति देता है।
 
-1. [Presentation ](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation)class का एक उदाहरण बनाएं।
-2. पैराग्राफ वाली स्लाइड तक पहुंचें।
-3. स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
-4. autoshape के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) तक पहुंचें।
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ बनाएं और [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstartwith) को 2 सेट करें।
-7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ बनाएं और `NumberedBulletStartWith` को 3 सेट करें।
-8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ बनाएं और `NumberedBulletStartWith` को 7 सेट करें।
+1. [Presentation ](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएँ।
+2. उस स्लाइड तक पहुंचें जिसमें पैराग्राफ है।
+3. स्लाइड में एक [ऑटोशेप](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) जोड़ें।
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) तक पहुंचें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाएँ और [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstartwith) को 2 सेट करें।
+7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ इंस्टेंस बनाएँ और `NumberedBulletStartWith` को 3 सेट करें।
+8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ इंस्टेंस बनाएँ और `NumberedBulletStartWith` को 7 सेट करें।
 9. नए पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
-10. संशोधित प्रेजेंटेशन सहेजें।
-
-यह C# कोड दिखाता है कि कस्टम नंबरिंग या फ़ॉर्मैटिंग के साथ पैराग्राफ कैसे जोड़ें और प्रबंधित करें:
+10. संशोधित प्रेजेंटेशन को सेव करें।
 
 ```c#
 using (var presentation = new Presentation())
 {
 	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-	// बनाए गए ऑटोशेप के टेक्स्ट फ्रेम तक पहुँचता है
+	// बनाए गए ऑटोशेप के टेक्स्ट फ्रेम तक पहुंचता है
 	ITextFrame textFrame = shape.TextFrame;
 
-	// डिफ़ॉल्ट मौजूद पैराग्राफ को हटाता है
+	// डिफ़ॉल्ट मौजूदा पैराग्राफ को हटाता है
 	textFrame.Paragraphs.RemoveAt(0);
 
 	// पहली सूची
@@ -404,23 +401,21 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **पैराग्राफ के लिए प्रथम‑पंक्ति इंडेंट सेट करें**
+## **पैराग्राफ के पहले लाइन के इंडेंट को सेट करें**
 
-[IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) गुण का उपयोग करके पैराग्राफ की प्रथम‑पंक्ति इंडेंट को नियंत्रित करें। यह गुण केवल पैराग्राफ की बाएं मार्जिन की तुलना में पहली पंक्ति को ही ले जाता है। सकारात्मक मान पहली पंक्ति को दाईं ओर शिफ्ट करता है, जबकि बाकी पंक्तियां पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
+पहली लाइन के इंडेंट को नियंत्रित करने के लिए आप [IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) प्रॉपर्टी का उपयोग कर सकते हैं। यह प्रॉपर्टी केवल पैराग्राफ की बाएँ मार्जिन के सापेक्ष पहली लाइन को ही स्थानांतरित करती है। सकारात्मक मान पहली लाइन को दाएँ शिफ्ट करता है, जबकि बाकी लाइनों का लेआउट अपरिवर्तित रहता है।
 
-पूरे पैराग्राफ को ले जाने के लिए [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/marginleft/) का उपयोग करें। केवल पहली पंक्ति को ले जाने के लिए [IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) का उपयोग करें।
+यदि आपको पूरे पैराग्राफ को स्थानांतरित करना है तो [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/marginleft/) का उपयोग करें। केवल पहली लाइन को स्थानांतरित करने के लिए [IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) उपयोग करें।
 
-निम्न उदाहरण कई पैराग्राफ बनाता है और विभिन्न `Indent` मान लागू करता है ताकि दिखाया जा सके कि प्रथम‑पंक्ति इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
+नीचे दिया गया उदाहरण कई पैराग्राफ बनाता है और विभिन्न `Indent` मान लागू करता है ताकि दिखाया जा सके कि पहली लाइन का इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
 2. लक्ष्य स्लाइड तक पहुंचें।
 3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।
-4. रूप में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
+4. शेप में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
 5. कई पैराग्राफ बनाएं और उनके लिए विभिन्न [Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) मान सेट करें।
 6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-7. संशोधित प्रेज़ेंटेशन सहेजें।
-
-यह कोड दिखाता है कि पैराग्राफ इंडेंट कैसे सेट करें:
+7. संशोधित प्रेजेंटेशन को सेव करें।
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -469,24 +464,22 @@ using (Presentation presentation = new Presentation())
 
 ![The first-line indent of the paragraphs](first_line_indent.png)
 
-## **पैराग्राफ के लिए हैंगिंग इंडेंट सेट करें**
+## **पैराग्राफ के हैंगिंग इंडेंट को सेट करें**
 
-हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति बाकी पंक्तियों से बाएँ शुरू होती है। Aspose.Slides में आप इस प्रभाव को [IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) गुण से बनाते हैं। `Indent` को नकारात्मक मान सेट करने से पहली पंक्ति पैराग्राफ बॉडी की तुलना में बाएँ खिसकती है।
+हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली लाइन बाकी लाइनों से बाईं ओर शुरू होती है। Aspose.Slides में आप इसे [IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) प्रॉपर्टी से बनाते हैं। पहली लाइन को पैराग्राफ बॉडी के सापेक्ष बाएँ शिफ्ट करने के लिए `Indent` को नकारात्मक मान पर सेट करें।
 
-व्यावहारिक रूप से, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/marginleft/) पैराग्राफ बॉडी की बायीं स्थिति तय करता है, और [IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) पहली पंक्ति की उस मार्जिन के सापेक्ष स्थिति तय करता है। हैंगिंग इंडेंट बनाने के लिए, `MarginLeft` को सकारात्मक मान और `Indent` को नकारात्मक मान सेट करें।
+व्यावहारिक रूप से, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/marginleft/) पैराग्राफ बॉडी की बाएँ स्थिति निर्धारित करता है, और [IParagraphFormat.Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) पहली लाइन की उस मार्जिन से स्थिति निर्धारित करता है। हैंगिंग इंडेंट बनाने के लिए, सकारात्मक `MarginLeft` मान और नकारात्मक `Indent` मान सेट करें।
 
-यह फ़ॉर्मैटिंग ग्रंथसूची, संदर्भ, शब्दकोश प्रविष्टियों और अन्य पैराग्राफ़ के लिए उपयोगी है जहाँ रैप्ड पंक्तियों को पैराग्राफ बॉडी के तहत संरेखित होना चाहिए, न कि पहली पंक्ति के पहले अक्षर के नीचे।
+यह फ़ॉर्मेटिंग बायब्लियोग्राफी, रेफ़रेंसेस, शब्दकोश प्रविष्टियों आदि के लिए उपयोगी है जहाँ रैप की गई लाइनों को पैराग्राफ बॉडी के अंतर्गत संरेखित होना चाहिए, न कि पहली लाइन के पहले अक्षर के नीचे।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
 2. लक्ष्य स्लाइड तक पहुंचें।
 3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।
-4. रूप में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. प्रत्येक पैराग्राफ के लिए एक सकारात्मक [MarginLeft](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/marginleft/) मान सेट करें।
-6. हैंगिंग इंडेंट प्रभाव बनाने के लिए एक नकारात्मक [Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) मान सेट करें।
+4. शेप में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+5. प्रत्येक पैराग्राफ के लिए सकारात्मक [MarginLeft](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/marginleft/) मान सेट करें।
+6. हैंगिंग इंडेंट प्रभाव बनाने के लिए नकारात्मक [Indent](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/indent/) मान सेट करें।
 7. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-8. संशोधित प्रेज़ेंटेशन सहेजें।
-
-यह कोड दिखाता है कि पैराग्राफ के लिए हैंगिंग इंडेंट कैसे सेट करें:
+8. संशोधित प्रेजेंटेशन को सेव करें।
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -527,17 +520,15 @@ using (Presentation presentation = new Presentation())
 
 ![The hanging indent of the paragraphs](hanging_indent.png)
 
-## **End पैराग्राफ रन गुण प्रबंधित करें**
+## **एंड पैराग्राफ रन प्रॉपर्टीज प्रबंधित करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-1. पैराग्राफ वाले स्लाइड का उसकी स्थिति के माध्यम से संदर्भ प्राप्त करें।
-1. स्लाइड में एक आयताकार [autoshape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।
-1. Rectangle में दो पैराग्राफ वाले एक [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) जोड़ें।
-1. पैराग्राफ के लिए `FontHeight` और फ़ॉन्ट प्रकार सेट करें।
-1. पैराग्राफ के End गुण सेट करें।
-1. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में लिखें।
-
-यह C# कोड दिखाता है कि PowerPoint में पैराग्राफ के End गुण कैसे सेट करें:
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएँ।
+1. स्लाइड के पोजीशन के माध्यम से उस स्लाइड का रेफ़रेंस प्राप्त करें जिसमें पैराग्राफ है।
+1. स्लाइड में एक आयताकार [ऑटोशेप](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।
+1. आयताकार में दो पैराग्राफ वाला एक [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) जोड़ें।
+1. पैराग्राफ के `FontHeight` और फ़ॉन्ट प्रकार सेट करें।
+1. पैराग्राफ के End प्रॉपर्टीज़ सेट करें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
 
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
@@ -561,26 +552,24 @@ using (Presentation pres = new Presentation("Test.pptx"))
 }
 ```
 
-## **HTML टेक्स्ट को पैराग्राफ में आयात करें**
-Aspose.Slides पैराग्राफ में HTML टेक्स्ट आयात करने के लिए उन्नत समर्थन प्रदान करता है।
+## **पैराग्राफ में HTML टेक्स्ट आयात करें**
+Aspose.Slides HTML टेक्स्ट को पैराग्राफ में आयात करने के लिए उन्नत समर्थन प्रदान करता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।
-4. `autoshape` [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) जोड़ें और उसका संदर्भ प्राप्त करें।
-5. `ITextFrame` में डिफ़ॉल्ट पैराग्राफ हटाएँ।
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएँ।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. स्लाइड में एक [ऑटोशेप](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।
+4. `ऑटोशेप` का [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) प्राप्त करके उससे जुड़ें।
+5. `ITextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
 6. एक TextReader में स्रोत HTML फ़ाइल पढ़ें।
-7. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ बनाएं।
-8. पढ़े गए TextReader की सामग्री को TextFrame के [ParagraphCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraphcollection/) में जोड़ें।
-9. संशोधित प्रेज़ेंटेशन सहेजें।
-
-यह C# कोड HTML टेक्स्ट को पैराग्राफ में आयात करने के चरणों का कार्यान्वयन है:
+7. [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाएँ।
+8. पढ़े गए TextReader की सामग्री को TextFrame की [ParagraphCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraphcollection/) में जोड़ें।
+9. संशोधित प्रेजेंटेशन को सेव करें।
 
 ```c#
-// खाली प्रेजेंटेशन इंस्टेंस बनाता है
+// खाली प्रस्तुति इंस्टैंस बनाता है
 using (Presentation pres = new Presentation())
 {
-    // प्रेजेंटेशन की डिफ़ॉल्ट पहली स्लाइड तक पहुँचता है
+    // प्रस्तुति की डिफ़ॉल्ट पहली स्लाइड तक पहुंचता है
     ISlide slide = pres.Slides[0];
 
     // HTML सामग्री रखने के लिए ऑटोशेप जोड़ता है
@@ -588,19 +577,19 @@ using (Presentation pres = new Presentation())
 
     ashape.FillFormat.FillType = FillType.NoFill;
 
-    // शेप में टेक्स्ट फ़्रेम जोड़ता है
+    // शेप में टेक्स्ट फ्रेम जोड़ता है
     ashape.AddTextFrame("");
 
-    // जोड़े गए टेक्स्ट फ़्रेम में सभी पैराग्राफ साफ़ करता है
+    // जोड़े गए टेक्स्ट फ्रेम में सभी पैराग्राफ साफ़ करता है
     ashape.TextFrame.Paragraphs.Clear();
 
     // स्ट्रीम रीडर का उपयोग करके HTML फ़ाइल लोड करता है
     TextReader tr = new StreamReader("file.html");
 
-    // HTML स्ट्रीम रीडर से टेक्स्ट को टेक्स्ट फ़्रेम में जोड़ता है
+    // HTML स्ट्रीम रीडर से टेक्स्ट को टेक्स्ट फ्रेम में जोड़ता है
     ashape.TextFrame.Paragraphs.AddFromHtml(tr.ReadToEnd());
 
-    // प्रेजेंटेशन सहेजता है
+    // प्रेजेंटेशन को सेव करता है
     pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
@@ -608,75 +597,73 @@ using (Presentation pres = new Presentation())
 ## **पैराग्राफ टेक्स्ट को HTML में निर्यात करें**
 Aspose.Slides पैराग्राफ में मौजूद टेक्स्ट को HTML में निर्यात करने के लिए उन्नत समर्थन प्रदान करता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं और इच्छित प्रेज़ेंटेशन लोड करें।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. HTML में निर्यात किए जाने वाले टेक्स्ट वाले शेप तक पहुंचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाकर इच्छित प्रेजेंटेशन लोड करें।
+2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. वह शेप प्राप्त करें जिसमें वह टेक्स्ट है जिसे HTML में निर्यात किया जाएगा।
 4. शेप के [TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/) तक पहुंचें।
-5. `StreamWriter` का एक उदाहरण बनाएं और नई HTML फ़ाइल जोड़ें।
-6. `StreamWriter` के लिए प्रारंभिक इंडेक्स प्रदान करें और अपनी पसंदीदा पैराग्राफ निर्यात करें।
-
-यह C# कोड दिखाता है कि PowerPoint पैराग्राफ टेक्स्ट को HTML में कैसे निर्यात करें:
+5. एक `StreamWriter` का उदाहरण बनाकर नई HTML फ़ाइल जोड़ें।
+6. StreamWriter को प्रारंभिक इंडेक्स प्रदान करें और अपनी इच्छित पैराग्राफ निर्यात करें।
 
 ```c#
 // प्रेजेंटेशन फ़ाइल लोड करता है
 using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 {
 
-    // प्रेजेंटेशन की डिफ़ॉल्ट पहली स्लाइड तक पहुँचता है
+    // प्रेजेंटेशन की डिफ़ॉल्ट पहली स्लाइड तक पहुंचता है
     ISlide slide = pres.Slides[0];
 
-    // आवश्यक सूचकांक तक पहुँचता है
+    // आवश्यक इंडेक्स तक पहुंचता है
     int index = 0;
 
-    // जोड़े गए शेप तक पहुँचता है
+    // जोड़ी गई शेप तक पहुंचता है
     IAutoShape ashape = (IAutoShape)slide.Shapes[index];
 
     StreamWriter sw = new StreamWriter("output_out.html", false, Encoding.UTF8);
 
-    // पैराग्राफ डेटा को HTML में लिखता है, पैराग्राफ शुरू होने वाले सूचकांक और कॉपी किए जाने वाले पैराग्राफों की संख्या निर्दिष्ट करके
+    // पैराग्राफ डेटा को HTML में लिखता है, पैराग्राफ शुरुआती इंडेक्स और कॉपी किए जाने वाले पैराग्राफ की संख्या निर्दिष्ट करके
     sw.Write(ashape.TextFrame.Paragraphs.ExportToHtml(0, ashape.TextFrame.Paragraphs.Count, null));
 
     sw.Close();
 }
 ```
 
-## **पैराग्राफ को छवि के रूप में सहेजें**
+## **पैराग्राफ को चित्र के रूप में सहेजें**
 
-इस अनुभाग में हम दो उदाहरणों का अध्ययन करेंगे जो दिखाते हैं कि कैसे [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) इंटरफ़ेस द्वारा प्रतिनिधित्व किए गए टेक्स्ट पैराग्राफ को छवि के रूप में सहेजा जा सकता है। दोनों उदाहरणों में [IShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/) इंटरफ़ेस के GetImage मेथड का उपयोग करके पैराग्राफ वाले शेप की छवि प्राप्त करना, शेप में पैराग्राफ की सीमाएँ गणना करना, और उसे बिटमैप छवि के रूप में निर्यात करना शामिल है। ये तरीके आपको PowerPoint प्रेज़ेंटेशन से टेक्स्ट के विशिष्ट भाग निकालने और उन्हें अलग-अलग छवियों के रूप में सहेजने की अनुमति देते हैं, जो विभिन्न परिदृश्यों में उपयोगी हो सकते हैं।
+इस अनुभाग में हम दो उदाहरणों के माध्यम से दिखाएंगे कि कैसे [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) इंटरफ़ेस द्वारा प्रतिनिधित्व किए गए टेक्स्ट पैराग्राफ को एक चित्र के रूप में सहेजा जा सकता है। दोनों उदाहरणों में पैराग्राफ वाले शेप की इमेज `GetImage` मेथड्स से प्राप्त की जाती है, शेप के भीतर पैराग्राफ की सीमा की गणना की जाती है, और उसे बिटमैप इमेज के रूप में एक्सपोर्ट किया जाता है। ये विधियाँ आपको पॉवरपॉइंट प्रेजेंटेशनों से टेक्स्ट के विशिष्ट भाग निकालने और उन्हें अलग-अलग इमेज के रूप में सहेजने की सुविधा देती हैं, जो विभिन्न परिदृश्यों में उपयोगी हो सकती हैं।
 
-मान लीजिए हमारे पास sample.pptx नाम की एक प्रेज़ेंटेशन फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहला शेप एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ हैं।
+मान लीजिए हमारे पास sample.pptx नामक एक प्रेजेंटेशन फ़ाइल है जिसमें एक स्लाइड है, और पहली शेप एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ हैं।
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
 **उदाहरण 1**
 
-इस उदाहरण में हम दूसरे पैराग्राफ को छवि के रूप में प्राप्त करते हैं। इसके लिए हम प्रेज़ेंटेशन की पहली स्लाइड से शेप की छवि निकालते हैं और फिर शेप के टेक्स्ट फ्रेम में दूसरे पैराग्राफ की सीमाएँ गणना करते हैं। पैराग्राफ को नए बिटमैप इमेज पर फिर से ड्रॉ किया जाता है और PNG फ़ॉर्मेट में सहेजा जाता है। यह विधि विशेष रूप से तब उपयोगी होती है जब आपको विशिष्ट पैराग्राफ को अलग छवि के रूप में सहेजना हो जबकि टेक्स्ट की सटीक आयाम और फ़ॉर्मैटिंग बनाए रखना हो।
+इस उदाहरण में हम दूसरे पैराग्राफ को इमेज के रूप में प्राप्त करते हैं। इसके लिये हम प्रेजेंटेशन की पहली स्लाइड से शेप की इमेज निकालते हैं और फिर शेप के टेक्स्ट फ्रेम में दूसरे पैराग्राफ की सीमा की गणना करते हैं। पैराग्राफ को फिर एक नई बिटमैप इमेज पर फिर से ड्रॉ किया जाता है और PNG फ़ॉर्मेट में सहेजा जाता है। यह विधि विशेष रूप से तब उपयोगी होती है जब आपको विशिष्ट पैराग्राफ को अलग इमेज के रूप में सहेजना हो जबकि टेक्स्ट का सटीक आयाम और फ़ॉर्मेटिंग बरकरार रहे।
 
 ```csharp
 using var presentation = new Presentation("sample.pptx");
 var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
 
-// आकृति को मेमोरी में बिटमैप के रूप में सहेजता है।
+// Save the shape in memory as a bitmap.
 using var shapeImage = firstShape.GetImage();
 using var shapeImageStream = new MemoryStream();
 shapeImage.Save(shapeImageStream, ImageFormat.Png);
 
-// मेमोरी से एक आकार बिटमैप बनाता है।
+// Create a shape bitmap from memory.
 shapeImageStream.Seek(0, SeekOrigin.Begin);
 using var shapeBitmap = Image.FromStream(shapeImageStream);
 
-// दूसरे पैराग्राफ की सीमाएँ गणना करता है।
+// Calculate the boundaries of the second paragraph.
 var secondParagraph = firstShape.TextFrame.Paragraphs[1];
 var paragraphRectangle = secondParagraph.GetRect();
 
-// आउटपुट छवि के आकार की गणना करता है (न्यूनतम आकार - 1x1 पिक्सेल)।
+// Calculate the size for the output image (minimum size - 1x1 pixel).
 var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
 var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
 
-// पैराग्राफ के लिए बिटमैप तैयार करता है।
+// Prepare a bitmap for the paragraph.
 using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
 
-// आकार बिटमैप से पैराग्राफ बिटमैप पर पैराग्राफ को पुनः चित्रित करता है।
+// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
 using var imageGraphics = Graphics.FromImage(paragraphBitmap);
 var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
 imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
@@ -690,7 +677,7 @@ paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
 
 **उदाहरण 2**
 
-इस उदाहरण में हम पूर्ववर्ती विधि को पैराग्राफ छवि में स्केलिंग फैक्टर जोड़कर विस्तारित करते हैं। शेप को प्रेज़ेंटेशन से निकालकर `2` स्केल फ़ैक्टर के साथ छवि के रूप में सहेजा जाता है। इससे निर्यातित पैराग्राफ की रेज़ॉल्यूशन बढ़ती है। पैराग्राफ की सीमाएँ स्केल को ध्यान में रखकर गणना की जाती हैं। उच्च‑रिज़ॉल्यूशन छवि की आवश्यकता होने पर, जैसे हाई‑क्वालिटी प्रिंट सामग्री में उपयोग, यह विशेष रूप से उपयोगी है।
+इस उदाहरण में हम पिछले तरीके को स्केलिंग फ़ैक्टर जोड़कर विस्तारित करते हैं। शेप को प्रेजेंटेशन से निकालकर `2` के स्केलिंग फ़ैक्टर के साथ इमेज के रूप में सहेजा जाता है। इससे पैराग्राफ को एक्सपोर्ट करते समय उच्च रेज़ॉल्यूशन प्राप्त होता है। फिर स्केल को ध्यान में रखते हुए पैराग्राफ की सीमा की गणना की जाती है। स्केलिंग तब उपयोगी होती है जब उच्च गुणवत्ता वाली प्रिंटिंग सामग्री के लिए अधिक विस्तृत इमेज की आवश्यकता होती है।
 
 ```csharp
 var imageScaleX = 2f;
@@ -699,16 +686,16 @@ var imageScaleY = imageScaleX;
 using var presentation = new Presentation("sample.pptx");
 var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
 
-// स्केलिंग के साथ आकृति को मेमोरी में बिटमैप के रूप में सहेजता है।
+// स्केलिंग के साथ शेप को मेमोरी में एक बिटमैप के रूप में सहेजें।
 using var shapeImage = firstShape.GetImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
 using var shapeImageStream = new MemoryStream();
 shapeImage.Save(shapeImageStream, ImageFormat.Png);
 
-// मेमोरी से एक आकृति बिटमैप बनाता है।
+// मेमोरी से शेप बिटमैप बनाएं।
 shapeImageStream.Seek(0, SeekOrigin.Begin);
 using var shapeBitmap = Image.FromStream(shapeImageStream);
 
-// दूसरे पैराग्राफ की सीमाएँ गणना करता है।
+// दूसरे पैराग्राफ की सीमाएं गणना करें।
 var secondParagraph = firstShape.TextFrame.Paragraphs[1];
 var paragraphRectangle = secondParagraph.GetRect();
 paragraphRectangle.X *= imageScaleX;
@@ -716,14 +703,14 @@ paragraphRectangle.Y *= imageScaleY;
 paragraphRectangle.Width *= imageScaleX;
 paragraphRectangle.Height *= imageScaleY;
 
-// आउटपुट छवि के आकार की गणना करता है (न्यूनतम आकार - 1x1 पिक्सेल)।
+// आउटपुट इमेज का आकार गणना करें (न्यूनतम आकार - 1x1 पिक्सेल)।
 var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
 var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
 
-// पैराग्राफ के लिए बिटमैप तैयार करता है।
+// पैराग्राफ के लिए बिटमैप तैयार करें।
 using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
 
-// आकृति बिटमैप से पैराग्राफ बिटमैप पर पैराग्राफ को पुनः चित्रित करता है।
+// शेप बिटमैप से पैराग्राफ बिटमैप पर पैराग्राफ को पुनः ड्रॉ करें।
 using var imageGraphics = Graphics.FromImage(paragraphBitmap);
 var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
 imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
@@ -731,20 +718,20 @@ imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, Graph
 paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं टेक्स्ट फ़्रेम के भीतर लाइन रैपिंग को पूरी तरह निष्क्रिय कर सकता हूँ?**
+**क्या मैं टेक्स्ट फ्रेम के अंदर लाइन रैपिंग को पूरी तरह निष्क्रिय कर सकता हूँ?**
 
-हाँ। टेक्स्ट फ़्रेम की रैपिंग सेटिंग ([WrapText](https://reference.aspose.com/slides/hi/net/aspose.slides/textframeformat/wraptext/)) का उपयोग करके रैपिंग बंद कर सकते हैं ताकि लाइनें फ्रेम के किनारों पर नहीं टूटें।
+हाँ। टेक्स्ट फ्रेम की रैपिंग सेटिंग ([WrapText](https://reference.aspose.com/slides/hi/net/aspose.slides/textframeformat/wraptext/)) का उपयोग करके रैपिंग को बंद कर सकते हैं जिससे लाइनों को फ्रेम की किनारों पर टूटना नहीं होगा।
 
-**मैं विशिष्ट पैराग्राफ की स्लाइड पर सटीक सीमाएँ कैसे प्राप्त कर सकूँ?**
+**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक सीमा कैसे प्राप्त कर सकता हूँ?**
 
-आप पैराग्राफ (और यहाँ तक कि एकल पोर्शन) का बाउंडिंग रेक्टैंगल प्राप्त करके उसकी सटीक स्थिति और आकार स्लाइड पर जान सकते हैं।
+आप पैराग्राफ (और यहाँ तक कि एकल पोर्शन) की बाउंडिंग रेक्टेंगल प्राप्त कर सकते हैं जिससे उसकी सटीक स्थिति और आकार स्लाइड पर पता चल सके।
 
-**पैराग्राफ संरेखण (बाएँ/दाएँ/केन्द्र/जस्टिफ़ाई) कहाँ नियंत्रित किया जाता है?**
+**पैराग्राफ एलाइनमेंट (बाएं/दाएं/केंद्र/जस्टिफ़ाई) कहाँ नियंत्रित होती है?**
 
-[Alignment](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraphformat/alignment/) ParagraphFormat में पैराग्राफ‑स्तर की सेटिंग है; यह पूरे पैराग्राफ पर लागू होती है चाहे व्यक्तिगत पोर्शन की फ़ॉर्मैटिंग कुछ भी हो।
+[Alignment](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraphformat/alignment/) पैराग्राफ स्तर की सेटिंग है जो [ParagraphFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraphformat/) में होती है; यह पूरे पैराग्राफ पर लागू होती है चाहे व्यक्तिगत पोर्शन का फ़ॉर्मेट कुछ भी हो।
 
-**क्या मैं केवल पैराग्राफ के भाग (जैसे एक शब्द) के लिए स्पेल‑चेक भाषा सेट कर सकता हूँ?**
+**क्या मैं पैराग्राफ के केवल एक भाग (जैसे एक शब्द) के लिए स्पेल‑चेक भाषा सेट कर सकता हूँ?**
 
-हाँ। भाषा पोर्शन स्तर पर सेट की जाती है ([PortionFormat.LanguageId](https://reference.aspose.com/slides/hi/net/aspose.slides/baseportionformat/languageid/)), इसलिए एक ही पैराग्राफ में कई भाषाएँ सह-अस्तित्व रख सकती हैं।
+हां। भाषा पोर्शन स्तर पर सेट होती है ([PortionFormat.LanguageId](https://reference.aspose.com/slides/hi/net/aspose.slides/baseportionformat/languageid/)), इसलिए एक ही पैराग्राफ में कई भाषाएँ coexist कर सकती हैं।

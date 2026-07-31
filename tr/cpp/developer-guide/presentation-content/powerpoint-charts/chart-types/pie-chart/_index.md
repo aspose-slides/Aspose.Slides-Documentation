@@ -1,12 +1,12 @@
 ---
-title: C++ kullanarak Sunumlarda Pasta Grafiklerini Özelleştirme
+title: C++ Kullanarak Sunumlarda Pasta Grafiklerini Özelleştirme
 linktitle: Pasta Grafik
 type: docs
 url: /tr/cpp/pie-chart/
 keywords:
 - pasta grafik
-- grafiği yönet
-- grafiği özelleştir
+- grafik yönetimi
+- grafik özelleştirme
 - grafik seçenekleri
 - grafik ayarları
 - çizim seçenekleri
@@ -15,41 +15,41 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides ile C++'ta pasta grafiklerini oluşturmayı ve özelleştirmeyi öğrenin, PowerPoint'e aktarılabilir, verilerinizi saniyeler içinde anlatmanızı sağlar."
+description: "Aspose.Slides ile C++'ta pasta grafikler oluşturmayı ve özelleştirmeyi öğrenin, PowerPoint'e aktarılabilir, veri hikâye anlatımınızı saniyeler içinde artırır."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'ta pasta grafikleriyle nasıl çalışılacağını açıklar. Pie of Pie ve Bar of Pie grafikleri için ikincil çizim seçeneklerinin nasıl yapılandırılacağını ve standart bir pasta grafiği için otomatik dilim renklendirmesinin nasıl etkinleştirileceğini gösterir.
+Bu makale, Aspose.Slides'te pasta grafiklerle nasıl çalışılacağını açıklar. Pie of Pie ve Bar of Pie grafikleri için ikincil çizim seçeneklerini nasıl yapılandıracağınızı ve standart bir pasta grafik için otomatik dilim renklemeyi nasıl etkinleştireceğinizi gösterir.
 
-Örnekler, bir slayta grafik ekleme, seri ve etiket ayarlarını düzenleme, varsayılan grafik verilerini özel kategoriler ve değerlerle değiştirme ve güncellenmiş sunumu kaydetme gibi pratik grafik özelleştirme adımlarına odaklanır.
+Örnekler, slayta bir grafik ekleme, seri ve etiket ayarlarını ayarlama, varsayılan grafik verilerini özel kategoriler ve değerlerle değiştirme ve güncellenen sunumu kaydetme gibi pratik grafik özelleştirme adımlarına odaklanır.
 
-## **Pasta içinde Pasta ve Bar of Pie Grafikleri için İkinci Çizim Seçenekleri**
+## **Pie of Pie ve Bar of Pie Grafikleri için İkinci Çizim Seçenekleri**
 
-Aspose.Slides for C++ artık Pie of Pie veya Bar of Pie grafiği için ikinci çizim seçeneklerini destekliyor. Bu konuda, Aspose.Slides kullanarak bu seçeneklerin nasıl belirtileceğini bir örnekle göreceğiz. Özellikleri belirtmek için lütfen aşağıdaki adımları izleyin:
+Aspose.Slides for C++ artık Pie of Pie veya Bar of Pie grafikleri için ikinci çizim seçeneklerini destekliyor. Bu konuda, Aspose.Slides kullanarak bu seçenekleri nasıl belirteceğimizi bir örnekle göreceğiz. Özellikleri belirtmek için lütfen aşağıdaki adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıf nesnesini örnekleyin.
-1. Slayta bir grafik ekleyin.
-1. Grafiğin ikinci çizim seçeneklerini belirtin.
-1. Sunumu diske yazın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıf nesnesi oluşturun.  
+2. Slayta bir grafik ekleyin.  
+3. Grafiğin ikinci çizim seçeneklerini belirleyin.  
+4. Sunumu diske yazın.  
 
-Aşağıda verilen örnekte, Pie of Pie grafiğinin çeşitli özelliklerini ayarladık.
+Aşağıda verilen örnekte, Pie of Pie grafiğinin farklı özelliklerini ayarladık.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SecondPlotOptionsforCharts-SecondPlotOptionsforCharts.cpp" >}}
 
-## **Otomatik Pasta Grafiği Dilim Renklerini Ayarlama**
+## **Otomatik Pasta Grafik Dilim Renklerini Ayarlama**
 
-Aspose.Slides for C++ otomatik pasta grafik dilim renklerini ayarlamak için basit bir API sağlar. Örnek kod, yukarıda belirtilen özelliklerin ayarlanmasını uygular.
+Aspose.Slides for C++ otomatik pasta grafik dilim renklerini ayarlamak için basit bir API sunar. Örnek kod, yukarıda sözü geçen özelliklerin ayarlanmasını uygular.
 
-1. Presentation sınıfının bir örneğini oluşturun.
-1. İlk slayta erişin.
-1. Varsayılan verilerle bir grafik ekleyin.
-1. Grafik başlığını ayarlayın.
-1. İlk seriyi Değerleri Göster olarak ayarlayın.
-1. Grafik veri sayfasının indeksini ayarlayın.
-1. Grafik veri çalışma sayfasını alın.
-1. Varsayılan oluşturulan serileri ve kategorileri silin.
-1. Yeni kategoriler ekleyin.
-1. Yeni bir seri ekleyin.
+1. Presentation sınıfının bir örneğini oluşturun.  
+2. İlk slayta erişin.  
+3. Varsayılan verilerle bir grafik ekleyin.  
+4. Grafik başlığını ayarlayın.  
+5. İlk seriyi Değerleri Göster olarak ayarlayın.  
+6. Grafik veri sayfasının dizinini ayarlayın.  
+7. Grafik veri çalışma sayfasını alın.  
+8. Varsayılan oluşturulan serileri ve kategorileri silin.  
+9. Yeni kategoriler ekleyin.  
+10. Yeni seriler ekleyin.  
 
 Değiştirilmiş sunumu bir PPTX dosyasına yazın.
 
@@ -59,8 +59,8 @@ Değiştirilmiş sunumu bir PPTX dosyasına yazın.
 
 **'Pie of Pie' ve 'Bar of Pie' varyasyonları destekleniyor mu?**
 
-Evet, kütüphane pasta grafikler için ikincil bir çizimi, 'Pie of Pie' ve 'Bar of Pie' türleri dahil olmak üzere destekler.
+Evet, kütüphane [destekliyor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/charttype/) pasta grafikler için ikincil bir çizimi, 'Pie of Pie' ve 'Bar of Pie' tipleri dahil.
 
 **Sadece grafiği bir görüntü olarak (örneğin PNG) dışa aktarabilir miyim?**
 
-Evet, tüm sunumu dışarı almadan sadece grafiği bir görüntü (örneğin PNG) olarak dışa aktarabilirsiniz.
+Evet, [grafiği doğrudan bir görüntü olarak dışa aktarabilirsiniz](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shape/getimage/) (örneğin PNG), tüm sunumu dışarı almadan.

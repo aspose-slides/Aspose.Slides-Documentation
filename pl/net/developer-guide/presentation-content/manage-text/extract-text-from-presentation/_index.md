@@ -4,6 +4,9 @@ linktitle: Wyodrębnij tekst
 type: docs
 weight: 90
 url: /pl/net/extract-text-from-presentation/
+aliases:
+  - /net/slides-on-cloud-platforms/extracting-text/overview/
+  - /net/slides-on-cloud-platforms/extracting-text/slides/pl/
 keywords:
 - wyodrębnić tekst
 - wyodrębnić tekst ze slajdu
@@ -27,17 +30,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Szybko wyodrębnij tekst z prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Postępuj zgodnie z naszym prostym, krok po kroku przewodnikiem, aby zaoszczędzić czas."
+description: "Szybko wyodrębniaj tekst z prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides for .NET. Postępuj zgodnie z naszym prostym przewodnikiem krok po kroku, aby zaoszczędzić czas."
 ---
 ## **Przegląd**
 
-Wyodrębnianie tekstu z prezentacji to powszechne, a jednocześnie istotne zadanie dla programistów pracujących z treścią slajdów. Niezależnie od tego, czy masz do czynienia z plikami Microsoft PowerPoint w formacie PPT lub PPTX, czy z prezentacjami OpenDocument (ODP), dostęp i pobieranie danych tekstowych może być kluczowe dla analiz, automatyzacji, indeksowania lub migracji treści.
+Wyodrębnianie tekstu z prezentacji jest powszechnym, a jednocześnie niezbędnym zadaniem dla programistów pracujących z zawartością slajdów. Niezależnie od tego, czy masz do czynienia z plikami Microsoft PowerPoint w formacie PPT lub PPTX, czy z prezentacjami OpenDocument (ODP), dostęp i pobieranie danych tekstowych może być kluczowe dla analizy, automatyzacji, indeksowania lub migracji zawartości.
 
-Ten artykuł zawiera kompleksowy przewodnik, jak efektywnie wyodrębniać tekst z różnych formatów prezentacji, w tym PPT, PPTX i ODP, przy użyciu Aspose.Slides dla .NET. Dowiesz się, jak systematycznie iterować po elementach prezentacji, aby dokładnie pobrać potrzebną treść tekstową.
+Ten artykuł zawiera kompleksowy przewodnik, jak efektywnie wyodrębniać tekst z różnych formatów prezentacji, w tym PPT, PPTX i ODP, przy użyciu Aspose.Slides for .NET. Dowiesz się, jak systematycznie iterować po elementach prezentacji, aby dokładnie pobrać potrzebną zawartość tekstową.
 
 ## **Wyodrębnianie tekstu ze slajdu**
 
-Aspose.Slides dla .NET udostępnia przestrzeń nazw [Aspose.Slides.Util](https://reference.aspose.com/slides/pl/net/aspose.slides.util/), która zawiera klasę [SlideUtil](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/). Klasa ta udostępnia kilka przeciążonych metod statycznych do wyodrębniania całego tekstu z prezentacji lub slajdu. Aby wyodrębnić tekst ze slajdu w prezentacji, użyj metody [GetAllTextBoxes](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/getalltextboxes/). Metoda ta przyjmuje jako parametr obiekt typu [IBaseSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseslide/). Po wykonaniu metoda przeszukuje cały slajd pod kątem tekstu i zwraca tablicę obiektów typu [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/), zachowując formatowanie tekstu.
+Aspose.Slides for .NET udostępnia przestrzeń nazw [Aspose.Slides.Util](https://reference.aspose.com/slides/pl/net/aspose.slides.util/), która zawiera klasę [SlideUtil](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/). Klasa ta udostępnia kilka przeciążonych metod statycznych służących do wyodrębniania całego tekstu z prezentacji lub slajdu. Aby wyodrębnić tekst ze slajdu w prezentacji, użyj metody [GetAllTextBoxes](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/getalltextboxes/). Metoda ta przyjmuje jako parametr obiekt typu [IBaseSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseslide/). Po jej wykonaniu metoda przeszukuje cały slajd w poszukiwaniu tekstu i zwraca tablicę obiektów typu [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/), zachowując formatowanie tekstu.
 
 Poniższy fragment kodu wyodrębnia cały tekst z pierwszego slajdu prezentacji:
 
@@ -76,12 +79,12 @@ foreach (var textFrame in textFrames)
 
 ## **Wyodrębnianie tekstu z prezentacji**
 
-Do skanowania tekstu z całej prezentacji użyj statycznej metody [GetAllTextFrames](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/getalltextframes/) udostępnianej przez klasę [SlideUtil](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/). Przyjmuje ona dwa parametry:
+Aby przeszukać tekst w całej prezentacji, użyj statycznej metody [GetAllTextFrames](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/getalltextframes/) udostępnionej przez klasę [SlideUtil](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/). Przyjmuje ona dwa parametry:
 
-1. Po pierwsze, obiekt [IPresentation](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/) reprezentujący prezentację PowerPoint lub OpenDocument, z której zostanie wyodrębniony tekst.
-1. Po drugie, wartość typu `Boolean` określająca, czy slajdy główne (master) mają być uwzględnione podczas skanowania tekstu z prezentacji.
+1. Po pierwsze, obiekt [IPresentation](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/), reprezentujący prezentację PowerPoint lub OpenDocument, z której zostanie wyodrębniony tekst.  
+1. Po drugie, wartość typu `Boolean` określająca, czy przy skanowaniu tekstu z prezentacji należy uwzględnić slajdy główne (master).
 
-Metoda zwraca tablicę obiektów typu [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/), zawierającą informacje o formatowaniu tekstu. Poniższy kod skanuje tekst i szczegóły formatowania z prezentacji, w tym slajdy główne.
+Metoda zwraca tablicę obiektów typu [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/), wraz z informacjami o formatowaniu tekstu. Poniższy kod skanuje tekst i szczegóły formatowania w prezentacji, włączając slajdy główne.
 
 ```cs
 using var presentation = new Presentation("demo.pptx");
@@ -123,19 +126,19 @@ IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode, ILoadOptions options);
 ```
 
-Argument wyliczenia [TextExtractionArrangingMode](https://reference.aspose.com/slides/pl/net/aspose.slides/textextractionarrangingmode/) określa tryb organizacji wyniku wyodrębniania tekstu i może przyjmować następujące wartości:
-- `Unarranged` – surowy tekst bez uwzględnienia jego położenia na slajdzie.
-- `Arranged` – tekst uporządkowany w takiej samej kolejności, jak na slajdzie.
+Argument wyliczeniowy [TextExtractionArrangingMode](https://reference.aspose.com/slides/pl/net/aspose.slides/textextractionarrangingmode/) określa tryb organizacji wyniku wyodrębniania tekstu i może przyjmować następujące wartości:
+- `Unarranged` – Surowy tekst bez uwzględnienia jego pozycji na slajdzie.  
+- `Arranged` – Tekst jest ułożony w takiej samej kolejności jak na slajdzie.
 
-Tryb `Unarranged` można używać, gdy kluczowa jest szybkość; jest szybszy niż tryb `Arranged`.
+Tryb nieuporządkowany można używać, gdy kluczowa jest prędkość; jest szybszy niż tryb uporządkowany.
 
-[IPresentationText](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentationtext/) reprezentuje surowy tekst wyodrębniony z prezentacji. Jego właściwość `SlidesText` zwraca tablicę obiektów typu [ISlideText](https://reference.aspose.com/slides/pl/net/aspose.slides/islidetext/). Każdy obiekt reprezentuje tekst na odpowiadającym mu slajdzie. Obiekt typu [ISlideText](https://reference.aspose.com/slides/pl/net/aspose.slides/islidetext/) posiada następujące właściwości:
+[IPresentationText](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentationtext/) reprezentuje surowy tekst wyodrębniony z prezentacji. Jego właściwość `SlidesText` zwraca tablicę obiektów typu [ISlideText](https://reference.aspose.com/slides/pl/net/aspose.slides/islidetext/). Każdy obiekt reprezentuje tekst na odpowiednim slajdzie. Obiekt typu [ISlideText](https://reference.aspose.com/slides/pl/net/aspose.slides/islidetext/) posiada następujące właściwości:
 
-- `Text` – tekst wewnątrz kształtów slajdu.
-- `MasterText` – tekst wewnątrz kształtów slajdu głównego powiązanego z tym slajdem.
-- `LayoutText` – tekst wewnątrz kształtów slajdu układu powiązanego z tym slajdem.
-- `NotesText` – tekst wewnątrz kształtów slajdu notatek powiązanego z tym slajdem.
-- `CommentsText` – tekst w komentarzach powiązanych z tym slajdem.
+- `Text` – Tekst wewnątrz kształtów slajdu.  
+- `MasterText` – Tekst wewnątrz kształtów slajdu głównego (master) powiązanego z tym slajdem.  
+- `LayoutText` – Tekst wewnątrz kształtów slajdu układu (layout) powiązanego z tym slajdem.  
+- `NotesText` – Tekst wewnątrz kształtów notatek powiązanych z tym slajdem.  
+- `CommentsText` – Tekst w komentarzach powiązanych z tym slajdem.
 
 ```cs
 var presentationPath = "presentation.ppt";
@@ -154,12 +157,12 @@ Console.WriteLine(firstSlideText.CommentsText);
 
 **Jak szybko Aspose.Slides przetwarza duże prezentacje podczas wyodrębniania tekstu?**
 
-Aspose.Slides jest zoptymalizowany pod kątem wysokiej wydajności i może przetwarzać nawet [duże prezentacje](/slides/pl/net/open-presentation/), co czyni go odpowiednim do scenariuszy przetwarzania w czasie rzeczywistym lub hurtowego.
+Aspose.Slides jest zoptymalizowane pod kątem wysokiej wydajności i potrafi przetwarzać nawet [duże prezentacje](/slides/pl/net/open-presentation/), co czyni je odpowiednim do scenariuszy przetwarzania w czasie rzeczywistym lub wsadowego.
 
 **Czy Aspose.Slides może wyodrębniać tekst z tabel i wykresów w prezentacjach?**
 
-Tak. Aspose.Slides może wyodrębniać tekst z wielu elementów slajdu, w tym z tabel i obiektów związanych z wykresami, dzięki czemu możesz uzyskać dostęp do treści tekstowych i analizować je w typowych strukturach prezentacji.
+Tak. Aspose.Slides może wyodrębniać tekst z wielu elementów slajdu, w tym z tabel i obiektów powiązanych z wykresami, dzięki czemu możesz uzyskać dostęp i analizować treść tekstową w typowych strukturach prezentacji.
 
-**Czy potrzebuję specjalnej licencji Aspose.Slides, aby wyodrębniać tekst z prezentacji?**
+**Czy potrzebna jest specjalna licencja Aspose.Slides do wyodrębniania tekstu z prezentacji?**
 
-Możesz wyodrębniać tekst przy użyciu bezpłatnej wersji próbnej Aspose.Slides, choć będzie ona miała [pewne ograniczenia](/slides/pl/net/licensing/), takie jak przetwarzanie jedynie ograniczonej liczby slajdów. Dla nieograniczonego użytku i obsługi większych prezentacji zaleca się zakup pełnej licencji.
+Możesz wyodrębniać tekst przy użyciu bezpłatnej wersji próbnej Aspose.Slides, choć będzie ona miała [pewne ograniczenia](/slides/pl/net/licensing/), takie jak przetwarzanie tylko ograniczonej liczby slajdów. Dla nieograniczonego użytku i obsługi większych prezentacji zaleca się zakup pełnej licencji.

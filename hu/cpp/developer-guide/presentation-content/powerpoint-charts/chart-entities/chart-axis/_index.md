@@ -1,46 +1,46 @@
 ---
-title: "Diagram tengelyek testreszabása prezentációkban C++ használatával"
-linktitle: "Diagramtengely"
+title: Diagram tengelyek testreszabása prezentációkban C++ használatával
+linktitle: Diagram tengely
 type: docs
 url: /hu/cpp/chart-axis/
 keywords:
-- diagramtengely
+- diagram tengely
 - függőleges tengely
 - vízszintes tengely
 - tengely testreszabása
 - tengely manipulálása
 - tengely kezelése
-- tengely tulajdonságai
+- tengely tulajdonságok
 - maximális érték
 - minimális érték
 - tengely vonal
-- dátumformátum
-- tengelycím
-- tengely helyzete
+- dátum formátum
+- tengely cím
+- tengely pozíció
 - PowerPoint
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan használhatja az Aspose.Slides for C++-t a diagramtengelyek testreszabásához PowerPoint prezentációkban jelentésekhez és vizualizációkhoz."
+description: "Fedezze fel, hogyan használhatja az Aspose.Slides for C++-t a diagram tengelyek testreszabásához PowerPoint prezentációkban jelentések és vizualizációk számára."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet személyre szabni a diagramtengelyeket az Aspose.Slides-ban. Megmutatja, hogyan lehet lekérni a tényleges tengelyértékeket, hogyan lehet adatot cserélni a tengelyek között, hogyan lehet elrejteni a függőleges vagy vízszintes tengelyt vonaldiagramoknál, hogyan lehet módosítani a kategória tengely típusát, hogyan lehet beállítani a dátumformátumot a kategória tengely értékeihez, hogyan lehet forgatni a tengelycímkét, hogyan lehet beállítani a tengely helyzetét, és hogyan lehet egységcímkét megjeleníteni az érték tengelyen.
+Ez a cikk bemutatja, hogyan lehet testreszabni a diagram tengelyeit az Aspose.Slides-ban. Megmutatja, hogyan lehet lekérdezni a tényleges tengelyértékeket, adatokat cserélni a tengelyek között, elrejteni a függőleges vagy vízszintes tengelyt vonaldiagramoknál, megváltoztatni a kategória tengely típusát, beállítani a dátumformátumot a kategória tengely értékekhez, elforgatni egy tengelycímkét, megadni a tengely pozícióját, és megjeleníteni egy egységcímkét az értéktengelyen.
 
 ## **A függőleges tengely maximális értékeinek lekérése**
-Az Aspose.Slides for C++ lehetővé teszi a függőleges tengely minimális és maximális értékeinek lekérését. Kövesse az alábbi lépéseket:
+Az Aspose.Slides for C++ lehetővé teszi a minimális és maximális értékek lekérését egy függőleges tengelyen. Kövesse az alábbi lépéseket:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-2. Hozzáférjen az első diára.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal.
-4. Szerezze meg a tényleges maximális értéket a tengelyen.
-5. Szerezze meg a tényleges minimális értéket a tengelyen.
-6. Szerezze meg a tényleges fő egységet a tengelyen.
-7. Szerezze meg a tényleges alsegységet a tengelyen.
-8. Szerezze meg a tényleges fő egység skáláját a tengelyen.
-9. Szerezze meg a tényleges alsegység skáláját a tengelyen.
+1. Nyissa meg az első diát.
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal.
+1. Szerezze meg a tényleges maximális értéket a tengelyen.
+1. Szerezze meg a tényleges minimális értéket a tengelyen.
+1. Szerezze meg a tényleges főegységet a tengelyen.
+1. Szerezze meg a tényleges alsegységet a tengelyen.
+1. Szerezze meg a tényleges főegység skálát a tengelyen.
+1. Szerezze meg a tényleges alsegység skálát a tengelyen.
 
-Ez a minta kód – a fenti lépések megvalósítása – megmutatja, hogyan lehet a szükséges értékeket C++-ban lekérni:
+Ez a mintakód – amely a fenti lépéseket valósítja meg – megmutatja, hogyan lehet lekérni a szükséges értékeket C++-ban:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -61,17 +61,17 @@ pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Adatok cseréje a tengelyek között**
-Az Aspose.Slides lehetővé teszi az adatok gyors cseréjét a tengelyek között – a függőleges tengelyen (y-tengely) megjelenő adatok átkerülnek a vízszintes tengelyre (x-tengely) és fordítva.
+Az Aspose.Slides lehetővé teszi az adatok gyors cseréjét a tengelyek között – a függőleges tengelyen (y-tengely) lévő adat áthelyeződik a vízszintes tengelyre (x-tengely), és vissza.
 
-Ez a C++ kód bemutatja, hogyan hajtható végre az adatcsere a diagram tengelyei között:
+Ez a C++ kód megmutatja, hogyan hajtható végre az adatcsere feladat a diagram tengelyei között:
 
 ``` cpp
-// Létrehozza az üres prezentációt
+// Üres prezentációt hoz létre
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
 
-// Sorok és oszlopok felcserélése
+// Sorokat és oszlopokat cserél
 chart->get_ChartData()->SwitchRowColumn();
 
 // Elmenti a prezentációt
@@ -79,8 +79,7 @@ pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **A függőleges tengely letiltása vonaldiagramoknál**
-
-Ez a C++ kód megmutatja, hogyan lehet elrejteni a függőleges tengelyt egy vonaldiagramnál:
+Ez a C++ kód megmutatja, hogyan lehet elrejteni a függőleges tengelyt egy vonaldiagramon:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -92,8 +91,7 @@ pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
 ## **A vízszintes tengely letiltása vonaldiagramoknál**
-
-Ez a kód megmutatja, hogyan lehet elrejteni a vízszintes tengelyt egy vonaldiagramnál:
+Ez a kód megmutatja, hogyan lehet elrejteni a vízszintes tengelyt egy vonaldiagramon:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -105,8 +103,7 @@ pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
 ## **Kategória tengely módosítása**
-
-A **set_CategoryAxisType()** metódussal megadhatja a kívánt kategória tengely típusát (**date** vagy **text**). Ez a C++ kód demonstrálja a műveletet:
+A **set_CategoryAxisType()** metódus segítségével megadhatja a kívánt kategória tengely típusát (**date** vagy **text**). Ez a C++ kód demonstrálja a műveletet:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -121,7 +118,7 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Dátumformátum beállítása a kategória tengely értékeihez**
+## **A kategória tengely értékek dátumformátumának beállítása**
 Az Aspose.Slides for C++ lehetővé teszi a dátumformátum beállítását egy kategória tengely értékéhez. A műveletet ez a C++ kód mutatja be:
 
 ``` cpp
@@ -155,8 +152,8 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Tengelycím forgatási szögének beállítása**
-Az Aspose.Slides for C++ lehetővé teszi a diagramtengely címének forgatási szögének beállítását. Ez a C++ kód demonstrálja a műveletet:
+## **A tengelycím elforgatási szögének beállítása**
+Az Aspose.Slides for C++ lehetővé teszi a diagram tengelycím elforgatási szögének beállítását. Ez a C++ kód demonstrálja a műveletet:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -169,8 +166,8 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Tengely pozíció beállítása kategória vagy érték tengelyen**
-Az Aspose.Slides for C++ lehetővé teszi a tengely pozíciójának beállítását egy kategória vagy érték tengelyen. Ez a C++ kód megmutatja, hogyan hajtható végre a feladat:
+## **A tengely pozíciójának beállítása kategória vagy értéktengelyen**
+Az Aspose.Slides for C++ lehetővé teszi a tengelypozíció beállítását egy kategória vagy értéktengelyen. Ez a C++ kód bemutatja, hogyan hajtható végre a feladat:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -181,8 +178,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Egységcímke megjelenítésének engedélyezése diagram érték tengelyen**
-Az Aspose.Slides for C++ lehetővé teszi egy diagram konfigurálását úgy, hogy egységcímkét jelenítsen meg a diagram érték tengelyén. Ez a C++ kód demonstrálja a műveletet:
+## **Az egységcímke megjelenítésének engedélyezése a diagram értéktengelyen**
+Az Aspose.Slides for C++ lehetővé teszi, hogy a diagram értéktengelyén egységcímkét jelenítsen meg. Ez a C++ kód demonstrálja a műveletet:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -195,10 +192,10 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 ## **GYIK**
 
-**Hogyan állíthatom be azt az értéket, ahol az egyik tengely metszi a másikat (tengelymetszet)?**
+**Hogyan állíthatom be azt az értéket, ahol egy tengely keresztezi a másikat (tengelykereszteződés)?**
 
-A tengelyek rendelkeznek egy [crossing setting](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/axis/set_crosstype/): választhat, hogy a nullánál, a legnagyobb kategóriánál/értéknél vagy egy konkrét numerikus értéknél metszi. Ez hasznos az X-tengely feljebb vagy lejjebb helyezéséhez, illetve egy alapvonal hangsúlyozásához.
+A tengelyek [kereszteződés beállítást](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/axis/set_crosstype/) kínálnak: választhat, hogy a nullánál, a maximális kategóriánál/értéknél vagy egy konkrét numerikus értéknél keressek át. Ez hasznos az X-tengely fel vagy le mozgatásához, illetve egy referenciavonal hangsúlyozásához.
 
-**Hogyan helyezhetem el a jelölőcímkéket a tengelyhez képest (közeli, külső, belső)?**
+**Hogyan pozícionálhatom a jelölőcímkéket a tengelyhez viszonyítva (oldal mellett, kívül, belül)?**
 
-Állítsa be a [label position](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/axis/set_majortickmark/) értékét "cross", "outside" vagy "inside" értékre. Ez befolyásolja az olvashatóságot és segít helyet megtakarítani, különösen kis diagramok esetén.
+Állítsa a [címke pozíciót](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/axis/set_majortickmark/) "cross", "outside" vagy "inside" értékre. Ez befolyásolja az olvashatóságot és segít helyet takarítani, különösen kis diagramok esetén.

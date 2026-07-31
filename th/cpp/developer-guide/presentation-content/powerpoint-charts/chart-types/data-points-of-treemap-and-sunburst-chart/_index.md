@@ -1,5 +1,5 @@
 ---
-title: ปรับแต่งจุดข้อมูลในแผนภูมิ Treemap และ Sunburst ด้วย С++
+title: ปรับแต่งจุดข้อมูลในแผนภูมิ Treemap และ Sunburst ด้วย C++
 linktitle: จุดข้อมูลในแผนภูมิ Treemap และ Sunburst
 type: docs
 url: /th/cpp/data-points-of-treemap-and-sunburst-chart/
@@ -10,20 +10,20 @@ keywords:
 - สีป้าย
 - สีสาขา
 - PowerPoint
-- การนำเสนอ
-- С++
+- งานนำเสนอ
+- C++
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการจุดข้อมูลในแผนภูมิ treemap และ sunburst ด้วย Aspose.Slides สำหรับ С++ ที่รองรับรูปแบบของ PowerPoint."
+description: "เรียนรู้วิธีจัดการจุดข้อมูลในแผนภูมิ treemap และ sunburst ด้วย Aspose.Slides สำหรับ C++ ที่เข้ากันได้กับรูปแบบของ PowerPoint."
 ---
 ## **บทนำ**
 
-นอกเหนือจากประเภทอื่นของแผนภูมิ PowerPoint มีสองประเภท “แบบลำดับชั้น” คือแผนภูมิ **Treemap** และ **Sunburst** (ที่รู้จักกันในชื่อ Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph หรือ Multi Level Pie Chart) แผนภูมิเหล่านี้แสดงข้อมูลเชิงลำดับชั้นที่จัดระเบียบเป็นต้นไม้ – จากใบต่อถึงยอดของกิ่ง ใบถูกกำหนดโดยจุดข้อมูลของซีรีส์ และแต่ละระดับการจัดกลุ่มซ้อนไปต่อโดยกำหนดโดยหมวดหมู่ที่สอดคล้อง Aspose.Slides for C++ ช่วยให้สามารถจัดรูปแบบจุดข้อมูลของแผนภูมิ Sunburst และ Treemap ใน C++ ได้
+นอกจากชนิดอื่น ๆ ของแผนภูมิ PowerPoint แล้ว มีชนิด “แบบลำดับชั้น” สองประเภท คือแผนภูมิ **Treemap** และ **Sunburst** (ที่รู้จักในชื่อ Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph หรือ Multi Level Pie Chart) แผนภูมิเหล่านี้แสดงข้อมูลแบบลำดับชั้นที่จัดเรียงเป็นต้นไม้—from ใบไม้จนถึงยอดกิ่ง Leaves ถูกกำหนดโดยจุดข้อมูลของซีรีส์, และแต่ละระดับการจัดกลุ่มที่ซ้อนกันต่อมาถูกกำหนดโดยหมวดหมู่ที่สอดคล้องกัน Aspose.Slides for C++ ให้คุณจัดรูปแบบจุดข้อมูลของแผนภูมิ Sunburst และ Treemap ใน C++.
 
-นี่คือแผนภูมิ Sunburst ที่ข้อมูลในคอลัมน์ Series1 กำหนดโหนดใบ ในขณะที่คอลัมน์อื่นกำหนดจุดข้อมูลเชิงลำดับชั้น:
+ต่อไปนี้เป็นแผนภูมิ Sunburst ซึ่งข้อมูลในคอลัมน์ Series1 กำหนดโหนดใบไม้, ส่วนคอลัมน์อื่น ๆ กำหนดจุดข้อมูลแบบลำดับชั้น:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-เริ่มต้นด้วยการเพิ่มแผนภูมิ Sunburst ใหม่ลงในงานพรีเซนเทชั่น:
+ตอนนี้เริ่มเพิ่มแผนภูมิ Sunburst ใหม่ลงในงานนำเสนอ:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -31,7 +31,7 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 // ...
 ```
 
-{{% alert color="primary" title="ดูเพิ่มเติม" %}} 
+{{% alert color="primary" title="See also" %}} 
 - [**สร้างแผนภูมิ Sunburst**](/slides/th/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
@@ -52,6 +52,7 @@ dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_Data
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+
 ## **ตั้งค่าป้ายและสีของจุดข้อมูล**
 ตั้งค่าป้ายข้อมูลของ "Branch 1" ให้แสดงชื่อซีรีส์ ("Series1") แทนชื่อหมวดหมู่ จากนั้นตั้งค่าสีข้อความเป็นสีเหลือง:
 
@@ -65,6 +66,7 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+
 ## **ตั้งค่าสีสาขาของจุดข้อมูล**
 เปลี่ยนสีของสาขา "Stem 4":
 
@@ -84,18 +86,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถเปลี่ยนลำดับ (การจัดเรียง) ของเซกเมนต์ใน Sunburst/Treemap ได้หรือไม่?**
+**ฉันสามารถเปลี่ยนลำดับ (การเรียงลำดับ) ของส่วนต่าง ๆ ใน Sunburst/Treemap ได้หรือไม่?**  
+ไม่. PowerPoint จะเรียงส่วนต่าง ๆ อัตโนมัติ (โดยทั่วไปตามค่าลดลงและตามเข็มนาฬิกา) Aspose.Slides ทำตามพฤติกรรมนี้เช่นกัน: คุณไม่สามารถเปลี่ยนลำดับโดยตรงได้; คุณต้องทำการจัดเรียงข้อมูลล่วงหน้า.
 
-ไม่ PowerPoint จะจัดเรียงเซกเมนต์โดยอัตโนมัติ (โดยทั่วไปตามค่าลดลงตามเข็มนาฬิกา) Aspose.Slides ทำตามพฤติกรรมนี้: คุณไม่สามารถเปลี่ยนลำดับได้โดยตรง; คุณต้องทำโดยการประมวลผลข้อมูลล่วงหน้า
+**ธีมของงานนำเสนอมีผลต่อสีของส่วนและป้ายอย่างไร?**  
+สีของแผนภูมิจะสืบทอดจาก [ธีม/พาเลต](/slides/th/cpp/presentation-theme/) ของงานนำเสนอ เว้นแต่คุณจะตั้งค่าเติมสี/ฟอนต์อย่างชัดเจน. เพื่อผลลัพธ์ที่สม่ำเสมอ ให้ล็อกการเติมสีแบบทึบและการฟอร์แมตข้อความในระดับที่ต้องการ.
 
-**ธีมของงานพรีเซนเทชั่นมีผลต่อสีของเซกเมนต์และป้ายอย่างไร?**
+**การส่งออกเป็น PDF/PNG จะคงสีสาขาที่กำหนดเองและการตั้งค่าป้ายหรือไม่?**  
+ใช่. เมื่อส่งออกงานนำเสนอ การตั้งค่าแผนภูมิ (การเติมสี, ป้าย) จะถูกคงไว้ในรูปแบบผลลัพธ์ เนื่องจาก Aspose.Slides เรนเดอร์ด้วยการจัดรูปแบบของแผนภูมิที่กำหนดไว้.
 
-สีของแผนภูมิจะสืบทอดจาก [theme/palette](/slides/th/cpp/presentation-theme/) ของงานพรีเซนเทชั่น เว้นแต่คุณจะกำหนดการเติมสี/ฟอนต์อย่างเจาะจง เพื่อผลลัพธ์ที่สม่ำเสมอ ควรล็อกการเติมสีแบบทึบและการจัดรูปแบบข้อความในระดับที่ต้องการ
-
-**การส่งออกเป็น PDF/PNG จะรักษาสีสาขาที่กำหนดเองและการตั้งค่าป้ายไว้หรือไม่?**
-
-ใช่ เมื่อส่งออกงานพรีเซนเทชั่น การตั้งค่าแผนภูมิ (การเติมสี, ป้าย) จะถูกเก็บไว้ในรูปแบบผลลัพธ์ เนื่องจาก Aspose.Slides จะเรนเดอร์ด้วยการจัดรูปแบบของแผนภูมิที่ได้กำหนดไว้
-
-**ฉันสามารถคำนวณพิกัดจริงของป้าย/อิลิเมนต์สำหรับการวาง overlay แบบกำหนดเองบนแผนภูมิได้หรือไม่?**
-
-ใช่ หลังจากที่การจัดวางแผนภูมิได้รับการตรวจสอบแล้ว ค่า X และ Y จริงจะพร้อมใช้งานสำหรับอิลิเมนต์ (เช่น [DataLabel](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/datalabel/)) ซึ่งช่วยให้วาง overlay อย่างแม่นยำ
+**ฉันสามารถคำนวณพิกัดจริงของป้าย/องค์ประกอบเพื่อวางซ้อนทับแบบกำหนดเองบนแผนภูมิได้หรือไม่?**  
+ใช่. หลังจากการจัดวางแผนภูมิได้รับการตรวจสอบแล้ว ค่าพิกัด X และ Y จริงจะพร้อมใช้งานสำหรับองค์ประกอบ (เช่น [DataLabel](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/datalabel/), ซึ่งช่วยให้วางซ้อนทับได้อย่างแม่นยำ).

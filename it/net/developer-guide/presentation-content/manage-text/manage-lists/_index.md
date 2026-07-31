@@ -1,20 +1,22 @@
 ---
-title: Gestire elenchi puntati e numerati nelle presentazioni in .NET
-linktitle: Gestire gli elenchi
+title: Gestisci elenchi puntati e numerati nelle presentazioni in .NET
+linktitle: Gestisci elenchi
 type: docs
 weight: 70
 url: /it/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- pallottola
+- punto
 - elenco puntato
 - elenco numerato
-- pallottola simbolo
-- pallottola immagine
-- pallottola personalizzata
+- punto simbolico
+- punto immagine
+- punto personalizzato
 - elenco a più livelli
-- creare pallottola
-- aggiungere pallottola
-- aggiungere elenco
+- crea punto
+- aggiungi punto
+- aggiungi elenco
 - PowerPoint
 - OpenDocument
 - presentazione
@@ -25,21 +27,21 @@ description: "Scopri come creare e formattare elenchi puntati, con immagini, a p
 ---
 ## **Panoramica**
 
-Aspose.Slides per .NET consente di creare e formattare elenchi puntati e numerati nelle presentazioni PowerPoint e OpenDocument. Un elemento dell'elenco è un paragrafo le cui impostazioni di pallottola sono controllate tramite il formato del paragrafo.
+Aspose.Slides for .NET ti consente di creare e formattare elenchi puntati e numerati nelle presentazioni PowerPoint e OpenDocument. Un elemento di elenco è un paragrafo le cui impostazioni del punto elenco sono controllate tramite il formato del paragrafo.
 
-Utilizza la proprietà [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraph/paragraphformat/) per accedere alle impostazioni di elenco a livello di paragrafo. Il punto di ingresso principale è [IParagraphFormat.Bullet](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/bullet/), che restituisce un oggetto [IBulletFormat](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/). Con questo oggetto è possibile impostare il tipo di pallottola, il simbolo, l’immagine, il colore, la dimensione, lo stile di numerazione e il numero iniziale.
+Utilizza la proprietà [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraph/paragraphformat/) per accedere alle impostazioni dell'elenco a livello di paragrafo. Il punto di ingresso principale è [IParagraphFormat.Bullet](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/bullet/), che restituisce un oggetto [IBulletFormat](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/). Con questo oggetto è possibile impostare il tipo di punto, il simbolo, l'immagine, il colore, la dimensione, lo stile di numerazione e il numero di partenza.
 
 Questo articolo mostra come:
 
 - creare un elenco puntato con un simbolo personalizzato
-- creare una pallottola immagine
-- creare un elenco multilevel impostando la profondità del paragrafo
+- creare un punto elenco immagine
+- creare un elenco a più livelli impostando la profondità del paragrafo
 - creare un elenco numerato
-- esaminare e modificare la formattazione dell'elenco in una presentazione esistente
+- ispezionare e modificare la formattazione dell'elenco in una presentazione esistente
 
-## **Creare un elenco puntato**
+## **Crea un elenco puntato**
 
-Per creare un elenco puntato, aggiungi oggetti [IParagraph](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraph/) a un [ITextFrame](https://reference.aspose.com/slides/it/net/aspose.slides/itextframe/) e imposta [IBulletFormat.Type](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/type/) su [BulletType.Symbol](https://reference.aspose.com/slides/it/net/aspose.slides/bullettype/). Puoi quindi impostare [IBulletFormat.Char](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/color/) e [IBulletFormat.Height](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/height/) per controllare l'aspetto della pallottola.
+Per creare un elenco puntato, aggiungi oggetti [IParagraph](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraph/) a un [ITextFrame](https://reference.aspose.com/slides/it/net/aspose.slides/itextframe/) e imposta [IBulletFormat.Type](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/type/) su [BulletType.Symbol](https://reference.aspose.com/slides/it/net/aspose.slides/bullettype/). Puoi quindi impostare [IBulletFormat.Char](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/color/), e [IBulletFormat.Height](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/height/) per controllare l'aspetto del punto elenco.
 
 Il seguente codice C# dimostra come creare un elenco puntato in una diapositiva:
 
@@ -76,11 +78,11 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![The symbol bullets](symbol_bullets.png)
+![I simboli a pallini](symbol_bullets.png)
 
-## **Creare un elenco numerato**
+## **Crea un elenco numerato**
 
-Usa gli elenchi numerati quando l'ordine degli elementi è importante. Imposta [IBulletFormat.Type](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/type/) su [BulletType.Numbered](https://reference.aspose.com/slides/it/net/aspose.slides/bullettype/). Puoi anche scegliere un formato di numerazione con [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/numberedbulletstyle/) o impostare [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/numberedbulletstartwith/) quando l'elenco deve iniziare da un valore diverso da 1.
+Utilizza gli elenchi numerati quando l'ordine degli elementi è importante. Imposta [IBulletFormat.Type](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/type/) su [BulletType.Numbered](https://reference.aspose.com/slides/it/net/aspose.slides/bullettype/). Puoi anche scegliere un formato di numerazione con [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/numberedbulletstyle/) o impostare [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/numberedbulletstartwith/) quando l'elenco deve iniziare da un valore diverso da 1.
 
 Il seguente codice C# mostra come creare un elenco numerato in una diapositiva:
 
@@ -113,25 +115,25 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![The numbered bullets](numbered_bullets.png)
+![I simboli numerati](numbered_bullets.png)
 
-## **Creare una pallottola immagine**
+## **Crea un punto elenco immagine**
 
-Aspose.Slides consente di sostituire un simbolo di pallottola normale con un'immagine. Le pallottole immagine funzionano al meglio con immagini semplici che rimangono leggibili a piccole dimensioni, ad esempio icone o piccoli file PNG trasparenti.
+Aspose.Slides consente di sostituire un simbolo di punto elenco normale con un'immagine. I punti elenco immagine funzionano meglio con immagini semplici che rimangono leggibili a dimensioni ridotte, come icone o piccoli file PNG trasparenti.
 
 {{% alert color="primary" %}}
-Idealmente, se prevedi di sostituire il simbolo di pallottola normale con un'immagine, è consigliabile scegliere una grafica semplice con sfondo trasparente. Questo tipo di immagini funziona bene come simboli di pallottola personalizzati.
+Idealmente, se prevedi di sostituire il simbolo di punto elenco normale con un'immagine, è consigliabile scegliere una grafica semplice con sfondo trasparente. Tali immagini funzionano bene come simboli personalizzati per i punti elenco.
 
-Tieni presente che l'immagine sarà scalata a dimensioni molto piccole. Per questo motivo, consigliamo vivamente di selezionare un'immagine che rimanga chiara ed efficace dal punto di vista visivo quando viene usata come pallottola in un elenco.
+Tieni presente che l'immagine verrà ridimensionata a una dimensione molto piccola. Per questo motivo, consigliamo vivamente di selezionare un'immagine che rimanga chiara ed efficace visivamente quando viene utilizzata come punto elenco in un elenco.
 {{% /alert %}}
 
-Per creare una pallottola immagine, aggiungi un'immagine a [Presentation.Images](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/images/) e assegna l'oggetto immagine restituito a [IBulletFormat.Picture](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/picture/). Imposta [IBulletFormat.Type](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/type/) su [BulletType.Picture](https://reference.aspose.com/slides/it/net/aspose.slides/bullettype/) prima di assegnare l'immagine.
+Per creare un punto elenco immagine, aggiungi un'immagine a [Presentation.Images](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/images/) e assegna l'oggetto immagine restituito a [IBulletFormat.Picture](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/picture/). Imposta [IBulletFormat.Type](https://reference.aspose.com/slides/it/net/aspose.slides/ibulletformat/type/) su [BulletType.Picture](https://reference.aspose.com/slides/it/net/aspose.slides/bullettype/) prima di assegnare l'immagine.
 
-Supponiamo di avere un file *image.png*:
+Supponiamo di avere un "image.png":
 
-![A picture for the bullets](picture_for_bullets.png)
+![Un'immagine per i punti elenco](picture_for_bullets.png)
 
-Il seguente codice C# mostra come creare pallottole immagine in una diapositiva:
+Il seguente codice C# mostra come creare punti elenco immagine in una diapositiva:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -167,13 +169,13 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![The picture bullets](picture_bullets.png)
+![I punti elenco immagine](picture_bullets.png)
 
-## **Creare un elenco multilevel**
+## **Crea un elenco a più livelli**
 
 Utilizza [IParagraphFormat.Depth](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/depth/) per posizionare gli elementi dell'elenco su livelli diversi. Il livello 0 è il livello superiore, il livello 1 è annidato sotto di esso e così via.
 
-Il seguente codice C# mostra come creare un elenco puntato multilevel:
+Il seguente codice C# mostra come creare un elenco puntato a più livelli:
 
 ```csharp
 using var presentation = new Presentation();
@@ -209,13 +211,13 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![The multilevel list](multilevel_list.png)
+![L'elenco a più livelli](multilevel_list.png)
 
-## **Modificare un elenco esistente**
+## **Modifica un elenco esistente**
 
-Per modificare la formattazione di un elenco in una presentazione esistente, accedi al paragrafo di destinazione e aggiorna le sue impostazioni [IParagraphFormat.Bullet](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/bullet/). Le stesse proprietà usate per creare gli elenchi possono essere utilizzate per ispezionare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
+Per modificare la formattazione dell'elenco in una presentazione esistente, accedi al paragrafo di destinazione e aggiorna le sue impostazioni [IParagraphFormat.Bullet](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/bullet/). Le stesse proprietà utilizzate per creare gli elenchi possono essere usate per ispezionare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
 
-Il seguente codice C# modifica il primo paragrafo in un riquadro di testo per utilizzare uno stile di elenco numerato:
+Il seguente codice C# modifica il primo paragrafo in un frame di testo per utilizzare uno stile di elenco numerato:
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -235,14 +237,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**È possibile esportare gli elenchi puntati e numerati in PDF o immagini?**
+**È possibile esportare elenchi puntati e numerati in PDF o immagini?**
 
-Sì. Aspose.Slides preserva la formattazione degli elenchi quando il formato di destinazione supporta la disposizione del testo e le funzionalità di pallottola corrispondenti.
+Sì. Aspose.Slides conserva la formattazione degli elenchi quando il formato di destinazione supporta il layout del testo e le funzionalità dei punti elenco corrispondenti.
 
 **Posso modificare gli elenchi in presentazioni esistenti?**
 
-Sì. Carica la presentazione, accedi al paragrafo di destinazione, ispeziona o aggiorna le sue impostazioni [IParagraphFormat.Bullet](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/bullet/) e salva la presentazione.
+Sì. Carica la presentazione, accedi al paragrafo di destinazione, ispeziona o aggiorna le sue impostazioni [IParagraphFormat.Bullet](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/bullet/), e salva la presentazione.
 
 **Gli elenchi possono contenere testo non latino?**
 
-Sì. Il testo degli elementi dell'elenco può contenere caratteri Unicode, quindi è possibile creare elenchi in presentazioni multilingue. Assicurati che i caratteri usati nella presentazione siano supportati dai font disponibili.
+Sì. Il testo degli elementi dell'elenco può contenere caratteri Unicode, così puoi creare elenchi in presentazioni multilingue. Assicurati che i caratteri utilizzati nella presentazione supportino i caratteri di cui hai bisogno.
