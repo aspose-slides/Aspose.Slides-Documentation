@@ -1,5 +1,5 @@
 ---
-title: Personalizar leyendas de gráficos en presentaciones usando С++
+title: Personalizar leyendas de gráficos en presentaciones usando C++
 linktitle: Leyenda del gráfico
 type: docs
 url: /es/cpp/chart-legend/
@@ -9,9 +9,9 @@ keywords:
 - tamaño de fuente
 - PowerPoint
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Personaliza las leyendas de los gráficos con Aspose.Slides para С++ para optimizar las presentaciones de PowerPoint con un formato de leyenda adaptado."
+description: "Personaliza las leyendas de los gráficos con Aspose.Slides para C++ para optimizar las presentaciones de PowerPoint con un formato de leyenda adaptado."
 ---
 
 ## **Posicionamiento de la leyenda**

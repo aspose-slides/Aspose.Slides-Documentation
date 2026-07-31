@@ -9,7 +9,7 @@ keywords:
 - profundidad
 - PowerPoint
 - presentación
-- С++
+- C++
 - Aspose.Slides
 description: "Aprenda a crear y personalizar gráficos 3D en Aspose.Slides para C++, con compatibilidad para archivos PPT y PPTX—mejore sus presentaciones hoy."
 ---

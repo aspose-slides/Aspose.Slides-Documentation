@@ -1,5 +1,5 @@
 ---
-title: Customize Data Points in Treemap and Sunburst Charts Using С++
+title: Customize Data Points in Treemap and Sunburst Charts Using C++
 linktitle: Data Points in Treemap and Sunburst Charts
 type: docs
 url: /cpp/data-points-of-treemap-and-sunburst-chart/
@@ -11,9 +11,9 @@ keywords:
 - branch color
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn how to manage data points in treemap and sunburst charts with Aspose.Slides for С++, compatible with PowerPoint formats."
+description: "Learn how to manage data points in treemap and sunburst charts with Aspose.Slides for C++, compatible with PowerPoint formats."
 ---
 
 ## **Introduction**

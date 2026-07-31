@@ -1,5 +1,5 @@
 ---
-title: Specify Fallback Fonts for Presentations in С++
+title: Specify Fallback Fonts for Presentations in C++
 linktitle: Fallback Font
 type: docs
 weight: 10
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Master Aspose.Slides for С++ to set fallback fonts in PPT, PPTX and ODP files, safeguarding consistent text display on any device or OS."
+description: "Master Aspose.Slides for C++ to set fallback fonts in PPT, PPTX and ODP files, safeguarding consistent text display on any device or OS."
 ---
 
 ## **Overview**

@@ -1,5 +1,5 @@
 ---
-title: تخصيص خطوط PowerPoint في С++
+title: تخصيص خطوط PowerPoint في C++
 linktitle: خط مخصص
 type: docs
 weight: 20
@@ -14,9 +14,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- С++
+- C++
 - Aspose.Slides
-description: "تخصيص الخطوط في شرائح PowerPoint باستخدام Aspose.Slides للغة С++ للحفاظ على عروضك التقديمية واضحة ومتسقة عبر أي جهاز."
+description: "تخصيص الخطوط في شرائح PowerPoint باستخدام Aspose.Slides للغة C++ للحفاظ على عروضك التقديمية واضحة ومتسقة عبر أي جهاز."
 ---
 
 {{% alert color="primary" %}} 

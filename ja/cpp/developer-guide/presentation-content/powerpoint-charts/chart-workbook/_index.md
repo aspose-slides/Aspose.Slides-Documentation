@@ -15,7 +15,7 @@ keywords:
 - 外部データ
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
 description: "Aspose.Slides for C++ を発見し、PowerPoint および OpenDocument 形式でチャート ワークブックを簡単に管理して、プレゼンテーション データを効率化しましょう。"
 ---

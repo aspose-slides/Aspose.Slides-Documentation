@@ -1,5 +1,5 @@
 ---
-title: تكوين استبدال الخط في العروض التقديمية باستخدام С++
+title: تكوين استبدال الخط في العروض التقديمية باستخدام C++
 linktitle: استبدال الخط
 type: docs
 weight: 70
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- С++
+- C++
 - Aspose.Slides
-description: "تمكين استبدال الخط المثالي في Aspose.Slides للـ С++ عند تحويل عروض PowerPoint و OpenDocument إلى صيغ ملفات أخرى."
+description: "تمكين استبدال الخط المثالي في Aspose.Slides للـ C++ عند تحويل عروض PowerPoint و OpenDocument إلى صيغ ملفات أخرى."
 ---
 
 ## **قواعد استبدال الخطوط**

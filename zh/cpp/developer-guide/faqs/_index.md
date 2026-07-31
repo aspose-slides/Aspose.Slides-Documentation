@@ -14,8 +14,8 @@ keywords:
 - 段落大小
 - 格式化表格
 - 字体
-- С++
-- Aspose.Slides for С++
+- C++
+- Aspose.Slides for C++
 ---
 
 ## **支持的文件格式**

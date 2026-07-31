@@ -11,7 +11,7 @@ keywords:
 - チャート画像の抽出
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
 description: "Aspose.Slides for C++ を使用してプレゼンテーションのチャートをエクスポートする方法を学び、PPT と PPTX 形式をサポートし、あらゆるワークフローでのレポート作成を効率化します。"
 ---

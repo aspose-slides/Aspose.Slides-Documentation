@@ -1,5 +1,5 @@
 ---
-title: "Personnaliser les tableaux de données de graphiques dans les présentations en utilisant С++"
+title: "Personnaliser les tableaux de données de graphiques dans les présentations en utilisant C++"
 linktitle: "Table de données"
 type: docs
 url: /fr/cpp/chart-data-table/
@@ -9,9 +9,9 @@ keywords:
 - "propriétés de police"
 - "PowerPoint"
 - "présentation"
-- "С++"
+- "C++"
 - "Aspose.Slides"
-description: "Personnalisez les tableaux de données de graphiques en С++ pour PPT et PPTX avec Aspose.Slides afin d'améliorer l'efficacité et l'attrait des présentations."
+description: "Personnalisez les tableaux de données de graphiques en C++ pour PPT et PPTX avec Aspose.Slides afin d'améliorer l'efficacité et l'attrait des présentations."
 ---
 
 ## **Définir les propriétés de police pour le tableau de données d'un graphique**

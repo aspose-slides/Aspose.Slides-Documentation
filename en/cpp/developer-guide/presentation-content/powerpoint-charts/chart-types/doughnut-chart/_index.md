@@ -1,5 +1,5 @@
 ---
-title: Customize Doughnut Charts in Presentations Using С++
+title: Customize Doughnut Charts in Presentations Using C++
 linktitle: Doughnut Chart
 type: docs
 weight: 30
@@ -10,9 +10,9 @@ keywords:
 - hole size
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Discover how to create and customize doughnut charts in Aspose.Slides for С++, supporting PowerPoint formats for dynamic presentations."
+description: "Discover how to create and customize doughnut charts in Aspose.Slides for C++, supporting PowerPoint formats for dynamic presentations."
 ---
 
 ## **Overview**

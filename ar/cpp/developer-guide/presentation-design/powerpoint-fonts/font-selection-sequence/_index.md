@@ -1,5 +1,5 @@
 ---
-title: تسلسل اختيار الخط في Aspose.Slides لـ С++
+title: تسلسل اختيار الخط في Aspose.Slides لـ C++
 linktitle: اختيار الخط
 type: docs
 weight: 80
@@ -14,9 +14,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- С++
+- C++
 - Aspose.Slides
-description: "اكتشف كيف يختار Aspose.Slides لـ С++ الخطوط، مما يضمن عرضًا واضحًا ومتسقًا لملفات PPT و PPTX و ODP — حسّن شرائحك الآن."
+description: "اكتشف كيف يختار Aspose.Slides لـ C++ الخطوط، مما يضمن عرضًا واضحًا ومتسقًا لملفات PPT و PPTX و ODP — حسّن شرائحك الآن."
 ---
 
 ## **اختيار الخط**

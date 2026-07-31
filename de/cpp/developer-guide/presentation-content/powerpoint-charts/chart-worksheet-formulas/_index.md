@@ -22,9 +22,9 @@ keywords:
 - vordefinierte Funktion
 - PowerPoint
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Excel‑artige Formeln in Aspose.Slides für С++‑Diagramm‑Arbeitsblätter anwenden und Berichte in PPT‑ und PPTX‑Dateien automatisieren."
+description: "Excel‑artige Formeln in Aspose.Slides für C++‑Diagramm‑Arbeitsblätter anwenden und Berichte in PPT‑ und PPTX‑Dateien automatisieren."
 ---
 
 ## **Über Diagramm‑Tabellenblatt‑Formeln in Präsentationen**

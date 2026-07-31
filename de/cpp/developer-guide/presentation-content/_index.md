@@ -1,5 +1,5 @@
 ---
-title: Präsentationsinhalte in С++ verwalten
+title: Präsentationsinhalte in C++ verwalten
 linktitle: Präsentationsinhalt
 type: docs
 weight: 30
@@ -21,7 +21,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Erstellen, bearbeiten und extrahieren Sie Präsentationsinhalte mit Aspose.Slides für С++ — erhalten Sie Codebeispiele für Text, Bilder, Formen, Diagramme; PPT, PPTX und ODP."
+description: "Erstellen, bearbeiten und extrahieren Sie Präsentationsinhalte mit Aspose.Slides für C++ — erhalten Sie Codebeispiele für Text, Bilder, Formen, Diagramme; PPT, PPTX und ODP."
 ---

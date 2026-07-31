@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Fallback-Schriftarten für Präsentationen in С++
+title: Verwalten von Fallback-Schriftarten für Präsentationen in C++
 linktitle: Fallback-Schriftart
 type: docs
 weight: 50
@@ -13,9 +13,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Aspose.Slides für С++ Fallback-Schriftarten verwendet, um Text in PowerPoint- und OpenDocument-Präsentationen lesbar zu halten, wenn die ursprünglichen Schriftarten nicht verfügbar sind."
+description: "Erfahren Sie, wie Aspose.Slides für C++ Fallback-Schriftarten verwendet, um Text in PowerPoint- und OpenDocument-Präsentationen lesbar zu halten, wenn die ursprünglichen Schriftarten nicht verfügbar sind."
 ---
 
 ## **Fallback-Font**

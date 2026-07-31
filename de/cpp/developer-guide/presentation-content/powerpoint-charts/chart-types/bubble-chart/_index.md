@@ -1,5 +1,5 @@
 ---
-title: Bubble-Diagramme in Präsentationen mit С++ anpassen
+title: Bubble-Diagramme in Präsentationen mit C++ anpassen
 linktitle: Bubble-Diagramm
 type: docs
 url: /de/cpp/bubble-chart/
@@ -10,9 +10,9 @@ keywords:
 - Größenrepräsentation
 - PowerPoint
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Erstellen und passen Sie leistungsstarke Bubble-Diagramme in PowerPoint mit Aspose.Slides für С++ an, um Ihre Datenvisualisierung einfach zu verbessern."
+description: "Erstellen und passen Sie leistungsstarke Bubble-Diagramme in PowerPoint mit Aspose.Slides für C++ an, um Ihre Datenvisualisierung einfach zu verbessern."
 ---
 
 ## **Skalierung der Bubble-Diagrammgröße**

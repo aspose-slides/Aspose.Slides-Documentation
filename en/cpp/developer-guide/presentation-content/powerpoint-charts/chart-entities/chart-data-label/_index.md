@@ -1,5 +1,5 @@
 ---
-title: Manage Chart Data Labels in Presentations Using С++
+title: Manage Chart Data Labels in Presentations Using C++
 linktitle: Data Label
 type: docs
 url: /cpp/chart-data-label/
@@ -12,9 +12,9 @@ keywords:
 - label location
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for С++ for more engaging slides."
+description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for C++ for more engaging slides."
 ---
 
 ## **Introduction**

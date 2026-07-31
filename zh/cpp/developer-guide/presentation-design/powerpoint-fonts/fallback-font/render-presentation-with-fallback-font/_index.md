@@ -1,5 +1,5 @@
 ---
-title: 在 С++ 中使用回退字体渲染演示文稿
+title: 在 C++ 中使用回退字体渲染演示文稿
 linktitle: 渲染演示文稿
 type: docs
 weight: 30
@@ -12,9 +12,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - 演示文稿
-- С++
+- C++
 - Aspose.Slides
-description: "在 Aspose.Slides for С++ 中使用回退字体渲染演示文稿——通过一步步的 C++ 代码示例，使文本在 PPT、PPTX 和 ODP 中保持一致。"
+description: "在 Aspose.Slides for C++ 中使用回退字体渲染演示文稿——通过一步步的 C++ 代码示例，使文本在 PPT、PPTX 和 ODP 中保持一致。"
 ---
 
 以下示例包括这些步骤：

@@ -1,5 +1,5 @@
 ---
-title: Aplicar fórmulas de hoja de trabajo de gráfico en presentaciones usando С++
+title: Aplicar fórmulas de hoja de trabajo de gráfico en presentaciones usando C++
 linktitle: Fórmulas de hoja de trabajo
 type: docs
 weight: 70
@@ -24,7 +24,7 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Aplicar fórmulas estilo Excel en Aspose.Slides para hojas de trabajo de gráfico en С++ y automatizar informes en archivos PPT y PPTX."
+description: "Aplicar fórmulas estilo Excel en Aspose.Slides para hojas de trabajo de gráfico en C++ y automatizar informes en archivos PPT y PPTX."
 ---
 
 ## **Acerca de las fórmulas de hoja de cálculo de gráficos en presentaciones**

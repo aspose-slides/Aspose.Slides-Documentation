@@ -1,5 +1,5 @@
 ---
-title: Embed Fonts in Presentations Using С++
+title: Embed Fonts in Presentations Using C++
 linktitle: Embedding Font
 type: docs
 weight: 40
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for С++, ensuring accurate rendering across all platforms."
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for C++, ensuring accurate rendering across all platforms."
 ---
 
 ## **Introduction**

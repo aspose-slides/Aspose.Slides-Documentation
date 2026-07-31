@@ -1,5 +1,5 @@
 ---
-title: Schriftauswahlsequenz in Aspose.Slides für С++
+title: Schriftauswahlsequenz in Aspose.Slides für C++
 linktitle: Schriftauswahl
 type: docs
 weight: 80
@@ -14,9 +14,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Entdecken Sie, wie Aspose.Slides für С++ Schriften auswählt und dabei eine klare, konsistente Darstellung von PPT-, PPTX- und ODP-Dateien gewährleistet – verbessern Sie jetzt Ihre Folien."
+description: "Entdecken Sie, wie Aspose.Slides für C++ Schriften auswählt und dabei eine klare, konsistente Darstellung von PPT-, PPTX- und ODP-Dateien gewährleistet – verbessern Sie jetzt Ihre Folien."
 ---
 
 ## **Schriftauswahl**

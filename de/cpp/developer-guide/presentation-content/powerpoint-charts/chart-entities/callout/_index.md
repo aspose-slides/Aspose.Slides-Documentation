@@ -1,5 +1,5 @@
 ---
-title: Callouts in Präsentationsdiagrammen mit С++ verwalten
+title: Callouts in Präsentationsdiagrammen mit C++ verwalten
 linktitle: Callout
 type: docs
 url: /de/cpp/callout/
@@ -10,9 +10,9 @@ keywords:
 - Beschriftungsformat
 - PowerPoint
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für С++ mit kompakten Codebeispielen, kompatibel mit PPT und PPTX, um Präsentations‑Workflows zu automatisieren."
+description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für C++ mit kompakten Codebeispielen, kompatibel mit PPT und PPTX, um Präsentations‑Workflows zu automatisieren."
 ---
 
 ## **Verwendung von Callouts**

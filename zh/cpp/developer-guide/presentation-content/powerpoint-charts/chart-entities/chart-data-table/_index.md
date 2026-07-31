@@ -1,5 +1,5 @@
 ---
-title: 使用 С++ 在演示文稿中自定义图表数据表
+title: 使用 C++ 在演示文稿中自定义图表数据表
 linktitle: 数据表
 type: docs
 url: /zh/cpp/chart-data-table/
@@ -9,9 +9,9 @@ keywords:
 - 字体属性
 - PowerPoint
 - 演示文稿
-- С++
+- C++
 - Aspose.Slides
-description: "使用 С++ 在 PPT 和 PPTX 中通过 Aspose.Slides 定制图表数据表，以提升演示文稿的效率和吸引力。"
+description: "使用 C++ 在 PPT 和 PPTX 中通过 Aspose.Slides 定制图表数据表，以提升演示文稿的效率和吸引力。"
 ---
 
 ## **设置图表数据表的字体属性**

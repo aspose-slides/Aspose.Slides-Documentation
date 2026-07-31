@@ -1,5 +1,5 @@
 ---
-title: "С++ を使用したプレゼンテーションでのフォント置換の設定"
+title: "C++ を使用したプレゼンテーションでのフォント置換の設定"
 linktitle: "フォント置換"
 type: docs
 weight: 70
@@ -15,9 +15,9 @@ keywords:
 - "PowerPoint"
 - "OpenDocument"
 - "プレゼンテーション"
-- "С++"
+- "C++"
 - "Aspose.Slides"
-description: "PowerPoint および OpenDocument のプレゼンテーションを他のファイル形式に変換する際、С++ 用 Aspose.Slides で最適なフォント置換を有効にします。"
+description: "PowerPoint および OpenDocument のプレゼンテーションを他のファイル形式に変換する際、C++ 用 Aspose.Slides で最適なフォント置換を有効にします。"
 ---
 
 ## **フォント置換ルールの設定**

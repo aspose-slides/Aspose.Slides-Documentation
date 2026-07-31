@@ -25,7 +25,7 @@ description: "Aspose.Slides for C++ lets you create, edit and convert PowerPoint
 
 ![todo:image_alt_text](product-overview_1.png)
 
-## **Welcome to Aspose.Slides for С++!**
+## **Welcome to Aspose.Slides for C++!**
 
 Aspose.Slides for C++ is a Microsoft PowerPoint® management API that enables C++ applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. Aspose.Slides for C++ is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for C++ provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 

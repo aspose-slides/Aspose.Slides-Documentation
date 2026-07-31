@@ -1,5 +1,5 @@
 ---
-title: Configure Font Substitution in Presentations Using С++
+title: Configure Font Substitution in Presentations Using C++
 linktitle: Font Substitution
 type: docs
 weight: 70
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Enable optimal font substitution in Aspose.Slides for С++ when converting PowerPoint & OpenDocument presentations to other file formats."
+description: "Enable optimal font substitution in Aspose.Slides for C++ when converting PowerPoint & OpenDocument presentations to other file formats."
 ---
 
 ## **Overview**

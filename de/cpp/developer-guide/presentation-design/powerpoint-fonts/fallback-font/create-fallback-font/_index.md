@@ -1,5 +1,5 @@
 ---
-title: Fallback-Schriftarten für Präsentationen in С++ festlegen
+title: Fallback-Schriftarten für Präsentationen in C++ festlegen
 linktitle: Fallback-Schriftart
 type: docs
 weight: 10
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Meistern Sie Aspose.Slides für С++, um Fallback-Schriftarten in PPT-, PPTX- und ODP-Dateien festzulegen und eine konsistente Textdarstellung auf jedem Gerät oder Betriebssystem sicherzustellen."
+description: "Meistern Sie Aspose.Slides für C++, um Fallback-Schriftarten in PPT-, PPTX- und ODP-Dateien festzulegen und eine konsistente Textdarstellung auf jedem Gerät oder Betriebssystem sicherzustellen."
 ---
 
 ## **Fallback-Regeln**

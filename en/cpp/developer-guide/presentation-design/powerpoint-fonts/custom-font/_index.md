@@ -1,5 +1,5 @@
 ---
-title: Customize PowerPoint Fonts in С++
+title: Customize PowerPoint Fonts in C++
 linktitle: Custom Font
 type: docs
 weight: 20
@@ -14,9 +14,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Customize fonts in PowerPoint slides with Aspose.Slides for С++ to keep your presentations sharp and consistent across any device."
+description: "Customize fonts in PowerPoint slides with Aspose.Slides for C++ to keep your presentations sharp and consistent across any device."
 ---
 
 ## **Overview**

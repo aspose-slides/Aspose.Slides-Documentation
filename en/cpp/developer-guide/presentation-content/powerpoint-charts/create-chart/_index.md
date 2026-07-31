@@ -1,5 +1,5 @@
 ---
-title: Create or Update PowerPoint Presentation Charts in С++
+title: Create or Update PowerPoint Presentation Charts in C++
 linktitle: Create or Update Charts
 type: docs
 weight: 10
@@ -23,9 +23,9 @@ keywords:
 - multicategory chart
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for С++. Add, format, and edit charts with practical code examples in С++."
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for C++. Add, format, and edit charts with practical code examples in C++."
 ---
 
 ## **Overview**

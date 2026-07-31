@@ -1,5 +1,5 @@
 ---
-title: Customize Chart Axes in Presentations Using С++
+title: Customize Chart Axes in Presentations Using C++
 linktitle: Chart Axis
 type: docs
 url: /cpp/chart-axis/
@@ -19,9 +19,9 @@ keywords:
 - axis position
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Discover how to use Aspose.Slides for С++ to customize chart axes in PowerPoint presentations for reports and visualizations."
+description: "Discover how to use Aspose.Slides for C++ to customize chart axes in PowerPoint presentations for reports and visualizations."
 ---
 
 ## **Overview**

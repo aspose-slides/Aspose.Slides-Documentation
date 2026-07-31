@@ -1,5 +1,5 @@
 ---
-title: "Vereinfachen Sie die Schriftart-Ersetzung in Präsentationen mit С++"
+title: "Vereinfachen Sie die Schriftart-Ersetzung in Präsentationen mit C++"
 linktitle: "Schriftart ersetzen"
 type: docs
 weight: 60
@@ -12,9 +12,9 @@ keywords:
 - "PowerPoint"
 - "OpenDocument"
 - "Präsentation"
-- "С++"
+- "C++"
 - "Aspose.Slides"
-description: "Nahtlos Schriftarten in Aspose.Slides für С++ ersetzen, um eine konsistente Typografie in PowerPoint- und OpenDocument-Präsentationen zu gewährleisten."
+description: "Nahtlos Schriftarten in Aspose.Slides für C++ ersetzen, um eine konsistente Typografie in PowerPoint- und OpenDocument-Präsentationen zu gewährleisten."
 ---
 
 ## **Schriftarten ersetzen**

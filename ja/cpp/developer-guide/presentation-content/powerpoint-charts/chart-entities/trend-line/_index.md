@@ -1,5 +1,5 @@
 ---
-title: С++ のプレゼンテーションチャートにトレンドラインを追加
+title: C++ のプレゼンテーションチャートにトレンドラインを追加
 linktitle: トレンドライン
 type: docs
 url: /ja/cpp/trend-line/
@@ -15,9 +15,9 @@ keywords:
 - カスタムトレンドライン
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ を使用して PowerPoint のチャートにトレンドラインを迅速に追加およびカスタマイズし、聴衆を引きつける実用的なガイドです。"
+description: "Aspose.Slides for C++ を使用して PowerPoint のチャートにトレンドラインを迅速に追加およびカスタマイズし、聴衆を引きつける実用的なガイドです。"
 ---
 
 ## **トレンドラインの追加**

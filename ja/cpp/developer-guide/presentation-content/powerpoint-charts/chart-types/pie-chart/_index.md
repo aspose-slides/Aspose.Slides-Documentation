@@ -13,9 +13,9 @@ keywords:
 - スライスの色
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides を使用して С++ で円グラフを作成・カスタマイズする方法を学び、PowerPoint へエクスポート可能で、データストーリーテリングを数秒で強化します。"
+description: "Aspose.Slides を使用して C++ で円グラフを作成・カスタマイズする方法を学び、PowerPoint へエクスポート可能で、データストーリーテリングを数秒で強化します。"
 ---
 
 ## **パイ・オブ・パイ および バー・オブ・パイ チャートのセカンドプロット オプション**

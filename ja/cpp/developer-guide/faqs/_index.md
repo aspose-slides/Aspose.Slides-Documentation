@@ -14,8 +14,8 @@ keywords:
 - 段落サイズ
 - 表の書式設定
 - フォント
-- С++
-- Aspose.Slides for С++
+- C++
+- Aspose.Slides for C++
 ---
 
 ## **サポートされているファイル形式**

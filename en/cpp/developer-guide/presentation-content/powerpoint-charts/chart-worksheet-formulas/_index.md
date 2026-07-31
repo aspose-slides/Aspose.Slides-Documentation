@@ -1,5 +1,5 @@
 ---
-title: Apply Chart Worksheet Formulas in Presentations Using С++
+title: Apply Chart Worksheet Formulas in Presentations Using C++
 linktitle: Worksheet Formulas
 type: docs
 weight: 70
@@ -22,9 +22,9 @@ keywords:
 - predefined function
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Apply Excel-style formulas in Aspose.Slides for С++ chart worksheets and automate reports across PPT and PPTX files."
+description: "Apply Excel-style formulas in Aspose.Slides for C++ chart worksheets and automate reports across PPT and PPTX files."
 ---
 
 ## **Overview**

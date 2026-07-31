@@ -1,5 +1,5 @@
 ---
-title: プレゼンテーションでの С++ を使用したフォント置換を効率化
+title: プレゼンテーションでの C++ を使用したフォント置換を効率化
 linktitle: フォント置換
 type: docs
 weight: 60
@@ -12,9 +12,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ でフォントをシームレスに置換し、PowerPoint および OpenDocument のプレゼンテーションで一貫したタイポグラフィを保証します。"
+description: "Aspose.Slides for C++ でフォントをシームレスに置換し、PowerPoint および OpenDocument のプレゼンテーションで一貫したタイポグラフィを保証します。"
 ---
 
 ## **フォントの置換**

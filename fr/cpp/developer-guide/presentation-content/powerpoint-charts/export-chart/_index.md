@@ -1,5 +1,5 @@
 ---
-title: Exporter les graphiques de présentation en С++
+title: Exporter les graphiques de présentation en C++
 linktitle: Exporter le graphique
 type: docs
 weight: 90
@@ -11,9 +11,9 @@ keywords:
 - extraire l'image du graphique
 - PowerPoint
 - présentation
-- С++
+- C++
 - Aspose.Slides
-description: "Apprenez à exporter les graphiques de présentation avec Aspose.Slides pour С++, prise en charge des formats PPT et PPTX, et simplifiez la génération de rapports dans n'importe quel flux de travail."
+description: "Apprenez à exporter les graphiques de présentation avec Aspose.Slides pour C++, prise en charge des formats PPT et PPTX, et simplifiez la génération de rapports dans n'importe quel flux de travail."
 ---
 
 ## **Obtenir une image de graphique**

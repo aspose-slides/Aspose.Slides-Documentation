@@ -1,5 +1,5 @@
 ---
-title: Streamline Font Replacement in Presentations Using С++
+title: Streamline Font Replacement in Presentations Using C++
 linktitle: Font Replacement
 type: docs
 weight: 60
@@ -12,9 +12,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Seamlessly replace fonts in Aspose.Slides for С++ to ensure consistent typography in PowerPoint and OpenDocument presentations."
+description: "Seamlessly replace fonts in Aspose.Slides for C++ to ensure consistent typography in PowerPoint and OpenDocument presentations."
 ---
 
 ## **Overview**

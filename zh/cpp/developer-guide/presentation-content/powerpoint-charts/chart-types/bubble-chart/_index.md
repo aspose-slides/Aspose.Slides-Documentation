@@ -1,5 +1,5 @@
 ---
-title: 在演示文稿中使用 С++ 定制气泡图
+title: 在演示文稿中使用 C++ 定制气泡图
 linktitle: 气泡图
 type: docs
 url: /zh/cpp/bubble-chart/
@@ -10,9 +10,9 @@ keywords:
 - 大小表示
 - PowerPoint
 - 演示文稿
-- С++
+- C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for С++ 在 PowerPoint 中创建和定制强大的气泡图，轻松提升数据可视化效果。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 中创建和定制强大的气泡图，轻松提升数据可视化效果。"
 ---
 
 ## **气泡图大小比例**

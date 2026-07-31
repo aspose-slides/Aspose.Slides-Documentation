@@ -1,5 +1,5 @@
 ---
-title: Настройка точек данных в диаграммах Treemap и Sunburst с использованием С++
+title: Настройка точек данных в диаграммах Treemap и Sunburst с использованием C++
 linktitle: Точки данных в диаграммах Treemap и Sunburst
 type: docs
 url: /ru/cpp/data-points-of-treemap-and-sunburst-chart/
@@ -11,9 +11,9 @@ keywords:
 - цвет ветки
 - PowerPoint
 - презентация
-- С++
+- C++
 - Aspose.Slides
-description: "Узнайте, как управлять точками данных в диаграммах Treemap и Sunburst с помощью Aspose.Slides для С++, совместимого с форматами PowerPoint."
+description: "Узнайте, как управлять точками данных в диаграммах Treemap и Sunburst с помощью Aspose.Slides для C++, совместимого с форматами PowerPoint."
 ---
 
 Среди других типов диаграмм PowerPoint есть два «иерархических» типа — **Treemap** и **Sunburst** (также известные как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные как дерево — от листьев к вершине ветви. Листья задаются точками данных серии, а каждый последующий уровень вложенной группы определяется соответствующей категорией. Aspose.Slides for C++ позволяет форматировать точки данных диаграмм Sunburst и Treemap в C++.

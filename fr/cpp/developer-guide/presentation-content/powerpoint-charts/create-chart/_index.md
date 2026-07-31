@@ -1,5 +1,5 @@
 ---
-title: Créer ou mettre à jour des graphiques de présentation PowerPoint en С++
+title: Créer ou mettre à jour des graphiques de présentation PowerPoint en C++
 linktitle: Créer ou mettre à jour des graphiques
 type: docs
 weight: 10
@@ -23,9 +23,9 @@ keywords:
 - graphique multi-catégories
 - PowerPoint
 - présentation
-- С++
+- C++
 - Aspose.Slides
-description: "Créer et personnaliser des graphiques dans les présentations PowerPoint à l’aide d’Aspose.Slides pour С++. Ajouter, mettre en forme et modifier des graphiques avec des exemples de code pratiques en С++."
+description: "Créer et personnaliser des graphiques dans les présentations PowerPoint à l’aide d’Aspose.Slides pour C++. Ajouter, mettre en forme et modifier des graphiques avec des exemples de code pratiques en C++."
 ---
 
 ## **Créer un graphique**

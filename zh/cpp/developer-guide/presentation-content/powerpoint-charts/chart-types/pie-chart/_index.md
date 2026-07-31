@@ -13,7 +13,7 @@ keywords:
 - 切片颜色
 - PowerPoint
 - 演示文稿
-- С++
+- C++
 - Aspose.Slides
 description: "了解如何使用 C++ 和 Aspose.Slides 创建和自定义饼图，可导出为 PowerPoint，帮助您在几秒钟内提升数据故事讲述。"
 ---

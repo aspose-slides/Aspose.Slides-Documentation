@@ -14,8 +14,8 @@ keywords:
 - tamaño de párrafo
 - formatear tablas
 - fuente
-- С++
-- Aspose.Slides para С++
+- C++
+- Aspose.Slides para C++
 ---
 
 ## **Formatos de Archivo Soportados**

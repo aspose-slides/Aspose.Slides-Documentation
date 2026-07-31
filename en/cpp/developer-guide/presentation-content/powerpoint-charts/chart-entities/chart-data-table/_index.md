@@ -1,5 +1,5 @@
 ---
-title: Customize Chart Data Tables in Presentations Using С++
+title: Customize Chart Data Tables in Presentations Using C++
 linktitle: Data Table
 type: docs
 url: /cpp/chart-data-table/
@@ -9,9 +9,9 @@ keywords:
 - font properties
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Customize chart data tables in С++ for PPT and PPTX with Aspose.Slides to boost efficiency and appeal in presentations."
+description: "Customize chart data tables in C++ for PPT and PPTX with Aspose.Slides to boost efficiency and appeal in presentations."
 ---
 
 ## **Overview**

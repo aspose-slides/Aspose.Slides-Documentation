@@ -1,5 +1,5 @@
 ---
-title: Agregar líneas de tendencia a los gráficos de presentaciones en С++
+title: Agregar líneas de tendencia a los gráficos de presentaciones en C++
 linktitle: Línea de tendencia
 type: docs
 url: /es/cpp/trend-line/
@@ -15,9 +15,9 @@ keywords:
 - línea de tendencia personalizada
 - PowerPoint
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Agregue y personalice rápidamente líneas de tendencia en gráficos de PowerPoint con Aspose.Slides para С++ — una guía práctica para cautivar a su audiencia."
+description: "Agregue y personalice rápidamente líneas de tendencia en gráficos de PowerPoint con Aspose.Slides para C++ — una guía práctica para cautivar a su audiencia."
 ---
 
 ## **Agregar una línea de tendencia**

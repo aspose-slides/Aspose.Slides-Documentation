@@ -1,5 +1,5 @@
 ---
-title: Configurer la substitution de police dans les présentations avec С++
+title: Configurer la substitution de police dans les présentations avec C++
 linktitle: Substitution de police
 type: docs
 weight: 70
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - présentation
-- С++
+- C++
 - Aspose.Slides
-description: "Activez une substitution de police optimale dans Aspose.Slides pour С++ lors de la conversion des présentations PowerPoint et OpenDocument vers d'autres formats de fichier."
+description: "Activez une substitution de police optimale dans Aspose.Slides pour C++ lors de la conversion des présentations PowerPoint et OpenDocument vers d'autres formats de fichier."
 ---
 
 ## **Définir les règles de substitution de police**

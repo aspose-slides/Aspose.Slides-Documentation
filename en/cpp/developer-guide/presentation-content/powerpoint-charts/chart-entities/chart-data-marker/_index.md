@@ -1,5 +1,5 @@
 ---
-title: Manage Chart Data Markers in Presentations Using С++
+title: Manage Chart Data Markers in Presentations Using C++
 linktitle: Data Marker
 type: docs
 url: /cpp/chart-data-marker/
@@ -12,9 +12,9 @@ keywords:
 - fill type
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn how to customize chart data markers in Aspose.Slides for С++, boosting presentation impact across PPT and PPTX formats with clear С++ code examples."
+description: "Learn how to customize chart data markers in Aspose.Slides for C++, boosting presentation impact across PPT and PPTX formats with clear C++ code examples."
 ---
 
 ## **Overview**

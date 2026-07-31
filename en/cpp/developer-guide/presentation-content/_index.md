@@ -1,5 +1,5 @@
 ---
-title: Manage Presentation Content in С++
+title: Manage Presentation Content in C++
 linktitle: Presentation Content
 type: docs
 weight: 30
@@ -21,7 +21,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Create, edit, and extract presentation content with Aspose.Slides for С++ — get code examples for text, images, shapes, charts; PPT, PPTX and ODP."
+description: "Create, edit, and extract presentation content with Aspose.Slides for C++ — get code examples for text, images, shapes, charts; PPT, PPTX and ODP."
 ---

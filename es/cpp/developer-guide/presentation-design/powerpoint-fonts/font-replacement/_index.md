@@ -1,5 +1,5 @@
 ---
-title: Optimizar el reemplazo de fuentes en presentaciones usando С++
+title: Optimizar el reemplazo de fuentes en presentaciones usando C++
 linktitle: Reemplazo de fuente
 type: docs
 weight: 60
@@ -12,9 +12,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Reemplace fuentes de forma fluida en Aspose.Slides para С++ y garantice una tipografía coherente en presentaciones de PowerPoint y OpenDocument."
+description: "Reemplace fuentes de forma fluida en Aspose.Slides para C++ y garantice una tipografía coherente en presentaciones de PowerPoint y OpenDocument."
 ---
 
 ## **Reemplazar fuentes**

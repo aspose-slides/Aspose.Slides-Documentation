@@ -1,5 +1,5 @@
 ---
-title: Customize Plot Areas of Presentation Charts in С++
+title: Customize Plot Areas of Presentation Charts in C++
 linktitle: Plot Area
 type: docs
 url: /cpp/chart-plot-area/
@@ -12,9 +12,9 @@ keywords:
 - layout mode
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Discover how to customize chart plot areas in PowerPoint presentations with Aspose.Slides for С++. Improve your slide visuals effortlessly."
+description: "Discover how to customize chart plot areas in PowerPoint presentations with Aspose.Slides for C++. Improve your slide visuals effortlessly."
 ---
 
 ## **Overview**
