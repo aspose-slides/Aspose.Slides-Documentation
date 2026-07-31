@@ -1,5 +1,5 @@
 ---
-title: Manage Chart Data Series in Presentations Using С++
+title: Manage Chart Data Series in Presentations Using C++
 linktitle: Data Series
 type: docs
 url: /cpp/chart-series/
@@ -13,9 +13,9 @@ keywords:
 - series gap
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn how to manage chart series in С++ for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
+description: "Learn how to manage chart series in C++ for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
 ## **Overview**

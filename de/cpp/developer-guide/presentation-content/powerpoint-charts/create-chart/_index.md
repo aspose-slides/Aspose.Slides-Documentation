@@ -23,7 +23,7 @@ keywords:
 - Mehrkategorie‑Diagramm
 - PowerPoint
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
 description: "Erstellen und anpassen von Diagrammen in PowerPoint‑Präsentationen mit Aspose.Slides für C++. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code‑Beispielen in C++."
 ---

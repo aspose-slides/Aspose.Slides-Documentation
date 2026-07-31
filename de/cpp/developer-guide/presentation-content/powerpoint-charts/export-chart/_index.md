@@ -1,5 +1,5 @@
 ---
-title: Export von Präsentationsdiagrammen in С++
+title: Export von Präsentationsdiagrammen in C++
 linktitle: Diagramm exportieren
 type: docs
 weight: 90
@@ -11,9 +11,9 @@ keywords:
 - Diagrammbild extrahieren
 - PowerPoint
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Präsentationsdiagramme mit Aspose.Slides für С++ exportieren, PPT- und PPTX-Formate unterstützen und das Reporting in jeden Workflow integrieren."
+description: "Erfahren Sie, wie Sie Präsentationsdiagramme mit Aspose.Slides für C++ exportieren, PPT- und PPTX-Formate unterstützen und das Reporting in jeden Workflow integrieren."
 ---
 
 ## **Diagrammbild abrufen**

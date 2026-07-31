@@ -1,5 +1,5 @@
 ---
-title: Fallback-Schriftartsammlungen in С++ konfigurieren
+title: Fallback-Schriftartsammlungen in C++ konfigurieren
 linktitle: Fallback-Schriftartsammlung
 type: docs
 weight: 20
@@ -13,9 +13,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Richten Sie eine Fallback-Schriftartsammlung in Aspose.Slides für С++ ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar zu halten."
+description: "Richten Sie eine Fallback-Schriftartsammlung in Aspose.Slides für C++ ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar zu halten."
 ---
 
 ## **Fallback-Regeln anwenden**

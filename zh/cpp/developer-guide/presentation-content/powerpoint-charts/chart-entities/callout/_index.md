@@ -1,5 +1,5 @@
 ---
-title: 在演示文稿图表中使用 С++ 管理标注
+title: 在演示文稿图表中使用 C++ 管理标注
 linktitle: 标注
 type: docs
 url: /zh/cpp/callout/
@@ -10,9 +10,9 @@ keywords:
 - 标签格式
 - PowerPoint
 - 演示文稿
-- С++
+- C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for С++ 创建和设置标注，提供简洁的代码示例，兼容 PPT 和 PPTX，帮助自动化演示工作流。"
+description: "使用 Aspose.Slides for C++ 创建和设置标注，提供简洁的代码示例，兼容 PPT 和 PPTX，帮助自动化演示工作流。"
 ---
 
 ## **使用标注(Callouts)**

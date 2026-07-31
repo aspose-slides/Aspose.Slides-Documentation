@@ -1,5 +1,5 @@
 ---
-title: Add Trend Lines to Presentation Charts in С++
+title: Add Trend Lines to Presentation Charts in C++
 linktitle: Trend Line
 type: docs
 url: /cpp/trend-line/
@@ -15,9 +15,9 @@ keywords:
 - custom trend line
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Quickly add and customize trend lines in PowerPoint charts with Aspose.Slides for С++ — a practical guide to engage your audience."
+description: "Quickly add and customize trend lines in PowerPoint charts with Aspose.Slides for C++ — a practical guide to engage your audience."
 ---
 
 ## **Overview**

@@ -1,5 +1,5 @@
 ---
-title: Personalizar gráficos de burbujas en presentaciones usando С++
+title: Personalizar gráficos de burbujas en presentaciones usando C++
 linktitle: Gráfico de burbujas
 type: docs
 url: /es/cpp/bubble-chart/
@@ -10,9 +10,9 @@ keywords:
 - representación de tamaño
 - PowerPoint
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Crea y personaliza potentes gráficos de burbujas en PowerPoint con Aspose.Slides para С++ para mejorar tu visualización de datos fácilmente."
+description: "Crea y personaliza potentes gráficos de burbujas en PowerPoint con Aspose.Slides para C++ para mejorar tu visualización de datos fácilmente."
 ---
 
 ## **Escalado del Tamaño del Gráfico de Burbujas**

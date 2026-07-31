@@ -1,5 +1,5 @@
 ---
-title: 使用 С++ 在演示文稿中嵌入字体
+title: 使用 C++ 在演示文稿中嵌入字体
 linktitle: 嵌入字体
 type: docs
 weight: 40
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - 演示文稿
-- С++
+- C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for С++ 在 PowerPoint 和 OpenDocument 演示文稿中嵌入 TrueType 字体，确保在所有平台上准确渲染。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 演示文稿中嵌入 TrueType 字体，确保在所有平台上准确渲染。"
 ---
 
 ## **概述**

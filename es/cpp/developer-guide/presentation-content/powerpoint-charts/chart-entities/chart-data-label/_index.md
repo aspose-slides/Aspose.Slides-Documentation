@@ -1,5 +1,5 @@
 ---
-title: Administrar etiquetas de datos de gráficos en presentaciones usando С++
+title: Administrar etiquetas de datos de gráficos en presentaciones usando C++
 linktitle: Etiqueta de datos
 type: docs
 url: /es/cpp/chart-data-label/
@@ -12,9 +12,9 @@ keywords:
 - ubicación de la etiqueta
 - PowerPoint
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Aprenda a agregar y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para С++ para diapositivas más atractivas."
+description: "Aprenda a agregar y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para C++ para diapositivas más atractivas."
 ---
 
 Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de entender.

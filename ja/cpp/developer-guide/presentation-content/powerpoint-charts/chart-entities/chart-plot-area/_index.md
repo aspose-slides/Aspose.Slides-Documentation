@@ -12,9 +12,9 @@ keywords:
 - レイアウトモード
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "PowerPoint プレゼンテーションでチャートのプロット領域を Aspose.Slides for С++ を使用してカスタマイズする方法をご紹介します。スライドのビジュアルを簡単に改善できます。"
+description: "PowerPoint プレゼンテーションでチャートのプロット領域を Aspose.Slides for C++ を使用してカスタマイズする方法をご紹介します。スライドのビジュアルを簡単に改善できます。"
 ---
 
 ## **チャート プロット領域の幅と高さを取得する**

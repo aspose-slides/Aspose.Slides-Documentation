@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les graphiques 3D dans les présentations avec С++
+title: Personnaliser les graphiques 3D dans les présentations avec C++
 linktitle: Graphique 3D
 type: docs
 url: /fr/cpp/3d-chart/
@@ -9,9 +9,9 @@ keywords:
 - profondeur
 - PowerPoint
 - présentation
-- С++
+- C++
 - Aspose.Slides
-description: "Apprenez à créer et personnaliser des graphiques 3-D dans Aspose.Slides pour С++, avec prise en charge des fichiers PPT et PPTX — améliorez vos présentations dès aujourd’hui."
+description: "Apprenez à créer et personnaliser des graphiques 3-D dans Aspose.Slides pour C++, avec prise en charge des fichiers PPT et PPTX — améliorez vos présentations dès aujourd’hui."
 ---
 
 ## **Définir les propriétés RotationX, RotationY et DepthPercents d'un graphique 3D**

@@ -1,5 +1,5 @@
 ---
-title: プレゼンテーションで С++ を使用してチャートデータマーカーを管理する
+title: プレゼンテーションで C++ を使用してチャートデータマーカーを管理する
 linktitle: データマーカー
 type: docs
 url: /ja/cpp/chart-data-marker/
@@ -12,9 +12,9 @@ keywords:
 - 塗りタイプ
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ でチャートデータマーカーをカスタマイズする方法を学び、明確な С++ コード例を使用して PPT および PPTX 形式のプレゼンテーションへのインパクトを高めます。"
+description: "Aspose.Slides for C++ でチャートデータマーカーをカスタマイズする方法を学び、明確な C++ コード例を使用して PPT および PPTX 形式のプレゼンテーションへのインパクトを高めます。"
 ---
 
 ## **チャートマーカーの設定**

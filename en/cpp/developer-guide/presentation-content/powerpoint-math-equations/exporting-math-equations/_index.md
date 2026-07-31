@@ -1,5 +1,5 @@
 ---
-title: Export Math Equations from Presentations in С++
+title: Export Math Equations from Presentations in C++
 linktitle: Export Equations
 type: docs
 weight: 30
@@ -10,9 +10,9 @@ keywords:
 - LaTeX
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Unlock seamless export of math equations from PowerPoint to MathML using Aspose.Slides for С++ — preserve formatting and boost compatibility."
+description: "Unlock seamless export of math equations from PowerPoint to MathML using Aspose.Slides for C++ — preserve formatting and boost compatibility."
 ---
 
 ## **Introduction**

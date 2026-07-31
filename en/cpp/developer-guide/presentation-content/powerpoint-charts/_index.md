@@ -1,5 +1,5 @@
 ---
-title: Create and Customize PowerPoint Charts in С++
+title: Create and Customize PowerPoint Charts in C++
 linktitle: PowerPoint Charts
 type: docs
 weight: 70
@@ -19,7 +19,7 @@ keywords:
 - export chart
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Create and customize PowerPoint charts in С++ with Aspose.Slides—work with data, styles, and chart types in PPT and PPTX using clear code examples."
+description: "Create and customize PowerPoint charts in C++ with Aspose.Slides—work with data, styles, and chart types in PPT and PPTX using clear code examples."
 ---

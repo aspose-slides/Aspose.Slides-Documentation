@@ -1,5 +1,5 @@
 ---
-title: Указание шрифтов презентации по умолчанию в С++
+title: Указание шрифтов презентации по умолчанию в C++
 linktitle: Шрифт по умолчанию
 type: docs
 weight: 30
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - презентация
-- С++
+- C++
 - Aspose.Slides
-description: "Установите шрифты по умолчанию в Aspose.Slides для С++, чтобы обеспечить корректную конвертацию PowerPoint (PPT, PPTX) и OpenDocument (ODP) в PDF, XPS и изображения."
+description: "Установите шрифты по умолчанию в Aspose.Slides для C++, чтобы обеспечить корректную конвертацию PowerPoint (PPT, PPTX) и OpenDocument (ODP) в PDF, XPS и изображения."
 ---
 
 ## **Установить шрифт по умолчанию**

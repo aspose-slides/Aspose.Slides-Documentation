@@ -1,5 +1,5 @@
 ---
-title: Format Presentation Charts in С++
+title: Format Presentation Charts in C++
 linktitle: Chart Formatting
 type: docs
 weight: 60
@@ -15,9 +15,9 @@ keywords:
 - rounded border
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn chart formatting in Aspose.Slides for С++ and elevate your PowerPoint presentation with professional, eye-catching styling."
+description: "Learn chart formatting in Aspose.Slides for C++ and elevate your PowerPoint presentation with professional, eye-catching styling."
 ---
 
 ## **Overview**

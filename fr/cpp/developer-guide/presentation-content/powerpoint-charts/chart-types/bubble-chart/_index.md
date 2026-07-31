@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les graphiques à bulles dans les présentations en С++
+title: Personnaliser les graphiques à bulles dans les présentations en C++
 linktitle: Graphique à bulles
 type: docs
 url: /fr/cpp/bubble-chart/
@@ -10,9 +10,9 @@ keywords:
 - représentation de la taille
 - PowerPoint
 - présentation
-- С++
+- C++
 - Aspose.Slides
-description: "Créez et personnalisez des graphiques à bulles puissants dans PowerPoint avec Aspose.Slides pour С++ afin d'améliorer facilement la visualisation de vos données."
+description: "Créez et personnalisez des graphiques à bulles puissants dans PowerPoint avec Aspose.Slides pour C++ afin d'améliorer facilement la visualisation de vos données."
 ---
 
 ## **Mise à l’échelle de la taille du diagramme à bulles**

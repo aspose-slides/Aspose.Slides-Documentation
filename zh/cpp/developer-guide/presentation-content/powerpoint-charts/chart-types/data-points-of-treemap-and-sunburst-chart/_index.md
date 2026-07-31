@@ -1,5 +1,5 @@
 ---
-title: 使用 С++ 自定义树状图和旭辉图中的数据点
+title: 使用 C++ 自定义树状图和旭辉图中的数据点
 linktitle: 树状图和旭辉图中的数据点
 type: docs
 url: /zh/cpp/data-points-of-treemap-and-sunburst-chart/
@@ -11,9 +11,9 @@ keywords:
 - 分支颜色
 - PowerPoint
 - 演示文稿
-- С++
+- C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for С++ 管理树状图和旭辉图中的数据点，兼容 PowerPoint 格式。"
+description: "了解如何使用 Aspose.Slides for C++ 管理树状图和旭辉图中的数据点，兼容 PowerPoint 格式。"
 ---
 
 在 PowerPoint 图表的其他类型中，有两种“层次结构”类型——**Treemap** 和 **Sunburst** 图表（也称为 Sunburst Graph、Sunburst Diagram、Radial Chart、Radial Graph 或 Multi Level Pie Chart）。这些图表显示组织为树形结构的层次数据——从叶子到分支顶部。叶子由系列数据点定义，每个后续的嵌套分组层级由相应的类别定义。Aspose.Slides for C++ 允许在 C++ 中格式化 Sunburst Chart 和 Treemap 的数据点。

@@ -13,7 +13,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- С++
+- C++
 - Aspose.Slides
 description: "إعداد مجموعة خطوط احتياطية في Aspose.Slides لـ C++ للحفاظ على تناسق النص ووضوحه في عروض PowerPoint و OpenDocument."
 ---

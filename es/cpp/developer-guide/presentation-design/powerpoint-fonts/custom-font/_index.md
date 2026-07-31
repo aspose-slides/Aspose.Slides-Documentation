@@ -1,5 +1,5 @@
 ---
-title: Personalizar fuentes de PowerPoint en С++
+title: Personalizar fuentes de PowerPoint en C++
 linktitle: Fuente personalizada
 type: docs
 weight: 20
@@ -14,9 +14,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Personaliza las fuentes en diapositivas de PowerPoint con Aspose.Slides para С++ para que tus presentaciones sean nítidas y consistentes en cualquier dispositivo."
+description: "Personaliza las fuentes en diapositivas de PowerPoint con Aspose.Slides para C++ para que tus presentaciones sean nítidas y consistentes en cualquier dispositivo."
 ---
 
 {{% alert color="primary" %}} 

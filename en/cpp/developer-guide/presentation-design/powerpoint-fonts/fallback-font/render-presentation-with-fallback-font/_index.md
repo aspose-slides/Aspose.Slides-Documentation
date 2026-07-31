@@ -1,5 +1,5 @@
 ---
-title: Render Presentations with Fallback Fonts in С++
+title: Render Presentations with Fallback Fonts in C++
 linktitle: Render Presentations
 type: docs
 weight: 30
@@ -12,9 +12,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Render presentations with fallback fonts in Aspose.Slides for С++ – keep text consistent across PPT, PPTX and ODP with step-by-step С++ code samples."
+description: "Render presentations with fallback fonts in Aspose.Slides for C++ – keep text consistent across PPT, PPTX and ODP with step-by-step C++ code samples."
 ---
 
 ## **Overview**

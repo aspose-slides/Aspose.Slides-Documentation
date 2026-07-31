@@ -54,7 +54,7 @@ description: "Aspose.Slides for C++ が開くこと・保存すること・変�
 - Office 365
 
 ## **サポート対象ファイル形式**
-This table contains the file formats that Aspose.Slides for С++ can load and save:
+This table contains the file formats that Aspose.Slides for C++ can load and save:
 
 |**形式**|**説明**|**読み込み**|**保存**|**備考**|
 | :- | :- | :- | :- | :- |

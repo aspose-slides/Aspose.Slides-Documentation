@@ -1,5 +1,5 @@
 ---
-title: Customize 3D Charts in Presentations Using С++
+title: Customize 3D Charts in Presentations Using C++
 linktitle: 3D Chart
 type: docs
 url: /cpp/3d-chart/
@@ -9,9 +9,9 @@ keywords:
 - depth
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn how to create and customize 3-D charts in Aspose.Slides for С++, with support for PPT and PPTX files—boost your presentations today."
+description: "Learn how to create and customize 3-D charts in Aspose.Slides for C++, with support for PPT and PPTX files—boost your presentations today."
 ---
 
 ## **Overview**

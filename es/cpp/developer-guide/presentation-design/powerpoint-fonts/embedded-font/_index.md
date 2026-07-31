@@ -1,5 +1,5 @@
 ---
-title: Incrustar fuentes en presentaciones usando С++
+title: Incrustar fuentes en presentaciones usando C++
 linktitle: Incrustar fuente
 type: docs
 weight: 40
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Incruste fuentes TrueType en presentaciones PowerPoint y OpenDocument con Aspose.Slides para С++, garantizando una renderización precisa en todas las plataformas."
+description: "Incruste fuentes TrueType en presentaciones PowerPoint y OpenDocument con Aspose.Slides para C++, garantizando una renderización precisa en todas las plataformas."
 ---
 
 ## **Visión general**

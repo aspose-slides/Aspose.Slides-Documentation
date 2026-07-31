@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les points de données dans les graphiques Treemap et Sunburst en utilisant С++
+title: Personnaliser les points de données dans les graphiques Treemap et Sunburst en utilisant C++
 linktitle: Points de données dans les graphiques Treemap et Sunburst
 type: docs
 url: /fr/cpp/data-points-of-treemap-and-sunburst-chart/
@@ -11,9 +11,9 @@ keywords:
 - couleur de branche
 - PowerPoint
 - présentation
-- С++
+- C++
 - Aspose.Slides
-description: "Apprenez à gérer les points de données dans les graphiques treemap et sunburst avec Aspose.Slides pour С++, compatible avec les formats PowerPoint."
+description: "Apprenez à gérer les points de données dans les graphiques treemap et sunburst avec Aspose.Slides pour C++, compatible avec les formats PowerPoint."
 ---
 
 Parmi les autres types de graphiques PowerPoint, il existe deux types « hiérarchiques » – **Treemap** et **Sunburst** (également appelés Graphique Sunburst, Diagramme Sunburst, Graphique radial, Graphique radial ou Diagramme circulaire à niveaux multiples). Ces graphiques affichent des données hiérarchiques organisées sous forme d'arbre – des feuilles jusqu’au sommet de la branche. Les feuilles sont définies par les points de données de la série, et chaque niveau de regroupement imbriqué suivant est défini par la catégorie correspondante. Aspose.Slides for C++ permet de formater les points de données du graphique Sunburst et du Treemap en C++.

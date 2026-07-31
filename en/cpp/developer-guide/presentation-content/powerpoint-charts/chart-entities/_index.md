@@ -1,5 +1,5 @@
 ---
-title: Customize Presentation Chart Entities in С++
+title: Customize Presentation Chart Entities in C++
 linktitle: Chart Entities
 type: docs
 weight: 30
@@ -17,7 +17,7 @@ keywords:
 - trend line
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Understand chart entities in Aspose.Slides for С++ and learn to manage series, categories, data points and axes in PowerPoint PPT and PPTX using С++."
+description: "Understand chart entities in Aspose.Slides for C++ and learn to manage series, categories, data points and axes in PowerPoint PPT and PPTX using C++."
 ---

@@ -14,8 +14,8 @@ keywords:
 - taille de paragraphe
 - mise en forme des tableaux
 - police
-- С++
-- Aspose.Slides pour С++
+- C++
+- Aspose.Slides pour C++
 ---
 
 ## **Formats de Fichier Pris en Charge**

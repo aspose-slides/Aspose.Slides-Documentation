@@ -1,5 +1,5 @@
 ---
-title: Manage Fallback Fonts for Presentations in С++
+title: Manage Fallback Fonts for Presentations in C++
 linktitle: Fallback Font
 type: docs
 weight: 50
@@ -13,9 +13,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "See how Aspose.Slides for С++ uses fallback fonts to keep text readable in PowerPoint and OpenDocument presentations when original fonts aren’t available."
+description: "See how Aspose.Slides for C++ uses fallback fonts to keep text readable in PowerPoint and OpenDocument presentations when original fonts aren’t available."
 ---
 
 ## **Introduction**

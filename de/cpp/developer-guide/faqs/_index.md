@@ -14,8 +14,8 @@ keywords:
 - Absatzgröße
 - Tabellen formatieren
 - Schriftart
-- С++
-- Aspose.Slides für С++
+- C++
+- Aspose.Slides für C++
 ---
 
 ## **Unterstützte Dateiformate**

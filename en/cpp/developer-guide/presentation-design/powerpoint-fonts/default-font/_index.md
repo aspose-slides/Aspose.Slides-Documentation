@@ -1,5 +1,5 @@
 ---
-title: Specify Default Presentation Fonts in С++
+title: Specify Default Presentation Fonts in C++
 linktitle: Default Font
 type: docs
 weight: 30
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Set default fonts in Aspose.Slides for С++ to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
+description: "Set default fonts in Aspose.Slides for C++ to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
 ## **Overview**

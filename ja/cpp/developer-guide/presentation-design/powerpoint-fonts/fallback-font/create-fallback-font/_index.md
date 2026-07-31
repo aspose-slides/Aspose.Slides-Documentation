@@ -15,7 +15,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
 description: "C++ 用 Aspose.Slides をマスターし、PPT、PPTX、ODP ファイルでフォールバック フォントを設定して、あらゆるデバイスや OS でテキスト表示の一貫性を保護します。"
 ---

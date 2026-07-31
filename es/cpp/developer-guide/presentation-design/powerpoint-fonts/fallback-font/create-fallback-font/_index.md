@@ -1,5 +1,5 @@
 ---
-title: Especificar fuentes de reserva para presentaciones en С++
+title: Especificar fuentes de reserva para presentaciones en C++
 linktitle: Fuente de reserva
 type: docs
 weight: 10
@@ -15,9 +15,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Domine Aspose.Slides para С++ para establecer fuentes de reserva en archivos PPT, PPTX y ODP, garantizando una visualización de texto coherente en cualquier dispositivo o sistema operativo."
+description: "Domine Aspose.Slides para C++ para establecer fuentes de reserva en archivos PPT, PPTX y ODP, garantizando una visualización de texto coherente en cualquier dispositivo o sistema operativo."
 ---
 
 ## **Reglas de reserva**

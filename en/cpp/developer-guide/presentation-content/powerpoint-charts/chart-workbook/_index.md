@@ -1,5 +1,5 @@
 ---
-title: Manage Chart Workbooks in Presentations Using С++
+title: Manage Chart Workbooks in Presentations Using C++
 linktitle: Chart Workbook
 type: docs
 weight: 70
@@ -15,9 +15,9 @@ keywords:
 - external data
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Discover Aspose.Slides for С++: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
+description: "Discover Aspose.Slides for C++: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
 ## **Overview**

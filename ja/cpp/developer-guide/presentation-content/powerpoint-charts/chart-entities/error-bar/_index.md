@@ -8,9 +8,9 @@ keywords:
 - カスタム値
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ を使用して、チャートにエラーバーを追加およびカスタマイズする方法を学び、PowerPoint プレゼンテーションのデータ可視化を最適化します。"
+description: "Aspose.Slides for C++ を使用して、チャートにエラーバーを追加およびカスタマイズする方法を学び、PowerPoint プレゼンテーションのデータ可視化を最適化します。"
 ---
 
 ## **エラーバーの追加**

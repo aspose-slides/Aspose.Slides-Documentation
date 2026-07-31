@@ -1,5 +1,5 @@
 ---
-title: Personalizar barras de error en gráficos de presentación usando С++
+title: Personalizar barras de error en gráficos de presentación usando C++
 linktitle: Barra de error
 type: docs
 url: /es/cpp/error-bar/
@@ -8,9 +8,9 @@ keywords:
 - valor personalizado
 - PowerPoint
 - presentación
-- С++
+- C++
 - Aspose.Slides
-description: "Aprenda a agregar y personalizar barras de error en gráficas con Aspose.Slides para С++ — optimice la visualización de datos en presentaciones de PowerPoint."
+description: "Aprenda a agregar y personalizar barras de error en gráficas con Aspose.Slides para C++ — optimice la visualización de datos en presentaciones de PowerPoint."
 ---
 
 ## **Agregar barras de error**

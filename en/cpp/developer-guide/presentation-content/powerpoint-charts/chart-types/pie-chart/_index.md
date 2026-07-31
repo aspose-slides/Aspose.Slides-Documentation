@@ -1,5 +1,5 @@
 ---
-title: Customize Pie Charts in Presentations Using С++
+title: Customize Pie Charts in Presentations Using C++
 linktitle: Pie Chart
 type: docs
 url: /cpp/pie-chart/
@@ -13,9 +13,9 @@ keywords:
 - slice color
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn how to create and customize pie charts in С++ with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
+description: "Learn how to create and customize pie charts in C++ with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
 ## **Overview**

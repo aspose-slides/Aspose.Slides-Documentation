@@ -15,7 +15,7 @@ keywords:
 - ligne de tendance personnalisée
 - PowerPoint
 - présentation
-- С++
+- C++
 - Aspose.Slides
 description: "Ajoutez et personnalisez rapidement des lignes de tendance dans les graphiques PowerPoint avec Aspose.Slides pour C++ — un guide pratique pour captiver votre audience."
 ---

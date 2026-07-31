@@ -60,7 +60,7 @@ The article also answers common questions about PDF compliance, font embedding, 
 - Office 365
 
 ## **Supported File Formats**
-This table contains the file formats that Aspose.Slides for С++ can load and save:
+This table contains the file formats that Aspose.Slides for C++ can load and save:
 
 |**Format**|**Description**|**Load**|**Save**|**Remarks**|
 | :- | :- | :- | :- | :- |

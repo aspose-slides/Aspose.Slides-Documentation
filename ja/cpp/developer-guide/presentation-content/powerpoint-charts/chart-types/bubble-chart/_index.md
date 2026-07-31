@@ -10,9 +10,9 @@ keywords:
 - サイズ表現
 - PowerPoint
 - プレゼンテーション
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ を使用して、PowerPoint で強力なバブルチャートを作成・カスタマイズし、データ可視化を簡単に強化します。"
+description: "Aspose.Slides for C++ を使用して、PowerPoint で強力なバブルチャートを作成・カスタマイズし、データ可視化を簡単に強化します。"
 ---
 
 ## **バブルチャートのサイズスケーリング**

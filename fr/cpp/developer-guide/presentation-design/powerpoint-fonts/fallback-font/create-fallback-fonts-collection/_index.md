@@ -13,7 +13,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - présentation
-- С++
+- C++
 - Aspose.Slides
 description: "Mettre en place une collection de polices de secours dans Aspose.Slides pour C++ afin de maintenir le texte cohérent et net dans les présentations PowerPoint et OpenDocument."
 ---

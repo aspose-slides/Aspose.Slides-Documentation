@@ -1,5 +1,5 @@
 ---
-title: Configure Fallback Font Collections in С++
+title: Configure Fallback Font Collections in C++
 linktitle: Fallback Font Collection
 type: docs
 weight: 20
@@ -13,9 +13,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Set up a fallback fonts collection in Aspose.Slides for С++ to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
+description: "Set up a fallback fonts collection in Aspose.Slides for C++ to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
 ## **Overview**

@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Diagramm‑Arbeitsmappen in Präsentationen mit С++
+title: Verwalten von Diagramm‑Arbeitsmappen in Präsentationen mit C++
 linktitle: Diagramm‑Arbeitsmappe
 type: docs
 weight: 70
@@ -15,9 +15,9 @@ keywords:
 - externe Daten
 - PowerPoint
 - Präsentation
-- С++
+- C++
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für С++: Verwalten Sie mühelos Diagrammarbeitsmappen in PowerPoint- und OpenDocument‑Formaten, um Ihre Präsentationsdaten zu optimieren."
+description: "Entdecken Sie Aspose.Slides für C++: Verwalten Sie mühelos Diagrammarbeitsmappen in PowerPoint- und OpenDocument‑Formaten, um Ihre Präsentationsdaten zu optimieren."
 ---
 ## **Übersicht**
 

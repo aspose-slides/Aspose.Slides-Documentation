@@ -1,5 +1,5 @@
 ---
-title: Font Selection Sequence in Aspose.Slides for С++
+title: Font Selection Sequence in Aspose.Slides for C++
 linktitle: Font Selection
 type: docs
 weight: 80
@@ -14,9 +14,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Discover how Aspose.Slides for С++ selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
+description: "Discover how Aspose.Slides for C++ selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
 ---
 
 ## **Overview**

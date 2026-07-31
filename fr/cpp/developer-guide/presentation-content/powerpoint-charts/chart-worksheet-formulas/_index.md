@@ -1,5 +1,5 @@
 ---
-title: "Appliquer les formules de feuille de calcul de graphique dans les présentations avec С++"
+title: "Appliquer les formules de feuille de calcul de graphique dans les présentations avec C++"
 linktitle: "Formules de feuille de calcul"
 type: docs
 weight: 70
@@ -22,9 +22,9 @@ keywords:
 - fonction prédéfinie
 - PowerPoint
 - présentation
-- С++
+- C++
 - Aspose.Slides
-description: "Appliquer des formules de style Excel dans Aspose.Slides pour les feuilles de calcul de graphiques С++ et automatiser les rapports dans les fichiers PPT et PPTX."
+description: "Appliquer des formules de style Excel dans Aspose.Slides pour les feuilles de calcul de graphiques C++ et automatiser les rapports dans les fichiers PPT et PPTX."
 ---
 
 ## **À propos des formules de feuille de calcul de graphique dans les présentations**

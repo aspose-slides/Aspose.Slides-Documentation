@@ -139,7 +139,7 @@ presentation->Dispose();
 
 ### **Конвертация PowerPoint в защищённый паролем PDF**
 
-Этот С++ код демонстрирует, как конвертировать презентацию PowerPoint в защищённый паролем PDF, используя параметры защиты из класса [PdfOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/pdfoptions/):
+Этот C++ код демонстрирует, как конвертировать презентацию PowerPoint в защищённый паролем PDF, используя параметры защиты из класса [PdfOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/pdfoptions/):
 
 ```c++
 // Создайте объект класса Presentation, представляющий файл PowerPoint или OpenDocument.

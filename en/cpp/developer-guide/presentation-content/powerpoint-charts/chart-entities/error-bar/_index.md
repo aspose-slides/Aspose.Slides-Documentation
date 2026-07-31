@@ -1,5 +1,5 @@
 ---
-title: Customize Error Bars in Presentation Charts Using С++
+title: Customize Error Bars in Presentation Charts Using C++
 linktitle: Error Bar
 type: docs
 url: /cpp/error-bar/
@@ -8,9 +8,9 @@ keywords:
 - custom value
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Learn how to add and customize error bars in charts with Aspose.Slides for С++ — optimize data visuals in PowerPoint presentations."
+description: "Learn how to add and customize error bars in charts with Aspose.Slides for C++ — optimize data visuals in PowerPoint presentations."
 ---
 
 ## **Overview**

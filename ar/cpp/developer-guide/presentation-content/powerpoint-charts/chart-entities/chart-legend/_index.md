@@ -1,5 +1,5 @@
 ---
-title: تخصيص وسيلة إيضاح المخطط في العروض التقديمية باستخدام С++
+title: تخصيص وسيلة إيضاح المخطط في العروض التقديمية باستخدام C++
 linktitle: وسيلة إيضاح المخطط
 type: docs
 url: /ar/cpp/chart-legend/
@@ -9,9 +9,9 @@ keywords:
 - حجم الخط
 - PowerPoint
 - عرض تقديمي
-- С++
+- C++
 - Aspose.Slides
-description: "قم بتخصيص وسائط إيضاح المخطط باستخدام Aspose.Slides للـ С++ لتحسين عروض PowerPoint التقديمية من خلال تنسيق مخصص لوسائل الإيضاح."
+description: "قم بتخصيص وسائط إيضاح المخطط باستخدام Aspose.Slides للـ C++ لتحسين عروض PowerPoint التقديمية من خلال تنسيق مخصص لوسائل الإيضاح."
 ---
 
 ## **Legend Positioning**
