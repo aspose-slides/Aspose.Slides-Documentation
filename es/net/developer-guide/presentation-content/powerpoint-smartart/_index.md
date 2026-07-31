@@ -4,6 +4,8 @@ linktitle: SmartArt de PowerPoint
 type: docs
 weight: 100
 url: /es/net/powerpoint-smartart/
+aliases:
+  - /es/net/examples/elements/smartart/
 keywords:
 - SmartArt
 - administrar SmartArt

@@ -3,6 +3,8 @@ title: Why Not Open XML SDK
 type: docs
 weight: 50
 url: /net/why-not-open-xml-sdk/
+aliases:
+  - /net/slides-on-cloud-platforms/extracting-text/open-xml-sdk/
 keywords:
 - Open XML SDK
 - comparing

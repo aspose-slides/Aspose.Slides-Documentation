@@ -4,6 +4,8 @@ linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
 keywords:
 - add text
 - add paragraph

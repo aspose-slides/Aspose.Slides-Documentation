@@ -4,6 +4,8 @@ linktitle: Manage Lists
 type: docs
 weight: 70
 url: /python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - bullet
 - bulleted list

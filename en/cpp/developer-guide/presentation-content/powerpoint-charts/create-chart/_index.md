@@ -4,6 +4,8 @@ linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
 - add chart
 - create chart

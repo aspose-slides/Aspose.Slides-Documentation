@@ -4,6 +4,8 @@ linktitle: PowerPoint to PDF
 type: docs
 weight: 40
 url: /python-net/convert-powerpoint-to-pdf/
+aliases:
+  - /python-net/convert-to-pdf/
 keywords:
 - convert PowerPoint
 - presentation

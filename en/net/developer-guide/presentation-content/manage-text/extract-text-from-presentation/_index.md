@@ -4,6 +4,9 @@ linktitle: Extract Text
 type: docs
 weight: 90
 url: /net/extract-text-from-presentation/
+aliases:
+  - /net/slides-on-cloud-platforms/extracting-text/overview/
+  - /net/slides-on-cloud-platforms/extracting-text/slides/
 keywords:
 - extract text
 - extract text from slide

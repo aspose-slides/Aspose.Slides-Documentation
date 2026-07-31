@@ -4,6 +4,8 @@ linktitle: Präsentation nach HTML5
 type: docs
 weight: 40
 url: /de/androidjava/export-to-html5/
+aliases:
+  - /de/androidjava/export-nach-html5/
 keywords:
 - PowerPoint nach HTML5
 - OpenDocument nach HTML5

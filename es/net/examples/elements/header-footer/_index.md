@@ -3,6 +3,8 @@ title: Encabezado y pie de página
 type: docs
 weight: 220
 url: /es/net/examples/elements/header-footer/
+aliases:
+  - /es/net/examples/elements/elements/header-footer/
 keywords:
 - encabezado y pie de página
 - agregar encabezado y pie de página

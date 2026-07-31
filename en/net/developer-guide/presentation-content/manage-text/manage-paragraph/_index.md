@@ -4,6 +4,9 @@ linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /net/manage-paragraph/
+aliases:
+  - /net/paragraph/
+  - /net/portion/
 keywords:
 - add text
 - add paragraph
