@@ -3,7 +3,7 @@ title: Convertir presentaciones de PowerPoint en modo folleto en .NET
 linktitle: Modo Folleto
 type: docs
 weight: 150
-url: /es/net/convert-powerpoint-in-Handout-mode/
+url: /es/net/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir presentación

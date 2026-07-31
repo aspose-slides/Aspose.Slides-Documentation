@@ -3,7 +3,7 @@ title: Ajouter des formes de ligne aux présentations en PHP
 linktitle: Ligne
 type: docs
 weight: 50
-url: /fr/php-java/Line/
+url: /fr/php-java/line/
 keywords:
 - ligne
 - créer une ligne

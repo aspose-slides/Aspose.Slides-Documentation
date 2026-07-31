@@ -3,7 +3,7 @@ title: تحويل عروض PowerPoint إلى وضع Handout في جافا
 linktitle: وضع Handout
 type: docs
 weight: 150
-url: /ar/java/convert-powerpoint-in-Handout-mode/
+url: /ar/java/convert-powerpoint-in-handout-mode/
 keywords:
 - تحويل PowerPoint
 - تحويل العرض التقديمي

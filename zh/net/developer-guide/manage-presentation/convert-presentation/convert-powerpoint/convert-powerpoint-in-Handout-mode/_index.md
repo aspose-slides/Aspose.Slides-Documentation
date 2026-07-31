@@ -3,7 +3,7 @@ title: 在 .NET 中以讲义模式转换 PowerPoint 演示文稿
 linktitle: 讲义模式
 type: docs
 weight: 150
-url: /zh/net/convert-powerpoint-in-Handout-mode/
+url: /zh/net/convert-powerpoint-in-handout-mode/
 keywords:
 - 转换 PowerPoint
 - 转换 演示文稿

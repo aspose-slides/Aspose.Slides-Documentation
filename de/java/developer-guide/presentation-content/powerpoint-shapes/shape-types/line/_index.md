@@ -3,7 +3,7 @@ title: "Linienformen zu Präsentationen in Java hinzufügen"
 linktitle: "Linie"
 type: docs
 weight: 50
-url: /de/java/Line/
+url: /de/java/line/
 keywords:
 - Linie
 - Linie erstellen

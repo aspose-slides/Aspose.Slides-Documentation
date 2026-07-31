@@ -3,7 +3,7 @@ title: 使用 PHP 在讲义模式下转换 PowerPoint 演示文稿
 linktitle: 讲义模式
 type: docs
 weight: 150
-url: /zh/php-java/convert-powerpoint-in-Handout-mode/
+url: /zh/php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - 转换 PowerPoint
 - 转换 演示文稿

@@ -3,7 +3,7 @@ title: Ajouter des formes de ligne aux présentations en .NET
 linktitle: Ligne
 type: docs
 weight: 50
-url: /fr/net/Line/
+url: /fr/net/line/
 keywords:
 - ligne
 - créer une ligne

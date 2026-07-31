@@ -3,7 +3,7 @@ title: Convertir presentaciones en modo Folleto con Python
 linktitle: Modo Folleto
 type: docs
 weight: 150
-url: /es/python-net/convert-powerpoint-in-Handout-mode/
+url: /es/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir presentación

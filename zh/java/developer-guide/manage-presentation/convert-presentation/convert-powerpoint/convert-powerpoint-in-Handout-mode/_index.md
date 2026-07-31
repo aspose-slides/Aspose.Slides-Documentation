@@ -3,7 +3,7 @@ title: 在 Java 中将 PowerPoint 演示文稿转换为讲义模式
 linktitle: 讲义模式
 type: docs
 weight: 150
-url: /zh/java/convert-powerpoint-in-Handout-mode/
+url: /zh/java/convert-powerpoint-in-handout-mode/
 keywords:
 - 转换 PowerPoint
 - 转换 演示文稿

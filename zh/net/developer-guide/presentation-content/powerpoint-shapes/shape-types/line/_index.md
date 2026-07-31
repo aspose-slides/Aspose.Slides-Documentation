@@ -3,7 +3,7 @@ title: 在 .NET 中向演示文稿添加线条形状
 linktitle: 线条
 type: docs
 weight: 50
-url: /zh/net/Line/
+url: /zh/net/line/
 keywords:
 - 线条
 - 创建线条

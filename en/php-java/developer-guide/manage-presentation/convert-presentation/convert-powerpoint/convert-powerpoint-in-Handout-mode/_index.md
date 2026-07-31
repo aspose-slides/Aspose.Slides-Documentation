@@ -3,7 +3,7 @@ title: Convert PowerPoint Presentations in Handout Mode Using PHP
 linktitle: Handout Mode
 type: docs
 weight: 150
-url: /php-java/convert-powerpoint-in-Handout-mode/
+url: /php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - convert PowerPoint
 - convert presentation

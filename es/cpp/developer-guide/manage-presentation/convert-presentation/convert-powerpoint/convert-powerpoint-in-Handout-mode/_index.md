@@ -3,7 +3,7 @@ title: Convertir presentaciones de PowerPoint en modo Folleto usando C++
 linktitle: Modo Folleto
 type: docs
 weight: 150
-url: /es/cpp/convert-powerpoint-in-Handout-mode/
+url: /es/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir presentación

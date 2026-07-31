@@ -3,7 +3,7 @@ title: 在 PHP 中向演示文稿添加线形状
 linktitle: 线条
 type: docs
 weight: 50
-url: /zh/php-java/Line/
+url: /zh/php-java/line/
 keywords:
 - 线条
 - 创建线条

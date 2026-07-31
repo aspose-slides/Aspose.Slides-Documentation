@@ -3,7 +3,7 @@ title: Convertir des présentations PowerPoint en mode Feuille de distribution a
 linktitle: Mode Feuille de distribution
 type: docs
 weight: 150
-url: /fr/cpp/convert-powerpoint-in-Handout-mode/
+url: /fr/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir présentation

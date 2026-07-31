@@ -2,7 +2,7 @@
 title: 在 JavaScript 中将演示文稿转换为讲义模式
 type: docs
 weight: 150
-url: /zh/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /zh/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
 - 转换 PowerPoint
 - 讲义模式

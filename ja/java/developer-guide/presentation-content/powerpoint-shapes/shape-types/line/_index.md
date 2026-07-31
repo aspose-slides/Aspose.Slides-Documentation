@@ -3,7 +3,7 @@ title: Javaでプレゼンテーションにラインシェイプを追加
 linktitle: ライン
 type: docs
 weight: 50
-url: /ja/java/Line/
+url: /ja/java/line/
 keywords:
 - 線
 - 線の作成

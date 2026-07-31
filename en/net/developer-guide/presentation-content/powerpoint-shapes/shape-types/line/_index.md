@@ -3,7 +3,7 @@ title: Add Line Shapes to Presentations in .NET
 linktitle: Line
 type: docs
 weight: 50
-url: /net/Line/
+url: /net/line/
 keywords:
 - line
 - create line

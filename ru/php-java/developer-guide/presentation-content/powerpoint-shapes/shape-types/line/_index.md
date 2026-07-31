@@ -3,7 +3,7 @@ title: Добавить линии в презентации в PHP
 linktitle: Линия
 type: docs
 weight: 50
-url: /ru/php-java/Line/
+url: /ru/php-java/line/
 keywords:
 - линия
 - создать линию

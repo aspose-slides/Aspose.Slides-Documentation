@@ -3,7 +3,7 @@ title: إضافة أشكال الخط إلى العروض التقديمية ع�
 linktitle: خط
 type: docs
 weight: 50
-url: /ar/androidjava/Line/
+url: /ar/androidjava/line/
 keywords:
 - خط
 - إنشاء خط

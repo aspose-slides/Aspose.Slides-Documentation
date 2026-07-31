@@ -3,7 +3,7 @@ title: 在 Java 中向演示文稿添加线形状
 linktitle: 线
 type: docs
 weight: 50
-url: /zh/java/Line/
+url: /zh/java/line/
 keywords:
 - 线
 - 创建线

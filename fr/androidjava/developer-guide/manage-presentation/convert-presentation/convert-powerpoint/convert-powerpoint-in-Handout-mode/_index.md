@@ -3,7 +3,7 @@ title: Convertir des présentations PowerPoint en mode distribution sur Android
 linktitle: Mode distribution
 type: docs
 weight: 150
-url: /fr/androidjava/convert-powerpoint-in-Handout-mode/
+url: /fr/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir présentation

@@ -3,7 +3,7 @@ title: Конвертировать презентации PowerPoint в реж�
 linktitle: Режим Handout
 type: docs
 weight: 150
-url: /ru/androidjava/convert-powerpoint-in-Handout-mode/
+url: /ru/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - конвертировать PowerPoint
 - конвертировать презентацию

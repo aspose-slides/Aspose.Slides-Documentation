@@ -3,7 +3,7 @@ title: Android 上のプレゼンテーションに線形状を追加
 linktitle: 線
 type: docs
 weight: 50
-url: /ja/androidjava/Line/
+url: /ja/androidjava/line/
 keywords:
 - 線
 - 線の作成

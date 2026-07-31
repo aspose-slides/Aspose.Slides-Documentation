@@ -3,7 +3,7 @@ title: تحويل عروض PowerPoint إلى وضع النشرة على Android
 linktitle: وضع النشرة
 type: docs
 weight: 150
-url: /ar/androidjava/convert-powerpoint-in-Handout-mode/
+url: /ar/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - تحويل PowerPoint
 - تحويل العرض

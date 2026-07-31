@@ -3,7 +3,7 @@ title: Convertir presentaciones de PowerPoint en modo Folleto en Java
 linktitle: Modo Folleto
 type: docs
 weight: 150
-url: /es/java/convert-powerpoint-in-Handout-mode/
+url: /es/java/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir presentación

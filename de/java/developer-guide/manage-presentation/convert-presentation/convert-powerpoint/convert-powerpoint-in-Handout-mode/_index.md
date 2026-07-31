@@ -3,7 +3,7 @@ title: PowerPoint-Präsentationen im Handout-Modus in Java konvertieren
 linktitle: Handout-Modus
 type: docs
 weight: 150
-url: /de/java/convert-powerpoint-in-Handout-mode/
+url: /de/java/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint konvertieren
 - Präsentation konvertieren

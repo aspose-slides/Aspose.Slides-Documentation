@@ -3,7 +3,7 @@ title: Добавление фигур линий в презентации на
 linktitle: Линия
 type: docs
 weight: 50
-url: /ru/androidjava/Line/
+url: /ru/androidjava/line/
 keywords:
 - линия
 - создать линию

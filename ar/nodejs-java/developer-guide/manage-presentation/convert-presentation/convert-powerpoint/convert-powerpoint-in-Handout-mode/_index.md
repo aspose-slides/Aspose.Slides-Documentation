@@ -2,7 +2,7 @@
 title: تحويل العروض التقديمية في وضع النشرة في JavaScript
 type: docs
 weight: 150
-url: /ar/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /ar/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
 - تحويل PowerPoint
 - وضع النشرة
