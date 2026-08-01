@@ -57,22 +57,22 @@ It is also possible to [Remove()](https://reference.aspose.com/slides/cpp/aspose
 
 ## **FAQ**
 
-**What is the difference between a fallback font, font substitution, and font embedding?**
+### What is the difference between a fallback font, font substitution, and font embedding?
 
 A fallback font is used only for characters missing in the primary font. [Font substitution](/slides/cpp/font-substitution/) replaces the entire specified font with another font. [Font embedding](/slides/cpp/embedded-font/) packages the fonts inside the output file so recipients can view the text as intended.
 
-**Are fallback fonts applied during exports like PDF, PNG, or SVG, or only on-screen rendering?**
+### Are fallback fonts applied during exports like PDF, PNG, or SVG, or only on-screen rendering?
 
 Yes. Fallback affects all [rendering and export operations](/slides/cpp/convert-presentation/) where characters must be drawn but are absent in the source font.
 
-**Does configuring fallback change the presentation file itself, and will the setting persist for future openings?**
+### Does configuring fallback change the presentation file itself, and will the setting persist for future openings?
 
 No. Fallback rules are runtime rendering settings in your code; they are not stored inside the .pptx and won’t appear in PowerPoint.
 
-**Does the operating system (Windows/Linux/macOS) and the set of font directories affect fallback selection?**
+### Does the operating system (Windows/Linux/macOS) and the set of font directories affect fallback selection?
 
 Yes. The engine resolves fonts from available system folders and any [additional paths](/slides/cpp/custom-font/) you provide. If a font isn’t physically available, a rule referencing it cannot take effect.
 
-**Does fallback work for WordArt, SmartArt, and charts?**
+### Does fallback work for WordArt, SmartArt, and charts?
 
 Yes. When these objects contain text, the same glyph-substitution mechanism applies to render missing characters.

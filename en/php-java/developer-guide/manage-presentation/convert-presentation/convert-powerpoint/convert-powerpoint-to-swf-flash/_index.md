@@ -56,18 +56,18 @@ The [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentati
 
 ## **FAQ**
 
-**Can I include hidden slides in the SWF?**
+### Can I include hidden slides in the SWF?
 
 Yes. Enable the hidden slides using the [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setshowhiddenslides/) method in [SwfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/). By default, hidden slides are not exported.
 
-**How can I control compression and the final SWF size?**
+### How can I control compression and the final SWF size?
 
 Use the [setCompressed](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setcompressed/) method and [adjust JPEG quality](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setjpegquality/) to balance file size and image fidelity.
 
-**What is 'setViewerIncluded' for, and when should I disable it?**
+### What is 'setViewerIncluded' for, and when should I disable it?
 
 [setViewerIncluded](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setviewerincluded/) adds an embedded player UI (navigation controls, panels, search). Disable it if you plan to use your own player or need a bare SWF frame without UI.
 
-**What happens if a source font is missing on the export machine?**
+### What happens if a source font is missing on the export machine?
 
 Aspose.Slides will substitute the font you specify via [setDefaultRegularFont](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) in [SwfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/) to avoid an unintended fallback.

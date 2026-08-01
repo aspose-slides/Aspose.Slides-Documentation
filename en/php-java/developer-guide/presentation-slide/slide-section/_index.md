@@ -79,14 +79,14 @@ This sample code shows you how to change the name of a section in a presentation
 
 ## **FAQ**
 
-**Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?**
+### Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?
 
 No. The PPT format does not support section metadata, so section grouping is lost when saving to .ppt.
 
-**Can an entire section be "hidden"?**
+### Can an entire section be "hidden"?
 
 No. Only individual slides can be hidden. A section as an entity has no "hidden" state.
 
-**Can I quickly find a section by a slide and, conversely, the first slide of a section?**
+### Can I quickly find a section by a slide and, conversely, the first slide of a section?
 
 Yes. A section is uniquely defined by its starting slide; given a slide you can determine which section it belongs to, and for a section you can access its first slide.

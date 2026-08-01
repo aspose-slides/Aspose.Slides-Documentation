@@ -91,26 +91,26 @@ With Aspose.Slides for .NET, you can format texts and shapes on slides in presen
 
 ## **FAQ**
 
-**Do I need to install Microsoft PowerPoint on the server/PC for the library to work?**
+### Do I need to install Microsoft PowerPoint on the server/PC for the library to work?
 
 No. PowerPoint is not required; Aspose.Slides is a standalone engine for creating, editing, converting, and rendering presentations.
 
-**How does multithreading work? Can processing be parallelized?**
+### How does multithreading work? Can processing be parallelized?
 
 It is safe to process different documents in different threads; the same [presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) object must not be used by [multiple threads](/slides/net/multithreading/) at the same time.
 
-**Are file passwords and encryption supported?**
+### Are file passwords and encryption supported?
 
 Yes. [You can](/slides/net/password-protected-presentation/) open encrypted presentations, set or remove an open and write password, and check the protection status.
 
-**Do I need to care about font packages in Linux containers?**
+### Do I need to care about font packages in Linux containers?
 
 Yes. It is recommended to install common font packages and/or explicitly [specify font directories](/slides/net/custom-font/) in your application to avoid unexpected substitutions.
 
-**Are there limitations in the evaluation version?**
+### Are there limitations in the evaluation version?
 
 In [evaluation mode](/slides/net/licensing/), a watermark is added to the output and certain limitations apply; a [30-day temporary license](https://purchase.aspose.com/temporary-license/) is available for full-feature testing.
 
-**Is importing external formats into a presentation (PDF/HTML → PPTX) supported?**
+### Is importing external formats into a presentation (PDF/HTML → PPTX) supported?
 
 Yes. You can add [PDF pages and HTML content](/slides/net/import-presentation/) to a presentation, turning them into slides.

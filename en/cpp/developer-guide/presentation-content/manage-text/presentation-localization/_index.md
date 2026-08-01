@@ -34,14 +34,14 @@ The implementation of the above steps is demonstrated below in an example.
 
 ## **FAQ**
 
-**Does language ID trigger automatic text translation?**
+### Does language ID trigger automatic text translation?
 
 No. [Language ID](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) in Aspose.Slides stores the language for spell-checking and grammar proofing, but it does not translate or change the text content. It is metadata that PowerPoint understands for proofing.
 
-**Does language ID affect hyphenation and line breaks during rendering?**
+### Does language ID affect hyphenation and line breaks during rendering?
 
 In Aspose.Slides, [Language ID](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) is for proofing. Hyphenation quality and line wrapping primarily depend on the availability of [proper fonts](/slides/cpp/powerpoint-fonts/) and layout/line-break settings for the writing system. To ensure correct rendering, make the required fonts available, configure [font substitution rules](/slides/cpp/font-substitution/), and/or [embed fonts](/slides/cpp/embedded-font/) into the presentation.
 
-**Can I set different languages within a single paragraph?**
+### Can I set different languages within a single paragraph?
 
 Yes. [Language ID](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) is applied at the text portion level, so a single paragraph can mix multiple languages with distinct proofing settings.

@@ -323,14 +323,14 @@ presentation.dispose();
 
 ## **FAQ**
 
-**Will the OLE content be rendered when exporting slides to PDF/images?**
+### Will the OLE content be rendered when exporting slides to PDF/images?
 
 What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
 
-**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
+### How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?
 
 Lock the shape: Aspose.Slides provides shape-level locks. This is not encryption, but it effectively prevents accidental edits and movement.
 
-**Will relative paths for linked OLE objects be preserved in the PPTX format?**
+### Will relative paths for linked OLE objects be preserved in the PPTX format?
 
 In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

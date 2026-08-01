@@ -125,14 +125,14 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Can I install Aspose.Slides in a virtual environment?**
+### Can I install Aspose.Slides in a virtual environment?
 
 Yes, you can install it in any Python virtual environment using `pip`. Just make sure the environment has access to required native dependencies depending on your OS.
 
-**Can I use Aspose.Slides in Docker containers?**
+### Can I use Aspose.Slides in Docker containers?
 
 Yes, but you need to make sure your Docker image includes the required native libraries (**libgdiplus**, font packages, etc.) and the correct version of Python.
 
-**Is there a free version or trial limitation?**
+### Is there a free version or trial limitation?
 
 Yes, by default, Aspose.Slides runs in evaluation mode, which places watermarks and may have other limitations. To remove restrictions, you need to apply a valid [license](/slides/python-net/licensing/).

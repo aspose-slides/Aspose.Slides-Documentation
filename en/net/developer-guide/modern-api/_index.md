@@ -293,14 +293,14 @@ Also, the API that is related to printing through [PrinterSettings](https://lear
 
 ## **FAQ**
 
-**Why was [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) dropped?**
+### Why was [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) dropped?
 
 Support for [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Use `GetImage` or `GetImages` instead of rendering to [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics).
 
-**What is the practical benefit of [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) compared to [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)/[Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)?**
+### What is the practical benefit of [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) compared to [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)/[Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)?
 
 [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) unifies working with both raster and vector images, simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), reduces dependence on `System.Drawing`, and makes code more portable across environments.
 
-**Will the Modern API affect the performance of generating thumbnails?**
+### Will the Modern API affect the performance of generating thumbnails?
 
 Switching from `GetThumbnail` to `GetImage` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

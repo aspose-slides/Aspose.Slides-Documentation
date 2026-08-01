@@ -92,22 +92,22 @@ This table contains the file formats that Aspose.Slides for C++ can load and sav
 
 ## **FAQ**
 
-**Can I save presentations to PDF that meet archival and accessibility standards (PDF/A and PDF/UA)?**
+### Can I save presentations to PDF that meet archival and accessibility standards (PDF/A and PDF/UA)?
 
 Yes. Aspose.Slides supports exporting to PDF with compliance levels such as PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, as well as PDF/UA through the [compliance](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_compliance/) setting in [PDF export options](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/).
 
-**Does the library support font embedding when exporting to PDF, with fine-grained control over what gets embedded?**
+### Does the library support font embedding when exporting to PDF, with fine-grained control over what gets embedded?
 
 Yes. You can control whether fonts are fully embedded or subsetted (only used glyphs), specify how common system fonts are treated, and configure behavior for ASCII text through [PDF export options](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/).
 
-**Can I detect whether a file is password-protected before actually loading it?**
+### Can I detect whether a file is password-protected before actually loading it?
 
 Yes. Using the [factory-based inspection API](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/), you can query a presentation file to determine if it is password-protected without opening it fully.
 
-**Are there font fallback mechanisms and support for custom fonts?**
+### Are there font fallback mechanisms and support for custom fonts?
 
 Yes. The library supports [loading](/slides/cpp/custom-font/) and [embedding](/slides/cpp/embedded-font/) custom fonts and provides font [fallback rules](/slides/cpp/fallback-font/) to prevent missing glyphs during rendering and conversion.
 
-**Can I export slides to XPS, and are there options to tune the XPS output?**
+### Can I export slides to XPS, and are there options to tune the XPS output?
 
 Yes. [Export to XPS](/slides/cpp/convert-powerpoint-to-xps/) is supported, and you can adjust relevant [save options](https://reference.aspose.com/slides/cpp/aspose.slides.export/xpsoptions/) to control the output quality and content of the XPS document.

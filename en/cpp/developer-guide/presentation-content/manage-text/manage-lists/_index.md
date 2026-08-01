@@ -249,14 +249,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Can bulleted and numbered lists be exported to PDF or images?**
+### Can bulleted and numbered lists be exported to PDF or images?
 
 Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
 
-**Can I edit lists in existing presentations?**
+### Can I edit lists in existing presentations?
 
 Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_bullet/) settings, and save the presentation.
 
-**Can lists contain non-Latin text?**
+### Can lists contain non-Latin text?
 
 Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.

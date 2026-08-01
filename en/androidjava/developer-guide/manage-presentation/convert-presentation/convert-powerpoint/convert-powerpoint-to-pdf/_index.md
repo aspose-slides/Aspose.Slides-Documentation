@@ -311,23 +311,23 @@ Aspose.Slides supports PDF conversion operations, allowing you to convert PDF fi
 
 ## **FAQ**
 
-**Can I convert multiple PowerPoint files to PDF in bulk?**
+### Can I convert multiple PowerPoint files to PDF in bulk?
 
 Yes, Aspose.Slides supports batch conversion of multiple PPT or PPTX files to PDF. You can iterate through your files and apply the conversion process programmatically.
 
-**Is it possible to password-protect the converted PDF?**
+### Is it possible to password-protect the converted PDF?
 
 Absolutely. Use the [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) class to set a password and define access permissions during the conversion process.
 
-**How do I include hidden slides in the PDF?**
+### How do I include hidden slides in the PDF?
 
 Use the `setShowHiddenSlides` method in the [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) class to include hidden slides in the resulting PDF.
 
-**Can Aspose.Slides maintain high image quality in the PDF?**
+### Can Aspose.Slides maintain high image quality in the PDF?
 
 Yes, you can control image quality by using methods such as `setJpegQuality` and `setSufficientResolution` in the [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) class to ensure high-quality images in your PDF.
 
-**Does Aspose.Slides support PDF/A compliance standards?**
+### Does Aspose.Slides support PDF/A compliance standards?
 
 Yes, Aspose.Slides allows you to export PDFs that comply with various standards, including PDF/A1a, PDF/A1b, and PDF/UA, ensuring your documents meet accessibility and archival requirements.
 

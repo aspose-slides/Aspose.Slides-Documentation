@@ -184,21 +184,21 @@ Aspose.Slides SaaS Integration will continue to expand support for presentation 
 
 ## **FAQ**
 
-**Do I need a Google Workspace account to use this integration?**
+### Do I need a Google Workspace account to use this integration?
 No. You can use either a free Google account or a Google Workspace account. The required access depends on your Google Drive and Slides permissions.
 
-**Which authentication method should I choose—Service Account or OAuth 2.0?**
+### Which authentication method should I choose—Service Account or OAuth 2.0?
 Use a **Service Account** for backend or automated workflows without user interaction.
 Use **OAuth 2.0** if you need to access a specific user's Google Slides or Drive files with their consent.
 
-**Can I work with formats other than Google Slides?**
+### Can I work with formats other than Google Slides?
 Yes. Aspose.Slides allows saving presentations to various formats (e.g., PDF, PPTX, HTML) before uploading them to Google Drive.
 
-**How can I get the file ID of a Google Slides presentation?**
+### How can I get the file ID of a Google Slides presentation?
 You can retrieve it using the `GetDriveFileInfosAsync()` method or by copying it from the presentation's URL in Google Slides.
 
-**Does the integration support replacing an existing file on Google Drive?**
+### Does the integration support replacing an existing file on Google Drive?
 Yes. Use the `SavePresentationToExistingFileAsync` method to update a file while preserving its file ID.
 
-**Is browser interaction required every time when using OAuth 2.0?**
+### Is browser interaction required every time when using OAuth 2.0?
 No. Browser interaction is required only during the first authorization. After that, stored refresh tokens allow automated access.

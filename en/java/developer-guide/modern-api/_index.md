@@ -330,14 +330,14 @@ Use the Modern API image-rendering methods instead of the API that renders to [G
 
 ## **FAQ**
 
-**Why was [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) dropped?**
+### Why was [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) dropped?
 
 Support for [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Use `getImage` or `getImages` instead of rendering to [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html).
 
-**What is the practical benefit of [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) compared to [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)?**
+### What is the practical benefit of [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) compared to [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)?
 
 [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) unifies working with both raster and vector images and simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/).
 
-**Will the Modern API affect the performance of generating thumbnails?**
+### Will the Modern API affect the performance of generating thumbnails?
 
 Switching from `getThumbnail` to `getImage` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

@@ -86,10 +86,10 @@ for (const auto& slide : presentation->get_Slides())
 
 ## **FAQ**
 
-**What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?**
+### What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?
 
 You only need to add the respective packages for [Aspose.Slides for C++](https://releases.aspose.com/slides/cpp/) and [Aspose.Words for C++](https://releases.aspose.com/words/cpp/) to your project. Both libraries operate as standalone APIs, and there is no requirement for Microsoft Office to be installed.
 
-**Are all PowerPoint and OpenDocument presentation formats supported?**
+### Are all PowerPoint and OpenDocument presentation formats supported?
 
 Aspose.Slides [supports all presentation formats](/slides/cpp/supported-file-formats/), including PPT, PPTX, ODP, and other common file types. This ensures that you can work with presentations created in various versions of Microsoft PowerPoint.

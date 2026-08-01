@@ -37,18 +37,18 @@ If you want to test Aspose.Slides without evaluation version limitations, you ca
 
 ## **FAQ**
 
-**Can I test multiple presentations in parallel across different threads in evaluation mode?**
+### Can I test multiple presentations in parallel across different threads in evaluation mode?
 
 Yes. You can process different documents in parallel; you should not share the same presentation object [across threads](/slides/net/multithreading/). Evaluation mode does not affect this.
 
-**Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?**
+### Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?
 
 No. Aspose.Slides is a standalone engine and does not require PowerPoint installed for either evaluation or production.
 
-**Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?**
+### Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?
 
 Yes. The [converters](/slides/net/convert-presentation/) work; the output will include a watermark.
 
-**Can I use a temporary license for load testing without a watermark?**
+### Can I use a temporary license for load testing without a watermark?
 
 Yes. A 30-day temporary license removes evaluation-mode limitations and allows testing without a watermark.

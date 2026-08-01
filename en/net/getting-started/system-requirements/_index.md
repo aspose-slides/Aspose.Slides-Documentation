@@ -176,16 +176,16 @@ For Linux x64, GLIBC 2.23+ is required; for Linux ARM64, GLIBC 2.39+ is required
 
 ## **FAQ**
 
-**Do I need Microsoft PowerPoint installed for conversions and rendering?**
+### Do I need Microsoft PowerPoint installed for conversions and rendering?
 
 No, PowerPoint is not required; Aspose.Slides is a standalone engine for [creating](/slides/net/create-presentation/), modifying, [converting](/slides/net/convert-presentation/), and [rendering](/slides/net/convert-powerpoint-to-png/) presentations.
 
-**Which fonts are needed for correct rendering?**
+### Which fonts are needed for correct rendering?
 
 The fonts used in the presentation, or suitable substitutes, must be available in the operating system. On Linux and macOS, install common font packages to ensure consistent rendering.
 
 For Alpine Linux containers, install at least one font package in addition to `libgdiplus`. The recommended minimal setup is `libgdiplus` with `ttf-dejavu`. If Microsoft fonts such as Arial, Times New Roman, Courier New, or Verdana are required, use `msttcorefonts-installer` together with `fontconfig`.
 
-**Why does a custom font render as a fallback or missing text on Linux?**
+### Why does a custom font render as a fallback or missing text on Linux?
 
 If the font file has inconsistent or corrupted name-table entries, the Linux font-matching stack (FreeType/fontconfig) may select an invalid record, causing the font to be unresolved. Using a font version with corrected name-table records or installing a consistent replacement resolves the issue.

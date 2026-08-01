@@ -631,10 +631,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**How to modify text in a table on a slide?**
+### How to modify text in a table on a slide?
 
 To modify text in a table on a slide, use [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Iterate through the cells and update each cell through [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/)'s text frame and paragraph formatting through [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/)'s paragraph format.
 
-**How to apply gradient color to text in a PowerPoint slide?**
+### How to apply gradient color to text in a PowerPoint slide?
 
 To apply a gradient color to text, use [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/)'s fill format. Set [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/)'s fill type to [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) `Gradient` and configure the gradient stops, direction, and transparency.

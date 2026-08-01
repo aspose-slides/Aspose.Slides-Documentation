@@ -73,14 +73,14 @@ for index in range(pres.slides.length):
 
 ## **FAQ**
 
-**Why might the resulting SVG look different across browsers?**
+### Why might the resulting SVG look different across browsers?
 
 Support for specific SVG features is implemented differently by browser engines. [SVGOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/) parameters help smooth out incompatibilities.
 
-**Is it possible to export not only slides but also individual shapes to SVG?**
+### Is it possible to export not only slides but also individual shapes to SVG?
 
 Yes. Any [shape can be saved as a separate SVG](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/), which is convenient for icons, pictograms, and reusing graphics.
 
-**Can multiple slides be combined into a single SVG (strip/document)?**
+### Can multiple slides be combined into a single SVG (strip/document)?
 
 The standard scenario is one slide → one SVG. Combining several slides into a single SVG canvas is a post-processing step performed at the application level.

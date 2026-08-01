@@ -35,14 +35,14 @@ To get familiar with these features, use the following links:
 
 ## **FAQ**
 
-**How do fallback fonts differ from font substitution?**
+### How do fallback fonts differ from font substitution?
 
 Fallback is applied per character or per range of Unicode when the primary font lacks specific glyphs; it fills just the missing characters. [Substitution](/slides/net/font-substitution/) replaces a missing or unavailable font for an entire run or text portion with another font. They can be combined, but their scope and selection logic are different.
 
-**Are fallback settings saved inside the presentation file?**
+### Are fallback settings saved inside the presentation file?
 
 No. Fallback configuration lives at processing/rendering time in the library and is not serialized into the PPTX. The presentation does not store your fallback rules.
 
-**Does fallback affect elements created by PowerPoint objects (SmartArt, charts, WordArt)?**
+### Does fallback affect elements created by PowerPoint objects (SmartArt, charts, WordArt)?
 
 Yes. Text inside these objects goes through the same rendering pipeline, so the same fallback rules apply to it as to regular text.

@@ -265,18 +265,18 @@ try {
 
 ## **FAQ**
 
-**Which video playback parameters can be changed for a VideoFrame?**
+### Which video playback parameters can be changed for a VideoFrame?
 
 You can control the [playback mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (auto or on click) and [looping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). These options are available via the [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) object's properties.
 
-**Does adding a video affect the PPTX file size?**
+### Does adding a video affect the PPTX file size?
 
 Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
 
-**Can I replace the video in an existing VideoFrame without changing its position and size?**
+### Can I replace the video in an existing VideoFrame without changing its position and size?
 
 Yes. You can swap the [video content](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 
-**Can the content type (MIME) of an embedded video be determined?**
+### Can the content type (MIME) of an embedded video be determined?
 
 Yes. An embedded video has a [content type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) that you can read and use, for example when saving it to disk.

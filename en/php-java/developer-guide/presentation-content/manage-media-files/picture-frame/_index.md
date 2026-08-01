@@ -521,18 +521,18 @@ This PHP code demonstrates a process in which a StretchOff property is used:
 
 ## **FAQ**
 
-**How can I find out which image formats are supported for PictureFrame?**
+### How can I find out which image formats are supported for PictureFrame?
 
 Aspose.Slides supports both raster images (PNG, JPEG, BMP, GIF, etc.) and vector images (for example, SVG) via the image object that is assigned to a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/). The list of supported formats generally overlaps with the capabilities of the slide and image conversion engine.
 
-**How will adding dozens of large images affect PPTX size and performance?**
+### How will adding dozens of large images affect PPTX size and performance?
 
 Embedding large images increases file size and memory usage; linking images helps keep the presentation size down but requires the external files to remain accessible. Aspose.Slides provides the ability to add images by link to reduce file size.
 
-**How can I lock an image object from accidental moving/resizing?**
+### How can I lock an image object from accidental moving/resizing?
 
 Use [shape locks](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/getpictureframelock/) for a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).
 
-**Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**
+### Is SVG vector fidelity preserved when exporting a presentation to PDF/images?
 
 Aspose.Slides allows extracting an SVG from a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) as the original vector. When [exporting to PDF](/slides/php-java/convert-powerpoint-to-pdf/) or [raster formats](/slides/php-java/convert-powerpoint-to-png/), the result may be rasterized depending on the export settings; the fact that the original SVG is stored as a vector is confirmed by the extraction behavior.

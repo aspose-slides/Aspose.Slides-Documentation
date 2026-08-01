@@ -375,14 +375,14 @@ The result:
 
 ## **FAQ**
 
-**Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?**
+### Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?
 
 There isn’t a built-in Boolean operation API. You can approximate it by constructing the desired outline yourself—e.g., compute the resulting geometry (via [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)) and create a new shape with that contour, optionally removing the originals.
 
-**How can I control the stacking order (z-order) so a shape always stays "on top"?**
+### How can I control the stacking order (z-order) so a shape always stays "on top"?
 
 Change the insertion/move order within the slide’s [shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) collection. For predictable results, finalize the z-order after all other slide modifications.
 
-**Can I "lock" a shape to prevent users from editing it in PowerPoint?**
+### Can I "lock" a shape to prevent users from editing it in PowerPoint?
 
 Yes. Set shape-level protection flags (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/php-java/password-protected-presentation/).

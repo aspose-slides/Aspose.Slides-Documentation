@@ -60,18 +60,18 @@ The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presenta
 
 ## **FAQ**
 
-**Can I include hidden slides in the SWF?**
+### Can I include hidden slides in the SWF?
 
 Yes. Use the [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_showhiddenslides/) method in [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/). By default, hidden slides are not exported.
 
-**How can I control compression and the final SWF size?**
+### How can I control compression and the final SWF size?
 
 Use the [set_Compressed](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_compressed/) method and adjust [JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_jpegquality/) to balance file size and image fidelity.
 
-**What is 'set_ViewerIncluded' for, and when should I use it?**
+### What is 'set_ViewerIncluded' for, and when should I use it?
 
 [set_ViewerIncluded](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_viewerincluded/) adds an embedded player UI (navigation controls, panels, search). Disable it if you plan to use your own player or need a bare SWF frame without UI.
 
-**What happens if a source font is missing on the export machine?**
+### What happens if a source font is missing on the export machine?
 
 Aspose.Slides will substitute the font you specify via [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) in [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/) to avoid an unintended fallback.

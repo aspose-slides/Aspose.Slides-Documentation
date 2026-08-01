@@ -245,14 +245,14 @@ Since 2018, the versioning of Aspose.Slides for Android via Java complies with A
 
 ## **FAQ**
 
-**How can I verify that Aspose.Slides is integrated correctly?**
+### How can I verify that Aspose.Slides is integrated correctly?
 
 Build your project, instantiate a blank [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) and save it under a new name. If the file is created without throwing exceptions, the library has been integrated successfully.
 
-**How can I limit memory consumption when processing large presentations?**
+### How can I limit memory consumption when processing large presentations?
 
 Raise JVM memory limits only as high as needed, and close each [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) instance in a `finally` block to release the cache promptly. This prevents out‑of‑memory errors and keeps overall memory usage predictable during batch operations.
 
-**Can I exclude unwanted export formats to shrink the final JAR size?**
+### Can I exclude unwanted export formats to shrink the final JAR size?
 
 Current Aspose.Slides releases are shipped as a single monolithic library, so you cannot disable specific exporters such as PDF or SVG at build time.

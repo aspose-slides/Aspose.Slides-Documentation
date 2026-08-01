@@ -102,10 +102,10 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
 
 ## **FAQ**
 
-**Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?**
+### Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?
 
 Yes. Callouts are part of the chart rendering, so when you export to [PDF](/slides/php-java/convert-powerpoint-to-pdf/), [HTML5](/slides/php-java/export-to-html5/), [SVG](/slides/php-java/render-a-slide-as-an-svg-image/), or [raster images](/slides/php-java/convert-powerpoint-to-png/), they are preserved together with the slide’s formatting.
 
-**Do custom fonts work in callouts, and can their appearance be preserved on export?**
+### Do custom fonts work in callouts, and can their appearance be preserved on export?
 
 Yes. Aspose.Slides supports [embedding fonts](/slides/php-java/embedded-font/) into the presentation and controls font embedding during exports such as [PDF](/slides/php-java/convert-powerpoint-to-pdf/), ensuring the callouts look the same across different systems.

@@ -86,6 +86,6 @@ try {
 
 ## **FAQ**
 
-**Are tables preserved when importing a PDF, and can their detection be improved?**
+### Are tables preserved when importing a PDF, and can their detection be improved?
 
 Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/) includes a [setDetectTables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) method that enables table recognition. The effectiveness depends on the PDF’s structure.

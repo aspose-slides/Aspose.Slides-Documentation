@@ -56,22 +56,22 @@ try {
 
 ## **FAQ**
 
-**What exactly is exported to MathML—a paragraph or an individual formula block?**
+### What exactly is exported to MathML—a paragraph or an individual formula block?
 
 You can export either an entire math paragraph ([MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/)) or an individual block ([MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/)) to MathML. Both types provide a method to write to MathML.
 
-**How can I tell that an object on a slide is a math formula rather than regular text or an image?**
+### How can I tell that an object on a slide is a math formula rather than regular text or an image?
 
 A formula lives in a [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) and has a [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/). Images and regular text portions without a [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) are not exportable formulas.
 
-**Where does the MathML come from in a presentation—is it PowerPoint-specific or a standard?**
+### Where does the MathML come from in a presentation—is it PowerPoint-specific or a standard?
 
 The export targets standard MathML (XML). Aspose uses Presentation MathML—the presentation subset of the standard—which is widely used across applications and the web.
 
-**Is exporting formulas inside tables, SmartArt, groups, etc., supported?**
+### Is exporting formulas inside tables, SmartArt, groups, etc., supported?
 
 Yes, if those objects contain text portions with a [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) (i.e., genuine PowerPoint formulas), they are exported. If a formula is embedded as an image, it is not.
 
-**Does exporting to MathML modify the original presentation?**
+### Does exporting to MathML modify the original presentation?
 
 No. Writing MathML is a serialization of the formula’s content; it does not modify the presentation file.

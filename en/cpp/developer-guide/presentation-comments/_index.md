@@ -258,14 +258,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Does Aspose.Slides support a status like 'resolved' for modern comments?**
+### Does Aspose.Slides support a status like 'resolved' for modern comments?
 
 Yes. [Modern comments](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/) expose a [get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/get_status/) and [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/set_status/) methods; you can read and set a [comment’s state](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) (for example, mark it as resolved), and this state is saved in the file and recognized by PowerPoint.
 
-**Are threaded discussions (reply chains) supported, and is there a nesting limit?**
+### Are threaded discussions (reply chains) supported, and is there a nesting limit?
 
 Yes. Each comment can reference its [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/comment/set_parentcomment/), enabling arbitrary reply chains. The API does not declare a specific nesting depth limit.
 
-**In what coordinate system is a comment marker’s position defined on a slide?**
+### In what coordinate system is a comment marker’s position defined on a slide?
 
 The position is stored as a floating-point point in the slide’s coordinate system. This lets you place the comment marker precisely where you need it.

@@ -77,6 +77,6 @@ In the Package Manager Console, you can run the `Update-Package Aspose.Slides.Cp
 
 ## **FAQ**
 
-**Is there a free version or trial limitation?**
+### Is there a free version or trial limitation?
 
 Yes, by default, Aspose.Slides runs in evaluation mode, which places watermarks and may have other limitations. To remove restrictions, you need to apply a valid [license](/slides/cpp/licensing/).

@@ -376,14 +376,14 @@ Use the Modern API image-rendering methods instead of the API that renders to [C
 
 ## **FAQ**
 
-**Why was android.graphics.Canvas dropped?**
+### Why was android.graphics.Canvas dropped?
 
 Support for [Canvas](https://developer.android.com/reference/android/graphics/Canvas) is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). Use `getImage` or `getImages` instead of rendering to [Canvas](https://developer.android.com/reference/android/graphics/Canvas).
 
-**What is the practical benefit of [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) compared to [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)?**
+### What is the practical benefit of [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) compared to [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)?
 
 [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) unifies working with both raster and vector images and simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/).
 
-**Will the Modern API affect the performance of generating thumbnails?**
+### Will the Modern API affect the performance of generating thumbnails?
 
 Switching from `getThumbnail` to `getImage` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

@@ -265,14 +265,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**What’s the difference between a master slide and a layout slide?**
+### What’s the difference between a master slide and a layout slide?
 
 A master slide defines the overall theme and default formatting, while layout slides define specific arrangements of placeholders for different types of content.
 
-**Can I copy a layout slide from one presentation to another?**
+### Can I copy a layout slide from one presentation to another?
 
 Yes, you can clone a layout slide from one presentation’s layout slide collection, accessible via the [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) method, and insert it into another presentation using the `AddClone` method.
 
-**What happens if I delete a layout slide that's still used by a slide?**
+### What happens if I delete a layout slide that's still used by a slide?
 
 If you try to delete a layout slide that is still referenced by at least one slide in the presentation, Aspose.Slides will throw a [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/). To avoid this, use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) which safely removes only the layout slides that are not in use.

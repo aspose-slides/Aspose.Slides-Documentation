@@ -46,18 +46,18 @@ presentation.save("SaveNotes_out.swf", slides.export.SaveFormat.SWF, swfOptions)
 
 ## **FAQ**
 
-**Can I include hidden slides in the SWF?**
+### Can I include hidden slides in the SWF?
 
 Yes. Enable the [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/show_hidden_slides/) option in [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/). By default, hidden slides are not exported.
 
-**How can I control compression and the final SWF size?**
+### How can I control compression and the final SWF size?
 
 Use the [compressed](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/compressed/) flag (enabled by default) and adjust [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/jpeg_quality/) to balance file size and image fidelity.
 
-**What is 'viewer_included' for, and when should I disable it?**
+### What is 'viewer_included' for, and when should I disable it?
 
 [viewer_included](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/viewer_included/) adds an embedded player UI (navigation controls, panels, search). Disable it if you plan to use your own player or need a bare SWF frame without UI.
 
-**What happens if a source font is missing on the export machine?**
+### What happens if a source font is missing on the export machine?
 
 Aspose.Slides will substitute the font you specify via [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/default_regular_font/) in [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/) to avoid an unintended fallback.

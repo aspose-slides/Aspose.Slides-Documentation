@@ -637,30 +637,30 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **FAQ**
 
-**Can I extract the original image without cropping, effects, or shape transformations?**
+### Can I extract the original image without cropping, effects, or shape transformations?
 
 Yes. Access the [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) object and write [IPPImage.BinaryData](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) to disk. This preserves the original encoded image stored in the presentation, not the way the image is rendered on the slide.
 
-**Can I export every extracted image as PNG?**
+### Can I export every extracted image as PNG?
 
 Yes. Use [IPPImage.Image](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) to get an [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) object, and then call [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/) with [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). This converts the output and may not preserve the original file type or vector data.
 
-**How do I avoid saving the same image more than once?**
+### How do I avoid saving the same image more than once?
 
 Use a hash of [IPPImage.BinaryData](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) and keep the hashes in a set. If a new image has a hash that already exists, skip it or record another reference to the existing output file.
 
-**Why do some shapes not produce an image?**
+### Why do some shapes not produce an image?
 
 Picture frames, picture-filled shapes, OLE object frames, media frames, zoom frames, tables, charts, and SmartArt objects can reference images. Some shape types expose images through nested formatting objects, so a simple `PictureFormat` or shape `FillFormat` check is not always enough.
 
-**Can I extract the thumbnail shown for a video frame?**
+### Can I extract the thumbnail shown for a video frame?
 
 Yes. Use [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) and read `PictureFormat.Picture.Image`. This extracts the poster image stored with the video frame, not a frame generated from the video file.
 
-**How can I determine which shapes use a specific image from the presentation image collection?**
+### How can I determine which shapes use a specific image from the presentation image collection?
 
 Aspose.Slides does not store reverse links from [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) to shapes. Build a mapping during traversal: whenever you find an image reference, record the slide number, shape path, and image hash or collection item.
 
-**Can I extract images embedded inside OLE objects, such as attached documents?**
+### Can I extract images embedded inside OLE objects, such as attached documents?
 
 You can extract the OLE object's slide preview from [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/). However, that preview is not the embedded document itself. To extract images from inside the embedded file, extract the OLE data and inspect it with tools for that file type.

@@ -357,18 +357,18 @@ try {
 
 ## **FAQ**
 
-**What is the difference between a slide master and a layout slide?**
+### What is the difference between a slide master and a layout slide?
 
 A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-**Can one presentation contain several slide masters?**
+### Can one presentation contain several slide masters?
 
 Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-**Should I add placeholders to a master slide or a layout slide?**
+### Should I add placeholders to a master slide or a layout slide?
 
 In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-**Can I delete a master slide that is still used?**
+### Can I delete a master slide that is still used?
 
 No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.

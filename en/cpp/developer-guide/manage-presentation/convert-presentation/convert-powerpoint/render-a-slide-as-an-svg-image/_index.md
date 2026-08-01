@@ -74,14 +74,14 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 
 ## **FAQ**
 
-**Why might the resulting SVG look different across browsers?**
+### Why might the resulting SVG look different across browsers?
 
 Support for specific SVG features is implemented differently by browser engines. [SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) parameters help smooth out incompatibilities.
 
-**Is it possible to export not only slides but also individual shapes to SVG?**
+### Is it possible to export not only slides but also individual shapes to SVG?
 
 Yes. Any [shape can be saved as a separate SVG](https://reference.aspose.com/slides/cpp/aspose.slides/shape/writeassvg/), which is convenient for icons, pictograms, and reusing graphics.
 
-**Can multiple slides be combined into a single SVG (strip/document)?**
+### Can multiple slides be combined into a single SVG (strip/document)?
 
 The standard scenario is one slide → one SVG. Combining several slides into a single SVG canvas is a post-processing step performed at the application level.

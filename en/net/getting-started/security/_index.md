@@ -27,11 +27,11 @@ Aspose applies the best practices when developing its products.
 
 ## **FAQ**
 
-**What systems are used to monitor for vulnerabilities in Aspose code?**
+### What systems are used to monitor for vulnerabilities in Aspose code?
 
 We run a static code analysis for every Aspose.Slides release. We can provide security reports that prove Aspose.Slides code passes OWASP Top 10. 
 
-**What systems do you employ to monitor for vulnerabilities in external packages?**
+### What systems do you employ to monitor for vulnerabilities in external packages?
 
 We do not employ systems to check for vulnerabilities in external packages because Aspose.Slides does not contain or use any external packages. Aspose.Slides depends on ONLY the .NET framework itself.
 

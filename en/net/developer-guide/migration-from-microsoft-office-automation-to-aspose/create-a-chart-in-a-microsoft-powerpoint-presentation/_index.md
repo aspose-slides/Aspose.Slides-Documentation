@@ -269,14 +269,14 @@ The result:
 
 ## **FAQ**
 
-**Can I create other types of charts like pie, line, or bar charts with Aspose.Slides?**
+### Can I create other types of charts like pie, line, or bar charts with Aspose.Slides?
 
 Yes. Aspose.Slides for .NET supports a wide range of [chart types](/slides/net/create-chart/), including pie charts, line charts, bar charts, scatter plots, bubble charts, and more. You can specify the desired chart type using the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration when adding a chart.
 
-**Can I apply custom styles or themes to the chart?**
+### Can I apply custom styles or themes to the chart?
 
 Yes. You can fully customize the chart’s appearance, including colors, fonts, fills, outlines, gridlines, and layout. However, applying Office themes exactly as seen in PowerPoint requires manually setting individual styles.
 
-**Can I export the chart as an image separately from the slide?**
+### Can I export the chart as an image separately from the slide?
 
 Yes, Aspose.Slides allows you to export any shape—including charts—as a separate image (e.g., PNG, JPEG) using the `GetImage` method on the chart [shape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).

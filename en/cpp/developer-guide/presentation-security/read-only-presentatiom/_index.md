@@ -47,18 +47,18 @@ pres->Save(u"ReadOnlyPresentation.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**How is 'Read-Only recommended' different from full password protection?**
+### How is 'Read-Only recommended' different from full password protection?
 
 'Read-Only recommended' only displays a suggestion to open the file in read-only mode and is easy to bypass. [Password protection](/slides/cpp/password-protected-presentation/) actually restricts opening or editing and is appropriate when you need real security controls.
 
-**Can 'Read-Only recommended' be combined with watermarks to further discourage edits?**
+### Can 'Read-Only recommended' be combined with watermarks to further discourage edits?
 
 Yes. The recommendation can be paired with [watermarks](/slides/cpp/watermark/) as a visual deterrent; they are separate mechanisms and work well together.
 
-**Can a macro or external tool still modify the file when the recommendation is enabled?**
+### Can a macro or external tool still modify the file when the recommendation is enabled?
 
 Yes. The recommendation does not block programmatic changes. To prevent automated edits, use [passwords and encryption](/slides/cpp/password-protected-presentation/).
 
-**How does 'Read-Only recommended' relate to the flags 'is encrypted' and 'is write protected'?**
+### How does 'Read-Only recommended' relate to the flags 'is encrypted' and 'is write protected'?
 
 They are different signals. 'Read-Only recommended' is a soft, optional prompt; [get_IsWriteProtected](https://reference.aspose.com/slides/cpp/aspose.slides/protectionmanager/get_iswriteprotected/) and [get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/protectionmanager/get_isencrypted/) indicate actual write or read restrictions that depend on passwords or encryption.

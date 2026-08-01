@@ -88,14 +88,14 @@ with slides.Presentation("pres.pptx") as presentation:
 
 ## **FAQ**
 
-**Can I apply superscript/subscript in tables and other containers, not just regular text boxes?**
+### Can I apply superscript/subscript in tables and other containers, not just regular text boxes?
 
 Yes. You can format text as superscript or subscript inside any object that exposes a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) (including table cells). The formatting applies to text portions within that frame.
 
-**Will superscripts/subscripts be preserved when exporting to PDF, HTML, or images?**
+### Will superscripts/subscripts be preserved when exporting to PDF, HTML, or images?
 
 Yes. Aspose.Slides preserves superscript/subscript formatting during export to common formats like [PDF](/slides/python-net/convert-powerpoint-to-pdf/), [HTML](/slides/python-net/convert-powerpoint-to-html/), and [raster images](/slides/python-net/convert-powerpoint-to-png/) because the rendering pipeline respects portion-level text formatting.
 
-**Can I combine superscript/subscript with hyperlinks in the same text fragment?**
+### Can I combine superscript/subscript with hyperlinks in the same text fragment?
 
 Yes. [Hyperlinks](/slides/python-net/manage-hyperlinks/) are assigned at the portion (fragment) level, so a portion can simultaneously have a hyperlink and be formatted as superscript or subscript.

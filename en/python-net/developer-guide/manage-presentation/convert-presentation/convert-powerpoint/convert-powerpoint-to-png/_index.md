@@ -90,14 +90,14 @@ You may want to try Aspose’s free **PowerPoint-to-PNG converters**—[PPTX to 
 
 ## **FAQ**
 
-**How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?**
+### How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?
 
 Aspose.Slides supports [generating thumbnails for individual shapes](/slides/python-net/create-shape-thumbnails/); you can render a shape to a PNG image.
 
-**Is parallel conversion supported on a server?**
+### Is parallel conversion supported on a server?
 
 Yes, but [don’t share](/slides/python-net/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
 
-**What are the trial-version limitations when exporting to PNG?**
+### What are the trial-version limitations when exporting to PNG?
 
 The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/python-net/licensing/) until a license is applied.

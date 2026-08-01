@@ -125,10 +125,10 @@ You can apply color to data points in the chart using Aspose.Slides for C++. [**
 
 ## **FAQ**
 
-**Which marker shapes are available out of the box?**
+### Which marker shapes are available out of the box?
 
 Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/markerstyletype/) enumeration. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
 
-**Are markers preserved when exporting a chart to an image or SVG?**
+### Are markers preserved when exporting a chart to an image or SVG?
 
 Yes. When rendering charts to [raster formats](/slides/cpp/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/cpp/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

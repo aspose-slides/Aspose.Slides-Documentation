@@ -106,14 +106,14 @@ pres->Save(u"softEdges.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Can I apply multiple effects to the same shape?**
+### Can I apply multiple effects to the same shape?
 
 Yes, you can combine different effects, such as shadow, reflection, and glow, on a single shape to create a more dynamic appearance.
 
-**What shapes can I apply effects to?**
+### What shapes can I apply effects to?
 
 You can apply effects to various shapes, including autoshapes, charts, tables, pictures, SmartArt objects, OLE objects, and more.
 
-**Can I apply effects to grouped shapes?**
+### Can I apply effects to grouped shapes?
 
 Yes, you can apply effects to grouped shapes. The effect will apply to the entire group.

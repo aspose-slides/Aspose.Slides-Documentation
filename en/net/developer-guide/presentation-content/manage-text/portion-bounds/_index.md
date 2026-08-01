@@ -64,18 +64,18 @@ foreach (var paragraph in shape.TextFrame.Paragraphs)
 
 ## **FAQ**
 
-**Can I apply a hyperlink to only part of the text within a single paragraph?**
+### Can I apply a hyperlink to only part of the text within a single paragraph?
 
 Yes, you can [assign a hyperlink](/slides/net/manage-hyperlinks/) to an individual portion; only that fragment will be clickable, not the entire paragraph.
 
-**How does style inheritance work: what does a portion override, and what is taken from a paragraph or text frame?**
+### How does style inheritance work: what does a portion override, and what is taken from a paragraph or text frame?
 
 Portion-level properties have the highest precedence. If a property is not set on the [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/), Aspose.Slides takes it from the [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/). If it is not set there either, Aspose.Slides uses the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) or [theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/) style.
 
-**What happens if the font specified for a portion is missing on the target machine or server?**
+### What happens if the font specified for a portion is missing on the target machine or server?
 
 [Font substitution rules](/slides/net/font-selection-sequence/) apply. The text may reflow: metrics, hyphenation, and width can change, which matters for precise positioning.
 
-**Can I set portion-specific text fill transparency or a gradient independently of the rest of the paragraph?**
+### Can I set portion-specific text fill transparency or a gradient independently of the rest of the paragraph?
 
 Yes, text color, fill, and transparency at the [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) level can differ from neighboring fragments.

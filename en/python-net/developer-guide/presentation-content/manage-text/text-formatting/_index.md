@@ -563,10 +563,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**How to modify text in a table on a slide?**
+### How to modify text in a table on a slide?
 
 To modify text in a table on a slide, use [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Iterate through the cells and update each cell through [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) and paragraph formatting through [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/).
 
-**How to apply gradient color to text in a PowerPoint slide?**
+### How to apply gradient color to text in a PowerPoint slide?
 
 To apply a gradient color to text, use [PortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/fill_format/). Set [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.

@@ -84,10 +84,10 @@ You may want to check out a FREE [Text to GIF](https://products.aspose.app/slide
 
 ## **FAQ**
 
-**What if the fonts used in the presentation aren’t installed on the system?**
+### What if the fonts used in the presentation aren’t installed on the system?
 
 Install the missing fonts or [configure fallback fonts](/slides/nodejs-java/powerpoint-fonts/). Aspose.Slides will substitute, but the appearance may differ. For branding, always ensure the required typefaces are explicitly available.
 
-**Can I overlay a watermark on the GIF frames?**
+### Can I overlay a watermark on the GIF frames?
 
 Yes. [Add a semi-transparent object/logo](/slides/nodejs-java/watermark/) to the master slide or to individual slides before export — the watermark will appear on every frame.

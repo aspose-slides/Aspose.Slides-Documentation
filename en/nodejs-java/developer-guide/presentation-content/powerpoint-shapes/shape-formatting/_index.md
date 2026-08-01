@@ -583,14 +583,14 @@ try {
 
 ## **FAQ**
 
-**Does shape formatting affect the final presentation file size?**
+### Does shape formatting affect the final presentation file size?
 
 Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
 
-**How can I detect shapes on a slide that share identical formatting so I can group them?**
+### How can I detect shapes on a slide that share identical formatting so I can group them?
 
 Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
 
-**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
+### Can I save a set of custom shape styles to a separate file for reuse in other presentations?
 
 Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
